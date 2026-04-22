@@ -1,0 +1,12 @@
+---
+interface Props {
+  word: string;
+  slug: string;
+}
+const { word, slug } = Astro.props;
+---
+
+<a
+  href={`/glossary/${slug}`}
+  class="text-[#d4af37] underline underline-offset-2 decoration-dotted hover:text-[#f0cd6a] transition-colors duration-150"
+>{word}</a>

@@ -1,0 +1,25 @@
+---
+interface Props {
+  word: string;
+  desc: string;
+}
+const { word, desc } = Astro.props;
+---
+
+<span class="qs relative inline-block">
+  <span
+    class="border-b border-dotted border-[#d4af37] text-[#eee] cursor-help"
+    tabindex="0"
+  >{word}</span>
+  <span
+    class="tip absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 bg-[#1c1c1c] border border-[#d4af37]/60 text-[#eee] text-xs rounded whitespace-nowrap pointer-events-none opacity-0 transition-opacity duration-150 z-20 max-w-[200px] text-wrap text-center leading-snug"
+    role="tooltip"
+  >{desc}</span>
+</span>
+
+<style>
+  .qs:hover .tip,
+  .qs:focus-within .tip {
+    opacity: 1;
+  }
+</style>
