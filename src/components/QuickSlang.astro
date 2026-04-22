@@ -7,19 +7,75 @@ const { word, desc } = Astro.props;
 ---
 
 <span class="qs relative inline-block">
+  <button
+    type="button"
+    class="qs-trigger border-b border-dotted border-[#d4af37] text-[#eee] cursor-pointer bg-transparent p-0 font-[inherit] text-[inherit]"
+    aria-expanded="false"
+  >{word}</button>
   <span
-    class="border-b border-dotted border-[#d4af37] text-[#eee] cursor-help"
-    tabindex="0"
-  >{word}</span>
-  <span
-    class="tip absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 bg-[#1c1c1c] border border-[#d4af37]/60 text-[#eee] text-xs rounded whitespace-nowrap pointer-events-none opacity-0 transition-opacity duration-150 z-20 max-w-[200px] text-wrap text-center leading-snug"
+    class="qs-tip absolute bottom-full mb-2 px-3 py-2 bg-[#1c1c1c] border border-[#d4af37]/60 text-[#eee] text-xs rounded w-48 text-center leading-snug pointer-events-none opacity-0 transition-opacity duration-150 z-20"
     role="tooltip"
   >{desc}</span>
 </span>
 
-<style>
-  .qs:hover .tip,
-  .qs:focus-within .tip {
-    opacity: 1;
+<script>
+  function positionTip(qs: HTMLElement) {
+    const tip = qs.querySelector<HTMLElement>('.qs-tip')!;
+    // reset
+    tip.style.left = '';
+    tip.style.right = '';
+    tip.style.transform = '';
+
+    const triggerRect = qs.getBoundingClientRect();
+    const tipWidth = tip.offsetWidth;
+    const center = triggerRect.left + triggerRect.width / 2;
+    const viewportWidth = window.innerWidth;
+    const margin = 8;
+
+    if (center - tipWidth / 2 < margin) {
+      tip.style.left = '0';
+    } else if (center + tipWidth / 2 > viewportWidth - margin) {
+      tip.style.right = '0';
+    } else {
+      tip.style.left = '50%';
+      tip.style.transform = 'translateX(-50%)';
+    }
   }
-</style>
+
+  function initQuickSlang() {
+    document.querySelectorAll<HTMLElement>('.qs').forEach(qs => {
+      if (qs.dataset.qsInit) return;
+      qs.dataset.qsInit = '1';
+
+      const trigger = qs.querySelector<HTMLButtonElement>('.qs-trigger')!;
+      const tip = qs.querySelector<HTMLElement>('.qs-tip')!;
+
+      trigger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = tip.classList.contains('opacity-100');
+        closeAll();
+        if (!isOpen) {
+          positionTip(qs);
+          tip.classList.replace('opacity-0', 'opacity-100');
+          tip.classList.remove('pointer-events-none');
+          trigger.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  }
+
+  function closeAll() {
+    document.querySelectorAll<HTMLElement>('.qs-tip').forEach(tip => {
+      tip.classList.replace('opacity-100', 'opacity-0');
+      tip.classList.add('pointer-events-none');
+    });
+    document.querySelectorAll<HTMLButtonElement>('.qs-trigger').forEach(t => {
+      t.setAttribute('aria-expanded', 'false');
+    });
+  }
+
+  document.addEventListener('click', closeAll);
+
+  initQuickSlang();
+  document.addEventListener('astro:page-load', initQuickSlang);
+</script>
