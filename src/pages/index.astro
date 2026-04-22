@@ -1,17 +1,67 @@
 ---
+import '../styles/global.css';
 
+const songs = [
+  {
+    slug: '/songs/classic',
+    title: "Classic (Better Than I've Ever Been)",
+    subtitle: 'DJ Premier Remix · 2007',
+    artists: 'Rakim · Kanye West · Nas · KRS-One',
+    tag: 'グラミーノミネート',
+  },
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HipHop Lyrics — 歌詞和訳・スラング解説</title>
+  <meta name="description" content="ヒップホップの名曲を歌詞和訳とスラング解説で深掘り。" />
+</head>
+<body class="bg-[#111] text-[#eee] min-h-screen">
+  <div class="max-w-2xl mx-auto px-4 py-12">
+
+    <header class="mb-12">
+      <p class="text-[#d4af37] text-xs uppercase tracking-widest mb-2">Hip Hop Lyrics</p>
+      <h1 class="text-3xl md:text-4xl font-bold leading-tight mb-3">
+        歌詞和訳・スラング解説
+      </h1>
+      <p class="text-[#777] text-sm">ヒップホップの名曲を、歌詞の意味からスラング・文化背景まで徹底解説。</p>
+    </header>
+
+    <section>
+      <h2 class="text-[#d4af37] text-xs uppercase tracking-widest mb-5 border-b border-[#2a2a2a] pb-2">
+        Songs
+      </h2>
+
+      <ul class="space-y-4">
+        {songs.map(song => (
+          <li>
+            <a href={song.slug} class="block p-5 bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg hover:border-[#d4af37] transition-colors duration-200">
+              <div class="flex items-start justify-between gap-3">
+                <div>
+                  <p class="text-[#d4af37] text-xs uppercase tracking-widest mb-1">{song.subtitle}</p>
+                  <p class="font-semibold text-lg leading-snug mb-1">{song.title}</p>
+                  <p class="text-[#777] text-sm">{song.artists}</p>
+                </div>
+                {song.tag && (
+                  <span class="shrink-0 text-xs text-[#d4af37] border border-[#d4af37] rounded px-2 py-0.5 mt-1">
+                    {song.tag}
+                  </span>
+                )}
+              </div>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <footer class="border-t border-[#2a2a2a] pt-6 mt-16 text-[#555] text-xs">
+      <p>HipHop Lyrics — 歌詞和訳・スラング解説</p>
+    </footer>
+
+  </div>
+</body>
 </html>
