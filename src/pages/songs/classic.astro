@@ -25,6 +25,18 @@ import '../../styles/global.css';
       <p class="text-[#555] text-xs mt-1">Nike Air Force 1 25th Anniversary</p>
     </header>
 
+    <!-- Table of Contents -->
+    <nav class="mb-10 p-4 bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg">
+      <p class="text-[#d4af37] text-xs uppercase tracking-widest mb-3">目次</p>
+      <ol class="space-y-1.5 text-sm text-[#999] list-none">
+        <li><a href="#lyrics" class="hover:text-[#d4af37] transition-colors">01 — リリック和訳・解説</a></li>
+        <li><a href="#af1" class="hover:text-[#d4af37] transition-colors">02 — Air Force 1の文化史</a></li>
+        <li><a href="#versions" class="hover:text-[#d4af37] transition-colors">03 — 2つのバージョン</a></li>
+        <li><a href="#behind" class="hover:text-[#d4af37] transition-colors">04 — 制作の裏側</a></li>
+        <li><a href="#grammy" class="hover:text-[#d4af37] transition-colors">05 — グラミー賞</a></li>
+      </ol>
+    </nav>
+
     <!-- YouTube Embed -->
     <div class="mb-10 aspect-video w-full rounded-lg overflow-hidden">
       <iframe
@@ -42,6 +54,7 @@ import '../../styles/global.css';
       <p>Nike Air Force 1誕生25周年記念として制作。1980年代のRakim・KRS-One、90年代のNas、2000年代のKanye Westが集結。DJ Premierが「Carl Douglas - Dance the Kung-Fu」をサンプリングし、ブーンバップに仕立てたリミックス版。<strong class="text-[#d4af37]">第50回グラミー賞 Best Rap Collaboration部門ノミネート。</strong></p>
     </div>
 
+    <div id="lyrics"></div>
     <!-- ===================== -->
     <!-- RAKIM'S VERSE         -->
     <!-- ===================== -->
@@ -343,11 +356,91 @@ import '../../styles/global.css';
     </section>
 
     <!-- ===================== -->
+    <!-- AIR FORCE 1 HISTORY  -->
+    <!-- ===================== -->
+    <section id="af1" class="mb-12">
+      <h2 class="text-[#d4af37] text-xs uppercase tracking-widest mb-5 border-b border-[#2a2a2a] pb-2">
+        Air Force 1の文化史
+      </h2>
+
+      <div class="mb-6 p-5 bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg">
+        <p class="text-[#d4af37] text-xs uppercase tracking-widest mb-2">誕生 · 1982</p>
+        <h3 class="font-semibold text-base mb-3">ハイキングブーツからバスケットコートへ</h3>
+        <p class="text-[#999] text-sm leading-relaxed">
+          デザイナー<strong class="text-[#eee]">Bruce Kilgore</strong>がハイキングブーツからインスピレーションを得てデザインし、1982年にNike初のエアクッション搭載バスケットシューズとして登場。プロモーションには<strong class="text-[#eee]">Moses MaloneやMichael Cooperを含む6人のNBA選手（The Original Six）</strong>を起用し、最先端のバスケットシューズとして一世を風靡した。
+        </p>
+        <p class="text-[#999] text-sm leading-relaxed mt-3">
+          しかしNikeの製品サイクルの慣例により、わずか2年後の<strong class="text-[#eee]">1984年に生産終了（ディスコン）</strong>。このまま歴史に消えてもおかしくなかった。
+        </p>
+      </div>
+
+      <div class="mb-6 p-5 bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg">
+        <p class="text-[#d4af37] text-xs uppercase tracking-widest mb-2">復活 · 1985</p>
+        <h3 class="font-semibold text-base mb-3">ストリートが救ったスニーカー — 現代ドロップ文化の原点</h3>
+        <p class="text-[#999] text-sm leading-relaxed">
+          廃盤の危機を救ったのはコートではなく<strong class="text-[#eee]">ストリートカルチャー</strong>だった。1985年、メリーランド州ボルティモアの3つのスニーカーブティックが、地域での熱狂的な人気を背景にNikeに再生産を直訴。Nikeはその要求を受け入れた。
+        </p>
+        <p class="text-[#999] text-sm leading-relaxed mt-3">
+          この3店舗が展開した<strong class="text-[#eee]">「Color of the Month Club」</strong>——毎月限定カラーを販売する手法——は、現代のスニーカーヘッズ文化における<strong class="text-[#eee]">「ドロップ（限定発売）」システムの原型</strong>である。Nike SNKRSのアプリ抽選も、その源流はここにある。
+        </p>
+      </div>
+
+      <div class="p-5 bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg">
+        <p class="text-[#d4af37] text-xs uppercase tracking-widest mb-2">命名 · Uptowns</p>
+        <h3 class="font-semibold text-base mb-3">ハーレムで生まれた「Uptowns」という呼び名</h3>
+        <p class="text-[#999] text-sm leading-relaxed">
+          ニューヨーク・<strong class="text-[#eee]">ハーレム（マンハッタンのアップタウン）</strong>において、真っ白なAir Force 1（White-on-White）は単なる靴を超えたステータスシンボルとして定着した。この地理的背景から<strong class="text-[#eee]">「Uptowns（アップタウンズ）」</strong>、女性が履く場合は<strong class="text-[#eee]">「Uppies（アッピーズ）」</strong>と呼ばれるようになった。
+        </p>
+        <p class="text-[#999] text-sm leading-relaxed mt-3">
+          Rakimがヴァースの中でこの呼称を使っているのは、ニューヨーク固有の言語文化とストリートの歴史への深いリスペクトそのものだ。
+        </p>
+      </div>
+    </section>
+
+    <!-- ===================== -->
+    <!-- VERSION COMPARISON   -->
+    <!-- ===================== -->
+    <section id="versions" class="mb-12">
+      <h2 class="text-[#d4af37] text-xs uppercase tracking-widest mb-5 border-b border-[#2a2a2a] pb-2">
+        2つのバージョン
+      </h2>
+
+      <p class="text-[#999] text-sm leading-relaxed mb-6">
+        この楽曲には2つの異なるバージョンが存在する。同じMCたちの声を乗せながら、プロデューサーの思想によってまったく異なるサウンドに仕上がった。
+      </p>
+
+      <div class="mb-4 rounded-lg overflow-hidden border border-[#2a2a2a] text-sm">
+        <div class="grid grid-cols-3 bg-[#111] text-[#555] text-xs uppercase tracking-widest">
+          <div class="p-3 border-b border-[#2a2a2a]"></div>
+          <div class="p-3 border-b border-l border-[#2a2a2a] text-center text-[#777]">Original</div>
+          <div class="p-3 border-b border-l border-[#2a2a2a] text-center text-[#d4af37]">DJ Premier Remix</div>
+        </div>
+        {[
+          ['プロデューサー', 'Rick Rubin', 'DJ Premier'],
+          ['参加MC', 'Kanye · Nas · KRS-One', 'Rakim · Kanye · Nas · KRS-One'],
+          ['サンプル', 'George Benson\n"Give Me the Night"', 'Carl Douglas\n"Dance the Kung-Fu"'],
+          ['サウンド', '削ぎ落とされたミニマル構成', 'チョップ＋硬いドラム（Boom Bap）'],
+          ['映像監督', '—（ライブ映像のみ）', 'Thibaut de Longeville'],
+        ].map(([label, orig, remix]) => (
+          <div class="grid grid-cols-3">
+            <div class="p-3 border-b border-[#2a2a2a] text-[#777]">{label}</div>
+            <div class="p-3 border-b border-l border-[#2a2a2a] text-[#999] text-center whitespace-pre-line">{orig}</div>
+            <div class="p-3 border-b border-l border-[#2a2a2a] text-[#eee] text-center whitespace-pre-line">{remix}</div>
+          </div>
+        ))}
+      </div>
+
+      <div class="p-5 bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg text-sm text-[#999] leading-relaxed">
+        <p>Rick Rubin版はKanye・Nas・KRS-Oneの3人で制作が進んでおり、Rakimは最初から不在だった。DJ Premierがリミックスを引き受けたことで初めてRakimが加わり、ヒップホップ4世代が揃うという奇跡が実現した。このリミックスを起点にRakimの参加が決まった経緯は、次の「制作の裏側」で詳述している。</p>
+      </div>
+    </section>
+
+    <!-- ===================== -->
     <!-- BEHIND THE SCENES    -->
     <!-- ===================== -->
-    <section id="episodes" class="mb-12">
+    <section id="behind" class="mb-12">
       <h2 class="text-[#d4af37] text-xs uppercase tracking-widest mb-5 border-b border-[#2a2a2a] pb-2">
-        Behind the Scenes
+        制作の裏側
       </h2>
 
       <!-- Episode 1: Rakim BPM problem -->
@@ -413,6 +506,39 @@ import '../../styles/global.css';
         </p>
         <p class="text-[#999] text-sm leading-relaxed mt-3">
           楽曲の販売収益は「<strong class="text-[#eee]">Force4Change Fund</strong>」を通じて寄付された。若者のリーダーシップ育成・スポーツへのアクセス支援・有色人種コミュニティへの還元を目的としたこの基金は、ヒップホップが生まれた土壌への「Give Back」という理念を体現している。
+        </p>
+      </div>
+    </section>
+
+    <!-- ===================== -->
+    <!-- GRAMMY               -->
+    <!-- ===================== -->
+    <section id="grammy" class="mb-12">
+      <h2 class="text-[#d4af37] text-xs uppercase tracking-widest mb-5 border-b border-[#2a2a2a] pb-2">
+        グラミー賞
+      </h2>
+
+      <div class="mb-6 p-5 bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg">
+        <p class="text-[#d4af37] text-xs uppercase tracking-widest mb-2">第50回グラミー賞 · 2008</p>
+        <h3 class="font-semibold text-base mb-3">Best Rap Collaboration ノミネート</h3>
+        <p class="text-[#999] text-sm leading-relaxed">
+          DJ Premierによるリミックス版は、その文化的インパクトにより<strong class="text-[#eee]">2008年の第50回グラミー賞「Best Rap Collaboration」部門にノミネート</strong>された。競合したのは<strong class="text-[#eee]">UGK & Outkastの「International Players Anthem」</strong>など強力な作品群。惜しくも受賞は逃したが、企業プロモーション発の楽曲がグラミーで評価されたという事実は、この曲の芸術的な完成度を証明している。
+        </p>
+      </div>
+
+      <div class="mb-6 p-5 bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg">
+        <p class="text-[#d4af37] text-xs uppercase tracking-widest mb-2">同じ夜に</p>
+        <h3 class="font-semibold text-base mb-3">Kanyeの絶頂期と重なった歴史的夜</h3>
+        <p class="text-[#999] text-sm leading-relaxed">
+          この同じ第50回グラミー賞の夜、共演者の<strong class="text-[#eee]">Kanye Westはアルバム『Graduation』で複数の賞を受賞</strong>していた。「Classic」録音時のKanyeはまさにキャリアの絶頂にあり、そのエネルギーがヴァースに凝縮されている。ヒップホップの神様（Rakim）、詩人（Nas）、教師（KRS-One）、そして時代の寵児（Kanye）が同じグラミーの夜に交差した——この偶然の一致もまた、この楽曲の伝説性を補強している。
+        </p>
+      </div>
+
+      <div class="p-5 bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg">
+        <p class="text-[#d4af37] text-xs uppercase tracking-widest mb-2">商業と芸術の垣根を越えて</p>
+        <h3 class="font-semibold text-base mb-3">スニーカー広告が残した本物のレガシー</h3>
+        <p class="text-[#999] text-sm leading-relaxed">
+          企業のプロモーション用に作られながら、ヒップホップのコアな魅力を一切妥協しなかった本作。グラミーノミネートはその証明だが、本当のレガシーは別のところにある。Rakimが「buggin' out」と嘆いた2007年のヒップホップシーンで、彼らは<strong class="text-[#eee]">ブーンバップの誠実さ、リリシストの矜持、ストリートへの還元</strong>という三つの約束を守り抜いた。それがこの曲を、今もクラシックたらしめている理由だ。
         </p>
       </div>
     </section>
