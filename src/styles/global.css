@@ -1,1 +1,59 @@
 @import "tailwindcss";
+
+body {
+  font-family: 'Space Grotesk', 'Hiragino Sans', 'Noto Sans JP', sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: 'Space Grotesk', 'Hiragino Sans', 'Noto Sans JP', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* スラング・コード・ラベル類 */
+.font-mono,
+[class*="tracking-widest"],
+[class*="uppercase"] {
+  font-family: 'IBM Plex Mono', 'Menlo', monospace;
+}
+
+:root {
+  --c-bg: #111;
+  --c-surface: #1a1a1a;
+  --c-border: #2a2a2a;
+  --c-text: #eee;
+  --c-muted: #999;
+  --c-muted-mid: #bbb;
+  --c-dim: #777;
+  --c-very-dim: #555;
+  --c-gold: #d4af37;
+  --c-gold-light: #f0cd6a;
+}
+
+html[data-theme="light"] {
+  --c-bg: #f5f5f5;
+  --c-surface: #ffffff;
+  --c-border: #e0e0e0;
+  --c-text: #1a1a1a;
+  --c-muted: #666;
+  --c-muted-mid: #777;
+  --c-dim: #555;
+  --c-very-dim: #888;
+  --c-gold: #a07800;
+  --c-gold-light: #c49a00;
+}
+
+@media (prefers-color-scheme: light) {
+  html[data-theme="auto"] {
+    --c-bg: #f5f5f5;
+    --c-surface: #ffffff;
+    --c-border: #e0e0e0;
+    --c-text: #1a1a1a;
+    --c-muted: #666;
+    --c-muted-mid: #777;
+    --c-dim: #555;
+    --c-very-dim: #888;
+    --c-gold: #a07800;
+    --c-gold-light: #c49a00;
+  }
+}

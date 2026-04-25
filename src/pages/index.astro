@@ -1,102 +1,160 @@
 ---
-import '../styles/global.css';
+import Layout from '../layouts/Layout.astro';
 
 const songs = [
-  {
-    slug: '/songs/fuck-compton',
-    title: 'Fuck Compton',
-    subtitle: 'The 45 King Produced · 1991',
-    artists: 'Tim Dog',
-    tag: 'ビーフ曲',
-  },
-  {
-    slug: '/songs/cream',
-    title: 'C.R.E.A.M.',
-    subtitle: 'RZA Produced · 1994',
-    artists: 'Wu-Tang Clan',
-    tag: '4× Platinum',
-  },
-  {
-    slug: '/songs/party-and-bullshit',
-    title: 'Party and Bullshit',
-    subtitle: 'Puff Daddy / Easy Mo Bee Produced · 1993',
-    artists: 'The Notorious B.I.G.',
-    tag: 'デビューシングル',
-  },
-  {
-    slug: '/songs/nas-is-like',
-    title: 'Nas Is Like',
-    subtitle: 'DJ Premier Produced · 1999',
-    artists: 'Nas',
-    tag: '',
-  },
-  {
-    slug: '/songs/hiphop-is-dead',
-    title: 'Hip Hop Is Dead',
-    subtitle: 'will.i.am Produced · 2006',
-    artists: 'Nas feat. will.i.am',
-    tag: 'Billboard 1位',
-  },
-  {
-    slug: '/songs/classic',
-    title: "Classic (Better Than I've Ever Been)",
-    subtitle: 'DJ Premier Remix · 2007',
-    artists: 'Rakim · Kanye West · Nas · KRS-One',
-    tag: 'グラミーノミネート',
-  },
+  { slug: '/songs/fuck-compton',       title: 'Fuck Compton',                         subtitle: 'The 45 King Produced · 1991', artists: 'Tim Dog',                           tag: 'ビーフ曲',          era: '90s前半', region: 'NY',     producer: 'その他',    bpm: 97,  sample: null },
+  { slug: '/songs/protect-ya-neck',    title: 'Protect Ya Neck',                      subtitle: 'RZA Produced · 1993',          artists: 'Wu-Tang Clan',                       tag: 'インディー独立宣言',  era: '90s前半', region: 'NY',     producer: 'RZA',       bpm: 96,  sample: null },
+  { slug: '/songs/come-clean',         title: 'Come Clean',                           subtitle: 'DJ Premier Produced · 1993',   artists: 'Jeru the Damaja',                    tag: '東海岸復権',         era: '90s前半', region: 'NY',     producer: 'DJ Premier', bpm: 93,  sample: null },
+  { slug: '/songs/cream',              title: 'C.R.E.A.M.',                           subtitle: 'RZA Produced · 1994',          artists: 'Wu-Tang Clan',                       tag: '4× Platinum',       era: '90s前半', region: 'NY',     producer: 'RZA',       bpm: 96,  sample: 'The Charmels "As Long As I\'ve Got You" (1967)' },
+  { slug: '/songs/party-and-bullshit', title: 'Party and Bullshit',                   subtitle: 'Easy Mo Bee Produced · 1993',  artists: 'The Notorious B.I.G.',              tag: 'デビューシングル',    era: '90s前半', region: 'NY',     producer: 'その他',    bpm: 86,  sample: null },
+  { slug: '/songs/ready-to-die',       title: 'Ready to Die',                         subtitle: 'Easy Mo Bee Produced · 1994',  artists: 'The Notorious B.I.G.',              tag: '東海岸ルネサンス',    era: '90s前半', region: 'NY',     producer: 'その他',    bpm: 84,  sample: null },
+  { slug: '/songs/what-they-do',       title: 'What They Do',                         subtitle: 'The Roots Produced · 1996',    artists: 'The Roots feat. Raphael Saadiq',     tag: '商業主義批判',        era: '90s後半', region: 'Philly', producer: 'その他',    bpm: 88,  sample: null },
+  { slug: '/songs/triumph',            title: 'Triumph',                              subtitle: 'RZA Produced · 1997',          artists: 'Wu-Tang Clan',                       tag: 'ポッセカット最高峰',   era: '90s後半', region: 'NY',     producer: 'RZA',       bpm: 95,  sample: null },
+  { slug: '/songs/the-city-is-mine',   title: 'The City Is Mine',                     subtitle: 'Teddy Riley Produced · 1997',  artists: 'Jay-Z feat. Blackstreet',            tag: '王座継承宣言',        era: '90s後半', region: 'NY',     producer: 'その他',    bpm: 90,  sample: null },
+  { slug: '/songs/nas-is-like',        title: 'Nas Is Like',                          subtitle: 'DJ Premier Produced · 1999',   artists: 'Nas',                                tag: '',                  era: '90s後半', region: 'NY',     producer: 'DJ Premier', bpm: 90,  sample: 'Joe Chambers "Mind Rain" (1970)' },
+  { slug: '/songs/doomsday',           title: 'Doomsday',                             subtitle: 'MF DOOM Produced · 1999',      artists: 'MF DOOM',                            tag: 'スーパーヴィラン覚醒', era: '90s後半', region: 'NY',     producer: 'その他',    bpm: 83,  sample: null },
+  { slug: '/songs/hiphop-is-dead',     title: 'Hip Hop Is Dead',                      subtitle: 'will.i.am Produced · 2006',    artists: 'Nas feat. will.i.am',                tag: 'Billboard 1位',     era: '00s以降', region: 'NY',     producer: 'その他',    bpm: 88,  sample: 'Syl Johnson "Is It Because I\'m Black" (1969)' },
+  { slug: '/songs/classic',            title: "Classic (Better Than I've Ever Been)", subtitle: 'DJ Premier Remix · 2007',      artists: 'Rakim · Kanye West · Nas · KRS-One', tag: 'グラミーノミネート',   era: '00s以降', region: 'NY',     producer: 'DJ Premier', bpm: 94,  sample: null },
+  { slug: '/songs/you',                title: 'You',                                  subtitle: 'DJ Premier Produced · 2011',   artists: 'Evidence feat. DJ Premier',          tag: '東西融合',           era: '00s以降', region: 'LA',     producer: 'DJ Premier', bpm: 87,  sample: 'Allen Toussaint "From a Whisper to a Scream" (1970)' },
+  { slug: '/songs/cash-rules',         title: 'Cash Rules',                           subtitle: '2020',                         artists: 'iyla feat. Method Man',              tag: 'C.R.E.A.M.継承',    era: '00s以降', region: 'LA',     producer: 'その他',    bpm: 87,  sample: null },
 ];
 ---
 
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HipHop Lyrics — 歌詞和訳・スラング解説</title>
-  <meta name="description" content="ヒップホップの名曲を歌詞和訳とスラング解説で深掘り。" />
-</head>
-<body class="bg-[#111] text-[#eee] min-h-screen">
+<Layout title="HipHop Lyrics — 歌詞和訳・スラング解説" description="ヒップホップの名曲を歌詞和訳とスラング解説で深掘り。C.R.E.A.M.・Nasなど名曲のスラングと文化背景を日本語で徹底解説。">
   <div class="max-w-2xl mx-auto px-4 py-12">
 
     <header class="mb-12">
-      <p class="text-[#d4af37] text-xs uppercase tracking-widest mb-2">Hip Hop Lyrics</p>
-      <h1 class="text-3xl md:text-4xl font-bold leading-tight mb-3">
-        歌詞和訳・スラング解説
+      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">Hip Hop Lyrics</p>
+      <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-2">
+        歌詞和訳・<br class="sm:hidden"/>スラング解説
       </h1>
-      <p class="text-[#777] text-sm">ヒップホップの名曲を、歌詞の意味からスラング・文化背景まで徹底解説。</p>
+      <p class="text-[var(--c-very-dim)] text-xs uppercase tracking-widest mb-4">The Canon. 1991 – 2020.</p>
+      <p class="text-[var(--c-muted)] text-sm leading-relaxed mb-5 max-w-md">
+        ヒップホップの名曲を、歌詞の一語一語・スラング・サンプリング・文化背景まで徹底解説。
+      </p>
+      <a href="/slang" class="inline-block text-xs text-[var(--c-gold)] border border-[var(--c-gold)] rounded px-3 py-1 hover:bg-[var(--c-gold)] hover:text-[var(--c-bg)] transition-colors">
+        スラング索引 ({songs.length}曲 · 100+ 用語) →
+      </a>
     </header>
 
-    <section>
-      <h2 class="text-[#d4af37] text-xs uppercase tracking-widest mb-5 border-b border-[#2a2a2a] pb-2">
-        Songs
-      </h2>
+    <!-- Filters -->
+    <div class="mb-8 space-y-3">
+      <div class="flex flex-wrap gap-2 items-center">
+        <span class="text-[var(--c-very-dim)] text-xs uppercase tracking-widest w-16 shrink-0">Era</span>
+        <button data-filter="era" data-value="" class="filter-btn active text-xs px-3 py-1 rounded border border-[var(--c-border)] text-[var(--c-muted)] hover:border-[var(--c-gold)] transition-colors">All</button>
+        <button data-filter="era" data-value="90s前半" class="filter-btn text-xs px-3 py-1 rounded border border-[var(--c-border)] text-[var(--c-muted)] hover:border-[var(--c-gold)] transition-colors">90s前半</button>
+        <button data-filter="era" data-value="90s後半" class="filter-btn text-xs px-3 py-1 rounded border border-[var(--c-border)] text-[var(--c-muted)] hover:border-[var(--c-gold)] transition-colors">90s後半</button>
+        <button data-filter="era" data-value="00s以降" class="filter-btn text-xs px-3 py-1 rounded border border-[var(--c-border)] text-[var(--c-muted)] hover:border-[var(--c-gold)] transition-colors">00s以降</button>
+      </div>
+      <div class="flex flex-wrap gap-2 items-center">
+        <span class="text-[var(--c-very-dim)] text-xs uppercase tracking-widest w-16 shrink-0">Area</span>
+        <button data-filter="region" data-value="" class="filter-btn active text-xs px-3 py-1 rounded border border-[var(--c-border)] text-[var(--c-muted)] hover:border-[var(--c-gold)] transition-colors">All</button>
+        <button data-filter="region" data-value="NY" class="filter-btn text-xs px-3 py-1 rounded border border-[var(--c-border)] text-[var(--c-muted)] hover:border-[var(--c-gold)] transition-colors">New York</button>
+        <button data-filter="region" data-value="Philly" class="filter-btn text-xs px-3 py-1 rounded border border-[var(--c-border)] text-[var(--c-muted)] hover:border-[var(--c-gold)] transition-colors">Philly</button>
+        <button data-filter="region" data-value="LA" class="filter-btn text-xs px-3 py-1 rounded border border-[var(--c-border)] text-[var(--c-muted)] hover:border-[var(--c-gold)] transition-colors">LA / West</button>
+      </div>
+      <div class="flex flex-wrap gap-2 items-center">
+        <span class="text-[var(--c-very-dim)] text-xs uppercase tracking-widest w-16 shrink-0">Prod.</span>
+        <button data-filter="producer" data-value="" class="filter-btn active text-xs px-3 py-1 rounded border border-[var(--c-border)] text-[var(--c-muted)] hover:border-[var(--c-gold)] transition-colors">All</button>
+        <button data-filter="producer" data-value="RZA" class="filter-btn text-xs px-3 py-1 rounded border border-[var(--c-border)] text-[var(--c-muted)] hover:border-[var(--c-gold)] transition-colors">RZA</button>
+        <button data-filter="producer" data-value="DJ Premier" class="filter-btn text-xs px-3 py-1 rounded border border-[var(--c-border)] text-[var(--c-muted)] hover:border-[var(--c-gold)] transition-colors">DJ Premier</button>
+        <button data-filter="producer" data-value="その他" class="filter-btn text-xs px-3 py-1 rounded border border-[var(--c-border)] text-[var(--c-muted)] hover:border-[var(--c-gold)] transition-colors">その他</button>
+      </div>
+    </div>
 
-      <ul class="space-y-4">
-        {songs.map(song => (
-          <li>
-            <a href={song.slug} class="block p-5 bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg hover:border-[#d4af37] transition-colors duration-200">
-              <div class="flex items-start justify-between gap-3">
-                <div>
-                  <p class="text-[#d4af37] text-xs uppercase tracking-widest mb-1">{song.subtitle}</p>
-                  <p class="font-semibold text-lg leading-snug mb-1">{song.title}</p>
-                  <p class="text-[#777] text-sm">{song.artists}</p>
+    <section>
+      <div class="flex items-center justify-between mb-5 border-b border-[var(--c-border)] pb-2">
+        <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest">Songs</h2>
+        <span id="count" class="text-[var(--c-very-dim)] text-xs">{songs.length} tracks</span>
+      </div>
+
+      <ul id="song-list" class="space-y-3">
+        {songs.map((song, i) => (
+          <li
+            data-era={song.era}
+            data-region={song.region}
+            data-producer={song.producer}
+          >
+            <a href={song.slug} class="group block p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg hover:border-[var(--c-gold)] transition-colors duration-200">
+              <div class="flex items-start gap-4">
+                <!-- Track number -->
+                <span class="text-[var(--c-very-dim)] text-xs tabular-nums mt-0.5 shrink-0 w-5 text-right select-none">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <!-- Content -->
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-start justify-between gap-3">
+                    <div class="min-w-0">
+                      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-1">{song.subtitle}</p>
+                      <p class="font-semibold text-lg leading-snug mb-1">{song.title}</p>
+                      <p class="text-[var(--c-dim)] text-sm">{song.artists}</p>
+                      <div class="flex gap-2 mt-2 flex-wrap items-center">
+                        <span class="text-[var(--c-very-dim)] text-xs border border-[var(--c-border)] rounded px-2 py-0.5">{song.era}</span>
+                        <span class="text-[var(--c-very-dim)] text-xs border border-[var(--c-border)] rounded px-2 py-0.5">{song.region}</span>
+                        <span class="text-[var(--c-very-dim)] text-xs border border-[var(--c-border)] rounded px-2 py-0.5">{song.bpm} BPM</span>
+                      </div>
+                      {song.sample && (
+                        <p class="text-[var(--c-very-dim)] text-xs mt-2 truncate">
+                          ♪ {song.sample}
+                        </p>
+                      )}
+                    </div>
+                    {song.tag && (
+                      <span class="shrink-0 text-xs text-[var(--c-gold)] border border-[var(--c-gold)] rounded px-2 py-0.5 mt-1 whitespace-nowrap">
+                        {song.tag}
+                      </span>
+                    )}
+                  </div>
                 </div>
-                {song.tag && (
-                  <span class="shrink-0 text-xs text-[#d4af37] border border-[#d4af37] rounded px-2 py-0.5 mt-1">
-                    {song.tag}
-                  </span>
-                )}
               </div>
             </a>
           </li>
         ))}
       </ul>
+
+      <p id="no-results" class="hidden text-center text-[var(--c-dim)] text-sm py-12">該当する曲がありません</p>
     </section>
 
-    <footer class="border-t border-[#2a2a2a] pt-6 mt-16 text-[#555] text-xs">
-      <p>HipHop Lyrics — 歌詞和訳・スラング解説</p>
-    </footer>
-
   </div>
-</body>
-</html>
+</Layout>
+
+<script>
+  const filters: Record<string, string> = { era: '', region: '', producer: '' };
+
+  function applyFilters() {
+    const items = document.querySelectorAll<HTMLElement>('#song-list > li');
+    let visible = 0;
+    items.forEach(item => {
+      const match = Object.entries(filters).every(([key, val]) =>
+        !val || item.dataset[key] === val
+      );
+      item.style.display = match ? '' : 'none';
+      if (match) visible++;
+    });
+    const count = document.getElementById('count');
+    if (count) count.textContent = `${visible} tracks`;
+    const noResults = document.getElementById('no-results');
+    if (noResults) noResults.classList.toggle('hidden', visible > 0);
+  }
+
+  document.querySelectorAll<HTMLButtonElement>('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const filterType = btn.dataset.filter as string;
+      const value = btn.dataset.value as string;
+      filters[filterType] = value;
+
+      document.querySelectorAll<HTMLButtonElement>(`.filter-btn[data-filter="${filterType}"]`)
+        .forEach(b => b.classList.remove('active', 'border-[var(--c-gold)]', 'text-[var(--c-gold)]'));
+      btn.classList.add('active', 'border-[var(--c-gold)]', 'text-[var(--c-gold)]');
+
+      applyFilters();
+    });
+  });
+</script>
+
+<style>
+  .filter-btn.active {
+    border-color: var(--c-gold);
+    color: var(--c-gold);
+  }
+</style>

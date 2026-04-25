@@ -1,0 +1,94 @@
+---
+import '../styles/global.css';
+import ThemeToggle from '../components/ThemeToggle.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  schema?: object;
+}
+
+const { title, description, schema } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://hiphop.vercel.app');
+const isHome = Astro.url.pathname === '/';
+
+const songSlug = Astro.url.pathname.match(/^\/songs\/([^/]+)/)?.[1];
+const ogImagePath = songSlug ? `/og/${songSlug}.png` : '/og/default.png';
+const ogImageURL = new URL(ogImagePath, Astro.site ?? 'https://hiphop.vercel.app').href;
+
+const defaultSchema = {
+  '@context': 'https://schema.org',
+  '@type': isHome ? 'WebSite' : 'Article',
+  name: title,
+  description,
+  url: canonicalURL.href,
+  inLanguage: 'ja',
+  publisher: {
+    '@type': 'Organization',
+    name: 'HipHop Lyrics',
+    url: 'https://hiphop.vercel.app',
+  },
+};
+const resolvedSchema = schema ?? defaultSchema;
+---
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalURL} />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:site_name" content="HipHop Lyrics — 歌詞和訳・スラング解説" />
+  <meta property="og:locale" content="ja_JP" />
+
+  <!-- OGP Image -->
+  <meta property="og:image" content={ogImageURL} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImageURL} />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+  <script type="application/ld+json" set:html={JSON.stringify(resolvedSchema)} />
+
+  <!-- Theme flash prevention -->
+  <script is:inline>!function(){var t=localStorage.getItem('hh-theme')||'auto';document.documentElement.setAttribute('data-theme',t)}()</script>
+</head>
+<body class="bg-[var(--c-bg)] text-[var(--c-text)] min-h-screen">
+  <ThemeToggle />
+  {!isHome && (
+    <div class="max-w-2xl mx-auto px-4 pt-5">
+      <a href="/" class="inline-flex items-center gap-1.5 text-[var(--c-dim)] text-xs hover:text-[var(--c-gold)] transition-colors">
+        <span>←</span><span>一覧に戻る</span>
+      </a>
+    </div>
+  )}
+  <slot />
+  <footer class="max-w-2xl mx-auto px-4 pb-8 pt-6 mt-4 border-t border-[var(--c-border)] flex flex-wrap gap-x-5 gap-y-1 text-[var(--c-very-dim)] text-xs">
+    <a href="/" class="hover:text-[var(--c-gold)] transition-colors">HipHop Lyrics</a>
+    <a href="/about" class="hover:text-[var(--c-gold)] transition-colors">About</a>
+    <a href="/slang" class="hover:text-[var(--c-gold)] transition-colors">スラング索引</a>
+    <a href="/privacy" class="hover:text-[var(--c-gold)] transition-colors">プライバシーポリシー</a>
+  </footer>
+</body>
+</html>

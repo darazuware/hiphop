@@ -2,42 +2,35 @@
 import LyricsBlock from '../../components/LyricsBlock.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
 import DeepSlang from '../../components/DeepSlang.astro';
-import '../../styles/global.css';
+import Layout from '../../layouts/Layout.astro';
 ---
 
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Classic (Better Than I've Ever Been) DJ Premier Remix — 歌詞和訳・解説</title>
-</head>
-<body class="bg-[#111] text-[#eee] min-h-screen">
+<Layout title="Classic (Better Than I've Ever Been) DJ Premier Remix — 歌詞和訳・解説" description="Rakim・Kanye West・Nas・KRS-Oneが集結した「Classic」のDJ Premierリミックス版の歌詞和訳とスラング解説。Nike Air Force 1の25周年記念に作られたグラミーノミネート曲。">
   <div class="max-w-2xl mx-auto px-4 py-8">
 <!-- Header -->
     <header class="mb-8">
-      <p class="text-[#d4af37] text-xs uppercase tracking-widest mb-1">DJ Premier Remix · 2007</p>
+      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-1">DJ Premier Remix · 2007</p>
       <h1 class="text-2xl md:text-3xl font-bold leading-tight mb-1">
         Classic (Better Than I've Ever Been)
       </h1>
-      <p class="text-[#777] text-sm">Rakim · Kanye West · Nas · KRS-One</p>
-      <p class="text-[#555] text-xs mt-1">Nike Air Force 1 25th Anniversary</p>
+      <p class="text-[var(--c-dim)] text-sm">Rakim · Kanye West · Nas · KRS-One</p>
+      <p class="text-[var(--c-very-dim)] text-xs mt-1">Nike Air Force 1 25th Anniversary</p>
     </header>
 
     <!-- Track Context -->
-    <div class="mb-10 p-4 bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg text-sm text-[#999] leading-relaxed">
-      <p>Nike Air Force 1誕生25周年記念として制作。1980年代のRakim・KRS-One、90年代のNas、2000年代のKanye Westが集結。DJ Premierが「Carl Douglas - Dance the Kung-Fu」をサンプリングし、ブーンバップに仕立てたリミックス版。<strong class="text-[#d4af37]">第50回グラミー賞 Best Rap Collaboration部門ノミネート。</strong></p>
+    <div class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg text-sm text-[var(--c-muted)] leading-relaxed">
+      <p>Nike Air Force 1誕生25周年記念として制作。1980年代のRakim・KRS-One、90年代のNas、2000年代のKanye Westが集結。DJ Premierが「Carl Douglas - Dance the Kung-Fu」をサンプリングし、ブーンバップに仕立てたリミックス版。<strong class="text-[var(--c-gold)]">第50回グラミー賞 Best Rap Collaboration部門ノミネート。</strong></p>
     </div>
 
     <!-- Table of Contents -->
-    <nav class="mb-10 p-4 bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg">
-      <p class="text-[#d4af37] text-xs uppercase tracking-widest mb-3">目次</p>
-      <ol class="space-y-1.5 text-sm text-[#999] list-none">
-        <li><a href="#lyrics" class="hover:text-[#d4af37] transition-colors">01 — リリック和訳・解説</a></li>
-        <li><a href="#af1" class="hover:text-[#d4af37] transition-colors">02 — Air Force 1の文化史</a></li>
-        <li><a href="#versions" class="hover:text-[#d4af37] transition-colors">03 — 2つのバージョン</a></li>
-        <li><a href="#behind" class="hover:text-[#d4af37] transition-colors">04 — 制作の裏側</a></li>
-        <li><a href="#grammy" class="hover:text-[#d4af37] transition-colors">05 — グラミー賞</a></li>
+    <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
+      <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
+        <li><a href="#lyrics" class="hover:text-[var(--c-gold)] transition-colors">01 — リリック和訳・解説</a></li>
+        <li><a href="#af1" class="hover:text-[var(--c-gold)] transition-colors">02 — Air Force 1の文化史</a></li>
+        <li><a href="#versions" class="hover:text-[var(--c-gold)] transition-colors">03 — 2つのバージョン</a></li>
+        <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">04 — 制作の裏側</a></li>
+        <li><a href="#grammy" class="hover:text-[var(--c-gold)] transition-colors">05 — グラミー賞</a></li>
       </ol>
     </nav>
 
@@ -60,7 +53,7 @@ import '../../styles/global.css';
     <!-- RAKIM'S VERSE         -->
     <!-- ===================== -->
     <section id="rakim" class="mb-12">
-      <h2 class="text-[#d4af37] text-xs uppercase tracking-widest mb-5 border-b border-[#2a2a2a] pb-2">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
         Verse 1 · Rakim
       </h2>
 
@@ -142,7 +135,7 @@ import '../../styles/global.css';
     <!-- KANYE'S VERSE         -->
     <!-- ===================== -->
     <section id="kanye" class="mb-12">
-      <h2 class="text-[#d4af37] text-xs uppercase tracking-widest mb-5 border-b border-[#2a2a2a] pb-2">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
         Verse 2 · Kanye West
       </h2>
 
@@ -206,7 +199,7 @@ import '../../styles/global.css';
     <!-- NAS'S VERSE           -->
     <!-- ===================== -->
     <section id="nas" class="mb-12">
-      <h2 class="text-[#d4af37] text-xs uppercase tracking-widest mb-5 border-b border-[#2a2a2a] pb-2">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
         Verse 3 · Nas
       </h2>
 
@@ -282,7 +275,7 @@ import '../../styles/global.css';
     <!-- KRS-ONE'S VERSE       -->
     <!-- ===================== -->
     <section id="krs" class="mb-12">
-      <h2 class="text-[#d4af37] text-xs uppercase tracking-widest mb-5 border-b border-[#2a2a2a] pb-2">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
         Verse 4 · KRS-One
       </h2>
 
@@ -360,39 +353,39 @@ import '../../styles/global.css';
     <!-- AIR FORCE 1 HISTORY  -->
     <!-- ===================== -->
     <section id="af1" class="mb-12">
-      <h2 class="text-[#d4af37] text-xs uppercase tracking-widest mb-5 border-b border-[#2a2a2a] pb-2">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
         Air Force 1の文化史
       </h2>
 
-      <div class="mb-6 p-5 bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg">
-        <p class="text-[#d4af37] text-xs uppercase tracking-widest mb-2">誕生 · 1982</p>
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">誕生 · 1982</p>
         <h3 class="font-semibold text-base mb-3">ハイキングブーツからバスケットコートへ</h3>
-        <p class="text-[#999] text-sm leading-relaxed">
-          デザイナー<strong class="text-[#eee]">Bruce Kilgore</strong>がハイキングブーツからインスピレーションを得てデザインし、1982年にNike初のエアクッション搭載バスケットシューズとして登場。プロモーションには<strong class="text-[#eee]">Moses MaloneやMichael Cooperを含む6人のNBA選手（The Original Six）</strong>を起用し、最先端のバスケットシューズとして一世を風靡した。
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          デザイナー<strong class="text-[var(--c-text)]">Bruce Kilgore</strong>がハイキングブーツからインスピレーションを得てデザインし、1982年にNike初のエアクッション搭載バスケットシューズとして登場。プロモーションには<strong class="text-[var(--c-text)]">Moses MaloneやMichael Cooperを含む6人のNBA選手（The Original Six）</strong>を起用し、最先端のバスケットシューズとして一世を風靡した。
         </p>
-        <p class="text-[#999] text-sm leading-relaxed mt-3">
-          しかしNikeの製品サイクルの慣例により、わずか2年後の<strong class="text-[#eee]">1984年に生産終了（ディスコン）</strong>。このまま歴史に消えてもおかしくなかった。
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed mt-3">
+          しかしNikeの製品サイクルの慣例により、わずか2年後の<strong class="text-[var(--c-text)]">1984年に生産終了（ディスコン）</strong>。このまま歴史に消えてもおかしくなかった。
         </p>
       </div>
 
-      <div class="mb-6 p-5 bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg">
-        <p class="text-[#d4af37] text-xs uppercase tracking-widest mb-2">復活 · 1985</p>
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">復活 · 1985</p>
         <h3 class="font-semibold text-base mb-3">ストリートが救ったスニーカー — 現代ドロップ文化の原点</h3>
-        <p class="text-[#999] text-sm leading-relaxed">
-          廃盤の危機を救ったのはコートではなく<strong class="text-[#eee]">ストリートカルチャー</strong>だった。1985年、メリーランド州ボルティモアの3つのスニーカーブティックが、地域での熱狂的な人気を背景にNikeに再生産を直訴。Nikeはその要求を受け入れた。
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          廃盤の危機を救ったのはコートではなく<strong class="text-[var(--c-text)]">ストリートカルチャー</strong>だった。1985年、メリーランド州ボルティモアの3つのスニーカーブティックが、地域での熱狂的な人気を背景にNikeに再生産を直訴。Nikeはその要求を受け入れた。
         </p>
-        <p class="text-[#999] text-sm leading-relaxed mt-3">
-          この3店舗が展開した<strong class="text-[#eee]">「Color of the Month Club」</strong>——毎月限定カラーを販売する手法——は、現代のスニーカーヘッズ文化における<strong class="text-[#eee]">「ドロップ（限定発売）」システムの原型</strong>である。Nike SNKRSのアプリ抽選も、その源流はここにある。
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed mt-3">
+          この3店舗が展開した<strong class="text-[var(--c-text)]">「Color of the Month Club」</strong>——毎月限定カラーを販売する手法——は、現代のスニーカーヘッズ文化における<strong class="text-[var(--c-text)]">「ドロップ（限定発売）」システムの原型</strong>である。Nike SNKRSのアプリ抽選も、その源流はここにある。
         </p>
       </div>
 
-      <div class="p-5 bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg">
-        <p class="text-[#d4af37] text-xs uppercase tracking-widest mb-2">命名 · Uptowns</p>
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">命名 · Uptowns</p>
         <h3 class="font-semibold text-base mb-3">ハーレムで生まれた「Uptowns」という呼び名</h3>
-        <p class="text-[#999] text-sm leading-relaxed">
-          ニューヨーク・<strong class="text-[#eee]">ハーレム（マンハッタンのアップタウン）</strong>において、真っ白なAir Force 1（White-on-White）は単なる靴を超えたステータスシンボルとして定着した。この地理的背景から<strong class="text-[#eee]">「Uptowns（アップタウンズ）」</strong>、女性が履く場合は<strong class="text-[#eee]">「Uppies（アッピーズ）」</strong>と呼ばれるようになった。
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          ニューヨーク・<strong class="text-[var(--c-text)]">ハーレム（マンハッタンのアップタウン）</strong>において、真っ白なAir Force 1（White-on-White）は単なる靴を超えたステータスシンボルとして定着した。この地理的背景から<strong class="text-[var(--c-text)]">「Uptowns（アップタウンズ）」</strong>、女性が履く場合は<strong class="text-[var(--c-text)]">「Uppies（アッピーズ）」</strong>と呼ばれるようになった。
         </p>
-        <p class="text-[#999] text-sm leading-relaxed mt-3">
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed mt-3">
           Rakimがヴァースの中でこの呼称を使っているのは、ニューヨーク固有の言語文化とストリートの歴史への深いリスペクトそのものだ。
         </p>
       </div>
@@ -402,19 +395,19 @@ import '../../styles/global.css';
     <!-- VERSION COMPARISON   -->
     <!-- ===================== -->
     <section id="versions" class="mb-12">
-      <h2 class="text-[#d4af37] text-xs uppercase tracking-widest mb-5 border-b border-[#2a2a2a] pb-2">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
         2つのバージョン
       </h2>
 
-      <p class="text-[#999] text-sm leading-relaxed mb-6">
+      <p class="text-[var(--c-muted)] text-sm leading-relaxed mb-6">
         この楽曲には2つの異なるバージョンが存在する。同じMCたちの声を乗せながら、プロデューサーの思想によってまったく異なるサウンドに仕上がった。
       </p>
 
-      <div class="mb-4 rounded-lg overflow-hidden border border-[#2a2a2a] text-sm">
-        <div class="grid grid-cols-3 bg-[#111] text-[#555] text-xs uppercase tracking-widest">
-          <div class="p-3 border-b border-[#2a2a2a]"></div>
-          <div class="p-3 border-b border-l border-[#2a2a2a] text-center text-[#777]">Original</div>
-          <div class="p-3 border-b border-l border-[#2a2a2a] text-center text-[#d4af37]">DJ Premier Remix</div>
+      <div class="mb-4 rounded-lg overflow-hidden border border-[var(--c-border)] text-sm">
+        <div class="grid grid-cols-3 bg-[var(--c-bg)] text-[var(--c-very-dim)] text-xs uppercase tracking-widest">
+          <div class="p-3 border-b border-[var(--c-border)]"></div>
+          <div class="p-3 border-b border-l border-[var(--c-border)] text-center text-[var(--c-dim)]">Original</div>
+          <div class="p-3 border-b border-l border-[var(--c-border)] text-center text-[var(--c-gold)]">DJ Premier Remix</div>
         </div>
         {[
           ['プロデューサー', 'Rick Rubin', 'DJ Premier'],
@@ -424,14 +417,14 @@ import '../../styles/global.css';
           ['映像監督', '—（ライブ映像のみ）', 'Thibaut de Longeville'],
         ].map(([label, orig, remix]) => (
           <div class="grid grid-cols-3">
-            <div class="p-3 border-b border-[#2a2a2a] text-[#777]">{label}</div>
-            <div class="p-3 border-b border-l border-[#2a2a2a] text-[#999] text-center whitespace-pre-line">{orig}</div>
-            <div class="p-3 border-b border-l border-[#2a2a2a] text-[#eee] text-center whitespace-pre-line">{remix}</div>
+            <div class="p-3 border-b border-[var(--c-border)] text-[var(--c-dim)]">{label}</div>
+            <div class="p-3 border-b border-l border-[var(--c-border)] text-[var(--c-muted)] text-center whitespace-pre-line">{orig}</div>
+            <div class="p-3 border-b border-l border-[var(--c-border)] text-[var(--c-text)] text-center whitespace-pre-line">{remix}</div>
           </div>
         ))}
       </div>
 
-      <div class="p-5 bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg text-sm text-[#999] leading-relaxed">
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg text-sm text-[var(--c-muted)] leading-relaxed">
         <p>Rick Rubin版はKanye・Nas・KRS-Oneの3人で制作が進んでおり、Rakimは最初から不在だった。DJ Premierがリミックスを引き受けたことで初めてRakimが加わり、ヒップホップ4世代が揃うという奇跡が実現した。このリミックスを起点にRakimの参加が決まった経緯は、次の「制作の裏側」で詳述している。</p>
       </div>
     </section>
@@ -440,73 +433,73 @@ import '../../styles/global.css';
     <!-- BEHIND THE SCENES    -->
     <!-- ===================== -->
     <section id="behind" class="mb-12">
-      <h2 class="text-[#d4af37] text-xs uppercase tracking-widest mb-5 border-b border-[#2a2a2a] pb-2">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
         制作の裏側
       </h2>
 
       <!-- Episode 1: Rakim BPM problem -->
-      <div class="mb-6 p-5 bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg">
-        <p class="text-[#d4af37] text-xs uppercase tracking-widest mb-2">制作秘話 01</p>
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">制作秘話 01</p>
         <h3 class="font-semibold text-base mb-3">Rakimの100BPM問題 — Premierが技術で救った歴史的マイクリレー</h3>
-        <p class="text-[#999] text-sm leading-relaxed">
-          オリジナル版の制作はRick Rubinが主導し、KRS-OneとNasが参加。当初からRakimの参加も予定されていたが、Rakimは自身で用意した<strong class="text-[#eee]">100BPMのトラック</strong>に乗せて録音してしまっていた。このテンポのズレにより、MTVで放送されたNike 25周年記念パーティーのライブパフォーマンスにも最初の音源にもRakimの姿はなかった。
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          オリジナル版の制作はRick Rubinが主導し、KRS-OneとNasが参加。当初からRakimの参加も予定されていたが、Rakimは自身で用意した<strong class="text-[var(--c-text)]">100BPMのトラック</strong>に乗せて録音してしまっていた。このテンポのズレにより、MTVで放送されたNike 25周年記念パーティーのライブパフォーマンスにも最初の音源にもRakimの姿はなかった。
         </p>
-        <p class="text-[#999] text-sm leading-relaxed mt-3">
-          KRS-Oneの打診でリミックスを引き受けたDJ Premierは、難題に直面する。Premierが作ったビートは<strong class="text-[#eee]">107BPM</strong>。ピッチを単純に上げればいわゆる「チップマンク」効果でRakim特有の重低音が失われる。Premierは最新のタイムストレッチ技術を駆使し、<strong class="text-[#eee]">声のピッチを保ったままスピードだけを変える</strong>という離れ業でこの問題を解決。歴史的なマイクリレーが完成した。
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed mt-3">
+          KRS-Oneの打診でリミックスを引き受けたDJ Premierは、難題に直面する。Premierが作ったビートは<strong class="text-[var(--c-text)]">107BPM</strong>。ピッチを単純に上げればいわゆる「チップマンク」効果でRakim特有の重低音が失われる。Premierは最新のタイムストレッチ技術を駆使し、<strong class="text-[var(--c-text)]">声のピッチを保ったままスピードだけを変える</strong>という離れ業でこの問題を解決。歴史的なマイクリレーが完成した。
         </p>
       </div>
 
       <!-- Episode 2: Rakim solo shoot -->
-      <div class="mb-6 p-5 bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg">
-        <p class="text-[#d4af37] text-xs uppercase tracking-widest mb-2">制作秘話 02</p>
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">制作秘話 02</p>
         <h3 class="font-semibold text-base mb-3">暗闇での単独撮影 — MVでRakimが冒頭に置かれた理由</h3>
-        <p class="text-[#999] text-sm leading-relaxed">
-          ミュージックビデオの撮影日、<strong class="text-[#eee]">Rakimだけが単独でスタジオに現れた</strong>。他の3人との共演シーンを撮ることができなかったため、監督Thibaut de Longevilleはあえて<strong class="text-[#eee]">照明を落とした暗闇の中でRakimを撮影</strong>するという演出を採用。
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          ミュージックビデオの撮影日、<strong class="text-[var(--c-text)]">Rakimだけが単独でスタジオに現れた</strong>。他の3人との共演シーンを撮ることができなかったため、監督Thibaut de Longevilleはあえて<strong class="text-[var(--c-text)]">照明を落とした暗闇の中でRakimを撮影</strong>するという演出を採用。
         </p>
-        <p class="text-[#999] text-sm leading-relaxed mt-3">
-          この映像があまりにも圧倒的な存在感を放っていたため、音源では最後（第1ヴァース）に登場するRakimのパートを、<strong class="text-[#eee]">MVでは曲の冒頭に配置する</strong>という大胆な構成変更が行われた。制約から生まれた演出が、結果として楽曲の印象をさらに高めることになった。
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed mt-3">
+          この映像があまりにも圧倒的な存在感を放っていたため、音源では最後（第1ヴァース）に登場するRakimのパートを、<strong class="text-[var(--c-text)]">MVでは曲の冒頭に配置する</strong>という大胆な構成変更が行われた。制約から生まれた演出が、結果として楽曲の印象をさらに高めることになった。
         </p>
       </div>
 
       <!-- Episode 3: Scratch chorus -->
-      <div class="mb-6 p-5 bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg">
-        <p class="text-[#d4af37] text-xs uppercase tracking-widest mb-2">制作秘話 03</p>
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">制作秘話 03</p>
         <h3 class="font-semibold text-base mb-3">スクラッチ・コーラスの解剖 — 4つの声が交差するサビの設計</h3>
-        <p class="text-[#999] text-sm leading-relaxed mb-3">
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed mb-3">
           DJ Premierの代名詞「スクラッチ・コーラス」——過去の名曲からボーカルを切り貼りしてサビを構築する手法——がこの曲でも炸裂している。本楽曲のサビは以下の4つのフレーズで構成されている。
         </p>
         <ul class="space-y-2 text-sm">
           <li class="flex gap-3">
-            <span class="text-[#d4af37] shrink-0">①</span>
-            <span class="text-[#999]">Nasの肉声による <strong class="text-[#eee]">「Classic」</strong></span>
+            <span class="text-[var(--c-gold)] shrink-0">①</span>
+            <span class="text-[var(--c-muted)]">Nasの肉声による <strong class="text-[var(--c-text)]">「Classic」</strong></span>
           </li>
           <li class="flex gap-3">
-            <span class="text-[#d4af37] shrink-0">②</span>
-            <span class="text-[#999]">Kanye Westの肉声による <strong class="text-[#eee]">「Uh, uh, timeless」</strong></span>
+            <span class="text-[var(--c-gold)] shrink-0">②</span>
+            <span class="text-[var(--c-muted)]">Kanye Westの肉声による <strong class="text-[var(--c-text)]">「Uh, uh, timeless」</strong></span>
           </li>
           <li class="flex gap-3">
-            <span class="text-[#d4af37] shrink-0">③</span>
-            <span class="text-[#999]">Kool G Rapの楽曲からのサンプリング <strong class="text-[#eee]">「Live straight classic」</strong></span>
+            <span class="text-[var(--c-gold)] shrink-0">③</span>
+            <span class="text-[var(--c-muted)]">Kool G Rapの楽曲からのサンプリング <strong class="text-[var(--c-text)]">「Live straight classic」</strong></span>
           </li>
           <li class="flex gap-3">
-            <span class="text-[#d4af37] shrink-0">④</span>
-            <span class="text-[#999]">Rakimの名曲「Microphone Fiend」からのサンプリング <strong class="text-[#eee]">「I'm Rakim, the fiend of a microphone」</strong></span>
+            <span class="text-[var(--c-gold)] shrink-0">④</span>
+            <span class="text-[var(--c-muted)]">Rakimの名曲「Microphone Fiend」からのサンプリング <strong class="text-[var(--c-text)]">「I'm Rakim, the fiend of a microphone」</strong></span>
           </li>
         </ul>
-        <p class="text-[#999] text-sm leading-relaxed mt-3">
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed mt-3">
           これらの声がターンテーブル上で交錯することで、単なるサビ以上の「ヒップホップの歴史の走馬灯」のような効果を生み出している。
         </p>
       </div>
 
       <!-- Episode 4: Live & Fund -->
-      <div class="mb-6 p-5 bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg">
-        <p class="text-[#d4af37] text-xs uppercase tracking-widest mb-2">制作秘話 04</p>
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">制作秘話 04</p>
         <h3 class="font-semibold text-base mb-3">一度限りのライブ — そして収益はストリートへ還元</h3>
-        <p class="text-[#999] text-sm leading-relaxed">
-          2006年12月10日、ニューヨークでMTVのカメラが入る中、Air Force 1の25周年を記念する特別なパーティーが開催された。会場には<strong class="text-[#eee]">1040足の歴代Air Force 1</strong>が展示され、Kanye West・Nas・KRS-One・Rakim・Rick Rubinが一堂に会し、この楽曲が<strong class="text-[#eee]">最初で最後の一度限りのライブパフォーマンス</strong>として披露された。
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          2006年12月10日、ニューヨークでMTVのカメラが入る中、Air Force 1の25周年を記念する特別なパーティーが開催された。会場には<strong class="text-[var(--c-text)]">1040足の歴代Air Force 1</strong>が展示され、Kanye West・Nas・KRS-One・Rakim・Rick Rubinが一堂に会し、この楽曲が<strong class="text-[var(--c-text)]">最初で最後の一度限りのライブパフォーマンス</strong>として披露された。
         </p>
-        <p class="text-[#999] text-sm leading-relaxed mt-3">
-          楽曲の販売収益は「<strong class="text-[#eee]">Force4Change Fund</strong>」を通じて寄付された。若者のリーダーシップ育成・スポーツへのアクセス支援・有色人種コミュニティへの還元を目的としたこの基金は、ヒップホップが生まれた土壌への「Give Back」という理念を体現している。
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed mt-3">
+          楽曲の販売収益は「<strong class="text-[var(--c-text)]">Force4Change Fund</strong>」を通じて寄付された。若者のリーダーシップ育成・スポーツへのアクセス支援・有色人種コミュニティへの還元を目的としたこの基金は、ヒップホップが生まれた土壌への「Give Back」という理念を体現している。
         </p>
       </div>
     </section>
@@ -515,69 +508,88 @@ import '../../styles/global.css';
     <!-- GRAMMY               -->
     <!-- ===================== -->
     <section id="grammy" class="mb-12">
-      <h2 class="text-[#d4af37] text-xs uppercase tracking-widest mb-5 border-b border-[#2a2a2a] pb-2">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
         グラミー賞
       </h2>
 
-      <div class="mb-6 p-5 bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg">
-        <p class="text-[#d4af37] text-xs uppercase tracking-widest mb-2">第50回グラミー賞 · 2008</p>
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">第50回グラミー賞 · 2008</p>
         <h3 class="font-semibold text-base mb-3">Best Rap Collaboration ノミネート</h3>
-        <p class="text-[#999] text-sm leading-relaxed">
-          DJ Premierによるリミックス版は、その文化的インパクトにより<strong class="text-[#eee]">2008年の第50回グラミー賞「Best Rap Collaboration」部門にノミネート</strong>された。競合したのは<strong class="text-[#eee]">UGK & Outkastの「International Players Anthem」</strong>など強力な作品群。惜しくも受賞は逃したが、企業プロモーション発の楽曲がグラミーで評価されたという事実は、この曲の芸術的な完成度を証明している。
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          DJ Premierによるリミックス版は、その文化的インパクトにより<strong class="text-[var(--c-text)]">2008年の第50回グラミー賞「Best Rap Collaboration」部門にノミネート</strong>された。競合したのは<strong class="text-[var(--c-text)]">UGK & Outkastの「International Players Anthem」</strong>など強力な作品群。惜しくも受賞は逃したが、企業プロモーション発の楽曲がグラミーで評価されたという事実は、この曲の芸術的な完成度を証明している。
         </p>
       </div>
 
-      <div class="mb-6 p-5 bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg">
-        <p class="text-[#d4af37] text-xs uppercase tracking-widest mb-2">同じ夜に</p>
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">同じ夜に</p>
         <h3 class="font-semibold text-base mb-3">Kanyeの絶頂期と重なった歴史的夜</h3>
-        <p class="text-[#999] text-sm leading-relaxed">
-          この同じ第50回グラミー賞の夜、共演者の<strong class="text-[#eee]">Kanye Westはアルバム『Graduation』で複数の賞を受賞</strong>していた。「Classic」録音時のKanyeはまさにキャリアの絶頂にあり、そのエネルギーがヴァースに凝縮されている。ヒップホップの神様（Rakim）、詩人（Nas）、教師（KRS-One）、そして時代の寵児（Kanye）が同じグラミーの夜に交差した——この偶然の一致もまた、この楽曲の伝説性を補強している。
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          この同じ第50回グラミー賞の夜、共演者の<strong class="text-[var(--c-text)]">Kanye Westはアルバム『Graduation』で複数の賞を受賞</strong>していた。「Classic」録音時のKanyeはまさにキャリアの絶頂にあり、そのエネルギーがヴァースに凝縮されている。ヒップホップの神様（Rakim）、詩人（Nas）、教師（KRS-One）、そして時代の寵児（Kanye）が同じグラミーの夜に交差した——この偶然の一致もまた、この楽曲の伝説性を補強している。
         </p>
       </div>
 
-      <div class="p-5 bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg">
-        <p class="text-[#d4af37] text-xs uppercase tracking-widest mb-2">商業と芸術の垣根を越えて</p>
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">商業と芸術の垣根を越えて</p>
         <h3 class="font-semibold text-base mb-3">スニーカー広告が残した本物のレガシー</h3>
-        <p class="text-[#999] text-sm leading-relaxed">
-          企業のプロモーション用に作られながら、ヒップホップのコアな魅力を一切妥協しなかった本作。グラミーノミネートはその証明だが、本当のレガシーは別のところにある。Rakimが「buggin' out」と嘆いた2007年のヒップホップシーンで、彼らは<strong class="text-[#eee]">ブーンバップの誠実さ、リリシストの矜持、ストリートへの還元</strong>という三つの約束を守り抜いた。それがこの曲を、今もクラシックたらしめている理由だ。
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          企業のプロモーション用に作られながら、ヒップホップのコアな魅力を一切妥協しなかった本作。グラミーノミネートはその証明だが、本当のレガシーは別のところにある。Rakimが「buggin' out」と嘆いた2007年のヒップホップシーンで、彼らは<strong class="text-[var(--c-text)]">ブーンバップの誠実さ、リリシストの矜持、ストリートへの還元</strong>という三つの約束を守り抜いた。それがこの曲を、今もクラシックたらしめている理由だ。
         </p>
       </div>
     </section>
 
     <!-- Related Articles -->
     <section class="mb-12">
-      <h2 class="text-[#d4af37] text-xs uppercase tracking-widest mb-5 border-b border-[#2a2a2a] pb-2">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
         関連記事
       </h2>
       <ul class="space-y-3">
         <li>
-          <a href="/songs/cream" class="flex items-center justify-between p-4 bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg hover:border-[#d4af37] transition-colors">
+          <a href="/songs/cream" class="flex items-center justify-between p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg hover:border-[var(--c-gold)] transition-colors">
             <div>
-              <p class="text-[#d4af37] text-xs uppercase tracking-widest mb-0.5">RZA Produced · 1994</p>
+              <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-0.5">RZA Produced · 1994</p>
               <p class="font-semibold">C.R.E.A.M.</p>
-              <p class="text-[#777] text-xs mt-0.5">Wu-Tang Clan</p>
+              <p class="text-[var(--c-dim)] text-xs mt-0.5">Wu-Tang Clan</p>
             </div>
-            <span class="text-[#555] text-lg">→</span>
+            <span class="text-[var(--c-very-dim)] text-lg">→</span>
           </a>
         </li>
         <li>
-          <a href="/songs/nas-is-like" class="flex items-center justify-between p-4 bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg hover:border-[#d4af37] transition-colors">
+          <a href="/songs/nas-is-like" class="flex items-center justify-between p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg hover:border-[var(--c-gold)] transition-colors">
             <div>
-              <p class="text-[#d4af37] text-xs uppercase tracking-widest mb-0.5">DJ Premier Produced · 1999</p>
+              <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-0.5">DJ Premier Produced · 1999</p>
               <p class="font-semibold">Nas Is Like</p>
-              <p class="text-[#777] text-xs mt-0.5">Nas</p>
+              <p class="text-[var(--c-dim)] text-xs mt-0.5">Nas</p>
             </div>
-            <span class="text-[#555] text-lg">→</span>
+            <span class="text-[var(--c-very-dim)] text-lg">→</span>
+          </a>
+        </li>
+        <li>
+          <a href="/songs/you" class="flex items-center justify-between p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg hover:border-[var(--c-gold)] transition-colors">
+            <div>
+              <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-0.5">DJ Premier Produced · 2011</p>
+              <p class="font-semibold">You</p>
+              <p class="text-[var(--c-dim)] text-xs mt-0.5">Evidence feat. DJ Premier</p>
+            </div>
+            <span class="text-[var(--c-very-dim)] text-lg">→</span>
+          </a>
+        </li>
+        <li>
+          <a href="/songs/what-they-do" class="flex items-center justify-between p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg hover:border-[var(--c-gold)] transition-colors">
+            <div>
+              <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-0.5">The Roots Produced · 1996</p>
+              <p class="font-semibold">What They Do</p>
+              <p class="text-[var(--c-dim)] text-xs mt-0.5">The Roots feat. Raphael Saadiq</p>
+            </div>
+            <span class="text-[var(--c-very-dim)] text-lg">→</span>
           </a>
         </li>
       </ul>
     </section>
 
     <!-- Footer -->
-    <footer class="border-t border-[#2a2a2a] pt-6 text-[#555] text-xs">
+    <footer class="border-t border-[var(--c-border)] pt-6 text-[var(--c-very-dim)] text-xs">
       <p>Producer: DJ Premier · Sample: Carl Douglas "Dance the Kung-Fu" · Prod. for Nike AF1 25th Anniversary</p>
     </footer>
 
   </div>
-</body>
-</html>
+</Layout>

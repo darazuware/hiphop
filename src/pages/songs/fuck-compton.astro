@@ -1,43 +1,36 @@
 ---
 import LyricsBlock from '../../components/LyricsBlock.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
-import '../../styles/global.css';
+import Layout from '../../layouts/Layout.astro';
 ---
 
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fuck Compton — 歌詞和訳・徹底解説 | Tim Dog 1991</title>
-</head>
-<body class="bg-[#111] text-[#eee] min-h-screen">
+<Layout title="Fuck Compton — 歌詞和訳・徹底解説 | Tim Dog 1991" description="Tim Dogの「Fuck Compton」の歌詞和訳とスラング解説。東西ヒップホップ抗争の導火線となった1991年のディストラックを徹底解説。">
   <div class="max-w-2xl mx-auto px-4 py-8">
 
     <!-- Header -->
     <header class="mb-8">
-      <p class="text-[#d4af37] text-xs uppercase tracking-widest mb-1">The 45 King Produced · 1991</p>
+      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-1">The 45 King Produced · 1991</p>
       <h1 class="text-2xl md:text-3xl font-bold leading-tight mb-1">
         Fuck Compton
       </h1>
-      <p class="text-[#777] text-sm">Tim Dog</p>
-      <p class="text-[#555] text-xs mt-1">Album: Penicillin on Wax · South Bronx, NYC</p>
+      <p class="text-[var(--c-dim)] text-sm">Tim Dog</p>
+      <p class="text-[var(--c-very-dim)] text-xs mt-1">Album: Penicillin on Wax · South Bronx, NYC</p>
     </header>
 
     <!-- Track Context -->
-    <div class="mb-10 p-4 bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg text-sm text-[#999] leading-relaxed">
-      <p>N.W.Aが全米を席巻した1991年、ヒップホップ発祥の地サウス・ブロンクスから放たれた怒りの宣戦布告。Ced-GeeがESGの「UFO」を不穏にスローダウンし、Tim DogがEazy-E・Dr. Dre・Ice Cubeを名指しで痛烈にディスした。<strong class="text-[#d4af37]">「Well I'm from the South Bronx, fuck Compton!」——東西抗争の導火線となったヒップホップ史上最も重要なディストラック。</strong></p>
+    <div class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg text-sm text-[var(--c-muted)] leading-relaxed">
+      <p>N.W.Aが全米を席巻した1991年、ヒップホップ発祥の地サウス・ブロンクスから放たれた怒りの宣戦布告。Ced-GeeがESGの「UFO」を不穏にスローダウンし、Tim DogがEazy-E・Dr. Dre・Ice Cubeを名指しで痛烈にディスした。<strong class="text-[var(--c-gold)]">「Well I'm from the South Bronx, fuck Compton!」——東西抗争の導火線となったヒップホップ史上最も重要なディストラック。</strong></p>
     </div>
 
     <!-- Table of Contents -->
-    <nav class="mb-10 p-4 bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg">
-      <p class="text-[#d4af37] text-xs uppercase tracking-widest mb-3">目次</p>
-      <ol class="space-y-1.5 text-sm text-[#999] list-none">
-        <li><a href="#lyrics" class="hover:text-[#d4af37] transition-colors">01 — リリック和訳・解説</a></li>
-        <li><a href="#background" class="hover:text-[#d4af37] transition-colors">02 — 文化的背景</a></li>
-        <li><a href="#versions" class="hover:text-[#d4af37] transition-colors">03 — バージョン違い</a></li>
-        <li><a href="#behind" class="hover:text-[#d4af37] transition-colors">04 — 制作の裏側</a></li>
-        <li><a href="#legacy" class="hover:text-[#d4af37] transition-colors">05 — 評価と足跡</a></li>
+    <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
+      <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
+        <li><a href="#lyrics" class="hover:text-[var(--c-gold)] transition-colors">01 — リリック和訳・解説</a></li>
+        <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">02 — 文化的背景</a></li>
+        <li><a href="#versions" class="hover:text-[var(--c-gold)] transition-colors">03 — バージョン違い</a></li>
+        <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">04 — 制作の裏側</a></li>
+        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">05 — 評価と足跡</a></li>
       </ol>
     </nav>
 
@@ -59,7 +52,7 @@ import '../../styles/global.css';
     <!-- INTRO                 -->
     <!-- ===================== -->
     <section class="mb-12">
-      <h2 class="text-[#d4af37] text-xs uppercase tracking-widest mb-5 border-b border-[#2a2a2a] pb-2">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
         Intro · Tim Dog
       </h2>
 
@@ -90,7 +83,7 @@ import '../../styles/global.css';
     <!-- VERSE 1               -->
     <!-- ===================== -->
     <section id="verse1" class="mb-12">
-      <h2 class="text-[#d4af37] text-xs uppercase tracking-widest mb-5 border-b border-[#2a2a2a] pb-2">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
         Verse 1 · Tim Dog
       </h2>
 
@@ -129,7 +122,7 @@ import '../../styles/global.css';
     <!-- HOOK 1                -->
     <!-- ===================== -->
     <section class="mb-12">
-      <h2 class="text-[#d4af37] text-xs uppercase tracking-widest mb-5 border-b border-[#2a2a2a] pb-2">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
         Hook · Tim Dog
       </h2>
 
@@ -158,7 +151,7 @@ import '../../styles/global.css';
     <!-- VERSE 2               -->
     <!-- ===================== -->
     <section id="verse2" class="mb-12">
-      <h2 class="text-[#d4af37] text-xs uppercase tracking-widest mb-5 border-b border-[#2a2a2a] pb-2">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
         Verse 2 · Tim Dog
       </h2>
 
@@ -211,7 +204,7 @@ import '../../styles/global.css';
     <!-- HOOK 2                -->
     <!-- ===================== -->
     <section class="mb-12">
-      <h2 class="text-[#d4af37] text-xs uppercase tracking-widest mb-5 border-b border-[#2a2a2a] pb-2">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
         Hook 2 · Tim Dog
       </h2>
 
@@ -242,7 +235,7 @@ import '../../styles/global.css';
     <!-- VERSE 3               -->
     <!-- ===================== -->
     <section id="verse3" class="mb-12">
-      <h2 class="text-[#d4af37] text-xs uppercase tracking-widest mb-5 border-b border-[#2a2a2a] pb-2">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
         Verse 3 · Tim Dog
       </h2>
 
@@ -285,28 +278,28 @@ import '../../styles/global.css';
     <!-- CULTURAL BACKGROUND   -->
     <!-- ===================== -->
     <section id="background" class="mb-12">
-      <h2 class="text-[#d4af37] text-xs uppercase tracking-widest mb-5 border-b border-[#2a2a2a] pb-2">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
         文化的背景
       </h2>
 
-      <div class="mb-6 p-5 bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg">
-        <p class="text-[#d4af37] text-xs uppercase tracking-widest mb-2">HIPHOPの東西対立</p>
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">HIPHOPの東西対立</p>
         <h3 class="font-semibold text-base mb-3">「Straight Outta Compton」が変えたパワーバランス</h3>
-        <p class="text-[#999] text-sm leading-relaxed">
-          HIPHOPは1970年代にニューヨーク・サウス・ブロンクスで産声を上げた。しかし1988年にN.W.Aが『Straight Outta Compton』をリリースしてからギャングスタ・ラップが全米を席巻し、<strong class="text-[#eee]">HIPHOPの商業的中心地は西海岸へと急速に移動</strong>した。東海岸のアーティストたちはメディアやレーベルが「コンプトン出身」というだけで西海岸アーティストを優遇する状況に深刻な疎外感と憤りを募らせていた。
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          HIPHOPは1970年代にニューヨーク・サウス・ブロンクスで産声を上げた。しかし1988年にN.W.Aが『Straight Outta Compton』をリリースしてからギャングスタ・ラップが全米を席巻し、<strong class="text-[var(--c-text)]">HIPHOPの商業的中心地は西海岸へと急速に移動</strong>した。東海岸のアーティストたちはメディアやレーベルが「コンプトン出身」というだけで西海岸アーティストを優遇する状況に深刻な疎外感と憤りを募らせていた。
         </p>
       </div>
 
-      <div class="mb-6 p-5 bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg">
-        <p class="text-[#d4af37] text-xs uppercase tracking-widest mb-2">東西のスタイル対立</p>
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">東西のスタイル対立</p>
         <h3 class="font-semibold text-base mb-3">リリカルな純粋主義 vs. ストリートの映画的リアリズム</h3>
-        <p class="text-[#999] text-sm leading-relaxed">
-          東海岸はサンプリング芸術の追求、複雑で知的なリリックの構造を重んじる純粋主義的価値観に支配されていた。一方、西海岸はPファンクに影響を受けた重低音とグルーヴィーなビートを基調とし、ストリートの過酷な現実をいかに映画的に描写するかに重きが置かれていた。ファッション的には、東海岸がティンバーランドのブーツやNike Air Force 1を、西海岸がレイダースのキャップとジェリー・カールを象徴として持ち、<strong class="text-[#eee]">すべてのアイデンティティが衝突</strong>していた。
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          東海岸はサンプリング芸術の追求、複雑で知的なリリックの構造を重んじる純粋主義的価値観に支配されていた。一方、西海岸はPファンクに影響を受けた重低音とグルーヴィーなビートを基調とし、ストリートの過酷な現実をいかに映画的に描写するかに重きが置かれていた。ファッション的には、東海岸がティンバーランドのブーツやNike Air Force 1を、西海岸がレイダースのキャップとジェリー・カールを象徴として持ち、<strong class="text-[var(--c-text)]">すべてのアイデンティティが衝突</strong>していた。
         </p>
       </div>
 
-      <div class="p-5 bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg">
-        <p class="text-[#d4af37] text-xs uppercase tracking-widest mb-2">キーワード解説</p>
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">キーワード解説</p>
         <h3 class="font-semibold text-base mb-3">楽曲を読み解く重要スラング・用語</h3>
         <div class="space-y-3 mt-3">
           {[
@@ -317,8 +310,8 @@ import '../../styles/global.css';
             ['South Bronx', 'HIPHOPが誕生した「聖地」。DJ Kool Hercが1973年にブロックパーティーを開催した場所。Tim Dogがコンプトンに対して突き付けた「本家の証明」'],
           ].map(([term, desc]) => (
             <div class="flex gap-3 text-sm">
-              <span class="text-[#d4af37] shrink-0 font-semibold min-w-[140px]">{term}</span>
-              <span class="text-[#999]">{desc}</span>
+              <span class="text-[var(--c-gold)] shrink-0 font-semibold min-w-[140px]">{term}</span>
+              <span class="text-[var(--c-muted)]">{desc}</span>
             </div>
           ))}
         </div>
@@ -329,15 +322,15 @@ import '../../styles/global.css';
     <!-- VERSIONS              -->
     <!-- ===================== -->
     <section id="versions" class="mb-12">
-      <h2 class="text-[#d4af37] text-xs uppercase tracking-widest mb-5 border-b border-[#2a2a2a] pb-2">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
         バージョン違い
       </h2>
 
-      <div class="mb-4 rounded-lg overflow-hidden border border-[#2a2a2a] text-sm">
-        <div class="grid grid-cols-3 bg-[#111] text-[#555] text-xs uppercase tracking-widest">
-          <div class="p-3 border-b border-[#2a2a2a]">バージョン</div>
-          <div class="p-3 border-b border-l border-[#2a2a2a]">特徴</div>
-          <div class="p-3 border-b border-l border-[#2a2a2a]">意義</div>
+      <div class="mb-4 rounded-lg overflow-hidden border border-[var(--c-border)] text-sm">
+        <div class="grid grid-cols-3 bg-[var(--c-bg)] text-[var(--c-very-dim)] text-xs uppercase tracking-widest">
+          <div class="p-3 border-b border-[var(--c-border)]">バージョン</div>
+          <div class="p-3 border-b border-l border-[var(--c-border)]">特徴</div>
+          <div class="p-3 border-b border-l border-[var(--c-border)]">意義</div>
         </div>
         {[
           ['"Fuck Compton" (Original)', '1991年アルバム『Penicillin on Wax』収録の完全無修正版。Fワードと過激描写そのまま', 'ストリートやアンダーグラウンドのクラブで最も熱狂的に支持された歴史的マスターピース'],
@@ -346,9 +339,9 @@ import '../../styles/global.css';
           ['"The Original Dog" (BX Mix / 2005)', '2005年リリースの実質的続編。Bob Jamesの「Nautilus」をサンプリング', '抗争から14年後の自己オマージュ的リミックス。新世代の「Dog」ラッパーたちへの牙'],
         ].map(([name, desc, significance]) => (
           <div class="grid grid-cols-3">
-            <div class="p-3 border-b border-[#2a2a2a] text-[#eee] font-medium">{name}</div>
-            <div class="p-3 border-b border-l border-[#2a2a2a] text-[#999]">{desc}</div>
-            <div class="p-3 border-b border-l border-[#2a2a2a] text-[#777] text-xs">{significance}</div>
+            <div class="p-3 border-b border-[var(--c-border)] text-[var(--c-text)] font-medium">{name}</div>
+            <div class="p-3 border-b border-l border-[var(--c-border)] text-[var(--c-muted)]">{desc}</div>
+            <div class="p-3 border-b border-l border-[var(--c-border)] text-[var(--c-dim)] text-xs">{significance}</div>
           </div>
         ))}
       </div>
@@ -358,37 +351,37 @@ import '../../styles/global.css';
     <!-- BEHIND THE SCENES     -->
     <!-- ===================== -->
     <section id="behind" class="mb-12">
-      <h2 class="text-[#d4af37] text-xs uppercase tracking-widest mb-5 border-b border-[#2a2a2a] pb-2">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
         制作の裏側
       </h2>
 
-      <div class="mb-6 p-5 bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg">
-        <p class="text-[#d4af37] text-xs uppercase tracking-widest mb-2">制作秘話 01</p>
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">制作秘話 01</p>
         <h3 class="font-semibold text-base mb-3">Ced-Geeの地下室と伝説のサンプラーE-mu SP-1200</h3>
-        <p class="text-[#999] text-sm leading-relaxed">
-          本作のサウンドプロダクションを担ったのはUltramagnetic MCsのCed-Gee。彼はHIPHOP制作の歴史を変えた伝説のサンプラー<strong class="text-[#eee]">「E-mu SP-1200」</strong>の機能を極限まで引き出す魔術師として知られる。楽曲の核となる不穏で攻撃的なビートは、ESGの名曲「UFO」をスローダウンさせてサンプリングし、そこに鋭く突き刺さるようなギターのスタッブを重ねることで構築された。
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          本作のサウンドプロダクションを担ったのはUltramagnetic MCsのCed-Gee。彼はHIPHOP制作の歴史を変えた伝説のサンプラー<strong class="text-[var(--c-text)]">「E-mu SP-1200」</strong>の機能を極限まで引き出す魔術師として知られる。楽曲の核となる不穏で攻撃的なビートは、ESGの名曲「UFO」をスローダウンさせてサンプリングし、そこに鋭く突き刺さるようなギターのスタッブを重ねることで構築された。
         </p>
-        <p class="text-[#999] text-sm leading-relaxed mt-3">
-          録音当時、Tim DogはCed-Geeの実家の<strong class="text-[#eee]">地下室に居候している状態</strong>だった。そこでラップのスキルを磨き、Ultramagnetic MCsの「A Chorus Line」への参加を勝ち取り、これが業界の目に留まりRuffhouse Recordsとの契約に繋がった。
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed mt-3">
+          録音当時、Tim DogはCed-Geeの実家の<strong class="text-[var(--c-text)]">地下室に居候している状態</strong>だった。そこでラップのスキルを磨き、Ultramagnetic MCsの「A Chorus Line」への参加を勝ち取り、これが業界の目に留まりRuffhouse Recordsとの契約に繋がった。
         </p>
       </div>
 
-      <div class="mb-6 p-5 bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg">
-        <p class="text-[#d4af37] text-xs uppercase tracking-widest mb-2">制作秘話 02</p>
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">制作秘話 02</p>
         <h3 class="font-semibold text-base mb-3">「半ばブラックジョーク」——Tim Dog自身が認めた誇張</h3>
-        <p class="text-[#999] text-sm leading-relaxed">
-          Tim Dog自身は後のインタビューで、元々は西海岸のラッパー全員やコンプトンという街そのものに個人的な深い憎悪を抱いていたわけではないと語っている。真の狙いは「N.W.Aが個人的に気に入らなかったこと」と<strong class="text-[#eee]">「コンプトン出身というだけで実力が伴わなくともレコード会社と契約できる当時の不公平な業界の風潮」</strong>への強烈な苛立ちを表現することだった。
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          Tim Dog自身は後のインタビューで、元々は西海岸のラッパー全員やコンプトンという街そのものに個人的な深い憎悪を抱いていたわけではないと語っている。真の狙いは「N.W.Aが個人的に気に入らなかったこと」と<strong class="text-[var(--c-text)]">「コンプトン出身というだけで実力が伴わなくともレコード会社と契約できる当時の不公平な業界の風潮」</strong>への強烈な苛立ちを表現することだった。
         </p>
-        <p class="text-[#999] text-sm leading-relaxed mt-3">
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed mt-3">
           彼はこの曲が後に死者を出すほどの巨大な東西抗争に発展するとは夢にも思っておらず、半ばプロレスにおけるヒール（悪役）的なエンターテインメントとして向かっていた。しかし彼が放った言葉はあまりにも鋭く、パンドラの箱を開け放つこととなった。
         </p>
       </div>
 
-      <div class="p-5 bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg">
-        <p class="text-[#d4af37] text-xs uppercase tracking-widest mb-2">制作秘話 03</p>
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">制作秘話 03</p>
         <h3 class="font-semibold text-base mb-3">「話題作り」の提案——レーベル側のセンセーショナル戦略</h3>
-        <p class="text-[#999] text-sm leading-relaxed">
-          レーベル側は新人であるTim Dogを売り出すための強烈な話題作り（バズ）を求めていた。Tim Dogは声の迫力こそ圧倒的だったものの、Rakimのような極めて高度なリリシストというわけではなく、純粋なラップスキルだけで市場を制圧するのは困難だと見なされていた。そこでレーベル側から<strong class="text-[#eee]">「西海岸のラッパーを強烈にディスしてはどうか」</strong>というセンセーショナルな提案がなされたとされる。商業的な戦略から生まれた楽曲が、結果としてHIPHOP史の地政学を永遠に塗り替えてしまった皮肉な事例だ。
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          レーベル側は新人であるTim Dogを売り出すための強烈な話題作り（バズ）を求めていた。Tim Dogは声の迫力こそ圧倒的だったものの、Rakimのような極めて高度なリリシストというわけではなく、純粋なラップスキルだけで市場を制圧するのは困難だと見なされていた。そこでレーベル側から<strong class="text-[var(--c-text)]">「西海岸のラッパーを強烈にディスしてはどうか」</strong>というセンセーショナルな提案がなされたとされる。商業的な戦略から生まれた楽曲が、結果としてHIPHOP史の地政学を永遠に塗り替えてしまった皮肉な事例だ。
         </p>
       </div>
     </section>
@@ -397,15 +390,15 @@ import '../../styles/global.css';
     <!-- LEGACY                -->
     <!-- ===================== -->
     <section id="legacy" class="mb-12">
-      <h2 class="text-[#d4af37] text-xs uppercase tracking-widest mb-5 border-b border-[#2a2a2a] pb-2">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
         評価と足跡
       </h2>
 
-      <div class="mb-4 rounded-lg overflow-hidden border border-[#2a2a2a] text-sm">
-        <div class="grid grid-cols-3 bg-[#111] text-[#555] text-xs uppercase tracking-widest">
-          <div class="p-3 border-b border-[#2a2a2a]">指標</div>
-          <div class="p-3 border-b border-l border-[#2a2a2a]">記録</div>
-          <div class="p-3 border-b border-l border-[#2a2a2a]">意義</div>
+      <div class="mb-4 rounded-lg overflow-hidden border border-[var(--c-border)] text-sm">
+        <div class="grid grid-cols-3 bg-[var(--c-bg)] text-[var(--c-very-dim)] text-xs uppercase tracking-widest">
+          <div class="p-3 border-b border-[var(--c-border)]">指標</div>
+          <div class="p-3 border-b border-l border-[var(--c-border)]">記録</div>
+          <div class="p-3 border-b border-l border-[var(--c-border)]">意義</div>
         </div>
         {[
           ['US Billboard Hot Rap Songs', '最高1位 (1991年)', '過激な内容でラジオでの放送を制限されながらも、ストリート発の熱狂でチャート首位を獲得した歴史的快挙'],
@@ -415,31 +408,31 @@ import '../../styles/global.css';
           ['Eminemによる言及', '「Ricky Ticky Toc」でネームドロップ', 'Dr. Dreの愛弟子EminemがTim Dogの名を刻んだことが楽曲の歴史的重みを証明している'],
         ].map(([metric, record, significance]) => (
           <div class="grid grid-cols-3">
-            <div class="p-3 border-b border-[#2a2a2a] text-[#777]">{metric}</div>
-            <div class="p-3 border-b border-l border-[#2a2a2a] text-[#d4af37] font-medium">{record}</div>
-            <div class="p-3 border-b border-l border-[#2a2a2a] text-[#999] text-xs">{significance}</div>
+            <div class="p-3 border-b border-[var(--c-border)] text-[var(--c-dim)]">{metric}</div>
+            <div class="p-3 border-b border-l border-[var(--c-border)] text-[var(--c-gold)] font-medium">{record}</div>
+            <div class="p-3 border-b border-l border-[var(--c-border)] text-[var(--c-muted)] text-xs">{significance}</div>
           </div>
         ))}
       </div>
 
-      <div class="p-5 bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg">
-        <p class="text-[#d4af37] text-xs uppercase tracking-widest mb-2">後世への影響</p>
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">後世への影響</p>
         <h3 class="font-semibold text-base mb-3">言葉が歴史を動かした——HIPHOPの最大のケーススタディ</h3>
-        <p class="text-[#999] text-sm leading-relaxed mb-4">
-          一人の無名に近いブロンクスのラッパーが放った怒りの言葉が、結果として西海岸の巨大な音楽帝国を揺るがし、HIPHOP全体の地政学と歴史を永遠に変えてしまった。2年後の1993年、ブルックリンから現れた新星The Notorious B.I.G.が<a href="/songs/party-and-bullshit" class="text-[#d4af37] hover:underline">「Party and Bullshit」</a>で東海岸の復権を力強く宣言し、Tim Dogが切り開いた東西対立の文脈をそのまま継承した。そして13年後、Nasは<a href="/songs/hiphop-is-dead" class="text-[#d4af37] hover:underline">「Hip Hop Is Dead」</a>でその東西抗争が生んだ商業化の末路を痛烈に批判することになる。
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed mb-4">
+          一人の無名に近いブロンクスのラッパーが放った怒りの言葉が、結果として西海岸の巨大な音楽帝国を揺るがし、HIPHOP全体の地政学と歴史を永遠に変えてしまった。2年後の1993年、ブルックリンから現れた新星The Notorious B.I.G.が<a href="/songs/party-and-bullshit" class="text-[var(--c-gold)] hover:underline">「Party and Bullshit」</a>で東海岸の復権を力強く宣言し、Tim Dogが切り開いた東西対立の文脈をそのまま継承した。そして13年後、Nasは<a href="/songs/hiphop-is-dead" class="text-[var(--c-gold)] hover:underline">「Hip Hop Is Dead」</a>でその東西抗争が生んだ商業化の末路を痛烈に批判することになる。
         </p>
         <ul class="space-y-3 text-sm">
           <li class="flex gap-3">
-            <span class="text-[#d4af37] shrink-0">Dr. Dre &amp; Snoop</span>
-            <span class="text-[#999]">「Fuck Wit Dre Day」で反撃。Snoopが「Play with my bone, would ya Timmy?」とTim Dogを嘲笑し、MVではTim Dogを模したキャラクターを登場させた。</span>
+            <span class="text-[var(--c-gold)] shrink-0">Dr. Dre &amp; Snoop</span>
+            <span class="text-[var(--c-muted)]">「Fuck Wit Dre Day」で反撃。Snoopが「Play with my bone, would ya Timmy?」とTim Dogを嘲笑し、MVではTim Dogを模したキャラクターを登場させた。</span>
           </li>
           <li class="flex gap-3">
-            <span class="text-[#d4af37] shrink-0">Tupac &amp; Hit 'Em Up</span>
-            <span class="text-[#999]">Tim DogがMichel'leへの性的侮辱という「最終兵器」を使ったことが、後のTupacによるFaith Evans侮辱の先駆けとなった。</span>
+            <span class="text-[var(--c-gold)] shrink-0">Tupac &amp; Hit 'Em Up</span>
+            <span class="text-[var(--c-muted)]">Tim DogがMichel'leへの性的侮辱という「最終兵器」を使ったことが、後のTupacによるFaith Evans侮辱の先駆けとなった。</span>
           </li>
           <li class="flex gap-3">
-            <span class="text-[#d4af37] shrink-0">現代のビーフ文化</span>
-            <span class="text-[#999]">「メディアやエンターテインメントとしてのディス」がリアルな暴力へとエスカレートするプロセスの最初の完全な事例として、現在も研究・参照される。</span>
+            <span class="text-[var(--c-gold)] shrink-0">現代のビーフ文化</span>
+            <span class="text-[var(--c-muted)]">「メディアやエンターテインメントとしてのディス」がリアルな暴力へとエスカレートするプロセスの最初の完全な事例として、現在も研究・参照される。</span>
           </li>
         </ul>
       </div>
@@ -449,48 +442,67 @@ import '../../styles/global.css';
     <!-- RELATED ARTICLES      -->
     <!-- ===================== -->
     <section class="mb-12">
-      <h2 class="text-[#d4af37] text-xs uppercase tracking-widest mb-5 border-b border-[#2a2a2a] pb-2">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
         関連記事
       </h2>
       <ul class="space-y-3">
         <li>
-          <a href="/songs/party-and-bullshit" class="flex items-center justify-between p-4 bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg hover:border-[#d4af37] transition-colors">
+          <a href="/songs/party-and-bullshit" class="flex items-center justify-between p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg hover:border-[var(--c-gold)] transition-colors">
             <div>
-              <p class="text-[#d4af37] text-xs uppercase tracking-widest mb-0.5">Puff Daddy Produced · 1993</p>
+              <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-0.5">Puff Daddy Produced · 1993</p>
               <p class="font-semibold">Party and Bullshit</p>
-              <p class="text-[#777] text-xs mt-0.5">The Notorious B.I.G.</p>
+              <p class="text-[var(--c-dim)] text-xs mt-0.5">The Notorious B.I.G.</p>
             </div>
-            <span class="text-[#555] text-lg">→</span>
+            <span class="text-[var(--c-very-dim)] text-lg">→</span>
           </a>
         </li>
         <li>
-          <a href="/songs/cream" class="flex items-center justify-between p-4 bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg hover:border-[#d4af37] transition-colors">
+          <a href="/songs/cream" class="flex items-center justify-between p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg hover:border-[var(--c-gold)] transition-colors">
             <div>
-              <p class="text-[#d4af37] text-xs uppercase tracking-widest mb-0.5">RZA Produced · 1994</p>
+              <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-0.5">RZA Produced · 1994</p>
               <p class="font-semibold">C.R.E.A.M.</p>
-              <p class="text-[#777] text-xs mt-0.5">Wu-Tang Clan</p>
+              <p class="text-[var(--c-dim)] text-xs mt-0.5">Wu-Tang Clan</p>
             </div>
-            <span class="text-[#555] text-lg">→</span>
+            <span class="text-[var(--c-very-dim)] text-lg">→</span>
           </a>
         </li>
         <li>
-          <a href="/songs/hiphop-is-dead" class="flex items-center justify-between p-4 bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg hover:border-[#d4af37] transition-colors">
+          <a href="/songs/hiphop-is-dead" class="flex items-center justify-between p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg hover:border-[var(--c-gold)] transition-colors">
             <div>
-              <p class="text-[#d4af37] text-xs uppercase tracking-widest mb-0.5">will.i.am Produced · 2006</p>
+              <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-0.5">will.i.am Produced · 2006</p>
               <p class="font-semibold">Hip Hop Is Dead</p>
-              <p class="text-[#777] text-xs mt-0.5">Nas feat. will.i.am</p>
+              <p class="text-[var(--c-dim)] text-xs mt-0.5">Nas feat. will.i.am</p>
             </div>
-            <span class="text-[#555] text-lg">→</span>
+            <span class="text-[var(--c-very-dim)] text-lg">→</span>
+          </a>
+        </li>
+        <li>
+          <a href="/songs/protect-ya-neck" class="flex items-center justify-between p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg hover:border-[var(--c-gold)] transition-colors">
+            <div>
+              <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-0.5">RZA Produced · 1993</p>
+              <p class="font-semibold">Protect Ya Neck</p>
+              <p class="text-[var(--c-dim)] text-xs mt-0.5">Wu-Tang Clan</p>
+            </div>
+            <span class="text-[var(--c-very-dim)] text-lg">→</span>
+          </a>
+        </li>
+        <li>
+          <a href="/songs/come-clean" class="flex items-center justify-between p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg hover:border-[var(--c-gold)] transition-colors">
+            <div>
+              <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-0.5">DJ Premier Produced · 1993</p>
+              <p class="font-semibold">Come Clean</p>
+              <p class="text-[var(--c-dim)] text-xs mt-0.5">Jeru the Damaja</p>
+            </div>
+            <span class="text-[var(--c-very-dim)] text-lg">→</span>
           </a>
         </li>
       </ul>
     </section>
 
     <!-- Footer -->
-    <footer class="border-t border-[#2a2a2a] pt-6 text-[#555] text-xs">
+    <footer class="border-t border-[var(--c-border)] pt-6 text-[var(--c-very-dim)] text-xs">
       <p>Producer: Ced-Gee / The 45 King · Sample: ESG "UFO" · Album: Penicillin on Wax (1991)</p>
     </footer>
 
   </div>
-</body>
-</html>
+</Layout>

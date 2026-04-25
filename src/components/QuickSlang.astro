@@ -9,11 +9,11 @@ const { word, desc } = Astro.props;
 <span class="qs relative inline-block">
   <button
     type="button"
-    class="qs-trigger border-b border-dotted border-[#d4af37] text-[#eee] cursor-pointer bg-transparent p-0 font-[inherit] text-[inherit]"
+    class="qs-trigger border-b border-dotted border-[var(--c-gold)] text-[var(--c-text)] cursor-pointer bg-transparent p-0 font-[inherit] text-[inherit]"
     aria-expanded="false"
   >{word}</button>
   <span
-    class="qs-tip absolute bottom-full mb-2 px-3 py-2 bg-[#1c1c1c] border border-[#d4af37]/60 text-[#eee] text-xs rounded w-48 text-center leading-snug pointer-events-none opacity-0 transition-opacity duration-150 z-20"
+    class="qs-tip absolute bottom-full mb-2 px-3 py-2 bg-[var(--c-surface)] border border-[var(--c-gold)]/60 text-[var(--c-text)] text-xs rounded w-48 text-center leading-snug pointer-events-none opacity-0 transition-opacity duration-150 z-20"
     role="tooltip"
   >{desc}</span>
 </span>

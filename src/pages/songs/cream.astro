@@ -1,50 +1,43 @@
 ---
 import LyricsBlock from '../../components/LyricsBlock.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
-import '../../styles/global.css';
+import Layout from '../../layouts/Layout.astro';
 ---
 
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>C.R.E.A.M. — 歌詞和訳・徹底解説 | Wu-Tang Clan 1994</title>
-</head>
-<body class="bg-[#111] text-[#eee] min-h-screen">
+<Layout title="C.R.E.A.M. — 歌詞和訳・徹底解説 | Wu-Tang Clan 1994" description="Wu-Tang ClanのC.R.E.A.M.の歌詞和訳とスラング徹底解説。RZAのサンプリング技術とRaekwon・Inspectah Deckが描くクラック時代のニューヨークを読み解く。">
   <div class="max-w-2xl mx-auto px-4 py-8">
 
     <!-- Header -->
     <header class="mb-8">
-      <p class="text-[#d4af37] text-xs uppercase tracking-widest mb-1">RZA Produced · 1994</p>
+      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-1">RZA Produced · 1994</p>
       <h1 class="text-2xl md:text-3xl font-bold leading-tight mb-1">
         C.R.E.A.M.
       </h1>
-      <p class="text-[#777] text-sm">Wu-Tang Clan</p>
-      <p class="text-[#555] text-xs mt-1">Album: Enter the Wu-Tang (36 Chambers) · Staten Island, NYC</p>
+      <p class="text-[var(--c-dim)] text-sm">Wu-Tang Clan</p>
+      <p class="text-[var(--c-very-dim)] text-xs mt-1">Album: Enter the Wu-Tang (36 Chambers) · Staten Island, NYC</p>
     </header>
 
     <!-- Track Context -->
-    <div class="mb-10 p-4 bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg text-sm text-[#999] leading-relaxed">
-      <p>G-Funk全盛期の1994年、スタテンアイランドから放たれた東海岸の反撃。RZAがThe Charmelsの哀愁ピアノをサンプリングし、RaekwonとInspectah Deckがクラック・エピデミックの生存記録を刻み込んだ。<strong class="text-[#d4af37]">「Cash Rules Everything Around Me」——金への執着の下に隠された、インナーシティの絶望的な叫び。</strong></p>
+    <div class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg text-sm text-[var(--c-muted)] leading-relaxed">
+      <p>G-Funk全盛期の1994年、スタテンアイランドから放たれた東海岸の反撃。RZAがThe Charmelsの哀愁ピアノをサンプリングし、RaekwonとInspectah Deckがクラック・エピデミックの生存記録を刻み込んだ。<strong class="text-[var(--c-gold)]">「Cash Rules Everything Around Me」——金への執着の下に隠された、インナーシティの絶望的な叫び。</strong></p>
     </div>
 
     <!-- Table of Contents -->
-    <nav class="mb-10 p-4 bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg">
-      <p class="text-[#d4af37] text-xs uppercase tracking-widest mb-3">目次</p>
-      <ol class="space-y-1.5 text-sm text-[#999] list-none">
-        <li><a href="#lyrics" class="hover:text-[#d4af37] transition-colors">01 — リリック和訳・解説</a></li>
-        <li><a href="#background" class="hover:text-[#d4af37] transition-colors">02 — 文化的背景</a></li>
-        <li><a href="#versions" class="hover:text-[#d4af37] transition-colors">03 — バージョン違い</a></li>
-        <li><a href="#behind" class="hover:text-[#d4af37] transition-colors">04 — 制作の裏側</a></li>
-        <li><a href="#legacy" class="hover:text-[#d4af37] transition-colors">05 — 評価と足跡</a></li>
+    <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
+      <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
+        <li><a href="#lyrics" class="hover:text-[var(--c-gold)] transition-colors">01 — リリック和訳・解説</a></li>
+        <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">02 — 文化的背景</a></li>
+        <li><a href="#versions" class="hover:text-[var(--c-gold)] transition-colors">03 — バージョン違い</a></li>
+        <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">04 — 制作の裏側</a></li>
+        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">05 — 評価と足跡</a></li>
       </ol>
     </nav>
 
     <!-- Album Cover -->
     <div class="mb-8">
-      <img src="/images/wu-tang-enter.jpg" alt="Enter the Wu-Tang (36 Chambers) - Album Cover" class="w-48 h-48 rounded-lg object-cover border border-[#2a2a2a]" />
-      <p class="text-[#555] text-xs mt-2">Enter the Wu-Tang (36 Chambers) · 1993</p>
+      <img src="/images/wu-tang-enter.jpg" alt="Enter the Wu-Tang (36 Chambers) - Album Cover" class="w-48 h-48 rounded-lg object-cover border border-[var(--c-border)]" />
+      <p class="text-[var(--c-very-dim)] text-xs mt-2">Enter the Wu-Tang (36 Chambers) · 1993</p>
     </div>
 
     <!-- YouTube Embed -->
@@ -65,7 +58,7 @@ import '../../styles/global.css';
     <!-- INTRO                 -->
     <!-- ===================== -->
     <section class="mb-12">
-      <h2 class="text-[#d4af37] text-xs uppercase tracking-widest mb-5 border-b border-[#2a2a2a] pb-2">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
         Intro · Raekwon &amp; Method Man
       </h2>
 
@@ -114,7 +107,7 @@ import '../../styles/global.css';
     <!-- VERSE 1               -->
     <!-- ===================== -->
     <section id="verse1" class="mb-12">
-      <h2 class="text-[#d4af37] text-xs uppercase tracking-widest mb-5 border-b border-[#2a2a2a] pb-2">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
         Verse 1 · Raekwon
       </h2>
 
@@ -201,7 +194,7 @@ import '../../styles/global.css';
     <!-- HOOK                  -->
     <!-- ===================== -->
     <section class="mb-12">
-      <h2 class="text-[#d4af37] text-xs uppercase tracking-widest mb-5 border-b border-[#2a2a2a] pb-2">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
         Hook · Method Man
       </h2>
 
@@ -228,7 +221,7 @@ import '../../styles/global.css';
     <!-- VERSE 2               -->
     <!-- ===================== -->
     <section id="verse2" class="mb-12">
-      <h2 class="text-[#d4af37] text-xs uppercase tracking-widest mb-5 border-b border-[#2a2a2a] pb-2">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
         Verse 2 · Inspectah Deck
       </h2>
 
@@ -327,7 +320,7 @@ import '../../styles/global.css';
     <!-- HOOK + OUTRO          -->
     <!-- ===================== -->
     <section class="mb-12">
-      <h2 class="text-[#d4af37] text-xs uppercase tracking-widest mb-5 border-b border-[#2a2a2a] pb-2">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
         Hook &amp; Outro · Method Man &amp; Raekwon
       </h2>
 
@@ -358,28 +351,28 @@ import '../../styles/global.css';
     <!-- CULTURAL BACKGROUND   -->
     <!-- ===================== -->
     <section id="background" class="mb-12">
-      <h2 class="text-[#d4af37] text-xs uppercase tracking-widest mb-5 border-b border-[#2a2a2a] pb-2">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
         文化的背景
       </h2>
 
-      <div class="mb-6 p-5 bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg">
-        <p class="text-[#d4af37] text-xs uppercase tracking-widest mb-2">クラック・エピデミック</p>
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">クラック・エピデミック</p>
         <h3 class="font-semibold text-base mb-3">1990年代ニューヨークを破壊した麻薬の惨禍</h3>
-        <p class="text-[#999] text-sm leading-relaxed">
-          粉末コカインを重曹で固形化した安価なクラック・コカインは、レーガノミクスによる社会福祉削減で疲弊したインナーシティに壊滅的打撃を与えた。1992年のニューヨーク市の殺人事件数は年間<strong class="text-[#eee]">2,225件</strong>（2020年の477件と比較）——まさに戦場だった。Wu-Tang Clanが育ったスタテンアイランドのパークヒル・プロジェクトもこの惨禍の中心地であり、彼らのリリックはエピデミックの渦中でいかにして生き延びるかという生存戦略そのものである。
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          粉末コカインを重曹で固形化した安価なクラック・コカインは、レーガノミクスによる社会福祉削減で疲弊したインナーシティに壊滅的打撃を与えた。1992年のニューヨーク市の殺人事件数は年間<strong class="text-[var(--c-text)]">2,225件</strong>（2020年の477件と比較）——まさに戦場だった。Wu-Tang Clanが育ったスタテンアイランドのパークヒル・プロジェクトもこの惨禍の中心地であり、彼らのリリックはエピデミックの渦中でいかにして生き延びるかという生存戦略そのものである。
         </p>
       </div>
 
-      <div class="mb-6 p-5 bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg">
-        <p class="text-[#d4af37] text-xs uppercase tracking-widest mb-2">Shaolin（少林）= スタテンアイランド</p>
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">Shaolin（少林）= スタテンアイランド</p>
         <h3 class="font-semibold text-base mb-3">孤立した島が生んだ純粋培養の文化</h3>
-        <p class="text-[#999] text-sm leading-relaxed">
-          ニューヨーク5区の中でスタテンアイランドだけが地下鉄と繋がっていない。フェリーがなければマンハッタンへ行けないこの<strong class="text-[#eee]">地理的孤立</strong>が、独自のスラングとハングリー精神を純粋培養した。RZAらはこの島にカンフー映画「少林寺武者房（Shaolin and Wu Tang / 1983）」の世界観を投影し「Shaolin」と呼んだ。東洋の武術哲学とアメリカのインナーシティを融合させるAfro-Asian aestheticは、後のKanye Westやアニメ「アフロサムライ」にも影響を与えた。
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          ニューヨーク5区の中でスタテンアイランドだけが地下鉄と繋がっていない。フェリーがなければマンハッタンへ行けないこの<strong class="text-[var(--c-text)]">地理的孤立</strong>が、独自のスラングとハングリー精神を純粋培養した。RZAらはこの島にカンフー映画「少林寺武者房（Shaolin and Wu Tang / 1983）」の世界観を投影し「Shaolin」と呼んだ。東洋の武術哲学とアメリカのインナーシティを融合させるAfro-Asian aestheticは、後のKanye Westやアニメ「アフロサムライ」にも影響を与えた。
         </p>
       </div>
 
-      <div class="p-5 bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg">
-        <p class="text-[#d4af37] text-xs uppercase tracking-widest mb-2">キーワード解説</p>
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">キーワード解説</p>
         <h3 class="font-semibold text-base mb-3">楽曲を読み解く重要スラング・用語</h3>
         <div class="space-y-3 mt-3">
           {[
@@ -390,8 +383,8 @@ import '../../styles/global.css';
             ['Old Earth', 'Five-Percent Nationの哲学で「母親」を指す敬称。生命の源たる地球（Earth）としての女性の呼び方'],
           ].map(([term, desc]) => (
             <div class="flex gap-3 text-sm">
-              <span class="text-[#d4af37] shrink-0 font-semibold min-w-[120px]">{term}</span>
-              <span class="text-[#999]">{desc}</span>
+              <span class="text-[var(--c-gold)] shrink-0 font-semibold min-w-[120px]">{term}</span>
+              <span class="text-[var(--c-muted)]">{desc}</span>
             </div>
           ))}
         </div>
@@ -402,15 +395,15 @@ import '../../styles/global.css';
     <!-- VERSIONS              -->
     <!-- ===================== -->
     <section id="versions" class="mb-12">
-      <h2 class="text-[#d4af37] text-xs uppercase tracking-widest mb-5 border-b border-[#2a2a2a] pb-2">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
         バージョン違い
       </h2>
 
-      <div class="mb-4 rounded-lg overflow-hidden border border-[#2a2a2a] text-sm">
-        <div class="grid grid-cols-3 bg-[#111] text-[#555] text-xs uppercase tracking-widest">
-          <div class="p-3 border-b border-[#2a2a2a]">バージョン</div>
-          <div class="p-3 border-b border-l border-[#2a2a2a]">特徴</div>
-          <div class="p-3 border-b border-l border-[#2a2a2a]">意義</div>
+      <div class="mb-4 rounded-lg overflow-hidden border border-[var(--c-border)] text-sm">
+        <div class="grid grid-cols-3 bg-[var(--c-bg)] text-[var(--c-very-dim)] text-xs uppercase tracking-widest">
+          <div class="p-3 border-b border-[var(--c-border)]">バージョン</div>
+          <div class="p-3 border-b border-l border-[var(--c-border)]">特徴</div>
+          <div class="p-3 border-b border-l border-[var(--c-border)]">意義</div>
         </div>
         {[
           ['Album / Explicit', 'オリジナル完全版。ストリートの暴力・ドラッグ描写を無修正で収録', 'Spotifyフルアルバム版。アーティストの真意を最も純粋に伝える歴史的音源'],
@@ -419,9 +412,9 @@ import '../../styles/global.css';
           ['Funkmaster Flex Remix', 'DJ Scratchプロデュース。Method Man・Raekwon・Inspectah Deckが新たなマイクリレーを披露', "1998年『60 Minutes of Funk Vol.3』収録。NYミックステープ文化における本作の重要性を示す"],
         ].map(([name, desc, significance]) => (
           <div class="grid grid-cols-3">
-            <div class="p-3 border-b border-[#2a2a2a] text-[#eee] font-medium">{name}</div>
-            <div class="p-3 border-b border-l border-[#2a2a2a] text-[#999]">{desc}</div>
-            <div class="p-3 border-b border-l border-[#2a2a2a] text-[#777] text-xs">{significance}</div>
+            <div class="p-3 border-b border-[var(--c-border)] text-[var(--c-text)] font-medium">{name}</div>
+            <div class="p-3 border-b border-l border-[var(--c-border)] text-[var(--c-muted)]">{desc}</div>
+            <div class="p-3 border-b border-l border-[var(--c-border)] text-[var(--c-dim)] text-xs">{significance}</div>
           </div>
         ))}
       </div>
@@ -431,37 +424,37 @@ import '../../styles/global.css';
     <!-- BEHIND THE SCENES     -->
     <!-- ===================== -->
     <section id="behind" class="mb-12">
-      <h2 class="text-[#d4af37] text-xs uppercase tracking-widest mb-5 border-b border-[#2a2a2a] pb-2">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
         制作の裏側
       </h2>
 
-      <div class="mb-6 p-5 bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg">
-        <p class="text-[#d4af37] text-xs uppercase tracking-widest mb-2">制作秘話 01</p>
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">制作秘話 01</p>
         <h3 class="font-semibold text-base mb-3">哀愁ピアノの正体 — The Charmels "As Long As I've Got You"</h3>
-        <p class="text-[#999] text-sm leading-relaxed">
-          楽曲の背骨となる悲哀に満ちたピアノリフは、Isaac HayesとDavid Porterがプロデュースした<strong class="text-[#eee]">The Charmelsの1967年ソウル楽曲「As Long As I've Got You」</strong>のオープニングを執拗にループさせたもの。その下にOtis ReddingとCarla Thomasの「Tramp」から抽出した荒々しいドラムブレイクを重ねた。
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          楽曲の背骨となる悲哀に満ちたピアノリフは、Isaac HayesとDavid Porterがプロデュースした<strong class="text-[var(--c-text)]">The Charmelsの1967年ソウル楽曲「As Long As I've Got You」</strong>のオープニングを執拗にループさせたもの。その下にOtis ReddingとCarla Thomasの「Tramp」から抽出した荒々しいドラムブレイクを重ねた。
         </p>
-        <p class="text-[#999] text-sm leading-relaxed mt-3">
-          西海岸のDr. DreがMoogシンセでクリアなベースラインを弾き直すのに対し、RZAは<strong class="text-[#eee]">AKAI MPCとE-mu SP-1200</strong>を駆使し埃にまみれた古いレコードをコラージュする手法を極限まで洗練させた。クオンタイズ（リズム自動補正）をあえて無視することで、人間の鼓動のような泥臭く生々しいグルーヴを生み出している。
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed mt-3">
+          西海岸のDr. DreがMoogシンセでクリアなベースラインを弾き直すのに対し、RZAは<strong class="text-[var(--c-text)]">AKAI MPCとE-mu SP-1200</strong>を駆使し埃にまみれた古いレコードをコラージュする手法を極限まで洗練させた。クオンタイズ（リズム自動補正）をあえて無視することで、人間の鼓動のような泥臭く生々しいグルーヴを生み出している。
         </p>
       </div>
 
-      <div class="mb-6 p-5 bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg">
-        <p class="text-[#d4af37] text-xs uppercase tracking-widest mb-2">制作秘話 02</p>
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">制作秘話 02</p>
         <h3 class="font-semibold text-base mb-3">消えた「touch」——機材のミスが生んだ奇跡の空白</h3>
-        <p class="text-[#999] text-sm leading-relaxed">
-          Inspectah Deckのヴァース中盤「Trying to get a clutch at what I could not...」の後に続くはずだった<strong class="text-[#eee]">「touch（触れる）」という言葉が音源から完全に消えている</strong>。長年リスナーたちは「手の届かない夢を表す意図的な芸術的空白」と絶賛してきたが、実際はRZAがピンポン・ディレイエフェクトを手動でかけようとした際、アナログ機材の限界でディケイが極端に早くかかりすぎたため。
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          Inspectah Deckのヴァース中盤「Trying to get a clutch at what I could not...」の後に続くはずだった<strong class="text-[var(--c-text)]">「touch（触れる）」という言葉が音源から完全に消えている</strong>。長年リスナーたちは「手の届かない夢を表す意図的な芸術的空白」と絶賛してきたが、実際はRZAがピンポン・ディレイエフェクトを手動でかけようとした際、アナログ機材の限界でディケイが極端に早くかかりすぎたため。
         </p>
-        <p class="text-[#999] text-sm leading-relaxed mt-3">
-          この<strong class="text-[#eee]">機材操作のミス（偶然）</strong>が、「決して手の届かない夢・富」というリリックのテーマと奇跡的にリンクし、ヒップホップ史上最も美しく詩的な空白を生み出した。制約と偶然を最高峰の芸術へと昇華させたヒップホップの初期衝動が凝縮されたエピソードだ。
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed mt-3">
+          この<strong class="text-[var(--c-text)]">機材操作のミス（偶然）</strong>が、「決して手の届かない夢・富」というリリックのテーマと奇跡的にリンクし、ヒップホップ史上最も美しく詩的な空白を生み出した。制約と偶然を最高峰の芸術へと昇華させたヒップホップの初期衝動が凝縮されたエピソードだ。
         </p>
       </div>
 
-      <div class="p-5 bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg">
-        <p class="text-[#d4af37] text-xs uppercase tracking-widest mb-2">制作秘話 03</p>
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">制作秘話 03</p>
         <h3 class="font-semibold text-base mb-3">60 Second Assassinの呻き声とDelfonicsの断片</h3>
-        <p class="text-[#999] text-sm leading-relaxed">
-          ビートの隙間には、Delfonicsの「Hey Love」からサンプリングした微かな音の断片と、Wu-Tang系列メンバーの<strong class="text-[#eee]">60 Second Assassinが録音したバックグラウンドの呻き声（"oohs"）</strong>が加わっている。美しさと不穏さが同居する唯一無二の音響空間は、低予算のFirehouse Studioにおける人間的な温かみと偶発性から生まれた。
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          ビートの隙間には、Delfonicsの「Hey Love」からサンプリングした微かな音の断片と、Wu-Tang系列メンバーの<strong class="text-[var(--c-text)]">60 Second Assassinが録音したバックグラウンドの呻き声（"oohs"）</strong>が加わっている。美しさと不穏さが同居する唯一無二の音響空間は、低予算のFirehouse Studioにおける人間的な温かみと偶発性から生まれた。
         </p>
       </div>
     </section>
@@ -470,15 +463,15 @@ import '../../styles/global.css';
     <!-- LEGACY                -->
     <!-- ===================== -->
     <section id="legacy" class="mb-12">
-      <h2 class="text-[#d4af37] text-xs uppercase tracking-widest mb-5 border-b border-[#2a2a2a] pb-2">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
         評価と足跡
       </h2>
 
-      <div class="mb-4 rounded-lg overflow-hidden border border-[#2a2a2a] text-sm">
-        <div class="grid grid-cols-3 bg-[#111] text-[#555] text-xs uppercase tracking-widest">
-          <div class="p-3 border-b border-[#2a2a2a]">指標</div>
-          <div class="p-3 border-b border-l border-[#2a2a2a]">記録</div>
-          <div class="p-3 border-b border-l border-[#2a2a2a]">意義</div>
+      <div class="mb-4 rounded-lg overflow-hidden border border-[var(--c-border)] text-sm">
+        <div class="grid grid-cols-3 bg-[var(--c-bg)] text-[var(--c-very-dim)] text-xs uppercase tracking-widest">
+          <div class="p-3 border-b border-[var(--c-border)]">指標</div>
+          <div class="p-3 border-b border-l border-[var(--c-border)]">記録</div>
+          <div class="p-3 border-b border-l border-[var(--c-border)]">意義</div>
         </div>
         {[
           ['US Billboard Hot 100', '最高60位 (1994年4月23日)', 'Wu-Tang楽曲として史上最高位。アンダーグラウンドのハードコアがメインストリームの壁を突破した歴史的瞬間'],
@@ -489,31 +482,31 @@ import '../../styles/global.css';
           ['TIME誌', 'All-Time 100 Greatest Songs選出', '音楽の枠を超えアメリカ文化の暗部を描いた優れた文学・ドキュメンタリーとして評価'],
         ].map(([metric, record, significance]) => (
           <div class="grid grid-cols-3">
-            <div class="p-3 border-b border-[#2a2a2a] text-[#777]">{metric}</div>
-            <div class="p-3 border-b border-l border-[#2a2a2a] text-[#d4af37] font-medium">{record}</div>
-            <div class="p-3 border-b border-l border-[#2a2a2a] text-[#999] text-xs">{significance}</div>
+            <div class="p-3 border-b border-[var(--c-border)] text-[var(--c-dim)]">{metric}</div>
+            <div class="p-3 border-b border-l border-[var(--c-border)] text-[var(--c-gold)] font-medium">{record}</div>
+            <div class="p-3 border-b border-l border-[var(--c-border)] text-[var(--c-muted)] text-xs">{significance}</div>
           </div>
         ))}
       </div>
 
-      <div class="p-5 bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg">
-        <p class="text-[#d4af37] text-xs uppercase tracking-widest mb-2">後世への影響</p>
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">後世への影響</p>
         <h3 class="font-semibold text-base mb-3">「Cream」が英語の辞書に載った日</h3>
-        <p class="text-[#999] text-sm leading-relaxed mb-4">
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed mb-4">
           「C.R.E.A.M.（Cream）」はリリース後、「現金」を意味する新しいスラングとして英語圏の辞書に掲載されるほど定着した。シェイクスピアが英語語彙を拡張したのと同様に、Wu-Tang Clanは現代英語に言語学的貢献を果たした。「Dollar, dollar bill, y'all」というパンチラインは後のThe Notorious B.I.G.・Drake・JAY-Z・Kanye Westら200曲を超える作品でサンプリングまたは直接引用されている。
         </p>
         <ul class="space-y-3 text-sm">
           <li class="flex gap-3">
-            <span class="text-[#d4af37] shrink-0">Kanye West</span>
-            <span class="text-[#999]">「Graduation」における日本的テクノ・オリエンタリズムの導入は、Wu-TangのAfro-Asian aestheticを現代に翻訳したもの。RZAとの深い交流が影響している。</span>
+            <span class="text-[var(--c-gold)] shrink-0">Kanye West</span>
+            <span class="text-[var(--c-muted)]">「Graduation」における日本的テクノ・オリエンタリズムの導入は、Wu-TangのAfro-Asian aestheticを現代に翻訳したもの。RZAとの深い交流が影響している。</span>
           </li>
           <li class="flex gap-3">
-            <span class="text-[#d4af37] shrink-0">アフロサムライ</span>
-            <span class="text-[#999]">RZA自身がサウンドトラックを手掛けた日本産アニメ。Wu-Tangが提示した「東洋武術×ブラック・アメリカ」の文化融合の最終形態。</span>
+            <span class="text-[var(--c-gold)] shrink-0">アフロサムライ</span>
+            <span class="text-[var(--c-muted)]">RZA自身がサウンドトラックを手掛けた日本産アニメ。Wu-Tangが提示した「東洋武術×ブラック・アメリカ」の文化融合の最終形態。</span>
           </li>
           <li class="flex gap-3">
-            <span class="text-[#d4af37] shrink-0">現代ヒップホップ</span>
-            <span class="text-[#999]">クオンタイズを無視した「埃っぽいドラム」の手法は、後のLoFi Hip-Hopムーブメントの直接的な先祖。制約と偶然を芸術に変えるRZAの哲学は今も生き続けている。</span>
+            <span class="text-[var(--c-gold)] shrink-0">現代ヒップホップ</span>
+            <span class="text-[var(--c-muted)]">クオンタイズを無視した「埃っぽいドラム」の手法は、後のLoFi Hip-Hopムーブメントの直接的な先祖。制約と偶然を芸術に変えるRZAの哲学は今も生き続けている。</span>
           </li>
         </ul>
       </div>
@@ -523,38 +516,57 @@ import '../../styles/global.css';
     <!-- RELATED ARTICLES      -->
     <!-- ===================== -->
     <section class="mb-12">
-      <h2 class="text-[#d4af37] text-xs uppercase tracking-widest mb-5 border-b border-[#2a2a2a] pb-2">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
         関連記事
       </h2>
       <ul class="space-y-3">
         <li>
-          <a href="/songs/nas-is-like" class="flex items-center justify-between p-4 bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg hover:border-[#d4af37] transition-colors">
+          <a href="/songs/protect-ya-neck" class="flex items-center justify-between p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg hover:border-[var(--c-gold)] transition-colors">
             <div>
-              <p class="text-[#d4af37] text-xs uppercase tracking-widest mb-0.5">DJ Premier Produced · 1999</p>
-              <p class="font-semibold">Nas Is Like</p>
-              <p class="text-[#777] text-xs mt-0.5">Nas</p>
+              <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-0.5">RZA Produced · 1993</p>
+              <p class="font-semibold">Protect Ya Neck</p>
+              <p class="text-[var(--c-dim)] text-xs mt-0.5">Wu-Tang Clan</p>
             </div>
-            <span class="text-[#555] text-lg">→</span>
+            <span class="text-[var(--c-very-dim)] text-lg">→</span>
           </a>
         </li>
         <li>
-          <a href="/songs/classic" class="flex items-center justify-between p-4 bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg hover:border-[#d4af37] transition-colors">
+          <a href="/songs/triumph" class="flex items-center justify-between p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg hover:border-[var(--c-gold)] transition-colors">
             <div>
-              <p class="text-[#d4af37] text-xs uppercase tracking-widest mb-0.5">DJ Premier Remix · 2007</p>
-              <p class="font-semibold">Classic (Better Than I've Ever Been)</p>
-              <p class="text-[#777] text-xs mt-0.5">Rakim · Kanye West · Nas · KRS-One</p>
+              <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-0.5">RZA Produced · 1997</p>
+              <p class="font-semibold">Triumph</p>
+              <p class="text-[var(--c-dim)] text-xs mt-0.5">Wu-Tang Clan</p>
             </div>
-            <span class="text-[#555] text-lg">→</span>
+            <span class="text-[var(--c-very-dim)] text-lg">→</span>
+          </a>
+        </li>
+        <li>
+          <a href="/songs/nas-is-like" class="flex items-center justify-between p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg hover:border-[var(--c-gold)] transition-colors">
+            <div>
+              <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-0.5">DJ Premier Produced · 1999</p>
+              <p class="font-semibold">Nas Is Like</p>
+              <p class="text-[var(--c-dim)] text-xs mt-0.5">Nas</p>
+            </div>
+            <span class="text-[var(--c-very-dim)] text-lg">→</span>
+          </a>
+        </li>
+        <li>
+          <a href="/songs/cash-rules" class="flex items-center justify-between p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg hover:border-[var(--c-gold)] transition-colors">
+            <div>
+              <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-0.5">2020</p>
+              <p class="font-semibold">Cash Rules</p>
+              <p class="text-[var(--c-dim)] text-xs mt-0.5">iyla feat. Method Man</p>
+            </div>
+            <span class="text-[var(--c-very-dim)] text-lg">→</span>
           </a>
         </li>
       </ul>
     </section>
 
     <!-- Footer -->
-    <footer class="border-t border-[#2a2a2a] pt-6 text-[#555] text-xs">
+    <footer class="border-t border-[var(--c-border)] pt-6 text-[var(--c-very-dim)] text-xs">
       <p>Producer: RZA · Sample: The Charmels "As Long As I've Got You" (1967) · Album: Enter the Wu-Tang (36 Chambers) (1993) · Single: 1994</p>
     </footer>
 
   </div>
-</body>
-</html>
+</Layout>

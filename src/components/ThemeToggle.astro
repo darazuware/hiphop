@@ -1,0 +1,32 @@
+---
+---
+
+<div id="theme-toggle" class="fixed top-3 right-3 z-50 flex rounded-md overflow-hidden border border-[var(--c-border)] bg-[var(--c-surface)] text-xs font-mono select-none">
+  <button data-t="light" class="theme-btn px-2.5 py-1.5 transition-colors duration-150">Light</button>
+  <button data-t="auto"  class="theme-btn px-2.5 py-1.5 transition-colors duration-150 border-x border-[var(--c-border)]">Auto</button>
+  <button data-t="dark"  class="theme-btn px-2.5 py-1.5 transition-colors duration-150">Dark</button>
+</div>
+
+<script is:inline>
+  (function () {
+    function applyTheme(t) {
+      document.documentElement.setAttribute('data-theme', t);
+      document.querySelectorAll('.theme-btn').forEach(function (btn) {
+        var active = btn.getAttribute('data-t') === t;
+        btn.style.background = active ? 'var(--c-gold)' : '';
+        btn.style.color = active ? '#000' : 'var(--c-muted)';
+      });
+    }
+
+    var saved = localStorage.getItem('hh-theme') || 'auto';
+    applyTheme(saved);
+
+    document.getElementById('theme-toggle').addEventListener('click', function (e) {
+      var btn = e.target.closest('[data-t]');
+      if (!btn) return;
+      var t = btn.getAttribute('data-t');
+      localStorage.setItem('hh-theme', t);
+      applyTheme(t);
+    });
+  })();
+</script>
