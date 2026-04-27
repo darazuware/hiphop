@@ -75,6 +75,22 @@ import Layout from '../../layouts/Layout.astro';
       ></iframe>
     </div>
 
+
+    <!-- Sample YouTube Embed -->
+    <div class="mb-4">
+      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">元ネタ</p>
+      <div class="aspect-video w-full rounded-lg overflow-hidden">
+        <iframe
+          loading="lazy"
+          class="w-full h-full"
+          src="https://www.youtube.com/embed/uZD8HKVKneI"
+          title="Glenn Frey - The Heat Is On"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
     <div id="lyrics"></div>
 
     <!-- ===================== -->
@@ -343,6 +359,25 @@ import Layout from '../../layouts/Layout.astro';
       <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
         制作の裏側
       </h2>
+
+      <!-- サンプリング解説 -->
+      <div class="mb-8 p-5 bg-[var(--c-surface)] border border-[var(--c-gold)] border-opacity-40 rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-4">サンプリング解説</p>
+
+        <div class="mb-5">
+          <h3 class="font-semibold text-base mb-2">元ネタ 01 — Glenn Frey "The Heat Is On" (1984)</h3>
+          <p class="text-[var(--c-muted)] text-sm leading-relaxed mb-3">
+            Teddy Rileyがトラックの土台として引用したのは、映画「ビバリーヒルズ・コップ」のサントラとして1984年に世界的ヒットを記録したGlenn Freyの「The Heat Is On」。Freyはイーグルスのメンバーとして知られる白人ロック・ポップの旗手だが、この楽曲は<strong class="text-[var(--c-text)]">ファンキーなシンセ・ドライブとコーラスの高揚感がヒップホップ・プロダクションの素材として最適</strong>だった。R&Bとロックの境界を溶かすTeddy Rileyらしい越境的な選択である。
+          </p>
+        </div>
+
+        <div>
+          <h3 class="font-semibold text-base mb-2">元ネタ 02 — Glenn Frey "You Belong to the City" (1985)</h3>
+          <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+            Blackstreetのフックに刻まれた「You belong to the city / You belong to the night」という歌詞は、TVドラマ「マイアミ・バイス」のテーマ曲として書かれたGlenn Frey "You Belong to the City" (1985) のリリックをほぼそのまま引用したもの。原曲は都市の孤独と夜の危険を描いたノワール的バラードで、<strong class="text-[var(--c-text)]">Biggieを失ったニューヨークの暗い夜という文脈に完璧に重なる</strong>。ポップ・カルチャーのアイコンをストリートのリアリズムに転換するJay-Zの詩的センスが光る。
+          </p>
+        </div>
+      </div>
 
       <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
         <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">制作秘話 01</p>
