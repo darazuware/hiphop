@@ -4,33 +4,55 @@ import QuickSlang from '../../components/QuickSlang.astro';
 import Layout from '../../layouts/Layout.astro';
 ---
 
-<Layout title="Triumph — 歌詞和訳・徹底解説 | Wu-Tang Clan 1997" description="Wu-Tang Clanの「Triumph」の歌詞和訳とスラング解説。9人のMCによるポッセ・カット、RZAプロデュース。1997年、Wu-Tang Foreverからの先行シングル。">
+<Layout title="Triumph 和訳・意味・スラング解説 | Wu-Tang Clan" description="Wu-Tang Clanの「Triumph」の歌詞和訳とスラング解説。9人のMCによるポッセ・カット、RZAプロデュース。1997年、Wu-Tang Foreverからの先行シングル。">
   <div class="max-w-2xl mx-auto px-4 py-8">
 
     <!-- Header -->
     <header class="mb-8">
-      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-1">RZA Produced · 1997</p>
-      <h1 class="text-2xl md:text-3xl font-bold leading-tight mb-1">
-        Triumph
+      <h1 class="text-2xl md:text-3xl font-bold leading-tight mb-2">
+        Triumph 和訳・意味・スラング解説
       </h1>
-      <p class="text-[var(--c-dim)] text-sm">Wu-Tang Clan</p>
-      <p class="text-[var(--c-very-dim)] text-xs mt-1">Album: Wu-Tang Forever · Staten Island, NYC</p>
+      <dl class="grid grid-cols-2 gap-x-4 gap-y-1 text-xs text-[var(--c-muted)] border border-[var(--c-border)] rounded-lg p-4 bg-[var(--c-surface)]">
+        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">アーティスト</dt>
+        <dd>Wu-Tang Clan</dd>
+        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">プロデューサー</dt>
+        <dd>RZA</dd>
+        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">リリース</dt>
+        <dd>1997年</dd>
+        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">収録アルバム</dt>
+        <dd>Wu-Tang Forever</dd>
+        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">エリア</dt>
+        <dd>Staten Island, New York</dd>
+      </dl>
     </header>
 
-    <!-- Track Context -->
-    <div class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg text-sm text-[var(--c-muted)] leading-relaxed">
-      <p>シャイニー・スーツ・エラ（Shiny Suit Era）へと傾斜しつつあった1997年、Wu-Tang Clanが放った究極のポッセ・カット。<strong class="text-[var(--c-gold)]">サビなし、5分38秒、9人のMC</strong>——放送局の「短編化要求」をRZAが断固拒否した、ヒップホップ史上最高峰のマニフェスト。Inspectah Deckの伝説的オープニング・ヴァース「I bomb atomically」から、Raekwonの鮮烈なクロージングまで、グループの勝利と絶対的支配を宣言する不朽の名曲。</p>
-    </div>
+    <!-- この曲の意味 -->
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■この曲の意味（要約）</h2>
+      <p class="text-sm text-[var(--c-muted)] leading-relaxed">「勝利（Triumph）」——ヒップホップが商業主義に侵食されつつあった1997年に、Wu-Tang Clanが純粋なリリシズムと集合的な力を誇示した宣言文。9人のMCがサビなしで5分38秒を蹴り続けるこの曲は、ラップゲームの本質を守り抜くという意志そのもの。</p>
+    </section>
+
+    <!-- 概要 -->
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■概要</h2>
+      <p class="text-sm text-[var(--c-muted)] leading-relaxed">1997年1月リリース。Wu-Tang Foreverの先行シングルとして発表。ホック（サビ）なし、フル尺5分38秒。Inspectah Deckの「I bomb atomically」から始まる多音節ライムの連打、RZAの暗く壮大なビート。ミュージックビデオは約80万ドルの制作費を投じたハリウッド級の映像。</p>
+    </section>
+
+    <!-- 導入 -->
+    <section class="mb-10">
+      <h2 class="text-base font-semibold mb-2">■導入（時代背景）</h2>
+      <p class="text-sm text-[var(--c-muted)] leading-relaxed">シャイニー・スーツ・エラへと傾斜しつつあった1997年、Wu-Tang Clanが放った究極のポッセ・カット。放送局からの短縮要求をRZAが断固拒否し、6分弱のノーカット版を全米の電波に乗せた歴史的な商業主義への反骨。</p>
+    </section>
 
     <!-- Table of Contents -->
     <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
       <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
       <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
-        <li><a href="#lyrics" class="hover:text-[var(--c-gold)] transition-colors">01 — リリック和訳・解説</a></li>
+        <li><a href="#lyrics" class="hover:text-[var(--c-gold)] transition-colors">01 — 歌詞和訳と意味解説</a></li>
         <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">02 — 文化的背景</a></li>
         <li><a href="#versions" class="hover:text-[var(--c-gold)] transition-colors">03 — バージョン違い</a></li>
         <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">04 — 制作の裏側</a></li>
-        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">05 — 評価と足跡</a></li>
+        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">05 — 評価とその後の影響</a></li>
       </ol>
     </nav>
 
@@ -623,7 +645,7 @@ import Layout from '../../layouts/Layout.astro';
     <!-- ===================== -->
     <section id="legacy" class="mb-12">
       <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        評価と足跡
+        評価とその後の影響
       </h2>
 
       <div class="mb-4 rounded-lg overflow-hidden border border-[var(--c-border)] text-sm">
@@ -673,16 +695,30 @@ import Layout from '../../layouts/Layout.astro';
     <!-- ===================== -->
     <!-- RELATED ARTICLES      -->
     <!-- ===================== -->
+
+    <!-- まとめ -->
     <section class="mb-12">
       <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        関連記事
+        まとめ
+      </h2>
+      <ul class="space-y-2 text-sm text-[var(--c-muted)] list-disc list-inside leading-relaxed">
+        <li>シャイニー・スーツ・エラへの逆流——サビなし5分38秒、9人のMCによるポッセ・カットは商業主義と真っ向から対決するラップゲームの宣言文。</li>
+        <li>RZAが放送局の短縮要求を断固拒否し、ノーカット版を全米の電波に乗せた歴史的な反骨。「流さないなら音源は渡さない」。</li>
+        <li>Inspectah Deckの「I bomb atomically, Socrates' philosophies...」はヒップホップ史上最高峰の多音節ライムの開幕ヴァースとして今も語り継がれる。</li>
+        <li>ミュージックビデオ制作費約80万ドル、Wu-Tang Forever全世界400万枚超。1997年という激動の時代に放たれた統一と勝利の儀式。</li>
+      </ul>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        関連記事（内部リンク）
       </h2>
       <ul class="space-y-3">
         <li>
           <a href="/songs/cream" class="flex items-center justify-between p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg hover:border-[var(--c-gold)] transition-colors">
             <div>
               <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-0.5">RZA Produced · 1994</p>
-              <p class="font-semibold">C.R.E.A.M.</p>
+              <p class="font-semibold">C.R.E.A.M. 和訳・意味解説</p>
               <p class="text-[var(--c-dim)] text-xs mt-0.5">Wu-Tang Clan</p>
             </div>
             <span class="text-[var(--c-very-dim)] text-lg">→</span>
@@ -692,7 +728,7 @@ import Layout from '../../layouts/Layout.astro';
           <a href="/songs/protect-ya-neck" class="flex items-center justify-between p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg hover:border-[var(--c-gold)] transition-colors">
             <div>
               <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-0.5">RZA Produced · 1993</p>
-              <p class="font-semibold">Protect Ya Neck</p>
+              <p class="font-semibold">Protect Ya Neck 和訳・意味解説</p>
               <p class="text-[var(--c-dim)] text-xs mt-0.5">Wu-Tang Clan</p>
             </div>
             <span class="text-[var(--c-very-dim)] text-lg">→</span>
@@ -702,7 +738,7 @@ import Layout from '../../layouts/Layout.astro';
           <a href="/songs/hiphop-is-dead" class="flex items-center justify-between p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg hover:border-[var(--c-gold)] transition-colors">
             <div>
               <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-0.5">will.i.am Produced · 2006</p>
-              <p class="font-semibold">Hip Hop Is Dead</p>
+              <p class="font-semibold">Hip Hop Is Dead 和訳・意味解説</p>
               <p class="text-[var(--c-dim)] text-xs mt-0.5">Nas feat. will.i.am</p>
             </div>
             <span class="text-[var(--c-very-dim)] text-lg">→</span>

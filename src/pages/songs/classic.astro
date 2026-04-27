@@ -5,22 +5,44 @@ import DeepSlang from '../../components/DeepSlang.astro';
 import Layout from '../../layouts/Layout.astro';
 ---
 
-<Layout title="Classic (Better Than I've Ever Been) DJ Premier Remix — 歌詞和訳・解説" description="Rakim・Kanye West・Nas・KRS-Oneが集結した「Classic」のDJ Premierリミックス版の歌詞和訳とスラング解説。Nike Air Force 1の25周年記念に作られたグラミーノミネート曲。">
+<Layout title="Classic (Better Than I've Ever Been) 和訳・意味・スラング解説 | Rakim / Kanye / Nas / KRS-One" description="Rakim・Kanye West・Nas・KRS-Oneが集結した「Classic」のDJ Premierリミックス版の歌詞和訳とスラング解説。Nike Air Force 1の25周年記念に作られたグラミーノミネート曲。">
   <div class="max-w-2xl mx-auto px-4 py-8">
 <!-- Header -->
     <header class="mb-8">
-      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-1">DJ Premier Remix · 2007</p>
-      <h1 class="text-2xl md:text-3xl font-bold leading-tight mb-1">
-        Classic (Better Than I've Ever Been)
+      <h1 class="text-2xl md:text-3xl font-bold leading-tight mb-2">
+        Classic (Better Than I've Ever Been) 和訳・意味・スラング解説
       </h1>
-      <p class="text-[var(--c-dim)] text-sm">Rakim · Kanye West · Nas · KRS-One</p>
-      <p class="text-[var(--c-very-dim)] text-xs mt-1">Nike Air Force 1 25th Anniversary</p>
+      <dl class="grid grid-cols-2 gap-x-4 gap-y-1 text-xs text-[var(--c-muted)] border border-[var(--c-border)] rounded-lg p-4 bg-[var(--c-surface)]">
+        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">アーティスト</dt>
+        <dd>Rakim / Kanye West / Nas / KRS-One</dd>
+        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">プロデューサー</dt>
+        <dd>DJ Premier</dd>
+        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">リリース</dt>
+        <dd>2007年</dd>
+        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">収録アルバム</dt>
+        <dd>Nike Air Force 1 25th Anniversary</dd>
+        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">エリア</dt>
+        <dd>New York / Chicago</dd>
+      </dl>
     </header>
 
-    <!-- Track Context -->
-    <div class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg text-sm text-[var(--c-muted)] leading-relaxed">
-      <p>Nike Air Force 1誕生25周年記念として制作。1980年代のRakim・KRS-One、90年代のNas、2000年代のKanye Westが集結。DJ Premierが「Carl Douglas - Dance the Kung-Fu」をサンプリングし、ブーンバップに仕立てたリミックス版。<strong class="text-[var(--c-gold)]">第50回グラミー賞 Best Rap Collaboration部門ノミネート。</strong></p>
-    </div>
+    <!-- この曲の意味 -->
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■この曲の意味（要約）</h2>
+      <p class="text-sm text-[var(--c-muted)] leading-relaxed">4世代のヒップホップ・レジェンドが「クラシックとは何か」を問い直した楽曲。Rakim、KRS-One、Nas、Kanye Westがそれぞれの時代の価値観と哲学でヴァースを繋ぐ、ヒップホップの継承と進化の証明。</p>
+    </section>
+
+    <!-- 概要 -->
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■概要</h2>
+      <p class="text-sm text-[var(--c-muted)] leading-relaxed">2007年、Nike Air Force 1誕生25周年記念として制作。DJ PremierがCarl Douglasの「Dance the Kung-Fu」をサンプリングしたブーンバップ・リミックス版。第50回グラミー賞 Best Rap Collaboration部門ノミネート。</p>
+    </section>
+
+    <!-- 導入 -->
+    <section class="mb-10">
+      <h2 class="text-base font-semibold mb-2">■導入（時代背景）</h2>
+      <p class="text-sm text-[var(--c-muted)] leading-relaxed">1980年代から2000年代まで各時代を代表する4人のMCが集結。スニーカー文化とヒップホップの深い結びつきを背景に、「クラシック」という概念そのものを音楽で体現した記念碑的コラボレーション。</p>
+    </section>
 
     <!-- Table of Contents -->
     <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
@@ -539,9 +561,24 @@ import Layout from '../../layouts/Layout.astro';
     </section>
 
     <!-- Related Articles -->
+
+    <!-- ===================== -->
+    <!-- まとめ               -->
+    <!-- ===================== -->
     <section class="mb-12">
       <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        関連記事
+        まとめ
+      </h2>
+      <ul class="space-y-2 text-sm text-[var(--c-muted)] list-disc list-inside leading-relaxed">
+        <li>Rakim・KRS-One・Nas・Kanye Westの4世代レジェンドがDJ Premierの下に集結したNike Air Force 1 25周年記念曲。</li>
+        <li>第50回グラミー賞 Best Rap Collaboration部門ノミネートを獲得。スニーカーとヒップホップ文化の深い結びつきを示す。</li>
+        <li>クラシックとは何かを各時代の哲学で問い直す、ヒップホップの継承と進化の生きた証明。</li>
+      </ul>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        関連記事（内部リンク）
       </h2>
       <ul class="space-y-3">
         <li>

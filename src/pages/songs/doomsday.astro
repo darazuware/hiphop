@@ -4,33 +4,55 @@ import QuickSlang from '../../components/QuickSlang.astro';
 import Layout from '../../layouts/Layout.astro';
 ---
 
-<Layout title="Doomsday — 歌詞和訳・徹底解説 | MF DOOM 1999" description="MF DOOMのデビュー・アルバム『Operation: Doomsday』のタイトル・トラック。ストッキングから鉄仮面へ——KMD時代の悲劇を乗り越えた孤高のヴィラン、その帰還の全貌を完全解析。">
+<Layout title="Doomsday 和訳・意味・スラング解説 | MF DOOM" description="MF DOOMのデビュー・アルバム『Operation: Doomsday』のタイトル・トラック。ストッキングから鉄仮面へ——KMD時代の悲劇を乗り越えた孤高のヴィラン、その帰還の全貌を完全解析。">
   <div class="max-w-2xl mx-auto px-4 py-8">
 
     <!-- Header -->
     <header class="mb-8">
-      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-1">MF DOOM Self-Produced · 1999</p>
-      <h1 class="text-2xl md:text-3xl font-bold leading-tight mb-1">
-        Doomsday
+      <h1 class="text-2xl md:text-3xl font-bold leading-tight mb-2">
+        Doomsday 和訳・意味・スラング解説
       </h1>
-      <p class="text-[var(--c-dim)] text-sm">MF DOOM</p>
-      <p class="text-[var(--c-very-dim)] text-xs mt-1">Album: Operation: Doomsday · New York (Long Island/UK)</p>
+      <dl class="grid grid-cols-2 gap-x-4 gap-y-1 text-xs text-[var(--c-muted)] border border-[var(--c-border)] rounded-lg p-4 bg-[var(--c-surface)]">
+        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">アーティスト</dt>
+        <dd>MF DOOM</dd>
+        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">プロデューサー</dt>
+        <dd>MF DOOM（Metal Fingers）</dd>
+        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">リリース</dt>
+        <dd>1999年</dd>
+        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">収録アルバム</dt>
+        <dd>Operation: Doomsday</dd>
+        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">エリア</dt>
+        <dd>New York（Long Island / UK出身）</dd>
+      </dl>
     </header>
 
-    <!-- Track Context -->
-    <div class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg text-sm text-[var(--c-muted)] leading-relaxed">
-      <p>1993年のKMD解散、弟DJ Subrocの悲劇的な交通事故死、その後の極度のホームレス生活——絶望から鉄仮面を被った一人の男が、音楽業界への復讐を誓うスーパーヴィランとして帰還した瞬間。<strong class="text-[var(--c-gold)]">自身で制作したビートに、Sadeのスムースなサンプルと謎の女性シンガーのボーカルを絡ませ、ヴィランの世界征服アジェンダを告知する。母の胎内から墓場まで——人生そのものを一つの芸術作品に昇華させた傑作。</strong></p>
-    </div>
+    <!-- この曲の意味 -->
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■この曲の意味（要約）</h2>
+      <p class="text-sm text-[var(--c-muted)] leading-relaxed">「審判の日（Doomsday）」——母の胎内から墓場まで、本名「Dumile」を刻んだフックが示すように、この曲はスーパーヴィランを演じながらも生身の人間の悲劇と希望を告白する。弟の死と業界追放を乗り越えた男の、音楽を通じた復讐と自己再生の物語。</p>
+    </section>
+
+    <!-- 概要 -->
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■概要</h2>
+      <p class="text-sm text-[var(--c-muted)] leading-relaxed">1999年リリース。Sadeの「Kiss of Life」をサンプリングし、謎の女性シンガー「Pebbles the Invisible Girl」のコーラスが絡む。自身のレーベルMetal Face Recordsからリリースしたインディペンデント作品にもかかわらず、後世のアルタナティブ・ヒップホップに絶大な影響を与えた。</p>
+    </section>
+
+    <!-- 導入 -->
+    <section class="mb-10">
+      <h2 class="text-base font-semibold mb-2">■導入（時代背景）</h2>
+      <p class="text-sm text-[var(--c-muted)] leading-relaxed">1993年のKMD解散と弟DJ Subrocの交通事故死、その後の極度のホームレス生活。ジギー・エラ（Jiggy Era）全盛の1990年代末、物質主義とルックス至上主義が支配する業界への反逆として、鉄仮面を被ったスーパーヴィランとして帰還した。</p>
+    </section>
 
     <!-- Table of Contents -->
     <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
       <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
       <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
-        <li><a href="#lyrics" class="hover:text-[var(--c-gold)] transition-colors">01 — リリック和訳・解説</a></li>
+        <li><a href="#lyrics" class="hover:text-[var(--c-gold)] transition-colors">01 — 歌詞和訳と意味解説</a></li>
         <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">02 — 文化的背景</a></li>
         <li><a href="#versions" class="hover:text-[var(--c-gold)] transition-colors">03 — バージョン違い</a></li>
         <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">04 — 制作の裏側</a></li>
-        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">05 — 評価と足跡</a></li>
+        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">05 — 評価とその後の影響</a></li>
       </ol>
     </nav>
 
@@ -355,7 +377,7 @@ import Layout from '../../layouts/Layout.astro';
     <!-- ===================== -->
     <section id="legacy" class="mb-12">
       <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        評価と足跡
+        評価とその後の影響
       </h2>
 
       <div class="mb-4 rounded-lg overflow-hidden border border-[var(--c-border)] text-sm">
@@ -391,16 +413,30 @@ import Layout from '../../layouts/Layout.astro';
     <!-- ===================== -->
     <!-- RELATED ARTICLES      -->
     <!-- ===================== -->
+
+    <!-- まとめ -->
     <section class="mb-12">
       <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        関連記事
+        まとめ
+      </h2>
+      <ul class="space-y-2 text-sm text-[var(--c-muted)] list-disc list-inside leading-relaxed">
+        <li>弟DJ Subrocの死と業界追放、ホームレス生活を経て鉄仮面のスーパーヴィランとして帰還——MF DOOMの復活は絶望を芸術に変える究極の行為。</li>
+        <li>Sadeのサンプリングが生む哀愁と、スーパーヴィランのテーマ曲としては美しすぎるメランコリー空間は、ジギー・エラへの完全な反逆。</li>
+        <li>フックで本名「Dumile」を刻む——「母の胎内から墓場まで」という人生の全スパンを凝縮した、鉄仮面の奥底に宿る生身の人間の告白。</li>
+        <li>インディペンデント・リリースにもかかわらず、Earl Sweatshirt・Tyler, the Creator・Danny Brownら次世代オルタナ・ヒップホップ全体の設計図となった不朽の作品。</li>
+      </ul>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        関連記事（内部リンク）
       </h2>
       <ul class="space-y-3">
         <li>
           <a href="/songs/nas-is-like" class="flex items-center justify-between p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg hover:border-[var(--c-gold)] transition-colors">
             <div>
               <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-0.5">DJ Premier Produced · 1999</p>
-              <p class="font-semibold">Nas Is Like</p>
+              <p class="font-semibold">Nas Is Like 和訳・意味解説</p>
               <p class="text-[var(--c-dim)] text-xs mt-0.5">Nas</p>
             </div>
             <span class="text-[var(--c-very-dim)] text-lg">→</span>
@@ -410,7 +446,7 @@ import Layout from '../../layouts/Layout.astro';
           <a href="/songs/come-clean" class="flex items-center justify-between p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg hover:border-[var(--c-gold)] transition-colors">
             <div>
               <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-0.5">DJ Premier Produced · 1993</p>
-              <p class="font-semibold">Come Clean</p>
+              <p class="font-semibold">Come Clean 和訳・意味解説</p>
               <p class="text-[var(--c-dim)] text-xs mt-0.5">Jeru the Damaja</p>
             </div>
             <span class="text-[var(--c-very-dim)] text-lg">→</span>
@@ -420,7 +456,7 @@ import Layout from '../../layouts/Layout.astro';
           <a href="/songs/cream" class="flex items-center justify-between p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg hover:border-[var(--c-gold)] transition-colors">
             <div>
               <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-0.5">RZA Produced · 1994</p>
-              <p class="font-semibold">C.R.E.A.M.</p>
+              <p class="font-semibold">C.R.E.A.M. 和訳・意味解説</p>
               <p class="text-[var(--c-dim)] text-xs mt-0.5">Wu-Tang Clan</p>
             </div>
             <span class="text-[var(--c-very-dim)] text-lg">→</span>
