@@ -37,6 +37,27 @@ const songs = [
       </a>
     </header>
 
+    <!-- Search -->
+    <div class="mb-6">
+      <div class="relative">
+        <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[var(--c-very-dim)] pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z"/>
+        </svg>
+        <input
+          id="search-input"
+          type="search"
+          placeholder="曲名・アーティスト・スラング・サンプルを検索..."
+          autocomplete="off"
+          class="w-full bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg pl-10 pr-4 py-2.5 text-sm text-[var(--c-fg)] placeholder-[var(--c-very-dim)] focus:outline-none focus:border-[var(--c-gold)] transition-colors"
+        />
+        <button id="search-clear" class="absolute right-3 top-1/2 -translate-y-1/2 hidden text-[var(--c-very-dim)] hover:text-[var(--c-muted)] transition-colors">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
     <!-- Filters -->
     <div class="mb-8 space-y-3">
       <div class="flex flex-wrap gap-2 items-center">
@@ -74,6 +95,7 @@ const songs = [
             data-era={song.era}
             data-region={song.region}
             data-producer={song.producer}
+            data-search={[song.title, song.artists, song.subtitle, song.tag, song.era, song.region, song.producer, song.sample ?? ''].join(' ').toLowerCase()}
           >
             <a href={song.slug} class="group block p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg hover:border-[var(--c-gold)] transition-colors duration-200">
               <div class="flex items-start gap-4">
@@ -120,14 +142,19 @@ const songs = [
 
 <script>
   const filters: Record<string, string> = { era: '', region: '', producer: '' };
+  let searchQuery = '';
 
   function applyFilters() {
     const items = document.querySelectorAll<HTMLElement>('#song-list > li');
+    const terms = searchQuery.trim().toLowerCase().split(/\s+/).filter(Boolean);
     let visible = 0;
     items.forEach(item => {
-      const match = Object.entries(filters).every(([key, val]) =>
+      const filterMatch = Object.entries(filters).every(([key, val]) =>
         !val || item.dataset[key] === val
       );
+      const searchData = item.dataset.search ?? '';
+      const searchMatch = terms.length === 0 || terms.every(t => searchData.includes(t));
+      const match = filterMatch && searchMatch;
       item.style.display = match ? '' : 'none';
       if (match) visible++;
     });
@@ -142,13 +169,28 @@ const songs = [
       const filterType = btn.dataset.filter as string;
       const value = btn.dataset.value as string;
       filters[filterType] = value;
-
       document.querySelectorAll<HTMLButtonElement>(`.filter-btn[data-filter="${filterType}"]`)
         .forEach(b => b.classList.remove('active', 'border-[var(--c-gold)]', 'text-[var(--c-gold)]'));
       btn.classList.add('active', 'border-[var(--c-gold)]', 'text-[var(--c-gold)]');
-
       applyFilters();
     });
+  });
+
+  const searchInput = document.getElementById('search-input') as HTMLInputElement | null;
+  const searchClear = document.getElementById('search-clear') as HTMLButtonElement | null;
+
+  searchInput?.addEventListener('input', () => {
+    searchQuery = searchInput.value;
+    searchClear?.classList.toggle('hidden', searchQuery.length === 0);
+    applyFilters();
+  });
+
+  searchClear?.addEventListener('click', () => {
+    if (searchInput) searchInput.value = '';
+    searchQuery = '';
+    searchClear.classList.add('hidden');
+    applyFilters();
+    searchInput?.focus();
   });
 </script>
 

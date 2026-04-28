@@ -10,7 +10,36 @@ interface Props {
 
 const { title, description, schema } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://hiphop.vercel.app');
-const isHome = Astro.url.pathname === '/';
+const pathname = Astro.url.pathname;
+const isHome = pathname === '/';
+const isSongPage = pathname.startsWith('/songs/');
+
+type BreadcrumbItem = { label: string; href?: string };
+let breadcrumbItems: BreadcrumbItem[] = [];
+if (!isHome) {
+  breadcrumbItems.push({ label: 'ホーム', href: '/' });
+  if (isSongPage) {
+    breadcrumbItems.push({ label: '曲一覧', href: '/' });
+    breadcrumbItems.push({ label: title.split(' 和訳')[0].split(' |')[0] });
+  } else {
+    const pageLabels: Record<string, string> = {
+      '/about': 'About',
+      '/privacy': 'プライバシーポリシー',
+      '/slang': 'スラング索引',
+    };
+    breadcrumbItems.push({ label: pageLabels[pathname] ?? title });
+  }
+}
+const breadcrumbSchema = breadcrumbItems.length > 0 ? {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbItems.map((item, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: item.label,
+    ...(item.href ? { item: new URL(item.href, Astro.site ?? 'https://hiphop.vercel.app').href } : {}),
+  })),
+} : null;
 
 const songSlug = Astro.url.pathname.match(/^\/songs\/([^/]+)/)?.[1];
 const ogImagePath = songSlug ? `/og/${songSlug}.png` : '/og/default.png';
@@ -70,18 +99,27 @@ const resolvedSchema = schema ?? defaultSchema;
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
   <script type="application/ld+json" set:html={JSON.stringify(resolvedSchema)} />
+  {breadcrumbSchema && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />}
 
   <!-- Theme flash prevention -->
   <script is:inline>!function(){var t=localStorage.getItem('hh-theme')||'auto';document.documentElement.setAttribute('data-theme',t)}()</script>
 </head>
 <body class="bg-[var(--c-bg)] text-[var(--c-text)] min-h-screen">
   <ThemeToggle />
-  {!isHome && (
-    <div class="max-w-2xl mx-auto px-4 pt-5">
-      <a href="/" class="inline-flex items-center gap-1.5 text-[var(--c-dim)] text-xs hover:text-[var(--c-gold)] transition-colors">
-        <span>←</span><span>一覧に戻る</span>
-      </a>
-    </div>
+  {breadcrumbItems.length > 0 && (
+    <nav aria-label="パンくずリスト" class="max-w-2xl mx-auto px-4 pt-5">
+      <ol class="flex items-center flex-wrap gap-x-1.5 gap-y-1 text-xs text-[var(--c-dim)]">
+        {breadcrumbItems.map((item, i) => (
+          <li class="flex items-center gap-1.5">
+            {i > 0 && <span class="text-[var(--c-very-dim)]" aria-hidden="true">/</span>}
+            {item.href
+              ? <a href={item.href} class="hover:text-[var(--c-gold)] transition-colors">{item.label}</a>
+              : <span class="text-[var(--c-text)]">{item.label}</span>
+            }
+          </li>
+        ))}
+      </ol>
+    </nav>
   )}
   <slot />
   <footer class="max-w-2xl mx-auto px-4 pb-8 pt-6 mt-4 border-t border-[var(--c-border)] flex flex-wrap gap-x-5 gap-y-1 text-[var(--c-very-dim)] text-xs">
