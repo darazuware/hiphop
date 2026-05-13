@@ -1,0 +1,61 @@
+# hiphop — プロジェクト設定
+
+## スタック
+- Astro + Tailwind CSS v4 + TypeScript
+- デプロイ: Vercel (`npx vercel --prod`)
+- サイトURL: https://hiphop.vercel.app
+
+## ディレクトリ構成
+```
+src/
+  pages/songs/   # 曲ページ（18ページ）— 各.astroファイル
+  pages/         # index, about, slang, privacy, 404
+  layouts/Layout.astro
+  components/    # DeepSlang, LyricsBlock, QuickSlang, ThemeToggle
+  data/songs.ts  # 全曲データ一元管理
+  styles/global.css
+public/images/   # アルバムアート
+```
+
+## 開発コマンド
+- 開発サーバー: `npm run dev` → http://localhost:4321
+- ビルド確認: `npm run build`
+- デプロイ: `git push` (Vercel自動) or `npx vercel --prod`
+
+## ルール
+- 新曲追加は `src/data/songs.ts` にデータ追記 → `src/pages/songs/[slug].astro` 作成
+- OGP画像は `src/pages/og/[slug].png.ts` で自動生成済み
+- CSPはvercel.jsonで管理（YouTube埋め込み・Adsense対応済み）
+- コメント不要、型安全を維持
+
+## 歌詞翻訳ルール（重要）
+- **1センテンス or 文脈が切れるところ単位**でLyricsBlockを分ける（バース全体を1ブロックにしない）
+- 1ブロック = 1〜2行が基本。意味のまとまりで区切る
+- 各ブロックにeng/jpn/explanationを付ける
+
+## 記事作成フロー（Gist経由）
+```
+1. ユーザーがGemini Deep Research結果をGistに貼る
+2. ユーザーがGist URLをClaudeに伝える
+3. Claude: gh gist view で内容取得
+4. Claude: WebFetchでgenius.comから歌詞を直接取得・照合・修正
+5. Claudeが.astroページを生成 → git commit
+```
+
+## 歌詞正確性ルール（重要）
+- 必ずGeniusから歌詞を直接fetchして正とする
+- GistとGeniusで差異があればGenius優先
+- 歌詞の抜け・重複・順序ミスはGenius照合で修正すること
+
+**Gistテンプレート:** `data/gist-template.md`
+- Deep Research出力をそのままペーストするだけ
+- 曲名/アーティスト/年/スラング/センテンス分割はClaudeが自動抽出
+
+**ユーザーの指示例:**
+- `「Gist: https://gist.github.com/...」→ 記事作成して`
+- `「gist [ID]」→ 記事作成して`
+
+## 応答ルール
+- 説明・まとめ不要
+- コードと結果のみ
+- 承認プロンプト最小化
