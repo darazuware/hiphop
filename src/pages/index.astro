@@ -84,7 +84,10 @@ import { songs } from '../data/songs';
               <div class="absolute inset-0 card-overlay transition-opacity duration-300" />
               <div class="relative z-10 p-4">
                 {song.tag && (
-                  <span class="inline-block text-[10px] uppercase tracking-widest text-white/60 border border-white/20 rounded px-2 py-0.5 mb-2">
+                  <span
+                    class="sticker inline-block text-[10px] font-black uppercase tracking-wide px-2 py-0.5 mb-3"
+                    style={`--rot: ${[-3,-1.5,2,-2.5,0.5,-1,1.5,3,-0.5,2.5][i % 10]}deg; --bg: ${['#FFE135','#FFE135','#FFE135','#FF3B30','#FFE135','#F5F5F0','#FFE135','#FFE135','#FF3B30','#FFE135'][i % 10]};`}
+                  >
                     {song.tag}
                   </span>
                 )}
@@ -161,6 +164,24 @@ import { songs } from '../data/songs';
 </script>
 
 <style>
+  .sticker {
+    background: var(--bg);
+    color: #111;
+    transform: rotate(var(--rot));
+    box-shadow: 1px 2px 4px rgba(0,0,0,0.4);
+    border-radius: 2px;
+    display: inline-block;
+    position: relative;
+  }
+  .sticker::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 50%);
+    border-radius: 2px;
+    pointer-events: none;
+  }
+
   .site-title {
     font-size: clamp(3.5rem, 18vw, 7rem);
     line-height: 0.9;
