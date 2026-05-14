@@ -72,7 +72,7 @@ import { songs } from '../data/songs';
         <span id="count" class="text-[var(--c-very-dim)] text-xs">{songs.length} tracks</span>
       </div>
 
-      <ul id="song-list" class="space-y-3">
+      <ul id="song-list" class="grid grid-cols-2 md:grid-cols-3 gap-3">
         {songs.map((song, i) => (
           <li
             data-era={song.era}
@@ -80,38 +80,25 @@ import { songs } from '../data/songs';
             data-producer={song.producer}
             data-search={[song.title, song.artists, song.subtitle, song.tag, song.era, song.region, song.producer, song.sample ?? ''].join(' ').toLowerCase()}
           >
-            <a href={song.slug} class="group block p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg hover:border-[var(--c-gold)] transition-colors duration-200">
-              <div class="flex items-start gap-4">
-                <!-- Track number -->
-                <span class="text-[var(--c-very-dim)] text-xs tabular-nums mt-0.5 shrink-0 w-5 text-right select-none">
-                  {String(i + 1).padStart(2, '0')}
-                </span>
-                <!-- Content -->
-                <div class="flex-1 min-w-0">
-                  <div class="flex items-start justify-between gap-3">
-                    <div class="min-w-0">
-                      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-1">{song.subtitle}</p>
-                      <p class="font-semibold text-lg leading-snug mb-1">{song.title}</p>
-                      <p class="text-[var(--c-dim)] text-sm">{song.artists}</p>
-                      <div class="flex gap-2 mt-2 flex-wrap items-center">
-                        <span class="text-[var(--c-very-dim)] text-xs border border-[var(--c-border)] rounded px-2 py-0.5">{song.era}</span>
-                        <span class="text-[var(--c-very-dim)] text-xs border border-[var(--c-border)] rounded px-2 py-0.5">{song.region}</span>
-                        <span class="text-[var(--c-very-dim)] text-xs border border-[var(--c-border)] rounded px-2 py-0.5">{song.bpm} BPM</span>
-                      </div>
-                      {song.sample && (
-                        <p class="text-[var(--c-very-dim)] text-xs mt-2 truncate">
-                          ♪ {song.sample}
-                        </p>
-                      )}
-                    </div>
-                    {song.tag && (
-                      <span class="shrink-0 text-xs text-[var(--c-gold)] border border-[var(--c-gold)] rounded px-2 py-0.5 mt-1 whitespace-nowrap">
-                        {song.tag}
-                      </span>
-                    )}
-                  </div>
-                </div>
+            <a href={song.slug} class="song-card group relative flex flex-col justify-end overflow-hidden rounded-xl aspect-[3/4]">
+              {song.mbid
+                ? <img src={`https://coverartarchive.org/release-group/${song.mbid}/front-500`} alt={song.album} class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" loading="lazy" />
+                : <div class="absolute inset-0 no-image-bg" />
+              }
+              <div class="absolute inset-0 card-overlay transition-opacity duration-300" />
+              <div class="relative z-10 p-4">
+                {song.tag && (
+                  <span class="inline-block text-[10px] uppercase tracking-widest text-white/60 border border-white/20 rounded px-2 py-0.5 mb-2">
+                    {song.tag}
+                  </span>
+                )}
+                <p class="font-bold text-base leading-snug text-white mb-1 drop-shadow">{song.title}</p>
+                <p class="text-white/60 text-xs leading-snug truncate">{song.artists}</p>
+                <p class="text-white/35 text-[10px] mt-1 uppercase tracking-widest">{song.subtitle}</p>
               </div>
+              <span class="absolute top-3 right-3 text-white/20 text-xs tabular-nums select-none font-mono">
+                {String(i + 1).padStart(2, '0')}
+              </span>
             </a>
           </li>
         ))}
@@ -181,5 +168,40 @@ import { songs } from '../data/songs';
   .filter-btn.active {
     border-color: var(--c-gold);
     color: var(--c-gold);
+  }
+
+  .card-overlay {
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.88) 0%,
+      rgba(0, 0, 0, 0.55) 45%,
+      rgba(0, 0, 0, 0.25) 100%
+    );
+  }
+
+  .song-card:hover .card-overlay {
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.75) 0%,
+      rgba(0, 0, 0, 0.40) 45%,
+      rgba(0, 0, 0, 0.15) 100%
+    );
+  }
+
+  .no-image-bg {
+    background: linear-gradient(135deg, #1a1a1a 0%, #111 50%, #0d0d0d 100%);
+  }
+
+  .no-image-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 24px,
+      rgba(255,255,255,0.015) 24px,
+      rgba(255,255,255,0.015) 25px
+    );
   }
 </style>
