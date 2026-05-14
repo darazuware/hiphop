@@ -81,10 +81,7 @@ import { songs } from '../data/songs';
             data-search={[song.title, song.artists, song.subtitle, song.tag, song.era, song.region, song.producer, song.sample ?? ''].join(' ').toLowerCase()}
           >
             <a href={song.slug} class="song-card group relative flex flex-col justify-end overflow-hidden rounded-xl aspect-[3/4]">
-              {song.mbid
-                ? <img src={`https://coverartarchive.org/release-group/${song.mbid}/front-500`} alt={song.album} class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" loading="lazy" />
-                : <div class="absolute inset-0 no-image-bg" />
-              }
+              <img src={`/images/covers/${song.slug.split('/').pop()}.jpg`} alt={song.album} class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" loading="lazy" onerror="this.style.display='none'" />
               <div class="absolute inset-0 card-overlay transition-opacity duration-300" />
               <div class="relative z-10 p-4">
                 {song.tag && (
