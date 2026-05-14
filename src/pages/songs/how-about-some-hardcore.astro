@@ -1,89 +1,22 @@
 ---
 import LyricsBlock from '../../components/LyricsBlock.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
-import Layout from '../../layouts/Layout.astro';
+import SongLayout from '../../layouts/SongLayout.astro';
 ---
 
-<Layout title="How About Some Hardcore 和訳・意味・スラング解説 | M.O.P." description="M.O.P.のデビューシングル「How About Some Hardcore」の歌詞和訳とスラング解説。1993年ブラウンズヴィル発の咆哮が東海岸ハードコアの原点となった伝説曲を徹底解剖。">
-  <div class="max-w-2xl mx-auto px-4 py-8">
-
-    <!-- Header -->
-    <header class="mb-8">
-      <h1 class="text-2xl md:text-3xl font-bold leading-tight mb-2">
-        How About Some Hardcore 和訳・意味・スラング解説
-      </h1>
-      <dl class="grid grid-cols-2 gap-x-4 gap-y-1 text-xs text-[var(--c-muted)] border border-[var(--c-border)] rounded-lg p-4 bg-[var(--c-surface)]">
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">アーティスト</dt>
-        <dd>M.O.P. (Billy Danze & Lil' Fame)</dd>
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">プロデューサー</dt>
-        <dd>DR Period</dd>
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">リリース</dt>
-        <dd>1993年</dd>
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">収録アルバム</dt>
-        <dd>House Party 3 OST / To the Death</dd>
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">エリア</dt>
-        <dd>Brownsville, Brooklyn, NYC</dd>
-      </dl>
-    </header>
-
-    <!-- この曲の意味 -->
-    <section class="mb-6">
-      <h2 class="text-base font-semibold mb-2">■この曲の意味（要約）</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">「ハードコアなのはどうだい？俺たちは生（Raw）なのが好きだぜ！」——ブルックリン最深部ブラウンズヴィルから発せられた咆哮。フェイクなギャングスタへの冷徹な警告と、ストリートで生き残るための容赦ない意志宣言。</p>
-    </section>
-
-    <!-- 概要 -->
-    <section class="mb-6">
-      <h2 class="text-base font-semibold mb-2">■概要</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">1993年リリース。M.O.P.のデビュー・シングル。DR PeriodがThe DellsとThe Emotionsの名作ソウルをサンプリングし構築した重厚なブーンバップに乗せ、Billy DanzeとLil' Fameが「シャウト・ラップ（咆哮）」を解き放った伝説的デビュー作。Hype Williamsの監督デビュー作でもある。</p>
-    </section>
-
-    <!-- 導入 -->
-    <section class="mb-10">
-      <h2 class="text-base font-semibold mb-2">■導入（時代背景）</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">Dr. Dreの『The Chronic』が西海岸の覇権を確立しつつあった1993年、ニューヨークではWu-Tang ClanやBlack Moonが「ブーンバップのルネサンス」を巻き起こしていた。そこへ、ブルックリン最深部のブラウンズヴィルからM.O.P.が投下したこのデビュー・シングルは、ミックステープを通じて瞬く間に全米を席巻し、東海岸ハードコアの新たな頂点を示した。</p>
-    </section>
-
-    <!-- Table of Contents -->
-    <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
-      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
-      <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
-        <li><a href="#lyrics" class="hover:text-[var(--c-gold)] transition-colors">01 — リリック和訳・解説</a></li>
-        <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">02 — 文化的背景</a></li>
-        <li><a href="#versions" class="hover:text-[var(--c-gold)] transition-colors">03 — バージョン違い</a></li>
-        <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">04 — 制作の裏側</a></li>
-        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">05 — 評価と足跡</a></li>
-      </ol>
-    </nav>
-
-    <!-- YouTube Embed -->
-    <div class="mb-10 aspect-video w-full rounded-lg overflow-hidden">
-      <iframe
-        loading="lazy"
-        class="w-full h-full"
-        src="https://www.youtube.com/embed/eQDSNjgkyuA"
-        title="M.O.P. - How About Some Hardcore"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-      ></iframe>
-    </div>
-
-    <!-- Sample YouTube Embed -->
-    <div class="mb-4">
-      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">元ネタ</p>
-      <div class="aspect-video w-full rounded-lg overflow-hidden">
-        <iframe
-          loading="lazy"
-          class="w-full h-full"
-          src="https://www.youtube.com/embed/0IrFermoRlM"
-          title="The Dells - Free and Easy (Sample Source)"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe>
-      </div>
-    </div>
+<SongLayout
+  title="How About Some Hardcore 和訳・意味・スラング解説 | M.O.P."
+  description="M.O.P.のデビューシングル「How About Some Hardcore」の歌詞和訳とスラング解説。1993年ブラウンズヴィル発の咆哮が東海岸ハードコアの原点となった伝説曲を徹底解剖。"
+  slug="how-about-some-hardcore"
+  highlights={[
+    '銃声をアドリブとして歌詞に組み込むGriselda以前の先駆者M.O.P.',
+    'Hype Williamsの映像監督デビュー作——低予算MVが業界最高峰監督キャリアを開いた',
+    'DJ Premierとの盟友関係の起点となったブラウンズヴィル最深部の咆哮',
+  ]}
+  youtubeId="eQDSNjgkyuA"
+  sampleYoutubeId="0IrFermoRlM"
+  sampleTitle="The Dells - Free and Easy (Sample Source)"
+>
     <div id="lyrics"></div>
 
     <!-- ===================== -->
@@ -544,5 +477,4 @@ import Layout from '../../layouts/Layout.astro';
       <p>Producer: DR Period · Sample: The Dells "Free and Easy" / The Emotions · Single: House Party 3 OST (1993)</p>
     </footer>
 
-  </div>
-</Layout>
+</SongLayout>

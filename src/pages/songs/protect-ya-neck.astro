@@ -1,103 +1,22 @@
 ---
 import LyricsBlock from '../../components/LyricsBlock.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
-import Layout from '../../layouts/Layout.astro';
+import SongLayout from '../../layouts/SongLayout.astro';
 ---
 
-<Layout title="Protect Ya Neck 和訳・意味・スラング解説 | Wu-Tang Clan" description="Wu-Tang Clanの「Protect Ya Neck」の歌詞和訳・意味・スラング解説。RZAのビートの上に8人のMCがサイファー形式でリレーする1992年のデビューシングル。posse cut、ファイブ・パーセンターズ、東西海岸対立の背景もわかりやすく解説。">
-  <div class="max-w-2xl mx-auto px-4 py-8">
-
-    <!-- Header -->
-    <header class="mb-6">
-      <h1 class="text-2xl md:text-3xl font-bold leading-tight mb-3">
-        Protect Ya Neck 和訳・意味・スラング解説
-      </h1>
-      <dl class="grid grid-cols-2 gap-x-4 gap-y-1 text-xs text-[var(--c-muted)] border border-[var(--c-border)] rounded-lg p-4 bg-[var(--c-surface)]">
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">アーティスト</dt>
-        <dd>Wu-Tang Clan</dd>
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">プロデューサー</dt>
-        <dd>RZA</dd>
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">リリース</dt>
-        <dd>1992年（インディ）/ 1993年（再リリース）</dd>
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">収録アルバム</dt>
-        <dd>Enter the Wu-Tang (36 Chambers)</dd>
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">エリア</dt>
-        <dd>Staten Island, New York（通称：Shaolin）</dd>
-      </dl>
-    </header>
-
-    <!-- この曲の意味 -->
-    <section class="mb-6">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">この曲の意味（要約）</h2>
-      <div class="p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg text-sm text-[var(--c-muted)] leading-relaxed">
-        「Protect Ya Neck」は、"自分の身は自分で守れ"というストリートの鉄則をテーマにした楽曲。無名時代のWu-Tang Clanが、団結と攻撃性を武器にシーンへ殴り込みをかけた一曲であり、<strong class="text-[var(--c-text)]">ヒップホップにおけるサバイバル精神と独立志向</strong>を象徴している。
-      </div>
-    </section>
-
-    <!-- 概要 -->
-    <section class="mb-6">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">概要</h2>
-      <div class="p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg text-sm text-[var(--c-muted)] leading-relaxed">
-        1992年に自主制作シングルとしてリリースされ、後にアルバム『Enter the Wu-Tang (36 Chambers)』に収録された代表曲。8人のMCが次々とラップを繋ぐ<strong class="text-[var(--c-text)]">サイファー形式（posse cut）</strong>を採用し、ニューヨーク・アンダーグラウンドのリアルな熱量をそのまま封じ込めた作品。
-      </div>
-    </section>
-
-    <!-- 導入（時代背景） -->
-    <section class="mb-8">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">導入（時代背景）</h2>
-      <div class="p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg text-sm text-[var(--c-muted)] leading-relaxed">
-        <p class="mb-3">1992年、西海岸ではG-Funkが全米チャートを席巻していた時代。そんな中、ニューヨーク・スタテンアイランドから現れたWu-Tang Clanは、埃っぽいサンプリングと粗削りなビートで真逆の価値観を提示する。</p>
-        <p>「You best protect ya neck」——そのフックは単なる警句ではなく、ストリートにおける"生存戦略"そのものだった。東洋のカンフー映画に影響を受けた独自の世界観と、インディペンデント精神。この一曲は、<strong class="text-[var(--c-text)]">ヒップホップ史における"独立宣言"</strong>とも言える存在である。</p>
-      </div>
-    </section>
-
-    <!-- Table of Contents -->
-    <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
-      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
-      <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
-        <li><a href="#lyrics" class="hover:text-[var(--c-gold)] transition-colors">01 — 歌詞和訳と意味解説</a></li>
-        <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">02 — 文化的背景（1990年代NYヒップホップ）</a></li>
-        <li><a href="#versions" class="hover:text-[var(--c-gold)] transition-colors">03 — バージョン違い</a></li>
-        <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">04 — 制作の裏側</a></li>
-        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">05 — 評価とその後の影響</a></li>
-      </ol>
-    </nav>
-
-    <!-- Album Cover -->
-    <div class="mb-8">
-      <img src="/images/wu-tang-enter.jpg" alt="Enter the Wu-Tang (36 Chambers) - Album Cover" class="w-48 h-48 rounded-lg object-cover border border-[var(--c-border)]" />
-      <p class="text-[var(--c-very-dim)] text-xs mt-2">Enter the Wu-Tang (36 Chambers) · 1993</p>
-    </div>
-
-    <!-- YouTube Embed -->
-    <div class="mb-10 aspect-video w-full rounded-lg overflow-hidden">
-      <iframe
-        loading="lazy"
-        class="w-full h-full"
-        src="https://www.youtube.com/embed/HGx82vMd29E"
-        title="Wu-Tang Clan - Protect Ya Neck"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-      ></iframe>
-    </div>
-
-
-    <!-- Sample YouTube Embed -->
-    <div class="mb-4">
-      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">元ネタ</p>
-      <div class="aspect-video w-full rounded-lg overflow-hidden">
-        <iframe
-          loading="lazy"
-          class="w-full h-full"
-          src="https://www.youtube.com/embed/85UgTkPv1_k"
-          title="The J.B.'s - The Grunt"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe>
-      </div>
-    </div>
+<SongLayout
+  title="Protect Ya Neck 和訳・意味・スラング解説 | Wu-Tang Clan"
+  description="Wu-Tang Clanの「Protect Ya Neck」の歌詞和訳・意味・スラング解説。RZAのビートの上に8人のMCがサイファー形式でリレーする1992年のデビューシングル。posse cut、ファイブ・パーセンターズ、東西海岸対立の背景もわかりやすく解説。"
+  slug="protect-ya-neck"
+  highlights={[
+    '100ドルの「参加費」制サイファーで選別された実力主義の戦闘集団の誕生証明',
+    'GZAの業界批判ヴァース——「エレキギターを弾く登山家のA&R」はヒップホップ最高の業界風刺',
+    'インディリリース1万枚→各メンバーが他レーベルとソロ契約可能な前代未聞の独立型メジャー契約',
+  ]}
+  youtubeId="HGx82vMd29E"
+  sampleYoutubeId="85UgTkPv1_k"
+  sampleTitle="The J.B.'s - The Grunt"
+>
     <div id="lyrics"></div>
 
     <!-- ===================== -->
@@ -712,5 +631,4 @@ import Layout from '../../layouts/Layout.astro';
       <p>Producer: RZA · Samples: The J.B.'s "The Grunt", Earl Klugh "I'll Never Say Goodbye" · Wu-Tang Records / Loud Records · Album: Enter the Wu-Tang (36 Chambers) (1993)</p>
     </footer>
 
-  </div>
-</Layout>
+</SongLayout>

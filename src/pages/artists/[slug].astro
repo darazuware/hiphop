@@ -1,0 +1,79 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { artists } from '../../data/artists';
+import { songs } from '../../data/songs';
+
+export function getStaticPaths() {
+  return artists.map(a => ({ params: { slug: a.slug } }));
+}
+
+const { slug } = Astro.params;
+const artist = artists.find(a => a.slug === slug)!;
+const artistSongs = songs.filter(s => s.artistSlug === slug);
+---
+
+<Layout
+  title={`${artist.name} — アーティスト解説 | WAX&INK`}
+  description={`${artist.name}の詳細解説。${artist.summary}`}
+>
+  <div class="max-w-2xl mx-auto px-4 py-8">
+
+    <header class="mb-10">
+      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">Artist</p>
+      <h1 class="text-3xl md:text-4xl font-bold leading-tight mb-4">{artist.name}</h1>
+      <dl class="grid grid-cols-2 gap-x-4 gap-y-1 text-xs text-[var(--c-muted)] border border-[var(--c-border)] rounded-lg p-4 bg-[var(--c-surface)] mb-6">
+        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">出身</dt>
+        <dd>{artist.origin}</dd>
+        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">活動期間</dt>
+        <dd>{artist.active}</dd>
+        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">ジャンル</dt>
+        <dd>{artist.genre}</dd>
+      </dl>
+      <p class="text-[var(--c-muted)] text-sm leading-relaxed">{artist.summary}</p>
+    </header>
+
+    <!-- Japan connection -->
+    <section class="mb-10 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">日本との関わり</p>
+      <p class="text-[var(--c-muted)] text-sm leading-relaxed">{artist.japan}</p>
+    </section>
+
+    <!-- Songs on this site -->
+    {artistSongs.length > 0 && (
+      <section class="mb-10">
+        <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-4 border-b border-[var(--c-border)] pb-2">
+          WAX&amp;INK 収録曲 ({artistSongs.length}曲)
+        </h2>
+        <ul class="space-y-3">
+          {artistSongs.map(s => (
+            <li>
+              <a href={s.slug} class="flex items-center justify-between p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg hover:border-[var(--c-gold)] transition-colors group">
+                <div class="flex items-center gap-4 min-w-0">
+                  <img
+                    src={`/images/covers/${s.slug.split('/').pop()}.jpg`}
+                    alt={s.album}
+                    class="w-12 h-12 rounded object-cover shrink-0 border border-[var(--c-border)]"
+                    onerror="this.style.display='none'"
+                  />
+                  <div class="min-w-0">
+                    <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-0.5">{s.subtitle}</p>
+                    <p class="font-semibold truncate group-hover:text-[var(--c-gold)] transition-colors">{s.title}</p>
+                    <p class="text-[var(--c-very-dim)] text-xs mt-0.5">{s.bpm} BPM · {s.era}</p>
+                  </div>
+                </div>
+                <span class="text-[var(--c-very-dim)] text-lg ml-4 shrink-0">→</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+
+    <div class="border-t border-[var(--c-border)] pt-6 text-center">
+      <a href="/" class="text-xs text-[var(--c-very-dim)] hover:text-[var(--c-gold)] transition-colors uppercase tracking-widest">
+        ← WAX&amp;INK トップへ
+      </a>
+    </div>
+
+  </div>
+</Layout>

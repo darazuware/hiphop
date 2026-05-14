@@ -1,96 +1,22 @@
 ---
 import LyricsBlock from '../../components/LyricsBlock.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
-import Layout from '../../layouts/Layout.astro';
+import SongLayout from '../../layouts/SongLayout.astro';
 ---
 
-<Layout title="Ready to Die 和訳・意味・スラング解説 | The Notorious B.I.G." description="The Notorious B.I.G.のデビューアルバム『Ready to Die』のタイトルトラック「Ready to Die」歌詞和訳と深層解説。ビギーの死生観とニューヨーク東海岸の魂が刻み込まれた傑作を徹底解剖。">
-  <div class="max-w-2xl mx-auto px-4 py-8">
-
-    <!-- Header -->
-    <header class="mb-8">
-      <h1 class="text-2xl md:text-3xl font-bold leading-tight mb-2">
-        Ready to Die 和訳・意味・スラング解説
-      </h1>
-      <dl class="grid grid-cols-2 gap-x-4 gap-y-1 text-xs text-[var(--c-muted)] border border-[var(--c-border)] rounded-lg p-4 bg-[var(--c-surface)]">
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">アーティスト</dt>
-        <dd>The Notorious B.I.G.</dd>
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">プロデューサー</dt>
-        <dd>Easy Mo Bee</dd>
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">リリース</dt>
-        <dd>1994年</dd>
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">収録アルバム</dt>
-        <dd>Ready to Die</dd>
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">エリア</dt>
-        <dd>Bedford-Stuyvesant, Brooklyn, NYC</dd>
-      </dl>
-    </header>
-
-    <!-- この曲の意味 -->
-    <section class="mb-6">
-      <h2 class="text-base font-semibold mb-2">■この曲の意味（要約）</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">「生まれた時からすでに死は覚悟している」——クラック・エピデミックに蝕まれたブルックリンで生き延びた22歳が描く、絶望と野心が同居するゲットーの生存哲学。死を受け入れることで逆説的に生の強さを証明した傑作。</p>
-    </section>
-
-    <!-- 概要 -->
-    <section class="mb-6">
-      <h2 class="text-base font-semibold mb-2">■概要</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">1994年リリース。Easy Mo Beeの泥臭いブーンバップに乗せ、22歳のビギー・スモールズがゲットーで目撃した「生と死の循環」を映画的に描写。デビューアルバムのタイトルトラックにして東海岸ヒップホップの金字塔。</p>
-    </section>
-
-    <!-- 導入 -->
-    <section class="mb-10">
-      <h2 class="text-base font-semibold mb-2">■導入（時代背景）</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">1994年9月、G-Funk全盛期の西海岸に対し、ニューヨーク・ブルックリンから東海岸の反撃の砲弾が投じられた。「Ready to Die」は東海岸ルネッサンスの幕開けを告げる決定的な一曲となった。</p>
-    </section>
-
-    <!-- Table of Contents -->
-    <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
-      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
-      <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
-        <li><a href="#lyrics" class="hover:text-[var(--c-gold)] transition-colors">01 — リリック和訳・解説</a></li>
-        <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">02 — 文化的背景</a></li>
-        <li><a href="#versions" class="hover:text-[var(--c-gold)] transition-colors">03 — バージョン違い</a></li>
-        <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">04 — 制作の裏側</a></li>
-        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">05 — 評価と足跡</a></li>
-      </ol>
-    </nav>
-
-    <!-- Album Cover -->
-    <div class="mb-8">
-      <img src="/images/biggie-ready-to-die.jpg" alt="Ready to Die - Album Cover" class="w-48 h-48 rounded-lg object-cover border border-[var(--c-border)]" />
-      <p class="text-[var(--c-very-dim)] text-xs mt-2">Ready to Die · 1994</p>
-    </div>
-
-    <!-- YouTube Embed -->
-    <div class="mb-10 aspect-video w-full rounded-lg overflow-hidden">
-      <iframe
-        loading="lazy"
-        class="w-full h-full"
-        src="https://www.youtube.com/embed/dTEFzJrR3oA"
-        title="The Notorious B.I.G. - Ready to Die"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-      ></iframe>
-    </div>
-
-
-    <!-- Sample YouTube Embed -->
-    <div class="mb-4">
-      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">元ネタ</p>
-      <div class="aspect-video w-full rounded-lg overflow-hidden">
-        <iframe
-          loading="lazy"
-          class="w-full h-full"
-          src="https://www.youtube.com/embed/NNzsL3oWsFc"
-          title="Willie Hutch - Hospital Prelude of Love Theme"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe>
-      </div>
-    </div>
+<SongLayout
+  title="Ready to Die 和訳・意味・スラング解説 | The Notorious B.I.G."
+  description="The Notorious B.I.G.のデビューアルバム『Ready to Die』のタイトルトラック「Ready to Die」歌詞和訳と深層解説。ビギーの死生観とニューヨーク東海岸の魂が刻み込まれた傑作を徹底解剖。"
+  slug="ready-to-die"
+  highlights={[
+    '「生まれた時から死の準備ができている」——22歳のビギーが描くゲットーの生存哲学の極点',
+    'Willie Hutchのソウルを死の予言的サンプルに変えたEasy Mo Beeの映画的センス',
+    '1994年東海岸ルネッサンスの幕開け——西海岸G-Funk全盛期への最も強烈な反撃',
+  ]}
+  youtubeId="dTEFzJrR3oA"
+  sampleYoutubeId="NNzsL3oWsFc"
+  sampleTitle="Willie Hutch - Hospital Prelude of Love Theme"
+>
     <div id="lyrics"></div>
 
     <!-- ===================== -->
@@ -538,5 +464,4 @@ import Layout from '../../layouts/Layout.astro';
       <p>Producer: Easy Mo Bee · Sample: Willie Hutch "Hospital Prelude of Love Theme", Ohio Players "Singing in the Morning" · Album: Ready to Die (1994)</p>
     </footer>
 
-  </div>
-</Layout>
+</SongLayout>

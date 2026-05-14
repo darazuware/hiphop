@@ -1,96 +1,22 @@
 ---
 import LyricsBlock from '../../components/LyricsBlock.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
-import Layout from '../../layouts/Layout.astro';
+import SongLayout from '../../layouts/SongLayout.astro';
 ---
 
-<Layout title="Come Clean 和訳・意味・スラング解説 | Jeru the Damaja" description="Jeru the Damajaの歴史的デビュー曲「Come Clean」の歌詞和訳とスラング解説。DJ Premierプロデュース、東海岸ルネサンスを決定づけた1993年の傑作を完全解説。">
-  <div class="max-w-2xl mx-auto px-4 py-8">
-
-    <!-- Header -->
-    <header class="mb-8">
-      <h1 class="text-2xl md:text-3xl font-bold leading-tight mb-2">
-        Come Clean 和訳・意味・スラング解説
-      </h1>
-      <dl class="grid grid-cols-2 gap-x-4 gap-y-1 text-xs text-[var(--c-muted)] border border-[var(--c-border)] rounded-lg p-4 bg-[var(--c-surface)]">
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">アーティスト</dt>
-        <dd>Jeru the Damaja</dd>
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">プロデューサー</dt>
-        <dd>DJ Premier</dd>
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">リリース</dt>
-        <dd>1993年</dd>
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">収録アルバム</dt>
-        <dd>The Sun Rises in the East</dd>
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">エリア</dt>
-        <dd>Brooklyn, NYC</dd>
-      </dl>
-    </header>
-
-    <!-- この曲の意味 -->
-    <section class="mb-6">
-      <h2 class="text-base font-semibold mb-2">■この曲の意味（要約）</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">「銃を家に置いて、バトルにはスキルを持ってこい」——銃ではなく知性と言葉の力で世界を震わせる「コンシャス・ハードコア」の歴史的マニフェスト。暴力ではなくリリックの破壊力でシーンを制するという宣言。</p>
-    </section>
-
-    <!-- 概要 -->
-    <section class="mb-6">
-      <h2 class="text-base font-semibold mb-2">■概要</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">1993年リリース。DJ Premierがシェリー・マンの水滴サンプルとミニマルなキックで構築した不穏なビートを使用。Jeru the Damajaのデビューシングルにして代表曲。翌年発表のアルバム『The Sun Rises in the East』収録。</p>
-    </section>
-
-    <!-- 導入 -->
-    <section class="mb-10">
-      <h2 class="text-base font-semibold mb-2">■導入（時代背景）</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">G-Funk全盛の1993年、西海岸のシンセ・ポップなサウンドの対極に位置するニューヨーク・ブルックリン発の東海岸ハードコア。この一曲は「コンシャス・ラップ」と「ハードコア」の融合という新たな地平を切り開いた。</p>
-    </section>
-
-    <!-- Table of Contents -->
-    <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
-      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
-      <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
-        <li><a href="#lyrics" class="hover:text-[var(--c-gold)] transition-colors">01 — リリック和訳・解説</a></li>
-        <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">02 — 文化的背景</a></li>
-        <li><a href="#versions" class="hover:text-[var(--c-gold)] transition-colors">03 — バージョン違い</a></li>
-        <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">04 — 制作の裏側</a></li>
-        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">05 — 評価と足跡</a></li>
-      </ol>
-    </nav>
-
-    <!-- Album Cover -->
-    <div class="mb-8">
-      <img src="/images/jeru-sun-rises.jpg" alt="The Sun Rises in the East - Album Cover" class="w-48 h-48 rounded-lg object-cover border border-[var(--c-border)]" />
-      <p class="text-[var(--c-very-dim)] text-xs mt-2">The Sun Rises in the East · 1994</p>
-    </div>
-
-    <!-- YouTube Embed -->
-    <div class="mb-10 aspect-video w-full rounded-lg overflow-hidden">
-      <iframe
-        loading="lazy"
-        class="w-full h-full"
-        src="https://www.youtube.com/embed/kVTr7KLQPZ8"
-        title="Jeru the Damaja - Come Clean"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-      ></iframe>
-    </div>
-
-
-    <!-- Sample YouTube Embed -->
-    <div class="mb-4">
-      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">元ネタ</p>
-      <div class="aspect-video w-full rounded-lg overflow-hidden">
-        <iframe
-          loading="lazy"
-          class="w-full h-full"
-          src="https://www.youtube.com/embed/fox8MliHOeA"
-          title="Shelly Manne - Infinity"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe>
-      </div>
-    </div>
+<SongLayout
+  title="Come Clean 和訳・意味・スラング解説 | Jeru the Damaja"
+  description="Jeru the Damajaの歴史的デビュー曲「Come Clean」の歌詞和訳とスラング解説。DJ Premierプロデュース、東海岸ルネサンスを決定づけた1993年の傑作を完全解説。"
+  slug="come-clean"
+  highlights={[
+    '「Your nine spray, my mind spray」——銃ではなく知性で戦う東海岸ハードコアのマニフェスト',
+    'DJ PremierがLL Cool Jのオファーを後回しにして作った水滴サンプルの誕生秘話',
+    'Funkmaster FlexのHot 97プレイが電話回線をパンクさせてJeruのメジャー契約を生んだ',
+  ]}
+  youtubeId="kVTr7KLQPZ8"
+  sampleYoutubeId="fox8MliHOeA"
+  sampleTitle="Shelly Manne - Infinity"
+>
     <div id="lyrics"></div>
 
     <!-- ===================== -->
@@ -494,5 +420,4 @@ import Layout from '../../layouts/Layout.astro';
       <p>Producer: DJ Premier · Sample: Shelly Manne "Space" · Album: The Sun Rises in the East (1994)</p>
     </footer>
 
-  </div>
-</Layout>
+</SongLayout>

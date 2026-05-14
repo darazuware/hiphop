@@ -1,62 +1,19 @@
 ---
 import LyricsBlock from '../../components/LyricsBlock.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
-import Layout from '../../layouts/Layout.astro';
+import SongLayout from '../../layouts/SongLayout.astro';
 ---
 
-<Layout title="STORM (I & II) 和訳・意味・スラング解説 | GENER8ION & Yung Lean" description="GENER8ION & Yung LeanのSTORM (I & II)の歌詞和訳とスラング徹底解説。Romain Gavras監督MVと振付師Damien Jaletが体現したユースカルチャーのディストピアとカタルシスを読み解く。">
-  <div class="max-w-2xl mx-auto px-4 py-8">
-
-    <!-- Header -->
-    <header class="mb-8">
-      <h1 class="text-2xl md:text-3xl font-bold leading-tight mb-2">
-        STORM (I & II) 和訳・意味・スラング解説
-      </h1>
-      <dl class="grid grid-cols-2 gap-x-4 gap-y-1 text-xs text-[var(--c-muted)] border border-[var(--c-border)] rounded-lg p-4 bg-[var(--c-surface)]">
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">アーティスト</dt>
-        <dd>GENER8ION & Yung Lean</dd>
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">プロデューサー</dt>
-        <dd>GENER8ION (Ben Surkin)</dd>
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">リリース</dt>
-        <dd>2026年</dd>
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">映像監督</dt>
-        <dd>Romain Gavras</dd>
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">振付</dt>
-        <dd>Damien Jalet</dd>
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">エリア</dt>
-        <dd>Stockholm / Paris</dd>
-      </dl>
-    </header>
-
-    <!-- この曲の意味 -->
-    <section class="mb-6">
-      <h2 class="text-base font-semibold mb-2">■この曲の意味（要約）</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">2034年のイギリスの全寮制学校を舞台に、抑圧されたユースたちの破壊衝動が集団的な連帯へと昇華されるまでを描いた2部構成の叙事詩。「嵐の中でも団結する（United through the storm）」——個人の痛みを肉体の躍動と魂のチャントで浄化するプロセスを、約7分半のオーディオビジュアル作品として完璧に体現した現代のアンセム。</p>
-    </section>
-
-    <!-- 概要 -->
-    <section class="mb-6">
-      <h2 class="text-base font-semibold mb-2">■概要</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">フレンチ・エレクトロの鬼才GENER8IONとスウェーデン・ストックホルム出身のYung Leanによるコラボ。「STORM I」のスポークン・ワードによる冷酷な現実描写から「STORM II」のソウルフルなピアノとトランス的チャントへと移行する2部構成。Romain Gavras監督のMVは瞬く間に数千万回再生を記録し、音楽・映像・ダンスが融合した世界的なバイラル作品となった。</p>
-    </section>
-
-    <!-- 導入 -->
-    <section class="mb-10">
-      <h2 class="text-base font-semibold mb-2">■導入（時代背景）</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">AI生成コンテンツがSNSを埋め尽くす2020年代後半、GENER8IONとYung Leanが世界に突きつけたのは「汗と血にまみれた人間の肉体の群れ」だった。映像の舞台は2034年のリーズ（実際の撮影地はベルギーのカルディナル・メルシエ学院）。イギリスの全寮制学校の制服という特権階級の象徴を纏いながら、生徒たちが野獣のように暴走する様は、ウィリアム・ゴールディング『蠅の王』のディストピア世界を現代に蘇らせる。</p>
-    </section>
-
-    <!-- Table of Contents -->
-    <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
-      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
-      <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
-        <li><a href="#lyrics" class="hover:text-[var(--c-gold)] transition-colors">01 — 歌詞和訳と意味解説</a></li>
-        <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">02 — 文化的背景</a></li>
-        <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">03 — 制作の裏側</a></li>
-        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">04 — 評価とその後の影響</a></li>
-      </ol>
-    </nav>
-
+<SongLayout
+  title="STORM (I & II) 和訳・意味・スラング解説 | GENER8ION & Yung Lean"
+  description="GENER8ION & Yung LeanのSTORM (I & II)の歌詞和訳とスラング徹底解説。Romain Gavras監督MVと振付師Damien Jaletが体現したユースカルチャーのディストピアとカタルシスを読み解く。"
+  slug="storm"
+  highlights={[
+    '2034年のイギリス全寮制学校を舞台に約7分半の2部構成——スポークンワードの冷酷な現実からソウルフルなチャントの昇華へ、蠅の王的ディストピアを体現した現代の叙事詩',
+    'Romain Gavras（MV監督）× Damien Jalet（振付）——映像・音楽・ダンスが三位一体となって生み出した「人間の肉体の群れ」の圧倒的なビジュアル体験',
+    'AI生成コンテンツが氾濫する2020年代後半に汗と血にまみれた群衆を突きつけた反逆——GENER8ION & Yung Leanによる時代へのカウンターパンチ',
+  ]}
+>
     <div id="lyrics"></div>
 
     <!-- ===================== -->
@@ -504,5 +461,4 @@ import Layout from '../../layouts/Layout.astro';
       <p>Producer: GENER8ION (Ben Surkin) · Director: Romain Gavras · Choreographer: Damien Jalet · 2026</p>
     </footer>
 
-  </div>
-</Layout>
+</SongLayout>

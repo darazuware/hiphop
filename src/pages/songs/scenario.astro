@@ -1,73 +1,20 @@
 ---
 import LyricsBlock from '../../components/LyricsBlock.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
-import Layout from '../../layouts/Layout.astro';
+import SongLayout from '../../layouts/SongLayout.astro';
 ---
 
-<Layout title="Scenario 和訳・意味・スラング解説 | A Tribe Called Quest" description="A Tribe Called QuestのScenarioの歌詞和訳とスラング徹底解説。Phife Dawg・Charlie Brown・Busta Rhymesが紡ぐヒップホップ史上最高のポッセカットを読み解く。">
-  <div class="max-w-2xl mx-auto px-4 py-8">
-
-    <!-- Header -->
-    <header class="mb-8">
-      <h1 class="text-2xl md:text-3xl font-bold leading-tight mb-2">
-        Scenario 和訳・意味・スラング解説
-      </h1>
-      <dl class="grid grid-cols-2 gap-x-4 gap-y-1 text-xs text-[var(--c-muted)] border border-[var(--c-border)] rounded-lg p-4 bg-[var(--c-surface)]">
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">アーティスト</dt>
-        <dd>A Tribe Called Quest feat. Leaders of the New School</dd>
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">プロデューサー</dt>
-        <dd>A Tribe Called Quest</dd>
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">リリース</dt>
-        <dd>1992年</dd>
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">収録アルバム</dt>
-        <dd>The Low End Theory</dd>
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">エリア</dt>
-        <dd>Queens, New York</dd>
-      </dl>
-    </header>
-
-    <!-- この曲の意味 -->
-    <section class="mb-6">
-      <h2 class="text-base font-semibold mb-2">■この曲の意味（要約）</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">「で、結局どういうシナリオ（筋書き）になるんだ？」——Q-Tip、Phife Dawg、Charlie Brown、Dinco D、そして当時19歳のBusta Rhymesが次々とマイクをリレーする「ポッセ・カット」の頂点。暴力の誇張を避け、純粋なライム・スキルの応酬で最高潮に達するNative Tonguesムーブメントの結晶。</p>
-    </section>
-
-    <!-- 概要 -->
-    <section class="mb-6">
-      <h2 class="text-base font-semibold mb-2">■概要</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">1992年3月リリース。『The Low End Theory』（1991年）からのサード・シングル。PopMattersが「ヒップホップ史上最も偉大なポッセ・カット」と称し、Time誌の「All-TIME 100 Songs」にも選出。Busta Rhymesのブレイクスルーとなったヴァース——特に「Dungeon Dragon」——はヒップホップ史に永遠に刻まれた。</p>
-    </section>
-
-    <!-- 導入 -->
-    <section class="mb-10">
-      <h2 class="text-base font-semibold mb-2">■導入（時代背景）</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">西海岸ではN.W.A.のギャングスタ・ラップが席巻していた1991〜92年、ニューヨークのATCQはジャズ・サンプリングと知的なリリシズムで独自路線を築いていた。「Scenario」はそのムーブメントの頂点——暴力や犯罪ではなく、純粋なマイク・スキルとエネルギーそのものがこの曲の「シナリオ」だ。</p>
-    </section>
-
-    <!-- Table of Contents -->
-    <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
-      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
-      <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
-        <li><a href="#lyrics" class="hover:text-[var(--c-gold)] transition-colors">01 — 歌詞和訳と意味解説</a></li>
-        <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">02 — 文化的背景</a></li>
-        <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">03 — 制作の裏側</a></li>
-        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">04 — 評価とその後の影響</a></li>
-      </ol>
-    </nav>
-
-    <!-- YouTube Embed -->
-    <div class="mb-10 aspect-video w-full rounded-lg overflow-hidden">
-      <iframe
-        loading="lazy"
-        class="w-full h-full"
-        src="https://www.youtube.com/embed/Q6TLWqn82J4"
-        title="A Tribe Called Quest - Scenario (Official Video)"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-      ></iframe>
-    </div>
-
+<SongLayout
+  title="Scenario 和訳・意味・スラング解説 | A Tribe Called Quest"
+  description="A Tribe Called QuestのScenarioの歌詞和訳とスラング徹底解説。Phife Dawg・Charlie Brown・Busta Rhymesが紡ぐヒップホップ史上最高のポッセカットを読み解く。"
+  slug="scenario"
+  highlights={[
+    'PopMatters「ヒップホップ史上最も偉大なポッセカット」・Time誌All-TIME 100 Songs選出',
+    '19歳Busta Rhymesが「Dungeon Dragon」ヴァースで世界に降臨したブレイクスルーの瞬間',
+    'N.W.A.のギャングスタ全盛期に暴力を一切使わずライムスキルだけで頂点に達したNative Tonguesの証明',
+  ]}
+  youtubeId="Q6TLWqn82J4"
+>
     <div id="lyrics"></div>
 
     <!-- ===================== -->
@@ -665,5 +612,4 @@ import Layout from '../../layouts/Layout.astro';
       <p>Producer: A Tribe Called Quest · Album: The Low End Theory (1991) · Single: 1992 · feat. Leaders of the New School</p>
     </footer>
 
-  </div>
-</Layout>
+</SongLayout>

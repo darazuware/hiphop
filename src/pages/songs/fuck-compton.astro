@@ -1,90 +1,22 @@
 ---
 import LyricsBlock from '../../components/LyricsBlock.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
-import Layout from '../../layouts/Layout.astro';
+import SongLayout from '../../layouts/SongLayout.astro';
 ---
 
-<Layout title="Fuck Compton 和訳・意味・スラング解説 | Tim Dog" description="Tim Dogの「Fuck Compton」の歌詞和訳とスラング解説。東西ヒップホップ抗争の導火線となった1991年のディストラックを徹底解説。">
-  <div class="max-w-2xl mx-auto px-4 py-8">
-
-    <!-- Header -->
-    <header class="mb-8">
-      <h1 class="text-2xl md:text-3xl font-bold leading-tight mb-2">
-        Fuck Compton 和訳・意味・スラング解説
-      </h1>
-      <dl class="grid grid-cols-2 gap-x-4 gap-y-1 text-xs text-[var(--c-muted)] border border-[var(--c-border)] rounded-lg p-4 bg-[var(--c-surface)]">
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">アーティスト</dt>
-        <dd>Tim Dog</dd>
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">プロデューサー</dt>
-        <dd>The 45 King</dd>
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">リリース</dt>
-        <dd>1991年</dd>
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">収録アルバム</dt>
-        <dd>Penicillin on Wax</dd>
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">エリア</dt>
-        <dd>South Bronx, NYC</dd>
-      </dl>
-    </header>
-
-    <!-- この曲の意味 -->
-    <section class="mb-6">
-      <h2 class="text-base font-semibold mb-2">■この曲の意味（要約）</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">「俺はサウス・ブロンクス出身だ、コンプトンなんかくたばれ！」——ヒップホップ発祥の地ニューヨークから、N.W.Aに代表される西海岸ギャングスタ・ラップへと叩きつけた怒りの宣戦布告。東西抗争の導火線となった歴史的ディストラック。</p>
-    </section>
-
-    <!-- 概要 -->
-    <section class="mb-6">
-      <h2 class="text-base font-semibold mb-2">■概要</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">1991年リリース。The 45 KingプロデュースのアルバムPenicillin on Wax収録。Eazy-E・Dr. Dre・Ice Cubeを名指しでディスし、東海岸の誇りと怒りを爆発させた。ESGの「UFO」を不穏にサンプリングしたビートが特徴的。</p>
-    </section>
-
-    <!-- 導入 -->
-    <section class="mb-10">
-      <h2 class="text-base font-semibold mb-2">■導入（時代背景）</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">N.W.Aの「Straight Outta Compton」（1988年）が全米を席巻し、西海岸ギャングスタ・ラップが主流化しつつあった1991年。ヒップホップ発祥の地サウス・ブロンクスのアーティストが、自らのアイデンティティと誇りをかけて反撃した一曲。</p>
-    </section>
-
-    <!-- Table of Contents -->
-    <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
-      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
-      <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
-        <li><a href="#lyrics" class="hover:text-[var(--c-gold)] transition-colors">01 — リリック和訳・解説</a></li>
-        <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">02 — 文化的背景</a></li>
-        <li><a href="#versions" class="hover:text-[var(--c-gold)] transition-colors">03 — バージョン違い</a></li>
-        <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">04 — 制作の裏側</a></li>
-        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">05 — 評価と足跡</a></li>
-      </ol>
-    </nav>
-
-    <!-- YouTube Embed -->
-    <div class="mb-10 aspect-video w-full rounded-lg overflow-hidden">
-      <iframe
-        loading="lazy"
-        class="w-full h-full"
-        src="https://www.youtube.com/embed/AwzeM2J3Emk"
-        title="Tim Dog - Fuck Compton"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-      ></iframe>
-    </div>
-
-
-    <!-- Sample YouTube Embed -->
-    <div class="mb-4">
-      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">元ネタ</p>
-      <div class="aspect-video w-full rounded-lg overflow-hidden">
-        <iframe
-          loading="lazy"
-          class="w-full h-full"
-          src="https://www.youtube.com/embed/X_vuSse9sFY"
-          title="ESG - UFO"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe>
-      </div>
-    </div>
+<SongLayout
+  title="Fuck Compton 和訳・意味・スラング解説 | Tim Dog"
+  description="Tim Dogの「Fuck Compton」の歌詞和訳とスラング解説。東西ヒップホップ抗争の導火線となった1991年のディストラックを徹底解説。"
+  slug="fuck-compton"
+  highlights={[
+    'Tim DogがDr. Dreによる女性司会者Dee Barnes暴行事件を1991年時点で公然と告発',
+    'N.W.Aの楽曲名「100 Miles and Runnin\'」を逆用した高度なバトルラップの技',
+    'Billboard Hot Rap Songs 1位——東西ヒップホップ抗争の導火線となったSouth Bronxの咆哮',
+  ]}
+  youtubeId="AwzeM2J3Emk"
+  sampleYoutubeId="X_vuSse9sFY"
+  sampleTitle="ESG - UFO"
+>
     <div id="lyrics"></div>
 
     <!-- ===================== -->
@@ -557,5 +489,4 @@ import Layout from '../../layouts/Layout.astro';
       <p>Producer: Ced-Gee / The 45 King · Sample: ESG "UFO" · Album: Penicillin on Wax (1991)</p>
     </footer>
 
-  </div>
-</Layout>
+</SongLayout>

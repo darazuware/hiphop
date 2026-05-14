@@ -1,80 +1,20 @@
 ---
 import LyricsBlock from '../../components/LyricsBlock.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
-import Layout from '../../layouts/Layout.astro';
+import SongLayout from '../../layouts/SongLayout.astro';
 ---
 
-<Layout title="Triumph 和訳・意味・スラング解説 | Wu-Tang Clan" description="Wu-Tang Clanの「Triumph」の歌詞和訳とスラング解説。9人のMCによるポッセ・カット、RZAプロデュース。1997年、Wu-Tang Foreverからの先行シングル。">
-  <div class="max-w-2xl mx-auto px-4 py-8">
-
-    <!-- Header -->
-    <header class="mb-8">
-      <h1 class="text-2xl md:text-3xl font-bold leading-tight mb-2">
-        Triumph 和訳・意味・スラング解説
-      </h1>
-      <dl class="grid grid-cols-2 gap-x-4 gap-y-1 text-xs text-[var(--c-muted)] border border-[var(--c-border)] rounded-lg p-4 bg-[var(--c-surface)]">
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">アーティスト</dt>
-        <dd>Wu-Tang Clan</dd>
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">プロデューサー</dt>
-        <dd>RZA</dd>
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">リリース</dt>
-        <dd>1997年</dd>
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">収録アルバム</dt>
-        <dd>Wu-Tang Forever</dd>
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">エリア</dt>
-        <dd>Staten Island, New York</dd>
-      </dl>
-    </header>
-
-    <!-- この曲の意味 -->
-    <section class="mb-6">
-      <h2 class="text-base font-semibold mb-2">■この曲の意味（要約）</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">「勝利（Triumph）」——ヒップホップが商業主義に侵食されつつあった1997年に、Wu-Tang Clanが純粋なリリシズムと集合的な力を誇示した宣言文。9人のMCがサビなしで5分38秒を蹴り続けるこの曲は、ラップゲームの本質を守り抜くという意志そのもの。</p>
-    </section>
-
-    <!-- 概要 -->
-    <section class="mb-6">
-      <h2 class="text-base font-semibold mb-2">■概要</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">1997年1月リリース。Wu-Tang Foreverの先行シングルとして発表。ホック（サビ）なし、フル尺5分38秒。Inspectah Deckの「I bomb atomically」から始まる多音節ライムの連打、RZAの暗く壮大なビート。ミュージックビデオは約80万ドルの制作費を投じたハリウッド級の映像。</p>
-    </section>
-
-    <!-- 導入 -->
-    <section class="mb-10">
-      <h2 class="text-base font-semibold mb-2">■導入（時代背景）</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">シャイニー・スーツ・エラへと傾斜しつつあった1997年、Wu-Tang Clanが放った究極のポッセ・カット。放送局からの短縮要求をRZAが断固拒否し、6分弱のノーカット版を全米の電波に乗せた歴史的な商業主義への反骨。</p>
-    </section>
-
-    <!-- Table of Contents -->
-    <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
-      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
-      <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
-        <li><a href="#lyrics" class="hover:text-[var(--c-gold)] transition-colors">01 — 歌詞和訳と意味解説</a></li>
-        <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">02 — 文化的背景</a></li>
-        <li><a href="#versions" class="hover:text-[var(--c-gold)] transition-colors">03 — バージョン違い</a></li>
-        <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">04 — 制作の裏側</a></li>
-        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">05 — 評価とその後の影響</a></li>
-      </ol>
-    </nav>
-
-    <!-- Album Cover -->
-    <div class="mb-8">
-      <img src="/images/wu-tang-forever.jpg" alt="Wu-Tang Forever - Album Cover" class="w-48 h-48 rounded-lg object-cover border border-[var(--c-border)]" />
-      <p class="text-[var(--c-very-dim)] text-xs mt-2">Wu-Tang Forever · 1997</p>
-    </div>
-
-    <!-- YouTube Embed -->
-    <div class="mb-10 aspect-video w-full rounded-lg overflow-hidden">
-      <iframe
-        loading="lazy"
-        class="w-full h-full"
-        src="https://www.youtube.com/embed/pJk0p-98Xzc"
-        title="Wu-Tang Clan - Triumph"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-      ></iframe>
-    </div>
-
+<SongLayout
+  title="Triumph 和訳・意味・スラング解説 | Wu-Tang Clan"
+  description="Wu-Tang Clanの「Triumph」の歌詞和訳とスラング解説。9人のMCによるポッセ・カット、RZAプロデュース。1997年、Wu-Tang Foreverからの先行シングル。"
+  slug="triumph"
+  highlights={[
+    '9人のMCがサビなしで5分38秒——Inspectah Deckの「I bomb atomically」を起点に多音節ライムを連打し続けるWu-Tang最高傑作のポッセ・カット',
+    '約80万ドル投じたハリウッド級のMVと、放送局の短縮要求をRZAが断固拒否した反骨精神——1997年の商業主義ヒップホップへの宣戦布告',
+    'シャイニー・スーツ・エラへの反動として純粋なリリシズムを突きつけたWu-Tang Clan——Staten IslandからNYCのラップゲームを制した集合的な力の証明',
+  ]}
+  youtubeId="pJk0p-98Xzc"
+>
     <div id="lyrics"></div>
 
     <!-- ===================== -->
@@ -752,5 +692,4 @@ import Layout from '../../layouts/Layout.astro';
       <p>Producer: RZA · Album: Wu-Tang Forever (1997) · Released: January 11, 1997</p>
     </footer>
 
-  </div>
-</Layout>
+</SongLayout>

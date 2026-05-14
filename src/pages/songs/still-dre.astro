@@ -1,73 +1,20 @@
 ---
 import LyricsBlock from '../../components/LyricsBlock.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
-import Layout from '../../layouts/Layout.astro';
+import SongLayout from '../../layouts/SongLayout.astro';
 ---
 
-<Layout title="Still D.R.E. 和訳・意味・スラング解説 | Dr. Dre ft. Snoop Dogg" description="Dr. DreとSnoop Doggの「Still D.R.E.」歌詞和訳とスラング徹底解説。Jay-Zゴーストライティングの真相、Scott Storchの伝説のピアノリフ、G-Funk復活の舞台裏を読み解く。">
-  <div class="max-w-2xl mx-auto px-4 py-8">
-
-    <!-- Header -->
-    <header class="mb-8">
-      <h1 class="text-2xl md:text-3xl font-bold leading-tight mb-2">
-        Still D.R.E. 和訳・意味・スラング解説
-      </h1>
-      <dl class="grid grid-cols-2 gap-x-4 gap-y-1 text-xs text-[var(--c-muted)] border border-[var(--c-border)] rounded-lg p-4 bg-[var(--c-surface)]">
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">アーティスト</dt>
-        <dd>Dr. Dre ft. Snoop Dogg</dd>
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">プロデューサー</dt>
-        <dd>Dr. Dre, Scott Storch</dd>
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">リリース</dt>
-        <dd>1999年</dd>
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">収録アルバム</dt>
-        <dd>2001</dd>
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">エリア</dt>
-        <dd>Compton / Los Angeles, CA</dd>
-      </dl>
-    </header>
-
-    <!-- この曲の意味 -->
-    <section class="mb-6">
-      <h2 class="text-base font-semibold mb-2">■この曲の意味（要約）</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">「俺は今でもここにいる（Still）」——「ドレーの時代は終わった」と嘲るヘイターに、衰えぬ存在感とLAのストリートへの変わらぬ愛を突きつけた王の帰還宣言。ウエストコースト・ヒップホップのルネサンスを告げたアンセム。</p>
-    </section>
-
-    <!-- 概要 -->
-    <section class="mb-6">
-      <h2 class="text-base font-semibold mb-2">■概要</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">1999年9月28日リリース。アルバム『2001』のリードシングル。歌詞はニューヨークのJay-Zがゴーストライターとして執筆。Scott Storchによるオリジナルのピアノリフは、ヒップホップ史上最も有名なリフの一つ。2022年のスーパーボウルでも披露され、23年後にBillboard Hot 100に再チャートイン。</p>
-    </section>
-
-    <!-- 導入 -->
-    <section class="mb-10">
-      <h2 class="text-base font-semibold mb-2">■導入（時代背景）</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">2Pacの死（1996年）、Suge Knightとの決裂を経てDeath Row Recordsを離脱したDr. Dre。新レーベルAftermathの初期作は不振で「Dre fell off（終わった）」の声が上がる中、東海岸Jay-Zのペンと西海岸Scott Storchのピアノで完成したのがこの曲だった。東西の帝王が手を組んだことで、ウエストコーストに完全復権の狼煙が上がった。</p>
-    </section>
-
-    <!-- Table of Contents -->
-    <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
-      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
-      <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
-        <li><a href="#lyrics" class="hover:text-[var(--c-gold)] transition-colors">01 — 歌詞和訳と意味解説</a></li>
-        <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">02 — 文化的背景</a></li>
-        <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">03 — 制作の裏側</a></li>
-        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">04 — 評価とその後の影響</a></li>
-      </ol>
-    </nav>
-
-    <!-- YouTube Embed -->
-    <div class="mb-10 aspect-video w-full rounded-lg overflow-hidden">
-      <iframe
-        loading="lazy"
-        class="w-full h-full"
-        src="https://www.youtube.com/embed/ht_0A8M4sEE"
-        title="Dr. Dre - Still D.R.E. ft. Snoop Dogg (Official Video)"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-      ></iframe>
-    </div>
-
+<SongLayout
+  title="Still D.R.E. 和訳・意味・スラング解説 | Dr. Dre ft. Snoop Dogg"
+  description="Dr. DreとSnoop Doggの「Still D.R.E.」歌詞和訳とスラング徹底解説。Jay-Zゴーストライティングの真相、Scott Storchの伝説のピアノリフ、G-Funk復活の舞台裏を読み解く。"
+  slug="still-dre"
+  highlights={[
+    'Jay-Zが東海岸からゴーストライターとして歌詞を書き、Scott Storchが西海岸でピアノリフを作曲——東西帝王の密かな共演',
+    'Death Row離脱後「終わった」と嘲られたDreが、1999年に放った完全復権宣言——ウエストコーストHIPHOPのルネサンスを告げたアンセム',
+    '2022年スーパーボウルのハーフタイムショーで披露され、リリースから23年後にBillboard Hot 100へ奇跡の再チャートイン',
+  ]}
+  youtubeId="ht_0A8M4sEE"
+>
     <div id="lyrics"></div>
 
     <!-- ===================== -->
@@ -648,5 +595,4 @@ import Layout from '../../layouts/Layout.astro';
       <p>Producer: Dr. Dre, Scott Storch · Album: 2001 (1999) · Label: Aftermath Entertainment / Interscope Records</p>
     </footer>
 
-  </div>
-</Layout>
+</SongLayout>

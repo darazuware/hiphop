@@ -1,96 +1,22 @@
 ---
 import LyricsBlock from '../../components/LyricsBlock.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
-import Layout from '../../layouts/Layout.astro';
+import SongLayout from '../../layouts/SongLayout.astro';
 ---
 
-<Layout title="You 和訳・意味・スラング解説 | Evidence feat. DJ Premier" description="Evidenceのソロセカンドシングル「You」（DJ Premier制作）の歌詞和訳と深掘り解説。東西ヒップホップの融合、内省的メロディ、ブーンバップの美学を完全解析。">
-  <div class="max-w-2xl mx-auto px-4 py-8">
-
-    <!-- Header -->
-    <header class="mb-8">
-      <h1 class="text-2xl md:text-3xl font-bold leading-tight mb-2">
-        You 和訳・意味・スラング解説
-      </h1>
-      <dl class="grid grid-cols-2 gap-x-4 gap-y-1 text-xs text-[var(--c-muted)] border border-[var(--c-border)] rounded-lg p-4 bg-[var(--c-surface)]">
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">アーティスト</dt>
-        <dd>Evidence feat. DJ Premier</dd>
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">プロデューサー</dt>
-        <dd>DJ Premier</dd>
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">リリース</dt>
-        <dd>2011年</dd>
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">収録アルバム</dt>
-        <dd>Cats & Dogs</dd>
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">エリア</dt>
-        <dd>Venice Beach, Los Angeles</dd>
-      </dl>
-    </header>
-
-    <!-- この曲の意味 -->
-    <section class="mb-6">
-      <h2 class="text-base font-semibold mb-2">■この曲の意味（要約）</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">人間関係の喪失と時間の経過、自己との対峙を描いた内省的傑作。「You（あなた）」という二人称が誰を指すのか、リスナー自身が問い続ける構造になっており、普遍的な孤独と向き合いの物語として機能している。</p>
-    </section>
-
-    <!-- 概要 -->
-    <section class="mb-6">
-      <h2 class="text-base font-semibold mb-2">■概要</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">2011年9月リリース。西海岸のMC「Mr. Slow Flow」EvidenceとDJ Premierが邂逅。Rhymesayers Entertainmentから発表されたアルバム『Cats & Dogs』のセカンド・シングルとして先行リリースされた。</p>
-    </section>
-
-    <!-- 導入 -->
-    <section class="mb-10">
-      <h2 class="text-base font-semibold mb-2">■導入（時代背景）</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">2011年、インディペンデント・ヒップホップが最も輝いていた時代。西海岸EvidenceとDJ Premierの東西レジェンドの融合は、商業主義に流れないヒップホップの純粋な美学を体現した。</p>
-    </section>
-
-    <!-- Table of Contents -->
-    <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
-      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
-      <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
-        <li><a href="#lyrics" class="hover:text-[var(--c-gold)] transition-colors">01 — リリック和訳・解説</a></li>
-        <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">02 — 文化的背景</a></li>
-        <li><a href="#versions" class="hover:text-[var(--c-gold)] transition-colors">03 — バージョン違い</a></li>
-        <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">04 — 制作の裏側</a></li>
-        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">05 — 評価と足跡</a></li>
-      </ol>
-    </nav>
-
-    <!-- Album Cover -->
-    <div class="mb-8">
-      <img src="/images/evidence-cats-dogs.jpg" alt="Cats & Dogs - Album Cover" class="w-48 h-48 rounded-lg object-cover border border-[var(--c-border)]" />
-      <p class="text-[var(--c-very-dim)] text-xs mt-2">Cats & Dogs · 2011</p>
-    </div>
-
-    <!-- YouTube Embed -->
-    <div class="mb-10 aspect-video w-full rounded-lg overflow-hidden">
-      <iframe
-        loading="lazy"
-        class="w-full h-full"
-        src="https://www.youtube.com/embed/vHfNnjn5wMo"
-        title="Evidence - You (feat. DJ Premier)"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-      ></iframe>
-    </div>
-
-
-    <!-- Sample YouTube Embed -->
-    <div class="mb-4">
-      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">元ネタ</p>
-      <div class="aspect-video w-full rounded-lg overflow-hidden">
-        <iframe
-          loading="lazy"
-          class="w-full h-full"
-          src="https://www.youtube.com/embed/q2zrXctF_v0"
-          title="Mavis Staples - You Send Me"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe>
-      </div>
-    </div>
+<SongLayout
+  title="You 和訳・意味・スラング解説 | Evidence feat. DJ Premier"
+  description="Evidenceのソロセカンドシングル「You」（DJ Premier制作）の歌詞和訳と深掘り解説。東西ヒップホップの融合、内省的メロディ、ブーンバップの美学を完全解析。"
+  slug="you"
+  highlights={[
+    '「You（あなた）」という二人称が誰を指すのか問い続ける構造——人間関係の喪失・時間の経過・自己との対峙を描いた普遍的な内省的傑作',
+    'Venice Beach出身のMr. Slow Flow（Evidence）と東海岸の帝王DJ Premier——2011年に実現した東西インディペンデント・ヒップホップの理想的な融合',
+    'Mavis Staplesの「You Send Me」を元ネタに採用——ソウルの温もりとブーンバップの無機質さの間で揺れる感情的な緊張を生み出したPremierの職人技',
+  ]}
+  youtubeId="vHfNnjn5wMo"
+  sampleYoutubeId="q2zrXctF_v0"
+  sampleTitle="Mavis Staples - You Send Me"
+>
     <div id="lyrics"></div>
 
     <!-- ===================== -->
@@ -556,5 +482,4 @@ import Layout from '../../layouts/Layout.astro';
       <p>Producer: DJ Premier · Samples: Mavis Staples "You Send Me" · The Emotions "Blind Alley" · Album: Cats & Dogs (Rhymesayers Entertainment, 2011)</p>
     </footer>
 
-  </div>
-</Layout>
+</SongLayout>
