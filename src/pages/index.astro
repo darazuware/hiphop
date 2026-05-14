@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { songs } from '../data/songs';
+
+const producers = [...new Set(songs.map(s => s.producer))].sort((a, b) => a.localeCompare(b, 'ja'));
 ---
 
 <Layout title="WAX&INK — ヒップホップ歌詞和訳・スラング解説" description="ヒップホップの名曲を歌詞和訳とスラング解説で深掘り。C.R.E.A.M.・Nasなど名曲のスラングと文化背景を日本語で徹底解説。">
@@ -58,17 +60,25 @@ import { songs } from '../data/songs';
       </div>
       <div class="flex flex-wrap gap-2 items-center">
         <span class="text-[var(--c-very-dim)] text-xs uppercase tracking-widest w-16 shrink-0">Prod.</span>
-        <button data-filter="producer" data-value="" class="filter-btn active text-xs px-3 py-1 rounded border border-[var(--c-border)] text-[var(--c-muted)] hover:border-[var(--c-gold)] transition-colors">All</button>
-        <button data-filter="producer" data-value="RZA" class="filter-btn text-xs px-3 py-1 rounded border border-[var(--c-border)] text-[var(--c-muted)] hover:border-[var(--c-gold)] transition-colors">RZA</button>
-        <button data-filter="producer" data-value="DJ Premier" class="filter-btn text-xs px-3 py-1 rounded border border-[var(--c-border)] text-[var(--c-muted)] hover:border-[var(--c-gold)] transition-colors">DJ Premier</button>
-        <button data-filter="producer" data-value="その他" class="filter-btn text-xs px-3 py-1 rounded border border-[var(--c-border)] text-[var(--c-muted)] hover:border-[var(--c-gold)] transition-colors">その他</button>
+        <select id="producer-select" class="text-xs px-3 py-1 rounded border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-muted)] focus:outline-none focus:border-[var(--c-gold)] transition-colors cursor-pointer">
+          <option value="">All</option>
+          {producers.map(p => <option value={p}>{p}</option>)}
+        </select>
       </div>
     </div>
 
     <section>
       <div class="flex items-center justify-between mb-5 border-b border-[var(--c-border)] pb-2">
         <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest">Songs</h2>
-        <span id="count" class="text-[var(--c-very-dim)] text-xs">{songs.length} tracks</span>
+        <div class="flex items-center gap-3">
+          <select id="sort-select" class="text-xs px-2 py-1 rounded border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-very-dim)] focus:outline-none focus:border-[var(--c-gold)] transition-colors cursor-pointer">
+            <option value="default">Default</option>
+            <option value="az">A–Z</option>
+            <option value="bpm">BPM ↑</option>
+            <option value="era">Era</option>
+          </select>
+          <span id="count" class="text-[var(--c-very-dim)] text-xs">{songs.length} tracks</span>
+        </div>
       </div>
 
       <ul id="song-list" class="grid grid-cols-2 md:grid-cols-3 gap-3">
@@ -77,6 +87,7 @@ import { songs } from '../data/songs';
             data-era={song.era}
             data-region={song.region}
             data-producer={song.producer}
+            data-bpm={song.bpm}
             data-search={[song.title, song.artists, song.subtitle, song.tag, song.era, song.region, song.producer, song.sample ?? ''].join(' ').toLowerCase()}
           >
             <a href={song.slug} class="song-card group relative flex flex-col justify-end overflow-hidden rounded-xl aspect-[3/4]">
@@ -160,6 +171,43 @@ import { songs } from '../data/songs';
     searchClear.classList.add('hidden');
     applyFilters();
     searchInput?.focus();
+  });
+
+  const producerSelect = document.getElementById('producer-select') as HTMLSelectElement | null;
+  producerSelect?.addEventListener('change', () => {
+    filters.producer = producerSelect.value;
+    applyFilters();
+  });
+
+  const sortSelect = document.getElementById('sort-select') as HTMLSelectElement | null;
+  const songList = document.getElementById('song-list');
+  sortSelect?.addEventListener('change', () => {
+    if (!songList) return;
+    const items = [...songList.querySelectorAll<HTMLElement>('li')];
+    const eraOrder: Record<string, number> = { '90s前半': 0, '90s後半': 1, '00s以降': 2 };
+    items.sort((a, b) => {
+      const v = sortSelect.value;
+      if (v === 'az') {
+        const ta = a.querySelector<HTMLElement>('p.font-bold')?.textContent ?? '';
+        const tb = b.querySelector<HTMLElement>('p.font-bold')?.textContent ?? '';
+        return ta.localeCompare(tb);
+      }
+      if (v === 'era') {
+        return (eraOrder[a.dataset.era ?? ''] ?? 99) - (eraOrder[b.dataset.era ?? ''] ?? 99);
+      }
+      if (v === 'bpm') {
+        const ba = parseFloat(a.dataset.bpm ?? '0');
+        const bb = parseFloat(b.dataset.bpm ?? '0');
+        return ba - bb;
+      }
+      return parseInt(a.dataset.index ?? '0') - parseInt(b.dataset.index ?? '0');
+    });
+    items.forEach(item => songList.appendChild(item));
+    applyFilters();
+  });
+
+  [...(songList?.querySelectorAll<HTMLElement>('li') ?? [])].forEach((item, i) => {
+    item.dataset.index = String(i);
   });
 </script>
 
