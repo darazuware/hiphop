@@ -39,8 +39,17 @@ public/images/   # アルバムアート
 2. ユーザーがGist URLをClaudeに伝える
 3. Claude: gh gist view で内容取得
 4. Claude: WebFetchでgenius.comから歌詞を直接取得・照合・修正
-5. Claudeが.astroページを生成 → git commit
+5. Claude: src/data/songs.ts にエントリ追記（artistSlug含む）
+6. Claude: src/data/artists.ts を確認し、artistSlugが未登録なら追加
+   - 追加項目: slug, name, origin, active, genre, summary, japan
+   - Gistの内容とDeep Researchから自動生成
+7. Claudeが.astroページを生成（SongLayout使用） → git commit
 ```
+
+## アーティスト自動追加ルール（重要）
+- 曲記事を作るたびに `src/data/artists.ts` の該当 `artistSlug` を確認する
+- 未登録なら必ず追加してからコミット（アーティストページが自動生成される）
+- `artists/[slug].astro` は `artists.ts` のエントリを元に静的生成されるため、登録漏れ＝アーティストページなし
 
 ## 歌詞正確性ルール（重要）
 - 必ずGeniusから歌詞を直接fetchして正とする
