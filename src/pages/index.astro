@@ -3,15 +3,14 @@ import Layout from '../layouts/Layout.astro';
 import { songs } from '../data/songs';
 ---
 
-<Layout title="HipHop Lyrics — 歌詞和訳・スラング解説" description="ヒップホップの名曲を歌詞和訳とスラング解説で深掘り。C.R.E.A.M.・Nasなど名曲のスラングと文化背景を日本語で徹底解説。">
+<Layout title="WAX&INK — ヒップホップ歌詞和訳・スラング解説" description="ヒップホップの名曲を歌詞和訳とスラング解説で深掘り。C.R.E.A.M.・Nasなど名曲のスラングと文化背景を日本語で徹底解説。">
   <div class="max-w-2xl mx-auto px-4 py-12">
 
     <header class="mb-12">
-      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">Hip Hop Lyrics</p>
-      <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-2">
-        歌詞和訳・<br class="sm:hidden"/>スラング解説
+      <h1 class="site-title font-black uppercase leading-none tracking-tighter mb-4 select-none">
+        WAX<span class="text-[var(--c-gold)]">&amp;</span>INK
       </h1>
-      <p class="text-[var(--c-very-dim)] text-xs uppercase tracking-widest mb-4">The Canon. 1991 – 2020.</p>
+      <p class="text-[var(--c-very-dim)] text-xs uppercase tracking-widest mb-4">Hip-Hop Lyrics — 歌詞和訳・スラング解説</p>
       <p class="text-[var(--c-muted)] text-sm leading-relaxed mb-5 max-w-md">
         ヒップホップの名曲を、歌詞の一語一語・スラング・サンプリング・文化背景まで徹底解説。
       </p>
@@ -162,6 +161,12 @@ import { songs } from '../data/songs';
 </script>
 
 <style>
+  .site-title {
+    font-size: clamp(3.5rem, 18vw, 7rem);
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+  }
+
   .filter-btn.active {
     border-color: var(--c-gold);
     color: var(--c-gold);
