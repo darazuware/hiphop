@@ -15,6 +15,7 @@ export const songs = [
   { slug: '/songs/cash-rules',         title: 'Cash Rules',                           subtitle: '2020',                         artists: 'iyla feat. Method Man',              tag: 'C.R.E.A.M.継承',    era: '00s以降', region: 'LA',     producer: 'その他',    bpm: 87,  sample: null },
   { slug: '/songs/scenario',           title: 'Scenario',                             subtitle: 'ATCQ Produced · 1992',         artists: 'A Tribe Called Quest feat. Leaders of the New School', tag: 'ポッセカット最高峰', era: '90s前半', region: 'NY',     producer: 'その他',    bpm: 97,  sample: null },
   { slug: '/songs/still-dre',          title: 'Still D.R.E.',                         subtitle: 'Scott Storch Produced · 1999',  artists: 'Dr. Dre feat. Snoop Dogg',           tag: 'ウェストコースト復権', era: '90s後半', region: 'LA',     producer: 'その他',    bpm: 96,  sample: null },
+  { slug: '/songs/doomsday',           title: 'Doomsday',                             subtitle: 'MF DOOM Produced · 1999',      artists: 'MF DOOM',                            tag: 'スーパーヴィラン覚醒', era: '90s後半', region: 'NY',     producer: 'その他',    bpm: 83,  sample: null },
 ] as const;
 
 export const ranking = [
