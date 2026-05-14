@@ -18,6 +18,7 @@ export const songs = [
   { slug: '/songs/doomsday',           title: 'Doomsday',                             subtitle: 'MF DOOM Produced · 1999',      artists: 'MF DOOM',                            tag: 'スーパーヴィラン覚醒', era: '90s後半', region: 'NY',     producer: 'その他',    bpm: 83,  sample: null },
   { slug: '/songs/scenario-remix',     title: 'Scenario (Remix)',                     subtitle: 'ATCQ Produced · 1992',         artists: 'A Tribe Called Quest feat. LONS & Kid Hood', tag: 'Kid Hood遺作',     era: '90s前半', region: 'NY',     producer: 'その他',    bpm: 97,  sample: null },
   { slug: '/songs/real-hip-hop',       title: 'Real Hip-Hop',                         subtitle: 'DJ Premier Produced · 1995',   artists: 'Das EFX',                            tag: 'ブーンバップ',       era: '90s後半', region: 'NY',     producer: 'DJ Premier', bpm: 95,  sample: null },
+  { slug: '/songs/shook-ones-pt-ii',  title: 'Shook Ones, Pt. II',                   subtitle: 'Havoc Produced · 1995',        artists: 'Mobb Deep',                          tag: 'ヒップホップ最高峰',  era: '90s後半', region: 'NY',     producer: 'その他',    bpm: 95,  sample: 'Herbie Hancock "Jessica" (1969)' },
 ] as const;
 
 export const ranking = [
