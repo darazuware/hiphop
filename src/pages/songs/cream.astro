@@ -1,30 +1,22 @@
 ---
 import LyricsBlock from '../../components/LyricsBlock.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
-import Layout from '../../layouts/Layout.astro';
+import SongLayout from '../../layouts/SongLayout.astro';
 ---
 
-<Layout title="C.R.E.A.M. 和訳・意味・スラング解説 | Wu-Tang Clan" description="Wu-Tang ClanのC.R.E.A.M.の歌詞和訳とスラング徹底解説。RZAのサンプリング技術とRaekwon・Inspectah Deckが描くクラック時代のニューヨークを読み解く。">
-  <div class="max-w-2xl mx-auto px-4 py-8">
-
-    <!-- Header -->
-    <header class="mb-8">
-      <h1 class="text-2xl md:text-3xl font-bold leading-tight mb-2">
-        C.R.E.A.M. 和訳・意味・スラング解説
-      </h1>
-      <dl class="grid grid-cols-2 gap-x-4 gap-y-1 text-xs text-[var(--c-muted)] border border-[var(--c-border)] rounded-lg p-4 bg-[var(--c-surface)]">
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">アーティスト</dt>
-        <dd>Wu-Tang Clan</dd>
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">プロデューサー</dt>
-        <dd>RZA</dd>
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">リリース</dt>
-        <dd>1994年</dd>
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">収録アルバム</dt>
-        <dd>Enter the Wu-Tang (36 Chambers)</dd>
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">エリア</dt>
-        <dd>Staten Island, New York</dd>
-      </dl>
-    </header>
+<SongLayout
+  title="C.R.E.A.M. 和訳・意味・スラング解説 | Wu-Tang Clan"
+  description="Wu-Tang ClanのC.R.E.A.M.の歌詞和訳とスラング徹底解説。RZAのサンプリング技術とRaekwon・Inspectah Deckが描くクラック時代のニューヨークを読み解く。"
+  slug="cream"
+  highlights={[
+    'C.R.E.A.M.は拝金主義ではなく貧困の構造的暴力への告発',
+    'Inspectah Deckの「I could not... [touch]」——機材ミスが生んだ詩的な空白',
+    'RZAのサンプリング哲学とLoFi Hip-Hopの源流',
+  ]}
+  youtubeId="PBwAxmrE194"
+  sampleYoutubeId="gp9uZjPaB4w"
+  sampleTitle="The Charmels - As Long As I've Got You"
+>
 
     <!-- この曲の意味 -->
     <section class="mb-6">
@@ -56,41 +48,6 @@ import Layout from '../../layouts/Layout.astro';
       </ol>
     </nav>
 
-    <!-- Album Cover -->
-    <div class="mb-8">
-      <img src="/images/wu-tang-enter.jpg" alt="Enter the Wu-Tang (36 Chambers) - Album Cover" class="w-48 h-48 rounded-lg object-cover border border-[var(--c-border)]" />
-      <p class="text-[var(--c-very-dim)] text-xs mt-2">Enter the Wu-Tang (36 Chambers) · 1993</p>
-    </div>
-
-    <!-- YouTube Embed -->
-    <div class="mb-10 aspect-video w-full rounded-lg overflow-hidden">
-      <iframe
-        loading="lazy"
-        class="w-full h-full"
-        src="https://www.youtube.com/embed/PBwAxmrE194"
-        title="Wu-Tang Clan - C.R.E.A.M. (Official Video)"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-      ></iframe>
-    </div>
-
-
-    <!-- Sample YouTube Embed -->
-    <div class="mb-4">
-      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">元ネタ</p>
-      <div class="aspect-video w-full rounded-lg overflow-hidden">
-        <iframe
-          loading="lazy"
-          class="w-full h-full"
-          src="https://www.youtube.com/embed/gp9uZjPaB4w"
-          title="The Charmels - As Long As I've Got You"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe>
-      </div>
-    </div>
     <div id="lyrics"></div>
 
     <!-- ===================== -->
@@ -568,58 +525,5 @@ import Layout from '../../layouts/Layout.astro';
       </ul>
     </section>
 
-    <section class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        関連記事（内部リンク）
-      </h2>
-      <ul class="space-y-3">
-        <li>
-          <a href="/songs/protect-ya-neck" class="flex items-center justify-between p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg hover:border-[var(--c-gold)] transition-colors">
-            <div>
-              <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-0.5">RZA Produced · 1993</p>
-              <p class="font-semibold">Protect Ya Neck 和訳・意味解説</p>
-              <p class="text-[var(--c-dim)] text-xs mt-0.5">Wu-Tang Clan</p>
-            </div>
-            <span class="text-[var(--c-very-dim)] text-lg">→</span>
-          </a>
-        </li>
-        <li>
-          <a href="/songs/triumph" class="flex items-center justify-between p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg hover:border-[var(--c-gold)] transition-colors">
-            <div>
-              <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-0.5">RZA Produced · 1997</p>
-              <p class="font-semibold">Triumph 和訳・意味解説</p>
-              <p class="text-[var(--c-dim)] text-xs mt-0.5">Wu-Tang Clan</p>
-            </div>
-            <span class="text-[var(--c-very-dim)] text-lg">→</span>
-          </a>
-        </li>
-        <li>
-          <a href="/songs/nas-is-like" class="flex items-center justify-between p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg hover:border-[var(--c-gold)] transition-colors">
-            <div>
-              <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-0.5">DJ Premier Produced · 1999</p>
-              <p class="font-semibold">Nas Is Like 和訳・意味解説</p>
-              <p class="text-[var(--c-dim)] text-xs mt-0.5">Nas</p>
-            </div>
-            <span class="text-[var(--c-very-dim)] text-lg">→</span>
-          </a>
-        </li>
-        <li>
-          <a href="/songs/cash-rules" class="flex items-center justify-between p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg hover:border-[var(--c-gold)] transition-colors">
-            <div>
-              <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-0.5">2020</p>
-              <p class="font-semibold">Cash Rules 和訳・意味解説</p>
-              <p class="text-[var(--c-dim)] text-xs mt-0.5">iyla feat. Method Man</p>
-            </div>
-            <span class="text-[var(--c-very-dim)] text-lg">→</span>
-          </a>
-        </li>
-      </ul>
-    </section>
 
-    <!-- Footer -->
-    <footer class="border-t border-[var(--c-border)] pt-6 text-[var(--c-very-dim)] text-xs">
-      <p>Producer: RZA · Sample: The Charmels "As Long As I've Got You" (1967) · Album: Enter the Wu-Tang (36 Chambers) (1993) · Single: 1994</p>
-    </footer>
-
-  </div>
-</Layout>
+</SongLayout>

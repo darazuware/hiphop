@@ -1,60 +1,19 @@
 ---
 import LyricsBlock from '../../components/LyricsBlock.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
-import Layout from '../../layouts/Layout.astro';
+import SongLayout from '../../layouts/SongLayout.astro';
 ---
 
-<Layout title="Shook Ones, Pt. II 和訳・意味・スラング解説 | Mobb Deep" description="Mobb DeepのShook Ones, Pt. IIの歌詞和訳とスラング徹底解説。クイーンズブリッジが生んだ1995年の傑作——ハヴォックのサンプリング技術とプロディジー・ハヴォックが描くストリートの死生観を読み解く。">
-  <div class="max-w-2xl mx-auto px-4 py-8">
-
-    <!-- Header -->
-    <header class="mb-8">
-      <h1 class="text-2xl md:text-3xl font-bold leading-tight mb-2">
-        Shook Ones, Pt. II 和訳・意味・スラング解説
-      </h1>
-      <dl class="grid grid-cols-2 gap-x-4 gap-y-1 text-xs text-[var(--c-muted)] border border-[var(--c-border)] rounded-lg p-4 bg-[var(--c-surface)]">
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">アーティスト</dt>
-        <dd>Mobb Deep</dd>
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">プロデューサー</dt>
-        <dd>Havoc</dd>
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">リリース</dt>
-        <dd>1995年</dd>
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">収録アルバム</dt>
-        <dd>The Infamous</dd>
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">エリア</dt>
-        <dd>Queensbridge, New York</dd>
-      </dl>
-    </header>
-
-    <!-- この曲の意味 -->
-    <section class="mb-6">
-      <h2 class="text-base font-semibold mb-2">■この曲の意味（要約）</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">「半端な覚悟では生き残れない（Ain't no such things as halfway crooks）」——クイーンズブリッジ団地の過酷な現実を背景に、プロディジーとハヴォックが「本物」と「偽物」を峻別する。暴力の誇示ではなく、死と隣り合わせの10代が身につけた防衛本能と冷徹な哲学の記録。</p>
-    </section>
-
-    <!-- 概要 -->
-    <section class="mb-6">
-      <h2 class="text-base font-semibold mb-2">■概要</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">1995年リリース。ハヴォックがHerbie Hancockの「Jessica」（1969年）をサンプリングし、極限までピッチを落とすことで地を這うような不気味なビートを生み出した。Pitchfork「90年代トップ200トラック」25位、Rolling Stone「歴代最高のヒップホップソング50」選出。ヒップホップ史上最も洗練された凶悪なビートと称される。</p>
-    </section>
-
-    <!-- 導入 -->
-    <section class="mb-10">
-      <h2 class="text-base font-semibold mb-2">■導入（時代背景）</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">1994年のThe Notorious B.I.G.『Ready to Die』、Nasの『Illmatic』などによりイーストコースト・ルネサンスが爆発していた時代。資金難でトップ・プロデューサーを雇えなかったMobb Deepは、ハヴォック自身がサンプラーを握り、北米最大規模の公営住宅クイーンズブリッジ団地が放つ暗く冷徹な空気を音源化した。</p>
-    </section>
-
-    <!-- Table of Contents -->
-    <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
-      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
-      <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
-        <li><a href="#lyrics" class="hover:text-[var(--c-gold)] transition-colors">01 — 歌詞和訳と意味解説</a></li>
-        <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">02 — 文化的背景</a></li>
-        <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">03 — 制作の裏側</a></li>
-        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">04 — 評価とその後の影響</a></li>
-      </ol>
-    </nav>
-
+<SongLayout
+  title="Shook Ones, Pt. II 和訳・意味・スラング解説 | Mobb Deep"
+  description="Mobb DeepのShook Ones, Pt. IIの歌詞和訳とスラング徹底解説。クイーンズブリッジが生んだ1995年の傑作——ハヴォックのサンプリング技術とプロディジー・ハヴォックが描くストリートの死生観を読み解く。"
+  slug="shook-ones-pt-ii"
+  highlights={[
+    'Herbie Hancockの「Jessica」を極限までピッチダウン——ヒップホップ史上最も凶悪なビートの誕生',
+    '「Ain\'t no such things as halfway crooks」——本物と偽物を峻別するクイーンズブリッジの哲学',
+    'Pitchfork 90s Top 25・Rolling Stone「歴代最高のヒップホップ50」——資金難の10代が作った傑作',
+  ]}
+>
     <div id="lyrics"></div>
 
     <!-- ===================== -->

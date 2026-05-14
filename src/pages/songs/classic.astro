@@ -2,91 +2,22 @@
 import LyricsBlock from '../../components/LyricsBlock.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
 import DeepSlang from '../../components/DeepSlang.astro';
-import Layout from '../../layouts/Layout.astro';
+import SongLayout from '../../layouts/SongLayout.astro';
 ---
 
-<Layout title="Classic (Better Than I've Ever Been) 和訳・意味・スラング解説 | Rakim / Kanye / Nas / KRS-One" description="Rakim・Kanye West・Nas・KRS-Oneが集結した「Classic」のDJ Premierリミックス版の歌詞和訳とスラング解説。Nike Air Force 1の25周年記念に作られたグラミーノミネート曲。">
-  <div class="max-w-2xl mx-auto px-4 py-8">
-<!-- Header -->
-    <header class="mb-8">
-      <h1 class="text-2xl md:text-3xl font-bold leading-tight mb-2">
-        Classic (Better Than I've Ever Been) 和訳・意味・スラング解説
-      </h1>
-      <dl class="grid grid-cols-2 gap-x-4 gap-y-1 text-xs text-[var(--c-muted)] border border-[var(--c-border)] rounded-lg p-4 bg-[var(--c-surface)]">
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">アーティスト</dt>
-        <dd>Rakim / Kanye West / Nas / KRS-One</dd>
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">プロデューサー</dt>
-        <dd>DJ Premier</dd>
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">リリース</dt>
-        <dd>2007年</dd>
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">収録アルバム</dt>
-        <dd>Nike Air Force 1 25th Anniversary</dd>
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">エリア</dt>
-        <dd>New York / Chicago</dd>
-      </dl>
-    </header>
-
-    <!-- この曲の意味 -->
-    <section class="mb-6">
-      <h2 class="text-base font-semibold mb-2">■この曲の意味（要約）</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">4世代のヒップホップ・レジェンドが「クラシックとは何か」を問い直した楽曲。Rakim、KRS-One、Nas、Kanye Westがそれぞれの時代の価値観と哲学でヴァースを繋ぐ、ヒップホップの継承と進化の証明。</p>
-    </section>
-
-    <!-- 概要 -->
-    <section class="mb-6">
-      <h2 class="text-base font-semibold mb-2">■概要</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">2007年、Nike Air Force 1誕生25周年記念として制作。DJ PremierがCarl Douglasの「Dance the Kung-Fu」をサンプリングしたブーンバップ・リミックス版。第50回グラミー賞 Best Rap Collaboration部門ノミネート。</p>
-    </section>
-
-    <!-- 導入 -->
-    <section class="mb-10">
-      <h2 class="text-base font-semibold mb-2">■導入（時代背景）</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">1980年代から2000年代まで各時代を代表する4人のMCが集結。スニーカー文化とヒップホップの深い結びつきを背景に、「クラシック」という概念そのものを音楽で体現した記念碑的コラボレーション。</p>
-    </section>
-
-    <!-- Table of Contents -->
-    <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
-      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
-      <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
-        <li><a href="#lyrics" class="hover:text-[var(--c-gold)] transition-colors">01 — リリック和訳・解説</a></li>
-        <li><a href="#af1" class="hover:text-[var(--c-gold)] transition-colors">02 — Air Force 1の文化史</a></li>
-        <li><a href="#versions" class="hover:text-[var(--c-gold)] transition-colors">03 — 2つのバージョン</a></li>
-        <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">04 — 制作の裏側</a></li>
-        <li><a href="#grammy" class="hover:text-[var(--c-gold)] transition-colors">05 — グラミー賞</a></li>
-      </ol>
-    </nav>
-
-    <!-- YouTube Embed -->
-    <div class="mb-10 aspect-video w-full rounded-lg overflow-hidden">
-      <iframe
-        loading="lazy"
-        class="w-full h-full"
-        src="https://www.youtube.com/embed/3isJg0AoUb8"
-        title="Classic (Better Than I've Ever Been) DJ Premier Remix"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-      ></iframe>
-    </div>
-
-    
-
-
-    <!-- Sample YouTube Embed -->
-    <div class="mb-4">
-      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">元ネタ</p>
-      <div class="aspect-video w-full rounded-lg overflow-hidden">
-        <iframe
-          loading="lazy"
-          class="w-full h-full"
-          src="https://www.youtube.com/embed/kOIHs3Y9AVs"
-          title="Carl Douglas - Dance the Kung Fu"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe>
-      </div>
-    </div>
+<SongLayout
+  title="Classic (Better Than I've Ever Been) 和訳・意味・スラング解説 | Rakim / Kanye / Nas / KRS-One"
+  description="Rakim・Kanye West・Nas・KRS-Oneが集結した「Classic」のDJ Premierリミックス版の歌詞和訳とスラング解説。Nike Air Force 1の25周年記念に作られたグラミーノミネート曲。"
+  slug="classic"
+  highlights={[
+    'Nike Air Force 1の25周年記念で4世代レジェンドが集結したグラミーノミネート曲',
+    'Rakimの100BPMズレをDJ Premierが技術で救った制作秘話',
+    'RakimがNas・KRS-One・Kanyeの楽曲名を1行に縫い合わせた神業ワードプレイ',
+  ]}
+  youtubeId="3isJg0AoUb8"
+  sampleYoutubeId="kOIHs3Y9AVs"
+  sampleTitle="Carl Douglas - Dance the Kung Fu"
+>
     <div id="lyrics"></div>
     <!-- ===================== -->
     <!-- RAKIM'S VERSE         -->
@@ -645,5 +576,4 @@ import Layout from '../../layouts/Layout.astro';
       <p>Producer: DJ Premier · Sample: Carl Douglas "Dance the Kung-Fu" · Prod. for Nike AF1 25th Anniversary</p>
     </footer>
 
-  </div>
-</Layout>
+</SongLayout>

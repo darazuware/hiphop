@@ -1,96 +1,22 @@
 ---
 import LyricsBlock from '../../components/LyricsBlock.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
-import Layout from '../../layouts/Layout.astro';
+import SongLayout from '../../layouts/SongLayout.astro';
 ---
 
-<Layout title="The City Is Mine 和訳・意味・スラング解説 | Jay-Z feat. Blackstreet" description="Jay-Z「The City Is Mine」の歌詞和訳とスラング解説。Biggie暗殺後のニューヨーク王座継承を宣言した1998年の必聴名曲を完全解剖。">
-  <div class="max-w-2xl mx-auto px-4 py-8">
-
-    <!-- Header -->
-    <header class="mb-8">
-      <h1 class="text-2xl md:text-3xl font-bold leading-tight mb-2">
-        The City Is Mine 和訳・意味・スラング解説
-      </h1>
-      <dl class="grid grid-cols-2 gap-x-4 gap-y-1 text-xs text-[var(--c-muted)] border border-[var(--c-border)] rounded-lg p-4 bg-[var(--c-surface)]">
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">アーティスト</dt>
-        <dd>Jay-Z feat. Blackstreet</dd>
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">プロデューサー</dt>
-        <dd>Teddy Riley</dd>
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">リリース</dt>
-        <dd>1998年</dd>
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">収録アルバム</dt>
-        <dd>In My Lifetime, Vol. 1</dd>
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">エリア</dt>
-        <dd>Bedford-Stuyvesant, Brooklyn, NYC</dd>
-      </dl>
-    </header>
-
-    <!-- この曲の意味 -->
-    <section class="mb-6">
-      <h2 class="text-base font-semibold mb-2">■この曲の意味（要約）</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">「この街は俺のものだ——お前たちに捧げよう」——1997年Biggie暗殺後の権力空白期に、Jay-Zがニューヨーク王座の継承を高らかに宣言した楽曲。死者への哀悼と新たな支配者の野心が交錯する歴史的転換点。</p>
-    </section>
-
-    <!-- 概要 -->
-    <section class="mb-6">
-      <h2 class="text-base font-semibold mb-2">■概要</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">1998年リリース。ニュージャックスウィング創始者Teddy Rileyがプロデュースした豪華なサウンドに、Jay-ZのストリートなリリックとBlackstreetのシルキーなフックが融合。In My Lifetime, Vol. 1収録。</p>
-    </section>
-
-    <!-- 導入 -->
-    <section class="mb-10">
-      <h2 class="text-base font-semibold mb-2">■導入（時代背景）</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">1997年3月Biggie暗殺。その後のニューヨーク・ヒップホップは大きな空白を抱えた。Jay-Zはこの一曲でポップなクロスオーバー戦略とストリートの信頼性を同時に獲得し、「次の王」としての地位を確立した。</p>
-    </section>
-
-    <!-- Table of Contents -->
-    <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
-      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
-      <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
-        <li><a href="#lyrics" class="hover:text-[var(--c-gold)] transition-colors">01 — リリック和訳・解説</a></li>
-        <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">02 — 文化的背景</a></li>
-        <li><a href="#versions" class="hover:text-[var(--c-gold)] transition-colors">03 — バージョン違い</a></li>
-        <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">04 — 制作の裏側</a></li>
-        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">05 — 評価と足跡</a></li>
-      </ol>
-    </nav>
-
-    <!-- Album Cover -->
-    <div class="mb-8">
-      <img src="/images/jayz-in-my-lifetime.jpg" alt="In My Lifetime, Vol. 1 - Album Cover" class="w-48 h-48 rounded-lg object-cover border border-[var(--c-border)]" />
-      <p class="text-[var(--c-very-dim)] text-xs mt-2">In My Lifetime, Vol. 1 · 1997</p>
-    </div>
-
-    <!-- YouTube Embed -->
-    <div class="mb-10 aspect-video w-full rounded-lg overflow-hidden">
-      <iframe
-        loading="lazy"
-        class="w-full h-full"
-        src="https://www.youtube.com/embed/4C2NvBd_LeY"
-        title="Jay-Z - The City Is Mine feat. Blackstreet"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-      ></iframe>
-    </div>
-
-
-    <!-- Sample YouTube Embed -->
-    <div class="mb-4">
-      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">元ネタ</p>
-      <div class="aspect-video w-full rounded-lg overflow-hidden">
-        <iframe
-          loading="lazy"
-          class="w-full h-full"
-          src="https://www.youtube.com/embed/uZD8HKVKneI"
-          title="Glenn Frey - The Heat Is On"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe>
-      </div>
-    </div>
+<SongLayout
+  title="The City Is Mine 和訳・意味・スラング解説 | Jay-Z feat. Blackstreet"
+  description="Jay-Z「The City Is Mine」の歌詞和訳とスラング解説。Biggie暗殺後のニューヨーク王座継承を宣言した1998年の必聴名曲を完全解剖。"
+  slug="the-city-is-mine"
+  highlights={[
+    '1997年Biggie暗殺後の権力空白——「The City Is Mine」はJay-Zがニューヨーク王座の継承を高らかに宣言した歴史的転換点',
+    'ニュージャックスウィング創始者Teddy Riley × Blackstreet——ストリートの信頼性とポップなクロスオーバー戦略を同時に成立させた奇跡の配合',
+    'Glenn Freyの「The Heat Is On」を元ネタに採用——映画『ビバリーヒルズ・コップ』の煌びやかなサウンドをヒップホップの帝王宣言へと昇華',
+  ]}
+  youtubeId="4C2NvBd_LeY"
+  sampleYoutubeId="uZD8HKVKneI"
+  sampleTitle="Glenn Frey - The Heat Is On"
+>
     <div id="lyrics"></div>
 
     <!-- ===================== -->
@@ -501,5 +427,4 @@ import Layout from '../../layouts/Layout.astro';
       <p>Producer: Teddy Riley · Sample: Glenn Frey "The Heat Is On" · Album: In My Lifetime, Vol. 1 (1997)</p>
     </footer>
 
-  </div>
-</Layout>
+</SongLayout>

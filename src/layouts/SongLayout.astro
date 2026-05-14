@@ -1,0 +1,182 @@
+---
+import Layout from './Layout.astro';
+import { songs } from '../data/songs';
+import { artists } from '../data/artists';
+
+interface Props {
+  title: string;
+  description: string;
+  slug: string;
+  highlights?: [string, string, string];
+  youtubeId?: string;
+  sampleYoutubeId?: string;
+  sampleTitle?: string;
+}
+
+const { title, description, slug, highlights, youtubeId, sampleYoutubeId, sampleTitle } = Astro.props;
+
+const song = songs.find(s => s.slug === `/songs/${slug}`);
+const artist = song ? artists.find(a => a.slug === song.artistSlug) : null;
+const related = song
+  ? songs.filter(s => s.artistSlug === song.artistSlug && s.slug !== song.slug).slice(0, 3)
+  : [];
+---
+
+<Layout title={title} description={description}>
+  <!-- Progress bar -->
+  <div id="progress-bar" class="fixed top-0 left-0 h-0.5 bg-[var(--c-gold)] z-50 transition-none" style="width:0%"></div>
+
+  <div class="max-w-2xl mx-auto px-4 py-8">
+
+    <!-- Header -->
+    <header class="mb-8">
+      <h1 class="text-2xl md:text-3xl font-bold leading-tight mb-4">{title}</h1>
+      {song && (
+        <dl class="grid grid-cols-2 gap-x-4 gap-y-1 text-xs text-[var(--c-muted)] border border-[var(--c-border)] rounded-lg p-4 bg-[var(--c-surface)]">
+          <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">アーティスト</dt>
+          <dd>
+            {artist
+              ? <a href={`/artists/${song.artistSlug}`} class="hover:text-[var(--c-gold)] transition-colors underline underline-offset-2">{song.artists}</a>
+              : song.artists
+            }
+          </dd>
+          <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">プロデューサー</dt>
+          <dd>{song.producer === 'その他' ? song.subtitle.split(' Produced')[0].split(' Remix')[0] : song.producer}</dd>
+          <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">収録アルバム</dt>
+          <dd>{song.album}</dd>
+          <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">エリア</dt>
+          <dd>{song.region}</dd>
+          <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">BPM</dt>
+          <dd>{song.bpm}</dd>
+          {song.sample && <>
+            <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">サンプル元</dt>
+            <dd class="col-span-1 truncate">{song.sample}</dd>
+          </>}
+        </dl>
+      )}
+    </header>
+
+    <!-- Highlights -->
+    {highlights && (
+      <section class="mb-8 p-4 border border-[var(--c-gold)]/30 rounded-lg bg-[var(--c-surface)]">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">この記事の見どころ</p>
+        <ol class="space-y-2">
+          {highlights.map((h, i) => (
+            <li class="flex gap-3 text-sm">
+              <span class="text-[var(--c-gold)] font-black tabular-nums shrink-0">{String(i + 1).padStart(2, '0')}</span>
+              <span class="text-[var(--c-muted)]">{h}</span>
+            </li>
+          ))}
+        </ol>
+      </section>
+    )}
+
+    <!-- Album cover + YouTube -->
+    {song?.mbid && (
+      <div class="mb-6">
+        <img
+          src={`/images/covers/${slug}.jpg`}
+          alt={song.album}
+          class="w-40 h-40 rounded-lg object-cover border border-[var(--c-border)]"
+          onerror="this.style.display='none'"
+        />
+        <p class="text-[var(--c-very-dim)] text-xs mt-2">{song.album}</p>
+      </div>
+    )}
+
+    {youtubeId && (
+      <div class="mb-8 aspect-video w-full rounded-lg overflow-hidden">
+        <iframe
+          loading="lazy"
+          class="w-full h-full"
+          src={`https://www.youtube.com/embed/${youtubeId}`}
+          title={title}
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+    )}
+
+    {sampleYoutubeId && (
+      <div class="mb-8">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">元ネタ</p>
+        <div class="aspect-video w-full rounded-lg overflow-hidden">
+          <iframe
+            loading="lazy"
+            class="w-full h-full"
+            src={`https://www.youtube.com/embed/${sampleYoutubeId}`}
+            title={sampleTitle ?? '元ネタ'}
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    )}
+
+    <!-- Main content slot -->
+    <slot />
+
+    <!-- Artist link -->
+    {artist && (
+      <section class="mb-10 mt-4">
+        <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-4 border-b border-[var(--c-border)] pb-2">
+          アーティストについて
+        </h2>
+        <a href={`/artists/${artist.slug}`} class="block p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg hover:border-[var(--c-gold)] transition-colors group">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="font-semibold mb-1 group-hover:text-[var(--c-gold)] transition-colors">{artist.name}</p>
+              <p class="text-[var(--c-dim)] text-xs">{artist.origin} · {artist.active}</p>
+              <p class="text-[var(--c-muted)] text-sm mt-2 leading-relaxed line-clamp-2">{artist.summary}</p>
+            </div>
+            <span class="text-[var(--c-very-dim)] text-lg ml-4 shrink-0">→</span>
+          </div>
+        </a>
+      </section>
+    )}
+
+    <!-- Related songs (same artist) -->
+    {related.length > 0 && (
+      <section class="mb-10">
+        <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-4 border-b border-[var(--c-border)] pb-2">
+          同アーティストの記事
+        </h2>
+        <ul class="space-y-3">
+          {related.map(s => (
+            <li>
+              <a href={s.slug} class="flex items-center justify-between p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg hover:border-[var(--c-gold)] transition-colors">
+                <div>
+                  <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-0.5">{s.subtitle}</p>
+                  <p class="font-semibold">{s.title} 和訳・意味解説</p>
+                  <p class="text-[var(--c-dim)] text-xs mt-0.5">{s.artists}</p>
+                </div>
+                <span class="text-[var(--c-very-dim)] text-lg">→</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+
+    <!-- Back to index -->
+    <div class="border-t border-[var(--c-border)] pt-6 text-center">
+      <a href="/" class="text-xs text-[var(--c-very-dim)] hover:text-[var(--c-gold)] transition-colors uppercase tracking-widest">
+        ← WAX&amp;INK トップへ
+      </a>
+    </div>
+
+  </div>
+</Layout>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  if (bar) {
+    window.addEventListener('scroll', () => {
+      const h = document.documentElement;
+      const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+      bar.style.width = pct + '%';
+    }, { passive: true });
+  }
+</script>

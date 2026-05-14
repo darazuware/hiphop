@@ -1,60 +1,19 @@
 ---
 import LyricsBlock from '../../components/LyricsBlock.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
-import Layout from '../../layouts/Layout.astro';
+import SongLayout from '../../layouts/SongLayout.astro';
 ---
 
-<Layout title="Scenario (Remix) 和訳・意味・スラング解説 | A Tribe Called Quest" description="A Tribe Called QuestのScenario (Remix)の歌詞和訳とスラング徹底解説。Kid Hoodの遺作となった伝説的ポッセカット——Busta Rhymes、Phife Dawg、Q-Tipのヴァースを完全解剖。">
-  <div class="max-w-2xl mx-auto px-4 py-8">
-
-    <!-- Header -->
-    <header class="mb-8">
-      <h1 class="text-2xl md:text-3xl font-bold leading-tight mb-2">
-        Scenario (Remix) 和訳・意味・スラング解説
-      </h1>
-      <dl class="grid grid-cols-2 gap-x-4 gap-y-1 text-xs text-[var(--c-muted)] border border-[var(--c-border)] rounded-lg p-4 bg-[var(--c-surface)]">
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">アーティスト</dt>
-        <dd>A Tribe Called Quest feat. Leaders of the New School & Kid Hood</dd>
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">プロデューサー</dt>
-        <dd>A Tribe Called Quest (Mix: Bob Power)</dd>
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">リリース</dt>
-        <dd>1992年</dd>
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">収録</dt>
-        <dd>Scenario 12" B面 / The Love Movement 限定盤 (1998)</dd>
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">エリア</dt>
-        <dd>Queens / South Bronx, New York</dd>
-      </dl>
-    </header>
-
-    <!-- この曲の意味 -->
-    <section class="mb-6">
-      <h2 class="text-base font-semibold mb-2">■この曲の意味（要約）</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">7人のMCが集結した伝説的ポッセカットのリミックス——そのうち1人、Kid Hoodは録音直後に銃弾に倒れた。ビートはより凶悪なドラムブレイクに差し替えられ、全員が全く新しいヴァースを披露。Busta Rhymesの追悼の辞が冒頭に刻まれ、楽曲はストリートの過酷な現実を封じ込めた歴史的モニュメントとなった。</p>
-    </section>
-
-    <!-- 概要 -->
-    <section class="mb-6">
-      <h2 class="text-base font-semibold mb-2">■概要</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">「Scenario」12インチのB面として収録。後に1998年の5thアルバム『The Love Movement』限定盤にも収録。オリジナルとは別の新規ヴァースで構成された「7 M.C.'s Mix」とも呼ばれる。DJ Muroをはじめとする日本のハードコア・ディガーたちの間で「オリジナルを超えるフロア・アンセム」としてヘビープレイされてきた。</p>
-    </section>
-
-    <!-- 導入 -->
-    <section class="mb-10">
-      <h2 class="text-base font-semibold mb-2">■導入（時代背景）</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">1991〜92年、クラック・エピデミックの爪痕が深く残るニューヨーク。ネイティブ・タンが平和的なヴァイブスを掲げる一方、ストリートの現実はより過酷にシフトしつつあった。Kid Hoodのヴァースに宿る暴力的なエネルギーと、Busta Rhymesの狂気的フロウは、その時代のヒリヒリとした空気感を完璧にパッケージングしている。</p>
-    </section>
-
-    <!-- Table of Contents -->
-    <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
-      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
-      <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
-        <li><a href="#lyrics" class="hover:text-[var(--c-gold)] transition-colors">01 — 歌詞和訳と意味解説</a></li>
-        <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">02 — 文化的背景</a></li>
-        <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">03 — Kid Hoodの悲劇と制作の裏側</a></li>
-        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">04 — 評価とその後の影響</a></li>
-      </ol>
-    </nav>
-
+<SongLayout
+  title="Scenario (Remix) 和訳・意味・スラング解説 | A Tribe Called Quest"
+  description="A Tribe Called QuestのScenario (Remix)の歌詞和訳とスラング徹底解説。Kid Hoodの遺作となった伝説的ポッセカット——Busta Rhymes、Phife Dawg、Q-Tipのヴァースを完全解剖。"
+  slug="scenario-remix"
+  highlights={[
+    'Kid Hoodは録音直後に銃弾に倒れた——Busta Rhymesが急遽スタジオで録音した追悼の辞',
+    '日本のDJ Muroが「オリジナルを超えるフロア・アンセム」として伝説的にヘビープレイ',
+    '7人のMCが全員新規ヴァースで挑んだ「7 M.C.\'s Mix」——Native Tonguesの頂点',
+  ]}
+>
     <!-- Kid Hood Documentary -->
     <div class="mb-4">
       <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">Kid Hood ドキュメンタリー</p>
@@ -639,5 +598,4 @@ import Layout from '../../layouts/Layout.astro';
       <p>Producer: A Tribe Called Quest · Mix: Bob Power · Single B-side: 1992 · Also on: The Love Movement (limited, 1998)</p>
     </footer>
 
-  </div>
-</Layout>
+</SongLayout>

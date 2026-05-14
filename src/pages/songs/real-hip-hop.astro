@@ -1,74 +1,20 @@
 ---
 import LyricsBlock from '../../components/LyricsBlock.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
-import Layout from '../../layouts/Layout.astro';
+import SongLayout from '../../layouts/SongLayout.astro';
 ---
 
-<Layout title="Real Hip-Hop 和訳・意味・スラング解説 | Das EFX" description="Das EFXのReal Hip-Hopの歌詞和訳とスラング徹底解説。DJ PremierとPete Rockが競演した1995年ブーンバップの頂点を読み解く。">
-  <div class="max-w-2xl mx-auto px-4 py-8">
-
-    <!-- Header -->
-    <header class="mb-8">
-      <h1 class="text-2xl md:text-3xl font-bold leading-tight mb-2">
-        Real Hip-Hop 和訳・意味・スラング解説
-      </h1>
-      <dl class="grid grid-cols-2 gap-x-4 gap-y-1 text-xs text-[var(--c-muted)] border border-[var(--c-border)] rounded-lg p-4 bg-[var(--c-surface)]">
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">アーティスト</dt>
-        <dd>Das EFX</dd>
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">プロデューサー</dt>
-        <dd>DJ Premier / Pete Rock (Remix)</dd>
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">リリース</dt>
-        <dd>1995年</dd>
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">収録アルバム</dt>
-        <dd>Hold It Down</dd>
-        <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">エリア</dt>
-        <dd>Brooklyn / New Jersey</dd>
-      </dl>
-    </header>
-
-    <!-- この曲の意味 -->
-    <section class="mb-6">
-      <h2 class="text-base font-semibold mb-2">■この曲の意味（要約）</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">「俺たちこそがReal Hip-Hopだ」——G-Funk全盛の1995年、商業主義の波に抗い自分たちの原点（アンダーグラウンド＝下水道）への誇りと本物のスキルを証明するために放ったマニフェスト。DJ Premierのオリジナル版、Pete Rock Remixという二大傑作が同時存在する奇跡の楽曲。</p>
-    </section>
-
-    <!-- 概要 -->
-    <section class="mb-6">
-      <h2 class="text-base font-semibold mb-2">■概要</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">1995年リリース。Krazy DrayzyとSkoobの二人からなるDas EFXが、デビュー期のトレードマーク「イギディ・スタイル」を意図的に抑制し、よりソリッドなライミングで「本物（Real）」を証明した転換点。DJ PremierとPete Rockという90年代東海岸を代表する二大プロデューサーがそれぞれのバージョンを担当。Billboard Hot 100で61位、Hot Rap Songs 10位を記録。</p>
-    </section>
-
-    <!-- 導入 -->
-    <section class="mb-10">
-      <h2 class="text-base font-semibold mb-2">■導入（時代背景）</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">1995年のヒップホップシーンはG-Funk全盛からイーストコースト・ルネッサンスへの転換期。Das EFXはデビュー期の「イギディ・フロウ」という独特のギミックが「一過性の流行」と見なされ始める危機に直面し、アルバム『Hold It Down』でより硬質なスタイルへ進化を遂げた。「Sewer（下水道）＝アンダーグラウンド」から「Streets（ストリート）」へ、そして「Top（頂点）」へ這い上がる自己変革の物語。</p>
-    </section>
-
-    <!-- Table of Contents -->
-    <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
-      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
-      <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
-        <li><a href="#lyrics" class="hover:text-[var(--c-gold)] transition-colors">01 — 歌詞和訳と意味解説</a></li>
-        <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">02 — 文化的背景</a></li>
-        <li><a href="#versions" class="hover:text-[var(--c-gold)] transition-colors">03 — バージョン違い</a></li>
-        <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">04 — 制作の裏側</a></li>
-        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">05 — 評価とその後の影響</a></li>
-      </ol>
-    </nav>
-
-    <!-- YouTube Embed -->
-    <div class="mb-10 aspect-video w-full rounded-lg overflow-hidden">
-      <iframe
-        loading="lazy"
-        class="w-full h-full"
-        src="https://www.youtube.com/embed/LvNOVqaz75c"
-        title="Das EFX - Real Hip Hop (Official Video)"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-      ></iframe>
-    </div>
-
+<SongLayout
+  title="Real Hip-Hop 和訳・意味・スラング解説 | Das EFX"
+  description="Das EFXのReal Hip-Hopの歌詞和訳とスラング徹底解説。DJ PremierとPete Rockが競演した1995年ブーンバップの頂点を読み解く。"
+  slug="real-hip-hop"
+  highlights={[
+    'DJ PremierとPete Rockという二大レジェンドが同一楽曲で競演した奇跡のブーンバップ',
+    '「イギディ・スタイル」から脱却し本物（Real）を証明したDas EFXの自己変革宣言',
+    '「Sewer（下水道）＝アンダーグラウンド」から頂点へ這い上がるストリートの誇りの体現',
+  ]}
+  youtubeId="LvNOVqaz75c"
+>
     <div id="lyrics"></div>
 
     <!-- ===================== -->
@@ -635,5 +581,4 @@ import Layout from '../../layouts/Layout.astro';
       <p>Producer: DJ Premier (Original) / Pete Rock (Remix) · Album: Hold It Down (1995) · Single: 1995</p>
     </footer>
 
-  </div>
-</Layout>
+</SongLayout>
