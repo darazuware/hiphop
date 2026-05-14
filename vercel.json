@@ -30,16 +30,8 @@
       ]
     },
     {
-      "source": "/(.+\\.(js|css|woff|woff2|png|jpg|jpeg|svg|ico|webp))",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
-      ]
-    },
-    {
-      "source": "/(.*\\.html|/)",
+      "source": "/(.*)",
+      "has": [{"type": "header", "key": "accept", "value": "text/html.*"}],
       "headers": [
         {
           "key": "Cache-Control",
