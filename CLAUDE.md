@@ -8,7 +8,7 @@
 ## ディレクトリ構成
 ```
 src/
-  pages/songs/   # 曲ページ（18ページ）— 各.astroファイル
+  pages/songs/   # 曲ページ — 各.astroファイル
   pages/         # index, about, slang, privacy, 404
   layouts/Layout.astro
   components/    # DeepSlang, LyricsBlock, QuickSlang, ThemeToggle

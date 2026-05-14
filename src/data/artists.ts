@@ -143,6 +143,33 @@ export const artists = [
     summary: 'ストックホルム出身のプロデューサーデュオ。Yung Leanとの長期的なコラボレーションでクラウドラップ・エクスペリメンタルヒップホップの最前線に立つ。',
     japan: 'Yung Leanの日本ファンを通じて認知される。',
   },
+  {
+    slug: 'people-under-the-stairs',
+    name: 'People Under The Stairs',
+    origin: 'Los Angeles, California',
+    active: '1997–2021',
+    genre: 'West Coast Hip-Hop / underground rap',
+    summary: 'Thes OneとDouble K（2021年死去）によるLAのデュオ。DIY精神とアナログサンプリング美学でアンダーグラウンドの金字塔を築いた。「Acid Raindrops」（2002）はSpotifyで数千万回再生を誇る。',
+    japan: 'チルアウト系ヒップホップとして日本のアンダーグラウンドファンに深く支持される。Double Kの2021年の逝去は日本のヒップホップコミュニティにも衝撃を与えた。',
+  },
+  {
+    slug: 'm-o-p',
+    name: 'M.O.P.',
+    origin: 'Brownsville, Brooklyn, New York',
+    active: '1990–',
+    genre: 'East Coast Hip-Hop / hardcore rap',
+    summary: 'Billy DanzeとLil\' Fameによるブラウンズヴィル出身のデュオ。「Ante Up」（2000）で世界的に知られるが、1993年デビューから一貫してストリートの咆哮を刻んできた東海岸ハードコアの象徴。',
+    japan: '「Ante Up」はスポーツ・格闘技のBGMとして日本でも広く使用される。アンダーグラウンドHIPHOPファンの間でも根強い支持を持つ。',
+  },
+  {
+    slug: 'blahzay-blahzay',
+    name: 'Blahzay Blahzay',
+    origin: 'Brooklyn, New York',
+    active: '1993–',
+    genre: 'East Coast Hip-Hop / boom bap',
+    summary: 'OutloudとP.F. Cuttinによるブルックリンのデュオ。1995年「Danger」でシーンに衝撃を与えた後、商業化圧力を拒絶してアンダーグラウンドに留まり続けた。2025年に約30年ぶりの新作「Back to the NINETEES」をリリース。',
+    japan: 'DJ Premier周辺の東海岸ブーンバップとして日本のアンダーグラウンドファンに知られる存在。',
+  },
 ] as const;
 
 export type Artist = typeof artists[number];
