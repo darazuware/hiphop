@@ -19,6 +19,7 @@ export const songs = [
   { slug: '/songs/scenario-remix',     title: 'Scenario (Remix)',                     subtitle: 'ATCQ Produced · 1992',         artists: 'A Tribe Called Quest feat. LONS & Kid Hood', tag: 'Kid Hood遺作',     era: '90s前半', region: 'NY',     producer: 'その他',    bpm: 97,  sample: null },
   { slug: '/songs/real-hip-hop',       title: 'Real Hip-Hop',                         subtitle: 'DJ Premier Produced · 1995',   artists: 'Das EFX',                            tag: 'ブーンバップ',       era: '90s後半', region: 'NY',     producer: 'DJ Premier', bpm: 95,  sample: null },
   { slug: '/songs/shook-ones-pt-ii',  title: 'Shook Ones, Pt. II',                   subtitle: 'Havoc Produced · 1995',        artists: 'Mobb Deep',                          tag: 'ヒップホップ最高峰',  era: '90s後半', region: 'NY',     producer: 'その他',    bpm: 95,  sample: 'Herbie Hancock "Jessica" (1969)' },
+  { slug: '/songs/storm',             title: 'STORM (I & II)',                        subtitle: 'GENER8ION Produced · 2026',     artists: 'GENER8ION & Yung Lean',              tag: 'クラウドラップ進化形', era: '00s以降', region: 'Stockholm', producer: 'その他',   bpm: 128, sample: null },
 ] as const;
 
 export const ranking = [
