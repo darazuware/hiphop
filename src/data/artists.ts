@@ -179,6 +179,15 @@ export const artists = [
     summary: 'OutloudとP.F. Cuttinによるブルックリンのデュオ。1995年「Danger」でシーンに衝撃を与えた後、商業化圧力を拒絶してアンダーグラウンドに留まり続けた。2025年に約30年ぶりの新作「Back to the NINETEES」をリリース。',
     japan: 'DJ Premier周辺の東海岸ブーンバップとして日本のアンダーグラウンドファンに知られる存在。',
   },
+  {
+    slug: 'quasimoto',
+    name: 'Quasimoto',
+    origin: 'Oxnard, California',
+    active: '1999–',
+    genre: 'Underground Hip-Hop / Lo-Fi / Psychedelic Rap',
+    summary: 'Madlib（Otis Jackson Jr.）がピッチシフターで声を高く加工して生み出した悪童キャラクター「Lord Quas」。Stones Throw Recordsからデビュー作『The Unseen』（2000年）をリリースし、アンダーグラウンド・ヒップホップとローファイ・ビートシーンに絶大な影響を与え続けている。',
+    japan: 'Madlibは日本を「究極のディギングの聖地」と称え、来日の度に大量のレア盤を発掘している。京都出身のプロデューサーToyomuはQuasimotoのサウンドに強いインスピレーションを受けたと公言しており、日本のビートシーンの根底にMadlibの哲学が息づいている。',
+  },
 ] as const;
 
 export type Artist = typeof artists[number];
