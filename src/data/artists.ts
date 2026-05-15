@@ -162,6 +162,15 @@ export const artists = [
     japan: '「Ante Up」はスポーツ・格闘技のBGMとして日本でも広く使用される。アンダーグラウンドHIPHOPファンの間でも根強い支持を持つ。',
   },
   {
+    slug: 'az',
+    name: 'AZ',
+    origin: 'Brooklyn, New York',
+    active: '1994–',
+    genre: 'East Coast Hip-Hop / Mafioso rap',
+    summary: 'ブルックリン出身のAntonio Hardy。Nasの「Illmatic」（1994）への客演「Life\'s a Bitch」で一躍注目を浴び、同年デビュー作「Doe or Die」をリリース。マフィオソ・ラップを芸術的頂点に押し上げたと評価される。2026年にNas主宰のMass Appeal Recordsから11枚目「Doe or Die III」をリリース。',
+    japan: '1998年作「Pieces of a Man」の日本盤に「Hey AZ」がボーナストラックとして収録。近年は日本アーティストとのコラボも展開し、独自のジャンル横断的な足跡を残す。',
+  },
+  {
     slug: 'blahzay-blahzay',
     name: 'Blahzay Blahzay',
     origin: 'Brooklyn, New York',
