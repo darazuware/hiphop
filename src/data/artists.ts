@@ -188,6 +188,15 @@ export const artists = [
     summary: 'Madlib（Otis Jackson Jr.）がピッチシフターで声を高く加工して生み出した悪童キャラクター「Lord Quas」。Stones Throw Recordsからデビュー作『The Unseen』（2000年）をリリースし、アンダーグラウンド・ヒップホップとローファイ・ビートシーンに絶大な影響を与え続けている。',
     japan: 'Madlibは日本を「究極のディギングの聖地」と称え、来日の度に大量のレア盤を発掘している。京都出身のプロデューサーToyomuはQuasimotoのサウンドに強いインスピレーションを受けたと公言しており、日本のビートシーンの根底にMadlibの哲学が息づいている。',
   },
+  {
+    slug: 'cocoa-brovaz',
+    name: 'Cocoa Brovaz',
+    origin: 'Brownsville, Brooklyn, New York',
+    active: '1993–',
+    genre: 'East Coast Hip-Hop / hardcore rap',
+    summary: 'TekとSteeleからなるブルックリンのデュオ。もとはSmif-N-Wessunとして1995年に『Dah Shinin\'』でデビューし全米30万枚超のセールスを記録したが、Smith & Wesson社の商標権侵害訴訟によりCocoa Brovazへ改名を余儀なくされた。1999年にPriority Recordsを失った後、任天堂『スーパーマリオブラザーズ』を無断サンプリングしたゲリラトラック「Super Brooklyn」でストリートを席巻し、Rawkus Recordsとの新契約を獲得。Boot Camp Clikの中核を担い、重厚なブーンバップとジャマイカのパトワ語的フロウで90年代東海岸ハードコアヒップホップの金字塔を打ち立てた。',
+    japan: '1990年代から日本のアンダーグラウンドシーンで宗教的とも言える熱狂的な支持を受けた。DJ MUROの渋谷セレクトショップ「Savage!」ではBoot Camp Clikのトレードマーク「Timberland」「Elements of Style」が日本のB-Boyの間で大流行し、東京のストリートファッションに多大な影響を与えた。来日公演はアンダーグラウンドシーンの重大事件として扱われた。',
+  },
 ] as const;
 
 export type Artist = typeof artists[number];
