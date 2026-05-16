@@ -108,6 +108,9 @@ const resolvedSchema = schema ?? defaultSchema;
   <script type="application/ld+json" set:html={JSON.stringify(resolvedSchema)} />
   {breadcrumbSchema && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />}
 
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="WAX&INK RSS" href="/rss.xml" />
+
   <!-- AdSense -->
   <meta name="google-adsense-account" content="ca-pub-7526742711058970" />
 
