@@ -192,15 +192,24 @@ const relatedColumns = song
         <a href="/" class="text-xs text-[var(--c-very-dim)] hover:text-[var(--c-gold)] transition-colors uppercase tracking-widest">
           ← WAX&amp;INK トップへ
         </a>
-        <a
-          href={`https://x.com/intent/tweet?text=${encodeURIComponent(`${title} | WAX&INK`)}&url=${encodeURIComponent(`https://waxthink.com/songs/${slug}`)}`}
-          target="_blank"
-          rel="noopener"
-          class="inline-flex items-center gap-2 text-xs text-[var(--c-very-dim)] hover:text-[var(--c-gold)] transition-colors border border-[var(--c-border)] hover:border-[var(--c-gold)] rounded px-3 py-1.5"
-        >
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-          X でシェア
-        </a>
+        <div class="flex items-center gap-2">
+          <a
+            href={`https://x.com/intent/tweet?text=${encodeURIComponent(`${title} | WAX&INK`)}&url=${encodeURIComponent(`https://waxthink.com/songs/${slug}`)}`}
+            target="_blank"
+            rel="noopener"
+            class="inline-flex items-center gap-2 text-xs text-[var(--c-very-dim)] hover:text-[var(--c-gold)] transition-colors border border-[var(--c-border)] hover:border-[var(--c-gold)] rounded px-3 py-1.5"
+          >
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            X
+          </a>
+          <button
+            id="share-btn"
+            class="inline-flex items-center gap-2 text-xs text-[var(--c-very-dim)] hover:text-[var(--c-gold)] transition-colors border border-[var(--c-border)] hover:border-[var(--c-gold)] rounded px-3 py-1.5"
+          >
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+            <span id="share-label">共有</span>
+          </button>
+        </div>
       </div>
     </div>
 
@@ -290,4 +299,22 @@ const relatedColumns = song
       bar.style.width = pct + '%';
     }, { passive: true });
   }
+
+  const shareBtn = document.getElementById('share-btn');
+  const shareLabel = document.getElementById('share-label');
+  shareBtn?.addEventListener('click', async () => {
+    const url = location.href;
+    const title = document.title;
+    if (navigator.share) {
+      try {
+        await navigator.share({ title, url });
+      } catch {}
+    } else {
+      await navigator.clipboard.writeText(url);
+      if (shareLabel) {
+        shareLabel.textContent = 'コピー済み';
+        setTimeout(() => { shareLabel.textContent = '共有'; }, 2000);
+      }
+    }
+  });
 </script>
