@@ -197,6 +197,15 @@ export const artists = [
     summary: 'TekとSteeleからなるブルックリンのデュオ。もとはSmif-N-Wessunとして1995年に『Dah Shinin\'』でデビューし全米30万枚超のセールスを記録したが、Smith & Wesson社の商標権侵害訴訟によりCocoa Brovazへ改名を余儀なくされた。1999年にPriority Recordsを失った後、任天堂『スーパーマリオブラザーズ』を無断サンプリングしたゲリラトラック「Super Brooklyn」でストリートを席巻し、Rawkus Recordsとの新契約を獲得。Boot Camp Clikの中核を担い、重厚なブーンバップとジャマイカのパトワ語的フロウで90年代東海岸ハードコアヒップホップの金字塔を打ち立てた。',
     japan: '1990年代から日本のアンダーグラウンドシーンで宗教的とも言える熱狂的な支持を受けた。DJ MUROの渋谷セレクトショップ「Savage!」ではBoot Camp Clikのトレードマーク「Timberland」「Elements of Style」が日本のB-Boyの間で大流行し、東京のストリートファッションに多大な影響を与えた。来日公演はアンダーグラウンドシーンの重大事件として扱われた。',
   },
+  {
+    slug: 'bell-biv-devoe',
+    name: 'Bell Biv DeVoe',
+    origin: 'Boston, Massachusetts',
+    active: '1989–',
+    genre: 'New Jack Swing / R&B / Hip-Hop Soul',
+    summary: 'Ricky Bell、Michael Bivins、Ronnie DeVoeの3名がNew Editionから派生して結成。1990年のデビューアルバム『Poison』は全米4×プラチナを記録し、ヒップホップとR&Bを融合させた「ヒップホップ・ソウル」の青写真を提示した。Dr. FreezeとThe Bomb SquadのHank Shockleeによる共同プロデュースで生み出されたタイトルトラック「Poison」は、伝説的パンチライン「Never trust a big butt and a smile」で永遠に記憶される。後のJodeci、Boyz II Men、TLC、Usherらに多大な影響を与えた。',
+    japan: '1990〜1991年に来日公演を敢行。「Poison」のMVは日本のダンスコミュニティでバイブルとして扱われ、彼らのファッション（ティンバーランドのブーツ、オーバーサイズのカバーオール）が日本のストリートファッションに直接影響を与えた。ZOOやL.L. Brothersといった和製ダンス＆ボーカルグループは、BBDのサウンドアプローチとビジュアルイメージから直接的なDNAを受け継ぎ、日本におけるNew Jack Swing定着に大きく貢献した。',
+  },
 ] as const;
 
 export type Artist = typeof artists[number];
