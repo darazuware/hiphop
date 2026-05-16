@@ -1,0 +1,115 @@
+---
+import Layout from './Layout.astro';
+import { columns } from '../data/columns';
+import { songs } from '../data/songs';
+
+interface Props {
+  title: string;
+  description: string;
+  slug: string;
+}
+
+const { title, description, slug } = Astro.props;
+
+const column = columns.find(c => c.slug === `/columns/${slug}`);
+const relatedSongs = column
+  ? songs.filter(s => column.relatedSongs.includes(s.slug))
+  : [];
+---
+
+<Layout title={title} description={description}>
+  <div class="max-w-5xl mx-auto px-4 py-8 lg:grid lg:grid-cols-[1fr_260px] lg:gap-12 lg:items-start">
+
+    <!-- Main column -->
+    <div>
+      <header class="mb-8">
+        {column && (
+          <span class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3 inline-block">{column.tag}</span>
+        )}
+        <h1 class="text-2xl md:text-3xl font-bold leading-tight mb-4">{title}</h1>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">{description}</p>
+      </header>
+
+      <div class="prose-custom">
+        <slot />
+      </div>
+
+      <div class="border-t border-[var(--c-border)] pt-6 text-center mt-12">
+        <a href="/" class="text-xs text-[var(--c-very-dim)] hover:text-[var(--c-gold)] transition-colors uppercase tracking-widest">
+          ← WAX&amp;INK トップへ
+        </a>
+      </div>
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="hidden lg:block">
+      <div class="sticky top-8 space-y-6">
+        {relatedSongs.length > 0 && (
+          <section>
+            <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3 border-b border-[var(--c-border)] pb-2">
+              関連曲の解説記事
+            </h2>
+            <ul class="space-y-2">
+              {relatedSongs.map(s => (
+                <li>
+                  <a href={s.slug} class="flex items-center justify-between p-3 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg hover:border-[var(--c-gold)] transition-colors group">
+                    <div>
+                      <p class="font-semibold text-sm group-hover:text-[var(--c-gold)] transition-colors">{s.title}</p>
+                      <p class="text-[var(--c-dim)] text-xs mt-0.5">{s.artists}</p>
+                    </div>
+                    <span class="text-[var(--c-very-dim)] text-sm ml-2 shrink-0">→</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+      </div>
+    </aside>
+
+  </div>
+</Layout>
+
+<style>
+  .prose-custom :global(h2) {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+    color: var(--c-gold);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.75rem;
+    border-bottom: 1px solid var(--c-border);
+    padding-bottom: 0.5rem;
+  }
+  .prose-custom :global(h3) {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .prose-custom :global(p) {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: var(--c-muted);
+    margin-bottom: 1rem;
+  }
+  .prose-custom :global(strong) {
+    color: var(--c-fg);
+    font-weight: 700;
+  }
+  .prose-custom :global(a) {
+    color: var(--c-gold);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .prose-custom :global(blockquote) {
+    border-left: 2px solid var(--c-gold);
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+    color: var(--c-dim);
+    font-style: italic;
+    font-size: 0.85rem;
+  }
+</style>

@@ -2,6 +2,7 @@
 import Layout from './Layout.astro';
 import { songs } from '../data/songs';
 import { artists } from '../data/artists';
+import { columns } from '../data/columns';
 
 interface Props {
   title: string;
@@ -19,6 +20,9 @@ const song = songs.find(s => s.slug === `/songs/${slug}`);
 const artist = song ? artists.find(a => a.slug === song.artistSlug) : null;
 const related = song
   ? songs.filter(s => s.artistSlug === song.artistSlug && s.slug !== song.slug).slice(0, 3)
+  : [];
+const relatedColumns = song
+  ? columns.filter(c => c.relatedSongs.includes(song.slug))
   : [];
 ---
 
@@ -237,6 +241,24 @@ const related = song
                       <p class="text-[var(--c-dim)] text-xs mt-0.5">{s.artists}</p>
                     </div>
                     <span class="text-[var(--c-very-dim)] text-sm ml-2 shrink-0">→</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+        {relatedColumns.length > 0 && (
+          <section>
+            <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3 border-b border-[var(--c-border)] pb-2">
+              関連コラム
+            </h2>
+            <ul class="space-y-2">
+              {relatedColumns.map(c => (
+                <li>
+                  <a href={c.slug} class="block p-3 bg-[var(--c-surface)] border border-[var(--c-gold)]/30 rounded-lg hover:border-[var(--c-gold)] transition-colors group">
+                    <p class="text-[var(--c-gold)] text-[10px] uppercase tracking-widest mb-1">{c.tag}</p>
+                    <p class="font-semibold text-sm group-hover:text-[var(--c-gold)] transition-colors leading-snug">{c.title}</p>
                   </a>
                 </li>
               ))}
