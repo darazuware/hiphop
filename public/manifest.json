@@ -1,0 +1,12 @@
+{
+  "name": "WAX&INK",
+  "short_name": "WAX&INK",
+  "description": "ヒップホップ歌詞和訳・スラング解説",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#0a0a0a",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}
