@@ -1,0 +1,16 @@
+{
+  "name": "hiphop-agent",
+  "version": "1.0.0",
+  "description": "Telegram → Gemini Deep Research → Genius → Claude Code 自律エージェント",
+  "type": "module",
+  "main": "src/index.mjs",
+  "scripts": {
+    "start": "node src/index.mjs",
+    "dev": "node --watch src/index.mjs"
+  },
+  "dependencies": {
+    "@google/genai": "^1.0.0",
+    "genius-lyrics-api": "^3.2.1",
+    "dotenv": "^16.4.0"
+  }
+}
