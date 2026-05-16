@@ -2,8 +2,8 @@
 
 ## スタック
 - Astro + Tailwind CSS v4 + TypeScript
-- デプロイ: Vercel (`npx vercel --prod`)
-- サイトURL: https://hiphop.vercel.app
+- デプロイ: Cloudflare Pages（GitHub連携 → git pushで自動デプロイ）
+- サイトURL: https://waxthink.com
 
 ## ディレクトリ構成
 ```
@@ -20,12 +20,12 @@ public/images/   # アルバムアート
 ## 開発コマンド
 - 開発サーバー: `npm run dev` → http://localhost:4321
 - ビルド確認: `npm run build`
-- デプロイ: `git push` (Vercel自動) or `npx vercel --prod`
+- デプロイ: `git push` (Cloudflare Pages自動)
 
 ## ルール
 - 新曲追加は `src/data/songs.ts` にデータ追記 → `src/pages/songs/[slug].astro` 作成
 - OGP画像は `src/pages/og/[slug].png.ts` で自動生成済み
-- CSPはvercel.jsonで管理（YouTube埋め込み・Adsense対応済み）
+- CSPはpublic/_headersで管理（YouTube埋め込み・Adsense対応済み）
 - コメント不要、型安全を維持
 
 ## 歌詞翻訳ルール（重要）

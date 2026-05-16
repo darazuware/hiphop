@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://hiphop.vercel.app',
+  site: 'https://waxthink.com',
   integrations: [sitemap()],
   vite: {
     plugins: [tailwindcss()]
