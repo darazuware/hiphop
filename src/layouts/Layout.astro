@@ -106,6 +106,9 @@ const resolvedSchema = schema ?? defaultSchema;
   <script type="application/ld+json" set:html={JSON.stringify(resolvedSchema)} />
   {breadcrumbSchema && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />}
 
+  <!-- AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-7526742711058970" />
+
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-EN2N33B7PB"></script>
   <script is:inline>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-EN2N33B7PB');</script>
