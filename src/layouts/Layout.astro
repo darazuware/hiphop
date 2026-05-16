@@ -54,7 +54,7 @@ const defaultSchema = {
   inLanguage: 'ja',
   publisher: {
     '@type': 'Organization',
-    name: 'WAX&amp;INK',
+    name: 'WAX&amp;THINK',
     url: 'https://hiphop.vercel.app',
   },
 };
@@ -75,7 +75,7 @@ const resolvedSchema = schema ?? defaultSchema;
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:url" content={canonicalURL} />
-  <meta property="og:site_name" content="WAX&amp;INK" />
+  <meta property="og:site_name" content="WAX&amp;THINK" />
   <meta property="og:locale" content="ja_JP" />
 
   <!-- OGP Image -->
@@ -109,7 +109,7 @@ const resolvedSchema = schema ?? defaultSchema;
   {breadcrumbSchema && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />}
 
   <!-- RSS -->
-  <link rel="alternate" type="application/rss+xml" title="WAX&INK RSS" href="/rss.xml" />
+  <link rel="alternate" type="application/rss+xml" title="WAX&amp;THINK RSS" href="/rss.xml" />
 
   <!-- AdSense -->
   <meta name="google-adsense-account" content="ca-pub-7526742711058970" />
@@ -140,7 +140,7 @@ const resolvedSchema = schema ?? defaultSchema;
   )}
   <slot />
   <footer class="max-w-2xl mx-auto px-4 pb-8 pt-6 mt-4 border-t border-[var(--c-border)] flex flex-wrap gap-x-5 gap-y-1 text-[var(--c-very-dim)] text-xs">
-    <a href="/" class="hover:text-[var(--c-gold)] transition-colors">WAX&amp;INK</a>
+    <a href="/" class="hover:text-[var(--c-gold)] transition-colors">WAX&amp;THINK</a>
     <a href="/about" class="hover:text-[var(--c-gold)] transition-colors">About</a>
     <a href="/slang" class="hover:text-[var(--c-gold)] transition-colors">スラング索引</a>
     <a href="/contact" class="hover:text-[var(--c-gold)] transition-colors">お問い合わせ</a>
