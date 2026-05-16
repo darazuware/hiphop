@@ -83,6 +83,15 @@ const related = song
           <p class="text-[var(--c-very-dim)] text-xs mt-2">{song.album}</p>
           <p class="text-[var(--c-gold)] text-[10px] mt-0.5 uppercase tracking-widest">Amazon で購入 →</p>
         </a>
+        <a
+          href={`https://music.apple.com/jp/search?term=${encodeURIComponent(song.artists + ' ' + song.title)}&at=APPLE_AT_TOKEN`}
+          target="_blank"
+          rel="noopener"
+          class="inline-flex items-center gap-1.5 mt-2 text-[10px] uppercase tracking-widest text-[var(--c-very-dim)] hover:text-white transition-colors"
+        >
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M23.994 6.124a9.23 9.23 0 0 0-.24-2.19c-.317-1.31-1.064-2.31-2.18-3.043a6.33 6.33 0 0 0-1.769-.75c-.55-.135-1.11-.2-1.675-.21-.024 0-.051-.013-.077-.013H5.947c-.026 0-.053.013-.077.013-.565.01-1.124.075-1.674.21a6.33 6.33 0 0 0-1.769.75C1.31 1.624.563 2.624.246 3.934a9.23 9.23 0 0 0-.24 2.19C.002 6.24 0 6.356 0 6.472v11.056c0 .116.002.232.006.348a9.23 9.23 0 0 0 .24 2.19c.317 1.31 1.064 2.31 2.18 3.043a6.33 6.33 0 0 0 1.769.75c.55.135 1.11.2 1.675.21.024 0 .051.013.077.013h12.106c.026 0 .053-.013.077-.013.565-.01 1.124-.075 1.674-.21a6.33 6.33 0 0 0 1.769-.75c1.116-.733 1.863-1.733 2.18-3.043a9.23 9.23 0 0 0 .24-2.19c.004-.116.006-.232.006-.348V6.472c0-.116-.002-.232-.006-.348zM15.9 7.2v1.5h-4.8V18h-1.8V8.7H4.5V7.2h11.4z"/></svg>
+          Apple Music で聴く →
+        </a>
       </div>
     ) : song?.mbid ? (
       <div class="mb-6">
