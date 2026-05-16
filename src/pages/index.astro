@@ -1,121 +1,247 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { songs } from '../data/songs';
+import { artists } from '../data/artists';
 
 const producers = [...new Set(songs.map(s => s.producer))].sort((a, b) => a.localeCompare(b, 'ja'));
+const eras = ['90s前半', '90s後半', '00s以降'] as const;
+const regions = [{ value: 'NY', label: 'New York' }, { value: 'Philly', label: 'Philly' }, { value: 'LA', label: 'LA / West' }];
 ---
 
 <Layout title="WAX&INK — ヒップホップ歌詞和訳・スラング解説" description="ヒップホップの名曲を歌詞和訳とスラング解説で深掘り。C.R.E.A.M.・Nasなど名曲のスラングと文化背景を日本語で徹底解説。">
-  <div class="max-w-2xl mx-auto px-4 py-12">
+  <div class="max-w-7xl mx-auto px-4 py-8 lg:grid lg:grid-cols-[200px_1fr_180px] lg:gap-8 lg:items-start">
 
-    <header class="mb-12">
-      <h1 class="site-title font-black uppercase leading-none tracking-tighter mb-4 select-none">
-        WAX<span class="text-[var(--c-gold)]">&amp;</span>INK
-      </h1>
-      <p class="text-[var(--c-very-dim)] text-xs uppercase tracking-widest mb-4">Hip-Hop Lyrics — 歌詞和訳・スラング解説</p>
-      <p class="text-[var(--c-muted)] text-sm leading-relaxed mb-5 max-w-md">
-        ヒップホップの名曲を、歌詞の一語一語・スラング・サンプリング・文化背景まで徹底解説。
-      </p>
-      <a href="/slang" class="inline-block text-xs text-[var(--c-gold)] border border-[var(--c-gold)] rounded px-3 py-1 hover:bg-[var(--c-gold)] hover:text-[var(--c-bg)] transition-colors">
-        スラング索引 ({songs.length}曲 · 100+ 用語) →
-      </a>
-    </header>
+    <!-- Left sidebar (desktop) -->
+    <aside class="hidden lg:block sticky top-8 space-y-6">
+      <div>
+        <h1 class="site-title-sm font-black uppercase leading-none tracking-tighter select-none mb-1">
+          WAX<span class="text-[var(--c-gold)]">&amp;</span>INK
+        </h1>
+        <p class="text-[var(--c-very-dim)] text-[10px] uppercase tracking-widest mb-4">Hip-Hop Lyrics</p>
+        <a href="/slang" class="inline-block text-[10px] text-[var(--c-gold)] border border-[var(--c-gold)] rounded px-2 py-0.5 hover:bg-[var(--c-gold)] hover:text-[var(--c-bg)] transition-colors">
+          スラング索引 →
+        </a>
+      </div>
 
-    <!-- Search -->
-    <div class="mb-6">
-      <div class="relative">
-        <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[var(--c-very-dim)] pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z"/>
-        </svg>
-        <input
-          id="search-input"
-          type="search"
-          placeholder="曲名・アーティスト・スラング・サンプルを検索..."
-          autocomplete="off"
-          class="w-full bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg pl-10 pr-4 py-2.5 text-sm text-[var(--c-fg)] placeholder-[var(--c-very-dim)] focus:outline-none focus:border-[var(--c-gold)] transition-colors"
-        />
-        <button id="search-clear" class="absolute right-3 top-1/2 -translate-y-1/2 hidden text-[var(--c-very-dim)] hover:text-[var(--c-muted)] transition-colors">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-          </svg>
-        </button>
+      <!-- Search (desktop sidebar) -->
+      <div>
+        <p class="text-[var(--c-very-dim)] text-[10px] uppercase tracking-widest mb-2">Search</p>
+        <div class="relative">
+          <input
+            id="search-input-desktop"
+            type="search"
+            placeholder="検索..."
+            autocomplete="off"
+            class="w-full bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg pl-3 pr-3 py-1.5 text-xs text-[var(--c-fg)] placeholder-[var(--c-very-dim)] focus:outline-none focus:border-[var(--c-gold)] transition-colors"
+          />
+        </div>
       </div>
-    </div>
 
-    <!-- Filters -->
-    <div class="mb-8 space-y-3">
-      <div class="flex flex-wrap gap-2 items-center">
-        <span class="text-[var(--c-very-dim)] text-xs uppercase tracking-widest w-16 shrink-0">Era</span>
-        <button data-filter="era" data-value="" class="filter-btn active text-xs px-3 py-1 rounded border border-[var(--c-border)] text-[var(--c-muted)] hover:border-[var(--c-gold)] transition-colors">All</button>
-        <button data-filter="era" data-value="90s前半" class="filter-btn text-xs px-3 py-1 rounded border border-[var(--c-border)] text-[var(--c-muted)] hover:border-[var(--c-gold)] transition-colors">90s前半</button>
-        <button data-filter="era" data-value="90s後半" class="filter-btn text-xs px-3 py-1 rounded border border-[var(--c-border)] text-[var(--c-muted)] hover:border-[var(--c-gold)] transition-colors">90s後半</button>
-        <button data-filter="era" data-value="00s以降" class="filter-btn text-xs px-3 py-1 rounded border border-[var(--c-border)] text-[var(--c-muted)] hover:border-[var(--c-gold)] transition-colors">00s以降</button>
+      <!-- Era filter -->
+      <div>
+        <p class="text-[var(--c-very-dim)] text-[10px] uppercase tracking-widest mb-2">Era</p>
+        <div class="space-y-1">
+          <button data-filter="era" data-value="" class="filter-btn active block w-full text-left text-xs px-2 py-1 rounded border border-[var(--c-border)] text-[var(--c-muted)] hover:border-[var(--c-gold)] transition-colors">All</button>
+          {eras.map(e => (
+            <button data-filter="era" data-value={e} class="filter-btn block w-full text-left text-xs px-2 py-1 rounded border border-[var(--c-border)] text-[var(--c-muted)] hover:border-[var(--c-gold)] transition-colors">{e}</button>
+          ))}
+        </div>
       </div>
-      <div class="flex flex-wrap gap-2 items-center">
-        <span class="text-[var(--c-very-dim)] text-xs uppercase tracking-widest w-16 shrink-0">Area</span>
-        <button data-filter="region" data-value="" class="filter-btn active text-xs px-3 py-1 rounded border border-[var(--c-border)] text-[var(--c-muted)] hover:border-[var(--c-gold)] transition-colors">All</button>
-        <button data-filter="region" data-value="NY" class="filter-btn text-xs px-3 py-1 rounded border border-[var(--c-border)] text-[var(--c-muted)] hover:border-[var(--c-gold)] transition-colors">New York</button>
-        <button data-filter="region" data-value="Philly" class="filter-btn text-xs px-3 py-1 rounded border border-[var(--c-border)] text-[var(--c-muted)] hover:border-[var(--c-gold)] transition-colors">Philly</button>
-        <button data-filter="region" data-value="LA" class="filter-btn text-xs px-3 py-1 rounded border border-[var(--c-border)] text-[var(--c-muted)] hover:border-[var(--c-gold)] transition-colors">LA / West</button>
+
+      <!-- Area filter -->
+      <div>
+        <p class="text-[var(--c-very-dim)] text-[10px] uppercase tracking-widest mb-2">Area</p>
+        <div class="space-y-1">
+          <button data-filter="region" data-value="" class="filter-btn active block w-full text-left text-xs px-2 py-1 rounded border border-[var(--c-border)] text-[var(--c-muted)] hover:border-[var(--c-gold)] transition-colors">All</button>
+          {regions.map(r => (
+            <button data-filter="region" data-value={r.value} class="filter-btn block w-full text-left text-xs px-2 py-1 rounded border border-[var(--c-border)] text-[var(--c-muted)] hover:border-[var(--c-gold)] transition-colors">{r.label}</button>
+          ))}
+        </div>
       </div>
-      <div class="flex flex-wrap gap-2 items-center">
-        <span class="text-[var(--c-very-dim)] text-xs uppercase tracking-widest w-16 shrink-0">Prod.</span>
-        <select id="producer-select" class="text-xs px-3 py-1 rounded border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-muted)] focus:outline-none focus:border-[var(--c-gold)] transition-colors cursor-pointer">
+
+      <!-- Producer filter -->
+      <div>
+        <p class="text-[var(--c-very-dim)] text-[10px] uppercase tracking-widest mb-2">Producer</p>
+        <select id="producer-select" class="w-full text-xs px-2 py-1 rounded border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-muted)] focus:outline-none focus:border-[var(--c-gold)] transition-colors cursor-pointer">
           <option value="">All</option>
           {producers.map(p => <option value={p}>{p}</option>)}
         </select>
       </div>
-    </div>
 
-    <section>
-      <div class="flex items-center justify-between mb-5 border-b border-[var(--c-border)] pb-2">
-        <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest">Songs</h2>
-        <div class="flex items-center gap-3">
-          <select id="sort-select" class="text-xs px-2 py-1 rounded border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-very-dim)] focus:outline-none focus:border-[var(--c-gold)] transition-colors cursor-pointer">
-            <option value="default">Default</option>
-            <option value="az">A–Z</option>
-            <option value="bpm">BPM ↑</option>
-            <option value="era">Era</option>
-          </select>
-          <span id="count" class="text-[var(--c-very-dim)] text-xs">{songs.length} tracks</span>
+      <!-- Sort -->
+      <div>
+        <p class="text-[var(--c-very-dim)] text-[10px] uppercase tracking-widest mb-2">Sort</p>
+        <select id="sort-select" class="w-full text-xs px-2 py-1 rounded border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-very-dim)] focus:outline-none focus:border-[var(--c-gold)] transition-colors cursor-pointer">
+          <option value="default">Default</option>
+          <option value="az">A–Z</option>
+          <option value="bpm">BPM ↑</option>
+          <option value="era">Era</option>
+        </select>
+      </div>
+    </aside>
+
+    <!-- Main content -->
+    <div>
+      <!-- Mobile header -->
+      <header class="mb-8 lg:hidden">
+        <h1 class="site-title font-black uppercase leading-none tracking-tighter mb-4 select-none">
+          WAX<span class="text-[var(--c-gold)]">&amp;</span>INK
+        </h1>
+        <p class="text-[var(--c-very-dim)] text-xs uppercase tracking-widest mb-4">Hip-Hop Lyrics — 歌詞和訳・スラング解説</p>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed mb-5 max-w-md">
+          ヒップホップの名曲を、歌詞の一語一語・スラング・サンプリング・文化背景まで徹底解説。
+        </p>
+        <a href="/slang" class="inline-block text-xs text-[var(--c-gold)] border border-[var(--c-gold)] rounded px-3 py-1 hover:bg-[var(--c-gold)] hover:text-[var(--c-bg)] transition-colors">
+          スラング索引 ({songs.length}曲 · 100+ 用語) →
+        </a>
+      </header>
+
+      <!-- Mobile search + filters -->
+      <div class="lg:hidden mb-6">
+        <div class="relative mb-4">
+          <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[var(--c-very-dim)] pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z"/>
+          </svg>
+          <input
+            id="search-input"
+            type="search"
+            placeholder="曲名・アーティスト・スラング・サンプルを検索..."
+            autocomplete="off"
+            class="w-full bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg pl-10 pr-4 py-2.5 text-sm text-[var(--c-fg)] placeholder-[var(--c-very-dim)] focus:outline-none focus:border-[var(--c-gold)] transition-colors"
+          />
+          <button id="search-clear" class="absolute right-3 top-1/2 -translate-y-1/2 hidden text-[var(--c-very-dim)] hover:text-[var(--c-muted)] transition-colors">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+        <div class="space-y-3">
+          <div class="flex flex-wrap gap-2 items-center">
+            <span class="text-[var(--c-very-dim)] text-xs uppercase tracking-widest w-16 shrink-0">Era</span>
+            <button data-filter="era" data-value="" class="filter-btn active text-xs px-3 py-1 rounded border border-[var(--c-border)] text-[var(--c-muted)] hover:border-[var(--c-gold)] transition-colors">All</button>
+            {eras.map(e => (
+              <button data-filter="era" data-value={e} class="filter-btn text-xs px-3 py-1 rounded border border-[var(--c-border)] text-[var(--c-muted)] hover:border-[var(--c-gold)] transition-colors">{e}</button>
+            ))}
+          </div>
+          <div class="flex flex-wrap gap-2 items-center">
+            <span class="text-[var(--c-very-dim)] text-xs uppercase tracking-widest w-16 shrink-0">Area</span>
+            <button data-filter="region" data-value="" class="filter-btn active text-xs px-3 py-1 rounded border border-[var(--c-border)] text-[var(--c-muted)] hover:border-[var(--c-gold)] transition-colors">All</button>
+            {regions.map(r => (
+              <button data-filter="region" data-value={r.value} class="filter-btn text-xs px-3 py-1 rounded border border-[var(--c-border)] text-[var(--c-muted)] hover:border-[var(--c-gold)] transition-colors">{r.label}</button>
+            ))}
+          </div>
+          <div class="flex flex-wrap gap-2 items-center">
+            <span class="text-[var(--c-very-dim)] text-xs uppercase tracking-widest w-16 shrink-0">Prod.</span>
+            <select id="producer-select-mobile" class="text-xs px-3 py-1 rounded border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-muted)] focus:outline-none focus:border-[var(--c-gold)] transition-colors cursor-pointer">
+              <option value="">All</option>
+              {producers.map(p => <option value={p}>{p}</option>)}
+            </select>
+          </div>
         </div>
       </div>
 
-      <ul id="song-list" class="grid grid-cols-2 md:grid-cols-3 gap-3">
-        {songs.map((song, i) => (
-          <li
-            data-era={song.era}
-            data-region={song.region}
-            data-producer={song.producer}
-            data-bpm={song.bpm}
-            data-search={[song.title, song.artists, song.subtitle, song.tag, song.era, song.region, song.producer, song.sample ?? ''].join(' ').toLowerCase()}
-          >
-            <a href={song.slug} class="song-card group relative flex flex-col justify-end overflow-hidden rounded-xl aspect-[3/4]">
-              <img src={song.asin ? `https://ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=${song.asin}&Format=_SL500_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=hiphop_black-22` : `/images/covers/${song.slug.split('/').pop()}.jpg`} alt={song.album} class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" loading="lazy" onerror="this.style.display='none'" />
-              <div class="absolute inset-0 card-overlay transition-opacity duration-300" />
-              <div class="relative z-10 p-4">
-                {song.tag && (
-                  <span
-                    class="sticker inline-block text-[10px] font-black uppercase tracking-wide px-2 py-0.5 mb-3"
-                    style={`--rot: ${[-3,-1.5,2,-2.5,0.5,-1,1.5,3,-0.5,2.5][i % 10]}deg; --bg: ${['#FFE135','#FFE135','#FFE135','#FF3B30','#FFE135','#F5F5F0','#FFE135','#FFE135','#FF3B30','#FFE135'][i % 10]};`}
-                  >
-                    {song.tag}
-                  </span>
-                )}
-                <p class="font-bold text-base leading-snug text-white mb-1 drop-shadow">{song.title}</p>
-                <p class="text-white/60 text-xs leading-snug truncate">{song.artists}</p>
-                <p class="text-white/35 text-[10px] mt-1 uppercase tracking-widest">{song.subtitle}</p>
-              </div>
-              <span class="absolute top-3 right-3 text-white/20 text-xs tabular-nums select-none font-mono">
-                {String(i + 1).padStart(2, '0')}
-              </span>
-            </a>
-          </li>
-        ))}
-      </ul>
+      <section>
+        <div class="flex items-center justify-between mb-5 border-b border-[var(--c-border)] pb-2">
+          <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest">Songs</h2>
+          <div class="flex items-center gap-3">
+            <select id="sort-select-mobile" class="lg:hidden text-xs px-2 py-1 rounded border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-very-dim)] focus:outline-none focus:border-[var(--c-gold)] transition-colors cursor-pointer">
+              <option value="default">Default</option>
+              <option value="az">A–Z</option>
+              <option value="bpm">BPM ↑</option>
+              <option value="era">Era</option>
+            </select>
+            <span id="count" class="text-[var(--c-very-dim)] text-xs">{songs.length} tracks</span>
+          </div>
+        </div>
 
-      <p id="no-results" class="hidden text-center text-[var(--c-dim)] text-sm py-12">該当する曲がありません</p>
-    </section>
+        <ul id="song-list" class="grid grid-cols-2 md:grid-cols-3 gap-3">
+          {songs.map((song, i) => (
+            <li
+              data-era={song.era}
+              data-region={song.region}
+              data-producer={song.producer}
+              data-bpm={song.bpm}
+              data-search={[song.title, song.artists, song.subtitle, song.tag, song.era, song.region, song.producer, song.sample ?? ''].join(' ').toLowerCase()}
+            >
+              <a href={song.slug} class="song-card group relative flex flex-col justify-end overflow-hidden rounded-xl aspect-[3/4]">
+                <img
+                  src={song.asin ? `https://ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=${song.asin}&Format=_SL500_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=hiphop_black-22` : `/images/covers/${song.slug.split('/').pop()}.jpg`}
+                  alt={song.album}
+                  class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  loading={i < 6 ? 'eager' : 'lazy'}
+                  fetchpriority={i < 2 ? 'high' : 'auto'}
+                  onerror="this.style.display='none'"
+                />
+                <div class="absolute inset-0 card-overlay transition-opacity duration-300" />
+                <div class="relative z-10 p-4">
+                  {song.tag && (
+                    <span
+                      class="sticker inline-block text-[10px] font-black uppercase tracking-wide px-2 py-0.5 mb-3"
+                      style={`--rot: ${[-3,-1.5,2,-2.5,0.5,-1,1.5,3,-0.5,2.5][i % 10]}deg; --bg: ${['#FFE135','#FFE135','#FFE135','#FF3B30','#FFE135','#F5F5F0','#FFE135','#FFE135','#FF3B30','#FFE135'][i % 10]};`}
+                    >
+                      {song.tag}
+                    </span>
+                  )}
+                  <p class="font-bold text-base leading-snug text-white mb-1 drop-shadow">{song.title}</p>
+                  <p class="text-white/60 text-xs leading-snug truncate">{song.artists}</p>
+                  <p class="text-white/35 text-[10px] mt-1 uppercase tracking-widest">{song.subtitle}</p>
+                </div>
+                <span class="absolute top-3 right-3 text-white/20 text-xs tabular-nums select-none font-mono">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        <p id="no-results" class="hidden text-center text-[var(--c-dim)] text-sm py-12">該当する曲がありません</p>
+      </section>
+    </div>
+
+    <!-- Right sidebar (desktop) -->
+    <aside class="hidden lg:block sticky top-8 space-y-6">
+      <div>
+        <p class="text-[var(--c-gold)] text-[10px] uppercase tracking-widest mb-3 border-b border-[var(--c-border)] pb-2">Artists</p>
+        <ul class="space-y-1">
+          {artists.map(a => (
+            <li>
+              <a href={`/artists/${a.slug}`} class="text-xs text-[var(--c-muted)] hover:text-[var(--c-gold)] transition-colors flex items-center justify-between group">
+                <span class="group-hover:underline underline-offset-2 truncate">{a.name}</span>
+                <span class="text-[var(--c-very-dim)] text-[10px] ml-1 shrink-0">
+                  {songs.filter(s => s.artistSlug === a.slug).length}
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <p class="text-[var(--c-gold)] text-[10px] uppercase tracking-widest mb-3 border-b border-[var(--c-border)] pb-2">Stats</p>
+        <dl class="space-y-1.5 text-xs">
+          <div class="flex justify-between">
+            <dt class="text-[var(--c-very-dim)]">Songs</dt>
+            <dd class="text-[var(--c-muted)]">{songs.length}</dd>
+          </div>
+          <div class="flex justify-between">
+            <dt class="text-[var(--c-very-dim)]">Artists</dt>
+            <dd class="text-[var(--c-muted)]">{artists.length}</dd>
+          </div>
+          <div class="flex justify-between">
+            <dt class="text-[var(--c-very-dim)]">Slang</dt>
+            <dd class="text-[var(--c-muted)]">100+</dd>
+          </div>
+        </dl>
+      </div>
+
+      <div>
+        <p class="text-[var(--c-gold)] text-[10px] uppercase tracking-widest mb-3 border-b border-[var(--c-border)] pb-2">Links</p>
+        <ul class="space-y-1.5 text-xs">
+          <li><a href="/slang" class="text-[var(--c-muted)] hover:text-[var(--c-gold)] transition-colors">スラング索引</a></li>
+          <li><a href="/about" class="text-[var(--c-muted)] hover:text-[var(--c-gold)] transition-colors">About</a></li>
+        </ul>
+      </div>
+    </aside>
 
   </div>
 </Layout>
@@ -123,6 +249,7 @@ const producers = [...new Set(songs.map(s => s.producer))].sort((a, b) => a.loca
 <script>
   const filters: Record<string, string> = { era: '', region: '', producer: '' };
   let searchQuery = '';
+  const songList = document.getElementById('song-list');
 
   function applyFilters() {
     const items = document.querySelectorAll<HTMLElement>('#song-list > li');
@@ -151,60 +278,79 @@ const producers = [...new Set(songs.map(s => s.producer))].sort((a, b) => a.loca
       filters[filterType] = value;
       document.querySelectorAll<HTMLButtonElement>(`.filter-btn[data-filter="${filterType}"]`)
         .forEach(b => b.classList.remove('active', 'border-[var(--c-gold)]', 'text-[var(--c-gold)]'));
-      btn.classList.add('active', 'border-[var(--c-gold)]', 'text-[var(--c-gold)]');
+      document.querySelectorAll<HTMLButtonElement>(`.filter-btn[data-filter="${filterType}"][data-value="${value}"]`)
+        .forEach(b => b.classList.add('active', 'border-[var(--c-gold)]', 'text-[var(--c-gold)]'));
       applyFilters();
     });
   });
 
-  const searchInput = document.getElementById('search-input') as HTMLInputElement | null;
+  function setupSearch(id: string) {
+    const input = document.getElementById(id) as HTMLInputElement | null;
+    input?.addEventListener('input', () => {
+      searchQuery = input.value;
+      const other = document.getElementById(id === 'search-input' ? 'search-input-desktop' : 'search-input') as HTMLInputElement | null;
+      if (other) other.value = input.value;
+      const clear = document.getElementById('search-clear');
+      clear?.classList.toggle('hidden', searchQuery.length === 0);
+      applyFilters();
+    });
+  }
+  setupSearch('search-input');
+  setupSearch('search-input-desktop');
+
   const searchClear = document.getElementById('search-clear') as HTMLButtonElement | null;
-
-  searchInput?.addEventListener('input', () => {
-    searchQuery = searchInput.value;
-    searchClear?.classList.toggle('hidden', searchQuery.length === 0);
-    applyFilters();
-  });
-
   searchClear?.addEventListener('click', () => {
-    if (searchInput) searchInput.value = '';
+    const si = document.getElementById('search-input') as HTMLInputElement | null;
+    const sd = document.getElementById('search-input-desktop') as HTMLInputElement | null;
+    if (si) si.value = '';
+    if (sd) sd.value = '';
     searchQuery = '';
     searchClear.classList.add('hidden');
     applyFilters();
-    searchInput?.focus();
+    si?.focus();
   });
 
-  const producerSelect = document.getElementById('producer-select') as HTMLSelectElement | null;
-  producerSelect?.addEventListener('change', () => {
-    filters.producer = producerSelect.value;
-    applyFilters();
-  });
+  function setupProducerSelect(id: string) {
+    const sel = document.getElementById(id) as HTMLSelectElement | null;
+    sel?.addEventListener('change', () => {
+      filters.producer = sel.value;
+      const other = document.getElementById(id === 'producer-select' ? 'producer-select-mobile' : 'producer-select') as HTMLSelectElement | null;
+      if (other) other.value = sel.value;
+      applyFilters();
+    });
+  }
+  setupProducerSelect('producer-select');
+  setupProducerSelect('producer-select-mobile');
 
-  const sortSelect = document.getElementById('sort-select') as HTMLSelectElement | null;
-  const songList = document.getElementById('song-list');
-  sortSelect?.addEventListener('change', () => {
+  const eraOrder: Record<string, number> = { '90s前半': 0, '90s後半': 1, '00s以降': 2 };
+
+  function doSort(value: string) {
     if (!songList) return;
     const items = [...songList.querySelectorAll<HTMLElement>('li')];
-    const eraOrder: Record<string, number> = { '90s前半': 0, '90s後半': 1, '00s以降': 2 };
     items.sort((a, b) => {
-      const v = sortSelect.value;
-      if (v === 'az') {
+      if (value === 'az') {
         const ta = a.querySelector<HTMLElement>('p.font-bold')?.textContent ?? '';
         const tb = b.querySelector<HTMLElement>('p.font-bold')?.textContent ?? '';
         return ta.localeCompare(tb);
       }
-      if (v === 'era') {
-        return (eraOrder[a.dataset.era ?? ''] ?? 99) - (eraOrder[b.dataset.era ?? ''] ?? 99);
-      }
-      if (v === 'bpm') {
-        const ba = parseFloat(a.dataset.bpm ?? '0');
-        const bb = parseFloat(b.dataset.bpm ?? '0');
-        return ba - bb;
-      }
+      if (value === 'era') return (eraOrder[a.dataset.era ?? ''] ?? 99) - (eraOrder[b.dataset.era ?? ''] ?? 99);
+      if (value === 'bpm') return parseFloat(a.dataset.bpm ?? '0') - parseFloat(b.dataset.bpm ?? '0');
       return parseInt(a.dataset.index ?? '0') - parseInt(b.dataset.index ?? '0');
     });
     items.forEach(item => songList.appendChild(item));
     applyFilters();
-  });
+  }
+
+  function setupSortSelect(id: string) {
+    const sel = document.getElementById(id) as HTMLSelectElement | null;
+    sel?.addEventListener('change', () => {
+      const other = document.getElementById(id === 'sort-select' ? 'sort-select-mobile' : 'sort-select') as HTMLSelectElement | null;
+      if (other) other.value = sel.value;
+      doSort(sel.value);
+    });
+  }
+  setupSortSelect('sort-select');
+  setupSortSelect('sort-select-mobile');
 
   [...(songList?.querySelectorAll<HTMLElement>('li') ?? [])].forEach((item, i) => {
     item.dataset.index = String(i);
@@ -232,6 +378,12 @@ const producers = [...new Set(songs.map(s => s.producer))].sort((a, b) => a.loca
 
   .site-title {
     font-size: clamp(3.5rem, 18vw, 7rem);
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+  }
+
+  .site-title-sm {
+    font-size: 1.5rem;
     line-height: 0.9;
     letter-spacing: -0.04em;
   }
