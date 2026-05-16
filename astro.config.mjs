@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://hiphop-black.vercel.app',
+  site: 'https://hiphop.vercel.app',
   integrations: [sitemap()],
   vite: {
     plugins: [tailwindcss()]
