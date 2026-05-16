@@ -26,3 +26,6 @@ pnpm-debug.log*
 
 # Claude Code
 .claude/
+
+# AntiCrow ローカルデータ
+.anticrow/
