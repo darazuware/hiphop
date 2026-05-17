@@ -43,10 +43,11 @@ ${jsonPath} を読み込んで、その内容をもとに記事を完遂させ�
     console.log('  [Claude] CLI 実行中...');
 
     const result = await new Promise((resolve) => {
+      // Pass the prompt via stdin instead of as an argv to avoid "no stdin data" issues
       const child = execFile(
         CLAUDE_BIN,
         [
-          '--print', prompt,
+          '--print',
           '--permission-mode', 'acceptEdits',
           '--dangerously-skip-permissions',
         ],
@@ -81,6 +82,16 @@ ${jsonPath} を読み込んで、その内容をもとに記事を完遂させ�
           const line = data.toString().trim();
           if (line) console.log(`  [Claude stderr] ${line}`);
         });
+      }
+
+      // Write prompt to stdin and close
+      try {
+        if (child.stdin) {
+          child.stdin.write(prompt);
+          child.stdin.end();
+        }
+      } catch (e) {
+        console.warn(`  [Claude] stdin write failed: ${e.message}`);
       }
     });
 
