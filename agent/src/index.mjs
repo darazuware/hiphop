@@ -72,7 +72,7 @@ async function processSong(song, chatId) {
 
   // 2. Genius 歌詞取得
   console.log('[Step 2/4] Genius 歌詞取得...');
-  const { lyrics, url: geniusUrl } = await fetchLyrics(song.title, song.artist);
+  const { lyrics, url: geniusUrl, imageUrl } = await fetchLyrics(song.title, song.artist);
   if (!lyrics) {
     console.warn('歌詞が取得できませんでした。リサーチ結果のみで続行します。');
   }
@@ -87,6 +87,7 @@ async function processSong(song, chatId) {
     research,
     lyrics,
     geniusUrl,
+    imageUrl,
     timestamp: new Date().toISOString(),
   };
 
