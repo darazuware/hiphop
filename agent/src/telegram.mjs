@@ -72,31 +72,51 @@ export async function sendMessage(text, chatId) {
 export function parseMessage(text) {
   if (!text || typeof text !== 'string') return null;
 
-  // 改行で分割
   const lines = text.trim().split('\n').map(l => l.trim()).filter(l => l.length > 0);
   if (lines.length === 0) return null;
 
   const songs = [];
   for (const line of lines) {
-    // 最後の " - " を区切り文字として使う
-    // 例: "Nas - N.Y. State of Mind [1994]" → "Nas" と "N.Y. State of Mind [1994]"
-    const lastDashIndex = line.lastIndexOf(' - ');
-    if (lastDashIndex === -1) continue; // " - " が見つからない場合はスキップ
-
-    const artist = line.substring(0, lastDashIndex).trim();
-    const rest = line.substring(lastDashIndex + 3).trim();
-    
-    if (!artist || !rest) continue;
-
-    // rest から年を抽出（[YYYY] の形式）
-    const yearMatch = rest.match(/\[(\d{4})\]$/);
-    const year = yearMatch ? parseInt(yearMatch[1], 10) : null;
-    const title = yearMatch ? rest.substring(0, rest.lastIndexOf('[')).trim() : rest;
-
-    if (artist && title) {
-      songs.push({ artist, title, year });
-    }
+    const parsed = parseLine(line);
+    if (parsed) songs.push(parsed);
   }
 
   return songs.length > 0 ? songs : null;
+}
+
+/**
+ * 1行をパースして { artist, title, year } を返す。
+ * 以下の形式に対応:
+ *   "Nas - N.Y. State of Mind [1994]"   ← 標準
+ *   "fugees-fu gee la"                   ← スペースなしダッシュ
+ *   "Nas - NY State of Mind"             ← 年なし
+ *   "Nas/NY State of Mind [1994]"        ← スラッシュ区切り
+ *   "Nas: NY State of Mind"              ← コロン区切り
+ */
+function parseLine(line) {
+  // 年を先に抽出（末尾の [YYYY] または (YYYY)）
+  const yearMatch = line.match(/[\[(](\d{4})[\])]\s*$/);
+  const year = yearMatch ? parseInt(yearMatch[1], 10) : null;
+  const withoutYear = yearMatch ? line.slice(0, yearMatch.index).trim() : line.trim();
+
+  // 区切り文字を順に試す: " - " → " / " → ":" → 最初の "-"
+  const separators = [' - ', ' – ', ' — ', ' / ', ': '];
+  for (const sep of separators) {
+    const idx = withoutYear.indexOf(sep);
+    if (idx > 0) {
+      const artist = withoutYear.slice(0, idx).trim();
+      const title = withoutYear.slice(idx + sep.length).trim();
+      if (artist && title) return { artist, title, year };
+    }
+  }
+
+  // 最後の手段: 最初の "-" で分割（"fugees-fu gee la" 対応）
+  const dashIdx = withoutYear.indexOf('-');
+  if (dashIdx > 0) {
+    const artist = withoutYear.slice(0, dashIdx).trim();
+    const title = withoutYear.slice(dashIdx + 1).trim();
+    if (artist && title) return { artist, title, year };
+  }
+
+  return null;
 }
