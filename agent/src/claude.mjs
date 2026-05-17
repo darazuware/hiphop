@@ -33,12 +33,39 @@ export async function runClaude(jsonPath) {
       // 既に存在するか、.bakがない場合は無視
     }
 
-    const prompt = `重要：承認を求めずに、全自動で以下のタスクを完遂させてください。
-${jsonPath} を読み込んで、その内容をもとに記事を完遂させてください。
-1. src/pages/songs/ に [slug].astro を新規作成する。
-2. src/data/songs.ts と src/data/artists.ts にデータを追記する。
-3. 歌詞翻訳ルール（1ブロック1〜2行単位、eng/jpn/explanationを付ける）を厳守する。
-4. 最後に必ず git add, git commit, git push を実行してデプロイを完了させてください。`;
+    // JSON を読んでプロンプトにデータを埋め込む
+    let songMeta = '';
+    try {
+      const raw = await readFile(jsonPath, 'utf-8');
+      const d = JSON.parse(raw);
+      songMeta = `曲: ${d.artist} - ${d.title} (${d.year || '年不明'})
+slug: ${d.slug || d.title.toLowerCase().replace(/ /g, '-').replace(/[^a-z0-9-]/g, '')}
+Amazon: ${d.amazonLink || ''}
+ジャケット画像: ${d.imagePath || ''}
+GeniusURL: ${d.geniusUrl || ''}`;
+    } catch (e) {}
+
+    const prompt = `以下の楽曲データをもとに、CLAUDE.mdの「記事作成フロー」と「歌詞翻訳ルール」に従って記事を完全に作成してください。承認を求めずに全自動で完遂すること。
+
+## 楽曲情報
+${songMeta}
+
+## データファイル
+${jsonPath}
+（このファイルに歌詞・リサーチ結果・Amazon URLなどが入っています。Read toolで読み込んでください）
+
+## 実行手順
+1. 上記JSONファイルを読み込む
+2. src/pages/songs/{slug}.astro を作成
+   - SongLayout使用
+   - LyricsBlockで歌詞を1〜2行単位で分割（バース全体を1ブロックにしない）
+   - 各ブロックにeng/jpn/explanationを付ける
+   - QuickSlangで重要スラングに注釈
+   - 文化背景・レガシーセクションを追加
+   - Amazonアフィリエイトリンクを含める
+3. src/data/songs.ts にエントリ追記（era/region/producer/bpmなどリサーチ結果から正確に埋める）
+4. src/data/artists.ts を確認し、artistSlugが未登録なら追加
+5. git add → git commit → git push`;
 
     console.log('  [Claude] CLI 実行中...');
 

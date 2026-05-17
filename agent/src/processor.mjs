@@ -1,52 +1,31 @@
-import Anthropic from '@anthropic-ai/sdk';
 import { writeFile, readFile } from 'node:fs/promises';
 import { writeFileSync } from 'node:fs';
-import { exec } from 'node:child_process';
-import { promisify } from 'node:util';
 import { join } from 'node:path';
 import { runClaude } from './claude.mjs';
 import dotenv from 'dotenv';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
-import https from 'node:https';
 import { mkdir } from 'node:fs/promises';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 dotenv.config({ path: join(__dirname, '../.env') });
 
-const execAsync = promisify(exec);
 const HIPHOP_CWD = '/Users/ktamatzmoto/Desktop/hiphop';
 const AMAZON_ASSOCIATE_ID = process.env.AMAZON_ASSOCIATE_ID || 'waxthink-22';
 
-/**
- * HTTP/HTTPS URL からファイルをダウンロード
- * @param {string} url
- * @param {string} filePath
- */
 async function downloadImage(url, filePath) {
-  try {
-    const response = await fetch(url);
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    const buffer = await response.arrayBuffer();
-    writeFileSync(filePath, Buffer.from(buffer));
-  } catch (err) {
-    throw new Error(`ダウンロード失敗: ${err.message}`);
-  }
+  const response = await fetch(url);
+  if (!response.ok) throw new Error(`HTTP ${response.status}`);
+  const buffer = await response.arrayBuffer();
+  writeFileSync(filePath, Buffer.from(buffer));
 }
 
-/**
- * Amazon 検索リンク生成
- * @param {string} artist
- * @param {string} title
- * @returns {string} Amazon アフィリエイト URL
- */
 function buildAmazonLink(artist, title) {
   const query = encodeURIComponent(`${artist} ${title}`);
   return `https://www.amazon.com/s?k=${query}&tag=${AMAZON_ASSOCIATE_ID}`;
 }
 
 /**
- * 実際にファイルを生成し、Git Pushする
  * @param {string} jsonPath
  * @returns {Promise<{ success: boolean, error: string|null }>}
  */
@@ -54,106 +33,39 @@ export async function processAndDeploy(jsonPath) {
   try {
     const rawData = await readFile(jsonPath, 'utf-8');
     const data = JSON.parse(rawData);
-    const { artist, title, year, lyrics, imageUrl } = data;
-    
-    let researchText = data.research;
-    try {
-      const parsed = JSON.parse(researchText);
-      if (parsed?.outputs?.[0]?.text) {
-        researchText = parsed.outputs[0].text;
-      }
-    } catch(e) {}
+    const { artist, title, year, imageUrl } = data;
 
-    // slug 生成
     const slug = title.toLowerCase().replace(/ /g, '-').replace(/[^a-z0-9-]/g, '');
 
-    // ジャケット画像をダウンロード・保存
+    // ジャケット画像ダウンロード（失敗しても続行）
     if (imageUrl) {
       try {
-        console.log('  [Processor] ジャケット画像をダウンロード中...');
+        console.log('  [Processor] ジャケット画像ダウンロード中...');
         const coversDir = join(HIPHOP_CWD, 'public/images/covers');
         await mkdir(coversDir, { recursive: true });
-        const imagePath = join(coversDir, `${slug}.jpg`);
-        await downloadImage(imageUrl, imagePath);
-        console.log(`  [Processor] ジャケット保存: ${imagePath}`);
+        await downloadImage(imageUrl, join(coversDir, `${slug}.jpg`));
+        console.log(`  [Processor] ジャケット保存: public/images/covers/${slug}.jpg`);
       } catch (err) {
-        console.warn(`  [Processor] ジャケット保存失敗: ${err.message}`);
+        console.warn(`  [Processor] ジャケット保存失敗（続行）: ${err.message}`);
       }
     }
 
-    // Amazon アフィリエイトリンク生成
     const amazonLink = buildAmazonLink(artist, title);
 
-    console.log('  [Processor] Claude APIでAstroファイルを生成中...');
+    // JSON に追加情報を書き込んでから Claude CLI に渡す
+    const enrichedData = { ...data, amazonLink, slug, imagePath: `/images/covers/${slug}.jpg` };
+    await writeFile(jsonPath, JSON.stringify(enrichedData, null, 2), 'utf-8');
 
-    let astroContent = null;
-    try {
-      const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+    console.log('  [Processor] Claude CLI で記事生成・デプロイ中...');
+    const result = await runClaude(jsonPath);
 
-      const prompt = `あなたはプロのフロントエンドエンジニア兼ヒップホップライターです。\n以下の「歌詞」と「リサーチ結果」をもとに、Astroのページコンポーネントを作成してください。\n\n曲: ${artist} - ${title}\n年: ${year}\n\n【要件】\n1. <SongLayout> を使用すること（title, description, slug, highlights, youtubeId など適切なプロパティを設定）\n2. 歌詞は <LyricsBlock> コンポーネントを使用し、Verse 1, Chorus などセクションごとに分けること。\n3. 必ず「英語の歌詞(slot=\"eng\")」「日本語訳(slot=\"jpn\")」を記述すること。\n4. リサーチ結果をもとに、重要な箇所には <QuickSlang word=\"...\" desc=\"...\"> を挿入し、各セクションに <Fragment slot=\"explanation\"> で解説をつけること。\n5. 「文化的背景」「レガシー・影響」などのセクションも作成し、リサーチ結果の内容をHTML/Tailwind (prose 等) を用いて美しく構成すること。\n6. Amazon アフィリエイトリンク「${amazonLink}」を含める。サイドバーまたは下部に「アルバムを Amazon で購入」セクションを作成し、リンクを貼ること。\n7. ジャケット画像は /images/covers/${slug}.jpg から参照できます。\n8. 返答は \`\`\`astro ... \`\`\` のコードブロックのみとし、余計な説明は一切不要です。\n\n【歌詞データ】\n${lyrics || '歌詞データなし'}\n\n【リサーチ結果】\n${researchText}`;
-
-
-      const msg = await anthropic.messages.create({
-        model: "claude-3-5-sonnet-20241022",
-        max_tokens: 8192,
-        messages: [{ role: "user", content: prompt }]
-      });
-
-      astroContent = msg.content[0].text;
-      astroContent = astroContent.replace(/^```[a-z]*\n/i, '').replace(/\n```$/i, '');
-    } catch (error) {
-      console.error(`  [Processor] エラー: ${error.message}`);
-
-      // まず Claude CLI が使えるか試行（ローカルの claude CLI を使って完全生成を試す）
-      try {
-        console.log('  [Processor] Anthropic 失敗 — Claude CLI でフォールバック実行します...');
-        const claudeResult = await runClaude(jsonPath);
-        if (claudeResult && claudeResult.success) {
-          console.log('  [Processor] Claude CLI による生成が成功しました。');
-          return { success: true, error: null };
-        } else {
-          console.warn(`  [Processor] Claude CLI フォールバック失敗: ${claudeResult?.error || 'unknown'}`);
-        }
-      } catch (e) {
-        console.error(`  [Processor] Claude CLI 実行中に例外: ${e.message}`);
-      }
-
-      // それでも生成できない場合は、簡易フォールバックで Astro ファイルを生成する
-      const safe = (s, limit = 3000) => (s || '').replace(/```/g, '``').replace(/\$/g, '').slice(0, limit);
-      const safeResearch = safe(researchText, 2000);
-      const safeLyrics = safe(lyrics, 5000) || '歌詞データなし';
-
-      astroContent = `---\nimport SongLayout from '../../layouts/SongLayout.astro';\nimport LyricsBlock from '../../components/LyricsBlock.astro';\nconst title = '${title.replace(/'/g, "\\'")}';\nconst artist = '${artist.replace(/'/g, "\\'")}';\nconst description = '${artist.replace(/'/g, "\\'")} - ${title.replace(/'/g, "\\'")} (Auto-generated)';\n---\n\n<SongLayout title={title} description={description} slug='${title.toLowerCase().replace(/ /g, '-').replace(/[^a-z0-9-]/g, '')}'>\n  <div class="prose">\n    <h2>Research</h2>\n    <p>${safeResearch}</p>\n  </div>\n  <LyricsBlock>\n    <Fragment slot="eng">${safeLyrics}</Fragment>\n  </LyricsBlock>\n</SongLayout>\n`;
+    if (result.success) {
+      console.log('  [Processor] 完了');
+    } else {
+      console.error(`  [Processor] 失敗: ${result.error}`);
     }
 
-    const astroPath = join(HIPHOP_CWD, 'src/pages/songs', `${slug}.astro`);
-
-    await writeFile(astroPath, astroContent.trim(), 'utf-8');
-    
-    console.log('  [Processor] データの追記中...');
-    const songsPath = join(HIPHOP_CWD, 'src/data/songs.ts');
-    let songsTs = await readFile(songsPath, 'utf-8');
-    
-    const newEntry = `  { slug: '/songs/${slug}', title: '${title}', subtitle: '${artist} · ${year}', artists: '${artist}', tag: 'AutoGenerated', era: '00s以降', region: 'Unknown', producer: 'Unknown', bpm: 0, sample: null, album: '', mbid: null, artistSlug: '${artist.toLowerCase().replace(/ /g, '-')}', asin: null, pubDate: '${new Date().toISOString().split('T')[0]}' },\n] as const;`;
-    
-    if (!songsTs.includes(slug)) {
-      songsTs = songsTs.replace('] as const;', newEntry);
-      await writeFile(songsPath, songsTs, 'utf-8');
-    }
-
-    console.log('  [Processor] Git Push中...');
-    const commands = [
-      `git add .`,
-      `git commit -m "Auto-add song (Claude generated): ${artist} - ${title}"`,
-      `git push origin main`
-    ];
-
-    for (const cmd of commands) {
-      await execAsync(cmd, { cwd: HIPHOP_CWD });
-    }
-
-    console.log('  [Processor] デプロイ完了');
-    return { success: true, error: null };
+    return result;
   } catch (error) {
     console.error(`  [Processor] エラー: ${error.message}`);
     return { success: false, error: error.message };
