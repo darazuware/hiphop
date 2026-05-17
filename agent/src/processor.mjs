@@ -18,7 +18,17 @@ const HIPHOP_CWD = '/Users/ktamatzmoto/Desktop/hiphop';
  * @returns {string}
  */
 function buildAstroTemplate(data) {
-  const { artist, title, year, research, lyrics } = data;
+  const { artist, title, year, lyrics } = data;
+  let researchText = data.research;
+  try {
+    const parsed = JSON.parse(researchText);
+    if (parsed && parsed.outputs && parsed.outputs[0] && parsed.outputs[0].text) {
+      researchText = parsed.outputs[0].text;
+    }
+  } catch(e) {}
+  // Escape for Astro JSX
+  researchText = researchText.replace(/{/g, '&#123;').replace(/}/g, '&#125;');
+  const research = researchText;
   const slug = title.toLowerCase().replace(/ /g, '-').replace(/[^a-z0-9-]/g, '');
 
   return `---
