@@ -62,6 +62,15 @@ export const artists = [
     summary: 'Ricky Bell、Michael Bivins、Ronnie DeVoeの3名がNew Editionから派生して結成。1990年のデビューアルバム『Poison』は全米4×プラチナを記録し、ヒップホップとR&Bを融合させた「ヒップホップ・ソウル」の青写真を提示した。',
     japan: '1990〜1991年に来日公演を敢行。「Poison」のMVは日本のダンスコミュニティでバイブルとして扱われ、彼らのファッション（ティンバーランドのブーツ、オーバーサイズのカバーオール）が日本のストリートファッションに直接影響を与えた。',
   },
+  {
+    slug: 'das-efx',
+    name: 'Das EFX',
+    origin: 'Brooklyn, New York / Teaneck, New Jersey',
+    active: '1988–',
+    genre: 'East Coast Hip-Hop / hardcore rap',
+    summary: 'SkoobとKrazy Drayzによるラップデュオ。1990年代初頭の「iggedy」スタイルのファスト・ラップで一世を風靡し、イーストコースト・ヒップホップに多大な影響を与えた。',
+    japan: '90年代ヒップホップ黄金期の象徴的なグループとして、日本のオールドスクールファンから絶大な支持を得ている。',
+  },
 ] as const;
 
 export type Artist = typeof artists[number];
