@@ -71,6 +71,15 @@ export const artists = [
     summary: 'SkoobとKrazy Drayzによるラップデュオ。1990年代初頭の「iggedy」スタイルのファスト・ラップで一世を風靡し、イーストコースト・ヒップホップに多大な影響を与えた。',
     japan: '90年代ヒップホップ黄金期の象徴的なグループとして、日本のオールドスクールファンから絶大な支持を得ている。',
   },
+  {
+    slug: 'ras-kass',
+    name: 'Ras Kass',
+    origin: 'Los Angeles, California',
+    active: '1993–',
+    genre: 'West Coast Hip-Hop / conscious rap',
+    summary: '知性派リリシストRas Kass。90年代半ばから社会批評と文学的メタファーを融合したフローで、「Soul On Ice」などの楽曲で高い評価を得た。',
+    japan: '論理的で哲学的な歌詞は日本のリリカル系ヒップホップファンにも響く。',
+  },
 ] as const;
 
 export type Artist = typeof artists[number];
