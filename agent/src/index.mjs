@@ -169,20 +169,21 @@ async function main() {
 
         const chatId = update.message.chat.id;
 
-        // メッセージパース
-        const song = parseMessage(text);
-        if (!song) {
+        // メッセージパース（複数行対応）
+        const songs = parseMessage(text);
+        if (!songs) {
           console.log(`⏭ スキップ（形式不一致）: "${text}"`);
           continue;
         }
 
-        // 非同期で処理（ポーリングをブロックしない）
-        processSong(song, chatId).catch((error) => {
-          console.error(`処理エラー: ${error.message}`);
-          // 特殊文字を含む可能性があるためシンプルに通知
-          const safeError = String(error.message).slice(0, 200);
-          sendMessage(`❌ 処理エラー: ${safeError}`, chatId).catch(() => {});
-        });
+        // 複数曲の場合は順次処理（非同期で各曲を処理）
+        for (const song of songs) {
+          processSong(song, chatId).catch((error) => {
+            console.error(`処理エラー: ${error.message}`);
+            const safeError = String(error.message).slice(0, 200);
+            sendMessage(`❌ 処理エラー: ${safeError}`, chatId).catch(() => {});
+          });
+        }
       }
     } catch (error) {
       console.error(`ポーリングエラー: ${error.message}`);

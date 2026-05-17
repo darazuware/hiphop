@@ -58,28 +58,45 @@ export async function sendMessage(text, chatId) {
 }
 
 /**
- * メッセージテキストを解析する
+ * メッセージテキストを解析する（複数曲対応）
  *
  * 対応形式:
  *   "Nas - N.Y. State of Mind [1994]"
- *   "Wu-Tang Clan - C.R.E.A.M. [1993]"
- *   "Nas - N.Y. State of Mind"  (年なし)
+ *   複数行の場合:
+ *     Nas - N.Y. State of Mind [1994]
+ *     Wu-Tang Clan - C.R.E.A.M. [1993]
  *
  * @param {string} text - 受信メッセージ
- * @returns {{ artist: string, title: string, year: number|null } | null}
+ * @returns {Array<{ artist: string, title: string, year: number|null }> | null}
  */
 export function parseMessage(text) {
   if (!text || typeof text !== 'string') return null;
 
-  // "アーティスト - 曲名 [年]" または "アーティスト - 曲名"
-  const match = text.trim().match(/^(.+?)\s*[-–—]\s*(.+?)(?:\s*\[(\d{4})\])?\s*$/);
-  if (!match) return null;
+  // 改行で分割
+  const lines = text.trim().split('\n').map(l => l.trim()).filter(l => l.length > 0);
+  if (lines.length === 0) return null;
 
-  const artist = match[1].trim();
-  const title = match[2].trim();
-  const year = match[3] ? parseInt(match[3], 10) : null;
+  const songs = [];
+  for (const line of lines) {
+    // 最後の " - " を区切り文字として使う
+    // 例: "Nas - N.Y. State of Mind [1994]" → "Nas" と "N.Y. State of Mind [1994]"
+    const lastDashIndex = line.lastIndexOf(' - ');
+    if (lastDashIndex === -1) continue; // " - " が見つからない場合はスキップ
 
-  if (!artist || !title) return null;
+    const artist = line.substring(0, lastDashIndex).trim();
+    const rest = line.substring(lastDashIndex + 3).trim();
+    
+    if (!artist || !rest) continue;
 
-  return { artist, title, year };
+    // rest から年を抽出（[YYYY] の形式）
+    const yearMatch = rest.match(/\[(\d{4})\]$/);
+    const year = yearMatch ? parseInt(yearMatch[1], 10) : null;
+    const title = yearMatch ? rest.substring(0, rest.lastIndexOf('[')).trim() : rest;
+
+    if (artist && title) {
+      songs.push({ artist, title, year });
+    }
+  }
+
+  return songs.length > 0 ? songs : null;
 }
