@@ -45,7 +45,9 @@ public/images/   # アルバムアート
 6. Claude: src/data/artists.ts を確認し、artistSlugが未登録なら追加
    - 追加項目: slug, name, origin, active, genre, summary, japan
    - Gistの内容とDeep Researchから自動生成
-7. Claudeが.astroページを生成（SongLayout使用） → git commit
+7. Claudeが.astroページを生成（SongLayout使用）
+8. 自分が変更・作成したファイル（.astro, songs.ts, artists.ts）のみを git add → git commit → git push
+   ※【厳守】絶対に "git add ." を実行しないこと（ユーザーのローカル作業と競合するため）
 ```
 
 ## アーティスト自動追加ルール（重要）

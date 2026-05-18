@@ -80,7 +80,7 @@ ${jsonPath}
    - Amazonアフィリエイトリンクを含める
 3. src/data/songs.ts にエントリ追記（era/region/producer/bpmなどリサーチ結果から正確に埋める）
 4. src/data/artists.ts を確認し、artistSlugが未登録なら追加
-5. git add → git commit → git push`;
+5. 自分が今回新規作成・変更したファイル（src/pages/songs/{slug}.astro と songs.ts, artists.ts 等）のみを git add し、git commit → git push すること。絶対に作業ディレクトリ全体の "git add ." を行わないでください（ユーザーの手作業と競合するため）。`;
 
   await writeFile(promptFile, prompt, 'utf-8');
 
