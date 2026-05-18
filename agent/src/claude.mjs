@@ -1,51 +1,43 @@
 /**
- * Claude Code CLI 実行モジュール
+ * Claude Code CLI 連携モジュール
  *
- * 生成したJSONをもとに claude --print で記事を作成する。
- * --cwd で hiphop プロジェクトディレクトリを指定。
+ * LaunchAgentからはClaude CLIのOAuth認証に届かないため、
+ * trigger/doneファイル方式でTerminalのwatcherに処理を委譲する。
+ *
+ * フロー:
+ *   claude.mjs → /tmp/hiphop-trigger-{ts}.txt 書く
+ *   watcher.mjs(Terminal) → 検知 → claude CLI実行 → /tmp/hiphop-done-{ts}.txt 書く
+ *   claude.mjs → done読んで結果返す
  */
 
-import { spawn } from 'node:child_process';
-import { readFile, rename, writeFile, unlink } from 'node:fs/promises';
+import { readFile, writeFile } from 'node:fs/promises';
+import { access } from 'node:fs/promises';
 
-/** hiphop プロジェクトのルートパス */
 const HIPHOP_CWD = '/Users/ktamatzmoto/Desktop/hiphop';
-
-/** Claude CLI のパス */
-const CLAUDE_BIN = '/Users/ktamatzmoto/.local/bin/claude';
-
-/** タイムアウト: 10分 */
-const TIMEOUT_MS = 10 * 60 * 1000;
+const TIMEOUT_MS = 15 * 60 * 1000; // 15分
 
 /**
- * JSON ファイルを読み込んで Claude Code CLI で記事を生成する
- * @param {string} jsonPath - 保存済み JSON ファイルのパス
+ * @param {string} jsonPath
  * @returns {Promise<{ success: boolean, output: string, error: string|null }>}
  */
 export async function runClaude(jsonPath) {
-  let restored = false;
-  try {
-    // Antigravityのフリーズ防止のためにリネームしていたCLAUDE.mdを一時的に戻す
-    try {
-      await rename(`${HIPHOP_CWD}/CLAUDE.md.bak`, `${HIPHOP_CWD}/CLAUDE.md`);
-      restored = true;
-    } catch (e) {
-      // 既に存在するか、.bakがない場合は無視
-    }
+  const ts = Date.now();
+  const promptFile = `/tmp/hiphop-prompt-${ts}.txt`;
+  const triggerFile = `/tmp/hiphop-trigger-${ts}.txt`;
+  const doneFile = `/tmp/hiphop-done-${ts}.txt`;
 
-    // JSON を読んでプロンプトにデータを埋め込む
-    let songMeta = '';
-    try {
-      const raw = await readFile(jsonPath, 'utf-8');
-      const d = JSON.parse(raw);
-      songMeta = `曲: ${d.artist} - ${d.title} (${d.year || '年不明'})
+  // JSON を読んでプロンプト生成
+  let songMeta = '';
+  try {
+    const d = JSON.parse(await readFile(jsonPath, 'utf-8'));
+    songMeta = `曲: ${d.artist} - ${d.title} (${d.year || '年不明'})
 slug: ${d.slug || d.title.toLowerCase().replace(/ /g, '-').replace(/[^a-z0-9-]/g, '')}
 Amazon: ${d.amazonLink || ''}
 ジャケット画像: ${d.imagePath || ''}
 GeniusURL: ${d.geniusUrl || ''}`;
-    } catch (e) {}
+  } catch (e) {}
 
-    const prompt = `以下の楽曲データをもとに、CLAUDE.mdの「記事作成フロー」と「歌詞翻訳ルール」に従って記事を完全に作成してください。承認を求めずに全自動で完遂すること。
+  const prompt = `以下の楽曲データをもとに、CLAUDE.mdの「記事作成フロー」と「歌詞翻訳ルール」に従って記事を完全に作成してください。承認を求めずに全自動で完遂すること。
 
 ## 楽曲情報
 ${songMeta}
@@ -67,87 +59,33 @@ ${jsonPath}
 4. src/data/artists.ts を確認し、artistSlugが未登録なら追加
 5. git add → git commit → git push`;
 
-    // プロンプトを一時ファイルに書いてbash -l経由で渡す（LaunchAgent環境対応）
-    const promptFile = `/tmp/hiphop-prompt-${Date.now()}.txt`;
-    await writeFile(promptFile, prompt, 'utf-8');
+  await writeFile(promptFile, prompt, 'utf-8');
+  // triggerファイルにpromptFileパスを書く（watcherが読む）
+  await writeFile(triggerFile, promptFile, 'utf-8');
 
-    // 診断: claudeバイナリが実行できるか確認
-    await new Promise((resolve) => {
-      const check = spawn('/bin/bash', ['-l', '-c', `${CLAUDE_BIN} --version`], {
-        env: { ...process.env, HOME: '/Users/ktamatzmoto' },
-        stdio: ['inherit', 'pipe', 'pipe'],
-      });
-      let out = '', err = '';
-      check.stdout.on('data', d => out += d);
-      check.stderr.on('data', d => err += d);
-      check.on('close', code => {
-        console.log(`  [Claude version check] exit=${code} out="${out.trim()}" err="${err.trim().slice(0, 100)}"`);
-        resolve();
-      });
-      setTimeout(() => { check.kill(); resolve(); }, 10000);
-    });
+  console.log(`  [Claude] watcher待機中... (trigger: ${triggerFile})`);
 
-    console.log('  [Claude] CLI 実行中...');
-
-    const result = await new Promise((resolve) => {
-      // bash -l でログインシェル経由実行 → ユーザー環境変数・PATHを完全に読み込む
-      const shellCmd = `cat ${promptFile} | ${CLAUDE_BIN} --print --permission-mode acceptEdits --dangerously-skip-permissions`;
-      const child = spawn('/bin/bash', ['-l', '-c', shellCmd], {
-        cwd: HIPHOP_CWD,
-        env: { ...process.env, HOME: '/Users/ktamatzmoto' },
-        stdio: ['inherit', 'pipe', 'pipe'],
-      });
-
-      let stdout = '';
-      let stderr = '';
-
-      child.stdout.on('data', (d) => { stdout += d.toString(); });
-      child.stderr.on('data', (d) => {
-        const line = d.toString().trim();
-        if (line) console.log(`  [Claude stderr] ${line}`);
-        stderr += line;
-      });
-
-      const timer = setTimeout(() => {
-        child.kill();
-        resolve({ success: false, output: stdout, error: 'タイムアウト（10分）' });
-      }, TIMEOUT_MS);
-
-      child.on('close', (code) => {
-        clearTimeout(timer);
-        if (code === 0) {
-          console.log(`  [Claude] 完了 (出力: ${stdout.length}文字)`);
-          resolve({ success: true, output: stdout, error: null });
-        } else {
-          console.error(`  [Claude] 終了コード: ${code}`);
-          resolve({ success: false, output: stdout, error: stderr || `exit code ${code}` });
-        }
-      });
-
-      child.on('error', (err) => {
-        clearTimeout(timer);
-        resolve({ success: false, output: '', error: err.message });
-      });
-    });
-
-    // 一時ファイル削除
-    unlink(promptFile).catch(() => {});
-
-    return result;
-  } catch (error) {
-    return {
-      success: false,
-      output: '',
-      error: `実行失敗: ${error.message}`,
-    };
-  } finally {
-    // 終わったら再びリネームしてAntigravityのフリーズを防ぐ
-    if (restored) {
-      try {
-        await rename(`${HIPHOP_CWD}/CLAUDE.md`, `${HIPHOP_CWD}/CLAUDE.md.bak`);
-      } catch (e) {
-        // 無視
-      }
+  // doneファイルが現れるまでポーリング
+  const start = Date.now();
+  while (Date.now() - start < TIMEOUT_MS) {
+    await sleep(5000);
+    try {
+      await access(doneFile);
+      const exitCode = (await readFile(doneFile, 'utf-8')).trim();
+      console.log(`  [Claude] watcher完了 (exit: ${exitCode})`);
+      return {
+        success: exitCode === '0',
+        output: '',
+        error: exitCode === '0' ? null : `watcher exit code ${exitCode}`,
+      };
+    } catch {
+      // まだ存在しない
     }
   }
+
+  return { success: false, output: '', error: 'タイムアウト（15分）- watcherが起動していますか？' };
+}
+
+function sleep(ms) {
+  return new Promise(r => setTimeout(r, ms));
 }
