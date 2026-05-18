@@ -5,7 +5,7 @@
  * --cwd で hiphop プロジェクトディレクトリを指定。
  */
 
-import { execFile } from 'node:child_process';
+import { spawn } from 'node:child_process';
 import { readFile, rename } from 'node:fs/promises';
 
 /** hiphop プロジェクトのルートパス */
@@ -70,47 +70,50 @@ ${jsonPath}
     console.log('  [Claude] CLI 実行中...');
 
     const result = await new Promise((resolve) => {
-      // Pass the prompt as an argument, not via stdin
-      const child = execFile(
+      const child = spawn(
         CLAUDE_BIN,
-        [
-          '--print',
-          '--permission-mode', 'acceptEdits',
-          '--dangerously-skip-permissions',
-          prompt, // Pass prompt as the last positional argument
-        ],
+        ['--print', '--permission-mode', 'acceptEdits', '--dangerously-skip-permissions'],
         {
           cwd: HIPHOP_CWD,
-          timeout: TIMEOUT_MS,
-          maxBuffer: 10 * 1024 * 1024, // 10MB
           env: { ...process.env },
-        },
-        (error, stdout, stderr) => {
-          if (error) {
-            console.error(`  [Claude] エラー: ${error.message}`);
-            resolve({
-              success: false,
-              output: stdout || '',
-              error: error.message,
-            });
-            return;
-          }
-
-          console.log(`  [Claude] 完了 (出力: ${stdout.length}文字)`);
-          resolve({
-            success: true,
-            output: stdout,
-            error: null,
-          });
+          stdio: ['pipe', 'pipe', 'pipe'],
         }
       );
 
-      if (child.stderr) {
-        child.stderr.on('data', (data) => {
-          const line = data.toString().trim();
-          if (line) console.log(`  [Claude stderr] ${line}`);
-        });
-      }
+      // プロンプトをstdinで渡す
+      child.stdin.write(prompt, 'utf-8');
+      child.stdin.end();
+
+      let stdout = '';
+      let stderr = '';
+
+      child.stdout.on('data', (d) => { stdout += d.toString(); });
+      child.stderr.on('data', (d) => {
+        const line = d.toString().trim();
+        if (line) console.log(`  [Claude stderr] ${line}`);
+        stderr += line;
+      });
+
+      const timer = setTimeout(() => {
+        child.kill();
+        resolve({ success: false, output: stdout, error: 'タイムアウト（10分）' });
+      }, TIMEOUT_MS);
+
+      child.on('close', (code) => {
+        clearTimeout(timer);
+        if (code === 0) {
+          console.log(`  [Claude] 完了 (出力: ${stdout.length}文字)`);
+          resolve({ success: true, output: stdout, error: null });
+        } else {
+          console.error(`  [Claude] 終了コード: ${code}`);
+          resolve({ success: false, output: stdout, error: stderr || `exit code ${code}` });
+        }
+      });
+
+      child.on('error', (err) => {
+        clearTimeout(timer);
+        resolve({ success: false, output: '', error: err.message });
+      });
     });
 
     return result;
