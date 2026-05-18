@@ -27,6 +27,8 @@ public/images/   # アルバムアート
 - OGP画像は `src/pages/og/[slug].png.ts` で自動生成済み
 - CSPはpublic/_headersで管理（YouTube埋め込み・Adsense対応済み）
 - コメント不要、型安全を維持
+- **songs.tsの文字列はダブルクォートを使う**（アポストロフィを含む曲名・タイトルでシングルクォートを使うとシンタックスエラーになる）
+- **git push前に必ず `npm run build` でビルド確認**してからpushすること
 
 ## 歌詞翻訳ルール（重要）
 - **1センテンス or 文脈が切れるところ単位**でLyricsBlockを分ける（バース全体を1ブロックにしない）
