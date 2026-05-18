@@ -80,6 +80,15 @@ export const artists = [
     summary: '知性派リリシストRas Kass。90年代半ばから社会批評と文学的メタファーを融合したフローで、「Soul On Ice」などの楽曲で高い評価を得た。',
     japan: '論理的で哲学的な歌詞は日本のリリカル系ヒップホップファンにも響く。',
   },
+  {
+    slug: 'drake',
+    name: 'Drake',
+    origin: 'Toronto, Ontario, Canada',
+    active: '2001–',
+    genre: 'Hip-Hop / R&B / Pop Rap',
+    summary: 'トロント出身のAubrey Drake Graham。2006年ミックステープデビュー後、OVO Soundを設立し2010年代のストリーミング時代を牽引。ケンドリック・ラマーとの2024年ビーフを経て2026年に3アルバム同時リリース『ICEMAN』で復権を宣言した、現代ヒップホップ最大のスター。',
+    japan: '日本のK-POPファンダムが「Make Them Cry」のBTSラインへの反応から『ICEMAN』のストリーミングに参入し国内トレンドを席巻。日本のヒップホップメディア「HIPHOPCs」が24時間以内に「11のディス戦線」を完全マップ化するなど、日本のリスナーの成熟したコンテクスト解読力を体現した事例となった。',
+  },
 ] as const;
 
 export type Artist = typeof artists[number];
