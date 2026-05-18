@@ -71,6 +71,22 @@ ${jsonPath}
     const promptFile = `/tmp/hiphop-prompt-${Date.now()}.txt`;
     await writeFile(promptFile, prompt, 'utf-8');
 
+    // 診断: claudeバイナリが実行できるか確認
+    await new Promise((resolve) => {
+      const check = spawn('/bin/bash', ['-l', '-c', `${CLAUDE_BIN} --version`], {
+        env: { ...process.env, HOME: '/Users/ktamatzmoto' },
+        stdio: ['inherit', 'pipe', 'pipe'],
+      });
+      let out = '', err = '';
+      check.stdout.on('data', d => out += d);
+      check.stderr.on('data', d => err += d);
+      check.on('close', code => {
+        console.log(`  [Claude version check] exit=${code} out="${out.trim()}" err="${err.trim().slice(0, 100)}"`);
+        resolve();
+      });
+      setTimeout(() => { check.kill(); resolve(); }, 10000);
+    });
+
     console.log('  [Claude] CLI 実行中...');
 
     const result = await new Promise((resolve) => {
