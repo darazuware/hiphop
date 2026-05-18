@@ -58,8 +58,15 @@ export async function processAndDeploy(jsonPath) {
     const result = await runClaude(jsonPath);
 
     if (!result.success) {
-      console.error(`  [Processor] 失敗: ${result.error}`);
+      console.error(`  [Processor] Claude失敗 (${result.error})。Gemini API フォールバックに移行します...`);
+      const { runGeminiFallback } = await import('./gemini-writer.mjs');
+      const fallbackResult = await runGeminiFallback(jsonPath);
+      if (!fallbackResult.success) {
+        console.error(`  [Processor] Geminiフォールバックも失敗しました: ${fallbackResult.error}`);
+      }
+      return fallbackResult;
     }
+    
     return result;
   } catch (error) {
     console.error(`  [Processor] エラー: ${error.message}`);
