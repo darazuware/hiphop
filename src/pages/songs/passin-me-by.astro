@@ -1,154 +1,431 @@
 ---
-import SongLayout from '../../layouts/SongLayout.astro';
 import LyricsBlock from '../../components/LyricsBlock.astro';
-const title = 'Passin\' Me By';
-const artist = 'The Pharcyde';
-const description = 'The Pharcyde - Passin\' Me By (Auto-generated)';
+import QuickSlang from '../../components/QuickSlang.astro';
+import SongLayout from '../../layouts/SongLayout.astro';
 ---
 
-<SongLayout title={title} description={description} slug='passin-me-by'>
-  <div class="prose">
-    <h2>Research</h2>
-    <p># 楽曲「Passin' Me By」の多角的研究：The Pharcydeがヒップホップ史に刻んだオルタナティヴな軌跡と日本における受容
+<SongLayout
+  title="Passin' Me By 和訳・意味・スラング解説 | The Pharcyde"
+  description="The Pharcydeの「Passin' Me By」の歌詞和訳とスラング解説。1992年、西海岸オルタナティブ・ヒップホップの金字塔を徹底解剖。"
+  slug="passin-me-by"
+  highlights={[
+    'J-Swiftによるスタン・ゲッツのボサノヴァ・サンプリングが生む独自のユーモラスな失恋叙事詩',
+    'ギャングスタ・ラップ全盛のLAで「失恋」を主題にしたオルタナティブな黒人男性像の提示',
+    'Bootie Brown・Slimkid3・Imani・Fatlipの4人が輪唱形式で語る青春の切なさと滑稽さ'
+  ]}
+  youtubeId="3XcO1C12YWE"
+>
+  <section class="mb-6">
+    <h2 class="text-base font-semibold mb-2">■この曲の意味</h2>
+    <p class="text-sm text-[var(--c-muted)] leading-relaxed">「Passin' Me By」は「高嶺の花（Out of your league）」という普遍的なテーマを扱う。どれほど憧れても、相手には届かない——その切なさとユーモアを4人のMCがリレーで語る。ギャングスタ・ラップが支配するLAで、武器ではなく失恋を詩にした革命的な楽曲。</p>
+  </section>
 
-1990年代初頭のアメリカ西海岸ヒップホップ・シーンは、ロサンゼルス暴動（1992年）の社会的緊張を背景に、ストリートの過酷な現実やギャングスタ・ライフスタイルを冷徹かつ暴力的に描写する「Gファンク（G-Funk）」が支配的な影響力を持っていた時代である。Dr. Dreの歴史的アルバム『The Chronic』がリリースされ、N.W.A.から連なるマッチョイズムがヒップホップの正典とみなされつつあったその只中において、ロサンゼルスのサウスセントラルから登場した4人組のグループ、The Pharcyde（ファーサイド）の存在は極めて特異であった。彼らは、銃やドラッグ、縄張り争いではなく、日常のフラストレーション、自己嫌悪、ユーモア、そして「失恋」を主要なトピックとして扱い、西海岸ヒップホップの新たな可能性（オルタナティヴ）を提示した。
+  <section class="mb-6">
+    <h2 class="text-base font-semibold mb-2">■概要</h2>
+    <p class="text-sm text-[var(--c-muted)] leading-relaxed">1992年デビューアルバム「Bizarre Ride II the Pharcyde」収録。J-Swiftがスタン・ゲッツのボサノヴァをサンプリングし制作。Delicious Vinyl所属。4人のMCがそれぞれの「片思い」体験を語るオムニバス構成が特徴。</p>
+  </section>
 
-本稿では、The Pharcydeのキャリアにおける最大のヒット曲であり、現在に至るまでヒップホップ史上の至高のクラシックとして語り継がれる楽曲「Passin' Me By」について、網羅的かつ深層的な研究報告を行う。本楽曲の複雑な制作背景やサンプリング構造から、文学的な歌詞と重要スラングの分析、当時のアメリカ社会における文化的文脈とグループ内部のビーフ（確執）、そして海を越えて日本のヒップホップ・シーンに与えた決定的な影響に至るまで、多角的な視点からその歴史的価値を解き明かしていく。
+  <div id="lyrics"></div>
 
----
+  <!-- ===================== -->
+  <!-- VERSE 1               -->
+  <!-- ===================== -->
+  <section class="mb-12">
+    <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+      Verse 1 · Bootie Brown
+    </h2>
 
-## 1. 収録アルバム、レーベル、リリース年とグループの起源
+    <LyricsBlock hasExplanation={true} label="★ 先生への淡い恋心">
+      <Fragment slot="eng">
+        Now, in my younger days, I used to sport a shag<br />
+        When I went to school, I'd carry lunch in a bag<br />
+        With a apple for my teacher 'cause I knew I'd get a kiss
+      </Fragment>
+      <Fragment slot="jpn">
+        昔、若かった頃、俺はシャグ（モジャモジャ頭）をしてたんだ<br />
+        学校に行くときはランチをバッグに詰めて<br />
+        先生にりんごを持っていったんだ、キスしてもらえると思って
+      </Fragment>
+      <Fragment slot="explanation">
+        「shag（シャグ）」は1970〜80年代に流行したモジャモジャのカットスタイル。先生にりんごを贈るのはアメリカの小学生の伝統的なスキンシップ。このノスタルジックな情景から片思いの物語が始まる。
+      </Fragment>
+    </LyricsBlock>
 
-楽曲「Passin' Me By」は、The Pharcydeが1992年に発表したデビュー・アルバム『Bizarre Ride II the Pharcyde』からの第2弾シングルとして世に放たれた歴史的マスターピースである [cite: 1, 2]。
+    <LyricsBlock hasExplanation={true}>
+      <Fragment slot="eng">
+        Always got mad when the class was dismissed<br />
+        But when it was in session, I always had a question<br />
+        I would raise my hand, to make her stand, come to my desk, and<br />
+        Help me with my problem, it was never much<br />
+        Just a trick to smell her scent and try to sneak a touch
+      </Fragment>
+      <Fragment slot="jpn">
+        授業が終わると悲しくなったもんだ<br />
+        でも授業中はいつも質問があって<br />
+        手を挙げて、先生を立たせて、俺の席まで来させた<br />
+        問題を教えてもらうふりをして、でも本当は大したことじゃなかった<br />
+        ただ香りを嗅いで、ちょっと触れたかっただけなんだ
+      </Fragment>
+      <Fragment slot="explanation">
+        質問のふりをして先生を呼び寄せるという子供らしい計略が微笑ましくコミカルに描かれる。「sneak a touch（こっそり触れる）」という告白が、ギャングスタ・ラップの暴力的な描写とは対照的な無邪気さを示す。
+      </Fragment>
+    </LyricsBlock>
 
-**【リリース基礎データ】**
+    <LyricsBlock hasExplanation={true}>
+      <Fragment slot="eng">
+        Oh, how I wish I could hold her hand and give her a hug<br />
+        She was married to the man, he was a thug<br />
+        His name was Lee, he drove a Z<br />
+        He'd pick her up from school promptly at three o'clock
+      </Fragment>
+      <Fragment slot="jpn">
+        ああ、手を握って抱きしめられたらどんなに良いか<br />
+        でも彼女には旦那がいた、ワルな男で<br />
+        名前はリー、Zカー（日産フェアレディZ）に乗ってた<br />
+        毎日きっちり3時に学校に迎えに来るんだ
+      </Fragment>
+      <Fragment slot="explanation">
+        「thug（サグ）」の夫、「Z（日産フェアレディZまたはニッサンZ）」という具体的なディテールがLAのリアリティを伝える。完璧なタイミングで迎えに来る夫の存在が片思いの壁として具体化する。
+      </Fragment>
+    </LyricsBlock>
 
-| 項目 | 詳細 |
-| :--- | :--- |
-| **曲名** | Passin' Me By |
-| **アーティスト** | The Pharcyde (Imani, Slimkid3, Bootie Brown, Fatlip) |
-| **収録アルバム** | Bizarre Ride II the Pharcyde |
-| **レーベル** | Delicious Vinyl |
-| **アルバム・リリース日** | 1992年11月24日 |
-| **シングル・リリース日** | 1993年3月18日 |
+    <LyricsBlock hasExplanation={false}>
+      <Fragment slot="eng">
+        I was on her jock, yes, indeedy, I wrote graffiti on the bus<br />
+        First, I'd write her name, then carve a plus<br />
+        With my name last, on the looking glass<br />
+        I seen her yesterday, but still, I had to let her pass
+      </Fragment>
+      <Fragment slot="jpn">
+        俺は彼女に夢中だった、そうさ、バスにグラフィティを書いた<br />
+        まず彼女の名前を書いて、それからプラス記号を刻んで<br />
+        鏡の上に、最後に俺の名前を<br />
+        昨日も彼女を見たけど、やっぱり通り過ぎさせるしかなかった
+      </Fragment>
+    </LyricsBlock>
+  </section>
 
-### 1.1 ダンサーからの転身とDelicious Vinylとの契約
-The Pharcydeのオリジナル・メンバーであるImani（イマーニ）、Slimkid3（スリムキッド・トレ）、Bootie Brown（ブーティー・ブラウン）、Fatlip（ファットリップ）の4人は、元々ロサンゼルスのクラブ・シーンで活躍するダンサーであった。ImaniとSlimkid3は幼馴染であり、「Two for Two」や「As Is」といったダンス・グループで活動を共にしていた [cite: 3]。そこにFatlipが加わり、さらにFatlipのバックダンサーを務めていたBootie Brownが合流することで、現在の4人体制が確立された。Bootie Brownが「自分のラップの仕方は、昔のダンスの仕方とほとんど同じだ」と回想するように、彼らのリズミカルで跳ねるようなフロウ（歌い回し）は、ダンサーとしての身体的感覚に深く根ざしている [cite: 3]。
+  <!-- ===================== -->
+  <!-- CHORUS                -->
+  <!-- ===================== -->
+  <section class="mb-12">
+    <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+      Chorus · Fatlip, Slimkid3 &amp; Whodini sample
+    </h2>
 
-彼らは1991年に最初のデモテープを録音し、そこに「Passin' Me By」「Ya Mama」「Officer」といった初期の重要楽曲を収録した [cite: 3]。このデモテープは、Cypress HillやDe La Soul、House of Painを手がけた敏腕マネージャーであるPaul Stewartの耳に留まり、彼の仲介によってロサンゼルスの独立系レーベル「Delicious Vinyl（デリシャス・ヴァイナル）」と1991年の夏に契約を結ぶこととなった [cite: 3]。Delicious VinylはTone Lōcの「Wild Thing」やYoung MCの「Bust a Move」といったポップでダンサブルなヒップホップ・ヒットを世に送り出してきたレーベルであり、The Pharcydeの持つユーモラスかつカラフルな音楽性を受け入れる完璧な土壌を備えていた。
+    <LyricsBlock hasExplanation={true} label="★ タイトルの反復">
+      <Fragment slot="eng">
+        She keeps on passin' me by!<br />
+        She keeps on passin' me by!<br />
+        She keeps on passin' me by!<br />
+        She keeps on pass—
+      </Fragment>
+      <Fragment slot="jpn">
+        彼女はずっと俺の横を通り過ぎていく！<br />
+        彼女はずっと俺の横を通り過ぎていく！<br />
+        彼女はずっと俺の横を通り過ぎていく！<br />
+        彼女はずっと通り過ぎ——
+      </Fragment>
+      <Fragment slot="explanation">
+        Whodiniの「Friends」（1984）のサンプルに乗せてコーラスが流れる。「Passin' me by」は単に通り過ぎるという意味と、人生のチャンスを逃すという二重の意味を持つ。途中で切れる構成が切なさを増幅する。
+      </Fragment>
+    </LyricsBlock>
+  </section>
 
-### 1.2 シーンへの登場とチャートでの成功
-</p>
-  </div>
-  <LyricsBlock>
-    <Fragment slot="eng">126 ContributorsPassin’ Me By LyricsIn “Passin' Me By,” The Pharcyde refer to the aphorism of someone being “out of your league”—no matter how much you long for someone, it doesn’t mean that your wish will come true.
+  <!-- ===================== -->
+  <!-- VERSE 2               -->
+  <!-- ===================== -->
+  <section class="mb-12">
+    <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+      Verse 2 · Slimkid3
+    </h2>
 
-The song is the second… Read More [Produced by J-Swift]
+    <LyricsBlock hasExplanation={true} label="★ Shellyへの秘めた想い">
+      <Fragment slot="eng">
+        When I dream of fairy tales, I think of me and Shelly<br />
+        See, she's my type of hype, and I can't stand when brothers tell me<br />
+        That I should quit chasin' and look for something better<br />
+        But the smile that she shows makes me a go-getter
+      </Fragment>
+      <Fragment slot="jpn">
+        おとぎ話を夢見るとき、俺とシェリーのことを思う<br />
+        彼女は俺好みの最高の女で、諦めて他を探せなんて言う奴らに腹が立つ<br />
+        でも彼女の笑顔が俺をがんばり屋にさせるんだ
+      </Fragment>
+      <Fragment slot="explanation">
+        「go-getter（がんばり屋）」は普通は仕事や野心に使う言葉だが、ここでは恋愛での粘り強さに転用。友人から「諦めろ」と言われても諦めない愚直さが、ユーモラスに描かれる。
+      </Fragment>
+    </LyricsBlock>
 
-[Verse 1: Bootie Brown]
-Now, in my younger days, I used to sport a shag
-When I went to school, I'd carry lunch in a bag
-With a apple for my teacher 'cause I knew I'd get a kiss
-Always got mad when the class was dismissed
-But when it was in session, I always had a question
-I would raise my hand, to make her stand, come to my desk, and
-Help me with my problem, it was never much
-Just a trick to smell her scent and try to sneak a touch
-Oh, how I wish I could hold her hand and give her a hug
-She was married to the man, he was a thug
-His name was Lee, he drove a Z
-He'd pick her up from school promptly at three o'clock
-I was on her jock, yes, indeedy, I wrote graffiti on the bus
-First, I'd write her name, then carve a plus
-With my name last, on the looking glass
-I seen her yesterday, but still, I had to let her pass
+    <LyricsBlock hasExplanation={true}>
+      <Fragment slot="eng">
+        I haven't gone as far as asking if I could get with her<br />
+        I just play love by the ear and hope she gets the picture<br />
+        I'm shooting for her heart, got my finger on the trigger<br />
+        She could be my broad, and I could be her—
+      </Fragment>
+      <Fragment slot="jpn">
+        付き合えないかと聞くところまでいってない<br />
+        ただ愛をその場の感覚でやって、彼女が気づいてくれるのを待っている<br />
+        俺は彼女の心を狙ってる、引き金に指をかけて<br />
+        彼女は俺の彼女になれるのに、俺は彼女の——
+      </Fragment>
+      <Fragment slot="explanation">
+        「play love by the ear（耳で愛を演奏する）」は「play it by ear（その場の勘で対応する）」をアレンジした表現。「shooting for her heart（心を狙い撃ちする）」と銃のメタファーを使いながらも、実際には何も行動できない内気な男の矛盾が滑稽に描かれる。
+      </Fragment>
+    </LyricsBlock>
 
-[Chorus: Fatlip, Slimkid3 & Whodini]
-She keeps on passin' me by! (Uh, bye...)
-She keeps on passin' me by! (But nevertheless, I'll say it again)
-She keeps on passin' me by! (Yes she does...) (But nevertheless, I'll say it again that–)
-She keeps on pass—
+    <LyricsBlock hasExplanation={false}>
+      <Fragment slot="eng">
+        All I could do was stare<br />
+        Back as kids, we used to kiss when we played Truth Or Dare<br />
+        Now she's more sophisticated, highly edu-ma-cated<br />
+        Not at all overrated, I think I need a prayer<br />
+        To get in her book, and it looks rather dry<br />
+        I guess a twinkle in her eye is just a twinkle in her eye<br />
+        Although she's crazy stepping, I'll try and stop the stride<br />
+        'Cause I won't have no more of this passin' me by
+      </Fragment>
+      <Fragment slot="jpn">
+        俺にできることは見つめることだけ<br />
+        子供の頃、ゲームで彼女とキスしたこともあった<br />
+        今は彼女も洗練されて、かなり教育を受けて<br />
+        全然大げさじゃない、俺は祈りが必要なくらいだ<br />
+        彼女の本（心）に入るためには、チャンスはかなり薄い<br />
+        彼女の目の輝きはただの輝きなんだろうな<br />
+        彼女がどんなに颯爽と歩いていても、その歩みを止めようとするよ<br />
+        もうこれ以上、こんな「通り過ぎる」状況には耐えられないから
+      </Fragment>
+    </LyricsBlock>
+  </section>
 
-[Verse 2: Slimkid3]
-When I dream of fairy tales, I think of me and Shelly
-See, she's my type of hype, and I can't stand when brothers tell me
-That I should quit chasin' and look for something better
-But the smile that she shows makes me a go-getter
-I haven't gone as far as asking if I could get with her
-I just play love by the ear and hope she gets the picture
-I'm shooting for her heart, got my finger on the trigger
-She could be my broad, and I could be her— (And I could be her...)
-All I could do was stare
-Back as kids, we used to kiss when we played Truth Or Dare
-Now she's more sophisticated, highly edu-ma-cated
-Not at all overrated, I think I need a prayer
-To get in her book, and it looks rather dry
-I guess a twinkle in her eye is just a twinkle in her eye
-Although she's crazy stepping, I'll try and stop the stride
-'Cause I won't have no more of this passin' me by
+  <!-- ===================== -->
+  <!-- CHORUS                -->
+  <!-- ===================== -->
+  <section class="mb-12">
+    <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+      Chorus
+    </h2>
 
-[Verse 3: Imani]
-Time for me to voice my opinion, can't be pretending she didn't have me
-Sprung like a chicken, chasing my tail like a doggie
-She was kind of like a star, thinking I was like a fan
-Damn, she looked good, downside, she had a man
-He was a rooty-toot, a nincompoop
-She told me "Soon your little birdie's gonna fly the coop"
-She was a flake like corn, and I was born not to understand
-By letting her pass, I'd prove to be a better man
+    <LyricsBlock hasExplanation={false}>
+      <Fragment slot="eng">
+        She keeps on passin' me by!<br />
+        She keeps on passin' me by!<br />
+        She keeps on passin' me by!<br />
+        She keeps on passin' me—
+      </Fragment>
+      <Fragment slot="jpn">
+        彼女はずっと俺の横を通り過ぎていく！<br />
+        彼女はずっと俺の横を通り過ぎていく！<br />
+        彼女はずっと俺の横を通り過ぎていく！<br />
+        彼女はずっと通り過ぎ——
+      </Fragment>
+    </LyricsBlock>
+  </section>
 
-[Chorus: Fatlip, Slimkid3 & Whodini]
-She keeps on passin' me by! (Passin' me by...)
-She keeps on passin' me by! (But nevertheless, I'll say it again)
-She keeps on passin' me by! (But nevertheless, I'll say it again) (Passin' me by-aye-aye...)
-She keeps on passin' me—
+  <!-- ===================== -->
+  <!-- VERSE 3               -->
+  <!-- ===================== -->
+  <section class="mb-12">
+    <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+      Verse 3 · Imani
+    </h2>
 
-[Verse 4: Fatlip]
-Now there she goes again, the dopest Ethiopian
-And now the world around me begins moving in slow motion when–
-Ever she happens to walk by, why does the apple of my eye
-Overlook and disregard my feelings no matter how much I try?
-Wait, no, I did not really pursue my little princess with persistence
-And I was so low-key that she was unaware of my existence
-From a distance, I desired her, secretly admired her
-Wired her a letter, to get her, and it went:
-"My dear, my dear, my dear
-You do not know me, but I know you very well
-Now let me tell you 'bout the feelings I feel for you
-When I try or make some sort of attempt, I simp
-Damn, I wish I wasn't such a wimp
-'Cause then I would let you know that I love you so
-And if I was your man, then I would be true
-The only lying I would do is in the bed with you"
-Then I signed: "Sincerely
-The one who loves you dearly
-P.S. Love Me Tender"
-But the letter came back three days later: "Return to Sender"
-Damn...
+    <LyricsBlock hasExplanation={true} label="★ 「より良い男」になることで諦める">
+      <Fragment slot="eng">
+        Time for me to voice my opinion, can't be pretending she didn't have me<br />
+        Sprung like a chicken, chasing my tail like a doggie<br />
+        She was kind of like a star, thinking I was like a fan<br />
+        Damn, she looked good, downside, she had a man
+      </Fragment>
+      <Fragment slot="jpn">
+        俺の意見を言う時間だ、彼女が俺を夢中にさせなかったふりはできない<br />
+        鶏みたいに舞い上がって、犬みたいに自分の尻尾を追いかけてた<br />
+        彼女はスターみたいで、俺はファンみたいに思われてた<br />
+        ちくしょう、すごくキレイだった、でも難点は彼氏がいたこと
+      </Fragment>
+      <Fragment slot="explanation">
+        「sprung（舞い上がった）」は恋に完全にやられている状態のスラング。「chasing my tail（自分の尻尾を追いかける）」は犬の比喩で、無意味なことを繰り返す様子を表す。スターとファンの関係で片思いの非対称性を示す。
+      </Fragment>
+    </LyricsBlock>
 
-[Chorus: Fatlip & Whodini]
-She keeps on passin' me by!
-She keeps on passin' me by! (But nevertheless, I'll say it again)
-She keeps on passin' me by! (But nevertheless, I'll say it again that–)
-She keeps on passin' me by! (But nevertheless, I'll say it again that–)
-She keeps on pass—
+    <LyricsBlock hasExplanation={false}>
+      <Fragment slot="eng">
+        He was a <QuickSlang word="rooty-toot" desc="ダサくてつまらない男という俗語。1940年代のスラングで「取るに足らない人物」を意味する" />, a nincompoop<br />
+        She told me "Soon your little birdie's gonna fly the coop"<br />
+        She was a flake like corn, and I was born not to understand<br />
+        By letting her pass, I'd prove to be a better man
+      </Fragment>
+      <Fragment slot="jpn">
+        彼氏はダサくて間抜けな男だった<br />
+        彼女は言った「もうすぐあなたの小鳥は巣立つわよ」<br />
+        彼女はコーンフレークみたいにばらばらな人だった、俺には理解できなかった<br />
+        彼女を通り過ぎさせることで、俺はより良い男になれる証明をするんだ
+      </Fragment>
+    </LyricsBlock>
+  </section>
 
-[Post-Chorus: Slimkid3 & Whodini]
-But nevertheless, I'll say it again
-(She keeps passing me by-aye-aye-aye...)
-But nevertheless, I'll say it again (Yeah...)
-But nevertheless— (Bye...)
-But nevertheless— (Woo!)
-But nevertheless, I'll say it again
+  <!-- ===================== -->
+  <!-- CHORUS                -->
+  <!-- ===================== -->
+  <section class="mb-12">
+    <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+      Chorus
+    </h2>
 
-[Outro: Slimkid3 & Whodini]
-She keeps passin' me by
-She keeps passin' me by (I'll say it again)
-She keeps passin' me by
-She keeps passin' me by (I'll say it again)
-She keeps passin' me by
-She keeps passin' me by (I'll say it again)
-She keeps passin' me by
-She keeps passin' me by (I'll say it again)</Fragment>
-  </LyricsBlock>
+    <LyricsBlock hasExplanation={false}>
+      <Fragment slot="eng">
+        She keeps on passin' me by!<br />
+        She keeps on passin' me by!<br />
+        She keeps on passin' me by!<br />
+        She keeps on passin' me—
+      </Fragment>
+      <Fragment slot="jpn">
+        彼女はずっと俺の横を通り過ぎていく！<br />
+        彼女はずっと俺の横を通り過ぎていく！<br />
+        彼女はずっと俺の横を通り過ぎていく！<br />
+        彼女はずっと通り過ぎ——
+      </Fragment>
+    </LyricsBlock>
+  </section>
+
+  <!-- ===================== -->
+  <!-- VERSE 4               -->
+  <!-- ===================== -->
+  <section class="mb-12">
+    <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+      Verse 4 · Fatlip
+    </h2>
+
+    <LyricsBlock hasExplanation={true} label="★ 最も切ない告白——ラブレターがReturn to Senderで返ってきた">
+      <Fragment slot="eng">
+        Now there she goes again, the dopest Ethiopian<br />
+        And now the world around me begins moving in slow motion when–<br />
+        Ever she happens to walk by, why does the apple of my eye<br />
+        Overlook and disregard my feelings no matter how much I try?
+      </Fragment>
+      <Fragment slot="jpn">
+        また彼女が来た、最高に素敵なエチオピア系の彼女<br />
+        彼女が歩いてくるたびに、俺の周りの世界がスローモーションになる<br />
+        俺の目の光（apple of my eye）である彼女は、なぜ<br />
+        どれだけ頑張っても俺の気持ちを無視するんだ？
+      </Fragment>
+      <Fragment slot="explanation">
+        「dopest Ethiopian（最高のエチオピア系）」——エチオピアへの言及は黒人コミュニティにおけるアフリカへの誇りと美の象徴。「apple of my eye（目の光）」は最愛の人を指す英語の慣用句。スローモーションの描写が恋の状態を詩的に表現する。
+      </Fragment>
+    </LyricsBlock>
+
+    <LyricsBlock hasExplanation={true}>
+      <Fragment slot="eng">
+        Wait, no, I did not really pursue my little princess with persistence<br />
+        And I was so low-key that she was unaware of my existence<br />
+        From a distance, I desired her, secretly admired her<br />
+        Wired her a letter, to get her, and it went:
+      </Fragment>
+      <Fragment slot="jpn">
+        待って、俺は本当に積極的に彼女を追いかけなかった<br />
+        俺があまりにも控えめだったから、彼女は俺の存在すら知らなかった<br />
+        遠くから彼女を望み、こっそりと憧れた<br />
+        彼女を振り向かせようとラブレターを送ったんだ、こんな内容で：
+      </Fragment>
+      <Fragment slot="explanation">
+        「low-key（低姿勢・控えめ）」は過度に目立たないという意味の現代スラング。「wired her a letter（電報のように手紙を送った）」は昔ながらの恋愛の仕草を指す。積極的に動けなかった後悔が正直に語られる。
+      </Fragment>
+    </LyricsBlock>
+
+    <LyricsBlock hasExplanation={true} label="★ ラブレターの内容——最も正直な告白">
+      <Fragment slot="eng">
+        "My dear, my dear, my dear<br />
+        You do not know me, but I know you very well<br />
+        Now let me tell you 'bout the feelings I feel for you<br />
+        When I try or make some sort of attempt, I simp<br />
+        Damn, I wish I wasn't such a wimp<br />
+        'Cause then I would let you know that I love you so<br />
+        And if I was your man, then I would be true<br />
+        The only lying I would do is in the bed with you"<br />
+        Then I signed: "Sincerely<br />
+        The one who loves you dearly<br />
+        P.S. Love Me Tender"<br />
+        But the letter came back three days later: "Return to Sender"
+      </Fragment>
+      <Fragment slot="jpn">
+        「親愛なる、親愛なる、親愛なる<br />
+        あなたは私のことを知らないけれど、私はあなたをよく知っています<br />
+        さあ、あなたへの気持ちを伝えましょう<br />
+        何かしようとすると、俺は情けない<br />
+        ちくしょう、こんな意気地なしじゃなければよかった<br />
+        そしたらあなたに、こんなにも愛していると伝えられるのに<br />
+        あなたの男になれたら、浮気なんてしない<br />
+        俺がすることになる唯一の嘘は、あなたとベッドの中でだ」<br />
+        そして署名した：「敬具<br />
+        心からあなたを愛する者より<br />
+        追伸：愛してください」<br />
+        でも手紙は3日後に返ってきた：「差出人に返送」
+      </Fragment>
+      <Fragment slot="explanation">
+        「simp（情けない男）」は現代でも使われるスラングで、片思いの相手に過度に尽くす男性を指す。エルヴィス・プレスリーの「Love Me Tender」を引用した追伸が滑稽で切ない。最後の「Return to Sender（差出人返送）」はプレスリーの同名曲のタイトルでもあり、文字通り手紙が返ってきたという結末が楽曲の象徴的な締めくくりとなっている。
+      </Fragment>
+    </LyricsBlock>
+  </section>
+
+  <!-- ===================== -->
+  <!-- CHORUS / OUTRO        -->
+  <!-- ===================== -->
+  <section class="mb-12">
+    <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+      Chorus &amp; Outro
+    </h2>
+
+    <LyricsBlock hasExplanation={false}>
+      <Fragment slot="eng">
+        She keeps on passin' me by!<br />
+        She keeps on passin' me by!<br />
+        She keeps on passin' me by!<br />
+        She keeps on passin' me by!<br />
+        But nevertheless, I'll say it again<br />
+        She keeps passin' me by<br />
+        She keeps passin' me by
+      </Fragment>
+      <Fragment slot="jpn">
+        彼女はずっと俺の横を通り過ぎていく！<br />
+        彼女はずっと俺の横を通り過ぎていく！<br />
+        彼女はずっと俺の横を通り過ぎていく！<br />
+        彼女はずっと俺の横を通り過ぎていく！<br />
+        それでも、もう一度言う<br />
+        彼女はずっと通り過ぎる<br />
+        彼女はずっと通り過ぎる
+      </Fragment>
+    </LyricsBlock>
+  </section>
+
+  <!-- ===================== -->
+  <!-- CULTURAL BACKGROUND   -->
+  <!-- ===================== -->
+  <section id="background" class="mb-12">
+    <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+      文化的背景
+    </h2>
+
+    <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">西海岸オルタナティブ・ヒップホップ</p>
+      <h3 class="font-semibold text-base mb-3">G-Funk全盛期のアンチテーゼ</h3>
+      <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+        1992年、Dr. DreとSnoop Doggが『The Chronic』でG-Funkの美学を確立した年に、The Pharcydeは銃撃戦でも麻薬売買でもなく「失恋」を主題にしたデビューアルバムをリリースした。Jurassic 5、People Under The Stairs、Blackaliciousらと並び、LAアンダーグラウンドに知的でユーモラスなヒップホップの潮流を作った先駆者。
+      </p>
+    </div>
+
+    <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">サンプリングの核心</p>
+      <h3 class="font-semibold text-base mb-3">Stan Getz「Soul Eyes」のボサノヴァ</h3>
+      <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+        J-Swiftがプロデュースしたトラックの骨格は、スタン・ゲッツのジャズ・サックスをサンプリングしたメロウなループ。ボサノヴァの柔らかなリズムと切ない歌詞が完璧に同期し、失恋の普遍的な感情を時代を超えたサウンドに包んだ。このサンプリングの選択が楽曲を1990年代に留まらない古典的地位へと押し上げた。
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-[var(--c-border)] pt-6 text-[var(--c-very-dim)] text-xs">
+    <p>Producer: J-Swift · Album: Bizarre Ride II the Pharcyde (1992) · Label: Delicious Vinyl</p>
+  </footer>
+
 </SongLayout>

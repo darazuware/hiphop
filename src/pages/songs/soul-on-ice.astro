@@ -1,4 +1,6 @@
 ---
+import LyricsBlock from '../../components/LyricsBlock.astro';
+import QuickSlang from '../../components/QuickSlang.astro';
 import SongLayout from '../../layouts/SongLayout.astro';
 ---
 
@@ -26,4 +28,235 @@ import SongLayout from '../../layouts/SongLayout.astro';
     <h2 class="text-base font-semibold mb-2">■Ras Kassのスタイル</h2>
     <p class="text-sm text-[var(--c-muted)] leading-relaxed">Ras Kassは節回しよりも言葉の重みを重視するラッパーだ。デビュー当時から長く複雑なメタファーを用い、LAのストリートを描きながらも知的な論理展開で聴き手を突き動かす。</p>
   </section>
+
+  <div id="lyrics"></div>
+
+  <!-- ===================== -->
+  <!-- VERSE 1               -->
+  <!-- ===================== -->
+  <section class="mb-12">
+    <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+      Verse 1 · Ras Kass
+    </h2>
+
+    <LyricsBlock hasExplanation={true} label="★ 冒頭——アイデンティティの宣言">
+      <Fragment slot="eng">
+        I'm the abstract, off the beaten track<br />
+        And if you think I won't react<br />
+        You're smoking crack, Jack
+      </Fragment>
+      <Fragment slot="jpn">
+        俺は抽象的な存在、常識のレールを外れた男だ<br />
+        もし俺が反応しないと思うなら<br />
+        お前はクラックでもやってんのか、ジャック
+      </Fragment>
+      <Fragment slot="explanation">
+        「abstract（抽象的）」という言葉でストレートなギャングスタ・ラップとの距離を即座に示す。「Jack」は相手への呼びかけと「ジャックされる（奪われる）」の掛け言葉。冒頭3行で自身のスタンスを鮮明にする。
+      </Fragment>
+    </LyricsBlock>
+
+    <LyricsBlock hasExplanation={true}>
+      <Fragment slot="eng">
+        I'm natural black, stay strapped with facts<br />
+        Knowledge is power, sour to <QuickSlang word="skins wax" desc="レコードやヴァイナル盤のこと。知識を磨くことをレコードに刻み込む行為に例えている" /><br />
+        I'm the abstract, a <QuickSlang word="lyrical acrobat" desc="言葉を軽業師（アクロバット）のように自在に操るラッパー。技巧的なリリシストであることの自己表現" />
+      </Fragment>
+      <Fragment slot="jpn">
+        俺はナチュラルブラック、常に事実（ファクト）で武装している<br />
+        知識は力だ、レコード盤に刻み込まれた苦い真実<br />
+        俺は抽象的な存在、リリカルな軽業師だ
+      </Fragment>
+      <Fragment slot="explanation">
+        「natural black」は人工的・作られた黒さではなく、生まれながらのアイデンティティの表明。「Stay strapped with facts（事実で武装）」は通常の「strapped（銃を携帯）」を言い換え、暴力ではなく知識こそが武器だと主張する。
+      </Fragment>
+    </LyricsBlock>
+
+    <LyricsBlock hasExplanation={true} label="★ 西海岸批判と自己肯定">
+      <Fragment slot="eng">
+        Yo, some rappers are comedians, I'm a tragedian<br />
+        Pediatrician of the sick rap game, pediatric<br />
+        Mediocre rhymes be epidemic
+      </Fragment>
+      <Fragment slot="jpn">
+        ヨォ、コメディアンのラッパーもいるが、俺は悲劇を描く者だ<br />
+        病んだラップゲームの小児科医（診療師）として<br />
+        平凡なライムが蔓延している、それは疫病だ
+      </Fragment>
+      <Fragment slot="explanation">
+        「tragedian（悲劇作家）」と「comedian」の対比。楽しませるだけでなく現実の悲劇を描くという詩人としての矜持。「pediatrician（小児科医）」でヒップホップの病（商業化・質の低下）を治療する存在として自らを位置付ける。
+      </Fragment>
+    </LyricsBlock>
+
+    <LyricsBlock hasExplanation={true}>
+      <Fragment slot="eng">
+        I manifest the <QuickSlang word="best linguistics" desc="最高の言語技術・言語運用能力。Ras Kassが誇る高度なリリシズムを指す" /><br />
+        Blessed with a gift, I'm swift<br />
+        I'm the bomb like <QuickSlang word="Hiroshima" desc="1945年に原爆が投下された広島。ラッパーが自分の破壊力を核爆弾に例えるのはヒップホップの定型表現だが、Ras Kassはあえて実際の歴史的悲劇を用いることで重みを増す" />
+      </Fragment>
+      <Fragment slot="jpn">
+        俺は最高の言語能力を体現する<br />
+        ギフトに恵まれ、素早い<br />
+        俺は広島の原爆のような爆弾だ
+      </Fragment>
+      <Fragment slot="explanation">
+        「manifest（体現する）」はFive-Percent Nationの哲学で頻繁に使われる動詞。ただ主張するのではなく、行為として示すことを意味する。広島への言及は過激だが、核兵器の破壊力で自身のライムの威力を測ろうとする。
+      </Fragment>
+    </LyricsBlock>
+
+    <LyricsBlock hasExplanation={true} label="★ 黒人史と反植民地主義">
+      <Fragment slot="eng">
+        I take you back to Africa and let you pick your roots<br />
+        Before they brought us to the New World<br />
+        In wooden boots
+      </Fragment>
+      <Fragment slot="jpn">
+        俺はお前をアフリカまで連れ戻し、自分のルーツを選ばせてやろう<br />
+        奴らが俺たちを新大陸へ連れてくる前の<br />
+        木製の足かせをはめて連行する前の時代に
+      </Fragment>
+      <Fragment slot="explanation">
+        「wooden boots（木製の足かせ）」は奴隷船で黒人が枷をはめられて輸送された歴史への直接的な言及。「pick your roots（ルーツを選ぶ）」は黒人ディアスポラに対して「お前たちには選択肢があった」という歴史的想像力を提示する。
+      </Fragment>
+    </LyricsBlock>
+
+    <LyricsBlock hasExplanation={true}>
+      <Fragment slot="eng">
+        My soul's on ice, I'm analyzing life<br />
+        Through the <QuickSlang word="mental microscope" desc="精神的・知的な顕微鏡。肉眼では見えない社会の構造・歴史の真実を知性で拡大して見ること" /><br />
+        And I see things crystal clear
+      </Fragment>
+      <Fragment slot="jpn">
+        俺の魂は氷の上にある（冷静に分析している）<br />
+        精神の顕微鏡を通して人生を分析する<br />
+        そして俺はすべてをクリスタルクリアに見ている
+      </Fragment>
+      <Fragment slot="explanation">
+        タイトル「Soul On Ice」の直接的な解釈が現れる。「ice（氷）」は感情を凍らせて冷静に世界を見つめる知性の比喩。Richard Wrightの自伝「Native Son」やEldridge Cleaverの「Soul on Ice」と同様の思想的立場を示す。
+      </Fragment>
+    </LyricsBlock>
+
+    <LyricsBlock hasExplanation={true} label="★ 人種・宗教への哲学的考察">
+      <Fragment slot="eng">
+        See, white man, I <QuickSlang word="civilize" desc="文明化する。植民地主義の「文明化の使命」という欺瞞的イデオロギーを逆用し、黒人こそが文明化する側だと主張する逆説" /> God<br />
+        And black man, I civilize the devil<br />
+        On every level, revel in the fact that I'm a rebel
+      </Fragment>
+      <Fragment slot="jpn">
+        白人よ、俺は神を文明化する<br />
+        黒人よ、俺は悪魔を文明化する<br />
+        あらゆるレベルで、俺が反逆者であるという事実を楽しんでいる
+      </Fragment>
+      <Fragment slot="explanation">
+        Five-Percent Nationの神学的概念を応用したライン。「白人＝悪魔、黒人＝神」という教義を、「俺は両方を文明化する」とひっくり返す逆説。「Rebel（反逆者）」の宣言は単なる政治的立場ではなく、知的反抗の表明。
+      </Fragment>
+    </LyricsBlock>
+
+    <LyricsBlock hasExplanation={true}>
+      <Fragment slot="eng">
+        I'm <QuickSlang word="soul food" desc="アフリカ系アメリカ人の伝統料理。奴隷制時代に発展した、黒人コミュニティの文化的アイデンティティそのもの" /> for thought<br />
+        Like the thoughts that <QuickSlang word="Malcolm taught" desc="マルコムX（Malcolm Little / El-Hajj Malik El-Shabazz）。ブラック・ナショナリズムとイスラムの教義を組み合わせ、1960年代に黒人解放運動を導いたリーダー" /><br />
+        Can't be bought, I'm street taught
+      </Fragment>
+      <Fragment slot="jpn">
+        俺は思考のためのソウルフード（精神的栄養）だ<br />
+        マルコムXが教えたような思想のように<br />
+        俺は買収できない、俺はストリートで学んだ
+      </Fragment>
+      <Fragment slot="explanation">
+        「Soul food for thought（思考のためのソウルフード）」はFood for thoughtのスラング的変形。マルコムXへの直接言及は、ラップを政治的意識覚醒の媒体として位置付けることの宣言。「Street taught（ストリートで学んだ）」は大学教育への依存ではなく実践的知識への誇り。
+      </Fragment>
+    </LyricsBlock>
+
+    <LyricsBlock hasExplanation={true} label="★ 宗教・科学・歴史の融合">
+      <Fragment slot="eng">
+        Yo, I'm the type of brother that would study <QuickSlang word="Nostradamus" desc="16世紀フランスの予言者。彼の「諸世紀」は人類の未来を暗示するとされ、ヒップホップでは未来予知的なライミングと自身を重ねる際に引用される" /><br />
+        I walk with the rhymes of Solomon<br />
+        The wisdom of the honorable <QuickSlang word="Elijah" desc="エライジャ・ムハンマド（Elijah Muhammad）。ネイション・オブ・イスラムの指導者で、マルコムXの師。黒人解放神学の中心的人物" />
+      </Fragment>
+      <Fragment slot="jpn">
+        ヨォ、俺はノストラダムスを研究するようなタイプだ<br />
+        俺はソロモンのライムと共に歩む<br />
+        名誉あるエライジャ（・ムハンマド）の知恵を持って
+      </Fragment>
+      <Fragment slot="explanation">
+        ノストラダムス（予言）、ソロモン（旧約聖書の知恵者）、エライジャ・ムハンマド（イスラム指導者）という時空を超えた知者たちを一つのバースに詰め込む。宗教的・神秘的な知識体系を自身のリリシズムと直結させるRas Kassの学術的アプローチ。
+      </Fragment>
+    </LyricsBlock>
+
+    <LyricsBlock hasExplanation={true}>
+      <Fragment slot="eng">
+        I got the truth, I speak it, niggas can't beat it<br />
+        So-called brothers try to delete it<br />
+        But they can't delete it, they can't defeat the technique
+      </Fragment>
+      <Fragment slot="jpn">
+        俺は真実を持っている、それを語る、誰も俺に勝てない<br />
+        いわゆる「仲間」たちはそれを消し去ろうとする<br />
+        でも奴らには消せない、このテクニックに勝てない
+      </Fragment>
+      <Fragment slot="explanation">
+        「So-called brothers（いわゆる兄弟たち）」は同じ黒人コミュニティの中にいる批判者への言及。内部からの抵抗と外部からの支配という二重の圧力に対して、真実（Truth）の力で立ち向かうという姿勢を示す。
+      </Fragment>
+    </LyricsBlock>
+
+    <LyricsBlock hasExplanation={true} label="★ クライマックス——魂の氷上での独白">
+      <Fragment slot="eng">
+        <QuickSlang word="Soul on ice" desc="タイトルの反復。「氷（Ice）」は冷静な分析力、または生き残りのために感情を凍らせた状態。ブラック・ナショナリズムと知的抵抗の象徴" />, never compromised<br />
+        Analyze, <QuickSlang word="philosophize" desc="哲学する・哲学的に考える。Ras Kassが自らのラップを単なる娯楽ではなく、哲学的実践として位置付ける言葉" />, I see through disguise<br />
+        My soul on ice, I never sleep, I <QuickSlang word="creep" desc="静かに・油断なく動く。危険な環境での生存戦略であると同時に、知的な慎重さをも表す" />
+      </Fragment>
+      <Fragment slot="jpn">
+        魂は氷の上にある、決して妥協しない<br />
+        分析し、哲学し、偽りを見抜く<br />
+        俺の魂は氷の上にある、眠らない、静かに動き続ける
+      </Fragment>
+      <Fragment slot="explanation">
+        楽曲のタイトルが3度登場するクライマックス。「never compromised（決して妥協しない）」と「philosophize（哲学する）」の並置が、Ras Kassのアーティストとしての核心を示す。「Never sleep（眠らない）」は常に警戒し、思考し続けるという知的サバイバルの宣言。
+      </Fragment>
+    </LyricsBlock>
+
+    <LyricsBlock hasExplanation={false}>
+      <Fragment slot="eng">
+        I keep it real, from the streets of LA<br />
+        To the stage, I engage, turn the page<br />
+        And we're out
+      </Fragment>
+      <Fragment slot="jpn">
+        俺はリアルを保つ、LAのストリートから<br />
+        ステージまで、俺は向き合い、ページをめくる<br />
+        そして俺たちは去る
+      </Fragment>
+    </LyricsBlock>
+  </section>
+
+  <!-- ===================== -->
+  <!-- CULTURAL BACKGROUND   -->
+  <!-- ===================== -->
+  <section id="background" class="mb-12">
+    <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+      文化的背景
+    </h2>
+
+    <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">タイトルの由来</p>
+      <h3 class="font-semibold text-base mb-3">「Soul On Ice」——黒人解放文学との接続</h3>
+      <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+        「Soul On Ice」というタイトルはEldridge Cleaverが1968年にサンクエンティン刑務所から書いた同名の著書に由来する。公民権運動の時代に刑務所から書かれたこのエッセイ集は、黒人男性の性・暴力・権力についての赤裸々な考察として物議を醸した。Ras Kassはこのタイトルを借用することで、自らのラップを同じ黒人解放の文脈に置き、冷静な観察眼（ice＝氷）で社会を分析する姿勢を示す。
+      </p>
+    </div>
+
+    <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">1996年の西海岸</p>
+      <h3 class="font-semibold text-base mb-3">G-Funk全盛期への知的アンチテーゼ</h3>
+      <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+        1996年はTupacの「All Eyez On Me」が圧倒的な存在感を示した年だ。Dr. DreのG-Funkが西海岸のサウンドを定義していた中で、Ras KassはAntonio CarvahoやOh No（ますよし）らとLAのプロジェクトで思想的・難解なリリックを追求した。商業的成功よりも知的誠実さを選んだこの姿勢が、後の「アンダーグラウンド・コンシャス・ラップ」の先駆けとなった。
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-[var(--c-border)] pt-6 text-[var(--c-very-dim)] text-xs">
+    <p>Album: Soul On Ice (1996) · Label: Priority Records</p>
+  </footer>
+
 </SongLayout>
