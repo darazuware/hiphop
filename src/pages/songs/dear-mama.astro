@@ -196,11 +196,13 @@ import SongLayout from '../../layouts/SongLayout.astro';
       <LyricsBlock hasExplanation={true}>
         <Fragment slot="eng">
           Lady, don't you know we love ya? (Dear Mama)<br />
-          Sweet lady, place no one above ya (You are appreciated)
+          Sweet lady, place no one above ya (You are appreciated)<br />
+          Sweet lady, don't you know we love ya?
         </Fragment>
         <Fragment slot="jpn">
           レディ、俺たちがあなたを愛してるって知ってるか？（ディア・ママ）<br />
-          スウィートなレディ、あなたより上に置く者はいない（感謝している）
+          スウィートなレディ、あなたより上に置く者はいない（感謝している）<br />
+          スウィートなレディ、俺たちがあなたを愛してるって知ってるか？
         </Fragment>
         <Fragment slot="explanation">
           コーラスはゴスペル的な讃美歌の構造——「Lady（女性への尊称）」「Sweet（優しさ）」「place no one above ya（誰もあなたより上に置かない）」という無条件の崇拝。2Pacのラップパートのストリートリアリズムとコーラスの讃美歌調の対比が楽曲に宗教的な深みを加える。
@@ -325,6 +327,7 @@ import SongLayout from '../../layouts/SongLayout.astro';
           'Cause through the drama, I can always depend on my mama<br />
           And when it seems that I'm hopeless<br />
           You say the words that can get me back in focus<br />
+          When I was sick as a little kid<br />
           To keep me happy there's no limit to the things you did<br />
           And all my childhood memories<br />
           Are full of all the sweet things you did for me
@@ -334,6 +337,7 @@ import SongLayout from '../../layouts/SongLayout.astro';
           なぜなら、どんなドラマがあっても、俺は常に母に頼れるから<br />
           そして俺が希望を失っているように見える時<br />
           あなたは俺を再び集中させる言葉をかけてくれる<br />
+          俺が小さい頃、病気になった時<br />
           俺を幸せにするためなら、あなたがした事に限界はなかった<br />
           俺の子供の頃の記憶はすべて<br />
           あなたが俺にしてくれた優しい事でいっぱいだ
@@ -345,21 +349,25 @@ import SongLayout from '../../layouts/SongLayout.astro';
 
       <LyricsBlock hasExplanation={true}>
         <Fragment slot="eng">
+          And even though I act crazy<br />
+          I gotta thank the Lord that you made me<br />
+          There are no words that can express how I feel<br />
           You never kept a secret, always stayed real<br />
           And I appreciate how you raised me<br />
           And all the extra love that you gave me<br />
-          I gotta thank the Lord that you made me<br />
           I wish I could take the pain away
         </Fragment>
         <Fragment slot="jpn">
+          俺がクレイジーに振る舞っても<br />
+          神に感謝するよ、あなたから産まれた事を<br />
+          俺の気持ちを表現できる言葉はない<br />
           あなたは秘密を持たず、常にリアルでいた<br />
           あなたが俺を育ててくれた方法に感謝する<br />
           そして、あなたが与えてくれた余分な愛のすべてに<br />
-          神に感謝するよ、あなたから産まれた事を<br />
           その痛みを消し去ってあげられたらいいのに
         </Fragment>
         <Fragment slot="explanation">
-          「Never kept a secret, always stayed real（秘密を持たず、常にリアルだった）」——クラック中毒も貧困も隠さなかった母の誠実さへの評価。「Extra love（余分な愛）」——ただでさえ困難な状況から生まれた、予想を超えた愛の過剰さへの驚きと感謝。
+          「Never kept a secret, always stayed real（秘密を持たず、常にリアルだった）」——クラック中毒も貧困も隠さなかった母の誠実さへの評価。「Extra love（余分な愛）」——ただでさえ困難な状況から生まれた、予想を超えた愛の過剰さへの驚きと感謝。言葉では表現できない（No words that can express）ほどの想い。
         </Fragment>
       </LyricsBlock>
 
@@ -367,15 +375,48 @@ import SongLayout from '../../layouts/SongLayout.astro';
         <Fragment slot="eng">
           If you can make it through the night, there's a brighter day<br />
           Everything will be alright if you hold on<br />
-          It's a struggle every day, gotta <QuickSlang word="roll on" desc="前進し続ける・続けていく。困難にかかわらず人生を続けること。ヒップホップで広く使われる励ましの表現。" />
+          It's a struggle every day, gotta <QuickSlang word="roll on" desc="前進し続ける・続けていく。困難にかかわらず人生を続けること。ヒップホップで広く使われる励ましの表現。" /><br />
+          And there's no way I can pay you back<br />
+          But my plan is to show you that I understand<br />
+          You are appreciated
         </Fragment>
         <Fragment slot="jpn">
           夜を乗り越えられれば、より明るい日が来る<br />
           耐えれば、すべてはうまくいく<br />
-          毎日が闘いだ、ロールオン（前進し続ける）しなければ
+          毎日が闘いだ、ロールオン（前進し続ける）しなければ<br />
+          俺にはお前に返す方法がない<br />
+          でも俺の計画は、俺がわかってるということを見せること<br />
+          あなたは感謝されている
         </Fragment>
         <Fragment slot="explanation">
-          バース3の締めは母から息子への言葉でも、息子から母への言葉でもある——「Make it through the night（夜を乗り越える）」は両者の現在形の闘いへの励まし。「Struggle every day（毎日が闘いだ）」は美化なしの現実認識で楽曲を締める。
+          バース3の締めは母から息子への言葉でも、息子から母への言葉でもある——「Make it through the night（夜を乗り越える）」は両者の現在形の闘いへの励まし。「Struggle every day（毎日が闘いだ）」は美化なしの現実認識。最後はイントロ・Verse 1でも繰り返された「Appreciated（感謝）」で締めくくられる。
+        </Fragment>
+      </LyricsBlock>
+      
+    </section>
+
+    <!-- ===================== -->
+    <!-- OUTRO CHORUS          -->
+    <!-- ===================== -->
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        Outro Chorus
+      </h2>
+
+      <LyricsBlock hasExplanation={false}>
+        <Fragment slot="eng">
+          Lady, don't you know we love ya? (Dear Mama)<br />
+          Sweet lady, place no one above ya (You are appreciated)<br />
+          Sweet lady, don't you know we love ya? (Dear Mama)<br />
+          Sweet lady, lady (Dear Mama)<br />
+          Lady, lady
+        </Fragment>
+        <Fragment slot="jpn">
+          レディ、俺たちがあなたを愛してるって知ってるか？（ディア・ママ）<br />
+          スウィートなレディ、あなたより上に置く者はいない（感謝している）<br />
+          スウィートなレディ、俺たちがあなたを愛してるって知ってるか？（ディア・ママ）<br />
+          スウィートなレディ、レディ（ディア・ママ）<br />
+          レディ、レディ
         </Fragment>
       </LyricsBlock>
     </section>
