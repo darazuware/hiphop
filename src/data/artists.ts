@@ -198,6 +198,15 @@ export const artists = [
     japan: '渋谷Club HARLEMなど東京のヒップホップシーンでも深く追悼され、Tats CruによるBig Pun追悼壁画の写真がイベントパンフレットに掲載されるなど、夭折した「ブロンクスの伝説」として神格化されている。「Little Italy」パンチラインは日本のリリシスト界でも「到達不能の基準」として繰り返し引用される。',
   },
   {
+    slug: 'rakim',
+    name: 'Rakim',
+    origin: 'Wyandanch, Long Island, New York',
+    active: '1985–',
+    genre: 'East Coast Hip-Hop / Golden Age Hip-Hop',
+    summary: '本名William Griffin Jr.。Eric B.とのデュオ「Eric B. & Rakim」として1987年「Paid in Full」でデビューし、複雑な多音節ライムと内省的フロウでMCイズムを根本から変革した。「史上最も偉大なラッパー」に繰り返し選出され、Nas・Jay-Z・Eminemらほぼ全ての後続MCが影響を受けたことを公言している。Five-Percent Nationの思想とアフロセントリズムを哲学的リリックに昇華させ、1997年ソロデビュー作「The 18th Letter」で「王の帰還」を宣言した。',
+    japan: '日本のヒップホップファンにとって「神」と称される絶対的存在。BUDDHA BRANDのDEV LARGEが直接引用・サンプリングし、THA BLUE HERBのILL-BOSSTINOも哲学的リリシズムを継承するなど、日本語ラップのリリシズムの根幹に影響を与えた。複数回来日公演を行い、日本のヒップホップコミュニティから熱狂的な歓迎を受けた。',
+  },
+  {
     slug: '2pac',
     name: '2Pac',
     origin: 'East Harlem, New York (raised in Baltimore & Marin City, CA)',
