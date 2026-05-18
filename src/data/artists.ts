@@ -89,6 +89,15 @@ export const artists = [
     summary: 'トロント出身のAubrey Drake Graham。2006年ミックステープデビュー後、OVO Soundを設立し2010年代のストリーミング時代を牽引。ケンドリック・ラマーとの2024年ビーフを経て2026年に3アルバム同時リリース『ICEMAN』で復権を宣言した、現代ヒップホップ最大のスター。',
     japan: '日本のK-POPファンダムが「Make Them Cry」のBTSラインへの反応から『ICEMAN』のストリーミングに参入し国内トレンドを席巻。日本のヒップホップメディア「HIPHOPCs」が24時間以内に「11のディス戦線」を完全マップ化するなど、日本のリスナーの成熟したコンテクスト解読力を体現した事例となった。',
   },
+  {
+    slug: 'a-tribe-called-quest',
+    name: 'A Tribe Called Quest',
+    origin: 'Queens, New York',
+    active: '1985–1998, 2006, 2016–2017',
+    genre: 'East Coast Hip-Hop / Jazz Rap / Alternative Hip-Hop',
+    summary: 'クイーンズ出身のQ-Tip、Phife Dawg、Ali Shaheed Muhammad、Jarobi Whiteによる4人組。Native Tonguesコレクティブの中核として、ジャズのサンプリング・アフロセントリズム・知的な詩性でヒップホップの黄金時代を定義した。「Electric Relaxation」「Check the Rhime」「Can I Kick It?」など多数の名曲を残した。Phife Dawgは2016年3月に糖尿病の合併症で死去。',
+    japan: '「Electric Relaxation」「Bonita Applebum」はLoFi Hip-Hopの源流として日本の若いリスナーにも再発見されている。Phife Dawgの死はビーツを愛する日本のヒップホップコミュニティにも深い悲しみをもたらした。Native Tonguesの「知性とチル」の哲学は日本のアンダーグラウンドHIPHOPシーンに多大な影響を与えている。',
+  },
 ] as const;
 
 export type Artist = typeof artists[number];
