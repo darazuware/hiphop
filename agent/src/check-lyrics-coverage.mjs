@@ -97,20 +97,20 @@ function normalize(s) {
     .trim();
 }
 
-// --- Check if a lyric line is covered by any eng line ---
-function isCovered(lyricLine, engNorms) {
+// --- Check if a lyric line is covered by a specific eng line ---
+function isLineMatch(lyricLine, engLine) {
   const lyricNorm = normalize(lyricLine);
   if (lyricNorm.length < 4) return true; // skip very short lines like "Yeah"
 
-  // Check if lyric norm appears as substring in any eng line (or vice versa)
-  for (const eng of engNorms) {
-    if (eng.includes(lyricNorm) || lyricNorm.includes(eng)) return true;
-    // Partial match: at least 60% of lyric words appear in eng line
-    const lyricWords = lyricNorm.split(' ').filter(w => w.length > 2);
-    if (lyricWords.length === 0) return true;
-    const matchCount = lyricWords.filter(w => eng.includes(w)).length;
-    if (matchCount / lyricWords.length >= 0.6) return true;
-  }
+  // Check if lyric norm appears as substring in eng line (or vice versa)
+  if (engLine.includes(lyricNorm) || lyricNorm.includes(engLine)) return true;
+  
+  // Partial match: at least 60% of lyric words appear in eng line
+  const lyricWords = lyricNorm.split(' ').filter(w => w.length > 2);
+  if (lyricWords.length === 0) return true;
+  const matchCount = lyricWords.filter(w => engLine.includes(w)).length;
+  if (matchCount / lyricWords.length >= 0.6) return true;
+  
   return false;
 }
 
@@ -121,9 +121,20 @@ const engNorms = engLines.map(normalize);
 
 const uncovered = [];
 const covered = [];
+let engIndex = 0;
 
 for (const line of lyricLines) {
-  if (isCovered(line, engNorms)) {
+  let found = false;
+  // Search forward from the current pointer
+  for (let i = engIndex; i < engNorms.length; i++) {
+    if (isLineMatch(line, engNorms[i])) {
+      found = true;
+      engIndex = i + 1; // Advance pointer to enforce sequential order
+      break;
+    }
+  }
+  
+  if (found) {
     covered.push(line);
   } else {
     uncovered.push(line);
