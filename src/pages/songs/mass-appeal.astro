@@ -27,13 +27,13 @@ import SongLayout from '../../layouts/SongLayout.astro';
     <!-- 概要 -->
     <section class="mb-6">
       <h2 class="text-base font-semibold mb-2">■概要</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">1994年アルバム『Hard to Earn』収録。DJ Premierがジャズとハードコアを縫い合わせた重厚なビートの上で、Guru（本名Keith Elam）が商業主義に迎合するラッパーたちへの批判と、本物のヒップホップの価値を朗々と語る。BPM約92のミッドテンポ・ブーンバップはDJ Premierのサンプリング哲学の粋を集めた一曲であり、シングルカットされてMTV Raps等でも広く紹介された。</p>
+      <p class="text-sm text-[var(--c-muted)] leading-relaxed">1994年アルバム『Hard to Earn』収録。DJ Premierがジャズとハードコアを縫い合わせた重厚なビートの上で、Guru（本名Keith Elam）が商業主義に迎合するラッパーたちへの批判と、本物のヒップホップの価値を朗々と語る。BPM約92のミッドテンポ・ブーンバップはDJ Premierのサンプリング哲学の粋を集めた一曲で、シングルカットされてMTV等でも広く紹介された。</p>
     </section>
 
     <!-- 導入 -->
     <section class="mb-10">
       <h2 class="text-base font-semibold mb-2">■導入（時代背景）</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">1994年はヒップホップが岐路に立った年だった。西海岸ではDr. DreのG-Funkが全米を席巻し、東海岸でも商業的なポップ寄りラップが台頭。一方でNasの「Illmatic」、The Notorious B.I.G.の「Ready to Die」、そしてGang Starrの「Hard to Earn」など、リリシズムとリアリティを核にした作品群が「ブーンバップの黄金時代」を刻んだ。「Mass Appeal」はその文脈の中で、商業主義への妥協を拒む宣言として生まれた。</p>
+      <p class="text-sm text-[var(--c-muted)] leading-relaxed">1994年はヒップホップが岐路に立った年だった。西海岸ではDr. DreのG-Funkが全米を席巻し、商業的なポップ寄りラップが台頭。一方でNasのIllmatic、Biggieの「Ready to Die」、そしてGang Starrの「Hard to Earn」など、リリシズムとリアリティを核にした作品群が「ブーンバップの黄金時代」を刻んだ。「Mass Appeal」はその文脈の中で、商業主義への妥協を拒む宣言として生まれた。</p>
     </section>
 
     <!-- Table of Contents -->
@@ -50,24 +50,24 @@ import SongLayout from '../../layouts/SongLayout.astro';
     <div id="lyrics"></div>
 
     <!-- ===================== -->
-    <!-- INTRO / HOOK          -->
+    <!-- CHORUS                -->
     <!-- ===================== -->
     <section class="mb-12">
       <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Hook · Guru
+        Chorus · Guru
       </h2>
 
       <LyricsBlock hasExplanation={true}>
         <Fragment slot="eng">
-          You gotta be real, represent and have appeal<br />
-          You gotta be real, represent and have appeal
+          Money's growin' like grass with the <QuickSlang word="mass appeal" desc="大衆受け・大衆へのアピール力。商業的成功と引き換えにリアリティを売り渡す行為への批判的タイトル。" /><br />
+          Money's growin' like grass with the mass appeal
         </Fragment>
         <Fragment slot="jpn">
-          リアルでなければならない、代表して、アピールしなければならない<br />
-          リアルでなければならない、代表して、アピールしなければならない
+          マス・アピール（大衆受け）で金は草のように生い茂る<br />
+          マス・アピールで金は草のように生い茂る
         </Fragment>
         <Fragment slot="explanation">
-          フックの3要素「Real（リアル）・Represent（コミュニティを代表する）・Appeal（訴える力）」はGang Starrが考えるヒップホップの条件。「Mass Appeal（大衆受け）」とはタイトルとの逆説——本物のアピールは商業的迎合ではなく、真実から生まれるというメッセージ。
+          コーラスは皮肉——「大衆受けすれば金が生い茂る」という現実を淡々と語ることで、その浅さを暴く。Gang Starrはそれを拒絶する側として楽曲全体を構成している。
         </Fragment>
       </LyricsBlock>
     </section>
@@ -82,79 +82,56 @@ import SongLayout from '../../layouts/SongLayout.astro';
 
       <LyricsBlock hasExplanation={true} label="★ ポーズラッパーへの宣戦布告">
         <Fragment slot="eng">
-          Some of these so-called <QuickSlang word="playas" desc="「playa」はplayerの変形。①女たらし②スキームを仕切る者。ここでは「自分をBigショットに見せかけているラッパー」を指す。" /> is really just <QuickSlang word="frontin'" desc="本来の自分とは異なるイメージを演じること。実力や地位を偽装するポーズ。「front（正面）を作る」から来た表現。" /><br />
-          Perpetrating a fraud is what they're really <QuickSlang word="stuntin'" desc="自分を実際より大きく・豊かに・クールに見せる行為。stuntin' = stuntingの短縮形。" />
+          No way, you'll never make it<br />
+          Come with the weak shit, I'll break it
         </Fragment>
         <Fragment slot="jpn">
-          いわゆる「プレイヤー」たちの一部は、ただのフロンティン（見せかけ）だ<br />
-          詐欺を働くことが、彼らがスタンティン（虚飾）している本当の中身だ
+          ありえない、お前は絶対に成功しない<br />
+          弱いものを持ってきたら、俺が叩き壊してやる
         </Fragment>
         <Fragment slot="explanation">
-          開幕からポーズラッパーへの直球批判。「So-called（いわゆる）」という言葉で距離を置き、「playas」「frontin'」「stuntin'」と黒人スラングを畳みかける。GuruのフロウはAARPのようにクールで落ち着いており、怒りを叫ばずに放つのがGang Starrの流儀。
+          冒頭から直球——才能のないラッパーへの容赦ない宣告。Guruのモノトーン・フロウは感情的に叫ばず、確信として語ることで圧倒的な説得力を生む。
         </Fragment>
       </LyricsBlock>
 
       <LyricsBlock hasExplanation={true}>
         <Fragment slot="eng">
-          They <QuickSlang word="perpetrate" desc="本来「犯罪を犯す」の意だが、HHスラングでは「嘘のイメージを演じる」「本物でないのに本物のふりをする」という意味で広く使われた。" /> like they're living large but they're <QuickSlang word="bugged out" desc="現実から離れた・おかしくなった・混乱している状態。「bug（虫が湧く）」から来た1980-90年代NYスラング。" /><br />
-          It's a shame, the music game is all <QuickSlang word="drugged out" desc="麻薬漬け・無気力化した状態の比喩。ここでは音楽業界が商業主義と金で思考停止している批判。" />
+          A lot of rappers be like one-time wonders<br />
+          Couldn't say a fly rhyme if there was one right under their noses
         </Fragment>
         <Fragment slot="jpn">
-          ビッグに生きているふりをしているが、実はバグアウト（狂ってる）している<br />
-          恥ずかしいことに、音楽ゲームはドラッグアウト（無気力・汚染）されている
+          多くのラッパーは一発屋だ<br />
+          目の前にカッコいいライムがあっても言えないだろう
         </Fragment>
         <Fragment slot="explanation">
-          「Living large（豪勢に生きる）」というフレックス文化を「bugged out（狂っている）」と切り捨てる。「Music game is drugged out」——音楽業界全体が麻薬的な商業主義に侵されているという鋭い診断。
+          「One-time wonder（一発屋）」——持続的なスキルを持たない商業ラッパーへの批判。「Fly rhyme（かっこいいライム）」を目の前にしても吐けないという皮肉が鋭い。
         </Fragment>
       </LyricsBlock>
 
       <LyricsBlock hasExplanation={true}>
         <Fragment slot="eng">
-          And the radio is <QuickSlang word="played out" desc="使い古された・もう終わっている・価値がなくなった、という意味のHHスラング。1990年代に広く使われた。" />, video's a <QuickSlang word="sellout" desc="金や大衆受けのために本来の信念・スタイルを売り渡した者または行為。最大の侮辱語のひとつ。" /><br />
-          I can't stand it when they compromise their style
+          I hate those motherfuckin' <QuickSlang word="posers" desc="本物でないのに本物のふりをする者。スタイル・地位・能力を偽る人間。ヒップホップで最大の侮辱語のひとつ。" /><br />
+          But I'm so real, to them, it's scary
         </Fragment>
         <Fragment slot="jpn">
-          ラジオはプレイアウト（もう終わり）、ビデオはセルアウト（魂売り）だ<br />
-          スタイルを妥協している奴らに我慢できない
+          あのポーザー（偽物）どもは最低だ<br />
+          だが俺はリアルすぎて、奴らにとっては怖いらしい
         </Fragment>
         <Fragment slot="explanation">
-          ラジオとMTVビデオという1994年の2大メディアを「played out」「sellout」と直接批判。「Compromise their style（スタイルを妥協する）」——商業的成功のためにアーティスティックな個性を捨てる行為への怒りがGuruの淡々としたフロウに乗る。
+          「Poser（ポーザー）」——本物のふりをする者。「I'm so real, to them, it's scary」——真のリアリティが偽物たちを脅かすという逆説が、Guruの自信の核心を示す。
         </Fragment>
       </LyricsBlock>
 
       <LyricsBlock hasExplanation={true}>
         <Fragment slot="eng">
-          You can <QuickSlang word="clock" desc="①観察する・チェックする ②稼ぐ（clock dollars）。ここでは「観察する」の意。" /> the <QuickSlang word="styles" desc="ラッパーのフロウ・リリック・ファッションを含む総合的な表現スタイル。Gang Starrにとっては魂そのもの。" />, we switch 'em every once in a while<br />
-          We come original, hardcore, <QuickSlang word="def" desc="Def = Excellent・Amazing の意。1980年代ラッセル・シモンズがDef Jamレーベル命名に使った語源語。" /> and <QuickSlang word="buck wild" desc="制御が効かないほど激しい・無秩序に荒れ狂う。ここでは攻撃的なエネルギーという意味で肯定的に使われている。" />
+          Maybe your soul you'd sell to have <QuickSlang word="mass appeal" desc="大衆受けのためなら魂も売る——商業主義の極論を突きつける表現。" />
         </Fragment>
         <Fragment slot="jpn">
-          俺たちのスタイルを観察してくれ、時々切り替えるからな<br />
-          俺たちはオリジナル、ハードコア、デフ（最高）でバックワイルド（爆発的）だ
+          大衆受けするためなら魂だって売るんだろう
         </Fragment>
         <Fragment slot="explanation">
-          批判から自己主張へ転換。「Come original（オリジナルを貫く）」はヒップホップの最高の美徳のひとつ。「Hardcore, def, and buck wild」と3連の形容詞でGang Starrのアイデンティティを宣言する。
+          バース1の締め——「Sell your soul（魂を売る）」は文字通りの悪魔との契約の比喩。商業的成功のためにアーティスティック・インテグリティを手放す行為への最大の非難。
         </Fragment>
-      </LyricsBlock>
-    </section>
-
-    <!-- ===================== -->
-    <!-- HOOK (REPEAT)         -->
-    <!-- ===================== -->
-    <section class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Hook · Guru
-      </h2>
-
-      <LyricsBlock hasExplanation={false}>
-        <Fragment slot="eng">
-          You gotta be real, represent and have appeal<br />
-          You gotta be real, represent and have appeal
-        </Fragment>
-        <Fragment slot="jpn">
-          リアルでなければならない、代表して、アピールしなければならない<br />
-          リアルでなければならない、代表して、アピールしなければならない
-        </Fragment>
-        <Fragment slot="explanation"></Fragment>
       </LyricsBlock>
     </section>
 
@@ -166,81 +143,46 @@ import SongLayout from '../../layouts/SongLayout.astro';
         Verse 2 · Guru
       </h2>
 
-      <LyricsBlock hasExplanation={true} label="★ 本物のスキルと偽物の区別">
+      <LyricsBlock hasExplanation={true} label="★ スキルの証明">
         <Fragment slot="eng">
-          Now I've been <QuickSlang word="on the grind" desc="絶え間なく努力・活動を続けること。スラングとして「grinding（地道に働く）」から。音楽・ビジネス・ストリートを問わずキャリアを積み上げる行為全般を指す。" /> for a long, long time<br />
-          Dropping <QuickSlang word="science" desc="知識・知恵・真実のこと。Five-Percent Nationの用語から来ており、「自らの知恵や洞察を共有する行為」をdrop scienceという。" /> on every record, every rhyme
+          Oh yes, I'm greater than all MC's when I breeze<br />
+          Give me room, please
         </Fragment>
         <Fragment slot="jpn">
-          もう長い時間、俺はグラインド（磨き続け）してきた<br />
-          すべてのレコード、すべてのライムでサイエンス（知識・真実）をドロップしてきた
+          そうだ、俺が風のように流れる時、全MCより上だ<br />
+          スペースをくれ
         </Fragment>
         <Fragment slot="explanation">
-          「On the grind」は地道な努力の継続を表す——一夜にして有名になった「ポーズ」ラッパーとの対比。「Drop science」はFive-Percent Nationの用語で、知識と真実を共有する行為。Guruは自らをコミュニティの教師として位置づける。
+          「Greater than all MC's」——謙遜なしの自己主張。「Breeze（風のように）」はGuruのフロウの軽やかさと自然さを表す。与えられたビートの上を自在に動く技量への自信。
         </Fragment>
       </LyricsBlock>
 
       <LyricsBlock hasExplanation={true}>
         <Fragment slot="eng">
-          The <QuickSlang word="wack" desc="才能がない・偽物・クオリティが低い。1980-90年代HHの最大侮辱語のひとつ。" /> rappers always <QuickSlang word="sweatin'" desc="過度に努力する・あせる・人の真似をする。ここでは「自分たちのスタイルに食いつこうと汗を流している」の意。" /> us, they need to get a life<br />
-          They need to stop biting, <QuickSlang word="trife" desc="品格がない・信頼できない・価値が低いという意味のスラング。「trifling（取るに足りない）」の短縮形。" /> as a rusty knife
+          Niggas be pretendin' they're hardcore<br />
+          Never know the meaning of raw
         </Fragment>
         <Fragment slot="jpn">
-          ワック（偽物）なラッパーたちはいつも俺たちにスウェットン（必死で食いつこう）としてる、人生をやり直せ<br />
-          パクるのをやめろ、さびたナイフみたいにトライフ（価値なし）だ
+          奴らはハードコアのふりをしている<br />
+          「ロウ（生のリアル）」の意味を知らない
         </Fragment>
         <Fragment slot="explanation">
-          「Biting（バイティング）」はヒップホップ最大の禁忌——他者のスタイルやリリックを盗む行為。「Trife as a rusty knife（さびたナイフのように価値がない）」というビビッドな直喩でワックラッパーを切り捨てる。
+          「Raw（ロウ）」——加工も修飾もない、生のリアリティ。商業的なハードコア演技とは対極にある概念。Gang Starrが体現しようとした真正性の核心語。
         </Fragment>
       </LyricsBlock>
 
       <LyricsBlock hasExplanation={true}>
         <Fragment slot="eng">
-          We <QuickSlang word="represent" desc="自分のコミュニティ・地域・クルーを誇り高く体現・代表する行為。単なる「代表」以上の文化的重みを持つ。" /> Brooklyn to the fullest<br />
-          Delivering rhymes like <QuickSlang word="bullets" desc="弾丸の比喩——鋭く・速く・ストレートなリリックを意味する。1990年代のハードコアHHで頻出のメタファー。" />, we stay <QuickSlang word="cooler than cool" desc="比較を超えたクールさ——「cool」の最上級を自ら作った表現。平常心と卓越したセンスを同時に表す。" />
+          Suckers be like playin' themselves<br />
+          To have <QuickSlang word="mass appeal" desc="大衆受けのために自分を裏切る行為——楽曲の中心テーゼが再び現れる。" />
         </Fragment>
         <Fragment slot="jpn">
-          俺たちはブルックリンをフルでレプリゼント（代表）する<br />
-          バレット（弾丸）のようにライムを撃ち込み、クールの中のクールでいる
+          馬鹿どもは自分自身を演じている<br />
+          大衆受けするために
         </Fragment>
         <Fragment slot="explanation">
-          「Represent Brooklyn to the fullest」——地域的ルーツへの誇りと忠誠は1990年代HHの核心的価値観。「Delivering rhymes like bullets」はラップの武器性の比喩で、攻撃力と精度の両方を示す。「Cooler than cool」は自ら造語する言語センス。
+          「Playing themselves（自分自身を演じる）」——「自分を偽って演技する」というダブルミーニング。マス・アピールのために真の自己を失う行為を端的に射抜く。
         </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          It's a must that I <QuickSlang word="bust" desc="①撃つ（shoot）②吐き出す・放つ（ここではラップを放つ）③突破する。文脈によって多義的に使われる。" /> and I do so with <QuickSlang word="vigor" desc="力強さ・エネルギー・活力。やや硬い英語語彙をフロウに混ぜ込むのがGuruのスタイル。" /><br />
-          My whole <QuickSlang word="steez" desc="style + ease を合わせた造語。自然体でクールなスタイル・立ち振る舞い。" /> is just too live, it's larger than life
-        </Fragment>
-        <Fragment slot="jpn">
-          俺がバスト（放つ）しなければならないのは義務で、バイガー（力強さ）を持ってそうする<br />
-          俺のステーズ（スタイル）はライブすぎる、人生より大きい
-        </Fragment>
-        <Fragment slot="explanation">
-          「Vigor（活力）」という硬い英語語彙をHHフロウに自然に織り込むのがGuru（本名Keith Elam、ニューイングランド出身でモアハウス大学を卒業した高学歴ラッパー）の特徴。「Too live（爆発的にリアル・激しい）」「Larger than life（人生より大きい）」と誇大表現で自己の存在感を示す。
-        </Fragment>
-      </LyricsBlock>
-    </section>
-
-    <!-- ===================== -->
-    <!-- HOOK (REPEAT)         -->
-    <!-- ===================== -->
-    <section class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Hook · Guru
-      </h2>
-
-      <LyricsBlock hasExplanation={false}>
-        <Fragment slot="eng">
-          You gotta be real, represent and have appeal<br />
-          You gotta be real, represent and have appeal
-        </Fragment>
-        <Fragment slot="jpn">
-          リアルでなければならない、代表して、アピールしなければならない<br />
-          リアルでなければならない、代表して、アピールしなければならない
-        </Fragment>
-        <Fragment slot="explanation"></Fragment>
       </LyricsBlock>
     </section>
 
@@ -254,65 +196,44 @@ import SongLayout from '../../layouts/SongLayout.astro';
 
       <LyricsBlock hasExplanation={true} label="★ 真のヒップホップの条件">
         <Fragment slot="eng">
-          <QuickSlang word="Suckers" desc="馬鹿者・カモ・弱い奴。1980年代「sucker MCs」からの伝統語。「Sucker MCs」はRun DMCの1983年デビュー曲タイトルでもある。" /> and <QuickSlang word="herb" desc="弱い・ダメな人間。「herb」は雑草・雑魚という意味で、尊敬されない人物を指すNYスラング。" /> MCs need to fall back<br />
-          You can't match our <QuickSlang word="flavor" desc="スタイル・個性・フィーリングの独自性。ヒップホップにおいて「オリジナルのフレーバー」を持つことは最大の美徳のひとつ。" />, so just <QuickSlang word="dap" desc="①握手・拳を合わせる挨拶（dap up）②敬意を示す動作。ここでは「認めて引き下がれ」というニュアンス。" /> and <QuickSlang word="bounce" desc="去る・その場を離れる。「Let's bounce（行こう）」などで使われる。" />
+          I know I'm <QuickSlang word="dope" desc="最高・素晴らしい・スキルが高い。麻薬（dope）の中毒性になぞらえた褒め言葉。" />, but don't <QuickSlang word="wet that" desc="誇張する・大げさにする。ここでは自慢話に酔いしれないという自制の意味。" /><br />
+          I've suffered setbacks, but now I'm makin' <QuickSlang word="greenbacks" desc="米ドル紙幣の俗称。緑色の裏面から。金を稼いでいるという意味。" />
         </Fragment>
         <Fragment slot="jpn">
-          サッカー（馬鹿者）とハーブ（雑魚）なMCたちは引き下がれ<br />
-          俺たちのフレイバー（個性）にはかなわない、だからダップ（敬礼）してバウンス（去れ）
+          俺がドープ（最高）だとわかってる、でも大げさにするな<br />
+          失敗も重ねてきた、だが今はグリーンバック（金）を稼いでいる
         </Fragment>
         <Fragment slot="explanation">
-          「Sucker MCs」はRun DMCの1983年デビュー曲タイトルに由来するHHの歴史的侮辱語。「Herb（ハーブ）」はNY特有の「雑魚」スラング。「Dap and bounce（敬礼して去れ）」——負けを認めて引き下がれという命令だが、丁寧な礼を添える余裕がGang Starrらしい。
+          バース3で初めて自分の苦労と「成功」を認める。「Setbacks（失敗・後退）」を経ての「greenbacks（金）」——マス・アピールなしで地道に積み上げた成功を証明する構造。
         </Fragment>
       </LyricsBlock>
 
       <LyricsBlock hasExplanation={true}>
         <Fragment slot="eng">
-          I'm not here for the glitter and the <QuickSlang word="glam" desc="glamourの短縮形。華やかさ・派手な見た目の虚飾。ここでは表面だけの商業的成功を指す。" /><br />
-          I'm here to bring the real, the <QuickSlang word="truth" desc="ここでは単なる事実以上に、Five-Percent NationやコンシャスHHの文脈における「ブラックコミュニティの真の知識」を意味する。" /> and the <QuickSlang word="soul" desc="ソウル——黒人音楽の魂の核心概念。ゴスペル・R&Bから引き継がれたスピリチュアルな真正性。" />
+          Word is bond, I go on and on<br />
+          For you, it's tragic, I got magic like wands
         </Fragment>
         <Fragment slot="jpn">
-          俺はグリッターとグラム（虚飾）のためにここにいるんじゃない<br />
-          リアル、トゥルース（真実）、そしてソウル（魂）をもたらすためにここにいる
+          誓いの言葉、俺は延々と続ける<br />
+          お前にとって悲劇だ、俺には杖のような魔法がある
         </Fragment>
         <Fragment slot="explanation">
-          「Not here for the glitter and glam」——MTV時代の華やかなイメージ商業主義への直接拒絶。「Real, truth, soul」という3つの核心価値の宣言はGang Starrのマニフェスト。コンシャス・ラップとハードコアHHの橋渡し地点に立つ彼らのアイデンティティの結晶。
+          「Word is bond（言葉は誓い）」——Five-Percent Nation由来の表現で「約束する・本当のことを言う」の意。Guruがよく使う誠実さの表明。「Magic like wands」はリリシズムの魔法的な力を比喩する。
         </Fragment>
       </LyricsBlock>
 
       <LyricsBlock hasExplanation={true}>
         <Fragment slot="eng">
-          So many <QuickSlang word="clowns" desc="道化・偽物・真剣に取り合う価値のない存在。HHでは能力・誠実さに欠けるラッパーへの蔑称。" /> in this game, it's a shame<br />
-          But Gang Starr will <QuickSlang word="maintain" desc="①維持する②自分のスタンス・スタイル・インテグリティを保ち続ける。ここでは信念を曲げないという決意。" /> and keep it <QuickSlang word="sane" desc="正気・健全。商業主義で「狂った（insane）」業界の中で正気を保つという意味。" />
+          'Cause I be kickin' the real<br />
+          While they be losin' the race, tryin' to chase <QuickSlang word="mass appeal" desc="大衆受けを追い求めるほど本物から遠ざかる——楽曲の最終的なメッセージ。" />
         </Fragment>
         <Fragment slot="jpn">
-          このゲームにはたくさんのクラウン（道化）がいて、恥ずかしい<br />
-          しかしGang Starrはメインテイン（維持）し、セイン（正気）を保ち続ける
+          なぜなら俺はリアルを蹴り出しているから<br />
+          奴らはレースに負けながら、大衆受けを追いかけているだけ
         </Fragment>
         <Fragment slot="explanation">
-          「Clowns（道化）」——真剣に取り合う価値もない偽物ラッパーへの最上級の軽蔑。「Maintain and keep it sane」——「狂った業界」で正気と信念を保ち続けるというGang Starrの宣言で楽曲が締まる。シンプルだが力強い結語。
+          楽曲の結論——「Kickin' the real（リアルを蹴り出す）」vs「Chasin' mass appeal（大衆受けを追いかける）」。追えば追うほど遠ざかる「大衆受け」の皮肉で楽曲を締める完璧な構造。
         </Fragment>
-      </LyricsBlock>
-    </section>
-
-    <!-- ===================== -->
-    <!-- OUTRO                 -->
-    <!-- ===================== -->
-    <section class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Outro
-      </h2>
-
-      <LyricsBlock hasExplanation={false}>
-        <Fragment slot="eng">
-          You gotta be real, represent and have appeal<br />
-          (Gang Starr, we represent)
-        </Fragment>
-        <Fragment slot="jpn">
-          リアルでなければならない、代表して、アピールしなければならない<br />
-          （Gang Starr、俺たちはレプリゼントする）
-        </Fragment>
-        <Fragment slot="explanation"></Fragment>
       </LyricsBlock>
     </section>
 
@@ -328,7 +249,7 @@ import SongLayout from '../../layouts/SongLayout.astro';
         <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">Gang Starr</p>
         <h3 class="font-semibold text-base mb-3">Guru + DJ Premier——ブーンバップの頭脳と心臓</h3>
         <p class="text-[var(--c-muted)] text-sm leading-relaxed">
-          Gang Starrはボストン出身のラッパーGuru（Keith Elam、1961–2010）とヒューストン出身のDJ/プロデューサーDJ Premier（Christopher Martin）による2人組。1989年デビュー以来、<strong class="text-[var(--c-text)]">ジャズのサンプリングとハードコアのビート、知的なリリシズムを融合させた独自のスタイル</strong>でNYヒップホップの中核を担った。Guruはモアハウス大学卒業という異例の学歴を持ちながらストリートの現実を語り、DJ Premierはブレイクビーツとスクラッチを武器に「プリモ（Primo）サウンド」と呼ばれる唯一無二の音響美学を確立した。
+          Gang Starrはボストン出身のラッパーGuru（Keith Elam、1961–2010）とヒューストン出身のDJ/プロデューサーDJ Premier（Christopher Martin）による2人組。1989年デビュー以来、<strong class="text-[var(--c-text)]">ジャズのサンプリングとハードコアのビート、知的なリリシズムを融合させた独自のスタイル</strong>でNYヒップホップの中核を担った。Guruはモアハウス大学卒業という異例の学歴を持ちながらストリートの現実を語り、DJ Premierは「プリモサウンド」と呼ばれる唯一無二の音響美学を確立した。
         </p>
       </div>
 
@@ -345,11 +266,11 @@ import SongLayout from '../../layouts/SongLayout.astro';
         <h3 class="font-semibold text-base mb-3">楽曲を読み解く重要スラング・用語</h3>
         <div class="space-y-3 mt-3">
           {[
-            ['frontin\'', '本来の自分とは異なるイメージを演じること。実力・富・地位を偽るポーズ行為'],
-            ['perpetrate', '「ペープ」とも略す。本物でないのに本物のふりをする。最大のHH侮辱語のひとつ'],
-            ['drop science', 'Five-Percent Nation由来。知識・真実・洞察を共有する行為。Guruの教師的スタンスの源泉'],
-            ['biting', '他者のスタイル・ライム・フロウを盗む行為。ヒップホップ最大のタブー'],
-            ['represent', '自分の地域・クルー・文化を誇りをもって体現する行為。単なる「代表」以上の文化的重み'],
+            ['poser', '本物でないのに本物のふりをする者。ヒップホップ最大の侮辱語のひとつ'],
+            ['raw', '加工・修飾なしの生のリアリティ。真正なヒップホップの核心概念'],
+            ['word is bond', 'Five-Percent Nation由来。言葉は誓いであり、本当のことを言うという宣言'],
+            ['dope', '最高・素晴らしい。麻薬的な中毒性になぞらえた褒め言葉'],
+            ['greenbacks', '米ドル紙幣の俗称。緑色の裏面から来た表現'],
           ].map(([term, desc]) => (
             <div class="flex gap-3 text-sm">
               <span class="text-[var(--c-gold)] shrink-0 font-semibold min-w-[140px]">{term}</span>
@@ -370,25 +291,25 @@ import SongLayout from '../../layouts/SongLayout.astro';
 
       <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
         <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">DJ Premierのサンプリング哲学</p>
-        <h3 class="font-semibold text-base mb-3">「一発でわかる」ジャズとハードコアの融合</h3>
+        <h3 class="font-semibold text-base mb-3">ジャズとハードコアの融合</h3>
         <p class="text-[var(--c-muted)] text-sm leading-relaxed">
-          DJ Premierは「Mass Appeal」のビートにジャズのサンプルとパーカッシブなドラムブレイクを組み合わせ、BPM約92の重厚なグルーヴを作り上げた。<strong class="text-[var(--c-text)]">Premierのサンプリング哲学の核心は「レコードの最高の一瞬を切り取り、新しい文脈で蘇らせること」</strong>。コロンビア大学近くのハーレムのスタジオで深夜に作業し、Guruが翌日リリックを持ってくるという制作スタイルが定番だった。スクラッチをフックに組み込む技法は「Premierスタイル」として後の世代のプロデューサーたちに多大な影響を与えた。
+          DJ Premierは「Mass Appeal」のビートにジャズサンプルとパーカッシブなドラムブレイクを組み合わせ、BPM約92の重厚なグルーヴを作り上げた。<strong class="text-[var(--c-text)]">Premierのサンプリング哲学の核心は「レコードの最高の一瞬を切り取り、新しい文脈で蘇らせること」</strong>。スクラッチをフックに組み込む技法は「Premierスタイル」として後の世代のプロデューサーたちに多大な影響を与えた。
         </p>
       </div>
 
       <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
         <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">Hard to Earn（1994）</p>
-        <h3 class="font-semibold text-base mb-3">「稼ぐのは難しい」——アルバムタイトルが示す哲学</h3>
+        <h3 class="font-semibold text-base mb-3">キャリア最高峰アルバム</h3>
         <p class="text-[var(--c-muted)] text-sm leading-relaxed">
-          4枚目のアルバム『Hard to Earn』（1994年3月）は全米ビルボード5位を記録し、Gang Starrのキャリア最高到達点となった。<strong class="text-[var(--c-text)]">「Hard to Earn（稼ぐのは難しい）」というタイトルは、真のリスペクトと成功は地道な努力と真正性からしか得られないというGuruの信念</strong>を体現。「Mass Appeal」「Moment of Truth」「Mostly tha Voice」など、商業主義批判とセルフアファーメーションが交差する楽曲群がアルバムを貫く一本の哲学的脊柱となっている。
+          4枚目のアルバム『Hard to Earn』（1994年3月）は全米ビルボード5位を記録し、Gang Starrのキャリア最高到達点となった。<strong class="text-[var(--c-text)]">「Hard to Earn（稼ぐのは難しい）」というタイトルは、真のリスペクトと成功は地道な努力と真正性からしか得られないというGuruの信念</strong>を体現。「Mass Appeal」はそのフィロソフィーを最も直接的に語る楽曲として収録された。
         </p>
       </div>
 
       <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
         <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">Guruのリリシズム</p>
-        <h3 class="font-semibold text-base mb-3">「モノトーン・フロウ」という革命</h3>
+        <h3 class="font-semibold text-base mb-3">モノトーン・フロウという革命</h3>
         <p class="text-[var(--c-muted)] text-sm leading-relaxed">
-          Guruのラップスタイルは「monotone（モノトーン）」と評されることが多い——感情を爆発させず、低く落ち着いた声で淡々と事実を語る。しかしこの「冷静さ」こそが武器だった。<strong class="text-[var(--c-text)]">感情的に叫ぶのではなく、冷静な確信で語りかけることで、歌詞の内容がより重みを持つ</strong>。「Mass Appeal」でポーズラッパーを批判する際も声を荒げない——その静かな怒りがかえって圧倒的な説得力を生む。Guru後の世代ではKendrick LamarやRoyceda5'9"にこのスタイルの系譜が見られる。
+          Guruのラップスタイルは「monotone（モノトーン）」と評される——感情を爆発させず、低く落ち着いた声で淡々と事実を語る。しかしこの冷静さこそが武器だった。<strong class="text-[var(--c-text)]">「Mass Appeal」でポーズラッパーを批判する際も声を荒げない——その静かな怒りがかえって圧倒的な説得力を生む。</strong>Guru後の世代ではKendrick LamarやRoyceda5'9"にこのスタイルの系譜が見られる。
         </p>
       </div>
     </section>
@@ -410,9 +331,9 @@ import SongLayout from '../../layouts/SongLayout.astro';
         {[
           ['Hard to Earn', '全米ビルボード5位（1994）', 'Gang Starr最高チャート——商業妥協なしで到達したピーク'],
           ['Mass Appeal シングル', 'MTV Raps・BET放映', '商業主義批判の曲がMTVで流れるという逆説がインパクトを増幅'],
-          ['DJ Premier', '「プリモサウンド」の確立', 'この時期のPremierビートはNas・Biggie・Jay-Zのキャリアにも直接影響'],
-          ['コンシャスラップの系譜', 'Kendrick・J. Cole世代の源流', '「リアルであること」の価値観はこの曲を通じて次世代ラッパーに伝わった'],
-          ['Guru逝去（2010）', '心臓発作のため49歳で死去', '「Mass Appeal」はGuruの信念の遺言として永遠に残る'],
+          ['DJ Premier', 'プリモサウンドの確立', 'この時期のPremierビートはNas・Biggie・Jay-Zのキャリアにも直接影響'],
+          ['コンシャスラップの系譜', 'Kendrick・J. Cole世代の源流', 'リアルであることの価値観はこの曲を通じて次世代ラッパーに伝わった'],
+          ['Guru逝去（2010）', '心臓発作のため49歳で死去', 'Mass Appealはguruの信念の遺言として永遠に残る'],
         ].map(([metric, record, significance]) => (
           <div class="grid grid-cols-3">
             <div class="p-3 border-b border-[var(--c-border)] text-[var(--c-dim)]">{metric}</div>
@@ -424,22 +345,22 @@ import SongLayout from '../../layouts/SongLayout.astro';
 
       <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
         <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">後世への影響</p>
-        <h3 class="font-semibold text-base mb-3">「Real, Represent, Appeal」が変えたもの</h3>
+        <h3 class="font-semibold text-base mb-3">「リアルであること」の系譜</h3>
         <p class="text-[var(--c-muted)] text-sm leading-relaxed mb-4">
-          「Mass Appeal」は単なる楽曲を超えて、ヒップホップにおける「真正性（authenticity）」の議論のリファレンスポイントとなった。DJ Premierのビートはその後もNas「NY State of Mind」、Jay-Z「D'Evils」、Biggie「Unbelievable」など数多くの名曲を手がけ、「プリモ・サウンド」はEast Coast HHの音響的標準となった。
+          「Mass Appeal」は単なる楽曲を超えて、ヒップホップにおける「真正性（authenticity）」の議論のリファレンスポイントとなった。DJ Premierのビートはその後もNas「NY State of Mind」、Jay-Z「D'Evils」など数多くの名曲を手がけ、「プリモサウンド」はEast Coast HHの音響的標準となった。
         </p>
         <ul class="space-y-3 text-sm">
           <li class="flex gap-3">
             <span class="text-[var(--c-gold)] shrink-0">Kendrick Lamar / J. Cole</span>
-            <span class="text-[var(--c-muted)]">「商業主義よりリアリティ」というGuruの哲学は、2010年代のコンシャスラップ復興を担った両者に直接継承された。KendrickはPremierとのコラボも実現。</span>
+            <span class="text-[var(--c-muted)]">「商業主義よりリアリティ」というGuruの哲学は、2010年代のコンシャスラップ復興を担った両者に直接継承された。</span>
           </li>
           <li class="flex gap-3">
-            <span class="text-[var(--c-gold)] shrink-0">Jazzmatazz（ガルの遺産）</span>
-            <span class="text-[var(--c-muted)]">Guruは「Mass Appeal」と並行して「Jazzmatazz」シリーズ（1993–2007）でジャズミュージシャンとのコラボを推進し、ジャズとHHの融合ジャンルを開拓した。</span>
+            <span class="text-[var(--c-gold)] shrink-0">Jazzmatazz（Guruの遺産）</span>
+            <span class="text-[var(--c-muted)]">Guruは「Jazzmatazz」シリーズ（1993–2007）でジャズミュージシャンとのコラボを推進し、ジャズとHHの融合ジャンルを開拓した。</span>
           </li>
           <li class="flex gap-3">
             <span class="text-[var(--c-gold)] shrink-0">DJ Premier Legacy</span>
-            <span class="text-[var(--c-muted)]">2020年代もPremierは現役で、Remy Ma、Royce da 5'9"、Joey Badassらとコラボ。「Mass Appeal」期に確立したクラッシュスクラッチとサンプルチョップの美学は衰えない。</span>
+            <span class="text-[var(--c-muted)]">2020年代もPremierは現役で、Remy Ma、Royce da 5'9"、Joey Badassらとコラボ。Mass Appeal期に確立したスクラッチとサンプルチョップの美学は衰えない。</span>
           </li>
         </ul>
       </div>
@@ -465,9 +386,9 @@ import SongLayout from '../../layouts/SongLayout.astro';
         まとめ
       </h2>
       <ul class="space-y-2 text-sm text-[var(--c-muted)] list-disc list-inside leading-relaxed">
-        <li>DJ Premierがジャズサンプルとハードコアドラムブレイクを融合させたBPM約92の重厚なビート——「プリモサウンド」の真骨頂。</li>
+        <li>DJ Premierがジャズサンプルとハードコアドラムブレイクを融合させたBPM約92の重厚なビート——プリモサウンドの真骨頂。</li>
         <li>Guruのモノトーン・フロウが商業主義ラッパーへの静かな怒りを「叫ばない批判」として昇華——感情を爆発させない確信の説得力。</li>
-        <li>「Real, Represent, Appeal」の3要素はGang Starrのマニフェストであり、1994年ブーンバップが掲げた真正性の旗印。</li>
+        <li>コーラス「Money's growin' like grass with the mass appeal」は皮肉——大衆受けを追えば金は増えるが、魂は失うというGuruのメッセージ。</li>
         <li>Guru（2010年逝去）の知的リリシズムとPremierの不滅のビートメイキングは「Mass Appeal」を時代を超えたアンセムとして刻んだ。</li>
       </ul>
     </section>
