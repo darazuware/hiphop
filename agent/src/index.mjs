@@ -10,12 +10,34 @@
  */
 
 import 'dotenv/config';
-import { mkdir, writeFile, readFile } from 'node:fs/promises';
+import { mkdir, writeFile, readFile, unlink } from 'node:fs/promises';
 import { join } from 'node:path';
 import { getUpdates, sendMessage, parseMessage } from './telegram.mjs';
 import { runResearch, extractMetadata } from './research.mjs';
 import { fetchLyrics } from './genius.mjs';
 import { processAndDeploy } from './processor.mjs';
+
+// 多重起動防止ロック
+const LOCK_FILE = '/tmp/hiphop-agent.lock';
+try {
+  const existing = await readFile(LOCK_FILE, 'utf-8').catch(() => null);
+  if (existing) {
+    const pid = parseInt(existing.trim(), 10);
+    try {
+      process.kill(pid, 0); // プロセスが生きているか確認
+      console.error(`既に起動中 (PID: ${pid})。終了します。`);
+      process.exit(0);
+    } catch {
+      // 古いロックファイル（プロセス死亡済み）→ 続行
+    }
+  }
+  await writeFile(LOCK_FILE, String(process.pid), 'utf-8');
+  process.on('exit', () => unlink(LOCK_FILE).catch(() => {}));
+  process.on('SIGINT', () => process.exit(0));
+  process.on('SIGTERM', () => process.exit(0));
+} catch (e) {
+  console.error(`ロックエラー: ${e.message}`);
+}
 
 /** キューディレクトリ */
 const QUEUE_DIR = '/tmp/hiphop-queue';
