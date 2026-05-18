@@ -122,15 +122,19 @@ import SongLayout from '../../layouts/SongLayout.astro';
 
       <LyricsBlock hasExplanation={true}>
         <Fragment slot="eng">
-          Got me going like General Electric<br />
-          And the lights are blinking, I'm thinking
+          Next get the chair, got me going like General Electric<br />
+          And the lights are blinking, I'm thinking<br />
+          It's all over when I go out drinking<br />
+          Oh, making my mind slow
         </Fragment>
         <Fragment slot="jpn">
-          ゼネラル・エレクトリックのように動かされてる<br />
-          そしてライトが点滅している、俺は考えている
+          次は電気椅子だ、ゼネラル・エレクトリックのように俺を動かしている<br />
+          そしてライトが点滅している、俺は考えているんだ<br />
+          飲みに出かけたらすべて終わりだと<br />
+          ああ、頭の回転が鈍くなっていく
         </Fragment>
         <Fragment slot="explanation">
-          「General Electric（ゼネラル・エレクトリック）」——電気の会社を使って過電流・過負荷状態の脳を比喩する。「Lights are blinking（ライトが点滅）」は精神が限界に達している状態の視覚的表現。
+          「General Electric（ゼネラル・エレクトリック）」——電気の会社を使って過電流・過負荷状態の脳を比喩する。「Lights are blinking（ライトが点滅）」は精神が限界に達している状態の視覚的表現。アルコールで思考が鈍ることを自覚する。
         </Fragment>
       </LyricsBlock>
 
@@ -201,14 +205,16 @@ import SongLayout from '../../layouts/SongLayout.astro';
       <LyricsBlock hasExplanation={true}>
         <Fragment slot="eng">
           I'll <QuickSlang word="jack" desc="強奪する・盗む・乗っ取る。ジャックナイフから来た表現。カージャック・ハイジャックと同語源。" /> your ass like a looter in a riot<br />
-          My shit's fat, like a sumo, slammin' that ass
+          My shit's fat, like a sumo, slammin' that ass<br />
+          Leavin' your face in the grass
         </Fragment>
         <Fragment slot="jpn">
           暴動の略奪者みたいにお前をジャックしてやる<br />
-          俺のラップは相撲取りみたいにデカい、そのケツをスラムしてやる
+          俺のラップは相撲取りみたいにデカい、そのケツをスラムしてやる<br />
+          そしてお前の顔を草に突っ込ませたままにしておく
         </Fragment>
         <Fragment slot="explanation">
-          1992年LAロドニー・キング暴動（「a riot」）への直接言及——Cypress Hillはこの社会的文脈に生きていた。「Fat like a sumo（相撲取りのようにデカい）」は1990年代HHスラングで「サイズ（存在感）が巨大」という褒め言葉。
+          1992年LAロドニー・キング暴動（「a riot」）への直接言及——Cypress Hillはこの社会的文脈に生きていた。「Fat like a sumo（相撲取りのようにデカい）」は1990年代HHスラングで「サイズ（存在感）が巨大」という褒め言葉。相手を徹底的に打ち負かす描写。
         </Fragment>
       </LyricsBlock>
 
@@ -243,16 +249,50 @@ import SongLayout from '../../layouts/SongLayout.astro';
       <LyricsBlock hasExplanation={true}>
         <Fragment slot="eng">
           Punks just jealous 'cause they can't outwrite me<br />
+          Or kick that style, wicked, wild<br />
           Rip that mainframe, I'll explain<br />
           A nigga like me is going insane
         </Fragment>
         <Fragment slot="jpn">
           ポンコツどもは嫉妬してる、俺には書き勝てないから<br />
+          もしくはこのワイルドでヤバいスタイルを蹴り出せないからな<br />
           メインフレームを引き裂いてやる、説明しよう<br />
           俺みたいな奴は狂っていくのさ
         </Fragment>
         <Fragment slot="explanation">
           「Mainframe（メインフレーム）」——コンピュータの中枢処理装置。脳や思考システムのメタファー。「引き裂く」ことで既存の思考パターンを破壊する宣言。コーラスの「Insane in the Brain」へと繋がるバースの締め。
+        </Fragment>
+      </LyricsBlock>
+    </section>
+
+    <!-- ===================== -->
+    <!-- POST-CHORUS           -->
+    <!-- ===================== -->
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        Post-Chorus
+      </h2>
+
+      <LyricsBlock hasExplanation={false}>
+        <Fragment slot="eng">
+          Insane in the brain<br />
+          In the brain (Kinda loco)<br />
+          Insane in the brain<br />
+          In the brain (Kinda loco)<br />
+          Insane in the brain<br />
+          In the brain— insane— (Kinda loco)<br />
+          Insane in the brain<br />
+          Yeah, here we go (Gunshot me head back)
+        </Fragment>
+        <Fragment slot="jpn">
+          脳みそがイカれてる<br />
+          脳みその中が（少しクレイジーだ）<br />
+          脳みそがイカれてる<br />
+          脳みその中が（少しクレイジーだ）<br />
+          脳みそがイカれてる<br />
+          脳みその中が—狂ってる—（少しクレイジーだ）<br />
+          脳みそがイカれてる<br />
+          ああ、行くぜ（銃声が頭に響く）
         </Fragment>
       </LyricsBlock>
     </section>
@@ -268,11 +308,13 @@ import SongLayout from '../../layouts/SongLayout.astro';
       <LyricsBlock hasExplanation={true} label="★ マリファナと警察への抵抗">
         <Fragment slot="eng">
           Like Louie Armstrong played the trumpet<br />
-          I'll hit that <QuickSlang word="bong" desc="水パイプ式のマリファナ喫煙器具。ガラス製で水を通すことで煙を冷やす。Cypress Hillが多用する語彙のひとつ。" /> and break you off something
+          I'll hit that <QuickSlang word="bong" desc="水パイプ式のマリファナ喫煙器具。ガラス製で水を通すことで煙を冷やす。Cypress Hillが多用する語彙のひとつ。" /> and break you off something<br />
+          Soon, I got to get my props
         </Fragment>
         <Fragment slot="jpn">
           ルイ・アームストロングがトランペットを吹くように<br />
-          俺はボング（水パイプ）をヒットして、お前に何かをもたらしてやる
+          俺はボング（水パイプ）をヒットして、お前に何かをもたらしてやる<br />
+          近いうちに、俺は正当な評価（プロップス）を得るはずさ
         </Fragment>
         <Fragment slot="explanation">
           「Like Louie Armstrong played the trumpet」——ジャズの偉大な芸術家になぞらえて、マリファナを吸う行為を芸術的実践として格上げする。楽器演奏とボング使用を同等視するこの比喩は、Cypress Hillのマリファナ解放論の詩的核心。
@@ -312,14 +354,16 @@ import SongLayout from '../../layouts/SongLayout.astro';
       <LyricsBlock hasExplanation={true}>
         <Fragment slot="eng">
           Yes, I'm the pirate, pilot<br />
-          Of this ship if I get with the <QuickSlang word="ultraviolet dream" desc="紫外線の夢。可視光線を超えた領域の比喩——通常の意識や認識を超えたサイケデリックな精神状態、またはマリファナで拡張された意識の隠喩として機能する。" />
+          Of this ship if I get with the <QuickSlang word="ultraviolet dream" desc="紫外線の夢。可視光線を超えた領域の比喩——通常の意識や認識を超えたサイケデリックな精神状態、またはマリファナで拡張された意識の隠喩として機能する。" /><br />
+          Hide from the red light beam
         </Fragment>
         <Fragment slot="jpn">
           そう、俺は海賊であり、パイロットだ<br />
-          アルトラヴァイオレット・ドリーム（紫外線の夢）に入れば、この船の操縦者
+          アルトラヴァイオレット・ドリーム（紫外線の夢）に入れば、この船の操縦者<br />
+          赤い光線（パトカーのサイレンやレーザー）から身を隠す
         </Fragment>
         <Fragment slot="explanation">
-          「Pirate, pilot（海賊とパイロット）」——法の外で動く海賊と航空機を操るパイロットを同時に自称する矛盾した二重性がB-Realのキャラクター。「Ultraviolet dream（紫外線の夢）」は可視光線を超えた領域——通常の認識を超えたマリファナ的意識状態の詩的比喩。「Insane in the Brain」タイトルの意識拡張テーマが最も詩的な形で現れる一節。
+          「Pirate, pilot（海賊とパイロット）」——法の外で動く海賊と航空機を操るパイロットを同時に自称する矛盾した二重性がB-Realのキャラクター。「Ultraviolet dream（紫外線の夢）」は可視光線を超えた領域。「Red light beam」は警察を想起させる。
         </Fragment>
       </LyricsBlock>
 
@@ -336,6 +380,38 @@ import SongLayout from '../../layouts/SongLayout.astro';
         </Fragment>
         <Fragment slot="explanation">
           「Do you believe in the unseen?（見えないものを信じるか？）」——宗教的な問いかけをラップに持ち込むB-Realの知的側面。マリファナで開かれた意識から見える「見えない真実」への言及。「Look, but don't make your eyes strain（見てくれ、でも目を疲らせるな）」という逆説的な招待でバース3を締め、コーラスへと繋げる。
+        </Fragment>
+      </LyricsBlock>
+    </section>
+
+    <!-- ===================== -->
+    <!-- OUTRO                 -->
+    <!-- ===================== -->
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        Outro
+      </h2>
+
+      <LyricsBlock hasExplanation={false}>
+        <Fragment slot="eng">
+          Insane in the brain<br />
+          Kinda loco<br />
+          Insane in the brain<br />
+          Kinda loco<br />
+          Insane in the brain<br />
+          Kinda loco<br />
+          Insane in the brain<br />
+          Kinda loco
+        </Fragment>
+        <Fragment slot="jpn">
+          脳みそがイカれてる<br />
+          少しクレイジーだ<br />
+          脳みそがイカれてる<br />
+          少しクレイジーだ<br />
+          脳みそがイカれてる<br />
+          少しクレイジーだ<br />
+          脳みそがイカれてる<br />
+          少しクレイジーだ
         </Fragment>
       </LyricsBlock>
     </section>
