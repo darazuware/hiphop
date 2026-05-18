@@ -6,7 +6,7 @@
  */
 
 import { spawn } from 'node:child_process';
-import { readFile, rename } from 'node:fs/promises';
+import { readFile, rename, writeFile, unlink } from 'node:fs/promises';
 
 /** hiphop プロジェクトのルートパス */
 const HIPHOP_CWD = '/Users/ktamatzmoto/Desktop/hiphop';
@@ -67,22 +67,20 @@ ${jsonPath}
 4. src/data/artists.ts を確認し、artistSlugが未登録なら追加
 5. git add → git commit → git push`;
 
+    // プロンプトを一時ファイルに書いてbash -l経由で渡す（LaunchAgent環境対応）
+    const promptFile = `/tmp/hiphop-prompt-${Date.now()}.txt`;
+    await writeFile(promptFile, prompt, 'utf-8');
+
     console.log('  [Claude] CLI 実行中...');
 
     const result = await new Promise((resolve) => {
-      const child = spawn(
-        CLAUDE_BIN,
-        ['--print', '--permission-mode', 'acceptEdits', '--dangerously-skip-permissions'],
-        {
-          cwd: HIPHOP_CWD,
-          env: { ...process.env },
-          stdio: ['pipe', 'pipe', 'pipe'],
-        }
-      );
-
-      // プロンプトをstdinで渡す
-      child.stdin.write(prompt, 'utf-8');
-      child.stdin.end();
+      // bash -l でログインシェル経由実行 → ユーザー環境変数・PATHを完全に読み込む
+      const shellCmd = `cat ${promptFile} | ${CLAUDE_BIN} --print --permission-mode acceptEdits --dangerously-skip-permissions`;
+      const child = spawn('/bin/bash', ['-l', '-c', shellCmd], {
+        cwd: HIPHOP_CWD,
+        env: { ...process.env, HOME: '/Users/ktamatzmoto' },
+        stdio: ['inherit', 'pipe', 'pipe'],
+      });
 
       let stdout = '';
       let stderr = '';
@@ -115,6 +113,9 @@ ${jsonPath}
         resolve({ success: false, output: '', error: err.message });
       });
     });
+
+    // 一時ファイル削除
+    unlink(promptFile).catch(() => {});
 
     return result;
   } catch (error) {
