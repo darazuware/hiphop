@@ -54,6 +54,11 @@ export async function processAndDeploy(jsonPath) {
     const enriched = { ...data, amazonLink, slug, imagePath: `/images/covers/${slug}.jpg` };
     await writeFile(jsonPath, JSON.stringify(enriched, null, 2), 'utf-8');
 
+    // 歌詞ファイルを作成する（check-lyrics-coverage.mjs が利用するため）
+    if (enriched.lyrics) {
+      await writeFile(`/tmp/lyrics-${slug}.txt`, enriched.lyrics, 'utf-8');
+    }
+
     console.log('  [Processor] watcher経由でClaude CLI実行中...');
     const result = await runClaude(jsonPath);
 
