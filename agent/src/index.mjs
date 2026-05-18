@@ -13,7 +13,7 @@ import 'dotenv/config';
 import { mkdir, writeFile, readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { getUpdates, sendMessage, parseMessage } from './telegram.mjs';
-import { runResearch } from './research.mjs';
+import { runResearch, extractMetadata } from './research.mjs';
 import { fetchLyrics } from './genius.mjs';
 import { processAndDeploy } from './processor.mjs';
 
@@ -69,6 +69,16 @@ async function processSong(song, chatId) {
     await sendMessage(`❌ リサーチ失敗: ${error.message}`, chatId);
     return;
   }
+
+  // リサーチ結果から正式名称・年号を抽出（表記揺れ補正・年自動取得）
+  console.log('[Step 1b] メタデータ抽出...');
+  const meta = await extractMetadata(research, song);
+  if (meta.artist !== song.artist || meta.title !== song.title || meta.year !== song.year) {
+    console.log(`  補正: "${song.artist} - ${song.title}" → "${meta.artist} - ${meta.title} [${meta.year}]"`);
+  }
+  song.artist = meta.artist;
+  song.title = meta.title;
+  song.year = meta.year ?? song.year;
 
   // 2. Genius 歌詞取得
   console.log('[Step 2/4] Genius 歌詞取得...');

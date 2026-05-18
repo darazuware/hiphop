@@ -112,6 +112,41 @@ export async function runResearch(song) {
   }
 }
 
+/**
+ * リサーチ結果から正式なメタデータを抽出する
+ * アーティスト名の表記揺れ補正・年号自動取得に使用
+ * @param {string} researchText
+ * @param {{ artist: string, title: string }} hint - ユーザー入力（フォールバック用）
+ * @returns {Promise<{ artist: string, title: string, year: number|null }>}
+ */
+export async function extractMetadata(researchText, hint) {
+  const prompt = `以下のリサーチ結果から楽曲の正確なメタデータを抽出してください。
+
+ユーザー入力: ${hint.artist} - ${hint.title}
+
+リサーチ結果（先頭3000文字）:
+${researchText.slice(0, 3000)}
+
+以下のJSON形式のみで返答してください（コードブロック・説明不要）:
+{"artist":"正式なアーティスト名","title":"正式な曲名","year":1994}`;
+
+  try {
+    const response = await client.models.generateContent({
+      model: 'gemini-2.5-flash',
+      contents: prompt,
+    });
+    const text = (response.text || '').trim().replace(/```[a-z]*\n?/g, '').replace(/```/g, '');
+    const parsed = JSON.parse(text);
+    return {
+      artist: parsed.artist || hint.artist,
+      title: parsed.title || hint.title,
+      year: typeof parsed.year === 'number' ? parsed.year : null,
+    };
+  } catch {
+    return { artist: hint.artist, title: hint.title, year: null };
+  }
+}
+
 /** @param {number} ms */
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
