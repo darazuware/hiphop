@@ -12,9 +12,32 @@
 
 import { readFile, writeFile } from 'node:fs/promises';
 import { access } from 'node:fs/promises';
+import { execSync, spawnSync } from 'node:child_process';
 
 const HIPHOP_CWD = '/Users/ktamatzmoto/Desktop/hiphop';
+const WATCHER_SCRIPT = '/Users/ktamatzmoto/Desktop/hiphop/agent/src/watcher.mjs';
 const TIMEOUT_MS = 15 * 60 * 1000; // 15分
+
+function isWatcherRunning() {
+  try {
+    const result = execSync('pgrep -f "watcher.mjs"', { encoding: 'utf-8' });
+    return result.trim().length > 0;
+  } catch {
+    return false;
+  }
+}
+
+async function ensureWatcher() {
+  if (isWatcherRunning()) return;
+  console.log('  [Claude] watcherが停止中 → Terminal起動中...');
+  const appleScript = `tell application "Terminal"
+    do script "node ${WATCHER_SCRIPT}"
+    activate
+  end tell`;
+  spawnSync('osascript', ['-e', appleScript]);
+  await sleep(4000); // watcher起動待ち
+  console.log('  [Claude] watcher起動完了');
+}
 
 /**
  * @param {string} jsonPath
@@ -60,6 +83,10 @@ ${jsonPath}
 5. git add → git commit → git push`;
 
   await writeFile(promptFile, prompt, 'utf-8');
+
+  // watcherが動いていなければTerminalで自動起動
+  await ensureWatcher();
+
   // triggerファイルにpromptFileパスを書く（watcherが読む）
   await writeFile(triggerFile, promptFile, 'utf-8');
 
