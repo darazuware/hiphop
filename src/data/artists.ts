@@ -98,6 +98,15 @@ export const artists = [
     summary: 'クイーンズ出身のQ-Tip、Phife Dawg、Ali Shaheed Muhammad、Jarobi Whiteによる4人組。Native Tonguesコレクティブの中核として、ジャズのサンプリング・アフロセントリズム・知的な詩性でヒップホップの黄金時代を定義した。「Electric Relaxation」「Check the Rhime」「Can I Kick It?」など多数の名曲を残した。Phife Dawgは2016年3月に糖尿病の合併症で死去。',
     japan: '「Electric Relaxation」「Bonita Applebum」はLoFi Hip-Hopの源流として日本の若いリスナーにも再発見されている。Phife Dawgの死はビーツを愛する日本のヒップホップコミュニティにも深い悲しみをもたらした。Native Tonguesの「知性とチル」の哲学は日本のアンダーグラウンドHIPHOPシーンに多大な影響を与えている。',
   },
+  {
+    slug: 'de-la-soul',
+    name: 'De La Soul',
+    origin: 'Long Island, New York',
+    active: '1987–2023',
+    genre: 'East Coast Hip-Hop / Alternative Hip-Hop / Jazz Rap',
+    summary: 'Posdnous、Trugoy the Dove、Maseoによるロングアイランド出身のトリオ。1989年デビュー作『3 Feet High and Rising』でヒッピー的ポジティヴィティと実験的サンプリングでヒップホップを革新。Native Tonguesコレクティブの中核として知性派HHを牽引し、1996年「Stakes Is High」ではJ Dillaと組んで商業主義・暴力への痛烈な批判を放った。Trugoy the Dove（Dave Jolicoeur）は2023年2月に心不全で死去。',
+    japan: 'スチャダラパーやBUDDHA BRANDら日本語ラップ黄金期のアーティストが参照した知性派HHの源流として、日本のアンダーグラウンドHIPHOPシーンに深い影響を与えた。長年の権利問題でデジタル解禁がされていなかったが2023年に全カタログがストリーミング解禁され、改めて再評価が進んでいる。',
+  },
 ] as const;
 
 export type Artist = typeof artists[number];
