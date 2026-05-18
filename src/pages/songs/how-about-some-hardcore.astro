@@ -54,6 +54,17 @@ import SongLayout from '../../layouts/SongLayout.astro';
         Verse 1 · Billy Danze
       </h2>
 
+      <LyricsBlock hasExplanation={false}>
+        <Fragment slot="eng">
+          How about some hardcore?<br />
+          (Yeah, we like it raw in the streets)
+        </Fragment>
+        <Fragment slot="jpn">
+          ハードコアなのはどうだい？<br />
+          （ああ、ストリートでは生（ロウ）なのが好きだぜ）
+        </Fragment>
+      </LyricsBlock>
+
       <LyricsBlock hasExplanation={true} label="★ The Hillへの侵入者への警告">
         <Fragment slot="eng">
           For the fellas on the corner posted up 20 deep<br />
@@ -137,9 +148,20 @@ import SongLayout from '../../layouts/SongLayout.astro';
         Verse 2 · Lil' Fame
       </h2>
 
+      <LyricsBlock hasExplanation={false}>
+        <Fragment slot="eng">
+          How about some hardcore?<br />
+          (Yeah, we like it rugged in the ghetto)
+        </Fragment>
+        <Fragment slot="jpn">
+          ハードコアなのはどうだい？<br />
+          （ああ、ゲットーではラギッド（粗削り）なのが好きだぜ）
+        </Fragment>
+      </LyricsBlock>
+
       <LyricsBlock hasExplanation={true} label="★ スリングショットから重火器へ——成長と危険の増大">
         <Fragment slot="eng">
-          I used to pack sling shots, but now I'm packin <QuickSlang word="heavy metal" desc="文字通りの「重い金属（重火器・大型の銃）」と、音楽ジャンルの「ヘヴィ・メタル」を掛けたダブルミーニング。自分のラップが極めてアグレッシブであることも示す" /><br />
+          I used to pack slingshots, but now I'm packin <QuickSlang word="heavy metal" desc="文字通りの「重い金属（重火器・大型の銃）」と、音楽ジャンルの「ヘヴィ・メタル」を掛けたダブルミーニング。自分のラップが極めてアグレッシブであることも示す" /><br />
           A rugged underground freestyler<br />
           Is Li'l Fame, muthafucka, slap, Li'l Mallet<br />
           When I let off, it's a burning desire<br />
@@ -195,9 +217,13 @@ import SongLayout from '../../layouts/SongLayout.astro';
       <LyricsBlock hasExplanation={false}>
         <Fragment slot="eng">
           How about some hardcore? (Yeah, we like it raw!)<br />
+          How about some hardcore? (Yeah, we like it raw!)<br />
+          How about some hardcore? (Yeah, we like it raw!)<br />
           How about some hardcore? (Yeah, we like it raw!)
         </Fragment>
         <Fragment slot="jpn">
+          ハードコアなのはどうだい？（ああ、俺たちは生（ロウ）なのが好きだぜ！）<br />
+          ハードコアなのはどうだい？（ああ、俺たちは生（ロウ）なのが好きだぜ！）<br />
           ハードコアなのはどうだい？（ああ、俺たちは生（ロウ）なのが好きだぜ！）<br />
           ハードコアなのはどうだい？（ああ、俺たちは生（ロウ）なのが好きだぜ！）
         </Fragment>
@@ -205,11 +231,94 @@ import SongLayout from '../../layouts/SongLayout.astro';
     </section>
 
     <!-- ===================== -->
-    <!-- OUTRO                 -->
+    <!-- VERSE 3               -->
+    <!-- ===================== -->
+    <section id="verse3" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        Verse 3 · Billy Danze
+      </h2>
+
+      <LyricsBlock hasExplanation={true} label="★ Billy Danzeの自己証明——B-i-l-l-y D-a-n-z-e">
+        <Fragment slot="eng">
+          Yo, here I am (So what up?) Get it on, cocksucker<br />
+          That nigga Bill seem to be a ill black brother<br />
+          I gets dough from the way I flow<br />
+          And before I go<br />
+          You muthafuckas gonna know<br />
+          That I ain't nothin to fuck with - duck quick<br />
+          I squeeze when I'm stressed<br />
+          Them teflons'll tear through your vest<br />
+          I love a bloodbath (niggas know the half)<br />
+          You can feel the wrath (Saratoga/St. Marks Ave.)<br />
+          B-i-l-l-y D-a-n-z-e<br />
+          N-i-e, me, Billy Danzenie<br />
+          (Knock, knock) Who's there? (Lil' Fame)<br />
+          Lil' Fame who? (Lil' Fame, your nigga)<br />
+          Boom! Ease up off the trigger<br />
+          It's aight, me and shorty go to gunfights<br />
+          Together we bring the ruckus, right?<br />
+          We trump tight, aight?<br />
+          I earned mine, so I'm entitled to a title<br />
+          (7 fuckin' 30) that means I'm <QuickSlang word="homicidal" desc="「7:30」はニューヨークのスラングで「完全にイカれてる、狂ってる」を意味する。7時30分＝ハーフ（半分）で正気ではないという意味。homicidal（殺人的）と組み合わせて、自分が危険なほど狂っていると誇示する" />
+        </Fragment>
+        <Fragment slot="jpn">
+          ヨォ、俺はここにいるぜ（だからどうした？）やってやろうじゃないか、クソ野郎<br />
+          Billことあいつはヤバいブラックブラザーだってことがわかるだろ<br />
+          俺はフロウで金を稼ぐ<br />
+          俺が去る前に<br />
+          お前らマザファッカどもに知らしめてやる<br />
+          俺はナメちゃいけない相手だ——さっさと避けろ<br />
+          俺はストレスを受けたら引き金を絞る<br />
+          テフロン弾がお前の防弾ベストを貫き通す<br />
+          俺は血まみれの戦いが大好きだ（奴らはその半分を知っている）<br />
+          お前はその怒りを感じるだろう（サラトガ通り／セント・マークス通り）<br />
+          B-i-l-l-y D-a-n-z-e<br />
+          N-i-e、俺だ、ビリー・ダンゼニー<br />
+          （コンコン）誰だ？（リル・フェイム）<br />
+          誰のリル・フェイム？（お前のダチのリル・フェイムだよ）<br />
+          ドン！引き金から手を離せ<br />
+          大丈夫だ、俺とショーティは銃撃戦に一緒に行く<br />
+          一緒に騒動を巻き起こすよな？<br />
+          俺たちは固い絆で結ばれてる、そうだよな？<br />
+          俺は自分のものを稼いだ、だからタイトルを手にする資格がある<br />
+          （7時30分）つまり俺は殺人衝動に駆られてるってことだ
+        </Fragment>
+        <Fragment slot="explanation">
+          「Saratoga/St. Marks Ave.」はMVの撮影地であり彼らの地元ブラウンズヴィルの交差点。名前をスペルアウトする「B-i-l-l-y D-a-n-z-e」のラインはコール＆レスポンスを意図した鮮やかな演出。「テフロン弾（teflons）」は1990年代のストリートで恐れられた防弾ベスト貫通弾。「7:30（seven thirty）」はNYスラングで「時計の短針と長針が真反対を指す＝半分狂ってる」を意味し、そこに「homicidal（殺人的）」を組み合わせることで最大限の狂気を表現している。
+        </Fragment>
+      </LyricsBlock>
+    </section>
+
+    <!-- ===================== -->
+    <!-- HOOK 4                -->
     <!-- ===================== -->
     <section class="mb-12">
       <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Outro · Lil' Fame
+        Hook · M.O.P.
+      </h2>
+
+      <LyricsBlock hasExplanation={false}>
+        <Fragment slot="eng">
+          How about some hardcore? (Yeah, we like it raw!)<br />
+          How about some hardcore? (Yeah, we like it raw!)<br />
+          How about some hardcore? (Yeah, we like it raw!)<br />
+          How about some hardcore? (Yeah, we like it raw!)
+        </Fragment>
+        <Fragment slot="jpn">
+          ハードコアなのはどうだい？（ああ、俺たちは生（ロウ）なのが好きだぜ！）<br />
+          ハードコアなのはどうだい？（ああ、俺たちは生（ロウ）なのが好きだぜ！）<br />
+          ハードコアなのはどうだい？（ああ、俺たちは生（ロウ）なのが好きだぜ！）<br />
+          ハードコアなのはどうだい？（ああ、俺たちは生（ロウ）なのが好きだぜ！）
+        </Fragment>
+      </LyricsBlock>
+    </section>
+
+    <!-- ===================== -->
+    <!-- VERSE 4 (OUTRO)       -->
+    <!-- ===================== -->
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        Verse 4 · Lil' Fame
       </h2>
 
       <LyricsBlock hasExplanation={true}>
@@ -217,24 +326,48 @@ import SongLayout from '../../layouts/SongLayout.astro';
           Yo, I scream on niggas like a rollercoaster<br />
           To them wack muthafuckas, go hang it up like a poster<br />
           Niggas get excited, but don't excite me<br />
-          Don't invite me, I'm splittin niggas' heads where the white be<br />
+          Don't invite me, I'm splittin niggas' heads to the white meat<br />
           Try to trash this, this little bastard'll blast it<br />
           Only puttin niggas in comas and caskets<br />
-          I ain't a phoney, I put the 'mack' in a... (Fades out)<br />
-          Yo, here I am (So what up?)
+          I ain't a phony, I put the 'mack' in the -roni<br />
+          I leave you lonely (Yeah, yeah, get on his ass, homie)<br />
+          Up in your anus, I pack steel that's stainless<br />
+          We came to claim this, and Li'l Fame'll make you famous<br />
+          I mack hoes, rock shows and stack dough<br />
+          Cause I'm in effect, knockin muthafuckas like five-o<br />
+          I'm catchin other niggas peepin', shit, I ain't sleepin<br />
+          I roll deep like a muthafuckin' Puerto-Rican<br />
+          So when I write my competition looks sadly<br />
+          For broke-ass niggas I make it happen like Mariah Carey<br />
+          I got shit for niggas that roll bold<br />
+          Li'l Fame is like a orthopedic shoe, I got mad soul<br />
+          I'mma kill em before I duck em<br />
+          Because yo, mother made em, mother had em and muthafuck em
         </Fragment>
         <Fragment slot="jpn">
           ヨォ、俺はジェットコースターに乗ってるみたいに野郎どもに向かって絶叫するぜ<br />
           あのワック（ダサい）なマザファッカどもへ、ポスターみたいに首を吊ってな（引退しろ）<br />
           奴らは興奮してるが、俺を興奮させることはできない<br />
-          俺を招待するなよ、俺は白く見えるところまで奴らの頭をカチ割るからな<br />
+          俺を招待するなよ、俺は奴らの頭を白い肉が見えるまでかち割るからな<br />
           これをゴミ扱いしてみろ、この小さなクソガキ（俺）がぶっ放してやる<br />
           野郎どもを昏睡状態（コーマ）か棺桶（カスケット）にぶち込むだけだ<br />
-          俺は偽物（フォニー）じゃねえ、俺はマック（MAC-10機関銃）を... (フェードアウト)<br />
-          ヨォ、俺はここにいるぜ（だからどうした？）
+          俺は偽物（フォニー）じゃねえ、マカロニの「マック」は俺が入れたんだ<br />
+          お前を孤独にしてやる（イェー、そうだ、ホーミー）<br />
+          お前のケツの穴に、ステンレスの鉄（銃）をぶち込む<br />
+          俺たちはここを制圧しに来た、そしてリル・フェイムがお前を有名にしてやる<br />
+          俺はビッチを引き寄せ、ショーをぶちかまし、金を積み上げる<br />
+          なぜなら俺は絶好調だ、マザファッカどもを五郎（警察）みたいにぶっ倒す<br />
+          他の奴らが覗いてるのを捕まえる、クソッ、俺は眠らない<br />
+          俺はプエルトリカンのように深く（大人数で）動く<br />
+          俺がライムを書くと、競合相手は悲しそうな顔をする<br />
+          金のない奴らのために、俺はマライア・キャリーみたいにやり遂げる<br />
+          大胆に動く野郎どもには俺のやり方がある<br />
+          リル・フェイムは整形靴みたいなもんだ、俺は超ソウルフルだぜ<br />
+          避ける前に奴らを殺してやる<br />
+          なぜなら、母親が産んで、母親が育てて、それでもマザーファックしてやる
         </Fragment>
         <Fragment slot="explanation">
-          「scream on niggas like a rollercoaster」はM.O.P.の代名詞である「怒鳴り散らすようなラップ・スタイル（Shout Rap）」を自ら的確に言語化した歴史的パンチライン。「mack」はピンプ（Pimp）の意味とMAC-10サブマシンガンのダブルミーニング。最後まで言葉を言い切らずにビートが消え、不敵な「Yo, here I am (So what up?)」で締めくくる演出は、ストリートでのサバイバルが音楽の枠を超えてまだ続いていることを暗示している。
+          「scream on niggas like a rollercoaster」はM.O.P.の代名詞である「怒鳴り散らすようなラップ・スタイル（Shout Rap）」を自ら的確に言語化した歴史的パンチライン。「Li'l Fame is like a orthopedic shoe, I got mad soul」はsole（靴底）とsoul（魂）の発音の一致を利用した見事なダブルミーニング。「muthafuck em」という最後の一言で曲を締めくくる、一切の慈悲を排した東海岸ハードコアの純粋な結晶。
         </Fragment>
       </LyricsBlock>
     </section>
