@@ -22,6 +22,7 @@ export const songs = [
   { slug: '/songs/mass-appeal', title: 'Mass Appeal', subtitle: 'DJ Premier Produced · 1994', artists: 'Gang Starr', tag: 'DJ Premier神業ビート', era: '90s前半', region: 'NY', producer: 'DJ Premier', bpm: 92, sample: 'Various Jazz samples', album: 'Hard to Earn', mbid: null, artistSlug: 'gang-starr', asin: null, pubDate: '2026-05-18' },
   { slug: '/songs/insane-in-the-brain', title: 'Insane in the Brain', subtitle: 'DJ Muggs Produced · 1993', artists: 'Cypress Hill', tag: 'ラテン×HHのパイオニア', era: '90s前半', region: 'LA', producer: 'DJ Muggs', bpm: 96, sample: 'Sly & The Family Stone "Trip to Your Heart" (1971)', album: 'Black Sunday', mbid: null, artistSlug: 'cypress-hill', asin: null, pubDate: '2026-05-18' },
   { slug: '/songs/dear-mama', title: 'Dear Mama', subtitle: 'Tony Pizarro Produced · 1995', artists: '2Pac', tag: 'ヒップホップ最高の母への愛', era: '90s後半', region: 'LA', producer: 'Tony Pizarro', bpm: 82, sample: 'Joe Sample "In All My Wildest Dreams" (1978)', album: 'Me Against the World', mbid: null, artistSlug: '2pac', asin: null, pubDate: '2026-05-18' },
+  { slug: '/songs/juice-know-the-ledge', title: "Juice (Know The Ledge)", subtitle: 'Rakim / The Bomb Squad Produced · 1992', artists: 'Eric B. & Rakim', tag: 'ゴールデンエイジの至宝', era: '90s前半', region: 'NY', producer: 'Rakim / Hank Shocklee & Gary G-Wiz', bpm: 116, sample: 'Nat Adderley "Rise, Sally, Rise" (1968)', album: "Don't Sweat the Technique / Juice OST", mbid: null, artistSlug: 'eric-b-and-rakim', asin: null, pubDate: '2026-05-18' },
 ] as const;
 
 export const ranking = [

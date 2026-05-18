@@ -180,6 +180,15 @@ export const artists = [
     japan: 'B-Realの独特のナザル・ヴォイスと「Insane in the Brain」のフレーズは日本でも広く知られ、マリファナ文化・反体制のアイコンとして90年代から日本のアンダーグラウンドHIPHOPシーンに影響を与えた。',
   },
   {
+    slug: 'eric-b-and-rakim',
+    name: 'Eric B. & Rakim',
+    origin: 'Elmhurst, Queens, New York',
+    active: '1985–1992',
+    genre: 'East Coast Hip-Hop / Golden Age Hip-Hop',
+    summary: 'DJのエリックB.（Eric Barrier）とMCのラキム（William Griffin Jr.）による2人組。1987年デビュー作『Paid in Full』でヒップホップのMCスキル・サンプリング美学・ビートメイキングの全てを革命した。ラキムは「史上最も偉大なラッパー」に繰り返し選出され、内省的・哲学的なフロウとFive-Percent Nationの思想で1990年代以降の全てのリリシストに影響を与えた。1992年『Don\'t Sweat the Technique』リリース後に解散。',
+    japan: '「Juice (Know The Ledge)」は日本のストリートダンスバトルの定番アンセムとして定着。BUDDHA BRANDのDEV LARGEがラキムのリリックを直接引用・サンプリングし、THA BLUE HERBのILL-BOSSTINOも「KNOW THE LEDGE」を引用するなど、日本語ラップのリリシズムの源流として絶大な影響を持つ。',
+  },
+  {
     slug: '2pac',
     name: '2Pac',
     origin: 'East Harlem, New York (raised in Baltimore & Marin City, CA)',
