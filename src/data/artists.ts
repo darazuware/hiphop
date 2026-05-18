@@ -189,6 +189,15 @@ export const artists = [
     japan: '「Juice (Know The Ledge)」は日本のストリートダンスバトルの定番アンセムとして定着。BUDDHA BRANDのDEV LARGEがラキムのリリックを直接引用・サンプリングし、THA BLUE HERBのILL-BOSSTINOも「KNOW THE LEDGE」を引用するなど、日本語ラップのリリシズムの源流として絶大な影響を持つ。',
   },
   {
+    slug: 'big-pun',
+    name: 'Big Pun',
+    origin: 'South Bronx, New York',
+    active: '1995–2000',
+    genre: 'East Coast Hip-Hop / Mafioso Rap',
+    summary: '本名Christopher Lee Rios（1971–2000）。ブロンクス出身のプエルトリコ系ラッパー。1998年デビューアルバム『Capital Punishment』でラテン系ソロラッパー史上初のRIAAプラチナ認定を獲得。複雑な多音節内部韻と映画的ストーリーテリングで「史上最も技術的なラッパー」のひとりに挙げられ続ける。Fat Joeが率いるTerror Squadの主要メンバー。2000年2月7日、28歳にて肥満に起因する心不全で急逝。',
+    japan: '渋谷Club HARLEMなど東京のヒップホップシーンでも深く追悼され、Tats CruによるBig Pun追悼壁画の写真がイベントパンフレットに掲載されるなど、夭折した「ブロンクスの伝説」として神格化されている。「Little Italy」パンチラインは日本のリリシスト界でも「到達不能の基準」として繰り返し引用される。',
+  },
+  {
     slug: '2pac',
     name: '2Pac',
     origin: 'East Harlem, New York (raised in Baltimore & Marin City, CA)',
