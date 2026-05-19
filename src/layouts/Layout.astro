@@ -122,7 +122,18 @@ const resolvedSchema = schema ?? defaultSchema;
   <script is:inline>!function(){var t=localStorage.getItem('hh-theme')||'auto';document.documentElement.setAttribute('data-theme',t)}()</script>
 </head>
 <body class="bg-[var(--c-bg)] text-[var(--c-text)] min-h-screen">
-  <ThemeToggle />
+  <header class="sticky top-0 z-50 bg-[var(--c-bg)]/90 backdrop-blur-sm border-b border-[var(--c-border)]">
+    <div class="max-w-2xl mx-auto px-4 h-11 flex items-center justify-between gap-2">
+      <a href="/" class="font-mono text-sm text-[var(--c-gold)] hover:opacity-75 transition-opacity">WAX&amp;THINK</a>
+      <div class="flex items-center gap-2">
+        <a href="/" class="text-[var(--c-muted)] hover:text-[var(--c-gold)] transition-colors text-xs flex items-center gap-1.5 px-2 py-1 rounded border border-[var(--c-border)]">
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          検索
+        </a>
+        <ThemeToggle />
+      </div>
+    </div>
+  </header>
   {breadcrumbItems.length > 0 && (
     <nav aria-label="パンくずリスト" class="max-w-2xl mx-auto px-4 pt-5">
       <ol class="flex items-center flex-wrap gap-x-1.5 gap-y-1 text-xs text-[var(--c-dim)]">
