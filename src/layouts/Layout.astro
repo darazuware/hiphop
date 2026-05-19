@@ -125,16 +125,74 @@ const resolvedSchema = schema ?? defaultSchema;
 <body class="bg-[var(--c-bg)] text-[var(--c-text)] min-h-screen">
   <header class="sticky top-0 z-50 bg-[var(--c-bg)]/90 backdrop-blur-sm border-b border-[var(--c-border)]">
     <div class="max-w-2xl mx-auto px-4 h-11 flex items-center justify-between gap-2">
-      <a href="/" class="font-mono text-sm text-[var(--c-gold)] hover:opacity-75 transition-opacity">WAX&amp;THINK</a>
+      <a href="/" class="font-mono text-sm text-[var(--c-gold)] hover:opacity-75 transition-opacity shrink-0">WAX&amp;THINK</a>
+      <!-- Desktop nav -->
+      <nav class="hidden sm:flex items-center gap-1 flex-1 justify-center">
+        <a href="/" class={`text-xs px-2 py-1 rounded transition-colors ${pathname === '/' ? 'text-[var(--c-text)]' : 'text-[var(--c-very-dim)] hover:text-[var(--c-muted)]'}`}>曲一覧</a>
+        <a href="/map" class={`text-xs px-2 py-1 rounded transition-colors flex items-center gap-1 ${pathname === '/map' ? 'text-[var(--c-gold)]' : 'text-[var(--c-very-dim)] hover:text-[var(--c-muted)]'}`}>
+          <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/><line x1="9" x2="9" y1="3" y2="18"/><line x1="15" x2="15" y1="6" y2="21"/></svg>
+          地図
+        </a>
+        <a href="/slang" class={`text-xs px-2 py-1 rounded transition-colors ${pathname === '/slang' ? 'text-[var(--c-text)]' : 'text-[var(--c-very-dim)] hover:text-[var(--c-muted)]'}`}>スラング</a>
+      </nav>
       <div class="flex items-center gap-2">
         <a href="/" class="text-[var(--c-muted)] hover:text-[var(--c-gold)] transition-colors text-xs flex items-center gap-1.5 px-2 py-1 rounded border border-[var(--c-border)]">
           <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
           検索
         </a>
         <ThemeToggle />
+        <!-- Mobile hamburger -->
+        <button id="nav-toggle" class="sm:hidden flex flex-col justify-center gap-[4px] w-7 h-7 text-[var(--c-muted)] hover:text-[var(--c-text)] transition-colors" aria-label="メニュー" aria-expanded="false">
+          <span class="block h-[1.5px] w-4 bg-current transition-all origin-center" id="ham-1"></span>
+          <span class="block h-[1.5px] w-4 bg-current transition-all" id="ham-2"></span>
+          <span class="block h-[1.5px] w-4 bg-current transition-all origin-center" id="ham-3"></span>
+        </button>
       </div>
     </div>
+    <!-- Mobile dropdown nav -->
+    <div id="mobile-nav" class="hidden sm:hidden border-t border-[var(--c-border)] bg-[var(--c-bg)]/95 backdrop-blur-sm">
+      <nav class="max-w-2xl mx-auto px-4 py-3 flex flex-col gap-1">
+        <a href="/" class="flex items-center gap-2 text-sm py-2 px-2 rounded-lg text-[var(--c-muted)] hover:bg-[var(--c-surface)] hover:text-[var(--c-text)] transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          曲一覧
+        </a>
+        <a href="/map" class="flex items-center gap-2 text-sm py-2 px-2 rounded-lg text-[var(--c-gold)] hover:bg-[var(--c-surface)] transition-colors font-medium">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/><line x1="9" x2="9" y1="3" y2="18"/><line x1="15" x2="15" y1="6" y2="21"/></svg>
+          地図で探す
+        </a>
+        <a href="/slang" class="flex items-center gap-2 text-sm py-2 px-2 rounded-lg text-[var(--c-muted)] hover:bg-[var(--c-surface)] hover:text-[var(--c-text)] transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
+          スラング索引
+        </a>
+        <a href="/about" class="flex items-center gap-2 text-sm py-2 px-2 rounded-lg text-[var(--c-muted)] hover:bg-[var(--c-surface)] hover:text-[var(--c-text)] transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+          About
+        </a>
+      </nav>
+    </div>
   </header>
+  <script is:inline>
+    (function() {
+      var btn = document.getElementById('nav-toggle');
+      var menu = document.getElementById('mobile-nav');
+      var h1 = document.getElementById('ham-1');
+      var h3 = document.getElementById('ham-3');
+      if (!btn || !menu) return;
+      btn.addEventListener('click', function() {
+        var open = menu.classList.toggle('hidden');
+        btn.setAttribute('aria-expanded', !open ? 'false' : 'true');
+        if (!open) {
+          h1.style.transform = 'translateY(5.5px) rotate(45deg)';
+          h3.style.transform = 'translateY(-5.5px) rotate(-45deg)';
+          document.getElementById('ham-2').style.opacity = '0';
+        } else {
+          h1.style.transform = '';
+          h3.style.transform = '';
+          document.getElementById('ham-2').style.opacity = '';
+        }
+      });
+    })();
+  </script>
   {breadcrumbItems.length > 0 && (
     <nav aria-label="パンくずリスト" class="max-w-2xl mx-auto px-4 pt-5">
       <ol class="flex items-center flex-wrap gap-x-1.5 gap-y-1 text-xs text-[var(--c-dim)]">
