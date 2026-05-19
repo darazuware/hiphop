@@ -40,14 +40,23 @@ public/images/   # アルバムアート
 1. ユーザーがGemini Deep Research結果をGistに貼る
 2. ユーザーがGist URLをClaudeに伝える
 3. Claude: gh gist view で内容取得
-4. Claude: WebFetchでgenius.comから歌詞を直接取得・照合・修正
+4. Claude: Genius APIで歌詞を取得し /tmp/lyrics-{slug}.txt に保存
+   - node -e "import {getLyrics} from './agent/node_modules/genius-lyrics-api/index.js'; ..."
+   - optimizeQuery: false を使い誤マッチを防ぐ
 5. Claude: src/data/songs.ts にエントリ追記（artistSlug含む）
 6. Claude: src/data/artists.ts を確認し、artistSlugが未登録なら追加
    - 追加項目: slug, name, origin, active, genre, summary, japan
    - Gistの内容とDeep Researchから自動生成
 7. Claudeが.astroページを生成（SongLayout使用）
-8. 自分が変更・作成したファイル（.astro, songs.ts, artists.ts）のみを git add → git commit → git push
-   ※【厳守】絶対に "git add ." を実行しないこと（ユーザーのローカル作業と競合するため）
+8. 歌詞チェック（必須）:
+   node agent/src/check-lyrics-coverage.mjs {slug}
+   - [A] 抜け漏れチェック: Genius行が.astroに存在するか（85%以上必須）
+   - [B] ハルシネーションチェック: .astroの英語行がGeniusに存在するか
+   - ❌が出たら修正してから次へ進む
+   - 2026年以降の新曲でGeniusデータ不完全な場合は[B]を手動確認
+9. npm run build でビルド確認
+10. 自分が変更・作成したファイル（.astro, songs.ts, artists.ts）のみを git add → git commit → git push
+    ※【厳守】絶対に "git add ." を実行しないこと（ユーザーのローカル作業と競合するため）
 ```
 
 ## アーティスト自動追加ルール（重要）
