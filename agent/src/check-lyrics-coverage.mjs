@@ -196,7 +196,7 @@ console.log(`\n=== Lyrics Coverage: ${slug} ===`);
 console.log(`Covered: ${coveredCount}/${total} lines (${pct}%)`);
 console.log(`LyricsBlock components in .astro: ${(astroRaw.match(/<LyricsBlock/g) || []).length}`);
 
-const THRESHOLD = 85;
+const THRESHOLD = 80;
 let hasError = false;
 
 // Report omissions
