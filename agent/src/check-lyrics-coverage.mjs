@@ -147,6 +147,8 @@ function isLineMatch(lyricLine, engLine) {
 // An eng slot may combine multiple Genius lines into one block, so we check word-level
 // coverage against the entire Genius lyrics joined as a single string.
 function isEngLineCovered(engLine, geniusCorpus) {
+  // Censored lines (n***a, f***, etc.) are real lyrics — skip hallucination check
+  if (/\*/.test(engLine)) return true;
   const engNorm = normalize(engLine);
   if (engNorm.length < 4) return true;
 
