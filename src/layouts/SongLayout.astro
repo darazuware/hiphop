@@ -18,6 +18,7 @@ const { title, description, slug, highlights, youtubeId, sampleYoutubeId, sample
 
 const song = songs.find(s => s.slug === `/songs/${slug}`);
 const artist = song ? artists.find(a => a.slug === song.artistSlug) : null;
+const releaseYear = song?.subtitle.match(/·\s*(\d{4})/)?.[1] ?? null;
 const related = song
   ? songs.filter(s => s.artistSlug === song.artistSlug && s.slug !== song.slug).slice(0, 3)
   : [];
@@ -51,6 +52,10 @@ const relatedColumns = song
                 : song.artists
               }
             </dd>
+            {releaseYear && <>
+              <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">リリース年</dt>
+              <dd>{releaseYear}</dd>
+            </>}
             <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">プロデューサー</dt>
             <dd>{song.producer === 'その他' ? song.subtitle.split(' Produced')[0].split(' Remix')[0] : song.producer}</dd>
             <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">収録アルバム</dt>
