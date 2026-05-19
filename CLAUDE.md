@@ -48,14 +48,33 @@ public/images/   # アルバムアート
    - 追加項目: slug, name, origin, active, genre, summary, japan
    - Gistの内容とDeep Researchから自動生成
 7. Claudeが.astroページを生成（SongLayout使用）
-8. 歌詞チェック（必須）:
+8. ジャケット画像取得（必須）:
+   - asinが設定済みの場合: Amazonが自動表示するためスキップ
+   - asinがnullの場合: iTunes Search APIで取得して保存
+   ```
+   node -e "
+   const slug='{slug}', artists='{artists}', album='{album}';
+   const q=encodeURIComponent(artists+' '+album);
+   fetch('https://itunes.apple.com/search?term='+q+'&entity=album&country=us&limit=1')
+     .then(r=>r.json()).then(async d=>{
+       const url=d.results?.[0]?.artworkUrl100?.replace('100x100bb','600x600bb');
+       if(!url){console.log('no art');return;}
+       const buf=Buffer.from(await(await fetch(url)).arrayBuffer());
+       require('fs').writeFileSync('public/images/covers/'+slug+'.jpg',buf);
+       console.log('saved');
+     });
+   "
+   ```
+   - 保存先: `public/images/covers/{slug}.jpg`
+   - git addの対象に `public/images/covers/{slug}.jpg` を含める
+9. 歌詞チェック（必須）:
    node agent/src/check-lyrics-coverage.mjs {slug}
    - [A] 抜け漏れチェック: Genius行が.astroに存在するか（85%以上必須）
    - [B] ハルシネーションチェック: .astroの英語行がGeniusに存在するか
    - ❌が出たら修正してから次へ進む
    - 2026年以降の新曲でGeniusデータ不完全な場合は[B]を手動確認
 9. npm run build でビルド確認
-10. 自分が変更・作成したファイル（.astro, songs.ts, artists.ts）のみを git add → git commit → git push
+10. 自分が変更・作成したファイル（.astro, songs.ts, artists.ts, public/images/covers/{slug}.jpg）のみを git add → git commit → git push
     ※【厳守】絶対に "git add ." を実行しないこと（ユーザーのローカル作業と競合するため）
 ```
 
