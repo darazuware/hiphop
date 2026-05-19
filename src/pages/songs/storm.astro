@@ -24,77 +24,10 @@ import SongLayout from '../../layouts/SongLayout.astro';
         STORM I · Yung Lean (0:00〜3:29)
       </h2>
 
-      <LyricsBlock hasExplanation={true} label="★ 豪邸への強襲とScarfaceの亡霊">
-        <Fragment slot="eng">
-          The <QuickSlang word="hitmen" desc="殺し屋・体制の汚れ仕事をする者。本作では権力と富の象徴である豪邸を強襲する者たち" /> storm the mansion<br />
-          They pass by the fountain<br />
-          With the neon pink sign<br />
-          That says <QuickSlang word="the world is yours" desc="1983年映画『スカーフェイス』のネオンサインの文句。1994年Nasのアルバム曲タイトルでもあり、ヒップホップにおける究極の野望を象徴するフレーズ" />
-        </Fragment>
-        <Fragment slot="jpn">
-          <QuickSlang word="ヒットマン" desc="殺し屋・体制の汚れ仕事をする者。本作では豪邸を強襲するユースたちの比喩" />たちが豪邸を強襲する<br />
-          奴らは庭園の噴水の脇を通り抜けていく<br />
-          その傍らには、ネオンピンクに光るサインがある<br />
-          そこには「世界はお前のものだ」と書かれている
-        </Fragment>
-        <Fragment slot="explanation">
-          「The world is yours」は映画『スカーフェイス（1983）』のトニー・モンタナの野望のシンボルであり、Nasの1994年の楽曲タイトルでもある。ヒップホップにおける「夢と成功」の究極の表象が、ここでは資本主義の廃墟（豪邸と噴水）と並置されることで、その空虚さが際立つ。ネオンピンクという色彩は、欲望の露骨さと脆さを同時に体現する。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          And where do we begin?<br />
-          And do we have time for everything?
-        </Fragment>
-        <Fragment slot="jpn">
-          さて、俺たちは一体どこから始めようか？<br />
-          これらすべてを終わらせるだけの時間は、俺たちに残されているのか？
-        </Fragment>
-        <Fragment slot="explanation">
-          スポークン・ワードによる冷静な問いかけ。行動の前に立ちすくむ者の内的独白として機能し、「嵐（STORM）」が感情の爆発である同時に、始まりへの躊躇でもあることを示す。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true} label="★ 住宅危機と「世界はお前のもの」の皮肉">
-        <Fragment slot="eng">
-          We need another room<br />
-          But houses are so expensive
-        </Fragment>
-        <Fragment slot="jpn">
-          俺たちには別の部屋が必要だ<br />
-          だが、家というものはあまりにも高価すぎる
-        </Fragment>
-        <Fragment slot="explanation">
-          本楽曲で最も批評的に称賛されたライン。「世界はお前のものだ」という壮大な野望の直後に、「家が高くて買えない」というミクロな現実が突きつけられる。1990年代ヒップホップが描いた「成り上がり」の夢が、2020年代の住宅危機・格差社会という現実の壁に砕け散る瞬間を、わずか2行で完璧に表現している。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          The hitmen storm the mansion<br />
-          They pass by the fountain<br />
-          With the neon pink sign<br />
-          That says the world is yours<br /><br />
-          And do we have time for everything?<br />
-          And where do we begin?<br />
-          There is still time<br />
-          We must watch the all...
-        </Fragment>
-        <Fragment slot="jpn">
-          ヒットマンたちが再び豪邸を強襲する<br />
-          奴らは噴水の脇を通り抜けていく<br />
-          ネオンピンクに光るサインを横目に<br />
-          そこには「世界はお前のものだ」と書かれている<br /><br />
-          すべてをやり遂げるだけの時間は残されているのか？<br />
-          俺たちは、どこから手をつければいい？<br />
-          まだ時間は残されている<br />
-          俺たちは、そのすべてが崩れ去るのを見届けなければならない...
-        </Fragment>
-        <Fragment slot="explanation">
-          冒頭のフレーズが繰り返されることで、循環する閉塞感が強調される。「There is still time（まだ時間は残されている）」という一文が、絶望の中に残る僅かな希望の火種として機能する。「We must watch the all...」の末尾の省略が暗示する「すべて」とは何か——楽曲の後半で明らかになる集団的な解放の予告として読み取れる。
-        </Fragment>
-      </LyricsBlock>
+      <div class="p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg text-sm text-[var(--c-muted)] leading-relaxed mb-4">
+        <p class="mb-2"><strong class="text-[var(--c-text)]">スポークンワード・セクション</strong></p>
+        <p>STORM Iは主にYung Leanのスポークンワード（語り）で構成される。豪邸を強襲するヒットマンたち、庭の噴水のそばに輝くネオンピンクの「The world is yours（世界はお前のもの）」サイン——映画『スカーフェイス』（1983）とNasの楽曲タイトルを参照する、野望と空虚さの象徴。続けて「We need another room / But houses are so expensive（もう一部屋必要だが、家は高すぎる）」という一節が、壮大な野望を住宅危機というリアルな現実で打ち砕く。この逆説がSTORM全体のテーマの核心にある。</p>
+      </div>
     </section>
 
     <!-- ===================== -->
@@ -105,25 +38,9 @@ import SongLayout from '../../layouts/SongLayout.astro';
         トランジション · (3:30〜4:14)
       </h2>
 
-      <LyricsBlock hasExplanation={true} label="★ ソウルフルなピアノが導く転換点">
-        <Fragment slot="eng">
-          We say your<br />
-          Heat heat heat.<br />
-          Heat heat heat up here<br />
-          But it won't last forever<br />
-          Heat heat oh heat heat.
-        </Fragment>
-        <Fragment slot="jpn">
-          俺たちはこう言う<br />
-          熱く、熱く、燃え上がれ<br />
-          ここはひどく熱を帯びている、暴発寸前だ<br />
-          だが、こんなものは永遠には続かない<br />
-          熱く、燃え上がれ、ああ、熱く
-        </Fragment>
-        <Fragment slot="explanation">
-          STORM IからSTORM IIへの劇的な転換点。インダストリアルなビートが突如として90年代のR&Bやハウスミュージックのソウルフルなピアノへとシフトする瞬間にこのラインが乗る。「Heat（熱）」というボーカルチョップの反復が、抑圧されたエネルギーが臨界点に達する直前の体温上昇を体現する。「But it won't last forever（永遠には続かない）」は破滅への諦念であると同時に、解放への予告でもある。
-        </Fragment>
-      </LyricsBlock>
+      <div class="p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg text-sm text-[var(--c-muted)] leading-relaxed mb-4">
+        <p>STORM IからSTORM IIへの転換点。インダストリアルなビートが突如ソウルフルなピアノへとシフトし、Yung Leanのボーカルチョップが繰り返される。「Girl, I know it may hurt / But it won't last forever」というPre-Chorusへの橋渡しとなる。</p>
+      </div>
     </section>
 
     <!-- ===================== -->
@@ -225,19 +142,6 @@ import SongLayout from '../../layouts/SongLayout.astro';
         </Fragment>
       </LyricsBlock>
 
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          If you won't die for some (If you won't die for some)<br />
-          If you don't stand for none (If you don't stand for none)
-        </Fragment>
-        <Fragment slot="jpn">
-          何かのために死ぬ覚悟がないなら（その覚悟がないなら）<br />
-          何のために立ち上がることもしないなら（何も信じないなら）
-        </Fragment>
-        <Fragment slot="explanation">
-          Malcolm Xの名言「If you don't stand for something, you will fall for anything」の変形。「何かを信じて死ねるか」という極限の問いが、集団的連帯のアンセムの核に刻まれる。ここでSTORM IIは個人の感情の表白から、より普遍的な政治的・実存的な宣言へと昇華する。
-        </Fragment>
-      </LyricsBlock>
     </section>
 
     <!-- ===================== -->
@@ -434,19 +338,6 @@ import SongLayout from '../../layouts/SongLayout.astro';
         Outro (6:50〜7:21)
       </h2>
 
-      <LyricsBlock hasExplanation={true} label="★ 最後の警告">
-        <Fragment slot="eng">
-          Hey, hey (Hey, hey)<br />
-          You got a death wish
-        </Fragment>
-        <Fragment slot="jpn">
-          ヘイ、ヘイ（ヘイ、ヘイ）<br />
-          お前は死に場所を探しているんだろう
-        </Fragment>
-        <Fragment slot="explanation">
-          「You got a death wish（死にたいのか）」——STORM全体を通じて描かれた怒り・連帯・暴動の末尾に置かれた、もっとも冷酷な一言。警告であり断罪でもある。体制側への宣告として読むと、本作は破壊と再生の循環を完結させる。
-        </Fragment>
-      </LyricsBlock>
     </section>
 
     <!-- ===================== -->
