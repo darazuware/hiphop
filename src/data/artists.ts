@@ -368,6 +368,15 @@ export const artists = [
     summary: 'Ishmael "Butterfly" Butler、Mary Ann "Ladybug Mecca" Vieira、Craig "Doodlebug" IrvingによるトリオNYC。1993年「Rebirth of Slick (Cool Like Dat)」でグラミー賞（最優秀ラップデュオ/グループ）受賞。アート・ブレイキーやキャノンボール・アダレイのジャズをサンプリングし、ヒップホップとジャズの橋渡しをした。',
     japan: 'ジャズ・ラップの文脈でATCQと並んで語られ、日本のジャズ好きなHIPHOPリスナーに深く支持される。「Cool Like Dat」はクールの美学として日本のHIPHOPシーンに浸透した。',
   },
+  {
+    slug: 'luniz',
+    name: 'Luniz',
+    origin: 'Oakland, California',
+    active: '1993–2004, 2010–',
+    genre: 'West Coast Hip-Hop / Bay Area rap',
+    summary: 'YukmouthとNumskullによるオークランド出身のデュオ。1995年デビューシングル「I Got 5 On It」がBillboard Hot 100最高8位・RIAAプラチナ認定を達成。Bay Area特有のメロウなG-Funkサウンドにストリートのリアリズムを融合させ、「hella」というスラングを全米に広めた立役者。',
+    japan: 'Bay Areaヒップホップとして2000年代のB-BOYシーンで知られる。「I Got 5 On It」のフックは日本のヒップホップリスナーにも馴染み深く、Bay Areaのlaidbackなスタイルの象徴として語られる。',
+  },
 ] as const;
 
 export type Artist = typeof artists[number];
