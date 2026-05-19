@@ -26,6 +26,7 @@ if (!isHome) {
       '/about': 'About',
       '/privacy': 'プライバシーポリシー',
       '/slang': 'スラング索引',
+      '/map': '地図で探す',
     };
     breadcrumbItems.push({ label: pageLabels[pathname] ?? title });
   }
@@ -152,6 +153,7 @@ const resolvedSchema = schema ?? defaultSchema;
   <slot />
   <footer class="max-w-2xl mx-auto px-4 pb-8 pt-6 mt-4 border-t border-[var(--c-border)] flex flex-wrap gap-x-5 gap-y-1 text-[var(--c-very-dim)] text-xs">
     <a href="/" class="hover:text-[var(--c-gold)] transition-colors">WAX&amp;THINK</a>
+    <a href="/map" class="hover:text-[var(--c-gold)] transition-colors">地図で探す</a>
     <a href="/about" class="hover:text-[var(--c-gold)] transition-colors">About</a>
     <a href="/slang" class="hover:text-[var(--c-gold)] transition-colors">スラング索引</a>
     <a href="/contact" class="hover:text-[var(--c-gold)] transition-colors">お問い合わせ</a>

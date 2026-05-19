@@ -1,0 +1,462 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { songs } from '../data/songs';
+
+type Song = (typeof songs)[number];
+
+const regionSongs: Record<string, Song[]> = {};
+for (const song of songs as readonly Song[]) {
+  if (!regionSongs[song.region]) regionSongs[song.region] = [];
+  regionSongs[song.region].push(song as Song);
+}
+
+const cities = [
+  { id: 'NY',      name: 'New York',    sub: 'NYC / Queens / Brooklyn / Bronx', cx: 815, cy: 208 },
+  { id: 'LA',      name: 'Los Angeles', sub: 'LA / Compton / South Gate',       cx: 125, cy: 355 },
+  { id: 'Oakland', name: 'Oakland',     sub: 'Bay Area / East Bay',             cx: 88,  cy: 292 },
+  { id: 'Atlanta', name: 'Atlanta',     sub: 'ATL / Dirty South',               cx: 638, cy: 400 },
+  { id: 'Chicago', name: 'Chicago',     sub: 'Chi-Town',                        cx: 578, cy: 215 },
+  { id: 'Detroit', name: 'Detroit',     sub: 'Motor City',                      cx: 630, cy: 196 },
+  { id: 'Boston',  name: 'Boston',      sub: 'New England',                     cx: 848, cy: 182 },
+].filter(c => (regionSongs[c.id]?.length ?? 0) > 0);
+
+const mapData = JSON.stringify(
+  Object.fromEntries(
+    cities.map(c => [c.id, (regionSongs[c.id] ?? []).map(s => ({
+      slug: s.slug,
+      title: s.title,
+      artists: s.artists,
+      era: s.era,
+      tag: s.tag,
+    }))])
+  )
+);
+---
+
+<Layout
+  title="地図で探す | WAX&THINK"
+  description="アメリカのヒップホップシーンを地図で探索。NY、LA、Atlanta、Chicago、Detroit、Oakland……各都市の名曲を一覧で見る。"
+>
+  <main class="px-4 pb-16">
+    <div class="max-w-5xl mx-auto">
+      <div class="pt-8 pb-6">
+        <h1 class="text-xl font-bold text-[var(--c-text)] mb-1">地図で探す</h1>
+        <p class="text-xs text-[var(--c-muted)]">都市をタップして、その街のヒップホップを探索する</p>
+      </div>
+
+      <!-- Map + Panel wrapper -->
+      <div class="flex flex-col lg:flex-row gap-6">
+
+        <!-- SVG Map -->
+        <div class="relative flex-1 min-w-0">
+          <svg
+            id="us-map"
+            viewBox="0 0 960 560"
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-full h-auto select-none rounded-xl border border-[var(--c-border)] bg-[var(--c-bg)]"
+            aria-label="アメリカ地図"
+          >
+            <defs>
+              <radialGradient id="dot-glow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="var(--glow-color, #c8a84b)" stop-opacity="0.6"/>
+                <stop offset="100%" stop-color="var(--glow-color, #c8a84b)" stop-opacity="0"/>
+              </radialGradient>
+              <filter id="glow">
+                <feGaussianBlur stdDeviation="3" result="blur"/>
+                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+            </defs>
+
+            <!-- Ocean background -->
+            <rect width="960" height="560" fill="var(--map-ocean, #0c1220)"/>
+
+            <!-- Continental US land -->
+            <path
+              class="us-land"
+              d="M62,52 L900,52
+                 L893,68 L872,72 L862,92 L855,115 L842,142
+                 L830,168 L842,188 L832,218 L820,248 L815,278
+                 L818,314 L808,342 L795,368 L784,395
+                 L797,418 L808,448 L812,470 L808,492
+                 L794,518 L777,545 L759,565 L752,575
+                 L742,572 L736,558 L720,538 L716,518 L718,490
+                 L700,488 L680,490 L658,488 L638,490 L618,498
+                 L598,498 L578,492 L558,488 L540,490 L520,496
+                 L500,500 L482,508 L462,508 L444,496 L430,480
+                 L415,458 L402,442 L388,438
+                 L295,438 L200,438 L130,440
+                 L114,375 L91,282 L74,255 L62,248 Z"
+            />
+
+            <!-- State boundary lines -->
+            <g class="state-lines">
+              <!-- Pacific states east border (CA/OR/WA | NV/ID) -->
+              <path d="M198,52 L200,130 L198,168 L195,262 L168,440"/>
+              <!-- ID/MT split (roughly) -->
+              <path d="M198,52 L285,52 M285,52 L285,178 L198,178"/>
+              <!-- Mountain/Plains divide (MT/WY/CO/NM east border) -->
+              <path d="M448,52 L450,178 L450,262 L448,350 L388,438"/>
+              <!-- WY/CO south / UT/AZ north (4 Corners area) -->
+              <path d="M200,262 L448,262"/>
+              <!-- NV/UT split -->
+              <path d="M295,168 L295,262"/>
+              <!-- AZ/NM split -->
+              <path d="M295,262 L295,438"/>
+              <!-- ID south / NV north -->
+              <path d="M198,168 L295,168 L448,168"/>
+              <!-- Great Plains horizontal lines -->
+              <path d="M448,125 L598,125"/>
+              <path d="M448,198 L598,198"/>
+              <path d="M448,258 L598,258"/>
+              <!-- KS/OK border -->
+              <path d="M448,318 L510,318"/>
+              <!-- TX panhandle -->
+              <path d="M510,318 L510,390 L560,390"/>
+              <!-- TX north border continuation -->
+              <path d="M560,390 L560,438"/>
+              <!-- OK/AR/MO area -->
+              <path d="M510,390 L600,390"/>
+              <!-- Mississippi River (rough) -->
+              <path d="M578,178 L580,352 L592,412 L600,498"/>
+              <!-- Great Plains east edge / MN-IA-MO -->
+              <path d="M598,52 L600,178"/>
+              <!-- Ohio River / KY north border -->
+              <path d="M575,265 L718,268"/>
+              <!-- TN/KY border -->
+              <path d="M565,335 L718,335"/>
+              <!-- TN/GA/AL area -->
+              <path d="M590,375 L718,375"/>
+              <!-- NC/SC/GA border area -->
+              <path d="M718,325 L795,368 L784,395"/>
+              <!-- East coast major divide (Appalachians rough) -->
+              <path d="M718,52 L716,268"/>
+              <!-- PA/MD/VA east border -->
+              <path d="M778,252 L780,295 L778,328 M778,328 L718,328"/>
+              <!-- NY east border -->
+              <path d="M815,168 L815,208 L778,252"/>
+              <!-- New England -->
+              <path d="M845,148 L845,178 L815,178"/>
+              <path d="M862,115 L862,148 L845,148"/>
+              <!-- FL panhandle divider -->
+              <path d="M640,490 L718,490"/>
+              <!-- Mid-Atlantic -->
+              <path d="M815,252 L840,260 L840,285 M820,295 L840,285"/>
+            </g>
+
+            <!-- Great Lakes (water) -->
+            <g class="great-lakes">
+              <!-- Lake Superior -->
+              <path d="M528,82 L600,72 L635,98 L622,125 L578,130 L528,115 L520,92 Z"/>
+              <!-- Lake Michigan -->
+              <path d="M578,132 L590,142 L602,170 L590,214 L572,222 L560,198 L565,158 Z"/>
+              <!-- Lake Huron (simplified) -->
+              <path d="M620,130 L652,128 L668,150 L662,188 L642,200 L622,178 L618,150 Z"/>
+              <!-- Lake Erie -->
+              <path d="M720,180 L768,170 L772,198 L725,208 Z"/>
+              <!-- Lake Ontario -->
+              <path d="M818,170 L845,162 L850,185 L822,195 Z"/>
+            </g>
+
+            <!-- City dots -->
+            {cities.map(city => (
+              <g
+                class="city-dot"
+                data-city={city.id}
+                role="button"
+                tabindex="0"
+                aria-label={`${city.name} — ${regionSongs[city.id]?.length ?? 0}曲`}
+              >
+                <!-- Pulse ring -->
+                <circle
+                  cx={city.cx}
+                  cy={city.cy}
+                  r="14"
+                  class="pulse-ring"
+                />
+                <!-- Glow -->
+                <circle
+                  cx={city.cx}
+                  cy={city.cy}
+                  r="18"
+                  class="dot-glow"
+                  fill="url(#dot-glow)"
+                />
+                <!-- Main dot -->
+                <circle
+                  cx={city.cx}
+                  cy={city.cy}
+                  r="6"
+                  class="dot-main"
+                />
+                <!-- Count badge -->
+                <circle
+                  cx={city.cx + 9}
+                  cy={city.cy - 9}
+                  r="7"
+                  class="count-bg"
+                />
+                <text
+                  x={city.cx + 9}
+                  y={city.cy - 9}
+                  class="count-text"
+                  text-anchor="middle"
+                  dominant-baseline="central"
+                  font-size="7"
+                  font-family="monospace"
+                >
+                  {regionSongs[city.id]?.length ?? 0}
+                </text>
+                <!-- City label -->
+                <text
+                  x={city.cx}
+                  y={city.cy + 20}
+                  class="city-label"
+                  text-anchor="middle"
+                  font-size="9"
+                  font-family="monospace"
+                >
+                  {city.name}
+                </text>
+              </g>
+            ))}
+          </svg>
+          <p class="text-center text-[10px] text-[var(--c-very-dim)] mt-2">都市をタップして曲を表示</p>
+        </div>
+
+        <!-- Song Panel -->
+        <div
+          id="song-panel"
+          class="lg:w-72 xl:w-80 shrink-0 hidden"
+          aria-live="polite"
+        >
+          <div class="rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)] h-full">
+            <div class="flex items-center justify-between px-4 py-3 border-b border-[var(--c-border)]">
+              <div>
+                <h2 id="panel-city" class="text-sm font-bold text-[var(--c-text)]"></h2>
+                <p id="panel-sub" class="text-[10px] text-[var(--c-muted)]"></p>
+              </div>
+              <button
+                id="panel-close"
+                class="text-[var(--c-very-dim)] hover:text-[var(--c-text)] transition-colors p-1"
+                aria-label="閉じる"
+              >
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M2 2l10 10M12 2L2 12"/>
+                </svg>
+              </button>
+            </div>
+            <ul id="panel-songs" class="divide-y divide-[var(--c-border)] overflow-y-auto max-h-[480px]">
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Mobile panel (appears below map) -->
+      <div
+        id="mobile-panel"
+        class="mt-4 lg:hidden hidden rounded-xl border border-[var(--c-border)] bg-[var(--c-surface)]"
+        aria-live="polite"
+      >
+        <div class="flex items-center justify-between px-4 py-3 border-b border-[var(--c-border)]">
+          <div>
+            <h2 id="mobile-panel-city" class="text-sm font-bold text-[var(--c-text)]"></h2>
+            <p id="mobile-panel-sub" class="text-[10px] text-[var(--c-muted)]"></p>
+          </div>
+          <button
+            id="mobile-panel-close"
+            class="text-[var(--c-very-dim)] hover:text-[var(--c-text)] transition-colors p-1"
+            aria-label="閉じる"
+          >
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M2 2l10 10M12 2L2 12"/>
+            </svg>
+          </button>
+        </div>
+        <ul id="mobile-panel-songs" class="divide-y divide-[var(--c-border)]"></ul>
+      </div>
+
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .us-land {
+    fill: var(--map-land, #1a2540);
+    stroke: var(--map-border, #2a3a58);
+    stroke-width: 1.5;
+  }
+
+  .state-lines path {
+    fill: none;
+    stroke: var(--map-state, #253050);
+    stroke-width: 0.8;
+    stroke-linecap: round;
+  }
+
+  .great-lakes path {
+    fill: var(--map-ocean, #0c1220);
+    stroke: var(--map-border, #2a3a58);
+    stroke-width: 0.5;
+  }
+
+  .city-dot {
+    cursor: pointer;
+  }
+
+  .pulse-ring {
+    fill: none;
+    stroke: #c8a84b;
+    stroke-width: 1.5;
+    opacity: 0.4;
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+
+  .dot-glow {
+    opacity: 0.3;
+  }
+
+  .dot-main {
+    fill: #c8a84b;
+    transition: r 0.15s ease, fill 0.15s ease;
+  }
+
+  .count-bg {
+    fill: #c8a84b;
+  }
+
+  .count-text {
+    fill: #0a0a0a;
+    font-weight: 700;
+    pointer-events: none;
+  }
+
+  .city-label {
+    fill: var(--map-label, #8899bb);
+    pointer-events: none;
+    transition: fill 0.15s ease;
+  }
+
+  .city-dot:hover .dot-main,
+  .city-dot.active .dot-main {
+    r: 9;
+    fill: #e8c870;
+  }
+
+  .city-dot:hover .city-label,
+  .city-dot.active .city-label {
+    fill: #c8a84b;
+  }
+
+  .city-dot:hover .pulse-ring,
+  .city-dot.active .pulse-ring {
+    opacity: 0.8;
+    stroke: #e8c870;
+  }
+
+  .city-dot.active .pulse-ring {
+    animation: pulse-active 1.5s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { r: 14; opacity: 0.4; }
+    50% { r: 20; opacity: 0.1; }
+  }
+
+  @keyframes pulse-active {
+    0%, 100% { r: 16; opacity: 0.7; }
+    50% { r: 24; opacity: 0.2; }
+  }
+
+  :global([data-theme="light"]) {
+    --map-ocean: #e8eef8;
+    --map-land: #f0f4fc;
+    --map-border: #c8d4e8;
+    --map-state: #d0daf0;
+    --map-label: #6678aa;
+  }
+</style>
+
+<script define:vars={{ mapData }}>
+  const data = JSON.parse(mapData);
+  const panel = document.getElementById('song-panel');
+  const mobilePanel = document.getElementById('mobile-panel');
+  const panelCity = document.getElementById('panel-city');
+  const panelSub = document.getElementById('panel-sub');
+  const panelSongs = document.getElementById('panel-songs');
+  const mobilePanelCity = document.getElementById('mobile-panel-city');
+  const mobilePanelSub = document.getElementById('mobile-panel-sub');
+  const mobilePanelSongs = document.getElementById('mobile-panel-songs');
+
+  const cities = {
+    NY:      { name: 'New York',     sub: 'NYC / Queens / Brooklyn / Bronx' },
+    LA:      { name: 'Los Angeles',  sub: 'LA / Compton / South Gate' },
+    Oakland: { name: 'Oakland',      sub: 'Bay Area / East Bay' },
+    Atlanta: { name: 'Atlanta',      sub: 'ATL / Dirty South' },
+    Chicago: { name: 'Chicago',      sub: 'Chi-Town' },
+    Detroit: { name: 'Detroit',      sub: 'Motor City' },
+    Boston:  { name: 'Boston',       sub: 'New England' },
+  };
+
+  function renderSongs(songs) {
+    return songs.map(s => `
+      <li>
+        <a href="${s.slug}" class="flex items-start gap-3 px-4 py-3 hover:bg-[var(--c-hover)] transition-colors group">
+          <div class="flex-1 min-w-0">
+            <div class="text-xs font-semibold text-[var(--c-text)] group-hover:text-[var(--c-gold)] transition-colors truncate">${s.title}</div>
+            <div class="text-[10px] text-[var(--c-muted)] truncate">${s.artists}</div>
+            ${s.tag ? `<div class="text-[9px] text-[var(--c-gold)] mt-0.5 font-mono">${s.tag}</div>` : ''}
+          </div>
+          <div class="text-[9px] text-[var(--c-very-dim)] shrink-0 font-mono mt-0.5">${s.era ?? ''}</div>
+        </a>
+      </li>
+    `).join('');
+  }
+
+  function openCity(cityId) {
+    const songs = data[cityId];
+    const city = cities[cityId];
+    if (!songs || !city) return;
+
+    document.querySelectorAll('.city-dot').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll(`[data-city="${cityId}"]`).forEach(el => el.classList.add('active'));
+
+    const html = renderSongs(songs);
+
+    // Desktop panel
+    panelCity.textContent = city.name;
+    panelSub.textContent = city.sub;
+    panelSongs.innerHTML = html;
+    panel.classList.remove('hidden');
+
+    // Mobile panel
+    mobilePanelCity.textContent = city.name;
+    mobilePanelSub.textContent = city.sub;
+    mobilePanelSongs.innerHTML = html;
+    mobilePanel.classList.remove('hidden');
+
+    // Scroll mobile panel into view
+    if (window.innerWidth < 1024) {
+      mobilePanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  }
+
+  function closePanel() {
+    panel.classList.add('hidden');
+    mobilePanel.classList.add('hidden');
+    document.querySelectorAll('.city-dot').forEach(el => el.classList.remove('active'));
+  }
+
+  document.querySelectorAll('.city-dot').forEach(el => {
+    el.addEventListener('click', () => openCity(el.dataset.city));
+    el.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openCity(el.dataset.city);
+      }
+    });
+  });
+
+  document.getElementById('panel-close').addEventListener('click', closePanel);
+  document.getElementById('mobile-panel-close').addEventListener('click', closePanel);
+</script>
