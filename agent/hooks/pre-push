@@ -1,0 +1,27 @@
+#!/bin/bash
+# Lyrics coverage check before push.
+# Install: git config core.hooksPath agent/hooks
+
+REPO_ROOT="$(git rev-parse --show-toplevel)"
+CHANGED_SONGS=()
+
+while read local_ref local_sha remote_ref remote_sha; do
+  if [ "$remote_sha" = "0000000000000000000000000000000000000000" ]; then
+    # New branch — check all songs in the pushed commit tree
+    FILES=$(git diff-tree --no-commit-id -r --name-only "$local_sha" 2>/dev/null | grep "^src/pages/songs/.*\.astro$" || true)
+  else
+    FILES=$(git diff --name-only "$remote_sha" "$local_sha" 2>/dev/null | grep "^src/pages/songs/.*\.astro$" || true)
+  fi
+
+  for f in $FILES; do
+    CHANGED_SONGS+=("$f")
+  done
+done
+
+if [ ${#CHANGED_SONGS[@]} -eq 0 ]; then
+  exit 0
+fi
+
+echo "🔍 Running lyrics coverage check for ${#CHANGED_SONGS[@]} song(s)..."
+node "$REPO_ROOT/agent/src/pre-push-check.mjs" "${CHANGED_SONGS[@]}"
+exit $?
