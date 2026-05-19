@@ -1,5 +1,14 @@
 export const artists = [
   {
+    slug: 'method-man',
+    name: 'Method Man',
+    origin: 'Staten Island, New York',
+    active: '1992–',
+    genre: 'East Coast Hip-Hop / hardcore rap',
+    summary: 'Wu-Tang Clanの看板MC、本名Clifford Smith。1994年ソロデビュー作「Tical」でスターダムに。RZA製の暗黒ビートに絡みつく独特のフロウと声質は唯一無二。RedmanとのコンビやHBO「The Wire」出演など音楽・俳優の両面で活躍。',
+    japan: 'Wu-Tang Clanの最知名度メンバーとして日本でも高い人気を誇る。「Tical」「Tical 2000」はアンダーグラウンドHIPHOPファンに支持され、RedmanとのコラボアルバムもYoung Jeezy世代以前の東海岸ファンに愛聴された。',
+  },
+  {
     slug: 'wu-tang-clan',
     name: 'Wu-Tang Clan',
     origin: 'Staten Island, New York',
