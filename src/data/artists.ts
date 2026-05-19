@@ -1,5 +1,14 @@
 export const artists = [
   {
+    slug: 'souls-of-mischief',
+    name: 'Souls of Mischief',
+    origin: 'Oakland, California',
+    active: '1991–',
+    genre: 'West Coast Hip-Hop / jazz rap / alternative hip-hop',
+    summary: 'A-Plus、Opio、Phesto、Tajaiからなるオークランド出身の4人組。Hieroglyphicsクルーのサブグループ。1993年デビュー作「93 \'til Infinity」でビリー・コブハムのジャズをサンプリングした浮遊感あるビートと知的なマイクリレーを提示し、Gファンクとギャングスタラップが席巻するシーンにオルタナティヴな風を吹き込んだ。年間175件の殺人が発生するオークランドで「チル」を歌うことで、暴力の時代の精神的避難所となる音楽を作り上げた。',
+    japan: '日本のアンダーグラウンドHIPHOPシーンで「チル系ウェストコースト」の代表格として長く愛聴される。「93 \'Til Infinity」はジャズラップのクラシックとして日本のレコードコレクターや後続ラッパーに影響を与え続けており、オリジナル盤の評価も高い。',
+  },
+  {
     slug: 'method-man',
     name: 'Method Man',
     origin: 'Staten Island, New York',
