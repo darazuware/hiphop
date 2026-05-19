@@ -32,6 +32,24 @@ import SongLayout from '../../layouts/SongLayout.astro';
   <div id="lyrics"></div>
 
   <!-- ===================== -->
+  <!-- HOOK                  -->
+  <!-- ===================== -->
+  <section class="mb-12">
+    <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+      Hook
+    </h2>
+
+    <LyricsBlock hasExplanation={false}>
+      <Fragment slot="eng">
+        "Soul on ice"
+      </Fragment>
+      <Fragment slot="jpn">
+        「氷の上の魂」
+      </Fragment>
+    </LyricsBlock>
+  </section>
+
+  <!-- ===================== -->
   <!-- VERSE 1               -->
   <!-- ===================== -->
   <section class="mb-12">
@@ -39,192 +57,176 @@ import SongLayout from '../../layouts/SongLayout.astro';
       Verse 1 · Ras Kass
     </h2>
 
-    <LyricsBlock hasExplanation={true} label="★ 冒頭——アイデンティティの宣言">
+    <LyricsBlock hasExplanation={true} label="★ 言語と存在の宣言">
       <Fragment slot="eng">
-        I'm the abstract, off the beaten track<br />
-        And if you think I won't react<br />
-        You're smoking crack, Jack
+        I was told "Two wrongs don't make a right, but three rights make a left"<br />
+        "Act your age, not your color," but I'd rather act darker<br />
+        Mark a page with mazes of labyrinth<br />
+        Fuck up a rhyme so bad, I leave the microphone abstinent
       </Fragment>
       <Fragment slot="jpn">
-        俺は抽象的な存在、常識のレールを外れた男だ<br />
-        もし俺が反応しないと思うなら<br />
-        お前はクラックでもやってんのか、ジャック
+        「二つの過ちは正しさを作らない、でも三つの正しさは左を作る」と言われた<br />
+        「年齢相応に振る舞え、肌の色に合わせるな」と言われたが、俺はより黒く振る舞いたい<br />
+        迷路のような迷宮でページに印をつける<br />
+        ライムをひどくやらかして、マイクを禁欲（abstinent）にさせる
       </Fragment>
       <Fragment slot="explanation">
-        「abstract（抽象的）」という言葉でストレートなギャングスタ・ラップとの距離を即座に示す。「Jack」は相手への呼びかけと「ジャックされる（奪われる）」の掛け言葉。冒頭3行で自身のスタンスを鮮明にする。
+        「Two wrongs...three rights make a left」は慣用句を逆手に取った言葉遊び。「Act your age, not your color」は黒人に向けられた抑圧的なアドバイスを引用し、「より黒く（darker）振る舞う」と反転させる。「microphone abstinent（マイクの禁欲）」はライムが強烈すぎてマイクすら手を引く、という誇張表現。
       </Fragment>
     </LyricsBlock>
 
     <LyricsBlock hasExplanation={true}>
       <Fragment slot="eng">
-        I'm natural black, stay strapped with facts<br />
-        Knowledge is power, sour to <QuickSlang word="skins wax" desc="レコードやヴァイナル盤のこと。知識を磨くことをレコードに刻み込む行為に例えている" /><br />
-        I'm the abstract, a <QuickSlang word="lyrical acrobat" desc="言葉を軽業師（アクロバット）のように自在に操るラッパー。技巧的なリリシストであることの自己表現" />
+        To MC, or not to MC?<br />
+        Beyond <QuickSlang word="B.E.T." desc="Black Entertainment Television。黒人向けケーブルTV局。商業化されたヒップホップの象徴として批判的に言及されることが多い" /> and MTV–exists me<br />
+        Origin, 'cause God created man, and man created Hip-Hop<br />
+        I declined to participate until I was orientated
       </Fragment>
       <Fragment slot="jpn">
-        俺はナチュラルブラック、常に事実（ファクト）で武装している<br />
-        知識は力だ、レコード盤に刻み込まれた苦い真実<br />
-        俺は抽象的な存在、リリカルな軽業師だ
+        MCをすべきか、すべきでないか？<br />
+        BETとMTVを超えた向こうに——俺が存在する<br />
+        起源として、神が人を作り、人がヒップホップを作った<br />
+        俺は方向を定めるまで参加を断っていた
       </Fragment>
       <Fragment slot="explanation">
-        「natural black」は人工的・作られた黒さではなく、生まれながらのアイデンティティの表明。「Stay strapped with facts（事実で武装）」は通常の「strapped（銃を携帯）」を言い換え、暴力ではなく知識こそが武器だと主張する。
+        シェイクスピア「To be or not to be」のパロディ。「Beyond BET and MTV」でメインストリームメディアを超えた場所に自身を位置づける。「God created man, man created Hip-Hop」はヒップホップを神の創造物の連鎖に組み込む哲学的飛躍。
       </Fragment>
     </LyricsBlock>
 
-    <LyricsBlock hasExplanation={true} label="★ 西海岸批判と自己肯定">
+    <LyricsBlock hasExplanation={true} label="★ 嘘と暴力の時代">
       <Fragment slot="eng">
-        Yo, some rappers are comedians, I'm a tragedian<br />
-        Pediatrician of the sick rap game, pediatric<br />
-        Mediocre rhymes be epidemic
+        I heard 50,000 drive-bys, and 49,999 was lies<br />
+        No surprise, as the sun rises, thine eyes have seen the light<br />
+        But we stalk the night, I expose like an overbite<br />
+        In limbo I lamp, rape the Lady, kill the Tramp
       </Fragment>
       <Fragment slot="jpn">
-        ヨォ、コメディアンのラッパーもいるが、俺は悲劇を描く者だ<br />
-        病んだラップゲームの小児科医（診療師）として<br />
-        平凡なライムが蔓延している、それは疫病だ
+        5万件のドライブバイ射撃を聞いた、4万9999件は嘘だ<br />
+        驚くことではない、太陽が昇るように、汝の目は光を見た<br />
+        でも俺たちは夜を徘徊し、俺は出っ歯のように剥き出しにする<br />
+        リンボの中で俺はたむろし、淑女を犯し、浮浪者を殺す
       </Fragment>
       <Fragment slot="explanation">
-        「tragedian（悲劇作家）」と「comedian」の対比。楽しませるだけでなく現実の悲劇を描くという詩人としての矜持。「pediatrician（小児科医）」でヒップホップの病（商業化・質の低下）を治療する存在として自らを位置付ける。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        I manifest the <QuickSlang word="best linguistics" desc="最高の言語技術・言語運用能力。Ras Kassが誇る高度なリリシズムを指す" /><br />
-        Blessed with a gift, I'm swift<br />
-        I'm the bomb like <QuickSlang word="Hiroshima" desc="1945年に原爆が投下された広島。ラッパーが自分の破壊力を核爆弾に例えるのはヒップホップの定型表現だが、Ras Kassはあえて実際の歴史的悲劇を用いることで重みを増す" />
-      </Fragment>
-      <Fragment slot="jpn">
-        俺は最高の言語能力を体現する<br />
-        ギフトに恵まれ、素早い<br />
-        俺は広島の原爆のような爆弾だ
-      </Fragment>
-      <Fragment slot="explanation">
-        「manifest（体現する）」はFive-Percent Nationの哲学で頻繁に使われる動詞。ただ主張するのではなく、行為として示すことを意味する。広島への言及は過激だが、核兵器の破壊力で自身のライムの威力を測ろうとする。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true} label="★ 黒人史と反植民地主義">
-      <Fragment slot="eng">
-        I take you back to Africa and let you pick your roots<br />
-        Before they brought us to the New World<br />
-        In wooden boots
-      </Fragment>
-      <Fragment slot="jpn">
-        俺はお前をアフリカまで連れ戻し、自分のルーツを選ばせてやろう<br />
-        奴らが俺たちを新大陸へ連れてくる前の<br />
-        木製の足かせをはめて連行する前の時代に
-      </Fragment>
-      <Fragment slot="explanation">
-        「wooden boots（木製の足かせ）」は奴隷船で黒人が枷をはめられて輸送された歴史への直接的な言及。「pick your roots（ルーツを選ぶ）」は黒人ディアスポラに対して「お前たちには選択肢があった」という歴史的想像力を提示する。
+        「49,999 was lies」——メディアや街の噂の99.998%は誇張や虚偽だという告発。「rape the Lady, kill the Tramp」はディズニー映画『わんわん物語』のキャラクターを暴力的文脈で転用する黒いユーモア。社会の美化された表面を破壊する行為の比喩。
       </Fragment>
     </LyricsBlock>
 
     <LyricsBlock hasExplanation={true}>
       <Fragment slot="eng">
-        My soul's on ice, I'm analyzing life<br />
-        Through the <QuickSlang word="mental microscope" desc="精神的・知的な顕微鏡。肉眼では見えない社会の構造・歴史の真実を知性で拡大して見ること" /><br />
-        And I see things crystal clear
+        The wrong action for the right motive, so now<br />
+        Give me 50,000 black angry role models<br />
+        Take me to D.C., I'll throw the first fuckin' bottle<br />
+        'Cause I don't give a fuck about a menial existence<br />
+        And I don't give a fuck about nonviolent resistance<br />
+        Civil rights will not suffice<br />
+        In the name of Jesus Christ, they got my soul on ice
       </Fragment>
       <Fragment slot="jpn">
-        俺の魂は氷の上にある（冷静に分析している）<br />
-        精神の顕微鏡を通して人生を分析する<br />
-        そして俺はすべてをクリスタルクリアに見ている
+        正しい動機のための間違った行動、だから今<br />
+        5万人の怒れる黒人のロールモデルをくれ<br />
+        ワシントンD.C.に連れて行ってくれ、俺が最初の瓶を投げる<br />
+        なぜなら俺は卑小な存在なんてくそくらえだ<br />
+        そして俺は非暴力的抵抗なんてくそくらえだ<br />
+        公民権運動では足りない<br />
+        イエス・キリストの名の下に、奴らは俺の魂を氷の上に置いた
       </Fragment>
       <Fragment slot="explanation">
-        タイトル「Soul On Ice」の直接的な解釈が現れる。「ice（氷）」は感情を凍らせて冷静に世界を見つめる知性の比喩。Richard Wrightの自伝「Native Son」やEldridge Cleaverの「Soul on Ice」と同様の思想的立場を示す。
+        「非暴力的抵抗（nonviolent resistance）」への反発——マーティン・ルーサー・キングJrの路線への批判的言及。「Civil rights will not suffice」は公民権運動の限界を断言する過激な立場表明。「In the name of Jesus Christ」というキリスト教的文脈で「魂が氷の上に置かれた（魂を奪われた）」と締め括る。
       </Fragment>
     </LyricsBlock>
+  </section>
 
-    <LyricsBlock hasExplanation={true} label="★ 人種・宗教への哲学的考察">
+  <!-- ===================== -->
+  <!-- VERSE 2               -->
+  <!-- ===================== -->
+  <section class="mb-12">
+    <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+      Verse 2 · Ras Kass
+    </h2>
+
+    <LyricsBlock hasExplanation={true} label="★ 暴力・病・ジャマイカ文化">
       <Fragment slot="eng">
-        See, white man, I <QuickSlang word="civilize" desc="文明化する。植民地主義の「文明化の使命」という欺瞞的イデオロギーを逆用し、黒人こそが文明化する側だと主張する逆説" /> God<br />
-        And black man, I civilize the devil<br />
-        On every level, revel in the fact that I'm a rebel
+        Walkin' on skulls, 'cause I'm two steps ahead, so I started at square three<br />
+        Now I'm Cube'd like O'Shea Jackson be<br />
+        <QuickSlang word="Sub-Zero" desc="ゲーム「モータルコンバット」のキャラクター。氷を操る殺し屋。「fatalities（フェイタリティ）」はMKの必殺技の名称" /> catching fatalities to my spirituality<br />
+        Smoke like a chimney, drink like a <QuickSlang word="Kennedy" desc="ケネディ家。豪快な飲酒と放蕩ぶりで有名なアメリカの名門政治家一族。特にTed Kennedyの飲酒エピソードがよく引用される" /><br />
+        Still no remedy
       </Fragment>
       <Fragment slot="jpn">
-        白人よ、俺は神を文明化する<br />
-        黒人よ、俺は悪魔を文明化する<br />
-        あらゆるレベルで、俺が反逆者であるという事実を楽しんでいる
+        頭蓋骨の上を歩く、俺は二歩先を行くから、マス目3から始めた<br />
+        今や俺はO'Shea Jackson（Ice Cube）のようにCube（立方体）化されている<br />
+        サブゼロが俺のスピリチュアリティにフェイタリティを決める<br />
+        煙突のように煙草を吸い、ケネディのように酒を飲む<br />
+        それでも解決策はない
       </Fragment>
       <Fragment slot="explanation">
-        Five-Percent Nationの神学的概念を応用したライン。「白人＝悪魔、黒人＝神」という教義を、「俺は両方を文明化する」とひっくり返す逆説。「Rebel（反逆者）」の宣言は単なる政治的立場ではなく、知的反抗の表明。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        I'm <QuickSlang word="soul food" desc="アフリカ系アメリカ人の伝統料理。奴隷制時代に発展した、黒人コミュニティの文化的アイデンティティそのもの" /> for thought<br />
-        Like the thoughts that <QuickSlang word="Malcolm taught" desc="マルコムX（Malcolm Little / El-Hajj Malik El-Shabazz）。ブラック・ナショナリズムとイスラムの教義を組み合わせ、1960年代に黒人解放運動を導いたリーダー" /><br />
-        Can't be bought, I'm street taught
-      </Fragment>
-      <Fragment slot="jpn">
-        俺は思考のためのソウルフード（精神的栄養）だ<br />
-        マルコムXが教えたような思想のように<br />
-        俺は買収できない、俺はストリートで学んだ
-      </Fragment>
-      <Fragment slot="explanation">
-        「Soul food for thought（思考のためのソウルフード）」はFood for thoughtのスラング的変形。マルコムXへの直接言及は、ラップを政治的意識覚醒の媒体として位置付けることの宣言。「Street taught（ストリートで学んだ）」は大学教育への依存ではなく実践的知識への誇り。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true} label="★ 宗教・科学・歴史の融合">
-      <Fragment slot="eng">
-        Yo, I'm the type of brother that would study <QuickSlang word="Nostradamus" desc="16世紀フランスの予言者。彼の「諸世紀」は人類の未来を暗示するとされ、ヒップホップでは未来予知的なライミングと自身を重ねる際に引用される" /><br />
-        I walk with the rhymes of Solomon<br />
-        The wisdom of the honorable <QuickSlang word="Elijah" desc="エライジャ・ムハンマド（Elijah Muhammad）。ネイション・オブ・イスラムの指導者で、マルコムXの師。黒人解放神学の中心的人物" />
-      </Fragment>
-      <Fragment slot="jpn">
-        ヨォ、俺はノストラダムスを研究するようなタイプだ<br />
-        俺はソロモンのライムと共に歩む<br />
-        名誉あるエライジャ（・ムハンマド）の知恵を持って
-      </Fragment>
-      <Fragment slot="explanation">
-        ノストラダムス（予言）、ソロモン（旧約聖書の知恵者）、エライジャ・ムハンマド（イスラム指導者）という時空を超えた知者たちを一つのバースに詰め込む。宗教的・神秘的な知識体系を自身のリリシズムと直結させるRas Kassの学術的アプローチ。
+        「Cube'd like O'Shea Jackson」はIce Cubeの本名を使った言葉遊び。「Sub-Zero catching fatalities」はMKゲームの技を「自分の精神性が殺される」比喩に転用。「Kennedy」の飲酒文化への言及が自己破壊的な生活様式を告白する。
       </Fragment>
     </LyricsBlock>
 
     <LyricsBlock hasExplanation={true}>
       <Fragment slot="eng">
-        I got the truth, I speak it, niggas can't beat it<br />
-        So-called brothers try to delete it<br />
-        But they can't delete it, they can't defeat the technique
+        Fuck shooting a fair one<br />
+        'Cause open cuts from fuckin' some nigga up<br />
+        Can lead to contracting HIV positivity<br />
+        You never know who got traits of femininity<br />
+        What <QuickSlang word="agwan" desc="ジャマイカのパトワ語で「What's going on（何が起きてる）」。ジャマイカのレゲエ・ダンスホール文化からヒップホップに流入した表現" />, <QuickSlang word="pussy wool blood clot" desc="ジャマイカのパトワ語の強い罵倒語。「blood clot（血の塊）」はジャマイカ英語で最強レベルの侮辱語" /><br />
+        And deal with the bullshit <QuickSlang word="batty-boy" desc="ジャマイカのパトワ語で同性愛者を指す蔑称。1990年代のダンスホール/ヒップホップで頻繁に使われた同性愛嫌悪的表現" /> business fi' dat
       </Fragment>
       <Fragment slot="jpn">
-        俺は真実を持っている、それを語る、誰も俺に勝てない<br />
-        いわゆる「仲間」たちはそれを消し去ろうとする<br />
-        でも奴らには消せない、このテクニックに勝てない
+        フェアな殴り合いなんてくそくらえ<br />
+        なぜなら誰かをぶちのめしてできた傷口が<br />
+        HIV感染につながりかねないから<br />
+        誰が女性的な特性を持っているか分からない<br />
+        アグワン、ぷっしーウール・ブラッドクロット<br />
+        そのくだらない「バッティボーイ」ビジネスに対処しろ
       </Fragment>
       <Fragment slot="explanation">
-        「So-called brothers（いわゆる兄弟たち）」は同じ黒人コミュニティの中にいる批判者への言及。内部からの抵抗と外部からの支配という二重の圧力に対して、真実（Truth）の力で立ち向かうという姿勢を示す。
+        素手の喧嘩（fair one）を避ける理由としてHIV感染リスクを挙げる——1990年代のエイズ危機を背景にした現実的な計算。ジャマイカのパトワ語（agwan, blood clot, batty-boy）の挿入は1990年代ヒップホップとダンスホールの文化的交流を示す。
       </Fragment>
     </LyricsBlock>
 
-    <LyricsBlock hasExplanation={true} label="★ クライマックス——魂の氷上での独白">
+    <LyricsBlock hasExplanation={true} label="★ ヒップホップへの批評">
       <Fragment slot="eng">
-        <QuickSlang word="Soul on ice" desc="タイトルの反復。「氷（Ice）」は冷静な分析力、または生き残りのために感情を凍らせた状態。ブラック・ナショナリズムと知的抵抗の象徴" />, never compromised<br />
-        Analyze, <QuickSlang word="philosophize" desc="哲学する・哲学的に考える。Ras Kassが自らのラップを単なる娯楽ではなく、哲学的実践として位置付ける言葉" />, I see through disguise<br />
-        My soul on ice, I never sleep, I <QuickSlang word="creep" desc="静かに・油断なく動く。危険な環境での生存戦略であると同時に、知的な慎重さをも表す" />
+        You play the villain<br />
+        There will be another <QuickSlang word="soundbwoy killin'" desc="サウンドボーイ（ライバルのDJ/MC）を倒すこと。ジャマイカのサウンドシステム文化から来た表現で、ヒップホップのビーフ（口撃）文化に相当する" /><br />
+        <QuickSlang word="Benadryl" desc="抗ヒスタミン薬の市販薬ブランド。眠気を誘う副作用で知られる" /> pumps through my adrenaline<br />
+        Feelin' my rap's weight, I track Heavy like <QuickSlang word="Tony Dofat" desc="ニューヨーク出身のヒップホップDJ/プロデューサー。「Heavy D & the Boyz」などのプロデューサーとして知られる" /><br />
+        Hip Hop is 2% milk, but mostly no fat<br />
+        And most MC's ain't prepared<br />
+        So what I say goes over your head like pubic hair
       </Fragment>
       <Fragment slot="jpn">
-        魂は氷の上にある、決して妥協しない<br />
-        分析し、哲学し、偽りを見抜く<br />
-        俺の魂は氷の上にある、眠らない、静かに動き続ける
+        お前は悪役を演じる<br />
+        また別のサウンドボーイ殺しが起きる<br />
+        ベナドリルが俺のアドレナリンを通って流れる<br />
+        俺のラップの重みを感じながら、Heavy（ヘヴィ）をTony Dofatのようにトラックする<br />
+        ヒップホップは低脂肪2%ミルクだが、ほとんど脂肪なし<br />
+        そしてほとんどのMCは準備できていない<br />
+        だから俺が言うことは陰毛のようにお前の頭上を通り過ぎる
       </Fragment>
       <Fragment slot="explanation">
-        楽曲のタイトルが3度登場するクライマックス。「never compromised（決して妥協しない）」と「philosophize（哲学する）」の並置が、Ras Kassのアーティストとしての核心を示す。「Never sleep（眠らない）」は常に警戒し、思考し続けるという知的サバイバルの宣言。
+        「Hip Hop is 2% milk, but mostly no fat」——ヒップホップが薄まっている（栄養価が低い）という批判。「Goes over your head like pubic hair」は理解できない（頭上を通り過ぎる）という侮辱をグロテスクな比喩で表現する。
       </Fragment>
     </LyricsBlock>
 
-    <LyricsBlock hasExplanation={false}>
+    <LyricsBlock hasExplanation={true} label="★ 陰謀論と政治批判">
       <Fragment slot="eng">
-        I keep it real, from the streets of LA<br />
-        To the stage, I engage, turn the page<br />
-        And we're out
+        In 1999 (Flip the script) – triple 6<br />
+        One world government "<QuickSlang word="Novus Ordo Seclorum" desc="ラテン語で「新しい世界秩序」。アメリカのドル紙幣（1ドル札）に印刷されている言葉。フリーメイソンや世界政府陰謀論のシンボルとして引用される" />"<br />
+        Check your dead president, represented on the 1 dollar bill<br />
+        And if Clinton was the answer, it was a stupid question<br />
+        My soul's on ice, baby
       </Fragment>
       <Fragment slot="jpn">
-        俺はリアルを保つ、LAのストリートから<br />
-        ステージまで、俺は向き合い、ページをめくる<br />
-        そして俺たちは去る
+        1999年に（脚本を逆転させろ）——666<br />
+        一つの世界政府「ノヴス・オルド・セクロラム（新世界秩序）」<br />
+        1ドル札に刻まれた、死んだ大統領（紙幣）を確認しろ<br />
+        もしクリントンが答えなら、それは愚かな問いだった<br />
+        俺の魂は氷の上にある、ベイビー
+      </Fragment>
+      <Fragment slot="explanation">
+        「1999」「triple 6（666）」「Novus Ordo Seclorum」「dead president（1ドル札）」——陰謀論的な世界観でミレニアム前夜の不安を表現。クリントン政権（1993-2001）への批判的言及。1ドル札のピラミッド・目のシンボルとフリーメイソン的陰謀論を接続する。
       </Fragment>
     </LyricsBlock>
   </section>

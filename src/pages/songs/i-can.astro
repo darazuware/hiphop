@@ -51,7 +51,75 @@ import SongLayout from '../../layouts/SongLayout.astro';
     <!-- ===================== -->
     <section id="verse1" class="mb-12">
       <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Verse 1 · Nas — 少女・少年たちへ
+        Verse 1 · Nas
+      </h2>
+
+      <LyricsBlock hasExplanation={true}>
+        <Fragment slot="eng">
+          Be – b-boys and girls, listen up<br />
+          You can be anything in the world, in God we trust<br />
+          An architect, doctor, maybe an actress<br />
+          But nothing comes easy, it takes much practice
+        </Fragment>
+        <Fragment slot="jpn">
+          B-ボーイ、B-ガール、聞け<br />
+          神を信じれば、この世界で何にだってなれる<br />
+          建築家、医者、女優だって<br />
+          だが楽な道はない、練習と努力が必要だ
+        </Fragment>
+        <Fragment slot="explanation">
+          冒頭の呼びかけから「God we trust」——ドル紙幣の言葉を引用しつつ夢と信仰を重ねる。「nothing comes easy」でロマンチックになりすぎない現実主義のバランスが巧み。
+        </Fragment>
+      </LyricsBlock>
+
+      <LyricsBlock hasExplanation={true} label="★ ヘロインに落ちた歌手の話">
+        <Fragment slot="eng">
+          Like, I met a woman who's becoming a star<br />
+          She was very beautiful, leaving people in awe<br />
+          Singing songs, Lena Horne, but the younger version<br />
+          Hung with the wrong person, got her strung on that heroin<br />
+          Cocaine, sniffing up drugs, all in her nose<br />
+          Could've died, so young, now looks ugly and old<br />
+          No fun, 'cause now when she reaches for hugs, people hold they breath<br />
+          'Cause she smells of corrosion and death
+        </Fragment>
+        <Fragment slot="jpn">
+          たとえば、スターになりかけていた女性と出会った<br />
+          とても美しく、人々を魅了していた<br />
+          Lena Hornのように歌う、もっと若い版<br />
+          悪い人間と付き合い、ヘロインに溺れた<br />
+          コカイン、鼻からドラッグを吸い続けた<br />
+          死にかけた、若くして、今は醜く老けた<br />
+          楽しみもない、ハグしようとすると人々は息を止める<br />
+          腐敗と死の匂いがするから
+        </Fragment>
+        <Fragment slot="explanation">
+          「Lena Horne」は1940〜50年代の黒人女性歌手・女優で、エレガンスの象徴。その若い版がドラッグで転落する対比が残酷。「smells of corrosion and death」は比喩であり、孤立と死の実感でもある。
+        </Fragment>
+      </LyricsBlock>
+
+      <LyricsBlock hasExplanation={false}>
+        <Fragment slot="eng">
+          Watch the company you keep and the crowd you bring<br />
+          'Cause they came to do drugs and you came to sing<br />
+          So if you gonna be the best, I'ma tell you how<br />
+          Put your hands in the air, and take the vow
+        </Fragment>
+        <Fragment slot="jpn">
+          付き合う人間と連れてくる群れに気をつけろ<br />
+          奴らはドラッグをやりに来た、お前は歌いに来た<br />
+          最高になりたいなら、俺が教えてやる<br />
+          手を上げて、誓いを立てろ
+        </Fragment>
+      </LyricsBlock>
+    </section>
+
+    <!-- ===================== -->
+    <!-- VERSE 2               -->
+    <!-- ===================== -->
+    <section id="verse2" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        Verse 2 · Nas — 少女・少年たちへ
       </h2>
 
       <LyricsBlock hasExplanation={true} label="★ 10歳の少女への警告">
