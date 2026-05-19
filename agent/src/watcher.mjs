@@ -34,7 +34,7 @@ async function processTrigger(triggerFile) {
 
   try {
     const exitCode = await new Promise((resolve) => {
-      const cmd = `cat "${promptFile}" | ${CLAUDE_BIN} --print --permission-mode acceptEdits --dangerously-skip-permissions`;
+      const cmd = `cat "${promptFile}" | ${CLAUDE_BIN} --print --permission-mode acceptEdits --dangerously-skip-permissions 2>&1 | tee /tmp/hiphop-claude.log`;
       const child = spawn('/bin/bash', ['-c', cmd], {
         cwd: HIPHOP_CWD,
         stdio: 'inherit', // ターミナルにそのまま出力
