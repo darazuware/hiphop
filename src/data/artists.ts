@@ -341,6 +341,33 @@ export const artists = [
     summary: 'Tupac Amaru Shakur（1971–1996）。Black Panther Party活動家の母Afeni Shakurのもとに生まれ、ストリートと詩の両方を生きた。服役中に全米チャート1位を達成し、1996年9月に26歳で銃撃により死去。死後も数十枚のアルバムが発表され続けるヒップホップ史上最も影響力のある人物のひとり。',
     japan: '「Dear Mama」「California Love」「Changes」はヒップホップ入門曲として今も参照される。彼の写真Tシャツは日本のストリートファッションでも定番アイテムとなった。',
   },
+  {
+    slug: 'eminem',
+    name: 'Eminem',
+    origin: 'St. Joseph, Missouri (raised in Detroit, Michigan)',
+    active: '1996–',
+    genre: 'Hip-Hop / rap rock',
+    summary: '本名Marshall Bruce Mathers III。デトロイト出身の白人ラッパーとして人種の壁を越え、歴代最多売上を誇るラッパーに。1999年「The Slim Shady LP」でメジャーデビュー。「Stan」「Lose Yourself」「Eminem Show」などで社会現象を巻き起こした。アカデミー賞（「Lose Yourself」）、グラミー賞15回受賞。',
+    japan: '日本でも最も知名度の高いラッパーのひとり。「Lose Yourself」は映画8 Mileとともに2002年に大ヒット。「Stan」は「熱狂的ファン」を意味するスラングとして英語辞書に収録され、日本のHIPHOPメディアにも浸透している。',
+  },
+  {
+    slug: 'nwa',
+    name: 'N.W.A',
+    origin: 'Compton, California',
+    active: '1986–1991',
+    genre: 'West Coast Hip-Hop / gangsta rap',
+    summary: "Ice Cube、Dr. Dre、Eazy-E、MC Ren、DJ Yellaからなるコンプトン出身のグループ。1988年「Straight Outta Compton」でギャングスタラップを世界に定義した。FBIから警告状が届くほどの物議を醸し、ヒップホップ史上最も革命的なグループのひとつ。2016年ロックの殿堂入り。",
+    japan: '2015年公開の伝記映画「ストレイト・アウタ・コンプトン」が日本でも公開されヒット。Ice CubeとDr. Dreの名声を通じてギャングスタラップの源流として日本のHIPHOPファンに広く認知されている。',
+  },
+  {
+    slug: 'digable-planets',
+    name: 'Digable Planets',
+    origin: 'Washington, D.C. / Brooklyn, New York',
+    active: '1992–1995, 2005–',
+    genre: 'Jazz rap / alternative hip-hop',
+    summary: 'Ishmael "Butterfly" Butler、Mary Ann "Ladybug Mecca" Vieira、Craig "Doodlebug" IrvingによるトリオNYC。1993年「Rebirth of Slick (Cool Like Dat)」でグラミー賞（最優秀ラップデュオ/グループ）受賞。アート・ブレイキーやキャノンボール・アダレイのジャズをサンプリングし、ヒップホップとジャズの橋渡しをした。',
+    japan: 'ジャズ・ラップの文脈でATCQと並んで語られ、日本のジャズ好きなHIPHOPリスナーに深く支持される。「Cool Like Dat」はクールの美学として日本のHIPHOPシーンに浸透した。',
+  },
 ] as const;
 
 export type Artist = typeof artists[number];
