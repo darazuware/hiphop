@@ -5,7 +5,7 @@
  * Fetches lyrics from Genius and runs check-lyrics-coverage.mjs for each.
  */
 
-import { readFileSync, writeFileSync } from 'node:fs';
+import { readFileSync, writeFileSync, statSync } from 'node:fs';
 import { join, basename } from 'node:path';
 import { execSync } from 'node:child_process';
 import { createRequire } from 'node:module';
@@ -38,12 +38,22 @@ function getSongMeta(slug) {
   return m ? { title: m[1], artist: m[2] } : null;
 }
 
-// --- Fetch lyrics ---
+// --- Fetch lyrics (skip if recent cache exists) ---
 async function fetchLyrics(title, artist, slug) {
+  const cachePath = `/tmp/lyrics-${slug}.txt`;
+  try {
+    const stat = statSync(cachePath);
+    const ageMs = Date.now() - stat.mtimeMs;
+    if (ageMs < 2 * 60 * 60 * 1000) {
+      const cached = readFileSync(cachePath, 'utf-8');
+      console.log(`  Using cached lyrics (${Math.round(ageMs / 60000)}m old)`);
+      return cached.split('\n').length;
+    }
+  } catch {}
   const { getLyrics } = require(join(projectRoot, 'agent/node_modules/genius-lyrics-api/index.js'));
   const lyrics = await getLyrics({ apiKey, title, artist, optimizeQuery: false });
   if (!lyrics) throw new Error('No lyrics returned');
-  writeFileSync(`/tmp/lyrics-${slug}.txt`, lyrics);
+  writeFileSync(cachePath, lyrics);
   return lyrics.split('\n').length;
 }
 
