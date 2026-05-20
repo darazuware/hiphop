@@ -5,9 +5,10 @@ interface Props {
   href?: string;
 }
 const { word, desc, href } = Astro.props;
+const resolvedHref = href ?? `/slang?q=${encodeURIComponent(word)}`;
 ---
 
-<span class="qs relative inline-block" data-href={href}>
+<span class="qs relative inline-block" data-href={resolvedHref}>
   <button
     type="button"
     class="qs-trigger border-b border-[var(--c-gold)] text-[var(--c-text)] cursor-pointer bg-transparent p-0 font-[inherit] text-[inherit]"
@@ -18,7 +19,7 @@ const { word, desc, href } = Astro.props;
     role="tooltip"
   >
     {desc}
-    {href && <span class="qs-hint block mt-1.5 text-[var(--c-gold)] text-[10px] uppercase tracking-widest">もう一度タップで詳細 →</span>}
+    <span class="qs-hint block mt-1.5 text-[var(--c-gold)] text-[10px] uppercase tracking-widest">もう一度タップで詳細 →</span>
   </span>
 </span>
 

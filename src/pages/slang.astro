@@ -189,10 +189,8 @@ const grouped = alphabet.map(letter => ({
   const noSlang = document.getElementById('no-slang');
   const alphNav = document.getElementById('alpha-nav');
 
-  input?.addEventListener('input', () => {
-    const q = input.value.toLowerCase().trim();
+  function applyFilter(q: string) {
     let total = 0;
-
     entries.forEach(el => {
       const word = el.dataset.word || '';
       const desc = el.querySelector('dd')?.textContent?.toLowerCase() || '';
@@ -200,14 +198,23 @@ const grouped = alphabet.map(letter => ({
       el.style.display = match ? '' : 'none';
       if (match) total++;
     });
-
     sections.forEach(sec => {
       const visible = [...sec.querySelectorAll<HTMLElement>('.slang-entry')]
         .some(el => el.style.display !== 'none');
       sec.style.display = visible ? '' : 'none';
     });
-
     if (noSlang) noSlang.classList.toggle('hidden', total > 0);
     if (alphNav) alphNav.style.display = q ? 'none' : '';
+  }
+
+  const qParam = new URLSearchParams(location.search).get('q');
+  if (qParam && input) {
+    input.value = qParam;
+    applyFilter(qParam.toLowerCase().trim());
+    input.scrollIntoView({ block: 'center', behavior: 'smooth' });
+  }
+
+  input?.addEventListener('input', () => {
+    applyFilter(input.value.toLowerCase().trim());
   });
 </script>
