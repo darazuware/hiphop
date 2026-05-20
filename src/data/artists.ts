@@ -405,6 +405,15 @@ export const artists = [
     japan: '日本のアンダーグラウンドHIPHOPシーンでは「プリモ・ビート」崇拝の象徴として特別な地位を占める。専門誌『blast』『FRONT』等での特集と輸入盤の動きを通じて1990年代後半に浸透し、「East Coastヒップホップの真髄」として今もコアなリスナーに語り継がれている。',
   },
   {
+    slug: 'black-moon',
+    name: 'Black Moon',
+    origin: 'Brooklyn, New York',
+    active: '1991–',
+    genre: 'East Coast Hip-Hop / hardcore rap',
+    summary: 'Buckshot（MC）、5FT.（MC）、DJ Total Eclipseによるブルックリン出身のトリオ。Boot Camp Clikの先駆けとして1993年デビュー作『Enta da Stage』を発表し、Da Beatminerzのダークでローファイなビートとストリートの現実を直視する歌詞でイーストコースト・リバイバルの旗手となった。「Stay Real」「Who Got da Props?」などが代表曲。',
+    japan: '1990年代中盤の日本アンダーグラウンドHIPHOPシーンで東海岸ハードコアの代表格として圧倒的な支持を受けた。DJたちがクラブで頻繁にプレイし、Da Beatminerzのサウンド美学は日本のプロデューサー世代にも影響を与えた。複数回の来日公演でも熱狂的な歓迎を受けている。',
+  },
+  {
     slug: 'jamo-gang',
     name: 'Jamo Gang',
     origin: 'New York / Los Angeles',
