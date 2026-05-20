@@ -16,7 +16,7 @@ import { execSync, spawn } from 'node:child_process';
 
 const HIPHOP_CWD = '/Users/ktamatzmoto/Desktop/hiphop';
 const WATCHER_SCRIPT = '/Users/ktamatzmoto/Desktop/hiphop/agent/src/watcher.mjs';
-const TIMEOUT_MS = 15 * 60 * 1000; // 15分
+const TIMEOUT_MS = 45 * 60 * 1000; // 45分（3曲並列でもwatcher処理が終わるまで待てる）
 
 function isWatcherRunning() {
   try {

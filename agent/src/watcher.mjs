@@ -71,9 +71,15 @@ async function processTrigger(triggerFile) {
     return;
   }
 
-  // Step 2: 歌詞カバレッジチェック
+  // Step 2: profanityをcensor
   if (slug) {
-    console.log(`\n[2/5] 歌詞カバレッジチェック...`);
+    console.log(`\n[2/6] censor-lyrics...`);
+    await run(`node agent/src/censor-lyrics.mjs ${slug}`, { silent: true });
+  }
+
+  // Step 3: 歌詞カバレッジチェック
+  if (slug) {
+    console.log(`\n[3/6] 歌詞カバレッジチェック...`);
     const checkResult = await run(
       `node agent/src/check-lyrics-coverage.mjs ${slug}`,
       { silent: true }
@@ -91,7 +97,7 @@ async function processTrigger(triggerFile) {
 
   // Step 3: カバー画像チェック
   if (slug) {
-    console.log(`\n[3/5] カバー画像チェック...`);
+    console.log(`\n[4/6] カバー画像チェック...`);
     const imgResult = await run(
       `node agent/src/check-cover-image.mjs ${slug}`,
       { silent: true }
@@ -104,7 +110,7 @@ async function processTrigger(triggerFile) {
 
   // Step 4: artists.ts 整合性チェック
   if (slug) {
-    console.log(`\n[4/5] artists.ts チェック...`);
+    console.log(`\n[5/6] artists.ts チェック...`);
     try {
       const songsSrc = readFileSync(`${HIPHOP_CWD}/src/data/songs.ts`, 'utf-8');
       const songLine = songsSrc.split('\n').find(l => l.includes(`slug: '/songs/${slug}'`));
@@ -128,7 +134,7 @@ async function processTrigger(triggerFile) {
   }
 
   // Step 5: ビルド確認
-  console.log(`\n[5/5] npm run build...`);
+  console.log(`\n[6/6] npm run build...`);
   const buildResult = await run('npm run build', { silent: true });
   if (buildResult.code !== 0) {
     console.error('ビルド失敗');
