@@ -413,6 +413,15 @@ export const artists = [
     summary: 'Ras Kass（カリフォルニア州出身）、El Gant（ニューヨーク）、J57（ニューヨーク）によるスーパーグループ。異なる出自を持つ3人がFat Beats Recordsの精神を継承しつつ、スキル重視のブーンバップを現代に展開。DJ Premierとのコラボで実現した「The 1st Time」（2020年）はAtmosphereのSlugを客演に迎え、地域・世代を超えたインディー・ヒップホップの連帯を体現した作品として高い評価を受けた。',
     japan: '日本のブーンバップ・アンダーグラウンドHHファンの間で支持を集める。DJ Premier×Slugというコラボの歴史的意義と、Ras Kassの知性的なリリシズムへの評価が高い。Fat Beats Recordsの系譜を受け継ぐ姿勢が、日本のオールドスクール愛好家にも響いている。',
   },
+  {
+    slug: 'smif-n-wessun',
+    name: 'Smif-N-Wessun',
+    origin: 'Brooklyn, New York',
+    active: '1993–',
+    genre: 'East Coast Hip-Hop / hardcore rap / boom bap',
+    summary: 'TekとSteeleからなるブルックリン（Brownsville / Bed-Stuy）出身のデュオ。Boot Camp Clik（Black Moon、Heltah Skeltah、O.G.C.ら擁する大型コレクティブ）の中核として、1995年デビューアルバム『Dah Shinin\'』をWreck Recordsからリリース。Da Beatminerzプロデュースの暗鬱でスモーキーなビートにジャマイカのパトワ語・ダンスホール文化を融合させたスタイルで、イーストコースト・ルネサンスの先陣を切った。同アルバムはビルボードR&B/Hip-Hopチャート5位を記録し30万枚超を売り上げた。銃器メーカーSmith & Wessonとの商標権訴訟（1995〜96年）で「Cocoa Brovaz」への改名を余儀なくされたが、2005年『Smif \'n\' Wessun: Reloaded』で元の名を取り戻した。',
+    japan: '「Wrekonize (Remix)」は日本のクラブシーンで爆発的ヒットを記録。P-VINEが2020年・2022年に7インチ・ピクチャー・ヴァイナルを日本独自で限定再発するほど根強い需要を誇る。DJ MUROらレコードディガーがミックステープの必須クラシックとして選出し続け、大阪のダンスチームHEX BEXなどストリートダンサーにも絶大な影響を与えた。舐達麻など現代の日本ハードコア系グループの音楽性にも間接的に遺伝子が引き継がれている。',
+  },
 ] as const;
 
 export type Artist = typeof artists[number];
