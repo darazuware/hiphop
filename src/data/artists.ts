@@ -396,6 +396,15 @@ export const artists = [
     japan: '日本のヒップホップシーンではアンダーグラウンドファンを中心に強い支持を持つ。「ooh la la」でのGang Starr「DWYCK」サンプリングとDJ Premier参加は、日本のブーンバップファンにも高く評価された。Killer Mikeの社会主義的政治観とEl-Pの実験精神の組み合わせが、音楽的にも思想的にも日本のリスナーを刺激し続けている。',
   },
   {
+    slug: 'group-home',
+    name: 'Group Home',
+    origin: 'Brooklyn, New York',
+    active: '1992–2003',
+    genre: 'East Coast Hip-Hop / boom bap',
+    summary: 'Lil\' Dap（David James Sherrill Jr.）とMelachi the Nutcracker（Jamal Grimes）によるブルックリン出身のデュオ。Gang Starr FoundationのメンバーとしてDJ PremierおよびGuruの後ろ盾のもと、1995年デビュー作『Livin\' Proof』をPayday Records / FFRR Recordsからリリース。DJ Premierがプロデュースした「Supa Star」はKool & the Gang・The Undisputed Truth・The Honeydrippersの複層サンプリングによる90年代ブームバップの金字塔。商業的な大成功には至らなかったものの、その音楽的クオリティは時を超えて高く評価され続けている。',
+    japan: '日本のアンダーグラウンドHIPHOPシーンでは「プリモ・ビート」崇拝の象徴として特別な地位を占める。専門誌『blast』『FRONT』等での特集と輸入盤の動きを通じて1990年代後半に浸透し、「East Coastヒップホップの真髄」として今もコアなリスナーに語り継がれている。',
+  },
+  {
     slug: 'jamo-gang',
     name: 'Jamo Gang',
     origin: 'New York / Los Angeles',
