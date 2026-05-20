@@ -1,5 +1,14 @@
 export const artists = [
   {
+    slug: 'the-firm',
+    name: 'The Firm',
+    origin: 'New York City, New York',
+    active: '1996–1997',
+    genre: 'East Coast Hip-Hop / mafioso rap',
+    summary: 'Nas、AZ、Foxy Brown、Natureからなるニューヨーク出身のスーパーグループ。Dr. Dreのプロデュースのもと1997年に唯一のアルバム『The Firm: The Album』を発表。映画『スカーフェイス』を下敷きにしたキャラクター設定と東西合体というコンセプトで、マフィオソ・ラップの究極形を提示した。Death Row離脱後のDr. DreにとってもAftermath Entertainmentの存在感を証明する重要作となった。',
+    japan: '「Phone Tap」を中心に1990年代後半の日本のアンダーグラウンドHIPHOPシーンで高く評価された。マフィオソ・ラップのスタイルと映画的なコンセプトは、国内ラッパーたちのリリック観とスタイルに多大な影響を与えた。',
+  },
+  {
     slug: 'souls-of-mischief',
     name: 'Souls of Mischief',
     origin: 'Oakland, California',
