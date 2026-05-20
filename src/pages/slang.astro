@@ -1,5 +1,24 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { songs } from '../data/songs';
+
+// Build word → songs mapping from all song pages at build time
+const songFiles = import.meta.glob('./songs/*.astro', { query: '?raw', import: 'default', eager: true }) as Record<string, string>;
+const wordToSongs = new Map<string, { slug: string; title: string; artists: string }[]>();
+
+for (const [filePath, content] of Object.entries(songFiles)) {
+  const fileSlug = filePath.replace('./songs/', '').replace('.astro', '');
+  const song = songs.find(s => s.slug === `/songs/${fileSlug}`);
+  if (!song) continue;
+  const matches = [...(content as string).matchAll(/QuickSlang word="([^"]+)"/g)];
+  for (const m of matches) {
+    const key = m[1].toLowerCase();
+    if (!wordToSongs.has(key)) wordToSongs.set(key, []);
+    const arr = wordToSongs.get(key)!;
+    if (!arr.find(x => x.slug === song.slug))
+      arr.push({ slug: song.slug, title: song.title, artists: song.artists });
+  }
+}
 
 const slang = [
   { word: "'Lo goose",             desc: "Polo Ralph Laurenのグースダウンジャケット。当時のゲットーにおける最高のステータスアイテム" },
@@ -162,12 +181,29 @@ const grouped = alphabet.map(letter => ({
             {group.letter}
           </h2>
           <dl class="space-y-4">
-            {group.items.map(s => (
+            {group.items.map(s => {
+              const songRefs = wordToSongs.get(s.word.toLowerCase()) ?? [];
+              const showSongs = songRefs.length > 0 && songRefs.length < 4;
+              return (
               <div class="slang-entry flex gap-4 text-sm" data-word={s.word.toLowerCase()}>
                 <dt class="text-[var(--c-text)] font-semibold shrink-0 min-w-[140px] max-w-[180px] break-words">{s.word}</dt>
-                <dd class="text-[var(--c-muted)] leading-relaxed">{s.desc}</dd>
+                <dd class="text-[var(--c-muted)] leading-relaxed">
+                  {s.desc}
+                  {showSongs && (
+                    <span class="block mt-1 text-xs text-[var(--c-very-dim)]">
+                      使用曲:{' '}
+                      {songRefs.map((r, i) => (
+                        <Fragment>
+                          <a href={r.slug} class="text-[var(--c-dim)] hover:text-[var(--c-gold)] transition-colors underline underline-offset-2">{r.title}</a>
+                          {i < songRefs.length - 1 && ', '}
+                        </Fragment>
+                      ))}
+                    </span>
+                  )}
+                </dd>
               </div>
-            ))}
+              );
+            })}
           </dl>
         </section>
       ))}
