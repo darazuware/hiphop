@@ -395,6 +395,15 @@ export const artists = [
     summary: 'El-P（Jamie Meline、ニューヨーク出身）とKiller Mike（Michael Render、アトランタ出身）による2人組スーパーデュオ。2012年に結成し、翌2013年にデビューアルバムを無料配信。以降全作品を無料配信するスタンスで知られる。El-Pの実験的・ディストピア的なビートとKiller Mikeの社会批評的なリリシズムが融合した独自スタイルを確立。2020年のBLM運動の文脈で発表した「RTJ4」が世界的に高く評価された。',
     japan: '日本のヒップホップシーンではアンダーグラウンドファンを中心に強い支持を持つ。「ooh la la」でのGang Starr「DWYCK」サンプリングとDJ Premier参加は、日本のブーンバップファンにも高く評価された。Killer Mikeの社会主義的政治観とEl-Pの実験精神の組み合わせが、音楽的にも思想的にも日本のリスナーを刺激し続けている。',
   },
+  {
+    slug: 'jamo-gang',
+    name: 'Jamo Gang',
+    origin: 'New York / Los Angeles',
+    active: '2019–',
+    genre: 'Underground Hip-Hop / Boom-Bap',
+    summary: 'Ras Kass（カリフォルニア州出身）、El Gant（ニューヨーク）、J57（ニューヨーク）によるスーパーグループ。異なる出自を持つ3人がFat Beats Recordsの精神を継承しつつ、スキル重視のブーンバップを現代に展開。DJ Premierとのコラボで実現した「The 1st Time」（2020年）はAtmosphereのSlugを客演に迎え、地域・世代を超えたインディー・ヒップホップの連帯を体現した作品として高い評価を受けた。',
+    japan: '日本のブーンバップ・アンダーグラウンドHHファンの間で支持を集める。DJ Premier×Slugというコラボの歴史的意義と、Ras Kassの知性的なリリシズムへの評価が高い。Fat Beats Recordsの系譜を受け継ぐ姿勢が、日本のオールドスクール愛好家にも響いている。',
+  },
 ] as const;
 
 export type Artist = typeof artists[number];
