@@ -73,7 +73,8 @@ const regions = [{ value: 'NY', label: 'New York' }, { value: 'Philly', label: '
         <p class="text-[var(--c-very-dim)] text-[10px] uppercase tracking-widest mb-2">Sort</p>
         <select id="sort-select" class="w-full text-xs px-2 py-1 rounded border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-very-dim)] focus:outline-none focus:border-[var(--c-gold)] transition-colors cursor-pointer">
           <option value="default">Default</option>
-          <option value="az">A–Z</option>
+          <option value="az">A–Z (Song)</option>
+          <option value="az-artist">A–Z (Artist)</option>
           <option value="bpm">BPM ↑</option>
           <option value="era">Era</option>
         </select>
@@ -146,7 +147,8 @@ const regions = [{ value: 'NY', label: 'New York' }, { value: 'Philly', label: '
           <div class="flex items-center gap-3">
             <select id="sort-select-mobile" class="lg:hidden text-xs px-2 py-1 rounded border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-very-dim)] focus:outline-none focus:border-[var(--c-gold)] transition-colors cursor-pointer">
               <option value="default">Default</option>
-              <option value="az">A–Z</option>
+              <option value="az">A–Z (Song)</option>
+              <option value="az-artist">A–Z (Artist)</option>
               <option value="bpm">BPM ↑</option>
               <option value="era">Era</option>
             </select>
@@ -161,6 +163,7 @@ const regions = [{ value: 'NY', label: 'New York' }, { value: 'Philly', label: '
               data-region={song.region}
               data-producer={song.producer}
               data-bpm={song.bpm}
+              data-artist={song.artists}
               data-search={[song.title, song.artists, song.subtitle, song.tag, song.era, song.region, song.producer, song.sample ?? ''].join(' ').toLowerCase()}
             >
               <a href={song.slug} class="song-card group relative flex flex-col justify-end overflow-hidden rounded-xl aspect-[3/4]">
@@ -331,6 +334,11 @@ const regions = [{ value: 'NY', label: 'New York' }, { value: 'Philly', label: '
       if (value === 'az') {
         const ta = a.querySelector<HTMLElement>('p.font-bold')?.textContent ?? '';
         const tb = b.querySelector<HTMLElement>('p.font-bold')?.textContent ?? '';
+        return ta.localeCompare(tb);
+      }
+      if (value === 'az-artist') {
+        const ta = a.dataset.artist ?? '';
+        const tb = b.dataset.artist ?? '';
         return ta.localeCompare(tb);
       }
       if (value === 'era') return (eraOrder[a.dataset.era ?? ''] ?? 99) - (eraOrder[b.dataset.era ?? ''] ?? 99);
