@@ -116,9 +116,16 @@ function extractEngLines(astro) {
 }
 
 // --- Normalize for comparison: lowercase, strip punctuation, collapse whitespace ---
+// Also expands censored forms (f**k → fuck, n***a → nigga) so censor-lyrics.mjs
+// output still matches against Genius lyrics.
 function normalize(s) {
   return s
     .toLowerCase()
+    // Expand censored forms before stripping symbols
+    .replace(/f\*\*k(in'?g?|ed|er[sz]?|[sz])?\b/g, (_m, suffix = '') => 'fuck' + (suffix || ''))
+    .replace(/n\*{2,}(a[sz]?|er[sz]?|y|edy)\b/g, (m, suffix) => 'nigg' + suffix)
+    .replace(/b\*{2,}h(es|in'?g?)?\b/g, (m, suffix = '') => 'bitch' + suffix)
+    .replace(/s\*{2,}t(t(?:y|ier|iest|ing)|[sz])?\b/g, (m, suffix = '') => 'shit' + (suffix || ''))
     .replace(/[''`]/g, "'")
     .replace(/["""]/g, '"')
     .replace(/[^a-z0-9'\s]/g, ' ')
@@ -147,8 +154,7 @@ function isLineMatch(lyricLine, engLine) {
 // An eng slot may combine multiple Genius lines into one block, so we check word-level
 // coverage against the entire Genius lyrics joined as a single string.
 function isEngLineCovered(engLine, geniusCorpus) {
-  // Censored lines (n***a, f***, etc.) are real lyrics — skip hallucination check
-  if (/\*/.test(engLine)) return true;
+  // normalize() already expands censored forms (f**k → fuck etc.), so no special skip needed
   const engNorm = normalize(engLine);
   if (engNorm.length < 4) return true;
 
