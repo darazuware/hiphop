@@ -1,5 +1,14 @@
 export const artists = [
   {
+    slug: 'raekwon',
+    name: 'Raekwon',
+    origin: 'Staten Island, New York',
+    active: '1992–',
+    genre: 'East Coast Hip-Hop / mafioso rap / hardcore rap',
+    summary: 'Wu-Tang Clanのメンバー、本名Corey Woods。1995年のソロデビュー作『Only Built 4 Cuban Linx...』でマフィオソ・ラップというサブジャンルを確立した。映画『スカーフェイス』を下敷きにした映画的世界観とGhostface Killahとのコンビネーション、RZAの地下スタジオで生まれたダーティなブーンバップが融合し、東海岸ハードコアの新たな頂点を築いた。「Cuban Linx」はヒップホップ史上最も重要なソロアルバムの一つとしてローリングストーン誌ほか各メディアで評価されている。',
+    japan: '日本のアンダーグラウンドHIPHOPシーンでWu-Tang Clanとともに広く浸透。マフィオソ・ラップのスタイルと映画的なリリシズムは国内のラッパーたちのリリック観に影響を与えた。「Criminology」「Incarcerated Scarfaces」などが特に評価が高く、レコードコレクターの間でもオリジナル盤の評価は高い。',
+  },
+  {
     slug: 'the-firm',
     name: 'The Firm',
     origin: 'New York City, New York',
