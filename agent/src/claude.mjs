@@ -12,7 +12,7 @@
 
 import { readFile, writeFile } from 'node:fs/promises';
 import { access } from 'node:fs/promises';
-import { execSync, spawnSync } from 'node:child_process';
+import { execSync, spawn } from 'node:child_process';
 
 const HIPHOP_CWD = '/Users/ktamatzmoto/Desktop/hiphop';
 const WATCHER_SCRIPT = '/Users/ktamatzmoto/Desktop/hiphop/agent/src/watcher.mjs';
@@ -29,14 +29,22 @@ function isWatcherRunning() {
 
 async function ensureWatcher() {
   if (isWatcherRunning()) return;
-  console.log('  [Claude] watcherが停止中 → Terminal起動中...');
-  const appleScript = `tell application "Terminal"
-    do script "node ${WATCHER_SCRIPT}"
-    activate
-  end tell`;
-  spawnSync('osascript', ['-e', appleScript]);
-  await sleep(4000); // watcher起動待ち
-  console.log('  [Claude] watcher起動完了');
+  console.log('  [Claude] watcherが停止中 → 直接起動中...');
+  const child = spawn('node', [WATCHER_SCRIPT], {
+    cwd: HIPHOP_CWD,
+    detached: true,
+    stdio: 'ignore',
+  });
+  child.unref();
+  // 起動確認（最大10秒ポーリング）
+  for (let i = 0; i < 10; i++) {
+    await sleep(1000);
+    if (isWatcherRunning()) {
+      console.log('  [Claude] watcher起動完了');
+      return;
+    }
+  }
+  console.warn('  [Claude] watcher起動確認できず（続行）');
 }
 
 /**
