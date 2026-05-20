@@ -1,5 +1,5 @@
 import { writeFile, readFile } from 'node:fs/promises';
-import { writeFileSync } from 'node:fs';
+import { writeFileSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { runClaude } from './claude.mjs';
 import dotenv from 'dotenv';
@@ -66,6 +66,14 @@ export async function processAndDeploy(jsonPath) {
     const { artist, title, imageUrl, research } = data;
 
     const slug = data.slug || title.toLowerCase().replace(/ /g, '-').replace(/[^a-z0-9-]/g, '');
+
+    // 重複チェック
+    const songsSrc = readFileSync(join(HIPHOP_CWD, 'src/data/songs.ts'), 'utf-8');
+    if (songsSrc.includes(`slug: '/songs/${slug}'`)) {
+      console.warn(`  [Processor] スキップ: /songs/${slug} はすでに登録済み`);
+      return { success: false, error: `duplicate: ${slug}` };
+    }
+
     const coversDir = join(HIPHOP_CWD, 'public/images/covers');
     await mkdir(coversDir, { recursive: true });
     const coverPath = join(coversDir, `${slug}.jpg`);

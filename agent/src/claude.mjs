@@ -56,7 +56,8 @@ export async function runClaude(jsonPath) {
     const d = JSON.parse(await readFile(jsonPath, 'utf-8'));
     slug = d.slug || d.title.toLowerCase().replace(/ /g, '-').replace(/[^a-z0-9-]/g, '');
     songMeta = `曲: ${d.artist} - ${d.title} (${d.year || '年不明'})
-slug: ${slug}
+slug（必ずこの値を使うこと）: ${slug}
+ASIN（songs.tsに設定すること）: ${d.asin || 'null'}
 ジャケット画像: ${d.imagePath || ''}
 GeniusURL: ${d.geniusUrl || ''}`;
   } catch (e) {}
@@ -72,14 +73,17 @@ ${jsonPath}
 
 ## 実行手順
 1. 上記JSONファイルを読み込む（research・lyricsフィールドを記事作成の根拠とする）
-2. src/pages/songs/{slug}.astro を作成
+2. ファイル名は必ず src/pages/songs/${slug}.astro（上記slugをそのまま使うこと・変更禁止）
    - SongLayout使用
    - LyricsBlockで歌詞を1〜2行単位で分割（バース全体を1ブロックにしない）
    - 各ブロックにeng/jpn/explanationを付ける（researchの内容を解説に反映すること）
    - QuickSlangで重要スラングに注釈
    - 文化背景・レガシーセクションを追加（researchの調査項目5・6を活用）
    - 【最重要】元の歌詞を1行たりとも省略せず、すべて元の順番通りに配置すること
-3. src/data/songs.ts にエントリ追記（era/region/producer/bpmはresearchから正確に埋める）
+3. src/data/songs.ts にエントリ追記
+   - slug: '/songs/${slug}' （固定・変更禁止）
+   - asin: 上記ASINの値をそのまま設定（nullの場合はnull）
+   - era/region/producer/bpmはresearchから正確に埋める
 4. src/data/artists.ts を確認し、artistSlugが未登録なら追加
 
 ※ git操作・ビルド・歌詞チェックはシステムが自動実行するため不要`;
