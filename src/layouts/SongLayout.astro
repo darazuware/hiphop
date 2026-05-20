@@ -199,9 +199,14 @@ const relatedColumns = song
 
       <!-- Share -->
       <div class="border-t border-[var(--c-border)] pt-6 flex items-center justify-between flex-wrap gap-4">
-        <a href="/" class="text-xs text-[var(--c-very-dim)] hover:text-[var(--c-gold)] transition-colors uppercase tracking-widest">
-          ← WAX&amp;THINK トップへ
-        </a>
+        <div class="flex items-center gap-4">
+          <a href="/" class="text-xs text-[var(--c-very-dim)] hover:text-[var(--c-gold)] transition-colors uppercase tracking-widest">
+            ← WAX&amp;THINK トップへ
+          </a>
+          <a href="/slang" class="text-xs text-[var(--c-very-dim)] hover:text-[var(--c-gold)] transition-colors uppercase tracking-widest">
+            スラング索引 →
+          </a>
+        </div>
         <div class="flex items-center gap-2">
           <a
             href={`https://x.com/intent/tweet?text=${encodeURIComponent(`${title} | WAX&THINK`)}&url=${encodeURIComponent(`https://waxthink.com/songs/${slug}`)}`}

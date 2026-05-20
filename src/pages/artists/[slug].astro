@@ -13,7 +13,7 @@ const artistSongs = songs.filter(s => s.artistSlug === slug);
 ---
 
 <Layout
-  title={`${artist.name} — アーティスト解説 | WAX&INK`}
+  title={`${artist.name} — アーティスト解説 | WAX&THINK`}
   description={`${artist.name}の詳細解説。${artist.summary}`}
 >
   <div class="max-w-2xl mx-auto px-4 py-8">
@@ -42,7 +42,7 @@ const artistSongs = songs.filter(s => s.artistSlug === slug);
     {artistSongs.length > 0 && (
       <section class="mb-10">
         <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-4 border-b border-[var(--c-border)] pb-2">
-          WAX&amp;INK 収録曲 ({artistSongs.length}曲)
+          WAX&amp;THINK 収録曲 ({artistSongs.length}曲)
         </h2>
         <ul class="space-y-3">
           {artistSongs.map(s => (
@@ -69,9 +69,12 @@ const artistSongs = songs.filter(s => s.artistSlug === slug);
       </section>
     )}
 
-    <div class="border-t border-[var(--c-border)] pt-6 text-center">
+    <div class="border-t border-[var(--c-border)] pt-6 flex items-center justify-between flex-wrap gap-4">
       <a href="/" class="text-xs text-[var(--c-very-dim)] hover:text-[var(--c-gold)] transition-colors uppercase tracking-widest">
-        ← WAX&amp;INK トップへ
+        ← WAX&amp;THINK トップへ
+      </a>
+      <a href="/slang" class="text-xs text-[var(--c-very-dim)] hover:text-[var(--c-gold)] transition-colors uppercase tracking-widest">
+        スラング索引 →
       </a>
     </div>
 
