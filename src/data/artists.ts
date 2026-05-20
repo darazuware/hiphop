@@ -440,6 +440,15 @@ export const artists = [
     summary: 'Ras Kass（カリフォルニア州出身）、El Gant（ニューヨーク）、J57（ニューヨーク）によるスーパーグループ。異なる出自を持つ3人がFat Beats Recordsの精神を継承しつつ、スキル重視のブーンバップを現代に展開。DJ Premierとのコラボで実現した「The 1st Time」（2020年）はAtmosphereのSlugを客演に迎え、地域・世代を超えたインディー・ヒップホップの連帯を体現した作品として高い評価を受けた。',
     japan: '日本のブーンバップ・アンダーグラウンドHHファンの間で支持を集める。DJ Premier×Slugというコラボの歴史的意義と、Ras Kassの知性的なリリシズムへの評価が高い。Fat Beats Recordsの系譜を受け継ぐ姿勢が、日本のオールドスクール愛好家にも響いている。',
   },
+  {
+    slug: 'kool-g-rap',
+    name: 'Kool G Rap',
+    origin: 'Corona, Queens, New York',
+    active: '1986–',
+    genre: 'East Coast Hip-Hop / mafioso rap / hardcore rap',
+    summary: '本名Nathaniel Thomas Wilson。Juice Crewのメンバーとしてキャリアをスタートし、複雑な多音節韻（マルチシラビック・ライミング）とマフィア映画的な物語性を融合した「マフィオソ・ラップ」の始祖。1995年のソロデビュー作『4,5,6』（Cold Chillin\' / Epic Street）は全米R&B/Hip Hopアルバムチャート1位を獲得。Nas、Jay-Z、Notorious B.I.G.、Eminem、Big Punといったヒップホップ史を代表するMCたちに絶大な影響を与え、「君のお気に入りのラッパーの"お気に入りのラッパー"」と称される。DJ Poloとのコンビ解消後のソロ第一弾「Fast Life」（feat. Nas）は世代間の松明の受け渡しを体現した歴史的共演として語り継がれる。',
+    japan: '日本のDJカルチャーとアンダーグラウンドHIPHOPシーンに決定的な影響を与えた。Salaam Remi制作のプロモ盤限定「Fast Life (Norfside Remix)」は日本のレコードコレクターの間で「激レア盤」として現在も高値で取引される。2008年には日本人プロデューサーDJ Munariのアルバムで般若と共演した「DEAD OR ALIVE」を発表し、日本のラッパーとの直接コラボを実現。ZEEBRAやBUDDHA BRANDらが構築した日本語ラップのリリシズムと韻踏みの哲学にも深い影響を残している。',
+  },
 ] as const;
 
 export type Artist = typeof artists[number];
