@@ -126,7 +126,7 @@ ${jsonPath}
     }
   }
 
-  return { success: false, output: '', error: 'タイムアウト（15分）' };
+  return { success: false, output: '', error: 'タイムアウト（45分）' };
 }
 
 function sleep(ms) {
