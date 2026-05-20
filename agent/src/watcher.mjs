@@ -8,7 +8,8 @@
  */
 
 import { readFile, writeFile, unlink, readdir } from 'node:fs/promises';
-import { spawn, execSync } from 'node:child_process';
+import { readFileSync } from 'node:fs';
+import { spawn } from 'node:child_process';
 
 const CLAUDE_BIN = '/Users/ktamatzmoto/.local/bin/claude';
 const HIPHOP_CWD = '/Users/ktamatzmoto/Desktop/hiphop';
@@ -72,7 +73,7 @@ async function processTrigger(triggerFile) {
 
   // Step 2: 歌詞カバレッジチェック
   if (slug) {
-    console.log(`\n[2/4] 歌詞カバレッジチェック...`);
+    console.log(`\n[2/5] 歌詞カバレッジチェック...`);
     const checkResult = await run(
       `node agent/src/check-lyrics-coverage.mjs ${slug}`,
       { silent: true }
@@ -88,8 +89,46 @@ async function processTrigger(triggerFile) {
     }
   }
 
-  // Step 3: ビルド確認
-  console.log(`\n[3/4] npm run build...`);
+  // Step 3: カバー画像チェック
+  if (slug) {
+    console.log(`\n[3/5] カバー画像チェック...`);
+    const imgResult = await run(
+      `node agent/src/check-cover-image.mjs ${slug}`,
+      { silent: true }
+    );
+    console.log(imgResult.stdout);
+    if (imgResult.code !== 0) {
+      console.warn('カバー画像NG — 警告のみ（続行）');
+    }
+  }
+
+  // Step 4: artists.ts 整合性チェック
+  if (slug) {
+    console.log(`\n[4/5] artists.ts チェック...`);
+    try {
+      const songsSrc = readFileSync(`${HIPHOP_CWD}/src/data/songs.ts`, 'utf-8');
+      const songLine = songsSrc.split('\n').find(l => l.includes(`slug: '/songs/${slug}'`));
+      const artistSlug = songLine?.match(/artistSlug: '([^']+)'/)?.[1];
+      if (artistSlug) {
+        const artistsSrc = readFileSync(`${HIPHOP_CWD}/src/data/artists.ts`, 'utf-8');
+        if (artistsSrc.includes(`slug: '${artistSlug}'`)) {
+          console.log(`✅ artists.ts: ${artistSlug} 登録済み`);
+        } else {
+          console.error(`❌ artists.ts: ${artistSlug} が未登録 — pushをスキップ`);
+          await writeDone(1, `artists.ts未登録: ${artistSlug}`);
+          cleanup(triggerFile, promptFile);
+          return;
+        }
+      } else {
+        console.warn(`⚠ songs.tsに ${slug} が見つからない — songs.tsの追記を確認してください`);
+      }
+    } catch (e) {
+      console.warn(`artists.tsチェックエラー: ${e.message}`);
+    }
+  }
+
+  // Step 5: ビルド確認
+  console.log(`\n[5/5] npm run build...`);
   const buildResult = await run('npm run build', { silent: true });
   if (buildResult.code !== 0) {
     console.error('ビルド失敗');
@@ -100,8 +139,8 @@ async function processTrigger(triggerFile) {
   }
   console.log('ビルド OK');
 
-  // Step 4: git add → commit → push
-  console.log(`\n[4/4] git push...`);
+  // git add → commit → push
+  console.log('\ngit push...');
   const files = [
     slug ? `src/pages/songs/${slug}.astro` : null,
     'src/data/songs.ts',
