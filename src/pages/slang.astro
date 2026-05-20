@@ -183,21 +183,23 @@ const grouped = alphabet.map(letter => ({
           <dl class="space-y-4">
             {group.items.map(s => {
               const songRefs = wordToSongs.get(s.word.toLowerCase()) ?? [];
-              const showSongs = songRefs.length > 0 && songRefs.length < 4;
+              const shown = songRefs.slice(0, 4);
+              const extra = songRefs.length - shown.length;
               return (
               <div class="slang-entry flex gap-4 text-sm" data-word={s.word.toLowerCase()}>
                 <dt class="text-[var(--c-text)] font-semibold shrink-0 min-w-[140px] max-w-[180px] break-words">{s.word}</dt>
                 <dd class="text-[var(--c-muted)] leading-relaxed">
                   {s.desc}
-                  {showSongs && (
+                  {songRefs.length > 0 && (
                     <span class="block mt-1 text-xs text-[var(--c-very-dim)]">
                       使用曲:{' '}
-                      {songRefs.map((r, i) => (
+                      {shown.map((r, i) => (
                         <Fragment>
                           <a href={r.slug} class="text-[var(--c-dim)] hover:text-[var(--c-gold)] transition-colors underline underline-offset-2">{r.title}</a>
-                          {i < songRefs.length - 1 && ', '}
+                          {i < shown.length - 1 && ', '}
                         </Fragment>
                       ))}
+                      {extra > 0 && ` 他${extra}曲`}
                     </span>
                   )}
                 </dd>
