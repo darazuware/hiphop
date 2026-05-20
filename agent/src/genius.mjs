@@ -13,6 +13,14 @@ import { getLyrics, searchSong } from 'genius-lyrics-api';
  * @param {string} artist - アーティスト名
  * @returns {Promise<{ lyrics: string, url: string|null, imageUrl: string|null }>}
  */
+function titleMatches(lyrics, expectedTitle) {
+  const preamble = lyrics.slice(0, 500).toLowerCase().replace(/[^a-z0-9\s]/g, ' ').replace(/\s+/g, ' ');
+  const eWords = expectedTitle.toLowerCase().replace(/[^a-z0-9\s]/g, ' ').split(/\s+/).filter(w => w.length > 2);
+  if (eWords.length === 0) return true;
+  const matches = eWords.filter(w => preamble.includes(w));
+  return matches.length / eWords.length >= 0.5;
+}
+
 export async function fetchLyrics(title, artist) {
   const token = process.env.GENIUS_ACCESS_TOKEN;
   if (!token) {
@@ -20,20 +28,25 @@ export async function fetchLyrics(title, artist) {
     return { lyrics: '', url: null, imageUrl: null };
   }
 
-  const options = {
-    apiKey: token,
-    title,
-    artist,
-    optimizeQuery: true,
-  };
+  const mainArtist = artist.split(/\s+feat\./i)[0].split(/\s+ft\./i)[0].trim();
 
-  try {
-    // 歌詞を直接取得
-    console.log(`  [Genius] 検索中: "${artist} - ${title}"`);
-    const lyrics = await getLyrics(options);
+  const attempts = [
+    { apiKey: token, title, artist: mainArtist, optimizeQuery: true },
+    { apiKey: token, title, artist: mainArtist, optimizeQuery: false },
+    { apiKey: token, title, artist, optimizeQuery: true },
+  ];
 
-    if (lyrics) {
-      // 曲のメタデータ（URL、ジャケット画像）も取得
+  console.log(`  [Genius] 検索中: "${artist} - ${title}"`);
+
+  for (const options of attempts) {
+    try {
+      const lyrics = await getLyrics(options);
+      if (!lyrics) continue;
+      if (!titleMatches(lyrics, title)) {
+        console.warn(`  [Genius] タイトル不一致、リトライ中...`);
+        continue;
+      }
+
       let url = null;
       let imageUrl = null;
       try {
@@ -42,18 +55,13 @@ export async function fetchLyrics(title, artist) {
           url = songs[0].url;
           imageUrl = songs[0].image || null;
         }
-      } catch {
-        // メタデータ取得失敗は無視
-      }
+      } catch {}
 
       console.log(`  [Genius] 歌詞取得成功 (${lyrics.length}文字)${imageUrl ? ', ジャケット取得' : ''}`);
       return { lyrics, url, imageUrl };
-    }
-
-    console.warn('  [Genius] 歌詞が見つかりませんでした');
-    return { lyrics: '', url: null, imageUrl: null };
-  } catch (error) {
-    console.error(`  [Genius] エラー: ${error.message}`);
-    return { lyrics: '', url: null, imageUrl: null };
+    } catch {}
   }
+
+  console.warn('  [Genius] 歌詞が見つかりませんでした');
+  return { lyrics: '', url: null, imageUrl: null };
 }
