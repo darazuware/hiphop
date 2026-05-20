@@ -208,13 +208,15 @@ async function main() {
           continue;
         }
 
-        // 複数曲の場合は順次処理（非同期で各曲を処理）
+        // 複数曲・複数メッセージを順次処理（並列実行はGeminiレート制限の原因になるため禁止）
         for (const song of songs) {
-          processSong(song, chatId).catch((error) => {
+          try {
+            await processSong(song, chatId);
+          } catch (error) {
             console.error(`処理エラー: ${error.message}`);
             const safeError = String(error.message).slice(0, 200);
             sendMessage(`❌ 処理エラー: ${safeError}`, chatId).catch(() => {});
-          });
+          }
         }
       }
     } catch (error) {
