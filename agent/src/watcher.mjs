@@ -3,55 +3,132 @@
  * HipHop Article Watcher
  *
  * Terminalで1回起動しておくスクリプト。
- * LaunchAgentが /tmp/hiphop-trigger-*.txt を書くと検知し、
- * Claude Code CLI で記事生成・デプロイを実行する。
- *
- * 起動方法:
- *   node /Users/ktamatzmoto/Desktop/hiphop/agent/src/watcher.mjs
+ * index.mjs が /tmp/hiphop-trigger-*.txt を書くと検知し、
+ * Claude Code CLI で記事生成 → 歌詞チェック → ビルド → git push を実行する。
  */
 
 import { readFile, writeFile, unlink, readdir } from 'node:fs/promises';
-import { spawn } from 'node:child_process';
+import { spawn, execSync } from 'node:child_process';
 
 const CLAUDE_BIN = '/Users/ktamatzmoto/.local/bin/claude';
 const HIPHOP_CWD = '/Users/ktamatzmoto/Desktop/hiphop';
 const POLL_MS = 3000;
 
 console.log('═══════════════════════════════════════');
-console.log('  🎵 HipHop Article Watcher 起動');
+console.log('  HipHop Article Watcher 起動');
 console.log('  Telegramで曲名を送ると自動で記事生成します');
 console.log('  終了: Ctrl+C');
 console.log('═══════════════════════════════════════\n');
+
+function run(cmd, opts = {}) {
+  return new Promise((resolve) => {
+    const child = spawn('/bin/bash', ['-c', cmd], {
+      cwd: HIPHOP_CWD,
+      stdio: opts.silent ? 'pipe' : 'inherit',
+      ...opts,
+    });
+    let stdout = '';
+    if (opts.silent) {
+      child.stdout?.on('data', d => { stdout += d; });
+      child.stderr?.on('data', d => { stdout += d; });
+    }
+    child.on('close', code => resolve({ code, stdout }));
+    child.on('error', e => resolve({ code: 1, stdout: e.message }));
+  });
+}
 
 async function processTrigger(triggerFile) {
   const ts = triggerFile.match(/hiphop-trigger-(\d+)\.txt$/)?.[1];
   if (!ts) return;
 
   const doneFile = `/tmp/hiphop-done-${ts}.txt`;
-  const promptFile = (await readFile(triggerFile, 'utf-8')).trim();
 
-  console.log(`\n📝 記事生成開始... (${new Date().toLocaleTimeString()})`);
-
+  // triggerファイルをJSONとして読む
+  let meta = {};
   try {
-    const exitCode = await new Promise((resolve) => {
-      const cmd = `cat "${promptFile}" | ${CLAUDE_BIN} --print --permission-mode acceptEdits --dangerously-skip-permissions 2>&1 | tee /tmp/hiphop-claude.log`;
-      const child = spawn('/bin/bash', ['-c', cmd], {
-        cwd: HIPHOP_CWD,
-        stdio: 'inherit', // ターミナルにそのまま出力
-      });
+    meta = JSON.parse(await readFile(triggerFile, 'utf-8'));
+  } catch {
+    // 旧フォーマット（plain text = promptFileパス）
+    meta.promptFile = (await readFile(triggerFile, 'utf-8')).trim();
+  }
+  const { promptFile, slug } = meta;
 
-      child.on('close', resolve);
-      child.on('error', (e) => {
-        console.error(`  エラー: ${e.message}`);
-        resolve(1);
-      });
-    });
+  const writeDone = (exitCode, error = null) =>
+    writeFile(doneFile, JSON.stringify({ exitCode, error }), 'utf-8');
 
-    await writeFile(doneFile, String(exitCode), 'utf-8');
-    console.log(exitCode === 0 ? '\n✅ 完了！' : `\n❌ エラー (exit: ${exitCode})`);
-  } finally {
-    unlink(triggerFile).catch(() => {});
-    unlink(promptFile).catch(() => {});
+  console.log(`\n[1/4] Claude記事生成中... slug=${slug || '(unknown)'}`);
+
+  // Step 1: Claude CLI実行
+  const claudeResult = await run(
+    `cat "${promptFile}" | ${CLAUDE_BIN} --print --permission-mode acceptEdits --dangerously-skip-permissions 2>&1 | tee /tmp/hiphop-claude.log`
+  );
+
+  if (claudeResult.code !== 0) {
+    console.error(`Claude失敗 (exit: ${claudeResult.code})`);
+    await writeDone(1, `Claude exit ${claudeResult.code}`);
+    cleanup(triggerFile, promptFile);
+    return;
+  }
+
+  // Step 2: 歌詞カバレッジチェック
+  if (slug) {
+    console.log(`\n[2/4] 歌詞カバレッジチェック...`);
+    const checkResult = await run(
+      `node agent/src/check-lyrics-coverage.mjs ${slug}`,
+      { silent: true }
+    );
+    const output = checkResult.stdout;
+    console.log(output);
+
+    if (output.includes('❌') || checkResult.code !== 0) {
+      console.error('歌詞チェック失敗 — pushをスキップ');
+      await writeDone(1, `歌詞カバレッジ不足: ${slug}`);
+      cleanup(triggerFile, promptFile);
+      return;
+    }
+  }
+
+  // Step 3: ビルド確認
+  console.log(`\n[3/4] npm run build...`);
+  const buildResult = await run('npm run build', { silent: true });
+  if (buildResult.code !== 0) {
+    console.error('ビルド失敗');
+    console.log(buildResult.stdout.slice(-2000));
+    await writeDone(1, 'ビルド失敗');
+    cleanup(triggerFile, promptFile);
+    return;
+  }
+  console.log('ビルド OK');
+
+  // Step 4: git add → commit → push
+  console.log(`\n[4/4] git push...`);
+  const files = [
+    slug ? `src/pages/songs/${slug}.astro` : null,
+    'src/data/songs.ts',
+    'src/data/artists.ts',
+    slug ? `public/images/covers/${slug}.jpg` : null,
+  ].filter(Boolean).join(' ');
+
+  const gitResult = await run(
+    `git add ${files} && git commit -m "feat(songs): add ${slug || 'new song'}" && git push`,
+    { silent: true }
+  );
+  if (gitResult.code !== 0) {
+    console.error('git push失敗');
+    console.log(gitResult.stdout);
+    await writeDone(1, 'git push失敗');
+    cleanup(triggerFile, promptFile);
+    return;
+  }
+  console.log('push 完了');
+
+  await writeDone(0);
+  cleanup(triggerFile, promptFile);
+}
+
+function cleanup(...files) {
+  for (const f of files) {
+    if (f) unlink(f).catch(() => {});
   }
 }
 

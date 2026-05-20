@@ -50,49 +50,49 @@ export async function runClaude(jsonPath) {
   const doneFile = `/tmp/hiphop-done-${ts}.txt`;
 
   // JSON を読んでプロンプト生成
+  let slug = '';
   let songMeta = '';
   try {
     const d = JSON.parse(await readFile(jsonPath, 'utf-8'));
+    slug = d.slug || d.title.toLowerCase().replace(/ /g, '-').replace(/[^a-z0-9-]/g, '');
     songMeta = `曲: ${d.artist} - ${d.title} (${d.year || '年不明'})
-slug: ${d.slug || d.title.toLowerCase().replace(/ /g, '-').replace(/[^a-z0-9-]/g, '')}
-Amazon: ${d.amazonLink || ''}
+slug: ${slug}
 ジャケット画像: ${d.imagePath || ''}
 GeniusURL: ${d.geniusUrl || ''}`;
   } catch (e) {}
 
-  const prompt = `以下の楽曲データをもとに、CLAUDE.mdの「記事作成フロー」と「歌詞翻訳ルール」に従って記事を完全に作成してください。承認を求めずに全自動で完遂すること。
+  const prompt = `以下の楽曲データをもとに、CLAUDE.mdの「記事作成フロー」と「歌詞翻訳ルール」に従って記事を作成してください。承認を求めずに全自動で完遂すること。
 
 ## 楽曲情報
 ${songMeta}
 
 ## データファイル
 ${jsonPath}
-（このファイルに歌詞・リサーチ結果・Amazon URLなどが入っています。Read toolで読み込んでください）
+（このファイルにGemini Deep Researchのリサーチ結果・Genius歌詞・メタデータが入っています。最初にRead toolで必ず読み込んでください）
 
 ## 実行手順
-1. 上記JSONファイルを読み込む
+1. 上記JSONファイルを読み込む（research・lyricsフィールドを記事作成の根拠とする）
 2. src/pages/songs/{slug}.astro を作成
    - SongLayout使用
    - LyricsBlockで歌詞を1〜2行単位で分割（バース全体を1ブロックにしない）
-   - 各ブロックにeng/jpn/explanationを付ける
+   - 各ブロックにeng/jpn/explanationを付ける（researchの内容を解説に反映すること）
    - QuickSlangで重要スラングに注釈
-   - 文化背景・レガシーセクションを追加
-   - Amazonアフィリエイトリンクを含める
-   - 【最重要】元の歌詞ファイルの内容を1行たりとも省略せず、すべて元の順番通りに配置すること（コーラスの繰り返し行等も一切省略してはいけない）
-3. src/data/songs.ts にエントリ追記（era/region/producer/bpmなどリサーチ結果から正確に埋める）
+   - 文化背景・レガシーセクションを追加（researchの調査項目5・6を活用）
+   - 【最重要】元の歌詞を1行たりとも省略せず、すべて元の順番通りに配置すること
+3. src/data/songs.ts にエントリ追記（era/region/producer/bpmはresearchから正確に埋める）
 4. src/data/artists.ts を確認し、artistSlugが未登録なら追加
-5. 最後に \`node agent/src/check-lyrics-coverage.mjs {slug}\` を実行し、100%になるまで自律的に不足行や順序のミスを修正すること。
-6. すべて完了したら、自分が今回新規作成・変更したファイル（src/pages/songs/{slug}.astro と songs.ts, artists.ts 等）のみを git add し、git commit → git push すること。絶対に作業ディレクトリ全体の "git add ." を行わないでください（ユーザーの手作業と競合するため）。`;
+
+※ git操作・ビルド・歌詞チェックはシステムが自動実行するため不要`;
 
   await writeFile(promptFile, prompt, 'utf-8');
 
   // watcherが動いていなければTerminalで自動起動
   await ensureWatcher();
 
-  // triggerファイルにpromptFileパスを書く（watcherが読む）
-  await writeFile(triggerFile, promptFile, 'utf-8');
+  // triggerファイルにJSON形式でメタ情報を渡す
+  await writeFile(triggerFile, JSON.stringify({ promptFile, slug, jsonPath }), 'utf-8');
 
-  console.log(`  [Claude] watcher待機中... (trigger: ${triggerFile})`);
+  console.log(`  [Claude] watcher待機中... (slug: ${slug})`);
 
   // doneファイルが現れるまでポーリング
   const start = Date.now();
@@ -100,19 +100,21 @@ ${jsonPath}
     await sleep(5000);
     try {
       await access(doneFile);
-      const exitCode = (await readFile(doneFile, 'utf-8')).trim();
-      console.log(`  [Claude] watcher完了 (exit: ${exitCode})`);
+      const raw = (await readFile(doneFile, 'utf-8')).trim();
+      let result;
+      try { result = JSON.parse(raw); } catch { result = { exitCode: parseInt(raw) || 1, error: null }; }
+      console.log(`  [Claude] watcher完了 (exit: ${result.exitCode})`);
       return {
-        success: exitCode === '0',
+        success: result.exitCode === 0,
         output: '',
-        error: exitCode === '0' ? null : `watcher exit code ${exitCode}`,
+        error: result.error || (result.exitCode === 0 ? null : `exit ${result.exitCode}`),
       };
     } catch {
       // まだ存在しない
     }
   }
 
-  return { success: false, output: '', error: 'タイムアウト（15分）- watcherが起動していますか？' };
+  return { success: false, output: '', error: 'タイムアウト（15分）' };
 }
 
 function sleep(ms) {
