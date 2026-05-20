@@ -32,6 +32,13 @@ const relatedColumns = song
   <!-- Progress bar -->
   <div id="progress-bar" class="fixed top-0 left-0 h-0.5 bg-[var(--c-gold)] z-50 transition-none" style="width:0%"></div>
 
+  <!-- Scroll to top (mobile only) -->
+  <button
+    id="back-to-top"
+    aria-label="ページ先頭へ"
+    class="lg:hidden fixed bottom-20 right-4 z-40 w-12 h-12 rounded-full bg-[var(--c-surface)] border border-[var(--c-gold)]/60 text-[var(--c-gold)] text-lg flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 shadow-md"
+  >↑</button>
+
   <div class="max-w-5xl mx-auto px-4 py-8 lg:grid lg:grid-cols-[1fr_260px] lg:gap-12 lg:items-start">
 
     <!-- Main column -->
@@ -315,6 +322,20 @@ const relatedColumns = song
       const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
       bar.style.width = pct + '%';
     }, { passive: true });
+  }
+
+  const topBtn = document.getElementById('back-to-top');
+  if (topBtn) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        topBtn.classList.remove('opacity-0', 'pointer-events-none');
+      } else {
+        topBtn.classList.add('opacity-0', 'pointer-events-none');
+      }
+    }, { passive: true });
+    topBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
   }
 
   const shareBtn = document.getElementById('share-btn');

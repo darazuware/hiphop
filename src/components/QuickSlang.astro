@@ -2,26 +2,29 @@
 interface Props {
   word: string;
   desc: string;
+  href?: string;
 }
-const { word, desc } = Astro.props;
+const { word, desc, href } = Astro.props;
 ---
 
-<span class="qs relative inline-block">
+<span class="qs relative inline-block" data-href={href}>
   <button
     type="button"
-    class="qs-trigger border-b border-dotted border-[var(--c-gold)] text-[var(--c-text)] cursor-pointer bg-transparent p-0 font-[inherit] text-[inherit]"
+    class="qs-trigger border-b border-[var(--c-gold)] text-[var(--c-text)] cursor-pointer bg-transparent p-0 font-[inherit] text-[inherit]"
     aria-expanded="false"
   >{word}</button>
   <span
-    class="qs-tip absolute bottom-full mb-2 px-3 py-2 bg-[var(--c-surface)] border border-[var(--c-gold)]/60 text-[var(--c-text)] text-xs rounded w-48 text-center leading-snug pointer-events-none opacity-0 transition-opacity duration-150 z-20"
+    class="qs-tip absolute bottom-full mb-2 px-3 py-2 bg-[var(--c-surface)] border border-[var(--c-gold)]/60 text-[var(--c-text)] text-xs rounded w-52 leading-snug pointer-events-none opacity-0 transition-opacity duration-150 z-20"
     role="tooltip"
-  >{desc}</span>
+  >
+    {desc}
+    {href && <span class="qs-hint block mt-1.5 text-[var(--c-gold)] text-[10px] uppercase tracking-widest">もう一度タップで詳細 →</span>}
+  </span>
 </span>
 
 <script>
   function positionTip(qs: HTMLElement) {
     const tip = qs.querySelector<HTMLElement>('.qs-tip')!;
-    // reset
     tip.style.left = '';
     tip.style.right = '';
     tip.style.transform = '';
@@ -49,10 +52,15 @@ const { word, desc } = Astro.props;
 
       const trigger = qs.querySelector<HTMLButtonElement>('.qs-trigger')!;
       const tip = qs.querySelector<HTMLElement>('.qs-tip')!;
+      const href = qs.dataset.href;
 
       trigger.addEventListener('click', (e) => {
         e.stopPropagation();
         const isOpen = tip.classList.contains('opacity-100');
+        if (isOpen && href) {
+          window.location.href = href;
+          return;
+        }
         closeAll();
         if (!isOpen) {
           positionTip(qs);
