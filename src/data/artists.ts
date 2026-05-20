@@ -386,6 +386,15 @@ export const artists = [
     summary: 'YukmouthとNumskullによるオークランド出身のデュオ。1995年デビューシングル「I Got 5 On It」がBillboard Hot 100最高8位・RIAAプラチナ認定を達成。Bay Area特有のメロウなG-Funkサウンドにストリートのリアリズムを融合させ、「hella」というスラングを全米に広めた立役者。',
     japan: 'Bay Areaヒップホップとして2000年代のB-BOYシーンで知られる。「I Got 5 On It」のフックは日本のヒップホップリスナーにも馴染み深く、Bay Areaのlaidbackなスタイルの象徴として語られる。',
   },
+  {
+    slug: 'run-the-jewels',
+    name: 'Run The Jewels',
+    origin: 'New York / Atlanta',
+    active: '2012–',
+    genre: 'Hip-Hop / hardcore rap / alternative hip-hop',
+    summary: 'El-P（Jamie Meline、ニューヨーク出身）とKiller Mike（Michael Render、アトランタ出身）による2人組スーパーデュオ。2012年に結成し、翌2013年にデビューアルバムを無料配信。以降全作品を無料配信するスタンスで知られる。El-Pの実験的・ディストピア的なビートとKiller Mikeの社会批評的なリリシズムが融合した独自スタイルを確立。2020年のBLM運動の文脈で発表した「RTJ4」が世界的に高く評価された。',
+    japan: '日本のヒップホップシーンではアンダーグラウンドファンを中心に強い支持を持つ。「ooh la la」でのGang Starr「DWYCK」サンプリングとDJ Premier参加は、日本のブーンバップファンにも高く評価された。Killer Mikeの社会主義的政治観とEl-Pの実験精神の組み合わせが、音楽的にも思想的にも日本のリスナーを刺激し続けている。',
+  },
 ] as const;
 
 export type Artist = typeof artists[number];
