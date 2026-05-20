@@ -1,5 +1,6 @@
 ---
 import Layout from './Layout.astro';
+import ExplanationToggle from '../components/ExplanationToggle.astro';
 import { songs } from '../data/songs';
 import { artists } from '../data/artists';
 import { columns } from '../data/columns';
@@ -153,6 +154,7 @@ const relatedColumns = song
       )}
 
       <!-- Main content slot -->
+      <ExplanationToggle />
       <slot />
 
       <!-- Artist link (mobile only) -->

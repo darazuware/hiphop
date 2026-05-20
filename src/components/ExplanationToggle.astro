@@ -1,0 +1,42 @@
+---
+---
+
+<div class="flex items-center gap-2 mb-6 text-xs text-[var(--c-dim)]">
+  <span class="font-mono uppercase tracking-widest">解説</span>
+  <div id="explanation-toggle" class="flex rounded-md overflow-hidden border border-[var(--c-border)] bg-[var(--c-surface)] font-mono select-none">
+    <button data-e="tap" class="exp-btn px-2.5 py-1 transition-colors duration-150">タップ</button>
+    <button data-e="always" class="exp-btn px-2.5 py-1 transition-colors duration-150 border-l border-[var(--c-border)]">常に表示</button>
+  </div>
+</div>
+
+<script is:inline>
+  (function () {
+    function setDetails(open) {
+      document.querySelectorAll('.lyrics-block details').forEach(function (d) {
+        if (open) d.setAttribute('open', '');
+        else d.removeAttribute('open');
+      });
+    }
+
+    function applyExp(e) {
+      document.documentElement.setAttribute('data-explanation', e);
+      document.querySelectorAll('.exp-btn').forEach(function (btn) {
+        var active = btn.getAttribute('data-e') === e;
+        btn.style.background = active ? 'var(--c-gold)' : '';
+        btn.style.color = active ? '#000' : 'var(--c-muted)';
+      });
+      setDetails(e === 'always');
+    }
+
+    var saved = localStorage.getItem('hh-explanation') || 'tap';
+    document.addEventListener('DOMContentLoaded', function () { applyExp(saved); });
+
+    document.getElementById('explanation-toggle').addEventListener('click', function (e) {
+      var btn = e.target.closest('[data-e]');
+      if (!btn) return;
+      var mode = btn.getAttribute('data-e');
+      localStorage.setItem('hh-explanation', mode);
+      applyExp(mode);
+    });
+  })();
+</script>
