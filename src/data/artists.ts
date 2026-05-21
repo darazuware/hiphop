@@ -449,6 +449,15 @@ export const artists = [
     summary: '本名Nathaniel Thomas Wilson。Juice Crewのメンバーとしてキャリアをスタートし、複雑な多音節韻（マルチシラビック・ライミング）とマフィア映画的な物語性を融合した「マフィオソ・ラップ」の始祖。1995年のソロデビュー作『4,5,6』（Cold Chillin\' / Epic Street）は全米R&B/Hip Hopアルバムチャート1位を獲得。Nas、Jay-Z、Notorious B.I.G.、Eminem、Big Punといったヒップホップ史を代表するMCたちに絶大な影響を与え、「君のお気に入りのラッパーの"お気に入りのラッパー"」と称される。DJ Poloとのコンビ解消後のソロ第一弾「Fast Life」（feat. Nas）は世代間の松明の受け渡しを体現した歴史的共演として語り継がれる。',
     japan: '日本のDJカルチャーとアンダーグラウンドHIPHOPシーンに決定的な影響を与えた。Salaam Remi制作のプロモ盤限定「Fast Life (Norfside Remix)」は日本のレコードコレクターの間で「激レア盤」として現在も高値で取引される。2008年には日本人プロデューサーDJ Munariのアルバムで般若と共演した「DEAD OR ALIVE」を発表し、日本のラッパーとの直接コラボを実現。ZEEBRAやBUDDHA BRANDらが構築した日本語ラップのリリシズムと韻踏みの哲学にも深い影響を残している。',
   },
+  {
+    slug: 'anderson-paak',
+    name: 'Anderson .Paak',
+    origin: 'Oxnard, California',
+    active: '2005–',
+    genre: 'Neo-Soul / Hip-Hop / R&B / Funk',
+    summary: '本名Brandon Paak Anderson。カリフォルニア州オクスナード出身のシンガー・ラッパー・マルチプレイヤー。ドラムを叩きながらラップ・歌唱するライブパフォーマンスで一躍注目を集め、2016年の2ndアルバム『Malibu』でグラミー賞にノミネートされ世界的な評価を確立。ソウル・ファンク・ジャズ・ヒップホップを縦横無尽に横断する音楽性と、Hi-Tek・Knxwledge・9th Wonderら気鋭プロデューサーとの協働で独自の「ウェストコースト・ソウルHH」を定義した。2021年にはBruno MarsとのユニットSilk Sonicで「Leave the Door Open」が全米1位を獲得しグラミー賞4部門を受賞。代表作に「Come Down」「Tints」「Bubblin」など。',
+    japan: '2010年代後半からJ-Soul・ネオソウル好きを中心に急速に支持を拡大。ドラムを叩きながら歌うライブ映像がSNSで拡散し、「生演奏×ラップ×ソウル」というハイブリッドな音楽性が日本のシティポップ・R&Bリスナーにも深く刺さった。Silk Sonicのグラミー制覇で知名度が一層高まり、現在も日本のリスナーから最も愛されるコンテンポラリーR&Bアーティストの一人。',
+  },
 ] as const;
 
 export type Artist = typeof artists[number];
