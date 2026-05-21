@@ -273,8 +273,8 @@ function alignLyrics(lyrics, vttItems) {
       aligned.push({
         start,
         end,
-        eng: block.eng.replace(/\n/g, ' '),
-        jpn: block.jpn.replace(/\n/g, ' ')
+        eng: block.eng,
+        jpn: block.jpn
       });
       
       vttIdx++; // 次の探索へ進む
@@ -290,8 +290,8 @@ function alignLyrics(lyrics, vttItems) {
       aligned.push({
         start,
         end,
-        eng: block.eng.replace(/\n/g, ' '),
-        jpn: block.jpn.replace(/\n/g, ' '),
+        eng: block.eng,
+        jpn: block.jpn,
         isEstimated: true
       });
     }
@@ -353,6 +353,34 @@ function addSecondsToTimecode(timecode, seconds) {
 }
 
 /**
+ * タイムコード（hh:mm:ss.mmm）を秒数（数値）に変換する
+ * @param {string} t - タイムコード
+ * @returns {number} 秒数
+ */
+function timecodeToSeconds(t) {
+  const parts = t.split(':');
+  if (parts.length < 3) return 0;
+  return parseInt(parts[0], 10) * 3600 + parseInt(parts[1], 10) * 60 + parseFloat(parts[2]);
+}
+
+/**
+ * 秒数をASS用のタイムコード（h:mm:ss.cc）に変換する
+ * @param {number} secs - 秒数
+ * @returns {string} ASSタイムコード
+ */
+function secondsToAssTime(secs) {
+  if (secs < 0) secs = 0;
+  const hr = Math.floor(secs / 3600);
+  const min = Math.floor((secs % 3600) / 60);
+  const sec = secs % 60;
+  
+  const pad = (num, size = 2) => String(num).padStart(size, '0');
+  const secStr = sec.toFixed(2).padStart(5, '0'); // ss.cc
+  
+  return `${hr}:${pad(min)}:${secStr}`;
+}
+
+/**
  * 同期した歌詞データから、FFmpegで焼き付けるためのASS字幕ファイルを生成する
  * @param {Array<object>} alignedLyrics - 同期済み歌詞
  * @param {string} outputPath - 出力先ASSファイルのパス
@@ -367,7 +395,7 @@ WrapStyle: 0
 
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
-Style: Default,Arial,32,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,3,0,2,10,10,250,1
+Style: Default,Arial,32,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,4,0,2,10,10,320,1
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
@@ -376,24 +404,38 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
   let events = '';
 
   for (const block of alignedLyrics) {
-    // タイムコードのフォーマット変換 (00:00:00.000 -> 0:00:00.00)
-    const formatTime = (t) => {
-      const parts = t.split(':');
-      const hr = parseInt(parts[0], 10);
-      const min = parts[1];
-      const sec = parseFloat(parts[2]).toFixed(2);
-      return `${hr}:${min}:${sec.padStart(5, '0')}`;
-    };
+    const startSec = timecodeToSeconds(block.start);
+    const endSec = timecodeToSeconds(block.end);
+    const duration = endSec - startSec;
 
-    const start = formatTime(block.start);
-    const end = formatTime(block.end);
+    // 改行で分割し、空行を除外した配列を作成
+    const engLines = block.eng.split('\n').map(l => l.trim()).filter(Boolean);
+    const jpnLines = block.jpn.split('\n').map(l => l.trim()).filter(Boolean);
+    const lineCount = Math.max(engLines.length, jpnLines.length);
 
-    // ASSの装飾タグを使い、英語を上（白・太字）、日本語を下（金/黄色・太字）に配置する
-    const engPart = `{\\fs52\\c&HFFFFFF&\\3c&H000000&\\b1}${block.eng}`;
-    const jpnPart = `{\\fs40\\c&H00FFFF&\\3c&H000000&\\b1}${block.jpn}`;
-    const text = `${engPart}\\N${jpnPart}`;
+    if (lineCount === 0) continue;
 
-    events += `Dialogue: 0,${start},${end},Default,,0,0,0,,${text}\n`;
+    // ブロック全体の時間を歌詞行数で等分
+    const segmentDuration = duration / lineCount;
+
+    for (let i = 0; i < lineCount; i++) {
+      const segStart = startSec + i * segmentDuration;
+      const segEnd = segStart + segmentDuration;
+
+      const start = secondsToAssTime(segStart);
+      const end = secondsToAssTime(segEnd);
+
+      const engPartText = engLines[i] || '';
+      const jpnPartText = jpnLines[i] || '';
+
+      // ASSの装飾タグを使い、英語を上（白・太字）、日本語を下（黄色・太字）に配置する。文字サイズと太い黒縁で可読性向上
+      // 画面の幅からはみ出さないよう、程よいサイズ（英語60, 日本語45）に設定
+      const engPart = `{\\fs60\\c&HFFFFFF&\\3c&H000000&\\b1}${engPartText}`;
+      const jpnPart = `{\\fs44\\c&H00FFFF&\\3c&H000000&\\b1}${jpnPartText}`;
+      const text = `${engPart}\\N${jpnPart}`;
+
+      events += `Dialogue: 0,${start},${end},Default,,0,0,0,,${text}\n`;
+    }
   }
 
   fs.writeFileSync(outputPath, assHeader + events, 'utf-8');
@@ -426,8 +468,8 @@ function generateVideo({ slug, type, videoPath, audioPath, assPath, startTime, d
       throw new Error(`PV動画ファイルが見つかりません: ${videoPath}`);
     }
 
-    // [bg] 1080x1920に引き伸ばしてぼかす、[fg] 横幅1080にリサイズ、中央に配置して重ね合わせ、字幕を焼き付ける
-    const filter = `split[bg_tmp][fg_tmp];[bg_tmp]scale=1080:1920,boxblur=20:5[bg];[fg_tmp]scale=1080:-1[fg];[bg][fg]overlay=0:(H-h)/2,subtitles='${escapedAssPath}'`;
+    // [bg] アスペクト比を維持して拡大クロップしぼかす、[fg] 横幅1080に偶数リサイズ、中央に配置して重ね合わせ、字幕を焼き付ける
+    const filter = `split[bg_tmp][fg_tmp];[bg_tmp]scale=-1:1920,crop=1080:1920,boxblur=20:5[bg];[fg_tmp]scale=1080:-2[fg];[bg][fg]overlay=0:(H-h)/2,subtitles='${escapedAssPath}'`;
 
     ffmpegCmd = `ffmpeg -ss ${startTime} -t ${duration} -i "${videoPath}" -vf "${filter}" -c:v libx264 -crf 23 -c:a aac -b:a 192k -y "${outputPath}"`;
   } else {
@@ -456,7 +498,7 @@ function generateVideo({ slug, type, videoPath, audioPath, assPath, startTime, d
     }
 
     // ジャケット（正方形）をぼかし背景の中央上寄り（Y=450）にオーバーレイし、字幕を焼き付ける
-    const filter = `split[bg_tmp][fg_tmp];[bg_tmp]scale=1080:1920,boxblur=20:5[bg];[fg_tmp]scale=800:800[fg];[bg][fg]overlay=(W-w)/2:450,subtitles='${escapedAssPath}'`;
+    const filter = `split[bg_tmp][fg_tmp];[bg_tmp]scale=-1:1920,crop=1080:1920,boxblur=20:5[bg];[fg_tmp]scale=800:800[fg];[bg][fg]overlay=(W-w)/2:450,subtitles='${escapedAssPath}'`;
 
     ffmpegCmd = `ffmpeg -ss ${startTime} -t ${duration} -loop 1 -i "${coverPath}" -i "${audioPath}" -vf "${filter}" -c:v libx264 -crf 23 -c:a aac -b:a 192k -shortest -y "${outputPath}"`;
   }
