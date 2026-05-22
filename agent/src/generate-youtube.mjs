@@ -119,6 +119,15 @@ const hasVtt = fs.existsSync(vttFile);
 console.log(`[vtt] ${hasVtt ? vttFile : "not found, timing will be estimated"}`);
 
 // ── VTT alignment ─────────────────────────────────────────────────────────────
+function secToTs(sec) {
+  const h = Math.floor(sec / 3600);
+  const m = Math.floor((sec % 3600) / 60);
+  const s = sec % 60;
+  return `${String(h).padStart(2,"0")}:${String(m).padStart(2,"0")}:${s.toFixed(3).padStart(6,"0")}`;
+}
+
+// YouTubeのローリングキャプション（2行同時表示）を1行ずつに分割
+// 各ブロックの時間を行数で等分割し、個別エントリとして扱う
 function parseVtt(filePath) {
   const raw = fs.readFileSync(filePath, "utf-8");
   const blocks = raw.split(/\n\s*\n/);
@@ -131,8 +140,18 @@ function parseVtt(filePath) {
     let textIdx = 1;
     if (!tMatch && lines.length > 2) { tMatch = lines[1].match(timeRe); textIdx = 2; }
     if (tMatch) {
-      const text = lines.slice(textIdx).join(" ").replace(/<[^>]+>/g, "").trim();
-      if (text) items.push({ start: tMatch[1], end: tMatch[2], text });
+      const startSec = toSec(tMatch[1]);
+      const endSec   = toSec(tMatch[2]);
+      const textLines = lines.slice(textIdx).map(l => l.replace(/<[^>]+>/g, "").trim()).filter(Boolean);
+      if (!textLines.length) continue;
+      const slotDur = (endSec - startSec) / textLines.length;
+      for (let i = 0; i < textLines.length; i++) {
+        items.push({
+          start: secToTs(startSec + i * slotDur),
+          end:   secToTs(startSec + (i + 1) * slotDur),
+          text:  textLines[i],
+        });
+      }
     }
   }
   return items;
@@ -175,17 +194,35 @@ function alignLyrics(pairs, vttItems) {
 
   const aligned = [];
   let vttIdx = 0;
+  const usedVtt = new Set(); // 各VTTエントリは1回のみマッチ
+  let minNextSec = 0; // タイムスタンプの単調増加を保証
 
   for (const pair of pairs) {
     let bestIdx = -1, bestSim = 0.15;
     const lo = Math.max(0, vttIdx - 2);
-    const hi = Math.min(vttItems.length, vttIdx + 15);
+    const hi = Math.min(vttItems.length, vttIdx + 20);
     for (let j = lo; j < hi; j++) {
+      if (usedVtt.has(j)) continue;
+      if (toSec(vttItems[j].start) < minNextSec) continue; // 時間逆行を防止
       const s = similarity(pair.eng, vttItems[j].text);
       if (s > bestSim) { bestSim = s; bestIdx = j; }
     }
+
+    // 大幅な時間的前進を抑制: ベストが現在位置より4つ以上先なら
+    // 近傍（現在位置から4つ以内）に閾値0.3以上のマッチがあれば優先
+    if (bestIdx !== -1 && bestIdx > vttIdx + 3) {
+      for (let j = vttIdx; j < Math.min(vttItems.length, vttIdx + 4); j++) {
+        if (usedVtt.has(j)) continue;
+        if (toSec(vttItems[j].start) < minNextSec) continue;
+        const s = similarity(pair.eng, vttItems[j].text);
+        if (s >= 0.3) { bestIdx = j; break; }
+      }
+    }
+
     if (bestIdx !== -1) {
+      usedVtt.add(bestIdx);
       vttIdx = bestIdx;
+      minNextSec = toSec(vttItems[vttIdx].start); // 次の検索の最小時刻を更新
       aligned.push({ start: vttItems[vttIdx].start, end: vttItems[vttIdx].end, eng: pair.eng, jpn: pair.jpn });
       vttIdx++;
     } else {
@@ -195,8 +232,17 @@ function alignLyrics(pairs, vttItems) {
     }
   }
 
+  // オーバーラップ修正（同一startの場合も等分割）
   for (let i = 0; i < aligned.length - 1; i++) {
-    if (toSec(aligned[i].end) > toSec(aligned[i + 1].start)) {
+    const s0 = toSec(aligned[i].start);
+    const e0 = toSec(aligned[i].end);
+    const s1 = toSec(aligned[i + 1].start);
+    if (s0 === s1) {
+      const windowEnd = Math.max(e0, toSec(aligned[i + 1].end));
+      const mid = s0 + (windowEnd - s0) / 2;
+      aligned[i].end = addSec(aligned[i].start, mid - s0);
+      aligned[i + 1].start = aligned[i].end;
+    } else if (e0 > s1) {
       aligned[i].end = aligned[i + 1].start;
     }
   }
