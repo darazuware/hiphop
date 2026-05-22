@@ -23,5 +23,5 @@ if [ ${#CHANGED_SONGS[@]} -eq 0 ]; then
 fi
 
 echo "🔍 Running lyrics coverage check for ${#CHANGED_SONGS[@]} song(s)..."
-node "$REPO_ROOT/agent/src/pre-push-check.mjs" "${CHANGED_SONGS[@]}"
+/usr/local/bin/node "$REPO_ROOT/agent/src/pre-push-check.mjs" "${CHANGED_SONGS[@]}"
 exit $?

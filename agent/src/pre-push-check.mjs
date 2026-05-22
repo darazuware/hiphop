@@ -86,7 +86,7 @@ for (const filePath of changedPaths) {
 
   try {
     execSync(
-      `node ${join(projectRoot, 'agent/src/check-lyrics-coverage.mjs')} ${slug}`,
+      `/usr/local/bin/node ${join(projectRoot, 'agent/src/check-lyrics-coverage.mjs')} ${slug}`,
       { stdio: 'inherit', cwd: projectRoot }
     );
   } catch {
