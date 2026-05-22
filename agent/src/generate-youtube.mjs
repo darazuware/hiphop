@@ -172,23 +172,48 @@ function parseVttRolling(content) {
   return entries;
 }
 
+// Jaccard類似度（セット単位）: 繰り返しフレーズを識別するため
+function jaccardOverlap(a, b) {
+  const setA = new Set(normalize(a).split(" ").filter(w => w && !STOP_WORDS.has(w)));
+  const setB = new Set(normalize(b).split(" ").filter(w => w && !STOP_WORDS.has(w)));
+  if (!setA.size || !setB.size) return 0;
+  const inter = [...setA].filter(w => setB.has(w)).length;
+  return inter / (setA.size + setB.size - inter);
+}
+
 function alignLyricsVtt(pairs, vttEntries, duration) {
-  const MIN_SCORE = 0.15;
+  const MIN_SCORE = 0.12;
   let vIdx = 0;
   const result = [];
 
-  for (const pair of pairs) {
+  for (let pIdx = 0; pIdx < pairs.length; pIdx++) {
+    const pair = pairs[pIdx];
+
     // 最大5エントリ先読み（絶対に後退しない）
     let best = { score: 0, idx: -1 };
     for (let i = vIdx; i < Math.min(vIdx + 5, vttEntries.length); i++) {
-      const s = wordOverlap(pair.eng, vttEntries[i].text);
+      const s = jaccardOverlap(pair.eng, vttEntries[i].text);
       if (s > best.score) best = { score: s, idx: i };
     }
 
-    if (best.score >= MIN_SCORE && best.idx >= 0) {
-      result.push({ ...pair, _startSec: vttEntries[best.idx].startSec });
-      vIdx = best.idx + 1;
+    if (best.score < MIN_SCORE || best.idx < 0) continue;
+
+    // ルックアヘッド: 次のpairがこのVTTエントリに0.1以上スコアが高ければ譲る
+    if (pIdx + 1 < pairs.length) {
+      const nextScore = jaccardOverlap(pairs[pIdx + 1].eng, vttEntries[best.idx].text);
+      if (nextScore > best.score + 0.1) {
+        // このpairは直前エントリの時刻+αで入れ、vIdxは進めない
+        if (result.length > 0) {
+          const prev = result[result.length - 1]._startSec;
+          const gap = vttEntries[best.idx].startSec - prev;
+          result.push({ ...pair, _startSec: prev + gap * 0.45 });
+        }
+        continue; // vIdx進めない → 次のpairがbest.idxを取得
+      }
     }
+
+    result.push({ ...pair, _startSec: vttEntries[best.idx].startSec });
+    vIdx = best.idx + 1;
   }
 
   const out = [];
