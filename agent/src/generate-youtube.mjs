@@ -4,11 +4,12 @@
  * Usage: node agent/src/generate-youtube.mjs <slug>
  *
  * 1. .astroからLyricsBlock eng/jpnを抽出
- * 2. yt-dlpで音源DL（キャッシュ有）＋VTT字幕取得
- * 3. VTTでタイムスタンプ同期
+ * 2. yt-dlpで音源DL（キャッシュ有）＋VTTキャプション取得
+ * 3. VTT（ローリングキャプション対応）で歌詞ペアとタイムスタンプを同期
+ *    （VTT不可の場合はWhisperフォールバック）
  * 4. ffmpegで横型動画（1920x1080）生成
  *    - 背景: ぼかしアルバムアート
- *    - 中央上部: アルバムアート（600x600）
+ *    - 中央上部: アルバムアート（800x800）
  *    - 下部字幕: 英語（白）+ 日本語（ゴールド）
  * 5. public/videos/{slug}.mp4 に出力
  */
@@ -23,25 +24,27 @@ const ROOT = path.resolve(__dirname, "../..");
 
 const args = process.argv.slice(2);
 const slug = args.find(a => !a.startsWith("-"));
-function getArg(name) {
-  const i = args.indexOf(`--${name}`);
-  if (i !== -1) return args[i + 1];
-  const kv = args.find(a => a.startsWith(`--${name}=`));
-  return kv?.split("=")[1];
-}
-const offsetSec = parseFloat(getArg("offset") || "0"); // 字幕を早める場合は負の値
 
 if (!slug) {
-  console.error("Usage: node agent/src/generate-youtube.mjs <slug> [--offset <sec>]");
+  console.error("Usage: node agent/src/generate-youtube.mjs <slug>");
   process.exit(1);
 }
 
 // ── paths ─────────────────────────────────────────────────────────────────────
-const astroFile = path.join(ROOT, "src/pages/songs", `${slug}.astro`);
-const coverFile = path.join(ROOT, "public/images/covers", `${slug}.jpg`);
-const tempDir   = path.join(__dirname, "../temp");
-const outputDir = path.join(ROOT, "public/videos");
+const astroFile   = path.join(ROOT, "src/pages/songs", `${slug}.astro`);
+const coverFile   = path.join(ROOT, "public/images/covers", `${slug}.jpg`);
+const audioDir    = path.join(__dirname, "../audio");
+const tempDir     = path.join(__dirname, "../temp");
+const outputDir   = path.join(ROOT, "public/videos");
+const audioFile   = path.join(audioDir, `${slug}.mp3`);
+const outputFile  = path.join(outputDir, `${slug}.mp4`);
+const wavFile     = `/tmp/yt_audio_${slug}.wav`;
+const whisperJson = `/tmp/yt_whisper_${slug}`;
+const assFile     = path.join(tempDir, `yt-${slug}.ass`);
+const tmpVideo    = `/tmp/yt_base_${slug}.mp4`;
+const whisperModel = "/opt/homebrew/share/whisper-cpp/ggml-small.en.bin";
 
+fs.mkdirSync(audioDir, { recursive: true });
 fs.mkdirSync(tempDir, { recursive: true });
 fs.mkdirSync(outputDir, { recursive: true });
 
@@ -81,7 +84,6 @@ console.log(`[parse] ${linePairs.length} line pairs`);
 if (!linePairs.length) { console.error("No LyricsBlock found"); process.exit(1); }
 
 // ── download audio ────────────────────────────────────────────────────────────
-const audioFile = path.join(tempDir, `audio-${youtubeId}.mp3`);
 if (!fs.existsSync(audioFile)) {
   console.log("[yt-dlp] Downloading audio...");
   execSync(
@@ -97,165 +99,218 @@ const totalDuration = parseFloat(
 );
 console.log(`[audio] duration=${totalDuration.toFixed(1)}s`);
 
-// ── download VTT subtitles ────────────────────────────────────────────────────
-const vttBase = path.join(tempDir, `sub-${youtubeId}`);
-const vttFile = `${vttBase}.en.vtt`;
-
-if (!fs.existsSync(vttFile)) {
-  console.log("[yt-dlp] Downloading subtitles...");
-  spawnSync("yt-dlp", [
-    "--write-auto-subs", "--write-subs", "--sub-langs", "en",
-    "--skip-download", "-o", vttBase,
-    `https://www.youtube.com/watch?v=${youtubeId}`,
-  ], { stdio: "pipe" });
-
-  const files = fs.readdirSync(tempDir);
-  const found = files.find(f => f.startsWith(`sub-${youtubeId}`) && f.endsWith(".vtt"));
-  if (found && path.join(tempDir, found) !== vttFile) {
-    fs.renameSync(path.join(tempDir, found), vttFile);
-  }
+// ── common: word overlap ──────────────────────────────────────────────────────
+const STOP_WORDS = new Set(["the","a","an","in","on","at","is","are","was","were","i","my","to","of","and","or","but","so","for","with","it","its","this","that","we","you","he","she","they","them","our","your","be","do","did","have","had","not","no","up","out","as","if","by"]);
+function normalize(t) {
+  return t.toLowerCase().replace(/[^a-z0-9\s]/g, "").replace(/\s+/g, " ").trim();
 }
-const hasVtt = fs.existsSync(vttFile);
-console.log(`[vtt] ${hasVtt ? vttFile : "not found, timing will be estimated"}`);
+function wordOverlap(a, b) {
+  const wa = normalize(a).split(" ").filter(w => w && !STOP_WORDS.has(w));
+  const wb = new Set(normalize(b).split(" ").filter(w => w && !STOP_WORDS.has(w)));
+  if (!wa.length || !wb.size) return 0;
+  return wa.filter(w => wb.has(w)).length / Math.max(wa.length, wb.size);
+}
 
 // ── VTT alignment ─────────────────────────────────────────────────────────────
-function secToTs(sec) {
-  const h = Math.floor(sec / 3600);
-  const m = Math.floor((sec % 3600) / 60);
-  const s = sec % 60;
-  return `${String(h).padStart(2,"0")}:${String(m).padStart(2,"0")}:${s.toFixed(3).padStart(6,"0")}`;
-}
+/**
+ * YouTubeのVTTはローリングキャプション形式：
+ *   各キューの第1行 = 前キューの第2行（すでに表示中）
+ *   各キューの第2行 = そのタイムスタンプで新しく表示される歌詞
+ *
+ * 検出方法: 前キューの最終行と現キューの第1行の単語重複 >= 0.6 → ローリング判定
+ */
+function parseVttRolling(content) {
+  const entries = [];
+  const blocks = content.replace(/\r\n/g, "\n").split("\n\n");
+  let prevLastText = "";
 
-// YouTubeのローリングキャプション（2行同時表示）を1行ずつに分割
-// 各ブロックの時間を行数で等分割し、個別エントリとして扱う
-function parseVtt(filePath) {
-  const raw = fs.readFileSync(filePath, "utf-8");
-  const blocks = raw.split(/\n\s*\n/);
-  const items = [];
-  const timeRe = /^(\d{2}:\d{2}:\d{2}\.\d{3})\s*-->\s*(\d{2}:\d{2}:\d{2}\.\d{3})/;
   for (const block of blocks) {
-    const lines = block.split("\n").map(l => l.trim()).filter(Boolean);
-    if (lines.length < 2) continue;
-    let tMatch = lines[0].match(timeRe);
-    let textIdx = 1;
-    if (!tMatch && lines.length > 2) { tMatch = lines[1].match(timeRe); textIdx = 2; }
-    if (tMatch) {
-      const startSec = toSec(tMatch[1]);
-      const endSec   = toSec(tMatch[2]);
-      const textLines = lines.slice(textIdx).map(l => l.replace(/<[^>]+>/g, "").trim()).filter(Boolean);
-      if (!textLines.length) continue;
-      const slotDur = (endSec - startSec) / textLines.length;
-      for (let i = 0; i < textLines.length; i++) {
-        items.push({
-          start: secToTs(startSec + i * slotDur),
-          end:   secToTs(startSec + (i + 1) * slotDur),
-          text:  textLines[i],
-        });
+    if (!block.includes("-->")) continue;
+    const lines = block.split("\n");
+    const timingLine = lines.find(l => l.includes("-->"));
+    if (!timingLine) continue;
+
+    const tm = timingLine.match(/(\d{2}):(\d{2}):(\d{2})\.(\d{3})/);
+    if (!tm) continue;
+    const startSec = +tm[1] * 3600 + +tm[2] * 60 + +tm[3] + +tm[4] / 1000;
+
+    // テキスト行（タイムスタンプ・WEBVTT行・数字のみ行を除外）
+    const textLines = lines
+      .filter(l => l.trim() && !l.includes("-->") && l.trim() !== "WEBVTT" && !/^\d+$/.test(l.trim()))
+      .map(l => l.replace(/<[^>]+>/g, "").trim())
+      .filter(Boolean);
+
+    if (!textLines.length) continue;
+
+    // ローリング検出: 第1行が前キューの最終行と高い類似度なら除外
+    let firstNewIdx = 0;
+    if (prevLastText && textLines.length > 1) {
+      if (wordOverlap(textLines[0], prevLastText) >= 0.6) {
+        firstNewIdx = 1;
       }
     }
+
+    const newLines = textLines.slice(firstNewIdx);
+    const text = newLines.join(" ").replace(/\s+/g, " ").trim();
+    if (text) {
+      entries.push({ startSec, text });
+    }
+
+    prevLastText = textLines[textLines.length - 1];
   }
-  return items;
+  return entries;
 }
 
-function toSec(t) {
-  const p = t.split(":");
-  return parseInt(p[0]) * 3600 + parseInt(p[1]) * 60 + parseFloat(p[2]);
-}
-
-function addSec(t, s) {
-  let sec = toSec(t) + s;
-  if (sec < 0) sec = 0;
-  const h = Math.floor(sec / 3600);
-  const min = Math.floor((sec % 3600) / 60);
-  const ss = sec % 60;
-  return `${String(h).padStart(2,"0")}:${String(min).padStart(2,"0")}:${ss.toFixed(3).padStart(6,"0")}`;
-}
-
-function similarity(a, b) {
-  const wa = new Set(a.toLowerCase().replace(/[^a-z0-9'\s]/g, "").split(/\s+/).filter(Boolean));
-  const wb = new Set(b.toLowerCase().replace(/[^a-z0-9'\s]/g, "").split(/\s+/).filter(Boolean));
-  if (!wa.size || !wb.size) return 0;
-  let n = 0;
-  for (const w of wa) if (wb.has(w)) n++;
-  return n / Math.max(wa.size, wb.size);
-}
-
-function alignLyrics(pairs, vttItems) {
-  if (!vttItems.length) {
-    let cur = "00:00:05.000";
-    return pairs.map(p => {
-      const start = cur;
-      const dur = Math.max(3, Math.ceil(p.eng.length * 0.1));
-      const end = addSec(start, dur);
-      cur = end;
-      return { start, end, eng: p.eng, jpn: p.jpn, estimated: true };
-    });
-  }
-
-  const aligned = [];
-  let vttIdx = 0;
-  const usedVtt = new Set(); // 各VTTエントリは1回のみマッチ
-  let minNextSec = 0; // タイムスタンプの単調増加を保証
+function alignLyricsVtt(pairs, vttEntries, duration) {
+  const MIN_SCORE = 0.15;
+  let vIdx = 0;
+  const result = [];
 
   for (const pair of pairs) {
-    let bestIdx = -1, bestSim = 0.15;
-    const lo = Math.max(0, vttIdx - 2);
-    const hi = Math.min(vttItems.length, vttIdx + 20);
-    for (let j = lo; j < hi; j++) {
-      if (usedVtt.has(j)) continue;
-      if (toSec(vttItems[j].start) < minNextSec) continue; // 時間逆行を防止
-      const s = similarity(pair.eng, vttItems[j].text);
-      if (s > bestSim) { bestSim = s; bestIdx = j; }
+    // 最大5エントリ先読み（絶対に後退しない）
+    let best = { score: 0, idx: -1 };
+    for (let i = vIdx; i < Math.min(vIdx + 5, vttEntries.length); i++) {
+      const s = wordOverlap(pair.eng, vttEntries[i].text);
+      if (s > best.score) best = { score: s, idx: i };
     }
 
-    // 大幅な時間的前進を抑制: ベストが現在位置より4つ以上先なら
-    // 近傍（現在位置から4つ以内）に閾値0.3以上のマッチがあれば優先
-    if (bestIdx !== -1 && bestIdx > vttIdx + 3) {
-      for (let j = vttIdx; j < Math.min(vttItems.length, vttIdx + 4); j++) {
-        if (usedVtt.has(j)) continue;
-        if (toSec(vttItems[j].start) < minNextSec) continue;
-        const s = similarity(pair.eng, vttItems[j].text);
-        if (s >= 0.3) { bestIdx = j; break; }
-      }
-    }
-
-    if (bestIdx !== -1) {
-      usedVtt.add(bestIdx);
-      vttIdx = bestIdx;
-      minNextSec = toSec(vttItems[vttIdx].start); // 次の検索の最小時刻を更新
-      aligned.push({ start: vttItems[vttIdx].start, end: vttItems[vttIdx].end, eng: pair.eng, jpn: pair.jpn });
-      vttIdx++;
-    } else {
-      const prev = aligned[aligned.length - 1];
-      const start = prev ? prev.end : "00:00:00.000";
-      aligned.push({ start, end: addSec(start, Math.max(3, Math.ceil(pair.eng.length * 0.1))), eng: pair.eng, jpn: pair.jpn, estimated: true });
+    if (best.score >= MIN_SCORE && best.idx >= 0) {
+      result.push({ ...pair, _startSec: vttEntries[best.idx].startSec });
+      vIdx = best.idx + 1;
     }
   }
 
-  // オーバーラップ修正（同一startの場合も等分割）
-  for (let i = 0; i < aligned.length - 1; i++) {
-    const s0 = toSec(aligned[i].start);
-    const e0 = toSec(aligned[i].end);
-    const s1 = toSec(aligned[i + 1].start);
-    if (s0 === s1) {
-      const windowEnd = Math.max(e0, toSec(aligned[i + 1].end));
-      const mid = s0 + (windowEnd - s0) / 2;
-      aligned[i].end = addSec(aligned[i].start, mid - s0);
-      aligned[i + 1].start = aligned[i].end;
-    } else if (e0 > s1) {
-      aligned[i].end = aligned[i + 1].start;
+  const out = [];
+  for (let i = 0; i < result.length; i++) {
+    const start = result[i]._startSec;
+    const end = i + 1 < result.length
+      ? result[i + 1]._startSec - 0.1
+      : Math.min(start + 4, duration - 0.05);
+    if (end > start && start < duration) {
+      out.push({ ...result[i], start, end });
     }
   }
-
-  const synced = aligned.filter(b => !b.estimated).length;
-  console.log(`[align] ${synced}/${pairs.length} synced`);
-  return aligned;
+  return out;
 }
 
-const vttItems = hasVtt ? parseVtt(vttFile) : [];
-const aligned  = alignLyrics(linePairs, vttItems);
+// ── Whisper alignment (fallback) ──────────────────────────────────────────────
+function parseWhisperSegs(file) {
+  const jsonFile = file + ".json";
+  if (!fs.existsSync(jsonFile)) return [];
+  const raw = fs.readFileSync(jsonFile).toString("latin1");
+  const data = JSON.parse(raw);
+  return (data.transcription || [])
+    .map(seg => ({
+      startSec: seg.offsets.from / 1000,
+      endSec:   seg.offsets.to   / 1000,
+      text:     seg.text.trim(),
+    }))
+    .filter(seg => seg.text && !seg.text.includes("â"));
+}
+
+function alignLyricsWhisper(pairs, segs, duration) {
+  const MIN_SCORE = 0.15;
+  const result = [];
+  let pairIdx = 0;
+
+  for (const seg of segs) {
+    if (seg.startSec >= duration) break;
+    if (pairIdx >= pairs.length) break;
+
+    let best = { score: 0, offset: 0 };
+    for (let off = 0; off <= 5 && pairIdx + off < pairs.length; off++) {
+      const s = wordOverlap(seg.text, pairs[pairIdx + off].eng);
+      if (s > best.score) best = { score: s, offset: off };
+    }
+
+    if (best.score >= MIN_SCORE) {
+      pairIdx += best.offset;
+      const segDur = seg.endSec - seg.startSec;
+      if (segDur > 3.5 && pairIdx + 1 < pairs.length) {
+        const nextScore = wordOverlap(seg.text, pairs[pairIdx + 1].eng);
+        if (nextScore >= MIN_SCORE * 0.6) {
+          result.push({ ...pairs[pairIdx],     _startSec: seg.startSec });
+          result.push({ ...pairs[pairIdx + 1], _startSec: seg.startSec + segDur / 2 });
+          pairIdx += 2;
+          continue;
+        }
+      }
+      result.push({ ...pairs[pairIdx], _startSec: seg.startSec });
+      pairIdx++;
+    }
+  }
+
+  const out = [];
+  for (let i = 0; i < result.length; i++) {
+    const start = result[i]._startSec;
+    const end = i + 1 < result.length
+      ? result[i + 1]._startSec - 0.1
+      : Math.min(start + 4, duration - 0.05);
+    if (end > start && start < duration) {
+      out.push({ ...result[i], start, end });
+    }
+  }
+  return out;
+}
+
+// ── timing ────────────────────────────────────────────────────────────────────
+let usedPairs = [];
+
+// 1. VTT試行
+const vttFile = path.join(tempDir, `sub-${youtubeId}.en.vtt`);
+if (!fs.existsSync(vttFile)) {
+  console.log("[yt-dlp] Downloading VTT captions...");
+  try {
+    execSync(
+      `yt-dlp --write-auto-subs --sub-lang en --sub-format vtt --skip-download -o "${path.join(tempDir, "sub-%(id)s")}" "https://www.youtube.com/watch?v=${youtubeId}"`,
+      { stdio: "pipe" }
+    );
+  } catch (_) {}
+}
+
+if (fs.existsSync(vttFile)) {
+  console.log(`[vtt] ${vttFile}`);
+  const vttContent = fs.readFileSync(vttFile, "utf-8");
+  const vttEntries = parseVttRolling(vttContent);
+  console.log(`[vtt] ${vttEntries.length} entries parsed`);
+  if (vttEntries.length > 0) {
+    console.log(`[vtt] first: "${vttEntries[0].text.slice(0, 40)}" @${vttEntries[0].startSec.toFixed(1)}s`);
+  }
+  usedPairs = alignLyricsVtt(linePairs, vttEntries, totalDuration);
+  console.log(`[align] ${usedPairs.length}/${linePairs.length} synced (VTT)`);
+}
+
+// 2. VTTで不十分ならWhisperフォールバック
+if (usedPairs.length < linePairs.length * 0.3) {
+  console.log("[whisper] VTT insufficient, falling back to Whisper...");
+  console.log("[whisper] Converting to WAV...");
+  spawnSync("ffmpeg", ["-y", "-i", audioFile, "-ar", "16000", "-ac", "1", wavFile], { stdio: "pipe" });
+
+  console.log("[whisper] Transcribing...");
+  spawnSync("whisper-cli", [
+    "-m", whisperModel, "-f", wavFile,
+    "--output-json-full", "--output-file", whisperJson,
+    "-t", "8",
+  ], { stdio: "pipe" });
+
+  const segs = parseWhisperSegs(whisperJson);
+  console.log(`[whisper] ${segs.length} segments`);
+  usedPairs = alignLyricsWhisper(linePairs, segs, totalDuration);
+  console.log(`[align] ${usedPairs.length}/${linePairs.length} synced (Whisper)`);
+}
+
+if (!usedPairs.length) { console.error("No aligned pairs"); process.exit(1); }
 
 // ── generate ASS (1920x1080) ──────────────────────────────────────────────────
+function assTime(sec) {
+  if (sec < 0) sec = 0;
+  const h = Math.floor(sec / 3600);
+  const mm = Math.floor((sec % 3600) / 60);
+  const s = Math.floor(sec % 60);
+  const cs = Math.round((sec % 1) * 100);
+  return `${h}:${String(mm).padStart(2, "0")}:${String(s).padStart(2, "0")}.${String(cs).padStart(2, "0")}`;
+}
+
 function wrapEng(text, max = 55) {
   const t = text.replace(/\n/g, " ").replace(/\s+/g, " ").trim();
   if (t.length <= max) return t;
@@ -288,14 +343,6 @@ function wrapJpn(text, max = 20) {
   return lines.join("\\N");
 }
 
-function assTime(sec) {
-  if (sec < 0) sec = 0;
-  const h = Math.floor(sec / 3600);
-  const min = Math.floor((sec % 3600) / 60);
-  const s = sec % 60;
-  return `${h}:${String(min).padStart(2,"0")}:${s.toFixed(2).padStart(5,"0")}`;
-}
-
 const assHeader = `[Script Info]
 ScriptType: v4.00+
 PlayResX: 1920
@@ -312,32 +359,23 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 `;
 
 let events = "";
-for (const b of aligned) {
-  const s0 = Math.max(0, toSec(b.start) + offsetSec);
-  const s1 = Math.min(toSec(b.end) + offsetSec, totalDuration - 0.05);
-  if (s1 <= s0 || s1 <= 0) continue;
-  events += `Dialogue: 0,${assTime(s0)},${assTime(s1)},Eng,,0,0,0,,${wrapEng(b.eng)}\n`;
-  events += `Dialogue: 0,${assTime(s0)},${assTime(s1)},Jpn,,0,0,0,,${wrapJpn(b.jpn)}\n`;
+for (const b of usedPairs) {
+  const t0 = assTime(b.start);
+  const t1 = assTime(Math.min(b.end, totalDuration - 0.05));
+  events += `Dialogue: 0,${t0},${t1},Eng,,0,0,0,,${wrapEng(b.eng)}\n`;
+  events += `Dialogue: 0,${t0},${t1},Jpn,,0,0,0,,${wrapJpn(b.jpn)}\n`;
 }
 
-const assFile = path.join(tempDir, `yt-${slug}.ass`);
 fs.writeFileSync(assFile, assHeader + events);
 console.log(`[ass] ${assFile}`);
+console.log(`[ass] ${usedPairs.length} subtitles written`);
 
 // ── ffmpeg: 1920x1080 video ───────────────────────────────────────────────────
-// Layout:
-//   背景: ぼかしアルバムアート（1920x1080）
-//   アルバムアート: 600x600 中央上部 (y=60)
-//   字幕: 下部 Eng MarginV=140, Jpn MarginV=56
-
-const tmpVideo  = path.join(tempDir, `yt-base-${slug}.mp4`);
-const outputFile = path.join(outputDir, `${slug}.mp4`);
-
 const filter1 = [
   "[0:v]split=2[in_bg][in_art]",
   "[in_bg]scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080,boxblur=30:30,colorchannelmixer=rr=0.25:gg=0.25:bb=0.25[bg]",
-  "[in_art]scale=600:600[art]",
-  "[bg][art]overlay=(W-w)/2:60[out]",
+  "[in_art]scale=800:800[art]",
+  "[bg][art]overlay=(W-w)/2:50[out]",
 ].join(";");
 
 console.log("[ffmpeg] Step 1: building base video...");
