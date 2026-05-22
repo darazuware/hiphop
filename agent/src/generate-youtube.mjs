@@ -117,12 +117,13 @@ function wordOverlap(a, b) {
  *   各キューの第1行 = 前キューの第2行（すでに表示中）
  *   各キューの第2行 = そのタイムスタンプで新しく表示される歌詞
  *
- * 検出方法: 前キューの最終行と現キューの第1行の単語重複 >= 0.6 → ローリング判定
+ * ローリング判定: 前キューの最終行と現キューの第1行の単語重複 >= 0.6
+ * 非ローリング2行エントリ: 2つの別歌詞行として中間タイムスタンプで分割
  */
 function parseVttRolling(content) {
-  const entries = [];
+  // 1st pass: タイミング＋テキスト収集
+  const rawCues = [];
   const blocks = content.replace(/\r\n/g, "\n").split("\n\n");
-  let prevLastText = "";
 
   for (const block of blocks) {
     if (!block.includes("-->")) continue;
@@ -130,33 +131,43 @@ function parseVttRolling(content) {
     const timingLine = lines.find(l => l.includes("-->"));
     if (!timingLine) continue;
 
-    const tm = timingLine.match(/(\d{2}):(\d{2}):(\d{2})\.(\d{3})/);
+    const tm = timingLine.match(/(\d{2}):(\d{2}):(\d{2})\.(\d{3}) --> (\d{2}):(\d{2}):(\d{2})\.(\d{3})/);
     if (!tm) continue;
     const startSec = +tm[1] * 3600 + +tm[2] * 60 + +tm[3] + +tm[4] / 1000;
+    const endSec   = +tm[5] * 3600 + +tm[6] * 60 + +tm[7] + +tm[8] / 1000;
 
-    // テキスト行（タイムスタンプ・WEBVTT行・数字のみ行を除外）
     const textLines = lines
       .filter(l => l.trim() && !l.includes("-->") && l.trim() !== "WEBVTT" && !/^\d+$/.test(l.trim()))
       .map(l => l.replace(/<[^>]+>/g, "").trim())
       .filter(Boolean);
 
-    if (!textLines.length) continue;
+    if (textLines.length) rawCues.push({ startSec, endSec, textLines });
+  }
 
-    // ローリング検出: 第1行が前キューの最終行と高い類似度なら除外
+  // 2nd pass: ローリング検出 + 非ローリング2行を分割
+  const entries = [];
+  for (let i = 0; i < rawCues.length; i++) {
+    const { startSec, endSec, textLines } = rawCues[i];
+    const prevLastText = i > 0 ? rawCues[i - 1].textLines[rawCues[i - 1].textLines.length - 1] : "";
+
     let firstNewIdx = 0;
     if (prevLastText && textLines.length > 1) {
       if (wordOverlap(textLines[0], prevLastText) >= 0.6) {
-        firstNewIdx = 1;
+        firstNewIdx = 1; // ローリング: 第1行は前キューの継続なのでスキップ
       }
     }
 
     const newLines = textLines.slice(firstNewIdx);
-    const text = newLines.join(" ").replace(/\s+/g, " ").trim();
-    if (text) {
-      entries.push({ startSec, text });
-    }
 
-    prevLastText = textLines[textLines.length - 1];
+    if (firstNewIdx === 0 && newLines.length === 2) {
+      // 非ローリング2行: それぞれ別の歌詞行として中間点で分割
+      const midSec = (startSec + endSec) / 2;
+      entries.push({ startSec,        text: newLines[0] });
+      entries.push({ startSec: midSec, text: newLines[1] });
+    } else {
+      const text = newLines.join(" ").replace(/\s+/g, " ").trim();
+      if (text) entries.push({ startSec, text });
+    }
   }
   return entries;
 }
@@ -343,16 +354,23 @@ function wrapJpn(text, max = 20) {
   return lines.join("\\N");
 }
 
+// アルバムアート(720px)の下端: 50+720=770
+// 字幕エリア: 780〜1070 (290px)
+// Eng: \an2\pos(960,925) → 1行=855-925, 2行=787-925
+// Jpn: \an2\pos(960,1052) → 1行=1000-1052, 2行=940-1052
+const ENG_POS = "{\\an2\\pos(960,925)}";
+const JPN_POS = "{\\an2\\pos(960,1052)}";
+
 const assHeader = `[Script Info]
 ScriptType: v4.00+
 PlayResX: 1920
 PlayResY: 1080
-WrapStyle: 1
+WrapStyle: 0
 
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
-Style: Eng,Helvetica Neue,58,&H00FFFFFF,&H000000FF,&H00000000,&HAA000000,-1,0,0,0,100,100,0,0,1,4,2,2,80,80,140,1
-Style: Jpn,Hiragino Sans W3,44,&H0000D7FF,&H000000FF,&H00000000,&HAA000000,-1,0,0,0,100,100,0,0,1,3,1,2,80,80,56,1
+Style: Eng,Helvetica Neue,55,&H00FFFFFF,&H000000FF,&H00000000,&HAA000000,-1,0,0,0,100,100,0,0,1,4,2,2,0,0,0,1
+Style: Jpn,Hiragino Sans W3,42,&H0000D7FF,&H000000FF,&H00000000,&HAA000000,-1,0,0,0,100,100,0,0,1,3,1,2,0,0,0,1
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
@@ -362,8 +380,8 @@ let events = "";
 for (const b of usedPairs) {
   const t0 = assTime(b.start);
   const t1 = assTime(Math.min(b.end, totalDuration - 0.05));
-  events += `Dialogue: 0,${t0},${t1},Eng,,0,0,0,,${wrapEng(b.eng)}\n`;
-  events += `Dialogue: 0,${t0},${t1},Jpn,,0,0,0,,${wrapJpn(b.jpn)}\n`;
+  events += `Dialogue: 0,${t0},${t1},Eng,,0,0,0,,${ENG_POS}${wrapEng(b.eng)}\n`;
+  events += `Dialogue: 0,${t0},${t1},Jpn,,0,0,0,,${JPN_POS}${wrapJpn(b.jpn)}\n`;
 }
 
 fs.writeFileSync(assFile, assHeader + events);
@@ -374,7 +392,7 @@ console.log(`[ass] ${usedPairs.length} subtitles written`);
 const filter1 = [
   "[0:v]split=2[in_bg][in_art]",
   "[in_bg]scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080,boxblur=30:30,colorchannelmixer=rr=0.25:gg=0.25:bb=0.25[bg]",
-  "[in_art]scale=800:800[art]",
+  "[in_art]scale=720:720[art]",
   "[bg][art]overlay=(W-w)/2:50[out]",
 ].join(";");
 
