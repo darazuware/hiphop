@@ -71,25 +71,23 @@ while ((m = blockRe.exec(content)) !== null) {
   const inner = m[1];
   const eng = inner.match(/<Fragment slot="eng">([\s\S]*?)<\/Fragment>/)?.[1];
   const jpn = inner.match(/<Fragment slot="jpn">([\s\S]*?)<\/Fragment>/)?.[1];
-  const expRaw = inner.match(/<Fragment slot="explanation">([\s\S]*?)<\/Fragment>/)?.[1] ?? "";
-  // explanation: HTMLタグ除去 → 句点単位で文に分割して行ごとに割り当て
-  const expClean = expRaw.replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
-  const expSentences = expClean.length > 0
-    ? (expClean.match(/[^。！？\n]{5,}[。！？]?/g) ?? [expClean]).map(s => s.trim()).filter(s => s.length > 3)
-    : [];
   if (eng && jpn) {
     const splitLines = (s) =>
       s.split(/<br\s*\/?>/i)
         .map(l => l.replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim())
         .filter(l => l.length > 0);
-    const engLines = splitLines(eng);
+    // engはrawを保持してQuickSlangを抽出してからタグ除去
+    const engLinesRaw = eng.split(/<br\s*\/?>/i).filter(l =>
+      l.replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim().length > 0
+    );
+    const engLines = engLinesRaw.map(l => l.replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim());
     const jpnLines = splitLines(jpn);
-    const len = Math.min(engLines.length, jpnLines.length);
+    const len = Math.min(engLinesRaw.length, jpnLines.length);
     for (let i = 0; i < len; i++) {
-      // 行数に応じて異なる文を割り当て（同ブロック内でも説明が変化する）
-      const sentIdx = expSentences.length > 1 ? Math.floor(i * expSentences.length / len) : 0;
-      const expShort = expSentences[sentIdx]?.slice(0, 60) ?? "";
-      linePairs.push({ eng: engLines[i], jpn: jpnLines[i], exp: expShort });
+      // QuickSlangがあればword：descを説明として使用、なければ空
+      const qsMatch = engLinesRaw[i].match(/<QuickSlang[^>]+word="([^"]+)"[^>]+desc="([^"]+)"[^>]*\/?>/);
+      const exp = qsMatch ? `${qsMatch[1]}：${qsMatch[2]}`.slice(0, 80) : "";
+      linePairs.push({ eng: engLines[i], jpn: jpnLines[i], exp });
     }
   }
 }
@@ -399,19 +397,17 @@ function wrapEng(text, max = 30) {
   return lines.join("\\N");
 }
 
-// explanationは同ブロックの最初の行から引き継ぐ（空のpairも上書きしない）
-let currentExp = "";
+// QuickSlangがある行のみ説明を表示（carry-overなし）
 let events = "";
 usedPairs.forEach((block) => {
   const t0 = assTime(Math.max(0, block.start + offsetSec));
   const t1 = assTime(Math.min(block.end + offsetSec, shortDuration - 0.05));
   const eng = wrapEng(block.eng);
   const jpn = wrapJpn(block.jpn);
-  if (block.exp) currentExp = block.exp;
   events += `Dialogue: 0,${t0},${t1},Eng,,0,0,0,,${eng}\n`;
   events += `Dialogue: 0,${t0},${t1},Jpn,,0,0,0,,${jpn}\n`;
-  if (currentExp) {
-    const expWrapped = wrapJpn(currentExp, 22);
+  if (block.exp) {
+    const expWrapped = wrapJpn(block.exp, 26);
     events += `Dialogue: 0,${t0},${t1},Exp,,0,0,0,,${expWrapped}\n`;
   }
 });
