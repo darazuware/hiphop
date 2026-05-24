@@ -97,6 +97,20 @@ while ((m = blockRe.exec(content)) !== null) {
 console.log(`[parse] ${linePairs.length} line pairs`);
 if (linePairs.length === 0) { console.error("No LyricsBlock found"); process.exit(1); }
 
+// ── song metadata (PVモード上部インフォ表示用) ────────────────────────────────
+const songsMeta  = fs.readFileSync(path.join(ROOT, "src/data/songs.ts"), "utf-8");
+const metaBlock  = songsMeta.match(new RegExp(`slug:\\s*'/songs/${slug}'[^}]*`))?.[0] ?? "";
+const infoTitle  = metaBlock.match(/,\s*title:\s*["']([^"']+)["']/)?.[1] ?? slug;
+const infoArtist = metaBlock.match(/,\s*artists:\s*["']([^"']+)["']/)?.[1] ?? "";
+// yearは独立フィールドまたはsubtitleから取得
+const infoYear = metaBlock.match(/,\s*year:\s*(\d{4})/)?.[1]
+  ?? metaBlock.match(/subtitle:\s*["']([^"']*\b(\d{4})\b[^"']*)["']/)?.[2] ?? "";
+// プロデューサー: subtitleの "X Produced" or "Prod. X" から、またはastroから
+const subtitleProd = metaBlock.match(/subtitle:\s*["']([A-Za-z][^·"']*?)\s*[Pp]roduc/)?.[1]?.trim();
+const astroProd    = content.match(/[Pp]rod(?:uced by|\.)[：: ]*([A-Za-z][^<\n,·「」]{1,25})/)?.[1]?.trim();
+const infoProducer = subtitleProd ?? astroProd ?? "";
+const infoMetaLine = [infoYear, infoProducer ? `Prod. ${infoProducer}` : ""].filter(Boolean).join("  ·  ");
+
 // ── download audio ────────────────────────────────────────────────────────────
 if (!fs.existsSync(audioFile)) {
   // 曲名・アーティストをsongs.tsから取得（検索フォールバック用）
@@ -326,11 +340,15 @@ if (process.env.OUTPUT_FILE) outputFile = process.env.OUTPUT_FILE;
 
 // Layout (1080x1920):
 //   アルバムアートモード: ジャケット680x680 (y=80) + 字幕 (y=800〜)
-//   PVモード(--bg pv):  PV 16:9→letterbox (y=60, 608px) + 字幕 (y=700〜)
-const lyricsMV = pvMode ? 700  : 800;
-const expWMV   = pvMode ? 950  : 1060;
-const expDMV   = pvMode ? 1015 : 1125;
-// Lyrics: Eng+Jpnを半透明ボックスにまとめる
+//   PVモード(--bg pv):  上部黒320px(インフォ) + PV(y=330,608px) + 下部黒(字幕)
+const lyricsMV = pvMode ? 975  : 800;
+const expWMV   = pvMode ? 1215 : 1060;
+const expDMV   = pvMode ? 1280 : 1125;
+// PVモード用: 上部インフォエリアのスタイル
+const infoStyles = pvMode ? `
+Style: InfoTitle,Impact,86,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,2,0,1,3,2,8,60,60,30,1
+Style: InfoArtist,Helvetica Neue,50,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,3,1,8,60,60,132,1
+Style: InfoMeta,Helvetica Neue,34,&H00AAAAAA,&H000000FF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,2,1,8,60,60,200,1` : "";
 const assHeader = `[Script Info]
 ScriptType: v4.00+
 PlayResX: 1080
@@ -341,7 +359,7 @@ WrapStyle: 1
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
 Style: Lyrics,Hiragino Sans W6,60,&H0000D7FF,&H000000FF,&H00000000,&H77000000,-1,0,0,0,100,100,0,0,4,16,10,8,60,60,${lyricsMV},1
 Style: ExpWord,Hiragino Sans W6,52,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,4,1,8,60,60,${expWMV},1
-Style: ExpDesc,Hiragino Sans W6,34,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,0,0,0,0,100,100,0,0,4,10,5,8,60,60,${expDMV},1
+Style: ExpDesc,Hiragino Sans W6,34,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,0,0,0,0,100,100,0,0,4,10,5,8,60,60,${expDMV},1${infoStyles}
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
@@ -403,6 +421,15 @@ function wrapEng(text, max = 36) {
 
 // QuickSlangがある行のみ説明を表示（carry-overなし）
 let events = "";
+
+// PVモード: 上部インフォエリアの静的テキスト（全時間表示）
+if (pvMode) {
+  const endT = assTime(shortDuration - 0.05);
+  if (infoTitle)    events += `Dialogue: 0,0:00:00.00,${endT},InfoTitle,,0,0,0,,${infoTitle}\n`;
+  if (infoArtist)   events += `Dialogue: 0,0:00:00.00,${endT},InfoArtist,,0,0,0,,${infoArtist}\n`;
+  if (infoMetaLine) events += `Dialogue: 0,0:00:00.00,${endT},InfoMeta,,0,0,0,,${infoMetaLine}\n`;
+}
+
 usedPairs.forEach((block) => {
   const t0 = assTime(Math.max(0, block.start + offsetSec));
   const t1 = assTime(Math.min(block.end + offsetSec, shortDuration - 0.05));
@@ -453,12 +480,12 @@ if (pvMode) {
   } else {
     console.log(`[yt-dlp] PV cache hit: ${pvFile}`);
   }
-  // PV letterbox: 16:9→1080x608、上部(y=60)に配置、残りは黒
+  // PV letterbox: 上部黒320px(インフォ) + PV y=330に配置
   r = spawnSync("ffmpeg", [
     "-y",
     "-ss", String(startSec), "-i", pvFile,
     "-t", String(shortDuration),
-    "-filter_complex", "[0:v]scale=1080:608:force_original_aspect_ratio=decrease,pad=1080:1920:(ow-iw)/2:60:black[out]",
+    "-filter_complex", "[0:v]scale=1080:608:force_original_aspect_ratio=decrease,pad=1080:1920:(ow-iw)/2:330:black[out]",
     "-map", "[out]",
     "-map", "0:a",
     "-c:v", "libx264", "-preset", "fast", "-crf", "22",
