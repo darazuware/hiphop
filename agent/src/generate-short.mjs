@@ -36,6 +36,7 @@ const slug = getArg("slug");
 const maxDuration = parseFloat(getArg("duration") || "60");
 const startSec = parseFloat(getArg("start") || "0");
 const offsetSec = parseFloat(getArg("offset") || "0"); // 字幕タイムスタンプを一括シフト
+const pvMode = getArg("bg") === "pv"; // --bg pv でPV動画を背景に使用
 
 if (!slug) {
   console.error("Usage: node generate-short.mjs --slug <slug> [--duration 60] [--start 0]");
@@ -48,6 +49,7 @@ const coverFile = path.join(ROOT, "public/images/covers", `${slug}.jpg`);
 const audioDir = path.join(__dirname, "../audio");
 const outputDir = path.join(ROOT, "public/shorts");
 const audioFile = path.join(audioDir, `${slug}.mp3`);
+const pvFile   = path.join(audioDir, `${slug}-pv.mp4`);
 const assFile = `/tmp/short_sub.ass`;
 let outputFile = path.join(outputDir, `${slug}.mp4`);
 
@@ -323,11 +325,19 @@ function assTime(sec) {
 if (process.env.OUTPUT_FILE) outputFile = process.env.OUTPUT_FILE;
 
 // Layout (1080x1920):
-//   [80~760px]    アルバムアート 680x680
-//   [800~848px]   英語歌詞 Eng (40px)
-//   [848~960px]   日本語訳 Jpn (56px)
-//   [1060~1110px] スラング単語 ExpWord (52px, gold)
-//   [1120~1220px] スラング説明 ExpDesc (34px, white, box)
+//   アルバムアートモード: ジャケット大 + 字幕中段
+//   PVモード(--bg pv):  PV動画フルスクリーン + 字幕ロワーサード
+const engMV    = pvMode ? 1440 : 800;
+const jpnMV    = pvMode ? 1492 : 848;
+const expWMV   = pvMode ? 1636 : 1060;
+const expDMV   = pvMode ? 1700 : 1125;
+// PVモードは全スタイルにboxを追加して視認性確保
+const engStyle  = pvMode
+  ? `Style: Eng,Helvetica Neue,40,&H00FFFFFF,&H000000FF,&H00000000,&HCC000000,-1,0,0,0,100,100,0,0,4,8,4,8,60,60,${engMV},1`
+  : `Style: Eng,Helvetica Neue,40,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,4,2,8,60,60,${engMV},1`;
+const jpnStyle  = pvMode
+  ? `Style: Jpn,Hiragino Sans W6,56,&H0000D7FF,&H000000FF,&H00000000,&HCC000000,-1,0,0,0,100,100,0,0,4,10,5,8,60,60,${jpnMV},1`
+  : `Style: Jpn,Hiragino Sans W6,56,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,5,1,8,60,60,${jpnMV},1`;
 const assHeader = `[Script Info]
 ScriptType: v4.00+
 PlayResX: 1080
@@ -336,10 +346,10 @@ WrapStyle: 1
 
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
-Style: Eng,Helvetica Neue,40,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,4,2,8,60,60,800,1
-Style: Jpn,Hiragino Sans W6,56,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,5,1,8,60,60,848,1
-Style: ExpWord,Hiragino Sans W6,52,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,4,1,8,60,60,1060,1
-Style: ExpDesc,Hiragino Sans W6,34,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,0,0,0,0,100,100,0,0,4,10,5,8,60,60,1125,1
+${engStyle}
+${jpnStyle}
+Style: ExpWord,Hiragino Sans W6,52,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,4,1,8,60,60,${expWMV},1
+Style: ExpDesc,Hiragino Sans W6,34,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,0,0,0,0,100,100,0,0,4,10,5,8,60,60,${expDMV},1
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
@@ -434,28 +444,57 @@ console.log(`[ass] Written: ${assFile}`);
 
 const tmpVideo = `/tmp/short_base.mp4`;
 
-// Step 1: background + album art (no subtitles)
-const filter1 = [
-  "[0:v]split=2[in_bg][in_art]",
-  "[in_bg]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,boxblur=30:30,colorchannelmixer=rr=0.25:gg=0.25:bb=0.25[bg]",
-  "[in_art]scale=680:680[art]",
-  "[bg][art]overlay=(W-w)/2:80[out]",
-].join(";");
-
 console.log("[ffmpeg] Step 1: building base video...");
-let r = spawnSync("ffmpeg", [
-  "-y",
-  "-ss", String(startSec), "-loop", "1", "-i", coverFile,
-  "-ss", String(startSec), "-i", audioFile,
-  "-t", String(shortDuration),
-  "-filter_complex", filter1,
-  "-map", "[out]",
-  "-map", "1:a",
-  "-c:v", "libx264", "-preset", "fast", "-crf", "22",
-  "-c:a", "aac", "-b:a", "192k",
-  "-shortest", "-movflags", "+faststart", "-r", "30",
-  tmpVideo,
-], { stdio: "inherit" });
+let r;
+
+if (pvMode) {
+  // PVモード: PV動画を9:16にクロップして背景に使用
+  if (!fs.existsSync(pvFile)) {
+    console.log(`[yt-dlp] Downloading PV video...`);
+    const ok = (() => { try {
+      execSync(
+        `yt-dlp -f "bestvideo[height<=1080][ext=mp4]+bestaudio[ext=m4a]/bestvideo[height<=1080]+bestaudio/best[height<=1080]" --merge-output-format mp4 -o "${pvFile}" "https://www.youtube.com/watch?v=${youtubeId}"`,
+        { stdio: "inherit" }
+      ); return true;
+    } catch { return false; } })();
+    if (!ok) { console.error("[yt-dlp] PV download failed"); process.exit(1); }
+  } else {
+    console.log(`[yt-dlp] PV cache hit: ${pvFile}`);
+  }
+  r = spawnSync("ffmpeg", [
+    "-y",
+    "-ss", String(startSec), "-i", pvFile,
+    "-t", String(shortDuration),
+    "-filter_complex", "[0:v]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920[out]",
+    "-map", "[out]",
+    "-map", "0:a",
+    "-c:v", "libx264", "-preset", "fast", "-crf", "22",
+    "-c:a", "aac", "-b:a", "192k",
+    "-movflags", "+faststart", "-r", "30",
+    tmpVideo,
+  ], { stdio: "inherit" });
+} else {
+  // アルバムアートモード（デフォルト）
+  const filter1 = [
+    "[0:v]split=2[in_bg][in_art]",
+    "[in_bg]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,boxblur=30:30,colorchannelmixer=rr=0.25:gg=0.25:bb=0.25[bg]",
+    "[in_art]scale=680:680[art]",
+    "[bg][art]overlay=(W-w)/2:80[out]",
+  ].join(";");
+  r = spawnSync("ffmpeg", [
+    "-y",
+    "-ss", String(startSec), "-loop", "1", "-i", coverFile,
+    "-ss", String(startSec), "-i", audioFile,
+    "-t", String(shortDuration),
+    "-filter_complex", filter1,
+    "-map", "[out]",
+    "-map", "1:a",
+    "-c:v", "libx264", "-preset", "fast", "-crf", "22",
+    "-c:a", "aac", "-b:a", "192k",
+    "-shortest", "-movflags", "+faststart", "-r", "30",
+    tmpVideo,
+  ], { stdio: "inherit" });
+}
 if (r.status !== 0) { console.error("Step 1 failed"); process.exit(1); }
 
 // Step 2: burn subtitles with -vf
