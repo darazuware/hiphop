@@ -111,6 +111,29 @@ const astroProd    = content.match(/[Pp]rod(?:uced by|\.)[：: ]*([A-Za-z][^<\n,
 const infoProducer = subtitleProd ?? astroProd ?? "";
 const infoMetaLine = [infoYear, infoProducer ? `Prod. ${infoProducer}` : ""].filter(Boolean).join("  ·  ");
 
+// ── album art dominant color (pvMode アクセントカラー) ────────────────────────
+// アルバムアートから支配色を抽出 → ゴールドラインに使用
+let accentRGB = [255, 221, 0]; // default gold
+if (pvMode) {
+  try {
+    const pixel = execSync(
+      `convert "${coverFile}" -resize 1x1 -format "%[pixel:u.p{0,0}]" info:`,
+      { stdio: "pipe" }
+    ).toString().trim();
+    const m = pixel.match(/(\d+),\s*(\d+),\s*(\d+)/);
+    if (m) {
+      const [r, g, b] = [parseInt(m[1]), parseInt(m[2]), parseInt(m[3])];
+      // 明度が低すぎる場合は白にフォールバック
+      const lum = 0.299 * r + 0.587 * g + 0.114 * b;
+      accentRGB = lum < 60 ? [255, 255, 255] : [r, g, b];
+    }
+  } catch {}
+}
+const accentHex = accentRGB.map(v => v.toString(16).padStart(2, "0")).join("").toUpperCase();
+// ASS色はAABBGGRR順
+const accentASS = `&H00${accentRGB[2].toString(16).padStart(2,"0").toUpperCase()}${accentRGB[1].toString(16).padStart(2,"0").toUpperCase()}${accentRGB[0].toString(16).padStart(2,"0").toUpperCase()}`;
+console.log(`[accent] #${accentHex} → ASS ${accentASS}`);
+
 // ── download audio ────────────────────────────────────────────────────────────
 if (!fs.existsSync(audioFile)) {
   // 曲名・アーティストをsongs.tsから取得（検索フォールバック用）
@@ -327,6 +350,11 @@ if (usedPairs.length < 10) {
 }
 console.log(`[align] ${usedPairs.length} timed pairs (first at ${usedPairs[0]?.start.toFixed(1)}s)`);
 
+// ── BudouX + Compromise 初期化（スマート字幕改行用） ─────────────────────────
+const { loadDefaultJapaneseParser } = await import('budoux');
+const { default: nlp } = await import('compromise');
+const jaParser = loadDefaultJapaneseParser();
+
 // ── generate ASS subtitles ────────────────────────────────────────────────────
 function assTime(sec) {
   const h = Math.floor(sec / 3600);
@@ -348,20 +376,20 @@ if (process.env.OUTPUT_FILE) outputFile = process.env.OUTPUT_FILE;
 //     D: 1064-1920px 薄グレー#F2F2F2 — スラング解説
 
 const lyricsStyles = pvMode ? `
-Style: Eng,Helvetica Neue,42,&H0000EEFF,&H000000FF,&H00000000,&H00000000,0,-1,0,0,100,100,0,0,1,2,1,8,60,60,840,1
-Style: Jpn,Hiragino Sans W6,64,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,5,2,8,60,60,930,1` : `
+Style: Eng,Helvetica Neue,42,&H0000EEFF,&H000000FF,&H00000000,&H00000000,0,-1,0,0,100,100,0,0,1,2,1,8,60,60,915,1
+Style: Jpn,Hiragino Sans W6,64,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,5,2,8,60,60,1085,1` : `
 Style: Lyrics,Hiragino Sans W6,60,&H0000D7FF,&H000000FF,&H00000000,&H77000000,-1,0,0,0,100,100,0,0,4,16,10,8,60,60,800,1`;
 
 const expStyles = pvMode ? `
-Style: ExpWord,Hiragino Sans W6,64,&H00000000,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,0,0,8,60,60,1090,1
-Style: ExpDesc,Hiragino Sans W6,40,&H00333333,&H000000FF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,8,60,60,1210,1` : `
+Style: ExpWord,Hiragino Sans W6,64,${accentASS},&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,0,0,8,60,60,1355,1
+Style: ExpDesc,Hiragino Sans W6,40,&H00DDDDDD,&H000000FF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,8,60,60,1475,1` : `
 Style: ExpWord,Hiragino Sans W6,46,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,3,1,8,60,60,1060,1
 Style: ExpDesc,Hiragino Sans W6,30,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,0,0,0,0,100,100,0,0,4,8,4,8,60,60,1125,1`;
 
 const infoStyles = pvMode ? `
-Style: InfoTitle,Impact,100,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,2,0,1,4,3,8,60,60,15,1
-Style: InfoArtist,Helvetica Neue,62,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,4,2,8,60,60,120,1
-Style: InfoMeta,Helvetica Neue,40,&H00AAAAAA,&H000000FF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,2,1,8,60,60,175,1` : "";
+Style: InfoTitle,Helvetica Neue,120,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,2,0,1,4,3,8,60,60,15,1
+Style: InfoArtist,Helvetica Neue,72,${accentASS},&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,4,2,8,60,60,145,1
+Style: InfoMeta,Helvetica Neue,44,&H00AAAAAA,&H000000FF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,2,1,8,60,60,218,1` : "";
 
 const assHeader = `[Script Info]
 ScriptType: v4.00+
@@ -432,6 +460,46 @@ function wrapEng(text, max = 36) {
   return lines.join("\\N");
 }
 
+// pvMode用: BudouX(日) + Compromise(英) によるスマート改行（最大3行）
+const ENG_MAX = 28;
+const JPN_MAX = 13;
+
+function fitEng(text) {
+  const t = text.replace(/\n/g, " ").replace(/\s+/g, " ").trim();
+  if (t.length <= ENG_MAX) return t;
+  // Compromiseで節境界を取得、なければ単語分割
+  const clauses = nlp(t).clauses().out('array');
+  const tokens = clauses.length >= 2 ? clauses : [t];
+  const lines = [];
+  let cur = "";
+  for (const token of tokens) {
+    for (const w of token.trim().split(/\s+/)) {
+      if (!w) continue;
+      const candidate = cur ? `${cur} ${w}` : w;
+      if (candidate.length <= ENG_MAX) { cur = candidate; }
+      else { if (cur) lines.push(cur); cur = w; }
+    }
+  }
+  if (cur) lines.push(cur);
+  if (lines.length > 3) { lines[2] = lines.slice(2).join(" "); lines.length = 3; }
+  return lines.join("\\N");
+}
+
+function fitJpn(text) {
+  const t = text.replace(/\n/g, "").replace(/,/g, "，").trim();
+  if (t.length <= JPN_MAX) return t;
+  // BudouXで形態素境界を取得してJPN_MAX以内の行にまとめる
+  const chunks = jaParser.parse(t);
+  const lines = [];
+  let cur = "";
+  for (const chunk of chunks) {
+    if ((cur + chunk).length <= JPN_MAX) { cur += chunk; }
+    else { if (cur) lines.push(cur); cur = chunk; }
+  }
+  if (cur) lines.push(cur);
+  return lines.slice(0, 3).join("\\N");
+}
+
 // QuickSlangがある行のみ説明を表示（carry-overなし）
 let events = "";
 
@@ -447,9 +515,9 @@ usedPairs.forEach((block) => {
   const t0 = assTime(Math.max(0, block.start + offsetSec));
   const t1 = assTime(Math.min(block.end + offsetSec, shortDuration - 0.05));
   if (pvMode) {
-    // PVモード: Eng(黄italic) + Jpn(白bold太アウトライン) 別スタイル
-    events += `Dialogue: 0,${t0},${t1},Eng,,0,0,0,,${wrapEng(block.eng, 42)}\n`;
-    events += `Dialogue: 0,${t0},${t1},Jpn,,0,0,0,,${wrapJpn(block.jpn, 17)}\n`;
+    // PVモード: 文字数に応じて自動縮小 → 常に1行表示
+    events += `Dialogue: 0,${t0},${t1},Eng,,0,0,0,,${fitEng(block.eng)}\n`;
+    events += `Dialogue: 0,${t0},${t1},Jpn,,0,0,0,,${fitJpn(block.jpn)}\n`;
   } else {
     // アルバムアートモード: Eng(白・小)+Jpn(金・大)を1つのLyrics boxに統合
     const engPart = `{\\fnHelvetica Neue\\fs46\\b1\\c&H00FFFFFF&}${wrapEng(block.eng)}`;
@@ -505,7 +573,7 @@ if (pvMode) {
     "-y",
     "-ss", String(startSec), "-i", pvFile,
     "-t", String(shortDuration),
-    "-filter_complex", "[0:v]scale=1080:607:force_original_aspect_ratio=increase,crop=1080:607,pad=1080:1920:0:220:black,drawbox=x=0:y=827:w=1080:h=233:color=0x111111:t=fill,drawbox=x=0:y=1060:w=1080:h=4:color=0xFFDD00:t=fill,drawbox=x=0:y=1064:w=1080:h=856:color=0xF2F2F2:t=fill[out]",
+    "-filter_complex", `[0:v]scale=1080:607:force_original_aspect_ratio=increase,crop=1080:607,pad=1080:1920:0:300:black,drawbox=x=0:y=907:w=1080:h=420:color=0x111111:t=fill,drawbox=x=0:y=1327:w=1080:h=4:color=0x${accentHex}:t=fill,drawbox=x=0:y=1331:w=1080:h=589:color=0x0D0D0D:t=fill[out]`,
     "-map", "[out]",
     "-map", "0:a",
     "-c:v", "libx264", "-preset", "fast", "-crf", "22",

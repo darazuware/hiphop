@@ -11,7 +11,10 @@
   "dependencies": {
     "@anthropic-ai/sdk": "^0.96.0",
     "@google/genai": "^1.0.0",
+    "budoux": "^0.8.4",
+    "compromise": "^14.15.0",
     "dotenv": "^16.4.0",
-    "genius-lyrics-api": "^3.2.1"
+    "genius-lyrics-api": "^3.2.1",
+    "googleapis": "^172.0.0"
   }
 }
