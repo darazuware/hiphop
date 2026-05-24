@@ -324,9 +324,10 @@ if (process.env.OUTPUT_FILE) outputFile = process.env.OUTPUT_FILE;
 
 // Layout (1080x1920):
 //   [80~760px]    アルバムアート 680x680
-//   [790~870px]   英語歌詞 (Alignment=8, MarginV=790)
-//   [880~960px]   日本語訳 (Alignment=8, MarginV=880)
-//   [1500~1880px] スラング解説ボックス (Alignment=2, MarginV=40)
+//   [800~848px]   英語歌詞 Eng (40px)
+//   [848~960px]   日本語訳 Jpn (56px)
+//   [1060~1110px] スラング単語 ExpWord (52px, gold)
+//   [1120~1220px] スラング説明 ExpDesc (34px, white, box)
 const assHeader = `[Script Info]
 ScriptType: v4.00+
 PlayResX: 1080
@@ -337,7 +338,8 @@ WrapStyle: 1
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
 Style: Eng,Helvetica Neue,40,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,4,2,8,60,60,800,1
 Style: Jpn,Hiragino Sans W6,56,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,5,1,8,60,60,848,1
-Style: Exp,Hiragino Sans W6,32,&H00FFFFFF,&H000000FF,&H00000000,&HAA000000,-1,0,0,0,100,100,0,0,4,0,0,8,60,60,1130,1
+Style: ExpWord,Hiragino Sans W6,52,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,4,1,8,60,60,1060,1
+Style: ExpDesc,Hiragino Sans W6,34,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,0,0,0,0,100,100,0,0,4,10,5,8,60,60,1125,1
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
@@ -407,8 +409,15 @@ usedPairs.forEach((block) => {
   events += `Dialogue: 0,${t0},${t1},Eng,,0,0,0,,${eng}\n`;
   events += `Dialogue: 0,${t0},${t1},Jpn,,0,0,0,,${jpn}\n`;
   if (block.exp) {
-    const expWrapped = wrapJpn(block.exp, 26);
-    events += `Dialogue: 0,${t0},${t1},Exp,,0,0,0,,${expWrapped}\n`;
+    const colonIdx = block.exp.indexOf('：');
+    if (colonIdx > 0) {
+      const word = block.exp.slice(0, colonIdx).trim();
+      const desc = wrapJpn(block.exp.slice(colonIdx + 1).trim(), 22);
+      events += `Dialogue: 0,${t0},${t1},ExpWord,,0,0,0,,${word}\n`;
+      events += `Dialogue: 0,${t0},${t1},ExpDesc,,0,0,0,,${desc}\n`;
+    } else {
+      events += `Dialogue: 0,${t0},${t1},ExpDesc,,0,0,0,,${wrapJpn(block.exp, 22)}\n`;
+    }
   }
 });
 
