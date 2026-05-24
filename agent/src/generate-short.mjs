@@ -325,19 +325,12 @@ function assTime(sec) {
 if (process.env.OUTPUT_FILE) outputFile = process.env.OUTPUT_FILE;
 
 // Layout (1080x1920):
-//   アルバムアートモード: ジャケット大 + 字幕中段
-//   PVモード(--bg pv):  PV動画フルスクリーン + 字幕ロワーサード
-const engMV    = pvMode ? 1440 : 800;
-const jpnMV    = pvMode ? 1492 : 848;
-const expWMV   = pvMode ? 1636 : 1060;
-const expDMV   = pvMode ? 1700 : 1125;
-// PVモードは全スタイルにboxを追加して視認性確保
-const engStyle  = pvMode
-  ? `Style: Eng,Helvetica Neue,40,&H00FFFFFF,&H000000FF,&H00000000,&HCC000000,-1,0,0,0,100,100,0,0,4,8,4,8,60,60,${engMV},1`
-  : `Style: Eng,Helvetica Neue,40,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,4,2,8,60,60,${engMV},1`;
-const jpnStyle  = pvMode
-  ? `Style: Jpn,Hiragino Sans W6,56,&H0000D7FF,&H000000FF,&H00000000,&HCC000000,-1,0,0,0,100,100,0,0,4,10,5,8,60,60,${jpnMV},1`
-  : `Style: Jpn,Hiragino Sans W6,56,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,5,1,8,60,60,${jpnMV},1`;
+//   アルバムアートモード: ジャケット680x680 (y=80) + 字幕 (y=800〜)
+//   PVモード(--bg pv):  PV 16:9→letterbox (y=60, 608px) + 字幕 (y=700〜)
+const lyricsMV = pvMode ? 700  : 800;
+const expWMV   = pvMode ? 950  : 1060;
+const expDMV   = pvMode ? 1015 : 1125;
+// Lyrics: Eng+Jpnを半透明ボックスにまとめる
 const assHeader = `[Script Info]
 ScriptType: v4.00+
 PlayResX: 1080
@@ -346,8 +339,7 @@ WrapStyle: 1
 
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
-${engStyle}
-${jpnStyle}
+Style: Lyrics,Hiragino Sans W6,60,&H0000D7FF,&H000000FF,&H00000000,&H77000000,-1,0,0,0,100,100,0,0,4,16,10,8,60,60,${lyricsMV},1
 Style: ExpWord,Hiragino Sans W6,52,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,4,1,8,60,60,${expWMV},1
 Style: ExpDesc,Hiragino Sans W6,34,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,0,0,0,0,100,100,0,0,4,10,5,8,60,60,${expDMV},1
 
@@ -414,10 +406,10 @@ let events = "";
 usedPairs.forEach((block) => {
   const t0 = assTime(Math.max(0, block.start + offsetSec));
   const t1 = assTime(Math.min(block.end + offsetSec, shortDuration - 0.05));
-  const eng = wrapEng(block.eng);
-  const jpn = wrapJpn(block.jpn);
-  events += `Dialogue: 0,${t0},${t1},Eng,,0,0,0,,${eng}\n`;
-  events += `Dialogue: 0,${t0},${t1},Jpn,,0,0,0,,${jpn}\n`;
+  // Eng(白・小)+Jpn(金・大)を1つのLyrics boxに統合
+  const engPart = `{\\fnHelvetica Neue\\fs46\\b1\\c&H00FFFFFF&}${wrapEng(block.eng)}`;
+  const jpnPart = `{\\r}${wrapJpn(block.jpn)}`;
+  events += `Dialogue: 0,${t0},${t1},Lyrics,,0,0,0,,${engPart}\\N${jpnPart}\n`;
   if (block.exp) {
     const colonIdx = block.exp.indexOf('：');
     if (colonIdx > 0) {
@@ -461,11 +453,12 @@ if (pvMode) {
   } else {
     console.log(`[yt-dlp] PV cache hit: ${pvFile}`);
   }
+  // PV letterbox: 16:9→1080x608、上部(y=60)に配置、残りは黒
   r = spawnSync("ffmpeg", [
     "-y",
     "-ss", String(startSec), "-i", pvFile,
     "-t", String(shortDuration),
-    "-filter_complex", "[0:v]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920[out]",
+    "-filter_complex", "[0:v]scale=1080:608:force_original_aspect_ratio=decrease,pad=1080:1920:(ow-iw)/2:60:black[out]",
     "-map", "[out]",
     "-map", "0:a",
     "-c:v", "libx264", "-preset", "fast", "-crf", "22",
