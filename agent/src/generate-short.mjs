@@ -346,9 +346,9 @@ const expWMV   = pvMode ? 1215 : 1060;
 const expDMV   = pvMode ? 1280 : 1125;
 // PVモード用: 上部インフォエリアのスタイル
 const infoStyles = pvMode ? `
-Style: InfoTitle,Impact,86,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,2,0,1,3,2,8,60,60,30,1
-Style: InfoArtist,Helvetica Neue,50,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,3,1,8,60,60,132,1
-Style: InfoMeta,Helvetica Neue,34,&H00AAAAAA,&H000000FF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,2,1,8,60,60,200,1` : "";
+Style: InfoTitle,Impact,100,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,2,0,1,4,3,8,60,60,20,1
+Style: InfoArtist,Helvetica Neue,62,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,4,2,8,60,60,136,1
+Style: InfoMeta,Helvetica Neue,40,&H00AAAAAA,&H000000FF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,2,1,8,60,60,215,1` : "";
 const assHeader = `[Script Info]
 ScriptType: v4.00+
 PlayResX: 1080
