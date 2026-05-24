@@ -335,16 +335,16 @@ WrapStyle: 1
 
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
-Style: Eng,Impact,52,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,1,0,1,5,2,8,60,60,790,1
-Style: Jpn,Hiragino Sans W6,42,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,4,1,8,60,60,885,1
+Style: Eng,Impact,36,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,1,0,1,4,2,8,60,60,800,1
+Style: Jpn,Hiragino Sans W6,56,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,5,1,8,60,60,848,1
 Style: Exp,Hiragino Sans W6,32,&H00FFFFFF,&H000000FF,&H00000000,&HAA000000,-1,0,0,0,100,100,0,0,4,0,0,8,60,60,1430,1
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 `;
 
-// 日本語を自然な位置で改行する（最大16文字）
-function wrapJpn(text, max = 16) {
+// 日本語を自然な位置で改行する（最大14文字）
+function wrapJpn(text, max = 14) {
   const cleanedText = text.replace(/\n/g, "").replace(/,/g, "，").trim();
   if (cleanedText.length <= max) return cleanedText;
   
@@ -372,8 +372,8 @@ function wrapJpn(text, max = 16) {
   return lines.join("\\N");
 }
 
-// 英語を自然な位置で改行する（最大30文字）
-function wrapEng(text, max = 30) {
+// 英語を自然な位置で改行する（最大36文字）
+function wrapEng(text, max = 36) {
   const cleanedText = text.replace(/\n/g, " ").replace(/\s+/g, " ").trim();
   if (cleanedText.length <= max) return cleanedText;
 
