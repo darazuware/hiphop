@@ -339,16 +339,21 @@ function assTime(sec) {
 if (process.env.OUTPUT_FILE) outputFile = process.env.OUTPUT_FILE;
 
 // Layout (1080x1920):
-//   アルバムアートモード: ジャケット680x680 (y=80) + 字幕 (y=800〜)
-//   PVモード(--bg pv):  上部黒320px(インフォ) + PV(y=330,608px) + 下部黒(字幕)
-const lyricsMV = pvMode ? 975  : 800;
-const expWMV   = pvMode ? 1215 : 1060;
-const expDMV   = pvMode ? 1280 : 1125;
-// PVモード用: 上部インフォエリアのスタイル
+//   アルバムアートモード: ジャケット680x680 (y=80) + Lyrics box (y=800〜)
+//   PVモード(--bg pv):  PVフルスクリーン + 上部310px黒drawbox(インフォ) + 字幕オーバーレイ
+const expWMV = pvMode ? 1450 : 1060;
+const expDMV = pvMode ? 1510 : 1125;
+
+const lyricsStyles = pvMode ? `
+Style: Eng,Helvetica Neue,40,&H0000EEFF,&H000000FF,&H00000000,&H00000000,0,-1,0,0,100,100,0,0,1,2,1,8,60,60,1210,1
+Style: Jpn,Hiragino Sans W6,60,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,5,2,8,60,60,1262,1` : `
+Style: Lyrics,Hiragino Sans W6,60,&H0000D7FF,&H000000FF,&H00000000,&H77000000,-1,0,0,0,100,100,0,0,4,16,10,8,60,60,800,1`;
+
 const infoStyles = pvMode ? `
 Style: InfoTitle,Impact,100,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,2,0,1,4,3,8,60,60,20,1
 Style: InfoArtist,Helvetica Neue,62,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,4,2,8,60,60,136,1
 Style: InfoMeta,Helvetica Neue,40,&H00AAAAAA,&H000000FF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,2,1,8,60,60,215,1` : "";
+
 const assHeader = `[Script Info]
 ScriptType: v4.00+
 PlayResX: 1080
@@ -356,10 +361,9 @@ PlayResY: 1920
 WrapStyle: 1
 
 [V4+ Styles]
-Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
-Style: Lyrics,Hiragino Sans W6,60,&H0000D7FF,&H000000FF,&H00000000,&H77000000,-1,0,0,0,100,100,0,0,4,16,10,8,60,60,${lyricsMV},1
-Style: ExpWord,Hiragino Sans W6,52,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,4,1,8,60,60,${expWMV},1
-Style: ExpDesc,Hiragino Sans W6,34,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,0,0,0,0,100,100,0,0,4,10,5,8,60,60,${expDMV},1${infoStyles}
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding${lyricsStyles}
+Style: ExpWord,Hiragino Sans W6,46,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,3,1,8,60,60,${expWMV},1
+Style: ExpDesc,Hiragino Sans W6,30,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,0,0,0,0,100,100,0,0,4,8,4,8,60,60,${expDMV},1${infoStyles}
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
@@ -433,10 +437,16 @@ if (pvMode) {
 usedPairs.forEach((block) => {
   const t0 = assTime(Math.max(0, block.start + offsetSec));
   const t1 = assTime(Math.min(block.end + offsetSec, shortDuration - 0.05));
-  // Eng(白・小)+Jpn(金・大)を1つのLyrics boxに統合
-  const engPart = `{\\fnHelvetica Neue\\fs46\\b1\\c&H00FFFFFF&}${wrapEng(block.eng)}`;
-  const jpnPart = `{\\r}${wrapJpn(block.jpn)}`;
-  events += `Dialogue: 0,${t0},${t1},Lyrics,,0,0,0,,${engPart}\\N${jpnPart}\n`;
+  if (pvMode) {
+    // PVモード: Eng(黄italic) + Jpn(白bold太アウトライン) 別スタイル
+    events += `Dialogue: 0,${t0},${t1},Eng,,0,0,0,,${wrapEng(block.eng, 42)}\n`;
+    events += `Dialogue: 0,${t0},${t1},Jpn,,0,0,0,,${wrapJpn(block.jpn, 17)}\n`;
+  } else {
+    // アルバムアートモード: Eng(白・小)+Jpn(金・大)を1つのLyrics boxに統合
+    const engPart = `{\\fnHelvetica Neue\\fs46\\b1\\c&H00FFFFFF&}${wrapEng(block.eng)}`;
+    const jpnPart = `{\\r}${wrapJpn(block.jpn)}`;
+    events += `Dialogue: 0,${t0},${t1},Lyrics,,0,0,0,,${engPart}\\N${jpnPart}\n`;
+  }
   if (block.exp) {
     const colonIdx = block.exp.indexOf('：');
     if (colonIdx > 0) {
@@ -480,12 +490,12 @@ if (pvMode) {
   } else {
     console.log(`[yt-dlp] PV cache hit: ${pvFile}`);
   }
-  // PV letterbox: 上部黒320px(インフォ) + PV y=330に配置
+  // PVフルスクリーン: 9:16クロップ + 上部310px黒オーバーレイ（インフォエリア）
   r = spawnSync("ffmpeg", [
     "-y",
     "-ss", String(startSec), "-i", pvFile,
     "-t", String(shortDuration),
-    "-filter_complex", "[0:v]scale=1080:608:force_original_aspect_ratio=decrease,pad=1080:1920:(ow-iw)/2:330:black[out]",
+    "-filter_complex", "[0:v]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,drawbox=x=0:y=0:w=1080:h=310:color=black:t=fill[out]",
     "-map", "[out]",
     "-map", "0:a",
     "-c:v", "libx264", "-preset", "fast", "-crf", "22",
