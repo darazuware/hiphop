@@ -72,9 +72,11 @@ while ((m = blockRe.exec(content)) !== null) {
   const eng = inner.match(/<Fragment slot="eng">([\s\S]*?)<\/Fragment>/)?.[1];
   const jpn = inner.match(/<Fragment slot="jpn">([\s\S]*?)<\/Fragment>/)?.[1];
   const expRaw = inner.match(/<Fragment slot="explanation">([\s\S]*?)<\/Fragment>/)?.[1] ?? "";
-  // explanation: HTMLタグ除去 → 最初の1文（句点/改行まで）を抽出
+  // explanation: HTMLタグ除去 → 句点単位で文に分割して行ごとに割り当て
   const expClean = expRaw.replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
-  const expShort = expClean.match(/^([^。\n]{1,60}[。]?)/)?.[1]?.trim() ?? expClean.slice(0, 55);
+  const expSentences = expClean.length > 0
+    ? (expClean.match(/[^。！？\n]{5,}[。！？]?/g) ?? [expClean]).map(s => s.trim()).filter(s => s.length > 3)
+    : [];
   if (eng && jpn) {
     const splitLines = (s) =>
       s.split(/<br\s*\/?>/i)
@@ -84,6 +86,9 @@ while ((m = blockRe.exec(content)) !== null) {
     const jpnLines = splitLines(jpn);
     const len = Math.min(engLines.length, jpnLines.length);
     for (let i = 0; i < len; i++) {
+      // 行数に応じて異なる文を割り当て（同ブロック内でも説明が変化する）
+      const sentIdx = expSentences.length > 1 ? Math.floor(i * expSentences.length / len) : 0;
+      const expShort = expSentences[sentIdx]?.slice(0, 60) ?? "";
       linePairs.push({ eng: engLines[i], jpn: jpnLines[i], exp: expShort });
     }
   }
@@ -334,7 +339,7 @@ WrapStyle: 1
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
 Style: Eng,Impact,52,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,1,0,1,5,2,8,60,60,790,1
 Style: Jpn,Hiragino Sans W6,42,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,4,1,8,60,60,885,1
-Style: Exp,Hiragino Sans W6,32,&H00FFFFFF,&H000000FF,&H00000000,&HAA000000,-1,0,0,0,100,100,0,0,4,0,0,8,60,60,980,1
+Style: Exp,Hiragino Sans W6,32,&H00FFFFFF,&H000000FF,&H00000000,&HAA000000,-1,0,0,0,100,100,0,0,4,0,0,8,60,60,1430,1
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
