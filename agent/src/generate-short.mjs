@@ -340,19 +340,28 @@ if (process.env.OUTPUT_FILE) outputFile = process.env.OUTPUT_FILE;
 
 // Layout (1080x1920):
 //   アルバムアートモード: ジャケット680x680 (y=80) + Lyrics box (y=800〜)
-//   PVモード(--bg pv):  PVフルスクリーン + 上部310px黒drawbox(インフォ) + 字幕オーバーレイ
-const expWMV = pvMode ? 1450 : 1060;
-const expDMV = pvMode ? 1510 : 1125;
+//   PVモード(--bg pv):
+//     A: 0-220px   黒帯  — Info (title/artist/year/prod)
+//     B: 220-827px PV 16:9 (607px height)
+//     C: 827-1060px ダーク#111 — Eng+Jpn字幕
+//     [1060-1064px ゴールドライン]
+//     D: 1064-1920px 薄グレー#F2F2F2 — スラング解説
 
 const lyricsStyles = pvMode ? `
-Style: Eng,Helvetica Neue,40,&H0000EEFF,&H000000FF,&H00000000,&H00000000,0,-1,0,0,100,100,0,0,1,2,1,8,60,60,1210,1
-Style: Jpn,Hiragino Sans W6,60,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,5,2,8,60,60,1262,1` : `
+Style: Eng,Helvetica Neue,42,&H0000EEFF,&H000000FF,&H00000000,&H00000000,0,-1,0,0,100,100,0,0,1,2,1,8,60,60,840,1
+Style: Jpn,Hiragino Sans W6,64,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,5,2,8,60,60,930,1` : `
 Style: Lyrics,Hiragino Sans W6,60,&H0000D7FF,&H000000FF,&H00000000,&H77000000,-1,0,0,0,100,100,0,0,4,16,10,8,60,60,800,1`;
 
+const expStyles = pvMode ? `
+Style: ExpWord,Hiragino Sans W6,64,&H00000000,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,0,0,8,60,60,1090,1
+Style: ExpDesc,Hiragino Sans W6,40,&H00333333,&H000000FF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,8,60,60,1210,1` : `
+Style: ExpWord,Hiragino Sans W6,46,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,3,1,8,60,60,1060,1
+Style: ExpDesc,Hiragino Sans W6,30,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,0,0,0,0,100,100,0,0,4,8,4,8,60,60,1125,1`;
+
 const infoStyles = pvMode ? `
-Style: InfoTitle,Impact,100,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,2,0,1,4,3,8,60,60,20,1
-Style: InfoArtist,Helvetica Neue,62,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,4,2,8,60,60,136,1
-Style: InfoMeta,Helvetica Neue,40,&H00AAAAAA,&H000000FF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,2,1,8,60,60,215,1` : "";
+Style: InfoTitle,Impact,100,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,2,0,1,4,3,8,60,60,15,1
+Style: InfoArtist,Helvetica Neue,62,&H0000D7FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,4,2,8,60,60,120,1
+Style: InfoMeta,Helvetica Neue,40,&H00AAAAAA,&H000000FF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,2,1,8,60,60,175,1` : "";
 
 const assHeader = `[Script Info]
 ScriptType: v4.00+
@@ -361,13 +370,13 @@ PlayResY: 1920
 WrapStyle: 1
 
 [V4+ Styles]
-Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding${lyricsStyles}
-Style: ExpWord,Hiragino Sans W6,46,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,3,1,8,60,60,${expWMV},1
-Style: ExpDesc,Hiragino Sans W6,30,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,0,0,0,0,100,100,0,0,4,8,4,8,60,60,${expDMV},1${infoStyles}
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding${lyricsStyles}${expStyles}${infoStyles}
+
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 `;
+
 
 // 日本語を自然な位置で改行する（最大14文字）
 function wrapJpn(text, max = 14) {
@@ -490,12 +499,13 @@ if (pvMode) {
   } else {
     console.log(`[yt-dlp] PV cache hit: ${pvFile}`);
   }
-  // PVフルスクリーン: 9:16クロップ + 上部310px黒オーバーレイ（インフォエリア）
+  // PV letterbox 16:9 + ゾーン分割:
+  //   A(0-220px)黒 / B(220-827px)PV / C(827-1060px)#111 / gold line / D(1064-1920px)#F2F2F2
   r = spawnSync("ffmpeg", [
     "-y",
     "-ss", String(startSec), "-i", pvFile,
     "-t", String(shortDuration),
-    "-filter_complex", "[0:v]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,drawbox=x=0:y=0:w=1080:h=310:color=black:t=fill[out]",
+    "-filter_complex", "[0:v]scale=1080:607:force_original_aspect_ratio=increase,crop=1080:607,pad=1080:1920:0:220:black,drawbox=x=0:y=827:w=1080:h=233:color=0x111111:t=fill,drawbox=x=0:y=1060:w=1080:h=4:color=0xFFDD00:t=fill,drawbox=x=0:y=1064:w=1080:h=856:color=0xF2F2F2:t=fill[out]",
     "-map", "[out]",
     "-map", "0:a",
     "-c:v", "libx264", "-preset", "fast", "-crf", "22",
