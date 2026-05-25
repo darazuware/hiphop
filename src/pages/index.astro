@@ -210,9 +210,9 @@ const tickerArtists = [
         {resolvedSeries.map(series => {
           const bgKey = series.songs[0]?.slug.split('/').pop();
           return (
-            <div class="border border-[var(--c-border)] rounded-xl p-5 hover:border-[var(--c-gold)]/50 transition-colors relative overflow-hidden">
+            <div class="border border-[var(--c-border)] rounded-xl p-5 hover:border-[var(--c-gold)]/50 transition-colors relative">
               {bgKey && (
-                <div class="absolute inset-0 pointer-events-none">
+                <div class="absolute inset-0 pointer-events-none overflow-hidden rounded-xl">
                   <img src={`/images/covers/${bgKey}.jpg`} class="w-full h-full object-cover opacity-[0.12] blur-xl scale-110" loading="lazy" alt="" />
                   <div class="absolute inset-0 bg-gradient-to-b from-transparent to-[var(--c-surface)]" />
                 </div>
@@ -225,17 +225,28 @@ const tickerArtists = [
                   </div>
                   <span class="text-[var(--c-gold)] text-xs font-mono shrink-0 ml-4 mt-0.5 border border-[var(--c-border)] px-2 py-0.5 rounded">{series.songs.length}曲</span>
                 </div>
-                <div class="flex gap-1.5">
+                <div class="flex gap-2">
                   {series.songs.map(song => {
                     const key = song.slug.split('/').pop()!;
                     return (
-                      <a
-                        href={song.slug}
-                        title={`${song.title} — ${song.artists}`}
-                        class="w-11 h-11 rounded-lg overflow-hidden shrink-0 border border-[var(--c-border)] hover:border-[var(--c-gold)] hover:scale-110 transition-all duration-200"
-                      >
-                        <img src={`/images/covers/${key}.jpg`} alt={song.title} class="w-full h-full object-cover" loading="lazy" />
-                      </a>
+                      <div class="series-thumb-wrapper relative group">
+                        <a
+                          href={song.slug}
+                          class="w-12 h-12 rounded-lg overflow-hidden block border border-[var(--c-border)] hover:border-[var(--c-gold)] transition-colors duration-200"
+                        >
+                          <img src={`/images/covers/${key}.jpg`} alt={song.title} class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" loading="lazy" />
+                        </a>
+                        <div class="series-popover">
+                          <div class="rounded-xl overflow-hidden shadow-2xl" style="background:var(--c-bg);border:1px solid var(--c-border);box-shadow:0 8px 32px rgba(0,0,0,0.6),0 0 0 1px rgba(212,175,55,0.2);">
+                            <img src={`/images/covers/${key}.jpg`} alt={song.title} class="w-full aspect-square object-cover" />
+                            <div class="p-2.5">
+                              <p class="text-[var(--c-text)] text-[11px] font-bold leading-tight series-clamp">{song.title}</p>
+                              <p class="text-[var(--c-very-dim)] text-[10px] mt-0.5 truncate">{song.artists}</p>
+                            </div>
+                          </div>
+                          <div class="series-popover-arrow"></div>
+                        </div>
+                      </div>
                     );
                   })}
                 </div>
@@ -612,6 +623,38 @@ const tickerArtists = [
   [...(songList?.querySelectorAll<HTMLElement>('li') ?? [])].forEach((item, i) => {
     item.dataset.index = String(i);
   });
+
+  // Series thumbnail: tap-to-preview on touch devices
+  (function() {
+    const wrappers = document.querySelectorAll<HTMLElement>('.series-thumb-wrapper');
+    wrappers.forEach(wrapper => {
+      const link = wrapper.querySelector<HTMLAnchorElement>('a');
+      const popover = wrapper.querySelector<HTMLElement>('.series-popover');
+      if (!link || !popover) return;
+      let previewing = false;
+      link.addEventListener('click', e => {
+        if (!('ontouchstart' in window) && navigator.maxTouchPoints === 0) return;
+        if (!previewing) {
+          e.preventDefault();
+          document.querySelectorAll<HTMLElement>('.series-popover.is-open').forEach(p => p.classList.remove('is-open'));
+          popover.classList.add('is-open');
+          previewing = true;
+        } else {
+          previewing = false;
+        }
+      });
+    });
+    document.addEventListener('click', e => {
+      if (!(e.target as Element).closest('.series-thumb-wrapper')) {
+        document.querySelectorAll<HTMLElement>('.series-popover.is-open').forEach(p => {
+          p.classList.remove('is-open');
+        });
+        document.querySelectorAll<HTMLElement>('.series-thumb-wrapper').forEach(w => {
+          (w as any)._previewing = false;
+        });
+      }
+    });
+  })();
 </script>
 
 <style>
@@ -686,6 +729,46 @@ const tickerArtists = [
       rgba(0, 0, 0, 0.40) 45%,
       rgba(0, 0, 0, 0.15) 100%
     );
+  }
+
+  /* Series thumbnail popover */
+  .series-thumb-wrapper {
+    position: relative;
+  }
+  .series-popover {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) scale(0.88);
+    transform-origin: bottom center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+    width: 144px;
+    z-index: 100;
+  }
+  .group:hover .series-popover,
+  .series-popover.is-open {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+    pointer-events: auto;
+  }
+  .series-popover-arrow {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid var(--c-border);
+  }
+  .series-clamp {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 
   .no-image-bg {
