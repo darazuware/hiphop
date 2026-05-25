@@ -174,17 +174,17 @@ const tickerArtists = [
   </section>
 
   <!-- ③ FEATURED PICKS -->
-  <section class="border-b border-[var(--c-border)] py-12 md:py-16">
+  <section class="border-b border-[var(--c-border)] py-10 md:py-14">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="flex items-end justify-between mb-8">
+      <div class="flex items-end justify-between mb-7">
         <div class="border-l-2 border-[var(--c-gold)] pl-4">
           <p class="text-[var(--c-gold)] text-[10px] uppercase tracking-[0.3em] font-mono mb-1.5">Featured Picks</p>
-          <h2 class="text-[var(--c-text)] text-xl font-bold">特選解説</h2>
-          <p class="text-[var(--c-very-dim)] text-xs mt-1">このサイトが特に力を入れた解説</p>
+          <h2 class="text-[var(--c-text)] text-xl font-bold">必読解説</h2>
+          <p class="text-[var(--c-very-dim)] text-xs mt-1">歌詞・スラング・文化背景を徹底解剖した6記事</p>
         </div>
         <a href="#all-songs" class="text-[var(--c-gold)] text-xs font-mono hover:underline underline-offset-4 hidden sm:block">全{totalSongs}曲を見る →</a>
       </div>
-      <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
         {featuredSongs.map((song, i) => {
           const key = song.slug.split('/').pop()!;
           return (
@@ -219,11 +219,14 @@ const tickerArtists = [
   </section>
 
   <!-- ④ SERIES -->
-  <section id="series" class="border-b border-[var(--c-border)] py-12 md:py-16 bg-[var(--c-surface)]">
+  <section id="series" class="border-b border-[var(--c-border)] py-10 md:py-14 bg-[var(--c-surface)]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="mb-8 border-l-2 border-[var(--c-gold)] pl-4">
-        <p class="text-[var(--c-gold)] text-[10px] uppercase tracking-[0.3em] font-mono mb-1.5">Series</p>
-        <h2 class="text-[var(--c-text)] text-xl font-bold">特集シリーズ</h2>
+      <div class="flex items-end justify-between mb-7">
+        <div class="border-l-2 border-[var(--c-gold)] pl-4">
+          <p class="text-[var(--c-gold)] text-[10px] uppercase tracking-[0.3em] font-mono mb-1.5">Series</p>
+          <h2 class="text-[var(--c-text)] text-xl font-bold">テーマ別特集</h2>
+          <p class="text-[var(--c-very-dim)] text-xs mt-1">ジャンル・時代・プロデューサーでまとめた名曲コレクション</p>
+        </div>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {resolvedSeries.map(series => {
@@ -278,9 +281,9 @@ const tickerArtists = [
   </section>
 
   <!-- ⑤ ACCESS RANKING -->
-  <section id="ranking" class="border-b border-[var(--c-border)] py-12 md:py-16">
+  <section id="ranking" class="border-b border-[var(--c-border)] py-10 md:py-14">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="mb-8 border-l-2 border-[var(--c-gold)] pl-4">
+      <div class="mb-7 border-l-2 border-[var(--c-gold)] pl-4">
         <p class="text-[var(--c-gold)] text-[10px] uppercase tracking-[0.3em] font-mono mb-1.5">Access Ranking</p>
         <h2 class="text-[var(--c-text)] text-xl font-bold">アクセスランキング</h2>
       </div>
@@ -318,9 +321,9 @@ const tickerArtists = [
   </section>
 
   <!-- ⑥ LATEST -->
-  <section id="latest" class="border-b border-[var(--c-border)] py-12 md:py-16 bg-[var(--c-surface)]">
+  <section id="latest" class="border-b border-[var(--c-border)] py-10 md:py-14 bg-[var(--c-surface)]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="flex items-end justify-between mb-8">
+      <div class="flex items-end justify-between mb-7">
         <div class="border-l-2 border-[var(--c-gold)] pl-4">
           <p class="text-[var(--c-gold)] text-[10px] uppercase tracking-[0.3em] font-mono mb-1.5">Latest</p>
           <h2 class="text-[var(--c-text)] text-xl font-bold">最新追加</h2>
@@ -350,7 +353,7 @@ const tickerArtists = [
   </section>
 
   <!-- ⑦ SLANG INDEX CTA -->
-  <section class="border-b border-[var(--c-border)] py-12 md:py-16">
+  <section class="border-b border-[var(--c-border)] py-10 md:py-14">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
       <div>
         <p class="text-[var(--c-gold)] text-[10px] uppercase tracking-[0.3em] font-mono mb-2">Slang Index</p>
