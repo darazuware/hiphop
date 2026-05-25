@@ -200,7 +200,7 @@ const tickerArtists = [
   </section>
 
   <!-- ④ SERIES -->
-  <section class="border-b border-[var(--c-border)] py-12 md:py-16 bg-[var(--c-surface)]">
+  <section id="series" class="border-b border-[var(--c-border)] py-12 md:py-16 bg-[var(--c-surface)]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="mb-8 border-l-2 border-[var(--c-gold)] pl-4">
         <p class="text-[var(--c-gold)] text-[10px] uppercase tracking-[0.3em] font-mono mb-1.5">Series</p>
@@ -259,7 +259,7 @@ const tickerArtists = [
   </section>
 
   <!-- ⑤ ACCESS RANKING -->
-  <section class="border-b border-[var(--c-border)] py-12 md:py-16">
+  <section id="ranking" class="border-b border-[var(--c-border)] py-12 md:py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="mb-8 border-l-2 border-[var(--c-gold)] pl-4">
         <p class="text-[var(--c-gold)] text-[10px] uppercase tracking-[0.3em] font-mono mb-1.5">Access Ranking</p>
@@ -299,7 +299,7 @@ const tickerArtists = [
   </section>
 
   <!-- ⑥ LATEST -->
-  <section class="border-b border-[var(--c-border)] py-12 md:py-16 bg-[var(--c-surface)]">
+  <section id="latest" class="border-b border-[var(--c-border)] py-12 md:py-16 bg-[var(--c-surface)]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="flex items-end justify-between mb-8">
         <div class="border-l-2 border-[var(--c-gold)] pl-4">
@@ -349,7 +349,23 @@ const tickerArtists = [
   <div id="all-songs" class="max-w-7xl mx-auto px-4 sm:px-6 py-8 lg:grid lg:grid-cols-[200px_1fr] lg:gap-8 lg:items-start">
 
     <!-- Filter sidebar (desktop) -->
-    <aside class="hidden lg:block sticky top-8 space-y-6">
+    <aside class="hidden lg:block sticky top-[52px] space-y-6">
+      <!-- Section jump links -->
+      <div class="border border-[var(--c-border)] rounded-lg overflow-hidden">
+        <p class="text-[var(--c-very-dim)] text-[10px] uppercase tracking-widest px-3 pt-3 pb-1.5">ページ内ジャンプ</p>
+        {[
+          { href: '#', label: '↑ トップへ' },
+          { href: '#ranking', label: 'ランキング' },
+          { href: '#series', label: '特集シリーズ' },
+          { href: '#latest', label: '最新追加' },
+          { href: '/slang', label: 'スラング索引' },
+        ].map(item => (
+          <a href={item.href} class="flex items-center gap-2 px-3 py-2 text-xs text-[var(--c-muted)] hover:text-[var(--c-gold)] hover:bg-[var(--c-surface)] transition-colors border-t border-[var(--c-border)] first:border-t-0">
+            {item.label}
+          </a>
+        ))}
+      </div>
+
       <div>
         <p class="text-[var(--c-very-dim)] text-[10px] uppercase tracking-widest mb-2">Search</p>
         <input
@@ -446,6 +462,20 @@ const tickerArtists = [
         </div>
       </div>
 
+      <!-- Section jump nav (mobile: above song list / desktop: always visible) -->
+      <div class="lg:hidden flex flex-wrap gap-2 mb-5">
+        {[
+          { href: '#', label: '↑ トップ' },
+          { href: '#ranking', label: 'ランキング' },
+          { href: '#series', label: '特集' },
+          { href: '#latest', label: '最新' },
+        ].map(item => (
+          <a href={item.href} class="text-[10px] font-mono px-2.5 py-1 rounded border border-[var(--c-border)] text-[var(--c-very-dim)] hover:border-[var(--c-gold)] hover:text-[var(--c-gold)] transition-colors">
+            {item.label}
+          </a>
+        ))}
+      </div>
+
       <section>
         <div class="flex items-center justify-between mb-5 border-b border-[var(--c-border)] pb-2">
           <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest">All Songs</h2>
@@ -506,6 +536,11 @@ const tickerArtists = [
       </section>
     </div>
   </div>
+
+  <!-- Floating back-to-top -->
+  <button id="back-to-top" aria-label="トップへ戻る" class="fixed bottom-6 right-4 z-40 w-10 h-10 rounded-full bg-[var(--c-gold)] text-[#111] flex items-center justify-center shadow-lg opacity-0 pointer-events-none transition-opacity duration-300 hover:bg-[var(--c-gold-light)]">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
 
 </Layout>
 
@@ -623,6 +658,20 @@ const tickerArtists = [
   [...(songList?.querySelectorAll<HTMLElement>('li') ?? [])].forEach((item, i) => {
     item.dataset.index = String(i);
   });
+
+  // Floating back-to-top
+  (function() {
+    const btn = document.getElementById('back-to-top');
+    if (!btn) return;
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 500) {
+        btn.classList.remove('opacity-0', 'pointer-events-none');
+      } else {
+        btn.classList.add('opacity-0', 'pointer-events-none');
+      }
+    }, { passive: true });
+    btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  })();
 
   // Series thumbnail: tap-to-preview on touch devices
   (function() {
