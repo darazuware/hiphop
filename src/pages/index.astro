@@ -78,7 +78,7 @@ const tickerArtists = [
   <!-- ① HERO -->
   <section class="border-b border-[var(--c-border)] relative overflow-hidden hero-section">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 pt-14 md:pt-20 pb-0 lg:grid lg:grid-cols-[1fr_auto] lg:gap-16 lg:items-end">
-      <div class="max-w-2xl pb-14 md:pb-20">
+      <div class="max-w-2xl pb-6 md:pb-20">
         <p class="text-[var(--c-gold)] text-[10px] uppercase tracking-[0.35em] font-mono mb-5">
           Hip-Hop Lyrics &amp; Slang — Japanese Deep Dive
         </p>
@@ -100,6 +100,25 @@ const tickerArtists = [
             全{totalSongs}曲を見る
           </a>
         </div>
+      </div>
+
+      <!-- Album mosaic (mobile): 3×2 grid -->
+      <div class="lg:hidden grid grid-cols-3 gap-2 pb-10">
+        {featuredSlugs.map((slug, i) => {
+          const song = songs.find(s => s.slug === slug);
+          if (!song) return null;
+          const key = slug.split('/').pop()!;
+          return (
+            <a href={slug} class="aspect-square rounded-xl overflow-hidden block group">
+              <img
+                src={`/images/covers/${key}.jpg`}
+                alt={song.title}
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                loading={i < 3 ? 'eager' : 'lazy'}
+              />
+            </a>
+          );
+        })}
       </div>
 
       <!-- Album mosaic (desktop): 1 tall left + 2×2 right -->
