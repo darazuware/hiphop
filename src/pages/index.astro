@@ -510,6 +510,7 @@ const tickerArtists = [
           </div>
         </div>
 
+        <div class="relative">
         <ul id="song-list" class="grid grid-cols-2 md:grid-cols-3 gap-3">
           {songs.map((song, i) => (
             <li
@@ -551,6 +552,12 @@ const tickerArtists = [
           ))}
         </ul>
 
+          <div id="song-fade" class="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-[var(--c-bg)] to-transparent pointer-events-none"></div>
+        </div>
+        <button id="show-more-btn" class="w-full mt-4 py-3 text-sm font-mono text-[var(--c-gold)] border border-[var(--c-border)] rounded-xl hover:border-[var(--c-gold)]/60 hover:bg-[var(--c-surface)] transition-colors">
+          さらに表示
+        </button>
+
         <p id="no-results" class="hidden text-center text-[var(--c-dim)] text-sm py-12">該当する曲がありません</p>
       </section>
     </div>
@@ -566,27 +573,52 @@ const tickerArtists = [
 <script>
   const filters: Record<string, string> = { era: '', region: '', producer: '' };
   let searchQuery = '';
+  let showAll = false;
+  const INITIAL_LIMIT = 12;
   const songList = document.getElementById('song-list');
 
   function applyFilters() {
     const items = document.querySelectorAll<HTMLElement>('#song-list > li');
     const terms = searchQuery.trim().toLowerCase().split(/\s+/).filter(Boolean);
+    const hasActiveFilter = Object.values(filters).some(v => v !== '') || terms.length > 0;
     let visible = 0;
-    items.forEach(item => {
+    let totalMatch = 0;
+    items.forEach((item, idx) => {
       const filterMatch = Object.entries(filters).every(([key, val]) =>
         !val || item.dataset[key] === val
       );
       const searchData = item.dataset.search ?? '';
       const searchMatch = terms.length === 0 || terms.every(t => searchData.includes(t));
-      const match = filterMatch && searchMatch;
-      item.style.display = match ? '' : 'none';
-      if (match) visible++;
+      const matches = filterMatch && searchMatch;
+      if (matches) totalMatch++;
+      const withinView = showAll || hasActiveFilter || idx < INITIAL_LIMIT;
+      item.style.display = (matches && withinView) ? '' : 'none';
+      if (matches && withinView) visible++;
     });
     const count = document.getElementById('count');
     if (count) count.textContent = `${visible} tracks`;
     const noResults = document.getElementById('no-results');
     if (noResults) noResults.classList.toggle('hidden', visible > 0);
+
+    // show-more button + fade
+    const btn = document.getElementById('show-more-btn') as HTMLButtonElement | null;
+    const fade = document.getElementById('song-fade');
+    const shouldCollapse = !showAll && !hasActiveFilter && totalMatch > INITIAL_LIMIT;
+    if (btn) {
+      if (shouldCollapse) {
+        btn.textContent = `さらに ${totalMatch - visible} 曲を表示`;
+        btn.classList.remove('hidden');
+      } else {
+        btn.classList.add('hidden');
+      }
+    }
+    if (fade) fade.classList.toggle('hidden', !shouldCollapse);
   }
+
+  document.getElementById('show-more-btn')?.addEventListener('click', () => {
+    showAll = true;
+    applyFilters();
+  });
 
   document.querySelectorAll<HTMLButtonElement>('.filter-btn').forEach(btn => {
     btn.addEventListener('click', () => {
