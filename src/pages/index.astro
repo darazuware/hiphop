@@ -52,6 +52,10 @@ const resolvedSeries = seriesList.map(s => ({
     .filter((s): s is (typeof songs)[number] => s !== undefined),
 }));
 
+const latestSongs = [...songs]
+  .sort((a, b) => b.pubDate.localeCompare(a.pubDate))
+  .slice(0, 5);
+
 const producers = [...new Set(songs.map(s => s.producer))].sort((a, b) => a.localeCompare(b, 'ja'));
 const eras = ['90s前半', '90s後半', '00s以降'] as const;
 const regions = [
@@ -98,25 +102,23 @@ const tickerArtists = [
         </div>
       </div>
 
-      <!-- Album mosaic (desktop) -->
-      <div class="hidden lg:flex flex-col gap-2 w-[280px] shrink-0 self-end pb-0">
-        <div class="grid grid-cols-3 gap-2">
-          {featuredSlugs.slice(0, 6).map((slug, i) => {
-            const song = songs.find(s => s.slug === slug);
-            if (!song) return null;
-            const key = slug.split('/').pop()!;
-            return (
-              <a href={slug} title={song.title} class={`overflow-hidden group block ${i === 0 ? 'col-span-2 row-span-2' : ''}`} style={i === 0 ? 'aspect-ratio: 1/1' : 'aspect-ratio: 1/1'}>
-                <img
-                  src={`/images/covers/${key}.jpg`}
-                  alt={song.title}
-                  class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  loading={i < 2 ? 'eager' : 'lazy'}
-                />
-              </a>
-            );
-          })}
-        </div>
+      <!-- Album mosaic (desktop): 1 tall left + 2×2 right -->
+      <div class="hidden lg:grid gap-2 w-[288px] shrink-0 self-end" style="grid-template-columns:1fr 1fr 1fr;grid-template-rows:92px 92px;">
+        {featuredSlugs.slice(0, 5).map((slug, i) => {
+          const song = songs.find(s => s.slug === slug);
+          if (!song) return null;
+          const key = slug.split('/').pop()!;
+          return (
+            <a href={slug} title={song.title} class={`overflow-hidden rounded-xl group block${i === 0 ? ' row-span-2' : ''}`}>
+              <img
+                src={`/images/covers/${key}.jpg`}
+                alt={song.title}
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                loading={i < 2 ? 'eager' : 'lazy'}
+              />
+            </a>
+          );
+        })}
       </div>
     </div>
 
@@ -176,6 +178,7 @@ const tickerArtists = [
                 onerror="this.classList.add('no-image-bg');this.style.display='none'"
               />
               <div class="absolute inset-0 card-overlay transition-opacity duration-300" />
+              <span class="absolute top-3 left-3 font-black text-white/10 leading-none font-mono select-none featured-num">{String(i + 1).padStart(2, '0')}</span>
               <div class="relative z-10 p-4">
                 {song.tag && (
                   <span class="inline-block text-[10px] font-black uppercase tracking-wide px-2 py-0.5 mb-2 bg-[var(--c-gold)] text-[#111] rounded-sm">
@@ -193,8 +196,56 @@ const tickerArtists = [
     </div>
   </section>
 
-  <!-- ④ ACCESS RANKING -->
+  <!-- ④ SERIES -->
   <section class="border-b border-[var(--c-border)] py-12 md:py-16 bg-[var(--c-surface)]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="mb-8">
+        <p class="text-[var(--c-gold)] text-[10px] uppercase tracking-[0.3em] font-mono mb-1.5">Series</p>
+        <h2 class="text-[var(--c-text)] text-xl font-bold">特集シリーズ</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {resolvedSeries.map(series => {
+          const bgKey = series.songs[0]?.slug.split('/').pop();
+          return (
+            <div class="border border-[var(--c-border)] rounded-xl p-5 hover:border-[var(--c-gold)]/50 transition-colors relative overflow-hidden">
+              {bgKey && (
+                <div class="absolute inset-0 pointer-events-none">
+                  <img src={`/images/covers/${bgKey}.jpg`} class="w-full h-full object-cover opacity-[0.12] blur-xl scale-110" loading="lazy" alt="" />
+                  <div class="absolute inset-0 bg-gradient-to-b from-transparent to-[var(--c-surface)]" />
+                </div>
+              )}
+              <div class="relative z-10">
+                <div class="flex items-start justify-between mb-4">
+                  <div>
+                    <h3 class="text-[var(--c-text)] font-bold">{series.title}</h3>
+                    <p class="text-[var(--c-very-dim)] text-xs mt-1 leading-relaxed">{series.desc}</p>
+                  </div>
+                  <span class="text-[var(--c-gold)] text-xs font-mono shrink-0 ml-4 mt-0.5 border border-[var(--c-border)] px-2 py-0.5 rounded">{series.songs.length}曲</span>
+                </div>
+                <div class="flex gap-1.5">
+                  {series.songs.map(song => {
+                    const key = song.slug.split('/').pop()!;
+                    return (
+                      <a
+                        href={song.slug}
+                        title={`${song.title} — ${song.artists}`}
+                        class="w-11 h-11 rounded-lg overflow-hidden shrink-0 border border-[var(--c-border)] hover:border-[var(--c-gold)] hover:scale-110 transition-all duration-200"
+                      >
+                        <img src={`/images/covers/${key}.jpg`} alt={song.title} class="w-full h-full object-cover" loading="lazy" />
+                      </a>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑤ ACCESS RANKING -->
+  <section class="border-b border-[var(--c-border)] py-12 md:py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="mb-8">
         <p class="text-[var(--c-gold)] text-[10px] uppercase tracking-[0.3em] font-mono mb-1.5">Access Ranking</p>
@@ -207,12 +258,12 @@ const tickerArtists = [
           const key = r.slug.split('/').pop()!;
           return (
             <li>
-              <a href={r.slug} class="group flex items-center gap-4 md:gap-6 p-4 rounded-xl border border-[var(--c-border)] hover:border-[var(--c-gold)]/50 transition-colors bg-[var(--c-bg)]">
-                <span class="ranking-num font-black tabular-nums text-[var(--c-border)] shrink-0 leading-none">{String(i + 1).padStart(2, '0')}</span>
+              <a href={r.slug} class={`group flex items-center gap-4 md:gap-6 p-4 rounded-xl border transition-colors ${i === 0 ? 'border-[var(--c-gold)]/30 bg-[var(--c-surface)]' : 'border-[var(--c-border)] bg-[var(--c-surface)]'} hover:border-[var(--c-gold)]/60`}>
+                <span class="ranking-num font-black tabular-nums leading-none shrink-0" style={i === 0 ? 'color:var(--c-gold);opacity:0.5' : 'color:var(--c-border)'}>{String(i + 1).padStart(2, '0')}</span>
                 <img
                   src={`/images/covers/${key}.jpg`}
                   alt={song.album}
-                  class="w-14 h-14 md:w-18 md:h-18 rounded-lg object-cover shrink-0"
+                  class="w-14 h-14 rounded-lg object-cover shrink-0"
                   loading="eager"
                   onerror="this.style.display='none'"
                 />
@@ -233,46 +284,54 @@ const tickerArtists = [
     </div>
   </section>
 
-  <!-- ⑤ SERIES -->
-  <section class="border-b border-[var(--c-border)] py-12 md:py-16">
+  <!-- ⑥ LATEST -->
+  <section class="border-b border-[var(--c-border)] py-12 md:py-16 bg-[var(--c-surface)]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="mb-8">
-        <p class="text-[var(--c-gold)] text-[10px] uppercase tracking-[0.3em] font-mono mb-1.5">Series</p>
-        <h2 class="text-[var(--c-text)] text-xl font-bold">特集シリーズ</h2>
+      <div class="flex items-end justify-between mb-8">
+        <div>
+          <p class="text-[var(--c-gold)] text-[10px] uppercase tracking-[0.3em] font-mono mb-1.5">Latest</p>
+          <h2 class="text-[var(--c-text)] text-xl font-bold">最新追加</h2>
+        </div>
+        <a href="#all-songs" class="text-[var(--c-gold)] text-xs font-mono hover:underline underline-offset-4 hidden sm:block">全曲を見る →</a>
       </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        {resolvedSeries.map(series => (
-          <div class="series-card border border-[var(--c-border)] rounded-xl p-5 hover:border-[var(--c-gold)]/40 transition-colors relative overflow-hidden">
-            <div class="relative z-10">
-              <div class="flex items-start justify-between mb-4">
-                <div>
-                  <h3 class="text-[var(--c-text)] font-bold text-sm">{series.title}</h3>
-                  <p class="text-[var(--c-very-dim)] text-xs mt-1 leading-relaxed">{series.desc}</p>
+      <ul class="divide-y divide-[var(--c-border)]">
+        {latestSongs.map((song, i) => {
+          const key = song.slug.split('/').pop()!;
+          return (
+            <li>
+              <a href={song.slug} class="flex items-center gap-3 md:gap-4 py-3 group hover:bg-[var(--c-bg)] -mx-2 px-2 rounded-lg transition-colors">
+                <span class="text-[var(--c-very-dim)] text-xs font-mono w-4 text-right shrink-0">{String(i + 1).padStart(2, '0')}</span>
+                <img src={`/images/covers/${key}.jpg`} alt={song.album} class="w-10 h-10 rounded-lg object-cover shrink-0" loading="lazy" onerror="this.style.display='none'" />
+                <div class="flex-1 min-w-0">
+                  <p class="text-[var(--c-text)] text-sm font-bold group-hover:text-[var(--c-gold)] transition-colors truncate">{song.title}</p>
+                  <p class="text-[var(--c-very-dim)] text-xs truncate">{song.artists}</p>
                 </div>
-                <span class="text-[var(--c-gold)] text-xs font-mono shrink-0 ml-4 mt-0.5 border border-[var(--c-border)] px-2 py-0.5 rounded">{series.songs.length}曲</span>
-              </div>
-              <div class="flex gap-1.5">
-                {series.songs.map(song => {
-                  const key = song.slug.split('/').pop()!;
-                  return (
-                    <a
-                      href={song.slug}
-                      title={`${song.title} — ${song.artists}`}
-                      class="w-11 h-11 rounded overflow-hidden shrink-0 border border-[var(--c-border)] hover:border-[var(--c-gold)] hover:scale-110 transition-all duration-200"
-                    >
-                      <img src={`/images/covers/${key}.jpg`} alt={song.title} class="w-full h-full object-cover" loading="lazy" />
-                    </a>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
+                {song.tag && <span class="hidden sm:inline text-[var(--c-gold)] text-[10px] font-mono border border-[var(--c-border)] px-2 py-0.5 rounded shrink-0">{song.tag}</span>}
+                <span class="text-[var(--c-very-dim)] text-[10px] font-mono shrink-0">{song.pubDate}</span>
+              </a>
+            </li>
+          );
+        })}
+      </ul>
     </div>
   </section>
 
-  <!-- ⑥ ALL SONGS GRID -->
+  <!-- ⑦ SLANG INDEX CTA -->
+  <section class="border-b border-[var(--c-border)] py-12 md:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div>
+        <p class="text-[var(--c-gold)] text-[10px] uppercase tracking-[0.3em] font-mono mb-2">Slang Index</p>
+        <h2 class="text-[var(--c-text)] text-2xl md:text-3xl font-black leading-tight mb-2">150+ スラング・用語を収録</h2>
+        <p class="text-[var(--c-muted)] text-sm">Hip-Hopの隠語・ストリートスラングを日本語で完全解説</p>
+      </div>
+      <a href="/slang" class="inline-flex items-center gap-2 bg-[var(--c-gold)] text-[#111] font-bold px-8 py-3 rounded-lg hover:bg-[var(--c-gold-light)] transition-colors shrink-0 whitespace-nowrap text-sm">
+        スラング索引を開く
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- ⑧ ALL SONGS GRID -->
   <div id="all-songs" class="max-w-7xl mx-auto px-4 sm:px-6 py-8 lg:grid lg:grid-cols-[200px_1fr] lg:gap-8 lg:items-start">
 
     <!-- Filter sidebar (desktop) -->
@@ -553,6 +612,11 @@ const tickerArtists = [
 </script>
 
 <style>
+  .featured-num {
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
+    letter-spacing: -0.04em;
+  }
+
   .hero-headline {
     font-size: clamp(2.8rem, 10vw, 5.5rem);
     line-height: 0.95;
