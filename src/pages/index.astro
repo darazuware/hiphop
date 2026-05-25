@@ -1,21 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { songs } from '../data/songs';
+import { songs, ranking } from '../data/songs';
 import { artists } from '../data/artists';
 
 const totalSongs = songs.length;
 const totalArtists = artists.length;
 
-const featuredSlugs = [
-  '/songs/cream',
-  '/songs/ny-state-of-mind',
-  '/songs/juicy',
-  '/songs/electric-relaxation',
-  '/songs/dear-mama',
-  '/songs/fight-the-power',
-];
-const featuredSongs = featuredSlugs
-  .map(slug => songs.find(s => s.slug === slug))
+const rankingSongs = ranking
+  .map(r => songs.find(s => s.slug === r.slug))
   .filter((s): s is (typeof songs)[number] => s !== undefined);
 
 const heroMosaicSlugs = [
@@ -139,40 +131,41 @@ const regions = [
     </div>
   </section>
 
-  <!-- ③ FEATURED PICKS -->
+  <!-- ③ ACCESS RANKING -->
   <section class="border-b border-[var(--c-border)] py-12 md:py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="mb-8">
-        <p class="text-[var(--c-gold)] text-[10px] uppercase tracking-[0.3em] font-mono mb-1.5">Featured Picks</p>
-        <h2 class="text-[var(--c-text)] text-xl font-bold">おすすめ解説</h2>
+        <p class="text-[var(--c-gold)] text-[10px] uppercase tracking-[0.3em] font-mono mb-1.5">Access Ranking</p>
+        <h2 class="text-[var(--c-text)] text-xl font-bold">アクセスランキング</h2>
       </div>
-      <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
-        {featuredSongs.map((song, i) => {
+      <ol class="space-y-3">
+        {rankingSongs.map((song, i) => {
           const key = song.slug.split('/').pop()!;
           return (
-            <a href={song.slug} class="song-card group relative flex flex-col justify-end overflow-hidden rounded-xl aspect-[3/4]">
-              <img
-                src={`/images/covers/${key}.jpg`}
-                alt={song.album}
-                class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                loading={i < 3 ? 'eager' : 'lazy'}
-                onerror="this.classList.add('no-image-bg');this.style.display='none'"
-              />
-              <div class="absolute inset-0 card-overlay transition-opacity duration-300" />
-              <div class="relative z-10 p-4">
+            <li>
+              <a href={song.slug} class="group flex items-center gap-4 md:gap-6 p-4 rounded-xl border border-[var(--c-border)] hover:border-[var(--c-gold)]/50 transition-colors bg-[var(--c-surface)]">
+                <span class="ranking-num font-black tabular-nums text-[var(--c-border)] shrink-0 leading-none" style={`--n:"${String(i + 1).padStart(2,'0')}"`}>{String(i + 1).padStart(2, '0')}</span>
+                <img
+                  src={`/images/covers/${key}.jpg`}
+                  alt={song.album}
+                  class="w-16 h-16 md:w-20 md:h-20 rounded-lg object-cover shrink-0"
+                  loading="eager"
+                  onerror="this.style.display='none'"
+                />
+                <div class="flex-1 min-w-0">
+                  <p class="text-[var(--c-text)] font-bold text-base md:text-lg group-hover:text-[var(--c-gold)] transition-colors truncate">{song.title}</p>
+                  <p class="text-[var(--c-muted)] text-sm mt-0.5 truncate">{song.artists}</p>
+                  <p class="text-[var(--c-very-dim)] text-xs mt-1 uppercase tracking-widest truncate">{song.subtitle}</p>
+                </div>
                 {song.tag && (
-                  <span class="inline-block text-[10px] font-black uppercase tracking-wide px-2 py-0.5 mb-2 bg-[var(--c-gold)] text-[#111] rounded-sm">
-                    {song.tag}
-                  </span>
+                  <span class="hidden sm:inline text-[var(--c-gold)] text-[10px] font-mono border border-[var(--c-border)] px-2 py-0.5 rounded shrink-0">{song.tag}</span>
                 )}
-                <p class="font-bold text-sm md:text-base text-white leading-snug mb-1 drop-shadow">{song.title}</p>
-                <p class="text-white/60 text-xs truncate">{song.artists}</p>
-                <p class="text-white/35 text-[10px] mt-1 uppercase tracking-widest">{song.subtitle.split(' · ').pop()}</p>
-              </div>
-            </a>
+                <svg class="w-4 h-4 text-[var(--c-very-dim)] group-hover:text-[var(--c-gold)] transition-colors shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 18l6-6-6-6"/></svg>
+              </a>
+            </li>
           );
         })}
-      </div>
+      </ol>
     </div>
   </section>
 
@@ -565,6 +558,13 @@ const regions = [
 </script>
 
 <style>
+  .ranking-num {
+    font-size: clamp(3rem, 8vw, 5rem);
+    letter-spacing: -0.04em;
+    width: 3.5rem;
+    text-align: right;
+  }
+
   .hero-headline {
     font-size: clamp(2rem, 7vw, 3.5rem);
     line-height: 1.05;
