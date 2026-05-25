@@ -77,6 +77,11 @@ const tickerArtists = [
 
   <!-- ① HERO -->
   <section class="border-b border-[var(--c-border)] relative overflow-hidden hero-section">
+    <!-- Ambient background -->
+    <div class="absolute inset-0 pointer-events-none select-none" aria-hidden="true">
+      <img src="/images/covers/cream.jpg" class="w-full h-full object-cover opacity-[0.08] blur-3xl scale-125" loading="eager" fetchpriority="high" alt="" />
+      <div class="absolute inset-0" style="background:linear-gradient(135deg,var(--c-bg) 0%,transparent 60%,var(--c-bg) 100%)"></div>
+    </div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 pt-14 md:pt-20 pb-0 lg:grid lg:grid-cols-[1fr_auto] lg:gap-16 lg:items-end">
       <div class="max-w-2xl pb-6 md:pb-20">
         <p class="text-[var(--c-gold)] text-[10px] uppercase tracking-[0.35em] font-mono mb-5">
@@ -185,32 +190,55 @@ const tickerArtists = [
         <a href="#all-songs" class="text-[var(--c-gold)] text-xs font-mono hover:underline underline-offset-4 hidden sm:block">全{totalSongs}曲を見る →</a>
       </div>
       <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-        {featuredSongs.map((song, i) => {
+        {featuredSongs.slice(0, 5).map((song, i) => {
           const key = song.slug.split('/').pop()!;
+          const isHero = i === 0;
           return (
-            <a href={song.slug} class="song-card group relative flex flex-col justify-end overflow-hidden rounded-xl aspect-[3/4]">
+            <a
+              href={song.slug}
+              class={`song-card group relative flex flex-col justify-end overflow-hidden rounded-xl ${isHero ? 'col-span-2 aspect-[16/9] md:aspect-[21/9]' : 'aspect-[3/4]'}`}
+            >
               <img
                 src={`/images/covers/${key}.jpg`}
                 alt={song.album}
                 class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                loading={i < 3 ? 'eager' : 'lazy'}
+                loading={i < 2 ? 'eager' : 'lazy'}
                 onerror="this.classList.add('no-image-bg');this.style.display='none'"
               />
-              <div class="absolute inset-0 card-overlay transition-opacity duration-300" />
-              <span class="absolute top-3 left-3 font-black text-white/10 leading-none font-mono select-none featured-num">{String(i + 1).padStart(2, '0')}</span>
-              <div class="relative z-10 p-4">
-                {song.tag && (
-                  <span class="inline-block text-[10px] font-black uppercase tracking-wide px-2 py-0.5 mb-2 bg-[var(--c-gold)] text-[#111] rounded-sm">
-                    {song.tag}
-                  </span>
-                )}
-                <p class="font-black text-base md:text-lg text-white leading-tight mb-1 drop-shadow">{song.title}</p>
-                <p class="text-white/60 text-xs truncate">{song.artists}</p>
-                <div class="flex items-center justify-between mt-1.5">
-                  <p class="text-white/35 text-[10px] uppercase tracking-widest">{song.subtitle.split(' · ').pop()}</p>
-                  <p class="text-[var(--c-gold)] text-[10px] font-mono opacity-0 group-hover:opacity-100 transition-opacity">READ →</p>
-                </div>
-              </div>
+              <div class={`absolute inset-0 transition-opacity duration-300 ${isHero ? 'hero-card-overlay' : 'card-overlay'}`} />
+              {isHero ? (
+                <>
+                  <span class="absolute top-4 left-5 text-[10px] font-mono text-[var(--c-gold)] uppercase tracking-[0.3em] select-none">Editor's Pick</span>
+                  <div class="relative z-10 p-5 md:p-8">
+                    {song.tag && (
+                      <span class="inline-block text-[10px] font-black uppercase tracking-wide px-2 py-0.5 mb-3 bg-[var(--c-gold)] text-[#111] rounded-sm">
+                        {song.tag}
+                      </span>
+                    )}
+                    <p class="font-black text-2xl md:text-4xl text-white leading-tight mb-2 drop-shadow max-w-lg">{song.title}</p>
+                    <p class="text-white/65 text-sm mb-1">{song.artists}</p>
+                    <p class="text-white/35 text-[10px] uppercase tracking-widest">{song.subtitle.split(' · ').pop()}</p>
+                    <p class="text-[var(--c-gold)] text-xs font-mono mt-4 opacity-0 group-hover:opacity-100 transition-opacity">READ FULL ARTICLE →</p>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <span class="absolute top-3 left-3 font-black text-white/10 leading-none font-mono select-none featured-num">{String(i + 1).padStart(2, '0')}</span>
+                  <div class="relative z-10 p-4">
+                    {song.tag && (
+                      <span class="inline-block text-[10px] font-black uppercase tracking-wide px-2 py-0.5 mb-2 bg-[var(--c-gold)] text-[#111] rounded-sm">
+                        {song.tag}
+                      </span>
+                    )}
+                    <p class="font-black text-base md:text-lg text-white leading-tight mb-1 drop-shadow">{song.title}</p>
+                    <p class="text-white/60 text-xs truncate">{song.artists}</p>
+                    <div class="flex items-center justify-between mt-1.5">
+                      <p class="text-white/35 text-[10px] uppercase tracking-widest">{song.subtitle.split(' · ').pop()}</p>
+                      <p class="text-[var(--c-gold)] text-[10px] font-mono opacity-0 group-hover:opacity-100 transition-opacity">READ →</p>
+                    </div>
+                  </div>
+                </>
+              )}
             </a>
           );
         })}
@@ -822,6 +850,17 @@ const tickerArtists = [
       rgba(0, 0, 0, 0.88) 0%,
       rgba(0, 0, 0, 0.55) 45%,
       rgba(0, 0, 0, 0.25) 100%
+    );
+  }
+
+  /* Hero featured card: stronger bottom gradient, lighter top */
+  .hero-card-overlay {
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.92) 0%,
+      rgba(0, 0, 0, 0.60) 35%,
+      rgba(0, 0, 0, 0.20) 65%,
+      rgba(0, 0, 0, 0.08) 100%
     );
   }
 
