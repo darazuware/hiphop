@@ -6,19 +6,15 @@ import { artists } from '../data/artists';
 const totalSongs = songs.length;
 const totalArtists = artists.length;
 
-const rankingSongs = ranking
-  .map(r => songs.find(s => s.slug === r.slug))
-  .filter((s): s is (typeof songs)[number] => s !== undefined);
-
-const heroMosaicSlugs = [
+const featuredSlugs = [
   '/songs/cream',
   '/songs/ny-state-of-mind',
-  '/songs/juicy',
-  '/songs/dear-mama',
-  '/songs/fight-the-power',
+  '/songs/shook-ones-pt-ii',
   '/songs/electric-relaxation',
+  '/songs/fight-the-power',
+  '/songs/ebonics',
 ];
-const heroMosaicSongs = heroMosaicSlugs
+const featuredSongs = featuredSlugs
   .map(slug => songs.find(s => s.slug === slug))
   .filter((s): s is (typeof songs)[number] => s !== undefined);
 
@@ -26,22 +22,26 @@ const seriesList = [
   {
     title: 'マフィオソ・ラップ',
     desc: 'ギャングとマフィアの美学が交差するサブジャンル',
+    color: '#8B0000',
     slugs: ['/songs/twinz-deep-cover-98', '/songs/phone-tap', '/songs/criminology', '/songs/fast-life', '/songs/road-to-the-riches', '/songs/incarcerated-scarfaces'],
   },
   {
     title: 'ウェストコースト G-Funk',
-    desc: 'サンセットに溶けるG-Funkとストリートの詩',
+    desc: 'サンセットに溶けるG-FunkとLAストリートの詩',
+    color: '#1a4a1a',
     slugs: ['/songs/california-love', '/songs/nuthin-but-a-g-thang', '/songs/it-was-a-good-day', '/songs/gin-and-juice', '/songs/regulate'],
   },
   {
     title: 'NY 黄金時代',
-    desc: '90年代ブームバップが刻んだ永遠の名曲',
+    desc: '90年代ブームバップが刻んだ不滅の名曲群',
+    color: '#1a2a4a',
     slugs: ['/songs/cream', '/songs/ny-state-of-mind', '/songs/juicy', '/songs/shook-ones-pt-ii', '/songs/protect-ya-neck'],
   },
   {
-    title: 'ジャズ・ラップ',
-    desc: 'ジャズのDNAを継ぐ知的ヒップホップの系譜',
-    slugs: ['/songs/electric-relaxation', '/songs/can-i-kick-it', '/songs/rebirth-of-slick', '/songs/93-til-infinity', '/songs/the-light'],
+    title: 'DJ Premier 特集',
+    desc: 'ヒップホップ史上最高のプロデューサーの仕事',
+    color: '#2a1a4a',
+    slugs: ['/songs/mass-appeal', '/songs/mathematics', '/songs/ny-state-of-mind', '/songs/supa-star', '/songs/the-1st-time'],
   },
 ];
 
@@ -52,10 +52,6 @@ const resolvedSeries = seriesList.map(s => ({
     .filter((s): s is (typeof songs)[number] => s !== undefined),
 }));
 
-const latestSongs = [...songs]
-  .sort((a, b) => b.pubDate.localeCompare(a.pubDate))
-  .slice(0, 5);
-
 const producers = [...new Set(songs.map(s => s.producer))].sort((a, b) => a.localeCompare(b, 'ja'));
 const eras = ['90s前半', '90s後半', '00s以降'] as const;
 const regions = [
@@ -63,23 +59,33 @@ const regions = [
   { value: 'Philly', label: 'Philly' },
   { value: 'LA', label: 'LA / West' },
 ];
+
+const tickerArtists = [
+  'Wu-Tang Clan', 'Nas', 'The Notorious B.I.G.', '2Pac', 'Jay-Z',
+  'Kendrick Lamar', 'Public Enemy', 'A Tribe Called Quest', 'Ice Cube',
+  'Eminem', 'Gang Starr', 'Mobb Deep', 'Outkast', 'De La Soul',
+  'Raekwon', 'Eric B. & Rakim', 'Big L', 'KRS-One', 'Mos Def',
+  'Common', 'Talib Kweli', 'Cypress Hill', 'Dr. Dre', 'Snoop Dogg',
+];
 ---
 
 <Layout title="WAX&amp;THINK — ヒップホップ歌詞和訳・スラング解説" description="ヒップホップの名曲を歌詞和訳とスラング解説で深掘り。C.R.E.A.M.・Nasなど名曲のスラングと文化背景を日本語で徹底解説。">
 
   <!-- ① HERO -->
-  <section class="border-b border-[var(--c-border)]">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-24 lg:grid lg:grid-cols-[1fr_auto] lg:gap-16 lg:items-center">
-      <div class="max-w-2xl">
-        <p class="text-[var(--c-gold)] text-[10px] uppercase tracking-[0.3em] font-mono mb-6">
-          WAX&amp;THINK — Hip-Hop Lyrics &amp; Slang
+  <section class="border-b border-[var(--c-border)] relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 pt-14 md:pt-20 pb-0 lg:grid lg:grid-cols-[1fr_auto] lg:gap-16 lg:items-end">
+      <div class="max-w-2xl pb-14 md:pb-20">
+        <p class="text-[var(--c-gold)] text-[10px] uppercase tracking-[0.35em] font-mono mb-5">
+          Hip-Hop Lyrics &amp; Slang — Japanese Deep Dive
         </p>
-        <h1 class="text-[var(--c-text)] font-black leading-[1.05] tracking-tight mb-6 hero-headline">
-          ヒップホップの言葉を、<br/>本気で解剖する。
+        <h1 class="text-[var(--c-text)] font-black leading-[0.95] tracking-tighter mb-6 hero-headline">
+          ラップを聴くな。<br/><span class="text-[var(--c-gold)]">読め。</span>
         </h1>
-        <p class="text-[var(--c-muted)] text-sm md:text-base leading-loose mb-8">
-          歌詞和訳 × スラング解説 × 文化背景。<br/>
-          現在 <strong class="text-[var(--c-text)] font-bold">{totalSongs}曲</strong>・<strong class="text-[var(--c-text)] font-bold">150+語</strong> を徹底解説中。
+        <p class="text-[var(--c-muted)] text-sm md:text-base leading-loose mb-3">
+          歌詞の一語一語に眠る<strong class="text-[var(--c-text)]">スラング・文化・歴史</strong>を徹底解剖。
+        </p>
+        <p class="text-[var(--c-very-dim)] text-xs md:text-sm leading-loose mb-8 font-mono">
+          {totalSongs}曲 · 150+用語 · {totalArtists}アーティスト収録
         </p>
         <div class="flex flex-wrap gap-3">
           <a href="/slang" class="inline-flex items-center gap-2 bg-[var(--c-gold)] text-[#111] font-bold text-sm px-6 py-2.5 rounded-lg hover:bg-[var(--c-gold-light)] transition-colors">
@@ -91,21 +97,35 @@ const regions = [
           </a>
         </div>
       </div>
-      <!-- Album mosaic (desktop only) -->
-      <div class="hidden lg:grid grid-cols-3 gap-2 w-[264px] shrink-0">
-        {heroMosaicSongs.map((song, i) => {
-          const key = song.slug.split('/').pop()!;
-          return (
-            <a href={song.slug} title={song.title} class="aspect-square overflow-hidden rounded-lg group block">
-              <img
-                src={`/images/covers/${key}.jpg`}
-                alt={song.title}
-                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                loading={i < 3 ? 'eager' : 'lazy'}
-              />
-            </a>
-          );
-        })}
+
+      <!-- Album mosaic (desktop) -->
+      <div class="hidden lg:flex flex-col gap-2 w-[280px] shrink-0 self-end pb-0">
+        <div class="grid grid-cols-3 gap-2">
+          {featuredSlugs.slice(0, 6).map((slug, i) => {
+            const song = songs.find(s => s.slug === slug);
+            if (!song) return null;
+            const key = slug.split('/').pop()!;
+            return (
+              <a href={slug} title={song.title} class={`overflow-hidden group block ${i === 0 ? 'col-span-2 row-span-2' : ''}`} style={i === 0 ? 'aspect-ratio: 1/1' : 'aspect-ratio: 1/1'}>
+                <img
+                  src={`/images/covers/${key}.jpg`}
+                  alt={song.title}
+                  class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  loading={i < 2 ? 'eager' : 'lazy'}
+                />
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+
+    <!-- Artist ticker -->
+    <div class="border-t border-[var(--c-border)] overflow-hidden py-2.5 mt-0">
+      <div class="ticker-track flex gap-6 whitespace-nowrap text-[var(--c-very-dim)] text-[10px] uppercase tracking-[0.2em] font-mono select-none">
+        {[...tickerArtists, ...tickerArtists].map((name, i) => (
+          <span class="shrink-0">{name}<span class="ml-6 text-[var(--c-border)]">·</span></span>
+        ))}
       </div>
     </div>
   </section>
@@ -113,48 +133,92 @@ const regions = [
   <!-- ② STATS -->
   <section class="border-b border-[var(--c-border)] bg-[var(--c-surface)]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="grid grid-cols-2 md:grid-cols-4 divide-[var(--c-border)] [&>*]:border-b [&>*]:border-[var(--c-border)] md:[&>*]:border-b-0 [&>*:not(:last-child)]:border-r [&>*:nth-child(odd)]:border-r md:[&>*:nth-child(odd)]:border-r [&>*:nth-child(2)]:border-r-0 md:[&>*:nth-child(2)]:border-r">
+      <div class="grid grid-cols-2 md:grid-cols-4 divide-[var(--c-border)]">
         {[
-          { value: String(totalSongs), unit: '曲', label: '解説曲数' },
-          { value: String(totalArtists), unit: '組', label: 'アーティスト' },
-          { value: '150+', unit: '語', label: 'スラング・用語' },
-          { value: '1988', unit: '–', label: '現在まで対応' },
-        ].map(stat => (
-          <div class="py-7 px-4 text-center">
-            <p class="text-3xl font-black text-[var(--c-gold)] tabular-nums leading-none">
-              {stat.value}<span class="text-base font-bold ml-0.5">{stat.unit}</span>
+          { value: String(totalSongs), unit: '曲', label: '解説曲数', sub: '随時更新中' },
+          { value: String(totalArtists), unit: '組', label: 'アーティスト', sub: '90s–現在' },
+          { value: '150+', unit: '語', label: 'スラング収録', sub: '随時追加' },
+          { value: '1988', unit: '–', label: '時代をカバー', sub: '2026まで' },
+        ].map((stat, i) => (
+          <div class={`py-6 px-4 text-center border-[var(--c-border)] ${i % 2 === 0 ? 'border-r' : ''} ${i < 2 ? 'border-b md:border-b-0' : ''} ${i < 3 ? 'md:border-r' : ''}`}>
+            <p class="text-4xl md:text-5xl font-black text-[var(--c-gold)] tabular-nums leading-none">
+              {stat.value}<span class="text-xl font-bold ml-0.5">{stat.unit}</span>
             </p>
-            <p class="text-[var(--c-very-dim)] text-[10px] uppercase tracking-widest mt-2 font-mono">{stat.label}</p>
+            <p class="text-[var(--c-muted)] text-xs mt-1.5 font-medium">{stat.label}</p>
+            <p class="text-[var(--c-very-dim)] text-[10px] mt-0.5 font-mono">{stat.sub}</p>
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- ③ ACCESS RANKING -->
+  <!-- ③ FEATURED PICKS -->
   <section class="border-b border-[var(--c-border)] py-12 md:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex items-end justify-between mb-8">
+        <div>
+          <p class="text-[var(--c-gold)] text-[10px] uppercase tracking-[0.3em] font-mono mb-1.5">Featured Picks</p>
+          <h2 class="text-[var(--c-text)] text-xl font-bold">特選解説</h2>
+          <p class="text-[var(--c-very-dim)] text-xs mt-1">このサイトが特に力を入れた解説</p>
+        </div>
+        <a href="#all-songs" class="text-[var(--c-gold)] text-xs font-mono hover:underline underline-offset-4 hidden sm:block">全{totalSongs}曲を見る →</a>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+        {featuredSongs.map((song, i) => {
+          const key = song.slug.split('/').pop()!;
+          return (
+            <a href={song.slug} class="song-card group relative flex flex-col justify-end overflow-hidden rounded-xl aspect-[3/4]">
+              <img
+                src={`/images/covers/${key}.jpg`}
+                alt={song.album}
+                class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                loading={i < 3 ? 'eager' : 'lazy'}
+                onerror="this.classList.add('no-image-bg');this.style.display='none'"
+              />
+              <div class="absolute inset-0 card-overlay transition-opacity duration-300" />
+              <div class="relative z-10 p-4">
+                {song.tag && (
+                  <span class="inline-block text-[10px] font-black uppercase tracking-wide px-2 py-0.5 mb-2 bg-[var(--c-gold)] text-[#111] rounded-sm">
+                    {song.tag}
+                  </span>
+                )}
+                <p class="font-bold text-sm md:text-base text-white leading-snug mb-1 drop-shadow">{song.title}</p>
+                <p class="text-white/60 text-xs truncate">{song.artists}</p>
+                <p class="text-white/35 text-[10px] mt-1 uppercase tracking-widest">{song.subtitle.split(' · ').pop()}</p>
+              </div>
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- ④ ACCESS RANKING -->
+  <section class="border-b border-[var(--c-border)] py-12 md:py-16 bg-[var(--c-surface)]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="mb-8">
         <p class="text-[var(--c-gold)] text-[10px] uppercase tracking-[0.3em] font-mono mb-1.5">Access Ranking</p>
         <h2 class="text-[var(--c-text)] text-xl font-bold">アクセスランキング</h2>
       </div>
       <ol class="space-y-3">
-        {rankingSongs.map((song, i) => {
-          const key = song.slug.split('/').pop()!;
+        {ranking.map((r, i) => {
+          const song = songs.find(s => s.slug === r.slug);
+          if (!song) return null;
+          const key = r.slug.split('/').pop()!;
           return (
             <li>
-              <a href={song.slug} class="group flex items-center gap-4 md:gap-6 p-4 rounded-xl border border-[var(--c-border)] hover:border-[var(--c-gold)]/50 transition-colors bg-[var(--c-surface)]">
-                <span class="ranking-num font-black tabular-nums text-[var(--c-border)] shrink-0 leading-none" style={`--n:"${String(i + 1).padStart(2,'0')}"`}>{String(i + 1).padStart(2, '0')}</span>
+              <a href={r.slug} class="group flex items-center gap-4 md:gap-6 p-4 rounded-xl border border-[var(--c-border)] hover:border-[var(--c-gold)]/50 transition-colors bg-[var(--c-bg)]">
+                <span class="ranking-num font-black tabular-nums text-[var(--c-border)] shrink-0 leading-none">{String(i + 1).padStart(2, '0')}</span>
                 <img
                   src={`/images/covers/${key}.jpg`}
                   alt={song.album}
-                  class="w-16 h-16 md:w-20 md:h-20 rounded-lg object-cover shrink-0"
+                  class="w-14 h-14 md:w-18 md:h-18 rounded-lg object-cover shrink-0"
                   loading="eager"
                   onerror="this.style.display='none'"
                 />
                 <div class="flex-1 min-w-0">
-                  <p class="text-[var(--c-text)] font-bold text-base md:text-lg group-hover:text-[var(--c-gold)] transition-colors truncate">{song.title}</p>
-                  <p class="text-[var(--c-muted)] text-sm mt-0.5 truncate">{song.artists}</p>
+                  <p class="text-[var(--c-text)] font-bold text-base md:text-lg group-hover:text-[var(--c-gold)] transition-colors truncate">{r.title}</p>
+                  <p class="text-[var(--c-muted)] text-sm mt-0.5 truncate">{r.artists}</p>
                   <p class="text-[var(--c-very-dim)] text-xs mt-1 uppercase tracking-widest truncate">{song.subtitle}</p>
                 </div>
                 {song.tag && (
@@ -169,8 +233,8 @@ const regions = [
     </div>
   </section>
 
-  <!-- ④ SERIES -->
-  <section class="border-b border-[var(--c-border)] py-12 md:py-16 bg-[var(--c-surface)]">
+  <!-- ⑤ SERIES -->
+  <section class="border-b border-[var(--c-border)] py-12 md:py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="mb-8">
         <p class="text-[var(--c-gold)] text-[10px] uppercase tracking-[0.3em] font-mono mb-1.5">Series</p>
@@ -178,27 +242,29 @@ const regions = [
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {resolvedSeries.map(series => (
-          <div class="border border-[var(--c-border)] rounded-xl p-5 hover:border-[var(--c-gold)]/40 transition-colors">
-            <div class="flex items-start justify-between mb-4">
-              <div>
-                <h3 class="text-[var(--c-text)] font-bold text-sm">{series.title}</h3>
-                <p class="text-[var(--c-very-dim)] text-xs mt-1 leading-relaxed">{series.desc}</p>
+          <div class="series-card border border-[var(--c-border)] rounded-xl p-5 hover:border-[var(--c-gold)]/40 transition-colors relative overflow-hidden">
+            <div class="relative z-10">
+              <div class="flex items-start justify-between mb-4">
+                <div>
+                  <h3 class="text-[var(--c-text)] font-bold text-sm">{series.title}</h3>
+                  <p class="text-[var(--c-very-dim)] text-xs mt-1 leading-relaxed">{series.desc}</p>
+                </div>
+                <span class="text-[var(--c-gold)] text-xs font-mono shrink-0 ml-4 mt-0.5 border border-[var(--c-border)] px-2 py-0.5 rounded">{series.songs.length}曲</span>
               </div>
-              <span class="text-[var(--c-gold)] text-xs font-mono shrink-0 ml-4 mt-0.5">{series.songs.length}曲</span>
-            </div>
-            <div class="flex gap-1.5">
-              {series.songs.map(song => {
-                const key = song.slug.split('/').pop()!;
-                return (
-                  <a
-                    href={song.slug}
-                    title={`${song.title} — ${song.artists}`}
-                    class="w-11 h-11 rounded overflow-hidden shrink-0 border border-[var(--c-border)] hover:border-[var(--c-gold)] hover:scale-110 transition-all duration-200"
-                  >
-                    <img src={`/images/covers/${key}.jpg`} alt={song.title} class="w-full h-full object-cover" loading="lazy" />
-                  </a>
-                );
-              })}
+              <div class="flex gap-1.5">
+                {series.songs.map(song => {
+                  const key = song.slug.split('/').pop()!;
+                  return (
+                    <a
+                      href={song.slug}
+                      title={`${song.title} — ${song.artists}`}
+                      class="w-11 h-11 rounded overflow-hidden shrink-0 border border-[var(--c-border)] hover:border-[var(--c-gold)] hover:scale-110 transition-all duration-200"
+                    >
+                      <img src={`/images/covers/${key}.jpg`} alt={song.title} class="w-full h-full object-cover" loading="lazy" />
+                    </a>
+                  );
+                })}
+              </div>
             </div>
           </div>
         ))}
@@ -206,90 +272,20 @@ const regions = [
     </div>
   </section>
 
-  <!-- ⑤ LATEST ADDITIONS -->
-  <section class="border-b border-[var(--c-border)] py-12 md:py-16">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="mb-8">
-        <p class="text-[var(--c-gold)] text-[10px] uppercase tracking-[0.3em] font-mono mb-1.5">Latest</p>
-        <h2 class="text-[var(--c-text)] text-xl font-bold">最新追加</h2>
-      </div>
-      <ul class="divide-y divide-[var(--c-border)]">
-        {latestSongs.map((song, i) => {
-          const key = song.slug.split('/').pop()!;
-          return (
-            <li>
-              <a href={song.slug} class="flex items-center gap-3 md:gap-4 py-3 group hover:bg-[var(--c-surface)] -mx-2 px-2 rounded-lg transition-colors">
-                <span class="text-[var(--c-very-dim)] text-xs font-mono w-4 text-right shrink-0">{String(i + 1).padStart(2, '0')}</span>
-                <img
-                  src={`/images/covers/${key}.jpg`}
-                  alt={song.album}
-                  class="w-10 h-10 rounded object-cover shrink-0"
-                  loading="lazy"
-                  onerror="this.style.display='none'"
-                />
-                <div class="flex-1 min-w-0">
-                  <p class="text-[var(--c-text)] text-sm font-bold group-hover:text-[var(--c-gold)] transition-colors truncate">{song.title}</p>
-                  <p class="text-[var(--c-very-dim)] text-xs truncate">{song.artists}</p>
-                </div>
-                {song.tag && (
-                  <span class="hidden sm:inline text-[var(--c-gold)] text-[10px] font-mono border border-[var(--c-border)] px-2 py-0.5 rounded shrink-0">{song.tag}</span>
-                )}
-                <span class="text-[var(--c-very-dim)] text-[10px] font-mono shrink-0">{song.pubDate}</span>
-              </a>
-            </li>
-          );
-        })}
-      </ul>
-    </div>
-  </section>
-
-  <!-- ⑥ SLANG CTA -->
-  <section class="border-b border-[var(--c-border)] py-14 md:py-20 bg-[var(--c-surface)]">
-    <div class="max-w-xl mx-auto px-4 sm:px-6 text-center">
-      <p class="text-[var(--c-gold)] text-[10px] uppercase tracking-[0.3em] font-mono mb-4">Slang Index</p>
-      <h2 class="text-[var(--c-text)] text-2xl md:text-3xl font-black mb-4 leading-tight">
-        150+ スラング・用語を<br/>日本語で完全解説
-      </h2>
-      <p class="text-[var(--c-muted)] text-sm leading-relaxed mb-8">
-        Hip-Hopの歌詞に登場する隠語・ストリートスラング・文化的表現を徹底収録。
-      </p>
-      <a href="/slang" class="inline-flex items-center gap-2 bg-[var(--c-gold)] text-[#111] font-bold px-8 py-3 rounded-lg hover:bg-[var(--c-gold-light)] transition-colors">
-        スラング索引を開く
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-    </div>
-  </section>
-
-  <!-- ⑦ ABOUT -->
-  <section class="border-b border-[var(--c-border)] py-12 md:py-16">
-    <div class="max-w-2xl mx-auto px-4 sm:px-6">
-      <p class="text-[var(--c-gold)] text-[10px] uppercase tracking-[0.3em] font-mono mb-4">About</p>
-      <h2 class="text-[var(--c-text)] text-lg font-bold mb-4">なぜこのサイトを作っているか</h2>
-      <p class="text-[var(--c-muted)] text-sm leading-loose">
-        Hip-Hopの歌詞には、辞書に載らないスラングや、文化的背景を知らなければ意味が掴めない表現が無数に存在する。日本語の深掘りリソースはまだ圧倒的に少ない。このサイトは「本気でHip-Hopを理解したい人」のために、一語一語・一曲一曲を丁寧に解剖する場所です。
-      </p>
-      <a href="/about" class="inline-flex items-center gap-1 text-[var(--c-gold)] text-xs mt-5 hover:underline underline-offset-4">
-        詳しくはAboutページへ →
-      </a>
-    </div>
-  </section>
-
-  <!-- ⑧ ALL SONGS GRID -->
+  <!-- ⑥ ALL SONGS GRID -->
   <div id="all-songs" class="max-w-7xl mx-auto px-4 sm:px-6 py-8 lg:grid lg:grid-cols-[200px_1fr] lg:gap-8 lg:items-start">
 
     <!-- Filter sidebar (desktop) -->
     <aside class="hidden lg:block sticky top-8 space-y-6">
       <div>
         <p class="text-[var(--c-very-dim)] text-[10px] uppercase tracking-widest mb-2">Search</p>
-        <div class="relative">
-          <input
-            id="search-input-desktop"
-            type="search"
-            placeholder="検索..."
-            autocomplete="off"
-            class="w-full bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg pl-3 pr-3 py-1.5 text-xs text-[var(--c-fg)] placeholder-[var(--c-very-dim)] focus:outline-none focus:border-[var(--c-gold)] transition-colors"
-          />
-        </div>
+        <input
+          id="search-input-desktop"
+          type="search"
+          placeholder="検索..."
+          autocomplete="off"
+          class="w-full bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg pl-3 pr-3 py-1.5 text-xs text-[var(--c-fg)] placeholder-[var(--c-very-dim)] focus:outline-none focus:border-[var(--c-gold)] transition-colors"
+        />
       </div>
 
       <div>
@@ -334,7 +330,6 @@ const regions = [
 
     <!-- Main content -->
     <div>
-      <!-- Mobile search + filters -->
       <div class="lg:hidden mb-6">
         <div class="relative mb-4">
           <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[var(--c-very-dim)] pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -558,17 +553,26 @@ const regions = [
 </script>
 
 <style>
+  .hero-headline {
+    font-size: clamp(2.8rem, 10vw, 5.5rem);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+  }
+
+  @keyframes ticker {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  .ticker-track {
+    animation: ticker 40s linear infinite;
+    width: max-content;
+  }
+
   .ranking-num {
     font-size: clamp(3rem, 8vw, 5rem);
     letter-spacing: -0.04em;
     width: 3.5rem;
     text-align: right;
-  }
-
-  .hero-headline {
-    font-size: clamp(2rem, 7vw, 3.5rem);
-    line-height: 1.05;
-    letter-spacing: -0.03em;
   }
 
   .sticker {
