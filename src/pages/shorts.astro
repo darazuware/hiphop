@@ -1,0 +1,62 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const shorts = [
+  { file: 'nas-is-like-minimal', songSlug: '/songs/nas-is-like',          title: 'Nas Is Like',         artist: 'Nas',            year: 1999, producer: 'DJ Premier'  },
+  { file: 'ny-state-of-mind',    songSlug: '/songs/ny-state-of-mind',     title: 'N.Y. State of Mind',  artist: 'Nas',            year: 1994, producer: 'DJ Premier'  },
+  { file: 'i-can',               songSlug: '/songs/i-can',                title: 'I Can',               artist: 'Nas',            year: 2002, producer: 'Salaam Remi' },
+  { file: 'if-i-ruled-the-world',songSlug: '/songs/if-i-ruled-the-world', title: 'If I Ruled the World',artist: 'Nas',            year: 1996, producer: 'Trackmasters'},
+  { file: 'cream',               songSlug: '/songs/cream',                title: 'C.R.E.A.M.',          artist: 'Wu-Tang Clan',   year: 1994, producer: 'RZA'         },
+  { file: 'ooh-la-la',           songSlug: '/songs/ooh-la-la',            title: 'ooh la la',           artist: 'Run The Jewels', year: 2020, producer: 'El-P'         },
+  { file: 'the-1st-time',        songSlug: '/songs/the-1st-time',         title: 'The 1st Time',        artist: 'Jamo Gang',      year: 2020, producer: 'DJ Premier'  },
+];
+---
+
+<Layout
+  title="ショート動画一覧 | WAX&amp;THINK"
+  description="ヒップホップ名曲の歌詞和訳ショート動画。Nas・Wu-Tang Clanなどの名曲を英語歌詞＋日本語訳の縦型動画で。"
+>
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 py-12">
+
+    <div class="mb-10">
+      <p class="text-[var(--c-gold)] text-[10px] uppercase tracking-[0.35em] font-mono mb-3">Shorts</p>
+      <h1 class="text-3xl font-black text-[var(--c-text)] tracking-tight mb-2">ショート動画</h1>
+      <p class="text-[var(--c-muted)] text-sm">歌詞和訳 × 縦型ビデオ &mdash; {shorts.length}本</p>
+    </div>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+      {shorts.map(s => (
+        <a
+          href={s.songSlug}
+          class="group relative block rounded-xl overflow-hidden bg-[var(--c-surface)] border border-[var(--c-border)] hover:border-[var(--c-gold)] transition-colors duration-200"
+          style="aspect-ratio:9/16"
+        >
+          <video
+            src={`/shorts/${s.file}.mp4`}
+            muted
+            loop
+            playsinline
+            preload="none"
+            class="w-full h-full object-cover"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/10 to-transparent pointer-events-none" />
+          <div class="absolute bottom-0 left-0 right-0 p-3 pointer-events-none">
+            <div class="text-[var(--c-gold)] text-[9px] uppercase tracking-widest font-mono mb-1 truncate">{s.artist}</div>
+            <div class="text-white text-sm font-bold leading-tight mb-1 line-clamp-2">{s.title}</div>
+            <div class="text-[#555] text-[10px] font-mono truncate">{s.year}&nbsp;·&nbsp;{s.producer}</div>
+          </div>
+        </a>
+      ))}
+    </div>
+
+  </div>
+</Layout>
+
+<script>
+  document.querySelectorAll<HTMLElement>('.group').forEach(card => {
+    const video = card.querySelector('video');
+    if (!video) return;
+    card.addEventListener('mouseenter', () => video.play());
+    card.addEventListener('mouseleave', () => { video.pause(); video.currentTime = 0; });
+  });
+</script>
