@@ -108,6 +108,17 @@ public/images/   # アルバムアート
 - 歌詞修正が必要な場合は、修正内容をレスポンスに書かずに直接ファイルに書き込む
 - Genius歌詞ファイル(`/tmp/lyrics-{slug}.txt`)の中身をレスポンスに貼り付けない
 
+### ショート動画アライメント診断ルール（重要・再発防止）
+- **`agent/{slug}/compositions/song.html`、`agent/{slug}/index.html` など歌詞を含むHTMLファイルを直接 Read または Bash cat で読まない**
+  → 読むとコンテンツフィルターが発火する
+- アライメント診断は必ず専用スクリプト経由で行う:
+  ```
+  node agent/src/check-short-alignment.mjs {slug}
+  ```
+  出力はタイミング構造のみ（歌詞テキストなし）。exit 1 = ❌、exit 0 = ✅ を報告。
+- アライメント修正が必要な場合は、HTMLを直接編集せずに `generate-short-video.mjs` で再生成する
+- HTML内の歌詞テキストをレスポンスに引用・転記しない
+
 ## 応答ルール
 - 説明・まとめ不要
 - コードと結果のみ
