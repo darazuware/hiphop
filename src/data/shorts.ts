@@ -6,6 +6,9 @@ export const shorts = [
   { slug: "cream",                file: "cream",               songSlug: "/songs/cream",                title: "C.R.E.A.M.",           artist: "Wu-Tang Clan",   year: 1994, producer: "RZA"          },
   { slug: "ooh-la-la",            file: "ooh-la-la",           songSlug: "/songs/ooh-la-la",            title: "ooh la la",            artist: "Run The Jewels", year: 2020, producer: "El-P"          },
   { slug: "the-1st-time",         file: "the-1st-time",        songSlug: "/songs/the-1st-time",         title: "The 1st Time",         artist: "Jamo Gang",      year: 2020, producer: "DJ Premier"   },
+  { slug: "changes",              file: "changes",             songSlug: "/songs/changes",              title: "Changes",              artist: "2Pac",           year: 1998, producer: "QDIII"         },
+  { slug: "can-i-kick-it",        file: "can-i-kick-it",       songSlug: "/songs/can-i-kick-it",        title: "Can I Kick It?",       artist: "A Tribe Called Quest", year: 1990, producer: "A Tribe Called Quest" },
+  { slug: "humble",               file: "humble",              songSlug: "/songs/humble",               title: "HUMBLE.",              artist: "Kendrick Lamar", year: 2017, producer: "Mike WiLL Made-It" },
 ] as const;
 
 export type Short = (typeof shorts)[number];
