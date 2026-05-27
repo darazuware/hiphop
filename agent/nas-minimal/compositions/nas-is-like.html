@@ -125,8 +125,9 @@
 
     <!-- CTA: fade in after last lyric, then fade out with everything -->
     <div class="block" id="bcta">
-      <div class="cta-sub">全歌詞・完全翻訳はこちら</div>
-      <div class="cta-url">waxthink.com</div>
+      <div class="bcta-rule"></div>
+      <div class="bcta-brand">WAX&amp;THINK</div>
+      <div class="bcta-url">waxthink.com</div>
     </div>
 
     <!-- Full-screen fadeout overlay -->
@@ -271,20 +272,10 @@
       }
 
       /* CTA */
-      .cta-sub {
-        font-family: 'Noto Sans JP', sans-serif;
-        font-size: 38px;
-        font-weight: 400;
-        color: #888;
-        letter-spacing: 0.05em;
-      }
-      .cta-url {
-        font-size: 96px;
-        font-weight: 900;
-        color: #fff;
-        letter-spacing: -0.03em;
-        margin-top: 20px;
-      }
+      #bcta { z-index: 25; align-items: center; }
+      .bcta-rule { width: 48px; height: 2px; background: #c8a96b; margin-bottom: 32px; }
+      .bcta-brand { font-size: 120px; font-weight: 900; color: #fff; letter-spacing: -0.04em; line-height: 1; }
+      .bcta-url { font-size: 26px; font-weight: 400; color: #555; letter-spacing: 0.18em; margin-top: 20px; }
     </style>
 
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
@@ -343,7 +334,9 @@
       show("#b11",22.7, 24.8);
       show("#b12",24.8, 27.7);
       show("#b13",27.7, 30.0);
-      show("#b14",30.0, 31.0);
+      // 最後の歌詞: 30.0sフェードイン → 31.0sからゆっくりフェードアウト(→33.5sで消える)
+      tl.fromTo('#b14', { opacity: 0 }, { opacity: 1, duration: 0.3, ease: 'power2.out' }, 30.0);
+      tl.to('#b14', { opacity: 0, duration: 2.5, ease: 'power2.in' }, 31.0);
 
       // CTA フェードイン (31.5s → 35.0s clear, then fadeout)
       tl.fromTo("#bcta",
@@ -351,8 +344,8 @@
         { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }, 31.5);
 
       // 全体フェードアウト (35.0s → 38s)
-      tl.to("#fadeout", { opacity: 1, duration: 3.0, ease: "power2.in" }, 35.0);
-      tl.set("#fadeout", { opacity: 1 }, 38.0);
+      tl.to("#fadeout", { opacity: 1, duration: 1.2, ease: "power2.in" }, 33.5);
+      tl.set("#fadeout", { opacity: 1 }, 38);
 
       window.__timelines = window.__timelines || {};
       window.__timelines["nas-is-like"] = tl;

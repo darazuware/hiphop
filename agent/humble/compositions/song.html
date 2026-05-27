@@ -1,0 +1,125 @@
+<template id="song-template">
+  <div data-composition-id="song" data-width="1080" data-height="1920" data-duration="42">
+    <div style="position:absolute;inset:0;background:#000;z-index:0;"></div>
+    <audio id="bg-audio" src="../assets/audio.mp3" data-start="0" data-duration="42"></audio>
+    <div id="watermark">waxthink.com</div>
+    <div class="block" id="bintro">
+      <div class="intro-artist">KENDRICK LAMAR</div>
+      <div class="intro-rule" id="intro-rule"></div>
+      <div class="intro-title">HUMBLE.</div>
+      <div class="intro-meta">2017&nbsp;&nbsp;&middot;&nbsp;&nbsp;prod. MIKE WILL MADE-IT</div>
+    </div>
+
+    <div class="block" id="b1">
+      <div class="en">Ayy, I remember syrup sandwiches and crime allowances<br>
+          Finesse a n***a with some counterfeits, but now I'm countin' this</div>
+      <div class="sep"></div>
+      <div class="jp">おい、シロップサンドイッチと「犯罪手当」を覚えてる<br>
+          偽札で奴らをだましてたが、今は本物を数えてる</div>
+    </div>
+
+    <div class="block" id="b2">
+      <div class="en">Parmesan where my accountant lives, in fact, I'm downin' this<br>
+           with my boo bae, tastes like Kool-Aid for the analysts</div>
+      <div class="sep"></div>
+      <div class="jp">パルメザン（高級）の住所に会計士がいる、今は飲み干してる<br>
+          彼女とD'ussé（デュッセイ）——アナリストにはクール・エイドの味かもな</div>
+    </div>
+
+    <div class="block" id="b3">
+      <div class="en">Girl, I can buy your ass the world with my paystub<br>
+          Ooh, that p**** good, won't you sit it on my taste bloods?</div>
+      <div class="sep"></div>
+      <div class="jp">ガール、俺の給与明細で世界を買ってやれる<br>
+          うぅ、最高だろ、俺の上に乗ってみないか</div>
+    </div>
+
+    <div class="block" id="b4">
+      <div class="en">I get way too petty once you let me do the extras<br>
+          Pull up on your block, then break it down, we playin' Tetris</div>
+      <div class="sep"></div>
+      <div class="jp">余裕を与えたら俺はとことん「ケチ（こだわり屋）」になる<br>
+          お前のブロックに乗り込んで、バラバラに分解する——テトリスだ</div>
+    </div>
+
+    <div class="block" id="b5">
+      <div class="en">A.m. to the p.m., p.m. to the a.m., funk<br>
+          Piss out your per diem, you just gotta hate 'em, funk</div>
+      <div class="sep"></div>
+      <div class="jp">AM〜PM、PMから朝まで、ファンク<br>
+          日当（パー・ディエム）を流してやる、お前らはただ嫌うだけだ、ファンク</div>
+    </div>
+
+    <div class="block" id="b6">
+      <div class="en">If I quit your BM, I still ride Mercedes, funk<br>
+          If I quit this season, I still be the greatest, funk</div>
+      <div class="sep"></div>
+      <div class="jp">お前の女を捨てても俺はメルセデスに乗る、ファンク<br>
+          今シーズンを引退しても、俺はまだ最高だ、ファンク</div>
+    </div>
+
+    <div class="block" id="bcta">
+      <div class="bcta-rule"></div>
+      <div class="bcta-brand">WAX&amp;THINK</div>
+      <div class="bcta-url">waxthink.com</div>
+    </div>
+    <div id="meta-bar">
+      <div class="meta-artist">KENDRICK LAMAR</div>
+      <div class="meta-title-group"><div class="meta-title">HUMBLE.</div><div class="meta-rule"></div></div>
+      <div class="meta-info">2017&nbsp;&nbsp;&middot;&nbsp;&nbsp;MIKE WILL MADE-IT</div>
+    </div>
+    <div id="fadeout" style="position:absolute;inset:0;background:#000;opacity:0;z-index:20;pointer-events:none;"></div>
+    <style>
+      [data-composition-id="song"]{background:#000;font-family:"Inter",sans-serif;color:#fff;overflow:hidden;}
+      .intro-artist{font-size:200px;font-weight:900;letter-spacing:-0.04em;line-height:1;color:#fff;}
+      .intro-rule{width:0;height:3px;background:#c8a96b;margin:32px 0 28px;}
+      .intro-title{font-size:54px;font-weight:400;color:#999;}
+      .intro-meta{font-size:22px;letter-spacing:0.22em;color:#444;margin-top:18px;text-transform:uppercase;}
+      #watermark{position:absolute;bottom:90px;left:0;right:0;text-align:center;font-size:22px;font-weight:700;color:#333;letter-spacing:0.05em;z-index:10;}
+      #meta-bar{position:absolute;bottom:210px;left:0;right:0;display:flex;flex-direction:column;align-items:center;z-index:10;}
+      .meta-artist{font-size:36px;font-weight:900;color:#fff;letter-spacing:-0.02em;line-height:1;}
+      .meta-title{font-size:34px;font-weight:400;color:#888;letter-spacing:0.02em;margin-top:5px;white-space:nowrap;}
+      .meta-title-group{display:inline-block;}
+      .meta-rule{width:100%;height:2px;background:#c8a96b;margin:10px 0;}
+      .meta-info{font-size:24px;font-weight:400;color:#444;letter-spacing:0.1em;text-transform:uppercase;}
+      .block{position:absolute;top:50%;left:90px;right:90px;transform:translateY(-50%);display:flex;flex-direction:column;align-items:flex-start;opacity:0;}
+      #bintro{top:770px;transform:none;}
+      .en{font-size:72px;font-weight:900;color:#fff;line-height:1.08;letter-spacing:-0.02em;}
+      .sep{width:48px;height:2px;background:#c8a96b;margin:24px 0;flex-shrink:0;}
+      .jp{font-family:"Noto Sans JP",sans-serif;font-size:46px;font-weight:700;color:#c8a96b;line-height:1.45;}
+      #bcta{z-index:25;align-items:center;}
+      .bcta-rule{width:48px;height:2px;background:#c8a96b;margin-bottom:32px;}
+      .bcta-brand{font-size:120px;font-weight:900;color:#fff;letter-spacing:-0.04em;line-height:1;}
+      .bcta-url{font-size:26px;font-weight:400;color:#555;letter-spacing:0.18em;margin-top:20px;}
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      const tl = gsap.timeline({paused:true});
+      tl.set(".block",{opacity:0},0);
+      tl.set(".intro-rule",{width:0},0);
+      tl.set("#meta-bar",{opacity:0},0);
+      tl.fromTo("#bintro",{opacity:0,scale:0.95,transformOrigin:"center top"},{opacity:1,scale:1,duration:0.6,ease:"expo.out"},0.1);
+      tl.to(".intro-rule",{width:120,duration:0.5,ease:"expo.out"},0.5);
+      tl.to("#bintro",{scale:0.13,y:1000,transformOrigin:"center top",duration:0.7,ease:"expo.in"},2.0);
+      tl.to("#bintro",{opacity:0,duration:0.3,ease:"power2.in"},2.5);
+      tl.set("#bintro",{opacity:0},2.8);
+      tl.fromTo("#meta-bar",{opacity:0},{opacity:1,duration:0.4,ease:"power2.out"},2.5);
+      function show(id,t,t2){
+        tl.fromTo(id,{opacity:0,y:20},{opacity:1,y:0,duration:0.3,ease:"power2.out"},t);
+        if(t2){tl.to(id,{opacity:0,duration:0.2,ease:"power2.in"},t2-0.2);tl.set(id,{opacity:0},t2);}
+      }
+      show("#b1", 2.27, 6.03);
+      show("#b2", 6.03, 12.17);
+      show("#b3", 12.17, 18.73);
+      show("#b4", 18.73, 25.07);
+      show("#b5", 25.07, 31.13);
+      tl.fromTo("#b6", {opacity:0}, {opacity:1, duration:0.3, ease:"power2.out"}, 31.13);
+      tl.to("#b6", {opacity:0, duration:2.0, ease:"power2.in"}, 32.63);
+      tl.to("#fadeout",{opacity:1,duration:1.2,ease:"power2.in"},36.5);
+      tl.set("#fadeout",{opacity:1},42);
+      tl.fromTo("#bcta",{opacity:0},{opacity:1,duration:0.8,ease:"power1.out"},37.5);
+      window.__timelines=window.__timelines||{};
+      window.__timelines["song"]=tl;
+    </script>
+  </div>
+</template>

@@ -1,0 +1,125 @@
+<template id="song-template">
+  <div data-composition-id="song" data-width="1080" data-height="1920" data-duration="40">
+    <div style="position:absolute;inset:0;background:#000;z-index:0;"></div>
+    <audio id="bg-audio" src="../assets/audio.mp3" data-start="0" data-duration="40"></audio>
+    <div id="watermark">waxthink.com</div>
+    <div class="block" id="bintro">
+      <div class="intro-artist">A TRIBE CALLED QUEST</div>
+      <div class="intro-rule" id="intro-rule"></div>
+      <div class="intro-title">Can I Kick It?</div>
+      <div class="intro-meta">1990&nbsp;&nbsp;&middot;&nbsp;&nbsp;prod. A TRIBE CALLED QUEST</div>
+    </div>
+
+    <div class="block" id="b1">
+      <div class="en">Can I kick it? To all the people who can Quest like A Tribe does<br>
+          Before this, did you really know what live was?</div>
+      <div class="sep"></div>
+      <div class="jp">「クエスト」できる人たちへ、ATCQのように<br>
+          これ以前に、本当に「生きている」とはどういうことか知っていたか？</div>
+    </div>
+
+    <div class="block" id="b2">
+      <div class="en">Comprehend to the track, for it's why cuz<br>
+          Gettin' measures on the tip of the vibe buzz</div>
+      <div class="sep"></div>
+      <div class="jp">トラックを理解しろ、それが理由だから<br>
+          バイブスの先端でビートを計っている</div>
+    </div>
+
+    <div class="block" id="b3">
+      <div class="en">Rock and roll to the beat of the funk fuzz<br>
+          Wipe your feet really good on the rhythm rug</div>
+      <div class="sep"></div>
+      <div class="jp">ファンクのファズビートにロックンロールして<br>
+          リズムの絨毯で靴底をよく拭いてから入れ</div>
+    </div>
+
+    <div class="block" id="b4">
+      <div class="en">If you feel the urge to freak, do the jitterbug<br>
+          Come and spread your arms if you really need a hug</div>
+      <div class="sep"></div>
+      <div class="jp">フリークアウトしたくなったらジルバを踊れ<br>
+          本当にハグが必要なら腕を広げて来い</div>
+    </div>
+
+    <div class="block" id="b5">
+      <div class="en">Afrocentric living is a big shrug<br>
+          A life filled with (Fun), that's what I love</div>
+      <div class="sep"></div>
+      <div class="jp">アフロセントリックな生活は大きなシュラッグ（肩をすくめる）<br>
+          楽しみに満ちた人生、それが俺の愛するもの</div>
+    </div>
+
+    <div class="block" id="b6">
+      <div class="en">A lower plateau is what we're above<br>
+          We be to rap what key be to lock</div>
+      <div class="sep"></div>
+      <div class="jp">低い段階は俺たちの下にある<br>
+          俺たちはラップにとっての鍵、鍵穴にとっての鍵だ</div>
+    </div>
+
+    <div class="block" id="bcta">
+      <div class="bcta-rule"></div>
+      <div class="bcta-brand">WAX&amp;THINK</div>
+      <div class="bcta-url">waxthink.com</div>
+    </div>
+    <div id="meta-bar">
+      <div class="meta-artist">A TRIBE CALLED QUEST</div>
+      <div class="meta-title-group"><div class="meta-title">Can I Kick It?</div><div class="meta-rule"></div></div>
+      <div class="meta-info">1990&nbsp;&nbsp;&middot;&nbsp;&nbsp;A TRIBE CALLED QUEST</div>
+    </div>
+    <div id="fadeout" style="position:absolute;inset:0;background:#000;opacity:0;z-index:20;pointer-events:none;"></div>
+    <style>
+      [data-composition-id="song"]{background:#000;font-family:"Inter",sans-serif;color:#fff;overflow:hidden;}
+      .intro-artist{font-size:200px;font-weight:900;letter-spacing:-0.04em;line-height:1;color:#fff;}
+      .intro-rule{width:0;height:3px;background:#c8a96b;margin:32px 0 28px;}
+      .intro-title{font-size:54px;font-weight:400;color:#999;}
+      .intro-meta{font-size:22px;letter-spacing:0.22em;color:#444;margin-top:18px;text-transform:uppercase;}
+      #watermark{position:absolute;bottom:90px;left:0;right:0;text-align:center;font-size:22px;font-weight:700;color:#333;letter-spacing:0.05em;z-index:10;}
+      #meta-bar{position:absolute;bottom:210px;left:0;right:0;display:flex;flex-direction:column;align-items:center;z-index:10;}
+      .meta-artist{font-size:36px;font-weight:900;color:#fff;letter-spacing:-0.02em;line-height:1;}
+      .meta-title{font-size:34px;font-weight:400;color:#888;letter-spacing:0.02em;margin-top:5px;white-space:nowrap;}
+      .meta-title-group{display:inline-block;}
+      .meta-rule{width:100%;height:2px;background:#c8a96b;margin:10px 0;}
+      .meta-info{font-size:24px;font-weight:400;color:#444;letter-spacing:0.1em;text-transform:uppercase;}
+      .block{position:absolute;top:50%;left:90px;right:90px;transform:translateY(-50%);display:flex;flex-direction:column;align-items:flex-start;opacity:0;}
+      #bintro{top:770px;transform:none;}
+      .en{font-size:72px;font-weight:900;color:#fff;line-height:1.08;letter-spacing:-0.02em;}
+      .sep{width:48px;height:2px;background:#c8a96b;margin:24px 0;flex-shrink:0;}
+      .jp{font-family:"Noto Sans JP",sans-serif;font-size:46px;font-weight:700;color:#c8a96b;line-height:1.45;}
+      #bcta{z-index:25;align-items:center;}
+      .bcta-rule{width:48px;height:2px;background:#c8a96b;margin-bottom:32px;}
+      .bcta-brand{font-size:120px;font-weight:900;color:#fff;letter-spacing:-0.04em;line-height:1;}
+      .bcta-url{font-size:26px;font-weight:400;color:#555;letter-spacing:0.18em;margin-top:20px;}
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      const tl = gsap.timeline({paused:true});
+      tl.set(".block",{opacity:0},0);
+      tl.set(".intro-rule",{width:0},0);
+      tl.set("#meta-bar",{opacity:0},0);
+      tl.fromTo("#bintro",{opacity:0,scale:0.95,transformOrigin:"center top"},{opacity:1,scale:1,duration:0.6,ease:"expo.out"},0.1);
+      tl.to(".intro-rule",{width:120,duration:0.5,ease:"expo.out"},0.5);
+      tl.to("#bintro",{scale:0.13,y:1000,transformOrigin:"center top",duration:0.7,ease:"expo.in"},2.0);
+      tl.to("#bintro",{opacity:0,duration:0.3,ease:"power2.in"},2.5);
+      tl.set("#bintro",{opacity:0},2.8);
+      tl.fromTo("#meta-bar",{opacity:0},{opacity:1,duration:0.4,ease:"power2.out"},2.5);
+      function show(id,t,t2){
+        tl.fromTo(id,{opacity:0,y:20},{opacity:1,y:0,duration:0.3,ease:"power2.out"},t);
+        if(t2){tl.to(id,{opacity:0,duration:0.2,ease:"power2.in"},t2-0.2);tl.set(id,{opacity:0},t2);}
+      }
+      show("#b1", 2.31, 7.20);
+      show("#b2", 7.20, 12.20);
+      show("#b3", 12.20, 17.25);
+      show("#b4", 17.25, 22.08);
+      show("#b5", 22.08, 27.61);
+      tl.fromTo("#b6", {opacity:0}, {opacity:1, duration:0.3, ease:"power2.out"}, 27.61);
+      tl.to("#b6", {opacity:0, duration:2.0, ease:"power2.in"}, 29.11);
+      tl.to("#fadeout",{opacity:1,duration:1.2,ease:"power2.in"},34.5);
+      tl.set("#fadeout",{opacity:1},40);
+      tl.fromTo("#bcta",{opacity:0},{opacity:1,duration:0.8,ease:"power1.out"},35.5);
+      window.__timelines=window.__timelines||{};
+      window.__timelines["song"]=tl;
+    </script>
+  </div>
+</template>

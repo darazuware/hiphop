@@ -90,8 +90,9 @@
 
     <!-- CTA (最後の歌詞後) -->
     <div class="block" id="bcta">
-      <div class="cta-sub">全歌詞・完全翻訳はこちら</div>
-      <div class="cta-url">waxthink.com</div>
+      <div class="bcta-rule"></div>
+      <div class="bcta-brand">WAX&amp;THINK</div>
+      <div class="bcta-url">waxthink.com</div>
     </div>
 
     <!-- Persistent metadata (always visible, center-bottom) -->
@@ -236,20 +237,10 @@
         line-height: 1.45;
       }
 
-      .cta-sub {
-        font-family: 'Noto Sans JP', sans-serif;
-        font-size: 38px;
-        font-weight: 400;
-        color: #888;
-        letter-spacing: 0.05em;
-      }
-      .cta-url {
-        font-size: 96px;
-        font-weight: 900;
-        color: #fff;
-        letter-spacing: -0.03em;
-        margin-top: 20px;
-      }
+      #bcta { z-index: 25; align-items: center; }
+      .bcta-rule { width: 48px; height: 2px; background: #c8a96b; margin-bottom: 32px; }
+      .bcta-brand { font-size: 120px; font-weight: 900; color: #fff; letter-spacing: -0.04em; line-height: 1; }
+      .bcta-url { font-size: 26px; font-weight: 400; color: #555; letter-spacing: 0.18em; margin-top: 20px; }
     </style>
 
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
@@ -304,17 +295,19 @@
       show("#b7", 15.56, 18.11);
       show("#b8", 18.11, 21.64);
       show("#b9", 21.64, 23.09);
-      show("#b10",23.09, 27.0);
+      // 最後の歌詞: 23.09sフェードイン → 35.0sからゆっくりフェードアウト(→37.5sで消える)
+      tl.fromTo('#b10', { opacity: 0 }, { opacity: 1, duration: 0.3, ease: 'power2.out' }, 23.09);
+      tl.to('#b10', { opacity: 0, duration: 2.5, ease: 'power2.in' }, 35.0);
 
       // CTA
       const LAST_LYRIC_END = 27.0;
       tl.fromTo("#bcta",
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }, LAST_LYRIC_END + 0.5);
+        { opacity: 0 },
+        { opacity: 1, duration: 0.8, ease: "power1.out" }, 38.5);
 
       // Fadeout (39.0s → 42s)
-      tl.to("#fadeout", { opacity: 1, duration: 3.0, ease: "power2.in" }, 39.0);
-      tl.set("#fadeout", { opacity: 1 }, 42.0);
+      tl.to("#fadeout", { opacity: 1, duration: 1.2, ease: "power2.in" }, 37.5);
+      tl.set("#fadeout", { opacity: 1 }, 42);
 
       window.__timelines = window.__timelines || {};
       window.__timelines["song"] = tl;

@@ -20,9 +20,9 @@
 
     <!-- Block 1 -->
     <div class="block" id="b1">
-      <div class="en">I monkey-flip 'em with the funky rhythm I be kickin'</div>
+      <div class="en">Rappers: I monkey-flip 'em with the funky rhythm I be kickin'</div>
       <div class="sep"></div>
-      <div class="jp">ファンキーなリズムで<br>奴らをぶっ飛ばす</div>
+      <div class="jp">ラッパーどもを俺のファンキーなリズムで翻弄する</div>
     </div>
 
     <!-- Block 2 -->
@@ -75,16 +75,46 @@
     </div>
 
     <!-- Block 9 -->
-    <div class="block" id="b9">
-      <div class="en">I keep some E&amp;J, sittin' bent up in the stairway</div>
+        <div class="block" id="b9">
+      <div class="en">Y'all know my steelo, with or without the airplay<br>
+          I keep some E&J, sittin' bent up in the stairway</div>
+      <div class="sep"></div>
+      <div class="jp">お前らは俺のスタイルを知ってる、エアプレイがあろうとなかろうと<br>
+          E&Jを手にして、階段でぐでんぐでんに座ってる</div>
+    </div>
       <div class="sep"></div>
       <div class="jp">E&Jを飲みながら<br>階段にもたれかかる</div>
     </div>
 
+    <div class="block" id="b10">
+      <div class="en">Or either on the corner bettin' Grants with the cee-lo champs<br>
+          Laughin' at baseheads, tryna sell some broken amps</div>
+      <div class="sep"></div>
+      <div class="jp">あるいはコーナーでセーロの達人と50ドル札を賭けてる<br>
+          壊れたアンプを売ろうとするベースヘッドを笑いながら</div>
+    </div>
+
+    <div class="block" id="b11">
+      <div class="en">G-packs get off quick, forever n***as talk s***<br>
+          Reminiscin' about the last time the task force flipped</div>
+      <div class="sep"></div>
+      <div class="jp">ドラッグの袋はすぐ売り切れる、n***aらはいつも文句ばかり<br>
+          前回タスクフォースに踏み込まれた時のことを振り返りながら</div>
+    </div>
+
+    <div class="block" id="b12">
+      <div class="en">Now, bullet holes left in my peepholes<br>
+          Hand me a .9 and I'll defeat foes</div>
+      <div class="sep"></div>
+      <div class="jp">今、のぞき穴に銃弾の穴が開いている<br>
+          .9を渡してくれ、敵を倒してやる</div>
+    </div>
+
     <!-- CTA (最後の歌詞後) -->
     <div class="block" id="bcta">
-      <div class="cta-sub">全歌詞・完全翻訳はこちら</div>
-      <div class="cta-url">waxthink.com</div>
+      <div class="bcta-rule"></div>
+      <div class="bcta-brand">WAX&amp;THINK</div>
+      <div class="bcta-url">waxthink.com</div>
     </div>
 
     <!-- Persistent metadata (always visible, center-bottom) -->
@@ -229,20 +259,10 @@
         line-height: 1.45;
       }
 
-      .cta-sub {
-        font-family: 'Noto Sans JP', sans-serif;
-        font-size: 38px;
-        font-weight: 400;
-        color: #888;
-        letter-spacing: 0.05em;
-      }
-      .cta-url {
-        font-size: 96px;
-        font-weight: 900;
-        color: #fff;
-        letter-spacing: -0.03em;
-        margin-top: 20px;
-      }
+      #bcta { z-index: 25; align-items: center; }
+      .bcta-rule { width: 48px; height: 2px; background: #c8a96b; margin-bottom: 32px; }
+      .bcta-brand { font-size: 120px; font-weight: 900; color: #fff; letter-spacing: -0.04em; line-height: 1; }
+      .bcta-url { font-size: 26px; font-weight: 400; color: #555; letter-spacing: 0.18em; margin-top: 20px; }
     </style>
 
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
@@ -299,17 +319,21 @@
       show("#b6", 15.21, 17.0);
       show("#b7", 17.0,  19.0);
       show("#b8", 19.0,  22.0);
-      show("#b9", 22.0,  25.5);
+      show("#b9",  22.0, 24.9);
+      show("#b10", 24.9, 28.1);
+      show("#b11", 28.1, 31.2);
+      // 最後の歌詞: ゆっくりフェードアウト
+      tl.fromTo('#b12', { opacity: 0 }, { opacity: 1, duration: 0.3, ease: 'power2.out' }, 31.2);
+      tl.to('#b12', { opacity: 0, duration: 2.0, ease: 'power2.in' }, 32.5);
 
       // CTA
-      const LAST_LYRIC_END = 25.5;
       tl.fromTo("#bcta",
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }, LAST_LYRIC_END + 0.5);
+        { opacity: 0 },
+        { opacity: 1, duration: 0.8, ease: "power1.out" }, 34.5);
 
       // Fadeout (35.0s → 38s)
-      tl.to("#fadeout", { opacity: 1, duration: 3.0, ease: "power2.in" }, 35.0);
-      tl.set("#fadeout", { opacity: 1 }, 38.0);
+      tl.to("#fadeout", { opacity: 1, duration: 1.2, ease: "power2.in" }, 33.5);
+      tl.set("#fadeout", { opacity: 1 }, 38);
 
       window.__timelines = window.__timelines || {};
       window.__timelines["song"] = tl;
