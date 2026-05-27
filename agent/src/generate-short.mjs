@@ -286,59 +286,130 @@ function toTimedPairs(result, duration) {
   return out;
 }
 
-// ── Step 1: VTT（YouTube自動キャプション）────────────────────────────────────
-const vttDir = path.join(__dirname, "../temp");
-fs.mkdirSync(vttDir, { recursive: true });
-const vttFile = path.join(vttDir, `sub-${youtubeId}.en.vtt`);
-
-if (!fs.existsSync(vttFile)) {
-  console.log("[vtt] Downloading YouTube captions...");
-  try {
-    execSync(
-      `yt-dlp --write-auto-subs --sub-lang en --sub-format vtt --skip-download -o "${path.join(vttDir,"sub-%(id)s")}" "https://www.youtube.com/watch?v=${youtubeId}"`,
-      { stdio: "pipe" }
-    );
-  } catch (_) {}
+// "HH:MM:SS,mmm" → seconds
+function parseWhisperTs(ts) {
+  const m = (ts || "").match(/(\d{2}):(\d{2}):(\d{2})[,.](\d{3})/);
+  return m ? +m[1]*3600 + +m[2]*60 + +m[3] + +m[4]/1000 : null;
 }
+
+// 検閲語を展開してから英字のみ抽出（anchorマッチ精度向上）
+function expandCensor(s) {
+  return s
+    .replace(/f\*+k/gi, "fuck")
+    .replace(/n\*+(a|er)/gi, (_, s) => "nigg" + s)
+    .replace(/b\*+h/gi, "bitch")
+    .replace(/s\*+t/gi, "shit")
+    .replace(/[^a-z0-9' ]/gi, " ");
+}
+
+// Whisper単語レベルアライメント（--output-json-fullのtokensを使用）
+function alignWhisperWords(pairs, transcription, duration) {
+  const tokens = [];
+  for (const seg of transcription) {
+    for (const tok of (seg.tokens || [])) {
+      // whisper-cpp v1.x: tok.timestamps.from (string), v2.x: tok.offsets.from (ms number)
+      let startSec = null;
+      if (tok.offsets?.from != null) {
+        startSec = tok.offsets.from / 1000;
+      } else if (tok.timestamps?.from) {
+        startSec = parseWhisperTs(tok.timestamps.from);
+      }
+      if (startSec == null) continue;
+      const text = (tok.text || "").replace(/^\s+/, "").toLowerCase().replace(/[^a-z0-9']/g, "");
+      if (!text || text === "beg" || text.startsWith("[")) continue;
+      tokens.push({ text, startSec });
+    }
+  }
+  if (tokens.length < 5) return [];
+
+  const result = [];
+  let wIdx = 0;
+  for (const pair of pairs) {
+    // 検閲語を展開してからアンカー抽出
+    const anchor = expandCensor(pair.eng.toLowerCase()).trim()
+      .split(/\s+/).filter(Boolean).slice(0, 4);
+    if (!anchor.length) continue;
+
+    let bestIdx = -1, bestScore = 0;
+    for (let i = wIdx; i < Math.min(wIdx + 80, tokens.length - anchor.length + 1); i++) {
+      let matches = 0;
+      for (let j = 0; j < anchor.length && i + j < tokens.length; j++) {
+        if (tokens[i + j].text === anchor[j]) matches++;
+      }
+      const score = matches / anchor.length;
+      if (score > bestScore) { bestScore = score; bestIdx = i; }
+      if (bestScore === 1) break;
+    }
+
+    if (bestScore >= 0.5 && bestIdx >= 0 && tokens[bestIdx].startSec < duration) {
+      result.push({ ...pair, _startSec: tokens[bestIdx].startSec });
+      wIdx = bestIdx + 1;
+    }
+  }
+  return toTimedPairs(result, duration);
+}
+
+// ── Step 1: Whisper（プライマリ）─────────────────────────────────────────────
+const wavFile = `/tmp/short_audio_${slug}.wav`;
+const whisperModel = "/opt/homebrew/share/whisper-cpp/ggml-small.en.bin";
+
+spawnSync("ffmpeg", ["-y", "-ss", String(startSec), "-i", audioFile,
+  "-t", String(shortDuration + 10), "-ar", "16000", "-ac", "1", wavFile], { stdio: "pipe" });
+
+const promptWords = linePairs.slice(0, 15).map(p => p.eng).join(" ")
+  .replace(/[^a-zA-Z0-9 ']/g, "").replace(/\s+/g, " ").trim().split(" ").slice(0, 40).join(" ");
+
+spawnSync("whisper-cli", [
+  "-m", whisperModel, "-f", wavFile,
+  "--output-json-full", "--output-file", `/tmp/short_whisper_${slug}`,
+  "-t", "8", "--prompt", promptWords,
+], { stdio: "pipe" });
 
 let usedPairs = [];
 
-if (fs.existsSync(vttFile)) {
-  const vttEntries = parseVttRolling(fs.readFileSync(vttFile, "utf-8"));
-  console.log(`[vtt] ${vttEntries.length} entries`);
-  usedPairs = alignVtt(linePairs, vttEntries, startSec, shortDuration);
-  console.log(`[align] ${usedPairs.length}/${linePairs.length} synced (VTT)`);
+const whisperJson = `/tmp/short_whisper_${slug}.json`;
+if (fs.existsSync(whisperJson)) {
+  const data = JSON.parse(fs.readFileSync(whisperJson).toString("latin1"));
+  // ♪(→â in latin1) and [Music] markers: strip from text rather than exclude segment
+  const transcription = (data.transcription || [])
+    .filter(s => s.text)
+    .map(s => ({ ...s, text: s.text.replace(/[♪â]/g, "").replace(/\[[^\]]*\]/g, "").replace(/\s+/g, " ").trim() }))
+    .filter(s => s.text.length > 2);
+
+  // 単語レベルアライメント（tokenタイムスタンプ使用）
+  usedPairs = alignWhisperWords(linePairs, transcription, shortDuration);
+  console.log(`[align] ${usedPairs.length}/${linePairs.length} synced (Whisper words)`);
+
+  // セグメントレベルフォールバック
+  if (usedPairs.length < 8) {
+    const segs = transcription.map(s => ({ startSec: s.offsets.from / 1000, endSec: s.offsets.to / 1000, text: s.text.trim() }));
+    console.log(`[whisper] ${segs.length} segs → segment-level fallback`);
+    usedPairs = alignWhisper(linePairs, segs, shortDuration);
+    console.log(`[align] ${usedPairs.length}/${linePairs.length} synced (Whisper segs)`);
+  }
 }
 
-// ── Step 2: Whisper+prompt フォールバック ─────────────────────────────────────
+// ── Step 2: VTT フォールバック ────────────────────────────────────────────────
 if (usedPairs.length < 8) {
-  console.log("[whisper] VTT不足 → Whisper+prompt...");
-  const wavFile = `/tmp/short_audio_${slug}.wav`;
-  const whisperModel = "/opt/homebrew/share/whisper-cpp/ggml-small.en.bin";
+  console.log("[vtt] Whisper不足 → VTT fallback...");
+  const vttDir = path.join(__dirname, "../temp");
+  fs.mkdirSync(vttDir, { recursive: true });
+  const vttFile = path.join(vttDir, `sub-${youtubeId}.en.vtt`);
 
-  spawnSync("ffmpeg", ["-y", "-ss", String(startSec), "-i", audioFile,
-    "-t", String(shortDuration + 30), "-ar", "16000", "-ac", "1", wavFile], { stdio: "pipe" });
+  if (!fs.existsSync(vttFile)) {
+    try {
+      execSync(
+        `yt-dlp --write-auto-subs --sub-lang en --sub-format vtt --skip-download -o "${path.join(vttDir, "sub-%(id)s")}" "https://www.youtube.com/watch?v=${youtubeId}"`,
+        { stdio: "pipe" }
+      );
+    } catch (_) {}
+  }
 
-  // 歌詞の最初40語をpromptとして渡す（whisperが正しい語彙に"チューニング"される）
-  const promptWords = linePairs.slice(0, 15).map(p => p.eng).join(" ")
-    .replace(/[^a-zA-Z0-9 ']/g, "").replace(/\s+/g, " ").trim().split(" ").slice(0, 40).join(" ");
-
-  spawnSync("whisper-cli", [
-    "-m", whisperModel, "-f", wavFile,
-    "--output-json-full", "--output-file", `/tmp/short_whisper_${slug}`,
-    "-t", "8", "--prompt", promptWords,
-  ], { stdio: "pipe" });
-
-  const whisperJson = `/tmp/short_whisper_${slug}.json`;
-  if (fs.existsSync(whisperJson)) {
-    const raw = fs.readFileSync(whisperJson).toString("latin1");
-    const data = JSON.parse(raw);
-    const segs = (data.transcription || [])
-      .map(s => ({ startSec: s.offsets.from/1000, endSec: s.offsets.to/1000, text: s.text.trim() }))
-      .filter(s => s.text && !s.text.includes("♪") && !s.text.includes("â") && !s.text.includes("["));
-    console.log(`[whisper] ${segs.length} segments`);
-    usedPairs = alignWhisper(linePairs, segs, shortDuration);
-    console.log(`[align] ${usedPairs.length}/${linePairs.length} synced (Whisper)`);
+  if (fs.existsSync(vttFile)) {
+    const vttEntries = parseVttRolling(fs.readFileSync(vttFile, "utf-8"));
+    console.log(`[vtt] ${vttEntries.length} entries`);
+    usedPairs = alignVtt(linePairs, vttEntries, startSec, shortDuration);
+    console.log(`[align] ${usedPairs.length}/${linePairs.length} synced (VTT fallback)`);
   }
 }
 
@@ -389,7 +460,8 @@ Style: ExpDesc,Hiragino Sans W6,30,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,0
 const infoStyles = pvMode ? `
 Style: InfoTitle,Helvetica Neue,120,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,2,0,1,4,3,8,60,60,15,1
 Style: InfoArtist,Helvetica Neue,72,${accentASS},&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,4,2,8,60,60,145,1
-Style: InfoMeta,Helvetica Neue,44,&H00AAAAAA,&H000000FF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,2,1,8,60,60,218,1` : "";
+Style: InfoMeta,Helvetica Neue,44,&H00AAAAAA,&H000000FF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,2,1,8,60,60,218,1
+Style: WaterMark,Helvetica Neue,34,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,2,0,1,0,0,9,20,20,18,1` : "";
 
 const assHeader = `[Script Info]
 ScriptType: v4.00+
@@ -509,6 +581,7 @@ if (pvMode) {
   if (infoTitle)    events += `Dialogue: 0,0:00:00.00,${endT},InfoTitle,,0,0,0,,${infoTitle}\n`;
   if (infoArtist)   events += `Dialogue: 0,0:00:00.00,${endT},InfoArtist,,0,0,0,,${infoArtist}\n`;
   if (infoMetaLine) events += `Dialogue: 0,0:00:00.00,${endT},InfoMeta,,0,0,0,,${infoMetaLine}\n`;
+  events += `Dialogue: 0,0:00:00.00,${endT},WaterMark,,0,0,0,,WAX\\N{\\fs20\\c${accentASS}}&{\\r}\\NTHINK\n`;
 }
 
 usedPairs.forEach((block) => {

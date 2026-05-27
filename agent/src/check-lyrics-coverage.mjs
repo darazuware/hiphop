@@ -9,8 +9,9 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
 const slug = process.argv[2];
+const verbose = process.argv.includes('--verbose');
 if (!slug) {
-  console.error('Usage: node check-lyrics-coverage.mjs <slug>');
+  console.error('Usage: node check-lyrics-coverage.mjs <slug> [--verbose]');
   process.exit(1);
 }
 
@@ -211,12 +212,12 @@ let hasError = false;
 if (uncovered.length === 0) {
   console.log('\n✅ [A] No omissions — all Genius lines are covered.');
 } else if (pct >= THRESHOLD) {
-  console.log(`\n⚠️  [A] ${uncovered.length} omitted line(s) (above ${THRESHOLD}% — likely filler/repetition):`);
-  uncovered.forEach((line, i) => console.log(`  ${i + 1}. ${line}`));
+  console.log(`\n⚠️  [A] ${uncovered.length} omitted line(s) (above ${THRESHOLD}% — likely filler/repetition)`);
+  if (verbose) uncovered.forEach((line, i) => console.log(`  ${i + 1}. ${line}`));
 } else {
-  console.log(`\n❌ [A] ${uncovered.length} omitted line(s) — below ${THRESHOLD}% threshold:`);
-  uncovered.forEach((line, i) => console.log(`  ${i + 1}. ${line}`));
-  console.log('  → Add these to LyricsBlock components.');
+  console.log(`\n❌ [A] ${uncovered.length} omitted line(s) — below ${THRESHOLD}% threshold`);
+  if (verbose) uncovered.forEach((line, i) => console.log(`  ${i + 1}. ${line}`));
+  console.log('  → Run with --verbose to see missing lines. Add them to LyricsBlock components.');
   hasError = true;
 }
 
@@ -224,9 +225,9 @@ if (uncovered.length === 0) {
 if (hallucinated.length === 0) {
   console.log('\n✅ [B] No hallucinations — all .astro eng lines match Genius.');
 } else {
-  console.log(`\n❌ [B] ${hallucinated.length} hallucinated line(s) — not found in Genius lyrics:`);
-  hallucinated.forEach((line, i) => console.log(`  ${i + 1}. ${line}`));
-  console.log('  → Verify against Genius and correct these lines.');
+  console.log(`\n❌ [B] ${hallucinated.length} hallucinated line(s) — not found in Genius lyrics`);
+  if (verbose) hallucinated.forEach((line, i) => console.log(`  ${i + 1}. ${line}`));
+  console.log('  → Run with --verbose to see flagged lines. Verify against Genius and correct.');
   hasError = true;
 }
 
