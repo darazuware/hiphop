@@ -26,9 +26,8 @@ const shorts = [
 
     <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
       {shorts.map(s => (
-        <a
-          href={s.songSlug}
-          class="group relative block rounded-xl overflow-hidden bg-[var(--c-surface)] border border-[var(--c-border)] hover:border-[var(--c-gold)] transition-colors duration-200"
+        <div
+          class="short-card group relative block rounded-xl overflow-hidden bg-[var(--c-surface)] border border-[var(--c-border)] hover:border-[var(--c-gold)] transition-colors duration-200 cursor-pointer"
           style="aspect-ratio:9/16"
         >
           <video
@@ -37,15 +36,21 @@ const shorts = [
             loop
             playsinline
             preload="none"
-            class="w-full h-full object-cover"
+            class="w-full h-full object-cover pointer-events-none"
           />
           <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/10 to-transparent pointer-events-none" />
+          <!-- 記事リンク -->
+          <a
+            href={s.songSlug}
+            class="absolute top-2 right-2 bg-black/60 text-[var(--c-gold)] text-[10px] font-mono px-2 py-1 rounded-full border border-[var(--c-gold)]/40 hover:bg-[var(--c-gold)] hover:text-black transition-colors z-10"
+            onclick="event.stopPropagation()"
+          >記事→</a>
           <div class="absolute bottom-0 left-0 right-0 p-3 pointer-events-none">
             <div class="text-[var(--c-gold)] text-[9px] uppercase tracking-widest font-mono mb-1 truncate">{s.artist}</div>
             <div class="text-white text-sm font-bold leading-tight mb-1 line-clamp-2">{s.title}</div>
             <div class="text-[#555] text-[10px] font-mono truncate">{s.year}&nbsp;·&nbsp;{s.producer}</div>
           </div>
-        </a>
+        </div>
       ))}
     </div>
 
@@ -53,10 +58,15 @@ const shorts = [
 </Layout>
 
 <script>
-  document.querySelectorAll<HTMLElement>('.group').forEach(card => {
-    const video = card.querySelector('video');
+  document.querySelectorAll<HTMLElement>('.short-card').forEach(card => {
+    const video = card.querySelector('video') as HTMLVideoElement;
     if (!video) return;
+    // hover: play/pause
     card.addEventListener('mouseenter', () => video.play());
     card.addEventListener('mouseleave', () => { video.pause(); video.currentTime = 0; });
+    // tap/click: toggle play/pause
+    card.addEventListener('click', () => {
+      if (video.paused) { video.play(); } else { video.pause(); }
+    });
   });
 </script>

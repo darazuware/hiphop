@@ -31,8 +31,8 @@
     var saved = localStorage.getItem('hh-explanation') || 'tap';
     document.addEventListener('DOMContentLoaded', function () { applyExp(saved); });
 
-    document.getElementById('explanation-toggle').addEventListener('click', function (e) {
-      var btn = e.target.closest('[data-e]');
+    document.addEventListener('click', function (e) {
+      var btn = e.target.closest('.exp-btn[data-e]');
       if (!btn) return;
       var mode = btn.getAttribute('data-e');
       localStorage.setItem('hh-explanation', mode);
