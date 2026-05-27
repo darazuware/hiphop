@@ -35,10 +35,16 @@ const shorts = [
             muted
             loop
             playsinline
-            preload="none"
+            preload="metadata"
             class="w-full h-full object-cover pointer-events-none"
           />
           <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/10 to-transparent pointer-events-none" />
+          <!-- Play icon (shown when paused) -->
+          <div class="play-icon absolute inset-0 flex items-center justify-center pointer-events-none transition-opacity duration-200">
+            <div class="w-14 h-14 rounded-full bg-black/50 border border-white/30 flex items-center justify-center">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+          </div>
           <!-- 記事リンク -->
           <a
             href={s.songSlug}
@@ -60,13 +66,21 @@ const shorts = [
 <script>
   document.querySelectorAll<HTMLElement>('.short-card').forEach(card => {
     const video = card.querySelector('video') as HTMLVideoElement;
+    const icon = card.querySelector('.play-icon') as HTMLElement;
     if (!video) return;
+
+    const showIcon = () => { if (icon) icon.style.opacity = '1'; };
+    const hideIcon = () => { if (icon) icon.style.opacity = '0'; };
+
+    video.addEventListener('play',  hideIcon);
+    video.addEventListener('pause', showIcon);
+
     // hover: play/pause
-    card.addEventListener('mouseenter', () => video.play());
+    card.addEventListener('mouseenter', () => video.play().catch(() => {}));
     card.addEventListener('mouseleave', () => { video.pause(); video.currentTime = 0; });
     // tap/click: toggle play/pause
     card.addEventListener('click', () => {
-      if (video.paused) { video.play(); } else { video.pause(); }
+      if (video.paused) { video.play().catch(() => {}); } else { video.pause(); }
     });
   });
 </script>
