@@ -1,0 +1,124 @@
+<template id="song-template">
+  <div data-composition-id="song" data-width="1080" data-height="1920" data-duration="42">
+    <div style="position:absolute;inset:0;background:#000;z-index:0;"></div>
+    <audio id="bg-audio" src="../assets/audio.mp3" data-start="0" data-duration="42"></audio>
+    <div id="watermark">waxthink.com</div>
+    <div class="block" id="bintro">
+      <div class="intro-artist">RUN THE JEWELS</div>
+      <div class="intro-rule" id="intro-rule"></div>
+      <div class="intro-title">ooh la la</div>
+      <div class="intro-meta">2020&#160;&#160;·&#160;&#160;EL-P</div>
+    </div>
+    <div class="block" id="b1">
+      <div class="en">Ooh, la la, ah, oui oui Ooh, la la, ah, oui oui</div>
+      <div class="sep"></div>
+      <div class="jp">ウー、ラ・ラ、アー、ウィ・ウィ ウー、ラ・ラ、アー、ウィ・ウィ</div>
+    </div>
+
+    <div class="block" id="b2">
+      <div class="en">Lookin' for M's like I lost a friend Jump out of my bed like, "Where the bread?"</div>
+      <div class="sep"></div>
+      <div class="jp">M（百万ドル）を探し回る——まるで友人を失ったかのように ベッドから飛び起きて「金はどこだ？」</div>
+    </div>
+
+    <div class="block" id="b3">
+      <div class="en">You gon' hold the egg, waiter bring the check When we talk, we Kalashnikov, keep us in your thoughts</div>
+      <div class="sep"></div>
+      <div class="jp">お前が卵を持て、ウェイターよ伝票を持ってこい 俺たちの話はカラシニコフ（AK-47）——心に刻んでおけ</div>
+    </div>
+
+    <div class="block" id="b4">
+      <div class="en">Fully dressed at the crack of dawn, weapons letting off I can hear them from the block, see them creeping through the fog</div>
+      <div class="sep"></div>
+      <div class="jp">夜明けから完全武装、武器が火を噴く ブロック（街角）から聞こえてくる——霧の中を忍び寄る気配</div>
+    </div>
+
+    <div class="block" id="b5">
+      <div class="en">Season's greetings, now feeding season can start, oh my God Look alive, lookin' like I live life on a crooked line</div>
+      <div class="sep"></div>
+      <div class="jp">ご挨拶はここまで、さあ「飯の時間（狩りの季節）」の始まりだ——神よ 生き生きしてみせろ——俺は歪んだ線の上を生きているように見える</div>
+    </div>
+
+    <div class="block" id="b6">
+      <div class="en">Doin' fine, you want maximum stupid, I am the guy</div>
+      <div class="sep"></div>
+      <div class="jp">調子はいい——「最大限の馬鹿さ」が欲しいなら、俺がそいつだ</div>
+    </div>
+
+    <div class="block" id="b7">
+      <div class="en">First of all, f**k the f**kin' law, we is f**kin' raw Steak tartare, oysters on the half-shell, sushi bar</div>
+      <div class="sep"></div>
+      <div class="jp">まず言っておく、法律なんかくたばれ、俺たちは生のままだ ステーキタルタル、殻付き牡蠣、寿司バー</div>
+    </div>
+
+    <div class="block" id="b8">
+      <div class="en">Ooh, la la, ah, oui oui (Ayy) Ooh, la la, ah, oui oui (Ah, oui oui) Ooh, la la, ah, oui oui Ooh, la la, ah, oui oui (Mon cheri, mon cheri) Ooh, la la, ah, oui oui (Mon cheri, mon cheri) Ooh, la la, ah, oui oui Ooh, la la, ah, oui oui (I need a bottle of Moët, ho, come on) Ooh, la la, ah, oui oui (Garçon)</div>
+      <div class="sep"></div>
+      <div class="jp">ウー、ラ・ラ、アー、ウィ・ウィ（エイ） ウー、ラ・ラ、アー、ウィ・ウィ（アー、ウィ・ウィ） ウー、ラ・ラ、アー、ウィ・ウィ ウー、ラ・ラ、アー、ウィ・ウィ（モン・シェリ、モン・シェリ） ウー、ラ・ラ、アー、ウィ・ウィ（モン・シェリ、モン・シェリ） ウー、ラ・ラ、アー、ウィ・ウィ ウー、ラ・ラ、アー、ウィ・ウィ（モエのボトルが必要だ、さあ来い） ウー、ラ・ラ、アー、ウィ・ウィ（ギャルソン＝ウェイター）</div>
+    </div>
+
+    <div class="block" id="bcta">
+      <div class="cta-sub">全歌詞・完全翻訳はこちら</div>
+      <div class="cta-url">waxthink.com</div>
+    </div>
+    <div id="meta-bar">
+      <div class="meta-artist">RUN THE JEWELS</div>
+      <div class="meta-title-group">
+        <div class="meta-title">ooh la la</div>
+        <div class="meta-rule"></div>
+      </div>
+      <div class="meta-info">2020&#160;&#160;·&#160;&#160;EL-P</div>
+    </div>
+    <div id="fadeout" style="position:absolute;inset:0;background:#000;opacity:0;z-index:20;pointer-events:none;"></div>
+    <style>
+      [data-composition-id="song"]{background:#000;font-family:'Inter',sans-serif;color:#fff;overflow:hidden;}
+      .intro-artist{font-size:200px;font-weight:900;letter-spacing:-0.04em;line-height:1;color:#fff;}
+      .intro-rule{width:0;height:3px;background:#c8a96b;margin:32px 0 28px;}
+      .intro-title{font-size:54px;font-weight:400;color:#999;}
+      .intro-meta{font-size:22px;letter-spacing:0.22em;color:#444;margin-top:18px;text-transform:uppercase;}
+      #watermark{position:absolute;bottom:90px;left:0;right:0;text-align:center;font-size:22px;font-weight:700;color:#333;letter-spacing:0.05em;z-index:10;}
+      #meta-bar{position:absolute;bottom:210px;left:0;right:0;display:flex;flex-direction:column;align-items:center;z-index:10;}
+      .meta-artist{font-size:36px;font-weight:900;color:#fff;letter-spacing:-0.02em;line-height:1;}
+      .meta-title{font-size:34px;font-weight:400;color:#888;letter-spacing:0.02em;margin-top:5px;white-space:nowrap;}
+      .meta-title-group{display:inline-block;}
+      .meta-rule{width:100%;height:2px;background:#c8a96b;margin:10px 0;}
+      .meta-info{font-size:24px;font-weight:400;color:#444;letter-spacing:0.1em;text-transform:uppercase;}
+      .block{position:absolute;top:50%;left:90px;right:90px;transform:translateY(-50%);display:flex;flex-direction:column;align-items:flex-start;opacity:0;}
+      #bintro{top:770px;transform:none;}
+      .en{font-size:72px;font-weight:900;color:#fff;line-height:1.08;letter-spacing:-0.02em;}
+      .sep{width:48px;height:2px;background:#c8a96b;margin:24px 0;flex-shrink:0;}
+      .jp{font-family:'Noto Sans JP',sans-serif;font-size:46px;font-weight:700;color:#c8a96b;line-height:1.45;}
+      .cta-sub{font-family:'Noto Sans JP',sans-serif;font-size:38px;font-weight:400;color:#888;letter-spacing:0.05em;}
+      .cta-url{font-size:96px;font-weight:900;color:#fff;letter-spacing:-0.03em;margin-top:20px;}
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      tl.set(".block",{opacity:0},0);tl.set(".intro-rule",{width:0},0);tl.set("#meta-bar",{opacity:0},0);
+      tl.fromTo("#bintro",{opacity:0,scale:0.95,transformOrigin:"left top"},{opacity:1,scale:1,duration:0.6,ease:"expo.out"},0.1);
+      tl.to(".intro-rule",{width:120,duration:0.5,ease:"expo.out"},0.5);
+      tl.to("#bintro",{scale:0.13,y:1000,transformOrigin:"center top",duration:0.7,ease:"expo.in"},2.0);
+      tl.to("#bintro",{opacity:0,duration:0.3,ease:"power2.in"},2.5);
+      tl.set("#bintro",{opacity:0},2.8);
+      tl.fromTo("#meta-bar",{opacity:0},{opacity:1,duration:0.4,ease:"power2.out"},2.5);
+      function show(id,t,t2){
+        tl.fromTo(id,{opacity:0,y:20},{opacity:1,y:0,duration:0.3,ease:"power2.out"},t);
+        if(t2){tl.to(id,{opacity:0,duration:0.2,ease:"power2.in"},t2-0.2);tl.set(id,{opacity:0},t2);}
+      }
+      show("#b1", 0.5, 5.4);
+      show("#b2", 5.4, 9.0);
+      show("#b3", 9.0, 11.2);
+      show("#b4", 11.2, 17.7);
+      show("#b5", 17.7, 24.0);
+      show("#b6", 24.0, 27.6);
+      show("#b7", 27.6, 33.0);
+      show("#b8", 33.0, 39.0);
+
+      const LAST_LYRIC_END=39.0;
+      tl.fromTo("#bcta",{opacity:0,y:20},{opacity:1,y:0,duration:0.8,ease:"power2.out"},LAST_LYRIC_END+0.5);
+      tl.to("#fadeout",{opacity:1,duration:3.0,ease:"power2.in"},39.0);
+      tl.set("#fadeout",{opacity:1},42);
+      window.__timelines=window.__timelines||{};window.__timelines["song"]=tl;
+    </script>
+  </div>
+</template>

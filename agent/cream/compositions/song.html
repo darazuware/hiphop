@@ -1,0 +1,96 @@
+<template id="song-template">
+  <div data-composition-id="song" data-width="1080" data-height="1920" data-duration="40">
+    <div style="position:absolute;inset:0;background:#000;z-index:0;"></div>
+    <audio id="bg-audio" src="../assets/audio.mp3" data-start="0" data-duration="40"></audio>
+    <div id="watermark">waxthink.com</div>
+    <div class="block" id="bintro">
+      <div class="intro-artist">WU-TANG CLAN</div>
+      <div class="intro-rule" id="intro-rule"></div>
+      <div class="intro-title">C.R.E.A.M.</div>
+      <div class="intro-meta">1994&#160;&#160;·&#160;&#160;RZA</div>
+    </div>
+    <div class="block" id="b1">
+      <div class="en">Cash rules everything around me C.R.E.A.M. Get the money Dollar, dollar bill, y'all</div>
+      <div class="sep"></div>
+      <div class="jp">金が俺の周りのすべてを支配する C.R.E.A.M.（クリーム） 金を手に入れろ ドル札だ、お前ら</div>
+    </div>
+
+    <div class="block" id="b2">
+      <div class="en">It's been twenty-two long hard years of still strugglin' Survival got me buggin', but I'm alive on arrival I peep at the shape of the streets And stay awake to the ways of the world 'cause s*** is deep A man with a dream with plans to make C.R.E.A.M. Which failed; I went to jail at the age of fifteen A young buck sellin' drugs and such who never had much Trying to get a clutch at what I could not... [touch]</div>
+      <div class="sep"></div>
+      <div class="jp">いまだに苦闘し続ける、長く過酷な22年間だった 生き残るための日々で頭がおかしくなりそうだが、俺はここで生きてる 俺はストリートの有り様を観察し この世界のやり方に目を光らせている、事態は極めて深刻だからな C.R.E.A.M.（金）を稼ぐ計画を持った、夢見る一人の男 それは失敗に終わり、俺は15歳で刑務所に入った 何も持っていなかった若造が、ドラッグなんかを売り捌き 俺には［触れる］ことのできないものを、必死に掴み取ろうとしていた</div>
+    </div>
+
+    <div class="block" id="b3">
+      <div class="en">The court played me short, now I face incarceration Pacin', goin' upstate's my destination Handcuffed in back of a bus, forty of us Life as a shorty shouldn't be so rough But as the world turns I learned life is hell Living in the world no different from a cell Every day I escape from Jakes givin' chase, sellin' base Smokin' bones in the staircase</div>
+      <div class="sep"></div>
+      <div class="jp">裁判所に不当な扱いを受け、今や俺は投獄に直面している 檻の中を歩き回る——州立刑務所送りが俺の行き先だ バスの後部座席で手錠をかけられ、俺たち40人が押し込まれている ガキとしての人生が、こんなに過酷であるべきじゃないはずだ だが世界が回るにつれて、人生は地獄だと学んだ この世界で生きることは、独房（セル）で生きるのと何ら変わりない 毎日、追ってくるサツ（Jakes）から逃れ、クラック（base）を売り 階段の踊り場でコカイン入りのジョイント（bones）を吸う</div>
+    </div>
+
+    <div class="block" id="b4">
+      <div class="en">Though I don't know why I chose to smoke sess I guess that's the time when I'm not depressed But I'm still depressed, and I ask what's it worth? Ready to give up so I seek the Old Earth Who explained working hard may help you maintain To learn to overcome the heartaches and pain We got stickup kids, corrupt cops, and crack rocks And stray shots, all on the block that stays hot Leave it up to me while I be livin' proof To kick the truth to the young black youth But shorties runnin' wild smokin' sess, drinkin' beer And ain't tryna hear what I'm kickin' in his ear Neglected for now, but yo, it gots to be accepted That what? That life is hectic</div>
+      <div class="sep"></div>
+      <div class="jp">なぜ極上のハッパ（sess）を吸うことを選んだのか、自分でも分からないが たぶん、その時だけは憂鬱じゃないからだろう でもやっぱり憂鬱で、「こんなことに何の価値がある？」と自問する 諦めかけて、俺は「オールド・アース（母親）」に助言を求めた 彼女は教えてくれた、懸命に働くことが自分を保つ助けになると 心の痛みや苦しみを乗り越える方法を学ぶためにな 俺たちの周りには強盗キッズ、悪徳警官、クラックの塊があり 常に熱を帯びたブロックには、流れ弾が飛び交っている 俺に任せておけ、俺は生き証人として 若い黒人の若者たちに、この真実を叩き込むためにここにいる でもガキどもは野放図に走り回り、ハッパを吸い、ビールを飲み 俺が耳元で説く言葉を聞こうともしない 今は無視されているが、ヨォ、これだけは受け入れなきゃならない 何だって？ この人生（ストリート）は狂騒に満ちている（ヘクティックだ）ってことをな</div>
+    </div>
+
+    <div class="block" id="bcta">
+      <div class="cta-sub">全歌詞・完全翻訳はこちら</div>
+      <div class="cta-url">waxthink.com</div>
+    </div>
+    <div id="meta-bar">
+      <div class="meta-artist">WU-TANG CLAN</div>
+      <div class="meta-title-group">
+        <div class="meta-title">C.R.E.A.M.</div>
+        <div class="meta-rule"></div>
+      </div>
+      <div class="meta-info">1994&#160;&#160;·&#160;&#160;RZA</div>
+    </div>
+    <div id="fadeout" style="position:absolute;inset:0;background:#000;opacity:0;z-index:20;pointer-events:none;"></div>
+    <style>
+      [data-composition-id="song"]{background:#000;font-family:'Inter',sans-serif;color:#fff;overflow:hidden;}
+      .intro-artist{font-size:200px;font-weight:900;letter-spacing:-0.04em;line-height:1;color:#fff;}
+      .intro-rule{width:0;height:3px;background:#c8a96b;margin:32px 0 28px;}
+      .intro-title{font-size:54px;font-weight:400;color:#999;}
+      .intro-meta{font-size:22px;letter-spacing:0.22em;color:#444;margin-top:18px;text-transform:uppercase;}
+      #watermark{position:absolute;bottom:90px;left:0;right:0;text-align:center;font-size:22px;font-weight:700;color:#333;letter-spacing:0.05em;z-index:10;}
+      #meta-bar{position:absolute;bottom:210px;left:0;right:0;display:flex;flex-direction:column;align-items:center;z-index:10;}
+      .meta-artist{font-size:36px;font-weight:900;color:#fff;letter-spacing:-0.02em;line-height:1;}
+      .meta-title{font-size:34px;font-weight:400;color:#888;letter-spacing:0.02em;margin-top:5px;white-space:nowrap;}
+      .meta-title-group{display:inline-block;}
+      .meta-rule{width:100%;height:2px;background:#c8a96b;margin:10px 0;}
+      .meta-info{font-size:24px;font-weight:400;color:#444;letter-spacing:0.1em;text-transform:uppercase;}
+      .block{position:absolute;top:50%;left:90px;right:90px;transform:translateY(-50%);display:flex;flex-direction:column;align-items:flex-start;opacity:0;}
+      #bintro{top:770px;transform:none;}
+      .en{font-size:72px;font-weight:900;color:#fff;line-height:1.08;letter-spacing:-0.02em;}
+      .sep{width:48px;height:2px;background:#c8a96b;margin:24px 0;flex-shrink:0;}
+      .jp{font-family:'Noto Sans JP',sans-serif;font-size:46px;font-weight:700;color:#c8a96b;line-height:1.45;}
+      .cta-sub{font-family:'Noto Sans JP',sans-serif;font-size:38px;font-weight:400;color:#888;letter-spacing:0.05em;}
+      .cta-url{font-size:96px;font-weight:900;color:#fff;letter-spacing:-0.03em;margin-top:20px;}
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      tl.set(".block",{opacity:0},0);tl.set(".intro-rule",{width:0},0);tl.set("#meta-bar",{opacity:0},0);
+      tl.fromTo("#bintro",{opacity:0,scale:0.95,transformOrigin:"left top"},{opacity:1,scale:1,duration:0.6,ease:"expo.out"},0.1);
+      tl.to(".intro-rule",{width:120,duration:0.5,ease:"expo.out"},0.5);
+      tl.to("#bintro",{scale:0.13,y:1000,transformOrigin:"center top",duration:0.7,ease:"expo.in"},2.0);
+      tl.to("#bintro",{opacity:0,duration:0.3,ease:"power2.in"},2.5);
+      tl.set("#bintro",{opacity:0},2.8);
+      tl.fromTo("#meta-bar",{opacity:0},{opacity:1,duration:0.4,ease:"power2.out"},2.5);
+      function show(id,t,t2){
+        tl.fromTo(id,{opacity:0,y:20},{opacity:1,y:0,duration:0.3,ease:"power2.out"},t);
+        if(t2){tl.to(id,{opacity:0,duration:0.2,ease:"power2.in"},t2-0.2);tl.set(id,{opacity:0},t2);}
+      }
+      show("#b1", 3.6, 14.0);
+      show("#b2", 14.0, 23.0);
+      show("#b3", 23.0, 31.5);
+      show("#b4", 31.5, 36.5);
+
+      const LAST_LYRIC_END=36.5;
+      tl.fromTo("#bcta",{opacity:0,y:20},{opacity:1,y:0,duration:0.8,ease:"power2.out"},LAST_LYRIC_END+0.5);
+      tl.to("#fadeout",{opacity:1,duration:3.0,ease:"power2.in"},37.0);
+      tl.set("#fadeout",{opacity:1},40);
+      window.__timelines=window.__timelines||{};window.__timelines["song"]=tl;
+    </script>
+  </div>
+</template>
