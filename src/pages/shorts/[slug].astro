@@ -29,6 +29,7 @@ const { short } = Astro.props;
       <video
         id="main-video"
         src={`/shorts/${short.file}.mp4`}
+        poster={`/images/shorts/${short.slug}.jpg`}
         loop
         playsinline
         preload="auto"
