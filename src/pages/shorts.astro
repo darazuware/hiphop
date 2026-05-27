@@ -1,15 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-
-const shorts = [
-  { file: 'nas-is-like-minimal', songSlug: '/songs/nas-is-like',          title: 'Nas Is Like',         artist: 'Nas',            year: 1999, producer: 'DJ Premier'  },
-  { file: 'ny-state-of-mind',    songSlug: '/songs/ny-state-of-mind',     title: 'N.Y. State of Mind',  artist: 'Nas',            year: 1994, producer: 'DJ Premier'  },
-  { file: 'i-can',               songSlug: '/songs/i-can',                title: 'I Can',               artist: 'Nas',            year: 2002, producer: 'Salaam Remi' },
-  { file: 'if-i-ruled-the-world',songSlug: '/songs/if-i-ruled-the-world', title: 'If I Ruled the World',artist: 'Nas',            year: 1996, producer: 'Trackmasters'},
-  { file: 'cream',               songSlug: '/songs/cream',                title: 'C.R.E.A.M.',          artist: 'Wu-Tang Clan',   year: 1994, producer: 'RZA'         },
-  { file: 'ooh-la-la',           songSlug: '/songs/ooh-la-la',            title: 'ooh la la',           artist: 'Run The Jewels', year: 2020, producer: 'El-P'         },
-  { file: 'the-1st-time',        songSlug: '/songs/the-1st-time',         title: 'The 1st Time',        artist: 'Jamo Gang',      year: 2020, producer: 'DJ Premier'  },
-];
+import { shorts } from '../data/shorts';
 ---
 
 <Layout
@@ -26,8 +17,9 @@ const shorts = [
 
     <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
       {shorts.map(s => (
-        <div
-          class="short-card group relative block rounded-xl overflow-hidden bg-[var(--c-surface)] border border-[var(--c-border)] hover:border-[var(--c-gold)] transition-colors duration-200 cursor-pointer"
+        <a
+          href={`/shorts/${s.slug}`}
+          class="short-card group relative block rounded-xl overflow-hidden bg-[var(--c-surface)] border border-[var(--c-border)] hover:border-[var(--c-gold)] transition-colors duration-200"
           style="aspect-ratio:9/16"
         >
           <video
@@ -39,24 +31,12 @@ const shorts = [
             class="w-full h-full object-cover pointer-events-none"
           />
           <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/10 to-transparent pointer-events-none" />
-          <!-- Play icon (shown when paused) -->
-          <div class="play-icon absolute inset-0 flex items-center justify-center pointer-events-none transition-opacity duration-200">
-            <div class="w-14 h-14 rounded-full bg-black/50 border border-white/30 flex items-center justify-center">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-            </div>
-          </div>
-          <!-- 記事リンク -->
-          <a
-            href={s.songSlug}
-            class="absolute top-2 right-2 bg-black/60 text-[var(--c-gold)] text-[10px] font-mono px-2 py-1 rounded-full border border-[var(--c-gold)]/40 hover:bg-[var(--c-gold)] hover:text-black transition-colors z-10"
-            onclick="event.stopPropagation()"
-          >記事→</a>
           <div class="absolute bottom-0 left-0 right-0 p-3 pointer-events-none">
             <div class="text-[var(--c-gold)] text-[9px] uppercase tracking-widest font-mono mb-1 truncate">{s.artist}</div>
             <div class="text-white text-sm font-bold leading-tight mb-1 line-clamp-2">{s.title}</div>
             <div class="text-[#555] text-[10px] font-mono truncate">{s.year}&nbsp;·&nbsp;{s.producer}</div>
           </div>
-        </div>
+        </a>
       ))}
     </div>
 
@@ -66,21 +46,8 @@ const shorts = [
 <script>
   document.querySelectorAll<HTMLElement>('.short-card').forEach(card => {
     const video = card.querySelector('video') as HTMLVideoElement;
-    const icon = card.querySelector('.play-icon') as HTMLElement;
     if (!video) return;
-
-    const showIcon = () => { if (icon) icon.style.opacity = '1'; };
-    const hideIcon = () => { if (icon) icon.style.opacity = '0'; };
-
-    video.addEventListener('play',  hideIcon);
-    video.addEventListener('pause', showIcon);
-
-    // hover: play/pause
     card.addEventListener('mouseenter', () => video.play().catch(() => {}));
     card.addEventListener('mouseleave', () => { video.pause(); video.currentTime = 0; });
-    // tap/click: toggle play/pause
-    card.addEventListener('click', () => {
-      if (video.paused) { video.play().catch(() => {}); } else { video.pause(); }
-    });
   });
 </script>
