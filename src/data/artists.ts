@@ -1,5 +1,14 @@
 export const artists = [
   {
+    slug: 'quasimoto',
+    name: 'Quasimoto',
+    origin: 'Oxnard, California',
+    active: '1999–',
+    genre: 'West Coast Hip-Hop / alternative hip-hop / experimental',
+    summary: 'Madlib（本名Otis Jackson Jr.）がカリフォルニア州オックスナードで生み出したオルター・エゴ・プロジェクト。自身の深いバリトンボイスをピッチアップして作った甲高い「Lord Quas」の声が特徴。Stones Throw Recordsから2000年に『The Unseen』でデビューし、世界中のビートメイカーとアンダーグラウンドHHファンに絶大な影響を与えた。商業主義を拒否し、膨大なレコードコレクションに基づくサンプリング芸術の極北を追求する姿勢はJ Dillaと並ぶビートシーンの礎となった。',
+    japan: '日本ではMadvillain（MF DOOMとのコラボ）と並んでQuasimotoもディープなHHファンに広く知られる。Stones Throw盤はレコードコレクターの間で高値で取引され、「crate digging（クレートディギング）」文化の浸透とともに東京・大阪のレコードショップでも存在感を示す。J Dilla・MF DOOMと並ぶアンダーグラウンドHHの聖典として語り継がれる。',
+  },
+  {
     slug: 'raekwon',
     name: 'Raekwon',
     origin: 'Staten Island, New York',
