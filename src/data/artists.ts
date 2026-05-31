@@ -467,6 +467,15 @@ export const artists = [
     summary: '本名Brandon Paak Anderson。カリフォルニア州オクスナード出身のシンガー・ラッパー・マルチプレイヤー。ドラムを叩きながらラップ・歌唱するライブパフォーマンスで一躍注目を集め、2016年の2ndアルバム『Malibu』でグラミー賞にノミネートされ世界的な評価を確立。ソウル・ファンク・ジャズ・ヒップホップを縦横無尽に横断する音楽性と、Hi-Tek・Knxwledge・9th Wonderら気鋭プロデューサーとの協働で独自の「ウェストコースト・ソウルHH」を定義した。2021年にはBruno MarsとのユニットSilk Sonicで「Leave the Door Open」が全米1位を獲得しグラミー賞4部門を受賞。代表作に「Come Down」「Tints」「Bubblin」など。',
     japan: '2010年代後半からJ-Soul・ネオソウル好きを中心に急速に支持を拡大。ドラムを叩きながら歌うライブ映像がSNSで拡散し、「生演奏×ラップ×ソウル」というハイブリッドな音楽性が日本のシティポップ・R&Bリスナーにも深く刺さった。Silk Sonicのグラミー制覇で知名度が一層高まり、現在も日本のリスナーから最も愛されるコンテンポラリーR&Bアーティストの一人。',
   },
+  {
+    slug: 'the-alchemist',
+    name: 'The Alchemist',
+    origin: 'Beverly Hills, California',
+    active: '1994–',
+    genre: 'East Coast Hip-Hop / Boom Bap / Underground Hip-Hop',
+    summary: '本名Alan Daniel Maman。カリフォルニア州ビバリーヒルズ出身。14歳でScott Caan（俳優James Caanの息子）とラップデュオThe Whooliganzを結成し、Cypress HillのB-Realに見出されてSoul Assassinsクルーの一員となる。DJ Muggsの薫陶を受けてビートメイクを習得し、Dilated PeoplesらLAアンダーグラウンドのプロデュースを経てNYへ移住。Mobb Deep・Prodigyとの強固な絆を築き、2004年のデビューアルバム『1st Infantry』でプロデューサーが全体をキュレーションする「プロデューサー主導型アルバム」の先駆けとなった。Ensoniq ASR-10から生み出される独特の質感と、70年代ソウル・ジャズをチョップする哀愁のビートで知られる。Freddie Gibbs、Earl Sweatshirt、Action Bronsonら多数のラッパーとのコラボ作品でも絶賛され、Erykah Baduとのコラボ作『Abi & Alan』（2025年）など今なお精力的に活動中。',
+    japan: '2004年の「Hold You Down」リリース後、専門誌『blast』のレビューで絶賛され、渋谷のマンハッタンレコードやシスコの輸入盤12インチが瞬く間に完売。日本のプロデューサーhokutoは「高校生の時にThe Alchemistのスタイルに衝撃を受けタワーレコードへ走った」と証言。JJJは「彼がいなければ自分はヒップホップの世界で生きていこうとは思わなかった」と語り、来日時にマンハッタンレコードへサインをもらいに走った逸話を持つ。2023年12月に東京・大阪で来日公演を行い、2025年にはErykah Baduとの来日ツアー（Billboard Live Tokyo/Osaka、KT Zepp Yokohama）も開催された。',
+  },
 ] as const;
 
 export type Artist = typeof artists[number];
