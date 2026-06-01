@@ -136,6 +136,7 @@ const resolvedSchema = schema ?? defaultSchema;
         </a>
         <a href="/slang" class={`text-xs px-2 py-1 rounded transition-colors ${pathname === '/slang' ? 'text-[var(--c-text)]' : 'text-[var(--c-very-dim)] hover:text-[var(--c-muted)]'}`}>スラング</a>
         <a href="/shorts" class={`text-xs px-2 py-1 rounded transition-colors ${pathname === '/shorts' ? 'text-[var(--c-text)]' : 'text-[var(--c-very-dim)] hover:text-[var(--c-muted)]'}`}>ショート</a>
+        <a href="/videos" class={`text-xs px-2 py-1 rounded transition-colors ${pathname.startsWith('/videos') ? 'text-[var(--c-text)]' : 'text-[var(--c-very-dim)] hover:text-[var(--c-muted)]'}`}>動画</a>
       </nav>
       <div class="flex items-center gap-2">
         <a href="/" class="text-[var(--c-muted)] hover:text-[var(--c-gold)] transition-colors text-xs flex items-center gap-1.5 px-2 py-1 rounded border border-[var(--c-border)]">
@@ -169,6 +170,10 @@ const resolvedSchema = schema ?? defaultSchema;
         <a href="/shorts" class="flex items-center gap-2 text-sm py-2 px-2 rounded-lg text-[var(--c-muted)] hover:bg-[var(--c-surface)] hover:text-[var(--c-text)] transition-colors">
           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"/><line x1="7" x2="7" y1="2" y2="22"/><line x1="17" x2="17" y1="2" y2="22"/><line x1="2" x2="22" y1="12" y2="12"/><line x1="2" x2="7" y1="7" y2="7"/><line x1="2" x2="7" y1="17" y2="17"/><line x1="17" x2="22" y1="17" y2="17"/><line x1="17" x2="22" y1="7" y2="7"/></svg>
           ショート動画
+        </a>
+        <a href="/videos" class="flex items-center gap-2 text-sm py-2 px-2 rounded-lg text-[var(--c-muted)] hover:bg-[var(--c-surface)] hover:text-[var(--c-text)] transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+          動画和訳
         </a>
         <a href="/about" class="flex items-center gap-2 text-sm py-2 px-2 rounded-lg text-[var(--c-muted)] hover:bg-[var(--c-surface)] hover:text-[var(--c-text)] transition-colors">
           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
