@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.waxthink.publish-video</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>/opt/homebrew/bin/node</string>
+    <string>/Users/ktamatzmoto/Desktop/hiphop/agent/src/publish-next-video.mjs</string>
+  </array>
+
+  <key>WorkingDirectory</key>
+  <string>/Users/ktamatzmoto/Desktop/hiphop</string>
+
+  <key>StartCalendarInterval</key>
+  <dict>
+    <!-- 毎日 09:00 に起動、publish-next-video.mjs 側で2日おき制御 -->
+    <key>Hour</key>
+    <integer>9</integer>
+    <key>Minute</key>
+    <integer>0</integer>
+  </dict>
+
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>PATH</key>
+    <string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string>
+    <key>HOME</key>
+    <string>/Users/ktamatzmoto</string>
+  </dict>
+
+  <key>StandardOutPath</key>
+  <string>/tmp/waxthink-publish-video.log</string>
+
+  <key>StandardErrorPath</key>
+  <string>/tmp/waxthink-publish-video-err.log</string>
+
+  <key>RunAtLoad</key>
+  <false/>
+</dict>
+</plist>
