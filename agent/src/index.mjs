@@ -10,12 +10,82 @@
  */
 
 import 'dotenv/config';
+
+// Homebrew PATH（nohup起動時にPATHが引き継がれないため明示的に追加）
+process.env.PATH = `/opt/homebrew/bin:/usr/local/bin:${process.env.PATH}`;
 import { mkdir, writeFile, readFile, unlink } from 'node:fs/promises';
-import { join } from 'node:path';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { execSync } from 'node:child_process';
 import { getUpdates, sendMessage, parseMessage } from './telegram.mjs';
 import { runResearch, extractMetadata } from './research.mjs';
 import { fetchLyrics } from './genius.mjs';
 import { processAndDeploy } from './processor.mjs';
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const ROOT = join(__dirname, '../..');
+
+/** /short コマンドを処理 */
+async function handleShortCommand(slug, chatId) {
+  await sendMessage(`🎬 ショート生成開始: \`${slug}\``, chatId);
+  try {
+    execSync(
+      `node "${join(__dirname, 'generate-short.mjs')}" --slug "${slug}" --duration 55`,
+      { cwd: ROOT, stdio: 'pipe', timeout: 600_000 }
+    );
+    await sendMessage(`✅ ショート生成完了: ${slug}`, chatId);
+  } catch (e) {
+    const detail = e.stderr?.toString().slice(-300) || e.message.slice(0, 300);
+    await sendMessage(`❌ ショート生成失敗: ${slug}\n${detail}`, chatId);
+  }
+}
+
+/** YouTube URL → 動画記事生成 → キューに追加 */
+async function handleVideoCommand(youtubeUrl, chatId) {
+  await sendMessage(`📹 動画記事生成開始...\n\`${youtubeUrl}\``, chatId);
+  try {
+    const output = execSync(
+      `node "${join(__dirname, 'generate-video-article.mjs')}" "${youtubeUrl}"`,
+      { cwd: ROOT, stdio: 'pipe', timeout: 300_000, encoding: 'utf-8' }
+    );
+    // slug を出力から抽出
+    const slugMatch = output.match(/スラッグ: (.+)/);
+    const slug = slugMatch?.[1]?.trim() || '（不明）';
+    await sendMessage(
+      `✅ キューに追加しました\nスラッグ: \`${slug}\`\n\n公開は2日おきに自動実行されます。\n今すぐ公開: \`/publishvideo\``,
+      chatId
+    );
+  } catch (e) {
+    const detail = (e.stderr?.toString() || e.message).slice(-400);
+    await sendMessage(`❌ 動画記事生成失敗\n${detail}`, chatId);
+  }
+}
+
+/** /publishvideo コマンド → キュー先頭を即時公開 */
+async function handlePublishVideoCommand(chatId) {
+  await sendMessage(`📢 動画記事を公開中...`, chatId);
+  try {
+    const output = execSync(
+      `node "${join(__dirname, 'publish-next-video.mjs')}" --force`,
+      { cwd: ROOT, stdio: 'pipe', timeout: 120_000, encoding: 'utf-8' }
+    );
+    const urlMatch = output.match(/https:\/\/waxthink\.com\/videos\/\S+/);
+    const url = urlMatch?.[0] || '';
+    await sendMessage(`✅ 公開完了${url ? `\n${url}` : ''}`, chatId);
+  } catch (e) {
+    const detail = (e.stderr?.toString() || e.message).slice(-400);
+    await sendMessage(`❌ 公開失敗\n${detail}`, chatId);
+  }
+}
+
+/** /status コマンドを処理 */
+async function handleStatusCommand(chatId) {
+  const { readdirSync } = await import('node:fs');
+  const shortsDir = join(ROOT, 'public/shorts');
+  const songsDir = join(ROOT, 'src/pages/songs');
+  const shorts = readdirSync(shortsDir).filter(f => f.endsWith('.mp4')).length;
+  const total = readdirSync(songsDir).filter(f => f.endsWith('.astro')).length;
+  await sendMessage(`📊 ショート動画: ${shorts}/${total} 曲生成済み`, chatId);
+}
 
 // 多重起動防止ロック
 const LOCK_FILE = '/tmp/hiphop-agent.lock';
@@ -201,21 +271,56 @@ async function main() {
 
         const chatId = update.message.chat.id;
 
-        // メッセージパース（複数行対応）
-        const songs = parseMessage(text);
-        if (!songs) {
-          console.log(`⏭ スキップ（形式不一致）: "${text}"`);
+        // /short <slug> コマンド
+        if (text.startsWith('/short ')) {
+          const slug = text.slice(7).trim();
+          handleShortCommand(slug, chatId).catch(() => {});
           continue;
         }
 
-        // 並列処理（各曲は独立して処理、watcher側でキューイングされる）
-        for (const song of songs) {
-          processSong(song, chatId).catch((error) => {
-            console.error(`処理エラー: ${error.message}`);
-            const safeError = String(error.message).slice(0, 200);
-            sendMessage(`❌ 処理エラー: ${safeError}`, chatId).catch(() => {});
-          });
+        // /status コマンド
+        if (text.trim() === '/status') {
+          handleStatusCommand(chatId).catch(() => {});
+          continue;
         }
+
+        // /publishvideo コマンド
+        if (text.trim() === '/publishvideo') {
+          handlePublishVideoCommand(chatId).catch(() => {});
+          continue;
+        }
+
+        // YouTube URL → 動画記事生成
+        const youtubeMatch = text.match(/https?:\/\/(?:www\.)?(?:youtube\.com\/watch\?v=|youtu\.be\/)[\w-]+/);
+        if (youtubeMatch) {
+          handleVideoCommand(youtubeMatch[0], chatId).catch(() => {});
+          continue;
+        }
+
+        // 曲記事生成パース（"Artist - Song [Year]" 形式）
+        const songs = parseMessage(text);
+        if (songs) {
+          for (const song of songs) {
+            processSong(song, chatId).catch((error) => {
+              console.error(`処理エラー: ${error.message}`);
+              sendMessage(`❌ 処理エラー: ${String(error.message).slice(0, 200)}`, chatId).catch(() => {});
+            });
+          }
+          continue;
+        }
+
+        // それ以外 → コマンドメニュー
+        sendMessage(
+          `📋 *コマンド一覧*\n\n` +
+          `🎵 \`Artist - Song [Year]\` → 曲記事を自動生成\n` +
+          `🎬 \`/short <slug>\` → ショート動画を生成\n` +
+          `📹 YouTube URL → 動画翻訳記事をキューに追加\n` +
+          `📢 \`/publishvideo\` → キュー先頭を今すぐ公開\n` +
+          `📊 \`/status\` → ショート生成状況を確認\n\n` +
+          `例: \`Wu-Tang Clan - C.R.E.A.M. [1994]\`\n` +
+          `例: \`https://www.youtube.com/watch?v=XXXX\``,
+          chatId
+        ).catch(() => {});
       }
     } catch (error) {
       console.error(`ポーリングエラー: ${error.message}`);
