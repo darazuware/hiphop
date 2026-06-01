@@ -1,8 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { songs } from '../data/songs';
+import { artists } from '../data/artists';
+
+const totalSongs = songs.length;
+const totalArtists = artists.length;
 ---
 
-<Layout title="About — WAX&THINK 歌詞和訳・スラング解説" description="WAX&THINKは、1990年代を中心とするヒップホップ名曲の歌詞和訳・スラング解説・文化背景を日本語で提供するサイトです。">
+<Layout title="About — WAX&THINK 歌詞和訳・スラング解説" description="WAX&THINKは、1990年代を中心とするヒップホップ名曲の歌詞和訳・スラング解説・文化背景を日本語で提供するサイトです。運営者のヒップホップへの思いと、このサイトを作った理由を紹介しています。">
   <div class="max-w-2xl mx-auto px-4 py-12">
 
     <header class="mb-10">
@@ -14,11 +19,29 @@ import Layout from '../layouts/Layout.astro';
     </header>
 
     <section class="space-y-6 mb-12">
+
       <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
-        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">Mission</p>
-        <h2 class="font-semibold text-base mb-3">このサイトの目的</h2>
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">Story</p>
+        <h2 class="font-semibold text-base mb-3">このサイトを作った理由</h2>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed mb-3">
+          はじめてNasの「N.Y. State of Mind」を聴いたのは中学生のころだった。ビートの重さと、流れるようなフロウの存在感は伝わった。でも歌詞の意味はほとんどわからなかった。辞書を引いてもスラングは載っていないし、翻訳サイトに入れると意味不明な日本語が返ってくる。
+        </p>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed mb-3">
+          その後、英語を学ぶにつれ、少しずつ歌詞が読めるようになった。すると、単なる「カッコいい音楽」だと思っていた曲が、それぞれにリアルな物語を持っていることがわかってきた。NYの貧困、ドラッグ、暴力、そして生き残ることの意味——ブリッジの一行、ヴァースの一語に、ライムとして圧縮された時代と場所があった。
+        </p>
         <p class="text-[var(--c-muted)] text-sm leading-relaxed">
-          ヒップホップの歌詞は英語のスラング・AAVE（Black Vernacular English）・固有名詞・文化的コンテキストが複雑に絡み合っており、直訳では意味が伝わりません。本サイトは、C.R.E.A.M.・Nasなど1990年代を中心とする名曲を「歌詞の一語一語が持つ意味」「背景にある文化・歴史」まで踏み込んで日本語で解説することを目的としています。
+          「この面白さを、英語の得意でない人にも届けたい」——それがWAX&amp;THINKを始めた理由だ。単なる和訳ではなく、スラングの意味、サンプリングの出典、歴史的背景まで含めた「歌詞の完全解読」を目指している。
+        </p>
+      </div>
+
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">Approach</p>
+        <h2 class="font-semibold text-base mb-3">解説のアプローチ</h2>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed mb-3">
+          ヒップホップの歌詞は、英語の標準的な語彙だけでは読めない。AAVE（アフリカ系アメリカ人英語）、路上スラング、地名・人名・映画・聖書からの引用——これらが重層的に絡み合っている。さらに、歌詞のリアリティは当時の社会的・地理的文脈とセットでなければ理解できない。
+        </p>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          このサイトでは、各センテンスに「英語原文 → 日本語訳 → 解説」の3段階を設けている。解説では、なぜその言葉が選ばれたか、その表現が当時の文化でどんな意味を持っていたかまで踏み込む。歌詞を「わかる」のではなく「体感する」ための解説を心がけている。
         </p>
       </div>
 
@@ -33,7 +56,18 @@ import Layout from '../layouts/Layout.astro';
           <li>· チャート成績・評価・後世への影響</li>
         </ul>
         <p class="text-[var(--c-very-dim)] text-xs mt-4">
-          現在 64曲・100+ スラング用語を収録。随時追加予定。
+          現在 {totalSongs}曲・{totalArtists}アーティスト・150+ スラング用語を収録。随時追加予定。
+        </p>
+      </div>
+
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">Selection</p>
+        <h2 class="font-semibold text-base mb-3">曲の選び方</h2>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed mb-3">
+          基本的には「歌詞に解説の余地がある曲」を選んでいる。スラングが豊富な曲、歴史的・文化的な文脈が重要な曲、サンプリングの背景が面白い曲——そういった、「訳すだけでは伝わらない」ものを優先している。
+        </p>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          1990年代のゴールデンエラを中心としているのは、この時代の楽曲が特にリリシズムとストリートリアリズムの密度が高く、解説しがいがあるからだ。Wu-Tang Clan、Nas、Notorious B.I.G.、2Pac、A Tribe Called Questなど、今も語り継がれる名曲を順次追加している。
         </p>
       </div>
 
@@ -41,7 +75,7 @@ import Layout from '../layouts/Layout.astro';
         <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">Contact</p>
         <h2 class="font-semibold text-base mb-3">お問い合わせ</h2>
         <p class="text-[var(--c-muted)] text-sm leading-relaxed mb-4">
-          誤訳・スラングの解釈の誤り・掲載リクエストなどはお問い合わせフォームよりご連絡ください。
+          誤訳・スラングの解釈の誤り・掲載リクエストなどはお問い合わせフォームよりご連絡ください。スラングや文化的文脈についての補足情報・指摘も歓迎しています。
         </p>
         <a href="/contact" class="inline-block text-xs text-[var(--c-gold)] border border-[var(--c-gold)] rounded px-3 py-1.5 hover:bg-[var(--c-gold)] hover:text-[var(--c-bg)] transition-colors uppercase tracking-widest">
           お問い合わせフォームへ →
@@ -50,11 +84,15 @@ import Layout from '../layouts/Layout.astro';
 
       <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
         <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">Disclaimer</p>
-        <h2 class="font-semibold text-base mb-3">免責事項</h2>
+        <h2 class="font-semibold text-base mb-3">免責事項・著作権について</h2>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed mb-3">
+          本サイトに掲載する歌詞の引用は著作権法第32条に基づく引用の範囲内で行っています。引用箇所はすべて原著作物を明示し、解説・批評目的での使用に限定しています。
+        </p>
         <p class="text-[var(--c-muted)] text-sm leading-relaxed">
-          本サイトに掲載する歌詞の引用は著作権法第32条に基づく引用の範囲内で行っています。解説・和訳はサイト運営者による独自の研究・見解であり、アーティスト・レーベルの公式見解ではありません。情報の正確性には最大限努めていますが、誤りが含まれる可能性があります。
+          解説・和訳はサイト運営者による独自の研究・見解であり、アーティスト・レーベルの公式見解ではありません。情報の正確性には最大限努めていますが、誤りが含まれる可能性があります。誤りを発見した場合はお問い合わせフォームよりご連絡ください。
         </p>
       </div>
+
     </section>
 
   </div>
