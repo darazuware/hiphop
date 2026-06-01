@@ -1,0 +1,271 @@
+---
+import Layout from './Layout.astro';
+import ExplanationToggle from '../components/ExplanationToggle.astro';
+import { videos } from '../data/videos';
+import { artists } from '../data/artists';
+import { songs } from '../data/songs';
+
+interface Props {
+  title: string;
+  description: string;
+  slug: string;
+  highlights?: [string, string, string];
+}
+
+const { title, description, slug, highlights } = Astro.props;
+
+const video = videos.find(v => v.slug === slug);
+const artist = video ? artists.find(a => a.slug === video.artistSlug) : null;
+const relatedSongs = video
+  ? songs.filter(s => s.artistSlug === video.artistSlug).slice(0, 3)
+  : [];
+
+const typeLabel: Record<string, string> = {
+  freestyle: 'Freestyle',
+  interview: 'Interview',
+  cypher: 'Cypher',
+  live: 'Live',
+  documentary: 'Documentary',
+};
+---
+
+<Layout title={title} description={description}>
+  <div id="progress-bar" class="fixed top-0 left-0 h-0.5 bg-[var(--c-gold)] z-50 transition-none" style="width:0%"></div>
+
+  <button
+    id="back-to-top"
+    aria-label="ページ先頭へ"
+    class="lg:hidden fixed bottom-20 right-4 z-40 w-12 h-12 rounded-full bg-[var(--c-surface)] border border-[var(--c-gold)]/60 text-[var(--c-gold)] text-lg flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 shadow-md"
+  >↑</button>
+
+  <div id="exp-float" class="fixed bottom-6 right-4 z-40 flex rounded-full overflow-hidden border border-[var(--c-border)] bg-[var(--c-surface)]/90 backdrop-blur-sm shadow-lg font-mono text-[10px]">
+    <button data-e="tap" class="exp-btn exp-float-btn px-3 py-2 transition-colors">タップ</button>
+    <button data-e="always" class="exp-btn exp-float-btn px-3 py-2 transition-colors border-l border-[var(--c-border)]">常時</button>
+  </div>
+
+  <div class="max-w-5xl mx-auto px-4 py-8 lg:grid lg:grid-cols-[1fr_260px] lg:gap-12 lg:items-start">
+
+    <div>
+      <header class="mb-8">
+        <div class="flex items-center gap-2 mb-3">
+          <a href="/videos" class="text-xs text-[var(--c-very-dim)] hover:text-[var(--c-gold)] transition-colors uppercase tracking-widest">← 動画一覧</a>
+          {video && (
+            <span class="text-xs px-2 py-0.5 rounded border border-[var(--c-gold)]/40 text-[var(--c-gold)] uppercase tracking-widest">
+              {typeLabel[video.type] ?? video.type}
+            </span>
+          )}
+        </div>
+        <h1 class="text-2xl md:text-3xl font-bold leading-tight mb-4">{title}</h1>
+        {video?.pubDate && (
+          <time datetime={video.pubDate} class="block text-[var(--c-very-dim)] text-xs mb-4">
+            公開: {new Date(video.pubDate).toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' })}
+          </time>
+        )}
+        {video && (
+          <dl class="grid grid-cols-2 gap-x-4 gap-y-1 text-xs text-[var(--c-muted)] border border-[var(--c-border)] rounded-lg p-4 bg-[var(--c-surface)]">
+            <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">アーティスト</dt>
+            <dd>
+              {artist
+                ? <a href={`/artists/${video.artistSlug}`} class="hover:text-[var(--c-gold)] transition-colors underline underline-offset-2">{video.artists}</a>
+                : video.artists
+              }
+            </dd>
+            <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">年</dt>
+            <dd>{video.year}</dd>
+            <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">種別</dt>
+            <dd>{typeLabel[video.type] ?? video.type}</dd>
+          </dl>
+        )}
+      </header>
+
+      {highlights && (
+        <section class="mb-8 p-4 border border-[var(--c-gold)]/30 rounded-lg bg-[var(--c-surface)] lg:hidden">
+          <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">この記事の見どころ</p>
+          <ol class="space-y-2">
+            {highlights.map((h, i) => (
+              <li class="flex gap-3 text-sm">
+                <span class="text-[var(--c-gold)] font-black tabular-nums shrink-0">{String(i + 1).padStart(2, '0')}</span>
+                <span class="text-[var(--c-muted)]">{h}</span>
+              </li>
+            ))}
+          </ol>
+        </section>
+      )}
+
+      {video && (
+        <div class="mb-8 aspect-video w-full rounded-lg overflow-hidden">
+          <iframe
+            loading="lazy"
+            class="w-full h-full"
+            src={`https://www.youtube.com/embed/${video.youtubeId}`}
+            title={title}
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+      )}
+
+      <ExplanationToggle />
+      <slot />
+
+      {artist && (
+        <section class="mb-10 mt-4 lg:hidden">
+          <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-4 border-b border-[var(--c-border)] pb-2">
+            アーティストについて
+          </h2>
+          <a href={`/artists/${artist.slug}`} class="block p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg hover:border-[var(--c-gold)] transition-colors group">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="font-semibold mb-1 group-hover:text-[var(--c-gold)] transition-colors">{artist.name}</p>
+                <p class="text-[var(--c-dim)] text-xs">{artist.origin} · {artist.active}</p>
+                <p class="text-[var(--c-muted)] text-sm mt-2 leading-relaxed line-clamp-2">{artist.summary}</p>
+              </div>
+              <span class="text-[var(--c-very-dim)] text-lg ml-4 shrink-0">→</span>
+            </div>
+          </a>
+        </section>
+      )}
+
+      {relatedSongs.length > 0 && (
+        <section class="mb-10 lg:hidden">
+          <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-4 border-b border-[var(--c-border)] pb-2">
+            同アーティストの曲記事
+          </h2>
+          <ul class="space-y-3">
+            {relatedSongs.map(s => (
+              <li>
+                <a href={s.slug} class="flex items-center justify-between p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg hover:border-[var(--c-gold)] transition-colors">
+                  <div>
+                    <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-0.5">{s.subtitle}</p>
+                    <p class="font-semibold">{s.title} 和訳・意味解説</p>
+                  </div>
+                  <span class="text-[var(--c-very-dim)] text-lg">→</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      <div class="border-t border-[var(--c-border)] pt-6 flex items-center justify-between flex-wrap gap-4">
+        <div class="flex items-center gap-4">
+          <a href="/" class="text-xs text-[var(--c-very-dim)] hover:text-[var(--c-gold)] transition-colors uppercase tracking-widest">← WAX&amp;THINK トップへ</a>
+          <a href="/videos" class="text-xs text-[var(--c-very-dim)] hover:text-[var(--c-gold)] transition-colors uppercase tracking-widest">動画一覧 →</a>
+        </div>
+        <div class="flex items-center gap-2">
+          <a
+            href={`https://x.com/intent/tweet?text=${encodeURIComponent(`${title} | WAX&THINK`)}&url=${encodeURIComponent(`https://waxthink.com/videos/${slug}`)}`}
+            target="_blank"
+            rel="noopener"
+            class="inline-flex items-center gap-2 text-xs text-[var(--c-very-dim)] hover:text-[var(--c-gold)] transition-colors border border-[var(--c-border)] hover:border-[var(--c-gold)] rounded px-3 py-1.5"
+          >
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            X
+          </a>
+          <button
+            id="share-btn"
+            class="inline-flex items-center gap-2 text-xs text-[var(--c-very-dim)] hover:text-[var(--c-gold)] transition-colors border border-[var(--c-border)] hover:border-[var(--c-gold)] rounded px-3 py-1.5"
+          >
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+            <span id="share-label">共有</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sidebar (desktop only) -->
+    <aside class="hidden lg:block">
+      <div class="sticky top-8 space-y-6">
+
+        {highlights && (
+          <section class="p-4 border border-[var(--c-gold)]/30 rounded-lg bg-[var(--c-surface)]">
+            <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">この記事の見どころ</p>
+            <ol class="space-y-2">
+              {highlights.map((h, i) => (
+                <li class="flex gap-3 text-sm">
+                  <span class="text-[var(--c-gold)] font-black tabular-nums shrink-0">{String(i + 1).padStart(2, '0')}</span>
+                  <span class="text-[var(--c-muted)]">{h}</span>
+                </li>
+              ))}
+            </ol>
+          </section>
+        )}
+
+        {artist && (
+          <section>
+            <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3 border-b border-[var(--c-border)] pb-2">
+              アーティストについて
+            </h2>
+            <a href={`/artists/${artist.slug}`} class="block p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg hover:border-[var(--c-gold)] transition-colors group">
+              <p class="font-semibold mb-1 group-hover:text-[var(--c-gold)] transition-colors text-sm">{artist.name}</p>
+              <p class="text-[var(--c-dim)] text-xs">{artist.origin} · {artist.active}</p>
+              <p class="text-[var(--c-muted)] text-xs mt-2 leading-relaxed line-clamp-3">{artist.summary}</p>
+              <p class="text-[var(--c-gold)] text-[10px] uppercase tracking-widest mt-2">アーティストページへ →</p>
+            </a>
+          </section>
+        )}
+
+        {relatedSongs.length > 0 && (
+          <section>
+            <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3 border-b border-[var(--c-border)] pb-2">
+              同アーティストの曲記事
+            </h2>
+            <ul class="space-y-2">
+              {relatedSongs.map(s => (
+                <li>
+                  <a href={s.slug} class="flex items-center justify-between p-3 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg hover:border-[var(--c-gold)] transition-colors group">
+                    <div>
+                      <p class="font-semibold text-sm group-hover:text-[var(--c-gold)] transition-colors">{s.title}</p>
+                      <p class="text-[var(--c-dim)] text-xs mt-0.5">{s.artists}</p>
+                    </div>
+                    <span class="text-[var(--c-very-dim)] text-sm ml-2 shrink-0">→</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+      </div>
+    </aside>
+
+  </div>
+</Layout>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  if (bar) {
+    window.addEventListener('scroll', () => {
+      const h = document.documentElement;
+      const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+      bar.style.width = pct + '%';
+    }, { passive: true });
+  }
+
+  const topBtn = document.getElementById('back-to-top');
+  if (topBtn) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        topBtn.classList.remove('opacity-0', 'pointer-events-none');
+      } else {
+        topBtn.classList.add('opacity-0', 'pointer-events-none');
+      }
+    }, { passive: true });
+    topBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  const shareBtn = document.getElementById('share-btn');
+  const shareLabel = document.getElementById('share-label');
+  shareBtn?.addEventListener('click', async () => {
+    const url = window.location.href;
+    if (navigator.share) {
+      await navigator.share({ title: document.title, url });
+    } else {
+      await navigator.clipboard.writeText(url);
+      if (shareLabel) { shareLabel.textContent = 'コピー済み'; setTimeout(() => { shareLabel.textContent = '共有'; }, 2000); }
+    }
+  });
+</script>

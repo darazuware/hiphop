@@ -1,0 +1,62 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { videos, type VideoType } from '../../data/videos';
+
+const typeLabel: Record<VideoType, string> = {
+  freestyle: 'Freestyle',
+  interview: 'Interview',
+  cypher: 'Cypher',
+  live: 'Live',
+  documentary: 'Documentary',
+};
+
+const sorted = [...videos].sort((a, b) => b.year - a.year);
+---
+
+<Layout
+  title="ヒップホップ動画 和訳・解説 | WAX&THINK"
+  description="フリースタイル・インタビュー・サイファーなど、ヒップホップの名動画の日本語和訳と解説。"
+>
+  <div class="max-w-4xl mx-auto px-4 py-8">
+    <header class="mb-10">
+      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">WAX&amp;THINK</p>
+      <h1 class="text-3xl font-bold mb-3">動画 和訳・解説</h1>
+      <p class="text-[var(--c-muted)] text-sm">フリースタイル・インタビュー・サイファーの日本語訳と文化的解説。</p>
+    </header>
+
+    {sorted.length === 0 ? (
+      <p class="text-[var(--c-dim)] text-sm">準備中...</p>
+    ) : (
+      <ul class="space-y-4">
+        {sorted.map(v => (
+          <li>
+            <a
+              href={`/videos/${v.slug}`}
+              class="flex gap-4 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg hover:border-[var(--c-gold)] transition-colors group"
+            >
+              <div class="shrink-0 w-32 aspect-video rounded overflow-hidden bg-black">
+                <img
+                  src={`https://img.youtube.com/vi/${v.youtubeId}/mqdefault.jpg`}
+                  alt={v.title}
+                  class="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+              <div class="min-w-0">
+                <div class="flex items-center gap-2 mb-1">
+                  <span class="text-[10px] px-1.5 py-0.5 rounded border border-[var(--c-gold)]/40 text-[var(--c-gold)] uppercase tracking-widest shrink-0">
+                    {typeLabel[v.type]}
+                  </span>
+                  <span class="text-[var(--c-very-dim)] text-xs">{v.year}</span>
+                </div>
+                <p class="font-semibold group-hover:text-[var(--c-gold)] transition-colors leading-snug">{v.title}</p>
+                <p class="text-[var(--c-dim)] text-xs mt-0.5">{v.artists}</p>
+                {v.tag && <p class="text-[var(--c-muted)] text-xs mt-1">{v.tag}</p>}
+              </div>
+            </a>
+          </li>
+        ))}
+      </ul>
+    )}
+  </div>
+</Layout>
