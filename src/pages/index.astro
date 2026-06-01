@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import { songs, ranking } from '../data/songs';
 import { artists } from '../data/artists';
+import { columns } from '../data/columns';
 
 const totalSongs = songs.length;
 const totalArtists = artists.length;
@@ -308,7 +309,29 @@ const tickerArtists = [
     </div>
   </section>
 
-  <!-- ⑤ ACCESS RANKING -->
+  <!-- ⑤ COLUMNS -->
+  <section id="columns" class="border-b border-[var(--c-border)] py-10 md:py-14">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex items-end justify-between mb-7">
+        <div class="border-l-2 border-[var(--c-gold)] pl-4">
+          <p class="text-[var(--c-gold)] text-[10px] uppercase tracking-[0.3em] font-mono mb-1.5">Columns</p>
+          <h2 class="text-[var(--c-text)] text-xl font-bold">読み物</h2>
+          <p class="text-[var(--c-very-dim)] text-xs mt-1">歌詞を超えた、ヒップホップの文化・歴史・言語</p>
+        </div>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {columns.map(col => (
+          <a href={col.slug} class="block p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg hover:border-[var(--c-gold)] transition-colors group">
+            <span class="text-[var(--c-gold)] text-[10px] uppercase tracking-widest mb-2 inline-block">{col.tag}</span>
+            <h3 class="text-sm font-bold leading-snug mb-2 group-hover:text-[var(--c-gold)] transition-colors">{col.title}</h3>
+            <p class="text-[var(--c-very-dim)] text-xs leading-relaxed line-clamp-2">{col.description}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑥ ACCESS RANKING -->
   <section id="ranking" class="border-b border-[var(--c-border)] py-10 md:py-14">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="mb-7 border-l-2 border-[var(--c-gold)] pl-4">

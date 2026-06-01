@@ -135,6 +135,7 @@ const resolvedSchema = schema ?? defaultSchema;
           地図
         </a>
         <a href="/slang" class={`text-xs px-2 py-1 rounded transition-colors ${pathname === '/slang' ? 'text-[var(--c-text)]' : 'text-[var(--c-very-dim)] hover:text-[var(--c-muted)]'}`}>スラング</a>
+        <a href="/columns/dj-premier-sampling" class={`text-xs px-2 py-1 rounded transition-colors ${pathname.startsWith('/columns') ? 'text-[var(--c-text)]' : 'text-[var(--c-very-dim)] hover:text-[var(--c-muted)]'}`}>コラム</a>
         <a href="/shorts" class={`text-xs px-2 py-1 rounded transition-colors ${pathname === '/shorts' ? 'text-[var(--c-text)]' : 'text-[var(--c-very-dim)] hover:text-[var(--c-muted)]'}`}>ショート</a>
         <a href="/videos" class={`text-xs px-2 py-1 rounded transition-colors ${pathname.startsWith('/videos') ? 'text-[var(--c-text)]' : 'text-[var(--c-very-dim)] hover:text-[var(--c-muted)]'}`}>動画</a>
       </nav>
@@ -166,6 +167,10 @@ const resolvedSchema = schema ?? defaultSchema;
         <a href="/slang" class="flex items-center gap-2 text-sm py-2 px-2 rounded-lg text-[var(--c-muted)] hover:bg-[var(--c-surface)] hover:text-[var(--c-text)] transition-colors">
           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
           スラング索引
+        </a>
+        <a href="/columns/dj-premier-sampling" class="flex items-center gap-2 text-sm py-2 px-2 rounded-lg text-[var(--c-muted)] hover:bg-[var(--c-surface)] hover:text-[var(--c-text)] transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/><line x1="10" x2="8" y1="9" y2="9"/></svg>
+          コラム
         </a>
         <a href="/shorts" class="flex items-center gap-2 text-sm py-2 px-2 rounded-lg text-[var(--c-muted)] hover:bg-[var(--c-surface)] hover:text-[var(--c-text)] transition-colors">
           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"/><line x1="7" x2="7" y1="2" y2="22"/><line x1="17" x2="17" y1="2" y2="22"/><line x1="2" x2="22" y1="12" y2="12"/><line x1="2" x2="7" y1="7" y2="7"/><line x1="2" x2="7" y1="17" y2="17"/><line x1="17" x2="22" y1="17" y2="17"/><line x1="17" x2="22" y1="7" y2="7"/></svg>
