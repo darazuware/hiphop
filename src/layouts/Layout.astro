@@ -220,13 +220,16 @@ const resolvedSchema = schema ?? defaultSchema;
     </nav>
   )}
   <slot />
-  <footer class="max-w-2xl mx-auto px-4 pb-8 pt-6 mt-4 border-t border-[var(--c-border)] flex flex-wrap gap-x-5 gap-y-1 text-[var(--c-very-dim)] text-xs">
-    <a href="/" class="hover:text-[var(--c-gold)] transition-colors">WAX&amp;THINK</a>
-    <a href="/map" class="hover:text-[var(--c-gold)] transition-colors">地図で探す</a>
-    <a href="/about" class="hover:text-[var(--c-gold)] transition-colors">About</a>
-    <a href="/slang" class="hover:text-[var(--c-gold)] transition-colors">スラング索引</a>
-    <a href="/contact" class="hover:text-[var(--c-gold)] transition-colors">お問い合わせ</a>
-    <a href="/privacy" class="hover:text-[var(--c-gold)] transition-colors">プライバシーポリシー</a>
+  <footer class="max-w-2xl mx-auto px-4 pb-8 pt-6 mt-4 border-t border-[var(--c-border)] text-[var(--c-very-dim)] text-xs">
+    <div class="flex flex-wrap gap-x-5 gap-y-1 mb-3">
+      <a href="/" class="hover:text-[var(--c-gold)] transition-colors">WAX&amp;THINK</a>
+      <a href="/map" class="hover:text-[var(--c-gold)] transition-colors">地図で探す</a>
+      <a href="/about" class="hover:text-[var(--c-gold)] transition-colors">About</a>
+      <a href="/slang" class="hover:text-[var(--c-gold)] transition-colors">スラング索引</a>
+      <a href="/contact" class="hover:text-[var(--c-gold)] transition-colors">お問い合わせ</a>
+      <a href="/privacy" class="hover:text-[var(--c-gold)] transition-colors">プライバシーポリシー</a>
+    </div>
+    <p class="text-[var(--c-very-dim)]">© {new Date().getFullYear()} WAX&amp;THINK by BlackTiger. All rights reserved.</p>
   </footer>
 </body>
 </html>
