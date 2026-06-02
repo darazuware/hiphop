@@ -205,7 +205,7 @@ console.log(`\n=== Lyrics Coverage: ${slug} ===`);
 console.log(`Covered: ${coveredCount}/${total} lines (${pct}%)`);
 console.log(`LyricsBlock components in .astro: ${(astroRaw.match(/<LyricsBlock/g) || []).length}`);
 
-const THRESHOLD = 80;
+const THRESHOLD = 35; // 著作権対策でeng引用を核ライン限定に削減したため
 let hasError = false;
 
 // Report omissions
