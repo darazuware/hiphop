@@ -52,7 +52,9 @@ public/images/   # アルバムアート
      - asin設定済み: Amazon商品画像リンク（`/dp/{asin}` + tag=wax1124-22）
      - asin=null: `public/images/covers/{slug}.jpg` を `amazon.co.jp/s?k={artists album}&tag=wax1124-22` で包む
    - タグは `wax1124-22` 固定（旧 hiphop_black-22 / waxthink-22 は無効）、ドメインは **amazon.co.jp のみ**
+   - 検索リンクは必ず **`&i=music`**（ミュージックカテゴリ限定）を付ける → 生活用品等の誤ヒット防止
    - → 記事本文に手書きの「Amazonで探す」テキストCTAは入れない（ジャケットリンクと重複するため）
+   - **【Amazon戦略・確定方針】** 商品直リンク(asin)よりも**検索リンクを優先**する。理由: アソシエイトcookieは24時間有効で一度踏ませれば全商品の購入が成果対象になるため「とにかくAmazonに飛ばす」のが最適。直リンクは廃盤・在庫切れで死にリンク化するリスクがあるが、検索リンクは常に何か表示され死なない。ジャケット画像クリック型＋`i=music`限定を標準とし、asinはAmazonが自動で正規ジャケットを出す場合のみ任意設定。
 8. ジャケット画像取得（必須）:
    - asinが設定済みの場合: Amazonが自動表示するためスキップ
    - asinがnullの場合: Deezer Search APIで取得して保存（iTunesより正確）

@@ -1,11 +1,15 @@
 ---
 interface Props {
-  word: string;
-  desc: string;
+  word?: string;
+  term?: string;
+  desc?: string;
+  meaning?: string;
   href?: string;
 }
-const { word, desc, href } = Astro.props;
-const resolvedHref = href ?? `/slang?q=${encodeURIComponent(word)}`;
+const { word, term, desc, meaning, href } = Astro.props;
+const label = word ?? term ?? "";
+const body = desc ?? meaning ?? "";
+const resolvedHref = href ?? `/slang?q=${encodeURIComponent(label)}`;
 ---
 
 <span class="qs relative inline-block" data-href={resolvedHref}>
@@ -13,12 +17,12 @@ const resolvedHref = href ?? `/slang?q=${encodeURIComponent(word)}`;
     type="button"
     class="qs-trigger border-b border-[var(--c-gold)] text-[var(--c-text)] cursor-pointer bg-transparent p-0 font-[inherit] text-[inherit]"
     aria-expanded="false"
-  >{word}</button>
+  >{label}</button>
   <span
     class="qs-tip absolute bottom-full mb-2 px-3 py-2 bg-[var(--c-surface)] border border-[var(--c-gold)]/60 text-[var(--c-text)] text-xs rounded w-52 leading-snug pointer-events-none opacity-0 transition-opacity duration-150 z-20"
     role="tooltip"
   >
-    {desc}
+    {body}
     <span class="qs-hint block mt-1.5 text-[var(--c-gold)] text-[10px] uppercase tracking-widest">もう一度タップで詳細 →</span>
   </span>
 </span>
