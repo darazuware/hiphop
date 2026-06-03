@@ -126,13 +126,16 @@ const relatedColumns = song
         </div>
       ) : song ? (
         <div class="mb-6">
-          <img
-            src={`/images/covers/${slug}.jpg`}
-            alt={song.album}
-            class="w-40 h-40 rounded-lg object-cover border border-[var(--c-border)]"
-            onerror="this.style.display='none'"
-          />
-          <p class="text-[var(--c-very-dim)] text-xs mt-2">{song.album}</p>
+          <a href={`https://www.amazon.co.jp/s?k=${encodeURIComponent(song.artists + ' ' + song.album)}&tag=wax1124-22`} target="_blank" rel="noopener" class="inline-block group">
+            <img
+              src={`/images/covers/${slug}.jpg`}
+              alt={song.album}
+              class="w-40 h-40 rounded-lg object-cover border border-[var(--c-border)] group-hover:border-[var(--c-gold)] transition-colors"
+              onerror="this.style.display='none'"
+            />
+            <p class="text-[var(--c-very-dim)] text-xs mt-2">{song.album}</p>
+            <p class="text-[var(--c-gold)] text-[10px] mt-0.5 uppercase tracking-widest">Amazon で探す →</p>
+          </a>
         </div>
       ) : null}
 

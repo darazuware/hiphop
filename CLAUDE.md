@@ -48,6 +48,11 @@ public/images/   # アルバムアート
    - 追加項目: slug, name, origin, active, genre, summary, japan
    - Gistの内容とDeep Researchから自動生成
 7. Claudeが.astroページを生成（SongLayout使用）
+   - **Amazonアフィリエイトリンクは手書き不要**。SongLayoutが冒頭の**ジャケット画像をクリック型アフィリエイトリンク**として自動表示する:
+     - asin設定済み: Amazon商品画像リンク（`/dp/{asin}` + tag=wax1124-22）
+     - asin=null: `public/images/covers/{slug}.jpg` を `amazon.co.jp/s?k={artists album}&tag=wax1124-22` で包む
+   - タグは `wax1124-22` 固定（旧 hiphop_black-22 / waxthink-22 は無効）、ドメインは **amazon.co.jp のみ**
+   - → 記事本文に手書きの「Amazonで探す」テキストCTAは入れない（ジャケットリンクと重複するため）
 8. ジャケット画像取得（必須）:
    - asinが設定済みの場合: Amazonが自動表示するためスキップ
    - asinがnullの場合: Deezer Search APIで取得して保存（iTunesより正確）
