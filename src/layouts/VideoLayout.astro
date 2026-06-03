@@ -38,6 +38,12 @@ const typeLabel: Record<string, string> = {
     class="lg:hidden fixed bottom-20 right-4 z-40 w-12 h-12 rounded-full bg-[var(--c-surface)] border border-[var(--c-gold)]/60 text-[var(--c-gold)] text-lg flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 shadow-md"
   >↑</button>
 
+  <button
+    id="to-bottom"
+    aria-label="ページ末尾へ"
+    class="lg:hidden fixed bottom-36 right-4 z-40 w-12 h-12 rounded-full bg-[var(--c-surface)] border border-[var(--c-gold)]/60 text-[var(--c-gold)] text-lg flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 shadow-md"
+  >↓</button>
+
   <div id="exp-float" class="fixed bottom-6 right-4 z-40 flex rounded-full overflow-hidden border border-[var(--c-border)] bg-[var(--c-surface)]/90 backdrop-blur-sm shadow-lg font-mono text-[10px]">
     <button data-e="tap" class="exp-btn exp-float-btn px-3 py-2 transition-colors">タップ</button>
     <button data-e="always" class="exp-btn exp-float-btn px-3 py-2 transition-colors border-l border-[var(--c-border)]">常時</button>
@@ -254,6 +260,24 @@ const typeLabel: Record<string, string> = {
     }, { passive: true });
     topBtn.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  const bottomBtn = document.getElementById('to-bottom');
+  if (bottomBtn) {
+    const updateBottom = () => {
+      const h = document.documentElement;
+      const nearBottom = h.scrollTop + h.clientHeight >= h.scrollHeight - 300;
+      if (nearBottom) {
+        bottomBtn.classList.add('opacity-0', 'pointer-events-none');
+      } else {
+        bottomBtn.classList.remove('opacity-0', 'pointer-events-none');
+      }
+    };
+    window.addEventListener('scroll', updateBottom, { passive: true });
+    updateBottom();
+    bottomBtn.addEventListener('click', () => {
+      window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' });
     });
   }
 
