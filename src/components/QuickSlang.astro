@@ -1,4 +1,6 @@
 ---
+import { findSlangEntry, cleanSlangTerm } from '../data/slang';
+
 interface Props {
   word?: string;
   term?: string;
@@ -9,13 +11,20 @@ interface Props {
 const { word, term, desc, meaning, href } = Astro.props;
 const label = word ?? term ?? "";
 const body = desc ?? meaning ?? "";
-const resolvedHref = href ?? `/slang?q=${encodeURIComponent(label)}`;
+
+// 中央スラング辞書に登録がある語（または明示href）のみ詳細リンクを出す
+const hasEntry = !!findSlangEntry(label);
+const hasDetail = !!href || hasEntry;
+const resolvedHref = href ?? (hasEntry ? `/slang?q=${encodeURIComponent(cleanSlangTerm(label))}` : "");
+const triggerClass = hasDetail
+  ? "qs-trigger border-b border-[var(--c-gold)] text-[var(--c-text)] cursor-pointer bg-transparent p-0 font-[inherit] text-[inherit]"
+  : "qs-trigger border-b border-dotted border-[var(--c-gold)]/40 text-[var(--c-text)] cursor-pointer bg-transparent p-0 font-[inherit] text-[inherit]";
 ---
 
 <span class="qs relative inline-block" data-href={resolvedHref}>
   <button
     type="button"
-    class="qs-trigger border-b border-[var(--c-gold)] text-[var(--c-text)] cursor-pointer bg-transparent p-0 font-[inherit] text-[inherit]"
+    class={triggerClass}
     aria-expanded="false"
   >{label}</button>
   <span
@@ -23,7 +32,9 @@ const resolvedHref = href ?? `/slang?q=${encodeURIComponent(label)}`;
     role="tooltip"
   >
     {body}
-    <span class="qs-hint block mt-1.5 text-[var(--c-gold)] text-[10px] uppercase tracking-widest">もう一度タップで詳細 →</span>
+    {hasDetail && (
+      <span class="qs-hint block mt-1.5 text-[var(--c-gold)] text-[10px] uppercase tracking-widest">もう一度タップで詳細 →</span>
+    )}
   </span>
 </span>
 

@@ -1,0 +1,128 @@
+export interface SlangEntry {
+  word: string;
+  desc: string;
+  songs?: string[];
+}
+
+export const slang: SlangEntry[] = [
+  { word: "'Lo goose",             desc: "Polo Ralph Laurenのグースダウンジャケット。当時のゲットーにおける最高のステータスアイテム" },
+  { word: "12 gauge",              desc: "12ゲージ・ショットガン。高い威力を持つ散弾銃。ストリートで「脳に突きつける」表現で圧倒的な支配力を示す" },
+  { word: "Ac's",                  desc: "アキュラ（Acura）。ホンダが北米展開する高級車ブランド。ドラッグ・ディーラーたちが富の象徴として好んで乗り回した" },
+  { word: "Aeropostale",           desc: "1990年代初頭に流行したアパレルブランド。30年間「wearin out apostle」と誤解されていたがHuluドラマ『Wu-Tang: An American Saga』で公式確定（2023年）" },
+  { word: "ballistics",            desc: "弾道学。「過激なライム」のダブルミーニング。simplistic/imperialistic/idealistic/ballisticsというマルチシラビック押韻は東海岸の技巧的ライム伝統の証明" },
+  { word: "base",                  desc: "フリーベース（純度の高いクラック・コカイン）" },
+  { word: "Beez",                  desc: "Killa Beezと連動するスラング。集団で一斉に攻撃する蜂の群れ＝Wu-Tang関連アーティストの総称" },
+  { word: "Biggie 101",            desc: "米大学の入門講座「101」番号を使った表現。ビギーが女に教えるのが「銃の扱い方と酒の飲み方」という自虐的アイロニー" },
+  { word: "black hats",            desc: "LAレイダースの黒いキャップや黒のニット帽。N.W.Aが愛用し「反逆」や「ギャングスタ」のユニフォームとして全米ストリートに定着" },
+  { word: "blunts",                desc: "葉巻の中身を抜いてマリファナを詰めて巻いたもの。Dutch Masters・Phillies等のブランドが人気だった" },
+  { word: "bones",                 desc: "クラックを混ぜたマリファナジョイント" },
+  { word: "Brand Nubian",          desc: "コンシャスながらも武闘派として知られたラップ・グループ。1992年ヒット曲「Punks Jump Up to Get Beat Down」への直接引用", songs: ["/songs/stakes-is-high"] },
+  { word: "Brazilian dimes",       desc: "「Dime」は10点満点の美女スラング（10セント硬貨に由来）。ストリートで成功したラッパーたちが溺れる快楽と物質主義の象徴" },
+  { word: "Brooklyn Zoo",          desc: "ニューヨーク・ブルックリン地区の予測不可能で野蛮なストリートの性質を「動物園」に例えた言葉。法や秩序が通用しない危険なエリア" },
+  { word: "bubblegoose",           desc: "フード付きの極厚ダウンジャケット。防寒着であり内側に武器を隠しやすいため密売人たちの定番ファッション" },
+  { word: "buggin' out",           desc: "常軌を逸している・狂っているという意味のスラング" },
+  { word: "C-Cypher-Punks",        desc: "Supreme Alphabetに基づく警察（C-O-P-S）の暗号表現。Cはシファー（円・宇宙・完成）、Pはパンク（無秩序なもの）を意味する" },
+  { word: "cabbage",               desc: "スラングで「札束（緑色）」と「脳髄」のダブルミーニング。至近距離で頭部を撃ち抜いた惨状と金銭欲が交錯する表現", songs: ["/songs/fast-life", "/songs/hypnotize"] },
+  { word: "Can't we just all get along?", desc: "1992年LA暴動被害者ロドニー・キングの悲痛な叫びの完全引用。ビギーはこれをナンパの口実に使うというブラック・ジョーク" },
+  { word: "CeCe",                  desc: "R&B歌手CeCe Penisonの1992年ヒット曲「Keep On Walkin'」への引用。「歩き続けろ（立ち止まるなら殺す）」という脅迫をキャッチーなタイトルで表現するブラックジョーク" },
+  { word: "chips",                 desc: "お金・現金を指すスラング", songs: ["/songs/ebonics", "/songs/nas-is-like"] },
+  { word: "clip's",                desc: "銃の弾倉（マガジン）のこと。映画の「クリップ（ワンシーン）」とのダブルミーニング" },
+  { word: "clout",                 desc: "SNS上の影響力・名声・見栄。「Clout chasing（売名行為）」は実体のない虚栄として現代ヒップホップで強く批判される", songs: ["/songs/fast-life", "/songs/juice-know-the-ledge"] },
+  { word: "cocaine",               desc: "コカイン。ラジオ版ではミュートまたは逆再生処理される" },
+  { word: "Compton",               desc: "カリフォルニア州LAの郊外。N.W.A.やDr. Dreの本拠地。西海岸ギャングスタ・ラップの聖地" },
+  { word: "cops",                  desc: "警察のこと。「Jakes」という隠語も同義で使われる" },
+  { word: "curls",                 desc: "ジェリー・カール。1980〜90年代に西海岸で大流行した艶やかなカールのヘアスタイル。N.W.AのEazy-EやIce Cubeが愛用" },
+  { word: "cyanide",               desc: "青酸カリ。致死性の毒。リリックの破壊力が毒性を持つという比喩" },
+  { word: "David Stern",           desc: "当時のNBAコミッショナー。2005年にHIPHOPファッションを禁じるドレスコードを施行。黒人選手の表現を制限した象徴的な人物" },
+  { word: "Def",                   desc: "①移籍先「Def Jam」に行ったこと ②HIPHOPスラング「最高にクールな状態」 ③「Deaf（耳を貸さない）」になったこと、の神がかり的なトリプルミーニング" },
+  { word: "Dilated Peoples",       desc: "1990年代後期からLAのベニスを拠点に活動する西海岸オルタナティブ・ヒップホップ・グループ", songs: ["/songs/work-the-angles"] },
+  { word: "Dimes",                 desc: "最高に魅力的な女性（10点満点の美女）を指すスラング。10セント硬貨に由来" },
+  { word: "Dre, beating on Dee",   desc: "1990年にFOX番組「Pump It Up」司会者Dee BarnesにDr. Dreが暴行を加えた実際の事件への告発。2015年映画「Straight Outta Compton」からも削除され再び批判を浴びた" },
+  { word: "Dutch",                 desc: "ダッチマスターの葉巻。中身のタバコを取り出してマリファナを詰める行為の隠語", songs: ["/songs/phone-tap"] },
+  { word: "Eazy",                  desc: "Eazy-E（イージー・イー）。本名Eric Wright。N.W.AのフロントマンでありRuthless Recordsの創設者" },
+  { word: "flatline",              desc: "心電図が平坦になること、つまり死亡を意味する", songs: ["/songs/nas-is-like"] },
+  { word: "G off",                 desc: "①Get off（成功する）②Gangstaとして動く③G（Grand=1000ドル）を稼ぐ、のトリプルミーニング" },
+  { word: "gates",                 desc: "ドラッグの売買拠点（トラップハウス）。武装強盗で突入する行為が「runnin' up in gates」" },
+  { word: "gat / gats",            desc: "銃全般を指す汎用的なストリートスラング。語源は19世紀のガトリング銃（Gatling gun）に由来" },
+  { word: "Glock",                 desc: "オーストリア製の半自動拳銃。プラスチック部品が多く軽量で信頼性が高いため警察・ギャング双方に広く普及した90年代の標準装備" },
+  { word: "Gods",                  desc: "Five Percentersの教義において真理に到達した黒人男性を指す。キリスト教的な神ではない", songs: ["/songs/criminology"] },
+  { word: "Golden Arms",           desc: "U-Godの別名。ストリートで鍛えた腕力またはマイクを握る腕の価値を黄金に例えた自称" },
+  { word: "Greeks in Egypt",       desc: "古代ギリシャ人が実はアフリカ（古代エジプト）の文明から知識を得たというアフロセントリズムの歴史観" },
+  { word: "heaters",               desc: "銃を指すストリートスラング", songs: ["/songs/fast-life"] },
+  { word: "Henny sipper",          desc: "「ヘネシー（Hennessy）」は高級コニャック。成功したハスラーたちの象徴的飲料。「ヘネシーをすする男」は金と権力の体現" },
+  { word: "Hudson",                desc: "ニューヨークを流れる主要河川。ハドソン川の急流のような流動的で予測不可能な流れを自身のフロウに例える" },
+  { word: "Hummer",                desc: "軍用規格の高級SUV。1990年代の成功の象徴として多くのラッパーが愛用" },
+  { word: "hundred miles and running", desc: "N.W.AのEP「100 Miles and Runnin'」の直接引用。相手の楽曲名を逆用して「俺が来たらお前らはビビって逃げ出す」という強烈なパンチライン" },
+  { word: "ice me",                desc: "①「殺す（冷たい死体にする）」②「宝石（Ice）で着飾らせて商業主義に染める」③「凍らせて現状維持で停滞させる」の三重の意味を持つトリプルミーニング", songs: ["/songs/the-legacy"] },
+  { word: "Ice T",                 desc: "Ice-T。LAを拠点とするギャングスタ・ラップのパイオニア。Tim Dogが敬意を示した数少ない西海岸アーティスト" },
+  { word: "Iron Lung",             desc: "Method Manの別名。マリファナを大量に吸っても動じない強靭な肺活量と息継ぎなしで複雑なラップを吐き出し続ける技術を誇示" },
+  { word: "Iron Mike",             desc: "マイク・タイソンの異名。最盛期の圧倒的な破壊力を象徴する" },
+  { word: "Jheri curl",            desc: "1980年代に流行した黒人の髪型。90年代には時代遅れの象徴。自身の人生の無価値さをなぞらえる自虐" },
+  { word: "joint",                 desc: "①素晴らしい楽曲・作品 ②大麻を巻いたジョイント、のダブルミーニング" },
+  { word: "keys",                  desc: "①キロ単位のコカイン（kilos=keys）の海外密輸 ②音楽の鍵盤・成功の鍵、のダブルミーニング" },
+  { word: "Killa Beez",            desc: "Wu-Tang Clanのメンバーおよびアフィリエイトの総称。集団で一斉に攻撃する蜂の群れに例えられる" },
+  { word: "legitimized crap",      desc: "「合法化されたゴミ」。商業的にパッケージされメインストリームで受け入れられやすい中身のない無難なラップのこと" },
+  { word: "Lexus",                 desc: "トヨタの高級車ブランド。ストリートの成功を示す最高級の乗り物", songs: ["/songs/hypnotize", "/songs/twinz-deep-cover-98"] },
+  { word: "llama",                 desc: "銃（特に拳銃）を指すストリートスラング。銃の形状が動物のラマに似ていることに由来" },
+  { word: "MAC / MAC-10",          desc: "MAC-10（イングラム）。高い連射能力を持つコンパクトなサブマシンガン。ストリートの暴力エスカレーションの象徴", songs: ["/songs/incarcerated-scarfaces", "/songs/nas-is-like", "/songs/ny-state-of-mind"] },
+  { word: "math",                  desc: "Wu-Tangの精神的支柱「Supreme Mathematics（至高の数学）」を指す。0〜9の数字で宇宙の真理を解読するファイブ・パーセンターズの思想" },
+  { word: "MC Ren",                desc: "西海岸N.W.Aのメンバー。東西の歴史的HIPHOPレジェンド", songs: ["/songs/no-vaseline", "/songs/straight-outta-compton"] },
+  { word: "Michel'le",             desc: "Ruthless Records所属のR&BシンガーでDr. Dreの当時の恋人。敵対する相手のパートナーを侮辱するHIPHOPのビーフにおける最終兵器" },
+  { word: "Moët",                  desc: "フランスの高級シャンパン「モエ・エ・シャンドン」。ストリートでの成功を示すステータスシンボルとして90年代ヒップホップに多数登場" },
+  { word: "Mortal Kombat",         desc: "残虐な描写で知られる対戦格闘ゲーム。そのFatalityのように、Wu-Tangのビートとライムが容赦なく敵を粉砕することを示す" },
+  { word: "MPVs",                  desc: "ミニバン（Multi-Purpose Vehicle）。1990年代、Wu-Tang Clanが実際に使っていた移動手段" },
+  { word: "New York Yank' visor",  desc: "ニューヨーク・ヤンキースの帽子。90年代のNYストリートファッションの絶対的象徴" },
+  { word: "Ninety-three million miles", desc: "地球から太陽までの距離。Five Percentersの教義における基本的な宇宙論的知識。黒人が宇宙の根源的エネルギーであることを示す" },
+  { word: "nitty gritty",          desc: "物事の核心・最も重要で泥臭い本質的な部分を意味するイディオム。西海岸の商業化されたラップへの宣戦布告として使用" },
+  { word: "Noble Drew Ali",        desc: "1913年設立のムーア科学寺院の創始者。黒人イスラム主義の先駆者であり精神的指導者" },
+  { word: "no comp",               desc: "「competition（競争相手）」の略語と「Compton（コンプトン）」のダブルミーニング。あいつらは相手にもならないコンプトン出身者だという鋭い皮肉" },
+  { word: "off the meters",        desc: "規格外・測定不能なほど突出している" },
+  { word: "OG's",                  desc: "Original Gangsterの略。古参・大御所を意味する", songs: ["/songs/it-was-a-good-day"] },
+  { word: "Old Earth",             desc: "「Five-Percent Nation」由来のスラングで「母親」を指す。生命の源たる大地（Earth）としての女性の敬称" },
+  { word: "peelin'",               desc: "「Peel your cap」は頭皮を剥ぐ、つまり頭を撃ち抜くことを意味する暴力的なスラング" },
+  { word: "pesos",                 desc: "金・現金のスラング" },
+  { word: "pharaoh",               desc: "古代エジプトの王。ファイブ・パーセンター（Five Percent Nation）の宇宙観・アフロセントリズムと結びついた表現" },
+  { word: "pop dukes",             desc: "父親を意味するニューヨーク発祥のストリートスラング。地域の長老や保護者への尊敬を込めて使う" },
+  { word: "Q-45",                  desc: "日産インフィニティのフラッグシップ。当時のストリート・ハスラーの成功の証。「女に運転させる」は支配と富の象徴" },
+  { word: "raid",                  desc: "①米国の殺虫剤ブランド ②「警察・敵対ギャングの急襲（ガサ入れ）」のダブルミーニング。西海岸ラッパーを無力な害虫に例えたトリプルミーニング" },
+  { word: "Rod Strickland",        desc: "NBAのポイントガード。予測不能なクロスオーバーで観客を沸かせたスター選手。観客を「飛び跳ねさせる」比喩" },
+  { word: "roughnecks",            desc: "ガラの悪い連中、ストリートのタフなならず者たち。元々は肉体労働者を指すが、ヒップホップではタフさを誇示する不良を指す" },
+  { word: "sess",                  desc: "質の高いマリファナの隠語。種無しの良質な大麻「Sinsemilla」から派生" },
+  { word: "Shaolin / Shaolin style", desc: "スタテンアイランドのWu-Tang特有の呼称。カンフー映画「少林寺武者房」の世界観と地理的孤立を重ね合わせた。彼らのラップスタイルをカンフーの武術に例える際の象徴的な表現" },
+  { word: "Shinobi",               desc: "日本の忍者。Wu-Tang Clanが好む東洋文化・武術映画への参照。影から現れ致命的な攻撃を加える暗殺者の隠喩", songs: ["/songs/i-got-5-on-it"] },
+  { word: "Sony trucks",           desc: "NasがかつてColumbia Records（Sony傘下）に所属していた時代のプロモーション用トラック。自らもHIPHOPの商業化に加担した自己内省とアイロニーを含む" },
+  { word: "South Bronx",           desc: "ニューヨーク・ブロンクス区南部。1973年にDJ Kool Hercがブロックパーティーを開きHIPHOP誕生の聖地となった場所" },
+  { word: "Spider-Man",            desc: "ニューヨークを背景としたアメコミの英雄。高層ビル群を自由に飛び回るアイコン" },
+  { word: "street sweeper",        desc: "街の清掃車、かつ連発式ショットガン（Striker）のストリートスラング、ダブルミーニング" },
+  { word: "Summer Jam",            desc: "ニューヨークのHot 97が主催する世界最大級のヒップホップ・フェスティバル。1999年大会は東海岸HIPHOPの文化的るつぼ" },
+  { word: "Superfly-ness",         desc: "最高にクールであること（映画Super Flyに由来）" },
+  { word: "TEC-9 / TECs / Mac-10s", desc: "スウェーデン設計・米国製造の9ミリ口径半自動拳銃。安価で装弾数が多く1980〜90年代のストリート・ギャングに広く普及したギャングスタ・ラップの代名詞的銃器" },
+  { word: "Teflon",                desc: "摩擦係数が低い素材。ストリート用語では「防弾チョッキ」や「警察から逃れる者（Teflon Don）」の象徴", songs: ["/songs/electric-relaxation", "/songs/how-about-some-hardcore"] },
+  { word: "thug poet",             desc: "ストリートの悪党（Thug）と文学的詩人（Poet）という二面性を統合したNas最大の自己定義" },
+  { word: "thugs",                 desc: "ストリートで違法なビジネスに関わる者たち" },
+  { word: "touch",                 desc: "RZAのディレイエフェクトのミスで音源から消えた「空白」。その絶望感と奇跡的にリンクし、ヒップホップ史上最も美しい空白として語り継がれている" },
+  { word: "trees",                 desc: "マリファナを指すストリートスラング", songs: ["/songs/fast-life", "/songs/get-by", "/songs/nas-is-like", "/songs/phone-tap"] },
+  { word: "vandal",                desc: "破壊者、規範に従わない者を指すストリート用語" },
+  { word: "whip appeal",           desc: "「whip」は車を指すスラング。車の魔力に取りつかれているという表現。金銭欲とスタイルの追求が犯罪を正当化する心理" },
+  { word: "white-gold tarantula",  desc: "タランチュラの形をした大ぶりのホワイトゴールドのジュエリー。ドラッグディーラーからラッパーへと成り上がった富（フレックス）の象徴" },
+  { word: "woolies",               desc: "マリファナにコカインやクラックを混ぜた非常に危険なジョイント" },
+  { word: "Wu-Tang Clan",          desc: "1993年にニューヨーク・スタテンアイランドで結成された伝説的ヒップホップ・グループ。RZAをリーダーとし9人のMCで構成。カンフー映画「Shaolin and Wu Tang」に由来する名称" },
+  { word: "神（God）",              desc: "「Five-Percent Nation」の教義で黒人男性への敬称。キリスト教的な神への呼びかけではない" },
+];
+
+// Strip Japanese annotation '（…）'/'(...)' and trim → clean English keyword
+export function cleanSlangTerm(term: string): string {
+  return term.replace(/[（(].*$/s, '').trim();
+}
+
+// Find a central-dictionary entry matching a QuickSlang term (handles plurals & 'a / b' variants)
+export function findSlangEntry(term: string): SlangEntry | undefined {
+  const t = cleanSlangTerm(term).toLowerCase();
+  if (!t) return undefined;
+  return slang.find(e =>
+    e.word.toLowerCase().split(/\s*\/\s*/).some(v => {
+      v = cleanSlangTerm(v).toLowerCase();
+      return v === t || v + 's' === t || v + 'es' === t || t + 's' === v || t + 'es' === v;
+    })
+  );
+}
