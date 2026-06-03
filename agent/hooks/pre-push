@@ -1,5 +1,5 @@
 #!/bin/bash
-# Lyrics coverage check before push.
+# Pre-push checks: YouTube埋め込みID検証 + 歌詞カバレッジ.
 # Install: git config core.hooksPath agent/hooks
 
 REPO_ROOT="$(git rev-parse --show-toplevel)"
@@ -22,6 +22,12 @@ if [ ${#CHANGED_SONGS[@]} -eq 0 ]; then
   exit 0
 fi
 
+STATUS=0
+
+echo "🎬 Running YouTube embed check for ${#CHANGED_SONGS[@]} song(s)..."
+/usr/local/bin/node "$REPO_ROOT/agent/src/check-youtube.mjs" "${CHANGED_SONGS[@]}" || STATUS=1
+
 echo "🔍 Running lyrics coverage check for ${#CHANGED_SONGS[@]} song(s)..."
-/usr/local/bin/node "$REPO_ROOT/agent/src/pre-push-check.mjs" "${CHANGED_SONGS[@]}"
-exit $?
+/usr/local/bin/node "$REPO_ROOT/agent/src/pre-push-check.mjs" "${CHANGED_SONGS[@]}" || STATUS=1
+
+exit $STATUS

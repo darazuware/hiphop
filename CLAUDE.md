@@ -72,6 +72,12 @@ public/images/   # アルバムアート
    node agent/src/check-cover-image.mjs {slug}
    - ❌が出たらDeezerで別アルバム名/アーティスト名で再取得してから次へ進む
    - asinが設定済みの場合はスキップ可
+8c. YouTube埋め込みチェック（必須）:
+   node agent/src/check-youtube.mjs {slug}
+   - youtubeId（メイン動画）は必須。未設定/空/404 は ❌
+   - sampleYoutubeId / youtubeShortId は任意だが、設定済みなら生存必須
+   - ❌が出たら正しい公式動画IDに差し替えてから次へ進む（oEmbedで実在確認）
+   - 【重要】youtubeIdは推測で書かない。必ず実在する動画を確認して設定する
 9. 歌詞チェック（必須）:
    node agent/src/check-lyrics-coverage.mjs {slug}
    - [A] 抜け漏れチェック: Genius行が.astroに存在するか（85%以上必須）
