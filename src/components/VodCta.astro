@@ -1,0 +1,81 @@
+---
+interface Props {
+  service: string;
+  url: string;
+  title: string;
+  label?: string;
+  variant?: "primary" | "secondary";
+  showDisclosure?: boolean;
+}
+
+const {
+  service,
+  url,
+  title,
+  label,
+  variant = "primary",
+  showDisclosure = true,
+} = Astro.props;
+
+const services: Record<string, { name: string; cta: string; video: boolean }> = {
+  "u-next": { name: "U-NEXT", cta: "U-NEXTで観る", video: true },
+  "netflix": { name: "Netflix", cta: "Netflixで観る", video: true },
+  "amazon-video": { name: "Amazon Prime Video", cta: "Prime Videoで観る", video: true },
+  "hulu": { name: "Hulu", cta: "Huluで観る", video: true },
+  "disney-plus": { name: "Disney+", cta: "Disney+で観る", video: true },
+  "amazon": { name: "Amazon", cta: "Amazonで見る", video: false },
+};
+
+const meta = services[service] ?? { name: service, cta: "視聴する", video: true };
+const buttonLabel = label ?? meta.cta;
+const prefix = meta.video ? "▶ " : "";
+const isPrimary = variant === "primary";
+
+const AMAZON_AFFILIATE_TAG = "wax1124-22";
+const amazonServices = new Set(["amazon", "amazon-video"]);
+
+function withAmazonTag(u: string): string {
+  if (!/amazon\./i.test(u)) return u;
+  if (/[?&]tag=/i.test(u)) return u;
+  return `${u}${u.includes("?") ? "&" : "?"}tag=${AMAZON_AFFILIATE_TAG}`;
+}
+
+const finalUrl = amazonServices.has(service) ? withAmazonTag(url) : url;
+
+const disclosure =
+  "※本記事はアフィリエイトプログラムを利用しており、リンク経由の購入・登録で運営者が収益を得る場合があります。";
+---
+
+<div class={isPrimary ? "my-6 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg" : "mt-3"}>
+  <a
+    href={finalUrl}
+    target="_blank"
+    rel="sponsored noopener"
+    class={
+      isPrimary
+        ? "group flex items-center justify-between gap-4 rounded-md border border-[var(--c-gold)]/40 bg-[var(--c-bg)] px-4 py-4 hover:border-[var(--c-gold)] transition-colors"
+        : "group flex items-center justify-between gap-3 rounded-md border border-[var(--c-border)] bg-transparent px-3 py-2 hover:border-[var(--c-gold)]/50 transition-colors"
+    }
+  >
+    <span class="min-w-0">
+      <span class="block text-[10px] uppercase tracking-widest text-[var(--c-very-dim)] mb-0.5">{meta.name}</span>
+      <span
+        class={
+          isPrimary
+            ? "block text-base font-semibold text-[var(--c-text)] group-hover:text-[var(--c-gold)] transition-colors truncate"
+            : "block text-xs font-medium text-[var(--c-muted-mid)] group-hover:text-[var(--c-gold)] transition-colors truncate"
+        }
+      >{title}</span>
+    </span>
+    <span
+      class={
+        isPrimary
+          ? "shrink-0 text-[var(--c-gold)] text-sm font-bold uppercase tracking-widest whitespace-nowrap"
+          : "shrink-0 text-[var(--c-very-dim)] text-[10px] font-semibold uppercase tracking-widest whitespace-nowrap group-hover:text-[var(--c-gold)] transition-colors"
+      }
+    >{prefix}{buttonLabel} →</span>
+  </a>
+  {showDisclosure && (
+    <p class="mt-2.5 text-xs leading-relaxed text-[var(--c-muted-mid)]">{disclosure}</p>
+  )}
+</div>
