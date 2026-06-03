@@ -289,25 +289,18 @@ import SongLayout from '../../layouts/SongLayout.astro';
   </section>
 
   <!-- レガシー -->
-  <section class="mb-12" id="legacy">
-    <h2 class="text-base font-semibold mb-4">■レガシーと影響</h2>
-    <div class="space-y-4 text-sm text-[var(--c-muted)] leading-relaxed">
-      <p>Billboard Hot 100最高8位、Hot R&B/Hip-Hop Albumsで1位（Michael Jacksonの『HIStory』超え）、RIAAプラチナ認定。オークランドのアンダーグラウンドから出た新人デュオが世界市場を席巻した快挙だった。</p>
-      <p>「hella」（Bay Area特有の強調スラング）をメインストリームに広めた楽曲としても知られる。この曲の大ヒットにより「hella」は徐々にBay Area外でも使われるようになり、最終的に全米の若者言葉として定着した。</p>
-      <p>2019年にはJordan Peeleの映画『Us』でリアレンジされ、ホラー映画の象徴的なシーンに使用。「5 on it」のコンセプトが恐怖の象徴に転化されたこの使用法は、楽曲のポップカルチャーにおける耐久性を証明した。日本では2000年代のB-BOYシーン、特にBay Areaスタイルを愛好するDJやラッパーに愛聴された。</p>
-
-      <div class="mt-6 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
-        <p class="text-xs text-[var(--c-gold)] uppercase tracking-widest mb-2">アルバムを聴く</p>
-        <a
-          href="https://www.amazon.co.jp/s?k=Luniz%20I%20Got%205%20On%20It&tag=wax1124-22"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-sm hover:text-[var(--c-gold)] transition-colors"
-        >
-          Amazon で Operation: Stackola を探す →
-        </a>
-      </div>
-    </div>
-  </section>
+  <!-- Amazon アフィリエイトリンク -->
+    <section class="mb-12">
+      <a href="https://www.amazon.co.jp/s?k=Luniz%20I%20Got%205%20On%20It&tag=wax1124-22" target="_blank" rel="noopener" class="inline-block group">
+        <div class="flex items-center gap-3 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg hover:border-[var(--c-gold)] transition-colors">
+          <img src="/images/covers/i-got-5-on-it.jpg" alt="Luniz - Operation: Stackola" class="w-16 h-16 object-cover rounded" />
+          <div>
+            <p class="text-xs text-[var(--c-very-dim)] uppercase tracking-widest mb-1">Amazon で見る</p>
+            <p class="text-sm font-semibold text-[var(--c-text)] group-hover:text-[var(--c-gold)] transition-colors">I Got 5 On It / Operation: Stackola</p>
+            <p class="text-xs text-[var(--c-muted)]">Luniz</p>
+          </div>
+        </div>
+      </a>
+    </section>
 
 </SongLayout>
