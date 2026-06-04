@@ -1,5 +1,6 @@
 ---
 import ColumnLayout from '../../layouts/ColumnLayout.astro';
+import ColumnAlbums from '../../components/ColumnAlbums.astro';
 ---
 
 <ColumnLayout
@@ -74,5 +75,12 @@ import ColumnLayout from '../../layouts/ColumnLayout.astro';
   <p>
     <a href="/songs/ny-state-of-mind">N.Y. State of Mind</a>、<a href="/songs/mass-appeal">Mass Appeal</a>、<a href="/songs/mathematics">Mathematics</a>——これらをDJ Premierのビートという共通軸で聴き直すと、ヒップホップ史が新しい顔を見せる。
   </p>
+
+  <ColumnAlbums albums={[
+    { label: "Gang Starr「Hard to Earn」（Mass Appeal収録）", asin: "B000003JCL" },
+    { label: "Nas「Illmatic」（N.Y. State of Mind収録）", asin: "B0000029GA" },
+    { label: "Mos Def「Black on Both Sides」（Mathematics収録）", asin: "B00001XDNV" },
+    { label: "Group Home「Livin' Proof」（Supa Star / Bodega収録）", query: "Group Home Livin' Proof" },
+  ]} />
 
 </ColumnLayout>

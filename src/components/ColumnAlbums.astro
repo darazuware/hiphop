@@ -1,0 +1,35 @@
+---
+interface Album {
+  label: string;
+  asin?: string;
+  query?: string;
+}
+const { albums } = Astro.props as { albums: Album[] };
+const TAG = "wax1124-22";
+const href = (a: Album) =>
+  a.asin
+    ? `https://www.amazon.co.jp/dp/${a.asin}/?tag=${TAG}`
+    : `https://www.amazon.co.jp/s?k=${encodeURIComponent(a.query ?? "")}&i=music&tag=${TAG}`;
+---
+
+<section class="not-prose" style="margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--c-border)">
+  <h2 style="color:var(--c-gold);font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;margin:0 0 0.75rem;border:none;padding:0">関連アルバム（Amazon）</h2>
+  <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0.5rem">
+    {albums.map((a) => (
+      <li>
+        <a
+          href={href(a)}
+          target="_blank"
+          rel="noopener sponsored nofollow"
+          style="display:flex;align-items:center;justify-content:space-between;gap:0.5rem;padding:0.75rem;background:var(--c-surface);border:1px solid var(--c-border);border-radius:0.5rem;text-decoration:none;color:var(--c-fg)"
+        >
+          <span style="font-size:0.85rem;line-height:1.4">{a.label}</span>
+          <span style="color:var(--c-very-dim);font-size:0.8rem;flex-shrink:0">Amazon →</span>
+        </a>
+      </li>
+    ))}
+  </ul>
+  <p style="color:var(--c-very-dim);font-size:0.7rem;line-height:1.7;margin-top:1rem">
+    ※当サイトはAmazonアソシエイト・プログラムの参加者です。上記リンクから商品を購入すると、当サイトが紹介料を得る場合があります。価格・在庫はAmazon側の表示に準じます。
+  </p>
+</section>

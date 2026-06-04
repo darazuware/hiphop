@@ -1,5 +1,6 @@
 ---
 import ColumnLayout from '../../layouts/ColumnLayout.astro';
+import ColumnAlbums from '../../components/ColumnAlbums.astro';
 ---
 
 <ColumnLayout
@@ -68,5 +69,14 @@ import ColumnLayout from '../../layouts/ColumnLayout.astro';
   <p>
     歌詞の中のスラング——<strong>fiend（中毒者）</strong>、<strong>crack rock（クラックの塊）</strong>、<strong>trap（売人の拠点）</strong>、<strong>corner（売人が立つ角）</strong>——はすべて、エピデミックが生んだ語彙だ。これらを理解することは、1990年代ヒップホップを正しく読む上で不可欠だ。
   </p>
+
+  <ColumnAlbums albums={[
+    { label: "Nas「Illmatic」（N.Y. State of Mind収録）", asin: "B0000029GA" },
+    { label: "Wu-Tang Clan「Enter the Wu-Tang (36 Chambers)」（C.R.E.A.M.収録）", asin: "B000002WPR" },
+    { label: "The Notorious B.I.G.「Ready to Die」（Juicy収録）", asin: "B014Q2980U" },
+    { label: "2Pac「Me Against the World」（Dear Mama収録）", asin: "B00009YNFQ" },
+    { label: "2Pac「All Eyez on Me」（California Love収録）", asin: "B00005AQE8" },
+    { label: "Mobb Deep「The Infamous」（Shook Ones Pt. II収録）", asin: "B000002WR5" },
+  ]} />
 
 </ColumnLayout>

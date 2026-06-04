@@ -1,5 +1,6 @@
 ---
 import ColumnLayout from '../../layouts/ColumnLayout.astro';
+import ColumnAlbums from '../../components/ColumnAlbums.astro';
 ---
 
 <ColumnLayout
@@ -87,5 +88,13 @@ import ColumnLayout from '../../layouts/ColumnLayout.astro';
   <p>
     <a href="/slang">スラング索引</a>では、このサイトに登場するスラング・AAVEを一覧で確認できる。
   </p>
+
+  <ColumnAlbums albums={[
+    { label: "Big L「The Big Picture」（Ebonics収録）", asin: "B00004TUWL" },
+    { label: "A Tribe Called Quest「The Low End Theory」（Check the Rhime収録）", asin: "B0000004X7" },
+    { label: "A Tribe Called Quest「Midnight Marauders」（Electric Relaxation収録）", asin: "B0000004ZA" },
+    { label: "Nas「Illmatic」（N.Y. State of Mind収録）", asin: "B0000029GA" },
+    { label: "Souls of Mischief「93 'til Infinity」", query: "Souls of Mischief 93 til Infinity" },
+  ]} />
 
 </ColumnLayout>

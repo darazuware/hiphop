@@ -1,5 +1,6 @@
 ---
 import ColumnLayout from '../../layouts/ColumnLayout.astro';
+import ColumnAlbums from '../../components/ColumnAlbums.astro';
 ---
 
 <ColumnLayout
@@ -74,5 +75,14 @@ import ColumnLayout from '../../layouts/ColumnLayout.astro';
   <p>
     <a href="/songs/cream">C.R.E.A.M.</a>と<a href="/songs/protect-ya-neck">Protect Ya Neck</a>——この2曲から始めて、Wu-Tangの世界に飛び込んでほしい。
   </p>
+
+  <ColumnAlbums albums={[
+    { label: "Wu-Tang Clan「Enter the Wu-Tang (36 Chambers)」", asin: "B000002WPR" },
+    { label: "Raekwon「Only Built 4 Cuban Linx...」", query: "Raekwon Only Built 4 Cuban Linx" },
+    { label: "GZA「Liquid Swords」", query: "GZA Liquid Swords" },
+    { label: "Ghostface Killah「Ironman」", query: "Ghostface Killah Ironman" },
+    { label: "Method Man「Tical」", query: "Method Man Tical" },
+    { label: "Wu-Tang Clan「Wu-Tang Forever」", query: "Wu-Tang Clan Wu-Tang Forever" },
+  ]} />
 
 </ColumnLayout>

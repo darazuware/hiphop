@@ -1,5 +1,6 @@
 ---
 import ColumnLayout from '../../layouts/ColumnLayout.astro';
+import ColumnAlbums from '../../components/ColumnAlbums.astro';
 ---
 
 <ColumnLayout
@@ -54,5 +55,11 @@ import ColumnLayout from '../../layouts/ColumnLayout.astro';
   <p>
     <a href="/songs/protect-ya-neck">Protect Ya Neck（1993）</a>はWu-Tangの最初期ポッセカット。Triumphとの4年間の進化を比較すると、各メンバーの成長が一目でわかる。
   </p>
+
+  <ColumnAlbums albums={[
+    { label: "Wu-Tang Clan「Wu-Tang Forever」（Triumph収録）", query: "Wu-Tang Clan Wu-Tang Forever" },
+    { label: "Wu-Tang Clan「Enter the Wu-Tang (36 Chambers)」", asin: "B000002WPR" },
+    { label: "Raekwon「Only Built 4 Cuban Linx...」", query: "Raekwon Only Built 4 Cuban Linx" },
+  ]} />
 
 </ColumnLayout>

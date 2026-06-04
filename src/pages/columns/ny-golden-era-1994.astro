@@ -1,5 +1,6 @@
 ---
 import ColumnLayout from '../../layouts/ColumnLayout.astro';
+import ColumnAlbums from '../../components/ColumnAlbums.astro';
 ---
 
 <ColumnLayout
@@ -68,5 +69,13 @@ import ColumnLayout from '../../layouts/ColumnLayout.astro';
   <p>
     この年に作られた音楽は30年後も聴かれている。それは単なるノスタルジーではなく、これらの作品が人間の経験の普遍的な部分——貧困、野望、コミュニティ、生存——を捉えているからだ。
   </p>
+
+  <ColumnAlbums albums={[
+    { label: "Nas「Illmatic」（1994）", asin: "B0000029GA" },
+    { label: "The Notorious B.I.G.「Ready to Die」（1994）", asin: "B014Q2980U" },
+    { label: "Wu-Tang Clan「Enter the Wu-Tang (36 Chambers)」（1993）", asin: "B000002WPR" },
+    { label: "A Tribe Called Quest「Midnight Marauders」（Electric Relaxation収録）", asin: "B0000004ZA" },
+    { label: "Gang Starr「Hard to Earn」（Mass Appeal収録）", asin: "B000003JCL" },
+  ]} />
 
 </ColumnLayout>
