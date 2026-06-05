@@ -25,18 +25,23 @@
 | A Tribe Called Quest「The Low End Theory」 | B0000004X7 | /songs/check-the-rhime |
 | Big L「The Big Picture」 | B00004TUWL | /songs/ebonics |
 
-## ⚠️ ASIN未確定（検索リンクで設置・後で要チェック）
+## ASIN後日確定（検索→/dp/直リンクに差し替え済み 2026-06-05）
 
-リポジトリ内に既存ASINがなく、検索リンクで設置したもの。死リンク化しない設計だが、正規ジャケットを出したい場合は後日ASIN確定を推奨。
+ユーザー提供のASINで検索リンクから直リンクへ差し替え。
+
+| アルバム | ASIN | 使用コラム |
+|---|---|---|
+| GZA「Liquid Swords」 | B000000OUJ | wu-tang-clan |
+| Raekwon「Only Built 4 Cuban Linx...」 | B000002WU9 | wu-tang-clan, triumph-nine-mcs |
+| Ghostface Killah「Ironman」 | B000057CVU | wu-tang-clan |
+| Method Man「Tical」 | B0000024JA | wu-tang-clan |
+| Wu-Tang Clan「Wu-Tang Forever」 | B00001IVOR | wu-tang-clan, triumph-nine-mcs |
+| Group Home「Livin' Proof」 | B000003R65 | dj-premier-sampling |
+
+## ⚠️ ASIN未確定（検索リンクで据え置き）
 
 | アルバム | 検索クエリ(k=) | 使用コラム |
 |---|---|---|
-| Raekwon「Only Built 4 Cuban Linx...」 | Raekwon Only Built 4 Cuban Linx | wu-tang-clan, triumph-nine-mcs |
-| GZA「Liquid Swords」 ← ユーザー指摘 | GZA Liquid Swords | wu-tang-clan |
-| Ghostface Killah「Ironman」 | Ghostface Killah Ironman | wu-tang-clan |
-| Method Man「Tical」 | Method Man Tical | wu-tang-clan |
-| Wu-Tang Clan「Wu-Tang Forever」 | Wu-Tang Clan Wu-Tang Forever | wu-tang-clan, triumph-nine-mcs |
-| Group Home「Livin' Proof」 | Group Home Livin' Proof | dj-premier-sampling |
 | Souls of Mischief「93 'til Infinity」 | Souls of Mischief 93 til Infinity | aave-hiphop-language |
 
 ## コラム別 設置一覧
