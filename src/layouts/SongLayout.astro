@@ -119,7 +119,7 @@ const relatedColumns = song
               class="w-48 h-48 rounded-lg object-cover border border-[var(--c-border)] group-hover:border-[var(--c-gold)] transition-colors"
             />
             <p class="text-[var(--c-very-dim)] text-xs mt-2">{song.album}</p>
-            <p class="text-[var(--c-gold)] text-[10px] mt-0.5 uppercase tracking-widest">Amazon で購入 →</p>
+            <p class="text-[var(--c-gold)] text-[10px] mt-0.5 uppercase tracking-widest"><span class="text-[var(--c-very-dim)] normal-case">[PR]</span> Amazon で購入 →</p>
           </a>
           <a
             href={`https://music.apple.com/jp/search?term=${encodeURIComponent(song.artists + ' ' + song.title)}&at=APPLE_AT_TOKEN`}
@@ -141,7 +141,7 @@ const relatedColumns = song
               onerror="this.style.display='none'"
             />
             <p class="text-[var(--c-very-dim)] text-xs mt-2">{song.album}</p>
-            <p class="text-[var(--c-gold)] text-[10px] mt-0.5 uppercase tracking-widest">Amazon で探す →</p>
+            <p class="text-[var(--c-gold)] text-[10px] mt-0.5 uppercase tracking-widest"><span class="text-[var(--c-very-dim)] normal-case">[PR]</span> Amazon で探す →</p>
           </a>
         </div>
       ) : null}
