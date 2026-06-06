@@ -212,7 +212,7 @@ export const artists = [
     origin: 'Boston, Massachusetts / Houston, Texas',
     active: '1987–2003, 2019',
     genre: 'East Coast Hip-Hop / Jazz Rap / Boom Bap',
-    summary: 'GuruとDJ Premierによる2人組。ジャズサンプリングとハードコアビートを融合させた「ジャズラップ」の先駆者として、1994年「Hard to Earn」でキャリアの頂点を迎えた。Guruは2010年に心臓発作で49歳にて死去。',
+    summary: 'GuruとDJ Premierによる2人組。ジャズサンプリングとハードコアビートを融合させた「ジャズラップ」の先駆者として、1998年「Moment of Truth」で批評・商業両面の頂点を迎えた。Guruは2010年に心臓発作で49歳にて死去。',
     japan: 'DJ Premierのビートメイキング哲学はトラックメイカー界隈で教科書的に語られており、DJ PMXをはじめ日本のプロデューサーたちへの影響は絶大。アンダーグラウンドHIPHOPファンの間で根強い支持を持つ。',
   },
   {
