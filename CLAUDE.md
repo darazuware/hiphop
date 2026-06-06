@@ -1,5 +1,9 @@
 # hiphop — プロジェクト設定
 
+## 事実チェック（最重要・常駐）
+- **サンプル系記事（曲ページ・コラム）を追加／編集するときは、作業前に必ず [`docs/fact-check-rules.md`](docs/fact-check-rules.md) を読み、本ルールに従う。**
+- サンプル・年・アルバム・客演・チャート順位・曲の実在性に関する事実主張は、生成時のハルシネーションを前提に一次ソース（WhoSampled / Wikipedia / Discogs / Genius）で必ず裏取りする。
+
 ## スタック
 - Astro + Tailwind CSS v4 + TypeScript
 - デプロイ: Cloudflare Pages（GitHub連携 → git pushで自動デプロイ）
