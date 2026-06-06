@@ -329,7 +329,7 @@ export const artists = [
     origin: 'Chicago, Illinois',
     active: '1991–',
     genre: 'Conscious Hip-Hop / neo soul',
-    summary: '本名Lonnie Rashid Lynn Jr.。Chicagoが誇るコンシャスHIPHOPの象徴的存在。J Dillaとの深い友情から生まれた2000年作『Like Water for Chocolate』で詩的・哲学的なリリシズムを極め、「The Light」はErykyah Baduへの愛を歌ったヒップホップ最高峰のラブソングのひとつ。GrammyやAcademy Award受賞歴を持つマルチアーティスト。',
+    summary: '本名Lonnie Rashid Lynn Jr.。Chicagoが誇るコンシャスHIPHOPの象徴的存在。J Dillaとの深い友情から生まれた2000年作『Like Water for Chocolate』で詩的・哲学的なリリシズムを極め、「The Light」はErykah Baduへの愛を歌ったヒップホップ最高峰のラブソングのひとつ。GrammyやAcademy Award受賞歴を持つマルチアーティスト。',
     japan: 'J Dilla崇拝が強い日本のビートメイカーコミュニティでは「The Light」のビートが特別な地位を占める。コンシャスHIPHOP入門として日本の音楽ファンにも定評があり、映画・CM出演も含めて幅広い層に知られる。',
   },
   {
