@@ -76,6 +76,81 @@ const tickerArtists = [
 
 <Layout title="WAX&amp;THINK — ヒップホップ歌詞和訳・スラング解説" description="ヒップホップの名曲を歌詞和訳とスラング解説で深掘り。C.R.E.A.M.・Nasなど名曲のスラングと文化背景を日本語で徹底解説。">
 
+  <div class="lg:grid lg:grid-cols-[210px_1fr] lg:gap-6 lg:items-start max-w-[1500px] mx-auto">
+
+  <!-- Global filter sidebar (desktop) — visible from the top -->
+  <aside class="hidden lg:block sticky top-[52px] self-start max-h-[calc(100vh-64px)] overflow-y-auto px-4 py-8 space-y-6">
+    <!-- Section jump links -->
+    <div class="border border-[var(--c-border)] rounded-lg overflow-hidden">
+      <p class="text-[var(--c-very-dim)] text-[10px] uppercase tracking-widest px-3 pt-3 pb-1.5">ページ内ジャンプ</p>
+      {[
+        { href: '#', label: '↑ トップへ' },
+        { href: '#ranking', label: 'ランキング' },
+        { href: '#series', label: '特集シリーズ' },
+        { href: '#latest', label: '最新追加' },
+        { href: '#all-songs', label: '全曲リスト' },
+        { href: '/slang', label: 'スラング索引' },
+      ].map(item => (
+        <a href={item.href} class="flex items-center gap-2 px-3 py-2 text-xs text-[var(--c-muted)] hover:text-[var(--c-gold)] hover:bg-[var(--c-surface)] transition-colors border-t border-[var(--c-border)] first:border-t-0">
+          {item.label}
+        </a>
+      ))}
+    </div>
+
+    <div>
+      <p class="text-[var(--c-very-dim)] text-[10px] uppercase tracking-widest mb-2">Search</p>
+      <input
+        id="search-input-desktop"
+        type="search"
+        placeholder="検索..."
+        autocomplete="off"
+        class="w-full bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg pl-3 pr-3 py-1.5 text-xs text-[var(--c-fg)] placeholder-[var(--c-very-dim)] focus:outline-none focus:border-[var(--c-gold)] transition-colors"
+      />
+    </div>
+
+    <div>
+      <p class="text-[var(--c-very-dim)] text-[10px] uppercase tracking-widest mb-2">Era</p>
+      <div class="space-y-1">
+        <button data-filter="era" data-value="" class="filter-btn active block w-full text-left text-xs px-2 py-1 rounded border border-[var(--c-border)] text-[var(--c-muted)] hover:border-[var(--c-gold)] transition-colors">All</button>
+        {eras.map(e => (
+          <button data-filter="era" data-value={e} class="filter-btn block w-full text-left text-xs px-2 py-1 rounded border border-[var(--c-border)] text-[var(--c-muted)] hover:border-[var(--c-gold)] transition-colors">{e}</button>
+        ))}
+      </div>
+    </div>
+
+    <div>
+      <p class="text-[var(--c-very-dim)] text-[10px] uppercase tracking-widest mb-2">Area</p>
+      <div class="space-y-1">
+        <button data-filter="region" data-value="" class="filter-btn active block w-full text-left text-xs px-2 py-1 rounded border border-[var(--c-border)] text-[var(--c-muted)] hover:border-[var(--c-gold)] transition-colors">All</button>
+        {regions.map(r => (
+          <button data-filter="region" data-value={r.value} class="filter-btn block w-full text-left text-xs px-2 py-1 rounded border border-[var(--c-border)] text-[var(--c-muted)] hover:border-[var(--c-gold)] transition-colors">{r.label}</button>
+        ))}
+      </div>
+    </div>
+
+    <div>
+      <p class="text-[var(--c-very-dim)] text-[10px] uppercase tracking-widest mb-2">Producer</p>
+      <select id="producer-select" class="w-full text-xs px-2 py-1 rounded border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-muted)] focus:outline-none focus:border-[var(--c-gold)] transition-colors cursor-pointer">
+        <option value="">All</option>
+        {producers.map(p => <option value={p}>{p}</option>)}
+      </select>
+    </div>
+
+    <div>
+      <p class="text-[var(--c-very-dim)] text-[10px] uppercase tracking-widest mb-2">Sort</p>
+      <select id="sort-select" class="w-full text-xs px-2 py-1 rounded border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-very-dim)] focus:outline-none focus:border-[var(--c-gold)] transition-colors cursor-pointer">
+        <option value="default">Default</option>
+        <option value="az">A–Z (Song)</option>
+        <option value="az-artist">A–Z (Artist)</option>
+        <option value="bpm">BPM ↑</option>
+        <option value="era">Era</option>
+      </select>
+    </div>
+  </aside>
+
+  <!-- Right column: all page content -->
+  <div class="min-w-0">
+
   <!-- ① HERO -->
   <section class="border-b border-[var(--c-border)] relative overflow-hidden hero-section">
     <!-- Ambient background -->
@@ -419,76 +494,7 @@ const tickerArtists = [
   </section>
 
   <!-- ⑧ ALL SONGS GRID -->
-  <div id="all-songs" class="max-w-7xl mx-auto px-4 sm:px-6 py-8 lg:grid lg:grid-cols-[200px_1fr] lg:gap-8 lg:items-start">
-
-    <!-- Filter sidebar (desktop) -->
-    <aside class="hidden lg:block sticky top-[52px] space-y-6">
-      <!-- Section jump links -->
-      <div class="border border-[var(--c-border)] rounded-lg overflow-hidden">
-        <p class="text-[var(--c-very-dim)] text-[10px] uppercase tracking-widest px-3 pt-3 pb-1.5">ページ内ジャンプ</p>
-        {[
-          { href: '#', label: '↑ トップへ' },
-          { href: '#ranking', label: 'ランキング' },
-          { href: '#series', label: '特集シリーズ' },
-          { href: '#latest', label: '最新追加' },
-          { href: '/slang', label: 'スラング索引' },
-        ].map(item => (
-          <a href={item.href} class="flex items-center gap-2 px-3 py-2 text-xs text-[var(--c-muted)] hover:text-[var(--c-gold)] hover:bg-[var(--c-surface)] transition-colors border-t border-[var(--c-border)] first:border-t-0">
-            {item.label}
-          </a>
-        ))}
-      </div>
-
-      <div>
-        <p class="text-[var(--c-very-dim)] text-[10px] uppercase tracking-widest mb-2">Search</p>
-        <input
-          id="search-input-desktop"
-          type="search"
-          placeholder="検索..."
-          autocomplete="off"
-          class="w-full bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg pl-3 pr-3 py-1.5 text-xs text-[var(--c-fg)] placeholder-[var(--c-very-dim)] focus:outline-none focus:border-[var(--c-gold)] transition-colors"
-        />
-      </div>
-
-      <div>
-        <p class="text-[var(--c-very-dim)] text-[10px] uppercase tracking-widest mb-2">Era</p>
-        <div class="space-y-1">
-          <button data-filter="era" data-value="" class="filter-btn active block w-full text-left text-xs px-2 py-1 rounded border border-[var(--c-border)] text-[var(--c-muted)] hover:border-[var(--c-gold)] transition-colors">All</button>
-          {eras.map(e => (
-            <button data-filter="era" data-value={e} class="filter-btn block w-full text-left text-xs px-2 py-1 rounded border border-[var(--c-border)] text-[var(--c-muted)] hover:border-[var(--c-gold)] transition-colors">{e}</button>
-          ))}
-        </div>
-      </div>
-
-      <div>
-        <p class="text-[var(--c-very-dim)] text-[10px] uppercase tracking-widest mb-2">Area</p>
-        <div class="space-y-1">
-          <button data-filter="region" data-value="" class="filter-btn active block w-full text-left text-xs px-2 py-1 rounded border border-[var(--c-border)] text-[var(--c-muted)] hover:border-[var(--c-gold)] transition-colors">All</button>
-          {regions.map(r => (
-            <button data-filter="region" data-value={r.value} class="filter-btn block w-full text-left text-xs px-2 py-1 rounded border border-[var(--c-border)] text-[var(--c-muted)] hover:border-[var(--c-gold)] transition-colors">{r.label}</button>
-          ))}
-        </div>
-      </div>
-
-      <div>
-        <p class="text-[var(--c-very-dim)] text-[10px] uppercase tracking-widest mb-2">Producer</p>
-        <select id="producer-select" class="w-full text-xs px-2 py-1 rounded border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-muted)] focus:outline-none focus:border-[var(--c-gold)] transition-colors cursor-pointer">
-          <option value="">All</option>
-          {producers.map(p => <option value={p}>{p}</option>)}
-        </select>
-      </div>
-
-      <div>
-        <p class="text-[var(--c-very-dim)] text-[10px] uppercase tracking-widest mb-2">Sort</p>
-        <select id="sort-select" class="w-full text-xs px-2 py-1 rounded border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-very-dim)] focus:outline-none focus:border-[var(--c-gold)] transition-colors cursor-pointer">
-          <option value="default">Default</option>
-          <option value="az">A–Z (Song)</option>
-          <option value="az-artist">A–Z (Artist)</option>
-          <option value="bpm">BPM ↑</option>
-          <option value="era">Era</option>
-        </select>
-      </div>
-    </aside>
+  <div id="all-songs" class="max-w-7xl mx-auto px-4 sm:px-6 py-8">
 
     <!-- Main content -->
     <div>
@@ -616,6 +622,9 @@ const tickerArtists = [
       </section>
     </div>
   </div>
+
+  </div><!-- /right column -->
+  </div><!-- /sidebar grid wrapper -->
 
   <!-- Floating back-to-top -->
   <button id="back-to-top" aria-label="トップへ戻る" class="fixed bottom-6 right-4 z-40 w-10 h-10 rounded-full bg-[var(--c-gold)] text-[#111] flex items-center justify-center shadow-lg opacity-0 pointer-events-none transition-opacity duration-300 hover:bg-[var(--c-gold-light)]">
