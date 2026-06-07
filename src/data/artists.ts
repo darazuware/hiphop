@@ -476,6 +476,15 @@ export const artists = [
     summary: '本名Alan Daniel Maman。カリフォルニア州ビバリーヒルズ出身。14歳でScott Caan（俳優James Caanの息子）とラップデュオThe Whooliganzを結成し、Cypress HillのB-Realに見出されてSoul Assassinsクルーの一員となる。DJ Muggsの薫陶を受けてビートメイクを習得し、Dilated PeoplesらLAアンダーグラウンドのプロデュースを経てNYへ移住。Mobb Deep・Prodigyとの強固な絆を築き、2004年のデビューアルバム『1st Infantry』でプロデューサーが全体をキュレーションする「プロデューサー主導型アルバム」の先駆けとなった。Ensoniq ASR-10から生み出される独特の質感と、70年代ソウル・ジャズをチョップする哀愁のビートで知られる。Freddie Gibbs、Earl Sweatshirt、Action Bronsonら多数のラッパーとのコラボ作品でも絶賛され、Erykah Baduとのコラボ作『Abi & Alan』（2025年）など今なお精力的に活動中。',
     japan: '2004年の「Hold You Down」リリース後、専門誌『blast』のレビューで絶賛され、渋谷のマンハッタンレコードやシスコの輸入盤12インチが瞬く間に完売。日本のプロデューサーhokutoは「高校生の時にThe Alchemistのスタイルに衝撃を受けタワーレコードへ走った」と証言。JJJは「彼がいなければ自分はヒップホップの世界で生きていこうとは思わなかった」と語り、来日時にマンハッタンレコードへサインをもらいに走った逸話を持つ。2023年12月に東京・大阪で来日公演を行い、2025年にはErykah Baduとの来日ツアー（Billboard Live Tokyo/Osaka、KT Zepp Yokohama）も開催された。',
   },
+  {
+    slug: 'poor-righteous-teachers',
+    name: 'Poor Righteous Teachers',
+    origin: 'Trenton, New Jersey',
+    active: '1989–1996',
+    genre: 'Conscious Hip-Hop / East Coast Hip-Hop / God Hop',
+    summary: 'ニュージャージー州トレントン出身のヒップホップ・トリオ。リードMCのWise Intelligent、バッキング・ボーカル兼プロデューサーのCulture Freedom、DJ兼プロデューサーのFather Shaheedの3人で構成。1990年にデビューアルバム『Holy Intellect』（Profile Records）をリリースし、「Rock Dis Funky Joint」がゴールドに迫るヒットを記録。Nation of Gods and Earths（Five Percent Nation）の教義に基づき「黒人こそが神であり文明の根源」という思想をラップに昇華させた「God Hop」の代表的存在。Rakim、Brand Nubian、X-Clan、KRS-Oneらと並びコンシャスラップの最前線を走った。1996年の最終作『The New World Order』ではFugees、KRS-One、Junior Reidがゲスト参加し、商業的苦戦とは裏腹に「アンダーグラウンドのマスターピース」として後年再評価された。',
+    japan: '1990年代後半〜2000年代にかけて、コンシャスHHやレコードコレクターの間でBrand Nubian・X-Clanと並んで語られるグループとして認識された。「神学×ラップ×ブームバップ」という独自の組み合わせと、Five Percent Nationの難解なタームを解読する知的楽しさが日本のアンダーグラウンドHHリスナーに支持された。Wise Intelligentの後年のソロ作品も一部コレクターに知られる。',
+  },
 ] as const;
 
 export type Artist = typeof artists[number];
