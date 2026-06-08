@@ -125,10 +125,10 @@ const resolvedSchema = schema ?? defaultSchema;
 </head>
 <body class="bg-[var(--c-bg)] text-[var(--c-text)] min-h-screen">
   <header class="sticky top-0 z-50 bg-[var(--c-bg)]/90 backdrop-blur-sm border-b border-[var(--c-border)]">
-    <div class="max-w-2xl mx-auto px-4 h-11 flex items-center justify-between gap-2">
+    <div class="max-w-7xl mx-auto px-4 h-11 flex items-center justify-between gap-2">
       <a href="/" class="font-mono text-sm text-[var(--c-gold)] hover:opacity-75 transition-opacity shrink-0">WAX&amp;THINK</a>
       <!-- Desktop nav -->
-      <nav class="hidden sm:flex items-center gap-1 flex-1 justify-center">
+      <nav class="hidden sm:flex items-center gap-1 flex-1 justify-center whitespace-nowrap">
         <a href="/" class={`text-xs px-2 py-1 rounded transition-colors ${pathname === '/' ? 'text-[var(--c-text)]' : 'text-[var(--c-very-dim)] hover:text-[var(--c-muted)]'}`}>曲一覧</a>
         <a href="/map" class={`text-xs px-2 py-1 rounded transition-colors flex items-center gap-1 ${pathname === '/map' ? 'text-[var(--c-gold)]' : 'text-[var(--c-very-dim)] hover:text-[var(--c-muted)]'}`}>
           <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/><line x1="9" x2="9" y1="3" y2="18"/><line x1="15" x2="15" y1="6" y2="21"/></svg>
@@ -234,6 +234,7 @@ const resolvedSchema = schema ?? defaultSchema;
       <a href="/contact" class="hover:text-[var(--c-gold)] transition-colors">お問い合わせ</a>
       <a href="/privacy" class="hover:text-[var(--c-gold)] transition-colors">プライバシーポリシー</a>
     </div>
+    <p class="text-[var(--c-very-dim)] mb-2">本サイトはAmazon.co.jpアソシエイト・プログラム、およびその他のアフィリエイトプログラムに参加しています。記事内のリンクから商品を購入された場合、サイト運営者に報酬が発生することがあります。</p>
     <p class="text-[var(--c-very-dim)]">© {new Date().getFullYear()} WAX&amp;THINK by BlackTiger. All rights reserved.</p>
   </footer>
 </body>
