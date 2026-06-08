@@ -477,6 +477,15 @@ export const artists = [
     japan: '2004年の「Hold You Down」リリース後、専門誌『blast』のレビューで絶賛され、渋谷のマンハッタンレコードやシスコの輸入盤12インチが瞬く間に完売。日本のプロデューサーhokutoは「高校生の時にThe Alchemistのスタイルに衝撃を受けタワーレコードへ走った」と証言。JJJは「彼がいなければ自分はヒップホップの世界で生きていこうとは思わなかった」と語り、来日時にマンハッタンレコードへサインをもらいに走った逸話を持つ。2023年12月に東京・大阪で来日公演を行い、2025年にはErykah Baduとの来日ツアー（Billboard Live Tokyo/Osaka、KT Zepp Yokohama）も開催された。',
   },
   {
+    slug: 'kanye-west',
+    name: 'Kanye West',
+    origin: 'Chicago, Illinois',
+    active: '1996–',
+    genre: 'Hip-Hop / Soul Rap / Experimental Hip-Hop',
+    summary: '本名Ye（旧名Kanye Omari West）。イリノイ州シカゴ出身。1990年代後半からビートメイカーとしてキャリアを積み、Jay-ZのDef Jamアルバム群への楽曲提供で名声を確立。2004年デビューアルバム『The College Dropout』でプロデューサーからMCへと転身し、魂のサンプリング・コンシャスなリリック・自己暴露的な表現で時代を刷新した。以降『Late Registration』（2005）・『Graduation』（2007）・『808s & Heartbreak』（2008）・『My Beautiful Dark Twisted Fantasy』（2010）・『Yeezus』（2013）と作品ごとにスタイルを変革し続け、ポップ・カルチャーとヒップホップの境界を塗り替えた。Yeezy（アディダスとのフットウェア・アパレルライン）でファッション・ビジネス界にも展開。2021年に改名「Ye」。',
+    japan: '日本では「大学3部作」の頃から熱狂的なファンを獲得し、Twitterで言及数が多いヒップホップアーティストの一人として長年ランクイン。Yeezy Boostシリーズは日本の限定スニーカー市場でも高い転売プレミアが付くほどの人気を誇る。渋谷系からストリート系まで幅広い層に浸透しており、プロデューサーとしてTalib Kweli「Get By」（2002）等を手がけた初期の仕事も日本のHHファンに高く評価される。',
+  },
+  {
     slug: 'poor-righteous-teachers',
     name: 'Poor Righteous Teachers',
     origin: 'Trenton, New Jersey',
