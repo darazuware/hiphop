@@ -6,9 +6,12 @@ interface Props {
   title: string;
   description: string;
   schema?: object;
+  ogType?: string;
+  publishedTime?: string;
+  modifiedTime?: string;
 }
 
-const { title, description, schema } = Astro.props;
+const { title, description, schema, ogType = 'website', publishedTime, modifiedTime } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://hiphop.vercel.app');
 const pathname = Astro.url.pathname;
 const isHome = pathname === '/';
@@ -73,12 +76,14 @@ const resolvedSchema = schema ?? defaultSchema;
   <link rel="canonical" href={canonicalURL} />
 
   <!-- Open Graph -->
-  <meta property="og:type" content="website" />
+  <meta property="og:type" content={ogType} />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:url" content={canonicalURL} />
   <meta property="og:site_name" content="WAX&amp;THINK" />
   <meta property="og:locale" content="ja_JP" />
+  {ogType === 'article' && publishedTime && <meta property="article:published_time" content={publishedTime} />}
+  {ogType === 'article' && modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
 
   <!-- OGP Image -->
   <meta property="og:image" content={ogImageURL} />

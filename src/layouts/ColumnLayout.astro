@@ -8,9 +8,10 @@ interface Props {
   description: string;
   slug: string;
   pubDate?: string;
+  updatedDate?: string;
 }
 
-const { title, description, slug, pubDate } = Astro.props;
+const { title, description, slug, pubDate, updatedDate } = Astro.props;
 
 const column = columns.find(c => c.slug === `/columns/${slug}`);
 const relatedSongs = column
@@ -18,7 +19,7 @@ const relatedSongs = column
   : [];
 ---
 
-<Layout title={title} description={description}>
+<Layout title={title} description={description} ogType="article" publishedTime={pubDate} modifiedTime={updatedDate}>
   <div class="max-w-5xl mx-auto px-4 py-8 lg:grid lg:grid-cols-[1fr_260px] lg:gap-12 lg:items-start">
 
     <!-- Main column -->
@@ -32,6 +33,7 @@ const relatedSongs = column
         <div class="flex items-center gap-3 text-xs text-[var(--c-very-dim)]">
           <span>by <a href="/about" class="text-[var(--c-gold)] hover:underline">BlackTiger</a></span>
           {pubDate && <time datetime={pubDate}>· {pubDate}</time>}
+          {updatedDate && <time datetime={updatedDate}>· 更新 {updatedDate}</time>}
         </div>
       </header>
 

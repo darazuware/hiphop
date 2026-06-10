@@ -20,6 +20,10 @@ const { title, description, slug, highlights, youtubeId, sampleYoutubeId, sample
 
 const song = songs.find(s => s.slug === `/songs/${slug}`);
 const artist = song ? artists.find(a => a.slug === song.artistSlug) : null;
+// H1 is the human-readable article heading, decoupled from the SEO <title> prop
+const h1 = song ? `${song.title} — ${song.artists} 和訳・スラング解説` : title;
+// 更新日メカニズム: データに updatedDate があれば表示（遡及入力は不要・任意）
+const updatedDate = (song as { updatedDate?: string } | undefined)?.updatedDate ?? null;
 const releaseYear = song?.subtitle.match(/·\s*(\d{4})/)?.[1] ?? null;
 const related = song
   ? songs.filter(s => s.artistSlug === song.artistSlug && s.slug !== song.slug).slice(0, 3)
@@ -29,7 +33,7 @@ const relatedColumns = song
   : [];
 ---
 
-<Layout title={title} description={description}>
+<Layout title={title} description={description} ogType="article" publishedTime={song?.pubDate} modifiedTime={updatedDate ?? undefined}>
   <!-- Progress bar -->
   <div id="progress-bar" class="fixed top-0 left-0 h-0.5 bg-[var(--c-gold)] z-50 transition-none" style="width:0%"></div>
 
@@ -59,10 +63,15 @@ const relatedColumns = song
     <div>
       <!-- Header -->
       <header class="mb-8">
-        <h1 class="text-2xl md:text-3xl font-bold leading-tight mb-4">{title}</h1>
+        <h1 class="text-2xl md:text-3xl font-bold leading-tight mb-4">{h1}</h1>
         {song?.pubDate && (
-          <time datetime={song.pubDate} class="block text-[var(--c-very-dim)] text-xs mb-4">
+          <time datetime={song.pubDate} class="block text-[var(--c-very-dim)] text-xs mb-1">
             公開: {new Date(song.pubDate).toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' })}
+          </time>
+        )}
+        {updatedDate && (
+          <time datetime={updatedDate} class="block text-[var(--c-very-dim)] text-xs mb-4">
+            更新: {new Date(updatedDate).toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' })}
           </time>
         )}
         {song && (
