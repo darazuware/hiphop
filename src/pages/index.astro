@@ -63,6 +63,7 @@ const regions = [
   { value: 'NY', label: 'New York' },
   { value: 'Philly', label: 'Philly' },
   { value: 'LA', label: 'LA / West' },
+  { value: 'Other', label: 'Other' },
 ];
 
 const tickerArtists = [
@@ -96,56 +97,7 @@ const tickerArtists = [
         </a>
       ))}
     </div>
-
-    <div>
-      <p class="text-[var(--c-very-dim)] text-[10px] uppercase tracking-widest mb-2">Search</p>
-      <input
-        id="search-input-desktop"
-        type="search"
-        placeholder="検索..."
-        autocomplete="off"
-        class="w-full bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg pl-3 pr-3 py-1.5 text-xs text-[var(--c-fg)] placeholder-[var(--c-very-dim)] focus:outline-none focus:border-[var(--c-gold)] transition-colors"
-      />
-    </div>
-
-    <div>
-      <p class="text-[var(--c-very-dim)] text-[10px] uppercase tracking-widest mb-2">Era</p>
-      <div class="space-y-1">
-        <button data-filter="era" data-value="" class="filter-btn active block w-full text-left text-xs px-2 py-1 rounded border border-[var(--c-border)] text-[var(--c-muted)] hover:border-[var(--c-gold)] transition-colors">All</button>
-        {eras.map(e => (
-          <button data-filter="era" data-value={e} class="filter-btn block w-full text-left text-xs px-2 py-1 rounded border border-[var(--c-border)] text-[var(--c-muted)] hover:border-[var(--c-gold)] transition-colors">{e}</button>
-        ))}
-      </div>
-    </div>
-
-    <div>
-      <p class="text-[var(--c-very-dim)] text-[10px] uppercase tracking-widest mb-2">Area</p>
-      <div class="space-y-1">
-        <button data-filter="region" data-value="" class="filter-btn active block w-full text-left text-xs px-2 py-1 rounded border border-[var(--c-border)] text-[var(--c-muted)] hover:border-[var(--c-gold)] transition-colors">All</button>
-        {regions.map(r => (
-          <button data-filter="region" data-value={r.value} class="filter-btn block w-full text-left text-xs px-2 py-1 rounded border border-[var(--c-border)] text-[var(--c-muted)] hover:border-[var(--c-gold)] transition-colors">{r.label}</button>
-        ))}
-      </div>
-    </div>
-
-    <div>
-      <p class="text-[var(--c-very-dim)] text-[10px] uppercase tracking-widest mb-2">Producer</p>
-      <select id="producer-select" class="w-full text-xs px-2 py-1 rounded border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-muted)] focus:outline-none focus:border-[var(--c-gold)] transition-colors cursor-pointer">
-        <option value="">All</option>
-        {producers.map(p => <option value={p}>{p}</option>)}
-      </select>
-    </div>
-
-    <div>
-      <p class="text-[var(--c-very-dim)] text-[10px] uppercase tracking-widest mb-2">Sort</p>
-      <select id="sort-select" class="w-full text-xs px-2 py-1 rounded border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-very-dim)] focus:outline-none focus:border-[var(--c-gold)] transition-colors cursor-pointer">
-        <option value="default">Default</option>
-        <option value="az">A–Z (Song)</option>
-        <option value="az-artist">A–Z (Artist)</option>
-        <option value="bpm">BPM ↑</option>
-        <option value="era">Era</option>
-      </select>
-    </div>
+    <p class="text-[var(--c-very-dim)] text-[10px] leading-relaxed px-1">検索・絞り込みは<a href="#all-songs" class="text-[var(--c-gold)] hover:underline">全曲リスト</a>の上にまとめています。</p>
   </aside>
 
   <!-- Right column: all page content -->
@@ -498,7 +450,7 @@ const tickerArtists = [
 
     <!-- Main content -->
     <div>
-      <div class="lg:hidden mb-6">
+      <div class="mb-6">
         <div class="relative mb-4">
           <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[var(--c-very-dim)] pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z"/>
@@ -559,7 +511,7 @@ const tickerArtists = [
         <div class="flex items-center justify-between mb-5 border-b border-[var(--c-border)] pb-2">
           <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest">All Songs</h2>
           <div class="flex items-center gap-3">
-            <select id="sort-select-mobile" class="lg:hidden text-xs px-2 py-1 rounded border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-very-dim)] focus:outline-none focus:border-[var(--c-gold)] transition-colors cursor-pointer">
+            <select id="sort-select-mobile" class="text-xs px-2 py-1 rounded border border-[var(--c-border)] bg-[var(--c-surface)] text-[var(--c-very-dim)] focus:outline-none focus:border-[var(--c-gold)] transition-colors cursor-pointer">
               <option value="default">Default</option>
               <option value="az">A–Z (Song)</option>
               <option value="az-artist">A–Z (Artist)</option>
