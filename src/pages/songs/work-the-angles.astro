@@ -2,6 +2,7 @@
 import LyricsBlock from '../../components/LyricsBlock.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
 import SongLayout from '../../layouts/SongLayout.astro';
+import AmazonAlbumCta from "../../components/AmazonAlbumCta.astro";
 ---
 
 <SongLayout
@@ -465,18 +466,6 @@ import SongLayout from '../../layouts/SongLayout.astro';
       <p class="text-sm text-[var(--c-muted)] leading-relaxed">「Work the Angles」はLAアンダーグラウンドシーンを世界的に知らしめた一曲。その後Dilated Peoplesは2000年「The Platform」、2001年「Expansion Team」（DJ Premier、Alchemist参加）でアンダーグラウンドHIPHOPの主流に。Evidenceはその後ソロ活動でも高い評価を受け、DJ Babuはターンテーブリズムの定義者として歴史に名を刻んだ。「角度を利用しろ」という哲学はHIPHOPの技巧と知性の象徴として、今もLAアンダーグラウンドのDNAに刻まれている。日本でもMUROやDJ Hasebe世代のDJたちに強い影響を与えた。</p>
     </section>
 
-    <!-- Amazon アフィリエイトリンク -->
-    <section class="mb-12">
-      <a href="https://www.amazon.co.jp/s?k=Dilated%20Peoples%20Work%20the%20Angles&i=music&tag=wax1124-22" target="_blank" rel="noopener" class="inline-block group">
-        <div class="flex items-center gap-3 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg hover:border-[var(--c-gold)] transition-colors">
-          <img src="/images/covers/work-the-angles.jpg" alt="Dilated Peoples - Worst Come to Worst" class="w-24 h-24 object-cover rounded" />
-          <div>
-            <p class="text-xs text-[var(--c-very-dim)] uppercase tracking-widest mb-1">Amazon で見る</p>
-            <p class="text-sm font-semibold text-[var(--c-text)] group-hover:text-[var(--c-gold)] transition-colors">Work the Angles / Worst Come to Worst</p>
-            <p class="text-xs text-[var(--c-muted)]">Dilated Peoples</p>
-          </div>
-        </div>
-      </a>
-    </section>
+    <AmazonAlbumCta query="Dilated Peoples Work the Angles" cover="/images/covers/work-the-angles.jpg" title="Work the Angles / Worst Come to Worst" artist="Dilated Peoples" />
 
 </SongLayout>

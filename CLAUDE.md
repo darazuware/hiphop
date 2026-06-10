@@ -44,6 +44,13 @@ public/images/   # アルバムアート
 - 1ブロック = 1〜2行が基本。意味のまとまりで区切る
 - 各ブロックにeng/jpn/explanationを付ける
 
+### 著作権・引用方針（暫定）
+- 歌詞は全文転載しない。解説に必要な範囲のセンテンス単位の**引用**にとどめる（批評・研究目的の引用として、出典＝アーティスト/曲名を明示）。
+- 引用部分（eng）より日本語解説（jpn/explanation）の分量を主とし、原文がコンテンツの中心にならないようにする。
+- 歌詞の出典はGeniusだが、Geniusの解説文・対訳をそのまま転記しない（事実確認の参照のみ）。
+- 権利者から削除要請があった場合は該当ブロックを速やかに非公開化する前提で運用。
+- ※暫定方針。確定までは「引用の範囲・解説主体」を疑わしきは縮小の原則で判断する。
+
 ## 記事作成フロー（Gist経由）
 ```
 1. ユーザーがGemini Deep Research結果をGistに貼る
@@ -61,6 +68,7 @@ public/images/   # アルバムアート
      - asin設定済み: Amazon商品画像リンク（`/dp/{asin}` + tag=wax1124-22）
      - asin=null: `public/images/covers/{slug}.jpg` を `amazon.co.jp/s?k={artists album}&tag=wax1124-22` で包む
    - タグは `wax1124-22` 固定（旧 hiphop_black-22 / waxthink-22 は無効）、ドメインは **amazon.co.jp のみ**
+   - **【直書き禁止】** `.astro` 本文に生の `amazon.co.jp` URL（`<a href="...amazon...">`）を書かない。本文のアルバム購入CTAは必ず共通コンポーネント `src/components/AmazonAlbumCta.astro`（`query`/`asin`・`cover`・`title`・`artist` props）経由にする。タグは同コンポーネントと `VodCta.astro`・`ColumnAlbums.astro` が定数で集中管理する。Apple Music リンクは `at=` トークンを持たないため `at=` パラメータを付けない（素のsearchリンク）。
    - 検索リンクは必ず **`&i=music`**（ミュージックカテゴリ限定）を付ける → 生活用品等の誤ヒット防止
    - → 記事本文に手書きの「Amazonで探す」テキストCTAは入れない（ジャケットリンクと重複するため）
    - **【Amazon戦略・確定方針】** 商品直リンク(asin)よりも**検索リンクを優先**する。理由: アソシエイトcookieは24時間有効で一度踏ませれば全商品の購入が成果対象になるため「とにかくAmazonに飛ばす」のが最適。直リンクは廃盤・在庫切れで死にリンク化するリスクがあるが、検索リンクは常に何か表示され死なない。ジャケット画像クリック型＋`i=music`限定を標準とし、asinはAmazonが自動で正規ジャケットを出す場合のみ任意設定。
@@ -84,24 +92,24 @@ public/images/   # アルバムアート
    ```
    - 保存先: `public/images/covers/{slug}.jpg`
    - git addの対象に `public/images/covers/{slug}.jpg` を含める
-8b. 画像チェック（必須）:
+9. 画像チェック（必須）:
    node agent/src/check-cover-image.mjs {slug}
    - ❌が出たらDeezerで別アルバム名/アーティスト名で再取得してから次へ進む
    - asinが設定済みの場合はスキップ可
-8c. YouTube埋め込みチェック（必須）:
+10. YouTube埋め込みチェック（必須）:
    node agent/src/check-youtube.mjs {slug}
    - youtubeId（メイン動画）は必須。未設定/空/404 は ❌
    - sampleYoutubeId / youtubeShortId は任意だが、設定済みなら生存必須
    - ❌が出たら正しい公式動画IDに差し替えてから次へ進む（oEmbedで実在確認）
    - 【重要】youtubeIdは推測で書かない。必ず実在する動画を確認して設定する
-9. 歌詞チェック（必須）:
+11. 歌詞チェック（必須）:
    node agent/src/check-lyrics-coverage.mjs {slug}
    - [A] 抜け漏れチェック: Genius行が.astroに存在するか（85%以上必須）
    - [B] ハルシネーションチェック: .astroの英語行がGeniusに存在するか
    - ❌が出たら修正してから次へ進む
    - 2026年以降の新曲でGeniusデータ不完全な場合は[B]を手動確認
-9. npm run build でビルド確認
-10. 自分が変更・作成したファイル（.astro, songs.ts, artists.ts, public/images/covers/{slug}.jpg）のみを git add → git commit → git push
+12. npm run build でビルド確認
+13. 自分が変更・作成したファイル（.astro, songs.ts, artists.ts, public/images/covers/{slug}.jpg）のみを git add → git commit → git push
     ※【厳守】絶対に "git add ." を実行しないこと（ユーザーのローカル作業と競合するため）
 ```
 

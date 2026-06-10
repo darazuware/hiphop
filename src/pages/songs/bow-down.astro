@@ -2,6 +2,7 @@
 import LyricsBlock from '../../components/LyricsBlock.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
 import SongLayout from '../../layouts/SongLayout.astro';
+import AmazonAlbumCta from "../../components/AmazonAlbumCta.astro";
 ---
 
 <SongLayout
@@ -582,21 +583,6 @@ import SongLayout from '../../layouts/SongLayout.astro';
     </div>
   </section>
 
-  <!-- Amazon -->
-  <section class="mb-8">
-    <a
-      href="https://www.amazon.co.jp/s?k=Westside%20Connection%20Bow%20Down&i=music&tag=wax1124-22"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="flex items-center gap-3 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg hover:border-[var(--c-gold)] transition-colors group"
-    >
-      <img src="/images/covers/bow-down.jpg" alt="Bow Down album cover" class="w-24 h-24 object-cover rounded" />
-      <div>
-        <p class="text-xs text-[var(--c-very-dim)] mb-1">Amazon で探す</p>
-        <p class="text-sm font-semibold group-hover:text-[var(--c-gold)] transition-colors">Westside Connection — Bow Down</p>
-        <p class="text-xs text-[var(--c-very-dim)]">CD / ストリーミング</p>
-      </div>
-    </a>
-  </section>
+  <AmazonAlbumCta query="Westside Connection Bow Down" cover="/images/covers/bow-down.jpg" title="Bow Down" artist="Westside Connection" label="Amazon で探す" />
 
 </SongLayout>

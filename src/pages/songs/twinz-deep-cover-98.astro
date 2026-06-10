@@ -2,6 +2,7 @@
 import LyricsBlock from '../../components/LyricsBlock.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
 import SongLayout from '../../layouts/SongLayout.astro';
+import AmazonAlbumCta from "../../components/AmazonAlbumCta.astro";
 ---
 
 <SongLayout
@@ -420,27 +421,6 @@ import SongLayout from '../../layouts/SongLayout.astro';
       <p class="text-sm text-[var(--c-muted)] leading-relaxed">日本では東京・渋谷の「Club HARLEM」で2004年に開催されたイベントパンフレットにTats Cru（NYのグラフィティチーム）によるBig Pun追悼壁画の写真が掲載され、日本のヒップホップコミュニティが彼の逝去を深く悼んでいたことが記録されている。Fat Joeは現在もBig Punをヒップホップ史上最高のリリシストの一人として世界中で伝え続けている。</p>
     </section>
 
-    <!-- Amazon アフィリエイト -->
-    <section class="mb-8 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
-      <p class="text-xs text-[var(--c-very-dim)] uppercase tracking-widest mb-3">アルバムを聴く</p>
-      <a
-        href="https://www.amazon.co.jp/s?k=Big+Pun+Capital+Punishment&i=music&tag=wax1124-22"
-        target="_blank"
-        rel="noopener noreferrer sponsored"
-        class="flex items-center gap-3 hover:opacity-80 transition-opacity"
-      >
-        <img
-          src="/images/covers/twinz-deep-cover-98.jpg"
-          alt="Big Pun - Capital Punishment"
-          class="w-24 h-24 object-cover rounded"
-          loading="lazy"
-        />
-        <div>
-          <p class="text-sm font-semibold">Capital Punishment</p>
-          <p class="text-xs text-[var(--c-muted)]">Big Pun · 1998 · Loud Records</p>
-          <p class="text-xs text-[var(--c-gold)] mt-1">Amazon で見る →</p>
-        </div>
-      </a>
-    </section>
+    <AmazonAlbumCta query="Big Pun Capital Punishment" cover="/images/covers/twinz-deep-cover-98.jpg" title="Capital Punishment" artist="Big Pun · 1998 · Loud Records" label="アルバムを聴く" />
 
 </SongLayout>

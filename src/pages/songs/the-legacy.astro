@@ -2,6 +2,7 @@
 import LyricsBlock from '../../components/LyricsBlock.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
 import SongLayout from '../../layouts/SongLayout.astro';
+import AmazonAlbumCta from "../../components/AmazonAlbumCta.astro";
 ---
 
 <SongLayout
@@ -404,18 +405,6 @@ import SongLayout from '../../layouts/SongLayout.astro';
     <p class="text-sm text-[var(--c-muted)] leading-relaxed">日本では1990年代中盤からDJやヒップホップリスナーの間で熱狂的に受け入れられ、現在も「プリモビートの教科書」として語り継がれる。Lil' Dapは2000年代以降も定期的に来日し、日本のシーンとの絆を深め続けている。</p>
   </section>
 
-  <!-- Amazon アフィリエイトリンク -->
-    <section class="mb-12">
-      <a href="https://www.amazon.co.jp/s?k=Group+Home+Livin+Proof&i=music&tag=wax1124-22" target="_blank" rel="noopener" class="inline-block group">
-        <div class="flex items-center gap-3 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg hover:border-[var(--c-gold)] transition-colors">
-          <img src="/images/covers/the-legacy.jpg" alt="Group Home - Livin' Proof" class="w-24 h-24 object-cover rounded" />
-          <div>
-            <p class="text-xs text-[var(--c-very-dim)] uppercase tracking-widest mb-1">Amazon で見る</p>
-            <p class="text-sm font-semibold text-[var(--c-text)] group-hover:text-[var(--c-gold)] transition-colors">The Legacy / Livin' Proof</p>
-            <p class="text-xs text-[var(--c-muted)]">Group Home</p>
-          </div>
-        </div>
-      </a>
-    </section>
+    <AmazonAlbumCta query="Group Home Livin Proof" cover="/images/covers/the-legacy.jpg" title="The Legacy / Livin' Proof" artist="Group Home" />
 
 </SongLayout>

@@ -1,0 +1,30 @@
+---
+// 曲ページ本文のアルバム購入CTA（Amazonアソシエイト）。
+// タグは本コンポーネントで集中管理し、ページに生のAmazon URLを直書きしない。
+interface Props {
+  query?: string; // amazon.co.jp/s?k= 検索クエリ（推奨。24h cookie戦略）
+  asin?: string;  // 直リンク /dp/{asin}（Amazonが正規ジャケットを出す場合のみ）
+  cover: string;  // /images/covers/{slug}.jpg
+  title: string;  // 表示タイトル（例: "99 Problems / The Black Album"）
+  artist: string; // アーティスト名
+  label?: string; // 小見出し（既定: "Amazon で見る"）
+}
+const { query, asin, cover, title, artist, label = "Amazon で見る" } = Astro.props as Props;
+const TAG = "wax1124-22";
+const href = asin
+  ? `https://www.amazon.co.jp/dp/${asin}?tag=${TAG}`
+  : `https://www.amazon.co.jp/s?k=${encodeURIComponent(query ?? "")}&i=music&tag=${TAG}`;
+---
+
+<section class="mb-12">
+  <a href={href} target="_blank" rel="noopener sponsored nofollow" class="inline-block group">
+    <div class="flex items-center gap-3 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg hover:border-[var(--c-gold)] transition-colors">
+      <img src={cover} alt={`${artist} - ${title}`} class="w-24 h-24 object-cover rounded" loading="lazy" />
+      <div>
+        <p class="text-xs text-[var(--c-very-dim)] uppercase tracking-widest mb-1">{label}</p>
+        <p class="text-sm font-semibold text-[var(--c-text)] group-hover:text-[var(--c-gold)] transition-colors">{title}</p>
+        <p class="text-xs text-[var(--c-muted)]">{artist}</p>
+      </div>
+    </div>
+  </a>
+</section>
