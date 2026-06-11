@@ -1,5 +1,14 @@
 export const artists = [
   {
+    slug: 'ol-dirty-bastard',
+    name: "Ol' Dirty Bastard",
+    origin: 'Brooklyn / Staten Island, New York',
+    active: '1992–2004',
+    genre: 'East Coast Hip-Hop / hardcore rap',
+    summary: "Wu-Tang Clanの創設メンバー、本名Russell Tyrone Jones（1968-2004）。ODBの愛称で知られる。RZAの従兄弟。論理的なストーリーテリングを意図的に拒絶し、意識の流れに任せた不条理でカオスなフロウは「酔拳（Drunken Master）」に例えられる。1995年ソロデビュー作『Return to the 36 Chambers: The Dirty Version』は全米ビルボード200で7位を記録しプラチナ認定。1998年グラミー賞授賞式への乱入（「Wu-Tang is for the children」）など、常識を超えた行動でヒップホップ史に刻まれた天才。2004年11月13日、RZAのスタジオで薬物過剰摂取により36歳で死去。",
+    japan: "Wu-Tang Clanとともに日本のアンダーグラウンドHIPHOPシーンに浸透。1996年には日本限定EP『O.D.B. E.P.』（ワーナーミュージック・ジャパン、規格品番WPCR-938）がリリースされ、「Shimmy Shimmy Ya」の拡張バージョンや日本独自リミックスが収録された。2024年にはWu-Tang Clanの来日公演に長男Young Dirty Bastard（YDB）が参加し、「Shimmy Shimmy Ya」を演じて日本のファンに深い感動を与えた。",
+  },
+  {
     slug: 'quasimoto',
     name: 'Quasimoto',
     origin: 'Oxnard, California',
