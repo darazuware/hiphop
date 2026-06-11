@@ -1,0 +1,14 @@
+[
+  { "id": "crime-side",       "anchor": ["i","grew","up","on","the"], "fallbackT": 29 },
+  { "id": "lo-goose",         "anchor": ["a","young","youth"] },
+  { "id": "g-off",            "anchor": ["only","way","i","begin","to"] },
+  { "id": "runnin-up-gates",  "anchor": ["runnin","up","in","gates"] },
+  { "id": "keys-seas",        "anchor": ["catchin","keys","from","across"] },
+  { "id": "tec-9",            "anchor": ["respect","mine","or","anger"] },
+  { "id": "cream-hook",       "anchor": ["cash","rules","everything","around"] },
+  { "id": "could-not-touch",  "anchor": ["trying","to","get","a","clutch"] },
+  { "id": "world-cell",       "anchor": ["living","in","the","world","no"] },
+  { "id": "jakes-base",       "anchor": ["every","day","i","escape","from"] },
+  { "id": "old-earth",        "anchor": ["ready","to","give","up","so"] },
+  { "id": "stickup-kids",     "anchor": ["we","got","stick"] }
+]

@@ -1,0 +1,55 @@
+---
+/**
+ * 学習解説主体ページの中核ユニット。
+ * 「学ぶ表現」を見出しに立て、MC担当＋PVタイムスタンプ・最小引用＋和訳・独自解説を束ねる。
+ * 英語原文(eng)は解説の用例断片のみ。解説(slot)がコンテンツの主役。
+ */
+interface Props {
+  heading: string;        // 学ぶ表現（見出し）
+  mc?: string;            // MC担当（誰のVerse/Hookか）
+  t?: number | null;      // PVタイムスタンプ（秒）。nullなら非表示
+  youtubeId?: string;     // 動画ID（t=秒リンク用）
+  tApprox?: boolean;      // 秒数が推定値の場合true（「≈」表示）
+  label?: string;         // バッジ（例: ★ トリプルミーニング）
+  eng?: string;           // 用例断片（最小引用）
+  jpn?: string;           // 和訳
+}
+const { heading, mc, t = null, youtubeId, tApprox = false, label, eng, jpn } = Astro.props;
+const mmss = t != null ? `${Math.floor(t / 60)}:${String(Math.floor(t % 60)).padStart(2, "0")}` : null;
+const ytUrl = t != null && youtubeId ? `https://www.youtube.com/watch?v=${youtubeId}&t=${Math.floor(t)}s` : null;
+---
+
+<section class="learning-unit mb-10">
+  <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-2">
+    <h3 class="text-lg font-semibold text-[var(--c-text)]">{heading}</h3>
+    {label && (
+      <span class="text-[var(--c-gold)] text-xs font-bold uppercase tracking-widest opacity-80">{label}</span>
+    )}
+  </div>
+
+  {(mc || mmss) && (
+    <div class="flex flex-wrap items-center gap-x-4 gap-y-1 mb-3 text-xs text-[var(--c-dim)]">
+      {mc && <span>🎤 <span class="text-[var(--c-muted)]">{mc}</span></span>}
+      {mmss && (
+        ytUrl ? (
+          <a href={ytUrl} target="_blank" rel="noopener" class="text-[var(--c-gold)] hover:underline">
+            ▶ {tApprox ? "≈" : ""}{mmss} から再生
+          </a>
+        ) : (
+          <span>▶ {tApprox ? "≈" : ""}{mmss}</span>
+        )
+      )}
+    </div>
+  )}
+
+  {(eng || jpn) && (
+    <blockquote class="border-l-2 border-[var(--c-gold)] pl-4 my-3">
+      {eng && <p class="text-[var(--c-text)] text-base leading-relaxed"><slot name="eng">{eng}</slot></p>}
+      {jpn && <p class="text-[var(--c-muted)] text-sm leading-relaxed italic mt-1"><slot name="jpn">{jpn}</slot></p>}
+    </blockquote>
+  )}
+
+  <div class="text-[var(--c-muted)] text-sm leading-relaxed space-y-3">
+    <slot />
+  </div>
+</section>

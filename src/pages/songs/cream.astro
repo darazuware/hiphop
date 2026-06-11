@@ -1,16 +1,34 @@
 ---
-import LyricsBlock from '../../components/LyricsBlock.astro';
+import LearningUnit from '../../components/LearningUnit.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
 import SongLayout from '../../layouts/SongLayout.astro';
+
+// 学習ユニットのPVタイムスタンプ（秒）。agent/src/extract-unit-timestamps.mjs で
+// 音源(album mp3)を whisper 単語アライメントして取得。crime-side のみ手動推定。
+const YT = "PBwAxmrE194";
+const TS = {
+  "crime-side": { t: 29, approx: true },
+  "lo-goose": { t: 32 },
+  "g-off": { t: 36 },
+  "runnin-up-gates": { t: 49 },
+  "keys-seas": { t: 76 },
+  "tec-9": { t: 82 },
+  "cream-hook": { t: 86 },
+  "could-not-touch": { t: 116 },
+  "world-cell": { t: 132 },
+  "jakes-base": { t: 134 },
+  "old-earth": { t: 148 },
+  "stickup-kids": { t: 155 },
+};
 ---
 
 <SongLayout
   title="C.R.E.A.M. 和訳・意味・スラング解説 | Wu-Tang Clan"
-  description="Wu-Tang ClanのC.R.E.A.M.の歌詞和訳とスラング徹底解説。RZAのサンプリング技術とRaekwon・Inspectah Deckが描くクラック時代のニューヨークを読み解く。"
+  description="Wu-Tang ClanのC.R.E.A.M.を英語学習＋ヒップホップ理解の教材として精読。'Lo goose・G off・keys・Old EarthなどのスラングとAAVE、RZAのサンプリングを表現単位で解説。各表現はPVの該当箇所へ頭出しリンク付き。"
   slug="cream"
   highlights={[
     'C.R.E.A.M.は拝金主義ではなく貧困の構造的暴力への告発',
-    'Inspectah Deckの「I could not... [touch]」——機材ミスが生んだ詩的な空白',
+    'スラング・韻・言葉遊びを「学ぶ表現」単位で解説（PV頭出しリンク付き）',
     'RZAのサンプリング哲学とLoFi Hip-Hopの源流',
   ]}
   youtubeId="PBwAxmrE194"
@@ -18,289 +36,220 @@ import SongLayout from '../../layouts/SongLayout.astro';
   sampleTitle="The Charmels - As Long As I've Got You"
 >
 
-    <!-- この曲の意味 -->
+    <!-- ===================== -->
+    <!-- 導入                  -->
+    <!-- ===================== -->
     <section class="mb-6">
-      <h2 class="text-base font-semibold mb-2">■この曲の意味（要約）</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">「Cash Rules Everything Around Me（金が周りのすべてを支配する）」——クラック・エピデミックが蔓延したインナーシティで、金のために生き、金のために死ぬほかない若者たちの絶望的な叫びを描いた楽曲。拝金主義の讃歌ではなく、貧困の構造的暴力への痛切な告発。</p>
+      <h2 class="text-base font-semibold mb-2">■この曲で何を学べるか</h2>
+      <p class="text-sm text-[var(--c-muted)] leading-relaxed">
+        「Cash Rules Everything Around Me（金が周りのすべてを支配する）」——クラック・エピデミックが蔓延したインナーシティで、金のために生き、金のために死ぬほかない若者たちの絶望を描いた楽曲。拝金主義の讃歌ではなく、貧困の構造的暴力への痛切な告発だ。本ページは全行の逐語対訳ではなく、<strong class="text-[var(--c-text)]">この曲を英語学習とヒップホップ理解の教材として精読する</strong>。RaekwonとInspectah Deckのリリックには、辞書に載らないストリートスラング、AAVE（アフリカ系アメリカ人英語）の文法、二重・三重の意味を仕込んだ言葉遊び、そして韻の構築が凝縮されている。それらを「学ぶ表現」単位で取り出し、用例の断片・和訳・語法と文化背景を解説していく。
+      </p>
     </section>
 
-    <!-- 概要 -->
     <section class="mb-6">
-      <h2 class="text-base font-semibold mb-2">■概要</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">1994年リリース。RZAがThe Charmelsの哀愁ピアノをサンプリングし、RaekwonとInspectah Deckがヴァースを担当。Wu-Tang Clanで最大のヒットとなり、4×プラチナ認定。「C.R.E.A.M.」という語は後に英語辞書に「現金」のスラングとして収録された。</p>
-    </section>
-
-    <!-- 導入 -->
-    <section class="mb-10">
-      <h2 class="text-base font-semibold mb-2">■導入（時代背景）</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">G-Funk全盛期の1994年、スタテンアイランドから放たれた東海岸の反撃。クラック・コカインが蔓延し殺人件数が年間2,000件を超えたニューヨークの現実を、RZAの泥臭いブーンバップに乗せてリアルに描写した。</p>
+      <h2 class="text-base font-semibold mb-2">■なぜC.R.E.A.M.が教材として優れるか</h2>
+      <p class="text-sm text-[var(--c-muted)] leading-relaxed">
+        1994年リリース。RZAがThe Charmelsの哀愁ピアノをサンプリングし、RaekwonとInspectah Deckがヴァースを担当。Wu-Tang Clanで最大のヒットとなり4×プラチナ認定、「C.R.E.A.M.」という語は後に「現金」を意味するスラングとして英語辞書に収録された。教科書英語からは決して学べない<strong class="text-[var(--c-text)]">生きたストリート言語の凝縮度</strong>と、たった数語に複数の意味を畳み込む<strong class="text-[var(--c-text)]">言葉の経済性</strong>——この2点で、本作は英語表現の教材として群を抜いている。G-Funk全盛期にスタテンアイランド（彼らは「Shaolin＝少林」と呼ぶ）から放たれた東海岸の反撃でもある。
+      </p>
     </section>
 
     <!-- Table of Contents -->
     <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
       <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
       <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
-        <li><a href="#lyrics" class="hover:text-[var(--c-gold)] transition-colors">01 — 歌詞和訳と意味解説</a></li>
-        <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">02 — 文化的背景</a></li>
-        <li><a href="#versions" class="hover:text-[var(--c-gold)] transition-colors">03 — バージョン違い</a></li>
-        <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">04 — 制作の裏側</a></li>
+        <li><a href="#units" class="hover:text-[var(--c-gold)] transition-colors">01 — 学ぶ表現（スラング・韻・言葉遊び・AAVE）</a></li>
+        <li><a href="#story" class="hover:text-[var(--c-gold)] transition-colors">02 — ストーリーの流れ（要約）</a></li>
+        <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">03 — 文化的背景</a></li>
+        <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">04 — サンプル・制作の裏側</a></li>
         <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">05 — 評価とその後の影響</a></li>
       </ol>
     </nav>
 
-    <div id="lyrics"></div>
-
     <!-- ===================== -->
-    <!-- INTRO                 -->
+    <!-- 学習ユニット群（主役）  -->
     <!-- ===================== -->
+    <div id="units"></div>
     <section class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Intro · Raekwon &amp; Method Man
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2 border-b border-[var(--c-border)] pb-2">
+        学ぶ表現 — スラング・韻・言葉遊び・AAVE
       </h2>
+      <p class="text-xs text-[var(--c-dim)] mb-6">
+        各見出しは「この曲から学べる英語表現」。🎤はそのリリックを歌うMC、▶は公式PVの該当箇所への頭出しリンク（音源解析で付与、秒数は概算）。引用は解説に必要な最小限の断片に留めている。
+      </p>
 
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Word up, look out for the <QuickSlang word="cops" desc="警察のこと。この後「Jakes（Jakes）」という隠語も登場する" /> (Cash Rules)<br />
-          Word up, two for fives over here baby<br />
-          Take you on a natural <QuickSlang word="joint" desc="①素晴らしい楽曲・作品 ②大麻を巻いたジョイント、のダブルミーニング" /><br />
-          (C.R.E.A.M. get the money)
-        </Fragment>
-        <Fragment slot="jpn">
-          (Raekwonの語り)<br />
-          あいつは何が欲しいんだ、<QuickSlang word="神" desc="「Five-Percent Nation」の教義で黒人男性への敬称。キリスト教的な神への呼びかけではない" />よ？<br />
-          マジな話、サツ（警察）には気をつけろ（金が支配する）<br />
-          マジだ、こっちには2個で5ドルの上物があるぜ、ベイビー<br />
-          マジだぜ、2個で5ドルだ、向こうの連中が持ってるのはゴミクズだ<br />
-          マジだ、俺の言ってること分かるか？<br /><br />
-          (Method Manの語り)<br />
-          （金が俺の周りのすべてを支配する、C.R.E.A.M. 稼ぐんだ）<br />
-          ああ、このイケてる古いシットを聴いてみな、マジだぜ<br />
-          （金が俺の周りのすべてを支配する）<br />
-          お前らをナチュラルなジョイント（最高の曲）に連れてってやる<br />
-          （C.R.E.A.M. 金を手に入れろ）<br />
-          さあ、行くぜ<br />
-          （ドル札だ、お前ら）<br />
-          このシットをチェックしろ、ヨォ！
-        </Fragment>
-        <Fragment slot="explanation">
-          楽曲はストリートのドラッグ売買の生々しい会話から幕を開ける。「Two for fives（2個で5ドル）」はクラック・コカインのバイアル（小瓶）の路上相場。向かいの売人の商品を「garbage（ゴミ）」と貶し、自分の品の優位を誇示する客引きがそのまま録音されている。「God（神よ）」という呼びかけはFive-Percent Nationの哲学——「黒人男性こそが神」——に基づく仲間内の敬称。
-        </Fragment>
-      </LyricsBlock>
+      <!-- ① crime side / New York Times side -->
+      <LearningUnit
+        heading="crime side / New York Times side — 同音をぶつける言葉遊び"
+        label="★ 言葉遊び"
+        mc="Raekwon（Verse 1）"
+        t={TS["crime-side"].t} tApprox={TS["crime-side"].approx} youtubeId={YT}
+      >
+        <Fragment slot="eng">I grew up on the crime side, the New York Times side</Fragment>
+        <Fragment slot="jpn">犯罪が蔓延る側、（だが）ニューヨーク・タイムズ紙に載る側で育った</Fragment>
+        <p>冒頭の一行から言葉遊びが始まる。<strong class="text-[var(--c-text)]">crime side</strong>（犯罪多発地域）と <strong class="text-[var(--c-text)]">Times side</strong> を脚韻でぶつけ、さらに <strong class="text-[var(--c-text)]">New York Times</strong> を「権威ある新聞」と「自分の街＝ニューヨーク」のダブルミーニングで重ねる。育った環境が「事件として新聞の三面記事に載るような場所」だと、固有名詞ひとつで凝縮して提示するのだ。<code>- side</code> を韻の軸に据える手法は、Raekwonの語彙設計のうまさを示す。</p>
+      </LearningUnit>
+
+      <!-- ② 'Lo goose -->
+      <LearningUnit
+        heading="'Lo goose — ブランド名がステータス語彙になる"
+        label="★ スラング／文化"
+        mc="Raekwon（Verse 1）"
+        t={TS["lo-goose"].t} youtubeId={YT}
+      >
+        <Fragment slot="eng">A young youth, yo, rockin' the gold tooth, <QuickSlang word="'Lo goose" desc="Polo Ralph Laurenのグースダウンジャケット。当時のゲットーにおける最高のステータスアイテム" /></Fragment>
+        <Fragment slot="jpn">血気盛んな若者、金歯を光らせ、ポロのダウンを着こなす</Fragment>
+        <p><strong class="text-[var(--c-text)]">'Lo</strong> は Polo（Ralph Lauren）の略、<strong class="text-[var(--c-text)]">goose</strong> はグースダウン（羽毛）ジャケットを指す。つまり「'Lo goose」＝ポロのダウンジャケット。白人富裕層の象徴だったラルフローレンを、万引き集団 <strong class="text-[var(--c-text)]">Lo-Lifes</strong> や麻薬資金で手に入れ、自分たちのステータス記号へと再定義したゲットー文化が一語に凝縮されている。<code>rockin'</code>（＝wearing、着こなす）も覚えておきたいAAVE的な動詞用法だ。</p>
+      </LearningUnit>
+
+      <!-- ③ G off -->
+      <LearningUnit
+        heading="G off — 一語に三つの意味を畳む（トリプルエンタンドル）"
+        label="★ 言葉遊び（最重要）"
+        mc="Raekwon（Verse 1）"
+        t={TS["g-off"].t} youtubeId={YT}
+      >
+        <Fragment slot="eng">Only way I begin to <QuickSlang word="G off" desc="①Get off（成功する・抜け出す）②Gangstaとして動く③G（Grand=1000ドル）を稼ぐ、のトリプルミーニング" /> was drug loot</Fragment>
+        <Fragment slot="jpn">のし上がる唯一の方法は、麻薬の稼ぎしかなかった</Fragment>
+        <p>Geniusでも「12音節のトリプルエンタンドル」と絶賛される箇所。<strong class="text-[var(--c-text)]">G off</strong> には ①<em>get off</em>＝ゲットーを抜け出す／成功する、②<em>gangsta</em> として動く、③<em>G（grand＝1,000ドル）</em>を稼ぐ——の三つの意味が同時に成立する。たった2語に三重の読みを仕込むのが一流リリシストの「言葉の経済性」だ。<code>loot</code>（戦利品・金）もストリート語彙として頻出する。</p>
+      </LearningUnit>
+
+      <!-- ④ runnin' up in gates / woolies -->
+      <LearningUnit
+        heading="runnin' up in gates — 句動詞＋名詞スラングで情景を圧縮"
+        label="★ スラング／句動詞"
+        mc="Raekwon（Verse 1）"
+        t={TS["runnin-up-gates"].t} youtubeId={YT}
+      >
+        <Fragment slot="eng">Started smokin' <QuickSlang word="woolies" desc="マリファナにコカインやクラックを混ぜた非常に危険なジョイント" /> at sixteen / And runnin' up in <QuickSlang word="gates" desc="ドラッグの売買拠点（トラップハウス）。武装強盗で突入する行為が「runnin' up in gates」" /></Fragment>
+        <Fragment slot="jpn">16歳でウーリーズを吸い始め／売人のアジトに押し入っていた</Fragment>
+        <p>句動詞 <strong class="text-[var(--c-text)]">run up in ~</strong>（～に押し入る・襲撃する）＋ スラング <strong class="text-[var(--c-text)]">gates</strong>（ドラッグ売買拠点＝トラップハウス）で、武装強盗という最もリスクの高い行為を数語で描く。<strong class="text-[var(--c-text)]">woolies</strong> はマリファナにコカイン／クラックを混ぜた危険なジョイント。固有のスラングを知らないと字面を追っても意味が取れない——逆に言えば、ここを押さえると一気に情景が立ち上がる。</p>
+      </LearningUnit>
+
+      <!-- ⑤ keys from across seas -->
+      <LearningUnit
+        heading="Catchin' keys from across seas — 過去と未来を貫くダブルミーニング"
+        label="★ 言葉遊び"
+        mc="Raekwon（Verse 1）"
+        t={TS["keys-seas"].t} youtubeId={YT}
+      >
+        <Fragment slot="eng">Catchin' <QuickSlang word="keys" desc="①キロ単位のコカイン（kilos=keys）②音楽の鍵盤・成功の鍵、のダブルミーニング" /> from across seas</Fragment>
+        <Fragment slot="jpn">海を越えてくる「キー」を掴む</Fragment>
+        <p><strong class="text-[var(--c-text)]">keys</strong> は発音が <em>kilos</em>（キロ単位のコカイン）に通じる隠語であり、同時に <em>音楽の鍵盤＝成功の鍵</em> でもある。<strong class="text-[var(--c-text)]">across seas</strong>（海外）と <strong class="text-[var(--c-text)]">keys</strong> の脚韻が、麻薬密輸という過去と、Wu-Tangで世界を制す未来の両方を一行に重ねる。過酷な過去から合法的成功へ——物語の転換点を、語の多義性だけで描いてみせる名行だ。</p>
+      </LearningUnit>
+
+      <!-- ⑥ here go the TEC-9 -->
+      <LearningUnit
+        heading="here go the TEC — AAVEの提示構文「here go」"
+        label="★ AAVE文法"
+        mc="Raekwon（Verse 1）"
+        t={TS["tec-9"].t} youtubeId={YT}
+      >
+        <Fragment slot="eng">Yo, respect mine, or here go the <QuickSlang word="TEC-9" desc="TEC-9：当時ストリートで使われた安価なセミオート拳銃" /></Fragment>
+        <Fragment slot="jpn">俺の領分を尊重しろ、さもなくばTEC-9（拳銃）のお出ましだ</Fragment>
+        <p>注目は <strong class="text-[var(--c-text)]">here go ~</strong> という言い回し。標準英語の <em>here comes ~ ／ here's ~</em>（～が来る・～の登場だ）にあたる<strong class="text-[var(--c-text)]">AAVEの提示構文</strong>で、<code>here go</code> は三人称・時制に関わらず形を変えない。「敬意を払わなければTEC-9（拳銃）が出てくるぞ」という暴力の予告を、この一語で凄みを持って響かせる。<code>respect mine</code>（＝respect what's mine／俺の領分を尊重しろ）も、所有代名詞 <em>mine</em> を目的語に立てるAAVE的な簡潔さだ。辞書英語からは決して学べない、生きた文法の一行。</p>
+      </LearningUnit>
+
+      <!-- ⑦ C.R.E.A.M. hook -->
+      <LearningUnit
+        heading="Cash Rules Everything Around Me — 頭字語が普通名詞になるまで"
+        label="★ フック／語源"
+        mc="Method Man（Hook）"
+        t={TS["cream-hook"].t} youtubeId={YT}
+      >
+        <Fragment slot="eng">Cash rules everything around me / C.R.E.A.M. / Get the money / Dollar, dollar bill, y'all</Fragment>
+        <Fragment slot="jpn">金が俺の周りのすべてを支配する／C.R.E.A.M.／金を手に入れろ／ドル札だ、お前ら</Fragment>
+        <p>各単語の頭文字をとった頭字語（acronym）が、そのまま「現金」を意味する普通名詞として英語に定着した稀有な例。<code>y'all</code>（＝you all）は南部・AAVEを代表する二人称複数。フレーズ自体はJimmy Spicerの1983年「Money (Dollar Bill Y'all)」のインターポレーション。一見すると拝金的だが、悲惨なヴァースに挟まれることで「金がなければ命を落とす現実」への叫びへと反転する——文脈が意味を決める好例だ。</p>
+      </LearningUnit>
+
+      <!-- ⑧ I could not... [touch] -->
+      <LearningUnit
+        heading="what I could not... [touch] — 欠落が意味を生む"
+        label="★ 表現技法"
+        mc="Inspectah Deck（Verse 2）"
+        t={TS["could-not-touch"].t} youtubeId={YT}
+      >
+        <Fragment slot="eng">Tryin' to get a clutch at what I could not... [<QuickSlang word="touch" desc="本来あった「touch（触れる）」がRZAのディレイ操作のミスで音源から消えた。その「空白」がリリックの絶望感と奇跡的にリンクした" />]</Fragment>
+        <Fragment slot="jpn">手の届かない何かを、必死に掴もうとしていた</Fragment>
+        <p>本来 <code>could not touch</code> と続くはずの <strong class="text-[var(--c-text)]">touch</strong> が、録音時のディレイエフェクト操作のミスで音源から消えている。だがその<strong class="text-[var(--c-text)]">偶然の空白</strong>が「決して手の届かない夢・富」というテーマと奇跡的に共鳴し、ヒップホップ史上最も詩的な「欠落」として語り継がれる。<code>get a clutch at ~</code>（必死に掴もうとする）という動詞表現も覚えておきたい。制約と偶然を芸術へ昇華するヒップホップの初期衝動が凝縮された一行だ。</p>
+      </LearningUnit>
+
+      <!-- ⑨ world no different from a cell -->
+      <LearningUnit
+        heading="the world no different from a cell — 比喩で社会構造を一言で射る"
+        label="★ 比喩／AAVE文法"
+        mc="Inspectah Deck（Verse 2）"
+        t={TS["world-cell"].t} youtubeId={YT}
+      >
+        <Fragment slot="eng">Living in the world no different from a cell</Fragment>
+        <Fragment slot="jpn">この世界で生きることは、独房（セル）で生きるのと何ら変わらない</Fragment>
+        <p><strong class="text-[var(--c-text)]">cell</strong>（独房）に世界全体を喩え、インナーシティの貧困が生む「見えない牢獄」を一言で射抜く。文法的にも注目で、標準英語なら <em>that is no different from</em> と関係代名詞＋be動詞が入るところを、AAVEではそれを落として <strong class="text-[var(--c-text)]">the world no different from a cell</strong> と直結させる。<strong class="text-[var(--c-text)]">コピュラ（be動詞）の省略</strong>はAAVEの代表的な文法特徴で、リズムを損なわずに意味を運ぶ。</p>
+      </LearningUnit>
+
+      <!-- ⑩ Jakes / base -->
+      <LearningUnit
+        heading="escape from Jakes, sellin' base — ニューヨーク固有のスラング"
+        label="★ スラング（地域語）"
+        mc="Inspectah Deck（Verse 2）"
+        t={TS["jakes-base"].t} youtubeId={YT}
+      >
+        <Fragment slot="eng">Every day I escape from <QuickSlang word="Jakes" desc="警察官を指すニューヨーク特有のストリートスラング" /> givin' chase, sellin' <QuickSlang word="base" desc="フリーベース（純度の高いクラック・コカイン）" /></Fragment>
+        <Fragment slot="jpn">毎日、追ってくる警察（Jakes）から逃れ、クラック（base）を売る</Fragment>
+        <p><strong class="text-[var(--c-text)]">Jakes</strong> は警察官を指すニューヨーク特有の隠語で、特に黒人コミュニティへの過剰な取り締まりを象徴する。<strong class="text-[var(--c-text)]">base</strong> はフリーベース（純度の高いクラック）。同じ「警察」でもLA系なら <em>one-time</em>、ここでは <em>Jakes</em>——スラングは<strong class="text-[var(--c-text)]">地域の方言</strong>であり、語を知ることはその街の地図を知ることに等しい。<code>givin' chase</code>（追跡してくる）の進行形も生きた口語表現だ。</p>
+      </LearningUnit>
+
+      <!-- ⑪ Old Earth -->
+      <LearningUnit
+        heading="seek the Old Earth — Five-Percent Nationの世界観"
+        label="★ スラング（思想語彙）"
+        mc="Inspectah Deck（Verse 2）"
+        t={TS["old-earth"].t} youtubeId={YT}
+      >
+        <Fragment slot="eng">Ready to give up so I seek the <QuickSlang word="Old Earth" desc="「Five-Percent Nation」由来のスラングで「母親」を指す。生命の源たる大地（Earth）としての女性の敬称" /></Fragment>
+        <Fragment slot="jpn">諦めかけて、俺は「オールド・アース（母）」に助言を求めた</Fragment>
+        <p><strong class="text-[var(--c-text)]">Old Earth</strong> は Five-Percent Nation（Wu-Tangの思想的背景）の用語で「母親」を指す。女性を生命の源たる <em>Earth（地球・大地）</em> に喩える教義から来ている。麻薬による一時的逃避の虚しさを悟り、母の教え（勤労と忍耐）に救いを求める心の動きが、この一語の選択に宿る。背景思想を知らないと辞書を引いても辿り着けない、文化文脈そのものが意味を担う語彙の好例だ。</p>
+      </LearningUnit>
+
+      <!-- ⑫ stickup kids, corrupt cops -->
+      <LearningUnit
+        heading="stickup kids, corrupt cops, and crack rocks — 名詞を積んで作る韻と情景"
+        label="★ 韻／列挙"
+        mc="Inspectah Deck（Verse 2）"
+        t={TS["stickup-kids"].t} youtubeId={YT}
+      >
+        <Fragment slot="eng">We got stickup kids, corrupt cops, and crack rocks / And stray shots, all on the block that stays hot</Fragment>
+        <Fragment slot="jpn">強盗キッズ、悪徳警官、クラックの塊／そして流れ弾、常に熱を帯びたブロックに</Fragment>
+        <p><strong class="text-[var(--c-text)]">cops / rocks / shots / hot / block</strong> と <code>-o(c/t)</code> 系の音を連打し、名詞を畳みかけることでブロック（街区）の混沌をひと息に描く。<strong class="text-[var(--c-text)]">stickup kids</strong>（強盗常習の若者）、<strong class="text-[var(--c-text)]">crack rocks</strong>（クラックの塊）、<strong class="text-[var(--c-text)]">stray shots</strong>（流れ弾）と、各語が情景の一片を担う。<code>stays hot</code> は「（警察の目・銃撃で）常にヤバい状態が続く」の意。列挙と脚韻だけで一つの風景を完成させる、ヒップホップ的構文の教科書だ。</p>
+      </LearningUnit>
     </section>
 
     <!-- ===================== -->
-    <!-- VERSE 1               -->
+    <!-- ストーリー要約（散文）  -->
     <!-- ===================== -->
-    <section id="verse1" class="mb-12">
+    <section id="story" class="mb-12">
       <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Verse 1 · Raekwon
+        ストーリーの流れ（要約）
       </h2>
-
-      <LyricsBlock hasExplanation={true} label="★ スラングと韻の極致">
-        <Fragment slot="eng">
-          I grew up on the crime side, the New York Times side<br />
-          A young youth, yo, rockin' the gold tooth, <QuickSlang word="'Lo goose" desc="Polo Ralph Laurenのグースダウンジャケット。当時のゲットーにおける最高のステータスアイテム" /><br />
-          Only way I begin to <QuickSlang word="G off" desc="①Get off（成功する・抜け出す）②Gangstaとして動く③G（Grand=1000ドル）を稼ぐ、のトリプルミーニング" /> was drug loot
-        </Fragment>
-        <Fragment slot="jpn">
-          俺は犯罪が蔓延る場所、ニューヨーク・タイムズ紙の事件欄に載るような側で育った<br />
-          生き延びるのは冗談抜きで大変だった<br />
-          お下がりを着て、母ちゃんは親父を見捨てて出て行った<br />
-          それから俺たちは少林（スタテンアイランド）へ引っ越した<br />
-          血気盛んな若者、ヨォ、金歯を光らせ、ポロのダウンジャケットを着こなす<br />
-          俺がのし上がる唯一の方法は、麻薬の稼ぎしかなかった<br />
-          こんな風に始めようぜ、相棒、あいつやこいつとつるんで<br />
-          面白半分に銃（ギャット）を抜き放つ
-        </Fragment>
-        <Fragment slot="explanation">
-          冒頭の「crime side / New York Times side」は犯罪多発地域と権威ある新聞の三面記事（事件欄）を掛けた秀逸なダブルミーニング。「G off」はGeniusでも「トリプルエンタンドル」と絶賛される12音節——①ゲットーを抜け出す、②ギャングスタとして動く、③G（1000ドル）を稼ぐ——の三重の意味が完璧に重なる。「'Lo goose（ポロのダウンジャケット）」は白人富裕層の象徴だったラルフローレンを万引き（Lo-Lifes）や麻薬資金で強引に獲得し再解釈するゲットー文化の象徴。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Started smokin' <QuickSlang word="woolies" desc="マリファナにコカインやクラックを混ぜた非常に危険なジョイント" /> at sixteen<br />
-          And runnin' up in <QuickSlang word="gates" desc="ドラッグの売買拠点（トラップハウス）。武装強盗で突入する行為が「runnin' up in gates」" />, and doin' hits for high stakes<br />
-          My life got no better, same damn 'Lo sweater<br />
-          Times is rough and tough like leather
-        </Fragment>
-        <Fragment slot="jpn">
-          でもそれはヤク中だった10代の夢に過ぎなかった<br />
-          16歳でウーリーズ（コカイン入りジョイント）を吸い始めた<br />
-          売人のアジトに押し入り、ハイリスクな強盗（ヒット）をこなす<br />
-          非常階段を使って逃げ道を作った<br />
-          迷うことなく俺は急いだ、クラックとハッパのために<br />
-          その組み合わせで俺の目は充血して血走った<br />
-          迷うことなく俺はフローし、すべての金を奪おうとした<br />
-          バスケットコートで白人のガキどもから巻き上げながらな<br />
-          俺の人生は一向に良くならなかった、ずっと同じポロのセーターを着たまま<br />
-          時代は革のように粗く、タフだった
-        </Fragment>
-        <Fragment slot="explanation">
-          「woolies」はマリファナにコカインやクラックを混ぜた危険なジョイント。「runnin' up in gates」はトラップハウスへの武装強盗——ストリートで最もリスクの高い行為のひとつ。「fire escapes（非常階段）」は逃走経路であり、同時に貧困の象徴でもある。人生が「better」にならないのに「'Lo sweater（ポロのセーター）」だけが変わらない——この一行でストリートの無限ループが完璧に描かれている。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true} label="★ 「keys」のダブルミーニング">
-        <Fragment slot="eng">
-          Catchin' <QuickSlang word="keys" desc="①キロ単位のコカイン（kilos=keys）の海外密輸 ②音楽の鍵盤・成功の鍵、のダブルミーニング" /> from across seas<br />
-          Rollin' in <QuickSlang word="MPVs" desc="ミニバン（Multi-Purpose Vehicle）。1990年代、Wu-Tang Clanが移動に使っていた実際の車種" />, every week we made forty G's<br />
-          Yo, n***a respect mine, or anger the <QuickSlang word="TEC-9" desc="TEC-9：当時ストリートで使われたセミオート拳銃。手入れ不要な安価な火器として普及" />
-        </Fragment>
-        <Fragment slot="jpn">
-          自分が間違った道を歩んでいることに気づいた<br />
-          だから俺はヤバい仲間（Wu-Tang）と組んで、全力を注いだ<br />
-          海を越えてやってきたキロ単位のコカイン（または音楽の鍵）を掴み<br />
-          MPV（ミニバン）に乗り込んで、毎週4万ドル（40 G's）を稼ぎ出した<br />
-          ヨォ、俺に敬意を払え、さもなくばTEC-9（サブマシンガン）の怒りを買うぞ<br />
-          カチャッ、バーン！ 今すぐ俺のシマから消えな
-        </Fragment>
-        <Fragment slot="explanation">
-          「sick ass clique」は表向きにはギャングの仲間を指すが、文脈上これはWu-Tang Clanとの出会い。「Catchin' keys from across seas」は麻薬密売（キロ単位のコカイン）の意味から、「Wu-Tangと組んで世界（across seas）を音楽（keys＝鍵盤）で制覇し毎週4万ドルを稼ぐ」という合法的成功へのダブルミーニングへと転換する。過酷な過去から「正しい道」への物語構造が完成する美しいラインだ。
-        </Fragment>
-      </LyricsBlock>
+      <div class="space-y-4 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          楽曲はストリートのドラッグ売買の生々しい客引き（「2個で5ドル」という路上相場）から幕を開ける。RaekwonとMethod Manの語りが、これから語られる世界の温度を提示する導入だ。
+        </p>
+        <p>
+          <strong class="text-[var(--c-text)]">Verse 1（Raekwon）</strong>は、犯罪多発地域で育った少年が金歯とポロのダウンを身にまとい、麻薬の稼ぎだけが「のし上がる唯一の方法」だった過去を語る。トラップハウスへの強盗、コカインの密輸、毎週4万ドル——だが人生は一向に良くならず、同じセーターを着続ける無限ループとして描かれる。終盤、密輸の「keys」が音楽の「keys」へと転じ、Wu-Tangでの合法的成功へ物語が折り返す。
+        </p>
+        <p>
+          <strong class="text-[var(--c-text)]">Hook（Method Man）</strong>の「Cash rules everything around me」は、絶望のヴァースに挟まれることで拝金の讃歌ではなく「金がなければ死ぬ現実」への悲鳴として響く。
+        </p>
+        <p>
+          <strong class="text-[var(--c-text)]">Verse 2（Inspectah Deck）</strong>は、15歳での投獄、世界そのものが独房だという比喩、母（Old Earth）の教え、そして強盗・悪徳警官・流れ弾が渦巻く街区へと展開する。生き証人として若者に説こうとするが、彼らはかつての自分と同じく聞こうとしない——サイクルは終わらないまま、フックが再び繰り返されフェードアウトしていく。映画的な悲劇構造で曲は閉じる。
+        </p>
+        <p class="text-xs text-[var(--c-dim)]">
+          ※本ページは批評・教育目的で、解説に必要な範囲の断片のみを引用しています。全歌詞の対訳は掲載していません。
+        </p>
+      </div>
     </section>
 
     <!-- ===================== -->
-    <!-- HOOK                  -->
-    <!-- ===================== -->
-    <section class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Hook · Method Man
-      </h2>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Cash rules everything around me<br />
-          C.R.E.A.M.<br />
-          Get the money<br />
-          Dollar, dollar bill, y'all
-        </Fragment>
-        <Fragment slot="jpn">
-          金が俺の周りのすべてを支配する<br />
-          C.R.E.A.M.（クリーム）<br />
-          金を手に入れろ<br />
-          ドル札だ、お前ら
-        </Fragment>
-        <Fragment slot="explanation">
-          Method Manの低くしゃがれた声で歌われるこのフックは、Jimmy Spicerの1983年のオールドスクール楽曲「Money (Dollar Bill Y'all)」のフレーズをインターポレーション（補間）したもの。一見すると拝金主義的だが、これは強欲の讃歌ではない。RaekwonとInspectah Deckによる「救いのないストリートの悲惨なヴァース」に挟まれることで、「金がなければ文字通り命を落とすインナーシティの残酷な現実」への悲痛な叫びとして機能する。
-        </Fragment>
-      </LyricsBlock>
-    </section>
-
-    <!-- ===================== -->
-    <!-- VERSE 2               -->
-    <!-- ===================== -->
-    <section id="verse2" class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Verse 2 · Inspectah Deck
-      </h2>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Survival got me buggin', but I'm alive on arrival<br />
-          A man with a dream with plans to make C.R.E.A.M.<br />
-          Which failed; I went to jail at the age of fifteen<br />
-          Trying to get a clutch at what I could not... [<QuickSlang word="touch" desc="本来ここに「touch（触れる）」という言葉があったが、RZAのディレイエフェクトのミスで音源から消えた。しかしその「空白」がリリックの絶望感と奇跡的にリンクし、ヒップホップ史上最も美しい空白として語り継がれている" />]
-        </Fragment>
-        <Fragment slot="jpn">
-          いまだに苦闘し続ける、長く過酷な22年間だった<br />
-          生き残るための日々で頭がおかしくなりそうだが、俺はここで生きてる<br />
-          俺はストリートの有り様を観察し<br />
-          この世界のやり方に目を光らせている、事態は極めて深刻だからな<br />
-          C.R.E.A.M.（金）を稼ぐ計画を持った、夢見る一人の男<br />
-          それは失敗に終わり、俺は15歳で刑務所に入った<br />
-          何も持っていなかった若造が、ドラッグなんかを売り捌き<br />
-          俺には［触れる］ことのできないものを、必死に掴み取ろうとしていた
-        </Fragment>
-        <Fragment slot="explanation">
-          「Alive on arrival（到着時の生存）」——到着するだけで生き延びたという皮肉。「I could not... [touch]」の空白は録音時の機材ミス（ディレイエフェクトの過剰減衰）で「touch」という言葉が消えたもの。しかしその欠落が「決して手の届かない夢や富」というリリックのテーマと奇跡的にリンクし、ヒップホップ史上最も詩的な空白として語り継がれている。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true} label="★ 貧困という名の見えない牢獄">
-        <Fragment slot="eng">
-          Living in the world no different from a cell<br />
-          Every day I escape from <QuickSlang word="Jakes" desc="警察官・悪徳警官を指すニューヨーク特有のストリートスラング" /> givin' chase, sellin' <QuickSlang word="base" desc="フリーベース（純度の高いクラック・コカイン）" /><br />
-          Smokin' <QuickSlang word="bones" desc="クラックを混ぜたマリファナジョイント" /> in the staircase
-        </Fragment>
-        <Fragment slot="jpn">
-          裁判所に不当な扱いを受け、今や俺は投獄に直面している<br />
-          檻の中を歩き回る——州立刑務所送りが俺の行き先だ<br />
-          バスの後部座席で手錠をかけられ、俺たち40人が押し込まれている<br />
-          ガキとしての人生が、こんなに過酷であるべきじゃないはずだ<br />
-          だが世界が回るにつれて、人生は地獄だと学んだ<br />
-          この世界で生きることは、独房（セル）で生きるのと何ら変わりない<br />
-          毎日、追ってくるサツ（Jakes）から逃れ、クラック（base）を売り<br />
-          階段の踊り場でコカイン入りのジョイント（bones）を吸う
-        </Fragment>
-        <Fragment slot="explanation">
-          世界そのものが巨大な「Cell（独房）」であるというメタファーは、インナーシティの貧困が生む見えない牢獄を完璧に表現している。州立刑務所（upstate）への移送バスに40人が手錠姿で詰め込まれるシーンは、1990年代の大量投獄（Mass Incarceration）政策の縮図。「Jakes（ジェイクス）」はニューヨーク特有の警察スラングで、特に黒人コミュニティへの過剰な取り締まりを象徴する言葉として使われた。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true} label="★ Old Earthへの問い——母の教え">
-        <Fragment slot="eng">
-          Though I don't know why I chose to smoke <QuickSlang word="sess" desc="質の高いマリファナの隠語。種無しの良質な大麻「Sinsemilla」から派生" /><br />
-          Ready to give up so I seek the <QuickSlang word="Old Earth" desc="「Five-Percent Nation」由来のスラングで「母親」を指す。生命の源たる大地（Earth）としての女性の敬称" /><br />
-          We got stickup kids, corrupt cops, and crack rocks<br />
-          And stray shots, all on the block that stays hot<br />
-          That what? That life is hectic
-        </Fragment>
-        <Fragment slot="jpn">
-          なぜ極上のハッパ（sess）を吸うことを選んだのか、自分でも分からないが<br />
-          たぶん、その時だけは憂鬱じゃないからだろう<br />
-          でもやっぱり憂鬱で、「こんなことに何の価値がある？」と自問する<br />
-          諦めかけて、俺は「オールド・アース（母親）」に助言を求めた<br />
-          彼女は教えてくれた、懸命に働くことが自分を保つ助けになると<br />
-          心の痛みや苦しみを乗り越える方法を学ぶためにな<br />
-          俺たちの周りには強盗キッズ、悪徳警官、クラックの塊があり<br />
-          常に熱を帯びたブロックには、流れ弾が飛び交っている<br />
-          俺に任せておけ、俺は生き証人として<br />
-          若い黒人の若者たちに、この真実を叩き込むためにここにいる<br />
-          でもガキどもは野放図に走り回り、ハッパを吸い、ビールを飲み<br />
-          俺が耳元で説く言葉を聞こうともしない<br />
-          今は無視されているが、ヨォ、これだけは受け入れなきゃならない<br />
-          何だって？ この人生（ストリート）は狂騒に満ちている（ヘクティックだ）ってことをな
-        </Fragment>
-        <Fragment slot="explanation">
-          「Old Earth」はFive-Percent Nationの哲学で「母親（生命の母体たる地球）」を指す。麻薬による一時的な現実逃避の虚無感を悟り、母の教え（勤労と忍耐）に真の救いを見出そうとする心の動きが痛切に描かれる。ヴァースの終盤では「生き証人」として若者に説教するが、彼らはかつての自分と同じように聞こうとしない——貧困と犯罪のサイクルが容赦なく繰り返される絶望を提示したまま、フックへと突入する映画的な悲劇構造。
-        </Fragment>
-      </LyricsBlock>
-    </section>
-
-    <!-- ===================== -->
-    <!-- HOOK + OUTRO          -->
-    <!-- ===================== -->
-    <section class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Hook &amp; Outro · Method Man &amp; Raekwon
-      </h2>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Cash rules everything around me<br />
-          C.R.E.A.M.<br />
-          Get the money<br />
-          Dollar, dollar bill, y'all
-        </Fragment>
-        <Fragment slot="jpn">
-          金が俺の周りのすべてを支配する<br />
-          C.R.E.A.M.（クリーム）<br />
-          金を手に入れろ<br />
-          ドル札だ、お前ら<br />
-          金が俺の周りのすべてを支配する（俺の仲間たちはやるべきことをやるしかない）<br />
-          C.R.E.A.M.、金を手に入れろ<br />
-          ドル札だ、お前ら
-        </Fragment>
-        <Fragment slot="explanation">
-          Inspectah Deckの絶望的な独白の直後、このフックが再び繰り返される。「Dollar, dollar bill, y'all」という言葉は前半とは全く異なる重さを持ち、逃れられない資本主義の檻の象徴としてリスナーの胸に虚しく響く。The Charmelsの哀愁ピアノループと泥臭いドラムに乗せてMethod ManとRaekwonの合唱が徐々にフェードアウト——金に支配されたインナーシティの過酷なサイクルは、曲が終わった後も延々と続くことを暗示するように。
-        </Fragment>
-      </LyricsBlock>
-    </section>
-
-    <!-- ===================== -->
-    <!-- CULTURAL BACKGROUND   -->
+    <!-- 文化的背景            -->
     <!-- ===================== -->
     <section id="background" class="mb-12">
       <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
@@ -324,15 +273,17 @@ import SongLayout from '../../layouts/SongLayout.astro';
       </div>
 
       <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
-        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">キーワード解説</p>
-        <h3 class="font-semibold text-base mb-3">楽曲を読み解く重要スラング・用語</h3>
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">キーワード早見表</p>
+        <h3 class="font-semibold text-base mb-3">この曲で学んだスラングの整理</h3>
         <div class="space-y-3 mt-3">
           {[
-            ['C.R.E.A.M.', '「Cash Rules Everything Around Me」の頭文字。クラック・コカイン自体を指す隠語でもある。リリース後、英語辞書に「現金」の意味のスラングとして掲載されるほど定着した'],
-            ['Shaolin', 'スタテンアイランドのWu-Tang特有の呼称。地理的孤立とカンフー映画の神話を重ね合わせた'],
-            ["'Lo goose", 'Polo Ralph Laurenのグースダウンジャケット。Lo-Lifes（万引き集団）がゲットーで着こなす社会への反逆のシンボル'],
-            ['G off', 'Get off（成功）・Gangsta・G（1000ドル）のトリプルミーニング。Genius注釈でも「12音節のトリプルエンタンドル」として絶賛'],
-            ['Old Earth', 'Five-Percent Nationの哲学で「母親」を指す敬称。生命の源たる地球（Earth）としての女性の呼び方'],
+            ['C.R.E.A.M.', '「Cash Rules Everything Around Me」の頭字語。後に「現金」のスラングとして英語辞書に掲載'],
+            ['Shaolin', 'スタテンアイランドのWu-Tang特有の呼称。地理的孤立とカンフー映画の神話を重ねた'],
+            ["'Lo goose", 'Polo Ralph Laurenのグースダウン。Lo-Lifes（万引き集団）が社会への反逆として着こなした'],
+            ['G off', 'get off（成功）・gangsta・G（1000ドル）のトリプルミーニング'],
+            ['keys', 'kilos（コカイン）と音楽の鍵盤・成功の鍵を掛けた語'],
+            ['Jakes', '警察官を指すニューヨーク特有のスラング'],
+            ['Old Earth', 'Five-Percent Nationの語彙で「母親」を指す敬称'],
           ].map(([term, desc]) => (
             <div class="flex gap-3 text-sm">
               <span class="text-[var(--c-gold)] shrink-0 font-semibold min-w-[120px]">{term}</span>
@@ -344,44 +295,15 @@ import SongLayout from '../../layouts/SongLayout.astro';
     </section>
 
     <!-- ===================== -->
-    <!-- VERSIONS              -->
-    <!-- ===================== -->
-    <section id="versions" class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        バージョン違い
-      </h2>
-
-      <div class="mb-4 rounded-lg overflow-hidden border border-[var(--c-border)] text-sm">
-        <div class="grid grid-cols-3 bg-[var(--c-bg)] text-[var(--c-very-dim)] text-xs uppercase tracking-widest">
-          <div class="p-3 border-b border-[var(--c-border)]">バージョン</div>
-          <div class="p-3 border-b border-l border-[var(--c-border)]">特徴</div>
-          <div class="p-3 border-b border-l border-[var(--c-border)]">意義</div>
-        </div>
-        {[
-          ['Album / Explicit', 'オリジナル完全版。ストリートの暴力・ドラッグ描写を無修正で収録', 'Spotifyフルアルバム版。アーティストの真意を最も純粋に伝える歴史的音源'],
-          ['Radio Edit / Clean', 'FCC規制対応。放送禁止用語にスクラッチ音・無音処理を施したバージョン', '1994年シングル盤・ラジオオンエア用。Billboard Hot 100ランクイン（最高60位）に貢献'],
-          ['Ghostface Killah Remix (ft. Nicole Bus)', 'オランダ人R&BシンガーNicole Busが同ネタ（The Charmels）を使用、GhostfaceがWu精神で参加', '2019年発表。四半世紀の時を超えて現代R&Bと融合したモダンな解釈'],
-          ['Funkmaster Flex Remix', 'DJ Scratchプロデュース。Method Man・Raekwon・Inspectah Deckが新たなマイクリレーを披露', "1998年『60 Minutes of Funk Vol.3』収録。NYミックステープ文化における本作の重要性を示す"],
-        ].map(([name, desc, significance]) => (
-          <div class="grid grid-cols-3">
-            <div class="p-3 border-b border-[var(--c-border)] text-[var(--c-text)] font-medium">{name}</div>
-            <div class="p-3 border-b border-l border-[var(--c-border)] text-[var(--c-muted)]">{desc}</div>
-            <div class="p-3 border-b border-l border-[var(--c-border)] text-[var(--c-dim)] text-xs">{significance}</div>
-          </div>
-        ))}
-      </div>
-    </section>
-
-    <!-- ===================== -->
-    <!-- BEHIND THE SCENES     -->
+    <!-- サンプル・制作の裏側    -->
     <!-- ===================== -->
     <section id="behind" class="mb-12">
       <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        制作の裏側
+        サンプル・制作の裏側
       </h2>
 
       <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
-        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">制作秘話 01</p>
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">サンプル元</p>
         <h3 class="font-semibold text-base mb-3">哀愁ピアノの正体 — The Charmels "As Long As I've Got You"</h3>
         <p class="text-[var(--c-muted)] text-sm leading-relaxed">
           楽曲の背骨となる悲哀に満ちたピアノリフは、Isaac HayesとDavid Porterがプロデュースした<strong class="text-[var(--c-text)]">The Charmelsの1967年ソウル楽曲「As Long As I've Got You」</strong>のオープニングを執拗にループさせたもの。その下にOtis ReddingとCarla Thomasの「Tramp」から抽出した荒々しいドラムブレイクを重ねた。
@@ -392,18 +314,15 @@ import SongLayout from '../../layouts/SongLayout.astro';
       </div>
 
       <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
-        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">制作秘話 02</p>
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">制作秘話</p>
         <h3 class="font-semibold text-base mb-3">消えた「touch」——機材のミスが生んだ奇跡の空白</h3>
         <p class="text-[var(--c-muted)] text-sm leading-relaxed">
-          Inspectah Deckのヴァース中盤「Trying to get a clutch at what I could not...」の後に続くはずだった<strong class="text-[var(--c-text)]">「touch（触れる）」という言葉が音源から完全に消えている</strong>。長年リスナーたちは「手の届かない夢を表す意図的な芸術的空白」と絶賛してきたが、実際はRZAがピンポン・ディレイエフェクトを手動でかけようとした際、アナログ機材の限界でディケイが極端に早くかかりすぎたため。
-        </p>
-        <p class="text-[var(--c-muted)] text-sm leading-relaxed mt-3">
-          この<strong class="text-[var(--c-text)]">機材操作のミス（偶然）</strong>が、「決して手の届かない夢・富」というリリックのテーマと奇跡的にリンクし、ヒップホップ史上最も美しく詩的な空白を生み出した。制約と偶然を最高峰の芸術へと昇華させたヒップホップの初期衝動が凝縮されたエピソードだ。
+          Inspectah Deckのヴァース中盤、「what I could not...」の後に続くはずだった<strong class="text-[var(--c-text)]">「touch」という言葉が音源から完全に消えている</strong>。長年リスナーたちは「手の届かない夢を表す意図的な芸術的空白」と絶賛してきたが、実際はRZAがピンポン・ディレイエフェクトを手動でかけようとした際、アナログ機材の限界でディケイが極端に早くかかりすぎたためだ。この<strong class="text-[var(--c-text)]">偶然のミス</strong>が、リリックのテーマと奇跡的にリンクし、ヒップホップ史上最も美しい空白を生み出した。
         </p>
       </div>
 
       <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
-        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">制作秘話 03</p>
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">音響</p>
         <h3 class="font-semibold text-base mb-3">60 Second Assassinの呻き声とDelfonicsの断片</h3>
         <p class="text-[var(--c-muted)] text-sm leading-relaxed">
           ビートの隙間には、Delfonicsの「Hey Love」からサンプリングした微かな音の断片と、Wu-Tang系列メンバーの<strong class="text-[var(--c-text)]">60 Second Assassinが録音したバックグラウンドの呻き声（"oohs"）</strong>が加わっている。美しさと不穏さが同居する唯一無二の音響空間は、低予算のFirehouse Studioにおける人間的な温かみと偶発性から生まれた。
@@ -412,7 +331,7 @@ import SongLayout from '../../layouts/SongLayout.astro';
     </section>
 
     <!-- ===================== -->
-    <!-- LEGACY                -->
+    <!-- 評価と影響            -->
     <!-- ===================== -->
     <section id="legacy" class="mb-12">
       <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
@@ -445,28 +364,24 @@ import SongLayout from '../../layouts/SongLayout.astro';
         <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">後世への影響</p>
         <h3 class="font-semibold text-base mb-3">「Cream」が英語の辞書に載った日</h3>
         <p class="text-[var(--c-muted)] text-sm leading-relaxed mb-4">
-          「C.R.E.A.M.（Cream）」はリリース後、「現金」を意味する新しいスラングとして英語圏の辞書に掲載されるほど定着した。シェイクスピアが英語語彙を拡張したのと同様に、Wu-Tang Clanは現代英語に言語学的貢献を果たした。「Dollar, dollar bill, y'all」というパンチラインは後のThe Notorious B.I.G.・Drake・JAY-Z・Kanye Westら200曲を超える作品でサンプリングまたは直接引用されている。
+          「C.R.E.A.M.（Cream）」はリリース後、「現金」を意味する新しいスラングとして英語圏の辞書に掲載されるほど定着した。シェイクスピアが英語語彙を拡張したのと同様に、Wu-Tang Clanは現代英語に言語学的貢献を果たした。「Dollar, dollar bill, y'all」というパンチラインは後のThe Notorious B.I.G.・Drake・JAY-Z・Kanye Westら数多くの作品でサンプリングまたは引用されている。
         </p>
         <ul class="space-y-3 text-sm">
           <li class="flex gap-3">
             <span class="text-[var(--c-gold)] shrink-0">Kanye West</span>
-            <span class="text-[var(--c-muted)]">「Graduation」における日本的テクノ・オリエンタリズムの導入は、Wu-TangのAfro-Asian aestheticを現代に翻訳したもの。RZAとの深い交流が影響している。</span>
+            <span class="text-[var(--c-muted)]">RZAとの深い交流が、後の楽曲における東洋的なオリエンタリズムの導入に影響を与えたとされる。Wu-TangのAfro-Asian aestheticの現代への翻訳。</span>
           </li>
           <li class="flex gap-3">
             <span class="text-[var(--c-gold)] shrink-0">アフロサムライ</span>
             <span class="text-[var(--c-muted)]">RZA自身がサウンドトラックを手掛けた日本産アニメ。Wu-Tangが提示した「東洋武術×ブラック・アメリカ」の文化融合の最終形態。</span>
           </li>
           <li class="flex gap-3">
-            <span class="text-[var(--c-gold)] shrink-0">現代ヒップホップ</span>
-            <span class="text-[var(--c-muted)]">クオンタイズを無視した「埃っぽいドラム」の手法は、後のLoFi Hip-Hopムーブメントの直接的な先祖。制約と偶然を芸術に変えるRZAの哲学は今も生き続けている。</span>
+            <span class="text-[var(--c-gold)] shrink-0">LoFi Hip-Hop</span>
+            <span class="text-[var(--c-muted)]">クオンタイズを無視した「埃っぽいドラム」の手法は、後のLoFi Hip-Hopムーブメントの直接的な源流。制約と偶然を芸術に変えるRZAの哲学は今も生き続けている。</span>
           </li>
         </ul>
       </div>
     </section>
-
-    <!-- ===================== -->
-    <!-- RELATED ARTICLES      -->
-    <!-- ===================== -->
 
     <!-- まとめ -->
     <section class="mb-12">
@@ -474,12 +389,11 @@ import SongLayout from '../../layouts/SongLayout.astro';
         まとめ
       </h2>
       <ul class="space-y-2 text-sm text-[var(--c-muted)] list-disc list-inside leading-relaxed">
-        <li>「Cash Rules Everything Around Me」——クラック・エピデミックが蔓延したインナーシティで金のために生き死ぬほかない若者たちの絶望を描いた、拝金主義の讃歌ではなく貧困への告発。</li>
-        <li>RZAがThe Charmelsの哀愁ピアノをサンプリングし、RaekwonとInspectah Deckが刑務所・ドラッグ・暴力・貧困の無限ループをリアルに語る。</li>
-        <li>Inspectah Deckの「I could not... [touch]」の空白は機材ミスが生んだ奇跡——「決して手の届かない夢」というテーマと奇跡的に共鳴する詩的な欠落。</li>
-        <li>4×プラチナ認定、Rolling Stone誌ヒップホップ名曲11位。「C.R.E.A.M.」という語は後に英語辞書に現金のスラングとして掲載された。</li>
+        <li>C.R.E.A.M.は、辞書に載らないスラング・AAVE文法・二重三重の言葉遊びが凝縮された、英語表現の教材として群を抜く楽曲。</li>
+        <li>「G off」のトリプルエンタンドル、「keys／seas」の多義、AAVEのコピュラ省略——数語に意味を畳む「言葉の経済性」が学べる。</li>
+        <li>「Cash Rules Everything Around Me」は拝金の讃歌ではなく、貧困の構造的暴力への告発。文脈が語の意味を反転させる好例。</li>
+        <li>消えた「touch」は機材ミスが生んだ奇跡の空白。制約と偶然を芸術へ昇華するヒップホップの初期衝動を象徴する。</li>
       </ul>
     </section>
-
 
 </SongLayout>
