@@ -9,6 +9,16 @@
  *     --out agent/cream/assets/units-timestamps.json [--offset 0]
  *
  * units.json: [{ "id": "lo-goose", "anchor": ["rockin","the","gold","tooth"] }, ...]
+ *
+ * ── PVオフセット補正（標準工程・必須）────────────────────────────────────
+ * whisper は album音源（曲頭=0s）を解析するため、出力秒は album相対時間。
+ * これを記事の頭出しリンク先＝公式PV(YouTube) の時間に合わせるには、PVの
+ * イントロ尺（曲が始まるまでの遅れ）を加算する必要がある。t = startSec - offset
+ * なので、PVが album より N秒遅いなら --offset -N（マイナス）で N秒ぶん前に出す。
+ * 【標準手順】生成後に主要ユニットのリンクをPVで実地確認し、ズレ幅を測って
+ *   --offset を一度入れ直す。±1〜2秒に収まれば確定。歌詞テキストは確認に使わない。
+ *   例: cream は album→PV で +5s ズレていたため --offset -5 で確定。
+ * fallbackT（手動推定）は offset の影響を受けないので、補正後のPV時間で直接書く。
  */
 import fs from "fs";
 
