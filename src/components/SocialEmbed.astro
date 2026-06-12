@@ -1,0 +1,84 @@
+---
+/**
+ * 公式埋め込み専用スロット。URLを渡すと該当プラットフォームの公式埋め込みで展開する。
+ * 画像/動画をダウンロードして再ホストはしない（埋め込みのみ）。
+ * - YouTube  : youtube-nocookie の公式iframe
+ * - Instagram: 公式 embed.js（blockquote.instagram-media）
+ * - X/Twitter: 公式 widgets.js（blockquote.twitter-tweet）
+ * - その他   : 安全な外部リンクにフォールバック
+ * url 未指定なら何も描画しない（生成時点は空でよく、後からURLを貼るだけで表示）。
+ */
+interface Props {
+  url?: string;        // 埋め込むURL（空なら非表示）
+  caption?: string;    // 任意のキャプション
+}
+const { url, caption } = Astro.props;
+
+function detect(u?: string): "youtube" | "instagram" | "twitter" | "link" | null {
+  if (!u) return null;
+  if (/youtube\.com|youtu\.be/.test(u)) return "youtube";
+  if (/instagram\.com/.test(u)) return "instagram";
+  if (/twitter\.com|x\.com/.test(u)) return "twitter";
+  return "link";
+}
+const kind = detect(url);
+let ytId: string | null = null;
+if (kind === "youtube" && url) {
+  const m = url.match(/(?:v=|youtu\.be\/|embed\/|shorts\/)([\w-]{11})/);
+  ytId = m ? m[1] : null;
+}
+---
+
+{url && (
+  <div class="my-5 not-prose">
+    {kind === "youtube" && ytId && (
+      <div class="relative w-full overflow-hidden rounded-lg border border-[var(--c-border)]" style="aspect-ratio:16/9">
+        <iframe
+          class="absolute inset-0 h-full w-full"
+          src={`https://www.youtube-nocookie.com/embed/${ytId}`}
+          title="YouTube"
+          loading="lazy"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
+      </div>
+    )}
+
+    {kind === "instagram" && (
+      <Fragment>
+        <blockquote
+          class="instagram-media"
+          data-instgrm-permalink={url}
+          data-instgrm-version="14"
+          style="margin:0 auto;max-width:540px;width:100%;background:#0000;border:0"
+        ></blockquote>
+        <script async src="https://www.instagram.com/embed.js" is:inline></script>
+      </Fragment>
+    )}
+
+    {kind === "twitter" && (
+      <Fragment>
+        <blockquote class="twitter-tweet" data-dnt="true">
+          <a href={url}></a>
+        </blockquote>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8" is:inline></script>
+      </Fragment>
+    )}
+
+    {kind === "link" && (
+      <a
+        href={url}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 text-sm text-[var(--c-gold)] underline decoration-dotted hover:opacity-80"
+      >
+        ↗ 関連投稿を開く
+      </a>
+    )}
+
+    {caption && (
+      <p class="mt-2 text-center text-xs text-[var(--c-dim)]">{caption}</p>
+    )}
+  </div>
+)}

@@ -2,8 +2,18 @@
 /**
  * 学習解説主体ページの中核ユニット。
  * 「学ぶ表現」を見出しに立て、MC担当＋PVタイムスタンプ・最小引用＋和訳・独自解説を束ねる。
- * 英語原文(eng)は解説の用例断片のみ。解説(slot)がコンテンツの主役。
+ * 英語原文(eng)は解説の用例断片のみ（1〜2行厳守）。解説(slot)がコンテンツの主役。
+ *
+ * スロット:
+ *   default     … 独自解説（主役）
+ *   eng / jpn   … 用例断片の最小引用と和訳
+ *   usage       … 語法（どう使うか）の日本語解説（任意・本文扱いで[C]独自性に加算）
+ *
+ * embed prop … 公式埋め込み（YouTube/Instagram/X）のURL。空なら何も描画しない。
+ *              画像のダウンロード再ホストはせず、公式埋め込みのみ。
  */
+import SocialEmbed from "./SocialEmbed.astro";
+
 interface Props {
   heading: string;        // 学ぶ表現（見出し）
   mc?: string;            // MC担当（誰のVerse/Hookか）
@@ -13,10 +23,13 @@ interface Props {
   label?: string;         // バッジ（例: ★ トリプルミーニング）
   eng?: string;           // 用例断片（最小引用）
   jpn?: string;           // 和訳
+  embed?: string;         // 公式埋め込みURL（任意・空なら非表示）
+  embedCaption?: string;  // 埋め込みのキャプション（任意）
 }
-const { heading, mc, t = null, youtubeId, tApprox = false, label, eng, jpn } = Astro.props;
+const { heading, mc, t = null, youtubeId, tApprox = false, label, eng, jpn, embed, embedCaption } = Astro.props;
 const mmss = t != null ? `${Math.floor(t / 60)}:${String(Math.floor(t % 60)).padStart(2, "0")}` : null;
 const ytUrl = t != null && youtubeId ? `https://www.youtube.com/watch?v=${youtubeId}&t=${Math.floor(t)}s` : null;
+const hasUsage = Astro.slots.has("usage");
 ---
 
 <section class="learning-unit mb-10">
@@ -52,4 +65,15 @@ const ytUrl = t != null && youtubeId ? `https://www.youtube.com/watch?v=${youtub
   <div class="text-[var(--c-muted)] text-sm leading-relaxed space-y-3">
     <slot />
   </div>
+
+  {hasUsage && (
+    <div class="mt-4 rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] px-4 py-3">
+      <p class="text-[var(--c-gold)] text-[11px] font-bold uppercase tracking-widest mb-2">語法 — どう使うか</p>
+      <div class="text-[var(--c-muted)] text-sm leading-relaxed space-y-2">
+        <slot name="usage" />
+      </div>
+    </div>
+  )}
+
+  {embed && <SocialEmbed url={embed} caption={embedCaption} />}
 </section>
