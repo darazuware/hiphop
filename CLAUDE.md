@@ -4,6 +4,11 @@
 - **サンプル系記事（曲ページ・コラム）を追加／編集するときは、作業前に必ず [`docs/fact-check-rules.md`](docs/fact-check-rules.md) を読み、本ルールに従う。**
 - サンプル・年・アルバム・客演・チャート順位・曲の実在性に関する事実主張は、生成時のハルシネーションを前提に一次ソース（WhoSampled / Wikipedia / Discogs / Genius）で必ず裏取りする。
 
+## 記事トーン（常駐・文体ルール）
+- **記事・コラムの日本語文章を書く／書き直すときは、作業前に必ず [`docs/article-tone.md`](docs/article-tone.md) を読み、運営者本人の声で書く。** 外注ライター調のガチガチな説明文を避ける。
+- 核心: 常体（だ・である）基調に要所で敬体（です・ます／〜と思います）を混ぜ、**常体敬体のゆらぎを許容**して固さを消す。作品への熱と敬意、軽い口語の抜け、一文の長短の緩急、専門語の直後の噛み砕き。
+- **トーンはラフでも事実は厳密。** トーン調整は日本語解説部分のみで行い、英語引用（eng）・和訳（jpn）の分量は増やさない。事実主張は上記「事実チェック」に従う。
+
 ## スタック
 - Astro + Tailwind CSS v4 + TypeScript
 - デプロイ: Cloudflare Pages（GitHub連携 → git pushで自動デプロイ）
@@ -73,6 +78,7 @@ public/images/   # アルバムアート
    - 追加項目: slug, name, origin, active, genre, summary, japan
    - Gistの内容とDeep Researchから自動生成
 7. Claudeが.astroページを生成（SongLayout使用）
+   - **【文体】生成する日本語文章は [`docs/article-tone.md`](docs/article-tone.md) のトーンで書く**。運営者本人の声＝常体敬体のゆらぎ・作品への熱・軽い口語の抜け・専門語の噛み砕き。ガチガチのライター調にしない。ただし事実は [`docs/fact-check-rules.md`](docs/fact-check-rules.md) で厳密に裏取りし、英語引用（eng）量は増やさない。
    - **Amazonアフィリエイトリンクは手書き不要**。SongLayoutが冒頭の**ジャケット画像をクリック型アフィリエイトリンク**として自動表示する:
      - asin設定済み: Amazon商品画像リンク（`/dp/{asin}` + tag=wax1124-22）
      - asin=null: `public/images/covers/{slug}.jpg` を `amazon.co.jp/s?k={artists album}&tag=wax1124-22` で包む
