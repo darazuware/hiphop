@@ -39,8 +39,17 @@ public/images/   # アルバムアート
 - 珍しい/固有名詞のスラングに詳細リンクを付けたい場合は `src/data/slang.ts` に `{ word, desc }` を追加する
 - 詳細リンク先 `/slang?q={英語語}` では、その語を使う全曲が「使用曲」として自動内部リンクされる（`word=`/`term=` 両prop・日本語注釈付き対応済み）
 
+## ページ種別（重要・新標準）
+曲ページには2種類ある。検証フックはページ種別で自動分岐する（`<LearningUnit>` の有無で判定）。
+- **learning型（新標準）**: 学習解説主体ページ。歌詞全行は載せず、スラング・韻・言葉遊び・AAVE文法を「学ぶ表現」単位で解説。英語は用例断片のみ引用。`src/components/LearningUnit.astro` を使う。雛形＝`cream.astro`。詳細は [[project_learning_page]]（memory）。
+  - **新規の曲ページは原則 learning型で作る。**
+  - 検証は [B]ハルシネーション必須＋[C]独自性（独自解説JP > 英語引用 かつ ≥1200字）＋[D]引用最小性（eng引用率<60%＝全行掲載でない）＋[E]タイムスタンプ構造（任意）。
+  - **[A]全行カバレッジ判定は learning型には適用しない**（全行非掲載が正常なため）。
+- **従来型（旧・歌詞対訳）**: LyricsBlockで歌詞をセンテンス単位に分け対訳。残存ページのみ。検証は従来通り [A]≥閾値＋[B]。
+
 ## 歌詞翻訳ルール（重要）
-- **1センテンス or 文脈が切れるところ単位**でLyricsBlockを分ける（バース全体を1ブロックにしない）
+- learning型: 用例断片（その表現を含む行/対句のみ）を `LearningUnit` の eng/jpn スロットに置き、本文スロットに独自解説を書く。
+- 従来型: **1センテンス or 文脈が切れるところ単位**でLyricsBlockを分ける（バース全体を1ブロックにしない）
 - 1ブロック = 1〜2行が基本。意味のまとまりで区切る
 - 各ブロックにeng/jpn/explanationを付ける
 
@@ -102,12 +111,13 @@ public/images/   # アルバムアート
    - sampleYoutubeId / youtubeShortId は任意だが、設定済みなら生存必須
    - ❌が出たら正しい公式動画IDに差し替えてから次へ進む（oEmbedで実在確認）
    - 【重要】youtubeIdは推測で書かない。必ず実在する動画を確認して設定する
-11. 歌詞チェック（必須）:
+11. 歌詞チェック（必須・ページ種別で自動分岐）:
    node agent/src/check-lyrics-coverage.mjs {slug}
-   - [A] 抜け漏れチェック: Genius行が.astroに存在するか（85%以上必須）
-   - [B] ハルシネーションチェック: .astroの英語行がGeniusに存在するか
+   - **learning型（`<LearningUnit>`使用）**: [B]ハルシネーション必須＋[C]独自性（独自解説JP>英語引用 かつ≥1200字）＋[D]引用最小性（eng引用率<60%）＋[E]タイムスタンプ（任意）。[A]全行カバレッジは適用されない。
+   - **従来型**: [A]抜け漏れ（Genius行が.astroに存在するか・閾値以上）＋[B]ハルシネーション。
    - ❌が出たら修正してから次へ進む
    - 2026年以降の新曲でGeniusデータ不完全な場合は[B]を手動確認
+   - pre-pushフック（`agent/hooks/pre-push`）も同スクリプトを呼ぶため、commit前にここで通しておく。**ガードを `--no-verify` でバイパスしない**（種別判定が正しく効く）。
 12. npm run build でビルド確認
 13. 自分が変更・作成したファイル（.astro, songs.ts, artists.ts, public/images/covers/{slug}.jpg）のみを git add → git commit → git push
     ※【厳守】絶対に "git add ." を実行しないこと（ユーザーのローカル作業と競合するため）

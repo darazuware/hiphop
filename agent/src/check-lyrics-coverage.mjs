@@ -166,6 +166,30 @@ function isEngLineCovered(engLine, geniusCorpus) {
   return matchCount / engWords.length >= 0.7;
 }
 
+// --- Page-type detection: learning型 (学習解説主体) vs 従来型 (歌詞対訳) ---
+// learning型は LearningUnit コンポーネントを使い、歌詞は用例断片のみ引用する。
+function isLearningPage(astro) {
+  return /<LearningUnit[\s>]/.test(astro) || /\bimport\s+LearningUnit\b/.test(astro);
+}
+
+// --- 日本語文字数カウント（ひらがな・カタカナ・漢字・々ー）---
+function countJpChars(s) {
+  return (s.match(/[぀-ゟ゠-ヿ一-鿿々ー]/g) || []).length;
+}
+
+// --- jpn スロット（和訳）テキストを抽出 ---
+function extractJpnSlotText(astro) {
+  const re = /<Fragment\s+slot="jpn">([\s\S]*?)<\/Fragment>/g;
+  let m, out = [];
+  while ((m = re.exec(astro)) !== null) out.push(m[1].replace(/<[^>]+>/g, ' '));
+  return out.join(' ');
+}
+
+// --- frontmatter とタグを除いた本文テキスト ---
+function bodyText(astro) {
+  return astro.replace(/^---[\s\S]*?\n---/, '').replace(/<[^>]+>/g, ' ');
+}
+
 // --- Main ---
 const lyricLines = parseLyricLines(lyricsRaw);        // deduped (3+ repeats removed) — used for [A]
 const allLyricLines = parseLyricLinesRaw(lyricsRaw);  // all lines incl. repeats — used for [B] corpus
@@ -200,28 +224,17 @@ for (const engLine of engLines) {
 const total = lyricLines.length;
 const coveredCount = covered.length;
 const pct = total === 0 ? 100 : Math.round((coveredCount / total) * 100);
+const learning = isLearningPage(astroRaw);
+const luCount = (astroRaw.match(/<LearningUnit[\s>]/g) || []).length;
+const lbCount = (astroRaw.match(/<LyricsBlock/g) || []).length;
 
-console.log(`\n=== Lyrics Coverage: ${slug} ===`);
-console.log(`Covered: ${coveredCount}/${total} lines (${pct}%)`);
-console.log(`LyricsBlock components in .astro: ${(astroRaw.match(/<LyricsBlock/g) || []).length}`);
+console.log(`\n=== Lyrics Coverage: ${slug} ${learning ? '[learning型]' : '[従来型]'} ===`);
+console.log(`eng引用がGenius行を含む割合: ${coveredCount}/${total} lines (${pct}%)`);
+console.log(`Components: LearningUnit=${luCount}, LyricsBlock=${lbCount}`);
 
-const THRESHOLD = 35; // 著作権対策でeng引用を核ライン限定に削減したため
 let hasError = false;
 
-// Report omissions
-if (uncovered.length === 0) {
-  console.log('\n✅ [A] No omissions — all Genius lines are covered.');
-} else if (pct >= THRESHOLD) {
-  console.log(`\n⚠️  [A] ${uncovered.length} omitted line(s) (above ${THRESHOLD}% — likely filler/repetition)`);
-  if (verbose) uncovered.forEach((line, i) => console.log(`  ${i + 1}. ${line}`));
-} else {
-  console.log(`\n❌ [A] ${uncovered.length} omitted line(s) — below ${THRESHOLD}% threshold`);
-  if (verbose) uncovered.forEach((line, i) => console.log(`  ${i + 1}. ${line}`));
-  console.log('  → Run with --verbose to see missing lines. Add them to LyricsBlock components.');
-  hasError = true;
-}
-
-// Report hallucinations
+// ── [B] ハルシネーションチェック（両タイプ必須）──────────────────────────
 if (hallucinated.length === 0) {
   console.log('\n✅ [B] No hallucinations — all .astro eng lines match Genius.');
 } else {
@@ -229,6 +242,64 @@ if (hallucinated.length === 0) {
   if (verbose) hallucinated.forEach((line, i) => console.log(`  ${i + 1}. ${line}`));
   console.log('  → Run with --verbose to see flagged lines. Verify against Genius and correct.');
   hasError = true;
+}
+
+if (learning) {
+  // ── learning型: 独自性・引用最小性・構造を検証。[A]下限は適用しない ──────
+  const COLUMN_MIN = 1200;       // コラム基準の独自解説量
+  const MAX_COVERAGE = 60;       // これ以上のeng引用率＝全行掲載の疑い
+
+  // [C] 独自性: 独自解説JP文字数 > 英語引用量 かつ 1200字以上
+  const engChars = engLines.join(' ').replace(/\s/g, '').length;
+  const jpnSlotChars = countJpChars(extractJpnSlotText(astroRaw));
+  const totalJp = countJpChars(bodyText(astroRaw));
+  const indepJp = totalJp - jpnSlotChars;
+  const ratio = engChars > 0 ? (indepJp / engChars) : Infinity;
+  console.log(`\n[C] 独自性: 独自解説JP=${indepJp}字 / 英語引用=${engChars}字 (${ratio === Infinity ? '∞' : ratio.toFixed(1)}倍) ・ 基準${COLUMN_MIN}字`);
+  if (indepJp <= engChars) {
+    console.log('❌ [C] 独自解説が英語引用を上回っていない（解説が主役になっていない）');
+    hasError = true;
+  } else if (indepJp < COLUMN_MIN) {
+    console.log(`❌ [C] 独自解説 ${indepJp}字 < 基準 ${COLUMN_MIN}字`);
+    hasError = true;
+  } else {
+    console.log('✅ [C] 独自解説が主体（英語引用を上回り・コラム基準クリア）');
+  }
+
+  // [D] 引用最小性（著作権）: 全行歌詞掲載でないこと
+  console.log(`\n[D] 引用最小性: eng引用カバレッジ=${pct}%（上限${MAX_COVERAGE}%）`);
+  if (pct >= MAX_COVERAGE) {
+    console.log('❌ [D] 学習ページなのに歌詞をほぼ全行引用している疑い（用例断片に削減せよ）');
+    hasError = true;
+  } else {
+    console.log('✅ [D] 引用は最小限（全行掲載ではない）');
+  }
+
+  // [E] タイムスタンプ構造（任意・ブロックしない）: 各ユニットに t= プロップがあるか
+  const luTags = astroRaw.match(/<LearningUnit[\s\S]*?>/g) || [];
+  const luWithT = luTags.filter(tag => /\bt=\{/.test(tag)).length;
+  console.log(`\n[E] タイムスタンプ: ${luWithT}/${luCount} ユニットに t= プロップあり（任意）`);
+  if (luCount > 0 && luWithT < luCount) {
+    console.log('⚠️  [E] 一部ユニットに頭出しリンク用の t= がない（任意・ブロックしない）');
+  } else if (luCount > 0) {
+    console.log('✅ [E] 全ユニットに頭出しタイムスタンプあり');
+  }
+
+  console.log('\nℹ️  [A] 全行カバレッジ判定は learning型では適用しない（全行非掲載が正常）');
+} else {
+  // ── 従来型: [A] 全行カバレッジ閾値を維持 ────────────────────────────────
+  const THRESHOLD = 35; // 著作権対策でeng引用を核ライン限定に削減したため
+  if (uncovered.length === 0) {
+    console.log('\n✅ [A] No omissions — all Genius lines are covered.');
+  } else if (pct >= THRESHOLD) {
+    console.log(`\n⚠️  [A] ${uncovered.length} omitted line(s) (above ${THRESHOLD}% — likely filler/repetition)`);
+    if (verbose) uncovered.forEach((line, i) => console.log(`  ${i + 1}. ${line}`));
+  } else {
+    console.log(`\n❌ [A] ${uncovered.length} omitted line(s) — below ${THRESHOLD}% threshold`);
+    if (verbose) uncovered.forEach((line, i) => console.log(`  ${i + 1}. ${line}`));
+    console.log('  → Run with --verbose to see missing lines. Add them to LyricsBlock components.');
+    hasError = true;
+  }
 }
 
 console.log('');
