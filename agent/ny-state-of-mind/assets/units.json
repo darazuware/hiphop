@@ -1,0 +1,13 @@
+[
+  { "id": "habitual-be", "anchor": ["monkey","flip","with","the","funky"], "fallbackT": 22 },
+  { "id": "scarface-simile", "anchor": ["like","scarface","sniffing","cocaine"], "fallbackT": 30 },
+  { "id": "steelo", "anchor": ["with","or","without","the","airplay"], "fallbackT": 40 },
+  { "id": "ej-grants-ceelo", "anchor": ["sitting","bent","up","in","the","stairway"], "fallbackT": 45 },
+  { "id": "cousin-of-death", "anchor": ["sleep","is","the","cousin","of","death"], "fallbackT": 132 },
+  { "id": "state-of-mind", "anchor": ["beyond","the","walls","of","intelligence"], "fallbackT": 138 },
+  { "id": "moet-tec", "anchor": ["having","dreams","that","i'm","a","gangsta"], "fallbackT": 158 },
+  { "id": "blocks-rocks", "anchor": ["sewing","up","the","blocks","to","sell","rocks"], "fallbackT": 166 },
+  { "id": "lamp-capone", "anchor": ["lamp","like","capone","with","drug"], "fallbackT": 205 },
+  { "id": "vitamin-capsule", "anchor": ["rhyming","is","a","vitamin"], "fallbackT": 232 },
+  { "id": "city-never-sleeps", "anchor": ["city","never","sleeps","full","of","villains"], "fallbackT": 240 }
+]

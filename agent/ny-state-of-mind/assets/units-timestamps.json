@@ -1,0 +1,112 @@
+[
+  {
+    "id": "habitual-be",
+    "whisperSec": 23.8,
+    "manualSec": null,
+    "fallbackT": 22,
+    "t": 23.8,
+    "source": "whisper",
+    "approx": true,
+    "score": 0.8
+  },
+  {
+    "id": "scarface-simile",
+    "whisperSec": 30,
+    "manualSec": null,
+    "fallbackT": 30,
+    "t": 30,
+    "source": "whisper",
+    "approx": true,
+    "score": 0.75
+  },
+  {
+    "id": "steelo",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 40,
+    "t": 40,
+    "source": "fallback",
+    "approx": true,
+    "score": 0.4
+  },
+  {
+    "id": "ej-grants-ceelo",
+    "whisperSec": 44.1,
+    "manualSec": null,
+    "fallbackT": 45,
+    "t": 44.1,
+    "source": "whisper",
+    "approx": true,
+    "score": 0.67
+  },
+  {
+    "id": "cousin-of-death",
+    "whisperSec": 129.7,
+    "manualSec": null,
+    "fallbackT": 132,
+    "t": 129.7,
+    "source": "whisper",
+    "approx": true,
+    "score": 1
+  },
+  {
+    "id": "state-of-mind",
+    "whisperSec": 131.1,
+    "manualSec": null,
+    "fallbackT": 138,
+    "t": 131.1,
+    "source": "whisper",
+    "approx": true,
+    "score": 1
+  },
+  {
+    "id": "moet-tec",
+    "whisperSec": 148.3,
+    "manualSec": null,
+    "fallbackT": 158,
+    "t": 148.3,
+    "source": "whisper",
+    "approx": true,
+    "score": 0.5
+  },
+  {
+    "id": "blocks-rocks",
+    "whisperSec": 155.3,
+    "manualSec": null,
+    "fallbackT": 166,
+    "t": 155.3,
+    "source": "whisper",
+    "approx": true,
+    "score": 0.71
+  },
+  {
+    "id": "lamp-capone",
+    "whisperSec": 193.8,
+    "manualSec": null,
+    "fallbackT": 205,
+    "t": 193.8,
+    "source": "whisper",
+    "approx": true,
+    "score": 0.6
+  },
+  {
+    "id": "vitamin-capsule",
+    "whisperSec": 220,
+    "manualSec": null,
+    "fallbackT": 232,
+    "t": 220,
+    "source": "whisper",
+    "approx": true,
+    "score": 0.75
+  },
+  {
+    "id": "city-never-sleeps",
+    "whisperSec": 227.8,
+    "manualSec": null,
+    "fallbackT": 240,
+    "t": 227.8,
+    "source": "whisper",
+    "approx": true,
+    "score": 1
+  }
+]
