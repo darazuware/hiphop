@@ -1,402 +1,298 @@
 ---
-import LyricsBlock from '../../components/LyricsBlock.astro';
+import LearningUnit from '../../components/LearningUnit.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
 import SongLayout from '../../layouts/SongLayout.astro';
+
+// 学習ユニットのPVタイムスタンプ。agent/src/extract-unit-timestamps.mjs で album音源を
+// whisper単語アライメントして取得（whisperSec）し、運営者の実測値があれば manualSec が
+// 上書きする二層構造。詳細は docs/timestamp-override.md。approx=true は概算（未実測）。
+import tsData from '../../../agent/nas-is-like/assets/units-timestamps.json';
+const YT = "VC4ORS5n9Hg";
+const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.approx }]));
 ---
 
 <SongLayout
-  title="Nas Is Like 和訳・意味・スラング解説 | Nas"
-  description="Nasの「Nas Is Like」の歌詞和訳とスラング解説。DJ Premierプロデュースによるキャリア復活宣言。ゴミ箱から救われたサンプルと一発録りの裏話も収録。"
+  title="Nas Is Like 和訳・意味・スラング解説 | Nas（DJ Premier）"
+  description="NasのNas Is Likeを英語学習＋ヒップホップ理解の教材として精読。half-man half-amazin'、Before the Christ After the Death（B.C./A.D.）の言葉遊び、they＝theirのAAVE、siete zerosのバイリンガル、DJ Premierのサンプリングを表現単位で解説。各表現はPVの該当箇所へ頭出しリンク付き。"
   slug="nas-is-like"
   highlights={[
-    'ゴミ箱寸前のルーテル教会レコードから救われた「ヒップホップ最大のサンプリングの謎」',
-    '「I\'m a poor man\'s dream, a thug poet」——暴力と詩情を統合したヒップホップ最高のパンチライン',
-    'ノーペーパー・深夜ワンテイク録音——Premierがビートを聴かせてから数時間後に生まれた神業',
+    'Nas Is Likeは「Nas is like 〜」の直喩を engine にした metaphysical braggadocio',
+    'スラング・韻・言葉遊び・AAVEを「学ぶ表現」単位で解説（PV頭出しリンク付き）',
+    'DJ Premierが讃美歌の10インチを刻んで作ったフック——プリモ印のチョップ＆スクラッチ',
   ]}
   youtubeId="VC4ORS5n9Hg"
   sampleYoutubeId="r9_GduOItp0"
-  sampleTitle="John V. Rydgren & Bob R. Way - What Child Is This"
+  sampleTitle="John V. Rydgren & Bob R. Way - What Child Is This?"
 >
-    <div id="lyrics"></div>
 
-    <!-- ===================== -->
-    <!-- INTRO                 -->
-    <!-- ===================== -->
+    <!-- 導入 -->
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■この曲で何を学べるか</h2>
+      <p class="text-sm text-[var(--c-muted)] leading-relaxed">
+        「Nas is like 〜（ナズはこんな感じだ）」——この一つの型を、ヴァースの頭から終わりまで延々と変奏し続ける曲。1999年のアルバム『I Am...』13曲目に収められた、Nasの自己定義ソングです。直喩（simile）と暗喩（metaphor）と並置（juxtaposition）だけで自分が何者かを描き切ろうとする、ある種の言語実験みたいな一曲だと思っています。プロデュースは <strong class="text-[var(--c-text)]">DJ Premier（プリモ）</strong>。彼が讃美歌のレコードを刻んで作ったフックの話は後半でじっくりやります。リリックには、辞書に載らないスラング、AAVE（アフリカ系アメリカ人英語）の文法、英語とスペイン語のコードスイッチ、そして「B.C./A.D.」みたいな二重の意味を仕込んだ言葉遊びがぎっしり。それを「学ぶ表現」単位で取り出して、用例の断片・和訳・語法と文化背景を解説していきます。
+      </p>
+    </section>
+
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■なぜNas Is Likeが教材として優れるか</h2>
+      <p class="text-sm text-[var(--c-muted)] leading-relaxed">
+        理由はシンプルで、<strong class="text-[var(--c-text)]">「A is like B」という英語のいちばん基本的な構文</strong>が、これでもかと出てくるから。直喩は中学で習う型ですが、ネイティブのラッパーが使うとここまで化けるのか、というのを体感できます。しかも比較対象（B）に当てる固有名詞が、Earth, Wind &amp; Fire（バンド）からIron Mike（タイソン）、'Pac（2Pac）、ギリシャとエジプトの歴史まで飛び回る。比喩を読むことが、そのまま黒人文化のレファレンスを読むことになるんです。そこにスペイン語が混ざり（siete＝7、pesos＝金）、AAVEの所有格 <code>they</code>（＝their）が混ざる。教科書とストリートとバイリンガルが一行のなかで同居している——リアルな英語の手触りを学ぶ素材として、これほど密度の高い曲もそうない。ちなみにNasはこの曲の前は <strong class="text-[var(--c-text)]">"Nasty Nas"</strong> を名乗っていて、その改名の話までリリックに織り込まれています（こういう自己言及も面白いポイント）。
+      </p>
+    </section>
+
+    <!-- Table of Contents -->
+    <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
+      <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
+        <li><a href="#story" class="hover:text-[var(--c-gold)] transition-colors">01 — ストーリーの流れ（まず曲全体をつかむ）</a></li>
+        <li><a href="#units" class="hover:text-[var(--c-gold)] transition-colors">02 — 学ぶ表現（スラング・韻・言葉遊び・AAVE）</a></li>
+        <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">03 — 文化的背景</a></li>
+        <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">04 — サンプル・制作の裏側</a></li>
+        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">05 — 評価とその後の影響</a></li>
+      </ol>
+    </nav>
+
+    <!-- ストーリー -->
+    <section id="story" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        ストーリーの流れ — まず曲全体をつかむ
+      </h2>
+      <p class="text-xs text-[var(--c-dim)] mb-5">
+        この曲は物語というより、Nasという人間の「自己定義の連射」です。なので各ヴァースが何を比喩のテーマにしているかをざっと押さえておくと、次章「学ぶ表現」で一語ずつ掘るときに迷子になりません。
+      </p>
+      <div class="space-y-4 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          <strong class="text-[var(--c-text)]">Verse 1（Nas）</strong>。出だしから「自由か監獄か」「赤ん坊の誕生と男の死」を同じ呼吸で並べて、生と死が隣り合うストリートの感覚を提示する。そこから自分の名の由来（Nasty Nas からの改名）、ラップで街の「経典」を書く者としての自負へと展開し、最後は <code>N-A-S</code> と名前を綴ってフックへ橋渡しする。物語というより、自分が立っている地面の説明だ。
+        </p>
+        <p>
+          <strong class="text-[var(--c-text)]">Hook</strong>は「Nas is like... life or death」「half-man, half-amazin'」など、Nas自身の声をPremierが切り刻んでスクラッチで組み上げたもの。歌うのではなく、<strong class="text-[var(--c-text)]">過去のNasの肉声をコラージュして</strong>サビにしているのがミソです。
+        </p>
+        <p>
+          <strong class="text-[var(--c-text)]">Verse 2</strong>は、Iron Mike（タイソン）やMessiah（救世主）を引きながら「Before the Christ, After the Death」とB.C./A.D.をひっかける言葉遊びへ。途中でスペイン語（siete zeros＝七つのゼロ、pesos）が混ざり、富と死生観——「金は墓まで持っていけない」というテーマが顔を出す。
+        </p>
+        <p>
+          <strong class="text-[var(--c-text)]">Verse 3</strong>は、ほぼ全行が「I'm like 〜」の畳みかけ。street sweeper、'Pac、ギリシャとエジプト、ミリオネアの感覚……比喩を高速で積み上げて、最後に <strong class="text-[var(--c-text)]">"a thug poet（ならず者の詩人）"</strong> という一語で自分を締める。初めて通しで聴いたとき、この「比喩だけで自画像を描く」やり方に静かにやられました。
+        </p>
+        <p class="text-xs text-[var(--c-dim)]">
+          ※本ページは批評・教育目的で、解説に必要な範囲の断片のみを引用しています。全歌詞の対訳は掲載していません。
+        </p>
+      </div>
+    </section>
+
+    <!-- 学習ユニット -->
+    <div id="units"></div>
     <section class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Intro · DJ Premier Scratches
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2 border-b border-[var(--c-border)] pb-2">
+        学ぶ表現 — スラング・韻・言葉遊び・AAVE
       </h2>
+      <p class="text-xs text-[var(--c-dim)] mb-6">
+        各見出しは「この曲から学べる英語表現」。各ユニットはまず上に英語の用例（1〜2行）を置いてあります。<strong class="text-[var(--c-text)]">先に英語を音で追い、行のどこが学習対象かを確かめてから</strong>下の日本語解説に進むと、英語が苦手でも置いていかれません。🎤はそのリリックを歌うMC、▶は公式PVの該当箇所への頭出しリンク（音源解析で付与した概算。「≈」付きは未検証の推定値で、運営者の実測で随時上書きします）。引用は解説に必要な最小限の断片に留めています。
+      </p>
 
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          (Scratches by DJ Premier)<br />
-          My poetry is deep, I never fell<br />
-          Not like—<br />
-          Half-man, half-amazing, no doubt<br />
-          Life or death...<br />
-          My poetry's deep, I never... fell...<br />
-          Like—<br />
-          Half-amazing, no doubt
+      <!-- ① 直喩の engine -->
+      <LearningUnit
+        heading="Nas is like... half-man, half-amazin' — 直喩(simile)で自画像を描く"
+        label="★ 構文／フック"
+        mc="Nas（Hook）"
+        t={TS["half-man-amazin"].t} tApprox={TS["half-man-amazin"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Nas is like... life or death; I'm a rebel<br />Nas is like... half-man, half-amazin'</Fragment>
+        <Fragment slot="jpn">ナズはこんな感じだ…生か死か、俺は反逆者／ナズはこんな感じだ…半分人間、半分驚異</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 1とVerse 2のあいだのフック。曲全体を貫く「型」がここに出ます。</p>
+        <p>まず声に出して、各行の頭 <strong class="text-[var(--c-text)]">Nas is like...</strong> を確かめてください。これは中学英語の <code>A is like B</code>（AはBのようだ）＝直喩そのもの。この曲は、ほぼ全行がこの型の変奏でできています。学習ポイントは行末の <strong class="text-[var(--c-text)]">half-man, half-amazin'</strong>。本来 <em>half-man, half-(animal/beast)</em>（半人半獣）という決まり文句があるところを、最後を <strong class="text-[var(--c-text)]">amazing</strong>（驚異的）にすり替えた言葉遊びです。「半分は人間、半分は規格外」と自分を神話化している。フックはNas自身の過去の声をPremierが切り刻んで組んだもので、<strong class="text-[var(--c-text)]">歌っていない</strong>のもポイント（詳細は「制作の裏側」で）。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">A is like B</strong> は直喩の基本形。<code>like</code> の後ろに名詞を置いて「Aは（まるで）Bのようだ」と例える。<em>as</em> を使う <em>A is as 形容詞 as B</em> と並ぶ、英語の比喩の二大基本構文。この曲の Verse 3 は <em>I'm like 〜</em> をひたすら連射して自画像を作る——直喩のリスニング訓練に最適です。</p>
+          <p>定型句の語尾だけを差し替えて新しい意味を作るのは、ヒップホップの常套手段。<em>half-man, half-amazin'</em> のように「既存のフレーズ＋裏切り」を覚えると、パンチラインの構造が見えてくる。</p>
         </Fragment>
-        <Fragment slot="jpn">
-          （DJ Premierによるスクラッチ）<br />
-          俺の詩は深い、俺は決して堕ちない<br />
-          〇〇のようではない—<br />
-          半分は人間、半分は神の領域、間違いない<br />
-          生か死か...<br />
-          俺の詩は深い、俺は決して...堕ちない...<br />
-          まるで—<br />
-          半分の神の領域、間違いない
+      </LearningUnit>
+
+      <!-- ② juxtaposition -->
+      <LearningUnit
+        heading="A baby's bein' born, same time a man is murdered — 並置(juxtaposition)で世界観を一行に"
+        label="★ 表現技法"
+        mc="Nas（Verse 1）"
+        t={TS["baby-born-murdered"].t} tApprox={TS["baby-born-murdered"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Freedom or jail, clips inserted<br />A baby's bein' born, same time a man is murdered</Fragment>
+        <Fragment slot="jpn">自由か監獄か、弾倉は装填済み／赤ん坊が生まれる、同じ瞬間に男が殺される</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 1のいちばん最初、曲の口火を切る2行。学習対象は下の行。</p>
+        <p>注目は下の行、「A baby's bein' born, <strong class="text-[var(--c-text)]">same time</strong> a man is murdered」。誕生と殺人という正反対の出来事を <strong class="text-[var(--c-text)]">same time（同じ瞬間に）</strong>で並べる——これが <strong class="text-[var(--c-text)]">juxtaposition（並置）</strong>という技法です。説明をいっさい足さず、二つの像をぶつけるだけで「生と死が隣り合う街」の温度を出す。上の行の <code>clips inserted</code>（弾倉を装填した）も、銃が日常にある世界をさらりと提示している。冒頭2行だけで、これから語られる世界の気圧が決まってしまう。詩の技法としての並置を、生きた用例で確認できる場所です。</p>
+      </LearningUnit>
+
+      <!-- ③ Nasty Nas -->
+      <LearningUnit
+        heading="First it was Nasty, but times have changed — MCの改名とアイデンティティ"
+        label="★ スラング／文化"
+        mc="Nas（Verse 1）"
+        t={TS["nasty-name"].t} tApprox={TS["nasty-name"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">First it was Nasty, but times have changed<br />Ask me now, I'm the artist, but hardcore</Fragment>
+        <Fragment slot="jpn">最初は"ナスティ"だった、だが時代は変わった／今訊いてみろ、俺はアーティストだ、だがハードコアなままだ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 1中盤、自分の名前の由来を語る件。</p>
+        <p>上の行の <strong class="text-[var(--c-text)]">Nasty</strong> は、Nasの初期の名義 <strong class="text-[var(--c-text)]">"Nasty Nas"</strong> のこと。デビュー前の彼はこう呼ばれていました。<code>First it was Nasty, but times have changed</code>（最初はナスティだった、でも時代は変わった）は、ティーンの荒っぽいMCから一人の「アーティスト」へ成熟した自己認識の宣言。でも次の行で <code>but hardcore</code> と付け足して、洗練はしても牙は抜いていない、と釘を刺すのが彼らしい。ヒップホップでは <strong class="text-[var(--c-text)]">MC名そのものが物語を背負う</strong>——名前の変遷を辿ると、その人のキャリア観が見えてくる好例です。<code>times have changed</code>（時代は変わった）は日常会話でもそのまま使える定番フレーズ。</p>
+      </LearningUnit>
+
+      <!-- ④ AAVE they = their -->
+      <LearningUnit
+        heading="around they neck — AAVEの所有格 they（＝their）"
+        label="★ AAVE文法"
+        mc="Nas（Verse 1）"
+        t={TS["they-possessive"].t} tApprox={TS["they-possessive"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">It's what you make it, suicide, few try to take it<br />Belt tied around they neck in jail cells naked</Fragment>
+        <Fragment slot="jpn">人生は自分次第、自殺、それを選ぶ者は少ない／ベルトを首に巻きつけ、監房で裸のまま</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 1後半、収監された者の絶望を描く件。学習対象は下の行。</p>
+        <p>下の行、「Belt tied around <strong class="text-[var(--c-text)]">they</strong> neck」の <strong class="text-[var(--c-text)]">they</strong> に注目。標準英語なら当然 <em>their neck</em>（彼らの首）です。ところがAAVE（アフリカ系アメリカ人英語）では、<strong class="text-[var(--c-text)]">所有格の their を they で言う</strong>ことがよくある。これは崩れた英語ではなく、AAVEに体系的に存在する規則的な特徴です。この曲ではVerse 3にも <code>deep from they teachers</code>（師＝their teachersから）ともう一度出てきます。一度「they＝their」と頭に入れておくと、リスニングで詰まらなくなる。辞書英語だけ見ていると「文法ミス」に見えてしまう箇所こそ、生きた文法の入口だったりします。</p>
+        <Fragment slot="usage">
+          <p>AAVEでは <strong class="text-[var(--c-text)]">they</strong> を所有格 <em>their</em> の意味で使う。<em>they neck（＝their neck）</em>、<em>they teachers（＝their teachers）</em> のように、名詞の前に置いて「彼らの〜」を表す。発音上 their と they が近いことから定着した特徴で、ラップの歌詞には頻出。</p>
+          <p>聞き取りのコツ: 「they ＋ 名詞」の並びが来たら、まず所有格（their）を疑う。主語の they（彼らは）なら直後に動詞が来るので、後ろが名詞か動詞かで一瞬で見分けられる。</p>
         </Fragment>
-        <Fragment slot="explanation">
-          DJ Premierがターンテーブルの魔術を全開にするイントロ。Nasの過去曲「It Ain't Hard to Tell」のアカペラから「My poetry is deep, I never fell」と「Half-man, half-amazing」を抜き取り、言葉を打楽器のように切り刻む。これからNasが「自己定義（Nas Is Like）」を始めることをリスナーに予告する数十秒で、Nasが「神格化されたMC」であることを無意識のレベルで刷り込む。
+      </LearningUnit>
+
+      <!-- ⑤ Earth Wind Fire / rhyme -->
+      <LearningUnit
+        heading="Earth, Wind & Fire, rims and tires — バンド名の引用と多重韻"
+        label="★ 韻／言葉遊び"
+        mc="Nas（Verse 2）"
+        t={TS["earth-wind-fire"].t} tApprox={TS["earth-wind-fire"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Earth, Wind & Fire, rims and tires<br />Bulletproof glass, inside is the realest driver</Fragment>
+        <Fragment slot="jpn">アース・ウィンド・アンド・ファイアー、リムとタイヤ／防弾ガラス、中にいるのは最もリアルなドライバー</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 2の冒頭、比喩の連射が始まる件。まず音で。</p>
+        <p>まず音だけ追ってください。<strong class="text-[var(--c-text)]">Fire / tires / driver</strong> と <code>-ire / -ier</code> 系の母音が3連続で返ってくる——これが今回の聴きどころです。そのうえ行頭の <strong class="text-[var(--c-text)]">Earth, Wind &amp; Fire</strong> は、伝説のソウル／ファンクバンドの名前をそのまま借りた引用。バンド名を一語の比喩素材として放り込みながら、即座に <code>rims and tires</code>（リムとタイヤ＝高級車）へ韻で滑り込む。<strong class="text-[var(--c-text)]">固有名詞 → 韻 → イメージ</strong>の流れが一行で完結している。比喩・引用・脚韻を同時に走らせる、Nasの面目躍如な一節です。</p>
+      </LearningUnit>
+
+      <!-- ⑥ B.C./A.D. wordplay -->
+      <LearningUnit
+        heading="Before the Christ, After the Death — B.C./A.D.の二重の意味"
+        label="★ 言葉遊び（最重要）"
+        mc="Nas（Verse 2）"
+        t={TS["before-christ-after-death"].t} tApprox={TS["before-christ-after-death"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Iron Mike, Messiah type<br />Before the Christ, After the Death, the last one left</Fragment>
+        <Fragment slot="jpn">アイアン・マイク、救世主タイプ／キリスト以前、死の後、最後に残る一人</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 2前半、自分を歴史的なスケールで定義する件。学習対象は下の行。</p>
+        <p>下の行が、この曲いちばんの仕掛けです。「<strong class="text-[var(--c-text)]">Before the Christ</strong>, <strong class="text-[var(--c-text)]">After the Death</strong>」——これは西暦の <strong class="text-[var(--c-text)]">B.C.（Before Christ＝紀元前）</strong>と、暗に <strong class="text-[var(--c-text)]">A.D.</strong> を「After the Death」と読み替えた言葉遊び。本来 A.D. はラテン語 Anno Domini（主の年）ですが、英語話者がしばしば誤解する "After Death" を逆手に取って、キリストの前後＝歴史そのものに自分を重ねている。上の行の <strong class="text-[var(--c-text)]">Iron Mike</strong> はMike Tyson（マイク・タイソン）、<strong class="text-[var(--c-text)]">Messiah</strong> は救世主。たった2行で、ボクシングの伝説と宗教的スケールに自分を並べてしまう。気づくとちょっと鳥肌が立つ一節です。</p>
+      </LearningUnit>
+
+      <!-- ⑦ Spanish code-switch -->
+      <LearningUnit
+        heading="siete zeros / pesos — 英語にスペイン語を差し込むコードスイッチ"
+        label="★ スラング／バイリンガル"
+        mc="Nas（Verse 2）"
+        t={TS["siete-pesos"].t} tApprox={TS["siete-pesos"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Let my cash invest in stock<br />...siete zeros, bet my nine spit for the pesos</Fragment>
+        <Fragment slot="jpn">俺の金は株に投資させる／…七つのゼロ、金のためなら俺の9ミリが火を噴く</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 2中盤、富と暴力を畳みかける件。学習対象はスペイン語が混ざる2語。</p>
+        <p>注目は <strong class="text-[var(--c-text)]">siete zeros</strong> と <strong class="text-[var(--c-text)]">pesos</strong>。どちらもスペイン語で、<strong class="text-[var(--c-text)]">siete＝7</strong>（つまり「ゼロが7つ＝数百万ドル」）、<strong class="text-[var(--c-text)]">pesos＝お金</strong>。英語のラインに自然にスペイン語を差し込む <strong class="text-[var(--c-text)]">コードスイッチング</strong>は、ラティーノ人口の多いニューヨークのストリート英語ではごく普通の現象です。さらに同じ件には <strong class="text-[var(--c-text)]"><QuickSlang word="nine" desc="9mm拳銃（nine millimeter）のスラング" /></strong>（9mm拳銃）も出てくる。一行のなかで英語・スペイン語・隠語が三層に重なる、密度の高い箇所です。</p>
+        <Fragment slot="usage">
+          <p>数字や金の単位をスペイン語にする <strong class="text-[var(--c-text)]">コードスイッチ</strong>は、NYヒップホップの常套句。<em>dinero</em>（金）、<em>pesos</em>（金）、<em>siete / ocho</em>（7／8）などは英語ラップに頻出するので、基本のスペイン語数詞と金関連語を押さえると聞き取りが一気に楽になる。</p>
+          <p><strong class="text-[var(--c-text)]">nine</strong> は <em>nine millimeter</em>（9mm拳銃）の略。数字がそのまま物騒なスラングの核になる——英語ラップではよくあるパターンです。</p>
         </Fragment>
-      </LyricsBlock>
+      </LearningUnit>
+
+      <!-- ⑧ come-up / Seiko Rolex -->
+      <LearningUnit
+        heading="from Seiko to Rolex — モノで語る come-up（成り上がり）"
+        label="★ スラング／文化"
+        mc="Nas（Verse 2）"
+        t={TS["seiko-rolex"].t} tApprox={TS["seiko-rolex"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Came a long way from blastin' TECs on blocks<br />Went from Seiko to Rolex, ownin' acres</Fragment>
+        <Fragment slot="jpn">ブロックでTECをぶっ放してた頃から、長い道のりを来た／セイコーからロレックスへ、土地まで手にした</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 2中盤、過去から現在への距離を語る件。</p>
+        <p>下の行、「Went from <strong class="text-[var(--c-text)]">Seiko</strong> to <strong class="text-[var(--c-text)]">Rolex</strong>」が学習ポイント。安価な腕時計セイコーから高級時計ロレックスへ——<strong class="text-[var(--c-text)]">モノの格上げで成り上がり（come-up）を語る</strong>のはヒップホップの定番表現です。ブランド名そのものが「貧しかった過去」と「成功した現在」の記号になる。上の行の <code>Came a long way from 〜</code>（〜から長い道のりを来た）は、自分の歩みを振り返るときの超定番フレーズで、日常会話でも使える。<strong class="text-[var(--c-text)]"><QuickSlang word="TECs" desc="TEC-9。当時ストリートで多用された安価なセミオート拳銃" /></strong>（TEC-9という拳銃）や <code>blocks</code>（街区）といったストリート語彙と、ブランド名の対比が効いています。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">come a long way</strong> は「（人・物事が）大きく進歩した・遠くまで来た」を表すイディオム。<em>I've come a long way</em>（自分は成長した）のように現在完了で使うのが定番。ラップでは過去の貧困から現在の成功までの距離を示す決め台詞として多用される。</p>
+          <p><strong class="text-[var(--c-text)]">go from A to B</strong>（AからBへ移る）は変化を語る基本構文。ここでは安物→高級ブランドの対比で「成り上がり」を一行に圧縮している。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑨ street sweeper double meaning -->
+      <LearningUnit
+        heading="I'm like a street sweeper, green leaf breather — 二重の意味と内部韻"
+        label="★ 言葉遊び／スラング"
+        mc="Nas（Verse 3）"
+        t={TS["street-sweeper"].t} tApprox={TS["street-sweeper"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">I'm like a street sweeper, green leaf breather<br />Like Greeks in Egypt, learnin' somethin' deep from they teachers</Fragment>
+        <Fragment slot="jpn">俺は街の掃除屋（ストリート・スウィーパー）、緑の葉を吸う者／エジプトのギリシャ人のように、師から深い何かを学ぶ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 3、「I'm like 〜」が連射される件。学習対象は上の行。</p>
+        <p>上の行に二つの仕掛けがあります。<strong class="text-[var(--c-text)]">street sweeper</strong> は文字どおり「道路清掃車／街の掃除屋」ですが、同時に <strong class="text-[var(--c-text)]">"Streetsweeper" という散弾銃</strong>の隠語でもある二重の意味。「ライバルを一掃する」という攻撃性と「掃除する」が重なる。続く <strong class="text-[var(--c-text)]">green leaf breather</strong> は「緑の葉を吸う者」＝マリファナの暗喩。そして音に注目すると <code>sweeper / breather / teacher</code> と <strong class="text-[var(--c-text)]">-eer/-er</strong> の内部韻が連続している。下の行は次のユニットで扱いますが、この2行は「I'm like 〜」の直喩を韻でつないでいく、Verse 3の作りの見本です。</p>
+      </LearningUnit>
+
+      <!-- ⑩ Greeks in Egypt allusion -->
+      <LearningUnit
+        heading="Like Greeks in Egypt — 比喩に歴史の引用(allusion)を畳む"
+        label="★ 比喩／引用"
+        mc="Nas（Verse 3）"
+        t={TS["greeks-egypt"].t} tApprox={TS["greeks-egypt"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Like Greeks in Egypt, learnin' somethin' deep from they teachers</Fragment>
+        <Fragment slot="jpn">エジプトのギリシャ人のように、師から深い何かを学ぶ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 3、直喩の連射のなかの一行。歴史の引用が入る。</p>
+        <p>「Like <strong class="text-[var(--c-text)]">Greeks in Egypt</strong>, learnin' somethin' deep from they teachers」。これは <strong class="text-[var(--c-text)]">古代ギリシャの学者がエジプトで学んだ</strong>という歴史観への <strong class="text-[var(--c-text)]">allusion（引用・ほのめかし）</strong>。「西洋文明の源はアフリカ（エジプト）にある」というアフロセントリックな知の系譜を、たった一語の比喩に畳み込んでいる。Nasのリリックは、こういう「知識（knowledge）を重んじる」姿勢がよく出ます。行末の <code>they teachers</code> は、ユニット④で見た <strong class="text-[var(--c-text)]">AAVEの所有格 they（＝their）</strong>がここでも再登場している箇所。<code>deep</code>（深い）も「深遠な知」を指す含みで、単なる形容詞以上に効いています。比喩の中に歴史と思想を仕込む——読み解く楽しさがいちばん出る一行です。</p>
+      </LearningUnit>
+
+      <!-- ⑪ thug poet -->
+      <LearningUnit
+        heading="a thug poet — 撞着語法(oxymoron)で自分を定義する"
+        label="★ 表現技法／テーマ"
+        mc="Nas（Verse 3）"
+        t={TS["thug-poet"].t} tApprox={TS["thug-poet"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">I'm a poor man's dream, a thug poet<br />Live it and I write down, and I watch it blow up</Fragment>
+        <Fragment slot="jpn">俺は貧しき者の夢、ならず者の詩人（サグ・ポエット）／それを生き、書き留め、爆発するのを見届ける</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 3の締めに近い件。曲全体の自己定義がここに落ちる。</p>
+        <p>上の行末、<strong class="text-[var(--c-text)]">a thug poet</strong>（ならず者の詩人）が、この曲の自己定義のいちばん核です。<strong class="text-[var(--c-text)]">thug（暴漢・ならず者）</strong>と <strong class="text-[var(--c-text)]">poet（詩人）</strong>——本来は相容れない二語をくっつける <strong class="text-[var(--c-text)]">oxymoron（撞着語法）</strong>で、ストリートの荒っぽさと言葉の繊細さを同時に背負う自分を一語に込めている。直前の <code>a poor man's dream</code>（貧しき者の夢）も効いていて、自分が出てきた場所を忘れていない。下の行 <code>watch it blow up</code> の <strong class="text-[var(--c-text)]">blow up</strong> は「爆発的に成功する／大ヒットする」という句動詞。比喩を延々と積み上げてきた曲が、最後に矛盾語ひとつで自分を言い切る——締め方まで含めて教材的な一曲だと思います。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">oxymoron（撞着語法）</strong>は、矛盾する語を意図的に並べて新しい意味を生む技法。<em>thug poet</em>（ならず者の詩人）、<em>bittersweet</em>（ほろ苦い）、<em>living dead</em>（生ける屍）などが典型。対立する二語をぶつけることで、単独では言えない複雑な自己像を一語で立ち上げる。</p>
+          <p><strong class="text-[var(--c-text)]">blow up</strong> は句動詞で「爆発する」のほか「（人・作品が）一気に有名になる・バズる」の意。<em>The song blew up</em>（その曲は大ヒットした）のように使う、現代英語の超頻出表現。</p>
+        </Fragment>
+      </LearningUnit>
     </section>
 
-    <!-- ===================== -->
-    <!-- VERSE 1               -->
-    <!-- ===================== -->
-    <section id="verse1" class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Verse 1 · Nas
-      </h2>
-
-      <LyricsBlock hasExplanation={false}>
-        <Fragment slot="eng">
-          Umm, Premo, Nas<br />
-          Yeah, yeah, yo
-        </Fragment>
-        <Fragment slot="jpn">
-          うん、プレモ、Nas<br />
-          イェー、イェー、よお
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Freedom or jail, clips inserted<br />
-          A baby's bein' born, same time a man is murdered<br />
-          The beginnin' and end
-        </Fragment>
-        <Fragment slot="jpn">
-          自由か刑務所か、弾倉を装填して<br />
-          赤ん坊が生まれる、同じ瞬間に男が殺される<br />
-          始まりと終わり
-        </Fragment>
-        <Fragment slot="explanation">
-          冒頭3行で生と死の二項対立を提示。「clips inserted（弾倉装填）」という緊張感の中に誕生と殺人を並置する——これがNasの語り口の核心。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          As far as rap go, it's only natural, I explain<br />
-          My plateau, and also what defines my name<br />
-          First it was Nasty, but times have changed<br />
-          Ask me now, I'm the artist, but hardcore, my sign's for pain
-        </Fragment>
-        <Fragment slot="jpn">
-          ラップに関しては、自然の流れとして俺が説明しよう<br />
-          俺の到達点、そして俺の名前が意味するもの<br />
-          最初はNasty（下品）だったが、時代は変わった<br />
-          今の俺はアーティストだ、それでもハードコア、俺の紋章は痛みだ
-        </Fragment>
-        <Fragment slot="explanation">
-          「Nasty Nas」から「Nas」への変遷。アーティストとしての成熟を認めながらもストリートの魂は失っていないと宣言。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          I spent time in the game, kept my mind on fame<br />
-          Saw fiends shoot up and do lines of cocaine<br />
-          Saw my close friends shot, flatline, am I sane?<br />
-          That depends, carry MAC-10's to practice my aim
-        </Fragment>
-        <Fragment slot="jpn">
-          ゲームに時間を費やし、名声を頭に置き続けた<br />
-          ジャンキーが注射を打ちコカインを鼻から吸うのを見た<br />
-          親友が撃たれ心電図が平線になるのを見た、俺は正気か?<br />
-          正気かどうかはTPOによる、MAC-10で腕を磨く
-        </Fragment>
-        <Fragment slot="explanation">
-          Queensbridgeの日常——薬物、死、暴力。「flatline（心電図の平線）」は死の婉曲表現。「am I sane?」という自問がNasの詩的誠実さを示す。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          On rooftops, tape CD covers to trees<br />
-          Line the barrel up with your weak picture, then squeeze<br />
-          Street scriptures for lost souls in the crossroads<br />
-          To the corner thugs, hustlin' for cars that cost dough<br />
-          To the big dogs livin' large, takin' it light<br />
-          Pushin' big toys, gettin' nice, enjoyin' your life
-        </Fragment>
-        <Fragment slot="jpn">
-          屋上でCDジャケットを木に貼り付けて<br />
-          お前の情けない写真に銃口を合わせてから引き金を引く<br />
-          迷える魂たちへの路上の聖典<br />
-          コーナーでカネになる車のために売り続けるチンピラへ<br />
-          でかく生きてゆっくり構えるボスへ<br />
-          デカいおもちゃを乗り回し、いい気分になり、人生を謳歌する者たちへ
-        </Fragment>
-        <Fragment slot="explanation">
-          「Street scriptures（路上の聖典）」——Nasの歌詞は教典であり、路上のすべての人間に向けられた言葉だという自負。CDジャケットを標的にする描写は、ラップ業界への皮肉も含む。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true} label="★ ヒップホップ史上最高の自己定義宣言">
-        <Fragment slot="eng">
-          Is what you make it, suicide, few try to take it<br />
-          Belt tied around their neck in jail cells naked<br />
-          Heaven and hell, rap legend, presence is felt<br />
-          And of course, N-A-S are the letters that spell<br />
-          NAS, NAS<br />
-          "Nas is like" Earth, Wind &amp; Fire, rims and tires<br />
-          Bulletproof glass, inside is the realest driver<br />
-          Planets in orbit, line 'em up with the stars<br />
-          Tarot cards, you can see the <QuickSlang word="pharaoh" desc="古代エジプトの王。ファイブ・パーセンター（Five Percent Nation）の宇宙観・アフロセントリズムと結びついた表現" /> Nas<br />
-          "Nas is like" <QuickSlang word="Iron Mike" desc="マイク・タイソンの異名。最盛期の圧倒的な破壊力を象徴する" />, messiah type<br />
-          Before the Christ, after the death<br />
-          The last one left, let my cash invest in stock<br />
-          Came a long way from blastin' <QuickSlang word="TECs" desc="TEC-9：半自動拳銃。ストリートで多用された" /> on blocks
-        </Fragment>
-        <Fragment slot="jpn">
-          人生は自分次第だ、自殺、それを試みる者も少しはいる<br />
-          刑務所の独房で、裸のまま首にベルトを巻きつけてな<br />
-          天国と地獄、ラップの伝説、その存在感は肌で感じられる<br />
-          そしてもちろん、N-A-S、その文字が綴る言葉は<br />
-          NAS、NASだ<br />
-          「Nasとはまるで」Earth, Wind &amp; Fire、リムとタイヤ<br />
-          防弾ガラス、その中にいるのは最もリアルな運転手<br />
-          軌道上の惑星たち、それを星々と一直線に並べる<br />
-          タロットカード、そこにはファラオであるNasの姿が見える<br />
-          「Nasとはまるで」アイアン・マイク（マイク・タイソン）、救世主のようなタイプ<br />
-          キリストの誕生以前、そして死の後<br />
-          最後の一人として生き残り、現金を株に投資する<br />
-          街角でTEC-9（銃）をぶっ放していた頃から、遠くまで来たものだ
-        </Fragment>
-        <Fragment slot="explanation">
-          「Nas is like Earth, Wind &amp; Fire」——伝説的R&amp;Bバンド名を挙げながら、土（Earth）・風（Wind）・火（Fire）という自然の三大元素を操る普遍的存在であることを暗示。さらに「リムとタイヤ」という車文化のアイテムを並置する知的なギャップが秀逸。<br /><br />
-          「Before the Christ, after the death」——キリスト誕生前（アルファ）から死後（オメガ）まで、時間を超越した神的存在としてNasを描いた、史上最も神聖なパンチラインの一つ。「タロットカード」「ファラオ」「惑星の配列」という神秘主義的メタファーは、ファイブ・パーセンター（Five Percent Nation）の思想とアフロセントリズムの強い影響を示す。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true} label="★ 物質主義と虚無の哲学">
-        <Fragment slot="eng">
-          Went from Seiko to Rolex, ownin' acres<br />
-          From the projects with no chips, to large cake dough<br />
-          <QuickSlang word="Dimes" desc="最高に魅力的な女性（10点満点の美女）を指すスラング" />, givin' fellatio, siete zeros<br />
-          Bet my nine spit for the <QuickSlang word="pesos" desc="金・現金のスラング" /><br />
-          But what's it all worth, can't take it with you under this Earth<br />
-          Rich men died and tried, but none of it worked<br />
-          They just rob your grave, I'd rather be alive and paid<br />
-          Before my number's called, history's made<br />
-          Some'll fall, but I rise, thug or die<br />
-          Makin' choices, that determine my future under the sky<br />
-          To rob, steal, or kill, I'm wonderin' why<br />
-          It's a dirty game, is any man worthy of fame?<br />
-          Much success to you, even if you wish me the opposite<br />
-          Sooner or later we'll all see who the prophet is
-        </Fragment>
-        <Fragment slot="jpn">
-          セイコー（時計）からロレックスへ、広大な土地を所有するまでになった<br />
-          チップ（金）の無い団地から、巨大なケーキ（大金）を手にするまで<br />
-          極上の女（ダイム）たちがフェラチオを施す、7つのゼロ（数百万ドル）<br />
-          ペソ（金）のために俺の9ミリ（銃/リリック）が火を噴くぜ<br />
-          だが、それが一体何の価値がある？ 地下（あの世）には持っていけないんだ<br />
-          金持ちたちは死に、あの世に金を持っていこうと試みたが、誰一人上手くいかなかった<br />
-          奴らは墓を荒らすだけだ、俺なら生きて金を持ちたい<br />
-          俺の番号が呼ばれる（死の時が来る）前に、歴史は作られた<br />
-          落ちぶれる奴もいるが、俺は昇りつめる、サグとして生きるか死ぬか<br />
-          空の下で俺の未来を決定づける、幾つかの選択をする<br />
-          強盗、窃盗、殺人、なぜそんなことをするのか俺は考える<br />
-          汚いゲームだ、名声に値する人間などいるのか？<br />
-          お前の大成功を祈るよ、たとえお前が俺の不幸を願っていようともな<br />
-          遅かれ早かれ、誰が真の預言者であるかは、全員の目に明らかになるさ
-        </Fragment>
-        <Fragment slot="explanation">
-          「Seiko to Rolex」——時計のグレードアップで物質的成功を表しながら、直後に「あの世には持っていけない」と虚無感を語る。古代エジプトのファラオたちが財宝と共に埋葬されたが墓泥棒に奪われた歴史（rob your grave）を指摘し、現世を生き抜くことの哲学を説く二面性こそNasの真髄。<br /><br />
-          「Much success to you, even if you wish me the opposite」——当時ニューヨークの王座を巡りJay-Zらとの緊張関係にあったNasが見せる大人の対応であり、同時に強烈なサブリミナル・ディス。「誰が本物の預言者か、いずれ分かる」で締めくくり、絶対的な自信を見せつける。
-        </Fragment>
-      </LyricsBlock>
-    </section>
-
-    <!-- ===================== -->
-    <!-- CHORUS                -->
-    <!-- ===================== -->
-    <section class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Chorus · DJ Premier Scratches
-      </h2>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          (Scratches by DJ Premier)<br />
-          "Nas is like.. life or death.. I'm a rebel.."<br />
-          "My poetry's deep, I never fell.."<br />
-          "Nas is like.. half-man, half-amazing.."<br />
-          "No doubt.."<br />
-          "Nas is like.. life or death.. I'm a rebel.."<br />
-          "My poetry's deep, I never fell.."<br />
-          "Nas is like.. half-man, half-amazing.."<br />
-          "No doubt.."<br />
-          "Nas is like..."
-        </Fragment>
-        <Fragment slot="jpn">
-          （DJ Premierによるスクラッチ）<br />
-          「Nasとはまるで.. 生か死か.. 俺は反逆者だ..」<br />
-          「俺の詩は深い、俺は決して堕ちない..」<br />
-          「Nasとはまるで.. 半分は人間、半分は神の領域..」<br />
-          「間違いない..」<br />
-          「Nasとはまるで.. 生か死か.. 俺は反逆者だ..」<br />
-          「俺の詩は深い、俺は決して堕ちない..」<br />
-          「Nasとはまるで.. 半分は人間、半分は神の領域..」<br />
-          「間違いない..」<br />
-          「Nasとはまるで...」
-        </Fragment>
-        <Fragment slot="explanation">
-          R&amp;Bの歌付きフックを一切排除し、ターンテーブルのスクラッチだけをサビとして機能させる1990年代ヒップホップの伝統美が極限まで高められている。「Nas Is Like...（Nasとはまるで...）」という問いかけを繰り返すことで、サブリミナル効果のようにリスナーの脳裏にNasのアイデンティティを焼き付ける設計。
-        </Fragment>
-      </LyricsBlock>
-    </section>
-
-    <!-- ===================== -->
-    <!-- VERSE 2               -->
-    <!-- ===================== -->
-    <section id="verse2" class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Verse 2 · Nas
-      </h2>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Sex to a nympho, but nothing sweet<br />
-          I'm like beef, bustin' heat through your windows<br />
-          I'm like a <QuickSlang word="street sweeper" desc="街の清掃車、かつ連発式ショットガン（Striker）のストリートスラング、ダブルミーニング" />, green leaf breather<br />
-          Like <QuickSlang word="Greeks in Egypt" desc="古代ギリシャ人（ソクラテス等）が実はアフリカ（古代エジプト）の文明から知識を得たというアフロセントリズムの歴史観" />, learnin' somethin' deep from they teachers<br />
-          I'm like crime, like your nine, your man you would die for<br />
-          Always got you, I'm like <QuickSlang word="'Pac" desc="2Pac（Tupac Shakur）。1996年に他界した伝説のラッパー。Nasはかつてビーフ関係にあったが、ここでは「誰もが泣いて悼んだ存在」として最高のリスペクトを捧げる" />, dude you would cry for<br />
-          I'm like a whole lot of loot, I'm like crisp money<br />
-          Corporate accounts from a rich company
-        </Fragment>
-        <Fragment slot="jpn">
-          色情狂にとってのセックスのよう、だが全く甘くはない<br />
-          俺は抗争（ビーフ）のよう、お前の家の窓めがけて銃弾（ヒート）をぶち込む<br />
-          俺はストリートスイーパー（街の清掃車/ショットガン）のよう、緑の葉（マリファナ）を吸う者<br />
-          エジプトにいるギリシャ人のよう、教師たちから深い何かを学んでいる<br />
-          俺は犯罪のよう、お前の9ミリ銃のよう、お前が命を懸けてもいいと思える仲間のよう<br />
-          常に味方でいる、俺は2Pac（パック）のよう、お前が泣いて悼む存在<br />
-          俺は大量の戦利品のよう、俺はパリッとした真新しい札束のよう<br />
-          富裕な企業が持つ法人用口座のよう
-        </Fragment>
-        <Fragment slot="explanation">
-          「街の清掃車」と「連発式ショットガン（Striker）」のダブルミーニングを持つ「Street sweeper」。そしてストリートの暴力について語った直後に、George G.M. Jamesの著書『Stolen Legacy（盗まれた遺産）』に基づく「Greeks in Egypt（アフロセントリズムの歴史認識）」を挿入するこの知的なギャップ——これがNasが単なるギャングスタ・ラッパーではなく「知識のMC（Conscious Rapper）」と呼ばれる所以である。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true} label="★ 核心パンチライン「サグの詩人」">
-        <Fragment slot="eng">
-          I'm like ecstasy for ladies, I'm like all races<br />
-          Combined in one man, like the '99 <QuickSlang word="Summer Jam" desc="ニューヨークのHot 97が主催する世界最大級のヒップホップ・フェスティバル。1999年大会は東海岸HIPHOPの文化的るつぼ" /><br />
-          Bulletproof <QuickSlang word="Hummer" desc="軍用規格の高級SUV。1990年代の成功の象徴として多くのラッパーが愛用" /> man<br />
-          I'm like being locked down around new faces, and none of 'em fam<br />
-          I'm the feelin' of a millionaire spendin' a hundred grand<br />
-          I'm a poor man's dream, a <QuickSlang word="thug poet" desc="ストリートの悪党（Thug）と文学的詩人（Poet）という二面性を統合したNas最大の自己定義" /><br />
-          Live it and I write down and I watch it blow up<br />
-          Y'all know what I'm like, y'all play it your system every night, now...
-        </Fragment>
-        <Fragment slot="jpn">
-          俺は女たちにとってのエクスタシー（快感/ドラッグ）のよう、俺は全人種が<br />
-          一人の男の中に統合されたよう、まるで99年のサマージャムのよう<br />
-          防弾仕様のハマーに乗る男<br />
-          知り合い（家族）が誰もいない、見知らぬ顔ばかりの中で監禁されている気分のよう<br />
-          俺は10万ドルを散財するミリオネアの気分のよう<br />
-          俺は貧しい者の夢、サグの詩人だ<br />
-          実際に生き、それを書き留め、それが爆発的にヒットするのを見る<br />
-          俺がどんな存在か、お前らは知っているはずだ、毎晩システム（ステレオ）で再生しているのだから
-        </Fragment>
-        <Fragment slot="explanation">
-          「I'm a poor man's dream, a thug poet」——この楽曲、ひいてはNasのキャリア全体を総括する究極のパンチライン。ゲットーの現実を生き抜く悪党（Thug）でありながら、それを文学的な芸術へと昇華させる詩人（Poet）であるという宣言。犯罪、銃、親父、大金、ドラッグ、監禁の孤独、ミリオネアの快感など、森羅万象を自身に例え続けるこのバースは、ヒップホップにおける「直喩（Simile）」の最高到達点である。
-        </Fragment>
-      </LyricsBlock>
-    </section>
-
-    <!-- ===================== -->
-    <!-- OUTRO                 -->
-    <!-- ===================== -->
-    <section class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Outro · DJ Premier Scratches
-      </h2>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          (Scratches by DJ Premier)<br />
-          "Nas is like.. life or death.. I'm a rebel.."<br />
-          "My poetry's deep, I never fell.."<br />
-          "Nas is like.. half-man, half-amazing.."<br />
-          "No doubt.."<br />
-          ...<br />
-          "Nas is like..."
-        </Fragment>
-        <Fragment slot="jpn">
-          （DJ Premierによるスクラッチ）<br />
-          「Nasとはまるで.. 生か死か.. 俺は反逆者だ..」<br />
-          「俺の詩は深い、俺は決して堕ちない..」<br />
-          「Nasとはまるで.. 半分は人間、半分は神の領域..」<br />
-          「間違いない..」<br />
-          ...<br />
-          「Nasとはまるで...」
-        </Fragment>
-        <Fragment slot="explanation">
-          ビートがゆっくりとフェードアウトしていく中、DJ Premierのスクラッチだけが虚空に響き渡る。Nasは語り終え、姿を消した後も「Nas Is Like...（Nasとはまるで...）」という問いかけだけがリスナーの頭の中に反響し続ける。過度なアドリブやシャウトアウトを一切排除したこのストイックな終幕が、楽曲のミステリアスな完成度を完璧なものにしている。
-        </Fragment>
-      </LyricsBlock>
-    </section>
-
-    <!-- ===================== -->
-    <!-- CULTURAL BACKGROUND   -->
-    <!-- ===================== -->
+    <!-- 文化的背景 -->
     <section id="background" class="mb-12">
       <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
         文化的背景
       </h2>
 
       <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
-        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">クイーンズブリッジ団地</p>
-        <h3 class="font-semibold text-base mb-3">ヒップホップのインキュベーター — アメリカ最大の公営住宅</h3>
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">Nasty Nas から Nas へ</p>
+        <h3 class="font-semibold text-base mb-3">『Illmatic』の神童が背負った重圧</h3>
         <p class="text-[var(--c-muted)] text-sm leading-relaxed">
-          クイーンズブリッジ団地（Queensbridge Houses）はMarley Marl・MC Shan・Mobb Deepを輩出した<strong class="text-[var(--c-text)]">ヒップホップの聖地</strong>。1980〜90年代はクラック・コカインの蔓延と凶悪犯罪により「都市の地獄」と化しており、Nas自身も幼少期に親友のIll Willを銃撃で失っている。この過酷な環境において言葉とライミングは単なる自己表現ではなく、<strong class="text-[var(--c-text)]">狂気から精神を守り、貧困から抜け出すための唯一のサバイバル・ツール</strong>だった。
-        </p>
-      </div>
-
-      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
-        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">1999年 — キャリアの危機</p>
-        <h3 class="font-semibold text-base mb-3">デジタル・リークと崩壊したアルバム計画</h3>
-        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
-          Nasは2枚組の超大作コンセプト・アルバム『I Am... The Autobiography』のリリースを予定していた。しかし完成直前に<strong class="text-[var(--c-text)]">音楽史上初の大規模なデジタル・リーク事件</strong>の標的となり、大量の未発表音源がネット上に流出。アルバムは急遽1枚組へと縮小・再構成を余儀なくされた。この混乱の中で「Nas Is Like」は崩壊しかけたプロジェクトを牽引するアンカーとして機能した。
-        </p>
-        <p class="text-[var(--c-muted)] text-sm leading-relaxed mt-3">
-          さらに1996〜97年の2Pac・B.I.G.の相次ぐ死去により、シーンは「誰が次のKing of New Yorkか」という極度のプレッシャーに包まれていた。その重圧を最も強く背負っていたのがNasだった。
+          Nasはニューヨーク・クイーンズのクイーンズブリッジ団地出身。10代から <strong class="text-[var(--c-text)]">"Nasty Nas"</strong> として頭角を現し、1994年のデビュー作『Illmatic』は「史上最高のヒップホップ・アルバム」の常連に挙げられる金字塔になった。あまりに完璧なデビューゆえに、その後の作品は常に『Illmatic』と比較される——という宿命を背負うことになります。「Nas Is Like」は3rdアルバム『I Am...』（1999年）の曲で、プロデューサーに『Illmatic』の盟友 <strong class="text-[var(--c-text)]">DJ Premier</strong> を再び迎え、原点回帰の象徴として受け止められました。「First it was Nasty, but times have changed」という一行には、この改名と成熟の物語がそのまま入っています。
         </p>
       </div>
 
       <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
-        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">キーワード解説</p>
-        <h3 class="font-semibold text-base mb-3">楽曲を読み解く重要スラング・用語</h3>
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">キーワード早見表</p>
+        <h3 class="font-semibold text-base mb-3">この曲で学んだ表現の整理</h3>
         <div class="space-y-3 mt-3">
           {[
-            ['Half-man, half-amazing', "Nasのデビュー作「It Ain't Hard to Tell」で自ら放った名言。ヒップホップにおける最高レベルのスキルの代名詞として定着。本作ではDJ Premierがスクラッチ素材として使用。"],
-            ['Pop dukes', '「父親」を意味するNY発のスラング。血縁を超え、地域の長老や仲間を守る保護者的存在へのリスペクトを込めて使用。'],
-            ['Greeks in Egypt', 'ソクラテスやプラトンの知識はアフリカ（古代エジプト）から学んだものという歴史的仮説（アフロセントリズム）。George G.M. James『Stolen Legacy』に基づく。'],
-            ['Thug poet', 'ストリートの悪党（Thug）と文学的詩人（Poet）という二面性を統合したNasの核心的自己定義。暴力の現実と高度な文学性の融合。'],
-            ['99 Summer Jam', 'Hot 97主催の世界最大級ヒップホップ・フェス。Nasが「全人種が一人の男に統合されたよう」という自身の普遍的影響力の比喩に使用。'],
+            ['A is like B', '直喩(simile)。この曲のエンジン。Verse 3は「I\'m like 〜」の連射'],
+            ['half-man, half-amazin\'', '定型句 half-man, half-(beast) の語尾を amazing にすり替えた言葉遊び'],
+            ['they（＝their）', 'AAVEの所有格。they neck／they teachers＝their neck／their teachers'],
+            ['Before the Christ, After the Death', 'B.C.／A.D.（"After Death"の俗解）を踏んだ言葉遊び'],
+            ['siete zeros / pesos', 'スペイン語のコードスイッチ。siete＝7、pesos＝金'],
+            ['from Seiko to Rolex', 'モノの格上げで成り上がり(come-up)を語る定番表現'],
+            ['thug poet', 'ならず者＋詩人の撞着語法(oxymoron)による自己定義'],
           ].map(([term, desc]) => (
             <div class="flex gap-3 text-sm">
-              <span class="text-[var(--c-gold)] shrink-0 font-semibold min-w-[130px]">{term}</span>
+              <span class="text-[var(--c-gold)] shrink-0 font-semibold min-w-[150px]">{term}</span>
               <span class="text-[var(--c-muted)]">{desc}</span>
             </div>
           ))}
@@ -404,91 +300,30 @@ import SongLayout from '../../layouts/SongLayout.astro';
       </div>
     </section>
 
-    <!-- ===================== -->
-    <!-- VERSIONS              -->
-    <!-- ===================== -->
-    <section id="versions" class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        バージョン違い
-      </h2>
-
-      <p class="text-[var(--c-muted)] text-sm leading-relaxed mb-6">
-        12インチ・アナログレコードとプロモーション盤において複数のバージョンが存在する。DJコミュニティとコレクターの間でそれぞれに重要な価値を持つ。
-      </p>
-
-      <div class="mb-4 rounded-lg overflow-hidden border border-[var(--c-border)] text-sm">
-        <div class="grid grid-cols-3 bg-[var(--c-bg)] text-[var(--c-very-dim)] text-xs uppercase tracking-widest">
-          <div class="p-3 border-b border-[var(--c-border)]">バージョン</div>
-          <div class="p-3 border-b border-l border-[var(--c-border)]">特徴</div>
-          <div class="p-3 border-b border-l border-[var(--c-border)]">収録</div>
-        </div>
-        {[
-          ['Main Version', 'オリジナル（3:57）。ストリートの生々しい描写をそのまま収録', '12" Vinyl, CD Maxi'],
-          ['Clean Version', 'ラジオ/MTV用。Cocaine等の表現を無音化・逆再生処理', '12" Promo, 限定45s'],
-          ['Instrumental', 'プレミアのビートのみ。鳥のさえずりの精緻さを堪能できる。多くのMCがフリースタイルに借用', '12" Promo'],
-          ['Dr. Knockboot', 'B面収録曲。NasとPremierのタッグによる隠れた名曲。DJ御用達', '12" Vinyl, CD Maxi'],
-        ].map(([name, desc, format]) => (
-          <div class="grid grid-cols-3">
-            <div class="p-3 border-b border-[var(--c-border)] text-[var(--c-text)] font-medium">{name}</div>
-            <div class="p-3 border-b border-l border-[var(--c-border)] text-[var(--c-muted)]">{desc}</div>
-            <div class="p-3 border-b border-l border-[var(--c-border)] text-[var(--c-dim)] text-xs">{format}</div>
-          </div>
-        ))}
-      </div>
-
-      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg text-sm text-[var(--c-muted)] leading-relaxed">
-        <p>ミュージックビデオはNick Questedが監督し、クイーンズブリッジ団地を舞台に撮影。NBA選手のRon Artest（後のMetta World Peace）、クイーンズ出身のラッパーNature、Braveheartsらがカメオ出演し、ストリートのリアルな連帯感を視覚化した。</p>
-      </div>
-    </section>
-
-    <!-- ===================== -->
-    <!-- BEHIND THE SCENES    -->
-    <!-- ===================== -->
+    <!-- サンプル・制作の裏側 -->
     <section id="behind" class="mb-12">
       <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        制作の裏側
+        サンプル・制作の裏側
       </h2>
 
-      <!-- Episode 1: Sampling origin -->
       <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
-        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">制作秘話 01</p>
-        <h3 class="font-semibold text-base mb-3">ゴミ箱からの救済 — 謎のストリングスの正体</h3>
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">サンプル元</p>
+        <h3 class="font-semibold text-base mb-3">捨てかけた讃美歌レコード — "What Child Is This?"</h3>
         <p class="text-[var(--c-muted)] text-sm leading-relaxed">
-          あの哀愁を帯びた荘厳なストリングスのループは、リリースから<strong class="text-[var(--c-text)]">10年近くもの間「ヒップホップ界最大のサンプリングの謎」</strong>として世界中のクレイトディガーを悩ませた。2008年にようやく特定されたその原曲は、John V. RydgrenとBob R. Wayが1966年にルーテル教会（Lutheran church）向けにリリースした『Thoughts on the Carols』収録の<strong class="text-[var(--c-text)]">「What Child Is This?（御使いうたいて）」</strong>——クリスマス・キャロルだった。
-        </p>
-        <p class="text-[var(--c-muted)] text-sm leading-relaxed mt-3">
-          DJ Premierによると、ロングアイランドの自宅でこのレコード（ピンク色のラベルに黒い魚が描かれた10インチ盤）を見つけた際、「使えそうな音が入っているようには見えない」と判断し<strong class="text-[var(--c-text)]">ゴミ箱に捨てようとしていた</strong>という。しかし直感が働き「一度だけターンテーブルに乗せてみよう」と思いとどまった瞬間、あの神々しいフレーズを発見。そのフレーズを3つのパーツに切り刻んで（チョップして）再構築し、ヒップホップ史に残る至高のビートが誕生した。
+          このトラックの不思議な浮遊感の正体は、<strong class="text-[var(--c-text)]">John V. Rydgren と Bob R. Way による1966年の宗教音楽「What Child Is This?」</strong>。ルター派教会が出した10インチのレコード（ピンク色で、黒い魚＝キリスト教のシンボルが描かれていた盤）からのサンプリングです。DJ Premier はこの盤をあやうく捨てかけたものの、念のためターンテーブルに乗せたところで、この音を見つけたと語っています。彼はそれを <strong class="text-[var(--c-text)]">3つのパートに刻み</strong>、すでに組んでいたドラムに合わせて<strong class="text-[var(--c-text)]">手でスクラッチして</strong>乗せた。お金をかければ出る音、というわけではないのが面白い。
         </p>
       </div>
 
-      <!-- Episode 2: Bird chirps -->
-      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
-        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">制作秘話 02</p>
-        <h3 class="font-semibold text-base mb-3">鳥のさえずりとスクラッチの魔法</h3>
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">フックの作り方</p>
+        <h3 class="font-semibold text-base mb-3">Nas自身の声を切り刻んで組んだサビ</h3>
         <p class="text-[var(--c-muted)] text-sm leading-relaxed">
-          イントロをはじめ、ビート全体にかすかにループされている独特の<strong class="text-[var(--c-text)]">「鳥のさえずり」</strong>は、Don Robertsonの「Why」から抽出されたもの。この一瞬の自然音をハイハットやパーカッションの隙間を埋めるリズム楽器として機能させる手法は、DJ Premierの狂気的とも言えるリズム感と創造性を示しており、プロデューサー・コミュニティでも「極めて繊細で天才的なアレンジ」として驚嘆をもって語り継がれている。
-        </p>
-        <p class="text-[var(--c-muted)] text-sm leading-relaxed mt-3">
-          サビを構成するスクラッチには、Nas自身の「It Ain't Hard to Tell」と「Street Dreams」、そしてBiz Markieの「Nobody Beats the Biz」のボーカル・フレーズが使用されている。言葉を切り貼りして新たなメッセージを構築するこの<strong class="text-[var(--c-text)]">「声のコラージュ」</strong>により、PremierはビートのうえでNasの過去と現在を繋ぎ合わせた。
-        </p>
-      </div>
-
-      <!-- Episode 3: No pen and paper -->
-      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
-        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">制作秘話 03</p>
-        <h3 class="font-semibold text-base mb-3">ノーペーパー・ワンテイク — 深夜3時の神業</h3>
-        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
-          DJ Premierが完成したビートをスタジオでNasに聴かせた際、Nasは<strong class="text-[var(--c-text)]">紙とペンを一切使わず</strong>、ただ何時間も黙って座り込んでいたという。周囲には何もしていないように見えたが、実は頭の中だけで膨大なリリックを組み立てていた。
-        </p>
-        <p class="text-[var(--c-muted)] text-sm leading-relaxed mt-3">
-          深夜3時か4時になり、Premierが「今日はもう録らないのか？」と尋ねたところ、Nasは突然「できたよ。タイトルは<strong class="text-[var(--c-text)]">『Nas Is Like』</strong>だ」と告げ、ボーカルブースに入ってこの複雑で多層的なリリックを完全な<strong class="text-[var(--c-text)]">一発録り（ワンテイク）</strong>で吹き込んだ。
+          このフックの最大の特徴は、<strong class="text-[var(--c-text)]">Nasが新しく歌っていない</strong>こと。「Nas is like...」「life or death」「my poetry's deep, I never fell」といったフレーズは、Premierが <strong class="text-[var(--c-text)]">Nasの過去の楽曲やヴァースから肉声を切り出し、スクラッチでコラージュした</strong>もの。声そのものを楽器のように刻んでサビを構築するのは、DJ Premierの代名詞ともいえる手法です。だからこの曲のフックは、聴くたびに「Nasという声の断片で作られたNas論」になっている。技法と内容がぴたりと噛み合っている、プリモ仕事の真骨頂です。
         </p>
       </div>
     </section>
 
-    <!-- ===================== -->
-    <!-- LEGACY                -->
-    <!-- ===================== -->
+    <!-- 評価と影響 -->
     <section id="legacy" class="mb-12">
       <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
         評価とその後の影響
@@ -501,11 +336,10 @@ import SongLayout from '../../layouts/SongLayout.astro';
           <div class="p-3 border-b border-l border-[var(--c-border)]">意義</div>
         </div>
         {[
-          ['US Billboard Hot 100', '最高86位', 'アンダーグラウンドなサウンドで全米総合チャートに食い込む快挙'],
-          ['US Hot Rap Songs', '最高3位', 'ストリートコア層から絶大な支持。Nasのプロップスを完全回復'],
-          ['US Hot R&B/Hip-Hop', '最高30位', 'ブラックミュージック全体でも確固たるプレゼンスを示した'],
-          ['YouTube再生回数', '1億回突破', 'Nas公式チャンネル初の1億ビュー。時代を超えた普遍性を証明'],
-          ['第42回グラミー賞', 'Best Rap Album ノミネート', "収録アルバム『I Am...』がノミネート。Nas本人は後年『King's Disease』で悲願の初受賞"],
+          ['US Billboard Hot 100', '最高86位', '内省的でハードコアな曲調ながらメインストリームのチャートにも到達'],
+          ['US Hot Rap Songs', '最高3位', 'ラップ・リスナーからの圧倒的支持。『I Am...』の代表曲に'],
+          ['アルバム', '『I Am...』（1999）13曲目', '『Illmatic』の盟友DJ Premierを再起用した原点回帰の象徴'],
+          ['YouTube', 'Nas名義で初の1億再生突破MV', '世代を超えて再生され続ける定番曲としての証'],
         ].map(([metric, record, significance]) => (
           <div class="grid grid-cols-3">
             <div class="p-3 border-b border-[var(--c-border)] text-[var(--c-dim)]">{metric}</div>
@@ -517,29 +351,12 @@ import SongLayout from '../../layouts/SongLayout.astro';
 
       <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
         <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">後世への影響</p>
-        <h3 class="font-semibold text-base mb-3">次世代リリシストたちへの連鎖</h3>
-        <ul class="space-y-3 text-sm">
-          <li class="flex gap-3">
-            <span class="text-[var(--c-gold)] shrink-0">J. Cole</span>
-            <span class="text-[var(--c-muted)]">「Let Nas Down」のイントロに本楽曲の冒頭フレーズとサンプリングをそのまま使用。最大のアイドルへの複雑な敬意と謝罪を表現した。</span>
-          </li>
-          <li class="flex gap-3">
-            <span class="text-[var(--c-gold)] shrink-0">Kendrick Lamar</span>
-            <span class="text-[var(--c-muted)]">2013年にHot 97出演時、「Nas Is Like」のインストに乗せた伝説的フリースタイルを披露し、東海岸ヒップホップ純血主義者たちを完全に黙らせた。</span>
-          </li>
-          <li class="flex gap-3">
-            <span class="text-[var(--c-gold)] shrink-0">Wale</span>
-            <span class="text-[var(--c-muted)]">「Folarin Is Like」で直接的なサンプリングとタイトル・オマージュを行い、本作の影響の大きさを自ら証明した。</span>
-          </li>
-          <li class="flex gap-3">
-            <span class="text-[var(--c-gold)] shrink-0">Memphis Bleek</span>
-            <span class="text-[var(--c-muted)]">Jay-ZとNasのビーフ中に「Memphis Bleek Is...」を発表し本作を模倣。逆説的に、本作が当時いかに「ヒップホップの絶対的な基準」だったかを証明した。</span>
-          </li>
-        </ul>
+        <h3 class="font-semibold text-base mb-3">25年越しのセルフサンプリング</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          「Nas Is Like」は、NasとDJ Premierという組み合わせが『Illmatic』以降も健在だと示した一曲として、ファンに長く愛されてきました。面白いのはその後日談で、2024年にNasとPremierが再タッグを組んだ「Define My Name」で、<strong class="text-[var(--c-text)]">この「Nas Is Like」自体がサンプリングされている</strong>。25年の時を越えて、自分たちの曲を素材に新曲を作る——プリモらしい円環の閉じ方です。AllMusicは本作を「Illmaticの完成度そのもの」と評し、Premierの構築的なプロダクションとNasの声の質を高く評価しました。直喩だけで自画像を描き切るこの実験は、今も多くのリスナーとMCの教材であり続けています。
+        </p>
       </div>
     </section>
-
-    <!-- Related Articles -->
 
     <!-- まとめ -->
     <section class="mb-12">
@@ -547,64 +364,11 @@ import SongLayout from '../../layouts/SongLayout.astro';
         まとめ
       </h2>
       <ul class="space-y-2 text-sm text-[var(--c-muted)] list-disc list-inside leading-relaxed">
-        <li>「Nas Is Like」の直喩（Simile）を連打することで、暴力・詩情・宗教・哲学を同時に内包する多面的な自画像を構築した自己宣言の極致。</li>
-        <li>DJ Premierがゴミ箱寸前のルーテル教会レコードから救い出したストリングス——クレイトディガーを10年間悩ませた「ヒップホップ最大のサンプリングの謎」。</li>
-        <li>ノーペーパー・深夜ワンテイク録音で生まれた「I'm a poor man's dream, a thug poet」は、ストリートと文学の両極を統合したヒップホップ最高のパンチライン。</li>
-        <li>2pac・B.I.G.亡き後「King of New York」を問われた1999年、デジタルリーク被害を乗り越えキャリアを救った不屈の復活宣言。</li>
+        <li>「Nas Is Like」は <code>A is like B</code> の直喩(simile)を engine にした自己定義ソング。Verse 3の「I'm like 〜」連射は直喩リスニングの最高の練習素材。</li>
+        <li>「Before the Christ, After the Death」のB.C./A.D.遊び、「half-man, half-amazin'」の定型崩し、「thug poet」の撞着語法——言葉遊びの技法がひと通り学べる。</li>
+        <li>所有格の <code>they</code>（＝their）というAAVE文法、<code>siete zeros / pesos</code> のスペイン語コードスイッチなど、辞書英語の外側にある生きた表現が同居している。</li>
+        <li>フックはNas自身の声をDJ Premierが刻んで組んだコラージュ。讃美歌の捨てかけレコードから生まれたトラックともども、制約と偶然を作品に変えるヒップホップの体温が出ている。</li>
       </ul>
     </section>
-
-    <section class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        関連記事（内部リンク）
-      </h2>
-      <ul class="space-y-3">
-        <li>
-          <a href="/songs/cream" class="flex items-center justify-between p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg hover:border-[var(--c-gold)] transition-colors">
-            <div>
-              <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-0.5">RZA Produced · 1994</p>
-              <p class="font-semibold">C.R.E.A.M. 和訳・意味解説</p>
-              <p class="text-[var(--c-dim)] text-xs mt-0.5">Wu-Tang Clan</p>
-            </div>
-            <span class="text-[var(--c-very-dim)] text-lg">→</span>
-          </a>
-        </li>
-        <li>
-          <a href="/songs/classic" class="flex items-center justify-between p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg hover:border-[var(--c-gold)] transition-colors">
-            <div>
-              <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-0.5">DJ Premier Remix · 2007</p>
-              <p class="font-semibold">Classic (Better Than I've Ever Been) 和訳・意味解説</p>
-              <p class="text-[var(--c-dim)] text-xs mt-0.5">Rakim · Kanye West · Nas · KRS-One</p>
-            </div>
-            <span class="text-[var(--c-very-dim)] text-lg">→</span>
-          </a>
-        </li>
-        <li>
-          <a href="/songs/come-clean" class="flex items-center justify-between p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg hover:border-[var(--c-gold)] transition-colors">
-            <div>
-              <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-0.5">DJ Premier Produced · 1993</p>
-              <p class="font-semibold">Come Clean 和訳・意味解説</p>
-              <p class="text-[var(--c-dim)] text-xs mt-0.5">Jeru the Damaja</p>
-            </div>
-            <span class="text-[var(--c-very-dim)] text-lg">→</span>
-          </a>
-        </li>
-        <li>
-          <a href="/songs/you" class="flex items-center justify-between p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg hover:border-[var(--c-gold)] transition-colors">
-            <div>
-              <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-0.5">DJ Premier Produced · 2011</p>
-              <p class="font-semibold">You 和訳・意味解説</p>
-              <p class="text-[var(--c-dim)] text-xs mt-0.5">Evidence feat. DJ Premier</p>
-            </div>
-            <span class="text-[var(--c-very-dim)] text-lg">→</span>
-          </a>
-        </li>
-      </ul>
-    </section>
-
-    <!-- Footer -->
-    <footer class="border-t border-[var(--c-border)] pt-6 text-[var(--c-very-dim)] text-xs">
-      <p>Producer: DJ Premier · Sample: John V. Rydgren &amp; Bob R. Way "What Child Is This?" (1966) · Album: I Am... (1999)</p>
-    </footer>
 
 </SongLayout>
