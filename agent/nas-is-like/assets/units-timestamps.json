@@ -1,15 +1,5 @@
 [
   {
-    "id": "half-man-amazin",
-    "whisperSec": 78.3,
-    "manualSec": null,
-    "fallbackT": 76,
-    "t": 78.3,
-    "source": "whisper",
-    "approx": true,
-    "score": 1
-  },
-  {
     "id": "baby-born-murdered",
     "whisperSec": null,
     "manualSec": null,
@@ -40,6 +30,16 @@
     "score": 0.2
   },
   {
+    "id": "half-man-amazin",
+    "whisperSec": 78.3,
+    "manualSec": null,
+    "fallbackT": 76,
+    "t": 78.3,
+    "source": "whisper",
+    "approx": true,
+    "score": 1
+  },
+  {
     "id": "earth-wind-fire",
     "whisperSec": 93.1,
     "manualSec": null,
@@ -60,16 +60,6 @@
     "score": 1
   },
   {
-    "id": "siete-pesos",
-    "whisperSec": null,
-    "manualSec": null,
-    "fallbackT": 113,
-    "t": 113,
-    "source": "fallback",
-    "approx": true,
-    "score": 0.43
-  },
-  {
     "id": "seiko-rolex",
     "whisperSec": 112,
     "manualSec": null,
@@ -78,6 +68,16 @@
     "source": "whisper",
     "approx": true,
     "score": 0.8
+  },
+  {
+    "id": "siete-pesos",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 113,
+    "t": 113,
+    "source": "fallback",
+    "approx": true,
+    "score": 0.43
   },
   {
     "id": "street-sweeper",

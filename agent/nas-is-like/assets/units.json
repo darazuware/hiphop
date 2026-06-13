@@ -1,12 +1,12 @@
 [
-  { "id": "half-man-amazin", "anchor": ["half","man","half","amazing"], "fallbackT": 76 },
   { "id": "baby-born-murdered", "anchor": ["baby","being","born","same","time"], "fallbackT": 16 },
   { "id": "nasty-name", "anchor": ["first","it","was","nasty","but","times"], "fallbackT": 24 },
   { "id": "they-possessive", "anchor": ["belt","tied","around","they","neck"], "fallbackT": 58 },
+  { "id": "half-man-amazin", "anchor": ["half","man","half","amazing"], "fallbackT": 76 },
   { "id": "earth-wind-fire", "anchor": ["earth","wind","fire","rims","and","tires"], "fallbackT": 92 },
   { "id": "before-christ-after-death", "anchor": ["before","the","christ","after","the","death"], "fallbackT": 99 },
-  { "id": "siete-pesos", "anchor": ["bet","my","nine","spit","for","the","pesos"], "fallbackT": 113 },
   { "id": "seiko-rolex", "anchor": ["went","from","seiko","to","rolex"], "fallbackT": 107 },
+  { "id": "siete-pesos", "anchor": ["bet","my","nine","spit","for","the","pesos"], "fallbackT": 113 },
   { "id": "street-sweeper", "anchor": ["like","a","street","sweeper","green","leaf"], "fallbackT": 175 },
   { "id": "greeks-egypt", "anchor": ["like","greeks","in","egypt","learning"], "fallbackT": 182 },
   { "id": "thug-poet", "anchor": ["poor","man","dream","thug","poet"], "fallbackT": 212 }
