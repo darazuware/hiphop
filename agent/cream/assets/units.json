@@ -1,14 +1,14 @@
 [
-  { "id": "crime-side",       "anchor": ["i","grew","up","on","the"], "fallbackT": 34 },
-  { "id": "lo-goose",         "anchor": ["a","young","youth"] },
-  { "id": "g-off",            "anchor": ["only","way","i","begin","to"] },
-  { "id": "runnin-up-gates",  "anchor": ["runnin","up","in","gates"] },
-  { "id": "keys-seas",        "anchor": ["catchin","keys","from","across"] },
-  { "id": "tec-9",            "anchor": ["respect","mine","or","anger"] },
-  { "id": "cream-hook",       "anchor": ["cash","rules","everything","around"] },
-  { "id": "could-not-touch",  "anchor": ["trying","to","get","a","clutch"] },
-  { "id": "world-cell",       "anchor": ["living","in","the","world","no"] },
-  { "id": "jakes-base",       "anchor": ["every","day","i","escape","from"] },
-  { "id": "old-earth",        "anchor": ["ready","to","give","up","so"] },
-  { "id": "stickup-kids",     "anchor": ["we","got","stick"] }
+  { "id": "crime-side",       "anchor": ["i","grew","up","on","the"], "fallbackT": 23, "manualSec": 23 },
+  { "id": "lo-goose",         "anchor": ["a","young","youth"], "fallbackT": 33, "manualSec": 33 },
+  { "id": "g-off",            "anchor": ["only","way","i","begin","to"], "fallbackT": 41 },
+  { "id": "runnin-up-gates",  "anchor": ["runnin","up","in","gates"], "fallbackT": 55 },
+  { "id": "keys-seas",        "anchor": ["catchin","keys","from","across"], "fallbackT": 81 },
+  { "id": "tec-9",            "anchor": ["respect","mine","or","anger"], "fallbackT": 87 },
+  { "id": "cream-hook",       "anchor": ["cash","rules","everything","around"], "fallbackT": 92 },
+  { "id": "could-not-touch",  "anchor": ["trying","to","get","a","clutch"], "fallbackT": 121 },
+  { "id": "world-cell",       "anchor": ["living","in","the","world","no"], "fallbackT": 137 },
+  { "id": "jakes-base",       "anchor": ["every","day","i","escape","from"], "fallbackT": 139 },
+  { "id": "old-earth",        "anchor": ["ready","to","give","up","so"], "fallbackT": 153 },
+  { "id": "stickup-kids",     "anchor": ["we","got","stick"], "fallbackT": 160 }
 ]

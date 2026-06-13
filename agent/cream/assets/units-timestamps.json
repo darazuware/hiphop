@@ -1,74 +1,122 @@
 [
   {
     "id": "crime-side",
-    "t": 34,
-    "score": 0.4,
-    "matched": "manual"
+    "whisperSec": null,
+    "manualSec": 23,
+    "fallbackT": 23,
+    "t": 23,
+    "source": "manual",
+    "approx": false,
+    "score": 1
   },
   {
     "id": "lo-goose",
-    "t": 37.2,
-    "score": 0.67,
-    "matched": "auto"
+    "whisperSec": 37.2,
+    "manualSec": 33,
+    "fallbackT": 33,
+    "t": 33,
+    "source": "manual",
+    "approx": false,
+    "score": 1
   },
   {
     "id": "g-off",
+    "whisperSec": 40.6,
+    "manualSec": null,
+    "fallbackT": 41,
     "t": 40.6,
-    "score": 0.8,
-    "matched": "auto"
+    "source": "whisper",
+    "approx": true,
+    "score": 0.8
   },
   {
     "id": "runnin-up-gates",
+    "whisperSec": 54.5,
+    "manualSec": null,
+    "fallbackT": 55,
     "t": 54.5,
-    "score": 0.75,
-    "matched": "auto"
+    "source": "whisper",
+    "approx": true,
+    "score": 0.75
   },
   {
     "id": "keys-seas",
+    "whisperSec": 81,
+    "manualSec": null,
+    "fallbackT": 81,
     "t": 81,
-    "score": 0.5,
-    "matched": "auto"
+    "source": "whisper",
+    "approx": true,
+    "score": 0.5
   },
   {
     "id": "tec-9",
+    "whisperSec": 87.4,
+    "manualSec": null,
+    "fallbackT": 87,
     "t": 87.4,
-    "score": 0.5,
-    "matched": "auto"
+    "source": "whisper",
+    "approx": true,
+    "score": 0.5
   },
   {
     "id": "cream-hook",
+    "whisperSec": 91.5,
+    "manualSec": null,
+    "fallbackT": 92,
     "t": 91.5,
-    "score": 1,
-    "matched": "auto"
+    "source": "whisper",
+    "approx": true,
+    "score": 1
   },
   {
     "id": "could-not-touch",
+    "whisperSec": 120.8,
+    "manualSec": null,
+    "fallbackT": 121,
     "t": 120.8,
-    "score": 1,
-    "matched": "auto"
+    "source": "whisper",
+    "approx": true,
+    "score": 1
   },
   {
     "id": "world-cell",
+    "whisperSec": 137.2,
+    "manualSec": null,
+    "fallbackT": 137,
     "t": 137.2,
-    "score": 1,
-    "matched": "auto"
+    "source": "whisper",
+    "approx": true,
+    "score": 1
   },
   {
     "id": "jakes-base",
+    "whisperSec": 139.3,
+    "manualSec": null,
+    "fallbackT": 139,
     "t": 139.3,
-    "score": 0.8,
-    "matched": "auto"
+    "source": "whisper",
+    "approx": true,
+    "score": 0.8
   },
   {
     "id": "old-earth",
+    "whisperSec": 153.2,
+    "manualSec": null,
+    "fallbackT": 153,
     "t": 153.2,
-    "score": 1,
-    "matched": "auto"
+    "source": "whisper",
+    "approx": true,
+    "score": 1
   },
   {
     "id": "stickup-kids",
+    "whisperSec": 160.4,
+    "manualSec": null,
+    "fallbackT": 160,
     "t": 160.4,
-    "score": 0.67,
-    "matched": "auto"
+    "source": "whisper",
+    "approx": true,
+    "score": 0.67
   }
 ]

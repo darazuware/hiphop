@@ -3,25 +3,13 @@ import LearningUnit from '../../components/LearningUnit.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
 import SongLayout from '../../layouts/SongLayout.astro';
 
-// 学習ユニットのPVタイムスタンプ（秒）。agent/src/extract-unit-timestamps.mjs で
-// 音源(album mp3)を whisper 単語アライメントして取得し、PV(公式動画)の頭出しに
-// 合わせて全体オフセット +5s 補正済み（album音源は曲頭、PVはイントロぶん遅い）。
-// crime-side のみ whisper がVerse1冒頭でつまずくため手動推定（34s≈）。
+// 学習ユニットのPVタイムスタンプ。agent/src/extract-unit-timestamps.mjs で album音源を
+// whisper単語アライメントして取得（whisperSec）し、運営者の実測値があれば manualSec が
+// 上書きする二層構造（manualSec優先）。一律オフセット補正は廃止。
+// crime-side / lo-goose は運営者がPVで実測した値（manualSec=23 / 33）。
+import tsData from '../../../agent/cream/assets/units-timestamps.json';
 const YT = "PBwAxmrE194";
-const TS = {
-  "crime-side": { t: 34, approx: true },
-  "lo-goose": { t: 37 },
-  "g-off": { t: 41 },
-  "runnin-up-gates": { t: 55 },
-  "keys-seas": { t: 81 },
-  "tec-9": { t: 87 },
-  "cream-hook": { t: 92 },
-  "could-not-touch": { t: 121 },
-  "world-cell": { t: 137 },
-  "jakes-base": { t: 139 },
-  "old-earth": { t: 153 },
-  "stickup-kids": { t: 160 },
-};
+const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.approx }]));
 ---
 
 <SongLayout
