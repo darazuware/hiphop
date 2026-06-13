@@ -1,0 +1,117 @@
+[
+  {
+    "id": "forty-stoge",
+    "anchor": [
+      "heres",
+      "a",
+      "forty",
+      "swig",
+      "it"
+    ],
+    "fallbackT": 26
+  },
+  {
+    "id": "good-vibrations",
+    "anchor": [
+      "now",
+      "we",
+      "feel",
+      "the",
+      "good",
+      "vibrations"
+    ],
+    "fallbackT": 34
+  },
+  {
+    "id": "bones-to-pick",
+    "anchor": [
+      "roam",
+      "the",
+      "strip",
+      "for",
+      "bones"
+    ],
+    "fallbackT": 50
+  },
+  {
+    "id": "all-that-phat",
+    "anchor": [
+      "the",
+      "mans",
+      "all",
+      "that"
+    ],
+    "fallbackT": 80
+  },
+  {
+    "id": "chill-93-til",
+    "anchor": [
+      "this",
+      "is",
+      "how",
+      "we",
+      "chill",
+      "from"
+    ],
+    "fallbackT": 90
+  },
+  {
+    "id": "indo",
+    "anchor": [
+      "tons",
+      "of",
+      "indo"
+    ],
+    "fallbackT": 88
+  },
+  {
+    "id": "greenbacks-stacks",
+    "anchor": [
+      "greenbacks",
+      "in",
+      "stacks"
+    ],
+    "fallbackT": 95
+  },
+  {
+    "id": "habitual-be",
+    "anchor": [
+      "be",
+      "coolin",
+      "schools",
+      "in",
+      "session"
+    ],
+    "fallbackT": 102
+  },
+  {
+    "id": "fashion-dipped",
+    "anchor": [
+      "few",
+      "fits",
+      "some",
+      "new",
+      "kicks"
+    ],
+    "fallbackT": 172
+  },
+  {
+    "id": "bite-flows",
+    "anchor": [
+      "they",
+      "bite",
+      "flows"
+    ],
+    "fallbackT": 150
+  },
+  {
+    "id": "the-land",
+    "anchor": [
+      "chillin",
+      "around",
+      "the",
+      "land"
+    ],
+    "fallbackT": 200
+  }
+]

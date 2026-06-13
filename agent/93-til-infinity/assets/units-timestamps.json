@@ -1,0 +1,112 @@
+[
+  {
+    "id": "forty-stoge",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 26,
+    "t": 26,
+    "source": "fallback",
+    "approx": true,
+    "score": 0.2
+  },
+  {
+    "id": "good-vibrations",
+    "whisperSec": 33.1,
+    "manualSec": null,
+    "fallbackT": 34,
+    "t": 33.1,
+    "source": "whisper",
+    "approx": true,
+    "score": 1
+  },
+  {
+    "id": "bones-to-pick",
+    "whisperSec": 42.2,
+    "manualSec": null,
+    "fallbackT": 50,
+    "t": 42.2,
+    "source": "whisper",
+    "approx": true,
+    "score": 0.8
+  },
+  {
+    "id": "all-that-phat",
+    "whisperSec": 71.5,
+    "manualSec": null,
+    "fallbackT": 80,
+    "t": 71.5,
+    "source": "whisper",
+    "approx": true,
+    "score": 0.75
+  },
+  {
+    "id": "chill-93-til",
+    "whisperSec": 75.4,
+    "manualSec": null,
+    "fallbackT": 90,
+    "t": 75.4,
+    "source": "whisper",
+    "approx": true,
+    "score": 1
+  },
+  {
+    "id": "indo",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 88,
+    "t": 88,
+    "source": "fallback",
+    "approx": true,
+    "score": 0.33
+  },
+  {
+    "id": "greenbacks-stacks",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 95,
+    "t": 95,
+    "source": "fallback",
+    "approx": true,
+    "score": 0.33
+  },
+  {
+    "id": "habitual-be",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 102,
+    "t": 102,
+    "source": "fallback",
+    "approx": true,
+    "score": 0.4
+  },
+  {
+    "id": "fashion-dipped",
+    "whisperSec": 116.7,
+    "manualSec": null,
+    "fallbackT": 172,
+    "t": 116.7,
+    "source": "whisper",
+    "approx": true,
+    "score": 0.8
+  },
+  {
+    "id": "bite-flows",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 150,
+    "t": 150,
+    "source": "fallback",
+    "approx": true,
+    "score": 0.33
+  },
+  {
+    "id": "the-land",
+    "whisperSec": 171.7,
+    "manualSec": null,
+    "fallbackT": 200,
+    "t": 171.7,
+    "source": "whisper",
+    "approx": true,
+    "score": 0.75
+  }
+]

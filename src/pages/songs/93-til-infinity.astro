@@ -1,404 +1,382 @@
 ---
-import LyricsBlock from '../../components/LyricsBlock.astro';
+import LearningUnit from '../../components/LearningUnit.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
 import SongLayout from '../../layouts/SongLayout.astro';
+
+// 学習ユニットのPVタイムスタンプ。agent/src/extract-unit-timestamps.mjs で album音源を
+// whisper単語アライメントして取得（whisperSec）し、運営者の実測値があれば manualSec が
+// 上書きする二層構造。詳細は docs/timestamp-override.md。approx=true は概算（未実測）。
+import tsData from '../../../agent/93-til-infinity/assets/units-timestamps.json';
+const YT = "fXJc2NYwHjw";
+const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.approx }]));
 ---
 
 <SongLayout
   title="93 'Til Infinity 和訳・意味・スラング解説 | Souls of Mischief"
-  description="Souls of Mischiefの「93 'Til Infinity」の歌詞和訳とスラング解説。1993年オークランド発、Billy Cobhamのジャズをサンプリングした永遠のゴールデンエラ・クラシックを完全解説。"
+  description="Souls of Mischiefの93 'Til Infinityを英語学習＋ヒップホップ理解の教材として精読。chill・the Land(オークランド)・indo・fits/kicks/dippedなど西海岸スラング、Good Vibrationsの引用、AAVEの習慣のbe、A-Plusのサンプリングを表現単位で解説。各表現はPVの該当箇所へ頭出しリンク付き。"
   slug="93-til-infinity"
   highlights={[
-    "Billy Cobham「Heather」(1974)のサックス——SP-1200の物理的制約をMacGyver的トリックで克服して生まれた浮遊感",
-    "殺人件数年間175件のオークランドで「チル」を歌う——暴力の時代に音楽で作った精神的な避難所",
-    "もとは「91 'Til Infinity」として高校生時代に制作——Pep Loveに譲渡後、Jive契約時に「取り返した」誕生秘話",
+    '93 \'Til Infinityはオークランドの若者の「チル」を描いた西海岸ゴールデンエラの金字塔',
+    'スラング・韻・言葉遊び・AAVEを「学ぶ表現」単位で解説（PV頭出しリンク付き）',
+    'A-PlusがBilly Cobham「Heather」を刻んだ、まどろむようなジャジーループ',
   ]}
   youtubeId="fXJc2NYwHjw"
   sampleYoutubeId="l7Q-JfAV2xk"
-  sampleTitle="Billy Cobham - Heather (from Crosswinds, 1974)"
+  sampleTitle="Billy Cobham - Heather"
 >
 
-  <!-- この曲の意味 -->
-  <section class="mb-6">
-    <h2 class="text-base font-semibold mb-2">■この曲の意味（要約）</h2>
-    <p class="text-sm text-[var(--c-muted)] leading-relaxed">殺人件数年間175件というオークランドの現実を背景に、Souls of Mischiefが描いたのは「チル」の哲学だった。女に電話し、40オンスを飲み、映画を観て、仲間とインドを吸い、モールで買い物をする——それだけの日常。しかし、その日常を永遠に続けようという宣言「from '93 'til infinity」が、暴力に支配されたストリートで生き延びるための意志表明になる。Billy Cobhamの幽玄なジャズをA-PlusがSP-1200でチル空間に変換し、4人のMCがリレー形式でオークランドのバイブを刻む。</p>
-  </section>
-
-  <!-- 概要 -->
-  <section class="mb-6">
-    <h2 class="text-base font-semibold mb-2">■概要</h2>
-    <p class="text-sm text-[var(--c-muted)] leading-relaxed">デビューアルバム『93 'til Infinity』（1993年）収録のタイトルトラック兼セカンドシングル。Jive Records/BMGより1993年2月13日リリース。Billboard Hot 100最高72位。プロデューサーA-PlusはDJ Premierの「Here Today, Gone Tomorrow」でBilly Cobhamの名を知り、オークランドのレコード店のバーゲンビンで『Crosswinds』（1974年）を発掘。収録曲「Heather」のMichael Breckerによるサックスをサンプリング。SP-1200の10秒制限を、33回転レコードを45回転で録り込んでピッチダウンする「MacGyver的トリック」で克服した。メンバー4人（Opio、A-Plus、Tajai、Phesto）がバース2つずつをリレーする構成で、9〜12日間の集中録音セッションで完成。</p>
-  </section>
-
-  <!-- スラング -->
-  <section class="mb-6">
-    <h2 class="text-base font-semibold mb-2">■主なスラング・キーワード</h2>
-    <QuickSlang word="'til infinity" desc="「永遠に」「無限に」——'93 'til infinity＝1993年から永遠に。単なるスローガンを超えた、仲間との絆と音楽への信念の宣言。" />
-    <QuickSlang word="maxin'" desc="リラックスしている、のんびりしている。「chilling」と同義。「maxin' and relaxin'」の短縮形。" />
-    <QuickSlang word="stoge" desc="タバコ、またはマリファナのシガレット。「stogie」の変形。Bay Areaスラング。" />
-    <QuickSlang word="blunts" desc="マリファナを詰めたシガー（Philies Bluntなどの葉巻の内葉を使用）。90年代HHで広く普及した喫煙スタイル。" />
-    <QuickSlang word="40" desc="40オンスのマルト・リカー（麦酒）ボトル。Olde English 800やSt. Ides等。オークランド/Bay Areaのストリートカルチャーを象徴する飲み物。" />
-    <QuickSlang word="props" desc="リスペクト、評判、賞賛。「Proper Respect」の略。" />
-    <QuickSlang word="dip" desc="女性を指すスラング（90年代West Coast）。" />
-    <QuickSlang word="phat / fat" desc="格好いい、素晴らしい、太い（量・質ともに豊か）。「Pretty Hot And Tempting」の頭字語とも。" />
-    <QuickSlang word="indo" desc="インドア栽培の高品質マリファナ（Indoor weed）の略。Bay Areaで特に普及した呼称。" />
-    <QuickSlang word="mack" desc="口説く、巧みに女性にアプローチすること。「マック（口説き上手）」という名詞でも使われる。" />
-    <QuickSlang word="loot" desc="金（お金）。スラングで現金・報酬全般を指す。" />
-    <QuickSlang word="wack" desc="ダメ、質が低い、イケていない。「kill all that wack s**t」＝ダメなものを全部終わらせろ。" />
-  </section>
-
-  <!-- 目次 -->
-  <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
-    <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
-    <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
-      <li><a href="#lyrics" class="hover:text-[var(--c-gold)] transition-colors">01 — 歌詞和訳と意味解説</a></li>
-      <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">02 — 文化背景：1993年オークランドとチルの哲学</a></li>
-      <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">03 — レガシーと影響</a></li>
-    </ol>
-  </nav>
-
-  <div id="lyrics"></div>
-
-  <!-- INTRO -->
-  <section class="mb-12">
-    <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">Intro — Tajai</h2>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">Yo, what's up? This is Tajai of the mighty Souls of Mischief crew<br />I'm chillin' with my man Phesto, my man A-Plus</Fragment>
-      <Fragment slot="jpn">ヨー、調子どうだ？ 偉大なるSouls of MischiefクルーのTajaiだ<br />仲間のPhesto、A-Plusとチルってる</Fragment>
-      <Fragment slot="explanation">スタジオからの語りかけで曲が始まる。「mighty Souls of Mischief crew」という自己紹介は誇りと自信の表れ。「chillin'」はリラックスした状態を表すHHの基本語。</Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">And my man Op', you know he's dope<br />But right now, y'know, we just maxin' in the studio</Fragment>
-      <Fragment slot="jpn">それと仲間のOp'（Opio）——あいつがヤバいのは知ってるよな<br />でも今は、スタジオでのんびりしてるだけだ</Fragment>
-      <Fragment slot="explanation">「Op'」はOpioの愛称。「dope」は「優れた、ヤバい」のスラング。「maxin'」は「maxin' and relaxin'」の略でくつろいでいる状態。</Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">We hailin' from East Oakland, California<br />And sometimes it gets a little hectic out there<br />But right now, yo, we gon' up you on how we just chill</Fragment>
-      <Fragment slot="jpn">俺たちはイースト・オークランド、カリフォルニア出身<br />外はたまに騒がしくなることもある<br />でも今は、俺たちがどうチルしてるか教えてやる</Fragment>
-      <Fragment slot="explanation">「hailin' from」は「〜出身」を意味する表現。「hectic」はオークランドの暴力的な現実への婉曲な言及。それでも「we just chill」と締めるのがこの曲の核心的なスタンス。</Fragment>
-    </LyricsBlock>
-  </section>
-
-  <!-- VERSE 1: OPIO -->
-  <section class="mb-12">
-    <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">Verse 1 — Opio</h2>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">Dial the seven digits, call up Bridgette<br />Her man's a midget, plus she got friends, yo, I can dig it!</Fragment>
-      <Fragment slot="jpn">7桁をダイヤルして、Bridgetteに電話する<br />彼女の彼氏はチビで、しかも友達もいる——それはいいな！</Fragment>
-      <Fragment slot="explanation">「seven digits」は当時の電話番号（市外局番なしの7桁）。「I can dig it」は「気に入った、理解できる」（ジャズ由来のスラング）。韻を踏む「digits / Bridgette / midget / dig it」はHHの職人技。</Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">Here's a 40 — swig it! You know it's frigid<br />I got 'em chillin' in the cooler, break out the ruler</Fragment>
-      <Fragment slot="jpn">40オンス（ビール）だ——ぐいっとやれ！冷えてるのわかるだろ<br />クーラーで冷やしといた——定規（ruler）を出せ</Fragment>
-      <Fragment slot="explanation">「40」は40オンスのマルト・リカーボトル（Bay Areaの象徴的な飲み物）。「frigid」は冷たい。「break out the ruler」は直訳「定規を出せ」だが、ここでは「どんだけ太いか測ろう」というジョイントの太さへの誇張表現。</Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">Damn! That's the fattest stoge I ever seen<br />The weather's keen in Cali, gettin' weeded makes it feel like Maui</Fragment>
-      <Fragment slot="jpn">くそ！こんなに太いジョイントは見たことない<br />カリフォルニアの天気は最高で、草でキマったらマウイ島みたいな気分だ</Fragment>
-      <Fragment slot="explanation">「stoge」は「stogie（シガー/ジョイント）」のBay Area変形スラング。「keen」は素晴らしい、完璧な。マウイ（ハワイ）は理想的なバカンス地——カリフォルニアのチルな天気と草の組み合わせがそのレベルだという誇張。</Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">Now we feel the Good Vibrations<br />So many females, so much inspiration</Fragment>
-      <Fragment slot="jpn">今は「Good Vibrations」（いい波動）を感じてる<br />女があんなにいれば、インスピレーションもあふれる</Fragment>
-      <Fragment slot="explanation">「Good Vibrations」はBeach Boysの1966年ヒット曲への参照——オークランドの4人組がビーチボーイズを引用するユーモアと余裕。「females」への視線がVerse全体のテーマ。</Fragment>
-    </LyricsBlock>
-  </section>
-
-  <!-- VERSE 2: A-PLUS -->
-  <section class="mb-12">
-    <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">Verse 2 — A-Plus</h2>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">I get inspired by the blunts too! (Too)<br />I'll front you (You), if you hang with a bunk crew (Chump)</Fragment>
-      <Fragment slot="jpn">俺もブラントで元気が出る！（俺も）<br />ダメなクルーとつるんでるなら、お前をフロントしてやる（チャンプ）</Fragment>
-      <Fragment slot="explanation">「I'll front you」は「お前に当たる、つっかかる」の意。「bunk crew」はダメなクルー、質の低いグループ。括弧内の「Too」「You」「Chump」はコーラスメンバーのインタービーション——ライブ感を演出。</Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">I roam the strip for bones to pick<br />When I find one, I'm gon' take her home and quickly do this</Fragment>
-      <Fragment slot="jpn">女をピックアップしようとストリップ（通り）を歩き回る<br />見つけたら、家に連れ帰ってすぐやることをやる</Fragment>
-      <Fragment slot="explanation">「strip」は通り（繁華街の通り）。「bones to pick」は直訳「骨を選ぶ」だが、ここでは口説く相手を探すという意味でスラング的に使用。</Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">I need not explain this (Nah!)<br />A-Plus is famous, so get the anus!</Fragment>
-      <Fragment slot="jpn">説明は不要だ（いらない！）<br />A-Plusは有名人——ケツでも蹴ってろ！</Fragment>
-      <Fragment slot="explanation">「get the anus」は侮辱的な表現（ケツを向けろ）——A-Plusのコミカルで挑発的なキャラクターが表れたライン。深刻にならず笑いで締めるのがSouls of Mischiefスタイル。</Fragment>
-    </LyricsBlock>
-  </section>
-
-  <!-- VERSE 3: TAJAI -->
-  <section class="mb-12">
-    <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">Verse 3 — Tajai</h2>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">Hey, Miss! Who's there? I'm through there<br />No time to do hair; the flick's at 8, so get straight</Fragment>
-      <Fragment slot="jpn">おい、ミス！誰だ？もう行くぞ<br />髪をセットする時間はない——映画は8時だ、準備しろ</Fragment>
-      <Fragment slot="explanation">「flick」は映画（スラング）。「get straight」は準備する、整える。デートの流れをコミカルに描写——「急いで！」と急かすTajaiのキャラクターが見える。</Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">You look great, let's grub now<br />A rubdown sounds flavor, later there's the theater</Fragment>
-      <Fragment slot="jpn">最高に見えるよ、メシ食おう<br />マッサージもいいな、後で映画館だ</Fragment>
-      <Fragment slot="explanation">「grub」は食事（スラング）。「sounds flavor」は「いい感じだ」「それがいい」——「flavor」をコピュラとして使う90年代NYスタイルがWest Coastに波及した表現。典型的な90年代デートプランが描かれる。</Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">We in the cut, the cinema was mediocre<br />Take her to the crib so I can stroke her</Fragment>
-      <Fragment slot="jpn">隅の席に座った、映画はまあまあだった<br />彼女を家に連れて帰って、俺のものにする</Fragment>
-      <Fragment slot="explanation">「in the cut」は隅（目立たない場所）。「mediocre」という知的な単語をフロウに自然に組み込む技術はSouls of Mischiefの語彙力の高さを示す。「crib」は家。</Fragment>
-    </LyricsBlock>
-  </section>
-
-  <!-- VERSE 4: PHESTO -->
-  <section class="mb-12">
-    <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">Verse 4 — Phesto</h2>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">Kids get broke for they skins when I'm in<br />Close range, I throws game at your dip like handball</Fragment>
-      <Fragment slot="jpn">俺が入ってくると、野郎どもは彼女のために金を使い果たす<br />近距離で、お前の女に俺のゲームを投げつける——ハンドボールみたいに</Fragment>
-      <Fragment slot="explanation">「get broke for they skins」は彼女のためにお金を全部使う（skins＝女性のスラング）。「throws game」はナンパのセリフ・口説き文句を使う。「dip」は女性のスラング。ハンドボールの比喩で「近距離攻撃」を表現。</Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">'Cause the man's all that! All phat!<br />I'm D to chill from '93 'til</Fragment>
-      <Fragment slot="jpn">なぜなら俺はそれだ！全部ファット！<br />俺は'93からずっとチルする覚悟だ</Fragment>
-      <Fragment slot="explanation">「all that」は「完璧な、最高な」——90年代のキーフレーズ。「D」はdown（準備ができている、覚悟がある）の略。この「'93 'til」がコーラスに自然につながる構造。</Fragment>
-    </LyricsBlock>
-  </section>
-
-  <!-- CHORUS -->
-  <section class="mb-12">
-    <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">Chorus — Souls of Mischief</h2>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">Yeah, this is how we chill from '93 'til<br />This is how we chill from '93 'til<br />This is how we chill from '93 'til<br />This is how we chill from '93 'til</Fragment>
-      <Fragment slot="jpn">そう、俺たちはこうやって'93からずっとチルする<br />こうやって'93からずっとチルする<br />こうやって'93からずっとチルする<br />こうやって'93からずっとチルする</Fragment>
-      <Fragment slot="explanation">「'93 'til」の「'til」は「until infinity（無限まで）」が省略された形。「How we chill」——チルすることが彼らのアイデンティティの核心。シンプルなリフレインを何度も繰り返すことで、Billy Cobhamのループと一体化する。</Fragment>
-    </LyricsBlock>
-  </section>
-
-  <!-- VERSE 5: A-PLUS -->
-  <section class="mb-12">
-    <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">Verse 5 — A-Plus</h2>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">Huh! My black Timbs do me well<br />When I see a fool and he says he heard me tell</Fragment>
-      <Fragment slot="jpn">ハッ！俺の黒いTimberlandsが俺を際立たせる<br />バカなやつが俺のことを言いふらしてたと言ってくるとき</Fragment>
-      <Fragment slot="explanation">「black Timbs」はTimberland（ティンバーランド）のブーツ——90年代East/West Coast HHのスタイルアイコン。「tell」は告げ口する、しゃべる。</Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">Another person's busy-ness, I cause dizziness<br />Until you stop actin' like a silly b***h</Fragment>
-      <Fragment slot="jpn">他人のビジネスに首を突っ込む——俺はお前を目眩かせてやる<br />バカみたいな真似をやめるまで</Fragment>
-      <Fragment slot="explanation">「busy-ness」は「business（他人の事情）」をわざと「busy（忙しい）」と掛けた語呂遊び。「cause dizziness」は「混乱させる、圧倒する」——A-Plusのラップで頭がぐるぐる回るという意味でも読める。</Fragment>
-    </LyricsBlock>
-  </section>
-
-  <!-- VERSE 6: PHESTO -->
-  <section class="mb-12">
-    <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">Verse 6 — Phesto</h2>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">Yo, crews are jealous 'cause we get props<br />The cops wanna stop our fun, but the top</Fragment>
-      <Fragment slot="jpn">よ、クルーたちは俺たちがリスペクトをもらってるから嫉妬してる<br />警官は俺たちの楽しみを止めようとするが、頂点は</Fragment>
-      <Fragment slot="explanation">「props」はリスペクトや評判。1993年オークランドでは警察の嫌がらせが日常的——「cops wanna stop our fun」はその現実への直接的な言及。しかし語調は落ち着いており、怒りより確信を示す。</Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">Is where we're dwellin', swell and fat, no sleep<br />I work fit, and jerks get their hoes sweeped</Fragment>
-      <Fragment slot="jpn">俺たちが住んでる場所だ——でかくてファット、眠れない<br />俺はかっこよくキメて、間抜けどもはその女を奪われる</Fragment>
-      <Fragment slot="explanation">「swell and fat」は豊かで最高な状態。「work fit」はファッションを決める（fit＝コーディネート）。「hoes sweeped」は女性を奪われる——競争に勝利したことの表現。</Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">Under their noses, this bro's quick<br />To hit blunts and flip once I'm chillin' 'cause my crew's close, kid</Fragment>
-      <Fragment slot="jpn">奴らの目の前で、この兄貴は速い<br />チルりながらブラントを吸ってフリップする——クルーが近くにいるから、kid</Fragment>
-      <Fragment slot="explanation">「under their noses」は「奴らの目の前で」。「flip」はここでは創造的にラップする、即興で返す。「kid」は相手への呼びかけ（East Coastスラングがここでも使われている）。</Fragment>
-    </LyricsBlock>
-  </section>
-
-  <!-- VERSE 7: TAJAI -->
-  <section class="mb-12">
-    <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">Verse 7 — Tajai</h2>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">I'm posted, most kids accept this as cool<br />I exit 'cause I'm an exception to the rule</Fragment>
-      <Fragment slot="jpn">俺は構えてる——ほとんどのやつはこれをクールと認める<br />俺は退場する——ルールの例外だから</Fragment>
-      <Fragment slot="explanation">「posted」は警戒している、構えている（スラング）。「exception to the rule」——「ルール破り」は90年代ヒップホップのセルフイメージの定型句。普通の人間とは違うという誇りの表現。</Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">I'm steppin' to the cool spots where crews flock<br />To snare a dip, or see where the s**t that's flam-bee</Fragment>
-      <Fragment slot="jpn">クルーが群がるクールなスポットへ向かう<br />女をゲットするか、盛り上がってる場所を探すか</Fragment>
-      <Fragment slot="explanation">「steppin' to」は向かう、近づく。「snare a dip」は女性をゲットする（snare＝罠にかける、dip＝女性のスラング）。「flam-bee」はフランベ（料理用語）をスラング化——熱くて盛り上がっている場所のこと。</Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">So I got tons of indo and go to the Owen's basement<br />My ace been fattenin' up tracks<br />Time to get prolific with the whiz, kid</Fragment>
-      <Fragment slot="jpn">だから大量のindoを用意して、Owenの地下室に行く<br />俺の相棒はずっとトラックを太らせてきた<br />ウィズキッドと一緒に多作になる時間だ</Fragment>
-      <Fragment slot="explanation">「indo」は高品質マリファナ（indoor grown）。「ace」は最高の仲間、相棒。「fattenin' up tracks」はビートを豊かにする、トラックを仕上げる。「whiz kid」は才能ある若者——Hieroglyphicsクルーへの言及か。</Fragment>
-    </LyricsBlock>
-  </section>
-
-  <!-- VERSE 8: OPIO -->
-  <section class="mb-12">
-    <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">Verse 8 — Opio</h2>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">Greenbacks in stacks, don't even ask who got the fat stacks<br />We can max pumpin' phat tracks</Fragment>
-      <Fragment slot="jpn">紙幣の束——誰がデカい束を持ってるか聞くな<br />ファットなトラックを流しながら最大限楽しめる</Fragment>
-      <Fragment slot="explanation">「greenbacks」はドル紙幣（緑色のため）。「fat stacks」は大量の紙幣の束。「max」は最大限に楽しむ（maxin'と同語源）。「phat tracks」の「phat」はfatと同音異義のスラング表記。</Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">Exchangin' facts about impacts, 'cause in facts<br />My freestyle talent overpowers, brothers can't hack it</Fragment>
-      <Fragment slot="jpn">インパクトについて事実を交換する——事実として<br />俺のフリースタイルの才能は圧倒的で、兄弟たちには扱えない</Fragment>
-      <Fragment slot="explanation">「exchangin' facts」は互いの知識・技術を認め合う。「can't hack it」は「対応できない、歯が立たない」——コンピュータ用語のhackをスラング化。Opioのフリースタイルへの自信の表明。</Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">They lack wit, we got the mack s**t<br />'93 to infinity — kill all that wack s**t!</Fragment>
-      <Fragment slot="jpn">奴らはウィット（機知）が足りない、俺たちはマックシットを持ってる<br />'93から無限まで——ウワックなクソは全部終わらせろ！</Fragment>
-      <Fragment slot="explanation">「lack wit」は機知・知性が欠けている。「mack s**t」はフロウや技術の塊（mack＝最高の口説きの技）。「wack s**t」はダメなもの全般——この一行が「93 'Til Infinity」の宣言の核心。低品質なヒップホップへの否定と自分たちのクオリティへの誇り。</Fragment>
-    </LyricsBlock>
-  </section>
-
-  <!-- VERSE 9: PHESTO -->
-  <section class="mb-12">
-    <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">Verse 9 — Phesto</h2>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">I be coolin', school's in session, but I'm fresh in<br />Rappin', so I take time off to never rhyme soft</Fragment>
-      <Fragment slot="jpn">俺はクールにしてる、授業中だが俺はフレッシュに登場<br />ラップしてるから、ソフトにライムしないために休みを取る</Fragment>
-      <Fragment slot="explanation">「coolin'」はcooling（クールにしている）。「school's in session」は授業中——しかし「I'm fresh in」でその場でも際立っている。「never rhyme soft」はソフトなラップはしないという宣言。</Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">I'm off on my own s**t with my own clique<br />Roll many back-roads with a fat stoge and blunts, foldin' runts</Fragment>
-      <Fragment slot="jpn">俺は自分のクリックと自分のやり方でやってる<br />太いジョイントとブラントで裏道を走り、小者を折りたたむ</Fragment>
-      <Fragment slot="explanation">「clique」は仲間グループ。「back-roads」は裏道——主流から外れたルート（オルタナティヴなHHスタンスとも読める）。「foldin' runts」は弱者・小物を圧倒する。</Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">Holdin' stunts captive with my persona<br />n***as is testin' my patience, but I stay fresh and</Fragment>
-      <Fragment slot="jpn">自分のペルソナで奴らを虜にする<br />やつらは俺の忍耐を試すが、俺はフレッシュに留まる</Fragment>
-      <Fragment slot="explanation">「stunts」はここでは行為・動き（アクロバット的な技）。「holdin' captive」は虜にする、惹きつける。「stay fresh」——何があってもフレッシュであり続けるのがSouls of Mischiefの信念。次のVerseにかかるクリフハンガー的な終わり方。</Fragment>
-    </LyricsBlock>
-  </section>
-
-  <!-- VERSE 10: TAJAI -->
-  <section class="mb-12">
-    <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">Verse 10 — Tajai</h2>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">Restin' at the mall, attendants all annoyed<br />But I am shoppin' for my wish to exploit</Fragment>
-      <Fragment slot="jpn">モールでくつろいでる、店員たちは全員うんざり（どけよ！）<br />でも俺はやりたいことのために買い物してる</Fragment>
-      <Fragment slot="explanation">「attendants all annoyed」——若い黒人男性がモールをぶらついているだけで店員に警戒される、当時の現実的な人種差別的体験。しかしTajaiは「I'm shoppin'（俺は買い物中だ）」と冷静に正当性を主張。</Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">Some few fits, some new kicks<br />I often do this, 'cause it's the pits not bein' dipped</Fragment>
-      <Fragment slot="jpn">数着のコーディネート、新しいスニーカー<br />これをよくやる——ドレスアップしてないのは最悪だから</Fragment>
-      <Fragment slot="explanation">「fits」はコーディネート（outfit）。「kicks」はスニーカー。「the pits」は最悪の状態。「dipped」はおしゃれにキメた状態——dipped（浸した）から来る「よく着飾った」のスラング。</Fragment>
-    </LyricsBlock>
-  </section>
-
-  <!-- VERSE 11: OPIO -->
-  <section class="mb-12">
-    <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">Verse 11 — Opio</h2>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">Flipped! The flyer attire females desire<br />Baby, you can step to this if you admire</Fragment>
-      <Fragment slot="jpn">やばい！女が欲しがるイケてる服装<br />ベイビー、気に入ったなら近づいてきていいよ</Fragment>
-      <Fragment slot="explanation">「flipped」は「やばい！」という感嘆詞的使用（文字通り「ひっくり返った」）。「flyer attire」はよりイケてる服（fly＋比較級er）。「step to this」は近づく、アプローチする。</Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">The extraordinary dapper rapper<br />Keep tabs on your main squeeze before I tap her</Fragment>
-      <Fragment slot="jpn">特別にエレガントなラッパー<br />俺が手を出す前に、お前の彼女を見張っておけ</Fragment>
-      <Fragment slot="explanation">「dapper」はエレガント、小粋な（ジャズ・ソウル時代の語彙をHHに持ち込む）。「main squeeze」は恋人・彼女のスラング。「keep tabs on」は注意して見守る——ユーモラスな挑発。</Fragment>
-    </LyricsBlock>
-  </section>
-
-  <!-- VERSE 12: A-PLUS -->
-  <section class="mb-12">
-    <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">Verse 12 — A-Plus</h2>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">I mack her, attack her with the smoothness<br />I do this, peepin' what my crew gets</Fragment>
-      <Fragment slot="jpn">俺は彼女をマックする、スムーズさで攻める<br />これをやってる——クルーが何を手に入れるかチェックしながら</Fragment>
-      <Fragment slot="explanation">「mack」は口説く、スムーズにアプローチする。「peepin'」は観察する、目で確認する——クルー全体の動きを把握しながら行動するというチームワーク。</Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">Loot, props, respect and blunts to pass<br />Crews talk s**t, but in my face, they kiss my ass</Fragment>
-      <Fragment slot="jpn">金、プロップス、リスペクト、そして回し飲みするブラント<br />クルーはクソをしゃべるが、俺の前では媚を売る</Fragment>
-      <Fragment slot="explanation">「loot, props, respect」——Souls of Mischiefが求めるものの定義。金銭的成功、評判、尊重。「talk s**t」は悪口を言う。「kiss my ass」は媚を売る——陰で悪口を言うが直接会うと態度が変わる偽物への批判。</Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">They bite flows, but we make up new ones<br />If you're really dope, why ain't you signed yet?</Fragment>
-      <Fragment slot="jpn">奴らはフロウをパクるが、俺たちは新しいのを作る<br />本当にヤバいなら、なんでまだ契約してないんだ？</Fragment>
-      <Fragment slot="explanation">「bite flows」はラップのスタイル・技術を盗む（bite＝かじる、パクる）。「why ain't you signed yet」——Jive Recordsとメジャー契約しているSouls of Mischiefとして、競合他者への挑発。業界の現実を一行に凝縮。</Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">But I get my loot from Jive/Zomba, I'ma bomb ya<br />You will see, from now to infinity</Fragment>
-      <Fragment slot="jpn">俺はJive/Zombaから金をもらってる——お前を爆撃してやる<br />見ててくれ、今から無限まで</Fragment>
-      <Fragment slot="explanation">「Jive/Zomba」はレーベルとその親会社（Zomba Records）。メジャー契約という事実を誇らしげに宣言。「I'ma bomb ya」は圧倒的なパフォーマンスで相手を吹き飛ばす比喩。「from now to infinity」——コーラスの「'93 'til infinity」に戻る完璧な着地。</Fragment>
-    </LyricsBlock>
-  </section>
-
-  <!-- 文化背景 -->
-  <section id="background" class="mb-12 p-6 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl">
-    <h2 class="text-base font-semibold mb-4">■文化背景：1993年のオークランドとチルの哲学</h2>
-    <div class="space-y-4 text-sm text-[var(--c-muted)] leading-relaxed">
-      <p><strong class="text-[var(--c-fg)]">暴力の時代の「セーフ・スペース」</strong><br />
-      1992〜93年のオークランドは年間175件の殺人が発生し、クラック・コカインの蔓延とカージャック、警察による嫌がらせが日常化していた。しかしSouls of Mischiefは、その過酷な環境に育ちながらも、銃やドラッグを売ることではなく「ヒップホップを防御メカニズムとして利用」した。浮遊するビートと平和的なリリックは、暴力に支配された路上に精神的な避難所を建設する試みだった。</p>
-
-      <p><strong class="text-[var(--c-fg)]">Billy Cobham「Heather」とSP-1200の物理的制約</strong><br />
-      プロデューサーA-PlusはDJ Premierの「Here Today, Gone Tomorrow」を通じてBilly Cobhamの名を知り、オークランドのバーゲンビンで『Crosswinds』（1974年）を発掘。収録曲「Heather」のMichael Breckerによる幽玄なサックスを核にした。しかしSP-1200の制約（最大10秒のサンプリング時間）を克服するため、33回転のレコードを45回転で録り込んでピッチダウンする「MacGyver的トリック」を使用。この処理が元音源の解像度を落とし、独特の気怠くも幻想的なチルサウンドを生み出した。</p>
-
-      <p><strong class="text-[var(--c-fg)]">「91 'Til Infinity」からの誕生秘話</strong><br />
-      この曲の原型は1991年に高校生のA-Plusが「91 'til Infinity」として制作。当初はPep Love（Hieroglyphicsクルーのメンバー）に無償提供していたが、1992年にJive Recordsとのメジャー契約が決まった際、他のメンバーが「こんないいビートを他人にあげるなんてあり得ない」と猛反発。ビートを取り返し、年号を更新して「93 'Til Infinity」として再構築。アルバム全体を9〜12日間という驚異的な短期間で録音した。</p>
-
-      <p><strong class="text-[var(--c-fg)]">Hieroglyphicsクルーとオークランドのオルタナティヴ</strong><br />
-      Souls of MischiefはDel tha Funky Homosapien率いるHieroglyphicsクルーのサブグループ。Gファンクとギャングスタ・ラップが席巻する西海岸シーンで、East Coast的なサンプリング美学と知的なリリックを融合させ、「知性とチルの共存」というオルタナティヴなスタイルを提示した。</p>
-    </div>
-  </section>
-
-  <!-- レガシー -->
-  <section id="legacy" class="mb-12 p-6 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl">
-    <h2 class="text-base font-semibold mb-4">■レガシーと影響</h2>
-    <div class="space-y-4 text-sm text-[var(--c-muted)] leading-relaxed">
-      <p>「93 'Til Infinity」はリリースから30年以上を経た今も、ゴールデンエラ・ヒップホップの最重要クラシックとして語り継がれる。Kendrick LamarはSouls of Mischiefをオークランド/Bay Areaの「チル」な知性派HHの先駆者として尊敬を示し、Chance the RapperやJ. Coleなど後続世代のラッパーたちに至るまで、マイクリレー形式とジャズサンプリングの手法は広く継承されている。</p>
-
-      <p>楽曲はTV・映画での使用も多く、その浮遊感あるビートは時代を超えたBGMとして親しまれている。またBilly Cobham「Heather」のサンプリング使用は、ジャズドラマーの楽曲が再評価されるきっかけともなった。</p>
-
-      <p>日本では、アンダーグラウンドHIPHOPシーンや「チル系」ヒップホップの文脈で長く愛聴される。オークランドというBay Areaの地理的・文化的背景が、I Got 5 On It（Luniz）などと並んで「Bay Area独自のバイブ」として日本のリスナーに認知されており、レコードコレクターの間でもオリジナル盤の評価が高い。</p>
-    </div>
-  </section>
-
-  <QuickSlang
-    words={[
-      { term: "'til infinity", reading: "ティル・インフィニティ", meaning: "永遠に、無限に。'93 'til infinity＝1993年から永遠に。仲間との絆と音楽への信念の宣言。" },
-      { term: "maxin'", reading: "マクシン", meaning: "のんびりしている、リラックスしている。「maxin' and relaxin'」の略。" },
-      { term: "stoge", reading: "ストージ", meaning: "タバコ/マリファナのシガレット。Bay Areaスラング（stogie の変形）。" },
-      { term: "blunts", reading: "ブランツ", meaning: "マリファナを詰めたシガー。葉巻の内葉を使用。90年代HHの象徴的な喫煙スタイル。" },
-      { term: "40", reading: "フォーティ", meaning: "40オンスのマルト・リカーボトル。Bay Areaのストリートカルチャーを象徴する飲み物。" },
-      { term: "props", reading: "プロップス", meaning: "リスペクト、評判、賞賛。Proper Respectの略。" },
-      { term: "phat", reading: "ファット", meaning: "格好いい、素晴らしい。fatと同音異義のスラング表記。" },
-      { term: "dip", reading: "ディップ", meaning: "女性を指すWest Coastスラング（90年代）。" },
-      { term: "wack", reading: "ウワック", meaning: "ダメ、イケていない、クオリティが低い。反義語はdope（ヤバい）。" },
-      { term: "mack", reading: "マック", meaning: "口説く、スムーズに女性にアプローチする。名詞として「口説きの名人」の意味でも使用。" },
-    ]}
-  />
+    <!-- 導入 -->
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■この曲で何を学べるか</h2>
+      <p class="text-sm text-[var(--c-muted)] leading-relaxed">
+        ここまで重たいNYの曲が続いたなら、この曲はいい箸休めになると思います。1993年、カリフォルニア州 <strong class="text-[var(--c-text)]">East Oakland（イースト・オークランド）</strong> の4人組 <strong class="text-[var(--c-text)]">Souls of Mischief（ソウルズ・オブ・ミスチーフ）</strong>——Opio、A-Plus、Tajai、Phesto——が、ただひたすら「俺たちの chill（だらだら過ごす）のやり方」を語るだけの一曲。女の子、酒、葉っぱ、スニーカー、フリースタイル……深刻なテーマはほぼ無し。なのに、まどろむようなジャジーなビートと、4人がリレーしていく軽妙な韻が、最高に気持ちいい。彼らは <strong class="text-[var(--c-text)]">Hieroglyphics（ヒエログリフィクス）</strong>という大所帯クルーの一派です。この記事は英語学習とヒップホップ理解の教材として読んでもらえればと思います。リリックには西海岸特有のスラング（the Land、indo、fits、kicks、dipped…）、AAVE文法、そしてビーチ・ボーイズの引用みたいな小ネタがさりげなく散っています。それを「学ぶ表現」単位で解説していきます。
+      </p>
+    </section>
+
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■なぜ93 'Til Infinityが教材として優れるか</h2>
+      <p class="text-sm text-[var(--c-muted)] leading-relaxed">
+        いちばんの理由は、<strong class="text-[var(--c-text)]">「日常の英語」と「遊びの英語」の見本市</strong>だから。深刻な犯罪描写の代わりに、出てくるのは服・靴・天気・週末の予定といった等身大の話題で、そのぶん <strong class="text-[var(--c-text)]">カジュアルな口語表現とスラング</strong>がふんだんに学べます。<code>chill</code>（だらける）、<code>dipped</code>（バッチリ決める）、<code>fits / kicks</code>（服／スニーカー）など、今でもそのまま通じる語が満載。タイトルの「from '93 'til（'93からずっと）」は、後ろの <em>infinity</em>（無限に）を省いた省略表現で、口語の省略の感覚もつかめる。さらに東海岸の曲とは語彙が違う——同じ「街」でもオークランドは <strong class="text-[var(--c-text)]">"the Land"</strong> と呼ぶ——ので、<strong class="text-[var(--c-text)]">スラングの地域差</strong>を体感する教材としても面白い。肩の力を抜いて、英語の手触りを楽しめる一曲です。
+      </p>
+    </section>
+
+    <!-- Table of Contents -->
+    <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
+      <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
+        <li><a href="#story" class="hover:text-[var(--c-gold)] transition-colors">01 — ストーリーの流れ（まず曲全体をつかむ）</a></li>
+        <li><a href="#units" class="hover:text-[var(--c-gold)] transition-colors">02 — 学ぶ表現（スラング・韻・言葉遊び・AAVE）</a></li>
+        <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">03 — 文化的背景</a></li>
+        <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">04 — サンプル・制作の裏側</a></li>
+        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">05 — 評価とその後の影響</a></li>
+      </ol>
+    </nav>
+
+    <!-- ストーリー -->
+    <section id="story" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        ストーリーの流れ — まず曲全体をつかむ
+      </h2>
+      <p class="text-xs text-[var(--c-dim)] mb-5">
+        この曲は物語というより、4人のMCが順番にマイクを回して「自分のチルの流儀」を見せ合う、リレー形式のポッセカット（大人数の曲）です。誰が何を担当しているかをざっくり押さえると、次章で一語ずつ掘るときに楽になります。
+      </p>
+      <div class="space-y-4 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          <strong class="text-[var(--c-text)]">Intro（Tajai）</strong>で「East Oaklandから来た」「今はスタジオでただ maxin'（だらけてる）」と自己紹介。これから始まるのが深刻な曲ではなく「どう chill するか」の話だと、最初に温度をセットしてくれる。
+        </p>
+        <p>
+          <strong class="text-[var(--c-text)]">Verse 1〜4</strong>は、Opio → A-Plus → Tajai → Phesto と短く回していく。電話で女の子を誘い、40オンスの酒を冷やし、葉っぱでマウイ気分になり、映画とデートの段取りを立てる……要は週末の過ごし方。カリフォルニアの陽気な空気がそのまま音になっている。
+        </p>
+        <p>
+          <strong class="text-[var(--c-text)]">Chorus</strong>の「This is how we chill from '93 'til」が、曲全体の合言葉。<em>'til</em> の後ろの <em>infinity</em>（無限に）が省略されていて、タイトルと響き合う作りです。
+        </p>
+        <p>
+          <strong class="text-[var(--c-text)]">後半（Verse 5〜12）</strong>では、スニーカーや服へのこだわり、フリースタイルの腕自慢、クルーの結束、そしてオークランド（the Land）への愛着が語られる。最後のアウトロでは Hieroglyphics の仲間（Casual、Del the Funky Homosapien ら）の名前を次々に呼んでいく。初めて聴いたとき、この「肩の力の抜けた多幸感」にすっかりやられました。深刻じゃないのに、ずっと聴いていられる。
+        </p>
+        <p class="text-xs text-[var(--c-dim)]">
+          ※本ページは批評・教育目的で、解説に必要な範囲の断片のみを引用しています。全歌詞の対訳は掲載していません。
+        </p>
+      </div>
+    </section>
+
+    <!-- 学習ユニット -->
+    <div id="units"></div>
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2 border-b border-[var(--c-border)] pb-2">
+        学ぶ表現 — スラング・韻・言葉遊び・AAVE
+      </h2>
+      <p class="text-xs text-[var(--c-dim)] mb-6">
+        各見出しは「この曲から学べる英語表現」。各ユニットはまず上に英語の用例（1〜2行）を置いてあります。<strong class="text-[var(--c-text)]">先に英語を音で追い、行のどこが学習対象かを確かめてから</strong>下の日本語解説に進むと、英語が苦手でも置いていかれません。🎤はそのリリックを歌うMC、▶は公式PVの該当箇所への頭出しリンク（音源解析で付与した概算。「≈」付きは未検証の推定値で、運営者の実測で随時上書きします）。引用は解説に必要な最小限の断片に留めています。
+      </p>
+
+      <!-- ① chill / from '93 'til -->
+      <LearningUnit
+        heading="This is how we chill from '93 'til — 省略のきいたタイトルフレーズ"
+        label="★ 構文／スラング"
+        mc="Souls of Mischief（Chorus）"
+        t={TS["chill-93-til"].t} tApprox={TS["chill-93-til"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">This is how we chill from '93 'til<br />This is how we chill from '93 'til</Fragment>
+        <Fragment slot="jpn">これが俺たちの過ごし方、'93から（ずっと）／これが俺たちの過ごし方、'93から</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 各ヴァースの合間に繰り返されるフック。曲名そのものです。</p>
+        <p>まずキーワードの <strong class="text-[var(--c-text)]"><QuickSlang word="chill" desc="リラックスする・のんびり過ごす・たむろする。最重要の日常スラング" /></strong>。「リラックスする・だらだら過ごす・たむろする」という、今でも超頻出の日常スラングです。そして学習ポイントは行末 <strong class="text-[var(--c-text)]">from '93 'til</strong>。これは <code>from 1993 'til infinity</code>（1993年から永遠に）の <strong class="text-[var(--c-text)]">infinity を省略した</strong>言い回しで、曲名「93 'Til Infinity」と響き合っています。<code>'til</code> は <em>until</em>（〜まで）の短縮。後ろの目的語をあえて言い切らずに余韻で残す——この<strong class="text-[var(--c-text)]">省略の感覚</strong>が、口語のリズムを作っている。「俺たちのチルは'93から、この先ずっと変わらない」という宣言が、たった数語に畳まれています。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">chill</strong> は動詞・形容詞・間投詞すべてで使える万能スラング。<em>I'm just chillin'</em>（ただまったりしてる）、<em>a chill spot</em>（くつろげる場所）、<em>Chill!</em>（落ち着け！）。NYの <em>lamp</em> と同義だが、chill の方が全国区で通じる。</p>
+          <p><strong class="text-[var(--c-text)]">'til</strong> は <em>until / till</em> の口語短縮。<em>from A 'til B</em>（AからBまで）の形で使い、ここでは B（infinity）を省いて余韻にしている。会話でも <em>'til then</em>（それまで）のように頻出。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ② Good Vibrations -->
+      <LearningUnit
+        heading="Now we feel the Good Vibrations — カリフォルニアの引用と内部韻"
+        label="★ 引用／韻"
+        mc="Opio（Verse 1）"
+        t={TS["good-vibrations"].t} tApprox={TS["good-vibrations"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">The weather's keen in Cali, gettin' weeded makes it feel like Maui<br />Now we feel the Good Vibrations</Fragment>
+        <Fragment slot="jpn">カリフォルニアは天気が最高、葉っぱをキメればマウイ島みたいな気分／今、俺たちはグッド・ヴァイブレーションを感じてる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 1（Opio）の終盤、西海岸の多幸感を描く件。</p>
+        <p>まず音を追ってください。上の行で <strong class="text-[var(--c-text)]">Cali / Maui</strong> が韻を踏み、さらに <code>weather's keen / weeded</code> と頭の音もそろえている。意味の核は下の行 <strong class="text-[var(--c-text)]">Good Vibrations</strong>。これはビーチ・ボーイズの名曲「Good Vibrations」への引用で、<strong class="text-[var(--c-text)]">カリフォルニアそのものの象徴</strong>を一語で呼び込んでいます。NasがNYを描くのに犯罪を引いたのとは対照的に、ここでは「いい波動（good vibes）」＝陽気な西海岸の空気を引くわけです。<strong class="text-[var(--c-text)]"><QuickSlang word="weeded" desc="weed（マリファナ）をやってハイになった状態" /></strong>（葉っぱでハイになる）や <strong class="text-[var(--c-text)]">keen</strong>（イケてる・素晴らしい）も、当時のカジュアルな語彙。引用・韻・スラングが軽やかに同居する、西海岸らしい一節です。</p>
+      </LearningUnit>
+
+      <!-- ③ 40 / stoge -->
+      <LearningUnit
+        heading="Here's a 40 — swig it! / the fattest stoge — 週末のチル語彙"
+        label="★ スラング"
+        mc="Opio（Verse 1）"
+        t={TS["forty-stoge"].t} tApprox={TS["forty-stoge"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Here's a 40 — swig it! You know it's frigid<br />Damn! That's the fattest stoge I ever seen</Fragment>
+        <Fragment slot="jpn">ほら40（オンスの酒）だ、グイっといけ！キンキンに冷えてる／うわ！こんなにぶっといブラント、見たことない</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 1（Opio）中盤、週末の小道具が並ぶ件。スラングが3つ。</p>
+        <p>この件は「チルの小道具」のスラング集です。<strong class="text-[var(--c-text)]"><QuickSlang word="40" desc="40オンス（約1.2L）入りの安価なモルトリカー（麦芽酒）。ストリートの定番" /></strong> は40オンス入りの安い麦芽酒（モルトリカー）のこと。<strong class="text-[var(--c-text)]">swig</strong> は「（ボトルから）ゴクゴク飲む」という動詞。<code>frigid</code>（凍えるほど冷たい）でキンキンに冷えた様子を出す。下の行の <strong class="text-[var(--c-text)]"><QuickSlang word="stoge" desc="stogie（葉巻）から転じて、太く巻いたブラント（マリファナ）を指す" /></strong> は <em>stogie</em>（葉巻）から来た語で、ここでは太く巻いたブラントのこと。<strong class="text-[var(--c-text)]">fattest</strong>（いちばん太い）が「最高の」というポジティブな強調として効いている。深刻さゼロ、生活のディテールだけで情景を立ち上げる——この曲の真骨頂です。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">fat / phat</strong> はスラングでは「（量が）たっぷりの／最高の」という<strong class="text-[var(--c-text)]">褒め言葉</strong>。<em>a fat stoge</em>（ぶっといブラント）、<em>fat stacks</em>（札束）のように、大きい＝良い、の感覚で使う。綴りを <em>phat</em> にすると、より「イケてる」のニュアンスが強まる。</p>
+          <p><strong class="text-[var(--c-text)]">swig</strong> は「ラッパ飲みでゴクッと飲む」動詞かつ名詞。<em>take a swig</em>（ひと口あおる）。日常の飲み物にも使えるカジュアル語。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ④ bones to pick -->
+      <LearningUnit
+        heading="I roam the strip for bones to pick — イディオムを下敷きにした言葉遊び"
+        label="★ 言葉遊び／イディオム"
+        mc="A-Plus（Verse 2）"
+        t={TS["bones-to-pick"].t} tApprox={TS["bones-to-pick"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">I roam the strip for bones to pick<br />When I find one, I'm gon' take her home and quickly do this</Fragment>
+        <Fragment slot="jpn">通り（the strip）を歩き回って、bones to pick（拾える相手）を探す／見つけたら、家に連れ帰ってサッと事を済ませる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 2（A-Plus）、ナンパの流儀を語る件。学習対象は上の行。</p>
+        <p>上の行の <strong class="text-[var(--c-text)]">bones to pick</strong> が言葉遊びです。英語には <strong class="text-[var(--c-text)]">"have a bone to pick (with someone)"</strong>（〜に文句・恨み言がある）という決まり文句があります。A-Plusはこの慣用句の形をそのまま借りつつ、意味を「声をかける女の子（拾う相手）」へずらしている。下の行で <code>When I find one, I'm gon' take her home</code>（見つけたら家に連れて帰る）と続くので、<em>bone</em> が「文句のタネ」ではなく「相手」を指しているのが分かる仕組み。<strong class="text-[var(--c-text)]">既存のイディオムを下敷きにして別の意味を走らせる</strong>のは、ヒップホップの王道の遊び方です。<code>I'm gon'</code>（＝I'm going to）の砕けた発音もチェック。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">have a bone to pick with ~</strong> は「〜に言いたいこと（不満・苦情）がある」を表すイディオム。<em>I've got a bone to pick with you</em>（君に文句があるんだ）が標準的な使い方。元の意味を知っていると、ここでの「意味のずらし」が笑える。</p>
+          <p><strong class="text-[var(--c-text)]">gon'</strong> は <em>going to</em> の口語短縮（gonna よりさらに崩れた形）。<em>I'm gon' do it</em>（やるつもりだ）のように、AAVE・南部英語で頻出。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑤ all that / phat -->
+      <LearningUnit
+        heading="the man's all that! All phat! — 褒め言葉のスラング"
+        label="★ スラング"
+        mc="Phesto（Verse 4）"
+        t={TS["all-that-phat"].t} tApprox={TS["all-that-phat"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">'Cause the man's all that! All phat!<br />I'm D to chill from '93 'til</Fragment>
+        <Fragment slot="jpn">だってこの男（俺）は最高だから！全部イケてる！／俺は'93から（ずっと）チルする構えだ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 4（Phesto）、短く決めてフックへ渡す件。</p>
+        <p>学習ポイントは <strong class="text-[var(--c-text)]">all that</strong> と <strong class="text-[var(--c-text)]">phat</strong>。<strong class="text-[var(--c-text)]">all that</strong> は「すごくイケてる・あらゆる点で最高」を表す90年代の定番スラングで、<em>She thinks she's all that</em>（あの子は自分が最高だと思ってる）のように使います。<strong class="text-[var(--c-text)]"><QuickSlang word="phat" desc="excellentの意のスラング。fatと同音で「最高・イケてる」。PHATと大文字書きされることも" /></strong> は <em>fat</em> と同音で、「最高・イケてる」という褒め言葉（しばしば PHAT と綴られる）。どちらも <strong class="text-[var(--c-text)]">「良い」を表すポジティブ・スラング</strong>で、当時の空気が濃く出ている語です。<code>the man</code>（その男＝俺）も「the man＝大物・すごいやつ」の用法。短い一行に自賛のスラングをぎゅっと詰めて、軽快にフックへ受け渡しています。</p>
+      </LearningUnit>
+
+      <!-- ⑥ indo -->
+      <LearningUnit
+        heading="tons of indo — 西海岸の葉っぱスラング"
+        label="★ スラング（地域語）"
+        mc="Tajai（Verse 7）"
+        t={TS["indo"].t} tApprox={TS["indo"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">So I got tons of indo and go to the Owen's basement</Fragment>
+        <Fragment slot="jpn">だから大量のindo（上物の葉っぱ）を手に、オーウェンの地下室へ向かう</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 7（Tajai）、たまり場へ向かう件。</p>
+        <p>学習ポイントは <strong class="text-[var(--c-text)]"><QuickSlang word="indo" desc="高品質のマリファナを指す西海岸由来のスラング。90年代に広まった" /></strong>。「高品質のマリファナ」を指す、<strong class="text-[var(--c-text)]">西海岸発のスラング</strong>です。90年代の西海岸ヒップホップで一気に広まった語で（同時期のヒット曲のタイトルにもなっています）、同じ「葉っぱ」でも東海岸の <em>woolies</em> や <em>buddha</em> とは語感も出どころも違う。<code>tons of ~</code>（大量の〜）も口語の定番で、<em>tons of fun</em>（すごく楽しい）のように使えます。スラングは地域の方言——<em>indo</em> が出てきた瞬間に「あ、西海岸だな」と分かる。語を一つ知ることが、その土地を一つ知ることになる好例です。</p>
+      </LearningUnit>
+
+      <!-- ⑦ greenbacks / stacks -->
+      <LearningUnit
+        heading="Greenbacks in stacks — 金のスラングと多重韻"
+        label="★ スラング／韻"
+        mc="Opio（Verse 8）"
+        t={TS["greenbacks-stacks"].t} tApprox={TS["greenbacks-stacks"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Greenbacks in stacks, don't even ask who got the fat stacks<br />We can max pumpin' phat tracks</Fragment>
+        <Fragment slot="jpn">札束が積み上がってる、誰がいちばん持ってるかなんて訊くな／俺たちは最高のトラックを流してまったりできる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 8（Opio）の冒頭、金と音の話を畳む件。まず音で。</p>
+        <p>まず音だけ。<strong class="text-[var(--c-text)]">stacks / ask / fat stacks / max / tracks</strong> と <code>-a(ck/sk/x)</code> の音が連打されている——Opioらしい多重韻です。意味の方も金のスラングが二つ。<strong class="text-[var(--c-text)]"><QuickSlang word="greenbacks" desc="米ドル紙幣のスラング。裏面が緑色であることに由来" /></strong> は「ドル紙幣」（裏が緑なのが由来）、<strong class="text-[var(--c-text)]"><QuickSlang word="stacks" desc="積み上げた札束。お金（とくにまとまった現金）のスラング" /></strong> は「積み上がった札束」。<code>fat stacks</code> で「分厚い札束」。下の行の <strong class="text-[var(--c-text)]">max</strong>（だらける・くつろぐ）も intro から出てくるこの曲のキー動詞で、<code>phat tracks</code>（最高のトラック）と韻を踏む。金の話すら肩肘張らず、韻遊びの素材にしてしまうのが彼ららしい。</p>
+        <Fragment slot="usage">
+          <p>金のスラングは多彩: <strong class="text-[var(--c-text)]">greenbacks</strong>（紙幣／裏が緑）、<strong class="text-[var(--c-text)]">stacks</strong>（札束）、<em>bands</em>（帯封の付いた1,000ドル）、<em>guap</em>（大金）。<em>fat / phat</em> を付けると「たっぷりの金」になる。</p>
+          <p><strong class="text-[var(--c-text)]">max</strong>（または maxin'）は「リラックスして過ごす・だらける」のスラング。<em>just maxin' and relaxin'</em> のように chill と並べて使う、90年代色の濃い語。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑧ habitual be -->
+      <LearningUnit
+        heading="I be coolin' — AAVEの習慣のbe（habitual be）"
+        label="★ AAVE文法"
+        mc="Phesto（Verse 9）"
+        t={TS["habitual-be"].t} tApprox={TS["habitual-be"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">I be coolin', school's in session, but I'm fresh in<br />Rappin', so I take time off to never rhyme soft</Fragment>
+        <Fragment slot="jpn">俺はいつもクールに過ごしてる、学校は授業中だけど俺は颯爽と入っていく／ラップしてる、だから時間を取って、決して軟弱には韻を踏まない</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 9（Phesto）の冒頭。学習対象は行頭。</p>
+        <p>行頭の <strong class="text-[var(--c-text)]">I be coolin'</strong> に注目。標準英語なら <em>I'm cooling</em> ですが、ここは <code>be</code> が原形のまま。これがAAVE最大の特徴 <strong class="text-[var(--c-text)]">習慣のbe（habitual be）</strong>で、「いつも・習慣的にクールに過ごしている」という反復のニュアンスを出します（今だけの進行形 <em>I'm coolin'</em> とは時間の幅が違う）。<strong class="text-[var(--c-text)]"><QuickSlang word="fresh" desc="かっこいい・洗練された・イケてる。新しくて鮮度がある、の意から" /></strong>（イケてる・洗練された）も最重要スラングのひとつ。<code>session / fresh in / Rappin'</code> あたりの軽い韻の運びも、Phestoの持ち味です。NYの曲（N.Y. State of Mind）でも同じ習慣のbeが出てきた——東西で語彙は違っても、AAVEの土台は共通している、というのが分かる箇所でもあります。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">habitual be</strong>: 動詞 be を原形のまま使い「習慣的にそうしている」を表すAAVE文法。<em>I be coolin'</em>＝「いつもまったりしてる」。<em>I'm coolin'</em>（今くつろいでいる）と区別される、れっきとした時制表現。</p>
+          <p><strong class="text-[var(--c-text)]">fresh</strong> は「かっこいい・洗練された・新しくてイケてる」を表す褒め言葉。<em>You look fresh</em>（イケてるね）、<em>fresh kicks</em>（イケてるスニーカー）のように使う。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑨ fits / kicks / dipped -->
+      <LearningUnit
+        heading="new kicks / not bein' dipped — ファッションのスラング"
+        label="★ スラング（ファッション）"
+        mc="Tajai（Verse 10）"
+        t={TS["fashion-dipped"].t} tApprox={TS["fashion-dipped"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Some few fits, some new kicks<br />I often do this, 'cause it's the pits not bein' dipped</Fragment>
+        <Fragment slot="jpn">服を何着か、新しいスニーカーを何足か／よくやるんだ、だってビシッと決めてないのは最悪だから</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 10（Tajai）、買い物の件。ファッション語が3つ。</p>
+        <p>ここはファッション・スラックの宝庫です。<strong class="text-[var(--c-text)]"><QuickSlang word="fits" desc="outfits（服装・コーディネート）の略。今も使われる" /></strong> は <em>outfits</em>（服装・コーデ）の略、<strong class="text-[var(--c-text)]"><QuickSlang word="kicks" desc="スニーカー・靴を指すスラング" /></strong> は「スニーカー（靴）」、<strong class="text-[var(--c-text)]"><QuickSlang word="dipped" desc="バッチリ着こなしている・キメている状態。dipには「着飾る」の意" /></strong> は「バッチリ着こなしている／キメている」状態。<code>it's the pits</code>（最悪だ）という別のイディオムも入っていて、<strong class="text-[var(--c-text)]">「キメてないのは the pits（最低）」</strong>と、おしゃれへの強いこだわりを語っています。<code>fits / kicks / this / pits</code> の <strong class="text-[var(--c-text)]">-i(t/ts/s)</strong> 系の韻も小気味いい。これらの語は今でもそのまま通じるので、覚えておいて損はないです。</p>
+        <Fragment slot="usage">
+          <p>ファッション系スラックはセットで覚えると便利: <strong class="text-[var(--c-text)]">fit(s)</strong>（服装＝outfit）、<strong class="text-[var(--c-text)]">kicks</strong>（スニーカー）、<strong class="text-[var(--c-text)]">dripped / dipped</strong>（バッチリ着こなした）、<em>fresh</em>（イケてる）。<em>nice fit</em>（いいコーデ）、<em>clean kicks</em>（きれいなスニーカー）のように使う。</p>
+          <p><strong class="text-[var(--c-text)]">the pits</strong> は「最悪・最低」を表すイディオム。<em>This is the pits</em>（最悪だ）。<em>be dipped</em>（キメてる）と対比させて「キメてないのは最低」と言っている。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑩ bite flows -->
+      <LearningUnit
+        heading="They bite flows — 「パクる」を意味するヒップホップ用語"
+        label="★ スラング（バトル文化）"
+        mc="A-Plus（Verse 12）"
+        t={TS["bite-flows"].t} tApprox={TS["bite-flows"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">They bite flows, but we make up new ones<br />If you're really dope, why ain't you signed yet?</Fragment>
+        <Fragment slot="jpn">やつらはフロウをパクる、でも俺たちは新しいのを作る／本当に dope（イケてる）なら、なんでまだ契約取れてないんだ？</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 12（A-Plus）、ライバルを牽制する件。</p>
+        <p>上の行頭 <strong class="text-[var(--c-text)]"><QuickSlang word="bite" desc="他人のスタイル・フロウ・ネタを盗む/真似ること。ヒップホップ最大級のタブー" /></strong> がヒップホップ重要語。「他人のスタイルやフロウを<strong class="text-[var(--c-text)]">パクる・盗む</strong>」という意味で、ヒップホップでは最大級のタブーとされる行為です。<code>They bite flows, but we make up new ones</code>（やつらはパクる、でも俺たちは新しいのを作る）で、オリジナリティの優位を主張している。下の行の <strong class="text-[var(--c-text)]"><QuickSlang word="dope" desc="最高の・イケてる、を意味する最頻出のポジティブ・スラング" /></strong>（イケてる）も必修語。そして <code>why <strong class="text-[var(--c-text)]">ain't</strong> you signed yet?</code> の <strong class="text-[var(--c-text)]">ain't</strong> は、<em>aren't / haven't</em> などをまとめて担うAAVEの否定形——「本当にすごいなら、なんでまだ（レーベルと）契約してないんだ？」という挑発になっています。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">bite</strong>（動詞）＝「（他人のネタ・スタイルを）盗む・真似る」。<em>Stop bitin' my style</em>（俺のスタイルをパクるな）。名詞 <em>biter</em>（パクる奴）も使う。オリジナリティを重んじるヒップホップでは強い非難語。</p>
+          <p><strong class="text-[var(--c-text)]">ain't</strong> は <em>am not / isn't / aren't / haven't / hasn't</em> を一語でまかなう否定形。AAVE・口語で頻出。<em>why ain't you signed</em>＝<em>why aren't you signed</em>（なぜ契約していないのか）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑪ the Land -->
+      <LearningUnit
+        heading="who's chillin' around the Land — オークランド＝the Land"
+        label="★ スラング（地名）／文化"
+        mc="Souls of Mischief（Outro）"
+        t={TS["the-land"].t} tApprox={TS["the-land"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">But who's chillin' around the Land, y'know?<br />Casual — you know he's chillin'</Fragment>
+        <Fragment slot="jpn">で、誰がthe Land（オークランド）でチルしてる？／カジュアル——あいつはチルしてるだろ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 アウトロ、クルーの面々を呼んでいく件。</p>
+        <p>学習ポイントは <strong class="text-[var(--c-text)]">the Land</strong>。これは <strong class="text-[var(--c-text)]">Oakland（オークランド）の愛称</strong>で、<em>Oakland → Oak-LAND → the Land</em> という、地名そのものを縮めて呼ぶ言い方です（オークランドは "The Town" とも呼ばれます）。同じ「地元」でも、NasのNY＝Shaolinやクイーンズブリッジとはまったく違う呼び名——<strong class="text-[var(--c-text)]">スラングの地域差</strong>がここにも出ています。アウトロでは <strong class="text-[var(--c-text)]">Casual、Del the Funky Homosapien、Pep Love</strong> ら、彼らの所属クルー <strong class="text-[var(--c-text)]">Hieroglyphics</strong> の面々の名前を次々に呼んでいく。「誰がチルしてる？」と仲間の名を挙げていく構成そのものが、クルー文化（crew culture）の温度を伝えてくれます。<code>y'know</code>（＝you know）の口癖も、リラックスした語りの空気そのものです。</p>
+      </LearningUnit>
+    </section>
+
+    <!-- 文化的背景 -->
+    <section id="background" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        文化的背景
+      </h2>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">Hieroglyphics と East Oakland</p>
+        <h3 class="font-semibold text-base mb-3">G-Funk全盛の西海岸の、もう一つの顔</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          1993年当時の西海岸といえば、Dr. DreやDeath Rowが牽引する <strong class="text-[var(--c-text)]">G-Funk</strong> の全盛期。重たいシンセとギャングスタの世界観が主流でした。そのなかで、East Oaklandの <strong class="text-[var(--c-text)]">Souls of Mischief</strong>——Del the Funky Homosapienらと共に大所帯クルー <strong class="text-[var(--c-text)]">Hieroglyphics（ヒエロ）</strong>を形成する4人組——は、ジャジーで頭脳的、そして肩の力の抜けた別ベクトルの西海岸像を提示しました。10代後半の若者たちが、暴力ではなく「どう楽しく過ごすか」を、技巧的な韻で描く。彼らはのちに自主レーベル <strong class="text-[var(--c-text)]">Hiero Imperium</strong> を立ち上げ、インディペンデント運営の先駆けの一つにもなります。同じ西海岸でも、ウェッサイ＝G-Funkという図式だけでは語れない、というのを教えてくれる存在です。
+        </p>
+      </div>
+
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">キーワード早見表</p>
+        <h3 class="font-semibold text-base mb-3">この曲で学んだ表現の整理</h3>
+        <div class="space-y-3 mt-3">
+          {[
+            ["chill / 'til", "chill＝まったり過ごす。from '93 'til は infinity を省略した言い回し"],
+            ["the Land", "Oakland（オークランド）の愛称。Oak-LAND→the Land"],
+            ["indo", "高品質のマリファナ。西海岸由来のスラング"],
+            ["fits / kicks / dipped", "fits＝服、kicks＝スニーカー、dipped＝バッチリ着こなした"],
+            ["phat / all that / dope", "どれも「最高・イケてる」を表すポジティブ・スラング"],
+            ["bite", "他人のスタイル・フロウを盗む。ヒップホップ最大級のタブー"],
+            ["habitual be", "AAVEの習慣のbe。I be coolin'＝「いつもまったりしてる」"],
+          ].map(([term, desc]) => (
+            <div class="flex gap-3 text-sm">
+              <span class="text-[var(--c-gold)] shrink-0 font-semibold min-w-[150px]">{term}</span>
+              <span class="text-[var(--c-muted)]">{desc}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- サンプル・制作の裏側 -->
+    <section id="behind" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        サンプル・制作の裏側
+      </h2>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">サンプル元</p>
+        <h3 class="font-semibold text-base mb-3">まどろむジャジーループ — Billy Cobham "Heather"</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          この曲のあの夢見心地のループは、フュージョン・ドラマー <strong class="text-[var(--c-text)]">Billy Cobham の「Heather」（アルバム『Crosswinds』1974年）</strong>からのサンプリング。プロデュースを手がけたのは、ラップにも参加している <strong class="text-[var(--c-text)]">A-Plus</strong> 本人です。彼はこの『Crosswinds』を、なんと安売りのワゴン（ダラー・ビン）で見つけたと語っています。原曲のメロウなフレーズを刻み、ホーンにディレイ（やまびこのような残響）を効かせて、あの浮遊感のあるトラックに仕立て上げた。<strong class="text-[var(--c-text)]">ラップする本人がビートも作っている</strong>のがこの曲のポイントで、だからこそ声とトラックの呼吸がぴたりと合っている。お金をかければ出る音、というわけではないのが面白い。
+        </p>
+      </div>
+
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">リレー形式の妙</p>
+        <h3 class="font-semibold text-base mb-3">4人で回す、チルの見せ合い</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          この曲は、Opio・A-Plus・Tajai・Phestoの4人が <strong class="text-[var(--c-text)]">短いヴァースを次々にリレーしていく</strong>構成。一人が長尺で語り倒すのではなく、バトンを渡し合うことで、クルー全体の一体感と「みんなで chill してる」空気が生まれています。同じ韻のテーマ（音）を引き継ぎながら、それぞれが自分の個性で少しずつ崩していく——大所帯クルーならではの楽しさが、構成そのものに出ている一曲です。
+        </p>
+      </div>
+    </section>
+
+    <!-- 評価と影響 -->
+    <section id="legacy" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        評価とその後の影響
+      </h2>
+
+      <div class="mb-4 rounded-lg overflow-hidden border border-[var(--c-border)] text-sm">
+        <div class="grid grid-cols-3 bg-[var(--c-bg)] text-[var(--c-very-dim)] text-xs uppercase tracking-widest">
+          <div class="p-3 border-b border-[var(--c-border)]">指標</div>
+          <div class="p-3 border-b border-l border-[var(--c-border)]">記録</div>
+          <div class="p-3 border-b border-l border-[var(--c-border)]">意義</div>
+        </div>
+        {[
+          ['収録アルバム', "デビュー作『93 'til Infinity』（1993）", 'タイトル曲。Souls of Mischiefの名刺代わりの一曲'],
+          ['プロデュース', 'A-Plus（メンバー本人）', 'ラップとビートを兼任。Billy Cobhamのジャズをチル・アンセムへ'],
+          ['Rolling Stone誌', '西海岸ヒップホップ100選で上位（2023年）', 'G-Funkとは別系統の西海岸クラシックとして再評価'],
+          ['後継', 'Hiero Imperium設立へ', 'インディペンデント運営の先駆けとなるクルーの出発点'],
+        ].map(([metric, record, significance]) => (
+          <div class="grid grid-cols-3">
+            <div class="p-3 border-b border-[var(--c-border)] text-[var(--c-dim)]">{metric}</div>
+            <div class="p-3 border-b border-l border-[var(--c-border)] text-[var(--c-gold)] font-medium">{record}</div>
+            <div class="p-3 border-b border-l border-[var(--c-border)] text-[var(--c-muted)] text-xs">{significance}</div>
+          </div>
+        ))}
+      </div>
+
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">後世への影響</p>
+        <h3 class="font-semibold text-base mb-3">「チル・アンセム」の永久指定席</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          「93 'Til Infinity」は、大ヒットしてチャートを席巻したというより、<strong class="text-[var(--c-text)]">「いい意味で力の抜けたヒップホップ」の代名詞</strong>として、世代を超えて愛され続けてきた曲です。あのジャジーなループと「from '93 'til（'93からずっと）」というフレーズは、夏・週末・たむろ——そういう時間のサウンドトラックとして、今もプレイリストの定番。Souls of Mischiefが属するHieroglyphicsは、その後インディペンデントなクルー運営のモデルケースにもなりました。タイトルどおり、1993年から「infinity（無限）」へ——リリースから30年以上経っても色褪せないチル・アンセムとして、その地位は揺らいでいません。英語学習の面でも、肩の力を抜いて生きた口語に触れられる、最高の入口だと思います。
+        </p>
+      </div>
+    </section>
+
+    <!-- まとめ -->
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        まとめ
+      </h2>
+      <ul class="space-y-2 text-sm text-[var(--c-muted)] list-disc list-inside leading-relaxed">
+        <li>「93 'Til Infinity」は、East Oaklandの4人組がひたすら「chill（だらける）」を描いた、西海岸ゴールデンエラのチル・アンセム。</li>
+        <li>chill・dipped・fits・kicks・phat・dope といった<strong>今でも通じるカジュアル・スラング</strong>が高密度で、深刻な犯罪語彙なしに生きた口語が学べる。</li>
+        <li>the Land（＝Oakland）やindoなど<strong>西海岸特有の語彙</strong>で、東海岸（N.Y. State of Mind等）とのスラングの地域差を体感できる。</li>
+        <li>AAVEの習慣のbe（I be coolin'）、bones to pickのイディオム遊び、Good Vibrationsの引用など、文法・言葉遊び・レファレンスも一通り押さえられる。</li>
+      </ul>
+    </section>
+
 </SongLayout>
