@@ -1,0 +1,112 @@
+[
+  {
+    "id": "protect-neck",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 28,
+    "t": 28,
+    "source": "fallback",
+    "approx": true,
+    "score": 0
+  },
+  {
+    "id": "deck-frazier",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 37,
+    "t": 37,
+    "source": "fallback",
+    "approx": true,
+    "score": 0
+  },
+  {
+    "id": "deck-pakistan-spiderman",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 44,
+    "t": 44,
+    "source": "fallback",
+    "approx": true,
+    "score": 0
+  },
+  {
+    "id": "rae-schwarzenegger",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 85,
+    "t": 85,
+    "source": "fallback",
+    "approx": true,
+    "score": 0
+  },
+  {
+    "id": "meth-flow-hudson",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 125,
+    "t": 125,
+    "source": "fallback",
+    "approx": true,
+    "score": 0
+  },
+  {
+    "id": "ugod-shaolin",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 138,
+    "t": 138,
+    "source": "fallback",
+    "approx": true,
+    "score": 0
+  },
+  {
+    "id": "odb-brooklyn-zoo",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 165,
+    "t": 165,
+    "source": "fallback",
+    "approx": true,
+    "score": 0
+  },
+  {
+    "id": "ghost-escobar",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 205,
+    "t": 205,
+    "source": "fallback",
+    "approx": true,
+    "score": 0
+  },
+  {
+    "id": "rza-mad-speaks",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 222,
+    "t": 222,
+    "source": "fallback",
+    "approx": true,
+    "score": 0
+  },
+  {
+    "id": "gza-labels",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 252,
+    "t": 252,
+    "source": "fallback",
+    "approx": true,
+    "score": 0
+  },
+  {
+    "id": "gza-anr",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 270,
+    "t": 270,
+    "source": "fallback",
+    "approx": true,
+    "score": 0
+  }
+]

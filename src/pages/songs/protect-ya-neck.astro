@@ -1,535 +1,343 @@
 ---
-import LyricsBlock from '../../components/LyricsBlock.astro';
+import LearningUnit from '../../components/LearningUnit.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
 import SongLayout from '../../layouts/SongLayout.astro';
+
+// 学習ユニットのPVタイムスタンプ。agent/src/extract-unit-timestamps.mjs で album音源を
+// whisper単語アライメントして取得する設計だが、本曲は大人数・重いサンプルで whisper が
+// ほぼ全滅（10トークンのみ）。よって全ユニットが fallback（手動推定・要実測）。
+// 運営者の実測値が入れば manualSec が最優先で上書きする。詳細は docs/timestamp-override.md。
+import tsData from '../../../agent/protect-ya-neck/assets/units-timestamps.json';
+const YT = "R0IUR4gkPIE";
+const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.approx }]));
 ---
 
 <SongLayout
   title="Protect Ya Neck 和訳・意味・スラング解説 | Wu-Tang Clan"
-  description="Wu-Tang Clanの「Protect Ya Neck」の歌詞和訳・意味・スラング解説。RZAのビートの上に8人のMCがサイファー形式でリレーする1992年のデビューシングル。posse cut、ファイブ・パーセンターズ、東西海岸対立の背景もわかりやすく解説。"
+  description="Wu-Tang ClanのProtect Ya Neckを英語学習＋ヒップホップ理解の教材として精読。protect ya neck(警戒しろ)の慣用句、mad＝veryのNY強調、who I areのAAVE、Shaolin・Brooklyn Zoo・A&Rなどのスラングと固有名詞、RZAがThe J.B.'sの絶叫サックスを刻んだサンプリングを8MC分の表現単位で解説。各表現はPVの該当箇所へ頭出しリンク付き。"
   slug="protect-ya-neck"
   highlights={[
-    '100ドルの「参加費」制サイファーで選別された実力主義の戦闘集団の誕生証明',
-    'GZAの業界批判ヴァース——「エレキギターを弾く登山家のA&R」はヒップホップ最高の業界風刺',
-    'インディリリース1万枚→各メンバーが他レーベルとソロ契約可能な前代未聞の独立型メジャー契約',
+    'Protect Ya Neckはフックなし・8MCが斬り合うWu-Tangのデビュー名刺',
+    'スラング・韻・言葉遊び・AAVEを「学ぶ表現」単位で8MC分解説（PV頭出しリンク付き）',
+    'RZAがThe J.B.s「The Grunt」の絶叫サックスを刻んだ、インディー独立宣言の一曲',
   ]}
   youtubeId="R0IUR4gkPIE"
   sampleYoutubeId="85UgTkPv1_k"
   sampleTitle="The J.B.'s - The Grunt"
 >
-    <div id="lyrics"></div>
 
-    <!-- ===================== -->
-    <!-- INTRO                 -->
-    <!-- ===================== -->
+    <!-- 導入 -->
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■この曲で何を学べるか</h2>
+      <p class="text-sm text-[var(--c-muted)] leading-relaxed">
+        Wu-Tang Clanの<strong class="text-[var(--c-text)]">デビュー・シングル</strong>であり、伝説のデビュー作『Enter the Wu-Tang (36 Chambers)』（1993年）にも収録された一曲。フック（サビ）らしいサビはほぼ無く、<strong class="text-[var(--c-text)]">8人のMCがひたすらマイクを奪い合うように斬り込んでいく</strong>、posse cut（大人数曲）の極北みたいな構成です。プロデュースはRZA。当時まだ加入していなかったMasta Killaを除く8人——Inspectah Deck、Raekwon、Method Man、U-God、Ol' Dirty Bastard、Ghostface Killah、RZA、GZA——が登場します。この記事は英語学習とヒップホップ理解の教材として読んでもらえればと思います。8人それぞれ訛りも語彙も違うので、<strong class="text-[var(--c-text)]">一曲で多様なスラングとAAVE、言葉遊びをまとめて浴びられる</strong>のが最大の魅力。タイトルの慣用句から、mad（＝very）のNY強調、who I are のAAVE、Shaolin・Brooklyn Zoo・A&Rといった固有名詞まで、「学ぶ表現」単位で解説していきます。
+      </p>
+    </section>
+
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■なぜProtect Ya Neckが教材として優れるか</h2>
+      <p class="text-sm text-[var(--c-muted)] leading-relaxed">
+        理由は、<strong class="text-[var(--c-text)]">8人ぶんの「個性の違う英語」が一曲に詰まっている</strong>から。同じWu-Tangでも、Inspectah Deckの比喩の畳み方、Raekwonの硬派な韻、Method Manの軽妙なフロウ、Ghostfaceの語順を崩すAAVE、GZAの皮肉たっぷりの音楽業界批判——口調も語彙もまるで違います。一人を追うだけでは出会えない表現の幅を、4分強でまとめて体験できる。しかも歌詞は<strong class="text-[var(--c-text)]">バトル英語（boast / battle rap）の見本市</strong>で、相手をどう言葉で叩きのめすかという比喩・誇張・固有名詞の引用が全編に詰まっている。「自分を何に喩えるか」だけでも、ボクサー（Frazier）、俳優（Schwarzenegger）、麻薬王（Escobar）と多彩で、比喩を読むことがそのまま文化を読むことになります。フックがない＝ひたすら中身、というのも、リリック精読の教材としてはむしろ理想的です。
+      </p>
+    </section>
+
+    <!-- Table of Contents -->
+    <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
+      <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
+        <li><a href="#story" class="hover:text-[var(--c-gold)] transition-colors">01 — ストーリーの流れ（まず曲全体をつかむ）</a></li>
+        <li><a href="#units" class="hover:text-[var(--c-gold)] transition-colors">02 — 学ぶ表現（スラング・韻・言葉遊び・AAVE）</a></li>
+        <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">03 — 文化的背景</a></li>
+        <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">04 — サンプル・制作の裏側</a></li>
+        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">05 — 評価とその後の影響</a></li>
+      </ol>
+    </nav>
+
+    <!-- ストーリー -->
+    <section id="story" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        ストーリーの流れ — まず曲全体をつかむ
+      </h2>
+      <p class="text-xs text-[var(--c-dim)] mb-5">
+        この曲に物語はありません。あるのは「誰がいちばん斬れるか」の腕試し。8人の登場順と持ち味をざっと押さえておくと、次章で一語ずつ掘るときに「これは誰のヴァースか」が立体的に見えてきます。
+      </p>
+      <div class="space-y-4 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          <strong class="text-[var(--c-text)]">イントロ＆Interlude（RZA & ODB）</strong>。ラジオに電話して「あのWu-Tangの曲をかけてくれ」とねだる小芝居から始まり、「Watch your step, kid（足元に気をつけろ）」の連呼でタイトルの世界に引きずり込む。
+        </p>
+        <p>
+          <strong class="text-[var(--c-text)]">Verse 1〜3</strong>は <strong class="text-[var(--c-text)]">Inspectah Deck → Raekwon → Method Man</strong>。Deckが「Smokin' Joe Frazier」の駄洒落で口火を切り、Raekwonが硬派な韻で畳み、Methが軽快なフロウで受ける。<strong class="text-[var(--c-text)]">Bridge（U-God）</strong>は短め——彼は録音期に多くを刑務所で過ごしていたため、出番がこの短いパートだけになった、という背景があります。
+        </p>
+        <p>
+          <strong class="text-[var(--c-text)]">Verse 4〜7</strong>は <strong class="text-[var(--c-text)]">Ol' Dirty Bastard → Ghostface Killah → RZA → GZA</strong>。ODBが「Brooklyn Zoo」の異名で暴れ、Ghostfaceが「Pablo Escobar」を引いて凄み、RZAが宗教とユーモアを混ぜ、最後にGZAが<strong class="text-[var(--c-text)]">音楽業界そのものを皮肉で斬り倒して</strong>締める。フックを挟まず8人が一気に駆け抜ける構成は、初めて聴くと圧倒されます。
+        </p>
+        <p class="text-xs text-[var(--c-dim)]">
+          ※本ページは批評・教育目的で、解説に必要な範囲の断片のみを引用しています。全歌詞の対訳は掲載していません。
+        </p>
+      </div>
+    </section>
+
+    <!-- 学習ユニット -->
+    <div id="units"></div>
     <section class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Intro · RZA / Ol' Dirty Bastard
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2 border-b border-[var(--c-border)] pb-2">
+        学ぶ表現 — スラング・韻・言葉遊び・AAVE
       </h2>
+      <p class="text-xs text-[var(--c-dim)] mb-6">
+        各見出しは「この曲から学べる英語表現」。各ユニットはまず上に英語の用例（1〜2行）を置いてあります。<strong class="text-[var(--c-text)]">先に英語を音で追い、行のどこが学習対象かを確かめてから</strong>下の日本語解説に進むと、英語が苦手でも置いていかれません。🎤はそのリリックを歌うMC、▶は公式PVの該当箇所への頭出しリンクです。<strong class="text-[var(--c-text)]">※本曲は8人のMCと重いサンプルのため自動の音声解析がほぼ機能せず、現在の秒数は全て手動推定（「≈」表示）です。</strong>実機での確認後に正確な秒数へ随時上書きします。引用は解説に必要な最小限の断片に留めています。
+      </p>
 
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          So, what's up, man? (Coolin', man)<br />
-          Chillin' chillin'?<br />
-          Yo, you know I had to call, you know why right? (Why?)<br />
-          Because, yo! I never, ever call and ask you to play somethin', right? (Yeah)<br />
-          You know what I wanna hear, right? (What you wanna hear?)<br />
-          I wanna hear that <QuickSlang word="Wu-Tang Clan" desc="1993年にニューヨーク・スタテンアイランドで結成された伝説的なヒップホップ・グループ。RZAをリーダーとし、9人のMC（GZA、Method Man、Raekwon、Ghostface Killah、Inspectah Deck、U-God、ODB、Masta Killa、そして後にCappadonna）で構成される。1970年代のカンフー映画『Shaolin and Wu Tang』に由来する名称。" /> joint (Wu-Tang again?)<br />
-          Aw, yeah! Again and again!<br />
-          Wu-Tang Clan comin' at ya!<br />
-          (Watch your step, kid) (Watch your step, kid)<br />
-          Protect ya neck, kid!<br />
-          (Watch your step, kid) (Watch your step, kid)<br />
-          First to set it off!<br />
-          (Watch your step, kid) (Watch your step, kid)<br />
-          The Inspectah Deck!
+      <!-- ① protect ya neck idiom -->
+      <LearningUnit
+        heading="Watch your step / protect ya neck — 警戒を促す慣用句"
+        label="★ 慣用句／フック"
+        mc="RZA & Ol' Dirty Bastard（Interlude）"
+        t={TS["protect-neck"].t} tApprox={TS["protect-neck"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Watch your step, kid (Protect your neck, kid)<br />You best protect your neck (Watch your step, kid)</Fragment>
+        <Fragment slot="jpn">足元に気をつけろ、坊主（首を守れ、坊主）／首を守ったほうがいい（足元に気をつけろ、坊主）</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 イントロ後のInterludeと、曲を締めるアウトロで繰り返されるタイトル句。</p>
+        <p>タイトルの <strong class="text-[var(--c-text)]">protect ya neck</strong>（＝protect your neck）が学習ポイント。文字どおりは「首を守れ」ですが、<strong class="text-[var(--c-text)]">「油断するな・警戒しろ・隙を見せるな」</strong>という比喩の慣用句です。首は急所——そこを守れ＝身を守れ、という発想。あわせて出てくる <strong class="text-[var(--c-text)]">Watch your step</strong>（足元に気をつけろ）も「気を抜くな」という警告の定番フレーズ。<code>You <strong class="text-[var(--c-text)]">best</strong> protect your neck</code> の <strong class="text-[var(--c-text)]">best</strong> は <em>you('d) best ＝ you had better</em>（〜したほうが身のためだ）の口語形で、強い忠告・脅しのニュアンスになります。フックの代わりにこの警告句を反復することで、曲全体が「斬り合いの場」だと宣言しているわけです。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">you best (do) ~</strong> は <em>you'd best ＝ you had better</em> の砕けた形。「〜したほうがいい（さもないと…）」という警告・脅しに使う。<em>You best watch out</em>（気をつけたほうがいいぞ）。standard の <em>you should</em> より強い。</p>
+          <p><strong class="text-[var(--c-text)]">watch your step / watch your back</strong> はどちらも「警戒しろ・油断するな」の慣用句。step は「足元（＝行動）」、back/neck は「無防備な急所」を守れ、という発想。</p>
         </Fragment>
-        <Fragment slot="jpn">
-          おう、調子はどうだい？（最高だぜ）<br />
-          リラックスしてるか？<br />
-          なあ、俺が電話した理由、分かってるよな？（なぜだ？）<br />
-          だって、俺は普段、曲のリクエストなんて絶対に電話しないだろ？（そうだな）<br />
-          俺が何を聴きたいか、分かってるよな？（何を聴きたいんだ？）<br />
-          あのWu-Tangの曲が聴きたいんだよ（またWu-Tangか？）<br />
-          ああ、そうさ！何度でも、何度でもな！<br />
-          Wu-Tang Clanのお出ましだ！<br />
-          （足元に気をつけな、坊うず）×2<br />
-          自分の首を守れよ、坊うず！<br />
-          （足元に気をつけな、坊うず）×2<br />
-          最初に火蓋を切るのはこいつだ！<br />
-          （足元に気をつけな、坊うず）×2<br />
-          The Inspectah Deck！
+      </LearningUnit>
+
+      <!-- ② Deck Frazier -->
+      <LearningUnit
+        heading="I smoke on the mic like Smokin' Joe Frazier — 駄洒落つきの直喩"
+        label="★ 言葉遊び／引用"
+        mc="Inspectah Deck（Verse 1）"
+        t={TS["deck-frazier"].t} tApprox={TS["deck-frazier"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">I smoke on the mic' like "Smokin' Joe" Frazier<br />The hellraiser, raisin' Hell with the flavor</Fragment>
+        <Fragment slot="jpn">俺はマイクの上で"煙が出る"ほど熱い、スモーキン・ジョー・フレイジャーのように／地獄をかき回す者、フレイヴァーで地獄を巻き起こす</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 1の冒頭、Inspectah Deckが曲の口火を切る一行目。</p>
+        <p>曲の一行目から仕掛けが効いています。<strong class="text-[var(--c-text)]">I smoke on the mic like "Smokin' Joe" Frazier</strong>——伝説のボクサー <strong class="text-[var(--c-text)]">Joe Frazier（通称 "Smokin' Joe"）</strong>を引きつつ、<strong class="text-[var(--c-text)]">smoke</strong> の二重の意味で遊んでいる。<em>smoke</em> は「煙が出るほど激しくやる／（スラングで）相手を圧倒する・叩きのめす」。つまり「マイクの上でスモーキン・ジョーのように相手をぶちのめす」を、ボクサーの異名そのものに掛けている。下の行の <strong class="text-[var(--c-text)]">hellraiser / raisin' Hell</strong> も、<em>raise hell</em>（大暴れする）という慣用句と「hell-raiser（暴れ者）」を重ねた言葉遊び。冒頭の二行に駄洒落と引用と慣用句が全部入っている、Deckらしい立ち上がりです。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">smoke</strong>（動詞）はスラックで「（相手を）完全に打ち負かす・叩きのめす」。<em>I smoked him</em>（あいつを圧倒した）。本来の「煙・喫煙」の意と掛けて使われることが多い。</p>
+          <p><strong class="text-[var(--c-text)]">raise hell</strong> は「大騒ぎする・暴れる・問題を起こす」という慣用句。名詞化した <em>hell-raiser</em>（暴れ者・トラブルメーカー）とセットで覚えると、ここでの言葉遊びがよく分かる。</p>
         </Fragment>
-        <Fragment slot="explanation">
-          イントロで繰り返されるこの掛け合いは、実際のラジオ局インタビューをサンプリングしたもの。熱狂的なリスナーがラジオ局に電話をかけてくる寸劇（スキット）として機能し、当時のアンダーグラウンドのヘッズたちが「Protect Ya Neck」をどれほど渇望していたかを示す。「Watch your step（足元に気をつけろ）」という執拗な警告は、これから始まるリリックの暴力に対する防衛をリスナーに促す。
+      </LearningUnit>
+
+      <!-- ③ Deck Pakistan / Spider-Man -->
+      <LearningUnit
+        heading="like troops in Pakistan / Spider-Man — 多音節の直喩チェーン"
+        label="★ 韻／比喩"
+        mc="Inspectah Deck（Verse 1）"
+        t={TS["deck-pakistan-spiderman"].t} tApprox={TS["deck-pakistan-spiderman"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Terrorize the jam like troops in Pakistan<br />Swingin' through your town like your neighborhood Spider-Man</Fragment>
+        <Fragment slot="jpn">パキスタンの軍隊のようにジャム（現場）を制圧する／近所のスパイダーマンみたいに、お前の街をスイングして渡っていく</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 1前半、Deckが直喩を連射する件。まず音で。</p>
+        <p>まず音だけ追ってください。行末の <strong class="text-[var(--c-text)]">Pakistan / Spider-Man</strong> が、<code>-istan / -ider-man</code> と<strong class="text-[var(--c-text)]">多音節（multisyllabic）の韻</strong>で気持ちよくハマっている。これがDeckの真骨頂です。意味の面では、どちらも <code>like</code> を使った直喩のチェーン。<strong class="text-[var(--c-text)]">like troops in Pakistan</strong>（パキスタンの軍隊のように）で制圧の激しさを、<strong class="text-[var(--c-text)]">like your neighborhood Spider-Man</strong>（近所のスパイダーマンのように）で身軽さと縦横無尽さを表す。<strong class="text-[var(--c-text)]"><QuickSlang word="jam" desc="その場・現場・パーティー/セッションを指すスラング" /></strong> は「現場・場（セッションやパーティー）」のスラング。固有名詞を2連発しながら多音節で韻を踏む——比喩と韻を同時に走らせる作りの見本です。</p>
+      </LearningUnit>
+
+      <!-- ④ Rae Schwarzenegger -->
+      <LearningUnit
+        heading="Rhymes rugged and built like Schwarzenegger — 固有名詞を使った直喩"
+        label="★ 比喩／引用"
+        mc="Raekwon（Verse 2）"
+        t={TS["rae-schwarzenegger"].t} tApprox={TS["rae-schwarzenegger"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Call me the rap assassinator<br />Rhymes rugged and built like Schwarzenegger</Fragment>
+        <Fragment slot="jpn">俺をラップの暗殺者と呼べ／韻はゴツくて、シュワルツェネッガーみたいに筋骨隆々だ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 2前半、Raekwonが自分の韻の強度を誇る件。</p>
+        <p>注目は <strong class="text-[var(--c-text)]">built like Schwarzenegger</strong>。俳優アーノルド・シュワルツェネッガーの筋骨隆々の肉体を引いて、自分の韻が「ゴツくて頑丈」だと喩えています。<strong class="text-[var(--c-text)]">built like ~</strong>（〜のような体格・作り）は、体格や頑丈さを表す定番の言い回し。<strong class="text-[var(--c-text)]"><QuickSlang word="rugged" desc="ゴツい・武骨・荒削りでタフ。ハードコアなスタイルへの褒め言葉" /></strong>（武骨でタフ）はWu-Tang美学のキーワードでもあります。さらに前の行 <code>assassinator</code> と <code>Schwarzenegger</code> で <strong class="text-[var(--c-text)]">-ator / -egger</strong> の韻も踏んでいる。固有名詞ひとつで「強さの質感」を伝える——比喩の経済性がよく効いた一節です。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">built like ~</strong> は「〜のような体格・構造をしている」。<em>built like a tank</em>（戦車のようにごつい）、<em>built like an athlete</em>（アスリート体型）。人の体格にも物の頑丈さにも使える。</p>
+          <p><strong class="text-[var(--c-text)]">rugged</strong> は「武骨な・ごつい・荒々しくタフ」。ハードコア・ヒップホップでは最上級の褒め言葉のひとつで、洗練（smooth）の対極にある美学を指す。</p>
         </Fragment>
-      </LyricsBlock>
+      </LearningUnit>
+
+      <!-- ⑤ Meth flow like the Hudson -->
+      <LearningUnit
+        heading="check out the flow like the Hudson — flow の二重の意味"
+        label="★ 言葉遊び"
+        mc="Method Man（Verse 3）"
+        t={TS["meth-flow-hudson"].t} tApprox={TS["meth-flow-hudson"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Yo, check out the flow<br />Like the Hudson</Fragment>
+        <Fragment slot="jpn">よお、このフロウを聴いてみろ／ハドソン川のように（流れる）</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 3後半、Method Manが自分のフロウを喩える件。</p>
+        <p>短い2行ですが、<strong class="text-[var(--c-text)]">flow</strong> の二重の意味で遊んでいます。ヒップホップで <strong class="text-[var(--c-text)]"><QuickSlang word="flow" desc="ラップのリズム・節回し・言葉の乗せ方。MCの技量を測る最重要概念" /></strong> は「ラップのリズム・節回し」を指す最重要語。ところがここでは <strong class="text-[var(--c-text)]">like the Hudson</strong>（ハドソン川のように）と続けることで、<em>flow</em> の本来の意味「（川の）流れ」に引き戻している。「俺のフロウ（ラップ）は、ニューヨークを流れるハドソン川みたいに滔々と流れる」——一語の二つの意味を、たった一つの川の名前で同時に成立させる。Method Manらしい軽妙な言葉遊びです。続く <code>Or PCP when I'm dustin'</code> の <strong class="text-[var(--c-text)]">dustin'</strong>（PCP＝"angel dust"をやること）のような物騒なスラングと、こうした洒落が同居するのも彼の持ち味。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">flow</strong>（名詞）はヒップホップで「ラップのリズム・節回し・言葉の乗せ方」。<em>nice flow</em>（いいフロウ）、<em>switch up the flow</em>（フロウを変える）。本来の「流れる」の意と掛けた言葉遊びに頻繁に使われる。</p>
+          <p>「自分の flow を川・水の流れに喩える」のはラップの定番レトリック。flow という語が元々「流れ」を意味するため、川・水のイメージと相性が良い。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑥ U-God Shaolin -->
+      <LearningUnit
+        heading="Here comes my Shaolin style — Shaolin＝スタテンアイランド"
+        label="★ スラング（地名）／文化"
+        mc="U-God（Bridge）"
+        t={TS["ugod-shaolin"].t} tApprox={TS["ugod-shaolin"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Here comes my Shaolin style<br />To my crew with the, "Soo"</Fragment>
+        <Fragment slot="jpn">ほら、俺のシャオリン（少林）スタイルのお出ましだ／"Soo"のかけ声で応える俺のクルーへ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 U-Godの短いBridge。出番はここだけ（録音期は服役中だった）。</p>
+        <p>学習ポイントは <strong class="text-[var(--c-text)]">Shaolin</strong>。これは中国の少林寺（カンフー映画の聖地）であると同時に、Wu-Tangが地元 <strong class="text-[var(--c-text)]">Staten Island（スタテンアイランド）</strong>を指して使う独自の呼び名です。彼らはカンフー映画の世界観を地元に重ねて「Shaolin」と呼びました。<code>Here comes my Shaolin style</code> で「俺の地元仕込みのスタイルの登場だ」。冒頭の <strong class="text-[var(--c-text)]">Here comes ~</strong>（〜のお出ましだ）は、登場を告げる提示の定番表現。なお、このBridgeがU-Godの唯一の出番なのは、<strong class="text-[var(--c-text)]">録音期の多くを彼が刑務所で過ごしていた</strong>ため——短さ自体に背景があります。地名の言い換え一つに、クルーの神話とメンバーの事情まで宿っているわけです。</p>
+      </LearningUnit>
+
+      <!-- ⑦ ODB Brooklyn Zoo -->
+      <LearningUnit
+        heading="straight from the Brooklyn Zoo — 異名で出自を名乗る"
+        label="★ スラング（地名）／文化"
+        mc="Ol' Dirty Bastard（Verse 4）"
+        t={TS["odb-brooklyn-zoo"].t} tApprox={TS["odb-brooklyn-zoo"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Shame on you when you step through to<br />The Ol' Dirty Bastard straight from the Brooklyn Zoo</Fragment>
+        <Fragment slot="jpn">恥をかくぞ、お前が踏み込んできたら／ブルックリン・ズー直送のオール・ダーティ・バスタードのもとへ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 4、Ol' Dirty Bastardが暴れ出す件。</p>
+        <p>学習ポイントは <strong class="text-[var(--c-text)]">Brooklyn Zoo</strong>。これはODBが自分の出身地ブルックリンを「動物園（混沌として手がつけられない場所）」になぞらえた異名で、のちに彼のソロ代表曲のタイトルにもなります。<code>straight from the Brooklyn Zoo</code>（ブルックリン・ズー直送）で、<strong class="text-[var(--c-text)]">自分の出自を一発で名乗る</strong>。<strong class="text-[var(--c-text)]">straight from ~</strong>（〜から直で・〜出身の）は出身や産地を強調する定番表現（<em>straight from the streets</em> など）。上の行 <strong class="text-[var(--c-text)]">Shame on you</strong>（恥を知れ・思い知るぞ）も日常で使える慣用句。地名を強烈な異名に変えて自己紹介にしてしまう——キャラクターの立て方がそのまま語彙になっている好例です。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">straight from ~</strong> は「〜から直接・〜出身の・〜直送の」を強調する言い回し。<em>straight from the source</em>（出どころから直で）、<em>straight outta Compton</em>（コンプトン出身）のように、出自・産地の本物感を出す。</p>
+          <p><strong class="text-[var(--c-text)]">shame on you</strong> は「恥を知れ・よくもまあ」という決まり文句。相手を非難・牽制するときに使う。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑧ Ghostface Escobar / who I are -->
+      <LearningUnit
+        heading="who I are is livin' the life of Pablo Escobar — AAVEの語順と引用"
+        label="★ AAVE文法／引用"
+        mc="Ghostface Killah（Verse 5）"
+        t={TS["ghost-escobar"].t} tApprox={TS["ghost-escobar"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">And get far like a shootin' star<br />'Cause who I are is livin' the life of Pablo Escobar</Fragment>
+        <Fragment slot="jpn">流れ星のように遠くまで行く／なぜなら、今の俺はパブロ・エスコバルの人生を生きているから</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 5の締め近く、Ghostfaceが凄む件。学習対象は下の行。</p>
+        <p>下の行に二つ仕込まれています。まず文法。<strong class="text-[var(--c-text)]">who I are</strong>——標準英語なら <em>who I am</em>（一人称＝am）ですが、ここでは <strong class="text-[var(--c-text)]">are</strong> になっている。これはAAVEに見られる<strong class="text-[var(--c-text)]">be動詞の人称による使い分けの緩み</strong>（一人称でも are を使う）の一例で、さらに行末 <strong class="text-[var(--c-text)]">Escobar / star / far</strong> の <code>-ar</code> 韻に <em>are</em> の音まで巻き込む、<strong class="text-[var(--c-text)]">韻のために語形を選ぶ</strong>狙いも見えます。意味の面では <strong class="text-[var(--c-text)]">Pablo Escobar</strong>（伝説のコロンビアの麻薬王）を引いて、桁外れの羽振りを誇示している。文法の崩しが韻と一体になっている——AAVEと韻の関係を考えるのに格好の一行です。</p>
+        <Fragment slot="usage">
+          <p>AAVEでは be動詞の人称対応が標準英語と異なることがあり、<em>who I are</em>（＝who I am）、<em>we was</em>（＝we were）のような形が現れる。崩れというより、韻や語感を優先して選ばれることも多い。</p>
+          <p>固有名詞での誇示（<strong class="text-[var(--c-text)]">livin' the life of ~</strong>＝「〜のような人生を送っている」）はラップの定番。Escobar / Scarface / Capone など、富と権力（と破滅）の象徴がよく引かれる。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑨ RZA mad / when I speaks -->
+      <LearningUnit
+        heading="Feelin' mad hostile / when I speaks — mad＝very と AAVEの動詞-s"
+        label="★ スラング／AAVE文法"
+        mc="RZA（Verse 6）"
+        t={TS["rza-mad-speaks"].t} tApprox={TS["rza-mad-speaks"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Feelin' mad hostile, wearin' Aéropostale<br />Flowin' like Christ when I speaks the gospel</Fragment>
+        <Fragment slot="jpn">めちゃくちゃ攻撃的な気分だ、エアロポステールを着て／福音を語るとき、俺はキリストのように流れる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 6、RZAが宗教の比喩を混ぜて凄む件。学習対象は二箇所。</p>
+        <p>二つの学習ポイントがあります。一つ目は <strong class="text-[var(--c-text)]">mad hostile</strong> の <strong class="text-[var(--c-text)]"><QuickSlang word="mad" desc="ニューヨーク特有の強調語で「とても・めちゃくちゃ」。mad cool＝超イケてる、など" /></strong>。これはニューヨーク特有の強調語で、<strong class="text-[var(--c-text)]">very（とても・めちゃくちゃ）</strong>の意味。<em>mad hostile</em>＝「超ピリピリしてる」、<em>mad people</em>＝「すごい数の人」のように形容詞・名詞の前に置きます。二つ目は <strong class="text-[var(--c-text)]">when I speaks</strong>——一人称なのに動詞に <strong class="text-[var(--c-text)]">-s</strong> が付いている。これはAAVEに見られる<strong class="text-[var(--c-text)]">動詞の-sの自由な付与</strong>（標準英語の三単現ルールに縛られない）で、ここでは <code>gospel / Aéropostale / hostile</code> の韻に <em>speaks the gospel</em> を合わせる狙いもある。ブランド名（Aéropostale）と聖書（gospel）を同じ韻でつなぐ発想込みで、RZAらしい一節です。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">mad</strong>（NYスラング）＝「とても・すごく・めちゃくちゃ」。<em>mad cool</em>（超イケてる）、<em>mad money</em>（大金）、<em>mad people</em>（大勢）。形容詞・名詞の前に置く強調語で、ニューヨークの語感が強い。</p>
+          <p>AAVEでは標準英語の<strong class="text-[var(--c-text)]">三単現の-s</strong>ルールが当てはまらず、<em>I speaks / he speak</em> のように -s の有無が標準と逆転することがある。崩れというより別体系の規則。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑩ GZA labels -->
+      <LearningUnit
+        heading="too slammin' for these cold killer labels — 音楽業界を斬る"
+        label="★ スラング／業界批評"
+        mc="GZA（Verse 7）"
+        t={TS["gza-labels"].t} tApprox={TS["gza-labels"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">The Wu is too slammin' for these cold killer labels<br />Some ain't had hits since I seen Aunt Mabel</Fragment>
+        <Fragment slot="jpn">Wuはイカしすぎてて、この薄情なレコード会社どもには手に負えない／いくつかのレーベルは、俺がメイベルおばさんに会って以来ヒットが出てない</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 7の冒頭、GZAの伝説的な音楽業界批判が始まる件。</p>
+        <p>GZAのヴァースは、丸ごと<strong class="text-[var(--c-text)]">音楽業界（メジャーレーベル）への痛烈な皮肉</strong>として知られています。学習ポイントの <strong class="text-[var(--c-text)]"><QuickSlang word="labels" desc="record labels（レコード会社）。とくにメジャー資本のレーベル" /></strong> は「レコード会社」のこと。<strong class="text-[var(--c-text)]"><QuickSlang word="slammin'" desc="最高にイカしている・素晴らしい、を意味するスラング" /></strong>（最高にイカしてる）なWuには、<code>cold killer labels</code>（冷酷で人を潰すレーベル）は手に負えない、と宣言する。次の行 <code>Some <strong class="text-[var(--c-text)]">ain't</strong> had hits since I seen Aunt Mabel</code> は、<strong class="text-[var(--c-text)]">ain't</strong>（AAVEの否定）と「メイベルおばさんに会って以来ヒットなし」という<strong class="text-[var(--c-text)]">大げさな時間表現のユーモア</strong>で、落ち目のレーベルをからかっている。GZAは過去に大手で苦い経験をしており、この業界批判には実体験の重みがあります。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">ain't ... since ~</strong>（〜以来ずっと…ない）は、<em>since</em> の後ろに大げさ・滑稽な基準を置いて時間の長さを誇張する定番の言い回し。<em>I ain't seen him since forever</em>（ずっと前から会ってない）。</p>
+          <p><strong class="text-[var(--c-text)]">slammin'</strong>（＝slamming）は「最高・イカしてる」のスラング。<em>That's slammin'</em>（それイケてる）。料理・音楽・服など幅広く使える褒め言葉。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑪ GZA A&R -->
+      <LearningUnit
+        heading="who's your A&R? — 音楽業界の専門語が出てくる"
+        label="★ 業界用語／言葉遊び"
+        mc="GZA（Verse 7）"
+        t={TS["gza-anr"].t} tApprox={TS["gza-anr"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">First of all, who's your A&R?<br />A mountain climber who plays an electric guitar?</Fragment>
+        <Fragment slot="jpn">そもそも、お前んとこのA&Rは誰だ？／エレキギターを弾く登山家か？</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 7中盤、GZAがレーベルの人選を笑う件。</p>
+        <p>学習ポイントは <strong class="text-[var(--c-text)]"><QuickSlang word="A&R" desc="Artists and Repertoire。レーベルでアーティストの発掘・契約・作品の方向性を担う担当者" /></strong>（エー・アンド・アール）。これは音楽業界の専門用語で <strong class="text-[var(--c-text)]">Artists and Repertoire</strong> の略。レーベルで<strong class="text-[var(--c-text)]">アーティストを発掘・契約し、作品の方向性を決める担当者</strong>を指します。GZAは <code>who's your A&R? A mountain climber who plays an electric guitar?</code>（お前のA&Rは誰だ？ ギターを弾く登山家か？）と、<strong class="text-[var(--c-text)]">ヒップホップを分かっていない的外れな人物</strong>がアーバン・ミュージックの責任者をやっている滑稽さを皮肉っている。<code>A&R / guitar</code> の韻もきれいに決まっている。業界の内側を知る語彙（A&R）が、そのまま批評の武器になっている——専門語を覚えると、リリックの射程がぐっと広がる好例です。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">A&R（Artists and Repertoire）</strong>＝レコード会社で新人発掘・契約・楽曲やアルバムの方向性を統括する部門／担当者。<em>get signed by an A&R</em>（A&Rに見出されて契約する）のように使う、音楽業界の必須用語。</p>
+          <p>業界の専門語（A&R, label, signed, deal など）を押さえると、ヒップホップ特有の「音楽ビジネス批評」のリリックが一気に読めるようになる。</p>
+        </Fragment>
+      </LearningUnit>
     </section>
 
-    <!-- ===================== -->
-    <!-- VERSE 1               -->
-    <!-- ===================== -->
-    <section id="verse1" class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Verse 1 · Inspectah Deck
-      </h2>
-
-      <LyricsBlock hasExplanation={true} label="★ ヒップホップ史上最高のオープニング">
-        <Fragment slot="eng">
-          I smoke on the mic like "Smokin' Joe" Frazier<br />
-          The hell-raiser, raisin' hell with the flavor<br />
-          Terrorize the jam like troops in Pakistan<br />
-          Swingin' through your town like your neighborhood <QuickSlang word="Spider-Man" desc="ニューヨークを背景としたアメコミの英雄。高層ビル群を自由に飛び回るアイコン" /><br />
-          So uhh, tick-tock and keep tickin'<br />
-          While I get you flippin' off the s*** that I'm kickin'<br />
-          The Lone Ranger, code red, danger!<br />
-          Deep in the dark with the art to rip the charts apart<br />
-          The <QuickSlang word="vandal" desc="破壊者、規範に従わない者を指すストリート用語" />, too hot to handle<br />
-          You battle? You're sayin' "Goodbye" like Tevin Campbell<br />
-          Ruffneck, Inspectah Deck's on the set<br />
-          The Rebel, I make more noise than heavy metal
-        </Fragment>
-        <Fragment slot="jpn">
-          俺はマイクの上で煙を立てる、"スモーキン・ジョー"・フレージャーのようにな<br />
-          地獄からの使者、俺のフレーバーで地獄の騒ぎを引き起こす<br />
-          パキスタン軍みたいに、このジャム（パーティー）を恐怖に陥れる<br />
-          お前の街をスウィングして駆け抜ける、隣人スパイダーマンさ<br />
-          だから、チクタクと時計の針を進めておけ<br />
-          俺が蹴り出すヤバいラップでお前らが狂喜乱舞している間にな<br />
-          ローン・レンジャー、コード・レッド（最高警戒態勢）、危険だぜ！<br />
-          暗闇の奥深くから、チャートを切り裂く芸術を携えてきた<br />
-          破壊者、熱すぎて手には負えないぜ<br />
-          俺とバトルする気か？お前はTevin Campbellみたいに「Goodbye」と言うハメになる<br />
-          荒くれ者、Inspectah Deckがセットに登場だ<br />
-          ザ・レベル（反逆者）、俺はヘヴィメタルよりもデカいノイズを鳴らすぜ
-        </Fragment>
-        <Fragment slot="explanation">
-          Inspectah Deckのヴァースは、ヒップホップ史における最も完璧なオープニング。冒頭でモハメド・アリを初めて破った伝説のボクサー「スモーキン・ジョー・フレージャー」を引き合いに出し、自身のラップの圧倒的な熱量をビジュアルに結びつける。特筆すべきは「Pakistan / Spider-Man」の押韻構造。地政学的な戦地としてのパキスタン軍のイメージと、ニューヨークの高層ビル群を飛び回るアメコミのポップアイコンを並置し、ストリートの恐怖とエンターテインメント性を同時に表現する高度なワードプレイ。
-        </Fragment>
-      </LyricsBlock>
-    </section>
-
-    <!-- ===================== -->
-    <!-- VERSE 2               -->
-    <!-- ===================== -->
-    <section id="verse2" class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Verse 2 · Raekwon
-      </h2>
-
-      <LyricsBlock hasExplanation={true} label="★ ストリートの冷徹さと緻密な暴力性">
-        <Fragment slot="eng">
-          The way I make the crowd go wild<br />
-          Sit back, relax, won't smile, Rae got it goin' on, pal<br />
-          Call me the rap assassinator<br />
-          Rhymes rugged and built like Schwarzenegger<br />
-          And I'ma get mad deep like a threat<br />
-          Blow up your project, then take all your assets<br />
-          'Cause I came to shake the frame in half<br />
-          With the thoughts that bomb s*** like <QuickSlang word="math" desc="Wu-Tangの精神的支柱であるファイブ・パーセンターズの教義『Supreme Mathematics（至高の数学）』を指す。0から9の数字で宇宙の真理と世界の事象を解読する思想。ラップは単なる思いつきではなく、神聖で緻密な計算に基づいているという意味" /><br />
-          So if you wanna try to flip, yo, flip on the next man<br />
-          'Cause I grab the clip and<br />
-          Hit you with sixteen shots and more, I got<br />
-          Goin' to war with the meltin' pot, akh'
-        </Fragment>
-        <Fragment slot="jpn">
-          俺が観衆を熱狂させるやり方はこうだ<br />
-          座ってリラックスしろ、俺は笑わねえ、Rae（レイクウォン）がカマしてやるよ、相棒<br />
-          俺をラップの暗殺者と呼べ<br />
-          ライムは無骨で、シュワルツェネッガーみたいに鍛え上げられてる<br />
-          そして脅威のように、底知れぬ深さまで潜り込むぜ<br />
-          お前のプロジェクト（公営住宅）を爆破し、お前の全財産を奪い取る<br />
-          なぜなら俺は、建物の骨組みを真っ二つに揺さぶるために来たからだ<br />
-          数学（至高の数学）のように緻密に計算された、爆弾みたいな思考でな<br />
-          だから、もし俺に盾突きたいなら、他の奴を当たることだな<br />
-          なぜなら俺は銃のクリップ（弾倉）を掴み、<br />
-          お前に16発、いやそれ以上の銃弾を撃ち込むからだ<br />
-          「人種のるつぼ（ニューヨーク）」と戦争しに行くぜ、兄弟
-        </Fragment>
-        <Fragment slot="explanation">
-          「The Chef」の異名を持つRaekwonのヴァースは、ストリートの冷徹さと緻密な暴力性に満ちている。ヒップホップの標準的な構成である16小節（16 bars）のラップを、自動小銃から放たれる「16 shots（16発の銃弾）」というダブルミーニングで表現し、言葉の破壊力を物理的な殺傷能力へと変換。「thoughts that bomb s*** like math」は、Wu-Tangの精神的基盤であるファイブ・パーセンターズの「至高の数学」への深い言及であり、彼のラップが単なる思いつきではなく、神聖で緻密な計算に基づいていることを示す。
-        </Fragment>
-      </LyricsBlock>
-    </section>
-
-    <!-- ===================== -->
-    <!-- VERSE 3               -->
-    <!-- ===================== -->
-    <section id="verse3" class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Verse 3 · Ol' Dirty Bastard
-      </h2>
-
-      <LyricsBlock hasExplanation={true} label="★ クレイジーなエネルギーと野獣的なパワー">
-        <Fragment slot="eng">
-          First things first, man, you're f**kin' with the worst<br />
-          I'll be stickin' pins in your head like a f**kin' nurse<br />
-          I'll attack any n***a who's slack in his mack<br />
-          Come fully packed with a fat rugged stack<br />
-          Shame on you, you step through to<br />
-          The Ol' Dirty Bastard, straight from the <QuickSlang word="Brooklyn Zoo" desc="ニューヨークのブルックリン地区が持つ、予測不可能で野蛮なストリートの性質を『動物園』に例えた言葉。法や秩序が通用しない危険なエリア" /><br />
-          And I'll be damned if I let any man<br />
-          Come to my center, you enter, the winter<br />
-          Straight up and down, that s*** packed jam<br />
-          You can't slam, don't let me get fool on him, man<br />
-          The Ol' Dirty Bastard is dirty and stinking<br />
-          Ason Unique, rolling with the night of the creeps<br />
-          N***as be rolling with a stash, ain't saying cash<br />
-          Bite my style, I'll bite your motherf***ing ass
-        </Fragment>
-        <Fragment slot="jpn">
-          まず第一に言っておく、お前は最悪の奴を敵に回したんだ<br />
-          ナースみたいに、お前の頭に注射針を刺してやるよ<br />
-          ナンパ（mack）の手を抜いてるような奴は誰でも攻撃してやる<br />
-          分厚く無骨な札束をフル装備してやって来るぜ<br />
-          お前は恥を知れ、お前が足を踏み入れたのは<br />
-          ブルックリン・ズー（動物園）から直行してきた、このOl' Dirty Bastardの領域だ<br />
-          もし俺の中心（テリトリー）に誰かを踏み込ませるようなことがあれば、俺は呪われるね<br />
-          お前が足を踏み入れれば、そこは極寒の冬だ<br />
-          上下真っ直ぐ（マジな話）、この曲はヤバいエネルギーが詰まってる<br />
-          お前らにはスラム・ダンスなんかできねえ、俺にこいつらをボコボコにさせないでくれよ<br />
-          Ol' Dirty Bastardは汚くて臭えんだ<br />
-          Ason Unique、夜の這う虫（キモい奴ら）と一緒にうろついてるぜ<br />
-          奴らは隠し財産（stash）を持ち歩いてるが、現金（cash）だとは言わねえ<br />
-          俺のスタイルをパクるなら、俺はお前のクソッタレなケツを噛みちぎる
-        </Fragment>
-        <Fragment slot="explanation">
-          グループ内で最も特異でクレイジーな個性を持つOl' Dirty Bastard（ODB）のヴァースは、他のメンバーの計算されたライムとは対照的に、本能的で予測不能なエネルギーに満ち溢れている。「Brooklyn Zoo」というラインは、彼の出身地ブルックリンの荒廃した環境を誇示しながら、彼自身が「動物園の檻から放たれた制御不能な野獣」であることを宣言。ワードプレイの「Bite my style, I'll bite your motherf***ing ass」は、ヒップホップ・カルチャーにおける最大のタブーである「Bite（他人のリリックやスタイルを盗む）」と、物理的に牙を剥いて相手を「噛みちぎる」という行為を掛け合わせた、コミカルでありながら底知れぬ狂気を感じさせるパンチライン。
-        </Fragment>
-      </LyricsBlock>
-    </section>
-
-    <!-- ===================== -->
-    <!-- VERSE 4               -->
-    <!-- ===================== -->
-    <section id="verse4" class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Verse 4 · Method Man
-      </h2>
-
-      <LyricsBlock hasExplanation={true} label="★ 流動的フロウとストリート・カリスマ">
-        <Fragment slot="eng">
-          It's the Method Man, for short, Mr. Meth<br />
-          Movin' on your left, ahh!<br />
-          And set it off, get it off, let it off like a gat<br />
-          I wanna break full, cock me back<br />
-          Small change, they puttin' shame in the game<br />
-          I take aim and blow that n***a out the frame<br />
-          And like fame, my style'll live forever<br />
-          N***as crossin' over like they don't know no better<br />
-          But I do, true, can I get a, "Soo?"<br />
-          'Nough respect due to the 1-6-ooh<br />
-          I mean, "Oh"<br />
-          Yo, check out the flow<br />
-          Like the <QuickSlang word="Hudson" desc="ニューヨークを流れる主要河川。ハドソン川の急流のような流動的で予測不可能な流れを自身のフロウに例える" /> or PCP when I'm dustin'<br />
-          N***as off because I'm hot like sauce<br />
-          The smoke from the lyrical bud make me—
-        </Fragment>
-        <Fragment slot="jpn">
-          俺がMethod Manだ、略してMr. Meth<br />
-          お前の左側から接近するぜ、アーッ！<br />
-          火蓋を切り、ぶちかまし、銃（ガット）のようにぶっ放す<br />
-          全開で破壊したいぜ、俺の撃鉄を起こしな<br />
-          小銭稼ぎの連中が、ヒップホップ・ゲームに泥を塗ってやがる<br />
-          俺は狙いを定め、そんな奴らをフレーム（枠）外へと吹き飛ばす<br />
-          名声と同じように、俺のスタイルは永遠に生き続ける<br />
-          分別もないくせに、ポップスにセルアウト（クロスオーバー）する奴らばかりだ<br />
-          だが俺は分かってるぜ、マジだ、「Soo!」って叫んでくれるか？<br />
-          1-6-ooh（スタテンアイランドのエリアコード等）に最大限の敬意を<br />
-          いや、「Oh（ゼロ）」だったな<br />
-          ヨォ、このフロウをチェックしな<br />
-          ハドソン川のように滑らかか、さもなくばPCP（エンジェルダスト）でハイになってる時みたいだろ<br />
-          雑魚どもを払いのける、俺はホットソースみたいに辛い（熱い）からな<br />
-          リリカルな極上のウィード（マリファナ）の煙が、俺を——
-        </Fragment>
-        <Fragment slot="explanation">
-          グループ最大のスターであるMethod Manのカリスマ性が爆発するヴァース。彼のフロウは流動的であり、自らのラップをニューヨークを流れるハドソン川の急流や、PCP（幻覚剤）を使用した時の予測不可能性と凶暴性に例える。「blow that n***a out the frame」は物理的に敵を吹き飛ばす意味と、写真のフレーム（枠）から消し去る＝ヒップホップの歴史から抹消するというダブルミーニング。「And like fame, my style'll live forever」は、ヒップホップというアートを擬人化し、Wu-Tangの音楽が時代を超えて普遍的な価値を持つことを予言した名言として語り継がれている。ヴァースの結末で唐突に声が断ち切られるのは、メインストリームの綺麗に整えられた曲構成への痛烈な反抗を示す意図的な編集。
-        </Fragment>
-      </LyricsBlock>
-    </section>
-
-    <!-- ===================== -->
-    <!-- VERSE 5               -->
-    <!-- ===================== -->
-    <section id="verse5" class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Verse 5 · Ghostface Killah / RZA
-      </h2>
-
-      <LyricsBlock hasExplanation={true} label="★ 詩的な拡張と全米制圧の野望">
-        <Fragment slot="eng">
-          Ejecting styles from my lethal weapon<br />
-          My pen that rocks from here to Oregon<br />
-          Here's Mordigan, catch it like a psycho flashback<br />
-          I love gats, if rap was a gun you wouldn't bust back<br />
-          I come with s*** that's all types of shapes and sounds<br />
-          And where I'm from, n***as'll pull your card and tear you down<br />
-          <br />
-          Yo chill with the feedback, black, we don't need that<br />
-          It's 10 o'clock, ho, where the f***'s your seed at?<br />
-          Feelin' mad hostile, wearin' <QuickSlang word="Aeropostale" desc="1990年代初頭のストリートで流行していたアパレルブランド。30年間『wearin out apostle（使徒を疲れさせる）』と誤解されていたが、Hulu伝記ドラマ『Wu-Tang: An American Saga』の字幕で公式にブランド名であることが2023年に確定" /><br />
-          Flowin' like Christ when I speaks the gospel<br />
-          Stroll with the holy robe then attack the globe<br />
-          With the buck-us style, the ruckus<br />
-          Ten times ten men committin' mad sin<br />
-          Turn the other cheek and I'll break your f***ing chin<br />
-          Slang boom-bangs like African drums<br />
-          (He'll be) coming around the mountain when I cum<br />
-          Crazy flamboyant for the rap enjoyment<br />
-          My clan increase like black unemployment
-        </Fragment>
-        <Fragment slot="jpn">
-          俺の凶器（リーサル・ウェポン）から、様々なスタイルを排出する<br />
-          俺のペンは、ここ（NY）からオレゴン州まで全米を揺るがすんだ<br />
-          ほら、モーディガンだ、サイコのフラッシュバックみたいに喰らいな<br />
-          俺は銃（gats）を愛してる、もしラップが銃撃戦だったなら、お前は撃ち返すことすらできないだろうな<br />
-          俺はあらゆる形や音のヤバい代物を引っ提げてやって来る<br />
-          そして俺の地元じゃ、奴らがお前のカードを引き裂いて（化けの皮を剥がして）、叩き潰すんだよ<br />
-          <br />
-          ヨォ、フィードバック（ノイズ/反論）は控えろよ兄弟、そんなもんは必要ねえ<br />
-          夜の10時だぜ、ビッチ、お前のガキ（seed）は一体どこにいるんだ？<br />
-          クソほど敵意（hostile）に満ちてるぜ、Aeropostale（エアロポステール）を着込みながらな<br />
-          俺が福音（ゴスペル）を語る時、キリストのように流れる（フロウする）のさ<br />
-          聖なるローブを羽織って練り歩き、そして地球を攻撃する<br />
-          このワイルドなスタイル、大騒ぎ（ruckus）でな<br />
-          10×10（100人）の男たちが、狂った罪を犯している<br />
-          右の頬を差し出してみろ（Turn the other cheek）、お前のファッキンな顎を砕いてやるよ<br />
-          アフリカの太鼓みたいに、ドカンとスラングを打ち鳴らすぜ<br />
-          俺が絶頂を迎える時、奴らは山を回ってやって来るのさ<br />
-          ラップの享楽のために、狂ったように派手（flamboyant）に振る舞うぜ<br />
-          俺のクラン（一族）は増え続ける、黒人の失業率のようにな
-        </Fragment>
-        <Fragment slot="explanation">
-          Ghostface Killahのリリックは、具体的なストリート描写と抽象的なイメージが交差する独特の文体を示す。「My pen that rocks from here to Oregon」——ニューヨークの局地的なアンダーグラウンド・ムーブメントにとどまらず、自らのラップを綴る「ペン」の力が全米大陸を揺るがすという、スケールの大きな隠喩。その後、RZAが引き継ぎ、宗教的モチーフの脱構築と鋭い社会風刺を展開。聖書の教え「右の頬を打たれたら、左の頬を向けよ」を引用しながら、「俺に頬を差し出してみろ、お前の顎を粉々に叩き割ってやる」と過激に反転。「黒人の失業率のように一族が増殖する」というラインは、マイノリティのコミュニティが直面する構造的貧困と失業という悲劇を、逆説的に自分たちのグループ（クラン）の爆発的な勢力拡大のメタファーとして利用した、ヒップホップ史に残る屈指の社会的パンチライン。
-        </Fragment>
-      </LyricsBlock>
-    </section>
-
-    <!-- ===================== -->
-    <!-- VERSE 6               -->
-    <!-- ===================== -->
-    <section id="verse6" class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Verse 6 · GZA
-      </h2>
-
-      <LyricsBlock hasExplanation={true} label="★ 業界への痛烈な告発と知的なウィット">
-        <Fragment slot="eng">
-          Yeah, another one down, G-g-genius<br />
-          Take us the f*** outta here<br />
-          The Wu is too slammin' for these Cold Killin' labels<br />
-          Some ain't had hits since I seen Aunt Mabel<br />
-          Be doing artists in like Cain did Abel<br />
-          Now they money's getting stuck to the gum under the table<br />
-          That's what you get when you misuse what I invent<br />
-          Your empire falls and you lose every scent<br />
-          For trying to blow up a scrub<br />
-          Now that thought was just as bright as a 20-watt light bulb<br />
-          Should've pumped it when I rocked it<br />
-          N***as so stingy they got short arms and deep pockets<br />
-          This goes on in some companies<br />
-          With majors, they're scared to death to pump these<br />
-          First of all, who's your A&R?<br />
-          A <QuickSlang word="mountain climber" desc="エレキギターを弾く『登山家』——ストリートのブラック・カルチャーやヒップホップの真髄を全く理解していない白人のスーツ組（A&R＝新人発掘担当）の究極のステレオタイプを示唆する比喩表現。ヒップホップ業界の門外漢を象徴する完璧なメタファー" /> who plays an electric guitar?<br />
-          But he don't know the meaning of dope<br />
-          When he's looking for a suit-and-tie rap that's cleaner than a bar of soap<br />
-          And I'm the dirtiest thing in sight<br />
-          Matter of fact, bring out the girls and let's have a mud fight
-        </Fragment>
-        <Fragment slot="jpn">
-          イェー、また一人倒したぜ、G-Genius（天才）だ<br />
-          俺たちをここから抜け出させてくれ<br />
-          Wuのサウンドは、こんな「Cold Killin'（冷血な）」レーベルには強烈すぎるんだ<br />
-          メイベルおばさんを見た時以来、ヒット曲なんて出せてない奴らもいる<br />
-          旧約聖書のカインがアベルを殺したように、アーティストたちを裏切り葬り去る<br />
-          今や奴らの金は、机の裏のガムにくっついて身動きが取れなくなってる<br />
-          俺が発明したものを悪用すると、こういう目に遭うんだよ<br />
-          お前らの帝国は崩壊し、最後の1セントまで失うことになる<br />
-          ザコ（scrub）を売り出そうとした代償にな<br />
-          そのアイデアは、20ワットの電球くらいしか輝いてなかった（暗くてアホだった）ぜ<br />
-          俺がロックした時に、ちゃんとプロモーション（pump）しておくべきだったな<br />
-          奴らはケチで守銭奴だから「腕が短くてポケットが深い（金を出そうとしない）」んだ<br />
-          こういう悪習が一部の会社で横行してる<br />
-          メジャーレーベルは、こういうヤバい曲を推すのを死ぬほど怖がってるのさ<br />
-          第一、お前らの会社のA&R（新人発掘担当）は誰だ？<br />
-          エレキギターを弾く、登山家（白人の門外漢）かよ？<br />
-          奴は「dope（最高/ヤバい）」の意味すら分かっちゃいない<br />
-          石鹸よりも清潔な、スーツとネクタイの優等生ラップばかり探してるんだからな<br />
-          俺は視界に入る中で最も「ダーティ」な存在だぜ<br />
-          いちいち言わすな、女たちを連れてこい、泥んこプロレス（泥仕合）でも始めようぜ
-        </Fragment>
-        <Fragment slot="explanation">
-          GZA（The Genius）による最終ヴァースは、本作のベスト・ヴァース、「ヒップホップ史上最も痛烈な音楽業界批判」として完全に神格化されている。背景には強烈な私怨が存在——GZAはWu-Tang結成前にCold Chillin' RecordsからThe Genius名義でデビューしたが、レーベル側は彼よりもポップなラッパーのプロモーションを優先し、彼の才能を事実上飼い殺しにした。「Cold Killin' labels」は古巣への名指しの告発。「A mountain climber who plays an electric guitar」——ストリートのブラック・カルチャーを全く理解していない白人のスーツ組（A&R）を象徴する究極の比喩。彼らは「Dope（本物）」の意味を理解できず、「石鹸のように清潔なスーツ姿のラップ」ばかりを求めている。それに対し「ならば俺は世界で最も汚い（Dirtiest）存在になってやる」と宣言し、徹底的なアンダーグラウンドの美学を業界の顔面に叩きつけている。
-        </Fragment>
-      </LyricsBlock>
-    </section>
-
-    <!-- ===================== -->
-    <!-- VERSE 7               -->
-    <!-- ===================== -->
-    <section id="verse7" class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Verse 7 · U-God
-      </h2>
-
-      <LyricsBlock hasExplanation={true} label="★ ブリッジとしての荒ぶる破壊力">
-        <Fragment slot="eng">
-          Ooh<br />
-          What? Grab my nut, get screwed<br />
-          Ow<br />
-          Here comes my <QuickSlang word="Shaolin style" desc="Shaolin（少林寺）はニューヨーク・スタテンアイランドを指すWu-Tangのキー・コンセプト。彼らのラップスタイルをカンフーの武術に例える際に使用される象徴的な表現" /><br />
-          True<br />
-          B-A-ba-B-Y-U<br />
-          To my crew with the, "Soo"<br />
-          (Yeah, yeah, yeah)<br />
-          To get rude, true, cause I'm in the mood<br />
-          Ah-heh, ah-heh, yeah, man, that's how it goes<br />
-          By the bucket of blood, comin out your nose
-        </Fragment>
-        <Fragment slot="jpn">
-          ウー<br />
-          何だと？俺の金玉でも掴んで、くたばりな<br />
-          アウ！<br />
-          俺の少林寺スタイルのお出ましだ<br />
-          マジだ<br />
-          B-A-ba-B-Y-U（Wu-Tang流の呼びかけ）<br />
-          俺のクルーに「Soo!」を<br />
-          （イェー、イェー、イェー）<br />
-          容赦なく荒ぶるぜ、マジでな、そういう気分なんだよ<br />
-          アヘッ、アヘッ、イェー、マン、そういうことだ<br />
-          お前の鼻からは、バケツ一杯の血が噴き出すぜ
-        </Fragment>
-        <Fragment slot="explanation">
-          当時投獄されるなどの法的トラブルを抱えており、録音セッションに遅れて参加したU-Godのヴァースは、他のメンバーの16小節と比べて極端に短く、実質的なブリッジの役割を果たす。長さこそ短いものの、その凝縮された暴力性は凄まじい。「Shaolin style」というカンフーの武術への言及と、敵の鼻から「バケツ一杯の血」が噴き出すというB級ホラー映画のような誇張された流血表現。海外のファンからは短さゆえに過小評価されることもあるが、この突発的で短いヴァースが挿入されることで、楽曲の非線形な構成（予測不可能性）がさらに強調され、リスナーの緊張感を途切れさせないカンフル剤として完璧に機能している。
-        </Fragment>
-      </LyricsBlock>
-    </section>
-
-    <!-- ===================== -->
-    <!-- OUTRO                 -->
-    <!-- ===================== -->
-    <section class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Outro · RZA
-      </h2>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          You best protect ya neck!<br />
-          You best protect ya neck!<br />
-          You best protect ya neck!<br />
-          You best protect ya neck!
-        </Fragment>
-        <Fragment slot="jpn">
-          てめえの首を守ることだな！<br />
-          てめえの首を守ることだな！<br />
-          てめえの首を守ることだな！<br />
-          てめえの首を守ることだな！
-        </Fragment>
-        <Fragment slot="explanation">
-          8人の猛者たちによる圧倒的なリリックの暴力と業界への告発が終わった直後、RZAが再びマイクを握り、楽曲のテーマであるフックを呪文のように4回リフレインして幕を閉じる。カンフー映画における「首を落とされる」という物理的な死の恐怖を比喩として用い、これは単なる曲の締めくくりではなく、当時の生温いヒップホップ業界全体に向けられた「俺たちがシーンを制圧しにいくから、首を洗って待っていろ」という明確な宣戦布告として機能する。
-        </Fragment>
-      </LyricsBlock>
-    </section>
-
-    <!-- ===================== -->
-    <!-- CULTURAL BACKGROUND   -->
-    <!-- ===================== -->
+    <!-- 文化的背景 -->
     <section id="background" class="mb-12">
       <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
         文化的背景
       </h2>
 
       <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
-        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">少林寺とShaolin</p>
-        <h3 class="font-semibold text-base mb-3">1970年代カンフー映画がもたらした東洋的美学の融合</h3>
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">インディー独立宣言</p>
+        <h3 class="font-semibold text-base mb-3">自主制作の12インチが業界の常識を変えた</h3>
         <p class="text-[var(--c-muted)] text-sm leading-relaxed">
-          Wu-Tangが形成された1990年代初頭のニューヨーク、スタテンアイランドとブルックリンの公営住宅は、貧困、ドラッグ、暴力が日常的に渦巻く過酷な環境であった。彼らはこの絶望的なゲットーの現実を、1970年代から1980年代にかけてニューヨークの粗末な映画館で上映されていた東洋のカンフー映画を通して再解釈。<strong class="text-[var(--c-text)]">1983年のカンフー映画『少林寺武者房（Shaolin and Wu Tang）』</strong>にインスピレーションを受け、グループ名を「武当派（Wu-Tang）」から採用。自らの地元スタテンアイランドを「Shaolin（少林寺）」と再定義し、ストリートでの生き残りを賭けた闘争を、高潔な戦士たちが己の技（リリックとフロウ）を磨き合う神聖な修練の場へと変換した。この見立てにより、絶望的な現実は壮大な神話体系へと昇華された。
-        </p>
-      </div>
-
-      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
-        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">Five Percent Nation</p>
-        <h3 class="font-semibold text-base mb-3">黒人コミュニティに根付く「至高の数学」の思想</h3>
-        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
-          Wu-Tangの精神的支柱となったのが、「<strong class="text-[var(--c-text)]">Five Percent Nation（ファイブ・パーセンターズ）</strong>」の教義である。全世界の人口のうち「5%」の支配者と「85%」の被支配者を除いた「10%」の知識層が、自らの智慧（Supreme Mathematics）で世界を導くべきという思想に基づいている。Wu-Tangはファイブ・パーセンターズの「Supreme Mathematics（至高の数学）」と「Supreme Alphabet」を日常的なスラングに組み込むことで、彼らの言葉を外部の人間には解読不能な暗号としての機能を持たせながら、同時に選ばれた者だけが理解できる高度な文学的装置へと昇華させた。
+          「Protect Ya Neck」は、Wu-Tangが<strong class="text-[var(--c-text)]">自主制作で12インチ・シングルとしてプレスし</strong>、自分たちでラジオやレコード店に売り込んだことで火がついた一曲。フックも甘いメロディもない、8人が斬り合うだけの曲が口コミで広がり、結果メジャー（Loud/RCA）との契約を勝ち取った。しかもRZAが勝ち取ったのは、<strong class="text-[var(--c-text)]">グループ契約を結びつつ、各メンバーは別々のレーベルとソロ契約を結んでよい</strong>という前代未聞の条件。この「個々が自由に動ける」構造が、のちのソロ作の連打とWu帝国の拡大を可能にしました。一曲のインディー・シングルが、ビジネスの常識ごと書き換えてしまった——GZAのヴァースが業界を皮肉るのは、こうした実体験の裏打ちがあるからです。
         </p>
       </div>
 
       <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
-        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">東西海岸対立の前夜</p>
-        <h3 class="font-semibold text-base mb-3">Dr. Dre「The Chronic」とNY停滞の時代背景</h3>
-        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
-          1992年、Dr. DreがG-Funk による歴史的傑作『The Chronic』をリリースして以来、西海岸のアーティストがメインストリームを席巻。ヒップホップ発祥の地であるニューヨークは深刻な停滞感に包まれていた。1980年代後半からシーンを牽引してきたEric B. & RakimやBig Daddy Kaneといった黄金期の英雄たちがキャリアの転換点を迎える中、「Protect Ya Neck」は<strong class="text-[var(--c-text)]">東海岸の復権を賭けた宣言</strong>として機能。深みのあるベースラインと洗練されたシンセサイザーを特徴とするG-Funkという滑らかなサウンドに対し、Wu-Tangは埃っぽい（Dusty）ブーンバップ・サウンドを提示し、その後の東海岸ハードコア・ヒップホップの絶対的な雛形を確立した。
-        </p>
-      </div>
-    </section>
-
-    <!-- ===================== -->
-    <!-- VERSIONS              -->
-    <!-- ===================== -->
-    <section id="versions" class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        バージョン違い
-      </h2>
-
-      <div class="mb-4 rounded-lg overflow-hidden border border-[var(--c-border)] text-sm">
-        <div class="grid grid-cols-3 bg-[var(--c-bg)] text-[var(--c-very-dim)] text-xs uppercase tracking-widest">
-          <div class="p-3 border-b border-[var(--c-border)]">バージョン</div>
-          <div class="p-3 border-b border-l border-[var(--c-border)]">収録時間</div>
-          <div class="p-3 border-b border-l border-[var(--c-border)]">特徴と評価</div>
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">キーワード早見表</p>
+        <h3 class="font-semibold text-base mb-3">この曲で学んだ表現の整理</h3>
+        <div class="space-y-3 mt-3">
+          {[
+            ['protect ya neck', '「警戒しろ・隙を見せるな」の慣用句。首＝急所を守れ'],
+            ['mad（NY）', '「とても・めちゃくちゃ」の強調語。mad cool＝超イケてる'],
+            ['Shaolin', 'スタテンアイランドのWu-Tang流の呼称（少林寺になぞらえる）'],
+            ['Brooklyn Zoo', 'ODBが出身地ブルックリンを動物園になぞらえた異名'],
+            ['who I are / when I speaks', 'AAVEのbe動詞・動詞-sの標準と異なる用法（韻にも寄与）'],
+            ['flow', 'ラップの節回し。本来の「流れ」と掛けた言葉遊びに頻出'],
+            ['labels / A&R', 'レコード会社／アーティスト発掘・契約担当。業界批評の語彙'],
+          ].map(([term, desc]) => (
+            <div class="flex gap-3 text-sm">
+              <span class="text-[var(--c-gold)] shrink-0 font-semibold min-w-[150px]">{term}</span>
+              <span class="text-[var(--c-muted)]">{desc}</span>
+            </div>
+          ))}
         </div>
-        {[
-          ['Bloody Version (Original)', '5:01 / 5:03', '1992年Wu-Tang Recordsリリースの完全無修正版。「Bloody（血まみれの）」という名が示す通り、Fワードなどの卑語や過激なストリート表現が一切検閲されていない最も生々しい完全版。'],
-          ['Radio Edit / Clean Version', '4:30 / 4:37', 'ラジオ放送禁止用語規定をクリアするために編集されたバージョン。卑語の部分に「刀が空を切る音（スウィッシュ）」やカンフー映画の打撃音を被せるというクリエイティブな検閲を行った。規制すらもWu-Tangの武術的な世界観を補強する演出へと昇華。'],
-          ['Album Version', '4:52', '『Enter the Wu-Tang (36 Chambers)』に収録。アルバム自体に「Explicit（過激表現あり）」ラベルが貼られているにもかかわらず、「n***a」以外の卑語（f***, s**t等）がDJのスクラッチ音で執拗にかき消される。初期流通の名残であり、DIY精神の証左。'],
-          ['Stripped Version (早期リプレス)', '4:44', 'ビート・シンプル版。ボーカルの生々しさをより際立たせるため、サンプル・ループをミニマルに削減したテイク。アンダーグラウンド・スピーカーの間で「最も凶悪」と評される版。'],
-        ].map(([name, duration, desc]) => (
-          <div class="grid grid-cols-3">
-            <div class="p-3 border-b border-[var(--c-border)] text-[var(--c-text)] font-medium">{name}</div>
-            <div class="p-3 border-b border-l border-[var(--c-border)] text-[var(--c-muted)] text-xs">{duration}</div>
-            <div class="p-3 border-b border-l border-[var(--c-border)] text-[var(--c-dim)] text-xs">{desc}</div>
-          </div>
-        ))}
       </div>
     </section>
 
-    <!-- ===================== -->
-    <!-- BEHIND THE SCENES     -->
-    <!-- ===================== -->
+    <!-- サンプル・制作の裏側 -->
     <section id="behind" class="mb-12">
       <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        制作の裏側
+        サンプル・制作の裏側
       </h2>
 
       <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
-        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">制作秘話 01</p>
-        <h3 class="font-semibold text-base mb-3">100ドルの「参加費」と実力主義による選別</h3>
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">サンプル元</p>
+        <h3 class="font-semibold text-base mb-3">あの絶叫サックスの正体 — The J.B.'s "The Grunt"</h3>
         <p class="text-[var(--c-muted)] text-sm leading-relaxed">
-          録音はブルックリンのBoerum HillにあるThe Firehouseというスタジオで行われたが、Wu-Tangには潤沢な制作資金がなかった。そこでRZAは、マイクを握りたいと熱望する地元のラッパーたちに対し、<strong class="text-[var(--c-text)]">「スタジオのセッションに参加したければ、1人100ドルを持参すること」という厳格な掟を課した</strong>。Method Manの回想によれば、この「Protect Ya Neck」のセッションに100ドルを支払い、過酷なマイクリレーの生存競争（サイファー）を生き抜いた精鋭たちが、結果的にWu-Tang Clanという正式なグループになったのである。つまり、彼らは単なる寄せ集めではなく、実力主義によって選別された戦闘集団であることが制度的に証明された。
-        </p>
-      </div>
-
-      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
-        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">制作秘話 02</p>
-        <h3 class="font-semibold text-base mb-3">RZAによるポストプロダクション再構成——アレンジメントの権力</h3>
-        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
-          RZAのプロダクションは革命的であった。彼はEnsoniq EPS 16+（後にASR-10へと移行する前のワークステーション・サンプラー）を駆使し、Marley Marlが確立したドラムブレイクを細かく切り刻む「チョップ」の手法をさらに荒々しく進化させた。The J.B.'sの「The Grunt」から抽出されたホーンのグリッサンド、Earl Klughの「I'll Never Say Goodbye」などの細かなサンプリング片が、ローファイで埃っぽい（Dusty）ブーンバップ・サウンドの骨格を形成している。RZAの極端にミニマルなミキシングは、メインストリームの磨き上げられたサウンドへの意図的な反抗であり、<strong class="text-[var(--c-text)]">8人のMCの生々しい声の質感を際立たせるための緻密な戦略</strong>であった。さらに、録音段階においてInspectah Deckはもともと2番目にヴァースを録音していたが、RZAはポストプロダクションの段階で独断でビートを再構築し、MCの登場順を現在のアレンジへと大幅に入れ替えた。完成版を聴いたDeckが「RZAの構成力には二度と口出ししない」と舌を巻いたという逸話は、RZAがプロデューサーとしていかに絶対的な権力と卓越したビジョンを持っていたかを物語っている。
+          イントロから耳をつんざく、あの<strong class="text-[var(--c-text)]">けたたましいサックスの絶叫</strong>。その正体は、James Brownのバックバンド <strong class="text-[var(--c-text)]">The J.B.'s の「The Grunt」（1970年）</strong>冒頭の、サックスのグリッサンド（音を滑らせる奏法）です。RZAはこの<strong class="text-[var(--c-text)]">数秒の金切り声をループ</strong>して、ビートの背骨に据えた。耳に痛いほど鋭いこの音が、8人が斬り合う緊張感をさらに研ぎ澄ましている。ちなみに同じ「The Grunt」のサックスは、Public Enemyの「Rebel Without a Pause」でも使われた超定番のブレイク。RZAはそれを、原曲の荒々しさをむしろ強調する方向で料理しました。お金をかければ出る音、というわけではないのが面白い。
         </p>
       </div>
 
       <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
-        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">制作秘話 03</p>
-        <h3 class="font-semibold text-base mb-3">インディペンデント・リリースからメジャー契約へ——ビジネス革新</h3>
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">フックなしという構成</p>
+        <h3 class="font-semibold text-base mb-3">8人を順に浴びせる「斬り合い」の設計</h3>
         <p class="text-[var(--c-muted)] text-sm leading-relaxed">
-          1992年、「Protect Ya Neck」は完全に自主制作されたWu-Tang Recordsレーベルからリリースされた12インチシングル。プロモーション資金が皆無であったにもかかわらず、アンダーグラウンドのクラブやカレッジ・ラジオを通じて爆発的に拡散し、<strong class="text-[var(--c-text)]">1万枚という驚異的なセールスを記録</strong>。このストリートでの熱狂的な支持を背景に、彼らはLoud Recordsの創設者Steve Rifkindと歴史的な契約を結ぶ。その契約は、「グループ全体としてはLoud Recordsに所属しながら、各メンバーは他のメジャー・レーベル（Def Jam、Geffen、RCAなど）と自由にソロ契約を結ぶことができる」という、音楽業界の常識を覆す前代未聞のものであった。これはアーティスト自身の権利所有と経済的自由を勝ち取った歴史的勝利であり、「Protect Ya Neck」はその勝利の証拠として機能している。
+          この曲には、いわゆる歌うサビがありません。あるのは「Watch your step, kid」の警告と、<strong class="text-[var(--c-text)]">8人のMCが次々に斬り込んでくるヴァースの連打</strong>だけ。これは「俺たちは曲の甘さで売らない、純粋に技量で勝負する」という宣言でもあります。一人ひとり声質も訛りも語彙も違うので、聴き手は否応なく<strong class="text-[var(--c-text)]">「今のは誰だ？」と耳をそばだてる</strong>。その緊張感が、フックで一息つく普通の曲とはまるで違う体験を作っている。リリックを精読する教材として、これほど中身の詰まった構成もありません。
         </p>
       </div>
     </section>
 
-    <!-- ===================== -->
-    <!-- LEGACY                -->
-    <!-- ===================== -->
+    <!-- 評価と影響 -->
     <section id="legacy" class="mb-12">
       <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
         評価とその後の影響
@@ -538,19 +346,18 @@ import SongLayout from '../../layouts/SongLayout.astro';
       <div class="mb-4 rounded-lg overflow-hidden border border-[var(--c-border)] text-sm">
         <div class="grid grid-cols-3 bg-[var(--c-bg)] text-[var(--c-very-dim)] text-xs uppercase tracking-widest">
           <div class="p-3 border-b border-[var(--c-border)]">指標</div>
-          <div class="p-3 border-b border-l border-[var(--c-border)]">実績</div>
+          <div class="p-3 border-b border-l border-[var(--c-border)]">記録</div>
           <div class="p-3 border-b border-l border-[var(--c-border)]">意義</div>
         </div>
         {[
-          ['セールス実績', '約10,000枚（インディ版）＋多数のプレス', 'インディペンデント・レーベルからのリリースでありながら驚異的なセールスを記録。その成功がメジャー契約へと導いた'],
-          ['デビュー・アルバム実績', '『Enter the Wu-Tang (36 Chambers)』4×プラチナ（400万枚）', '本作をリードシングルとした『36 Chambers』はヒップホップ史上最も偉大で影響力のあるアルバムの一つとして君臨'],
-          ['プラチナ認定（RIAA）', '2025年11月10日、プラチナディスク認定（100万ユニット）', 'リリースから30年以上の時を経て、ストリーミング時代においても新規リスナーを獲得し続ける普遍性の証明'],
-          ['音楽的影響', '東海岸ハードコア・ヒップホップの雛形確立', 'Nas、The Notorious B.I.G.、Mobb Deep等へと連なる後続アーティストの音楽的基盤を提供'],
-          ['ビジネス革新', '独立系メジャー契約モデルの構築', '搾取的な音楽業界に対する最初の「独立宣言」として、後の多くのアーティストに権利所有の道を示唆'],
-        ].map(([metric, achievement, significance]) => (
+          ['立ち位置', 'Wu-Tang Clanのデビュー・シングル', '自主制作の12インチからメジャー契約を勝ち取った出発点'],
+          ['収録', '『Enter the Wu-Tang (36 Chambers)』（1993）', 'ヒップホップ史上最重要のデビュー作の一つに収録'],
+          ['RIAA認定', 'Platinum（シングル）', 'フックなしのハードコアな曲が長く支持され続けた証'],
+          ['Pitchfork', '90年代ベスト・トラック200 第5位（2010年）', '批評筋からの極めて高い評価。The Source「100 Best Singles」にも'],
+        ].map(([metric, record, significance]) => (
           <div class="grid grid-cols-3">
             <div class="p-3 border-b border-[var(--c-border)] text-[var(--c-dim)]">{metric}</div>
-            <div class="p-3 border-b border-l border-[var(--c-border)] text-[var(--c-gold)] font-medium">{achievement}</div>
+            <div class="p-3 border-b border-l border-[var(--c-border)] text-[var(--c-gold)] font-medium">{record}</div>
             <div class="p-3 border-b border-l border-[var(--c-border)] text-[var(--c-muted)] text-xs">{significance}</div>
           </div>
         ))}
@@ -558,89 +365,24 @@ import SongLayout from '../../layouts/SongLayout.astro';
 
       <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
         <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">後世への影響</p>
-        <h3 class="font-semibold text-base mb-3">東海岸復権の象徴的デビュー作として音楽史に刻まれた足跡</h3>
-        <p class="text-[var(--c-muted)] text-sm leading-relaxed mb-4">
-          「Protect Ya Neck」は単に1990年代のノスタルジーを喚起するクラシック・ヒップホップ楽曲ではない。それは、腐敗したシステム（搾取的な音楽業界や、未来を奪うゲットーの過酷な環境）に対する究極の自己防衛（Protect Ya Neck）の提示であり、知性とストリートの団結力によって自らの価値を世界に証明した独立宣言である。西海岸G-Funkが全米を制圧する時代に投下されたこの1曲は、「東海岸はまだ死んでいない」という力強い宣言となり、その後のNas『Illmatic』、The Notorious B.I.G.『Ready to Die』、そしてMobb Deepなどへと連なる東海岸ルネッサンスの導火線となった。
+        <h3 class="font-semibold text-base mb-3">「9人」という発明と、その後のソロ拡大</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          「Protect Ya Neck」が証明したのは、<strong class="text-[var(--c-text)]">大人数のMC集団が、一曲のなかで個性を競い合うことの破壊力</strong>でした。ここで顔を売った各メンバーは、その後 Method Man、Raekwon、GZA、Ghostface、ODB と次々にソロの名盤を放ち、Wu-Tangは「グループにして個人事業主の連合」という新しいモデルを確立していきます。フックに頼らず純度の高いリリックだけで勝負したこの一曲は、以後のアンダーグラウンド／ハードコア・ヒップホップの一つの規範になりました。英語学習の面でも、<strong class="text-[var(--c-text)]">8人ぶんの語彙・訛り・言葉遊びをまとめて浴びられる</strong>という意味で、これ以上ない密度の教材だと思います。
         </p>
-        <ul class="space-y-3 text-sm">
-          <li class="flex gap-3">
-            <span class="text-[var(--c-gold)] shrink-0">Nas</span>
-            <span class="text-[var(--c-muted)]">「Protect Ya Neck」に触発され『Illmatic』を制作。東海岸ブーンバップ・サウンドの美学を完全に継承した1994年のマスターピース</span>
-          </li>
-          <li class="flex gap-3">
-            <span class="text-[var(--c-gold)] shrink-0">Mobb Deep</span>
-            <span class="text-[var(--c-muted)]">Havoc & Probibeの不穏なプロダクションは、RZAのサンプリング手法とチョップ技術を直接継承。「Shook Ones」等で進化させた</span>
-          </li>
-          <li class="flex gap-3">
-            <span class="text-[var(--c-gold)] shrink-0">GZA「Liquid Swords」</span>
-            <span class="text-[var(--c-muted)]">グループ内唯一のソロ・アルバムで、「Protect Ya Neck」で示唆された知的で文学的なラップスタイルを完全に体現</span>
-          </li>
-        </ul>
       </div>
     </section>
 
-    <!-- ===================== -->
-    <!-- SUMMARY               -->
-    <!-- ===================== -->
+    <!-- まとめ -->
     <section class="mb-12">
       <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
         まとめ
       </h2>
-      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg text-sm text-[var(--c-muted)] leading-relaxed space-y-3">
-        <p>「Protect Ya Neck」は、単なるヒップホップのクラシックではなく、腐敗したシステムに対する究極の自己防衛の宣言である。</p>
-        <ul class="space-y-2 list-none">
-          <li class="flex gap-2"><span class="text-[var(--c-gold)] shrink-0">—</span><span>8人のMCが100ドルの"参加費"で競い合うサイファーから生まれた実力主義の産物</span></li>
-          <li class="flex gap-2"><span class="text-[var(--c-gold)] shrink-0">—</span><span>インディリリースで1万枚を売り、業界常識を覆す独立型メジャー契約を勝ち取った</span></li>
-          <li class="flex gap-2"><span class="text-[var(--c-gold)] shrink-0">—</span><span>G-Funk全盛期に東海岸ブーンバップを叩きつけ、NasやMobb Deepへと連なる復権の導火線となった</span></li>
-          <li class="flex gap-2"><span class="text-[var(--c-gold)] shrink-0">—</span><span>「You best protect ya neck」——自分の価値は自分で守れ、というメッセージは2026年も色褪せない</span></li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- ===================== -->
-    <!-- RELATED ARTICLES      -->
-    <!-- ===================== -->
-    <section class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        関連記事（内部リンク）
-      </h2>
-      <ul class="space-y-3">
-        <li>
-          <a href="/songs/cream" class="flex items-center justify-between p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg hover:border-[var(--c-gold)] transition-colors">
-            <div>
-              <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-0.5">RZA Produced · 1993</p>
-              <p class="font-semibold">C.R.E.A.M. 和訳・意味解説</p>
-              <p class="text-[var(--c-dim)] text-xs mt-0.5">Wu-Tang Clan</p>
-            </div>
-            <span class="text-[var(--c-very-dim)] text-lg">→</span>
-          </a>
-        </li>
-        <li>
-          <a href="/songs/triumph" class="flex items-center justify-between p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg hover:border-[var(--c-gold)] transition-colors">
-            <div>
-              <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-0.5">RZA Produced · 1997</p>
-              <p class="font-semibold">Triumph 和訳・意味解説</p>
-              <p class="text-[var(--c-dim)] text-xs mt-0.5">Wu-Tang Clan</p>
-            </div>
-            <span class="text-[var(--c-very-dim)] text-lg">→</span>
-          </a>
-        </li>
-        <li>
-          <a href="/songs/f***-compton" class="flex items-center justify-between p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg hover:border-[var(--c-gold)] transition-colors">
-            <div>
-              <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-0.5">The 45 King Produced · 1991</p>
-              <p class="font-semibold">F*** Compton 和訳・意味解説</p>
-              <p class="text-[var(--c-dim)] text-xs mt-0.5">Tim Dog</p>
-            </div>
-            <span class="text-[var(--c-very-dim)] text-lg">→</span>
-          </a>
-        </li>
+      <ul class="space-y-2 text-sm text-[var(--c-muted)] list-disc list-inside leading-relaxed">
+        <li>「Protect Ya Neck」は、フックなしで8人のMCが斬り合うWu-Tangのデビュー・シングル。一曲で多様なスラング・AAVE・言葉遊びをまとめて学べる。</li>
+        <li>protect ya neck（警戒しろ）の慣用句、mad＝very のNY強調、who I are／when I speaks のAAVE、Shaolin・Brooklyn Zoo の地名の言い換えなど、生きた表現が高密度。</li>
+        <li>flowの二重の意味、Frazier／Schwarzenegger／Escobar を使った直喩、A&R など業界語を武器にしたGZAの批評——比喩とバトル英語のレパートリーが一通り押さえられる。</li>
+        <li>RZAがThe J.B.'s「The Grunt」の絶叫サックスを刻んだ音と、自主制作からメジャー契約を勝ち取ったインディー独立の物語が、この一曲に詰まっている。</li>
       </ul>
     </section>
-
-    <!-- Footer -->
-    <footer class="border-t border-[var(--c-border)] pt-6 text-[var(--c-very-dim)] text-xs">
-      <p>Producer: RZA · Samples: The J.B.'s "The Grunt", Earl Klugh "I'll Never Say Goodbye" · Wu-Tang Records / Loud Records · Album: Enter the Wu-Tang (36 Chambers) (1993)</p>
-    </footer>
 
 </SongLayout>

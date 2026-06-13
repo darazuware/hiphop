@@ -1,0 +1,13 @@
+[
+  { "id": "protect-neck", "anchor": ["watch","your","step","kid"], "fallbackT": 28 },
+  { "id": "deck-frazier", "anchor": ["smoke","on","the","mic","like"], "fallbackT": 37 },
+  { "id": "deck-pakistan-spiderman", "anchor": ["terrorize","the","jam","like","troops"], "fallbackT": 44 },
+  { "id": "rae-schwarzenegger", "anchor": ["rhymes","rugged","and","built"], "fallbackT": 85 },
+  { "id": "meth-flow-hudson", "anchor": ["check","out","the","flow","like","the","hudson"], "fallbackT": 125 },
+  { "id": "ugod-shaolin", "anchor": ["here","comes","my","shaolin","style"], "fallbackT": 138 },
+  { "id": "odb-brooklyn-zoo", "anchor": ["straight","from","the","brooklyn","zoo"], "fallbackT": 165 },
+  { "id": "ghost-escobar", "anchor": ["life","of","pablo","escobar"], "fallbackT": 205 },
+  { "id": "rza-mad-speaks", "anchor": ["mad","hostile","wearing"], "fallbackT": 222 },
+  { "id": "gza-labels", "anchor": ["cold","killer","labels"], "fallbackT": 252 },
+  { "id": "gza-anr", "anchor": ["first","of","all","whos","your"], "fallbackT": 270 }
+]
