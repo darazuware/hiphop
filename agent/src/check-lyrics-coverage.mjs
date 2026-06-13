@@ -235,8 +235,12 @@ console.log(`Components: LearningUnit=${luCount}, LyricsBlock=${lbCount}`);
 let hasError = false;
 
 // ── [B] ハルシネーションチェック（両タイプ必須）──────────────────────────
+// SKIP_B=1（Genius不完全フェッチ時に pre-push-check が設定）は失敗ブロックせず警告に降格。
+const skipB = process.env.SKIP_B === '1';
 if (hallucinated.length === 0) {
   console.log('\n✅ [B] No hallucinations — all .astro eng lines match Genius.');
+} else if (skipB) {
+  console.log(`\n⚠️  [B] ${hallucinated.length} possible mismatch(es) — Genius fetch incomplete, [B] skipped（要手動確認）`);
 } else {
   console.log(`\n❌ [B] ${hallucinated.length} hallucinated line(s) — not found in Genius lyrics`);
   if (verbose) hallucinated.forEach((line, i) => console.log(`  ${i + 1}. ${line}`));

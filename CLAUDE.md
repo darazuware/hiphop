@@ -123,7 +123,9 @@ public/images/   # アルバムアート
    - **従来型**: [A]抜け漏れ（Genius行が.astroに存在するか・閾値以上）＋[B]ハルシネーション。
    - ❌が出たら修正してから次へ進む
    - 2026年以降の新曲でGeniusデータ不完全な場合は[B]を手動確認
-   - pre-pushフック（`agent/hooks/pre-push`）も同スクリプトを呼ぶため、commit前にここで通しておく。**ガードを `--no-verify` でバイパスしない**（種別判定が正しく効く）。
+   - pre-pushフック（`agent/hooks/pre-push`）は `agent/src/pre-push-check.mjs` を呼ぶ。commit前にここで通しておく。**ガードを `--no-verify` でバイパスしない**（種別判定が正しく効く）。
+   - **定型句ガード（pre-push-check.mjs / Item4）**: 全曲.astroを横断し、25文字以上の同一日本語解説文が複数曲で使い回されていないか検出する（eng歌詞断片は除外。出力は該当slugと重複箇所数のみ＝歌詞英語行を出さない）。許容済みの既存重複は `agent/.dup-baseline.json` にハッシュで記録（平文非保存）。baselineに無いnet-newの曲間重複はブロックする。意図的に許容する場合のみ `node agent/src/pre-push-check.mjs --update-dup-baseline` で焼き直す。**同一/酷似の解説文を曲間でコピペ再利用しない**（[`docs/article-tone.md`](docs/article-tone.md)）。
+   - **Genius短尺フェッチ対策（pre-push-check.mjs / Item6）**: キャッシュ2h超過時の再フェッチは、(a)取得歌詞が既存キャッシュより行数が少なければ不完全とみなしキャッシュを上書きしない（行数が同等以上の時のみ更新）、(b)不完全フェッチ時は[B]を失敗ブロックでなくスキップ＋警告（`SKIP_B=1`／要手動確認）にして誤検出で正しい記事を改変しない、(c)短尺が返ったら最大3回リトライし最長版を採用する。出力は行数・カウントのみ。
 12. npm run build でビルド確認
 13. 自分が変更・作成したファイル（.astro, songs.ts, artists.ts, public/images/covers/{slug}.jpg）のみを git add → git commit → git push
     ※【厳守】絶対に "git add ." を実行しないこと（ユーザーのローカル作業と競合するため）
