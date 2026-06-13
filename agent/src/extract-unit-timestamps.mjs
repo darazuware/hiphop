@@ -8,17 +8,27 @@
  *     --whisper /tmp/cream_whisper.json --units agent/cream/assets/units.json \
  *     --out agent/cream/assets/units-timestamps.json [--offset 0]
  *
- * units.json: [{ "id": "lo-goose", "anchor": ["rockin","the","gold","tooth"] }, ...]
+ * units.json: [{ "id":"lo-goose", "anchor":["rockin","the","gold","tooth"],
+ *                "fallbackT": 37, "manualSec": null }]
  *
- * ── PVオフセット補正（標準工程・必須）────────────────────────────────────
- * whisper は album音源（曲頭=0s）を解析するため、出力秒は album相対時間。
- * これを記事の頭出しリンク先＝公式PV(YouTube) の時間に合わせるには、PVの
- * イントロ尺（曲が始まるまでの遅れ）を加算する必要がある。t = startSec - offset
- * なので、PVが album より N秒遅いなら --offset -N（マイナス）で N秒ぶん前に出す。
- * 【標準手順】生成後に主要ユニットのリンクをPVで実地確認し、ズレ幅を測って
- *   --offset を一度入れ直す。±1〜2秒に収まれば確定。歌詞テキストは確認に使わない。
- *   例: cream は album→PV で +5s ズレていたため --offset -5 で確定。
- * fallbackT（手動推定）は offset の影響を受けないので、補正後のPV時間で直接書く。
+ * ── 秒数の二層構造（whisperSec / manualSec）──────────────────────────────
+ * whisper は外す。とくに大人数・whisper地獄の曲ではアンカーを取り違える。
+ * そこで各ユニットの秒数を「自動(whisper)」と「実測(manual)」の二層で持つ:
+ *   - whisperSec : whisper単語アライメントで得た album相対秒（自動・概算）
+ *   - manualSec  : 運営者が実機(PV)で測った実測秒（PV絶対秒・最優先）
+ * 最終表示値 t は manualSec があればそれを、無ければ whisper(→PV補正後)、
+ * それも無ければ fallbackT を使う。manualSec は offset補正を受けない（PV絶対秒）。
+ *   t = manualSec ?? (whisperSec!=null ? whisperSec - offset : null) ?? fallbackT
+ * source = "manual" | "whisper" | "fallback" | "none"（manual以外は approx扱い）
+ *
+ * ── PVオフセット補正（whisper値のみ対象）────────────────────────────────
+ * whisper は album音源（曲頭=0s）を解析するため出力は album相対時間。記事の
+ * 頭出しリンク先＝公式PVはイントロぶん遅いので、PVが album より N秒遅いなら
+ * --offset -N（マイナス）で N秒ぶん前に出す。manualSec/fallbackT は補正しない。
+ *
+ * ── 実測上書きの運用 ─────────────────────────────────────────────────────
+ * 生成時は whisperSec を入れておき、運営者が実機確認後に主要ユニットの実測秒を
+ * 渡したら set-manual-timestamp.mjs で manualSec に焼く（docs/timestamp-override.md）。
  */
 import fs from "fs";
 
@@ -36,8 +46,6 @@ const offset = parseFloat(getArg("offset", "0"));
 const norm = (s) => (s || "").toLowerCase().replace(/[^a-z0-9']/g, "");
 
 // ── whisper サブワードトークンを「単語」へ再構成 ──────────────────────────
-// whisper-cpp は BPE サブワードを返す。先頭スペース付きトークンが新しい単語の
-// 始まり、スペースなしトークンは前の単語に連結。start秒 = 先頭サブワードのoffset。
 const data = JSON.parse(fs.readFileSync(whisperPath).toString("latin1"));
 const tokens = [];
 let cur = null;
@@ -78,15 +86,34 @@ for (const u of units) {
     if (score > bestScore) { bestScore = score; bestIdx = i; }
     if (bestScore === 1) break;
   }
+
+  // whisperSec: 自動アライメントの album相対秒（マッチ score>=0.5 のときのみ）
+  let whisperSec = null;
   if (bestScore >= 0.5 && bestIdx >= 0) {
-    const t = Math.max(0, tokens[bestIdx].startSec - offset);
-    results.push({ id: u.id, t: Math.round(t * 10) / 10, score: Math.round(bestScore * 100) / 100, matched: "auto" });
+    whisperSec = Math.round(tokens[bestIdx].startSec * 10) / 10;
     wIdx = bestIdx + 1;
-  } else if (u.fallbackT != null) {
-    results.push({ id: u.id, t: u.fallbackT, score: Math.round(bestScore * 100) / 100, matched: "manual" });
-  } else {
-    results.push({ id: u.id, t: null, score: Math.round(bestScore * 100) / 100, matched: false });
   }
+
+  const manualSec = (u.manualSec != null) ? u.manualSec : null;
+  const fallbackT = (u.fallbackT != null) ? u.fallbackT : null;
+  const pvWhisper = whisperSec != null ? Math.round(Math.max(0, whisperSec - offset) * 10) / 10 : null;
+
+  let t, source;
+  if (manualSec != null)      { t = manualSec;  source = "manual"; }
+  else if (pvWhisper != null) { t = pvWhisper;  source = "whisper"; }
+  else if (fallbackT != null) { t = fallbackT;  source = "fallback"; }
+  else                        { t = null;       source = "none"; }
+
+  results.push({
+    id: u.id,
+    whisperSec,                 // album相対・自動（参考値）
+    manualSec,                  // PV実測・最優先（null=未実測）
+    fallbackT,                  // 手動推定（whisper外し時の保険）
+    t,                          // 最終表示秒（manual優先）
+    source,                     // 採用ソース
+    approx: source !== "manual",
+    score: Math.round(bestScore * 100) / 100,
+  });
 }
 
 fs.writeFileSync(outPath, JSON.stringify(results, null, 2));
@@ -95,9 +122,11 @@ fs.writeFileSync(outPath, JSON.stringify(results, null, 2));
 console.log(`[tokens] ${tokens.length}  [span] 0~${(tokens[tokens.length-1]?.startSec||0).toFixed(0)}s  [offset] ${offset}s`);
 for (const r of results) {
   const mm = r.t == null ? " --:-- " : `${String(Math.floor(r.t/60)).padStart(2,"0")}:${String(Math.floor(r.t%60)).padStart(2,"0")}`;
-  const icon = r.matched === "auto" ? "✅" : r.matched === "manual" ? "🔧" : "❌";
-  console.log(`  ${icon} ${r.id.padEnd(22)} t=${r.t==null?"null":r.t+"s"}  (${mm})  score=${r.score} ${r.matched==="manual"?"[manual]":""}`);
+  const icon = r.source === "manual" ? "🔧" : r.source === "whisper" ? "✅" : r.source === "fallback" ? "🛟" : "❌";
+  console.log(`  ${icon} ${r.id.padEnd(24)} t=${r.t==null?"null":r.t+"s"} (${mm}) src=${r.source.padEnd(8)} whisper=${r.whisperSec==null?"-":r.whisperSec+"s"} score=${r.score}`);
 }
-const ok = results.filter(r => r.matched).length;
-console.log(`[done] ${ok}/${results.length} units aligned → ${outPath}`);
-process.exit(ok === results.length ? 0 : 1);
+const aligned = results.filter(r => r.source !== "none").length;
+const lowConf = results.filter(r => r.source === "whisper" && r.score < 0.75).length;
+console.log(`[done] ${aligned}/${results.length} units have a timestamp (${results.filter(r=>r.source==="manual").length} manual, ${results.filter(r=>r.source==="whisper").length} whisper, ${results.filter(r=>r.source==="fallback").length} fallback)`);
+if (lowConf) console.log(`[warn] ${lowConf} whisper unit(s) below score 0.75 — likely off, verify on PV and set manualSec`);
+process.exit(aligned === results.length ? 0 : 1);
