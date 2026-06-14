@@ -1,0 +1,92 @@
+[
+  {
+    "id": "work-angles-chorus",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 14,
+    "t": 16,
+    "source": "fallback",
+    "approx": true,
+    "score": 1
+  },
+  {
+    "id": "one-set-prints",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 38,
+    "t": 38,
+    "source": "fallback",
+    "approx": true,
+    "score": 0
+  },
+  {
+    "id": "communication-ego",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 68,
+    "t": 68,
+    "source": "fallback",
+    "approx": true,
+    "score": 0.2
+  },
+  {
+    "id": "dead-wrong",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 88,
+    "t": 88,
+    "source": "fallback",
+    "approx": true,
+    "score": 0
+  },
+  {
+    "id": "let-go-aikido",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 118,
+    "t": 118,
+    "source": "fallback",
+    "approx": true,
+    "score": 0
+  },
+  {
+    "id": "swing-bat-baseball",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 138,
+    "t": 138,
+    "source": "fallback",
+    "approx": true,
+    "score": 0.2
+  },
+  {
+    "id": "mayday-feds",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 150,
+    "t": 150,
+    "source": "fallback",
+    "approx": true,
+    "score": 0.25
+  },
+  {
+    "id": "evidence-on-trial",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 162,
+    "t": 162,
+    "source": "fallback",
+    "approx": true,
+    "score": 0
+  },
+  {
+    "id": "two-to-tango",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 166,
+    "t": 166,
+    "source": "fallback",
+    "approx": true,
+    "score": 0
+  }
+]

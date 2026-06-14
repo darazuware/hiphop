@@ -1,471 +1,329 @@
 ---
-import LyricsBlock from '../../components/LyricsBlock.astro';
+import LearningUnit from '../../components/LearningUnit.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
 import SongLayout from '../../layouts/SongLayout.astro';
-import AmazonAlbumCta from "../../components/AmazonAlbumCta.astro";
+
+import tsData from '../../../agent/work-the-angles/assets/units-timestamps.json';
+const YT = "zqY4qASLhxY";
+const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.approx }]));
 ---
 
 <SongLayout
   title="Work the Angles 和訳・意味・スラング解説 | Dilated Peoples"
-  description="Dilated PeoplesのWork the Anglesの歌詞和訳とスラング徹底解説。1998年リリース、KutMasta Kurt制作、LAアンダーグラウンドHIPHOPの金字塔を読み解く。"
+  description="Dilated Peoplesの「Work the Angles」を英語学習＋ヒップホップ理解の教材として精読。work the angles・dead wrong・it takes two to tango・let goなどのイディオムと、戦略・諜報・武術になぞらえたリリシズム、KutMasta Kurtのカンフー映画サンプルを表現単位で解説。各表現はPVの該当箇所へ頭出しリンク付き。"
   slug="work-the-angles"
   highlights={[
-    'KutMasta Kurtがブルースリーのサントラをサンプリングしたブーンバップの傑作',
-    'DJ Revolutionによるスクラッチ・フックが「ターンテーブリズム」の極致を体現',
-    '"Work the angles"——あらゆる角度を利用してサバイブするストリートの知恵',
+    '「work the angles」=あらゆる角度から攻める戦略——諜報・武術・チェスになぞらえた頭脳派リリシズム',
+    'dead wrong・it takes two to tango・let go・work the angles——使えるイディオムを「学ぶ表現」単位で解説（PV頭出しリンク付き）',
+    'KutMasta Kurtが香港カンフー映画の劇伴をサンプリングしたブーンバップ。LAアンダーグラウンドの名刺代わりの一曲',
   ]}
   youtubeId="zqY4qASLhxY"
 >
 
+    <!-- ===================== -->
+    <!-- 導入                  -->
+    <!-- ===================== -->
     <section class="mb-6">
-      <h2 class="text-base font-semibold mb-2">■この曲の意味（要約）</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">1998年、LAアンダーグラウンドシーンの旗手Dilated Peoples（Iriscience、Evidence、DJ Babu）がリリースした出世作。G-FunkやShiny Suit時代のメインストリームに背を向け、MCとDJの対等な関係性とリリシズムへの回帰を宣言。「あらゆる角度を計算して動く」という生存戦略が全編を貫く。</p>
+      <h2 class="text-base font-semibold mb-2">■"頭で戦う"ラップの教科書</h2>
+      <p class="text-sm text-[var(--c-muted)] leading-relaxed">
+        <strong class="text-[var(--c-text)]">Dilated Peoples（ダイレイテッド・ピープルズ）</strong>は、ロサンゼルスのアンダーグラウンドを代表する3人組。MCの <strong class="text-[var(--c-text)]">Iriscience（イリスサイエンス／Rakaa）</strong>と <strong class="text-[var(--c-text)]">Evidence（エヴィデンス）</strong>、そしてターンテーブリスト <strong class="text-[var(--c-text)]">DJ Babu（DJババ）</strong>から成る。この「Work the Angles」は、彼らの名刺代わりとも言える初期の代表曲で、内容は徹底して<strong class="text-[var(--c-text)]">「頭脳戦としてのラップ」</strong>。暴力やパーティではなく、<strong class="text-[var(--c-text)]">諜報（スパイ）・武術・チェスのような戦略</strong>の比喩で、自分たちのリリシズム（言葉の技術）を語っていきます。タイトルの <strong class="text-[var(--c-text)]">work the angles</strong> がまさにそれで、「あらゆる角度（angles）から攻める＝知恵を尽くして立ち回る」という意味。抽象的で硬派なぶん、英語としては <em>dead wrong</em>（完全に間違い）、<em>it takes two to tango</em>（一人じゃできない）といった<strong class="text-[var(--c-text)]">大人の使えるイディオム</strong>がゴロゴロ拾える一曲です。
+      </p>
     </section>
 
     <section class="mb-6">
-      <h2 class="text-base font-semibold mb-2">■概要</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">プロデュースはKutMasta Kurt。ブルース・リー主演映画『ドラゴン危機一発』のサントラ（Peter Thomas Sound Orchestra「Amulet」）とSugar Billy Garner「I Got Some」のブレイクを使用。スクラッチ・フックはDJ Revolutionが担当。Beat JunkiesのDJ BabuはDilated Peoplesのレギュラーメンバー。BPMは90前後のオーソドックスなブーンバップ。</p>
+      <h2 class="text-base font-semibold mb-2">■カンフー映画が鳴るLAのビート</h2>
+      <p class="text-sm text-[var(--c-muted)] leading-relaxed">
+        トラックを手がけたのは <strong class="text-[var(--c-text)]">KutMasta Kurt（カットマスタ・カート）</strong>。土台には<strong class="text-[var(--c-text)]">香港カンフー映画の劇伴</strong>がサンプリングされていて、東洋的で不穏なメロディが、戦略を練るような緊張感を曲全体に与えています。武術になぞらえた歌詞と、カンフー映画のサンプル——その響き合いも聴きどころ。元は1997年の12インチシングルとしてリリースされ、後にデビューアルバム『<strong class="text-[var(--c-text)]">The Platform</strong>』(2000) に収められました。派手なヒットを狙うのではなく、<QuickSlang word="ターンテーブリズム" desc="turntablism。ターンテーブル（レコード）を楽器として操り、スクラッチなどで音を作るDJの技芸。Dilated PeoplesのDJ Babuはその名手" />（DJの技芸）とリリシズムで勝負する——LAアンダーグラウンドの矜持が、ぎゅっと詰まっています。
+      </p>
     </section>
 
-    <section class="mb-6">
-      <h2 class="text-base font-semibold mb-2">■主なスラング・キーワード</h2>
-      <dl class="text-sm space-y-2">
-        <div><dt class="font-mono text-[var(--c-gold)] inline">work the angles</dt><dd class="inline ml-2 text-[var(--c-muted)]">あらゆる角度・状況を計算して最大限に活用すること。幾何学の比喩から転じた戦略的な処世術。</dd></div>
-        <div><dt class="font-mono text-[var(--c-gold)] inline">build twice</dt><dd class="inline ml-2 text-[var(--c-muted)]">「二度確認して作れ」——「測って、測って、切れ」に相当する慎重さの格言。Five Percenter Nationの「build（知識を積む）」の意も含む。</dd></div>
-        <div><dt class="font-mono text-[var(--c-gold)] inline">indigenous</dt><dd class="inline ml-2 text-[var(--c-muted)]">先住民族的・土着の。ここでは「元来の知恵」や「生来の本能」という意味合い。</dd></div>
-        <div><dt class="font-mono text-[var(--c-gold)] inline">Feds</dt><dd class="inline ml-2 text-[var(--c-muted)]">FBI・連邦捜査官のこと。転じて「監視者・密告者・信頼できない者」。</dd></div>
-        <div><dt class="font-mono text-[var(--c-gold)] inline">flagrants</dt><dd class="inline ml-2 text-[var(--c-muted)]">バスケのフレグラントファウル（悪質な反則）から転じた「不当な攻撃・理不尽な一撃」。</dd></div>
-        <div><dt class="font-mono text-[var(--c-gold)] inline">Mayday</dt><dd class="inline ml-2 text-[var(--c-muted)]">緊急救難信号。毎日が非常事態という意。</dd></div>
-      </dl>
+    <!-- Table of Contents -->
+    <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
+      <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
+        <li><a href="#story" class="hover:text-[var(--c-gold)] transition-colors">01 — ストーリーの流れ（まず曲全体をつかむ）</a></li>
+        <li><a href="#units" class="hover:text-[var(--c-gold)] transition-colors">02 — 学ぶ表現（イディオム・比喩・言葉遊び）</a></li>
+        <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">03 — 文化的背景</a></li>
+        <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">04 — サンプル・制作の裏側</a></li>
+        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">05 — 評価とその後の影響</a></li>
+      </ol>
+    </nav>
+
+    <!-- ===================== -->
+    <!-- ストーリー要約         -->
+    <!-- ===================== -->
+    <section id="story" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        ストーリーの流れ — まず曲全体をつかむ
+      </h2>
+      <p class="text-xs text-[var(--c-dim)] mb-5">
+        この曲は、2人のMCが「俺はこんなに頭を使って戦っている」を、別々の比喩で語る構成です。抽象度が高いので、先に全体の枠組みを押さえておくと、一行ずつの比喩が読み解きやすくなります。
+      </p>
+      <div class="space-y-4 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          DJが「Di-di-dilated Peoples」とグループ名をスクラッチで刻むイントロから、すぐに<strong class="text-[var(--c-text)]">フック</strong>へ。「I work the angles sharp and precise（あらゆる角度を、鋭く正確に突く）」というこの一節が、曲のテーマを一言で言い切ります。
+        </p>
+        <p>
+          <strong class="text-[var(--c-text)]">Verse 1（Iriscience）</strong>は、<strong class="text-[var(--c-text)]">諜報員（スパイ）</strong>のような比喩のオンパレード。「川を渡って匂いを消す」「両方向に進んでも足跡は一組」——追跡をかわす者のイメージで、自分の捉えどころのなさを描く。同時に「大事なのはコミュニケーションで、ラッパーのエゴじゃない」と、言葉で人に届けることへの姿勢もはっきり示します。
+        </p>
+        <p>
+          <strong class="text-[var(--c-text)]">Verse 2（Evidence）</strong>は、<strong class="text-[var(--c-text)]">武術・スポーツ・法廷</strong>と比喩の引き出しがさらに広がる。合気道、野球のスイング、自分の名前「Evidence（証拠）」を法廷ネタにした言葉遊び——「敵には自分から行かず、向こうから来させて、角度を突け（work the angles）」という戦略論で締めくくる。物語ではなく<strong class="text-[var(--c-text)]">比喩の応酬で"賢さ"を見せる</strong>一曲で、聴くたびに新しい引っかけに気づきます。
+        </p>
+        <p class="text-xs text-[var(--c-dim)]">
+          ※本ページは批評・教育目的で、解説に必要な範囲の断片のみを引用しています。全歌詞の対訳は掲載していません。
+        </p>
+      </div>
     </section>
 
-    <section class="mb-6">
-      <h2 class="text-base font-semibold mb-2">■歌詞和訳・解説</h2>
+    <!-- ===================== -->
+    <!-- 学習ユニット群         -->
+    <!-- ===================== -->
+    <div id="units"></div>
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2 border-b border-[var(--c-border)] pb-2">
+        学ぶ表現 — イディオム・比喩・言葉遊び
+      </h2>
+      <p class="text-xs text-[var(--c-dim)] mb-6">
+        各見出しは「この曲から学べる英語表現」。各ユニットはまず上に英語の用例（1〜2行）を置いてあります。<strong class="text-[var(--c-text)]">先に英語を音で追い、行のどこが学習対象かを確かめてから</strong>下の日本語解説に進むと、英語が苦手でも置いていかれません。🎤はそのリリックを歌うMC、▶は公式PVの該当箇所への頭出しリンク（音源解析で付与、秒数は概算）です。引用は解説に必要な最小限の断片だけに留めています。
+      </p>
 
-      <h3 class="text-xs text-[var(--c-very-dim)] uppercase tracking-widest mb-3">Intro · DJ Revolution</h3>
+      <!-- ① work the angles -->
+      <LearningUnit
+        heading="work the angles — タイトルになった戦略の言い回し"
+        label="★ イディオム（タイトル）"
+        mc="Dilated Peoples（Chorus）"
+        t={TS["work-angles-chorus"].t} tApprox={TS["work-angles-chorus"].approx} youtubeId={YT}
+      >
+        <Fragment slot="eng">I work the angles sharp and precise<br />Dilated Peoples so you better build twice</Fragment>
+        <Fragment slot="jpn">俺はあらゆる角度を突く、鋭く正確に／Dilated Peoplesだ、だからお前はもう一度よく考えろ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 イントロ直後のフック。曲のテーマを一言で示す核。</p>
+        <p>タイトルの <strong class="text-[var(--c-text)]">work the angles</strong> が学習ポイント。<strong class="text-[var(--c-text)]">angle</strong> は「角度」ですが、比喩では「<strong class="text-[var(--c-text)]">物事へのアプローチ・攻め口・切り口</strong>」を指します。だから <em>work the angles</em> は「<strong class="text-[var(--c-text)]">あらゆる角度から知恵を絞って立ち回る・抜け目なく動く</strong>」という意味。ビジネスでも「<em>work every angle</em>（手を尽くす）」のように使う実用イディオムです。後半の <strong class="text-[var(--c-text)]">build</strong> は、ヒップホップ（特にFive-Percent系）の用法で「<strong class="text-[var(--c-text)]">じっくり語り合う・考えを練る</strong>」の意。「build twice」で「（俺たちに挑む前に）二度はよく考えろ」というニュアンスになります。鋭く（sharp）正確に（precise）角度を突く——知性で勝負するこのグループの宣言です。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">work the angles / work every angle</strong> は「あらゆる手・切り口を使って有利に運ぶ」。<em>He worked every angle to close the deal</em>（彼はあらゆる手を尽くして商談をまとめた）。<em>angle</em>（角度→切り口・狙い）は <em>What's your angle?</em>（お前の狙いは何だ？）のようにも使う。</p>
+          <p>ヒップホップ語彙の <strong class="text-[var(--c-text)]">build</strong>（語り合う・知を構築する）は、Five-Percent Nation由来の用法。日常英語の build（建てる）とは別の、コミュニティ内の特殊な意味として押さえておくとよい。</p>
+        </Fragment>
+      </LearningUnit>
 
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Di-dilated Peoples<br />
-          Di-di-dilated Peoples<br />
-          Di-di-di-dilated Peoples<br />
-          Di-di-di-dilated Peoples
-        </Fragment>
-        <Fragment slot="jpn">
-          ダイレイテッド・ピープルズ（スクラッチで刻まれるグループ名）
-        </Fragment>
-        <Fragment slot="explanation">
-          DJ Revolutionによるスクラッチ・イントロ。グループ名をターンテーブルで切り刻み、楽曲への期待感を高める。ヒップホップのDJが「名刺代わり」にグループ名をスクラッチするクラシックな手法。
-        </Fragment>
-      </LyricsBlock>
+      <!-- ② one set of prints -->
+      <LearningUnit
+        heading="leave one set of prints — 追跡をかわす者の比喩"
+        label="★ 比喩"
+        mc="Iriscience（Verse 1）"
+        t={TS["one-set-prints"].t} tApprox={TS["one-set-prints"].approx} youtubeId={YT}
+      >
+        <Fragment slot="eng">I travel both directions but leave one set of prints</Fragment>
+        <Fragment slot="jpn">両方向に進むのに、足跡（prints）は一組しか残さない</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 1前半、Iriscienceが自分の捉えどころのなさを描く件。</p>
+        <p>意味そのものより、<strong class="text-[var(--c-text)]">比喩の作り方</strong>を味わいたい一行。<strong class="text-[var(--c-text)]">prints</strong> は <em>footprints</em>（足跡）のこと。「両方向に進む（travel both directions）のに、足跡は一組しか残さない」——物理的にはありえない情景ですが、これは「<strong class="text-[var(--c-text)]">どこへ向かったか読ませない・追跡をかわす</strong>」という諜報員的な捉えどころのなさのイメージです。直前には「川を渡って匂いを消す（so I don't leave a scent）」という猟犬を撒くような比喩もある。具体的な動作の絵で、抽象的な「自分は読めない存在だ」を伝える——英語の比喩表現を読むときは、こうして<strong class="text-[var(--c-text)]">"絵"に変換してから意味を取る</strong>と腑に落ちやすい。</p>
+      </LearningUnit>
 
-      <h3 class="text-xs text-[var(--c-very-dim)] uppercase tracking-widest mb-3 mt-6">Chorus · Dilated Peoples</h3>
+      <!-- ③ communication not ego -->
+      <LearningUnit
+        heading="It's about communication not a rapper's ego — 構文 it's about X not Y"
+        label="★ 文法／テーマ"
+        mc="Iriscience（Verse 1）"
+        t={TS["communication-ego"].t} tApprox={TS["communication-ego"].approx} youtubeId={YT}
+      >
+        <Fragment slot="eng">It's about communication not a rapper's ego</Fragment>
+        <Fragment slot="jpn">大事なのはコミュニケーションで、ラッパーのエゴじゃない</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 1中盤、Iriscienceがこのグループの姿勢を直接述べる件。</p>
+        <p>比喩だらけのヴァースの中で、ここはストレートな主張。覚えたいのは構文 <strong class="text-[var(--c-text)]">It's about X, not Y</strong>＝「<strong class="text-[var(--c-text)]">大事なのはXであってYじゃない</strong>」。何かの本質・優先順位を言い切るときの超便利な型です。<em>It's about the music, not the money</em>（大事なのは音楽で金じゃない）のように、日常会話でもそのまま使える。ここでは <strong class="text-[var(--c-text)]">communication</strong>（伝えること）を <strong class="text-[var(--c-text)]">a rapper's ego</strong>（ラッパーの自尊心）の上に置き、「俺たちは見栄じゃなく、ちゃんと伝えるためにやっている」と宣言している。技術自慢の曲でありながら、その技術が"何のため"かを忘れない——このグループの誠実さが出た一行です。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">It's (all) about ~</strong> は「肝心なのは〜だ・〜が全てだ」。<em>It's all about timing</em>（要はタイミングだ）。<em>not ~</em> を続けると「〜ではなく」と対比が際立つ。価値観や優先順位を一文で表明できる、覚えておくと便利な型。</p>
+        </Fragment>
+      </LearningUnit>
 
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          I work the angles sharp and precise<br />
-          Dilated Peoples so you better build twice
+      <!-- ④ dead wrong -->
+      <LearningUnit
+        heading="dead wrong — 「完全に間違い」を作る dead"
+        label="★ イディオム"
+        mc="Iriscience（Verse 1）"
+        t={TS["dead-wrong"].t} tApprox={TS["dead-wrong"].approx} youtubeId={YT}
+      >
+        <Fragment slot="eng">Your thoughts of takin me head on are dead wrong</Fragment>
+        <Fragment slot="jpn">俺に正面から（head on）来ようなんて考えは、完全に間違ってる（dead wrong）</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 1の締め、Iriscienceが挑戦者を退ける件。</p>
+        <p>ここには使える表現が2つ。まず <strong class="text-[var(--c-text)]">dead wrong</strong>＝「<strong class="text-[var(--c-text)]">完全に・まったくもって間違っている</strong>」。この <strong class="text-[var(--c-text)]">dead</strong> は「死んだ」ではなく「<strong class="text-[var(--c-text)]">完全に・徹底的に</strong>」を表す強調語で、<em>dead serious</em>（大真面目）、<em>dead tired</em>（へとへと）、<em>dead center</em>（ど真ん中）のように形容詞を強める。もう一つは <strong class="text-[var(--c-text)]">head on</strong>＝「<strong class="text-[var(--c-text)]">正面から・真っ向勝負で</strong>」。<em>face it head on</em>（真正面から立ち向かう）の形で使う。直前の <code>headstrong</code>（頑固な）とも音を遊んでいる。「真っ向から来る気か、それは大間違いだ」という凄みを、2つのイディオムで効かせています。</p>
+        <Fragment slot="usage">
+          <p>強調の <strong class="text-[var(--c-text)]">dead</strong>＋形容詞は頻出: <em>dead wrong</em>（完全に間違い）、<em>dead serious</em>（本気も本気）、<em>dead broke</em>（一文無し）、<em>dead center</em>（ど真ん中）。いずれも「これ以上ないほど〜」という最上級の強調。</p>
+          <p><strong class="text-[var(--c-text)]">head-on</strong> は副詞・形容詞で「正面から（の）」。<em>a head-on collision</em>（正面衝突）、<em>tackle the problem head-on</em>（問題に真っ向から取り組む）。</p>
         </Fragment>
-        <Fragment slot="jpn">
-          俺は鋭く正確に角度を利用する<br />
-          Dilated Peoplesだ——だから二度確認しろ
-        </Fragment>
-        <Fragment slot="explanation">
-          「work the angles」は幾何学的比喩。鋭角・鈍角を活用するように、あらゆる状況の隙を計算して動くこと。「build twice」はFive Percenter（5パーセンター）の用語「build（知識・議論を積み上げる）」と「測って二度確認してから切れ」という職人の格言の双方を掛けている。
-        </Fragment>
-      </LyricsBlock>
+      </LearningUnit>
 
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Act like you know, not now, but right now<br />
-          Dilated Peoples<br />
-          The name is Iriscience
+      <!-- ⑤ let go / Aikido -->
+      <LearningUnit
+        heading="master of Aikido, I let go — 武術になぞらえる"
+        label="★ 比喩／句動詞"
+        mc="Evidence（Verse 2）"
+        t={TS["let-go-aikido"].t} tApprox={TS["let-go-aikido"].approx} youtubeId={YT}
+      >
+        <Fragment slot="eng">It's the master of Aikido<br />I let go, karate confrontations</Fragment>
+        <Fragment slot="jpn">合気道（Aikido）の達人だ／俺は受け流す（let go）、空手の対決を</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 2の入り、Evidenceが武術の比喩で自分を語る件。</p>
+        <p>Evidence は自分を <strong class="text-[var(--c-text)]">合気道（Aikido）の達人</strong>にたとえます。合気道は、相手の力をぶつけ返すのではなく<strong class="text-[var(--c-text)]">受け流して制す</strong>武術。だから次の <strong class="text-[var(--c-text)]">I let go</strong>（手放す・力を抜く）が効いてくる。句動詞 <strong class="text-[var(--c-text)]">let go</strong> は「掴んでいたものを放す／執着を手放す」で、ここでは「真っ向勝負（karate＝直線的にぶつかる空手）を、力まず受け流す」という構図を作っている。真っ向から来た相手（前のユニットの <em>head on</em>）を、力でなく技でいなす——Verse 1からの流れともきれいに繋がっています。武術の知識が、そのまま比喩の読解に効く好例です。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">let go (of ~)</strong> は「（〜を）放す・手放す・解放する」。物理的にも（<em>let go of the rope</em>＝ロープを放す）、心理的にも（<em>let go of the past</em>＝過去を手放す）使う。ここでは「力まず受け流す」という合気道的なニュアンスで効いている。</p>
         </Fragment>
-        <Fragment slot="jpn">
-          わかってるふりをしろ——今じゃない、今すぐだ<br />
-          Dilated Peoples<br />
-          名前はIriscience
-        </Fragment>
-        <Fragment slot="explanation">
-          「act like you know」はヒップホップの定型句で「理解してる素振りをしろ／本物を認識しろ」。"not now, but right now"の矛盾した強調が独特のリズムを生む。Iriscience（アイリサイエンス）はメンバーRakaaのラップネーム——"iris（虹彩）"と"science（知識）"の合成語。
-        </Fragment>
-      </LyricsBlock>
+      </LearningUnit>
 
-      <h3 class="text-xs text-[var(--c-very-dim)] uppercase tracking-widest mb-3 mt-6">Verse 1 · Iriscience</h3>
+      <!-- ⑥ swing my bat / baseball -->
+      <LearningUnit
+        heading="when I swing my bat I don't miss — スポーツの直喩"
+        label="★ 直喩"
+        mc="Evidence（Verse 2）"
+        t={TS["swing-bat-baseball"].t} tApprox={TS["swing-bat-baseball"].approx} youtubeId={YT}
+      >
+        <Fragment slot="eng">And when I swing my bat I don't think I'll miss like baseball</Fragment>
+        <Fragment slot="jpn">それにバットを振れば、空振りしない、野球みたいにはな</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 2中盤、Evidenceが確実さを誇る件。</p>
+        <p>今度は<strong class="text-[var(--c-text)]">野球</strong>の直喩。<strong class="text-[var(--c-text)]">swing my bat</strong>（バットを振る）→ <strong class="text-[var(--c-text)]">miss</strong>（空振りする・打ち損なう）という、誰でも絵にできるイメージで「俺は外さない（確実に決める）」を表しています。<em>miss</em> は「（狙いを）外す・し損なう」で、<em>swing and miss</em>（振って空振りする）は野球からきた決まり文句。武術（合気道）の次に野球を持ってくる——硬い比喩と親しみやすい比喩を交ぜることで、聴き手を置き去りにしない工夫でもある。スポーツの語彙は英語の比喩で本当によく出てくるので、<em>swing / miss / strike out</em>（三振する）あたりはまとめて押さえておくと、リスニングがぐっと楽になります。</p>
+      </LearningUnit>
 
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          I go through rivers (What?) so I don't leave a scent<br />
-          I travel both directions but leave one set of prints
+      <!-- ⑦ Mayday / Feds -->
+      <LearningUnit
+        heading="Everyday is Mayday — 緊急信号と捜査官"
+        label="★ 言葉遊び／スラング"
+        mc="Evidence（Verse 2）"
+        t={TS["mayday-feds"].t} tApprox={TS["mayday-feds"].approx} youtubeId={YT}
+      >
+        <Fragment slot="eng">Everyday is Mayday and best friends are Feds</Fragment>
+        <Fragment slot="jpn">毎日が非常事態（Mayday）、親友が捜査官（Feds）</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 2後半、Evidenceが油断のならない日常を描く件。</p>
+        <p>2つの語が学習ポイント。<strong class="text-[var(--c-text)]">Mayday</strong> は「5月の日」ではなく、<strong class="text-[var(--c-text)]">遭難・緊急事態を知らせる無線の救難信号</strong>（フランス語 <em>m'aider</em>＝助けてに由来）。パイロットや船が窮地で「Mayday! Mayday!」と発するあれです。<strong class="text-[var(--c-text)]">Feds</strong> は <em>federal agents</em> の略で、FBIなどの<strong class="text-[var(--c-text)]">連邦捜査官</strong>を指すスラング。「毎日が非常事態で、親友すら（実は）捜査官かもしれない」——油断できない緊張した世界観を、2つの語で一気に描いている。<strong class="text-[var(--c-text)]">同じ綴り・音でも文脈で意味が一変する</strong>（May day → Mayday）のは英語の面白いところで、固有名詞・略語の背景を知っているほど聴き取りが深くなります。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">Mayday</strong> は国際的な遭難信号（声で3回繰り返す）。比喩で「緊急事態・SOS」を表すこともある。労働者の祝日 <em>May Day</em>（メーデー）とは別物で、文脈と綴り（1語 / 2語）で区別する。</p>
+          <p><strong class="text-[var(--c-text)]">the Feds</strong> は連邦政府・連邦捜査官（FBI等）を指す口語。ストリート系の歌詞では「（州警察より上位の）お上・捜査機関」のニュアンスで頻出する。</p>
         </Fragment>
-        <Fragment slot="jpn">
-          川を渡って（何？）臭いを消す<br />
-          両方向に移動するが、足跡は一組だけ残す
-        </Fragment>
-        <Fragment slot="explanation">
-          動物が川を渡って追跡者を撒く狩猟の比喩。「足跡は一組」——動きを読まれないよう、行動の痕跡を最小化する戦術。スパイ・サバイバルの戦略を日常的処世術に転用している。
-        </Fragment>
-      </LyricsBlock>
+      </LearningUnit>
 
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          It's just a little trick, of the indigenous<br />
-          Developing inner visions of what religion is
-        </Fragment>
-        <Fragment slot="jpn">
-          それはただの先住民の小さな知恵<br />
-          宗教とは何かについて内なるビジョンを育てている
-        </Fragment>
-        <Fragment slot="explanation">
-          「indigenous（先住民族的）な知恵」として土着のサバイバル術を提示。「inner visions」は外部から押しつけられた宗教ではなく、自分自身の内的な霊性を探求するという姿勢。Five Percenter的な自己知識の追求が背景にある。
-        </Fragment>
-      </LyricsBlock>
+      <!-- ⑧ evidence on trial -->
+      <LearningUnit
+        heading="Ev is for evidence on trial — 自分の名前で言葉遊び"
+        label="★ 言葉遊び（名前）"
+        mc="Evidence（Verse 2）"
+        t={TS["evidence-on-trial"].t} tApprox={TS["evidence-on-trial"].approx} youtubeId={YT}
+      >
+        <Fragment slot="eng">Ev is not for Evid' it's for evidence on trial</Fragment>
+        <Fragment slot="jpn">EvはEvid'の略じゃない、法廷の「証拠（evidence）」のEvだ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 2終盤、Evidenceが自分の名前で一本決める件。</p>
+        <p>MC名 <strong class="text-[var(--c-text)]">Evidence</strong> そのものを使った言葉遊びです。英単語の <strong class="text-[var(--c-text)]">evidence</strong> は「<strong class="text-[var(--c-text)]">証拠</strong>」。ふだん略して <strong class="text-[var(--c-text)]">Ev</strong> と呼ばれる彼が、「俺の Ev は単なる愛称（Evid'）の略じゃない、<strong class="text-[var(--c-text)]">法廷に出される"証拠（evidence）"の Ev だ</strong>」と言ってのける。前のユニットの <em>Feds</em>（捜査官）、そして <em>on trial</em>（裁判にかけられて）と、<strong class="text-[var(--c-text)]">司法・犯罪のモチーフ</strong>で一貫させているのがうまい。自分の名前の意味を掘って、曲全体の世界観（諜報・捜査・法廷）に接続する——ラッパーが芸名で遊ぶ、その典型的で鮮やかな一例です。<code>on trial</code>（裁判中で）は実用イディオムなので一緒に。</p>
+      </LearningUnit>
 
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          I caught the understanding and the underhanded<br />
-          I plan to build my ship and man it to another planet
-        </Fragment>
-        <Fragment slot="jpn">
-          理解と裏工作の両方を掴んだ<br />
-          自分の船を建造して、別の惑星へ乗り込む計画だ
-        </Fragment>
-        <Fragment slot="explanation">
-          「underhanded（不正な・陰謀的な）」の世界を理解しながら、そこから超越しようとする姿勢。「別の惑星へ」はメインストリームや既存の枠組みを完全に超越するという比喩的表現。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Under heavy surveillance, many different agents<br />
-          Some are camouflaged, others are very blatant
-        </Fragment>
-        <Fragment slot="jpn">
-          厳重な監視下に置かれている、多くの異なるエージェントに<br />
-          カモフラージュしている者もいれば、あからさまな者もいる
-        </Fragment>
-        <Fragment slot="explanation">
-          「agents」は二重の意味——文字通りのFBI/CIAエージェント、そして日常生活の中で監視・妨害する人物全般。目に見えない脅威と見えている脅威を区別して対処する警戒心。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          I study weapon systems and vocal fighting forms<br />
-          I'm many moves ahead, the thoughts are highly formed
-        </Fragment>
-        <Fragment slot="jpn">
-          武器システムと声の戦闘スタイルを研究している<br />
-          俺は何手も先を読んでいる、思考は高度に形成されている
-        </Fragment>
-        <Fragment slot="explanation">
-          「vocal fighting forms（声の戦闘スタイル）」はMCingをカンフー/武術の「型」として捉える視点。チェス的思考で相手の何手も先を読む。ブルース・リーのビートとの完璧な意味的一致。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Like time times time is time squared<br />
-          Went there, sayin', "Rakaa, you don't rhyme fair"
-        </Fragment>
-        <Fragment slot="jpn">
-          時間×時間＝時間の二乗のように<br />
-          そこへ行ったら「Rakaa、お前のライムは公平じゃない」と言われた
-        </Fragment>
-        <Fragment slot="explanation">
-          数学的比喩で自分の力の指数関数的増大を表現。「don't rhyme fair（ライムが公平じゃない）」は他のラッパーへの優位性を示す皮肉——つまりIriscienceのライムは「ズルいくらい上手い」という意味。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          But I never dummy lyrics and they kick it to my people<br />
-          It's about communication not a rapper's ego
-        </Fragment>
-        <Fragment slot="jpn">
-          でも俺は歌詞を薄めることはしない、そして仲間に届ける<br />
-          大事なのはコミュニケーション、ラッパーのエゴじゃない
-        </Fragment>
-        <Fragment slot="explanation">
-          「dummy（馬鹿にする・薄める）」——商業的に分かりやすくするため歌詞の質を落とすことを拒否。ヒップホップの本質はMCの自己顕示欲ではなくリスナーとの対話にあるというフィロソフィー。90年代後半の「シャイニー・スーツ」的物質主義への批判。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Messages I sneak in they seem to seep in<br />
-          Mixed with alcohol and weed on the weekend
-        </Fragment>
-        <Fragment slot="jpn">
-          忍び込ませたメッセージが染み込んでいく<br />
-          週末のアルコールと大麻と混じり合って
-        </Fragment>
-        <Fragment slot="explanation">
-          「sneak in（忍び込ませる）」「seep in（染み込む）」——リスナーが意識しないうちにメッセージが浸透していく仕組みを描写。教訓的な内容を娯楽の中に溶け込ませるというトロイの木馬戦略。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Shared among friends like various sins<br />
-          One day it clicks it's no longer dim
-        </Fragment>
-        <Fragment slot="jpn">
-          様々な罪のように友人の間で共有され<br />
-          ある日突然意味が解けて、もう暗くない
-        </Fragment>
-        <Fragment slot="explanation">
-          音楽が口コミで広がる様子を「罪の共有」に例えた逆説。"it clicks"はある瞬間に突然理解が訪れること（啓示的理解）。"no longer dim（もう薄暗くない）"——無知から覚醒するイメージ。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Time release capsules humble the headstrong<br />
-          Your thoughts of takin me head on are dead wrong
-        </Fragment>
-        <Fragment slot="jpn">
-          徐放性カプセルが頑固者を謙虚にさせる<br />
-          俺に真正面から挑もうという考えは完全に間違い
-        </Fragment>
-        <Fragment slot="explanation">
-          「time release capsules（徐放性カプセル）」は時間をかけてゆっくり効く薬のカプセル——Iriscienceの歌詞が後から後から効いてくることの比喩。「headstrong（頑固な）」ライバルも時間差で攻略される。
-        </Fragment>
-      </LyricsBlock>
-
-      <h3 class="text-xs text-[var(--c-very-dim)] uppercase tracking-widest mb-3 mt-6">Hook · Dilated Peoples</h3>
-
-      <LyricsBlock hasExplanation={false}>
-        <Fragment slot="eng">
-          I work the angles sharp and precise<br />
-          Dilated Peoples so you better build twice<br />
-          Act like you know, not now, but right now<br />
-          Dilated Peoples<br />
-          I work the angles sharp and precise<br />
-          Dilated Peoples so you better build twice<br />
-          Act like you know, not now, but right now<br />
-          Dilated Peoples
-        </Fragment>
-        <Fragment slot="jpn">
-          コーラス繰り返し——DJ Revolutionのスクラッチがフックを構築
-        </Fragment>
-      </LyricsBlock>
-
-      <h3 class="text-xs text-[var(--c-very-dim)] uppercase tracking-widest mb-3 mt-6">Verse 2 · Evidence</h3>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          (Evidence) It's the master of Aikido<br />
-          I let go, karate confrontations
-        </Fragment>
-        <Fragment slot="jpn">
-          （エビデンス）合気道の達人だ<br />
-          空手の対決は手放す
-        </Fragment>
-        <Fragment slot="explanation">
-          合気道は相手の力を利用して倒す武術——直接力で対抗するのではなく、状況を逆用する戦術の比喩。「let go（手放す）」はブルース・リーの「水のようになれ」的な柔軟性の哲学。サンプル元映画との意味的呼応。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Evidence scientist in innovation<br />
-          I locks on when I travels around planets
-        </Fragment>
-        <Fragment slot="jpn">
-          Evidenceはイノベーションの科学者<br />
-          惑星を旅するとき、俺はロックオンする
-        </Fragment>
-        <Fragment slot="explanation">
-          「scientist（科学者）」はFive Percenter用語で「知識を探求する者」。「lock on（ロックオン）」はミサイルが目標を捕捉するイメージ——焦点を定めたら迷わず突き進む。宇宙的スケールの比喩はアンダーグラウンドHIPHOPの常套表現。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Smooth but got a rough edge like Wurlitzer pianists<br />
-          Display mucho attack, receive payments for the cadence
-        </Fragment>
-        <Fragment slot="jpn">
-          滑らかだがWurlitzerピアニストのような荒削りのエッジも持つ<br />
-          猛烈な攻撃を見せ、そのリズムへの対価を受け取る
-        </Fragment>
-        <Fragment slot="explanation">
-          Wurlitzer（ワーリッツァー）は独特の温かみと荒削りな質感を持つエレクトリックピアノ。ソウルとジャズの文脈を引用しながら自分のフロウの二面性を描写。「cadence（韻律・リズム）」への「payment」——技術に金銭的価値が伴う。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          A in this, you get hit foul with flagrants<br />
-          Free agents on the dotted line more hard to sign
-        </Fragment>
-        <Fragment slot="jpn">
-          この業界で、お前はフレグラントファウルを食らう<br />
-          点線上のフリーエージェントは署名が難しい
-        </Fragment>
-        <Fragment slot="explanation">
-          「flagrants（フレグラントファウル）」はバスケの悪質ファウル——業界での不当な扱いの比喩。「free agents on the dotted line」は自由契約選手がレーベルに縛られることへの警戒。独立性の維持がテーマ。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Not easily impressed with gold mines and whole nines<br />
-          I'm somewhere in-between never rushed and in a hurry
-        </Fragment>
-        <Fragment slot="jpn">
-          金脈やドレスアップ全部にも簡単には感動しない<br />
-          俺は「急がない」と「急いでいる」の間のどこかにいる
-        </Fragment>
-        <Fragment slot="explanation">
-          「whole nine（whole nine yards）」は「完全装備・全部揃えること」——物質的な誇示への無関心。「never rushed and in a hurry」の逆説：焦らずも絶えず動いているという戦略的姿勢。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          And when I swing my bat I don't think I'll miss like baseball<br />
-          Furies the jury's hung, from verdict and got no chance
-        </Fragment>
-        <Fragment slot="jpn">
-          バットを振るとき、野球みたいに外れるとは思わない<br />
-          評決がかかって陪審が割れた怒り、チャンスなし
-        </Fragment>
-        <Fragment slot="explanation">
-          野球の「バットを振って外さない」——自信満々のフロウ。「jury's hung（陪審員が割れた）」は法廷用語、評決が出ない状態——複雑な状況の比喩。Evidenceの常套的な法廷・犯罪テーマ。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Dilated comes first the rest are second like Stu Lantz<br />
-          Oh yes it gets better everyday
-        </Fragment>
-        <Fragment slot="jpn">
-          Dilatedが一番、残りは二番——Stu Lantzみたいに<br />
-          ああ、毎日良くなっていく
-        </Fragment>
-        <Fragment with explanation>
-        <Fragment slot="explanation">
-          Stu Lantz（スチュー・ランツ）はNBAの元選手でLAレイカーズのTV解説者——ロサンゼルスの地元ネタ。Dilatedがラップ界のトップで他は後続という宣言。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          The aged wine is my mind on vintage display<br />
-          Unattended in this case
-        </Fragment>
-        <Fragment slot="jpn">
-          熟成ワインが俺の心——ヴィンテージとして展示中<br />
-          このケースでは見守られることなく
-        </Fragment>
-        <Fragment slot="explanation">
-          熟成されたワインのように、時間をかけて深みを増した知性を誇示。「unattended（監視なし）」——自由に動ける状態への言及。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          (The Ace two steps ahead)<br />
-          Everyday is Mayday and best friends are Feds
-        </Fragment>
-        <Fragment slot="jpn">
-          （エースは二歩先にいる）<br />
-          毎日が非常事態、親友でさえFBIかもしれない
-        </Fragment>
-        <Fragment slot="explanation">
-          「Mayday」は国際的な緊急信号——毎日が危機的状況。「best friends are Feds」は最も信頼している人物が実は当局の密告者かもしれないというストリートの被迫害妄想的リアリズム。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          But I know this that's why they closest<br />
-          In a crisis situation you negotiate first
-        </Fragment>
-        <Fragment slot="jpn">
-          でも俺はわかっている、だから彼らを近くに置く<br />
-          危機的状況ではまず交渉する
-        </Fragment>
-        <Fragment slot="explanation">
-          「敵を近くに置け」というマキャヴェリ的戦術。直接対決ではなく交渉を優先する知恵——「角度を利用する」というテーマの具体的実践。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          I'm perfectly focused<br />
-          Strategic and in a zone<br />
-          It was radar detected but my speed was unknown
-        </Fragment>
-        <Fragment slot="jpn">
-          俺は完璧にフォーカスしている<br />
-          戦略的でゾーンに入っている<br />
-          レーダーには感知されたが、スピードは不明だった
-        </Fragment>
-        <Fragment slot="explanation">
-          軍事的比喩。レーダーに映るほど存在感があるが、速度（本当の実力）は読まれていない——敵に全貌を把握させない戦術。アスリートが「ゾーン状態」に入る集中力との掛け合わせ。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Anonymity, that's my key to survival<br />
-          Ev is not for Evid' it's for evidence on trial
-        </Fragment>
-        <Fragment slot="jpn">
-          匿名性、それが俺のサバイバルの鍵<br />
-          「Ev」はEvid'の略じゃない、裁判の証拠（evidence）のことだ
-        </Fragment>
-        <Fragment slot="explanation">
-          「anonymity（匿名性）」——注目されすぎることの危険性を示す。そして自分のラップネーム「Evidence」の再解釈：単なるニックネームではなく「法廷に突きつける証拠」そのものだという宣言。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Just remember in this game it take two to tango<br />
-          Don't go to them let them come to you<br />
-          And work the angles
-        </Fragment>
-        <Fragment slot="jpn">
-          このゲームではタンゴを踊るのに二人必要なことを忘れるな<br />
-          向こうへ行くな、向こうから来させろ<br />
-          そして角度を利用しろ
-        </Fragment>
-        <Fragment slot="explanation">
-          「takes two to tango」は「どんな問題も双方に責任がある」という慣用句。しかし主体性を手放さず、相手を引き付ける側に回れ——「角度を利用する」という曲のテーマへの完璧な回帰。
-        </Fragment>
-      </LyricsBlock>
-
-      <h3 class="text-xs text-[var(--c-very-dim)] uppercase tracking-widest mb-3 mt-6">Outro · DJ Revolution</h3>
-
-      <LyricsBlock hasExplanation={false}>
-        <Fragment slot="eng">
-          Dilated Peoples<br />
-          Di-di-di-di-dilated Peoples<br />
-          Dilated-dilated-di-di-dilated Peoples<br />
-          Peace!
-        </Fragment>
-        <Fragment slot="jpn">
-          DJ Revolutionのスクラッチでグループ名を刻んでアウトロ
-        </Fragment>
-      </LyricsBlock>
-
+      <!-- ⑨ it takes two to tango -->
+      <LearningUnit
+        heading="it take two to tango — 「一人じゃできない」の名イディオム"
+        label="★ イディオム（ことわざ）"
+        mc="Evidence（Verse 2）"
+        t={TS["two-to-tango"].t} tApprox={TS["two-to-tango"].approx} youtubeId={YT}
+      >
+        <Fragment slot="eng">Just remember in this game it take two to tango<br />Don't go to them let them come to you, and work the angles</Fragment>
+        <Fragment slot="jpn">覚えとけ、このゲームは一人じゃできない（two to tango）／自分から行くな、向こうから来させて、角度を突け</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 2の締め、Evidenceが戦略をことわざで言い切る件。タイトルを回収する。</p>
+        <p>締めに、有名なことわざ <strong class="text-[var(--c-text)]">it takes two to tango</strong> が登場します。直訳は「タンゴを踊るには2人必要だ」。そこから「<strong class="text-[var(--c-text)]">ある事（特にもめ事・取引）は片方だけでは成立しない、双方に責任・関与がある</strong>」という意味で使う定番イディオムです（歌詞では発音どおり <code>it take</code> と三単現の s を落としている）。続く <strong class="text-[var(--c-text)]">Don't go to them, let them come to you</strong>（自分から行くな、向こうから来させろ）という戦略論を経て、最後にタイトルの <strong class="text-[var(--c-text)]">work the angles</strong> へ戻ってくる。①の最初に出たテーマが、ここできれいに回収されるわけです。曲全体が一つの"戦略講義"としてループする、その構成美も味わってみてください。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">it takes two to tango</strong> は「双方に責任がある・片方だけのせいにはできない」。もめ事の文脈で <em>Don't just blame her — it takes two to tango</em>（彼女だけを責めるな、双方に非がある）のように使う。比喩的に「協力・共犯」のどちらにも使える便利なことわざ。</p>
+        </Fragment>
+      </LearningUnit>
     </section>
 
-    <section class="mb-6">
-      <h2 class="text-base font-semibold mb-2">■文化背景</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">1990年代後半、ヒップホップのメインストリームはG-FunkとShiny Suit時代（物質主義的ポップ・ラップ）に席巻されていた。その対極で、LAのアンダーグラウンドではMCとDJの対等な関係性、リリシズム、ターンテーブリズムへの回帰運動が起きていた。Dilated Peoples（Iriscience/Rakaa、Evidence、DJ Babu）はその旗手。DJ Babuは後に「turntablism（ターンテーブリズム）」という言葉を生み出した人物であり、Beat Junkies所属の技巧派DJ。本曲のスクラッチ・フックを手掛けたDJ Revolutionも西海岸屈指のターンテーブリスト。サンプリング元のブルース・リー映画との接続はWu-Tang ClanのカンフーHIPHOP哲学とも呼応し、1990年代アンダーグラウンドHIPHOPの東洋武術崇拝を象徴する。</p>
+    <!-- ===================== -->
+    <!-- 文化的背景             -->
+    <!-- ===================== -->
+    <section id="background" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        文化的背景
+      </h2>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">LAアンダーグラウンド</p>
+        <h3 class="font-semibold text-base mb-3">ギャングスタだけじゃない、もう一つの西海岸</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          90年代の西海岸といえばギャングスタ・ラップのイメージが強いが、その裏で <strong class="text-[var(--c-text)]">Project Blowed</strong> などを拠点に、リリシズムとDJ技術を重んじる<strong class="text-[var(--c-text)]">LAアンダーグラウンド</strong>のシーンが育っていた。Dilated Peoples はその代表格。暴力の誇示より<strong class="text-[var(--c-text)]">言葉のキレとターンテーブルの技</strong>で勝負するスタイルは、東海岸の硬派なヘッズからも支持された。「Work the Angles」の頭脳戦的なリリックは、まさにこのシーンの価値観を体現しています。
+        </p>
+      </div>
+
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">キーワード早見表</p>
+        <h3 class="font-semibold text-base mb-3">この曲で学んだ表現の整理</h3>
+        <div class="space-y-3 mt-3">
+          {[
+            ['work the angles', 'あらゆる角度・切り口を使って抜け目なく立ち回る'],
+            ['dead + 形容詞', 'dead wrong / dead serious 等「完全に〜」の強調'],
+            ['head-on', '正面から・真っ向勝負で'],
+            ['let go', '手放す・受け流す（合気道的ないなし）'],
+            ['it takes two to tango', '一人では成立しない・双方に責任がある'],
+            ['the Feds / Mayday', '連邦捜査官／緊急救難信号（略語・固有語）'],
+          ].map(([term, desc]) => (
+            <div class="flex gap-3 text-sm">
+              <span class="text-[var(--c-gold)] shrink-0 font-semibold min-w-[120px]">{term}</span>
+              <span class="text-[var(--c-muted)]">{desc}</span>
+            </div>
+          ))}
+        </div>
+      </div>
     </section>
 
-    <section class="mb-6">
-      <h2 class="text-base font-semibold mb-2">■レガシー</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">「Work the Angles」はLAアンダーグラウンドシーンを世界的に知らしめた一曲。その後Dilated Peoplesは2000年「The Platform」、2001年「Expansion Team」（DJ Premier、Alchemist参加）でアンダーグラウンドHIPHOPの主流に。Evidenceはその後ソロ活動でも高い評価を受け、DJ Babuはターンテーブリズムの定義者として歴史に名を刻んだ。「角度を利用しろ」という哲学はHIPHOPの技巧と知性の象徴として、今もLAアンダーグラウンドのDNAに刻まれている。日本でもMUROやDJ Hasebe世代のDJたちに強い影響を与えた。</p>
+    <!-- ===================== -->
+    <!-- サンプル・制作の裏側    -->
+    <!-- ===================== -->
+    <section id="behind" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        サンプル・制作の裏側
+      </h2>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">サンプル元</p>
+        <h3 class="font-semibold text-base mb-3">香港カンフー映画の劇伴 — KutMasta Kurtの選曲</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          プロデューサーの <strong class="text-[var(--c-text)]">KutMasta Kurt</strong> がトラックの核に据えたのは、香港の映画音楽家 <strong class="text-[var(--c-text)]">Joseph Koo（顧嘉煇）& Wang Fu-Ling</strong> による「<strong class="text-[var(--c-text)]">The Killing Fight</strong>」（WhoSampled確認）。カンフー映画の劇伴特有の、東洋的で張り詰めたメロディが、戦略を練るような緊張感をビートにもたらしている。ほかに <strong class="text-[var(--c-text)]">Sugar Billy Garner「I Got Some」</strong>のファンクも織り込まれている。武術になぞらえた歌詞と、カンフー映画のサンプル——内容と音作りがモチーフでぴたりと噛み合った一曲です。
+        </p>
+      </div>
+
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">リリースの経緯</p>
+        <h3 class="font-semibold text-base mb-3">12インチ単独から、デビュー作の名刺へ</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          「Work the Angles」は、まず <strong class="text-[var(--c-text)]">1997年に12インチシングル</strong>として世に出た。メジャーの後ろ盾なしに、アンダーグラウンドで評判を積み上げていく——そんな時代のLAらしい船出だった。この曲やシングル群で固めた評価を土台に、2000年のデビューアルバム『<strong class="text-[var(--c-text)]">The Platform</strong>』へと繋がっていく。アルバムを出す前に、シングルで腕前を証明してみせる。タイトルどおり、<strong class="text-[var(--c-text)]">あらゆる角度から地道に攻めた</strong>キャリアの組み立て方そのものが、彼ららしいと思います。
+        </p>
+      </div>
     </section>
 
-    <AmazonAlbumCta query="Dilated Peoples Work the Angles" cover="/images/covers/work-the-angles.jpg" title="Work the Angles / Worst Come to Worst" artist="Dilated Peoples" />
+    <!-- ===================== -->
+    <!-- 評価と影響             -->
+    <!-- ===================== -->
+    <section id="legacy" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        評価とその後の影響
+      </h2>
+
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg mb-6">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">位置づけ</p>
+        <h3 class="font-semibold text-base mb-3">Dilated Peoplesの"名刺"</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          「Work the Angles」は、Dilated Peoples の名を世界のアンダーグラウンドに知らしめた初期の重要曲。後に彼らは Kanye West を客演に迎えた「This Way」(2004) でメインストリームにも届くが、その原点にある<strong class="text-[var(--c-text)]">硬派なリリシズムと頭脳戦の美学</strong>は、この曲ですでに完成形に近い。派手さより知性、という彼らの一貫した姿勢の出発点です。
+        </p>
+      </div>
+
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">学習素材としての価値</p>
+        <h3 class="font-semibold text-base mb-3">"大人のイディオム"の宝庫</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          挑発やスラング中心の曲とは違い、この曲は <em>work the angles</em>、<em>dead wrong</em>、<em>head-on</em>、<em>it takes two to tango</em> といった、<strong class="text-[var(--c-text)]">ビジネスや日常会話でもそのまま通用するイディオム</strong>が多いのが特徴。比喩が抽象的でリスニング難度は高めですが、拾える表現はどれも"使える"ものばかり。スラングで崩れた英語に慣れたら、次はこういう曲で<strong class="text-[var(--c-text)]">骨のあるイディオム</strong>を仕入れる——そんなステップアップに向いた一曲です。
+        </p>
+      </div>
+    </section>
+
+    <!-- まとめ -->
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        まとめ
+      </h2>
+      <ul class="space-y-2 text-sm text-[var(--c-muted)] list-disc list-inside leading-relaxed">
+        <li>「Work the Angles」は、諜報・武術・チェスの比喩で"頭脳戦としてのラップ"を描いた、Dilated Peoplesの名刺的な一曲。</li>
+        <li>work the angles・dead wrong・head-on・it takes two to tango など、日常やビジネスでも使える骨太なイディオムが拾える。</li>
+        <li>Evidenceが自分の名前（=証拠）を法廷ネタにする言葉遊びなど、芸名を世界観に接続する手口も学べる。</li>
+        <li>KutMasta Kurtの香港カンフー映画サンプルが、武術になぞらえた歌詞と響き合う。元は1997年の12インチ→『The Platform』へ。</li>
+      </ul>
+    </section>
 
 </SongLayout>

@@ -1,0 +1,106 @@
+[
+  {
+    "id": "work-angles-chorus",
+    "anchor": [
+      "work",
+      "the",
+      "angles",
+      "sharp",
+      "and"
+    ],
+    "fallbackT": 14,
+    "manualSec": null
+  },
+  {
+    "id": "one-set-prints",
+    "anchor": [
+      "leave",
+      "one",
+      "set",
+      "of",
+      "prints"
+    ],
+    "fallbackT": 38,
+    "manualSec": null
+  },
+  {
+    "id": "communication-ego",
+    "anchor": [
+      "about",
+      "communication",
+      "not",
+      "a",
+      "rapper"
+    ],
+    "fallbackT": 68,
+    "manualSec": null
+  },
+  {
+    "id": "dead-wrong",
+    "anchor": [
+      "takin",
+      "me",
+      "head",
+      "on",
+      "are"
+    ],
+    "fallbackT": 88,
+    "manualSec": null
+  },
+  {
+    "id": "let-go-aikido",
+    "anchor": [
+      "master",
+      "of",
+      "aikido"
+    ],
+    "fallbackT": 118,
+    "manualSec": null
+  },
+  {
+    "id": "swing-bat-baseball",
+    "anchor": [
+      "swing",
+      "my",
+      "bat",
+      "i",
+      "don't"
+    ],
+    "fallbackT": 138,
+    "manualSec": null
+  },
+  {
+    "id": "mayday-feds",
+    "anchor": [
+      "everyday",
+      "is",
+      "mayday",
+      "and"
+    ],
+    "fallbackT": 150,
+    "manualSec": null
+  },
+  {
+    "id": "evidence-on-trial",
+    "anchor": [
+      "it's",
+      "for",
+      "evidence",
+      "on",
+      "trial"
+    ],
+    "fallbackT": 162,
+    "manualSec": null
+  },
+  {
+    "id": "two-to-tango",
+    "anchor": [
+      "take",
+      "two",
+      "to",
+      "tango"
+    ],
+    "fallbackT": 166,
+    "manualSec": null
+  }
+]
