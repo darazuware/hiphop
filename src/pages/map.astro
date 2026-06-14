@@ -5,7 +5,7 @@ import { songs } from '../data/songs';
 type Song = (typeof songs)[number];
 
 const regionSongs: Record<string, Song[]> = {};
-for (const song of songs as readonly Song[]) {
+for (const song of (songs as readonly Song[]).filter(s => s.tier === 'core')) {
   if (!regionSongs[song.region]) regionSongs[song.region] = [];
   regionSongs[song.region].push(song as Song);
 }

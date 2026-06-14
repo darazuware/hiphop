@@ -4,16 +4,17 @@ import { songs, ranking } from '../data/songs';
 import { artists } from '../data/artists';
 import { columns } from '../data/columns';
 
-const totalSongs = songs.length;
+const coreSongs = songs.filter(s => s.tier === 'core');
+const totalSongs = coreSongs.length;
 const totalArtists = artists.length;
 
 const featuredSlugs = [
   '/songs/cream',
   '/songs/ny-state-of-mind',
-  '/songs/shook-ones-pt-ii',
-  '/songs/electric-relaxation',
-  '/songs/fight-the-power',
-  '/songs/ebonics',
+  '/songs/nas-is-like',
+  '/songs/93-til-infinity',
+  '/songs/protect-ya-neck',
+  '/songs/criminology',
 ];
 const featuredSongs = featuredSlugs
   .map(slug => songs.find(s => s.slug === slug))
@@ -27,22 +28,22 @@ const seriesList = [
     slugs: ['/songs/twinz-deep-cover-98', '/songs/phone-tap', '/songs/criminology', '/songs/fast-life', '/songs/road-to-the-riches', '/songs/incarcerated-scarfaces'],
   },
   {
-    title: 'ウェストコースト G-Funk',
-    desc: 'サンセットに溶けるG-FunkとLAストリートの詩',
+    title: 'Nas ユニバース',
+    desc: 'クイーンズが生んだ詩人とその交差点',
     color: '#1a4a1a',
-    slugs: ['/songs/california-love', '/songs/nuthin-but-a-g-thang', '/songs/it-was-a-good-day', '/songs/gin-and-juice', '/songs/regulate'],
+    slugs: ['/songs/nas-is-like', '/songs/ny-state-of-mind', '/songs/i-can', '/songs/fast-life'],
   },
   {
     title: 'NY 黄金時代',
     desc: '90年代ブームバップが刻んだ不滅の名曲群',
     color: '#1a2a4a',
-    slugs: ['/songs/cream', '/songs/ny-state-of-mind', '/songs/juicy', '/songs/shook-ones-pt-ii', '/songs/protect-ya-neck'],
+    slugs: ['/songs/cream', '/songs/ny-state-of-mind', '/songs/protect-ya-neck', '/songs/criminology', '/songs/how-about-some-hardcore'],
   },
   {
     title: 'DJ Premier 特集',
     desc: 'ヒップホップ史上最高のプロデューサーの仕事',
     color: '#2a1a4a',
-    slugs: ['/songs/mass-appeal', '/songs/mathematics', '/songs/ny-state-of-mind', '/songs/supa-star', '/songs/the-1st-time'],
+    slugs: ['/songs/nas-is-like', '/songs/ny-state-of-mind', '/songs/real-hiphop', '/songs/werdz-from-ghetto-child', '/songs/classic-better-than-ive-ever-been---dj-premier-remix'],
   },
 ];
 
@@ -50,14 +51,14 @@ const resolvedSeries = seriesList.map(s => ({
   ...s,
   songs: s.slugs
     .map(slug => songs.find(song => song.slug === slug))
-    .filter((s): s is (typeof songs)[number] => s !== undefined),
+    .filter((s): s is (typeof songs)[number] => s !== undefined && s.tier === 'core'),
 }));
 
-const latestSongs = [...songs]
+const latestSongs = [...coreSongs]
   .sort((a, b) => b.pubDate.localeCompare(a.pubDate))
   .slice(0, 5);
 
-const producers = [...new Set(songs.map(s => s.producer))].sort((a, b) => a.localeCompare(b, 'ja'));
+const producers = [...new Set(coreSongs.map(s => s.producer))].sort((a, b) => a.localeCompare(b, 'ja'));
 const eras = ['90s前半', '90s後半', '00s以降'] as const;
 const regions = [
   { value: 'NY', label: 'New York' },
@@ -518,13 +519,13 @@ const tickerArtists = [
               <option value="bpm">BPM ↑</option>
               <option value="era">Era</option>
             </select>
-            <span id="count" class="text-[var(--c-very-dim)] text-xs">{songs.length} tracks</span>
+            <span id="count" class="text-[var(--c-very-dim)] text-xs">{coreSongs.length} tracks</span>
           </div>
         </div>
 
         <div class="relative">
         <ul id="song-list" class="grid grid-cols-2 md:grid-cols-3 gap-3">
-          {songs.map((song, i) => (
+          {coreSongs.map((song, i) => (
             <li
               data-era={song.era}
               data-region={song.region}

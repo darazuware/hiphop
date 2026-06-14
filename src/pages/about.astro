@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import { songs } from '../data/songs';
 import { artists } from '../data/artists';
 
-const totalSongs = songs.length;
+const totalSongs = songs.filter(s => s.tier === 'core').length;
 const totalArtists = artists.length;
 ---
 
