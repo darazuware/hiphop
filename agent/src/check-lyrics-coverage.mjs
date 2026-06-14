@@ -172,6 +172,13 @@ function isLearningPage(astro) {
   return /<LearningUnit[\s>]/.test(astro) || /\bimport\s+LearningUnit\b/.test(astro);
 }
 
+// --- noindex/thin型: 検索エンジン非掲載（AdSense審査の視界外）にする薄い量産ページ ---
+// learning型に磨く対象でも全行歌詞ページとして残す対象でもないため、[A]全行カバレッジは
+// 適用しない（learning型と同じ仕組みの分岐）。ただし [B] ハルシネーションは全種別で維持。
+function isNoindexPage(astro) {
+  return /\bnoindex=\{?\s*true\s*\}?/.test(astro);
+}
+
 // --- 日本語文字数カウント（ひらがな・カタカナ・漢字・々ー）---
 function countJpChars(s) {
   return (s.match(/[぀-ゟ゠-ヿ一-鿿々ー]/g) || []).length;
@@ -225,10 +232,12 @@ const total = lyricLines.length;
 const coveredCount = covered.length;
 const pct = total === 0 ? 100 : Math.round((coveredCount / total) * 100);
 const learning = isLearningPage(astroRaw);
+const noindexThin = !learning && isNoindexPage(astroRaw);
 const luCount = (astroRaw.match(/<LearningUnit[\s>]/g) || []).length;
 const lbCount = (astroRaw.match(/<LyricsBlock/g) || []).length;
 
-console.log(`\n=== Lyrics Coverage: ${slug} ${learning ? '[learning型]' : '[従来型]'} ===`);
+const pageTypeLabel = learning ? '[learning型]' : noindexThin ? '[noindex/thin型]' : '[従来型]';
+console.log(`\n=== Lyrics Coverage: ${slug} ${pageTypeLabel} ===`);
 console.log(`eng引用がGenius行を含む割合: ${coveredCount}/${total} lines (${pct}%)`);
 console.log(`Components: LearningUnit=${luCount}, LyricsBlock=${lbCount}`);
 
@@ -290,6 +299,10 @@ if (learning) {
   }
 
   console.log('\nℹ️  [A] 全行カバレッジ判定は learning型では適用しない（全行非掲載が正常）');
+} else if (noindexThin) {
+  // ── noindex/thin型: 検索非掲載の薄い量産ページ。[A]全行カバレッジは適用しない ──
+  // （learning型と同じく全行掲載を前提にしないため。[B]は上で全種別検証済み）
+  console.log('\nℹ️  [A] 全行カバレッジ判定は noindex/thin型では適用しない（検索非掲載・全行掲載前提でない）');
 } else {
   // ── 従来型: [A] 全行カバレッジ閾値を維持 ────────────────────────────────
   const THRESHOLD = 35; // 著作権対策でeng引用を核ライン限定に削減したため
@@ -298,6 +311,9 @@ if (learning) {
   } else if (pct >= THRESHOLD) {
     console.log(`\n⚠️  [A] ${uncovered.length} omitted line(s) (above ${THRESHOLD}% — likely filler/repetition)`);
     if (verbose) uncovered.forEach((line, i) => console.log(`  ${i + 1}. ${line}`));
+  } else if (skipB) {
+    // Genius不完全フェッチ時は [A] も誤検出しうるため、失敗ブロックせず警告に降格（要手動確認）
+    console.log(`\n⚠️  [A] ${uncovered.length} omitted line(s) below ${THRESHOLD}% — Genius fetch incomplete, [A] skipped（要手動確認）`);
   } else {
     console.log(`\n❌ [A] ${uncovered.length} omitted line(s) — below ${THRESHOLD}% threshold`);
     if (verbose) uncovered.forEach((line, i) => console.log(`  ${i + 1}. ${line}`));

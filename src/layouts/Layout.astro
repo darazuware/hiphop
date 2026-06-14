@@ -9,9 +9,10 @@ interface Props {
   ogType?: string;
   publishedTime?: string;
   modifiedTime?: string;
+  noindex?: boolean;
 }
 
-const { title, description, schema, ogType = 'website', publishedTime, modifiedTime } = Astro.props;
+const { title, description, schema, ogType = 'website', publishedTime, modifiedTime, noindex = false } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://hiphop.vercel.app');
 const pathname = Astro.url.pathname;
 const isHome = pathname === '/';
@@ -73,6 +74,7 @@ const resolvedSchema = schema ?? defaultSchema;
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{title}</title>
   <meta name="description" content={description} />
+  {noindex && <meta name="robots" content="noindex, follow" />}
   <link rel="canonical" href={canonicalURL} />
 
   <!-- Open Graph -->

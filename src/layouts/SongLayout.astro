@@ -14,9 +14,10 @@ interface Props {
   sampleYoutubeId?: string;
   sampleTitle?: string;
   youtubeShortId?: string;
+  noindex?: boolean;
 }
 
-const { title, description, slug, highlights, youtubeId, sampleYoutubeId, sampleTitle, youtubeShortId } = Astro.props;
+const { title, description, slug, highlights, youtubeId, sampleYoutubeId, sampleTitle, youtubeShortId, noindex = false } = Astro.props;
 
 const song = songs.find(s => s.slug === `/songs/${slug}`);
 const artist = song ? artists.find(a => a.slug === song.artistSlug) : null;
@@ -33,7 +34,7 @@ const relatedColumns = song
   : [];
 ---
 
-<Layout title={title} description={description} ogType="article" publishedTime={song?.pubDate} modifiedTime={updatedDate ?? undefined}>
+<Layout title={title} description={description} ogType="article" publishedTime={song?.pubDate} modifiedTime={updatedDate ?? undefined} noindex={noindex}>
   <!-- Progress bar -->
   <div id="progress-bar" class="fixed top-0 left-0 h-0.5 bg-[var(--c-gold)] z-50 transition-none" style="width:0%"></div>
 
