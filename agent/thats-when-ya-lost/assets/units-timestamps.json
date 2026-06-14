@@ -1,0 +1,92 @@
+[
+  {
+    "id": "intro-sleep",
+    "whisperSec": 12.7,
+    "manualSec": null,
+    "fallbackT": 9,
+    "t": 12.7,
+    "source": "whisper",
+    "approx": true,
+    "score": 1
+  },
+  {
+    "id": "smash-fine-bits",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 27,
+    "t": 27,
+    "source": "fallback",
+    "approx": true,
+    "score": 0.25
+  },
+  {
+    "id": "just-deserts",
+    "whisperSec": 32.7,
+    "manualSec": null,
+    "fallbackT": 21,
+    "t": 32.7,
+    "source": "whisper",
+    "approx": true,
+    "score": 0.5
+  },
+  {
+    "id": "hollow-tips",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 78,
+    "t": 78,
+    "source": "fallback",
+    "approx": true,
+    "score": 0.25
+  },
+  {
+    "id": "step-to",
+    "whisperSec": 94.6,
+    "manualSec": null,
+    "fallbackT": 92,
+    "t": 94.6,
+    "source": "whisper",
+    "approx": true,
+    "score": 0.75
+  },
+  {
+    "id": "illin",
+    "whisperSec": 108.7,
+    "manualSec": null,
+    "fallbackT": 110,
+    "t": 108.7,
+    "source": "whisper",
+    "approx": true,
+    "score": 0.75
+  },
+  {
+    "id": "west-coast",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 130,
+    "t": 130,
+    "source": "fallback",
+    "approx": true,
+    "score": 0.25
+  },
+  {
+    "id": "wake-up-words",
+    "whisperSec": 158,
+    "manualSec": null,
+    "fallbackT": 175,
+    "t": 158,
+    "source": "whisper",
+    "approx": true,
+    "score": 0.67
+  },
+  {
+    "id": "hiero-crew",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 185,
+    "t": 185,
+    "source": "fallback",
+    "approx": true,
+    "score": 0.33
+  }
+]

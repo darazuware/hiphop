@@ -1,102 +1,358 @@
 ---
-import LyricsBlock from '../../components/LyricsBlock.astro';
+import LearningUnit from '../../components/LearningUnit.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
 import SongLayout from '../../layouts/SongLayout.astro';
-import AmazonAlbumCta from "../../components/AmazonAlbumCta.astro";
+
+import tsData from '../../../agent/thats-when-ya-lost/assets/units-timestamps.json';
+const YT = "RVcesMcLHSA";
+const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.approx }]));
 ---
 
 <SongLayout
   title="That's When Ya Lost 和訳・意味・スラング解説 | Souls of Mischief"
-  description="Souls of Mischiefの「That's When Ya Lost」の歌詞和訳とスラング解説。1993年オークランド発、Ronnie FosterのジャジーなサンプルをA-Plusが料理した「93 'til Infinity」収録のバトルラップ名曲を徹底解説。"
+  description="Souls of Mischiefの「That's When Ya Lost」を英語学習＋ヒップホップ理解の教材として精読。sleep on・just deserts・step to・illin'などのスラングとAAVE、Hieroglyphicsの多音節ライム、Jack Bruceのベースラインを表現単位で解説。各表現はPVの該当箇所へ頭出しリンク付き。"
   slug="thats-when-ya-lost"
   youtubeId="RVcesMcLHSA"
   highlights={[
-    "Ronnie Foster「Mystic Brew」(1972)のベースライン——ATCQの「Electric Relaxation」と同じ素材を、Bay Area流に昇華した禁断のサンプリング",
-    "HieroglyphicsクルーのCasual、Domino、Snupe、A-Plus、Tajai、Opio、Phestoら全員をコーラスで「step to したら負け」と宣言——クルー全体の強さを一曲で証明",
-    "Pep Loveのコーラスが機関銃のように質問→「That's when ya lost!」と返す構造——バトルラップとアンセムを融合させた革新的フォーマット",
+    "「That's When Ya Lost」はHieroglyphicsクルー全員へのバトル宣言——誰に挑んでもその瞬間お前は負けている",
+    "just deserts・sleep on・step to・illin'——挑発とbattleの生きた英語を「学ぶ表現」単位で解説（PV頭出しリンク付き）",
+    "Jack Bruce「Statues」(1969)のベースラインを土台に、A-Plusが組んだオークランド産のメロウなバトルビート",
   ]}
 >
 
-  <!-- この曲の意味 -->
-  <section class="mb-6">
-    <h2 class="text-base font-semibold mb-2">■この曲の意味（要約）</h2>
-    <p class="text-sm text-[var(--c-muted)] leading-relaxed">「That's When Ya Lost（それがお前が負けた瞬間）」は、Hieroglyphicsクルーのメンバー全員に挑んだ瞬間にお前の敗北が決まると宣言するバトルラップ・アンセムだ。Tajai、Phesto、A-Plus、Opioの4人が、大工道具・解剖・建設の比喩を駆使しながら対戦相手のMCを徹底的に解体する。Pep Loveが「○○にステップしたら？」と問いかけ、「That's when ya lost!」と返す機関銃コーラスが楽曲全体を貫く。Ronnie Fosterのジャジーなグルーヴの上で、4人の知的なライミングが弾ける93年オークランド産のクラシック。</p>
-  </section>
+    <!-- ===================== -->
+    <!-- 導入                  -->
+    <!-- ===================== -->
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■挑発の英語、まるごと一曲ぶん</h2>
+      <p class="text-sm text-[var(--c-muted)] leading-relaxed">
+        ラップの花形のひとつが、相手をやり込めるバトル（battle）です。この「That's When Ya Lost」は、その挑発と威嚇の言い回しが頭から終わりまでギッシリ詰まった一曲。タイトルを直訳すると「それがお前の負けた瞬間だ」。誰かが俺たちに歯向かった、まさにその瞬間にもう勝負はついている——という、とんでもなく強気な宣言だ。歌うのはオークランド（カリフォルニア州）の4人組 <strong class="text-[var(--c-text)]">Souls of Mischief</strong>（ソウルズ・オブ・ミスチーフ）、メンバーは Tajai・A-Plus・Phesto・Opio の4人。さらにコーラスでは、彼らが所属する大所帯クルー <strong class="text-[var(--c-text)]">Hieroglyphics（ハイログリフィックス）</strong>の名前が次々に飛び出します。ここで学べるのは、教科書には絶対に載らない「相手をやり込める英語」——<em>sleep on</em>（なめてかかる）、<em>step to</em>（挑みかかる）、<em>illin'</em>（イカれた真似をする）といった生きた口語と、Bay Area（ベイエリア）特有の知的でひねくれた言葉遊びです。
+      </p>
+    </section>
 
-  <!-- 概要 -->
-  <section class="mb-6">
-    <h2 class="text-base font-semibold mb-2">■概要</h2>
-    <p class="text-sm text-[var(--c-muted)] leading-relaxed">デビューアルバム『93 'til Infinity』（1993年）収録。シングル「That's When Ya Lost / Disseshowedo」としてもリリース。プロデューサーはA-Plus。Ronnie Foster「Mystic Brew」(1972)のベースラインとメロディをメインに、James Gang「The Highway Song」(1970)、The Dynamic Superiors「The Lost Child」(1974)、Kool & the Gang「N.T.」(1971)を組み合わせたメロウなビート構成。コーラスではPep Love（Hieroglyphicsクルー）が全メンバー名を挙げながら、誰に挑んでもお前が負けると断言する。約86BPM。</p>
-  </section>
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■"頭でっかち"なオークランドの韻</h2>
+      <p class="text-sm text-[var(--c-muted)] leading-relaxed">
+        1993年リリース、伝説のデビュー作『93 'til Infinity』収録。プロデュースはメンバーの <strong class="text-[var(--c-text)]">A-Plus</strong>（彼はVerse 3で自分でもラップする）。当時のバトル文化はニューヨーク勢が中心でしたが、西海岸の、それもギャングスタ・ラップ全盛のカリフォルニアから、こんなに語彙が多くて韻が細かい——いわば"頭でっかち"なラップが出てきたこと自体が事件でした。Souls of Mischief の魅力は、暴力的な比喩（大工道具で解体する、解剖する、撃ち抜く）を使いながらも、実際の中身はあくまで「ライムの技術自慢」だというところ。<QuickSlang word="多音節ライム" desc="multisyllabic rhyme。1音節ではなく、2〜3音節のかたまり同士で韻を踏む高度なテクニック。Hieroglyphicsの代名詞" />（2〜3音節をまとめて韻にする手法）が惜しげもなく投入され、聴いているだけで「うまいことやるなあ」と唸らされる。挑発の言葉を入り口にしながら、その奥で英語の音の遊び方を学べる——そういう得な一曲だと思います。
+      </p>
+    </section>
 
-  <!-- スラング -->
-  <section class="mb-6">
-    <h2 class="text-base font-semibold mb-2">■主なスラング・キーワード</h2>
-    <QuickSlang word="wack" desc="ダメ、イケていない、クオリティが低い。相手のMCスキルやスタイルを否定する際の基本語。反義語はdope。" />
-    <QuickSlang word="props" desc="リスペクト、評判、賞賛。Proper Respectの略。本物のスキルを持つ者への評価。" />
-    <QuickSlang word="flossin'" desc="見せびらかす、派手にふるまう。高価な物や成功を誇示する行為。" />
-    <QuickSlang word="crib" desc="家、住まい、アパート。自分の居住空間を指すくだけた表現。" />
-    <QuickSlang word="diss" desc="ディスリスペクト（disrespect）の略。相手を批判・侮辱する言動全般。" />
-    <QuickSlang word="step to" desc="「〜に挑む、〜に向かっていく」。バトルを仕掛ける文脈で使われる。" />
-  </section>
+    <!-- Table of Contents -->
+    <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
+      <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
+        <li><a href="#story" class="hover:text-[var(--c-gold)] transition-colors">01 — ストーリーの流れ（まず曲全体をつかむ）</a></li>
+        <li><a href="#units" class="hover:text-[var(--c-gold)] transition-colors">02 — 学ぶ表現（スラング・韻・言葉遊び・AAVE）</a></li>
+        <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">03 — 文化的背景</a></li>
+        <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">04 — サンプル・制作の裏側</a></li>
+        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">05 — 評価とその後の影響</a></li>
+      </ol>
+    </nav>
 
-  <!-- 目次 -->
-  <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
-    <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
-    <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
-      <li><a href="#lyrics" class="hover:text-[var(--c-gold)] transition-colors">01 — 歌詞和訳と意味解説</a></li>
-      <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">02 — 文化背景：1993年のバトルラップとHieroglyphics</a></li>
-      <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">03 — レガシーと影響</a></li>
-    </ol>
-  </nav>
+    <!-- ===================== -->
+    <!-- ストーリー要約         -->
+    <!-- ===================== -->
+    <section id="story" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        ストーリーの流れ — まず曲全体をつかむ
+      </h2>
+      <p class="text-xs text-[var(--c-dim)] mb-5">
+        この曲には物語らしい物語はありません。あるのは、4人がそれぞれ「俺に挑むとこうなるぞ」を別々の比喩で言い立てる、純度100%の自慢合戦（braggadocio）です。だからこそ、まず全体の"流れ"だけ先に押さえておくと、次章で一語ずつ掘るときに迷子になりません。
+      </p>
+      <div class="space-y-4 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          <strong class="text-[var(--c-text)]">イントロ</strong>は、笑い声まじりの煽りから。「他のクルーは道に迷ってる、なめてかかるなよ（don't sleep）」と先に温度を上げておいて、タイトルの「that's when ya lost」へ繋ぐ——そういう導入だ。
+        </p>
+        <p>
+          続く4つのヴァースが、この曲の本体。<strong class="text-[var(--c-text)]">Verse 1（Tajai）</strong>は大工道具と"当然の報い"の比喩、<strong class="text-[var(--c-text)]">Verse 2（Phesto）</strong>は医学・解剖まで持ち出した畳みかけ、<strong class="text-[var(--c-text)]">Verse 3（A-Plus）</strong>は「西海岸ってのがどう潰すか見せてやる」という地元の誇り、<strong class="text-[var(--c-text)]">Verse 4（Opio）</strong>は言葉そのものを操る抽象的なフロー。4人とも言っていることはほぼ同じ「俺は強い」なのに、語彙とアプローチがまるで違うのが聴きどころです。
+        </p>
+        <p>
+          そして全体を貫くのが、<strong class="text-[var(--c-text)]">Pep Love（ペップ・ラヴ）</strong>が歌う <strong class="text-[var(--c-text)]">コーラス</strong>。「Casualに挑む？」「Dominoは？」「A-Plusにステップしたら？」と機関銃のように仲間の名前を並べ、そのたびに「That's when ya lost!（その瞬間お前は負けだ！）」と返してくる。個人の自慢を、いつのまにかクルー全体の力の誇示へとすり替えていく仕掛けです。初めて聴いたとき、この"質問→即答"のループの中毒性にやられました。
+        </p>
+        <p class="text-xs text-[var(--c-dim)]">
+          ※本ページは批評・教育目的で、解説に必要な範囲の断片のみを引用しています。全歌詞の対訳は掲載していません。
+        </p>
+      </div>
+    </section>
 
-  <div id="lyrics"></div>
+    <!-- ===================== -->
+    <!-- 学習ユニット群         -->
+    <!-- ===================== -->
+    <div id="units"></div>
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2 border-b border-[var(--c-border)] pb-2">
+        学ぶ表現 — スラング・韻・言葉遊び・AAVE
+      </h2>
+      <p class="text-xs text-[var(--c-dim)] mb-6">
+        各見出しは「この曲から学べる英語表現」。各ユニットはまず上に英語の用例（1〜2行）を置いてあります。<strong class="text-[var(--c-text)]">先に英語を音で追い、行のどこが学習対象かを確かめてから</strong>下の日本語解説に進むと、英語が苦手でも置いていかれません。🎤はそのリリックを歌うMC、▶は公式PVの該当箇所への頭出しリンク（音源解析で付与、秒数は概算）です。引用は解説に必要な最小限の断片だけに留めています。
+      </p>
 
-  <!-- INTRO -->
-  <AmazonAlbumCta query="Souls of Mischief That's When Ya Lost" cover="/images/covers/thats-when-ya-lost.jpg" title="That's When Ya Lost / 93 'til Infinity" artist="Souls of Mischief" />
+      <!-- ① sleep on -->
+      <LearningUnit
+        heading="don't sleep — 「眠る」が「なめてかかる」になる"
+        label="★ スラング／イディオム"
+        mc="Intro（クルーの掛け合い）"
+        t={TS["intro-sleep"].t} tApprox={TS["intro-sleep"].approx} youtubeId={YT}
+      >
+        <Fragment slot="eng">Please don't sleep<br />Yo, that's when you lost</Fragment>
+        <Fragment slot="jpn">頼むからナメてかかるなよ／それがお前の負けた瞬間だ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 イントロ、笑い声のあと曲のテーマを先に提示する件。上は2行で、学習対象は上の行。</p>
+        <p>まず上の行を声に出してみてください。鍵は <strong class="text-[var(--c-text)]">sleep</strong>。文字通りなら「眠る」ですが、ここでは「<strong class="text-[var(--c-text)]">なめてかかる・油断して見くびる</strong>」という<QuickSlang word="イディオム" desc="idiom。単語をバラバラに訳しても意味が出ない、ひとかたまりで決まった意味を持つ言い回し" />（決まり文句）として使われています。正式には <code>sleep on ~</code>（～を見くびる）の形で、<em>Don't sleep on this rookie</em>（あの新人をナメるな）のように使う。だから「Please don't sleep」は「俺たちを甘く見るなよ」という挑発。そして次の行の <strong class="text-[var(--c-text)]">that's when you lost</strong> がタイトルそのもので、「（油断した）その瞬間にお前はもう負けている」と繋がっていく。曲全体のテーマが、この2行に凝縮されています。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">sleep on ~</strong> は「～を過小評価する・見くびって放っておく」。ヒップホップでは超頻出のイディオムで、優れたアーティストや作品が正当に評価されていないときにも使う（<em>People slept on that album</em>＝あのアルバムは過小評価された）。反対に「ちゃんと注目しろ」と言いたいときは <em>Don't sleep!</em>。</p>
+          <p>命令形 <code>Don't sleep</code> 単独でも「油断するな／見くびるな」の意味で成立する。前置詞 on の後ろの目的語（人・作品）が文脈で明らかなときは、こうして省かれることも多い。</p>
+        </Fragment>
+      </LearningUnit>
 
-  <!-- 文化背景 -->
-  <section id="background" class="mb-12 p-6 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl">
-    <h2 class="text-base font-semibold mb-4">■文化背景：1993年のバトルラップとHieroglyphics</h2>
-    <div class="space-y-4 text-sm text-[var(--c-muted)] leading-relaxed">
-      <p><strong class="text-[var(--c-fg)]">Ronnie Foster「Mystic Brew」とATCQとの偶然の一致</strong><br />
-      A-Plusのビートの核となるRonnie Foster「Mystic Brew」(1972)は、同年にA Tribe Called Questが「Electric Relaxation」でも使用したサンプル素材だ。同じ原曲を、ATCQがメロウなラブソングに変換する一方、A-Plusはよりグルーヴィーなバトルトラックに仕立てた——同じ素材でまったく異なる料理が生まれた1993年の偶然の競演。</p>
+      <!-- ② smash into fine bits -->
+      <LearningUnit
+        heading="smash MCs into fine bits — 「叩き潰す」の battle 用法"
+        label="★ バトル・スラング"
+        mc="Tajai（Verse 1）"
+        t={TS["smash-fine-bits"].t} tApprox={TS["smash-fine-bits"].approx} youtubeId={YT}
+      >
+        <Fragment slot="eng">Yo! I find it fun to smash MCs into fine bits</Fragment>
+        <Fragment slot="jpn">楽しいんだよ、ライバルのMCどもを粉々（fine bits）に叩き潰すのが</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 1の冒頭、Tajaiが口火を切る最初の一行。</p>
+        <p>学習ポイントは動詞の <strong class="text-[var(--c-text)]">smash</strong>。本来は「物を強く叩き割る」ですが、バトルの文脈では「<strong class="text-[var(--c-text)]">相手を圧倒的に打ち負かす</strong>」というスラングになります。物理的に殴り合うわけではなく、あくまでマイクの上でのスキル勝負——でもそれを「粉々に砕く（smash into fine bits）」という暴力的なイメージで表現するのが battle ラップの作法。行末の <strong class="text-[var(--c-text)]">fine bits</strong>（細かい破片）は、<code>fun</code> と母音をそろえて軽く韻も踏んでいます。「楽しい（fun）」と平然と言ってのけるあたりに、余裕の強さを見せる狙いがある。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">smash</strong> は「（試合・課題などを）圧勝でやっつける」の意で日常英語でも使う（<em>We smashed them 5-0</em>＝5対0で圧勝した）。ヒップホップではさらに広く「最高にうまくやる」の意味にもなり、<em>That verse smashed</em>（あのヴァース、最高だった）のように自動詞的にも使われる。</p>
+          <p><code>smash A into B</code> の形は「AをB（粉々・破片）の状態にまで叩き壊す」。前置詞 into が「変化の結果の状態」を示すのがポイントで、<em>break it into pieces</em> などと同じ構文だ。</p>
+        </Fragment>
+      </LearningUnit>
 
-      <p><strong class="text-[var(--c-fg)]">G-Funkに対するベイエリアの回答</strong><br />
-      1993年、Dr. DreのG-Funkが西海岸HHを席巻する中、オークランドのSouls of Mischiefは意図的に異なる道を選んだ。ジャズ・ソウルのサンプリング、高度な語彙、複数MCのリレーというスタイルは、ATCQやDe La Soulら東海岸の知性派と共鳴しながら、「West Coastにもこんな音楽がある」という宣言だった。</p>
+      <!-- ③ just deserts -->
+      <LearningUnit
+        heading="just deserts — 砂漠じゃない「当然の報い」"
+        label="★ イディオム（綴り注意）"
+        mc="Tajai（Verse 1）"
+        t={TS["just-deserts"].t} tApprox={TS["just-deserts"].approx} youtubeId={YT}
+      >
+        <Fragment slot="eng">I'm goin' to get my just deserts for all the kids I must've hurt</Fragment>
+        <Fragment slot="jpn">これまで傷つけてきた奴ら全員のぶん、当然の報い（just deserts）を受けることになるだろう</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 1前半、Tajaiが2行目で繰り出す件。学習対象は行のなかほど。</p>
+        <p>注目は <strong class="text-[var(--c-text)]">just deserts</strong>。「砂漠（desert）」でも「デザート（dessert）」でもありません。これは「<strong class="text-[var(--c-text)]">当然受けるべき報い</strong>」を意味する古い言い回しで、ここでの <strong class="text-[var(--c-text)]">deserts</strong> は「deserve（値する）」と同じ語源を持つ、「自分にふさわしいもの」という意味の名詞です。発音は dessert（デザート）と同じ「ディザーツ」なのに綴りは desert——ネイティブですら綴りを間違える有名な難所。意味は文脈で正負どちらにも振れますが、ここではVerse全体が挑発なので「お前らを散々やっつけた、その報いを堂々と受けよう（それくらい俺は強い）」という不敵なニュアンス。行末の <strong class="text-[var(--c-text)]">hurt</strong> と <strong class="text-[var(--c-text)]">deserts</strong> で韻も踏んでいます。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">get one's just deserts</strong> は「当然の報いを受ける」という定型イディオム。多くは悪事への「報い（罰）」を指して使われる（<em>The cheater finally got his just deserts</em>＝そのズルをした奴はついに報いを受けた）。</p>
+          <p>綴りの罠に注意: 意味は「ご褒美／罰」でも、綴りは食後のお菓子 <em>dessert</em>（s が2つ）ではなく <em>desert</em>（s が1つ）。アクセントは後ろ（de-SERTS）で、砂漠（DE-sert）とはアクセント位置が違う点も合わせて覚えておくと聞き分けやすい。</p>
+        </Fragment>
+      </LearningUnit>
 
-      <p><strong class="text-[var(--c-fg)]">Hieroglyphicsクルーのエコシステム</strong><br />
-      Souls of MischiefはDel tha Funky Homosapien率いるHieroglyphicsクルーの中核メンバー。DIY精神でHieroglyphics Imperium Recordsを設立し、メジャーレーベルに依存しない独立した音楽活動を続けた。「That's When Ya Lost」のコーラスはクルー全員の名前を羅列することで、Hieroglyphicsが単一のグループではなく「最強軍団」であることを音楽的に証明する集合体宣言だ。</p>
+      <!-- ④ wallow swallow hollow -->
+      <LearningUnit
+        heading="wallow / swallow / hollow — 多音節ライムの実演"
+        label="★ 韻（最重要）"
+        mc="Phesto（Verse 2）"
+        t={TS["hollow-tips"].t} tApprox={TS["hollow-tips"].approx} youtubeId={YT}
+      >
+        <Fragment slot="eng">I'm carouselin' kids while they wallow and swallow hollow tips</Fragment>
+        <Fragment slot="jpn">奴らをメリーゴーラウンドのように振り回す、地べたを這い（wallow）、空っぽの弾（hollow tips）を飲み込みながら</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 2、Phestoが医学的な比喩で畳みかける流れの一行。学習対象は行の後半。</p>
+        <p>この一行は、まず<strong class="text-[var(--c-text)]">音だけ</strong>追ってみてください。行の後半、<strong class="text-[var(--c-text)]">wallow</strong>（のたうつ）→ <strong class="text-[var(--c-text)]">swallow</strong>（飲み込む）→ <strong class="text-[var(--c-text)]">hollow</strong>（空洞の）と、<code>-allow / -ollow</code> の音が3連発で押し寄せる。これが Hieroglyphics の十八番、<strong class="text-[var(--c-text)]">多音節ライム</strong>です。1音節だけでなく語尾の2音節まるごとをそろえることで、転がるようなグルーヴが生まれる。意味のほうは <strong class="text-[var(--c-text)]">hollow tips</strong>（ホローポイント弾＝先端がくぼんだ殺傷力の高い弾丸）まで持ち出した物騒な battle 比喩ですが、聴覚的な快感が先に立つように設計されている。意味より先に「音が気持ちいい」と感じさせる——そこにこのクルーの真骨頂があります。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">多音節ライム（multisyllabic rhyme）</strong>は、英語ラップを聴き込むうえでの最重要概念のひとつ。<em>cat / hat</em> のように最後の1音節だけ合わせるのが単純な韻なら、<em>wallow / swallow / hollow</em> のように<strong class="text-[var(--c-text)]">複数音節のかたまり</strong>で合わせるのが多音節ライム。難度が高いぶん、決まったときの爽快感も大きい。</p>
+          <p>聞き取りのコツ: 意味を取ろうと焦らず、まず「同じ音が連続している部分」を耳でマークする。どこで韻を踏んでいるかが見えると、ラッパーがどの単語を"狙って"置いたのかが分かり、リスニング全体がぐっと立体的になる。</p>
+        </Fragment>
+      </LearningUnit>
 
-      <p><strong class="text-[var(--c-fg)]">バトルラップとアンセムの融合</strong><br />
-      典型的なバトルラップは相手を直接名指しで攻撃するが、この曲は「誰に挑んでも負ける」という普遍的な宣言の形式を取ることで、特定の相手への怨恨ではなくHieroglyphics全体の優位性を示すアンセムに昇華した。Pep Loveのコーラスが「問い→即答」の機関銃構造で疾走することで、リスナー全員をHieroglyphicsサイドに引き込む設計になっている。</p>
-    </div>
-  </section>
+      <!-- ⑤ step to -->
+      <LearningUnit
+        heading="step to ~ — 「挑みかかる」の句動詞"
+        label="★ 句動詞／AAVE"
+        mc="Pep Love（Chorus）"
+        t={TS["step-to"].t} tApprox={TS["step-to"].approx} youtubeId={YT}
+      >
+        <Fragment slot="eng">Steppin' to A-Plus? — (That's when ya lost!)</Fragment>
+        <Fragment slot="jpn">A-Plusに挑みかかる？——それがお前の負けた瞬間だ！</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 2のあとのコーラス。Pep Loveが仲間の名を次々挙げる、その一問。</p>
+        <p>コーラスを貫くキーフレーズが <strong class="text-[var(--c-text)]">step to ~</strong>。直訳の「～へ歩み寄る」から転じて、「<strong class="text-[var(--c-text)]">～に挑みかかる・楯突く・喧嘩を売る</strong>」という意味のスラング句動詞です。物理的な喧嘩にもバトル（ラップ勝負）にも使う。ここでは進行形 <strong class="text-[var(--c-text)]">steppin' to</strong> で「A-Plusに挑むなんて（やめときな）」と、相手の無謀さを先回りで嘲笑う形。そして即座に <strong class="text-[var(--c-text)]">That's when ya lost!</strong>（その瞬間お前は負けだ！）が返ってくる。<code>ya</code> は <em>you</em> のくだけた発音表記で、AAVE（アフリカ系アメリカ人英語）やストリート英語の歌詞で頻出します。問いと答えのコール＆レスポンス構造そのものが、このフックの中毒性の正体です。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">step to someone</strong> は「（強気に）～に立ち向かう・挑む」。相手をなめている side からは <em>Don't step to me</em>（俺に楯突くな）のように威嚇に使い、挑む side からは <em>I'll step to anybody</em>（誰にだって挑んでやる）と使う。<code>step up to ~</code>（責任を引き受ける・前に出る）とは別物なので混同しないこと。</p>
+          <p>歌詞表記の <code>ya</code>（＝you）、<code>steppin'</code>（語尾 g の脱落）、<code>'cause</code> などは、発音をそのまま文字にしたもの。意味は標準英語と同じだが、リズムと発音を優先して綴りを崩すのがラップ歌詞の慣習だ。</p>
+        </Fragment>
+      </LearningUnit>
 
-  <!-- レガシー -->
-  <section id="legacy" class="mb-12 p-6 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-xl">
-    <h2 class="text-base font-semibold mb-4">■レガシーと影響</h2>
-    <div class="space-y-4 text-sm text-[var(--c-muted)] leading-relaxed">
-      <p>「That's When Ya Lost」は『93 'til Infinity』の中でもタイトル曲に並ぶ重要曲として、ゴールデンエラ・ヒップホップのファンに長く愛聴されてきた。大工・建設・医学・数学の比喩を縦横無尽に使う4MCのリリシズムは、後続の多くのリリシストたちが「知的なバトルラップの教科書」として参照してきた。</p>
+      <!-- ⑥ illin -->
+      <LearningUnit
+        heading="illin' — 「病気」が「イカれた真似」になる"
+        label="★ スラング"
+        mc="A-Plus（Verse 3）"
+        t={TS["illin"].t} tApprox={TS["illin"].approx} youtubeId={YT}
+      >
+        <Fragment slot="eng">But illin' will get you bruised, I kill and I step to crews</Fragment>
+        <Fragment slot="jpn">だがイカれた真似（illin'）をすりゃアザだらけだ、俺は仕留めてクルーごと挑む</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 3前半、A-Plusが凄みを利かせる件。学習対象は行頭。</p>
+        <p>行頭の <strong class="text-[var(--c-text)]">illin'</strong> がポイント。<QuickSlang word="ill" desc="本来は「病気の」。ヒップホップ俗語では文脈により①イカれた・度を越した（悪い意味）②ヤバいほどカッコいい（褒め言葉）の正反対の意味に振れる" />（ill）は元々「病気の」ですが、80〜90年代のヒップホップ俗語では「<strong class="text-[var(--c-text)]">常軌を逸した・調子に乗った</strong>」という意味で使われました。<code>-in'</code> を付けた <strong class="text-[var(--c-text)]">illin'</strong> は「イカれた真似をする・調子こく」。ここでは「お前が調子に乗れば（illin'）アザだらけにしてやる」という脅し。ややこしいのは、同じ ill が褒め言葉で「ヤバいほどカッコいい」の意味にもなること（<em>That beat is ill</em>＝あのビート、最高だ）。正負どちらに転ぶかは完全に文脈次第——これぞスラングの面白さであり難しさです。行末の <strong class="text-[var(--c-text)]">bruised / crews</strong> でしっかり韻も踏んでいます。</p>
+      </LearningUnit>
 
-      <p>Ronnie Foster「Mystic Brew」という共通素材をATCQと異なる文脈で活用したこの曲は、サンプリング文化における「素材の多義性」の好例として、ヒップホップ制作論を語る際に繰り返し引用される。同じループが全く異なる感情と文脈を生む——この事実がサンプリングをただの「引用」ではなく「再発明」として位置づける。</p>
+      <!-- ⑦ West Coast -->
+      <LearningUnit
+        heading="how the West Coast smash kids — 地元オークランドの誇り"
+        label="★ 文化／地域アイデンティティ"
+        mc="A-Plus（Verse 3）"
+        t={TS["west-coast"].t} tApprox={TS["west-coast"].approx} youtubeId={YT}
+      >
+        <Fragment slot="eng">Now I'm gonna show you how the West Coast smash kids</Fragment>
+        <Fragment slot="jpn">さあ、西海岸（West Coast）ってのがどうガキどもを潰すか、見せてやる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 3後半、A-Plusが地元を背負って宣言する件。</p>
+        <p>ここで学びたいのは語彙そのものより<strong class="text-[var(--c-text)]">文脈</strong>です。<strong class="text-[var(--c-text)]">the West Coast</strong>（西海岸）をわざわざ主語に立てて「俺たち西海岸はこう潰す」と言い切る——これには当時ならではの重みがある。1993年、込み入った韻を踏むリリカルなバトルといえばニューヨーク（東海岸）の専売特許という空気でした。そこへ、オークランドという西海岸の街から、東に負けない言葉数と技術で殴り込んだ。だから「how the West Coast smash kids」は単なる自慢ではなく、「西にだって頭のキレるラッパーはいるんだぞ」という地域の代表としての宣言なんです。<code>gonna</code>（＝going to）、<code>smash</code>（②で学んだ「圧倒する」）も復習がてら拾っておきましょう。</p>
+      </LearningUnit>
 
-      <p>日本では1990年代から「ジャズヒップホップ」「チル系ウェストコースト」の文脈でSouls of Mischiefが愛聴され、特にこの曲はHieroglyphicsのクルー名と各メンバー名を学べる「入門曲」としてファン間で親しまれてきた。LAMP EYE、BUDDHA BRAND、SHAKKAZOMBIEなど複数MCリレー形式を得意とする日本のグループへの間接的影響も指摘される。</p>
-    </div>
-  </section>
+      <!-- ⑧ wake up words -->
+      <LearningUnit
+        heading="I wake up words — 言葉を「起こす」という比喩"
+        label="★ 比喩／言葉遊び"
+        mc="Opio（Verse 4）"
+        t={TS["wake-up-words"].t} tApprox={TS["wake-up-words"].approx} youtubeId={YT}
+      >
+        <Fragment slot="eng">This lifetime, I wake up words, I excite rhymes</Fragment>
+        <Fragment slot="jpn">この人生で、俺は言葉を起こし（wake up words）、ライムを沸き立たせる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 4、Opioが抽象的なフローで締めにかかる件。</p>
+        <p>Opio のヴァースは、他の3人より一段と抽象的です。注目は <strong class="text-[var(--c-text)]">wake up words</strong>（言葉を目覚めさせる）という<strong class="text-[var(--c-text)]">擬人化</strong>の比喩。眠っている言葉を叩き起こし、命を吹き込むように使う——つまり「俺の手にかかれば死んだ言葉も生き返る」というリリシスト（言葉の職人）の自負を、たった3語で言い切っている。続く <strong class="text-[var(--c-text)]">excite rhymes</strong>（ライムを沸かせる）も同じ発想で、言葉やライムをまるで生き物のように扱う。直前の <code>dyslexic</code>（読字障害の）と <code>exit</code>、そして <strong class="text-[var(--c-text)]">excite</strong> で <code>-ex-</code> の音を連ねる多音節ライムも効いている。意味と音の両方で"言葉そのもの"を主役にする、Opio らしい一行です。</p>
+      </LearningUnit>
 
-  <QuickSlang
-    words={[
-      { term: "wack", reading: "ウワック", meaning: "ダメ、イケていない、クオリティが低い。バトルラップの最重要侮辱語。" },
-      { term: "step to", reading: "ステップ・トゥ", meaning: "〜に挑む、向かっていく。バトルを仕掛ける行為を指す。" },
-      { term: "props", reading: "プロップス", meaning: "リスペクト、賞賛、評判。Proper Respectの略。" },
-      { term: "G", reading: "ジー", meaning: "ギャングスタ→転じて「本物の男」「尊敬できるやつ」の意。" },
-      { term: "slept on", reading: "スレプト・オン", meaning: "過小評価された、軽視された。「sleep on = 軽く見る」の受け身形。" },
-      { term: "illin'", reading: "イリン", meaning: "おかしな行動をする、イカれたことをする。80〜90年代スラング。" },
-      { term: "crib", reading: "クリブ", meaning: "家、住まい。自分の居住空間を指すスラング。" },
-      { term: "diss", reading: "ディス", meaning: "disrespectの略。批判・侮辱する言動全般。" },
-      { term: "bite flows", reading: "バイト・フロウズ", meaning: "他人のラップスタイル・フロウをパクる行為。" },
-      { term: "proper", reading: "プロパー", meaning: "本格的に、正真正銘の。「lose, proper」＝完全な敗北。" },
-    ]}
-  />
+      <!-- ⑨ Hieroglyphics crew -->
+      <LearningUnit
+        heading="The Souls of Mischief — クルー全体を背負うフック"
+        label="★ 文化（クルー）"
+        mc="Pep Love（Chorus）"
+        t={TS["hiero-crew"].t} tApprox={TS["hiero-crew"].approx} youtubeId={YT}
+      >
+        <Fragment slot="eng">The Souls of Mischief — (That's when ya lost!)</Fragment>
+        <Fragment slot="jpn">Souls of Mischiefにか？——それがお前の負けた瞬間だ！</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 終盤のコーラス。Pep Loveが挙げる名前が、個人からクルー全体へと広がっていく件。</p>
+        <p>最後のコーラスでは、挙げられる名前が <strong class="text-[var(--c-text)]">Del</strong>・<strong class="text-[var(--c-text)]">Pep Love</strong>・<strong class="text-[var(--c-text)]">Mike G</strong>・<strong class="text-[var(--c-text)]">J-Biz</strong>、そして <strong class="text-[var(--c-text)]">The Souls of Mischief</strong> から <strong class="text-[var(--c-text)]">Hieroglyphics</strong> 全体へと広がっていきます。ここで分かるのが、この曲が最初から「個人の自慢」ではなく「<strong class="text-[var(--c-text)]">クルー（仲間集団）の力の誇示</strong>」だったということ。Hieroglyphics はオークランドを拠点に Del the Funky Homosapien、Casual、Souls of Mischief らが集まった一大集団で、互いの名前をフックで読み上げること自体が連帯の表明になる。英語学習という観点でも、<em>step to / sleep on</em> といった挑発の語が、最終的に「俺たち全員にか？」という<strong class="text-[var(--c-text)]">複数の we</strong> へ着地する流れは、ヒップホップにおける"crew（クルー）"という単位を体感する good な教材です。</p>
+      </LearningUnit>
+    </section>
+
+    <!-- ===================== -->
+    <!-- 文化的背景             -->
+    <!-- ===================== -->
+    <section id="background" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        文化的背景
+      </h2>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">Hieroglyphics</p>
+        <h3 class="font-semibold text-base mb-3">オークランドが生んだ「頭脳派」大所帯クルー</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          Souls of Mischief は単独のグループであると同時に、<strong class="text-[var(--c-text)]">Hieroglyphics</strong> という大きなクルーの一員だ。中心にいるのは、いとこ同士でもある Del the Funky Homosapien。そこに Casual、Pep Love、Domino、そして Tajai・A-Plus・Phesto・Opio から成る Souls of Mischief が連なる。彼らに共通するのは、ギャングスタ・ラップ全盛だった90年代の西海岸にあって、<strong class="text-[var(--c-text)]">暴力の誇示よりも言葉の技術（リリシズム）を旗印にした</strong>こと。込み入った韻、ひねった語彙、ジャズ寄りのトラック——「考えるラップ」を西からぶつけた集団として、今も根強い支持を集めている。
+        </p>
+      </div>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">braggadocio</p>
+        <h3 class="font-semibold text-base mb-3">「自慢」という、れっきとしたラップの様式</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          この曲のように、ひたすら「俺はすごい・お前は弱い」を言い立てるスタイルを <strong class="text-[var(--c-text)]">braggadocio（ブラガドーシオ＝大言壮語）</strong>と呼ぶ。ヒップホップ草創期からの中核的な様式で、その源流をたどればアフリカ系アメリカ人の言葉遊びの伝統「<strong class="text-[var(--c-text)]">the dozens</strong>」（即興で相手をけなし合う言葉のゲーム）にも繋がる。大事なのは、これが実際の暴力ではなく<strong class="text-[var(--c-text)]">言葉の腕比べ</strong>だということ。だからこそ、いかに比喩を凝らし、いかに韻を細かく踏むかが評価された。「That's When Ya Lost」は、その様式を4人ぶん浴びられる、いわば見本市のような一曲です。
+        </p>
+      </div>
+
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">キーワード早見表</p>
+        <h3 class="font-semibold text-base mb-3">この曲で学んだスラングの整理</h3>
+        <div class="space-y-3 mt-3">
+          {[
+            ['sleep on ~', '～を見くびる・過小評価する。Don\'t sleep! で「ナメるな／注目しろ」'],
+            ['step to ~', '～に挑みかかる・楯突く。バトルでも喧嘩でも使う句動詞'],
+            ['illin\'', 'イカれた真似をする・調子こく（ill＝病気が転じた俗語。褒め言葉にもなる）'],
+            ['smash', '圧倒的に打ち負かす。自動詞で「最高にうまくいく」の意も'],
+            ['just deserts', '当然の報い。綴りはdessert（菓子）ではなくdesert'],
+            ['多音節ライム', '2〜3音節のかたまり同士で踏む韻。Hieroglyphicsの代名詞'],
+          ].map(([term, desc]) => (
+            <div class="flex gap-3 text-sm">
+              <span class="text-[var(--c-gold)] shrink-0 font-semibold min-w-[120px]">{term}</span>
+              <span class="text-[var(--c-muted)]">{desc}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== -->
+    <!-- サンプル・制作の裏側    -->
+    <!-- ===================== -->
+    <section id="behind" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        サンプル・制作の裏側
+      </h2>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">サンプル元（ベースの土台）</p>
+        <h3 class="font-semibold text-base mb-3">転がるベースラインの正体 — Jack Bruce「Statues」</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          曲全体をうねるように支える、あの太いベースライン。その正体は、伝説のロックバンド Cream のベーシスト <strong class="text-[var(--c-text)]">Jack Bruce</strong> がソロ作『Songs for a Tailor』(1969) に収めた「<strong class="text-[var(--c-text)]">Statues</strong>」だ。ベーシスト本人の楽曲からベースの旨味を抜き出してループするという、いかにもディガー（レコード発掘者）好みの選曲。ロックの渋い一曲を、オークランドのメロウなヘッドノッダー（首が自然に揺れるビート）へと化けさせている。
+        </p>
+      </div>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">サンプル元（スクラッチ／声ネタ）</p>
+        <h3 class="font-semibold text-base mb-3">フックを彩る2つの声 — BDPとThe Doors</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          土台のベースに加えて、声ネタも仕込まれている。ひとつは <strong class="text-[var(--c-text)]">Boogie Down Productions「Jah Rulez」</strong>（アルバム『Ghetto Music: The Blueprint of Hip Hop』1989年）。KRS-Oneらニューヨークの先達からの引用で、東海岸への目配せでもある。もうひとつは <strong class="text-[var(--c-text)]">The Doors「Who Do You Love?」</strong>（ライブ盤『Absolutely Live』1970年。原曲はBo Diddley）。ロックとヒップホップ、世代も地域も違う声を一枚のフックに同居させるあたりに、ディガー集団 Hieroglyphics の引き出しの広さが出ている。
+        </p>
+      </div>
+
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">プロデュース</p>
+        <h3 class="font-semibold text-base mb-3">ラップもビートも — A-Plusの二刀流</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          このトラックを組んだのは、メンバーの <strong class="text-[var(--c-text)]">A-Plus</strong>。しかも彼は Verse 3 で自分でもマイクを握る。当時の Souls of Mischief や Hieroglyphics は、ビートメイクもラップも仲間内で完結させる<strong class="text-[var(--c-text)]">DIYなクルー</strong>で、外部の大物プロデューサーに頼らず自分たちの耳だけで作り上げていた。だからこそ音もリリックも隅々まで彼らの色に染まっている。10代後半〜20歳そこそこの若者たちが、こんなに語彙と音の手数の多い一曲を自前で完成させていた——そう思って聴くと、また違った凄みが立ち上がってきます。
+        </p>
+      </div>
+    </section>
+
+    <!-- ===================== -->
+    <!-- 評価と影響             -->
+    <!-- ===================== -->
+    <section id="legacy" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        評価とその後の影響
+      </h2>
+
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg mb-6">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">アルバムの中での位置</p>
+        <h3 class="font-semibold text-base mb-3">名盤『93 'til Infinity』を支えた一曲</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          「That's When Ya Lost」は、表題曲「93 'til Infinity」の陰に隠れがちですが、アルバムの中でもとりわけ<strong class="text-[var(--c-text)]">リリカルな密度が高い</strong>一曲として、コアなファンに長く愛されてきた。表題曲がチルでメロウな"夏のアンセム"なら、こちらは4人の技術がぶつかり合う"道場破り"。同じアルバムの中で、まったく違う Souls of Mischief の顔を見せてくれる。デビュー作『93 'til Infinity』(1993) 自体が、ウェッサイ（西海岸）＝ギャングスタという当時の図式に風穴を開けた金字塔として、今なお"オルタナティブな西海岸ラップ"の原点に挙げられる作品です。
+        </p>
+      </div>
+
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">後世への影響</p>
+        <h3 class="font-semibold text-base mb-3">独立独歩のクルー運営という遺産</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed mb-4">
+          Hieroglyphics は後年、メジャーから離れて<strong class="text-[var(--c-text)]">自分たちのレーベル（Hiero Imperium）を立ち上げ</strong>、ネット黎明期から通販やコミュニティ運営を自前で回したことでも知られる。大資本に頼らず、ファンと直接つながって生き残るそのスタイルは、現在のインディペンデントなアーティスト運営の先駆けでもあった。「That's When Ya Lost」でフックがクルーの名を読み上げていく光景は、のちに彼らが体現する"仲間で固まって独立してやっていく"という生き方の、いわば宣誓のようにも聴こえてきます。
+        </p>
+        <ul class="space-y-3 text-sm">
+          <li class="flex gap-3">
+            <span class="text-[var(--c-gold)] shrink-0">Del the Funky Homosapien</span>
+            <span class="text-[var(--c-muted)]">クルーの中心人物。後に Gorillaz の「Clint Eastwood」客演で世界的に知られる。Hieroglyphicsの実験精神の象徴。</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="text-[var(--c-gold)] shrink-0">Bay Areaリリシズム</span>
+            <span class="text-[var(--c-muted)]">語彙と多音節ライム重視のスタイルは、後のオークランド／ベイエリアの「考えるラップ」の系譜に受け継がれた。</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="text-[var(--c-gold)] shrink-0">MURS「Sore Losers」</span>
+            <span class="text-[var(--c-muted)]">本曲「That's When Ya Lost」自体が、後続のアンダーグラウンド勢にサンプリングされ引用された（WhoSampled確認）。</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- まとめ -->
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        まとめ
+      </h2>
+      <ul class="space-y-2 text-sm text-[var(--c-muted)] list-disc list-inside leading-relaxed">
+        <li>「That's When Ya Lost」は、相手をやり込める battle の英語（sleep on・step to・illin'・smash）を一曲まるごと浴びられる教材。</li>
+        <li>Hieroglyphics の十八番「多音節ライム」が wallow / swallow / hollow のように実演され、英語の"音で遊ぶ"感覚が体で分かる。</li>
+        <li>just deserts のような、ネイティブも綴りを間違える定型イディオムも自然に拾える。</li>
+        <li>個人の自慢が最後にクルー全体の誇示へ着地する構造は、ヒップホップの"crew"という単位を体感させてくれる。</li>
+      </ul>
+    </section>
+
 </SongLayout>
