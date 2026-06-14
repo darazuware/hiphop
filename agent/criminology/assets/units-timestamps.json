@@ -1,0 +1,92 @@
+[
+  {
+    "id": "peep-son",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 22,
+    "t": 22,
+    "source": "fallback",
+    "approx": true,
+    "score": 0.2
+  },
+  {
+    "id": "rza-bake",
+    "whisperSec": 42.4,
+    "manualSec": null,
+    "fallbackT": 38,
+    "t": 42.4,
+    "source": "whisper",
+    "approx": true,
+    "score": 0.5
+  },
+  {
+    "id": "gods-cypher",
+    "whisperSec": 47.8,
+    "manualSec": null,
+    "fallbackT": 44,
+    "t": 47.8,
+    "source": "whisper",
+    "approx": true,
+    "score": 1
+  },
+  {
+    "id": "ninth-chamber",
+    "whisperSec": 52.2,
+    "manualSec": null,
+    "fallbackT": 50,
+    "t": 52.2,
+    "source": "whisper",
+    "approx": true,
+    "score": 0.5
+  },
+  {
+    "id": "murder-one",
+    "whisperSec": 69.4,
+    "manualSec": null,
+    "fallbackT": 66,
+    "t": 69.4,
+    "source": "whisper",
+    "approx": true,
+    "score": 1
+  },
+  {
+    "id": "chain-reaction",
+    "whisperSec": 74.6,
+    "manualSec": null,
+    "fallbackT": 72,
+    "t": 74.6,
+    "source": "whisper",
+    "approx": true,
+    "score": 1
+  },
+  {
+    "id": "menace-society",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 89,
+    "t": 89,
+    "source": "fallback",
+    "approx": true,
+    "score": 0.33
+  },
+  {
+    "id": "champagne-thoughts",
+    "whisperSec": 92.5,
+    "manualSec": null,
+    "fallbackT": 98,
+    "t": 92.5,
+    "source": "whisper",
+    "approx": true,
+    "score": 0.75
+  },
+  {
+    "id": "fly-ac",
+    "whisperSec": 118.4,
+    "manualSec": null,
+    "fallbackT": 130,
+    "t": 118.4,
+    "source": "whisper",
+    "approx": true,
+    "score": 0.5
+  }
+]

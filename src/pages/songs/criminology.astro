@@ -1,398 +1,337 @@
 ---
-import LyricsBlock from '../../components/LyricsBlock.astro';
+import LearningUnit from '../../components/LearningUnit.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
 import SongLayout from '../../layouts/SongLayout.astro';
+
+import tsData from '../../../agent/criminology/assets/units-timestamps.json';
+const YT = "l9oS0BFhA30";
+const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.approx }]));
 ---
 
 <SongLayout
   title="Criminology 和訳・意味・スラング解説 | Raekwon feat. Ghostface Killah"
-  description="RaekwonのCriminologyの歌詞和訳とスラング徹底解説。1995年、Only Built 4 Cuban Linx...収録のマフィオソ・ラップ金字塔をスカーフェイスのサンプルから読み解く。"
+  description="RaekwonとGhostface Killahの「Criminology」を英語学習＋ヒップホップ理解の教材として精読。peep・son・bake the track・murder one・menace to society・flyなどのスラングとAAVE、Five-Percentの語彙、RZAのサンプリングを表現単位で解説。各表現はPVの該当箇所へ頭出しリンク付き。"
   slug="criminology"
   highlights={[
-    '冒頭の『スカーフェイス』サンプル——「War? We\'ll take you to war」がマフィオソ世界への扉を開く',
-    'Ghostfaceの「9th chamber」——Wu-Tang 36챔버즈を超えた幻の第9の部屋',
-    '"Criminology rap, sneakers stay jet-black"——犯罪論をラップで語るRaekwonのスタイル宣言',
+    'Ghostface Killahの伝説的ヴァース——韻と暗喩を高速で畳む「言葉の弾幕」を一行ずつ解く',
+    'peep・son・bake the track・murder one・menace to society・fly——マフィオソ・ラップの生きた語彙を「学ぶ表現」単位で解説（PV頭出しリンク付き）',
+    'RZAが組んだ不穏なソウル・サンプル＋映画『スカーフェイス』のセリフ。Wuのマフィオソ路線の代表曲',
   ]}
   youtubeId="l9oS0BFhA30"
 >
 
-  <section class="mb-6">
-    <h2 class="text-base font-semibold mb-2">■この曲の意味（要約）</h2>
-    <p class="text-sm text-[var(--c-muted)] leading-relaxed">映画『スカーフェイス』のダイアログで幕を開け、RaekwonとGhostface Killahが「犯罪学（criminology）」をラップで語るマフィオソ・ハードコアの金字塔。C.R.E.A.M.で描いた貧困を超え、スタテンアイランドのストリートからマフィア映画的な世界観へ昇華。RZAのダーティなブーンバップに乗り、二人がスラングと暴力と誇りを入り混じらせた全18行のリリックは、1990年代東海岸ハードコアの集大成だ。</p>
-  </section>
+    <!-- ===================== -->
+    <!-- 導入                  -->
+    <!-- ===================== -->
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■"犯罪学"と名づけられた、街の叙事詩</h2>
+      <p class="text-sm text-[var(--c-muted)] leading-relaxed">
+        タイトルの <strong class="text-[var(--c-text)]">Criminology</strong> は、本来「<strong class="text-[var(--c-text)]">犯罪学</strong>」という立派な学問の名前。それをそのまま曲名に据えて、ストリートの稼業を一つの"学問・専門技術"のように語ってみせる——そこにこの曲の批評性があります。歌うのは Wu-Tang Clan の <strong class="text-[var(--c-text)]">Raekwon（レイクウォン）</strong>と <strong class="text-[var(--c-text)]">Ghostface Killah（ゴーストフェイス・キラー）</strong>の2人。1995年の名盤『Only Built 4 Cuban Linx...』からの2枚目のシングルで、<strong class="text-[var(--c-text)]">マフィオソ・ラップ</strong>（マフィア映画の世界観を借りた犯罪叙事ラップ）の代表曲です。歌詞は決して易しくありません。スラング、AAVE（アフリカ系アメリカ人英語）、Five-Percent Nation（ウータンの思想的背景）の独特な語彙、そして高速の韻が一気に押し寄せる。だからこそ、<strong class="text-[var(--c-text)]">一語ずつ立ち止まって解く</strong>価値がある一曲です。
+      </p>
+    </section>
 
-  <section class="mb-6">
-    <h2 class="text-base font-semibold mb-2">■概要</h2>
-    <p class="text-sm text-[var(--c-muted)] leading-relaxed">1995年6月26日にRaekwonのソロデビュー作『Only Built 4 Cuban Linx...』の第2シングルとしてリリース。プロデュースはRZA。ビートはBlack Ivoryの「I Keep Asking You Questions」のドラムブレイクとSweet Inspirationsの「Why Marry」のホーン・ヴォーカルをサンプリングし、冒頭にはブライアン・デ・パルマ監督の映画『スカーフェイス』（1983年）でアレハンドロ・ソサがトニー・モンタナを怒鳴るシーンが直接引用されている。録音はRZAのスタテンアイランドの地下スタジオで、エンジニアなしでほぼ一人で完結させた。</p>
-  </section>
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■ゴーストフェイスの「言葉の弾幕」</h2>
+      <p class="text-sm text-[var(--c-muted)] leading-relaxed">
+        この曲がクラシックとして語り継がれる最大の理由が、Verse 1 を担う <strong class="text-[var(--c-text)]">Ghostface Killah の伝説的なヴァース</strong>です。意味の通る文というより、<strong class="text-[var(--c-text)]">韻と暗喩を高速で畳みかける"言葉の弾幕"</strong>のような書き方で、聴いているだけで圧倒される。<em>arson</em>（放火）→ <em>sparkin'</em>（火花）→ <em>dark</em>（闇）と、イメージの連想で押していく作りなので、<strong class="text-[var(--c-text)]">一語一語の意味を全部追おうとすると逆に迷子になります</strong>。まずは韻の心地よさと勢いを浴びて、そのうえで「ここはこういう意味か」と拾っていく——この記事もそういう順番で、聴きどころのスラングと語彙を抜き出して解説していきます。トラックは <strong class="text-[var(--c-text)]">RZA</strong> が手がけた、不穏なソウル・ループ。映画『スカーフェイス』(1983) のセリフも冒頭に仕込まれています。
+      </p>
+    </section>
 
-  <section class="mb-6">
-    <h2 class="text-base font-semibold mb-2">■主なスラング・キーワード</h2>
-    <dl class="text-sm space-y-2">
-      <div><dt class="font-mono text-[var(--c-gold)] inline">criminology</dt><dd class="inline ml-2 text-[var(--c-muted)]">「犯罪学」。学術用語をラップに転用し、ストリートの生存術を「学問」として語る姿勢の表れ。曲名かつ最終バースの核心ワード。</dd></div>
-      <div><dt class="font-mono text-[var(--c-gold)] inline">C.R.E.A.M.</dt><dd class="inline ml-2 text-[var(--c-muted)]">Cash Rules Everything Around Me。Wu-Tang Clanの代名詞フレーズ。同アルバムより先に「C.R.E.A.M.」シングル（1994年）で世界的に広まった。</dd></div>
-      <div><dt class="font-mono text-[var(--c-gold)] inline">cypher</dt><dd class="inline ml-2 text-[var(--c-muted)]">①ラッパーが輪になって即興でラップする場 ②五%ネイションの哲学における「円」「宇宙の循環」。Ghostfaceはここで後者の意味で使用。</dd></div>
-      <div><dt class="font-mono text-[var(--c-gold)] inline">9th chamber</dt><dd class="inline ml-2 text-[var(--c-muted)]">Wu-Tang Clanのデビュー作タイトル「Enter the Wu-Tang (36 Chambers)」を踏まえた造語。36챔버즈の先にある架空の最終部屋——Ghostfaceの支配領域。</dd></div>
-      <div><dt class="font-mono text-[var(--c-gold)] inline">god degree</dt><dd class="inline ml-2 text-[var(--c-muted)]">五%ネイション（Nation of Gods and Earths）の哲学用語。黒人男性を「神（God）」と捉え、その境地・境界を「degree（段位）」で表す。</dd></div>
-      <div><dt class="font-mono text-[var(--c-gold)] inline">steez</dt><dd class="inline ml-2 text-[var(--c-muted)]">Style + Easeの造語。スタイルと余裕を合わせた1990年代NYスラング。Raekwonが好んで使う語彙。</dd></div>
-      <div><dt class="font-mono text-[var(--c-gold)] inline">'Lo / Tommy Hil'</dt><dd class="inline ml-2 text-[var(--c-muted)]">Ralph Lauren（Polo）とTommy Hilfigerの略。1990年代、Wu-Tang Clan周辺のストリートでは高級ブランドをストリートウェアとして着こなす「boosted fashion」文化があった。</dd></div>
-      <div><dt class="font-mono text-[var(--c-gold)] inline">lye</dt><dd class="inline ml-2 text-[var(--c-muted)]">PCP（エンジェルダスト）に浸したタバコ。1990年代NYで流通したドラッグ。「take your lye」は相手の違法品を奪うこと。</dd></div>
-      <div><dt class="font-mono text-[var(--c-gold)] inline">penal</dt><dd class="inline ml-2 text-[var(--c-muted)]">刑務所（penitentiary）の略。「runnin' through the penal」は刑務所を通過してきた（服役経験がある）こと。</dd></div>
-      <div><dt class="font-mono text-[var(--c-gold)] inline">bid</dt><dd class="inline ml-2 text-[var(--c-muted)]">刑期・服役期間のスラング。「doin' a bid」は刑務所に入ること。</dd></div>
-      <div><dt class="font-mono text-[var(--c-gold)] inline">truck（chain）</dt><dd class="inline ml-2 text-[var(--c-muted)]">トラック型のゴールドペンダントチェーン。1990年代NJYストリートで流行したジュエリースタイル。「n***a chain was truck」はそのチェーンのために仲間が刺された皮肉。</dd></div>
-      <div><dt class="font-mono text-[var(--c-gold)] inline">Ac'</dt><dd class="inline ml-2 text-[var(--c-muted)]">AcuraのことでAcura Legendが1990年代のNYストリートで人気を博した。"flyest Ac'"はトップグレードのAcuraで、成功の象徴。</dd></div>
-    </dl>
-  </section>
+    <!-- Table of Contents -->
+    <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
+      <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
+        <li><a href="#story" class="hover:text-[var(--c-gold)] transition-colors">01 — ストーリーの流れ（まず曲全体をつかむ）</a></li>
+        <li><a href="#units" class="hover:text-[var(--c-gold)] transition-colors">02 — 学ぶ表現（スラング・AAVE・語彙）</a></li>
+        <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">03 — 文化的背景</a></li>
+        <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">04 — サンプル・制作の裏側</a></li>
+        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">05 — 評価とその後の影響</a></li>
+      </ol>
+    </nav>
 
-  <section class="mb-6">
-    <h2 class="text-base font-semibold mb-2">■歌詞和訳・解説</h2>
+    <!-- ===================== -->
+    <!-- ストーリー要約         -->
+    <!-- ===================== -->
+    <section id="story" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        ストーリーの流れ — まず曲全体をつかむ
+      </h2>
+      <p class="text-xs text-[var(--c-dim)] mb-5">
+        この曲は物語というより、2人のMCが交互に"街での凄み"を見せつける構成です。先に大枠だけ押さえておくと、高速の韻に飲まれずに一語ずつ拾えます。
+      </p>
+      <div class="space-y-4 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          幕開けは、映画『スカーフェイス』からの<strong class="text-[var(--c-text)]">セリフのサンプル</strong>。「戦争がしたいのか？」という物騒な脅し文句が流れ、これから始まる世界の温度を一気に提示する。Raekwonの掛け声がそこへ重なり、稼ぎ（C.R.E.A.M.＝現金）を追う者たちの物語の幕が上がります。
+        </p>
+        <p>
+          <strong class="text-[var(--c-text)]">Verse 1（Ghostface Killah）</strong>は、前述の"言葉の弾幕"。放火、闇、サイファー（仲間の輪）、第9の部屋（Wuの「36の部屋」になぞらえた自分の領域）——イメージを次々に連想で繋ぎ、Five-Percent由来の語彙（gods、sciences、degree）も織り込みながら、圧倒的な勢いで畳みかける。
+        </p>
+        <p>
+          <strong class="text-[var(--c-text)]">Verse 2（Raekwon）</strong>は、より具体的なマフィオソの情景。シャンパン、ポロやトミー・ヒルフィガーの服、札束（knot）、漆黒のアキュラ——<strong class="text-[var(--c-text)]">成り上がりの贅沢と、油断のならない街の現実</strong>が交互に描かれる。最後は「これが criminology（犯罪学）ラップだ」と、自分たちのスタイルそのものを名乗って締めくくる。物語の起伏より、<strong class="text-[var(--c-text)]">語彙と韻の密度で世界観を立ち上げる</strong>一曲です。
+        </p>
+        <p class="text-xs text-[var(--c-dim)]">
+          ※本ページは批評・教育目的で、解説に必要な範囲の断片のみを引用しています。全歌詞の対訳は掲載していません。
+        </p>
+      </div>
+    </section>
 
-    <h3 class="text-xs text-[var(--c-very-dim)] uppercase tracking-widest mb-3">Intro — Scarface Sample + Raekwon</h3>
+    <!-- ===================== -->
+    <!-- 学習ユニット群         -->
+    <!-- ===================== -->
+    <div id="units"></div>
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2 border-b border-[var(--c-border)] pb-2">
+        学ぶ表現 — スラング・AAVE・語彙
+      </h2>
+      <p class="text-xs text-[var(--c-dim)] mb-6">
+        各見出しは「この曲から学べる英語表現」。各ユニットはまず上に英語の用例（1〜2行）を置いてあります。<strong class="text-[var(--c-text)]">先に英語を音で追い、行のどこが学習対象かを確かめてから</strong>下の日本語解説に進むと、英語が苦手でも置いていかれません。🎤はそのリリックを歌うMC、▶は公式PVの該当箇所への頭出しリンク（音源解析で付与、秒数は概算）です。引用は解説に必要な最小限の断片だけに留めています。
+      </p>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        I told you a long time ago, you f**king little monkey, not to f**k me
-      </Fragment>
-      <Fragment slot="jpn">
-        前から言ってるだろ、この猿野郎、俺に逆らうなと
-      </Fragment>
-      <Fragment slot="explanation">
-        映画『スカーフェイス』（1983年）のダイアログ。ボリビアの麻薬王アレハンドロ・ソサがトニー・モンタナを電話で罵倒するシーン。「宣戦布告」として機能し、楽曲全体をマフィア映画世界に引き込む。
-      </Fragment>
-    </LyricsBlock>
+      <!-- ① peep / son -->
+      <LearningUnit
+        heading="peep the arson, son — 「見る」の peep と呼びかけの son"
+        label="★ スラング（NY口語）"
+        mc="Ghostface Killah（Verse 1）"
+        t={TS["peep-son"].t} tApprox={TS["peep-son"].approx} youtubeId={YT}
+      >
+        <Fragment slot="eng">Yo, first of all, son, peep the arson</Fragment>
+        <Fragment slot="jpn">よう、まず最初に、son（おい）、この放火（arson）を見てみろ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 1の冒頭、Ghostfaceが口火を切る最初の一行。</p>
+        <p>2つのNY口語が学べます。まず <strong class="text-[var(--c-text)]">peep</strong>。「覗き見る」が原義ですが、スラングでは「<strong class="text-[var(--c-text)]">見る・チェックする・気づく</strong>」と、look や check out に近い軽い意味で使います（<em>peep this</em>＝これ見てみろ）。もう一つ、文中の <strong class="text-[var(--c-text)]">son</strong> は「息子」ではなく、<strong class="text-[var(--c-text)]">ニューヨーク特有の親しい呼びかけ</strong>。「おい、お前」「相棒」くらいのニュアンスで、特にQueens／Wu-Tang周辺で多用されました。<em>arson</em>（放火）と <em>son</em> で韻も踏んでいる。冒頭の一行から、<strong class="text-[var(--c-text)]">ニューヨークの空気がそのまま音になっている</strong>のが分かります。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">peep</strong> は「見る・確認する」のカジュアルなスラング。<em>Peep game</em>（状況をよく見ろ／用心しろ）、<em>peep this out</em>（これ見てみ）のように使う。動詞 check に近い。</p>
+          <p><strong class="text-[var(--c-text)]">son</strong>（呼びかけ）は、NYのストリート英語で「相手（男）への親しい呼称」。<em>What up, son?</em>（よう、相棒）。同様の呼びかけに <em>kid</em>、<em>B</em>、<em>fam</em> などがあり、どれを使うかで出身地の色が出る。</p>
+        </Fragment>
+      </LearningUnit>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Ayy, ayy, who the f**k you think you talkin' to, huh? You wanna f**k with—<br />
-        Who the f**k you think I am, your f**kin' bellboy?
-      </Fragment>
-      <Fragment slot="jpn">
-        おい、俺に向かって何を言ってんだ？俺と揉めたいのか——<br />
-        俺が誰だと思ってる？お前のベルボーイか？
-      </Fragment>
-      <Fragment slot="explanation">
-        引き続きスカーフェイスのサンプル。ソサの怒りがエスカレートする場面。ヒエラルキーの逆転——成り上がり者への激怒——がWu-Tangの「俺たちは誰にも従わない」という姿勢と呼応する。
-      </Fragment>
-    </LyricsBlock>
+      <!-- ② bake the track -->
+      <LearningUnit
+        heading="RZA bake the track — 「ビートを焼く」とAAVEの動詞"
+        label="★ スラング／AAVE文法"
+        mc="Ghostface Killah（Verse 1）"
+        t={TS["rza-bake"].t} tApprox={TS["rza-bake"].approx} youtubeId={YT}
+      >
+        <Fragment slot="eng">Extravagant, RZA bake the track and it's militant</Fragment>
+        <Fragment slot="jpn">豪勢だ、RZAがトラックを焼き上げる（bake）、それは戦闘的</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 1前半、プロデューサーRZAのビートを称える件。</p>
+        <p>注目は <strong class="text-[var(--c-text)]">bake the track</strong>。<strong class="text-[var(--c-text)]">bake</strong> は「（パンなどを）焼く」ですが、ここでは「<strong class="text-[var(--c-text)]">ビート／トラックを作り上げる</strong>」というスラング。料理に見立てて「ビートを焼く・調理する」と言うわけで、同じ発想の <em>cook up a beat</em>（ビートを作る）とも通じます。もう一つ大事なのが文法。<strong class="text-[var(--c-text)]">RZA bake</strong> ——主語が三人称単数なのに動詞に <strong class="text-[var(--c-text)]">-s が付いていない</strong>。これは標準英語なら <em>RZA bakes</em> となるところで、<strong class="text-[var(--c-text)]">AAVEでは三単現の -s を落とす</strong>のが大きな特徴です。文法の崩れではなく、れっきとした規則。<code>militant</code>（戦闘的な・闘争的な）は、社会派・武闘派な姿勢を表すヒップホップ頻出語です。</p>
+        <Fragment slot="usage">
+          <p>AAVEでは<strong class="text-[var(--c-text)]">三人称単数現在の -s を付けない</strong>のが規則的特徴。標準英語 <em>He works / She bakes</em> → AAVE <em>He work / She bake</em>。聞き取りのとき「主語が三人称なのに動詞に -s が無い＝AAVE」と即座に補完できると、崩れではなく文法として処理できる。</p>
+          <p><strong class="text-[var(--c-text)]">bake / cook (up) a track</strong> は「ビートを作る」のスラング。料理の比喩はビートメイクでよく使われ、<em>this beat is cooking</em>（このビート、いい感じだ）のようにも言う。</p>
+        </Fragment>
+      </LearningUnit>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        D'you wanna go to war? D'you wanna go to war? We'll take you to war, okay? (Coming up on half a mil, we build)
-      </Fragment>
-      <Fragment slot="jpn">
-        戦争がしたいのか？戦争がしたいのか？望み通りにしてやる（50万に近づいてる、俺たちは築く）
-      </Fragment>
-      <Fragment slot="explanation">
-        スカーフェイスサンプルの終幕。括弧内はRaekwonのナレーション。「half a mil（50万ドル）」は金銭的成功への言及で、映画の暴力的世界観とヒップホップのハッスル精神を同時に提示。
-      </Fragment>
-    </LyricsBlock>
+      <!-- ③ gods / cypher / sciences -->
+      <LearningUnit
+        heading="the gods, my cypher, sciences — Five-Percentの語彙"
+        label="★ スラング（思想語彙）"
+        mc="Ghostface Killah（Verse 1）"
+        t={TS["gods-cypher"].t} tApprox={TS["gods-cypher"].approx} youtubeId={YT}
+      >
+        <Fragment slot="eng">It's manifested, the gods work like appliances<br />Dealin' in my cypher I revolve around sciences</Fragment>
+        <Fragment slot="jpn">それは具現化する、神々（the gods）は家電のように働く／自分のサイファー（cypher）の中で、俺は知（sciences）の周りを回る</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 1中盤、Ghostfaceが思想的な語彙を畳みかける件。</p>
+        <p>ここは <strong class="text-[var(--c-text)]">Five-Percent Nation</strong>（ウータンの思想的背景にある運動）の語彙が連発される箇所です。<strong class="text-[var(--c-text)]">the gods</strong> は、その教えで「黒人の男性は皆 god（神）である」とする思想から来た自称・敬称。<strong class="text-[var(--c-text)]">cypher（サイファー）</strong>は本来「円・ゼロ」を表す語で、ここでは「<strong class="text-[var(--c-text)]">仲間が輪になって言葉や知識を交わす場</strong>」（ラップ・サークル）を指します。<strong class="text-[var(--c-text)]">sciences</strong>（諸科学）は同思想で「知識・真理」の意味合い。つまりこの2行は、辞書の意味だけ追っても本当のところは取れない。<strong class="text-[var(--c-text)]">背景の思想を知って初めて立ち上がる語彙</strong>で、ヒップホップが独自の"知の体系"を言葉に持っていることがよく分かる一節です。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">cypher / cipher</strong> は①円・ゼロ、②ラッパーが輪になって即興でラップを回す場、の二義。今日では②の「サイファー」が世界共通のヒップホップ用語として定着している。</p>
+          <p><strong class="text-[var(--c-text)]">the gods</strong>、<strong class="text-[var(--c-text)]">degree</strong>、<strong class="text-[var(--c-text)]">build</strong> なども含め、Wu-Tang周辺の歌詞にはFive-Percentの語彙が頻出する。辞書語義と"コミュニティ内の特殊用法"が違うので、文化背景とセットで覚えるのがコツ。</p>
+        </Fragment>
+      </LearningUnit>
 
-    <LyricsBlock hasExplanation={false}>
-      <Fragment slot="eng">
-        For real, y'all<br />
-        Takin' you on another one, son<br />
-        Uh, <QuickSlang word="Julio Iglesias" desc="スペイン人歌手。ここではRaekwonが「俺もそいつ並みに金を稼いでる」という自己誇示として使用" /><br />
-        Makin' <QuickSlang word="C.R.E.A.M." desc="Cash Rules Everything Around Me。Wu-Tang Clanのマントラ" /> like that n***a
-      </Fragment>
-      <Fragment slot="jpn">
-        マジの話、みんな<br />
-        また別の世界に連れてくぜ<br />
-        フリオ・イグレシアス並みに<br />
-        あいつみたいにC.R.E.A.M.を稼いでる
-      </Fragment>
-    </LyricsBlock>
+      <!-- ④ 9th chamber -->
+      <LearningUnit
+        heading="The 9th chamber — Wu-Tang「36の部屋」の自己引用"
+        label="★ 文化（自己引用）"
+        mc="Ghostface Killah（Verse 1）"
+        t={TS["ninth-chamber"].t} tApprox={TS["ninth-chamber"].approx} youtubeId={YT}
+      >
+        <Fragment slot="eng">The 9th chamber, leave you trapped inside my hallway</Fragment>
+        <Fragment slot="jpn">第9の部屋（9th chamber）、お前を俺の廊下に閉じ込める</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 1中盤、Ghostfaceが自分の領域を「部屋」にたとえる件。</p>
+        <p><strong class="text-[var(--c-text)]">The 9th chamber（第9の部屋）</strong>は、Wu-Tang Clanのデビュー作『Enter the Wu-Tang (<strong class="text-[var(--c-text)]">36 Chambers</strong>)』への目配せです。カンフー映画の「36の部屋（修行の段階）」になぞらえたグループの世界観を踏まえ、「9番目の部屋」を<strong class="text-[var(--c-text)]">自分の領域・テリトリー</strong>として持ち出している。<strong class="text-[var(--c-text)]">chamber</strong> は「部屋・小室」で、銃の薬室（弾を込める部屋）の意味もあるため、物騒な含みも漂う。「お前を俺の廊下（hallway）に閉じ込める」という具体的な絵で、<strong class="text-[var(--c-text)]">自分の縄張りからは逃げられない</strong>という凄みを描いています。グループの代名詞的なモチーフを、ソロ曲の中でさりげなく自己引用する——Wuらしい一手です。</p>
+      </LearningUnit>
 
-    <h3 class="text-xs text-[var(--c-very-dim)] uppercase tracking-widest mb-3 mt-8">Verse 1 — Ghostface Killah</h3>
+      <!-- ⑤ murder one -->
+      <LearningUnit
+        heading="murder one — 「第一級殺人」という法律用語"
+        label="★ 語彙（法律）"
+        mc="Ghostface Killah（Verse 1）"
+        t={TS["murder-one"].t} tApprox={TS["murder-one"].approx} youtubeId={YT}
+      >
+        <Fragment slot="eng">Swallow this murder one verse like god degree</Fragment>
+        <Fragment slot="jpn">この第一級殺人（murder one）級のヴァースを、god degreeのように飲み込め</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 1後半、Ghostfaceが自分のヴァースの凶悪さを誇る件。</p>
+        <p><strong class="text-[var(--c-text)]">murder one</strong> は <em>murder in the first degree</em>＝「<strong class="text-[var(--c-text)]">第一級殺人（計画的殺人）</strong>」のくだけた言い方。アメリカでは殺人罪が <em>first degree（一級）/ second degree（二級）</em> と重さで段階分けされ、<em>murder one</em> が最も重い。ここでは「俺のヴァースは murder one（最も凶悪）級だ、それを飲み込め（swallow）」という、<strong class="text-[var(--c-text)]">自分のラップを"凶器"にたとえる</strong>常套句。法廷ドラマや事件報道で実際に飛び交う表現なので、<strong class="text-[var(--c-text)]">degree（程度・等級）で重さを表す</strong>感覚ごと覚えておくと、ニュース英語にも効きます。続く <strong class="text-[var(--c-text)]">god degree</strong> はFive-Percentの語彙で、ここでも"degree"が掛けられています。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">degree</strong> は「程度・等級」。犯罪なら <em>first-degree / second-degree</em>（一級／二級）で重さを、火傷なら <em>third-degree burn</em>（三度熱傷）で深さを表す。<em>murder one / murder two</em> は口語の略。</p>
+        </Fragment>
+      </LearningUnit>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Yo, (Blaow) first of all, son, peep the arson<br />
-        Many brothers I be sparkin' and bustin' mad light inside the dark
-      </Fragment>
-      <Fragment slot="jpn">
-        よお（ドカン）まず第一に、放火を見ろよ<br />
-        暗闇の中でブチかまし、多くの奴らを照らしてやる
-      </Fragment>
-      <Fragment slot="explanation">
-        「Blaow」はGhostfaceの口癖であり銃声の擬音。「arson（放火）」は注目を集める爆発的なラップの比喩。「sparkin'（点火）」と「bustin' mad light」は暗黒の業界に光を放つイメージ。
-      </Fragment>
-    </LyricsBlock>
+      <!-- ⑥ chain reaction -->
+      <LearningUnit
+        heading="like a flashback, chain reaction — 連鎖反応の比喩"
+        label="★ イディオム"
+        mc="Ghostface Killah（Verse 1）"
+        t={TS["chain-reaction"].t} tApprox={TS["chain-reaction"].approx} youtubeId={YT}
+      >
+        <Fragment slot="eng">You adapt like a flashback, chain reaction</Fragment>
+        <Fragment slot="jpn">お前はフラッシュバックのように順応する、連鎖反応（chain reaction）だ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 1の締め、Ghostfaceがヴァースを畳みかけて閉じる件。</p>
+        <p>ここで覚えたいのは <strong class="text-[var(--c-text)]">chain reaction</strong>＝「<strong class="text-[var(--c-text)]">連鎖反応</strong>」。化学・物理の用語ですが、日常でも「一つの出来事が次々に波及していく」比喩として広く使われます（<em>set off a chain reaction</em>＝連鎖反応を引き起こす）。直前の <strong class="text-[var(--c-text)]">like a flashback</strong>（フラッシュバックのように）も、<em>like ～</em> を使った直喩。「俺のヴァースを聴くと、記憶がフラッシュバックするように反応が連鎖していく」——抽象的ですが、<strong class="text-[var(--c-text)]">科学用語を比喩に転用する</strong>のはヒップホップの常套で、<em>chain reaction</em> はそのままビジネスや日常会話でも使える便利な表現です。Ghostfaceのヴァースは、こうした語をリズムの中に放り込んでいくのがうまい。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">chain reaction</strong>（連鎖反応）は、比喩で「一つの出来事が次の出来事を次々引き起こすこと」。<em>The news set off a chain reaction of selling</em>（そのニュースが売りの連鎖を引き起こした）。<em>a chain reaction of ~</em> の形で対象を続けることが多い。</p>
+        </Fragment>
+      </LearningUnit>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Call me dough snatcher, just the brother for the rapture<br />
-        I hang glide, holdin' on strong, hard to capture
-      </Fragment>
-      <Fragment slot="jpn">
-        俺を金の強奪者と呼べ、終末に相応しい男<br />
-        ハンググライダーで空を飛ぶ、しっかり掴まって離さない、捕まえられない
-      </Fragment>
-      <Fragment slot="explanation">
-        「dough snatcher」は金を奪う者。「rapture（天変地異・携挙）」は宗教的終末と業界の頂点の二重の意味。「hang glide」は制御不能な高みにいる自己表現。
-      </Fragment>
-    </LyricsBlock>
+      <!-- ⑦ menace to society -->
+      <LearningUnit
+        heading="menace for society — 「社会の脅威」というイディオム"
+        label="★ イディオム（文化）"
+        mc="Raekwon（Verse 2）"
+        t={TS["menace-society"].t} tApprox={TS["menace-society"].approx} youtubeId={YT}
+      >
+        <Fragment slot="eng">Marvelous menace for society</Fragment>
+        <Fragment slot="jpn">社会にとっての見事な脅威（menace to society）</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 2前半、Raekwonが自分を「社会の脅威」と名乗る件。</p>
+        <p><strong class="text-[var(--c-text)]">a menace to society</strong> は「<strong class="text-[var(--c-text)]">社会に害をなす存在・社会の脅威</strong>」という定型イディオム（歌詞では <em>to</em> が <em>for</em> に置き換わっています）。<strong class="text-[var(--c-text)]">menace</strong> は「脅威・厄介者」。ニュースや判決でも「<em>He is a menace to society</em>（彼は社会の脅威だ）」のように使われる、れっきとした表現です。さらにこのフレーズは、1993年の名作映画『<strong class="text-[var(--c-text)]">Menace II Society（メナス II ソサエティ）</strong>』を踏まえている可能性が高い。インナーシティの暴力を描いたこの映画は、当時のヒップホップ世代の共通言語でした。<strong class="text-[var(--c-text)]">marvelous</strong>（見事な・素晴らしい）という褒め言葉をあえて頭に付けて、「社会の脅威であること」を誇ってみせる——マフィオソ・ラップらしい価値の逆転です。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">a menace to society</strong>（社会の脅威・厄介者）は、人や物が周囲に危険・迷惑をもたらすときに使う。<em>menace</em> 単体でも「脅威・困り者」（<em>That dog is a menace</em>＝あの犬は厄介者だ）。動詞なら「脅す」。</p>
+        </Fragment>
+      </LearningUnit>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Extravagant, RZA bake the <QuickSlang word="track" desc="ビート・楽曲のこと" /> and it's militant<br />
-        Then I react like a convict and start killin' s**t
-      </Fragment>
-      <Fragment slot="jpn">
-        豪華絢爛、RZAが焼き上げたトラックは戦闘的<br />
-        俺は囚人のように反応して、全部ぶち壊す
-      </Fragment>
-      <Fragment slot="explanation">
-        RZAへの公式賛辞。「bake the track」はビートを「焼き上げる＝完成させる」料理の比喩。「militant（好戦的）」はWu-Tangのビートの軍事的な硬さを表す。
-      </Fragment>
-    </LyricsBlock>
+      <!-- ⑧ champagne thoughts / toast -->
+      <LearningUnit
+        heading="let's toast, champagne thoughts — 「乾杯」と贅沢の心象"
+        label="★ 語彙／心象"
+        mc="Raekwon（Verse 2）"
+        t={TS["champagne-thoughts"].t} tApprox={TS["champagne-thoughts"].approx} youtubeId={YT}
+      >
+        <Fragment slot="eng">But anyway, let's toast, champagne thoughts with Ghost</Fragment>
+        <Fragment slot="jpn">とにかく、乾杯しよう（toast）、Ghostとシャンパンのような思考を</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 2前半、Raekwonが相棒Ghostfaceと祝杯を上げる件。</p>
+        <p>マフィオソ・ラップらしい、贅沢の心象が出る一節。動詞の <strong class="text-[var(--c-text)]">toast</strong> は「トーストを焼く」ではなく「<strong class="text-[var(--c-text)]">乾杯する・祝杯をあげる</strong>」。<em>Let's toast (to ~)</em>＝「（〜に）乾杯しよう」という、お祝いの定番表現です（名詞でも <em>make a toast</em>＝乾杯の音頭をとる）。<strong class="text-[var(--c-text)]">champagne thoughts</strong>（シャンパンのような思考）は、<strong class="text-[var(--c-text)]">高級志向・成功者のマインドセット</strong>を表す心象。安酒ではなくシャンパンを思い浮かべる頭、つまり「一流を志向する考え方」です。相棒の <strong class="text-[var(--c-text)]">Ghost</strong>（Ghostface Killah）と祝杯をあげる場面で、貧しい出自から成り上がった者の高揚が滲む。<strong class="text-[var(--c-text)]">具体的な飲み物（champagne）で抽象的な価値観を表す</strong>、ラップらしい言葉の使い方です。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">toast</strong>（乾杯する／乾杯）は <em>Let's toast to your success</em>（君の成功に乾杯）、<em>propose a toast</em>（乾杯の音頭をとる）のように使う。お祝いの席の必須表現。</p>
+          <p>ブランド・飲食物で価値観を表す手法は頻出: <em>champagne thoughts</em>（高級志向）、<em>caviar dreams</em>（贅沢な夢）など。具体物が抽象的なライフスタイルの記号になる。</p>
+        </Fragment>
+      </LearningUnit>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        It's manifested, the gods work like appliances<br />
-        Dealin' in my <QuickSlang word="cypher" desc="①ラップの輪 ②五%ネイションの哲学における宇宙の循環" /> I revolve around sciences
-      </Fragment>
-      <Fragment slot="jpn">
-        それは顕現した、神々は電化製品のように働く<br />
-        俺のサイファーの中で、俺は科学の周りを公転する
-      </Fragment>
-      <Fragment slot="explanation">
-        五%ネイション（Nation of Gods and Earths）の世界観。「gods work like appliances」は黒人男性を宇宙の動力源に例える。「sciences」は五%ネイションの教義であり、自然の法則と宇宙の真理。
-      </Fragment>
-    </LyricsBlock>
+      <!-- ⑨ fly / Ac -->
+      <LearningUnit
+        heading="floatin' in the flyest Ac' — fly（イケてる）と車の略語"
+        label="★ スラング（ステータス）"
+        mc="Raekwon（Verse 2）"
+        t={TS["fly-ac"].t} tApprox={TS["fly-ac"].approx} youtubeId={YT}
+      >
+        <Fragment slot="eng">Criminology rap, sneakers stay<br />Jet-black floatin' in the flyest Ac'</Fragment>
+        <Fragment slot="jpn">これがcriminology rap、スニーカーは常に（新品で）／漆黒の、最高にfly（イケてる）なAcura（Ac'）で流す</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 2の締め、Raekwonがタイトルを名乗って曲を閉じる件。</p>
+        <p>締めにふさわしい、ステータスの語彙が3つ。<strong class="text-[var(--c-text)]">fly</strong> は「飛ぶ」ではなく「<strong class="text-[var(--c-text)]">イケてる・洗練された・かっこいい</strong>」というスラング（<em>the flyest</em>＝最高にイケてる、と最上級で）。<strong class="text-[var(--c-text)]">floatin'</strong>（浮く）は車の文脈で「<strong class="text-[var(--c-text)]">滑らかに乗り回す・流す</strong>」。そして <strong class="text-[var(--c-text)]">Ac'</strong> は <strong class="text-[var(--c-text)]">Acura（アキュラ）</strong>などの高級車を縮めた言い方で、語感を優先してブランド名を削るヒップホップの定石です。「漆黒の最高にflyなアキュラで流す」——成功の象徴を畳みかけて、最後に <strong class="text-[var(--c-text)]">criminology rap</strong> と自分たちのスタイルを名乗って曲を閉じる。タイトルが自己宣言として回収される、気持ちのいい締め方です。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">fly</strong>（形容詞スラング）は「おしゃれでかっこいい」。<em>You look fly</em>（イケてるね）、最上級 <em>the flyest</em>。70〜90年代に定着した褒め言葉で、今も使われる。</p>
+          <p>車・ブランド名の短縮はヒップホップの常道: <em>Ac'</em>（Acura）、<em>'Lac</em>（Cadillac）、<em>'Vette</em>（Corvette）、<em>Benz</em>（Mercedes-Benz）。語感とリズムを優先して縮める。</p>
+        </Fragment>
+      </LearningUnit>
+    </section>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        The <QuickSlang word="9th chamber" desc="Wu-Tangの36챔버즈を超えた架空の最終部屋——Ghostfaceの支配領域" />, leave you trapped inside my hallway<br />
-        You try to flee but you got smoked up by the doorway (Blaow)
-      </Fragment>
-      <Fragment slot="jpn">
-        第9챔버、俺の廊下に閉じ込めてやる<br />
-        逃げようとしたら、ドアのところで消されるぞ（ドカン）
-      </Fragment>
-      <Fragment slot="explanation">
-        「9th chamber」はEnter the Wu-Tang (36 Chambers)の延長線上にある架空の部屋。Ghostfaceの支配する迷宮的空間。「smoked up」は殺される・煙になるのダブルミーニング。
-      </Fragment>
-    </LyricsBlock>
+    <!-- ===================== -->
+    <!-- 文化的背景             -->
+    <!-- ===================== -->
+    <section id="background" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        文化的背景
+      </h2>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        No question, I send your ass back right to the essence<br />
-        Your whole frame is smothered in dirt, now how you restin'?
-      </Fragment>
-      <Fragment slot="jpn">
-        間違いない、お前を本質（魂の源）へ送り返す<br />
-        お前の体全体が土に埋まってる、どうやって休んでるんだ？
-      </Fragment>
-      <Fragment slot="explanation">
-        五%ネイション用語で「essence」は生命の根源・宇宙の源。「send back to the essence」は死を意味する婉曲表現。「frame smothered in dirt」は埋葬された肉体の直接描写。
-      </Fragment>
-    </LyricsBlock>
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">マフィオソ・ラップ</p>
+        <h3 class="font-semibold text-base mb-3">ギャング映画の世界観を借りた、犯罪叙事の様式</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          『Only Built 4 Cuban Linx...』は、<strong class="text-[var(--c-text)]">マフィオソ・ラップ</strong>というサブジャンルを確立した金字塔だ。『スカーフェイス』や『グッドフェローズ』といったマフィア／ギャング映画の<strong class="text-[var(--c-text)]">語り口・美学</strong>を借りて、インナーシティの麻薬経済と暴力を、まるで犯罪叙事詩のように描く。「Criminology（犯罪学）」というタイトルそのものが、ストリートの稼業を一つの"専門領域"として捉え直す、この様式の宣言になっている。Raekwon と Ghostface のコンビは、この路線の象徴的な存在です。
+        </p>
+      </div>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        While I'll be trapped by sounds, locked behind loops<br />
-        Throwin' n***as off airplanes 'cause cash rules (<QuickSlang word="Cash rules" desc="C.R.E.A.M.のリフレイン" />)
-      </Fragment>
-      <Fragment slot="jpn">
-        俺は音に囚われ、ループの後ろに閉じ込められている<br />
-        金のために奴らを飛行機から放り投げる（金が支配する）
-      </Fragment>
-      <Fragment slot="explanation">
-        「trapped by sounds, locked behind loops」はスタジオでビートに没頭する状態の詩的表現。「飛行機から放り投げる」は極端な暴力の誇示であり、C.R.E.A.M.のテーマへの接続。
-      </Fragment>
-    </LyricsBlock>
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">キーワード早見表</p>
+        <h3 class="font-semibold text-base mb-3">この曲で学んだ表現の整理</h3>
+        <div class="space-y-3 mt-3">
+          {[
+            ['peep', '見る・チェックする（look/checkのスラング）'],
+            ['son', 'NY特有の親しい呼びかけ（おい、相棒）'],
+            ['bake the track', 'ビート/トラックを作る（料理の比喩）'],
+            ['murder one', '第一級殺人（first-degree murderの口語）'],
+            ['menace to society', '社会の脅威・厄介者（イディオム）'],
+            ['fly', 'イケてる・洗練された（褒め言葉スラング）'],
+          ].map(([term, desc]) => (
+            <div class="flex gap-3 text-sm">
+              <span class="text-[var(--c-gold)] shrink-0 font-semibold min-w-[120px]">{term}</span>
+              <span class="text-[var(--c-muted)]">{desc}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Everything around me, black, as you can see<br />
-        Swallow this murder one verse like <QuickSlang word="god degree" desc="五%ネイションの哲学——神の境地・段位" />
-      </Fragment>
-      <Fragment slot="jpn">
-        見てのとおり、周りのすべてが暗い<br />
-        この殺人級のバースを神の境地として飲み込め
-      </Fragment>
-      <Fragment slot="explanation">
-        「murder one」は第一級謀殺——最も重いヴァース。「god degree」は五%ネイションの神格的境地。圧倒的なリリカルパワーへの自信の表明。
-      </Fragment>
-    </LyricsBlock>
+    <!-- ===================== -->
+    <!-- サンプル・制作の裏側    -->
+    <!-- ===================== -->
+    <section id="behind" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        サンプル・制作の裏側
+      </h2>
 
-    <LyricsBlock hasExplanation={false}>
-      <Fragment slot="eng">
-        Then analyze my soundtrack for satisfaction<br />
-        You adapt like a flashback, chain reaction
-      </Fragment>
-      <Fragment slot="jpn">
-        俺のサウンドトラックを分析して満足を得ろ<br />
-        フラッシュバックのように適応する、連鎖反応
-      </Fragment>
-    </LyricsBlock>
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">サンプル元</p>
+        <h3 class="font-semibold text-base mb-3">不穏なソウルと映画のセリフ — RZAの設計</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          トラックを組んだのは <strong class="text-[var(--c-text)]">RZA</strong>。土台には、<strong class="text-[var(--c-text)]">Black Ivory「I Keep Asking You Questions」</strong>と <strong class="text-[var(--c-text)]">The Sweet Inspirations「Why Marry」</strong>という、70年代ソウルの渋い素材が使われている（WhoSampled確認）。そこへ、映画『<strong class="text-[var(--c-text)]">Scarface（スカーフェイス）</strong>』(1983) の殺気立ったセリフを冒頭に重ね、いきなり緊張感を最大化する。甘いソウルの断片と暴力的な映画のセリフ——その<strong class="text-[var(--c-text)]">相反する素材の同居</strong>こそが、マフィオソ・ラップ特有の"美しくも危険な"空気を生んでいます。
+        </p>
+      </div>
 
-    <h3 class="text-xs text-[var(--c-very-dim)] uppercase tracking-widest mb-3 mt-8">Interlude — Raekwon</h3>
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">2人のMC</p>
+        <h3 class="font-semibold text-base mb-3">RaekwonとGhostfaceの相棒関係</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          『Cuban Linx』は名義こそ Raekwon のソロですが、実質は <strong class="text-[var(--c-text)]">Ghostface Killah との二人三脚</strong>のアルバムとして知られる。「Criminology」でも、Ghostfaceが圧巻のVerse 1で世界観を切り開き、Raekwonがより具体的な情景でVerse 2を受ける——という<strong class="text-[var(--c-text)]">役割分担の妙</strong>が光る。互いを「son」「Ghost」と呼び合い、祝杯（toast）をあげる場面に、長年の相棒同士の信頼が滲んでいる。2人の声質と語り口の違いを聴き比べるのも、この曲の楽しみ方のひとつです。
+        </p>
+      </div>
+    </section>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Lace them n***as, son
-      </Fragment>
-      <Fragment slot="jpn">
-        奴らをしっかり仕上げろ、兄弟
-      </Fragment>
-      <Fragment slot="explanation">
-        「lace」はここで「beat down（やっつける）」または「set up（準備する）」の意。GhostfaceのバースとRaekwonのバースをつなぐ一言で、次のバースへの起爆剤。
-      </Fragment>
-    </LyricsBlock>
+    <!-- ===================== -->
+    <!-- 評価と影響             -->
+    <!-- ===================== -->
+    <section id="legacy" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        評価とその後の影響
+      </h2>
 
-    <h3 class="text-xs text-[var(--c-very-dim)] uppercase tracking-widest mb-3 mt-8">Verse 2 — Raekwon</h3>
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg mb-6">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">位置づけ</p>
+        <h3 class="font-semibold text-base mb-3">名盤を象徴するヴァース</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          「Criminology」は、ヒップホップ史上屈指の名盤に数えられる『Only Built 4 Cuban Linx...』(1995) の2枚目のシングル。とりわけ <strong class="text-[var(--c-text)]">Ghostface Killah の Verse 1</strong> は、彼の数あるヴァースの中でも語り草になる出来として、ファンに長く愛されてきた。意味の論理よりも<strong class="text-[var(--c-text)]">音とイメージの奔流で押し切る</strong>その書き方は、後続のリリシストたちに大きな影響を与えた。マフィオソ・ラップという様式の完成度を、端的に示す一曲です。
+        </p>
+      </div>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        AK's black, bust back like seventy MACs<br />
-        I'm all that, street n***as knowin' my <QuickSlang word="steez" desc="Style+Ease。スタイルと余裕を合わせた1990年代NYスラング" />, black
-      </Fragment>
-      <Fragment slot="jpn">
-        AKは黒、70丁のMAC-10のように撃ち返す<br />
-        俺は最高だ、ストリートの奴らは俺のスタイルを知ってる
-      </Fragment>
-      <Fragment slot="explanation">
-        AK（AK-47）とMAC-10は1990年代NYストリートで流通した自動小銃。「seventy MACs」は誇張した火力の誇示。「all that」は「最高である」という自己評価。
-      </Fragment>
-    </LyricsBlock>
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">学習素材としての価値</p>
+        <h3 class="font-semibold text-base mb-3">"難曲"に挑む面白さ</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          正直、この曲はヒップホップ英語の中でも難度が高い部類です。スラング、AAVE、Five-Percentの語彙、高速の韻——初心者がいきなり全部を取るのは難しい。でも、だからこそ <strong class="text-[var(--c-text)]">一語ずつ解いていく面白さ</strong>がある。<em>peep</em>、<em>murder one</em>、<em>menace to society</em>、<em>fly</em> といった表現は、一度意味が分かれば他の曲でも何度も出会う"頻出語"。難曲をひとつ攻略すると、ヒップホップ全体の聴き取りが一段上がります。腕試しにちょうどいい一曲です。
+        </p>
+      </div>
+    </section>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Ron G, you know he coincide with me, see<br />
-        Marvelous menace for society
-      </Fragment>
-      <Fragment slot="jpn">
-        Ron Gよ、あいつは俺と合ってるだろ、わかるか<br />
-        社会に対する驚異的な脅威
-      </Fragment>
-      <Fragment slot="explanation">
-        Ron GはNYのDJでWu-Tang Clan関連のミックステープで有名。映画『Boyz n the Hood』の「Menace to Society（社会の脅威）」をRaekwonが自己の誇りとして引用。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        But anyway, let's toast, champagne thoughts with Ghost<br />
-        I max the most shotguns through the nose
-      </Fragment>
-      <Fragment slot="jpn">
-        でもとにかく、乾杯しようぜ、Ghostとシャンパンを思い描きながら<br />
-        鼻でショットガンを最大限に吸い込む
-      </Fragment>
-      <Fragment slot="explanation">
-        「champagne thoughts」は成功への夢想。「shotguns through the nose」は大麻の煙を鼻から吸う行為（shotgunning）。前半の華やかさと後半のストリートリアリズムの対比。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        f**k rap, hip-hop put me on top<br />
-        <QuickSlang word="'Lo" desc="Ralph Lauren / Poloのこと。1990年代NYストリートブランド" /> wears and <QuickSlang word="Tommy Hil'" desc="Tommy Hilfiger。ブランドをストリートに持ち込む文化" /> fly s**t with a knot
-      </Fragment>
-      <Fragment slot="jpn">
-        ラップなんてどうでもいい、ヒップホップが俺をトップに押し上げた<br />
-        ポロとトミーのいかしたものを、金の束と一緒に
-      </Fragment>
-      <Fragment slot="explanation">
-        「f**k rap」は産業としての「rap（商業音楽）」への反発であり、文化としての「hip-hop」への敬意の表明。「knot（金の束）」は現金の束を指す。Wu-Tang周辺の「boosted fashion」文化——ブランド品を盗んでストリートに持ち込む——を象徴する行。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        The witty unpredictable live s**t, drive-by s**t<br />
-        Do-or-die s**t, I'll take your <QuickSlang word="lye" desc="PCPに浸したタバコ。ストリートで流通した危険なドラッグ" /> and s**t
-      </Fragment>
-      <Fragment slot="jpn">
-        機知と予測不能なリアルなもの、ドライブバイのもの<br />
-        やるかやられるかのもの、お前のライ（ドラッグ）を奪ってやる
-      </Fragment>
-      <Fragment slot="explanation">
-        「witty unpredictable」はRaekwonのWu-Tang内の称号「The Witty Unpredictable Talent And Natural Game（W.U.T.A.N.G.）」を暗示。drive-by（ドライブバイ銃撃）、do-or-die（やるかやられるか）という極限状況の連打。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        And then you know I'm runnin' through the <QuickSlang word="penal" desc="刑務所（penitentiary）の略" /><br />
-        Foul, fall through, child was wild
-      </Fragment>
-      <Fragment slot="jpn">
-        俺が刑務所を通過してきたのはわかるだろ<br />
-        汚い、踏み込んでいく、あの頃の俺はワイルドだった
-      </Fragment>
-      <Fragment slot="explanation">
-        刑務所経験の告白。「foul（汚い）」はルール違反・道徳的逸脱の意。「child was wild」は過去の自分を客観視した述懐——若さと無謀さへの苦笑い。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        The old lady snitched, but f**k it, you know what?<br />
-        One love, kid, no, I'm not doin' a <QuickSlang word="bid" desc="刑期・服役期間のスラング" />
-      </Fragment>
-      <Fragment slot="jpn">
-        あのおばさんが密告した、でもどうでもいい、わかるか？<br />
-        ワンラブだ、俺は服役はしない
-      </Fragment>
-      <Fragment slot="explanation">
-        「old lady snitched」はご近所の女性か知人が警察に密告した状況。「One love」は仲間への敬意・連帯の表明（Nas「One Love」と同じ用法）。逮捕されないという強い意志宣言。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Too much to get, for what, 'cause six n***as got stuck<br />
-        And the n***a <QuickSlang word="chain was truck" desc="トラック型のゴールドペンダントチェーン。1990年代NYストリートの流行ジュエリー" />?
-      </Fragment>
-      <Fragment slot="jpn">
-        稼ぐことがたくさんあるのに、なぜ？6人の奴らが刺されたから？<br />
-        そいつのチェーンがトラック型だったから？
-      </Fragment>
-      <Fragment slot="explanation">
-        ジュエリーを巡る暴力への皮肉と嘆き。「6 n***as got stuck（6人が刺された）」という集団的暴力が、たかがネックレス一本のために起きた。命よりジュエリーを優先する価値観の倒錯を批判。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Yo, f**k that, criminology rap, sneakers stay<br />
-        Jet-black floatin' in the flyest <QuickSlang word="Ac'" desc="Acura（高級車）。AcuraのことでNYストリートで成功の象徴" />, n***a<br />
-        (Bring it, yeah)
-      </Fragment>
-      <Fragment slot="jpn">
-        よお、そんなのはどうでもいい、クリミノロジー・ラップ、スニーカーは<br />
-        最高のAcuraの中でジェットブラックに浮かんでる<br />
-        （かかってこい、yeah）
-      </Fragment>
-      <Fragment slot="explanation">
-        曲のタイトルフレーズにして宣言の核心。「criminology rap」——犯罪学をラップする男という自己定義。「sneakers stay jet-black」はブラックスニーカーで象徴されるストリートのスタイルを貫くこと。最高の車に乗りながら全てを超越する姿でバースを締める。
-      </Fragment>
-    </LyricsBlock>
-
-    <h3 class="text-xs text-[var(--c-very-dim)] uppercase tracking-widest mb-3 mt-8">Outro — Raekwon</h3>
-
-    <LyricsBlock hasExplanation={false}>
-      <Fragment slot="eng">
-        Much love go to New York City<br />
-        All my Tommy Hil', ice-rockin' n***as
-      </Fragment>
-      <Fragment slot="jpn">
-        ニューヨークシティへ大きな愛を<br />
-        トミー・ヒルフィガーを着て、ダイヤをまとった仲間たちへ
-      </Fragment>
-    </LyricsBlock>
-  </section>
-
-  <section id="background" class="mb-6">
-    <h2 class="text-base font-semibold mb-2">■文化的背景</h2>
-    <p class="text-sm text-[var(--c-muted)] leading-relaxed">1995年、西海岸のG-Funk（Dr. Dre、Snoop Dogg）が商業的に席巻する中、東海岸——特にニューヨーク——はより暗く、より複雑で、よりストリートの現実に根ざした音楽で応えた。Wu-Tang Clanはその最先鋒だった。「Criminology」は単なる暴力の讃歌ではなく、映画的語り口（スカーフェイスサンプル）、五%ネイションの哲学（god degree、cypher、sciences）、ストリートの実態（ドラッグ、逮捕、ジュエリー）を一曲に凝縮したコンセプチュアルな作品だ。RZAのアブストラクトなサンプリングと二人のMCの対照的なフロウ——Ghostfaceの爆発的な熱量とRaekwonの計算されたクールネス——が、この楽曲に他の追随を許さないダイナミズムをもたらした。</p>
-  </section>
-
-  <section id="legacy" class="mb-6">
-    <h2 class="text-base font-semibold mb-2">■評価とレガシー</h2>
-    <p class="text-sm text-[var(--c-muted)] leading-relaxed">『Only Built 4 Cuban Linx...』は後世の批評家からローリングストーン誌の「史上最高のアルバム500選」に選出され、ヒップホップ史で最も重要なソロ作品の一つとして評価される。「Criminology」はその中でも特に「マフィオソ・ラップ（Mafioso Rap）」というサブジャンルを定義した曲として語り継がれる。Nas・AZ・Jay-Zなど後の東海岸のライターたちが軒並み影響を受けたコンセプト——映画的な世界観をラップに持ち込む手法——はここに一つの完成形を見る。日本でも1990年代後半のアンダーグラウンドHIPHOPシーンにWu-Tang哲学が深く浸透し、KREVAやMummy-Dなどが公言している影響の源泉にこの曲がある。</p>
-  </section>
+    <!-- まとめ -->
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        まとめ
+      </h2>
+      <ul class="space-y-2 text-sm text-[var(--c-muted)] list-disc list-inside leading-relaxed">
+        <li>「Criminology」は、犯罪学という学問名を冠したマフィオソ・ラップの代表曲。Ghostfaceの伝説的ヴァースが核。</li>
+        <li>peep・son・bake the track・murder one・menace to society・fly など、頻出のスラング・AAVE・語彙がまとめて学べる。</li>
+        <li>gods・cypher・sciences といったFive-Percentの語彙は、背景思想を知って初めて意味が立ち上がる。</li>
+        <li>RZAのソウル・サンプル＋映画『スカーフェイス』のセリフ。甘さと危うさの同居がマフィオソ・ラップの肝。</li>
+      </ul>
+    </section>
 
 </SongLayout>
