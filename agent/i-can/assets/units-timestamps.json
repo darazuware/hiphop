@@ -1,0 +1,92 @@
+[
+  {
+    "id": "ican-chorus",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 5,
+    "t": 6,
+    "source": "fallback",
+    "approx": true,
+    "score": 1
+  },
+  {
+    "id": "bboys-listen",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 26,
+    "t": 30,
+    "source": "fallback",
+    "approx": true,
+    "score": 0.8
+  },
+  {
+    "id": "in-god-we-trust",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 36,
+    "t": 36,
+    "source": "fallback",
+    "approx": true,
+    "score": 0.25
+  },
+  {
+    "id": "company-you-keep",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 66,
+    "t": 66,
+    "source": "fallback",
+    "approx": true,
+    "score": 0.2
+  },
+  {
+    "id": "oprah",
+    "whisperSec": 111.7,
+    "manualSec": null,
+    "fallbackT": 108,
+    "t": 111.7,
+    "source": "whisper",
+    "approx": true,
+    "score": 0.8
+  },
+  {
+    "id": "act-your-age",
+    "whisperSec": 116.8,
+    "manualSec": null,
+    "fallbackT": 114,
+    "t": 116.8,
+    "source": "whisper",
+    "approx": true,
+    "score": 0.8
+  },
+  {
+    "id": "kings-queens",
+    "whisperSec": 161.4,
+    "manualSec": null,
+    "fallbackT": 165,
+    "t": 161.4,
+    "source": "whisper",
+    "approx": true,
+    "score": 1
+  },
+  {
+    "id": "read-more",
+    "whisperSec": 207,
+    "manualSec": null,
+    "fallbackT": 205,
+    "t": 207,
+    "source": "whisper",
+    "approx": true,
+    "score": 1
+  },
+  {
+    "id": "youre-a-king",
+    "whisperSec": 212.2,
+    "manualSec": null,
+    "fallbackT": 212,
+    "t": 212.2,
+    "source": "whisper",
+    "approx": true,
+    "score": 1
+  }
+]

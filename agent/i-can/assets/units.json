@@ -1,0 +1,11 @@
+[
+  { "id": "ican-chorus", "anchor": ["know", "i", "can", "be", "what"], "fallbackT": 5, "manualSec": null },
+  { "id": "bboys-listen", "anchor": ["boys", "and", "girls", "listen", "up"], "fallbackT": 26, "manualSec": null },
+  { "id": "in-god-we-trust", "anchor": ["in", "god", "we", "trust"], "fallbackT": 36, "manualSec": null },
+  { "id": "company-you-keep", "anchor": ["watch", "the", "company", "you", "keep"], "fallbackT": 66, "manualSec": null },
+  { "id": "oprah", "anchor": ["host", "the", "tv", "like", "oprah"], "fallbackT": 108, "manualSec": null },
+  { "id": "act-your-age", "anchor": ["act", "your", "age", "don't", "pretend"], "fallbackT": 114, "manualSec": null },
+  { "id": "kings-queens", "anchor": ["we", "were", "kings", "and", "queens"], "fallbackT": 165, "manualSec": null },
+  { "id": "read-more", "anchor": ["read", "more", "learn", "more"], "fallbackT": 205, "manualSec": null },
+  { "id": "youre-a-king", "anchor": ["hold", "your", "head", "up", "little"], "fallbackT": 212, "manualSec": null }
+]
