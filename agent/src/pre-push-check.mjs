@@ -135,6 +135,9 @@ function checkDuplicateGuard() {
 // --- Item 6: Fetch lyrics (短尺フェッチ対策つき) ---
 // returns { lines, incomplete }
 async function fetchLyrics(title, artist, slug) {
+  // feat./ft./featuring 以降を除去し主アーティストでクエリ（誤マッチ防止）。
+  // 例: "2Pac feat. Dr. Dre" → "2Pac"（feat.付きだと別曲/megamixに誤ヒットする実例あり）
+  artist = artist.split(/\s*(?:feat\.?|ft\.?|featuring)\s+/i)[0].trim();
   const cachePath = `/tmp/lyrics-${slug}.txt`;
   let cachedText = null, cachedLines = 0;
   try {
