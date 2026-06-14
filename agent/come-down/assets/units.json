@@ -1,0 +1,11 @@
+[
+  { "id": "intro-jerusalem", "anchor": ["when", "you", "see", "jerusalem"], "fallbackT": 4, "manualSec": null },
+  { "id": "throw-shots", "anchor": ["throwin", "shots", "from", "afar"], "fallbackT": 28, "manualSec": null },
+  { "id": "make-it-look", "anchor": ["make", "it", "look", "easy"], "fallbackT": 42, "manualSec": null },
+  { "id": "back-it-up", "anchor": ["have", "to", "back", "it", "up"], "fallbackT": 60, "manualSec": null },
+  { "id": "come-down-meta", "anchor": ["i", "might", "never", "come", "down"], "fallbackT": 66, "manualSec": null },
+  { "id": "off-the-ground", "anchor": ["this", "high", "off", "the", "ground"], "fallbackT": 82, "manualSec": null },
+  { "id": "stay-awhile", "anchor": ["don't", "run", "just", "stay"], "fallbackT": 90, "manualSec": null },
+  { "id": "cant-beat-it", "anchor": ["can't", "beat", "it", "can't", "beat"], "fallbackT": 95, "manualSec": null },
+  { "id": "cool-beans", "anchor": ["cool", "beans", "cool", "beans"], "fallbackT": 104, "manualSec": null }
+]

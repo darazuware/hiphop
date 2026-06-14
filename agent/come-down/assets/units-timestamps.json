@@ -1,0 +1,92 @@
+[
+  {
+    "id": "intro-jerusalem",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 4,
+    "t": 4,
+    "source": "fallback",
+    "approx": true,
+    "score": 0.25
+  },
+  {
+    "id": "throw-shots",
+    "whisperSec": 36.2,
+    "manualSec": null,
+    "fallbackT": 28,
+    "t": 36.2,
+    "source": "whisper",
+    "approx": true,
+    "score": 0.75
+  },
+  {
+    "id": "make-it-look",
+    "whisperSec": 46.6,
+    "manualSec": null,
+    "fallbackT": 42,
+    "t": 46.6,
+    "source": "whisper",
+    "approx": true,
+    "score": 1
+  },
+  {
+    "id": "back-it-up",
+    "whisperSec": 58.6,
+    "manualSec": null,
+    "fallbackT": 60,
+    "t": 58.6,
+    "source": "whisper",
+    "approx": true,
+    "score": 1
+  },
+  {
+    "id": "come-down-meta",
+    "whisperSec": 62,
+    "manualSec": null,
+    "fallbackT": 66,
+    "t": 62,
+    "source": "whisper",
+    "approx": true,
+    "score": 1
+  },
+  {
+    "id": "off-the-ground",
+    "whisperSec": 84.6,
+    "manualSec": null,
+    "fallbackT": 82,
+    "t": 84.6,
+    "source": "whisper",
+    "approx": true,
+    "score": 0.8
+  },
+  {
+    "id": "stay-awhile",
+    "whisperSec": 87,
+    "manualSec": null,
+    "fallbackT": 90,
+    "t": 87,
+    "source": "whisper",
+    "approx": true,
+    "score": 1
+  },
+  {
+    "id": "cant-beat-it",
+    "whisperSec": 90.5,
+    "manualSec": null,
+    "fallbackT": 95,
+    "t": 90.5,
+    "source": "whisper",
+    "approx": true,
+    "score": 1
+  },
+  {
+    "id": "cool-beans",
+    "whisperSec": 104,
+    "manualSec": null,
+    "fallbackT": 104,
+    "t": 104,
+    "source": "whisper",
+    "approx": true,
+    "score": 1
+  }
+]

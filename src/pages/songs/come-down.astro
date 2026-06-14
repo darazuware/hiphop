@@ -1,386 +1,340 @@
 ---
-import LyricsBlock from '../../components/LyricsBlock.astro';
+import LearningUnit from '../../components/LearningUnit.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
 import SongLayout from '../../layouts/SongLayout.astro';
+
+import tsData from '../../../agent/come-down/assets/units-timestamps.json';
+const YT = "-OqrcUvrbRY";
+const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.approx }]));
 ---
 
 <SongLayout
-  title="Come Down 和訳・意味・解説 | Anderson .Paak"
-  description="Anderson .Paak「Come Down」の歌詞和訳とスラング徹底解説。Hi-Tek製作、2016年『Malibu』収録。ソウル×ヒップホップの融合が生んだグルーヴの傑作を深く読み解く。"
+  title="Come Down 和訳・意味・スラング解説 | Anderson .Paak"
+  description="Anderson .Paak「Come Down」を英語学習＋ヒップホップ理解の教材として精読。throw shots・make it look easy・back it up・get off the ground・cool beansなどの生きた口語と、come downの二重の意味、Hi-Tekのファンクを表現単位で解説。各表現はPVの該当箇所へ頭出しリンク付き。"
   slug="come-down"
   highlights={[
-    '「If I get too high now, sugar, come on / I might never come down」——快楽・成功・高揚の頂点から永遠に降りたくないという人間の本能を6行で完全に表現',
-    'ゴスペルのイントロ「When you see Jerusalem」とストリートの快楽主義が同居する、宗教と世俗が交差するアンダーソン独特の音楽的世界観',
-    'Hi-Tekの粘りつくようなファンクグルーヴ×Anderson .Paakのシンガー/ラッパー/ドラマーとしての三重の才能が一曲に凝縮された2016年の到達点',
+    '「come down」は"ハイから降りる"の二重の意味——成功・高揚・酩酊の頂点から降りたくない、を一語で',
+    'throw shots・make it look easy・back it up・get off the ground・cool beans——今も使う生きた口語を「学ぶ表現」単位で解説（PV頭出しリンク付き）',
+    'ドラマー兼シンガー兼ラッパーAnderson .Paak×Hi-Tekの粘るファンク。歌とラップの境目が溶ける歌い回しも教材に',
   ]}
   youtubeId="-OqrcUvrbRY"
 >
 
+    <!-- ===================== -->
+    <!-- 導入                  -->
+    <!-- ===================== -->
     <section class="mb-6">
-      <h2 class="text-base font-semibold mb-2">■この曲の意味（要約）</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">絶頂の快楽——それが酒でも大麻でも成功でも愛でも——から永遠に降りたくないという欲望を、ファンクとソウルの肉体的なグルーヴに乗せて歌った作品。「Come Down（降りてこい）」と周囲に引き戻されながらも「Naw, let me get down（降りたくない）」と抵抗する自我の葛藤が核心。批評家への反論、パーティーの熱狂、マリファナの煙、すべてが「高い場所にとどまりたい」という一つの感覚に収斂する。</p>
+      <h2 class="text-base font-semibold mb-2">■歌とラップの境目が溶ける一曲</h2>
+      <p class="text-sm text-[var(--c-muted)] leading-relaxed">
+        <strong class="text-[var(--c-text)]">Anderson .Paak（アンダーソン・パーク）</strong>は、ドラムを叩きながら歌い、そのまま地続きでラップに移る、という稀有なアーティストです。カリフォルニア州 <strong class="text-[var(--c-text)]">Oxnard（オックスナード）</strong>——ロサンゼルスの少し北、海沿いの街——の出身。この「Come Down」は、彼の名を一気に広めた2016年のアルバム『Malibu』の代表曲で、歌（singing）とラップ（rapping）の中間をぬるぬると行き来する、独特の歌い回しが全開になっています。だから英語学習の素材としても面白い。クラシックな90年代ラップのような早口の応酬ではなく、<strong class="text-[var(--c-text)]">メロディに乗った口語</strong>が中心なので、一語一語が聴き取りやすい。<em>throw shots</em>（攻撃を仕掛ける）、<em>back it up</em>（言葉を裏付ける）、<em>cool beans</em>（最高だ）——今のアメリカ人が普通に使う、生きた口語を拾うのにうってつけの一曲です。
+      </p>
     </section>
 
     <section class="mb-6">
-      <h2 class="text-base font-semibold mb-2">■概要</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">2016年1月15日にリリースされたAnderson .Paakの2ndアルバム『Malibu』の4thシングル。プロデュースはHi-Tek（シンシナティ出身、Talib Kweli「Black Star」等で知られる）。ウォウの効いたファンク・ベースラインと福音聖歌の断片を組み合わせた楽曲で、Billboard Hot 100に47位でチャートイン。Malibuアルバムはグラミー賞最優秀アルバム賞ノミネートほか絶賛を受け、「Come Down」はその象徴的トラックとして位置付けられる。</p>
+      <h2 class="text-base font-semibold mb-2">■タイトル「Come Down」の二重底</h2>
+      <p class="text-sm text-[var(--c-muted)] leading-relaxed">
+        この曲のキモは、タイトルにもなっている <strong class="text-[var(--c-text)]">come down</strong> という言葉。これは「高いところから降りる」が基本ですが、英語では「<strong class="text-[var(--c-text)]">ハイな状態から正気に戻る</strong>」——お酒やドラッグの酔いが醒める、興奮や成功の高揚が冷める——という意味でも日常的に使います。Anderson .Paakは、長い下積みからやっと売れ始めた自分の高揚と、酒・パーティの酩酊と、恋の昂りを、ぜんぶ「come down（降りる）」の一語に重ねている。「ここまで昇るのに時間がかかりすぎた、もう降りたくない」という気分が曲全体を貫きます。プロデュースは、Talib Kweliとの <QuickSlang word="Reflection Eternal" desc="Talib KweliとプロデューサーHi-Tekによるデュオ。Hi-Tekはこの曲のベースラインを同デュオの2作目のセッション中に録っていた" />（リフレクション・エターナル）でも知られる名手 <strong class="text-[var(--c-text)]">Hi-Tek（ハイ・テック）</strong>。粘りつくようなファンクのグルーヴが、この"降りたくない"気分を完璧に下支えしています。
+      </p>
     </section>
 
-    <section class="mb-10">
-      <h2 class="text-base font-semibold mb-2">■導入（時代背景）</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">2016年、ヒップホップはKendrick LamarのTo Pimp a Butterfly（2015年）が切り開いたソウル・ジャズ回帰の波の中にあった。Anderson .PaakはOxnard出身という地理的アイデンティティを持ちながら、ビートの上でドラムを叩きながら歌うというライブパフォーマンスの革新性で独自の地位を確立。「Come Down」はその音楽的進化の到達点——1970年代のファンクと現代ヒップホップが完全に溶け合った瞬間として記録された。</p>
-    </section>
-
+    <!-- Table of Contents -->
     <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
       <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
       <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
-        <li><a href="#lyrics" class="hover:text-[var(--c-gold)] transition-colors">01 — 歌詞和訳と意味解説</a></li>
-        <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">02 — 文化的背景</a></li>
-        <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">03 — 制作の裏側</a></li>
-        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">04 — 評価とその後の影響</a></li>
+        <li><a href="#story" class="hover:text-[var(--c-gold)] transition-colors">01 — ストーリーの流れ（まず曲全体をつかむ）</a></li>
+        <li><a href="#units" class="hover:text-[var(--c-gold)] transition-colors">02 — 学ぶ表現（口語・イディオム・言葉遊び）</a></li>
+        <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">03 — 文化的背景</a></li>
+        <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">04 — サンプル・制作の裏側</a></li>
+        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">05 — 評価とその後の影響</a></li>
       </ol>
     </nav>
 
-    <div id="lyrics"></div>
-
     <!-- ===================== -->
-    <!-- INTRO                 -->
+    <!-- ストーリー要約         -->
     <!-- ===================== -->
-    <section class="mb-12">
+    <section id="story" class="mb-12">
       <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Intro · The Funky Funny Four
+        ストーリーの流れ — まず曲全体をつかむ
       </h2>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          When you see Jerusalem<br />
-          How your heart will sing<br />
-          They are with a blessing only God can bring
-        </Fragment>
-        <Fragment slot="jpn">
-          エルサレムを目にするとき<br />
-          心がいかに歌うことか<br />
-          神のみが与えうる祝福とともにある
-        </Fragment>
-        <Fragment slot="explanation">
-          The Funky Funny Fourによるゴスペル的な聖句。「エルサレム」は宗教的な約束の地の象徴。この霊的な高揚と、後に続くパーティーや大麻の描写を並置することで、Anderson .Paakは「陶酔」という概念を宗教体験と世俗的快楽が地続きであると示す。冒頭からいきなり聖俗の境界を崩す挑発的な構造。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={false}>
-        <Fragment slot="eng">
-          Y'all niggas got me hot, yuh<br />
-          Uh, niggas, tell me how, yuh, yuh, say
-        </Fragment>
-        <Fragment slot="jpn">
-          お前らのせいで俺は燃えてる、うん<br />
-          なあ、どうすんだよ、言ってみろ
-        </Fragment>
-        <Fragment slot="explanation"></Fragment>
-      </LyricsBlock>
+      <p class="text-xs text-[var(--c-dim)] mb-5">
+        この曲は物語というより、ひとつの"気分"を描いています。やっと掴んだ高揚から降りたくない——その気分の流れを先につかんでおくと、各フレーズがどこを指しているかが見えてきます。
+      </p>
+      <div class="space-y-4 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          幕開けは、<strong class="text-[var(--c-text)]">ゴスペルのコーラス</strong>。「When you see Jerusalem（エルサレムを見たとき）」という荘厳な声のサンプルが流れ、そこへAnderson .Paakのラフな掛け声がかぶさってくる。神聖な響きと世俗のグルーヴがいきなり同居する——この落差が、彼の音楽の面白さそのものです。
+        </p>
+        <p>
+          <strong class="text-[var(--c-text)]">Verse 1</strong>は、自信に満ちた挑発。「遠くから攻撃してくる奴がいるなら、玄関先まで会いに行ってやる」「でも俺、簡単そうにやってのけてるだろ？」と、余裕たっぷりに構える。<strong class="text-[var(--c-text)]">コーラス</strong>では一転、酒とパーティの場面へ。「お前が俺の酒を飲み干した、大口を叩くなら裏付けろ」と絡みつつ、「ハイになりすぎたら、もう降りられないかも」と <strong class="text-[var(--c-text)]">come down</strong> のテーマが姿を現す。
+        </p>
+        <p>
+          続く<strong class="text-[var(--c-text)]">リフレイン</strong>が、この曲の核心です。「ここまで高く昇るのに時間がかかりすぎた、逃げないで、もう少しだけいて」——下積みの長かった彼の実感が、ふっと滲む瞬間だ。<strong class="text-[var(--c-text)]">Verse 2</strong>では、Gucciのサングラスやスマホのカメラといった現代的なイメージを散りばめながら、ご機嫌な高揚をさらに転がしていく。重さと軽さが同居したまま、グルーヴだけが気持ちよく続いていく——初めて聴いたとき、この"降りたくなさ"の心地よさにすっかりやられました。
+        </p>
+        <p class="text-xs text-[var(--c-dim)]">
+          ※本ページは批評・教育目的で、解説に必要な範囲の断片のみを引用しています。全歌詞の対訳は掲載していません。
+        </p>
+      </div>
     </section>
 
     <!-- ===================== -->
-    <!-- VERSE 1               -->
+    <!-- 学習ユニット群         -->
     <!-- ===================== -->
+    <div id="units"></div>
     <section class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Verse 1 · Anderson .Paak
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2 border-b border-[var(--c-border)] pb-2">
+        学ぶ表現 — 口語・イディオム・言葉遊び
       </h2>
+      <p class="text-xs text-[var(--c-dim)] mb-6">
+        各見出しは「この曲から学べる英語表現」。各ユニットはまず上に英語の用例（1〜2行）を置いてあります。<strong class="text-[var(--c-text)]">先に英語を音で追い、行のどこが学習対象かを確かめてから</strong>下の日本語解説に進むと、英語が苦手でも置いていかれません。🎤はそのリリックを歌うMC、▶は公式PVの該当箇所への頭出しリンク（音源解析で付与、秒数は概算）です。引用は解説に必要な最小限の断片だけに留めています。
+      </p>
 
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Hey! Well, that's exactly what a nigga came for<br />
-          Huh, you <QuickSlang word="throwin' shots from afar" desc="「Shots」は批判・ディスのこと。「afar（遠くから）」は直接対峙する勇気なく陰口を叩くことを指す。ヒップホップでは遠くから不満を言うことは最も卑怯な行為とされる" /><br />
-          I'ma meet you at your front door
-        </Fragment>
-        <Fragment slot="jpn">
-          よし、それこそが俺が来た理由だ<br />
-          お前は遠くから陰口を叩いてるが<br />
-          俺はお前の玄関まで直接出向くぞ
-        </Fragment>
-        <Fragment slot="explanation">
-          批評家・アンチへの直接反論。「front door（玄関）」まで乗り込むという表現は、陰口への正面突破の宣言。遠くから石を投げるだけの相手に対し、自分は真正面から立ち向かうという自信とアグレッションの対比。
-        </Fragment>
-      </LyricsBlock>
+      <!-- ① intro / Jerusalem -->
+      <LearningUnit
+        heading="your heart will sing — ゴスペルのサンプルで幕を開ける"
+        label="★ 文化／サンプル"
+        mc="The Funky Funny Four（サンプル）"
+        t={TS["intro-jerusalem"].t} tApprox={TS["intro-jerusalem"].approx} youtubeId={YT}
+      >
+        <Fragment slot="eng">When you see Jerusalem<br />How your heart will sing</Fragment>
+        <Fragment slot="jpn">エルサレムを目にしたとき／君の心はどれほど歌うことか</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 曲の冒頭、Anderson .Paakの声が入る前に流れる、荘厳なゴスペルのサンプル。</p>
+        <p>曲は、この古いゴスペル（黒人霊歌）のサンプルから始まります。学習ポイントは <strong class="text-[var(--c-text)]">how your heart will sing</strong>。直訳は「君の心がどんなに歌うことか」ですが、<strong class="text-[var(--c-text)]">heart sings</strong> は「心が歌う＝喜びで満たされる・胸が躍る」を表す英語の<QuickSlang word="比喩表現" desc="心や物を人のように扱う言い回し。my heart sings（胸が躍る）のように、感情を動作で描く" />（比喩）です。<code>how + 主語 + 動詞</code> の語順は「どんなに〜することか」という感嘆を表す。じつはこの「When You See Jerusalem」という曲、メロディの元をたどるとイスラエル国歌「Hatikvah」に行き着くことが知られていて、神聖さの由来まで遡れる凝ったサンプル選びになっています。この厳かな入りがあるからこそ、直後の世俗的なグルーヴが際立つわけです。</p>
+      </LearningUnit>
 
-      <LyricsBlock hasExplanation={true} label="★ コアライン">
-        <Fragment slot="eng">
-          Uh, so hard to be doin' what you're really meant for, beauty<br />
-          Huh, but don't I make it look easy?<br />
-          Don't I make it look good?
+      <!-- ② throw shots -->
+      <LearningUnit
+        heading="throwin' shots from afar — 「攻撃を仕掛ける」のイディオム"
+        label="★ イディオム"
+        mc="Anderson .Paak（Verse 1）"
+        t={TS["throw-shots"].t} tApprox={TS["throw-shots"].approx} youtubeId={YT}
+      >
+        <Fragment slot="eng">You throwin' shots from afar<br />I'ma meet you at your front door</Fragment>
+        <Fragment slot="jpn">お前は遠くから攻撃を投げてくる／なら俺は玄関先まで会いに行ってやる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 1、Anderson .Paakが余裕で挑発をいなす件。学習対象は上の行。</p>
+        <p>上の行の <strong class="text-[var(--c-text)]">throw shots</strong> が学習ポイント。文字どおりなら「銃弾を撃つ」ですが、イディオムとしては「<strong class="text-[var(--c-text)]">（言葉で）攻撃する・嫌味やジャブを飛ばす</strong>」を意味します。SNSなどで遠回しに悪口を言う行為にもよく使う。ここでは <code>from afar</code>（遠くから）が付いて「陰でこそこそ攻撃してくる奴」を表し、それに対して <strong class="text-[var(--c-text)]">I'ma meet you at your front door</strong>（玄関まで直接会いに行く）と正面から受けて立つ。<code>I'ma</code> は <em>I'm going to</em>（〜するつもりだ）のくだけた縮約形で、現代のラップ・会話で超頻出。「陰口には正面から」という構図が、たった2行でスッと立ち上がります。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">throw shots (at ~)</strong> は「（〜に）攻撃的な発言をする・当てこする」。<em>He's throwing shots at his ex on Twitter</em>（元カノに当てこすってる）のように使う。名詞 <em>shots</em>（＝批判・ジャブ）は <em>take shots at ~</em>（〜を攻撃する）の形でも頻出。</p>
+          <p><code>I'ma</code>（=I'm going to）、<code>gonna</code>（=going to）、<code>wanna</code>（=want to）は会話・歌詞の三大縮約。<em>I'ma meet you</em> は「会いに行ってやる」という意志・予告のニュアンスで、未来の宣言に使われる。</p>
         </Fragment>
-        <Fragment slot="jpn">
-          ああ、本当に自分がやるべきことをやるのは難しい、美しいほどに<br />
-          でも俺、簡単そうに見せてるだろ？<br />
-          かっこよく見せてるだろ？
-        </Fragment>
-        <Fragment slot="explanation">
-          才能と努力の真実。「meant for（天命として定められたこと）」を追求する困難さを認めながらも、その苦労を「easy」に見せる技術こそが真のアーティストの証だという自負。「beauty」は形容詞的な感嘆詞として機能し、文脈に豊かさを与える。
-        </Fragment>
-      </LyricsBlock>
-    </section>
+      </LearningUnit>
 
-    <!-- ===================== -->
-    <!-- CHORUS                -->
-    <!-- ===================== -->
-    <section class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Chorus · Anderson .Paak
-      </h2>
+      <!-- ③ make it look easy -->
+      <LearningUnit
+        heading="make it look easy — 否定疑問で見せる余裕"
+        label="★ イディオム／文法"
+        mc="Anderson .Paak（Verse 1）"
+        t={TS["make-it-look"].t} tApprox={TS["make-it-look"].approx} youtubeId={YT}
+      >
+        <Fragment slot="eng">But don't I make it look easy?<br />Don't I make it look good?</Fragment>
+        <Fragment slot="jpn">でも俺、簡単そうにやってみせてるだろ？／カッコよくやってのけてるだろ？</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 1の締め、Anderson .Paakが自分の余裕を確認するように問う件。</p>
+        <p>注目は2つ。まずイディオム <strong class="text-[var(--c-text)]">make it look easy</strong>＝「（本当は大変なのに）<strong class="text-[var(--c-text)]">いとも簡単そうにやってのける</strong>」。<code>make + 目的語 + 動詞の原形</code>（使役）で「〜を…の状態に見せる」を作っています。<code>make it look good</code> なら「カッコよく見せる」。もう一つは文頭の <strong class="text-[var(--c-text)]">Don't I ~?</strong>（俺、〜してるだろ？）という<strong class="text-[var(--c-text)]">否定疑問文</strong>。否定で問いかけることで「〜だよな？（当然そうだろ）」と同意を促す、ちょっと自慢げなニュアンスが出ます。難しいことを軽々とこなす自分への自信を、押しつけがましくなく、問いの形で漂わせる——余裕を見せる英語の言い回しとして覚えておきたい。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">make it look easy</strong> は、達人が難事をサラッとこなす様子をほめる定番表現。<em>She makes it look so easy</em>（彼女がやると簡単そうに見える）。使役の <code>make A do</code>（AにBさせる）＋知覚動詞 <code>look</code>（〜に見える）の組み合わせ。</p>
+          <p>否定疑問 <strong class="text-[var(--c-text)]">Don't I ~? / Isn't it ~?</strong> は「〜だよね？」と相手に同意を求める。答え方に注意: 内容が肯定なら、英語では <em>Yes</em>(=している) で返す（日本語の「いいえ、してるよ」とズレるので要注意）。</p>
+        </Fragment>
+      </LearningUnit>
 
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Hey, now you drank up all my liquor, come on<br />
-          What I'm 'posed to do now?<br />
-          And you talkin' all that <QuickSlang word="shit" desc="ここでは「たわごと・大口」の意味。「talk shit」は根拠のない自慢や批判を口にすること" />, now come on<br />
-          You gon' have to back it up, hey
+      <!-- ④ back it up -->
+      <LearningUnit
+        heading="back it up — 「大口を叩くなら裏付けろ」"
+        label="★ 句動詞／AAVE"
+        mc="Anderson .Paak（Chorus）"
+        t={TS["back-it-up"].t} tApprox={TS["back-it-up"].approx} youtubeId={YT}
+      >
+        <Fragment slot="eng">You gon' have to back it up</Fragment>
+        <Fragment slot="jpn">その言葉、裏付けてもらわなきゃな</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 コーラス、大口を叩く相手に絡む件。直前は「さんざん大きなことを言ってるな」という挑発。</p>
+        <p>句動詞 <strong class="text-[var(--c-text)]">back it up</strong> がポイント。ここでは「車をバックさせる」でも「データをバックアップする」でもなく、「<strong class="text-[var(--c-text)]">（自分の発言・主張を）裏付ける・行動で証明する</strong>」の意味。<em>talk</em>（口で言う）に対して <em>back it up</em>（実行で示す）という対比で使われる、英語の超定番の言い回しです。直前で相手が「大きなことばかり言っている」のを受けて、「言うだけなら誰でもできる、それを裏付けてみせろ」と迫っている。文頭の <strong class="text-[var(--c-text)]">You gon' have to ~</strong> は <em>You're going to have to ~</em>（〜しなきゃならなくなる）のAAVE的な縮約で、<code>gon'</code> が going to にあたる未来の標識。会話でも歌でも頻出の形です。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">back up</strong> は多義の句動詞。①「（主張・人を）支持する・裏付ける」(<em>Can you back up that claim?</em>)、②「後退する」(<em>back up the car</em>)、③「（データを）バックアップする」。この曲は①。<em>talk the talk, walk the walk</em>（口だけでなく実行しろ）と同じ精神を表す。</p>
+          <p>AAVEの未来表現 <strong class="text-[var(--c-text)]">gon'</strong>（=going to）は、<em>You gon' have to</em>（〜する羽目になる）、<em>It's gon' be alright</em>（うまくいくさ）のように使う。be動詞ごと落ちることも多い（<em>You gon'…</em>）。</p>
         </Fragment>
-        <Fragment slot="jpn">
-          おい、俺の酒を全部飲み干したな<br />
-          これから俺はどうすりゃいいんだ？<br />
-          でかいこと言ってるんだから<br />
-          ちゃんと証明してみせろ
-        </Fragment>
-        <Fragment slot="explanation">
-          「Drank up all my liquor」は複数の意味を持つ——文字通りのパーティー描写であると同時に、「俺の才能・エネルギーを吸い尽くした」という比喩。「Back it up」は言葉を行動で証明しろという挑発。
-        </Fragment>
-      </LyricsBlock>
+      </LearningUnit>
 
-      <LyricsBlock hasExplanation={true} label="★ タイトルライン">
-        <Fragment slot="eng">
-          If I get too high now, sugar, come on<br />
-          I might never come down<br />
-          You might not ever come down<br />
-          Naw, let me get down<br />
-          You might not ever come down<br />
-          Naw-naw-naw, let me get down<br />
-          You might not ever come down<br />
-          Let me get down!
+      <!-- ⑤ come down (title) -->
+      <LearningUnit
+        heading="I might never come down — タイトルの二重の意味"
+        label="★ 言葉遊び（最重要）"
+        mc="Anderson .Paak（Chorus）"
+        t={TS["come-down-meta"].t} tApprox={TS["come-down-meta"].approx} youtubeId={YT}
+      >
+        <Fragment slot="eng">If I get too high now, sugar, come on<br />I might never come down</Fragment>
+        <Fragment slot="jpn">ここでハイになりすぎたら、ねえ／もう二度と降りてこられないかも</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 コーラスの核。タイトル「Come Down」が初めて立ち上がる件。学習対象は下の行。</p>
+        <p>曲名そのものの <strong class="text-[var(--c-text)]">come down</strong> が、ここでようやく姿を見せます。鍵は上の行の <strong class="text-[var(--c-text)]">high</strong> と下の行の <strong class="text-[var(--c-text)]">come down</strong> の対です。<strong class="text-[var(--c-text)]">get high</strong> は「高くなる」と同時に、口語で「<strong class="text-[var(--c-text)]">酔う・ハイになる</strong>」（酒・大麻・興奮）の意味。それを受けた <strong class="text-[var(--c-text)]">come down</strong> は「降りる」＋「<strong class="text-[var(--c-text)]">酔い・高揚が醒める</strong>」。つまり「ハイになりすぎたら、もう正気に戻れない（降りられない）かも」という、二重の意味が同時に走っている。成功の高揚、酒の酩酊、恋の昂り——どれにも読める曖昧さこそが、この一語の狙いです。<code>sugar</code>（甘い呼びかけ＝ねえ、君）も覚えておきたい口語。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">get high</strong> / <strong class="text-[var(--c-text)]">come down</strong> は対の表現。<em>high</em>（ハイ・高揚）になるのが <em>get high</em>、そこから醒めるのが <em>come down</em>（<em>come down from a high</em>）。比喩的に「成功や興奮の絶頂から現実に引き戻される」意味でも広く使う（<em>After the tour ended, it took a while to come down</em>）。</p>
         </Fragment>
-        <Fragment slot="jpn">
-          これ以上高くなったら、シュガー<br />
-          もう二度と降りてこれないかもしれない<br />
-          お前は永遠に降りてこないかもしれない<br />
-          いや、降りたくない<br />
-          永遠に降りてこないかもしれない<br />
-          いや、いや、降りたくないんだ<br />
-          永遠に降りてこないかもしれない<br />
-          降りさせてくれ！
-        </Fragment>
-        <Fragment slot="explanation">
-          楽曲の核心。「Too high」は大麻・酒による陶酔、成功の絶頂、愛の高揚、すべての多義性を持つ。「Come down」は帰還・着地・冷静さへの回帰。「Naw, let me get down」の「down」は「stay down（その場にとどまる）」という意味に転換し、「Come down vs. Stay down」という言葉遊びが展開される。繰り返しと変奏による催眠的グルーヴが聴衆を「降りたくない」という感覚に引き込む。
-        </Fragment>
-      </LyricsBlock>
-    </section>
+      </LearningUnit>
 
-    <!-- ===================== -->
-    <!-- REFRAIN               -->
-    <!-- ===================== -->
-    <section class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Refrain · Anderson .Paak
-      </h2>
+      <!-- ⑥ off the ground -->
+      <LearningUnit
+        heading="get this high off the ground — 「離陸する」と「高揚」を重ねる"
+        label="★ イディオム／言葉遊び"
+        mc="Anderson .Paak（Refrain）"
+        t={TS["off-the-ground"].t} tApprox={TS["off-the-ground"].approx} youtubeId={YT}
+      >
+        <Fragment slot="eng">It took too long to get this high off the ground</Fragment>
+        <Fragment slot="jpn">ここまで高く昇る（軌道に乗せる）のに、時間がかかりすぎた</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 リフレイン、この曲でいちばん本音が滲む一行。</p>
+        <p>この一行には二つの読みが重なっています。イディオム <strong class="text-[var(--c-text)]">get ~ off the ground</strong> は「（計画・事業を）<strong class="text-[var(--c-text)]">軌道に乗せる・始動させる</strong>」。飛行機が地面を離れて離陸するイメージから来た表現です。だから素直に読めば「ここまで（キャリアを）軌道に乗せるのに時間がかかりすぎた」。ところが間に挟まった <strong class="text-[var(--c-text)]">high</strong> が、前のユニットで見た「ハイ（高揚・酩酊）」の意味も呼び込んでくる。<strong class="text-[var(--c-text)]">「高く昇る＝離陸」と「ハイになる＝高揚」</strong>を一行で重ね、「やっと掴んだこの高さから、もう降りたくない」という気分に直結させている。長い下積みを経たAnderson .Paakならではの実感がこもった、地味だけれど一番効いている一行だと思います。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">get something off the ground</strong> は「事業・企画を始動させ、軌道に乗せる」。<em>It's hard to get a startup off the ground</em>（起業を軌道に乗せるのは難しい）のように、ビジネス英語でも頻出のイディオム。<em>off the ground</em>（地面を離れて）が「動き出した・形になった」状態を表す。</p>
+        </Fragment>
+      </LearningUnit>
 
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          You might never ever come down<br />
-          It took too long to get this high off the ground<br />
-          Don't run, just stay awhile
-        </Fragment>
-        <Fragment slot="jpn">
-          お前は永遠に降りてこないかもしれない<br />
-          この高みに辿り着くまでに長すぎる時間がかかった<br />
-          逃げるな、もう少しここにいろ
-        </Fragment>
-        <Fragment slot="explanation">
-          「High off the ground」は「地上から高く舞い上がった状態」。成功の絶頂に達するまでの苦労と時間——その努力の重さが「降りたくない」という感情に正当性を与える。「Don't run, just stay awhile」は聴衆への語りかけであり、自分自身への言い聞かせでもある。
-        </Fragment>
-      </LyricsBlock>
-    </section>
+      <!-- ⑦ stay awhile -->
+      <LearningUnit
+        heading="Don't run, just stay awhile — やさしい命令形"
+        label="★ 文法（命令形）"
+        mc="Anderson .Paak（Refrain）"
+        t={TS["stay-awhile"].t} tApprox={TS["stay-awhile"].approx} youtubeId={YT}
+      >
+        <Fragment slot="eng">Don't run, just stay awhile</Fragment>
+        <Fragment slot="jpn">逃げないで、もう少しだけここにいて</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 リフレインの結び、相手（と、降りたくない自分）に語りかける件。</p>
+        <p>シンプルですが、味のある一行。<strong class="text-[var(--c-text)]">Don't run</strong>（逃げるな）という否定命令と、<strong class="text-[var(--c-text)]">just stay awhile</strong>（少しのあいだ留まって）という肯定命令を並べています。<strong class="text-[var(--c-text)]">awhile</strong> は「しばらくの間」を表す副詞で、<em>stay awhile</em>（少し居て）、<em>wait awhile</em>（しばらく待って）のように動詞の後ろに置く。<code>a while</code>（2語）と <code>awhile</code>（1語）は紛らわしいですが、<strong class="text-[var(--c-text)]">前置詞の後ろや「期間」を名詞で言うときは <code>a while</code></strong>（<em>for a while</em>）、<strong class="text-[var(--c-text)]">副詞で「しばらく」と動詞を修飾するときは <code>awhile</code></strong>、と整理しておくと混乱しません。高揚から降りたくない気分が、相手を引き留める言葉として優しく流れ出る場面です。</p>
+      </LearningUnit>
 
-    <!-- ===================== -->
-    <!-- VERSE 2               -->
-    <!-- ===================== -->
-    <section class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Verse 2 · Anderson .Paak
-      </h2>
+      <!-- ⑧ can't beat it -->
+      <LearningUnit
+        heading="Can't beat it — 「これ以上はない」のイディオム"
+        label="★ イディオム／言葉遊び"
+        mc="Anderson .Paak（Verse 2）"
+        t={TS["cant-beat-it"].t} tApprox={TS["cant-beat-it"].approx} youtubeId={YT}
+      >
+        <Fragment slot="eng">Can't beat it, can't beat it<br />Can't beat it with a big bat, though</Fragment>
+        <Fragment slot="jpn">これ以上はない、敵わない／でかいバットで叩いたって、敵いやしない</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 2の入り、Anderson .Paakが上機嫌を畳みかける件。</p>
+        <p>繰り返される <strong class="text-[var(--c-text)]">can't beat it</strong> がポイント。イディオムの <strong class="text-[var(--c-text)]">You can't beat it</strong> は「<strong class="text-[var(--c-text)]">これに勝るものはない・最高だ</strong>」。<em>beat</em>（打ち負かす）の否定で「これを超えるものはない」を表す、ほめ言葉の定番です。面白いのは次の行の <strong class="text-[var(--c-text)]">with a big bat</strong>（でかいバットで）。<em>beat</em> には「（バットなどで）叩く」の意味もあるので、「<strong class="text-[var(--c-text)]">バットで叩いたって敵わない</strong>」と、イディオムをわざと文字どおりに受けてみせる<strong class="text-[var(--c-text)]">言葉遊び（ダブルミーニング）</strong>になっている。意味は「最高だ」、でも音の遊びとして「叩く」も走らせる——Anderson .Paakの軽妙なユーモアが出た一節です。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">can't beat it / you can't beat that</strong> は「それ以上のものはない・最高だ」という称賛。<em>Free pizza? Can't beat that!</em>（無料のピザ？最高じゃん！）のように、お得・最良のものを評するときの口語。<em>beat</em>（打ち負かす）を否定して「超えられない＝一番」を表す発想は、<em>nothing beats ~</em>（〜に勝るものはない）にも通じる。</p>
+        </Fragment>
+      </LearningUnit>
 
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          C'mon, uh<br />
-          Can't beat it, can't beat it, can't beat it<br />
-          Can't beat it with a big bat, though
+      <!-- ⑨ cool beans -->
+      <LearningUnit
+        heading="cool beans — 「最高だ」のおどけたスラング"
+        label="★ スラング"
+        mc="Anderson .Paak（Verse 2）"
+        t={TS["cool-beans"].t} tApprox={TS["cool-beans"].approx} youtubeId={YT}
+      >
+        <Fragment slot="eng">Woah, cool beans, cool beans</Fragment>
+        <Fragment slot="jpn">おお、いいねえ、最高（cool beans）</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 2、Anderson .Paakが上機嫌を言葉にする件。</p>
+        <p>最後は肩の力が抜けるスラング、<strong class="text-[var(--c-text)]">cool beans</strong>。意味は「<strong class="text-[var(--c-text)]">いいね・最高・やったね</strong>」で、<em>cool</em>（イケてる）の<strong class="text-[var(--c-text)]">おどけた強調版</strong>です。なぜ <em>beans</em>（豆）なのかという深い理由はなく、語呂のよさと脱力感で広まった、アメリカの日常スラング。深刻さゼロの、ちょっとレトロでお茶目な響きが特徴で、ここでもAnderson .Paakのご機嫌な気分にぴったりはまっています。挑発（throw shots）から始まったこの曲が、最後はこんな緩い一言に着地するあたりに、彼の人懐っこさが出ている。教科書には絶対載らないけれど、ネイティブが本当に使う、生きた口語の好例です。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">cool beans</strong> は「いいね！最高！」とポジティブに反応する間投詞的スラング。<em>"We got the tickets!" "Cool beans!"</em> のように、軽い喜びや了承を表す。ややくだけて、おどけた・親しみやすい響きなので、フォーマルな場では使わない。同義の口語に <em>sweet!</em>、<em>nice!</em>、<em>right on!</em> など。</p>
         </Fragment>
-        <Fragment slot="jpn">
-          かかってこい<br />
-          これには勝てない、勝てない、勝てない<br />
-          大きなバットでもな
-        </Fragment>
-        <Fragment slot="explanation">
-          自信の三連打。「Can't beat it with a big bat」は野球のバットでも打ち負かせないという誇張表現で、自分の音楽・才能の無敵性を主張する。繰り返しのリズムがビートと完全に同期するフロウの技巧。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Can't see her with these pitch black <QuickSlang word="Gucci frames" desc="Gucciブランドのサングラス。ファッションとステータスの象徴。「pitch black（真っ黒）」のサングラスでは何も見えないというユーモラスな状況描写" /> on<br />
-          Let me take these bitches off<br />
-          Let me get the full scope, hold up<br />
-          Huh, full screen, HD, let me take another picture
-        </Fragment>
-        <Fragment slot="jpn">
-          真っ黒のグッチのサングラスかけてたら見えないぜ<br />
-          ちょっと外してみよう<br />
-          全部見渡せるようにしよう<br />
-          フルスクリーン、高画質で、もう一枚撮らせてくれ
-        </Fragment>
-        <Fragment slot="explanation">
-          視覚の隠喩。高価なサングラスをかけると「見えなくなる」——富や成功の象徴が皮肉にも視野を狭める。「Full scope・full screen・HD」というデジタル撮影の語彙で、物事を正確に見極めようとする姿勢を表現。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Let me pull it to the pre-show<br />
-          Woah, <QuickSlang word="cool beans" desc="「Cool」「OK」「いいね」を意味するカジュアルな英語表現。1980〜90年代にアメリカで流行したスラング" />, cool beans<br />
-          That's a whole lot of <QuickSlang word="reefer" desc="マリファナの隠語。ジャズ時代（1930〜40年代）から使われる古いスラングで、大麻巻きタバコを指す" /><br />
-          Let me help you with the <QuickSlang word="pre-roll" desc="あらかじめ巻いておいたマリファナジョイント。「pre-rolled joint」の略。パーティーで手早く回せるよう事前に準備しておくもの" />
-        </Fragment>
-        <Fragment slot="jpn">
-          プレショーまで巻き戻してみよう<br />
-          おお、クールだ<br />
-          マリファナがたっぷりあるな<br />
-          プレロールを一緒に巻いてやろう
-        </Fragment>
-        <Fragment slot="explanation">
-          パーティー描写の核心。「Pre-show」はメインイベント前の準備・高揚の時間。Cool beansという懐かしいスラングを差し込むユーモア、そしてリーファーとプレロールで「高い状態」を具体的に描写する。この节全体が、冒頭の宗教的イントロと鏡のような対比をなす。
-        </Fragment>
-      </LyricsBlock>
-    </section>
-
-    <!-- ===================== -->
-    <!-- CHORUS (2)            -->
-    <!-- ===================== -->
-    <section class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Chorus · Anderson .Paak（2回目）
-      </h2>
-
-      <LyricsBlock hasExplanation={false}>
-        <Fragment slot="eng">
-          You drank up all my liquor, come on<br />
-          What I'm 'posed to do now?<br />
-          And you talkin' all that shit, now come on<br />
-          You gon' have to back it up<br />
-          If I get too high now, sugar, come on<br />
-          I might never come down<br />
-          You might not ever come down<br />
-          Naw-naw-naw, let me get down<br />
-          You might not ever come down<br />
-          Now let me get down<br />
-          You might not never come down<br />
-          Naw, let me get down!
-        </Fragment>
-        <Fragment slot="jpn">
-          俺の酒を全部飲み干したな<br />
-          これからどうすりゃいいんだ？<br />
-          でかいこと言ってんだから証明してみせろ<br />
-          これ以上高くなったらシュガー<br />
-          もう二度と降りてこれないかもしれない<br />
-          永遠に降りてこないかもしれない<br />
-          いや、いや、降りたくない<br />
-          永遠に降りてこないかもしれない<br />
-          もう少しいさせてくれ<br />
-          永遠に降りてこないかもしれない<br />
-          いや、降りたくないんだ！
-        </Fragment>
-        <Fragment slot="explanation"></Fragment>
-      </LyricsBlock>
-    </section>
-
-    <!-- ===================== -->
-    <!-- REFRAIN (2)           -->
-    <!-- ===================== -->
-    <section class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Refrain · Anderson .Paak（2回目）
-      </h2>
-
-      <LyricsBlock hasExplanation={false}>
-        <Fragment slot="eng">
-          You might never ever come down<br />
-          It took too long to get this high off the ground<br />
-          Don't run, just stay awhile<br />
-          You might never ever come down<br />
-          It took too long to get this high off the ground<br />
-          Don't run, just stay awhile
-        </Fragment>
-        <Fragment slot="jpn">
-          お前は永遠に降りてこないかもしれない<br />
-          この高みに辿り着くまでに長すぎる時間がかかった<br />
-          逃げるな、もう少しここにいろ<br />
-          お前は永遠に降りてこないかもしれない<br />
-          この高みに辿り着くまでに長すぎる時間がかかった<br />
-          逃げるな、もう少しここにいろ
-        </Fragment>
-        <Fragment slot="explanation"></Fragment>
-      </LyricsBlock>
-    </section>
-
-    <!-- ===================== -->
-    <!-- SKIT                  -->
-    <!-- ===================== -->
-    <section class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Skit
-      </h2>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Before Vietnam, when boards were long and hair were short, the center of the surfing world was a place called Malibu
-        </Fragment>
-        <Fragment slot="jpn">
-          ベトナム戦争以前、ボードが長くて髪が短かったあの頃、サーフィンの世界の中心地はマリブと呼ばれる場所だった
-        </Fragment>
-        <Fragment slot="explanation">
-          アルバム『Malibu』のコンセプトを説明するナレーション。1960年代以前のマリブ——ベトナム戦争の影に染まる前の、自由でのどかなサーフカルチャーの聖地。Anderson .Paakはこのイメージをアルバム全体のメタファーとして用い、失われた楽園と現在の自分を重ねる。曲の「come down」という主題と「いつかは終わる黄金時代」が呼応する。
-        </Fragment>
-      </LyricsBlock>
+      </LearningUnit>
     </section>
 
     <!-- ===================== -->
     <!-- 文化的背景             -->
     <!-- ===================== -->
-    <section id="background" class="mb-10">
-      <h2 class="text-base font-semibold mb-4">■文化的背景</h2>
-      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
-        <p>Anderson .Paakが育ったオクスナードはLAとサンタバーバラの間に位置する港湾都市。農業・海軍基地が混在する労働者階級のコミュニティで、ヴェンチュラ郡特有の「LAでも純粋なサーフカルチャーでもない」ハイブリッドな文化的アイデンティティがAndersonの音楽に深く刻まれている。</p>
-        <p>『Malibu』はそのタイトルが示す通り、1960年代黄金期のカリフォルニアへのノスタルジーと現在のストリートリアリティが交差するコンセプトアルバム。ゴスペル・ジャズ・ファンク・ソウル・ラップを時代横断的に統合した音楽性は、Kendrick LamarのTo Pimp a Butterfly（2015年）が切り開いたブラック・ミュージック再統合の潮流を継承しながら独自の地平を開いた。</p>
+    <section id="background" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        文化的背景
+      </h2>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">Anderson .Paak と Oxnard</p>
+        <h3 class="font-semibold text-base mb-3">ドラムを叩きながら歌う、海辺の街の才能</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          Anderson .Paak は、ロサンゼルス北方の海沿いの街 <strong class="text-[var(--c-text)]">Oxnard（オックスナード）</strong>で育った。ドラマーであり、シンガーであり、ラッパーでもある——その三役を一人でこなすのが彼の最大の特徴で、「Come Down」でも歌とラップの境目をなめらかに行き来する。長い下積みを経て、2016年のアルバム『Malibu』でブレイクを果たした。ゴスペル（教会音楽）由来のソウルフルな歌声と、ヒップホップのフロウが地続きになった彼のスタイルは、90年代の早口ラップとはまた違う、メロディ主体の"歌うラップ"として、英語学習の入口にもなりやすい。
+        </p>
+      </div>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">Malibu というタイトル</p>
+        <h3 class="font-semibold text-base mb-3">サーフィンの聖地に重ねた、人生の物語</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          アルバム全体を貫くモチーフは、カリフォルニアの海。曲のあいだに挟まる語り（スキット）では、「ベトナム戦争の前、サーフボードが長く、髪が短かった頃、サーフィンの世界の中心は <strong class="text-[var(--c-text)]">Malibu</strong> という場所だった」と語られる。波に乗る＝高揚に乗る、という比喩が、アルバムのあちこちに散りばめられている。「Come Down」の「降りたくない」気分も、この"波乗り"のイメージと響き合っている。海辺の街で育った彼にとって、サーフィンは人生の比喩そのものなのだと思います。
+        </p>
+      </div>
+
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">キーワード早見表</p>
+        <h3 class="font-semibold text-base mb-3">この曲で学んだ表現の整理</h3>
+        <div class="space-y-3 mt-3">
+          {[
+            ['throw shots', '（言葉で）攻撃する・当てこする。SNSの当てこすりにも'],
+            ['make it look easy', '難しいことを簡単そうにやってのける'],
+            ['back it up', '（発言を）裏付ける・実行で証明する'],
+            ['get high / come down', 'ハイになる／高揚・酩酊から醒める（降りる）'],
+            ['get ~ off the ground', '（事業・計画を）軌道に乗せる・始動させる'],
+            ['cool beans', 'いいね・最高（おどけた口語スラング）'],
+          ].map(([term, desc]) => (
+            <div class="flex gap-3 text-sm">
+              <span class="text-[var(--c-gold)] shrink-0 font-semibold min-w-[120px]">{term}</span>
+              <span class="text-[var(--c-muted)]">{desc}</span>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
 
     <!-- ===================== -->
-    <!-- 制作の裏側             -->
+    <!-- サンプル・制作の裏側    -->
     <!-- ===================== -->
-    <section id="behind" class="mb-10">
-      <h2 class="text-base font-semibold mb-4">■制作の裏側</h2>
-      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
-        <p>プロデューサーのHi-TekはシンシナティのプロデューサーでBlacksheep・Talib Kweli・Common等との協働で知られるが、「Come Down」では1970年代ファンクの粘着質なグルーヴを現代的なHHビートに落とし込んだ。ワウワウ・エフェクトを効かせたベースラインは楽曲の骨格をなし、Anderson .Paakのドラムライブ演奏との化学反応で生演奏感あふれるサウンドを生み出した。</p>
-        <p>イントロのThe Funky Funny FourによるゴスペルコーラスはAndersonが幼少期から親しんだ教会音楽への参照。母親がクリスチャンだったAndersonにとって、ゴスペルとストリートの融合は意識的な美学的選択であると同時に、自身の複雑なルーツへの誠実な証言でもある。</p>
+    <section id="behind" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        サンプル・制作の裏側
+      </h2>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">サンプル元</p>
+        <h3 class="font-semibold text-base mb-3">ゴスペルとファンクを掛け合わせる</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          冒頭の荘厳なコーラスは、<strong class="text-[var(--c-text)]">The Funky Funny Four「When You See Jerusalem」</strong>というゴスペル曲から。さらにこの原曲、メロディの源をたどるとイスラエル国歌「Hatikvah」に行き着くという、二重の由来を持つ凝ったサンプルだ。グルーヴの土台には、<strong class="text-[var(--c-text)]">Harvey & the Phenomenals「Soul & Sunshine」</strong>というファンク曲のドラムブレイクも使われている（いずれもWhoSampledで確認。原盤の発売年までは確証が取れなかったため、ここでは曲名のみ記載）。神聖なゴスペルと泥臭いファンク——出自のまるで違う素材を一枚に溶かすところに、この曲の奥行きが生まれています。
+        </p>
+      </div>
+
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">制作秘話</p>
+        <h3 class="font-semibold text-base mb-3">10年寝かせたベースライン — Hi-Tekの仕事</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          プロデューサーの <strong class="text-[var(--c-text)]">Hi-Tek</strong> によれば、この曲の粘るベースラインは、もともとTalib Kweliとのデュオ <strong class="text-[var(--c-text)]">Reflection Eternal</strong> の2作目を作っていた頃に録音したものだという。長らくお蔵入りしていたそのベースに、2015年になってようやく"しっくりくる"ドラムパターンを見つけ、テンポを100から <strong class="text-[var(--c-text)]">98BPM</strong> へほんの少し落として、Anderson .Paak版の「Come Down」が完成した。数BPMの差が、あの独特の"溜め"のあるグルーヴを生んでいる。寝かせた素材が、何年も経って思わぬ形で花開く——ビートメイクの面白さが詰まったエピソードです。
+        </p>
       </div>
     </section>
 
     <!-- ===================== -->
-    <!-- 評価とその後の影響      -->
+    <!-- 評価と影響             -->
     <!-- ===================== -->
-    <section id="legacy" class="mb-10">
-      <h2 class="text-base font-semibold mb-4">■評価とその後の影響</h2>
-      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
-        <p>「Come Down」はApple・Samsung・スポーツブランドのCMに多用され、Anderson .Paakの名を一般層にも広く浸透させた。Pitchforkは『Malibu』を2016年ベストアルバムの一つに選出。グラミー賞最優秀新人賞・最優秀ラップアルバム賞にノミネートされ、翌年Grammyを受賞。</p>
-        <p>Anderson .Paakはその後2018年「Bubblin」でグラミー最優秀ラップパフォーマンス賞を受賞し、2021年にはBruno MarsとのユニットSilk Sonicで「Leave the Door Open」が全米1位を達成。「Come Down」はそのキャリア全体の出発点として、ソウルとヒップホップの境界を溶かした記念碑的作品として定位置を確立している。</p>
+    <section id="legacy" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        評価とその後の影響
+      </h2>
+
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg mb-6">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">ブレイクの一曲</p>
+        <h3 class="font-semibold text-base mb-3">『Malibu』を世に押し上げたシングル</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          「Come Down」は、アルバム『Malibu』(2016) の4枚目のシングルとして、Anderson .Paak の名を広く知らしめた一曲。ファンクとヒップホップを横断するこのサウンドは、<strong class="text-[var(--c-text)]">Nike のスニーカー（Kevin Durant のシグネチャーモデル KD9）の CM</strong> にも起用され、彼の知名度を一気に押し上げた。『Malibu』はグラミー賞にもノミネートされ、その後の Dr. Dre 周辺での活躍、Bruno Mars との Silk Sonic へと続く道を開いた、彼のキャリアの転換点となるアルバムです。
+        </p>
       </div>
+
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">学習素材としての価値</p>
+        <h3 class="font-semibold text-base mb-3">"現代の生きた口語"を浴びる</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          90年代の名曲が「当時のストリート英語」の標本だとすれば、「Come Down」は <strong class="text-[var(--c-text)]">2010年代以降の今も使われる生きた口語</strong>の宝庫だ。<em>throw shots</em>、<em>back it up</em>、<em>cool beans</em> といった表現は、SNSや日常会話で今まさに飛び交っている。しかもAnderson .Paakの発音は比較的クリアで、メロディに乗るぶん聴き取りやすい。古典で土台を作りつつ、こうした現代曲で"今の英語"を補強する——その両輪の片方として、とても使い勝手のいい一曲だと思います。
+        </p>
+      </div>
+    </section>
+
+    <!-- まとめ -->
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        まとめ
+      </h2>
+      <ul class="space-y-2 text-sm text-[var(--c-muted)] list-disc list-inside leading-relaxed">
+        <li>「Come Down」のタイトルは「降りる」と「高揚・酩酊から醒める」の二重の意味。get high と対で効いている。</li>
+        <li>throw shots・make it look easy・back it up・get off the ground・cool beans——今も使う生きた口語とイディオムがまとめて学べる。</li>
+        <li>歌とラップの境目が溶けるAnderson .Paakの歌い回しで、現代英語の聴き取りに慣れられる。</li>
+        <li>ゴスペル（Hatikvah由来）×ファンクのサンプルを、Hi-Tekが10年寝かせたベースで98BPMに仕立てた一曲。</li>
+      </ul>
     </section>
 
 </SongLayout>
