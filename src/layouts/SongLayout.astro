@@ -27,7 +27,7 @@ const h1 = song ? `${song.title} — ${song.artists} 和訳・スラング解説
 const updatedDate = (song as { updatedDate?: string } | undefined)?.updatedDate ?? null;
 const releaseYear = song?.subtitle.match(/·\s*(\d{4})/)?.[1] ?? null;
 const related = song
-  ? songs.filter(s => s.artistSlug === song.artistSlug && s.slug !== song.slug).slice(0, 3)
+  ? songs.filter(s => s.artistSlug === song.artistSlug && s.slug !== song.slug && s.tier === 'core').slice(0, 3)
   : [];
 const relatedColumns = song
   ? columns.filter(c => c.relatedSongs.includes(song.slug))
