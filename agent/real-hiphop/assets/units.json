@@ -1,0 +1,106 @@
+[
+  {
+    "id": "chorus-diggedy",
+    "anchor": [
+      "das",
+      "efx",
+      "with",
+      "the",
+      "real"
+    ],
+    "fallbackT": 5,
+    "manualSec": null
+  },
+  {
+    "id": "fat-like-joe",
+    "anchor": [
+      "flow",
+      "is",
+      "fat",
+      "like",
+      "joe"
+    ],
+    "fallbackT": 26,
+    "manualSec": null
+  },
+  {
+    "id": "pac-man",
+    "anchor": [
+      "eat",
+      "a",
+      "rapper",
+      "like",
+      "pac"
+    ],
+    "fallbackT": 33,
+    "manualSec": null
+  },
+  {
+    "id": "cutlass-supreme",
+    "anchor": [
+      "reign",
+      "supreme",
+      "like",
+      "a",
+      "cutlass"
+    ],
+    "fallbackT": 58,
+    "manualSec": null
+  },
+  {
+    "id": "dangerfield",
+    "anchor": [
+      "dangerfield",
+      "like",
+      "rodney"
+    ],
+    "fallbackT": 102,
+    "manualSec": null
+  },
+  {
+    "id": "true-to-streets",
+    "anchor": [
+      "true",
+      "to",
+      "the",
+      "streets"
+    ],
+    "fallbackT": 108,
+    "manualSec": null
+  },
+  {
+    "id": "hold-it-down",
+    "anchor": [
+      "got",
+      "to",
+      "hold",
+      "it",
+      "down"
+    ],
+    "fallbackT": 130,
+    "manualSec": null
+  },
+  {
+    "id": "webster-defined",
+    "anchor": [
+      "well",
+      "defined",
+      "like",
+      "webster"
+    ],
+    "fallbackT": 158,
+    "manualSec": null
+  },
+  {
+    "id": "lego-eggo",
+    "anchor": [
+      "connect",
+      "my",
+      "rhymes",
+      "like",
+      "lego"
+    ],
+    "fallbackT": 185,
+    "manualSec": null
+  }
+]

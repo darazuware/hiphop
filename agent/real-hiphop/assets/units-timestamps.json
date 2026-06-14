@@ -1,0 +1,92 @@
+[
+  {
+    "id": "chorus-diggedy",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 5,
+    "t": 3,
+    "source": "fallback",
+    "approx": true,
+    "score": 0.6
+  },
+  {
+    "id": "fat-like-joe",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 26,
+    "t": 26,
+    "source": "fallback",
+    "approx": true,
+    "score": 0.2
+  },
+  {
+    "id": "pac-man",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 33,
+    "t": 33,
+    "source": "fallback",
+    "approx": true,
+    "score": 0.4
+  },
+  {
+    "id": "cutlass-supreme",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 58,
+    "t": 58,
+    "source": "fallback",
+    "approx": true,
+    "score": 0.4
+  },
+  {
+    "id": "dangerfield",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 102,
+    "t": 102,
+    "source": "fallback",
+    "approx": true,
+    "score": 0.33
+  },
+  {
+    "id": "true-to-streets",
+    "whisperSec": 112.3,
+    "manualSec": null,
+    "fallbackT": 108,
+    "t": 112.3,
+    "source": "whisper",
+    "approx": true,
+    "score": 1
+  },
+  {
+    "id": "hold-it-down",
+    "whisperSec": 117.2,
+    "manualSec": null,
+    "fallbackT": 130,
+    "t": 117.2,
+    "source": "whisper",
+    "approx": true,
+    "score": 1
+  },
+  {
+    "id": "webster-defined",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 158,
+    "t": 158,
+    "source": "fallback",
+    "approx": true,
+    "score": 0.25
+  },
+  {
+    "id": "lego-eggo",
+    "whisperSec": 170.2,
+    "manualSec": null,
+    "fallbackT": 185,
+    "t": 170.2,
+    "source": "whisper",
+    "approx": true,
+    "score": 1
+  }
+]

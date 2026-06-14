@@ -1,270 +1,228 @@
 ---
-import LyricsBlock from '../../components/LyricsBlock.astro';
+import LearningUnit from '../../components/LearningUnit.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
 import SongLayout from '../../layouts/SongLayout.astro';
+
+import tsData from '../../../agent/real-hiphop/assets/units-timestamps.json';
+const YT = "Jxg6FckcesI";
+const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.approx }]));
 ---
 
 <SongLayout
   title="Real Hip-Hop 和訳・意味・スラング解説 | Das EFX"
-  description="Das EFXの「Real Hip-Hop」(1995)の歌詞和訳と解説。DJ Premierプロデュースによるブーンバップの金字塔。"
+  description="Das EFXの「Real Hip-Hop」(1995)を英語学習＋ヒップホップ理解の教材として精読。fat/wack・bring the ruckus・true to the streets・hold it downなどのスラングと、固有名詞をぶつける『パンチライン直喩』、Lego/Eggoの同音遊びをDJ Premierのサンプルと併せて解説。各表現はPVの該当箇所へ頭出しリンク付き。"
   slug="real-hiphop"
   highlights={[
-    'DJ Premierによる不穏なループと硬質なドラムが織りなす「ブーンバップ」の金字塔',
-    '「Real Hip-Hop」というタイトルに込められた、シャイニー・スーツ時代（商業主義）への強烈なアンチテーゼ',
-    '「Iggedy」スタイルの呪縛からの脱却と、真正のリリシストとしての決意表明',
+    'Das EFXの真骨頂＝固有名詞をぶつける「パンチライン直喩」のオンパレード（Pac-Man・Rodney・Webster・RuPaul…）',
+    'fat/wack・bring the ruckus・true to the streets・hold it down——90sアンダーグラウンドの生きた口語を「学ぶ表現」単位で解説（PV頭出しリンク付き）',
+    'DJ Premierが刻むブーンバップ＋Eggoジングルのスクラッチ。「l\'eggo my Eggo」の同音遊びが音と歌詞でリンク',
   ]}
   youtubeId="Jxg6FckcesI"
 >
-    <div id="lyrics"></div>
 
-    <!-- CHORUS -->
-    <section class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Chorus
-      </h2>
-
-      <LyricsBlock hasExplanation={true} label="★ ブーンバップの宣誓">
-        <Fragment slot="eng">
-          To the hiddip the hop ya don't stop (Don't stop)<br />
-          Das EFX with the real hip-hop (Hip-hop)<br />
-          To the hiddip the hop ya don't quit (Don't quit)<br />
-          Das EFX and we came to rip s*** (Rip s***)
-        </Fragment>
-        <Fragment slot="jpn">
-          ヒディップ・ザ・ホップ、止まるな（止まるな）<br />
-          Das EFXが「本物のヒップホップ」を持ってきたぜ（ヒップホップ）<br />
-          ヒディップ・ザ・ホップ、諦めるな（諦めるな）<br />
-          Das EFX、俺たちはこの場をぶち壊しに来たんだ（ぶち壊す）
-        </Fragment>
-        <Fragment slot="explanation">
-          ポップ化・商業化が進むメインストリームに対する彼らの宣戦布告。過剰な装飾を削ぎ落とし、「本物のヒップホップ」を体現するという決意がサビで繰り返される。「rip s***」はマイクを握って圧倒的なパフォーマンスを見せつけるというストリートの隠語。
-        </Fragment>
-      </LyricsBlock>
-    </section>
-    
-    <!-- VERSE 1 -->
-    <section class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Verse 1 · Krazy Drayz
-      </h2>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Well on your mark and get set, can't forget to go<br />
-          In case you didn't know the flow is <QuickSlang word="Fat like Joe" desc="ラッパーのFat Joe（ファット・ジョー）に掛けた言葉遊び。「太い（ファット）＝ヤバい、かっこいい」という意味。" /> (Like Joe)<br />
-          Yo, you n***edy-know that I'm back, man<br />
-          You're wack man, I eat a rapper like I'm <QuickSlang word="Pac Man" desc="アーケードゲームのパックマン。ラッパーを飲み込むように圧倒するという比喩。" />
-        </Fragment>
-        <Fragment slot="jpn">
-          位置について、用意、スタートを忘れちゃいけない<br />
-          知らないかもしれないが、俺のフロウはFat Joeみたいにファット（ヤバい）だ<br />
-          お前ら分かってるだろ、俺が戻ってきたってな<br />
-          お前はダサい（ワック）、俺はパックマンみたいにラッパーを食い尽くす
-        </Fragment>
-        <Fragment slot="explanation">
-          「Iggedy（イギディ）」スタイルを極力抑えつつも、語尾や中間に名残を持たせながら、アーケードゲームのパックマンやFat Joeといったポップカルチャー・アイコンを巧みに織り交ぜる彼ら特有のスタイル。
-        </Fragment>
-      </LyricsBlock>
-      
-      <LyricsBlock hasExplanation={false}>
-        <Fragment slot="eng">
-          I briggedy-bring it, straight from the cellar<br />
-          Fo' realla, packin' more hits than <QuickSlang word="Lou Piniella" desc="元MLBの強打者であり名監督であるルー・ピネラ。ヒット曲（ヒット）と野球のヒットを掛けた表現。" /><br />
-          I swell a, n***a in his eye if he test me<br />
-          You don't impress me, a-yo Books kick the rest, G<br />
-          Uhh, one time for your mind...
-        </Fragment>
-        <Fragment slot="jpn">
-          地下室（アンダーグラウンド）から直接持ってきてやる<br />
-          マジでな、ルー・ピネラよりも多くのヒットをかますぜ<br />
-          俺を試すやつがいれば、そいつの目を腫らしてやる<br />
-          お前のラップは響かない。おいBooks（Skoob）、続きを頼むぜ<br />
-          お前の心に一発...
-        </Fragment>
-      </LyricsBlock>
+    <!-- ===================== -->
+    <!-- 導入                  -->
+    <!-- ===================== -->
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■"たとえ"の英語を浴びる一曲</h2>
+      <p class="text-sm text-[var(--c-muted)] leading-relaxed">
+        <strong class="text-[var(--c-text)]">Das EFX（ダス・エフェックス）</strong>は、Krazy Drayz（クレイジー・ドレイズ）と Skoob（スクーブ）の2人組。ニュージャージー州 Teaneck（ティーネック）出身で、EPMDに見出されてデビューした、90年代屈指の<strong class="text-[var(--c-text)]">パンチライン職人</strong>です。この「Real Hip-Hop」(1995) のいちばんの聴きどころは、なんといっても<strong class="text-[var(--c-text)]">固有名詞をぶつける"たとえ（直喩）"の連打</strong>。Pac-Man、Rodney Dangerfield、Webster、Carl Lewis、Jack Dempsey……アメリカの有名人・キャラ・商品名を <em>like ～</em>（〜みたいに）でつないで、自慢とジョークを一行ごとに決めてくる。つまりこの曲は、英語の <strong class="text-[var(--c-text)]">simile（直喩）</strong>と、その背後にあるアメリカの<strong class="text-[var(--c-text)]">文化常識（cultural literacy）</strong>を、まとめて浴びられる教材なんです。固有名詞が分かるほど面白さが跳ね上がる——だからこそ、一個ずつ解きほぐす価値がある。
+      </p>
     </section>
 
-    <!-- VERSE 2 -->
-    <section class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Verse 2 · Skoob
-      </h2>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Ayo, what up? It's the crew bringing the ruckus, no doubt<br />
-          We's the roughest dream team, Reign Supreme like a Cutlass<br />
-          Getting ducats, the dough, you can't touch the flow<br />
-          It's me, the n***a wit' G, the B double O K-S
-        </Fragment>
-        <Fragment slot="jpn">
-          Ayo, 調子はどうだ？間違いなく大騒ぎを起こすクルーだぜ<br />
-          俺たちが一番ラフなドリームチーム、カトラス（アメ車）みたいに君臨する<br />
-          金（ダカット、ドウ）を稼ぐ、お前らにはこのフロウに触れられない<br />
-          俺のことだ、Gを持つ男、B-O-O-K-S（Books = Skoobの別名）
-        </Fragment>
-        <Fragment slot="explanation">
-          Skoob（Booksのスペルを逆にした名前）の登場。自分たちを「最もラフなドリームチーム」と呼び、商業化していくシーンの中でハードコアなヒップホップ・アティチュードを貫く姿勢を見せる。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          So say yes and bust your caliber<br />
-          When I pop s*** and rock s*** like <QuickSlang word="Metallica" desc="ヘヴィメタルバンドのメタリカ。ヒップホップにおける激しさや圧倒的なエネルギーの比喩として用いられる。" /><br />
-          Stakes through the hearts of them snake fake n***as<br />
-          Them all up in my face, jealous of my tape n***as<br />
-          So honey shake your figures and show me whatcha got<br />
-          (Blow the spot) Das EFX with the Real Hip-Hop
-        </Fragment>
-        <Fragment slot="jpn">
-          だからイエスと言え、お前の限界（キャリバー）を撃ち抜け<br />
-          俺がメタリカみたいに激しくぶちかます時にな<br />
-          蛇みたいなフェイク野郎どもの心臓に杭を打ち込む<br />
-          俺のテープ（曲）に嫉妬して、俺の顔の前にしゃしゃり出てくる奴ら<br />
-          だからハニー、体を揺らしてお前の魅力を見せてくれ<br />
-          （この場を沸かすぜ）Das EFXが「リアル・ヒップホップ」を持ってきたぜ
-        </Fragment>
-        <Fragment slot="explanation">
-          彼らのスタイルを模倣した（Bitingした）「フェイク野郎」たちへの痛烈な批判。Das EFXはデビュー当時「イギディ・フロウ」であまりにも革新的だったため、業界中でそのスタイルが盗用された。Skoobはそうした状況に対する怒りをマイクにぶつけている。
-        </Fragment>
-      </LyricsBlock>
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■「これがリアルだ」という宣言</h2>
+      <p class="text-sm text-[var(--c-muted)] leading-relaxed">
+        Das EFXといえば、デビュー期の「<strong class="text-[var(--c-text)]">iggedy（イゲディ）</strong>」スタイル——単語のあいだに「-iggedy」「-iddip」という無意味な音を挟み込む、早口の呪文のような独特の節回し——で一世を風靡しました。この曲でも <em>niggedy-know</em>、<em>briggedy-bring</em>、<em>smiggedy-smoke</em> と、その癖はしっかり健在。ただしトラックは、<strong class="text-[var(--c-text)]">DJ Premier（DJプレミア）</strong>が手がけた硬質な<QuickSlang word="ブーンバップ" desc="boom bap。ドラムの『ブン（キック）・バッ（スネア）』が前面に出た、90年代NYの硬派なヒップホップのビート様式" />（boom bap）。商業的な"きらびやかなラップ"が台頭しつつあった1995年に、アンダーグラウンドから「<strong class="text-[var(--c-text)]">これが本物（real）のヒップホップだ</strong>」と言い切るタイトルそのものが、ひとつの態度表明になっています。遊び心たっぷりのパンチラインで、しかし芯は硬派——その二枚腰がこの曲の魅力です。
+      </p>
     </section>
 
-    <!-- VERSE 3 -->
-    <section class="mb-12">
+    <!-- Table of Contents -->
+    <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
+      <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
+        <li><a href="#story" class="hover:text-[var(--c-gold)] transition-colors">01 — ストーリーの流れ（まず曲全体をつかむ）</a></li>
+        <li><a href="#units" class="hover:text-[var(--c-gold)] transition-colors">02 — 学ぶ表現（直喩・スラング・言葉遊び）</a></li>
+        <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">03 — 文化的背景</a></li>
+        <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">04 — サンプル・制作の裏側</a></li>
+        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">05 — 評価とその後の影響</a></li>
+      </ol>
+    </nav>
+
+    <!-- ===================== -->
+    <!-- ストーリー要約         -->
+    <!-- ===================== -->
+    <section id="story" class="mb-12">
       <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Verse 3 · Skoob
+        ストーリーの流れ — まず曲全体をつかむ
       </h2>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Iggedy-okie-dokie<br />
-          Next n***a to quote me<br />
-          I hope he got more Miracles than <QuickSlang word="Smokey" desc="モータウンを代表するソウル歌手スモーキー・ロビンソンとそのグループ「ザ・ミラクルズ」に掛けた表現。" /><br />
-          Won't be no discussion, strictly head crushing<br />
-          Lead rushin' through your body<br />
-          You're in my <QuickSlang word="Dangerfield like Rodney" desc="コメディアンのロドニー・デンジャーフィールド。彼の持ちネタ「I don't get no respect（誰からもリスペクトされない）」と「Dangerfield（危険地帯）」を掛けた言葉遊び。" /><br />
-          Howdy, I'll back up in that ass, G, kaplowie<br />
-          And now we got the game to a Tee like <QuickSlang word="Howie" desc="TVゲームショウ司会者のハウィー・マンデルへの言及。「to a Tee（完璧に）」と「Howie（人名）」を組み合わせた音の遊び。" /><br />
-          Allow me, to introduce myself and my peeps<br />
-          Straight from the sewer, stayin' true to the streets
-        </Fragment>
-        <Fragment slot="jpn">
-          オキドキ（了解）だ<br />
-          次に俺のスタイルをパクる（引用する）奴は<br />
-          スモーキー（・ロビンソン）よりも多くの「奇跡（ミラクルズ）」を持ってることを願うぜ<br />
-          話し合いの余地はない、完全に頭をかち割るだけだ<br />
-          弾丸（鉛）がお前の体を貫く<br />
-          お前はロドニーのように俺の「デンジャーフィールド（危険地帯）」にいるんだ<br />
-          ハウディ（やあ）、Gよ、お前のケツに踏み込んでやる、ぶち飛ばすぞ<br />
-          そして俺たちはゲームを完璧に（ハウィーのように）制している<br />
-          俺と俺の仲間たちを紹介させてくれ<br />
-          下水道（アンダーグラウンド）直送、ストリートに忠実でいる
-        </Fragment>
-        <Fragment slot="explanation">
-          「Iggedy」フロウの名残を見せつつ、自分たちのスタイルを安易にコピーする後発のラッパーたちへ「お前らに奇跡は起きない」と警告する。「kaplowie」は爆発音の擬音語。「Straight from the sewer」でDas EFXのアンダーグラウンド哲学を再強調。ポップカルチャーの知識を織り交ぜた言葉遊び（Wordplay）の真骨頂。
-        </Fragment>
-      </LyricsBlock>
-    </section>
-
-    <!-- VERSE 4 -->
-    <section class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Verse 4 · Krazy Drayz
-      </h2>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Well, it's me, Krazy Drayz, bringin' up the rear<br />
-          I swear, we got to Hold It Down e'ry year<br />
-          So there, let me crack a beer and kick my feet up<br />
-          Turn the heat up and smiggedy-smoke all the weed up<br />
-          Kids I eat up, wit' a style that's the newest<br />
-          My crew is, getting more run than <QuickSlang word="Carl Lewis" desc="オリンピック金メダリストの陸上選手カール・ルイス。「run」には「走る」と「（曲が）再生される・注目される」の二重の意味がある。" /><br />
-          It's from the <QuickSlang word="sewers" desc="下水道（Sewer）。洗練されたメインストリームに対する、泥臭くリアルなアンダーグラウンドの象徴としての表現。" /> now ya see me on the top<br />
-          So stop and recognize the n***as on ya block
-        </Fragment>
-        <Fragment slot="jpn">
-          そうだ、俺はクレイジー・ドレイズ、しんがりを務める<br />
-          誓って言うが、毎年「Hold It Down（守り切る）」しなきゃならない<br />
-          だからビールを開けて、足を伸ばしてくつろがせてくれ<br />
-          ヒートアップして、全部のウィードをスモーク（吸い）尽くす<br />
-          ガキどもを食い尽くす、最新のスタイルでな<br />
-          俺のクルーはカール・ルイスよりも「走ってる（注目されてる）」ぜ<br />
-          「下水道（アンダーグラウンド）」から這い上がり、今や俺はトップにいる<br />
-          だから立ち止まって、お前のブロック（地元）にいる奴らを認識しろ
-        </Fragment>
-        <Fragment slot="explanation">
-          「Hold It Down」はアルバムタイトル（1995年）の直接引用であり、「ゲームにとどまり守り通す」というスタンスの宣言。「smiggedy-smoke」はIggedy-フロウの変形で、"smoke"の前に無意味な音節を挿入する特有スタイルの名残。「下水道（Sewer）」という言葉は、Das EFXが自身のアンダーグラウンドなアティチュードを表現するために頻繁に使用する重要なキーワード。
-        </Fragment>
-      </LyricsBlock>
-    </section>
-
-    <!-- VERSE 5 -->
-    <section class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Verse 5 · Skoob
-      </h2>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Ayo, MC's is irrelevant, and delicate to the texture<br />
-          But this style of mine is well defined like <QuickSlang word="Webster" desc="1983〜1989年放映の人気TV番組「Webster」の主人公。または「ウェブスター辞書」（Webster's Dictionary）。「well defined like Webster」は辞書のように明確に定義されているという意味。" /><br />
-          Ain't a badder n***a raw from the jaw than the <QuickSlang word="Jabber-Jibber" desc="Das EFXがラップする際の高速で畳み掛けるような口の動き・フロウスタイルそのものを指す自称。意味不明な早口というよりも、巧みな言葉の連射を意味する。" /><br />
-          When I get Stone like <QuickSlang word="Sharon from Sliver" desc="1993年のエロティック・スリラー映画「Sliver（スライヴァー）」でシャロン・ストーンが演じた役名。または「Stone（石のように固い・高い）」とシャロン・ストーンの名を組み合わせた言葉遊び。" /><br />
-          Equipped to riggedy-rip the microphone to shreds<br />
-          Dread, yo come and hit these n***as in the head
-        </Fragment>
-        <Fragment slot="jpn">
-          Ayo、MCなんて取るに足らない、繊細でテクスチャーに過ぎない<br />
-          だが俺のこのスタイルはウェブスターのようにはっきりと定義されている<br />
-          ジャバー・ジバー（俺の高速フロウ）よりも生（ロウ）でヤバい奴なんていない<br />
-          シャロン・ストーンの「スライヴァー」みたいにストーン（ハイに）なる時<br />
-          マイクをずたずたに引き裂く準備は万端だ<br />
-          ドレッド（兄弟）よ、来てこいつらの頭をぶっ叩け
-        </Fragment>
-        <Fragment slot="explanation">
-          「Jabber-Jibber」はSkoob自身の高速ラップスタイルへの自己言及。「riggedy-rip」はIggedy-フロウの名残。「get Stone like Sharon from Sliver」はシャロン・ストーン主演映画と「Stone（ハイになる）」を掛けたダブルミーニング——1990年代のポップカルチャー言及として当時の聴衆に即座に通じる言葉遊び。
-        </Fragment>
-      </LyricsBlock>
-    </section>
-
-    <!-- VERSE 6 -->
-    <section class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Verse 6 · Krazy Drayz
-      </h2>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Well I connect my rhymes like Lego, so l'eggo my <QuickSlang word="Eggo" desc="米国の有名なワッフルブランド。「Let go my Eggo（俺のエゴを放せ）」というCMフレーズと「Lego（つなぎ合わせる）」を組み合わせた言葉遊び。" /><br />
-          I burn ya like <QuickSlang word="Waco" desc="1993年にテキサス州ウェイコで発生したATF・FBIとダビデ教団の衝突事件。建物が炎上し多数の死者を出した。「燃やす（burn）」という言葉と組み合わせてラキバルを壊滅させる比喩。" />, you need more than <QuickSlang word="Maaco" desc="米国の大手カーペイントチェーン。車の塗装（修理）が必要なほど傷つけてやるという意味。" /><br />
-          I take it to ya crew and keep 'em moving like I'm U-Haul<br />
-          I'm here to school y'all like <QuickSlang word="RuPaul" desc="ドラァグクイーンの帝王RuPaul。「figgedy-faggots（ゲイへの侮蔑語の変形）」と組み合わせてライバルMCを feminize（女性化）して見下す1990年代特有の表現。現代では使われない差別的用語。" /><br />
-          I throw a screwball and strike out the MC<br />
-          And if he temps me, I knock em out like <QuickSlang word="Jack Dempsey" desc="1920年代の世界ヘビー級チャンピオン。強烈なノックアウトパンチで知られる伝説のボクサー。" /><br />
-          I burn some sensi and chase it wit' a Guinness<br />
-          The illest, now hit me with the hook because I'm finished
-        </Fragment>
-        <Fragment slot="jpn">
-          俺はレゴのようにライムをつなぎ合わせる、だから俺のエゴ（Eggo）を放せ<br />
-          ウェイコのように燃やしてやる、お前にはマーコ（塗装修理）以上のものが必要だ<br />
-          俺はお前のクルーに乗り込んで、U-ホールのように動かし続ける<br />
-          RuPaulみたいにお前ら全員をスクールしてやりに来た<br />
-          俺はスクリューボールを投げてMCを三振にしてやる<br />
-          そいつが俺を誘惑しようとしたら、ジャック・デンプシーのようにノックアウトする<br />
-          センシ（マリファナ）を吸って、ギネスで流し込む<br />
-          最も病的（イレスト）な俺、もう終わった——フックを頼む
-        </Fragment>
-        <Fragment slot="explanation">
-          「Lego / l'eggo my Eggo」はブランド名の音の類似を利用したトリプルミーニング。「Waco / Maaco」は音の韻を踏みながら1993年のニュースとカーペイントチェーンを並列させる時事ネタ。「Jack Dempsey」は1920年代の伝説的ヘビー級ボクサー。「The illest」は「最も病的にすごい」という最大の自己賛辞。コンパクトな8ラインに映画・スポーツ・ポップカルチャーの言及を詰め込む密度の高さが1990年代東海岸スタイルの典型。
-        </Fragment>
-      </LyricsBlock>
+      <p class="text-xs text-[var(--c-dim)] mb-5">
+        この曲に物語はありません。2人が交互に「俺たちが本物だ」を、これでもかと固有名詞のたとえで証明していく自慢合戦です。先に全体の組み立てだけ押さえておくと、一個ずつのパンチラインに集中できます。
+      </p>
+      <div class="space-y-4 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          軸になるのは、何度も戻ってくる<strong class="text-[var(--c-text)]">フック</strong>。「To the hiddip the hop ya don't stop / Das EFX with the real hip-hop」と、彼ら名物の"iggedy"節で「止まるな、これがリアルだ」と連呼する。この呪文みたいなフックが、曲全体の背骨です。
+        </p>
+        <p>
+          あいだに挟まる<strong class="text-[var(--c-text)]">6つの短いヴァース</strong>を、Krazy Drayz と Skoob が交互に担当。中身はほぼ全部、<strong class="text-[var(--c-text)]">「俺は〇〇だ、△△みたいにな」</strong>という形のパンチラインの連打です。ラッパーをPac-Manのように食う、敬意を払われない様をRodney Dangerfieldにたとえる、自分のスタイルをWebster（辞書）のように"well defined"だと言う——アメリカの有名人や商品名を次々に引いて、自慢とジョークを同時に決めていく。
+        </p>
+        <p>
+          下水道（the sewer）から這い上がってきた、というDas EFX独特の自己イメージも繰り返し出てきます。締めのヴァースでは「ライムをLegoみたいに組む、だから l'eggo my Eggo」と、同音の言葉遊びで自分のスキルを誇示してフィニッシュ。物語ではなく、<strong class="text-[var(--c-text)]">言葉の瞬発力だけ</strong>で全部持っていく——初めて歌詞を追ったとき、たとえの手数の多さに素直に笑ってしまいました。
+        </p>
+        <p class="text-xs text-[var(--c-dim)]">
+          ※本ページは批評・教育目的で、解説に必要な範囲の断片のみを引用しています。全歌詞の対訳は掲載していません。
+        </p>
+      </div>
     </section>
 
     <!-- ===================== -->
-    <!-- CULTURAL BACKGROUND   -->
+    <!-- 学習ユニット群         -->
+    <!-- ===================== -->
+    <div id="units"></div>
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2 border-b border-[var(--c-border)] pb-2">
+        学ぶ表現 — 直喩・スラング・言葉遊び
+      </h2>
+      <p class="text-xs text-[var(--c-dim)] mb-6">
+        各見出しは「この曲から学べる英語表現」。各ユニットはまず上に英語の用例（1〜2行）を置いてあります。<strong class="text-[var(--c-text)]">先に英語を音で追い、行のどこが学習対象かを確かめてから</strong>下の日本語解説に進むと、英語が苦手でも置いていかれません。🎤はそのリリックを歌うMC、▶は公式PVの該当箇所への頭出しリンク（音源解析で付与、秒数は概算）です。引用は解説に必要な最小限の断片だけに留めています。
+      </p>
+
+      <!-- ① chorus / iggedy -->
+      <LearningUnit
+        heading="To the hiddip the hop — Das EFX名物「iggedy」スタイル"
+        label="★ 文化（フロウの様式）"
+        mc="Das EFX（Chorus）"
+        t={TS["chorus-diggedy"].t} tApprox={TS["chorus-diggedy"].approx} youtubeId={YT}
+      >
+        <Fragment slot="eng">To the hiddip the hop ya don't stop<br />Das EFX with the real hip-hop</Fragment>
+        <Fragment slot="jpn">ヒディップ・ザ・ホップ、止まんなよ／Das EFX、これがリアル・ヒップホップ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 曲の冒頭と各ヴァースの合間に戻ってくるフック。学習対象は上の行の崩した音。</p>
+        <p>まず上の行の <strong class="text-[var(--c-text)]">hiddip the hop</strong>。これは普通の英語ではありません。本来 <em>hip-hop</em> と言うところに、Das EFX名物の <strong class="text-[var(--c-text)]">「iggedy（イゲディ）」スタイル</strong>——単語に無意味な音を挟み込んで崩す節回し——がかかっています。意味より<strong class="text-[var(--c-text)]">音とリズムの遊び</strong>が目的で、彼らはこれを曲中で <em>niggedy-know</em>（=know）、<em>briggedy-bring</em>（=bring）のように多用する。後半の <strong class="text-[var(--c-text)]">ya don't stop</strong>（止まるな）は、ヒップホップ草創期からのお決まりの掛け声（<em>ya don't stop</em>）。つまりこのフックは、古典的な定番フレーズを、自分たちの崩し方で塗り替えてみせた一節なんです。聞き取れなくて当然なので、まずは"音で崩している"という事実だけ掴めればOK。</p>
+      </LearningUnit>
+
+      <!-- ② fat like Joe -->
+      <LearningUnit
+        heading="the flow is Fat like Joe — 直喩＋スラング fat"
+        label="★ 直喩／スラング"
+        mc="Krazy Drayz（Verse 1）"
+        t={TS["fat-like-joe"].t} tApprox={TS["fat-like-joe"].approx} youtubeId={YT}
+      >
+        <Fragment slot="eng">In case you didn't know the flow is Fat like Joe</Fragment>
+        <Fragment slot="jpn">知らなかったなら言っとくが、俺のフロウはFat、Joeみたいにな</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 1の入り、Krazy Drayzが自分のフロウを売り込む件。</p>
+        <p>ここで <strong class="text-[var(--c-text)]">like ～</strong>（〜みたいに）を使った<QuickSlang word="直喩" desc="simile。likeやasを使って『AはBみたいだ』と例える比喩。ヒップホップのパンチラインの基本構文" />（simile）が登場します。鍵は <strong class="text-[var(--c-text)]">Fat</strong>。スラングの <strong class="text-[var(--c-text)]">fat（=phat）</strong> は「太い」ではなく「<strong class="text-[var(--c-text)]">最高にイケてる・分厚くて良い</strong>」という褒め言葉。そこに <strong class="text-[var(--c-text)]">like Joe</strong> を付けることで、当時人気のラッパー <strong class="text-[var(--c-text)]">Fat Joe（ファット・ジョー）</strong>の名前と掛けている。「俺のフロウはfat（最高）だ、しかもFat Joe並みにな」という二重の意味。固有名詞ひとつで、スラングの自慢とラッパーへの目配せを同時にやってのける——Das EFX流パンチラインの基本形です。<code>In case you didn't know</code>（知らないといけないから言うが）も会話で使える前置き表現。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">fat / phat</strong> は90年代の褒め言葉で「イケてる・素晴らしい」。発音は fat と同じ。<em>a phat beat</em>（最高のビート）。同時期の <em>dope</em>（ヤバい）、<em>fresh</em>（新鮮でかっこいい）と同じ仲間。</p>
+          <p><strong class="text-[var(--c-text)]">in case (you didn't know)</strong>（〜の場合に備えて／知らないといけないから）は、情報を付け足すときの定番。<em>In case you didn't know, I'm the boss</em>（言っとくけど、ボスは俺だ）のように、念押しのニュアンスで使う。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ③ Pac-Man -->
+      <LearningUnit
+        heading="eat a rapper like I'm Pac Man — キャラに重ねる自慢"
+        label="★ 直喩（パンチライン）"
+        mc="Krazy Drayz（Verse 1）"
+        t={TS["pac-man"].t} tApprox={TS["pac-man"].approx} youtubeId={YT}
+      >
+        <Fragment slot="eng">You're wack man, I eat a rapper like I'm Pac Man</Fragment>
+        <Fragment slot="jpn">お前はwack（ダサい）、俺はラッパーを食う、Pac-Manみたいにな</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 1、相手のMCをけなしつつ自分を誇示する件。</p>
+        <p>典型的なパンチライン直喩です。まず <strong class="text-[var(--c-text)]">wack</strong>＝「ダサい・下手・イケてない」（反対は dope や fat）。相手をこき下ろす最頻出スラングで、すぐ上で学んだ fat の対義語として一緒に覚えると効率がいい。そして <strong class="text-[var(--c-text)]">eat a rapper like I'm Pac Man</strong>＝「ラッパーを食ってやる、まるで<strong class="text-[var(--c-text)]">パックマン</strong>のように」。ゲームのパックマンが点（敵）を次々食べる動きに、自分が他のラッパーを"食う＝打ち負かす"様子を重ねている。<strong class="text-[var(--c-text)]">eat（食う）= 圧倒する</strong>というスラング的な動詞の使い方も含め、誰もが知るキャラ一つで情景を一発で立ち上げる——これがアメリカの文化常識を使ったパンチラインの作法です。<code>wack man / Pac Man</code> で韻も踏んでいます。</p>
+      </LearningUnit>
+
+      <!-- ④ Cutlass Supreme -->
+      <LearningUnit
+        heading="Reign Supreme like a Cutlass — 車名でダブルミーニング"
+        label="★ 言葉遊び（固有名詞）"
+        mc="Skoob（Verse 2）"
+        t={TS["cutlass-supreme"].t} tApprox={TS["cutlass-supreme"].approx} youtubeId={YT}
+      >
+        <Fragment slot="eng">We's the roughest dream team, Reign Supreme like a Cutlass</Fragment>
+        <Fragment slot="jpn">最強のドリームチーム、CutlassみたいにReign Supreme（君臨）</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 2、Skoobがクルーの強さを誇示する件。学習対象は行の後半。</p>
+        <p>後半の <strong class="text-[var(--c-text)]">Reign Supreme like a Cutlass</strong> が仕掛け。<strong class="text-[var(--c-text)]">reign supreme</strong> は「（他を圧して）<strong class="text-[var(--c-text)]">君臨する・頂点に立つ</strong>」という慣用句です。ところがここに <strong class="text-[var(--c-text)]">like a Cutlass</strong> が付く。<strong class="text-[var(--c-text)]">Oldsmobile Cutlass Supreme（カトラス・スプリーム）</strong>というアメリカの定番車種があり、その車名の "Supreme" と、慣用句の "supreme（最高の）" を掛けているわけです。「俺たちは君臨する（reign supreme）、カトラス・スプリームのようにな」——抽象的な慣用句を、具体的な車名へスッと着地させる二段構え。文頭の <strong class="text-[var(--c-text)]">We's</strong> は <em>We are/We're</em> のAAVE的な崩しで、文法より語感を優先する歌詞ならではの形です。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">reign supreme</strong> は「（分野・場で）他を圧して君臨する」という慣用句。<em>Their team reigns supreme in the league</em>（彼らのチームはリーグで頂点に君臨している）。<em>supreme</em>（最高・至高の）が核で、ここでは車名 Cutlass Supreme との語呂合わせに転用されている。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑤ Dangerfield -->
+      <LearningUnit
+        heading="in my Dangerfield like Rodney — コメディアンで「敬意ゼロ」"
+        label="★ 直喩（文化常識）"
+        mc="Skoob（Verse 3）"
+        t={TS["dangerfield"].t} tApprox={TS["dangerfield"].approx} youtubeId={YT}
+      >
+        <Fragment slot="eng">You're in my Dangerfield like Rodney</Fragment>
+        <Fragment slot="jpn">お前は俺のDangerfield状態、Rodneyみたいにな（誰にも敬意を払われない）</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 3、Skoobが相手を見下す件。固有名詞の背景知識が要るパンチライン。</p>
+        <p>これは背景知識がないと意味が取れない、上級のパンチラインです。<strong class="text-[var(--c-text)]">Rodney Dangerfield（ロドニー・デンジャーフィールド）</strong>は、アメリカの伝説的コメディアン。彼の決め台詞は「<strong class="text-[var(--c-text)]">I don't get no respect</strong>（俺は全然リスペクトされない）」で、"敬意を払われない人"の代名詞そのものなんです。だから「You're in my Dangerfield like Rodney」は、「お前はロドニーみたいに、俺の前ではまるで敬意を払われない存在だ」という見下し。固有名詞が<strong class="text-[var(--c-text)]">そのまま"概念"として機能する</strong>好例で、アメリカの大衆文化を知っているほど一行が立体的に効いてくる。逆に言えば、こういう一行を解きほぐすこと自体が、生きた文化を学ぶことになります。</p>
+      </LearningUnit>
+
+      <!-- ⑥ true to the streets -->
+      <LearningUnit
+        heading="stayin' true to the streets — 「下水道」から貫く忠誠"
+        label="★ イディオム／自己像"
+        mc="Skoob（Verse 3）"
+        t={TS["true-to-streets"].t} tApprox={TS["true-to-streets"].approx} youtubeId={YT}
+      >
+        <Fragment slot="eng">Straight from the sewer, stayin' true to the streets</Fragment>
+        <Fragment slot="jpn">下水道（sewer）からそのまま、ストリートに忠実なまま</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 3の締め、Skoobが自分たちの立ち位置を宣言する件。</p>
+        <p>イディオム <strong class="text-[var(--c-text)]">stay true to ～</strong>＝「<strong class="text-[var(--c-text)]">〜に忠実であり続ける・初心を貫く</strong>」。<em>stay true to yourself</em>（自分らしさを貫く）の形で日常でも使う定番表現です。ここでは <strong class="text-[var(--c-text)]">true to the streets</strong>（ストリート＝地元・育ちに忠実）。面白いのは <strong class="text-[var(--c-text)]">the sewer</strong>（下水道）という言葉。Das EFXは初期から自分たちを「下水道から這い上がってきた連中」というイメージで語ってきました（汚くて泥臭い場所＝アンダーグラウンドの象徴）。成功してメインストリームに出ても、出自であるストリートには嘘をつかない——<strong class="text-[var(--c-text)]">商業化への抵抗</strong>という、この曲のタイトル「Real Hip-Hop」の精神そのものが、この一行に凝縮されています。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">stay true to ~</strong> は「〜に忠実でいる・裏切らない」。<em>stay true to your roots</em>（自分のルーツを大切にし続ける）、<em>stay true to yourself</em>（自分を曲げない）のように、信念・出自・人に対して使う。<em>true to ~</em> 単体でも「〜に忠実な」の形容詞句として機能する。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑦ Hold It Down -->
+      <LearningUnit
+        heading="we got to Hold It Down — 「守り抜く」のイディオム"
+        label="★ イディオム"
+        mc="Krazy Drayz（Verse 4）"
+        t={TS["hold-it-down"].t} tApprox={TS["hold-it-down"].approx} youtubeId={YT}
+      >
+        <Fragment slot="eng">I swear, we got to Hold It Down e'ry year</Fragment>
+        <Fragment slot="jpn">誓うよ、俺たちは毎年（e'ry year）Hold It Down（守り抜く）</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 4、Krazy Drayzがクルーの決意を述べる件。これはアルバム名そのもの。</p>
+        <p>注目は <strong class="text-[var(--c-text)]">hold it down</strong>。これはこのアルバムのタイトルでもあり、イディオムとしては「<strong class="text-[var(--c-text)]">（場・砦を）守り抜く・しっかり維持する・留守を任される</strong>」という意味です。誰かが出かけるとき「<em>hold it down while I'm gone</em>（俺がいない間、ここを頼む）」のように使う。ヒップホップでは「自分の地元・クルー・ジャンルの本質を守り続ける」という気概を表す言葉として頻出します。ここでは「毎年（every year）、俺たちはリアルなヒップホップを守り抜く」という宣言。<code>e'ry</code> は <em>every</em> の崩し、<code>got to</code>（=have to／〜しなければ）も会話頻出。アルバム全体のテーマがこの一語に集約されています。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">hold it down</strong> は「持ち場を守る・しっかりやる・（不在の人の代わりに）取り仕切る」。<em>Hold it down for me</em>（あとは頼んだ）、<em>holding down the fort</em>（砦＝持ち場を守る）と近い。ヒップホップでは「地元やシーンを代表して頑張る・本質を守る」の意でよく使われる。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑧ Webster -->
+      <LearningUnit
+        heading="well defined like Webster — 「辞書」で二重に効かせる"
+        label="★ 言葉遊び（固有名詞）"
+        mc="Skoob（Verse 5）"
+        t={TS["webster-defined"].t} tApprox={TS["webster-defined"].approx} youtubeId={YT}
+      >
+        <Fragment slot="eng">But this style of mine is well defined like Webster</Fragment>
+        <Fragment slot="jpn">だが俺のスタイルはwell defined（明確に定義されてる）、Websterみたいにな</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 5、Skoobが自分のスタイルの確かさを誇る件。</p>
+        <p><strong class="text-[var(--c-text)]">well defined</strong>＝「<strong class="text-[var(--c-text)]">輪郭がはっきりした・明確に定義された</strong>」という形容。そこに <strong class="text-[var(--c-text)]">like Webster</strong> を掛けてくる。<strong class="text-[var(--c-text)]">Webster（ウェブスター）</strong>はアメリカで最も有名な辞書「Merriam-Webster」のこと。辞書は言葉を <strong class="text-[var(--c-text)]">define（定義）</strong>するものですから、「俺のスタイルは <em>well defined</em>（明確に定義されている）、まるで辞書（Webster）のように」と、<strong class="text-[var(--c-text)]">define という動詞の二つの意味</strong>——「輪郭が明確」と「辞書が語義を定める」——を一本の線で結んでいる。抽象的な自慢（スタイルが明確だ）を、誰もが知る固有名詞（辞書）に着地させる、Das EFXお得意の手口です。</p>
+      </LearningUnit>
+
+      <!-- ⑨ Lego / Eggo -->
+      <LearningUnit
+        heading="connect my rhymes like Lego, l'eggo my Eggo — 同音三段重ね"
+        label="★ 言葉遊び（最重要）"
+        mc="Krazy Drayz（Verse 6）"
+        t={TS["lego-eggo"].t} tApprox={TS["lego-eggo"].approx} youtubeId={YT}
+      >
+        <Fragment slot="eng">Well I connect my rhymes like Lego, so l'eggo my Eggo</Fragment>
+        <Fragment slot="jpn">俺はライムをLegoみたいに組む、だからl'eggo my Eggo（俺のエゴ／エゴ・ワッフルを離せ）</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 最終ヴァース、Krazy Drayzが同音語を畳みかけて締める件。サンプルとも連動。</p>
+        <p>この曲いちばんの言葉遊びです。<strong class="text-[var(--c-text)]">Lego</strong>（レゴ）→ <strong class="text-[var(--c-text)]">l'eggo</strong>（=let go／離せ）→ <strong class="text-[var(--c-text)]">Eggo</strong>（エゴ・ワッフル）と、<strong class="text-[var(--c-text)]">よく似た音を3連続で畳みかける</strong>。「ライムをレゴ（Lego）のようにカチッと組み立てる、だから <em>l'eggo my Eggo</em>」。この <strong class="text-[var(--c-text)]">"L'eggo my Eggo!"</strong> は、アメリカの冷凍ワッフル「Eggo」のCMの超有名なキャッチコピー（「私のエゴ（ワッフル）を取らないで！」）。さらに面白いのは、DJ Premierがこの曲のサンプルに<strong class="text-[var(--c-text)]">実際にEggoのジングルをスクラッチで仕込んでいる</strong>こと。つまり歌詞の言葉遊びと、トラックの音ネタが同じ「Eggo」でリンクしているわけです。音の偶然を芸にまで持っていく、ヒップホップの言葉遊びの真骨頂と言える一行。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">let go (of ~)</strong> は「（〜を）手放す・放す」。<em>Let go of my arm</em>（腕を放して）。歌詞の <code>l'eggo</code> はこれを発音どおりに崩した綴りで、商品名 Eggo と韻を踏ませている。英語の言葉遊びは、こうした<strong class="text-[var(--c-text)]">同音・近音（homophone）</strong>を重ねて作られることが非常に多い。</p>
+        </Fragment>
+      </LearningUnit>
+    </section>
+
+    <!-- ===================== -->
+    <!-- 文化的背景             -->
     <!-- ===================== -->
     <section id="background" class="mb-12">
       <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
@@ -272,61 +230,95 @@ import SongLayout from '../../layouts/SongLayout.astro';
       </h2>
 
       <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
-        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">制作の背景</p>
-        <h3 class="font-semibold text-base mb-3">「シャイニー・スーツ時代」への抵抗</h3>
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">パンチライン文化</p>
+        <h3 class="font-semibold text-base mb-3">固有名詞が"武器"になるアメリカのラップ</h3>
         <p class="text-[var(--c-muted)] text-sm leading-relaxed">
-          1995年当時、ヒップホップはR&Bのフックやきらびやかなシンセサイザーを多用した商業的アプローチ（シャイニー・スーツ・エラ）がメインストリームを席巻しつつあった。そうした中でDas EFXは、タイトルに「Real Hip-Hop」と冠することで、自らがサンプリングとブレイクビーツの伝統を守護する存在であるという明確なスタンスを表明した。これは過度なポップ化に対する強烈なアンチテーゼであった。
+          この曲が示すように、アメリカのラップでは<strong class="text-[var(--c-text)]">固有名詞（有名人・キャラ・商品名）を直喩でぶつける</strong>のが、パンチラインの王道だ。聞き手がその名前の背景を知っている前提で、一行に意味を凝縮する。だから英語ネイティブにとっては一瞬で笑える一方、文化背景を共有しない学習者には"暗号"のように難しい。逆に言えば、こうした固有名詞を一つずつ調べていく作業は、辞書には載らない<strong class="text-[var(--c-text)]">生きたアメリカ文化（cultural literacy）</strong>を学ぶ、またとない入口になります。
         </p>
       </div>
 
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">キーワード早見表</p>
+        <h3 class="font-semibold text-base mb-3">この曲で学んだ表現の整理</h3>
+        <div class="space-y-3 mt-3">
+          {[
+            ['fat / phat', '最高にイケてる・分厚くて良い（90s褒め言葉）'],
+            ['wack', 'ダサい・下手（fat/dopeの反対）'],
+            ['reign supreme', '他を圧して君臨する（慣用句）'],
+            ['stay true to ~', '〜に忠実であり続ける・初心を貫く'],
+            ['hold it down', '持ち場・本質を守り抜く（アルバム名）'],
+            ['like ~ (simile)', '〜みたいに。固有名詞を引くパンチラインの基本構文'],
+          ].map(([term, desc]) => (
+            <div class="flex gap-3 text-sm">
+              <span class="text-[var(--c-gold)] shrink-0 font-semibold min-w-[120px]">{term}</span>
+              <span class="text-[var(--c-muted)]">{desc}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== -->
+    <!-- サンプル・制作の裏側    -->
+    <!-- ===================== -->
+    <section id="behind" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        サンプル・制作の裏側
+      </h2>
+
       <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
-        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">サウンドの核心</p>
-        <h3 class="font-semibold text-base mb-3">DJ Premier と Pete Rock の奇跡的な交差点</h3>
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">サンプル元</p>
+        <h3 class="font-semibold text-base mb-3">ジャズ・ソウル・CMジングルの三層 — DJ Premierの仕事</h3>
         <p class="text-[var(--c-muted)] text-sm leading-relaxed">
-          本作のオリジナル版は、東海岸の絶対的プロデューサーである <strong class="text-[var(--c-text)]">DJ Premier</strong> が手掛け、Norman Connorsのサンプリングを用いた極めてミニマルで硬質なビートとなっている。さらに、シングル盤には同じく東海岸の巨頭である <strong class="text-[var(--c-text)]">Pete Rock</strong> によるソウルフルなリミックス版も収録された。1990年代を代表する二大プロデューサーが一つのシングルに集結したこの作品は、ヒップホップ・プロダクション史における奇跡的な交差点として現在も高く評価されている。
+          トラックを組んだのは <strong class="text-[var(--c-text)]">DJ Premier</strong>。土台には、ジャズドラマー <strong class="text-[var(--c-text)]">Norman Connors「The Creator Has a Master Plan」(1972)</strong> や、ソウルの <strong class="text-[var(--c-text)]">Joe Tex「Papa Was Too」(1966)</strong> といった渋い素材が敷かれている（WhoSampled確認）。そして極めつけが、冷凍ワッフルのCMジングル「<strong class="text-[var(--c-text)]">L'eggo My Eggo</strong>」のスクラッチ。歌詞の「l'eggo my Eggo」という言葉遊びと、トラックに刻まれたEggoの音ネタが<strong class="text-[var(--c-text)]">同じ素材でリンク</strong>している——ジャズもソウルも、テレビCMの断片すらも分け隔てなく"楽器"にしてしまう、Premierのコラージュ感覚が出た一曲です。
         </p>
       </div>
-      
-      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
-        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">スタイルの変遷</p>
-        <h3 class="font-semibold text-base mb-3">「Iggedy（イギディ）」からの脱却</h3>
+
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">スタイルの変化</p>
+        <h3 class="font-semibold text-base mb-3">「iggedy」を残しつつ、硬派へ</h3>
         <p class="text-[var(--c-muted)] text-sm leading-relaxed">
-          Das EFXはデビュー時に「Iggedy（イギディ）」という語尾に無意味なシラブルを挿入する革新的なファスト・ラップで一世を風靡した。しかし、そのスタイルがあまりにも業界内で盗用（Biting）され、消費し尽くされてしまったため、本作が収録されたアルバム『Hold It Down』ではそのスタイルを意図的に封印した。「Real Hip-Hop」は、ギミックに頼らずとも純粋なリリシズムとライミングで勝負できる、真正のラッパーとしての彼らの成熟を示す重要なターニングポイントとなった。
+          Das EFXは、デビュー作『Dead Serious』(1992) の "iggedy" スタイルで爆発的に売れ、フォロワーを大量に生みました。だが模倣が増えると、彼らは次第にその癖を<strong class="text-[var(--c-text)]">抑えめにして、より硬派でストレートなフロウへ</strong>と舵を切っていく。この「Real Hip-Hop」は、ちょうどその過渡期の一曲。名物の崩し節を残しながらも、DJ Premierの硬質なビートに乗せて"本物"を名乗る——遊びと硬派さのバランスが、絶妙なところに着地しています。
         </p>
       </div>
     </section>
 
     <!-- ===================== -->
-    <!-- LEGACY                -->
+    <!-- 評価と影響             -->
     <!-- ===================== -->
     <section id="legacy" class="mb-12">
       <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
         評価とその後の影響
       </h2>
 
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg mb-6">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">位置づけ</p>
+        <h3 class="font-semibold text-base mb-3">『Hold It Down』のリードシングル</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          「Real Hip-Hop」は、アルバム『Hold It Down』(1995) のリードシングル。商業的なヒットを狙うより、<strong class="text-[var(--c-text)]">硬派なヘッズ（コアなファン）に向けて"本物"を提示する</strong>性格の強い一曲だった。Pete RockやPMDによるリミックスも作られ、DJ Premier版とあわせて、90sアンダーグラウンドの愛聴曲として長く支持されている。タイトルどおり、流行に流されず"リアル"を掲げる姿勢が、この曲を時代を超えて聴かせるものにしています。
+        </p>
+      </div>
+
       <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
-        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">後世への影響</p>
-        <h3 class="font-semibold text-base mb-3">日本のヒップホップ・シーンにおける「教科書」</h3>
-        <ul class="space-y-3 text-sm">
-          <li class="flex gap-3">
-            <span class="text-[var(--c-gold)] shrink-0">クラブアンセム</span>
-            <span class="text-[var(--c-muted)]">1990年代後半の日本のクラブシーンにおいて、「本物のニューヨーク・サウンド」の象徴としてトップDJたちにヘビープレイされた。</span>
-          </li>
-          <li class="flex gap-3">
-            <span class="text-[var(--c-gold)] shrink-0">イデオロギーの共有</span>
-            <span class="text-[var(--c-muted)]">MICROPHONE PAGER や BUDDHA BRAND といった日本のレジェンドたちが掲げた「本物志向」のアンダーグラウンド精神は、Das EFXが提示した「Real Hip-Hop」のイデオロギーと完全に軌を一にしている。</span>
-          </li>
-          <li class="flex gap-3">
-            <span class="text-[var(--c-gold)] shrink-0">オマージュ</span>
-            <span class="text-[var(--c-muted)]">現代の日本のラッパー（MEGA-Gなど）のリリックにおいても「DJ PremierプロデュースのDas EFXの名曲」として直接言及されるなど、時代を超えた「本物の基準値」として神格化されている。</span>
-          </li>
-        </ul>
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">学習素材としての価値</p>
+        <h3 class="font-semibold text-base mb-3">"たとえ"と"文化常識"のトレーニング</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          この曲は、英語の <strong class="text-[var(--c-text)]">simile（直喩）</strong>がどう機能するかを、これでもかと実演してくれる。<em>like ～</em> ひとつで、自慢・侮辱・ジョークを一行に詰め込む技術。そして、それを解くために必要な<strong class="text-[var(--c-text)]">アメリカの大衆文化の知識</strong>。リスニングの難度は高めですが、固有名詞を一つずつ調べていくと、英語と文化が同時に体に入ってくる。手強いぶん、噛むほど味が出る教材です。
+        </p>
       </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="border-t border-[var(--c-border)] pt-6 text-[var(--c-very-dim)] text-xs">
-      <p>Producer: DJ Premier (Original), Pete Rock (Remix) · Album: Hold It Down (1995)</p>
-    </footer>
+    <!-- まとめ -->
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        まとめ
+      </h2>
+      <ul class="space-y-2 text-sm text-[var(--c-muted)] list-disc list-inside leading-relaxed">
+        <li>「Real Hip-Hop」は、固有名詞を <em>like ～</em> でぶつける「パンチライン直喩」の見本市。simileと文化常識をまとめて学べる。</li>
+        <li>fat/wack・reign supreme・stay true to ~・hold it down など、90sアンダーグラウンドの生きた口語とイディオムが拾える。</li>
+        <li>「Lego / l'eggo / Eggo」の同音三段重ねは、歌詞の言葉遊びとDJ Premierのサンプル（Eggoジングル）が連動した白眉。</li>
+        <li>名物「iggedy」スタイルを残しつつ硬派なPremierビートに乗る、商業化への「これが本物だ」という態度表明の一曲。</li>
+      </ul>
+    </section>
 
 </SongLayout>
