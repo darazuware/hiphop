@@ -1,325 +1,330 @@
 ---
-import LyricsBlock from '../../components/LyricsBlock.astro';
+import LearningUnit from '../../components/LearningUnit.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
 import SongLayout from '../../layouts/SongLayout.astro';
+
+import tsData from '../../../agent/werdz-from-ghetto-child/assets/units-timestamps.json';
+const YT = "oT6GbzXTC_o";
+const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.approx }]));
 ---
 
 <SongLayout
-  title="Werdz from Ghetto Child 和訳・意味・スラング解説 | Gang Starr"
-  description="Gang Starr「Werdz from Ghetto Child」の歌詞和訳とスラング徹底解説。DJ Premierが手がけた2003年『The Ownerz』収録曲。Gang Starr FoundationのSmiley the Ghetto Childを客演に迎え、ゲットーの現実と生存の知恵を刻んだ一曲。"
+  title="Werdz From the Ghetto Child 和訳・意味・スラング解説 | Gang Starr feat. Smiley the Ghetto Child"
+  description="Gang Starr feat. Smiley the Ghetto Childの「Werdz From the Ghetto Child」を英語学習＋ヒップホップ理解の教材として精読。O.G.・the hood・gangsta lean・fall off・bite the dust・dodge a bulletなどのスラング・イディオムとAAVE文法、DJ PremierのCoffee Coldサンプルを表現単位で解説。各表現はPVの該当箇所へ頭出しリンク付き。"
   slug="werdz-from-ghetto-child"
   highlights={[
-    'DJ PremierがGalt MacDermot「Coffee Cold」（1966）をサンプリングした重厚なブームバップ・ビート',
-    'GuruがマイクをGang Starr FoundationのSmiley the Ghetto Childに譲った異色のトラック',
-    '2003年『The Ownerz』収録——Gang Starr最後のスタジオアルバムの一曲',
+    'GuruがマイクをSmiley the Ghetto Childに譲った、約70秒の濃密なインタールード',
+    'O.G.・the hood・gangsta lean・fall off・bite the dust・dodge a bullet——ストリートの生きた語彙とイディオムを「学ぶ表現」単位で解説（PV頭出しリンク付き）',
+    'DJ Premierが何度も掘ったGalt MacDermot「Coffee Cold」(1966)。プリモ印のジャジーなループ',
   ]}
   youtubeId="oT6GbzXTC_o"
-  sampleYoutubeId=""
-  sampleTitle=""
 >
 
-    <!-- この曲の意味 -->
+    <!-- ===================== -->
+    <!-- 導入                  -->
+    <!-- ===================== -->
     <section class="mb-6">
-      <h2 class="text-base font-semibold mb-2">■この曲の意味（要約）</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">ゲットーで生きる若者の現実——ドラッグ経済、暴力、生存の論理——を、容赦ない一人称で切り取った一曲。「O.G.（オリジナル・ギャングスター）」として培った処世術と、それでも消えない死の影。Gang Starrがゲットーチャイルドたちに届けた「真実の言葉（werdz）」であり、ブームバップの硬派な美学が凝縮されている。</p>
+      <h2 class="text-base font-semibold mb-2">■約70秒に凝縮された、ストリートの一人語り</h2>
+      <p class="text-sm text-[var(--c-muted)] leading-relaxed">
+        タイトルの <strong class="text-[var(--c-text)]">Werdz</strong> は、<strong class="text-[var(--c-text)]">Words（言葉）</strong>をわざと崩した綴り。「ゲットーの子（the ghetto child）からの言葉」という意味です。この曲が面白いのは、<strong class="text-[var(--c-text)]">Gang Starr（ギャング・スター）</strong>の曲なのに、いつものMC <strong class="text-[var(--c-text)]">Guru（グールー）</strong>がほとんどマイクを握らないこと。プロデューサーの <strong class="text-[var(--c-text)]">DJ Premier（DJプレミア）</strong>と Guru が、Gang Starr Foundation（彼らの一派）の若手 <strong class="text-[var(--c-text)]">Smiley the Ghetto Child（スマイリー・ザ・ゲットー・チャイルド）</strong>にヴァースを丸ごと預けた、約70秒のインタールード（幕間）的な一曲なんです。短いぶん中身は濃密で、<strong class="text-[var(--c-text)]">ストリートの生きた語彙とイディオムが凝縮</strong>されている。短い曲だからこそ、一語ずつ味わうのにちょうどいい教材です。
+      </p>
     </section>
 
-    <!-- 概要 -->
     <section class="mb-6">
-      <h2 class="text-base font-semibold mb-2">■概要</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">2003年アルバム『The Ownerz』（Gang Starr最後のスタジオ作）収録。プロデュースはDJ Premier。Galt MacDermot「Coffee Cold」（1966）をサンプリングした重厚なビートが土台。本曲ではGuruがマイクを退き、Gang Starr FoundationのSmiley the Ghetto Childが主役としてラップする。曲名の「Ghetto Child」はSmileyの名義そのものに由来する。プロデューサーとラッパーの対話形式で、ゲットーの現実をリアルに刻んだ一曲。</p>
-    </section>
-
-    <!-- 導入 -->
-    <section class="mb-10">
-      <h2 class="text-base font-semibold mb-2">■導入（時代背景）</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">2003年、ヒップホップはサウスやクランクが台頭し、90年代型イーストコースト・ブームバップは商業的に逆風の時代に入っていた。そんな中でGang Starrは『The Ownerz』で一貫して硬派なストリート・ラップを貫いた。本曲ではGuruが自ら主役を退き、Gang Starr Foundationの若手Smiley the Ghetto Childにマイクを託す。ゲットーで生きる若者の論理と危険を、当事者の声でビートに乗せて描写した一曲だ。</p>
+      <h2 class="text-base font-semibold mb-2">■プリモが何度も掘った「Coffee Cold」</h2>
+      <p class="text-sm text-[var(--c-muted)] leading-relaxed">
+        2003年のアルバム『The Ownerz』収録。冒頭は、Premier（Preem'）と Smiley の<strong class="text-[var(--c-text)]">短い掛け合い（スキット）</strong>から始まります。「まだあのヤバいこと（＝危ない稼業）に手を出してるのか？」とプリモが問い、Smiley がやり返す——その緊張感のある会話から、彼が背負っているものが滲む。そしてビートは、<strong class="text-[var(--c-text)]">Galt MacDermot（ゴルト・マクダーモット）の「Coffee Cold」(1966)</strong>。ミュージカル『ヘアー』の作曲家としても知られる彼のこの曲は、DJ Premier が何度も立ち返ってきた愛しのネタで、ジャジーで物憂げなピアノが Smiley の語りにぴたりと寄り添います。短くても、プリモ印の質感はまったく薄まっていません。
+      </p>
     </section>
 
     <!-- Table of Contents -->
     <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
       <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
       <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
-        <li><a href="#lyrics" class="hover:text-[var(--c-gold)] transition-colors">01 — 歌詞和訳と意味解説</a></li>
-        <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">02 — 文化的背景</a></li>
-        <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">03 — 制作の裏側</a></li>
-        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">04 — 評価とレガシー</a></li>
+        <li><a href="#story" class="hover:text-[var(--c-gold)] transition-colors">01 — ストーリーの流れ（まず曲全体をつかむ）</a></li>
+        <li><a href="#units" class="hover:text-[var(--c-gold)] transition-colors">02 — 学ぶ表現（スラング・イディオム・AAVE）</a></li>
+        <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">03 — 文化的背景</a></li>
+        <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">04 — サンプル・制作の裏側</a></li>
+        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">05 — 評価とその後の影響</a></li>
       </ol>
     </nav>
 
-    <div id="lyrics"></div>
-
     <!-- ===================== -->
-    <!-- INTRO DIALOGUE        -->
+    <!-- ストーリー要約         -->
     <!-- ===================== -->
-    <section class="mb-12">
+    <section id="story" class="mb-12">
       <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Intro · Dialogue
+        ストーリーの流れ — まず曲全体をつかむ
       </h2>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          [Smiley] Aiyyo I got the dimes that I get, I got the dimes that I bring<br />
-          [Preem'] Yo, yo yo
-        </Fragment>
-        <Fragment slot="jpn">
-          [スマイリー] 俺が手に入れるダイムも、俺が運ぶダイムも全部わかってる<br />
-          [プレム] よう、よう
-        </Fragment>
-        <Fragment slot="explanation">
-          冒頭はPremierとスマイリーの会話形式のイントロ。「dimes」はここでは麻薬の小口売り（$10ディール）を指し、スマイリーのゲットーでの立ち位置を即座に提示する。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          [Smiley] Yo Preem', what's good?<br />
-          [Preem'] What's good man - you still f**kin' with that s**t son?
-        </Fragment>
-        <Fragment slot="jpn">
-          [スマイリー] よう、プレム、調子どうだ？<br />
-          [プレム] 調子どう？——お前まだそっちの道続けてんのか？
-        </Fragment>
-        <Fragment slot="explanation">
-          PremierがSmileyのストリート生活について問いただす構造。「that s**t」はドラッグ関連の活動を指す。プロデューサーとラッパーの対話形式でゲットーの現実を物語る仕掛け。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          [Smiley] Yo, don't even come at me with that bulls**t man, whassup?<br />
-          [Preem'] I'm sayin' man, you said you was gonna leave this s**t alone
-        </Fragment>
-        <Fragment slot="jpn">
-          [スマイリー] よう、そんなこと言いに来んなよ、どうした？<br />
-          [プレム] だから言ってんだよ、お前はもうやめるって言ってたじゃねえか
-        </Fragment>
-        <Fragment slot="explanation">
-          「bulls**t」は説教や余計な口出しへの反発。ゲットーの若者が抱える矛盾——外から見れば危険な選択でも、本人にとっては生存の必然——が凝縮されたやり取り。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          [Preem'] You still on that bulls**t n***a<br />
-          [Smiley] Son.. SON I'll leave it alone
-        </Fragment>
-        <Fragment slot="jpn">
-          [プレム] お前まだそんなことしてんのかよ<br />
-          [スマイリー] わかった……わかった、やめる
-        </Fragment>
-        <Fragment slot="explanation">
-          「Son」はNYストリートスラングで親しい相手を呼ぶ語（性別問わず使用）。Smileyが口では「やめる」と言いながら、直後のバースで現実を語るという構造上の逆説が効いている。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          [Smiley] When you come and get ready with this music B, what the f**k?<br />
-          [Preem'] I'm sayin' man, who the f**k you think you are man?
-        </Fragment>
-        <Fragment slot="jpn">
-          [スマイリー] いつビートを用意してくれんだよ、何やってんだ？<br />
-          [プレム] 俺が言いたいのはな、お前は自分を何様だと思ってんだ？
-        </Fragment>
-        <Fragment slot="explanation">
-          「B」はNYスラングで「Brotha（兄弟）」の略。音楽への渇望とストリートでの生活を引き裂かれる若者の葛藤が、このイントロ全体を通じて浮かび上がる。
-        </Fragment>
-      </LyricsBlock>
-    </section>
-
-    <!-- ===================== -->
-    <!-- VERSE: SMILEY         -->
-    <!-- ===================== -->
-    <section class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Verse · Smiley
-      </h2>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Yo, yo<br />
-          Yo gangsta gangsta, <QuickSlang word="O.G." desc="Original Gangster。ゲットーで長く生き残った、本物の古参ギャングスターを指す敬称。" />  is what you call me
-        </Fragment>
-        <Fragment slot="jpn">
-          よう、よう<br />
-          ギャングスター・ギャングスター、俺のことはO.G.と呼べ
-        </Fragment>
-        <Fragment slot="explanation">
-          バースの冒頭でSmileyが自分のアイデンティティを宣言。「O.G.（Original Gangster）」は単なる自慢ではなく、ゲットーで生き延びてきた経験の証し。このポジションは死と隣り合わせで得るものだった。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          It's like my life is like a never-endin' drug story<br />
-          Make coke, expand, yo you know who I am
-        </Fragment>
-        <Fragment slot="jpn">
-          俺の人生は終わりのないドラッグストーリーみたいなもの<br />
-          コカインを扱い、縄張りを広げる——俺が何者か、わかるだろ
-        </Fragment>
-        <Fragment slot="explanation">
-          「never-endin' drug story」は映画『スカーフェイス』（1983）的なコカイン経済の宿命を示唆。ゲットーにおけるドラッグトレードは「選択」ではなく「構造的必然」として描かれる。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Death percentages rises in the hood like grams<br />
-          Who done it and ran, who <QuickSlang word="blammed" desc="銃撃した、殺したという意味のNYスラング。「blam」は銃声の擬音から派生。" /> on my fam'
-        </Fragment>
-        <Fragment slot="jpn">
-          フッドでは死の確率がグラムのように積み上がっていく<br />
-          誰がやって逃げた、誰が俺の身内を撃った
-        </Fragment>
-        <Fragment slot="explanation">
-          「grams」はコカインの計量単位と死者数を重ね合わせた二重の意味。「who blammed on my fam'」は報復の連鎖を示す。ゲットーで「family（身内）」への暴力は即座に復讐義務を生んだ。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Out the window every night, deadly intentions man<br />
-          Cocked back and ready to fire, hit man for hire
-        </Fragment>
-        <Fragment slot="jpn">
-          毎晩窓から外を眺め、殺意を抱えて<br />
-          撃鉄を起こして引き金を引く準備、雇われた殺し屋
-        </Fragment>
-        <Fragment slot="explanation">
-          「cocked back」は拳銃のハンマーを起こした状態——常に戦闘態勢にある生活の比喩。「hit man for hire」は金のために暴力を引き受けるゲットー経済の一形態。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          And f**k politicians, nothin' but liars<br />
-          As I build my <QuickSlang word="cream" desc="Cash Rules Everything Around Me（金が全てを支配する）の略。Wu-Tang Clan「C.R.E.A.M.」で有名になったスラング。" />, with self esteem
-        </Fragment>
-        <Fragment slot="jpn">
-          政治家はクソくらえ、嘘つきしかいない<br />
-          俺は自尊心を持ちながら金を積み上げていく
-        </Fragment>
-        <Fragment slot="explanation">
-          政治家への不信感はゲットーコミュニティに根強く共有されてきた感情。制度から見放されたという絶望。「cream with self esteem」はストリートで稼ぎながら尊厳を失わないというバランスの追求。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          But drink the water from the streams, of <QuickSlang word="gangsta lean" desc="ギャングスタ特有のリラックスした前傾姿勢、またはギャングスタ的なライフスタイルへの傾倒を指す。" /><br />
-          To keep food on my plate, stick a MAC to your face
-        </Fragment>
-        <Fragment slot="jpn">
-          でもギャングスタな流儀の水を飲み続けて<br />
-          飯を食い続けるために、お前の顔にMACを突きつける
-        </Fragment>
-        <Fragment slot="explanation">
-          「gangsta lean」はギャングスタ文化への没入を暗示。「MAC」はMAC-10サブマシンガンを指す。「food on my plate（食卓に食べ物を置く）」は生存の基本として暴力を正当化する論理——ゲットー経済の冷徹な現実。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          So I never have to fall off, so you can never underrate<br />
-          Force pressure, is the techniques of real men
-        </Fragment>
-        <Fragment slot="jpn">
-          だから絶対に落ちぶれない、お前には俺を軽く見ることはできない<br />
-          力で圧力をかけることが、本物の男のやり方だ
-        </Fragment>
-        <Fragment slot="explanation">
-          「fall off」はストリートでの地位や評判を失うこと。ゲットーでは「underrated（過小評価）」されることは命取りになりうる。「force pressure」はギャングスタリズムの中核的な論理——力による尊重の獲得。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          So when you slam the doors, we still get in<br />
-          It's like demons when, what you fight that you can't see'll
-        </Fragment>
-        <Fragment slot="jpn">
-          だからドアを叩き閉められても、俺たちは入っていく<br />
-          見えないものと戦うのは、まるで悪魔と戦うようなもの
-        </Fragment>
-        <Fragment slot="explanation">
-          「slam the doors」は社会制度からの排除（雇用・教育・住居等）の比喩。システムに閉め出されても突破するという意志。「demons you can't see」は制度的差別・見えない抑圧を霊的な言語で表現したもの。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Come out your buildin', and get shot drastically<br />
-          The way of the world, <QuickSlang word="n***as" desc="アフリカ系アメリカ人コミュニティ内での「仲間」「同士」を意味する語。コミュニティ外部からの使用は不適切。" /> <QuickSlang word="fiendin'" desc="何かを強烈に欲している状態。薬物への渇望から転じて、強い欲求・執着全般を指す。" /> to pull it
-        </Fragment>
-        <Fragment slot="jpn">
-          建物から出てきたら、容赦なく撃たれる<br />
-          この世の道理——みんな引き金を引こうと渇望している
-        </Fragment>
-        <Fragment slot="explanation">
-          「come out your buildin'」はゲットーのアパートから街に出るという日常的な行動が、死と隣り合わせであることを示す。「fiendin' to pull it」は暴力への衝動が蔓延したコミュニティの病理。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          You either bite the dust, or just dodge that bullet
-        </Fragment>
-        <Fragment slot="jpn">
-          倒れて死ぬか、銃弾をかわすか——それだけだ
-        </Fragment>
-        <Fragment slot="explanation">
-          曲の締めくくりとなる究極の二項対立。「bite the dust（砂を噛む＝死ぬ）」か「dodge the bullet（銃弾をかわす＝生き延びる）」か。ゲットーチャイルドたちへの「werdz（言葉）」の核心——生か死か、その二択の現実を突きつける。
-        </Fragment>
-      </LyricsBlock>
-    </section>
-
-    <!-- ===================== -->
-    <!-- BACKGROUND            -->
-    <!-- ===================== -->
-    <div id="background"></div>
-    <section class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Cultural Context · 文化的背景
-      </h2>
+      <p class="text-xs text-[var(--c-dim)] mb-5">
+        短い曲なので構成はシンプル。スキット（会話）→ Smiley のワンヴァース、それだけです。だからこそ、その一本のヴァースに何が詰め込まれているかを、先にざっと押さえておきましょう。
+      </p>
       <div class="space-y-4 text-sm text-[var(--c-muted)] leading-relaxed">
-        <p>レーガン政権以降の格差拡大とコカイン・クラックの蔓延が残した傷は、2000年代に入ってもニューヨークのゲットー——ブルックリン、ハーレム、サウス・ブロンクス——に色濃く残っていた。暴力と貧困の中で育った「ゲットーチャイルド（ghetto child）」と呼ばれる世代の現実を、この曲は当事者の声で描く。</p>
-        <p>Gang Starrはこの現実に対して説教や批判ではなく、一人称の語りで内側から描写するアプローチを取った。「werdz（words/言葉）」というタイトルが示すように、この曲はゲットーで生きる者だけが知る「真実の言葉」を届けることを使命としていた。語り手をGuru自身ではなく、実際にその世界を生きるSmiley the Ghetto Childに委ねた点が象徴的だ。</p>
-        <p>2003年当時、サウスのクランクやコマーシャルなヒップホップが主流化する中で、Gang Starrは硬質でリアリスティックな視点を最後まで崩さなかった。この姿勢はMobb Deep、Nas、Wu-Tang Clanと共有された、「リアル」を核心に据えたイーストコースト・ブームバップの系譜そのものである。</p>
+        <p>
+          まず<strong class="text-[var(--c-text)]">イントロのスキット</strong>。DJ Premier が「お前、まだあの稼業に手を染めてるのか」と Smiley を案じ、Smiley が「音楽の準備ができたら足を洗うさ」と返す。短いやり取りですが、<strong class="text-[var(--c-text)]">危ない世界と音楽のあいだで揺れる若者</strong>という、この曲の立ち位置がここで提示されます。
+        </p>
+        <p>
+          続く <strong class="text-[var(--c-text)]">Smiley のヴァース</strong>が本体。自らを <strong class="text-[var(--c-text)]">O.G.</strong>（古参のギャングスタ）と名乗り、「俺の人生は終わりのないドラッグ・ストーリーだ」と language する。麻薬の稼ぎ、銃、政治家への不信、そして自尊心（self esteem）を保ちながら稼ぎを積み上げていく——<strong class="text-[var(--c-text)]">ゲットーで生き延びる者の現実</strong>が、淡々と、しかし切実に語られていきます。
+        </p>
+        <p>
+          締めは「お前は野垂れ死ぬ（bite the dust）か、弾をかわす（dodge that bullet）かのどちらかだ」という一行。<strong class="text-[var(--c-text)]">生きるか死ぬかの二択</strong>を突きつけて、わずか70秒の語りを閉じる。短編小説のような密度で、ゲットーの一人称をまるごと差し出してくる——そんな一曲です。
+        </p>
+        <p class="text-xs text-[var(--c-dim)]">
+          ※本ページは批評・教育目的で、解説に必要な範囲の断片のみを引用しています。全歌詞の対訳は掲載していません。
+        </p>
       </div>
     </section>
 
     <!-- ===================== -->
-    <!-- BEHIND THE TRACK      -->
+    <!-- 学習ユニット群         -->
     <!-- ===================== -->
-    <div id="behind"></div>
+    <div id="units"></div>
     <section class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Behind the Track · 制作の裏側
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2 border-b border-[var(--c-border)] pb-2">
+        学ぶ表現 — スラング・イディオム・AAVE
       </h2>
-      <div class="space-y-4 text-sm text-[var(--c-muted)] leading-relaxed">
-        <p><strong>サンプリング：</strong>DJ PremierはこのトラックでGalt MacDermot「Coffee Cold」（1966）をサンプリングしている。ミュージカル『Hair』の作曲家として知られるMacDermotのインストは、その重く沈んだムードがブームバップ素材として度々引用されてきた名曲。Premierはそこから抽出した素材を刻み直し、ゲットーの緊張感を映すダークなビートに仕立てた。</p>
-        <p><strong>曲名の由来：</strong>「Ghetto Child」は客演ラッパーSmiley the Ghetto Childの名義そのものに由来する。Guruがマイクを退いてGang Starr Foundationの若手に主役を譲るという構成自体が、曲名と直結している。</p>
-        <p><strong>ボーカルスクラッチ：</strong>DJ Premierは随所にスクラッチを織り込み、楽曲のテーマと音を一致させる緻密な設計を施している。Guru不在のバースでも、PremierのターンテーブルワークがGang Starrとしての一貫したサウンドを保証している。</p>
-        <p><strong>BPM約93：</strong>ミッドテンポのグルーヴは聴き手に歌詞をじっくり咀嚼させるための意図的な選択。速すぎず遅すぎず、頭を縦に振りながらリリックを追える理想的な「ブームバップ速度」。</p>
+      <p class="text-xs text-[var(--c-dim)] mb-6">
+        各見出しは「この曲から学べる英語表現」。各ユニットはまず上に英語の用例（1〜2行）を置いてあります。<strong class="text-[var(--c-text)]">先に英語を音で追い、行のどこが学習対象かを確かめてから</strong>下の日本語解説に進むと、英語が苦手でも置いていかれません。🎤はそのリリックを歌うMC、▶は公式PVの該当箇所への頭出しリンク（音源解析で付与、秒数は概算）です。引用は解説に必要な最小限の断片だけに留めています。
+      </p>
+
+      <!-- ① O.G. -->
+      <LearningUnit
+        heading="O.G. is what you call me — 「古参」を表す O.G."
+        label="★ スラング"
+        mc="Smiley the Ghetto Child（Verse）"
+        t={TS["og"].t} tApprox={TS["og"].approx} youtubeId={YT}
+      >
+        <Fragment slot="eng">Yo gangsta gangsta, O.G. is what you call me</Fragment>
+        <Fragment slot="jpn">よう、ギャングスタ、ギャングスタ、O.G.、それが俺の呼び名だ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 ヴァースの冒頭、Smileyが自己紹介として名乗る件。</p>
+        <p><strong class="text-[var(--c-text)]">O.G.</strong> は <strong class="text-[var(--c-text)]">Original Gangster</strong> の略。文字どおりには「元祖ギャングスタ」ですが、転じて「<strong class="text-[var(--c-text)]">その道の古参・ベテラン・本物</strong>」を指す敬称として広く使われます。Ice-Tの同名アルバム（1991）で一気に定着した語で、今では犯罪と無関係な文脈でも「<strong class="text-[var(--c-text)]">筋金入りの、年季の入った</strong>」という褒め言葉として使われる（<em>He's an O.G. in this business</em>＝彼はこの業界の古株だ）。<code>O.G. is what you call me</code> は、強調のために <strong class="text-[var(--c-text)]">補語を文頭に出した倒置</strong>＝「O.G.、それが俺の呼び名だ」。<em>You call me O.G.</em> を並べ替えて、まず「O.G.」を耳に焼き付ける狙いです。冒頭の一語で、語り手の立ち位置を一発で提示しています。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">O.G.</strong>（Original Gangster）は「古参・ベテラン・本物」。ストリート外でも <em>an OG move</em>（年季の入った／本格的なやり方）のように、敬意をこめた「筋金入りの」の意で広く使われる。今や日常語に近い。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ② never-endin' drug story -->
+      <LearningUnit
+        heading="my life is like a never-endin' drug story — 直喩で人生を語る"
+        label="★ 直喩"
+        mc="Smiley the Ghetto Child（Verse）"
+        t={TS["drug-story"].t} tApprox={TS["drug-story"].approx} youtubeId={YT}
+      >
+        <Fragment slot="eng">It's like my life is like a never-endin' drug story</Fragment>
+        <Fragment slot="jpn">俺の人生はまるで、終わりのないドラッグ・ストーリーみたいだ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 ヴァース前半、Smileyが自分の人生を一言でたとえる件。</p>
+        <p><strong class="text-[var(--c-text)]">like ～</strong>（〜のようだ）を使った直喩。注目は <strong class="text-[var(--c-text)]">never-endin'</strong>（終わりのない＝<em>never-ending</em> の g 脱落）という形容詞の作り方です。<code>never + 動詞-ing</code> で「決して〜しない（性質の）」を表す複合形容詞になり、<em>a never-ending story</em>（終わらない物語）、<em>a never-changing routine</em>（変わらない日課）のように使えます。「俺の人生は、終わりのないドラッグ・ストーリーみたいだ」——抜け出したくても抜け出せない反復を、<strong class="text-[var(--c-text)]">"物語（story）"という比喩</strong>で突き放して語る。<code>It's like ... is like</code> と like が重なっているのは口語の崩れで、強調のニュアンス。short な一行に、人生まるごとが畳み込まれています。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">never-ending</strong> のような <code>never + V-ing</code> の複合形容詞は便利: <em>never-ending</em>（終わらない）、<em>never-failing</em>（決して失敗しない）、<em>a never-say-die attitude</em>（決して諦めない態度）。名詞の前に置いて修飾する。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ③ rises in the hood / AAVE -->
+      <LearningUnit
+        heading="Death percentages rises in the hood — AAVEの主述と the hood"
+        label="★ AAVE文法／スラング"
+        mc="Smiley the Ghetto Child（Verse）"
+        t={TS["rises-grams"].t} tApprox={TS["rises-grams"].approx} youtubeId={YT}
+      >
+        <Fragment slot="eng">Death percentages rises in the hood like grams</Fragment>
+        <Fragment slot="jpn">死亡率がフッド（the hood）で上がっていく、グラム（grams）みたいに</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 ヴァース前半、Smileyが地元の厳しい現実を描く件。</p>
+        <p>まず文法。<strong class="text-[var(--c-text)]">percentages rises</strong> ——主語が複数（percentages）なのに動詞が <strong class="text-[var(--c-text)]">rises</strong>。標準英語なら <em>percentages rise</em> ですが、<strong class="text-[var(--c-text)]">AAVEでは主語と動詞の数の一致が標準英語と違う形になることがある</strong>。崩れというより、別の規則性として聞き流せると読みやすくなります。語彙では <strong class="text-[var(--c-text)]">the hood</strong>＝「<strong class="text-[var(--c-text)]">フッド・地元の貧困地区</strong>」（<em>neighborhood</em> の略）。<QuickSlang word="the hood" desc="neighborhood（近所）の略で、特に黒人が多く住むインナーシティの貧困地区を指す。ヒップホップ最頻出語のひとつ" />は、ヒップホップで最も出てくる場所の語のひとつです。行末の <strong class="text-[var(--c-text)]">like grams</strong>（グラムのように）は薬物の重さの単位を使った直喩で、「死亡率が、麻薬のグラム数のように上がっていく」と、地元の厳しさを淡々と突きつけてくる。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">the hood</strong>（=neighborhood）は「地元・地区」、特にインナーシティの貧困コミュニティ。<em>back in the hood</em>（地元では）、<em>hood politics</em>（地元の事情）のように使う。<em>from the hood</em> は「叩き上げ」のニュアンスを帯びる。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ④ build my cream -->
+      <LearningUnit
+        heading="build my cream, with self esteem — 「稼ぎを積む」と内韻"
+        label="★ スラング／韻"
+        mc="Smiley the Ghetto Child（Verse）"
+        t={TS["build-cream"].t} tApprox={TS["build-cream"].approx} youtubeId={YT}
+      >
+        <Fragment slot="eng">As I build my cream, with self esteem</Fragment>
+        <Fragment slot="jpn">自尊心（self esteem）とともに、稼ぎ（cream）を積み上げながら</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 ヴァース中盤、Smileyが稼ぎと誇りを並べて語る件。</p>
+        <p>ここでの <strong class="text-[var(--c-text)]">cream</strong> は乳製品ではなく、<strong class="text-[var(--c-text)]">「現金・稼ぎ」を指すスラング</strong>（Wu-Tangの "C.R.E.A.M." で広まった用法で、Cash の言い換え）。動詞 <strong class="text-[var(--c-text)]">build</strong>（築く・積み上げる）と合わせて、<em>build my cream</em>＝「稼ぎを積み上げる」。注目はそのすぐ後ろ、<strong class="text-[var(--c-text)]">cream</strong> と <strong class="text-[var(--c-text)]">self esteem</strong>（自尊心）で<strong class="text-[var(--c-text)]">韻を踏んでいる</strong>こと。お金（cream）と誇り（esteem）——本来は別物の二語を、音でぴたりと並べることで、「金を積むことと、自分を保つことが同じ行為だ」という Smiley の価値観がそのまま響きになっている。<strong class="text-[var(--c-text)]">韻が意味を運ぶ</strong>、ヒップホップらしい一行です。</p>
+      </LearningUnit>
+
+      <!-- ⑤ gangsta lean -->
+      <LearningUnit
+        heading="gangsta lean — 車にもたれる「あの姿勢」"
+        label="★ スラング（文化）"
+        mc="Smiley the Ghetto Child（Verse）"
+        t={TS["gangsta-lean"].t} tApprox={TS["gangsta-lean"].approx} youtubeId={YT}
+      >
+        <Fragment slot="eng">But drink the water from the streams, of gangsta lean</Fragment>
+        <Fragment slot="jpn">だが俺は、ギャングスタ・リーン（gangsta lean）の流れから水を飲む</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 ヴァース中盤、Smileyが自分の生き方を比喩で語る件。</p>
+        <p><strong class="text-[var(--c-text)]">gangsta lean</strong> は、<strong class="text-[var(--c-text)]">運転席で片側にぐっともたれかかる、あの斜めの姿勢</strong>のこと。ローライダー文化やギャングスタ・ラップの象徴的なポーズで、「リラックスして余裕をかましている態度」そのものを指す言葉です。<strong class="text-[var(--c-text)]">lean</strong> は動詞・名詞で「もたれる・傾き」。「<em>drink the water from the streams of gangsta lean</em>（ギャングスタ・リーンの流れから水を飲む）」は、<strong class="text-[var(--c-text)]">その生き方・美学を自分の血肉にしている</strong>という比喩。直前の <code>streams</code>（流れ）と <code>lean</code> でここでも韻を踏んでいる。文化的な背景（車・姿勢・態度）を知らないと、辞書だけでは絶対に届かない一語です。</p>
+      </LearningUnit>
+
+      <!-- ⑥ food on my plate -->
+      <LearningUnit
+        heading="keep food on my plate — 「食べていく」のイディオム"
+        label="★ イディオム"
+        mc="Smiley the Ghetto Child（Verse）"
+        t={TS["food-plate"].t} tApprox={TS["food-plate"].approx} youtubeId={YT}
+      >
+        <Fragment slot="eng">To keep food on my plate, stick a MAC to your face</Fragment>
+        <Fragment slot="jpn">自分の皿に食い物を絶やさないために（食べていくために）、お前の顔にMAC（銃）を突きつける</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 ヴァース中盤、Smileyが生きるための切実さを語る件。学習対象は上の前半。</p>
+        <p>前半の <strong class="text-[var(--c-text)]">keep food on my plate</strong> が学習ポイント。<strong class="text-[var(--c-text)]">put / keep food on the table（plate）</strong> は「<strong class="text-[var(--c-text)]">家族を養う・食べていく・生計を立てる</strong>」を表す定番イディオムです。テーブル（皿）に食べ物を載せ続ける＝暮らしを成り立たせる、という生活実感そのままの比喩。<em>I work two jobs to put food on the table</em>（食べていくために掛け持ちしている）のように、ごく普通の日常会話で使われます。ここでは「食べていくため」という切実な動機が、後半の物騒な行動（<code>stick a MAC to your face</code>＝MAC銃を顔に突きつける／<strong class="text-[var(--c-text)]">MAC</strong> は MAC-10 等の短機関銃のスラング）と直結している。<strong class="text-[var(--c-text)]">生存と暴力が地続きになった世界</strong>を、この対比が一行で描いています。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">put / keep food on the table</strong> は「家族を養う・生計を立てる」。<em>He'll do anything to put food on the table</em>（食べていくためなら何でもする）。生活のための労働・苦労を語る場面の定番イディオム。table の代わりに plate も使う。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑦ fall off / underrate -->
+      <LearningUnit
+        heading="never fall off, never underrate — 「落ちぶれる」の fall off"
+        label="★ スラング／語彙"
+        mc="Smiley the Ghetto Child（Verse）"
+        t={TS["underrate"].t} tApprox={TS["underrate"].approx} youtubeId={YT}
+      >
+        <Fragment slot="eng">So I never have to fall off, so you can never underrate</Fragment>
+        <Fragment slot="jpn">俺が落ちぶれず（fall off）に済むように、お前が決して見くびれない（underrate）ように</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 ヴァース中盤、Smileyが踏ん張る理由を語る件。</p>
+        <p>句動詞 <strong class="text-[var(--c-text)]">fall off</strong> が学習ポイント。文字どおりは「落ちる」ですが、ヒップホップでは「<strong class="text-[var(--c-text)]">人気・実力・地位が落ちる、落ちぶれる、勢いを失う</strong>」というスラングで頻出します（<em>That rapper fell off after his second album</em>＝あのラッパーは2枚目以降ぱっとしなくなった）。<code>never have to fall off</code>＝「絶対に落ちぶれずに済むように」。続く <strong class="text-[var(--c-text)]">underrate</strong>（過小評価する・見くびる）と合わせて、「落ちぶれない＝見くびられない」という、<strong class="text-[var(--c-text)]">ストリートで価値を保ち続けることへの執念</strong>を語っている。<code>fall off</code> と <code>underrate</code>、どちらも"評価・地位"に関わる語で、地続きの意味として一緒に覚えると効きます。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">fall off</strong>（スラング）は「人気・質・地位が落ちる」。アーティストやブランドが勢いを失うときに使う（<em>The brand has fallen off lately</em>）。反対に勢いに乗るのは <em>blow up</em>（ブレイクする）、<em>pop off</em>（爆発的に売れる）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑧ slam the doors -->
+      <LearningUnit
+        heading="when you slam the doors, we still get in — 締め出しと粘り"
+        label="★ 比喩／イディオム"
+        mc="Smiley the Ghetto Child（Verse）"
+        t={TS["slam-doors"].t} tApprox={TS["slam-doors"].approx} youtubeId={YT}
+      >
+        <Fragment slot="eng">So when you slam the doors, we still get in</Fragment>
+        <Fragment slot="jpn">だからお前がドアを叩きつけて閉めても、俺たちはそれでも入り込む</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 ヴァース後半、Smileyが排除に抗う姿勢を語る件。</p>
+        <p><strong class="text-[var(--c-text)]">slam the door (on ~)</strong> は「<strong class="text-[var(--c-text)]">ドアを（音を立てて）閉める</strong>」が文字どおりの意味ですが、比喩で「<strong class="text-[var(--c-text)]">（人・機会を）締め出す・拒絶する</strong>」を表す定番イディオムでもあります（<em>slam the door on negotiations</em>＝交渉を打ち切る）。ここでは「お前がドアを閉めて締め出しても（slam the doors）、俺たちはそれでも入り込む（we still get in）」。社会から何度排除されても、<strong class="text-[var(--c-text)]">なんとか道をこじ開けて生き残る</strong>という、ゲットーの粘り強さ・しぶとさを表す比喩です。<code>still</code>（それでもなお）が効いていて、抑圧と抵抗の関係が、ドアという身近なイメージで鮮やかに描かれている。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">slam the door on ~</strong> は「〜を締め出す・きっぱり拒む・可能性を断つ」。<em>Don't slam the door on new ideas</em>（新しい案を頭から拒むな）。物理的な「ドアをバタンと閉める」から比喩へ広がったイディオム。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑨ bite the dust / dodge a bullet -->
+      <LearningUnit
+        heading="bite the dust, or dodge that bullet — 二つの名イディオムで締める"
+        label="★ イディオム（最重要）"
+        mc="Smiley the Ghetto Child（Verse）"
+        t={TS["bite-dust"].t} tApprox={TS["bite-dust"].approx} youtubeId={YT}
+      >
+        <Fragment slot="eng">You either bite the dust, or just dodge that bullet</Fragment>
+        <Fragment slot="jpn">お前は野垂れ死ぬ（bite the dust）か、その弾をかわす（dodge that bullet）か、どちらかだ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 ヴァースの締め、Smileyが生死の二択を突きつけて曲を閉じる件。</p>
+        <p>締めにふさわしく、<strong class="text-[var(--c-text)]">有名イディオムが2つ</strong>並びます。<strong class="text-[var(--c-text)]">bite the dust</strong>＝「<strong class="text-[var(--c-text)]">倒れる・死ぬ・くたばる・失敗して終わる</strong>」。土（dust）を噛む＝地面に倒れ伏すイメージで、Queen の名曲 "Another One Bites the Dust" でも有名な表現です。対する <strong class="text-[var(--c-text)]">dodge a bullet</strong>＝「<strong class="text-[var(--c-text)]">弾をかわす＝危機一髪で難を逃れる</strong>」。文字どおり銃弾を避ける意味にも、比喩で「やばい事態をすんでのところで回避する」意味にも使う（<em>I dodged a bullet by not signing that deal</em>＝あの契約をしなくて命拾いした）。<strong class="text-[var(--c-text)]">either A or B</strong>（AかBのどちらか）の形で「死ぬか、生き延びるか」の二択を突きつけ、わずか70秒の語りを鮮やかに閉じる。どちらも日常会話で本当によく使う、覚えて損のないイディオムです。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">bite the dust</strong>「（人が）死ぬ・倒れる／（物が）壊れる・ダメになる」。<em>My old laptop finally bit the dust</em>（古いノートPCがついに壊れた）のように、物の故障にも使える。</p>
+          <p><strong class="text-[var(--c-text)]">dodge a bullet</strong>「危機一髪で難を逃れる・命拾いする」。実際の銃弾だけでなく、トラブル・悪い結果を回避したときの定番表現。<em>That was close — we dodged a bullet</em>（危なかった、ギリギリ助かった）。</p>
+        </Fragment>
+      </LearningUnit>
+    </section>
+
+    <!-- ===================== -->
+    <!-- 文化的背景             -->
+    <!-- ===================== -->
+    <section id="background" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        文化的背景
+      </h2>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">Gang Starr Foundation</p>
+        <h3 class="font-semibold text-base mb-3">後輩にマイクを託す、クルーの流儀</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          Gang Starr（GuruとDJ Premier）は、自分たちの周りに <strong class="text-[var(--c-text)]">Gang Starr Foundation</strong> という一派（Jeru the Damaja、Group Home、Big Shug ら）を抱えていた。この「Werdz From the Ghetto Child」で Guru がマイクを <strong class="text-[var(--c-text)]">Smiley the Ghetto Child</strong> に丸ごと譲ったのは、<strong class="text-[var(--c-text)]">後輩を世に出す</strong>という、彼らの面倒見のよさの表れだ。自分のアルバムの貴重な一曲を若手のショーケースに使う——ヒップホップにおける"クルー（仲間集団）"が、どう才能を受け継いでいくかが垣間見える一曲です。
+        </p>
+      </div>
+
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">キーワード早見表</p>
+        <h3 class="font-semibold text-base mb-3">この曲で学んだ表現の整理</h3>
+        <div class="space-y-3 mt-3">
+          {[
+            ['O.G.', 'Original Gangster＝古参・ベテラン・本物'],
+            ['the hood', 'フッド・地元の貧困地区（neighborhoodの略）'],
+            ['gangsta lean', '運転席でもたれる斜めの姿勢／余裕の美学'],
+            ['put food on the table', '家族を養う・食べていく（イディオム）'],
+            ['fall off', '落ちぶれる・人気や地位を失う'],
+            ['bite the dust / dodge a bullet', '倒れる・死ぬ／危機一髪で難を逃れる'],
+          ].map(([term, desc]) => (
+            <div class="flex gap-3 text-sm">
+              <span class="text-[var(--c-gold)] shrink-0 font-semibold min-w-[120px]">{term}</span>
+              <span class="text-[var(--c-muted)]">{desc}</span>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
 
     <!-- ===================== -->
-    <!-- LEGACY                -->
+    <!-- サンプル・制作の裏側    -->
     <!-- ===================== -->
-    <div id="legacy"></div>
+    <section id="behind" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        サンプル・制作の裏側
+      </h2>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">サンプル元</p>
+        <h3 class="font-semibold text-base mb-3">プリモの愛奏ネタ — Galt MacDermot「Coffee Cold」(1966)</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          ビートの正体は、<strong class="text-[var(--c-text)]">Galt MacDermot（ゴルト・マクダーモット）の「Coffee Cold」</strong>。アルバム『Shapes of Rhythm』(1966) に収められた、物憂げで都会的なジャズ・インストです（WhoSampled確認）。MacDermot はミュージカル『ヘアー』の作曲家としても知られる人物。この「Coffee Cold」は <strong class="text-[var(--c-text)]">DJ Premier が何度も立ち返ってきた偏愛のネタ</strong>で、彼の手にかかると、原曲のメランコリーがそのまま"街の哀愁"へと translate される。短いインタールードでも、サンプル選びとループの質感に一切の妥協がないのが、いかにもプリモらしい。
+        </p>
+      </div>
+
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">構成の妙</p>
+        <h3 class="font-semibold text-base mb-3">スキット＋ワンヴァースという最小構成</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          この曲は、フックもなければ複数ヴァースもない。<strong class="text-[var(--c-text)]">短い会話と、一本のヴァースだけ</strong>で出来ている。アルバムの中では幕間のような扱いですが、だからこそ <strong class="text-[var(--c-text)]">Smiley の語りだけに集中できる</strong>。冗長な装飾を削ぎ落として、若いMCの声と言葉をまっすぐ差し出す——この潔い最小構成が、かえって一語一語の重みを際立たせています。学習者にとっても、短くて完結しているぶん、繰り返し聴いて細部を拾うのに向いた一曲です。
+        </p>
+      </div>
+    </section>
+
+    <!-- ===================== -->
+    <!-- 評価と影響             -->
+    <!-- ===================== -->
+    <section id="legacy" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        評価とその後の影響
+      </h2>
+
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg mb-6">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">位置づけ</p>
+        <h3 class="font-semibold text-base mb-3">ラスト・アルバムに刻まれた後輩の声</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          『The Ownerz』(2003) は、結果的に Guru の生前に出た <strong class="text-[var(--c-text)]">最後の Gang Starr アルバム</strong>となった。その一枚に、自分たちではなく後輩 Smiley の声を刻んだこの曲は、<strong class="text-[var(--c-text)]">Gang Starr の"育てる"姿勢</strong>を象徴する小品として、コアなファンに記憶されている。派手な代表曲ではないけれど、彼らのクルー精神が静かに滲む一曲です。
+        </p>
+      </div>
+
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">学習素材としての価値</p>
+        <h3 class="font-semibold text-base mb-3">短いのに"使える表現"が満載</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          わずか70秒ですが、拾える表現の密度は高い。<em>O.G.</em>、<em>the hood</em>、<em>fall off</em> といったヒップホップ頻出スラングと、<em>put food on the table</em>、<em>bite the dust</em>、<em>dodge a bullet</em> という<strong class="text-[var(--c-text)]">日常会話でもそのまま使える名イディオム</strong>が同居している。長い曲を一気に聴くのが大変なら、まずこういう短い曲で<strong class="text-[var(--c-text)]">一本を完璧に聴き取る成功体験</strong>を積むのがおすすめです。短さは、初心者にとってはむしろ強みになります。
+        </p>
+      </div>
+    </section>
+
+    <!-- まとめ -->
     <section class="mb-12">
       <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Legacy · 評価とその後の影響
+        まとめ
       </h2>
-      <div class="space-y-4 text-sm text-[var(--c-muted)] leading-relaxed">
-        <p>『The Ownerz』（2003）はGang Starr最後のスタジオアルバムであり、Guruの2010年の死去によって結果的にデュオの遺作となった。「Werdz from Ghetto Child」は、Guruが次世代に光を当てたトラックとして、グループの「Foundation（一門）」を重んじる姿勢を体現している。</p>
-        <p>DJ Premierのプロダクションスタイル——素材の選択・刻み・スクラッチの配置——は90年代を通じて確立され、Nas「N.Y. State of Mind」、Group Home「Supa Star」、Jeru the Damaja作品など無数のブームバップ名曲を生んだ。その美学は2000年代の『The Ownerz』でも一切ぶれていない。</p>
-        <p>日本では、DJ PremierのビートとGuruの知的なラップの組み合わせは90年代初頭からヘッズの間でバイブル的存在だった。MURO、DJ KRUSH、Buddha Brand、Rhymesterなど日本のトラックメイカー・ラッパーへの影響は計り知れない。「リアルであること（keep it real）」の哲学は日本のヒップホップシーンにも深く浸透し、今なお語り継がれている。</p>
-        <p>Gang Starrは2000年代にも複数回来日し、Guruの死後もDJ Premierは単独で来日。Gang Starrの楽曲をプレイするDJセットで日本のファンを魅了し続けている。これらの来日公演は日本ヒップホップ史の伝説的イベントとして記憶されている。</p>
-      </div>
+      <ul class="space-y-2 text-sm text-[var(--c-muted)] list-disc list-inside leading-relaxed">
+        <li>「Werdz From the Ghetto Child」は、GuruがマイクをSmileyに譲った約70秒の濃密なインタールード。</li>
+        <li>O.G.・the hood・gangsta lean・fall off など、ストリートの生きた語彙と、put food on the table・bite the dust・dodge a bulletの名イディオムがまとめて学べる。</li>
+        <li>cream（金）とesteem（誇り）の内韻のように、音で意味を運ぶヒップホップの手法も味わえる。</li>
+        <li>ビートはDJ Premierの偏愛ネタ Galt MacDermot「Coffee Cold」(1966)。短くてもプリモの質感は健在。</li>
+      </ul>
     </section>
 
 </SongLayout>
