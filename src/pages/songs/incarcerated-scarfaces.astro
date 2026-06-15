@@ -1,687 +1,358 @@
 ---
-import LyricsBlock from '../../components/LyricsBlock.astro';
+import LearningUnit from '../../components/LearningUnit.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
 import SongLayout from '../../layouts/SongLayout.astro';
+
+import tsData from '../../../agent/incarcerated-scarfaces/assets/units-timestamps.json';
+const YT = "1ZYau0hJHFk";
+const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.approx }]));
 ---
 
 <SongLayout
   title="Incarcerated Scarfaces 和訳・意味・スラング解説 | Raekwon"
-  description="RaekwonのIncarcerated Scarfacesの歌詞和訳とスラング徹底解説。1995年、Only Built 4 Cuban Linx...収録。RZAプロデュースのブームバップ金字塔をマフィオソ・ラップの視点から読み解く。"
+  description="RaekwonのIncarcerated Scarfacesを英語学習＋ヒップホップ理解の教材として精読。politic（動詞）・black Trump・Wallabees・Shaolin（スタテンアイランド）などWu-Tang固有の語彙とAAVE表現を用例断片と解説で紐解く。"
   slug="incarcerated-scarfaces"
   highlights={[
-    '"incarcerated scarfaces"——夢を持ちながら塀の中に閉じ込められたスカーフェイスたちへ捧げる連帯の言葉',
-    '"Rae\'s a heavy generator, but yo, guess who\'s the black Trump?"——黒人版トランプを自称するRaekwonの野心宣言',
-    '"pardon the French, but let me speak Italian / Black stallions wildling on Shaolin"——スタテンアイランド（Shaolin）をイタリアマフィアの世界に重ねる比喩の妙',
+    '1995年マフィオソ・ラップの頂点——RZAが2つの古典ソウルを張り合わせた怪物ビート',
+    'politic（動詞）・son（動詞）・Five Percent語彙など、Wu-Tang固有の言語を解説',
+    'スタテンアイランド＝Shaolinという符丁とその背景文化',
   ]}
   youtubeId="1ZYau0hJHFk"
 >
 
-  <section class="mb-6">
-    <h2 class="text-base font-semibold mb-2">■この曲の意味（要約）</h2>
-    <p class="text-sm text-[var(--c-muted)] leading-relaxed">映画的なスキットで幕を開け、Raekwonが「incarcerated scarfaces（収監されたスカーフェイスたち）」へ向けて連帯と野望を語る1995年の東海岸ハードコア金字塔。RZAがDetroit Emeraldsのソウルをサンプリングして構築した重厚なブームバップの上で、Raekwonは出世・暴力・貧困・プライドを縦横に展開する。3つのバースはそれぞれスタイルの異なる語り口を持ちながら、「時間は切れていく、だが俺は諦めない」という一貫したテーマで貫かれている。</p>
-  </section>
+    <!-- ===================== -->
+    <!-- 導入                  -->
+    <!-- ===================== -->
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■「投獄されたスカーフェイスたち」へ</h2>
+      <p class="text-sm text-[var(--c-muted)] leading-relaxed">
+        タイトルから既に映像が浮かぶ。1983年の映画『スカーフェイス』——アル・パチーノ演じる移民のドラッグ王ことトニー・モンタナの栄光と転落——を、ニューヨークのストリートに置き換えて複数形にしたのが「Incarcerated Scarfaces（投獄されたスカーフェイスたち）」だ。Raekwonがここで描くのは一人のギャングスターではなく、その運命を辿ったスタテンアイランドの無数の若者たちのこと。この記事は、そのリリックを英語学習とヒップホップ理解の教材として読み解いていきたいと思います。
+      </p>
+    </section>
 
-  <section class="mb-6">
-    <h2 class="text-base font-semibold mb-2">■概要</h2>
-    <p class="text-sm text-[var(--c-muted)] leading-relaxed">1995年8月1日リリースのRaekwonソロデビュー作『Only Built 4 Cuban Linx...』収録。プロデュースはRZA。Detroit Emeraldsの「You're Getting a Little Too Smart」（1973年）をサンプリングし、ミッドテンポ（約87BPM）の不穏でメロウなブームバップビートを構築。Koko Taylor「Wang Dang Doodle」や映画『The Killer（殺し屋）』のセリフも織り込まれている。アルバム全体が映画『スカーフェイス』からインスパイアされたコンセプト作であり、Raekwonは「Lex Diamonds」というペルソナを纏ってマフィア的な世界観を描く。本曲はアルバムの5曲目に収録され、フィルムノワール的なトーンを決定づける重要トラックとして機能する。レーベルはLoud Records / RCA Records。</p>
-  </section>
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■暗号的な言語が密集している</h2>
+      <p class="text-sm text-[var(--c-muted)] leading-relaxed">
+        Raekwonのヴァースには、Wu-Tang Clan特有の<strong class="text-[var(--c-text)]">暗号的な言語</strong>が詰まっている。「politic」を動詞として使う、「son」を動詞にして相手を格下扱いする、スタテンアイランドを「Shaolin（少林）」と呼ぶ——それぞれを知らないと、聴いていても意味が取れない。でも裏返せば、ここを理解できたとき「ああ、あの一行はそういう意味だったのか」という快感がある。スラング学習の醍醐味そのもの。1995年リリース、プロデュースはRZA。収録アルバム『Only Built 4 Cuban Linx…』——通称「パープルテープ」、90年代ニューヨーク・ハードコアの最高傑作のひとつとして今も語られる一枚です（本当にそう思う）。
+      </p>
+    </section>
 
-  <section class="mb-6">
-    <h2 class="text-base font-semibold mb-2">■主なスラング・キーワード</h2>
-    <dl class="text-sm space-y-2">
-      <div><dt class="font-mono text-[var(--c-gold)] inline">incarcerated scarfaces</dt><dd class="inline ml-2 text-[var(--c-muted)]">「収監されたスカーフェイスたち」。映画『スカーフェイス』のトニー・モンタナのような野心を持ちながら、塀の中（刑務所）にいる仲間たちへの敬意と連帯。タイトルかつ曲のコアテーマ。</dd></div>
-      <div><dt class="font-mono text-[var(--c-gold)] inline">Lex Diamonds</dt><dd class="inline ml-2 text-[var(--c-muted)]">Raekwonがアルバムで採用したペルソナ。洗練されたファッションと冷徹さを併せ持つギャングスターのキャラクター。</dd></div>
-      <div><dt class="font-mono text-[var(--c-gold)] inline">the black Trump</dt><dd class="inline ml-2 text-[var(--c-muted)]">1995年当時のドナルド・トランプは不動産富豪の代名詞。「黒人版トランプ」と自称することで、ストリートからの成り上がりと富の蓄積への強い野心を示す。</dd></div>
-      <div><dt class="font-mono text-[var(--c-gold)] inline">dough / paper / knots</dt><dd class="inline ml-2 text-[var(--c-muted)]">いずれも「金（現金）」を意味するストリートスラング。Knotsは輪ゴムで束ねた札束を指す。</dd></div>
-      <div><dt class="font-mono text-[var(--c-gold)] inline">Land（Land Cruiser）</dt><dd class="inline ml-2 text-[var(--c-muted)]">トヨタ・ランドクルーザー。1990年代NYストリートでステータスシンボルとして人気の高かったSUV。</dd></div>
-      <div><dt class="font-mono text-[var(--c-gold)] inline">Timbs</dt><dd class="inline ml-2 text-[var(--c-muted)]">Timberland（ティンバーランド）のブーツ。1990年代のNYストリートファッションを象徴するアイテム。Wu-Tang Clan周辺で特に愛用された。</dd></div>
-      <div><dt class="font-mono text-[var(--c-gold)] inline">Wallabees</dt><dd class="inline ml-2 text-[var(--c-muted)]">Clarks Wallabee（クラークス・ワラビー）。ウータン界隈で定番の靴。RZAやGhostface Killahが好んで着用し、Wu-Tang Clanのドレスコードの一部となった。</dd></div>
-      <div><dt class="font-mono text-[var(--c-gold)] inline">Shaolin</dt><dd class="inline ml-2 text-[var(--c-muted)]">Wu-Tang ClanがStaten Island（スタテンアイランド）に付けたコードネーム。少林寺（Shaolin Temple）から来ており、カンフー映画への傾倒を反映する。</dd></div>
-      <div><dt class="font-mono text-[var(--c-gold)] inline">Ac'</dt><dd class="inline ml-2 text-[var(--c-muted)]">Acura（高級車ブランド）の略。Acura Integraなどが1990年代NYストリートで成功の象徴として多用された。</dd></div>
-      <div><dt class="font-mono text-[var(--c-gold)] inline">politic</dt><dd class="inline ml-2 text-[var(--c-muted)]">「話し合う、連絡を取り合う、情報交換する」という意味のストリートスラング。政治的に動くという含意もある。</dd></div>
-      <div><dt class="font-mono text-[var(--c-gold)] inline">sons who</dt><dd class="inline ml-2 text-[var(--c-muted)]">「誰がボスか証明する」「誰を子分にするか決める」の意。「son」はNYスラングで部下・格下を意味する動詞として使われる。</dd></div>
-      <div><dt class="font-mono text-[var(--c-gold)] inline">yard（for the feds）</dt><dd class="inline ml-2 text-[var(--c-muted)]">100ドルのこと（yard = $100）。「feds（連邦捜査官）」への情報提供の報酬として100ドルを受け取ったという意味。</dd></div>
-    </dl>
-  </section>
+    <!-- Table of Contents -->
+    <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
+      <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
+        <li><a href="#story" class="hover:text-[var(--c-gold)] transition-colors">01 — ストーリーの流れ（まず曲全体をつかむ）</a></li>
+        <li><a href="#units" class="hover:text-[var(--c-gold)] transition-colors">02 — 学ぶ表現（スラング・韻・言葉遊び・AAVE）</a></li>
+        <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">03 — 文化的背景</a></li>
+        <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">04 — サンプル・制作の裏側</a></li>
+        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">05 — 評価とその後の影響</a></li>
+      </ol>
+    </nav>
 
-  <section class="mb-6">
-    <h2 class="text-base font-semibold mb-2">■歌詞和訳・解説</h2>
+    <!-- ===================== -->
+    <!-- ストーリー要約         -->
+    <!-- ===================== -->
+    <section id="story" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        ストーリーの流れ — まず曲全体をつかむ
+      </h2>
+      <p class="text-xs text-[var(--c-dim)] mb-5">
+        個々のスラングに入る前に、曲が何を語っているかをざっと散文でつかんでおきましょう。全体像があると、各ユニットで一語一語を掘るときに立体的に見えてくる。
+      </p>
+      <div class="space-y-4 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          曲は映画のスキット風な会話から始まる——「彼は冷静で、殺し屋には見えない。夢を持っているような眼だ」。香港ノワール映画からのサンプリングで、これから語られる「投獄されたスカーフェイス」の人物像を先に提示する導入だ。
+        </p>
+        <p>
+          <strong class="text-[var(--c-text)]">Chorus</strong>。「time is runnin' out（時間が尽きる）、let's connect, politic, ditto（繋がり、語り合おう、そうだろ）」。反復するフックは焦燥と連帯の両方を帯びている。そして「incarcerated scarfaces（投獄されたスカーフェイスたち）」というパンチラインが落ちる。
+        </p>
+        <p>
+          <strong class="text-[var(--c-text)]">Verse 1（Raekwon）</strong>。ストリートのスタイルが何百万もの人間を惹きつけると宣言し、Wu-Tangのパワーと Five-Percent Nation の思想語彙（scholars / Power）を散りばめながら、自分を「black Trump」に喩える富の宣言へと展開していく。暴力の匂いも消えない中、コネチカットへの言及でバースが閉じる。
+        </p>
+        <p>
+          <strong class="text-[var(--c-text)]">Verse 2（Raekwon）</strong>。「Chef」（Raekwonの別名）のリリックが輝くと宣言したあと、ストリートのリアルが畳みかけられる。モエのシャンパンが「嘔吐みたいな味」という逆説的なステータス批判、Timberland（Timbs）とMAC-10（銃）でアジトに乗り込む場面、「battle for cash and see who sons who」という挑発、Wallabees（ウォラビーズ）へのこだわり……。そして「pardon the French, let me speak Italian / Black stallions wildling on Shaolin」でバースが締まる。イタリア語＝ギャング語、Shaolin＝スタテンアイランドという符丁が重なる、このアルバムの本質が凝縮された一節だ。
+        </p>
+        <p>
+          <strong class="text-[var(--c-text)]">Verse 3（Raekwon）</strong>。「barber shop niggas（理髪店でたむろする普通の男たち）のためにラップする」という宣言から始まる。壊れたエレベーター、黄色いタクシーに乗せてもらえない場面（社会的摩擦のブラックユーモア）、「cooling like Kahlúas on rocks（カルーアロックのように冷静に）」——ストリートの日常が次々と出てくる。「I seen it / Like a 27-inch Zenith, believe it」でバースが閉じる。
+        </p>
+        <p class="text-xs text-[var(--c-dim)]">
+          ※本ページは批評・教育目的で、解説に必要な範囲の断片のみを引用しています。全歌詞の対訳は掲載していません。
+        </p>
+      </div>
+    </section>
 
-    <h3 class="text-xs text-[var(--c-very-dim)] uppercase tracking-widest mb-3">Skit — Film Dialogue</h3>
+    <!-- ===================== -->
+    <!-- 学習ユニット群（主役）  -->
+    <!-- ===================== -->
+    <div id="units"></div>
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2 border-b border-[var(--c-border)] pb-2">
+        学ぶ表現 — スラング・韻・言葉遊び・AAVE
+      </h2>
+      <p class="text-xs text-[var(--c-dim)] mb-6">
+        各見出しは「この曲から学べる英語表現」。各ユニットはまず上に英語の用例（1〜2行）を置いてあります。<strong class="text-[var(--c-text)]">先に英語を音で追い、行のどこが学習対象かを確かめてから</strong>下の日本語解説に進むと、英語が苦手でも置いていかれません。🎤はそのリリックを歌うMC、▶は公式PVの該当箇所への頭出しリンク（音源解析で付与、秒数は概算）です。
+      </p>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        He looks determined without being ruthless<br />
-        Something heroic in his manner
-      </Fragment>
-      <Fragment slot="jpn">
-        残酷さのない決意を持つように見える<br />
-        立ち振る舞いに英雄的なものがある
-      </Fragment>
-      <Fragment slot="explanation">
-        映画的なナレーションで始まるスキット。犯罪の世界に生きながら「英雄的な何か」を持つ人物の描写——Raekwonが自らのペルソナ「Lex Diamonds」を第三者の目線で紹介する演出。
-      </Fragment>
-    </LyricsBlock>
+      <!-- ① politic, ditto -->
+      <LearningUnit
+        heading="politic — 「政治する」ではなく「語り合う」"
+        label="★ スラング／動詞"
+        mc="Raekwon（Chorus）"
+        t={TS["politic-ditto"].t} tApprox={TS["politic-ditto"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">It's for real, though, let's connect, <QuickSlang word="politic" desc="動詞用法で「戦略的に語り合う・腹を割って話す」。ストリートでは政治的に賢く立ち回ることを指す" />, ditto</Fragment>
+        <Fragment slot="jpn">これは本気だ、繋がろう、語り合おう、そうだろ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Chorusの中盤。繰り返されるフックの核心部分。</p>
+        <p>行の真ん中に来る <strong class="text-[var(--c-text)]">politic</strong>——「政治」という名詞ではなく、<strong class="text-[var(--c-text)]">動詞</strong>として使っているのが学習ポイントです。意味は「戦略的に話し合う、腹を割って語り合う、ビジネスと人間関係を整理する」といったもの。標準英語の <em>discuss</em> や <em>negotiate</em> より口語的で、「ただ雑談する」より重みがある。ヒップホップ、特に1990年代ニューヨークのリリックでは動詞として頻繁に出てくる。すぐ後の <strong class="text-[var(--c-text)]">ditto</strong>（「同じく・そうだろ」）は相槌の英語。これも会話表現として使える。let's connect, politic, ditto——この畳み方、「繋がって、話して、そうだろ？」という感じで覚えると入ってきやすいと思います。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">politic</strong>（動詞）の用法例: <em>We need to politic before the meeting</em>（会議前に腹を割って話す必要がある）、<em>He's always out there politicking</em>（あいつはいつも根回ししてる）。名詞 politics との混同に注意。動詞 politic はAAVE的用法では三単現でも形が変わらないことがあり（<em>he politic</em>）、リスニングで品詞の判断に迷ったら文脈で決める。</p>
+        </Fragment>
+      </LearningUnit>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        There's a courage about him, doesn't look like a killer<br />
-        Comes across so calm
-      </Fragment>
-      <Fragment slot="jpn">
-        勇気はあるが、殺し屋には見えない<br />
-        とても落ち着いた印象を与える
-      </Fragment>
-      <Fragment slot="explanation">
-        「killer」に見えないという逆説がポイント。Wu-Tangの美学——暴力を内包しながら表面上は冷静沈着でいること——の体現。Raekwonのライムスタイル自体も「計算されたクールネス」で知られる。
-      </Fragment>
-    </LyricsBlock>
+      <!-- ② scholars / word life / Five Percent -->
+      <LearningUnit
+        heading="Scholars / word life / peace to Power — Five Percent Nationの語彙"
+        label="★ スラング（思想語彙）"
+        mc="Raekwon（Verse 1）"
+        t={TS["scholars-word-life"].t} tApprox={TS["scholars-word-life"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng"><QuickSlang word="Scholars" desc="Five-Percent Nationでは「知識を持つ者・神」を指す。Wu-Tangが好んで使う思想語彙" />, <QuickSlang word="word life" desc="「本当に・誓って」という誓いの表現。word＝truth（真実）という意味から来た" />, peace to <QuickSlang word="Power" desc="Five-Percent Nationにおけるメンバーの称号のひとつ。またはWu-Tang仲間の名前の可能性も" /></Fragment>
+        <Fragment slot="jpn">学者たち（知識者たち）、誓って、Powerに敬意を</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 1中盤、Raekwonが仲間への敬意を表す件。短いが密度が高い。</p>
+        <p>この3語にWu-Tangのコアな思想が凝縮されている。まず <strong class="text-[var(--c-text)]">Scholars</strong>——辞書では「学者」だが、<strong class="text-[var(--c-text)]">Five-Percent Nation</strong>（ファイヴ・パーセント・ネイション）という思想運動の文脈では「知識を持つ黒人＝神」を指す。RZAを筆頭にWu-Tang ClanはこのFive-Percent Nationの影響を強く受けており、リリックにそのまま思想語彙が入ってくる。次に <strong class="text-[var(--c-text)]">word life</strong>——「life on my word（俺の言葉に命をかけて）」が縮まった誓い表現で、「本当に・マジで」というニュアンス。そして <strong class="text-[var(--c-text)]">peace to Power</strong> は仲間への挨拶と敬礼。Five-Percent Nationでは「peace（平和）」が挨拶言葉として機能する。Wu-Tangのリリックはこうした思想語彙を知らないと別の言語を聴いているような感覚になる——でもひとつひとつはそんなに難しくない。</p>
+      </LearningUnit>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Acts like he has a dream<br />
-        Full of passion
-      </Fragment>
-      <Fragment slot="jpn">
-        夢を持っているかのように振る舞う<br />
-        情熱に満ちている
-      </Fragment>
-      <Fragment slot="explanation">
-        ストリートのアウトローを「夢と情熱を持つ人間」として描くことで、単純な犯罪讃美ではない複雑な人間像を提示。『スカーフェイス』のトニー・モンタナも「American Dream」を追い求める人物として描かれた。
-      </Fragment>
-    </LyricsBlock>
+      <!-- ③ black Trump -->
+      <LearningUnit
+        heading="black Trump — 富の比喩が映す時代"
+        label="★ 比喩／文化参照"
+        mc="Raekwon（Verse 1）"
+        t={TS["black-trump"].t} tApprox={TS["black-trump"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng"><QuickSlang word="Dough" desc="現金・稼ぎを指すスラング。bread / paper / loot と同義" /> be flowing by the hours / Yo, guess who's the <QuickSlang word="black Trump" desc="1990年代、Donald Trumpはビジネス界の成功者の代名詞だった。「黒いトランプ＝黒人版のビジネス成功者」という自称" /></Fragment>
+        <Fragment slot="jpn">稼ぎは時間単位で流れ込む / さあ、誰が黒いトランプか当ててみろ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 1後半、RaekwonがWu-Tangの財力を宣言する件。上は2行、学習対象は下の行末。</p>
+        <p>下の行末 <strong class="text-[var(--c-text)]">black Trump</strong> が今回の学習対象です。1995年時点でのDonald Trumpは、政治家ではなくニューヨーク不動産界の大物——つまり「金持ちの象徴」そのものだった。Raekwonはそれを「俺たちも同じくらい稼いでいる。黒人版トランプ＝それが俺だ」という自称に使っている。こういう比喩は<strong class="text-[var(--c-text)]">その時代の文脈</strong>を知らないと読み解けない。同じ「Trump」でも今の若いリスナーには全く違う像が浮かぶはずで、リリックの言葉は時代と一緒に意味が変化することを実感できる好例だと思います。上の行の <strong class="text-[var(--c-text)]">dough be flowing</strong> の <em>be</em> は<QuickSlang word="habitual be" desc="AAVE（アフリカ系アメリカ人英語）特有の文法。「いつも〜している」「常に〜の状態だ」という恒常的・習慣的な状態を表す。三単現でも-sを付けない原形のまま" />——「（いつも）流れ込んでくる」という恒常的な状態を示すAAVEの文法形式。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">Habitual be</strong>（習慣のbe）: 標準英語 <em>The money is always flowing</em> → AAVE <em>The money be flowing</em>。主語の人称・時制に関わらず原形 be を使い、「繰り返し・恒常的に起きている」ことを示す。現在進行形（is flowing＝今まさに流れている）とは意味が違うので注意。ヒップホップリスニングで「be ＋ 動詞ing」が来たら、まず habitual be を疑う。</p>
+        </Fragment>
+      </LearningUnit>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        You don't trust me, huh?<br />
-        Well, you know why<br />
-        I do, we're not supposed to trust anyone in our profession anyway
-      </Fragment>
-      <Fragment slot="jpn">
-        俺を信用しないのか？<br />
-        まあ、理由はわかるだろ<br />
-        わかってる——俺たちのような商売では、誰も信用すべきじゃないんだから
-      </Fragment>
-      <Fragment slot="explanation">
-        犯罪組織の不信と孤独を描く台詞。「our profession」という言葉で麻薬取引・犯罪を「職業」として語る冷徹さが際立つ。映画『スカーフェイス』の世界観を踏まえた対話形式の演出。
-      </Fragment>
-    </LyricsBlock>
+      <!-- ④ sons who -->
+      <LearningUnit
+        heading="see who sons who — son を動詞で使う"
+        label="★ スラング（動詞）"
+        mc="Raekwon（Verse 2）"
+        t={TS["sons-who"].t} tApprox={TS["sons-who"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Do you wanna battle for cash and see who <QuickSlang word="sons" desc="動詞：相手を「息子扱いする」＝格下に見て圧倒する。ヒップホップバトル文化の常套句" /> who?</Fragment>
+        <Fragment slot="jpn">現金を賭けてバトルし、どちらが相手を子供扱いするか見ようぜ？</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 2中盤、他のラッパーへの挑発。行の後半「see who sons who」が学習ポイント。</p>
+        <p>「…see who <strong class="text-[var(--c-text)]">sons</strong> who?」——この <strong class="text-[var(--c-text)]">sons</strong> が動詞なのに気づくのが今回のポイントです。名詞「息子（son）」を動詞化して、「相手を息子のように扱う＝格下にして圧倒する」という意味になる。ヒップホップのバトル文化では頻出の語で、「I'll son you」なら「お前を子供扱いしてみせる」という宣言。英語ではこういう「名詞を動詞として動かす」使い方（<QuickSlang word="デノミナル動詞" desc="名詞を動詞として使う言語現象。英語では非常に一般的で、ヒップホップ・AAVEではさらにその自由度が高い" />）が非常に自由。AAVE・ヒップホップではその傾向がさらに強く、名詞・形容詞・固有名詞が動詞化されるのが日常的だ。前半の <code>battle for cash</code>（現金を賭けてバトル）は、当時のフリースタイルバトル文化を知っているとより生々しく聞こえてくる。</p>
+      </LearningUnit>
 
-    <h3 class="text-xs text-[var(--c-very-dim)] uppercase tracking-widest mb-3 mt-8">Intro — Raekwon</h3>
+      <!-- ⑤ Wallabees -->
+      <LearningUnit
+        heading="Wallabees — Wu-Tang の足元"
+        label="★ スラング／ファッション文化"
+        mc="Raekwon（Verse 2）"
+        t={TS["wallabees"].t} tApprox={TS["wallabees"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Here's the policy, slide off the ring, plus the <QuickSlang word="Wallabees" desc="Clarks（イギリスのシューズブランド）のWallabee（ワラビー）モカシンシューズ。Wu-Tang Clanが愛用し、90年代NYハードコアHHの象徴的フットウェアになった" /></Fragment>
+        <Fragment slot="jpn">これがルールだ、指輪は外せ、ウォラビーズもな</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 2終盤。行末の Wallabees が学習ポイント。</p>
+        <p>行末に来る <strong class="text-[var(--c-text)]">Wallabees</strong> はイギリスのシューズブランド Clarks の定番シューズ「Wallabee」のこと。Wu-Tang Clanがこれを愛用したことで、1990年代ニューヨーク・ハードコアの象徴的フットウェアになった。C.R.E.A.M. の「'Lo goose（ポロのダウン）」と同じ構図——本来マスマーケット向けの実用シューズを、ストリートが独自のアイコンへと昇華させた例です。ファッションアイテムの固有名詞がそのままリリックに入ってくるのはヒップホップの定番で、知っているか知らないかで情景の解像度が全く違う。前半の <strong class="text-[var(--c-text)]">slide off the ring</strong> は「（喧嘩に備えて）指輪を外せ」という意味で、ここでは「うちのルールに従え」という脅し文句として機能している。<strong class="text-[var(--c-text)]">slide off</strong> は「（外して）取り去る」という句動詞。今もスラングで「場を離れる・立ち去る」という意味でよく使われる表現だ。</p>
+      </LearningUnit>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Knock n***as out the box all the time<br />
-        n***as know my motherf**kin' repertoire, big ones (Uh-huh)
-      </Fragment>
-      <Fragment slot="jpn">
-        いつも奴らをぶっ飛ばしてきた<br />
-        奴らは俺のレパートリーを知ってる、でかいやつを（そうだ）
-      </Fragment>
-      <Fragment slot="explanation">
-        「out the box」は「枠の外へ（= 圧倒する）」の意。「repertoire（レパートリー）」をライムとも武器とも取れる二重の意味で使用。「big ones」は大きな楽曲とも大きな銃とも解釈できるダブルミーニング。
-      </Fragment>
-    </LyricsBlock>
+      <!-- ⑥ speak Italian / Shaolin -->
+      <LearningUnit
+        heading="pardon the French, let me speak Italian / Black stallions wildling on Shaolin"
+        label="★ 言葉遊び／地名符丁"
+        mc="Raekwon（Verse 2）"
+        t={TS["speak-italian"].t} tApprox={TS["speak-italian"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">And pardon the French, but let me speak Italian<br /><QuickSlang word="Black stallions" desc="黒い野生馬。Wu-Tang Clanメンバー自身を指す比喩" /> wildling on <QuickSlang word="Shaolin" desc="Wu-Tang Clanがスタテンアイランドに付けたコードネーム。香港カンフー映画『少林と武当』(1983)に由来" /></Fragment>
+        <Fragment slot="jpn">フランス語（品のない言葉）は許してくれ、でもイタリア語（ギャング語）で話させてもらう / スタテンアイランドで暴れるブラック・スタリオン（黒い野生馬）たち</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 2のクライマックス。このアルバムの本質が凝縮された2行。</p>
+        <p>この2行がこの曲でいちばん好きな場所かもしれない。まず <strong class="text-[var(--c-text)]">pardon my French</strong>（「フランス語をお許しを」）という英語の<QuickSlang word="イディオム" desc="慣用句。単語ひとつひとつの意味を足しても全体の意味にならない表現のこと" />を知っていますか——下品な言葉を使う前に「失礼しました」と前置きする定型表現です。Raekwonはこれを逆手に取り、「フランス語ならともかく、俺はイタリア語（＝マフィア語・ギャング語）で話す」という形に変えた。<strong class="text-[var(--c-text)]">Italian</strong> はここで「イタリア語」というより「マフィア／ギャング・スタイル」のメタファー。アルバム全体が映画『スカーフェイス』や香港ノワールに影響を受けたコンセプト作品なので、この一言がアルバムのテーマ宣言として機能する。そして次の行の <strong class="text-[var(--c-text)]">Shaolin</strong>——スタテンアイランドのコードネームで、Wu-Tangが香港カンフー映画「少林と武当（Shaolin and Wu Tang、1983）」の世界観を島に重ねて付けた。「Black stallions（黒い野生馬）wildling（暴れる）on Shaolin」——自分たちを野生の黒馬に喩えて、その島で暴れまわっているという宣言だ（かっこいいと思う）。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">Pardon my French</strong> は「今から品の悪い言葉を使います、ご容赦を」という前置きの慣用句。なぜ「French」かは歴史的な英仏関係の文脈で諸説あるが、口語では悪口・強調語の前に軽く挟むのが定番の使い方。<em>Excuse my French, but this is completely wrong</em>（失礼だが、これは完全に間違いだ）のように使う。Raekwonはこれを「フランス語じゃなくてイタリア語だけど」という形で崩している——元のイディオムを知っていないとこのひねりに気づけない。</p>
+        </Fragment>
+      </LearningUnit>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        (Yeah, motherf**ker, straight up)<br />
-        (I'll f**k your whole team up) Take care of B.I., Chef<br />
-        (Yeah, bust it, yo, yo) Fly G.I. n***as
-      </Fragment>
-      <Fragment slot="jpn">
-        （そうだ、マジの話）<br />
-        （お前のチームごとぶっ壊す）B.I.の面倒を見ろ、シェフ（Raekwonの別名）<br />
-        （さあいくぜ）イかした軍人スタイルの奴ら
-      </Fragment>
-      <Fragment slot="explanation">
-        複数の声がオーバーラップするイントロの構造。「Chef」はRaekwonの別名（料理人＝ドラッグを調合する者）。「B.I.」はビジネス（Business Interests / Business Is...）の略。「G.I.」は軍人スタイルを意味し、Wu-Tangの軍事的チームワークを暗示。
-      </Fragment>
-    </LyricsBlock>
+      <!-- ⑦ Lou Ferrigno on coke -->
+      <LearningUnit
+        heading="like Lou Ferrigno on coke — 文化参照で強さを語る"
+        label="★ 比喩／文化参照"
+        mc="Raekwon（Verse 3）"
+        t={TS["ferrigno-coke"].t} tApprox={TS["ferrigno-coke"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Niggas, yo, they be folding like envelopes<br />Under pressure, like <QuickSlang word="Lou Ferrigno" desc="ルー・フェリニョ。1977〜1982年のTVシリーズ『信じられないほど巨大なハルク』でハルクを演じた俳優兼ボディビルダー" /> on coke</Fragment>
+        <Fragment slot="jpn">ヤツらはプレッシャーで封筒のように折れていく / コカインをキメたルー・フェリニョ（ハルク）のような力で</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 3前半。Raekwonが対抗相手の弱さと自分の強さを対比する件。</p>
+        <p>上の行に注目——「they be <strong class="text-[var(--c-text)]">folding</strong> like envelopes」。<strong class="text-[var(--c-text)]">fold</strong> は「折る・折れる」という動詞で、ここでは「プレッシャーに負けて崩れる」という比喩。ポーカーで「fold（フォールド）する＝諦めて降りる」の用法も重なっている。封筒のようにパタンと折れる——この視覚的なイメージが一発で入ってくる。対比に来るのが下の行。<strong class="text-[var(--c-text)]">Lou Ferrigno（ルー・フェリニョ）</strong>は1977〜1982年TVドラマ『信じられないほどのハルク（The Incredible Hulk）』でハルクを演じた俳優兼ボディビルダー。「コカインをキメたハルク並みの強さ」という誇張比喩で自分たちの力強さを語っている。<strong class="text-[var(--c-text)]">当時のポップカルチャーの人物を比喩に使う</strong>のはヒップホップの定番技法で、時代を知らないとなぜその名前なのかが分からない——文化の辞書が厚いほど、リリックが聞こえてくる。</p>
+      </LearningUnit>
 
-    <h3 class="text-xs text-[var(--c-very-dim)] uppercase tracking-widest mb-3 mt-8">Chorus</h3>
+      <!-- ⑧ 27-inch Zenith -->
+      <LearningUnit
+        heading="27-inch Zenith — テレビが「目撃証明」になる"
+        label="★ 比喩／物質文化"
+        mc="Raekwon（Verse 3）"
+        t={TS["zenith-believe"].t} tApprox={TS["zenith-believe"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Word up, cousin, nigga, I seen it<br />Like a 27-inch <QuickSlang word="Zenith" desc="Zenith Electronics：アメリカの老舗テレビブランド（現在はLG傘下）。1990年代に黒人家庭に広く普及したブラウン管テレビの代名詞" />, believe it</Fragment>
+        <Fragment slot="jpn">本当だぜ、俺はそれを見た / 27インチのZenithテレビのようにくっきりと、信じてくれ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 3の締め。Raekwonがリリック全体の証言者としての立場を宣言する件。</p>
+        <p>下の行「like a 27-inch <strong class="text-[var(--c-text)]">Zenith</strong>, believe it」——<strong class="text-[var(--c-text)]">Zenith</strong> は1990年代に黒人家庭に広く普及していたアメリカのテレビブランド。27インチのブラウン管テレビは当時としては大型で、画像がくっきり鮮明だった。つまりこの比喩は「俺の証言は、あのでかいZenithのテレビ画像くらい鮮明で本物だ」という目撃証明の表現。ストリートの語り部（MC）が、自分が語ることの真実性を宣言する締め方として機能している。ヒップホップのリリックで具体的なブランド名・型番が出てくるとき、そのモノが「そのコミュニティにとって何を意味するか」を知ると一気に解像度が上がる——Zenith を別ブランドに入れ替えても意味は通じるが、そのリアリティは全く違う。直前の <strong class="text-[var(--c-text)]">Word up</strong> は「本当に・誓って」という誓い表現で、上のユニットの <em>word life</em> と同じ語源（word＝truth）から来ている。</p>
+      </LearningUnit>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Now, yo, yo, what up, yo? Time is runnin' out<br />
-        It's for real, though, let's connect, <QuickSlang word="politic" desc="話し合う・連絡を取り合う・情報交換するというストリートスラング" />, ditto
-      </Fragment>
-      <Fragment slot="jpn">
-        よお、聞けよ、時間は切れていく<br />
-        マジな話だ、繋がって、語り合おう、同感だろ
-      </Fragment>
-      <Fragment slot="explanation">
-        「Time is runnin' out」はチョーラスの核心。刑務所の時間、命の時間、チャンスの時間——あらゆる「残り時間」への緊迫感。「politic」は「話し合う」の意で、仲間との連携を呼びかける。
-      </Fragment>
-    </LyricsBlock>
+    </section>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        We could trade places, get lifted in the staircases<br />
-        Word up, peace, incarcerated scarfaces
-      </Fragment>
-      <Fragment slot="jpn">
-        立場を交換して、階段で浮き上がれる<br />
-        マジだ、平和を——収監されたスカーフェイスたちへ
-      </Fragment>
-      <Fragment slot="explanation">
-        「trade places」は社会的立場の逆転——底辺から頂点へ。「get lifted in the staircases」は文字通り階段で大麻を吸うことと、現実から「浮き上がる」ことのダブルミーニング。「incarcerated scarfaces」——塀の中にいる仲間たちへの連帯の言葉がタイトルとして機能する。
-      </Fragment>
-    </LyricsBlock>
+    <!-- ===================== -->
+    <!-- 文化的背景            -->
+    <!-- ===================== -->
+    <section id="background" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        文化的背景
+      </h2>
 
-    <h3 class="text-xs text-[var(--c-very-dim)] uppercase tracking-widest mb-3 mt-8">Verse 1 — Raekwon</h3>
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">Mafioso Rap</p>
+        <h3 class="font-semibold text-base mb-3">映画をラップに持ち込んだ「マフィオソ・ラップ」の発明</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          1995年頃から台頭した「Mafioso Rap（マフィオソ・ラップ）」——映画『スカーフェイス』『ゴッドファーザー』『グッドフェローズ』的な世界観をヒップホップに持ち込み、犯罪者のライフスタイルを緻密に描くスタイル。Raekwonの『Only Built 4 Cuban Linx…』はその代表作であり、このスタイルを体系化した一枚と言っていい。ストリートの現実を語りながら、映画的な物語性とキャラクターの深みを兼ね備えている点が、単純な「ギャングスタ自慢」との違いだ。後にJay-Z・Nas・Pusha Tへと受け継がれていくスタイルの源流がここにある。
+        </p>
+      </div>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Thug-related style attract millions, fans<br />
-        They understand my plan, who's the kid up in the green <QuickSlang word="Land" desc="トヨタ・ランドクルーザー。1990年代NYストリートのステータスカー" />?
-      </Fragment>
-      <Fragment slot="jpn">
-        サグなスタイルが何百万のファンを引きつける<br />
-        みんな俺のプランを理解してる——グリーンのランクルに乗ってるあのガキは誰だ？
-      </Fragment>
-      <Fragment slot="explanation">
-        「thug-related style」は暴力や犯罪と結びついたラップスタイル——それが大衆を惹きつけるという逆説。「green Land（緑のランドクルーザー）」に乗る自分を第三者視点で描く映画的手法。
-      </Fragment>
-    </LyricsBlock>
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">Shaolin（少林）= スタテンアイランド</p>
+        <h3 class="font-semibold text-base mb-3">孤立した島が生んだWu-Tang独自の宇宙</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          ニューヨーク5区の中で、スタテンアイランドだけが地下鉄に繋がっていない。フェリーがないとマンハッタンにも行けない——この<strong class="text-[var(--c-text)]">地理的な孤立</strong>が、独自のスラングとハングリー精神を純粋培養した。RZAたちは香港カンフー映画「少林と武当（Shaolin and Wu Tang、1983）」の世界観を島に重ね、スタテンアイランドを「Shaolin（少林）」と呼んだ。「Incarcerated Scarfaces」の最後には「That means the island of Staten」という一行が入っている——リスナーへの解説としてあえて露骨に補足しているあたり、当時まだShaolin＝スタテンアイランドという符丁が浸透していなかった証拠でもある。
+        </p>
+      </div>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Me and the RZA connect, blow a fuse, you lose<br />
-        Half-ass crews get demolished and bruised
-      </Fragment>
-      <Fragment slot="jpn">
-        俺とRZAが繋がればヒューズが飛ぶ、お前の負け<br />
-        半端なクルーは壊滅して傷だらけになる
-      </Fragment>
-      <Fragment slot="explanation">
-        「blow a fuse（ヒューズが飛ぶ）」は電力過負荷の比喩——RZAのビートとRaekwonのリリックが合わさった時の爆発的な化学反応を表す。「half-ass crews」は中途半端なグループへの挑発。
-      </Fragment>
-    </LyricsBlock>
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">Five-Percent Nation</p>
+        <h3 class="font-semibold text-base mb-3">Wu-Tangリリックを読む鍵——思想語彙の早見表</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed mb-3">
+          Five-Percent Nation（ファイヴ・パーセント・ネイション、別名: Nation of Gods and Earths）は1964年にニューヨークで設立された思想運動。Wu-Tang ClanのメンバーはほぼFive-Percentの影響下にあり、リリックに固有語彙が大量に混入している。
+        </p>
+        <div class="space-y-3 mt-3">
+          {[
+            ['God / Asiatic Black Man', '自分自身（黒人男性）を指す自称。「神＝自分」という思想'],
+            ['Earth', '女性を指す敬称（大地・母）。Old Earth＝母親'],
+            ['Knowledge / Wisdom / Understanding', '知・知恵・理解の三位一体。コード番号が1/2/3に対応'],
+            ['Scholars', '知識を持つ者、Wu-Tang的には仲間・同志'],
+            ['word is bond', '「言葉は誓いと同じ」——約束の表現。word life / word up も同系'],
+            ['peace', '挨拶言葉。「peace to ～」＝「～に敬意を」'],
+          ].map(([term, desc]) => (
+            <div class="flex gap-3 text-sm">
+              <span class="text-[var(--c-gold)] shrink-0 font-semibold min-w-[180px]">{term}</span>
+              <span class="text-[var(--c-muted)]">{desc}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Fake be fronting, hourglass-heads n***as be wanting<br />
-        Shutting down your slot, time for pumping
-      </Fragment>
-      <Fragment slot="jpn">
-        偽物が見栄を張り、砂時計頭の奴らが欲しがる<br />
-        お前の枠を閉鎖して、ポンプアップの時間だ
-      </Fragment>
-      <Fragment slot="explanation">
-        「fronting（フロンティング）」は実態と違うふりをすること。「hourglass-heads」は時間を無駄にしている奴らの比喩。「shutting down your slot」は競争相手の席を奪うこと。「pumping」は活動を加速させること。
-      </Fragment>
-    </LyricsBlock>
+    <!-- ===================== -->
+    <!-- サンプル・制作の裏側    -->
+    <!-- ===================== -->
+    <section id="behind" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        サンプル・制作の裏側
+      </h2>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Poisonous sting, which thumps up and act chumps<br />
-        Rae's a heavy generator, but yo, guess who's the <QuickSlang word="black Trump" desc="1995年当時の不動産富豪ドナルド・トランプを模した黒人版富豪としての自己誇示" />?
-      </Fragment>
-      <Fragment slot="jpn">
-        毒の刺し、ドカンと来て間抜けにする<br />
-        Raeは強力な発電機だ——だが、黒人版トランプは誰だと思う？
-      </Fragment>
-      <Fragment slot="explanation">
-        「poisonous sting」はRaekwonのリリックの毒性と破壊力。「heavy generator」は電力を生み出す存在——Wu-Tangの経済エンジンとしての自負。「black Trump」は1995年当時の富豪の象徴であるトランプを黒人の文脈に置き換えた大胆な自己表現。
-      </Fragment>
-    </LyricsBlock>
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">サンプル元</p>
+        <h3 class="font-semibold text-base mb-3">Detroit Emeralds × Koko Taylor——2枚の古典を張り合わせた怪物ビート</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          「Incarcerated Scarfaces」のビートは2つのサンプルから成り立っている。ひとつは<strong class="text-[var(--c-text)]">Detroit Emeralds「You're Getting a Little Too Smart」（1973）</strong>——R&Bグループ Detroit Emeralds のソウルトラック。もうひとつは<strong class="text-[var(--c-text)]">Koko Taylor「Wang Dang Doodle」（1966）</strong>——Chicago Blues の女王 Koko Taylor が歌った Howlin' Wolf のカバー曲だ。
+        </p>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed mt-3">
+          1970年代ソウルと1960年代シカゴ・ブルースを張り合わせて、1990年代ニューヨークのハードコアに仕上げる——RZAのサンプリング感覚はやっぱり面白い。単なる「古いレコードを借りてくる」のではなく、全く異なる時代・ジャンル・地域の音を組み合わせて、原曲のどこにもなかった薄暗さと重力を生み出している。E-mu SP-1200（ドラムマシン兼サンプラー）の粗いビットレートが、逆にその質感をさらに強調した。
+        </p>
+      </div>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Dough be flowing by the hours, Wu, we got the collars<br />
-        Scholars, word life, peace to Power and my whole unit
-      </Fragment>
-      <Fragment slot="jpn">
-        金は時間ごとに流れ込んでくる、Wu、俺たちが首輪を持ってる<br />
-        学者たちよ、マジの話だ、Powerと俺のユニット全員に敬意を
-      </Fragment>
-      <Fragment slot="explanation">
-        「we got the collars（首輪を持つ）」は支配権・主導権を握ること。「Scholars」は五%ネイション（Nation of Gods and Earths）の教義で知識を追求する者への称号。「Power」はWu-Tang関係者の名前またはスラングで「知識と力」を意味する。
-      </Fragment>
-    </LyricsBlock>
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">制作背景</p>
+        <h3 class="font-semibold text-base mb-3">「パープルテープ」と映画的コンセプト</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          収録アルバム『Only Built 4 Cuban Linx…』は通称「パープルテープ」——当時珍しかった紫色のカセットテープでリリースされた。紫はヘロインを想起させる色とも、王族の色とも読めるが、どちらにしてもこのアルバムの演出への意識の高さを示している。RZAは各ヴァースでRaekwonとGhostface Killahに具体的なシーン・キャラクターを指示してラップさせたと言われており、このアルバムはむしろ<strong class="text-[var(--c-text)]">オーディオドラマ</strong>に近い。「Incarcerated Scarfaces」の冒頭スキットも、その映画的なアプローチの一環。ちなみにこの曲は「Ice Cream」シングルの B面として1995年9月25日にリリースされている。
+        </p>
+      </div>
+    </section>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Word up, quick to set it, don't wet it<br />
-        Real n***as lick shots, peace Connecticut
-      </Fragment>
-      <Fragment slot="jpn">
-        マジだ、素早く仕掛けろ、湿らすな<br />
-        本物の奴らは銃を撃つ——コネチカットに敬意を
-      </Fragment>
-      <Fragment slot="explanation">
-        「quick to set it」は素早く行動・ラップで仕掛けること。「don't wet it」はビートやゲームを「湿らせる（= 台無しにする）」な、という意。「lick shots」は銃を撃つ行為。コネチカット州への言及はニューヨーク周辺の仲間への連帯の挨拶。
-      </Fragment>
-    </LyricsBlock>
+    <!-- ===================== -->
+    <!-- 評価と影響            -->
+    <!-- ===================== -->
+    <section id="legacy" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        評価とその後の影響
+      </h2>
 
-    <h3 class="text-xs text-[var(--c-very-dim)] uppercase tracking-widest mb-3 mt-8">Chorus</h3>
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">アルバムのチャート成績</p>
+        <h3 class="font-semibold text-base mb-3">『Only Built 4 Cuban Linx…』の記録</h3>
+        <div class="space-y-3 text-sm mt-2">
+          {[
+            ['US Billboard 200', '最高4位', 'ハードコアHHとしては異例のメインストリーム浸透'],
+            ['US Top R&B/Hip-Hop Albums', '最高2位', 'イーストコーストHHの最前線として評価'],
+            ['初週売上', '約130,000枚', '当時としても強力な初動'],
+            ['RIAA認定', 'Gold（1995年10月）', 'リリースから約2ヶ月で金認定'],
+          ].map(([metric, record, note]) => (
+            <div class="grid grid-cols-3 gap-2 pb-2 border-b border-[var(--c-border)] last:border-0">
+              <span class="text-[var(--c-dim)]">{metric}</span>
+              <span class="text-[var(--c-gold)] font-medium">{record}</span>
+              <span class="text-[var(--c-muted)] text-xs">{note}</span>
+            </div>
+          ))}
+        </div>
+      </div>
 
-    <LyricsBlock hasExplanation={false}>
-      <Fragment slot="eng">
-        Now, yo, yo, what up, yo? Time is runnin' out<br />
-        It's for real, though, let's connect, politic, ditto<br />
-        We could trade places, get lifted in the staircases<br />
-        Word up, peace, incarcerated scarfaces
-      </Fragment>
-      <Fragment slot="jpn">
-        よお、聞けよ、時間は切れていく<br />
-        マジな話だ、繋がって、語り合おう、同感だろ<br />
-        立場を交換して、階段で浮き上がれる<br />
-        マジだ、平和を——収監されたスカーフェイスたちへ
-      </Fragment>
-    </LyricsBlock>
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">後世への影響</p>
+        <h3 class="font-semibold text-base mb-3">Raekwonが切り開いたもの</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed mb-4">
+          「Incarcerated Scarfaces」とこのアルバム全体が提示した「映画的ストーリーテリング×ストリートリアリズム」のフォーマットは、その後のヒップホップに長い影を落とした。Jay-Zの『Reasonable Doubt』（1996）、Noreagaの作品群、そして2000年代のPusha Tに至るまで、マフィオソ・ラップの系譜は脈々と続いている。Ghostface Killahが全曲に近い形で参加しているこのアルバムは、デュオプロジェクトとしての実験でもあり、後の「コラボアルバム」という形式を先取りしていたとも言える。
+        </p>
+        <ul class="space-y-3 text-sm">
+          <li class="flex gap-3">
+            <span class="text-[var(--c-gold)] shrink-0">Jay-Z</span>
+            <span class="text-[var(--c-muted)]">『Reasonable Doubt』（1996）でマフィオソ・ラップをさらに洗練させ、自らの「ラッパー×ビジネスマン」像を確立。Raekwonのスタイルが下敷きのひとつになっている。</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="text-[var(--c-gold)] shrink-0">Pusha T</span>
+            <span class="text-[var(--c-muted)]">コカインのライフスタイルを緻密に語るスタイルを21世紀に引き継いだ最右翼。Clipse時代からRaekwonをリファレンスに挙げることが多い。</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="text-[var(--c-gold)] shrink-0">Ghostface Killah</span>
+            <span class="text-[var(--c-muted)]">このアルバムでのパートナーシップが彼自身の『Ironman』（1996）へと繋がる。二人のケミストリーはその後も続き、2015年の『Twelve Reasons to Die II』まで共作が続いた。</span>
+          </li>
+        </ul>
+      </div>
+    </section>
 
-    <h3 class="text-xs text-[var(--c-very-dim)] uppercase tracking-widest mb-3 mt-8">Verse 2 — Raekwon</h3>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Chef'll shine like marble, rhyme remarkable<br />
-        Real n***as raise up, spend your money, argue
-      </Fragment>
-      <Fragment slot="jpn">
-        シェフは大理石のように輝く、ライムは驚異的<br />
-        本物の奴らは立ち上がって、金を使って、言い合いをする
-      </Fragment>
-      <Fragment slot="explanation">
-        「shine like marble（大理石のように輝く）」は高級素材——成功と洗練の象徴。「remarkable」と「marble」の脚韻が鮮やか。「raise up, spend your money, argue」はストリートでの生き方を3段階で圧縮。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        But this time is for the uninvited<br />
-        Go 'head and rhyme to it, b***h n***a, mics is getting fired
-      </Fragment>
-      <Fragment slot="jpn">
-        だが今回は招待されなかった者たちのためだ<br />
-        さあラップしてみろ、このヘタレ、マイクは燃え上がってる
-      </Fragment>
-      <Fragment slot="explanation">
-        「uninvited（招待されなかった者）」はメインストリームから排除された人々、または刑務所にいる仲間たち。「mics is getting fired」はマイクが発砲されるほど過激に使われるという比喩——ラップの武器化。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        More fiends, chicks be burning like chlorine<br />
-        n***as recognize from here to Baltimore to Fort Greene
-      </Fragment>
-      <Fragment slot="jpn">
-        もっと多くの中毒者、女たちは塩素のように燃える<br />
-        ここからボルティモアからフォートグリーンまで奴らは認める
-      </Fragment>
-      <Fragment slot="explanation">
-        「fiends（中毒者）」はドラッグの蔓延するストリートの現実。「burning like chlorine」は性病の比喩（chlorineは消毒液）。Baltimore～Fort Greene（ブルックリン）という地名の羅列で東海岸全域への名声を示す。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        But hold up, <QuickSlang word="Moët" desc="モエ・エ・シャンドン。高級シャンパンの代名詞。1990年代ヒップホップの成功の象徴として頻出" /> be tasting like throw-up<br />
-        My mob roll up, dripped to death, whips rolled up
-      </Fragment>
-      <Fragment slot="jpn">
-        でも待ってくれ、モエが嘔吐物のような味がする<br />
-        俺のギャングが集結して、バリバリにキメて、高級車で乗りつける
-      </Fragment>
-      <Fragment slot="explanation">
-        「Moët tasting like throw-up」は成功の象徴だったシャンパンへの倦怠感——富に慣れきった状態の逆説的表現。「dripped to death」は最高のファッションに身を包むこと。「whips」は高級車のスラング。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        You never had no wins, sliding in these dens<br />
-        With <QuickSlang word="Timbs" desc="Timberland（ティンバーランド）のブーツ。Wu-Tang周辺のストリートファッションの定番" />, with MAC-10's and broke friends
-      </Fragment>
-      <Fragment slot="jpn">
-        お前には勝ちがなかった、これらのアジトに潜り込んで<br />
-        ティンバーランドを履いて、MAC-10を持って、金のない仲間たちと
-      </Fragment>
-      <Fragment slot="explanation">
-        「dens（アジト）」はドラッグの売買所や仲間の溜まり場。「MAC-10」はサブマシンガン。「broke friends（金のない仲間）」という正直な描写がリアリズムを増す——成功していないのにそのライフスタイルを演じる偽物への批判。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        You got guns? Got guns too, what up, son?<br />
-        Do you wanna battle for cash and see who <QuickSlang word="sons who" desc="「誰がボスか、誰を格下にするか」を決める。sonはNYスラングで部下・格下を意味する動詞" />?
-      </Fragment>
-      <Fragment slot="jpn">
-        お前、銃持ってるか？俺も持ってるぞ、どうだよ？<br />
-        金を賭けてバトルして、誰がボスか決めようじゃないか？
-      </Fragment>
-      <Fragment slot="explanation">
-        直接的な挑発の連打。「what up, son?」の「son」は格下への呼びかけ。「battle for cash」はラップバトルと銃バトルの両方を重ねる。「who sons who」で支配関係を決める——ヒップホップの競争原理を凝縮。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        I'll probably wax tracks, smack rap n***as, you, facts<br />
-        n***as' lyrics are wack, n***a
-      </Fragment>
-      <Fragment slot="jpn">
-        俺はトラックを磨き上げ、ラップの奴らをぶっ叩く、お前に、事実として<br />
-        奴らのリリックはダサい、以上
-      </Fragment>
-      <Fragment slot="explanation">
-        「wax tracks」はレコードを磨く（= 最高のトラックを作る）こと。「smack rap n***as」は直接的な攻撃性の誇示。「wack（ダサい）」はヒップホップで最大の侮辱語のひとつ——リリカルな力量への自信と競合への軽蔑。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Can't stand unofficial, wet tissue, blank busting Scud missiles<br />
-        You rolling like Trump, you get your meat lumped
-      </Fragment>
-      <Fragment slot="jpn">
-        非公式な奴は嫌いだ、濡れたティッシュ、空のスカッドミサイルを撃つだけ<br />
-        トランプみたいにデカい顔してると、ぼこぼこにされるぞ
-      </Fragment>
-      <Fragment slot="explanation">
-        「wet tissue（濡れたティッシュ）」は弱さの象徴——脅威にならない相手への侮蔑。「blank busting Scud missiles」は空砲のスカッドミサイル——見た目だけで中身のない威嚇。「rolling like Trump」はトランプのように尊大に振る舞うことへの警告。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        For real, it's just slang rap democracy<br />
-        Here's the policy, slide off the ring, plus the <QuickSlang word="Wallabees" desc="Clarks Wallabee。Wu-Tang Clanのドレスコードの定番シューズ" />
-      </Fragment>
-      <Fragment slot="jpn">
-        マジな話、これはスラング・ラップの民主主義だ<br />
-        これがポリシーだ、指輪を外して、ワラビーも脱げ（= 全部渡せ）
-      </Fragment>
-      <Fragment slot="explanation">
-        「slang rap democracy」は独創的な造語——ストリートスラングで語るラップが公平に競い合う場所。「slide off the ring, plus the Wallabees」は貴重品（リング・靴）を強奪する命令——または音楽的なバトルで全てを奪う比喩。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Check the status, soon to see me at, Caesar's Palace eating salads<br />
-        We beating mics sending keys to Dallas
-      </Fragment>
-      <Fragment slot="jpn">
-        ステータスを確認しろ——もうすぐシーザーズ・パレスでサラダを食ってる俺が見られる<br />
-        俺たちはマイクをぶちかまして、ダラスにキーを送ってる
-      </Fragment>
-      <Fragment slot="explanation">
-        「Caesar's Palace」はラスベガスの高級ホテル兼カジノ——成功の象徴。「salads」は健康的な食生活で成功者のライフスタイルを示す。「sending keys to Dallas」は「鍵（麻薬の隠語・またはビジネスの鍵）」を全国に送るという成功の拡大。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        I move rhymes like retail, make sure s**t sell<br />
-        From where we at to my man's cell
-      </Fragment>
-      <Fragment slot="jpn">
-        俺はライムを小売りのように動かして、確実に売れるようにする<br />
-        俺たちのいる場所から、仲間の独房まで
-      </Fragment>
-      <Fragment slot="explanation">
-        「move rhymes like retail」はラップを商品として流通させるビジネス的視点。「my man's cell（仲間の独房）」——刑務所にいる仲間にも届くようにという願いが込められており、「incarcerated scarfaces」というテーマと直結。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        From staircase to stage, minimum wage<br />
-        But soon to get a article in Rap Page
-      </Fragment>
-      <Fragment slot="jpn">
-        階段から舞台へ、最低賃金から<br />
-        でももうすぐラップ雑誌に記事が載る
-      </Fragment>
-      <Fragment slot="explanation">
-        「from staircase to stage」——アパートの階段（「get lifted in the staircases」）からライブの舞台へという上昇軌跡。「minimum wage」は貧困の出発点。「Rap Page」は1990年代の実在したヒップホップ雑誌で、掲載されることが成功の証だった。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        But all I need is my house, my gat, my <QuickSlang word="Ac'" desc="Acura（高級車）の略。1990年代NYストリートの成功の象徴" /><br />
-        Bank account fat, it's going down like that
-      </Fragment>
-      <Fragment slot="jpn">
-        でも俺が必要なのは、家と銃とAcuraだけ<br />
-        銀行口座はパンパン——そういう感じで進んでいく
-      </Fragment>
-      <Fragment slot="explanation">
-        シンプルな成功の定義——家・護身用の銃・高級車・太った銀行口座。マスメディア的な「アメリカンドリーム」をストリート版に翻訳したRaekwonの価値観宣言。「it's going down like that」は「そういう流れでいく」という宣言。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        And pardon the French, but let me speak Italian<br />
-        Black stallions wildling on Shaolin
-      </Fragment>
-      <Fragment slot="jpn">
-        フランス語は失礼、だがイタリア語で話させてくれ<br />
-        黒い種馬たちがシャオリンで暴れまわってる
-      </Fragment>
-      <Fragment slot="explanation">
-        「pardon the French（フランス語は失礼）」は英語の慣用句で「汚い言葉を使うが許してくれ」の意。「speak Italian」はイタリアン・マフィアの語り口でいく宣言。「Black stallions」は黒人男性を力強い馬に例える。「Shaolin（少林）」はStaten Island（スタテンアイランド）の隠語。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        That means the island of Staten<br />
-        And n***as carry gats and mad police from Manhattan
-      </Fragment>
-      <Fragment slot="jpn">
-        つまりスタテン島のことだ<br />
-        そして奴らはガットを持ち歩き、マンハッタンからは大勢の警官が来る
-      </Fragment>
-      <Fragment slot="explanation">
-        スタテンアイランド＝Shaolinの解説を自ら行う珍しいライン。「gats（ガット）」は銃のスラング。「mad police from Manhattan」——マンハッタンから大量の警察が来るという包囲状況が、「incarcerated scarfaces」というテーマを補強する。
-      </Fragment>
-    </LyricsBlock>
-
-    <h3 class="text-xs text-[var(--c-very-dim)] uppercase tracking-widest mb-3 mt-8">Chorus</h3>
-
-    <LyricsBlock hasExplanation={false}>
-      <Fragment slot="eng">
-        Now, yo, yo, what up, yo? Time is runnin' out<br />
-        It's for real though, let's connect, politic, ditto<br />
-        We could trade places, get lifted in the staircases<br />
-        Word up, peace, incarcerated scarfaces
-      </Fragment>
-      <Fragment slot="jpn">
-        よお、聞けよ、時間は切れていく<br />
-        マジな話だ、繋がって、語り合おう、同感だろ<br />
-        立場を交換して、階段で浮き上がれる<br />
-        マジだ、平和を——収監されたスカーフェイスたちへ
-      </Fragment>
-    </LyricsBlock>
-
-    <h3 class="text-xs text-[var(--c-very-dim)] uppercase tracking-widest mb-3 mt-8">Verse 3 — Raekwon</h3>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        I do this for barber shop n***as in the Plaza<br />
-        Catching asthma, Rae is sticking gun-flashers
-      </Fragment>
-      <Fragment slot="jpn">
-        これはプラザの床屋で屯する奴らのためにやってる<br />
-        喘息になりながら、Raeは銃を見せつける奴らを仕留める
-      </Fragment>
-      <Fragment slot="explanation">
-        「barber shop n***as」——床屋はNYの黒人コミュニティの社交場。「the Plaza」はスタテンアイランドの地元の商業施設または団地を指す。「catching asthma」は貧困な環境（換気の悪いアパート・汚染）への言及。「gun-flashers」は銃を誇示して脅す人間。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Well-dressed, skating through the projects with big ones<br />
-        Broke elevators, turn the lights out, stick one upstairs
-      </Fragment>
-      <Fragment slot="jpn">
-        よそ行きの格好で、でかい銃を持って団地を滑るように歩く<br />
-        壊れたエレベーター、電気を消して、上の階で一人を仕留める
-      </Fragment>
-      <Fragment slot="explanation">
-        「projects（プロジェクト）」はニューヨークの公営住宅。「broke elevators（壊れたエレベーター）」は貧しい環境のリアルな描写。「turn the lights out」は停電または人を「消す（殺す）」こと。団地の暗い階段での犯罪を映画的に描く。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Switch like a chameleon, hit Brazilians<br />
-        Pass the cash or leave your children, leave the building
-      </Fragment>
-      <Fragment slot="jpn">
-        カメレオンのように変化して、ブラジル系を狙う<br />
-        金を渡すか、子供を残して去れ、建物を出ろ
-      </Fragment>
-      <Fragment slot="explanation">
-        「switch like a chameleon」はスタイルを素早く切り替えるアダプタビリティ。「hit Brazilians」は実際の強盗ターゲットの描写——1990年代NYにはブラジル系移民コミュニティが存在した。「pass the cash or leave your children」という冷酷な選択肢の提示がノワール的緊張感を高める。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        n***as, yo, they be folding like envelopes<br />
-        Under pressure, like Lou Ferrigno on coke
-      </Fragment>
-      <Fragment slot="jpn">
-        奴らよ、封筒みたいに折れ曲がる<br />
-        プレッシャーの下で、コカインをやったルー・フェリグノみたいに
-      </Fragment>
-      <Fragment slot="explanation">
-        「folding like envelopes」は圧力に屈して折れることの鮮やかな比喩。「Lou Ferrigno」はボディビルダー兼俳優（テレビ版インクレディブル・ハルク）。薬物で強化された大男——コントロール不能な暴力——の比喩として使う独創的なパンチライン。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Yo, Africans denying n***as up in yellow cabs<br />
-        Musty like f**k, waving they arms to Arabs
-      </Fragment>
-      <Fragment slot="jpn">
-        よお、アフリカ系のタクシー運転手が黒人乗客を拒否してる<br />
-        体臭まみれで、アラブ系に向かって手を振ってる
-      </Fragment>
-      <Fragment slot="explanation">
-        1990年代NYで実際に問題視された「タクシーによる黒人差別」の描写。アフリカ系移民ドライバーが黒人乗客を拒否することへの皮肉——移民間の人種的緊張と差別構造を赤裸々に描いた社会批評ライン。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Sit back, cooling like Kahlúas on rocks<br />
-        On the crack spots, rubber band wrap all my <QuickSlang word="knots" desc="輪ゴムで束ねた札束。現金のスラング" />
-      </Fragment>
-      <Fragment slot="jpn">
-        クールにしてる、ロック（氷）入りのカルーアみたいに<br />
-        クラックの売り場で、輪ゴムで縛った俺の金束
-      </Fragment>
-      <Fragment slot="explanation">
-        「Kahlúas on rocks」はカルーア・リキュールのロック——余裕と洗練のイメージ。クラックの売り場という危険な場所で「cooling（落ち着いている）」というコントラストが映画的。「rubber band wrap all my knots」はドラッグマネーを束ねる日常のリアル。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        View b***hes who f**k dreads on Sudafeds<br />
-        Pussy's hurting, they did it for a <QuickSlang word="yard" desc="100ドルのスラング（$100 = a yard）。連邦捜査官への情報提供料として受け取った金額" /> for the feds
-      </Fragment>
-      <Fragment slot="jpn">
-        スーダフェッドをキメてドレッドの男と寝る女たちを見る<br />
-        体が痛むのに、連邦捜査官のために100ドルでそれをやった
-      </Fragment>
-      <Fragment slot="explanation">
-        「Sudafeds（スーダフェッド）」は風邪薬だが、当時はドラッグの代替または覚せい剤の前駆体として乱用された。「dreads（ドレッドヘア）」の男性——ジャマイカ系や黒人男性。「yard（100ドル）for the feds」——連邦捜査官への情報提供（密告）の報酬として100ドルという衝撃的な安値。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Word up, cousin, n***a, I seen it<br />
-        Like a 27-inch Zenith, believe it
-      </Fragment>
-      <Fragment slot="jpn">
-        マジだ、カズン、俺は見てきた<br />
-        27インチのゼニスのようにはっきりと、信じてくれ
-      </Fragment>
-      <Fragment slot="explanation">
-        「27-inch Zenith」はZenithブランドの27インチテレビ。1990年代NYでは大型テレビが成功の象徴であり、またニュース・ドラマで現実を見る窓。「like a 27-inch Zenith」——テレビで見るように鮮明に目撃したという比喩でバース3を締める。
-      </Fragment>
-    </LyricsBlock>
-
-    <h3 class="text-xs text-[var(--c-very-dim)] uppercase tracking-widest mb-3 mt-8">Chorus</h3>
-
-    <LyricsBlock hasExplanation={false}>
-      <Fragment slot="eng">
-        Now, yo, yo, what up, yo? Time is runnin' out<br />
-        It's for real, though, let's connect, politic, ditto<br />
-        We could trade places, get lifted in the staircases<br />
-        Word up, peace, incarcerated scarfaces
-      </Fragment>
-      <Fragment slot="jpn">
-        よお、聞けよ、時間は切れていく<br />
-        マジな話だ、繋がって、語り合おう、同感だろ<br />
-        立場を交換して、階段で浮き上がれる<br />
-        マジだ、平和を——収監されたスカーフェイスたちへ
-      </Fragment>
-    </LyricsBlock>
-
-    <h3 class="text-xs text-[var(--c-very-dim)] uppercase tracking-widest mb-3 mt-8">Outro</h3>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Yo, yo, what up, yo? Time is runnin' out<br />
-        It's for real, though, let's connect, politic, ditto
-      </Fragment>
-      <Fragment slot="jpn">
-        よお、聞けよ、時間は切れていく<br />
-        マジな話だ、繋がって、語り合おう、同感だろ
-      </Fragment>
-      <Fragment slot="explanation">
-        コーラスの解体バージョン。繰り返しによって「time is runnin' out（時間は切れていく）」というメッセージがより深く刻まれる——刑務所の時間、人生の時間、チャンスの窓、すべてが徐々に閉じていく緊迫感。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={false}>
-      <Fragment slot="eng">
-        Get lifted in the staircases<br />
-        Peace, incarcerated scarfaces
-      </Fragment>
-      <Fragment slot="jpn">
-        階段で浮き上がれ<br />
-        平和を——収監されたスカーフェイスたちへ
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={false}>
-      <Fragment slot="eng">
-        Time is runnin' out<br />
-        Politic, ditto<br />
-        Incarcerated scarfaces
-      </Fragment>
-      <Fragment slot="jpn">
-        時間は切れていく<br />
-        語り合おう、同感だ<br />
-        収監されたスカーフェイスたちへ
-      </Fragment>
-    </LyricsBlock>
-
-  </section>
-
-  <section id="background" class="mb-6">
-    <h2 class="text-base font-semibold mb-2">■文化的背景</h2>
-    <p class="text-sm text-[var(--c-muted)] leading-relaxed">1990年代半ば、西海岸のG-Funk（Dr. Dre、Snoop Dogg）が商業的に席巻する中、ニューヨークはより暗く、より複雑なサウンドで対抗した。Wu-Tang Clanはその最先鋒であり、Raekwonのソロデビュー作『Only Built 4 Cuban Linx...』は「マフィオソ・ラップ（Mafioso Rap）」というサブジャンルを確立した金字塔だ。「Incarcerated Scarfaces」はその核心に位置するトラックで、映画『スカーフェイス』の野心・暴力・破滅の物語をスタテンアイランドのストリートに重ねて語る。コカインの蔓延、銃社会、タクシー差別、公営住宅の貧困——1990年代NYの現実がリリックに生々しく刻まれている。RZAはDetroit Emeraldsのソウルをサンプリングし、最小限の要素で最大限の不穏さを生み出した。Ghostface Killahとのコンビが「Criminology」でマフィオソ世界の扉を開いたとすれば、この曲ではRaekwonが一人でその世界の深部まで踏み込んでいく。</p>
-  </section>
-
-  <section id="legacy" class="mb-6">
-    <h2 class="text-base font-semibold mb-2">■評価とレガシー</h2>
-    <p class="text-sm text-[var(--c-muted)] leading-relaxed">『Only Built 4 Cuban Linx...』はローリングストーン誌をはじめ多くのメディアで「史上最も重要なヒップホップアルバム」の一つに選出されており、「Incarcerated Scarfaces」はそのフィルムノワール的世界観を決定づけるトラックとして特に高く評価される。Nas、Jay-Z、Big Punら後の東海岸リリシストが「映画的なストーリーテリング」をラップに持ち込む上で本作から直接影響を受けた。「slang rap democracy」というフレーズが示すように、スラングと詩性と暴力性を平等に扱う民主主義的なリリシズムは、以降のハードコアヒップホップの文体を形成した。日本では1990年代後半にアンダーグラウンドHIPHOPシーンがWu-Tang Clanの哲学を吸収し、SCARS・MSC・THINK TANKなどのグループがその影響を明確に受けた。クラシック盤として今も国内DJにプレイされ続け、「収監されたスカーフェイスたち」への連帯のメッセージは国境を越えて響き続けている。</p>
-  </section>
+    <!-- まとめ -->
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        まとめ
+      </h2>
+      <ul class="space-y-2 text-sm text-[var(--c-muted)] list-disc list-inside leading-relaxed">
+        <li>Detroit EmeraldsとKoko Taylorという全く異なる時代・ジャンルの2枚を張り合わせたRZAのビートが土台。</li>
+        <li>politic（動詞）・son（動詞）・Scholars・word life・Shaolin——Wu-Tang固有の言語を知ることで、リリックの密度が一気に上がる。</li>
+        <li>「pardon the French, let me speak Italian」はこのアルバム全体のコンセプト宣言。マフィオソ・ラップの核心が2行に収まっている。</li>
+        <li>Lou FerrignoもZenith TVも、知っているか知らないかで情景の解像度が全く違う——文化の辞書を厚くすることがリリック読解の近道だと思います。</li>
+      </ul>
+    </section>
 
 </SongLayout>

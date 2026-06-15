@@ -1,0 +1,10 @@
+[
+  { "id": "politic-ditto", "anchor": ["lets", "connect", "politic", "ditto"], "fallbackT": 42, "manualSec": null },
+  { "id": "scholars-word-life", "anchor": ["scholars", "word", "life", "peace", "to", "power"], "fallbackT": 78, "manualSec": null },
+  { "id": "black-trump", "anchor": ["guess", "whos", "the", "black", "trump"], "fallbackT": 92, "manualSec": null },
+  { "id": "sons-who", "anchor": ["battle", "for", "cash", "and", "see", "who", "sons"], "fallbackT": 148, "manualSec": null },
+  { "id": "wallabees", "anchor": ["slide", "off", "the", "ring", "plus", "the", "wallabees"], "fallbackT": 175, "manualSec": null },
+  { "id": "speak-italian", "anchor": ["pardon", "the", "french", "but", "let", "me", "speak", "italian"], "fallbackT": 183, "manualSec": null },
+  { "id": "ferrigno-coke", "anchor": ["folding", "like", "envelopes", "under", "pressure"], "fallbackT": 222, "manualSec": null },
+  { "id": "zenith-believe", "anchor": ["27", "inch", "zenith", "believe", "it"], "fallbackT": 248, "manualSec": null }
+]
