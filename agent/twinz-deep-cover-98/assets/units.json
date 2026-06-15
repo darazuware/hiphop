@@ -1,0 +1,50 @@
+[
+  {
+    "id": "dead-little-italy",
+    "anchor": ["dead", "in", "the", "middle", "of", "little", "italy"],
+    "fallbackT": 22,
+    "manualSec": null
+  },
+  {
+    "id": "cold-day-hell",
+    "anchor": ["cold", "day", "in", "hell", "the", "day", "i", "take", "an", "l"],
+    "fallbackT": 36,
+    "manualSec": null
+  },
+  {
+    "id": "insanity-pavilion",
+    "anchor": ["insanity", "buildin", "a", "pavilion", "in", "my", "civilian"],
+    "fallbackT": 56,
+    "manualSec": null
+  },
+  {
+    "id": "cheddar-child-support",
+    "anchor": ["take", "all", "the", "cheddar", "like", "child", "support"],
+    "fallbackT": 68,
+    "manualSec": null
+  },
+  {
+    "id": "one-eight-seven",
+    "anchor": ["still", "187", "on", "an", "undercover", "cop"],
+    "fallbackT": 80,
+    "manualSec": null
+  },
+  {
+    "id": "black-pearl-latina",
+    "anchor": ["black", "pearl", "latina", "mas", "fina"],
+    "fallbackT": 112,
+    "manualSec": null
+  },
+  {
+    "id": "don-cartagena",
+    "anchor": ["all", "the", "kids", "in", "the", "ghetto", "call", "me", "don", "cartagena"],
+    "fallbackT": 125,
+    "manualSec": null
+  },
+  {
+    "id": "street-professors",
+    "anchor": ["street", "professors", "terror", "squad", "ghetto", "scholars"],
+    "fallbackT": 146,
+    "manualSec": null
+  }
+]
