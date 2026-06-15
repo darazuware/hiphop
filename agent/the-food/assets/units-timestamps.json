@@ -34,10 +34,10 @@
     "whisperSec": 129.2,
     "manualSec": null,
     "fallbackT": 56,
-    "t": 129.2,
-    "source": "whisper",
+    "t": 56,
+    "source": "fallback",
     "approx": true,
-    "score": 0.5
+    "score": 0.3
   },
   {
     "id": "white-eminem",
@@ -64,10 +64,10 @@
     "whisperSec": 145,
     "manualSec": null,
     "fallbackT": 86,
-    "t": 145,
-    "source": "whisper",
+    "t": 86,
+    "source": "fallback",
     "approx": true,
-    "score": 0.5
+    "score": 0.3
   },
   {
     "id": "fair-one",
