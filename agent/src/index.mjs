@@ -119,6 +119,20 @@ const OFFSET_FILE = join(QUEUE_DIR, '.offset');
 const POLL_INTERVAL = 60_000;
 
 /**
+ * 認可された Chat ID（自分のみ）。環境変数 TELEGRAM_CHAT_ID から読む（ハードコード禁止）。
+ * カンマ区切りで複数指定可。未設定なら全拒否（安全側）。
+ */
+const AUTHORIZED_CHAT_IDS = (process.env.TELEGRAM_CHAT_ID || '')
+  .split(',')
+  .map((s) => s.trim())
+  .filter(Boolean);
+
+/** 送信元 chat_id が認可済みか判定 */
+function isAuthorized(chatId) {
+  return AUTHORIZED_CHAT_IDS.includes(String(chatId));
+}
+
+/**
  * 保存済みオフセットを読み込む
  * @returns {Promise<number>}
  */
@@ -204,8 +218,13 @@ async function processSong(song, chatId) {
   const result = await processAndDeploy(jsonPath);
 
   if (result.success) {
-    await sendMessage(`✅ 完了: ${label}\n記事が生成・デプロイされました。`, chatId);
-    console.log(`✅ 完了: ${label}`);
+    // 本番URL（Cloudflare Pages = waxthink.com）を通知
+    const url = result.slug ? `https://waxthink.com/songs/${result.slug}` : '';
+    await sendMessage(
+      `✅ 完了: ${label}\n記事が生成・デプロイされました。${url ? `\n${url}` : ''}`,
+      chatId
+    );
+    console.log(`✅ 完了: ${label}${url ? ` — ${url}` : ''}`);
   } else {
     // Markdown パースエラーを避けるためプレーンテキストで送信
     const errorMsg = String(result.error || '不明なエラー').slice(0, 500);
@@ -270,6 +289,12 @@ async function main() {
         if (!text) continue;
 
         const chatId = update.message.chat.id;
+
+        // chat_id 認証：認可されていない送信元は無視（誰でも起動できないようにする）
+        if (!isAuthorized(chatId)) {
+          console.warn(`  [Auth] 未認可の chat_id からのメッセージを無視`);
+          continue;
+        }
 
         // /short <slug> コマンド
         if (text.startsWith('/short ')) {

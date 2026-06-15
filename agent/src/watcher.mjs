@@ -133,8 +133,32 @@ async function processTrigger(triggerFile) {
     }
   }
 
-  // Step 5: ビルド確認
-  console.log(`\n[6/6] npm run build...`);
+  // Step 5.5: learning型の頭出し秒数を whisper で生成（units.jsonが在る曲のみ）
+  // 頭出しリンクの基準youtubeId(.astroのconst YT)とwhisper入力を同一動画に固定して尺ズレ防止。
+  if (slug) {
+    const hasUnits = (() => {
+      try { return readFileSync(`${HIPHOP_CWD}/agent/${slug}/assets/units.json`, 'utf-8').length > 0; }
+      catch { return false; }
+    })();
+    if (hasUnits) {
+      console.log(`\n[6/8] whisper秒数生成 (learning型)...`);
+      const tsResult = await run(`node agent/src/gen-unit-timestamps.mjs --slug ${slug}`, { silent: true });
+      console.log(tsResult.stdout);
+      // 低信頼でも file が出来ていれば続行。生成自体に失敗(exit2)した時のみブロック
+      // （.astroが units-timestamps.json を import するため不在だとビルド/クリーンビルドで落ちる）。
+      try {
+        readFileSync(`${HIPHOP_CWD}/agent/${slug}/assets/units-timestamps.json`, 'utf-8');
+      } catch {
+        console.error('❌ units-timestamps.json 生成失敗 — pushをスキップ');
+        await writeDone(1, `units-timestamps.json生成失敗: ${slug}`);
+        cleanup(triggerFile, promptFile);
+        return;
+      }
+    }
+  }
+
+  // Step 6: ビルド確認（作業ツリー）
+  console.log(`\n[7/8] npm run build...`);
   const buildResult = await run('npm run build', { silent: true });
   if (buildResult.code !== 0) {
     console.error('ビルド失敗');
@@ -145,19 +169,49 @@ async function processTrigger(triggerFile) {
   }
   console.log('ビルド OK');
 
-  // git add → commit → push
-  console.log('\ngit push...');
+  // git add → commit（pushはクリーンビルド通過後）
+  // ※ "git add ." は使わず生成slugに対応するパスのみ明示列挙する（ユーザーのローカル作業と競合防止）。
+  //   learning型は .astro が import する units-timestamps.json が必須。これに加え
+  //   入力の units.json と whisper入力 audio.mp3 も同梱し、クリーンcloneで再現可能にする。
+  console.log('\n[8/8] git commit...');
+  const existing = (rel) => { try { return readFileSync(`${HIPHOP_CWD}/${rel}`) && rel; } catch { return null; } };
   const files = [
     slug ? `src/pages/songs/${slug}.astro` : null,
     'src/data/songs.ts',
     'src/data/artists.ts',
-    slug ? `public/images/covers/${slug}.jpg` : null,
+    slug ? existing(`public/images/covers/${slug}.jpg`) : null,
+    // learning型の参照データ（commit漏れ＝werdz型ビルド落ちの原因）
+    slug ? existing(`agent/${slug}/assets/units-timestamps.json`) : null,
+    slug ? existing(`agent/${slug}/assets/units.json`) : null,
+    slug ? existing(`agent/${slug}/assets/audio.mp3`) : null,
   ].filter(Boolean).join(' ');
 
-  const gitResult = await run(
-    `git add ${files} && git commit -m "feat(songs): add ${slug || 'new song'}" && git push`,
+  const commitResult = await run(
+    `git add ${files} && git commit -m "feat(songs): add ${slug || 'new song'}"`,
     { silent: true }
   );
+  if (commitResult.code !== 0) {
+    console.error('git commit失敗');
+    console.log(commitResult.stdout);
+    await writeDone(1, 'git commit失敗');
+    cleanup(triggerFile, promptFile);
+    return;
+  }
+
+  // クリーンビルド検証（作業ツリー非依存）— commit済みのみでビルドが通るか＝commit漏れ検知
+  console.log('\nクリーンビルド検証（commit漏れ検知）...');
+  const cleanResult = await run('node agent/src/clean-build-check.mjs', { silent: true });
+  console.log(cleanResult.stdout.slice(-2000));
+  if (cleanResult.code !== 0) {
+    console.error('❌ クリーンビルド失敗 — 参照ファイルのcommit漏れの可能性。pushを中止（commitはローカルに残置）。');
+    await writeDone(1, `クリーンビルド失敗(commit漏れの可能性): ${slug}`);
+    cleanup(triggerFile, promptFile);
+    return;
+  }
+
+  // push（クリーンビルド通過後のみ）
+  console.log('\ngit push...');
+  const gitResult = await run('git push', { silent: true });
   if (gitResult.code !== 0) {
     console.error('git push失敗');
     console.log(gitResult.stdout);

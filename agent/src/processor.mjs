@@ -57,21 +57,22 @@ function extractAlbum(research) {
 
 /**
  * @param {string} jsonPath
- * @returns {Promise<{ success: boolean, error: string|null }>}
+ * @returns {Promise<{ success: boolean, error: string|null, slug: string|null }>}
  */
 export async function processAndDeploy(jsonPath) {
+  let slug = null;
   try {
     const rawData = await readFile(jsonPath, 'utf-8');
     const data = JSON.parse(rawData);
     const { artist, title, imageUrl, research } = data;
 
-    const slug = data.slug || title.toLowerCase().replace(/ /g, '-').replace(/[^a-z0-9-]/g, '');
+    slug = data.slug || title.toLowerCase().replace(/ /g, '-').replace(/[^a-z0-9-]/g, '');
 
     // 重複チェック
     const songsSrc = readFileSync(join(HIPHOP_CWD, 'src/data/songs.ts'), 'utf-8');
     if (songsSrc.includes(`slug: '/songs/${slug}'`)) {
       console.warn(`  [Processor] スキップ: /songs/${slug} はすでに登録済み`);
-      return { success: false, error: `duplicate: ${slug}` };
+      return { success: false, error: `duplicate: ${slug}`, slug };
     }
 
     const coversDir = join(HIPHOP_CWD, 'public/images/covers');
@@ -111,9 +112,10 @@ export async function processAndDeploy(jsonPath) {
     }
 
     console.log('  [Processor] Claude CLI実行中...');
-    return await runClaude(jsonPath);
+    const result = await runClaude(jsonPath);
+    return { ...result, slug };
   } catch (error) {
     console.error(`  [Processor] エラー: ${error.message}`);
-    return { success: false, error: error.message };
+    return { success: false, error: error.message, slug };
   }
 }

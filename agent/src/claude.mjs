@@ -70,7 +70,7 @@ ASIN（songs.tsに設定すること）: ${d.asin || 'null'}
 GeniusURL: ${d.geniusUrl || ''}`;
   } catch (e) {}
 
-  const prompt = `以下の楽曲データをもとに、CLAUDE.mdの「記事作成フロー」と「歌詞翻訳ルール」に従って記事を作成してください。承認を求めずに全自動で完遂すること。
+  const prompt = `以下の楽曲データをもとに、**learning型（学習解説主体）**の記事を作成してください。承認を求めずに全自動で完遂すること。
 
 ## 楽曲情報
 ${songMeta}
@@ -79,19 +79,37 @@ ${songMeta}
 ${jsonPath}
 （このファイルにGemini Deep Researchのリサーチ結果・Genius歌詞・メタデータが入っています。最初にRead toolで必ず読み込んでください）
 
+## 【ステップ0・最重要】事実チェック（着手前に必ず実行）
+1. 着手前に必ず CLAUDE.md と docs/fact-check-rules.md を Read tool で読む。
+2. JSONの research（Gemini Deep Research出力）は**無検証で信じない**。producer / sample / year / album / 客演（feat.）/ チャート順位 / 曲の実在性に関する事実主張は、すべて一次ソースで裏取りする。
+   - 優先順位: サンプルは **WhoSampled** を最優先、次いで Wikipedia / Discogs / Genius。年・アルバム・客演は **Wikipedia + Discogs** で確認。
+3. research と一次資料が食い違う場合は**必ず一次資料を優先**する。確証が取れない事実は**断定せず、記載しない**（推測で書かない）。
+   - 過去に bodega / road / poison 等の捏造サンプルが「fact-check欠如」で生まれた。同じ轍を踏まないこと。
+4. docs/article-tone.md を Read し、運営者本人の声（ですます基調・評論家ヅラ禁止・定型句の使い回し禁止・導入見出しの個別化／時系列順／専門用語ツールチップ／地元固有名詞化の4点）で書く。
+
 ## 実行手順
-1. 上記JSONファイルを読み込む（research・lyricsフィールドを記事作成の根拠とする）
+1. 上記JSONファイルを読み込む（researchは上記ステップ0で裏取りした事実のみを根拠とする）
 2. ファイル名は必ず src/pages/songs/${slug}.astro（上記slugをそのまま使うこと・変更禁止）
-   - SongLayout使用
-   - LyricsBlockで歌詞を1〜2行単位で分割（バース全体を1ブロックにしない）
-   - 各ブロックにeng/jpn/explanationを付ける（researchの内容を解説に反映すること）
-   - QuickSlangで重要スラングに注釈
-   - 文化背景・レガシーセクションを追加（researchの調査項目5・6を活用）
-   - 【最重要】元の歌詞を1行たりとも省略せず、すべて元の順番通りに配置すること
+   - **雛形は cream.astro。必ず src/pages/songs/cream.astro を Read して構造を踏襲する。**
+   - **learning型で作る。歌詞全行は載せない。** src/components/LearningUnit.astro を使い、「学ぶ表現」単位（スラング・韻・言葉遊び・AAVE文法）で解説する。
+   - 各 LearningUnit: 見出し（学ぶ表現）＋ MC担当 ＋ 秒数頭出しリンク ＋ 日本語の位置案内 ＋ **2行程度の英語引用断片（eng）** ＋ 和訳（jpn）＋ 語法・文化背景の独自解説。
+   - 引用は**用例の断片のみ**（その表現を含む行/対句だけ）。**eng引用率 < 60%**（全行掲載にしない）。
+   - **独自解説の日本語（jpn/explanation/本文）は英語引用より分量を多くし、合計 ≥ 1200字。**
+   - QuickSlangで重要スラングに注釈、文化背景・レガシーは独自解説として記述。
+   - **頭出しリンク基準動画**: .astro冒頭に \`const YT = "<11桁youtubeId>";\` を必ず置く（songs.tsのyoutubeIdが無くてもこの YT を使う）。全 LearningUnit の頭出しは同じ YT を参照する。
+   - **秒数の表示は固定で書かない**: 各 LearningUnit の \`t=\` は \`TS["<id>"].t\` 形式で units-timestamps.json から取る（cream.astro と同形）。冒頭に \`import tsData from '../../../agent/${slug}/assets/units-timestamps.json';\` と \`const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.approx }]));\` を置く。
+2b. **agent/${slug}/assets/units.json を必ず作成する**（whisper秒数生成の入力。これが無いと頭出し秒数が出ず、import先のjson不在でビルドが落ちる）。
+   - 形式: \`[{ "id": "<英数ハイフンの一意id>", "anchor": ["lowercase","words","from","the","quoted","line"], "fallbackT": <概算秒・整数>, "manualSec": null }]\`
+   - id は各 LearningUnit と1対1（.astro の \`TS["<id>"]\` と一致させる）。
+   - anchor: そのユニットが扱う引用行の連続する数語を小文字・記号無しで（whisperが拾える固有性の高い語を選ぶ）。
+   - fallbackT: その箇所のおおよその秒数（whisperが外した時の保険）。manualSec は必ず null（運営者が後で実測上書き）。
+   - 秒数自体（whisperSec/t）は書かない。秒数は後段の whisper パイプラインが units-timestamps.json に自動生成する。
 3. src/data/songs.ts にエントリ追記
    - slug: '/songs/${slug}' （固定・変更禁止）
+   - **tier: "core" を必ず付ける**（未設定だとトップ/sitemap/RSSから除外され不可視になる）
    - asin: 上記ASINの値をそのまま設定（nullの場合はnull）
-   - era/region/producer/bpmはresearchから正確に埋める
+   - era/region/producer/bpmは**ステップ0で裏取りした事実**から正確に埋める
+   - 文字列はダブルクォートを使う
 4. src/data/artists.ts を確認し、artistSlugが未登録なら追加
 
 ※ git操作・ビルド・歌詞チェックはシステムが自動実行するため不要`;
