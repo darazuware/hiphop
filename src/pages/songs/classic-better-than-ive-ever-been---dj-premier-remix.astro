@@ -1,784 +1,366 @@
 ---
-import LyricsBlock from '../../components/LyricsBlock.astro';
+import LearningUnit from '../../components/LearningUnit.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
 import SongLayout from '../../layouts/SongLayout.astro';
+
+import tsData from '../../../agent/classic-better-than-ive-ever-been---dj-premier-remix/assets/units-timestamps.json';
+const YT = "TsmXYGDdLO8";
+const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.approx }]));
 ---
 
 <SongLayout
-  title="Classic (Better Than I've Ever Been) DJ Premier Remix 和訳・意味・解説 | Kanye West, Nas, KRS-One & Rakim"
-  description="Kanye West、Nas、KRS-One、Rakim「Classic (Better Than I've Ever Been) - DJ Premier Remix」の歌詞和訳とスラング徹底解説。Nike Air Force 1生誕25周年記念、2007年リリース。3世代のMCが結集した歴史的コラボ。"
+  title="Classic (Better Than I've Ever Been) 和訳・意味・スラング解説 | Kanye West, Nas, KRS-One & Rakim"
+  description="2007年Nikeキャンペーン曲。DJ Premierがプロデュース、Rakim・Kanye・Nas・KRS-Oneが集結。Superfly-ness・habitual be・emceein' vs rapなどのスラング・AAVE文法を表現単位で解説。頭出しリンク付き。"
   slug="classic-better-than-ive-ever-been---dj-premier-remix"
   highlights={[
-    'Carl Douglas「Dance the Kung-Fu」(1974)をチョップしたDJ Premierの重厚なブームバップ・ビート',
-    'Rakim・KRS-One（80年代）、Nas（90年代）、Kanye West（2000年代）——3世代のMCが一つのトラックに結集',
-    'Nike Air Force 1生誕25周年記念プロジェクト。収益はForce4Change基金に寄付、第50回グラミー賞「Best Rap Collaboration」ノミネート',
+    '1970〜2000年代を代表する4MCが一堂に会した、Nikeキャンペーン発の歴史的コラボ',
+    'habitual be・コピュラ省略・換喩・造語・イディオム——多様なAAVE文法と英語表現技法が一曲に凝縮',
+    'Carl Douglas「Dance the Kung-Fu」(1974)を核に組み上げたDJ Premierのビート解剖',
   ]}
-  youtubeId="Hopub9qmLZg"
-  sampleYoutubeId=""
-  sampleTitle=""
+  youtubeId="TsmXYGDdLO8"
 >
 
-  <!-- この曲の意味 -->
-  <section class="mb-6">
-    <h2 class="text-base font-semibold mb-2">■この曲の意味（要約）</h2>
-    <p class="text-sm text-[var(--c-muted)] leading-relaxed">
-      Rakim・KRS-One・Nas・Kanye Westという80年代〜2000年代を代表する4人のMCが、DJ Premierのブームバップ・ビートの上で「クラシックとは何か」を問い直す。スニーカーブランドのプロモーションを超え、リリシズムと時代性の本質に迫った歴史的マイクリレー。
-    </p>
-  </section>
-
-  <!-- 概要 -->
-  <section class="mb-6">
-    <h2 class="text-base font-semibold mb-2">■概要</h2>
-    <p class="text-sm text-[var(--c-muted)] leading-relaxed">
-      Nike Air Force 1の誕生25周年（1982〜2007年）を記念して企画されたプロモーション・シングル。オリジナル版はRick Rubinプロデュース、George Benson「Give Me the Night」サンプル使用。KRS-OneからのオファーによりDJ Premierがリミックスを手掛け、Carl Douglas「Dance the Kung-Fu」(1974)を素材に重厚なブームバップへ変貌させた。Nasの過去曲からのスクラッチが随所に挿入される、Premier流の仕事。Nike Recordsより2007年2月20日にデジタル配信・12インチプロモ盤でリリース。第50回グラミー賞「Best Rap Collaboration」ノミネート。
-    </p>
-  </section>
-
-  <!-- 導入 -->
-  <section class="mb-10">
-    <h2 class="text-base font-semibold mb-2">■導入（時代背景）</h2>
-    <p class="text-sm text-[var(--c-muted)] leading-relaxed">
-      2007年、ヒップホップのメインストリームはサウス発クランク・スナップ・着信音ラップが席巻し、NYリリカル・ブームバップは「時代遅れ」とみなされつつあった。そんな干ばつ（drought）の時代に、ヒップホップの黎明期から頂点を築いてきた4人が最高水準のバースを披露。商業と真正性が奇跡的に融合したこの一曲は、シーンへの強烈なカウンターパンチとなった。背景にはNasとRakimの和解というドラマもある——2004年にNasがRakimの伝記的トリビュート曲を無断制作したことで生じた確執が、この共演によって終止符を打たれた。
-    </p>
-  </section>
-
-  <!-- 目次 -->
-  <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
-    <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
-    <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
-      <li><a href="#lyrics" class="hover:text-[var(--c-gold)] transition-colors">01 — 歌詞和訳と意味解説</a></li>
-      <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">02 — 制作の裏側</a></li>
-      <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">03 — レガシーと評価</a></li>
-    </ol>
-  </nav>
-
-  <div id="lyrics"></div>
-
-  <!-- ===================== -->
-  <!-- HOOK (INTRO)          -->
-  <!-- ===================== -->
-  <section class="mb-12">
-    <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-      Hook · Nas &amp; Kanye West
-    </h2>
-
-    <LyricsBlock hasExplanation={false}>
-      <Fragment slot="eng">
-        Classic<br />
-        Uh, uh, timeless<br />
-        (Live straight classic)<br />
-        Classic<br />
-        (Live straight classic)<br />
-        I'm better than I've ever been<br />
-        Timeless<br />
-        (I'm Rakim, the fiend of a microphone)
-      </Fragment>
-      <Fragment slot="jpn">
-        クラシック<br />
-        ああ、タイムレス<br />
-        （生きた本物のクラシック）<br />
-        クラシック<br />
-        （生きた本物のクラシック）<br />
-        俺は今まで以上に絶好調<br />
-        タイムレス<br />
-        （俺はRakim、マイクに取り憑かれた男）
-      </Fragment>
-    </LyricsBlock>
-  </section>
-
-  <!-- ===================== -->
-  <!-- VERSE 1: RAKIM        -->
-  <!-- ===================== -->
-  <section class="mb-12">
-    <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-      Verse 1 · Rakim
-    </h2>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Uh, yeah, is y'all ready for 20-07? It's now another drought<br />
-        Everybody's a killer, wow, we buggin' out
-      </Fragment>
-      <Fragment slot="jpn">
-        ああ、2007年の準備はできてるか？今また干ばつの時代だ<br />
-        みんな「俺がキラー」と言うが、俺たちはどうかしてる
-      </Fragment>
-      <Fragment slot="explanation">
-        「drought」はここで比喩的に「真のリリシズムが枯渇した状態」。2007年当時、クランクや着信音ラップが主流となりNYリリカル・ハードコアが商業的に苦戦していた状況への言及。「buggin' out」はNYスラングで「おかしくなっている、現実から外れている」。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Since '86 showin' the crowd what I'm about<br />
-        And they still wanna know when the album comin' out
-      </Fragment>
-      <Fragment slot="jpn">
-        86年からずっとクラウドに俺の本質を見せてきた<br />
-        それでもみんなアルバムがいつ出るか知りたがってる
-      </Fragment>
-      <Fragment slot="explanation">
-        1986年にEric B. &amp; Rakimとして「Eric B. Is President」でデビューしたRakimが、20年以上経ってもなお期待され続けていることへの自負。ソロ作の遅さは業界で有名だったが、それすらもレジェンドとしての貫禄として提示。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Ask the teenagers, OG's and ask the kids (Go 'head)<br />
-        What their definition of "Classic" is
-      </Fragment>
-      <Fragment slot="jpn">
-        ティーンにも、OGにも、子供たちにも聞いてみな（どうぞ）<br />
-        「クラシック」の定義が何かを
-      </Fragment>
-      <Fragment slot="explanation">
-        「<QuickSlang word="OG" desc="Original Gangster／Original。元祖・重鎮の意。長年シーンに根ざした先輩格の人物を指す。" />」（オリジナル・ギャングスター）は年配のベテランを指す敬称。世代を問わず答えは一つ——クラシックとは時代を超えるもの——という問いかけ。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Timeless, so age don't count in the booth<br />
-        When your flow stay submerged in the fountain of youth
-      </Fragment>
-      <Fragment slot="jpn">
-        タイムレス、だからブース内では年齢は関係ない<br />
-        フロウが若返りの泉に浸かり続けている限り
-      </Fragment>
-      <Fragment slot="explanation">
-        「fountain of youth」（若返りの泉）は伝説の永遠の命の源泉。スキルが常に最前線に在り続ける「永遠性」の比喩。ヒップホップ業界に蔓延するエイジズム（年齢差別）へのアンチテーゼでもある。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Ain't no doubtin' the truth, I'm off the meters<br />
-        Everybody cosignin', even non-believers
-      </Fragment>
-      <Fragment slot="jpn">
-        真実に疑いの余地はない、俺はメーターを振り切ってる<br />
-        懐疑派も含め、全員が俺を認めている
-      </Fragment>
-      <Fragment slot="explanation">
-        「off the meters」は「メーターでは測れないほど突出している」の意。「<QuickSlang word="cosign" desc="cosign。支持する・保証する・お墨付きを与える。元は共同署名の意。" />」は「認める・支持する」。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Since I came in the door, became one of y'alls leaders<br />
-        In a fresh pair of Air Force One sneakers
-      </Fragment>
-      <Fragment slot="jpn">
-        ドアを入った瞬間からお前たちのリーダーになった<br />
-        新品のAir Force Oneスニーカーを履いてな
-      </Fragment>
-      <Fragment slot="explanation">
-        Air Force 1はNike Air Force 1のこと。1982年発売、ハーレムを中心にストリートで爆発的人気を誇り「Uptowns」の愛称で呼ばれた。ヒップホップとスニーカー文化の不可分な関係性を象徴する一行。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Uptowns, we call 'em uppies when they're on divas<br />
-        Probably worn when KRS-One teaches
-      </Fragment>
-      <Fragment slot="jpn">
-        アップタウンズ、女神が履けば「アッピーズ」と呼ぶ<br />
-        KRS-Oneが教壇に立つ時も履いてるだろう
-      </Fragment>
-      <Fragment slot="explanation">
-        「Uptowns」はNY・ハーレム（アップタウン）生まれのAF1の愛称。KRS-Oneは「ティーチャー（The Teacher）」の異名を持ち、ヒップホップを教育・哲学として語る姿勢で知られる。その彼も白のAF1を履く——という敬意のラインだ。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Nas made you look before the heaters<br />
-        I bet you Kan' had 'em on when he walked with Jesus, these is
-      </Fragment>
-      <Fragment slot="jpn">
-        Nasが銃（ヒーターズ）の前でお前を見させた<br />
-        Kanyeもイエスと歩く時に履いてたと思う、これが
-      </Fragment>
-      <Fragment slot="explanation">
-        「heaters」は銃のスラング。「Nas made you look」はNasの2002年のディストラック「Ether」によってJay-Zを論破したことへの言及——「見ろ（look）」と言ってから「heaters（銃）」を引き出した。「Kan' walked with Jesus」はKanye Westのアルバム『The College Dropout』収録「Jesus Walks」（2004）の参照。
-      </Fragment>
-    </LyricsBlock>
-  </section>
-
-  <!-- ===================== -->
-  <!-- HOOK                  -->
-  <!-- ===================== -->
-  <section class="mb-12">
-    <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-      Hook · Nas, Kanye West &amp; DJ Premier
-    </h2>
-
-    <LyricsBlock hasExplanation={false}>
-      <Fragment slot="eng">
-        Classic<br />
-        (Live straight classic)<br />
-        Uh, uh<br />
-        I'm better than I've ever been<br />
-        Timeless<br />
-        I'm everywhere you've never been<br />
-        And better than I've ever been<br />
-        Classic<br />
-        (Live straight classic)<br />
-        I'm better than I've ever been<br />
-        Timeless<br />
-        (I'd like to return to the classics)<br />
-        Kanye West
-      </Fragment>
-      <Fragment slot="jpn">
-        クラシック<br />
-        （生きた本物のクラシック）<br />
-        ああ<br />
-        俺は今まで以上に絶好調<br />
-        タイムレス<br />
-        お前が行ったことのないどこにでも俺はいる<br />
-        そして今まで以上にいい状態<br />
-        クラシック<br />
-        （生きた本物のクラシック）<br />
-        俺は今まで以上に絶好調<br />
-        タイムレス<br />
-        （クラシックに戻りたい）<br />
-        Kanye West
-      </Fragment>
-    </LyricsBlock>
-  </section>
-
-  <!-- ===================== -->
-  <!-- VERSE 2: KANYE WEST  -->
-  <!-- ===================== -->
-  <section class="mb-12">
-    <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-      Verse 2 · Kanye West
-    </h2>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        You can't buy this Superfly-ness, like a shine is<br />
-        Your Highness is performing; look how long the line is
-      </Fragment>
-      <Fragment slot="jpn">
-        このスーパーフライっぷりは買えない、輝きのように<br />
-        殿下が公演中——行列の長さを見ろ
-      </Fragment>
-      <Fragment slot="explanation">
-        「Superfly」は1972年のブラックスプロイテーション映画・Curtis Mayfieldのサントラを指す。黒人文化の自負と華やかさの象徴。「Your Highness」はKanyeの自称。行列は彼のライブや作品への圧倒的な需要を示す。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        It's what happens when you make s**t that's timeless<br />
-        It's what happens, these rappers is the pioneers
-      </Fragment>
-      <Fragment slot="jpn">
-        タイムレスなものを作った結果がこうなる<br />
-        こういうことだ、こいつらのラッパーたちがパイオニアだ
-      </Fragment>
-      <Fragment slot="explanation">
-        「pioneers」はここでRakim、KRS-One、Nas、Kanyeを指す。ただし「these rappers」は皮肉にも取れる文脈で、同時代の量産型ラッパーとの対比として機能している。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        What do it take to be a legend like Nas is?<br />
-        That's so novice, I'm so polished
-      </Fragment>
-      <Fragment node="jpn">
-        Nasのようなレジェンドになるには何が必要か？<br />
-        そんな問いは素人レベル、俺はもう磨き上げられてる
-      </Fragment>
-      <Fragment slot="jpn">
-        Nasのようなレジェンドになるには何が必要か？<br />
-        そんな問いは素人レベル、俺はもう磨き上げられてる
-      </Fragment>
-      <Fragment slot="explanation">
-        「novice」（初心者）という自虐的な問いに対し即座に「polished」（磨き上げられた）と返す鮮やかなフリップ。Kanyeが当時まだ「プロデューサー出身のラッパー」として格付けされていた立場から、レジェンドたちと同等の自信を見せる場面。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        I got a right to be a lil bit snobbish<br />
-        I did a lil bit of college
-      </Fragment>
-      <Fragment slot="jpn">
-        少し高慢でいる権利がある<br />
-        少しだけ大学に行ったから
-      </Fragment>
-      <Fragment slot="explanation">
-        デビューアルバム『The College Dropout』（2004）のコンセプトを継承した自己言及。大学を中退してラッパーになったKanyeが「高学歴を持ちながらストリートにいる矜持」を自虐とユーモアで表現。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Semesters, it took two like Rob Base<br />
-        To let me figure out this wasn't my place
-      </Fragment>
-      <Fragment slot="jpn">
-        2学期——Rob Baseみたいに「ツー」で——<br />
-        ここが俺の居場所じゃないとわかるのに
-      </Fragment>
-      <Fragment slot="explanation">
-        「Rob Base」はRob Base &amp; DJ E-Z Rockの「It Takes Two」（1988）への言及。「two semesters（2学期）」と「It Takes Two（二人が必要）」の語呂合わせ。Kanyeが2学期で大学を去り音楽に専念したことを指す。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        The beat's slow, 'til you listen to my pace<br />
-        'Cause I be killing s**t, but that's evident
-      </Fragment>
-      <Fragment slot="jpn">
-        ビートは遅い——俺のペースを聴くまではな<br />
-        俺は常にやり切ってる、それは明らかだ
-      </Fragment>
-      <Fragment slot="explanation">
-        DJ PremierのBPM 100のビートはKanyeにとってスロー気味だったが、独自のフロウとライムで完全に支配した。「killing s**t」はスラングで「圧倒的に最高のパフォーマンスをする」の意。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={false}>
-      <Fragment slot="eng">
-        And y'all feeling it, but I expected it<br />
-        If it's classic, it's gon' last forever then<br />
-        I'm everywhere you never been, and better than I ever been
-      </Fragment>
-      <Fragment slot="jpn">
-        みんな感じてる、俺には予想通りだ<br />
-        クラシックなら永遠に残る<br />
-        お前が行ったことのないどこにでもいる、今まで以上にいい状態で
-      </Fragment>
-    </LyricsBlock>
-  </section>
-
-  <!-- ===================== -->
-  <!-- HOOK                  -->
-  <!-- ===================== -->
-  <section class="mb-12">
-    <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-      Hook · Nas &amp; Kanye West
-    </h2>
-
-    <LyricsBlock hasExplanation={false}>
-      <Fragment slot="eng">
-        Classic<br />
-        (Live straight classic)<br />
-        I'm better than I've ever been<br />
-        Timeless<br />
-        I'm everywhere you've never been<br />
-        And better than I've ever been<br />
-        Classic<br />
-        (Live straight classic)<br />
-        I'm better than I've ever been<br />
-        Timeless<br />
-        (Hold the fort down, represent to the fullest)<br />
-        (Nas'll rock well)
-      </Fragment>
-      <Fragment slot="jpn">
-        クラシック<br />
-        （生きた本物のクラシック）<br />
-        俺は今まで以上に絶好調<br />
-        タイムレス<br />
-        お前が行ったことのないどこにでも俺はいる<br />
-        そして今まで以上にいい状態<br />
-        クラシック<br />
-        （生きた本物のクラシック）<br />
-        俺は今まで以上に絶好調<br />
-        タイムレス<br />
-        （砦を守れ、最高のレペゼンをしろ）<br />
-        （Nasはロックするだろう）
-      </Fragment>
-    </LyricsBlock>
-  </section>
-
-  <!-- ===================== -->
-  <!-- VERSE 3: NAS          -->
-  <!-- ===================== -->
-  <section class="mb-12">
-    <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-      Verse 3 · Nas
-    </h2>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Perseverance<br />
-        See, the fake hustler rapper, to them, it hurts to hear this
-      </Fragment>
-      <Fragment slot="jpn">
-        忍耐こそが全て<br />
-        そう、偽物のハスラーラッパーたちには、これを聞くのが痛いだろう
-      </Fragment>
-      <Fragment slot="explanation">
-        冒頭の「Perseverance（忍耐・不屈の精神）」の一語で、Nasが25年超のキャリアで貫いてきた姿勢を宣言。「fake hustler rapper」は商業的成功だけを追う偽物への批判。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Oh, you went platinum? Yeah, that's nice<br />
-        Now, let me see you do the same thing twice
-      </Fragment>
-      <Fragment slot="jpn">
-        お、プラチナ取ったの？いいね<br />
-        じゃあ同じことをもう一回やってみせろ
-      </Fragment>
-      <Fragment slot="explanation">
-        一発屋への直球批判。プラチナ認定（100万枚以上）は一度でも再現できないアーティストがほとんど。「<QuickSlang word="platinum" desc="プラチナ。米国では100万枚以上のセールスに与えられるRIAAの認定。ヒップホップではステータスの象徴だが、Nasは持続性を重視する。" />」の価値観を問い直す。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={false}>
-      <Fragment slot="eng">
-        Three times, fo' times, then a couple of mo' times<br />
-        Please, you're Amateur Night, it's Showtime
-      </Fragment>
-      <Fragment slot="jpn">
-        3回、4回、さらに何回も<br />
-        頼む、お前はアマチュアの夜、こっちはショータイムだ
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        It's one life to live, so live it the best you can<br />
-        The world could use one less man
-      </Fragment>
-      <Fragment slot="jpn">
-        人生は一度、だから最高に生きろ<br />
-        この世界は男が一人少なくても困らない
-      </Fragment>
-      <Fragment slot="explanation">
-        「one life to live」は哲学的な生の宣言であると同時に、後半「一人消えても構わない」という暗い現実——街の暴力と命の軽さ——を突きつける転換。Nasの詩的な対比の技術が光る。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Not enough air, not enough car factories<br />
-        To manufacture new vehicles, sedans and vans
-      </Fragment>
-      <Fragment slot="jpn">
-        空気も足りない、自動車工場も足りない<br />
-        新しい車——セダンもバンも——を製造するには
-      </Fragment>
-      <Fragment slot="explanation">
-        環境問題と経済格差の暗示。ゲットーでは贅沢品（新車）を手に入れる前に命が尽きる可能性すら示唆する多層的なライン。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={false}>
-      <Fragment slot="eng">
-        When they do make the whip you like, your chips ain't right<br />
-        By the time you could afford it, the car ain't important
-      </Fragment>
-      <Fragment slot="jpn">
-        好きな車が出ても、お前の金が足りない<br />
-        買える頃には、もうその車は大事じゃない
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        In the streets I'm in, it's just iron<br />
-        Cops keep firin' in my environment
-      </Fragment>
-      <Fragment slot="jpn">
-        俺がいるストリートにあるのは鉄（銃）だけ<br />
-        俺のいる環境で警官は撃ち続ける
-      </Fragment>
-      <Fragment slot="explanation">
-        「iron」は銃のスラング。警官による銃撃はクイーンズブリッジ出身のNasが生き証人として語るリアルな現実。システムの暴力と黒人コミュニティの日常を重ねた生々しい一節。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Leavin' you slumped, then they drive home<br />
-        Far from the hood, brothers they eager to jump on
-      </Fragment>
-      <Fragment slot="jpn">
-        お前を打ち倒して、警官たちは家に帰る<br />
-        フードから遠く離れた家へ——兄弟は飛びつきたがってる
-      </Fragment>
-      <Fragment slot="explanation">
-        「slumped」は銃弾を受けて倒れた状態。「hood（フード）」はghetto/地元コミュニティを指す。警官がゲットーから遠く離れた安全な郊外に住みながらフードを管理するという構造的権力差を批判。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        I like to be the wall that they toast up on<br />
-        I like to see them fall, guilty for doin' wrong
-      </Fragment>
-      <Fragment slot="jpn">
-        俺はコミュニティが乾杯する壁でありたい<br />
-        悪事の報いを受けて奴らが落ちるのを見たい
-      </Fragment>
-      <Fragment slot="explanation">
-        「toast up on」はグラスを掲げて壁（人物、象徴）に乾杯する行為。Nasが地元コミュニティの象徴・守護者でありたいという宣言。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        I'm classic like the Air One's, the hustler's shoe<br />
-        That's what I'm accustomed to, yeah
-      </Fragment>
-      <Fragment slot="jpn">
-        俺はAir Force 1のようにクラシック——ハスラーの靴<br />
-        それが俺の慣れ親しんだもの
-      </Fragment>
-      <Fragment slot="explanation">
-        曲全体のテーマ「クラシック」とAir Force 1を自分自身に重ねるNasの締め。AF1は1980年代からハーレムの<QuickSlang word="hustler" desc="hustler。元は「必死に働く者」だがヒップホップでは「ストリートで金を稼ぐ者」を指す。あらゆる手段で生計を立てる抜け目のない人物像。" />たちのシューズとして愛されてきた文化的アイコン。
-      </Fragment>
-    </LyricsBlock>
-  </section>
-
-  <!-- ===================== -->
-  <!-- HOOK                  -->
-  <!-- ===================== -->
-  <section class="mb-12">
-    <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-      Hook · Nas &amp; Kanye West
-    </h2>
-
-    <LyricsBlock hasExplanation={false}>
-      <Fragment slot="eng">
-        Classic<br />
-        (Live straight classic)<br />
-        I'm better than I've ever been<br />
-        Timeless<br />
-        I'm everywhere you've never been<br />
-        And better than I've ever been<br />
-        Classic<br />
-        (Live straight classic)<br />
-        I'm better than I've ever been<br />
-        Timeless<br />
-        (Of course - we have Blastmaster KRS-One)
-      </Fragment>
-      <Fragment slot="jpn">
-        クラシック<br />
-        （生きた本物のクラシック）<br />
-        俺は今まで以上に絶好調<br />
-        タイムレス<br />
-        お前が行ったことのないどこにでも俺はいる<br />
-        そして今まで以上にいい状態<br />
-        クラシック<br />
-        （生きた本物のクラシック）<br />
-        俺は今まで以上に絶好調<br />
-        タイムレス<br />
-        （もちろん——ブラストマスターKRS-Oneの登場だ）
-      </Fragment>
-    </LyricsBlock>
-  </section>
-
-  <!-- ===================== -->
-  <!-- VERSE 4: KRS-ONE      -->
-  <!-- ===================== -->
-  <section class="mb-12">
-    <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-      Verse 4 · KRS-One
-    </h2>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        How many of y'all got Criminal Minded?<br />
-        You! You! You! Y'all don't be blinded
-      </Fragment>
-      <Fragment slot="jpn">
-        お前たちのうち何人が『Criminal Minded』を持ってる？<br />
-        お前！お前！お前！盲目になるな
-      </Fragment>
-      <Fragment slot="explanation">
-        「<QuickSlang word="Criminal Minded" desc="Criminal Minded。KRS-OneとDJ Scott La RockによるBoogie Down Productionsの1987年デビューアルバム。ハードコアラップの原点の一つ。" />」は1987年のBoogie Down Productionsデビューアルバム。「このアルバムを持っているか？」という問いは「本物のヒップホップを知っているか？」と等価。「blinded」は真実が見えていない状態——無知・欺きへの警告。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Me, I got no jewels on my neck<br />
-        Why? I don't need 'em, I got your respect!
-      </Fragment>
-      <Fragment slot="jpn">
-        俺は首にジュエリーをつけていない<br />
-        なぜ？必要ないから、お前たちのリスペクトがあるから！
-      </Fragment>
-      <Fragment slot="explanation">
-        ヒップホップの物質主義（チェーン・ダイヤ）への強烈な否定。KRS-Oneは「ティーチャー（The Teacher）」として知識・敬意こそが本物の富と主張してきた。ブリン文化への批判は1986年デビュー当初から一貫している。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        KRS-One, twenty-years I rock<br />
-        I do it for JMJ and Scott La Rock
-      </Fragment>
-      <Fragment slot="jpn">
-        KRS-One、20年間ロックし続けた<br />
-        JMJとScott La Rockのためにやってる
-      </Fragment>
-      <Fragment slot="explanation">
-        「JMJ」はJam Master Jay（Run-D.M.C.のDJ、2002年射殺）、「Scott La Rock」はKRS-OneのパートナーDJ（1987年射殺）。銃撃で失ったヒップホップ界の2人の偉人への追悼を込めた一行。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        This hip-hop, and we's a nation<br />
-        Don't you wanna hear more KRS-One on your radio station?
-      </Fragment>
-      <Fragment slot="jpn">
-        これがヒップホップ、俺たちは一つの国家だ<br />
-        ラジオでもっとKRS-Oneを聴きたくないか？
-      </Fragment>
-      <Fragment slot="explanation">
-        KRS-Oneが1990年代から提唱してきた「Hip Hop Nation（ヒップホップ国家）」の概念への言及。ヒップホップを単なる音楽ジャンルではなく、文化・哲学・コミュニティとして捉える視点。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Instead of broadcastin' how we smoke them trees<br />
-        On the radio we need to hear more local emcees
-      </Fragment>
-      <Fragment slot="jpn">
-        マリファナを吸う話をブロードキャストする代わりに<br />
-        ラジオでもっとローカルのMCを聴く必要がある
-      </Fragment>
-      <Fragment slot="explanation">
-        「trees」はマリファナのスラング。KRS-Oneはコマーシャルラジオが薬物・暴力・物質主義の内容ばかり流し、地域コミュニティの声（local emcees）を無視していることを批判。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Where you at? C'mon, where you at?<br />
-        This is the difference between emceein' and rap
-      </Fragment>
-      <Fragment slot="jpn">
-        どこにいる？カモン、どこにいる？<br />
-        これがエムシーイングとラップの違いだ
-      </Fragment>
-      <Fragment slot="explanation">
-        KRS-Oneが30年以上語り続けてきたテーゼ——「emceeing（MCイング）」は技術・文化・思想を伴うアート、「rap」は商業的なパフォーマンス——を再提示。リスナーへの問いかけは「お前はどちら側にいるか？」。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Rappers spit rhymes that are mostly illegal<br />
-        Emcees spit rhymes to uplift their people
-      </Fragment>
-      <Fragment slot="jpn">
-        ラッパーは主に違法な内容のライムを吐く<br />
-        MCはコミュニティを高めるライムを吐く
-      </Fragment>
-      <Fragment slot="explanation">
-        KRS-Oneの最も有名な哲学的テーゼの一つ。「uplift their people（人々を高める）」はコンシャスラップの核心。コマーシャリズムへの警鐘と、ヒップホップの本質的使命を問う。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Peace, Love, Unity, havin' fun<br />
-        These are the lyrics of KRS-One!
-      </Fragment>
-      <Fragment slot="jpn">
-        平和、愛、団結、楽しむこと<br />
-        これがKRS-Oneのリリックだ！
-      </Fragment>
-      <Fragment slot="explanation">
-        アフリカ・バンバータが提唱したヒップホップの4つの精神的支柱「Peace, Love, Unity, and Having Fun」への直接的なオマージュ。KRS-Oneがヒップホップの起源に立ち返り、本質を改めて宣言する力強いクロージング。
-      </Fragment>
-    </LyricsBlock>
-  </section>
-
-  <!-- ===================== -->
-  <!-- FINAL HOOK            -->
-  <!-- ===================== -->
-  <section class="mb-12">
-    <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-      Hook · Nas, Kanye West &amp; Rakim
-    </h2>
-
-    <LyricsBlock hasExplanation={false}>
-      <Fragment slot="eng">
-        Classic<br />
-        (Live straight classic)<br />
-        I'm better than I've ever been<br />
-        Timeless<br />
-        I'm everywhere you've never been<br />
-        And better than I've ever been<br />
-        Classic<br />
-        (Live straight classic)<br />
-        Air Force One sneakers popping<br />
-        Classic
-      </Fragment>
-      <Fragment slot="jpn">
-        クラシック<br />
-        （生きた本物のクラシック）<br />
-        俺は今まで以上に絶好調<br />
-        タイムレス<br />
-        お前が行ったことのないどこにでも俺はいる<br />
-        そして今まで以上にいい状態<br />
-        クラシック<br />
-        （生きた本物のクラシック）<br />
-        Air Force Oneスニーカーが飛ぶように売れてる<br />
-        クラシック
-      </Fragment>
-    </LyricsBlock>
-  </section>
-
-  <!-- ===================== -->
-  <!-- BACKGROUND            -->
-  <!-- ===================== -->
-  <div id="background"></div>
-  <section class="mb-12">
-    <h2 class="text-base font-semibold mb-4">■制作の裏側</h2>
-    <div class="space-y-4 text-sm text-[var(--c-muted)] leading-relaxed">
-      <p>
-        <strong>オリジナルからリミックスへ：</strong>Rick Rubinがプロデュースしたオリジナル版はGeorge Benson「Give Me the Night」をサンプリング。Kanyeが6曲入りCDの中から選曲し、KRS-One・Nas・Rakimに共有してマイクリレーが構想された。オリジナル完成後、KRS-OneからDJ Premierへ「ビデオ撮影用にプレモのバージョンが必要だ」と直接オファーが入り、Premierが参加。
+    <!-- ===================== -->
+    <!-- 導入                  -->
+    <!-- ===================== -->
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■ 神々が降りてきた夜</h2>
+      <p class="text-sm text-[var(--c-muted)] leading-relaxed">
+        2007年、Nikeは「クラシック」というテーマでキャンペーン曲を作ることにした。プロデューサーにDJ Premier、MCにRakim・Kanye West・Nas・KRS-One——まるでヒップホップの歴史を圧縮して一曲に封じ込めたような顔ぶれだ。Rakimは1986年デビューの元祖スーパーMC、KRS-Oneはブロンクスからの哲学者、Nasはクイーンズブリッジが生んだ最高の詩人、そしてKanyeはシカゴ出身で当時すでに押しも押されもしない時代の寵児。この記事ではそれぞれのヴァースに散りばめられたスラング・AAVE（アフリカ系アメリカ人英語）文法・言葉遊びを「学ぶ表現」単位でひとつひとつ取り出して解説していきたいと思います。Nikeのキャンペーン曲というと軽く聞こえるかもしれないけど、リリックの密度は本格的で、英語表現の教材として読んでも十分に面白い。
       </p>
-      <p>
-        <strong>Carl Douglasの「Dance the Kung-Fu」（1974）：</strong>イギリス系ジャマイカ人歌手Carl Douglasの「Kung Fu Fighting」の兄弟曲。Premierはこのファンク・ブレイクを精緻にチョップし、重厚なキック&amp;スネアのブームバップへと再構築した。
-      </p>
-      <p>
-        <strong>Rakimのアカペラとアナログ職人技：</strong>Kanye・Nas・KRS-Oneの3人はBPM 100のオリジナルに合わせて録音したが、Rakimは独自のドラムビートで録音しアカペラのみを送付。そのテンポはPremierのトラックと合わなかった。PremierはProToolsのタイムストレッチを使わず、PioneerのCDJのピッチコントロールを駆使してRakimの声を手動で同期させた——デジタル化の時代にアナログDJの技術で名曲を完成させた逸話として語り継がれる。
-      </p>
-      <p>
-        <strong>Nike Air Force 1生誕25周年：</strong>1982年誕生のAF1の記念プロジェクト。「AF1の真の価値はヒップホップとストリートの口コミによって築かれた」という哲学のもと、Nike Recordsより2007年2月20日リリース。収益はForce4Change基金に寄付された。
-      </p>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===================== -->
-  <!-- LEGACY                -->
-  <!-- ===================== -->
-  <div id="legacy"></div>
-  <section class="mb-12">
-    <h2 class="text-base font-semibold mb-4">■レガシーと評価</h2>
-    <div class="space-y-4 text-sm text-[var(--c-muted)] leading-relaxed">
-      <p>
-        <strong>グラミー賞ノミネート：</strong>2008年第50回グラミー賞「Best Rap Collaboration」部門にノミネート。企業プロモーション楽曲として異例の音楽的評価を獲得した。
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■ なぜ4人なのか、なぜPremierなのか</h2>
+      <p class="text-sm text-[var(--c-muted)] leading-relaxed">
+        元々の「Classic (Better Than I've Ever Been)」はRick Rubinがプロデュースした版が先に存在していたが、このDJ Premier Remixが決定版として広く知られている。PremierといえばゴリゴリのNYハードコアを代表するビートメイカー——Gang StarrのDJ、Nas Is Likeのビートを作った男だ。Carl Douglas「Dance the Kung-Fu」(1974)のサンプルを核に組み上げたビートの上で、3世代にまたがる4人のMCが「クラシックとは何か」を各々の言葉で定義していく。全員がただ並んでいるのではなく、それぞれ全く違う角度から同じ問いに答えているところが面白い（Rakimは「時間を超えること」、Kanyeは「模倣不可能な個性」、Nasは「継続すること」、KRS-Oneは「思想と教育」）。
       </p>
-      <p>
-        <strong>NasとRakimの和解：</strong>2004年にNasが「U.B.R. (Unauthorized Biography of Rakim)」を無断制作したことで生じた両者の確執が、この「Classic」プロジェクトを通じて終止符を打たれた。単なるプロモソングを超えた歴史的な「神々の和平条約」。
+    </section>
+
+    <!-- Table of Contents -->
+    <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
+      <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
+        <li><a href="#story" class="hover:text-[var(--c-gold)] transition-colors">01 — ストーリーの流れ（4MCの構成をつかむ）</a></li>
+        <li><a href="#units" class="hover:text-[var(--c-gold)] transition-colors">02 — 学ぶ表現（スラング・韻・AAVE文法）</a></li>
+        <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">03 — 文化的背景</a></li>
+        <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">04 — サンプル・制作の裏側</a></li>
+        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">05 — この曲が意味すること</a></li>
+      </ol>
+    </nav>
+
+    <!-- ===================== -->
+    <!-- ストーリー要約          -->
+    <!-- ===================== -->
+    <section id="story" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        ストーリーの流れ — 4MCの構成をつかむ
+      </h2>
+      <p class="text-xs text-[var(--c-dim)] mb-5">
+        スラングの細部に入る前に、曲全体の構造を先に押さえておきましょう。4人がどんな角度でヴァースを書いているかを知っていると、言葉の選択の意図がくっきり見えてくる。
       </p>
-      <p>
-        <strong>3世代のサミット：</strong>80年代のRakim（マルチシラブル・ライムの発明者）とKRS-One（ヒップホップ哲学の体現者）、90年代のNas（ストリートの詩人）、2000年代のKanye West（ポップアート拡張者）——3つのディケイドの頂点が一曲に。商業と真正性が奇跡的に融合した金字塔。
+      <div class="space-y-4 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          曲はフックから入る。「Classic」「Timeless」「Better than I've ever been」——この3つのキーワードが曲全体の骨格だ。Nas と Kanye がフックを担当し、「今が自分史上最高」という宣言を繰り返す。聴いているうちにこのフレーズが呪文のように体に入ってくる。
+        </p>
+        <p>
+          <strong class="text-[var(--c-text)]">Verse 1（Rakim）</strong>。1986年デビューのMCの神が、2007年の時点で「自分はまだ終わっていない」ことを静かに、しかし圧倒的な存在感で証明するヴァース。ティーンエイジャーにも、OGたちにも、子供たちにも——「クラシック」の定義は何かと問いかけることから始まり、Air Force Oneスニーカーを軸に、KRS-One・Nas・Kanyeへの言及を折り込みながら自分と彼らを同一の系譜に位置づける。自己顕示でなく、むしろ謙虚さを装った堂々たる宣言だ。
+        </p>
+        <p>
+          <strong class="text-[var(--c-text)]">Verse 2（Kanye West）</strong>。「Superfly-ness」という造語から入るKanye節が炸裂するヴァース。「俺の個性は金で買えない」「Your Highness（殿下）が今パフォームしている」という自己神格化と、Rob Baseへの言及、AAVEのhabitual be——Kanyeの語彙は他の3人と全く違う時代・文化から来ている。大学を中退した話をサラリと挟むあたりも彼らしい。
+        </p>
+        <p>
+          <strong class="text-[var(--c-text)]">Verse 3（Nas）</strong>。3番手に立ったNasのヴァースは、最も社会批評的だ。「一度プラチナを取ったなら、もう2回、3回、4回やってみせろ」という挑発から始まり、クイーンズブリッジの街に銃と発砲と貧困の現実が広がる描写へと転じる。「クラシック」であり続けることの意味を、ストリートの視点から問う構造だ。
+        </p>
+        <p>
+          <strong class="text-[var(--c-text)]">Verse 4（KRS-One）</strong>。ブロンクス出身のブラストマスターが締める。「Criminal Mindedを持っている人、手を挙げろ」——自分のデビューアルバム（1987年）を引用しながら、Scott La RockとJMJへの追悼、そしてヒップホップの本質論へ。「emceein'とrapの違い」「民衆をアップリフトするリリック」「Peace, Love, Unity」——KRS-Oneにとってヒップホップは運動であり哲学なのだということが、この4分間のなかで一番クッキリ見える。
+        </p>
+        <p class="text-xs text-[var(--c-dim)]">
+          ※本ページは批評・教育目的で、解説に必要な範囲の断片のみを引用しています。全歌詞の対訳は掲載していません。
+        </p>
+      </div>
+    </section>
+
+    <!-- ===================== -->
+    <!-- 学習ユニット群         -->
+    <!-- ===================== -->
+    <div id="units"></div>
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2 border-b border-[var(--c-border)] pb-2">
+        学ぶ表現 — スラング・韻・AAVE文法
+      </h2>
+      <p class="text-xs text-[var(--c-dim)] mb-6">
+        各見出しは「この曲から学べる英語表現」。上に英語の用例（1〜2行）を置いてあります。<strong class="text-[var(--c-text)]">先に英語を音で追い、どこが学習対象かを確かめてから</strong>日本語解説へ。🎤はそのリリックを歌うMC、▶は動画の頭出しリンク（秒数は概算）。
       </p>
-      <p>
-        <strong>日本での評価：</strong>DJ Premierの職人技とブームバップ美学を愛する日本のファン・DJ間で本曲の12インチプロモ盤は「レコードボックス必須の一枚」として取引される。2024年に河出書房新社から世界初のDJ Premier全曲レビュー本『DJプレミア完全版』が刊行されるなど、日本のヒップホップアーカイブ文化においても本曲は特別な位置を占める。
-      </p>
-    </div>
-  </section>
+
+      <!-- ① Classic / Timeless — フックの定義 -->
+      <LearningUnit
+        heading="Classic / Timeless — ヒップホップが「クラシック」と呼ぶとき"
+        label="★ フック／概念"
+        mc="Nas & Kanye West（Hook）"
+        t={TS["classic-hook"].t} tApprox={TS["classic-hook"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Classic / Uh, uh, timeless<br />I'm better than I've ever been</Fragment>
+        <Fragment slot="jpn">クラシック／アァ、タイムレス（時を超えた）／俺は今が自分史上最高</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 曲の冒頭、Nas と Kanye がフックでこの3語を叩き込んでくる。</p>
+        <p>まず上の2行を声に出してみてください。「Classic」「timeless」——この2語が曲全体のテーマを担うキーワードです。ヒップホップで「classic」というとき、単に「古い」という意味ではない。<strong class="text-[var(--c-text)]">時間を経ても価値が落ちない作品・スタイル・MCのこと</strong>を指す。「timeless」も同じで、「時代を選ばない・どの時代でも通用する」という意味。そして「I'm better than I've ever been」——「俺は今が自分史上最高の状態にある」という宣言だ。過去への敬意を払いながら、今の自分がピークにいると言い切る——これがRakimのヴァース全体のテーマの伏線にもなっている。英語学習的に注目したいのは <strong class="text-[var(--c-text)]">「better than I've ever been」</strong> という比較表現——<QuickSlang word="現在完了" desc="have/has + 過去分詞。「今までの人生のなかで」という期間全体を射程に入れる表現" />（have ever been）で「今まで生きてきた中で最も良い状態」を表している。</p>
+      </LearningUnit>
+
+      <!-- ② Since '86 — 歴史的文脈 -->
+      <LearningUnit
+        heading="Since '86 — 年号で自分のキャリアを語る作法"
+        label="★ 歴史・文脈"
+        mc="Rakim（Verse 1）"
+        t={TS["since-86"].t} tApprox={TS["since-86"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Since '86 showin' the crowd what I'm about<br />And they still wanna know when the album comin' out</Fragment>
+        <Fragment slot="jpn">86年からクラウドに俺の実力を見せ続けてきた／それでもみんな、次のアルバムはいつ出るんだと聞いてくる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 1序盤、Rakimが自分のキャリアの長さを一発で示す件。</p>
+        <p>行の頭、「<strong class="text-[var(--c-text)]">Since '86</strong>」——これを見た瞬間、聴き手は「ああ、Rakimか」とわかる仕掛けだ。<strong class="text-[var(--c-text)]">1986年</strong>はEric B. & Rakimがデビューした年で、ヒップホップに「スキルフルなMC」という概念を持ち込んだとされる歴史的なタイミング。この曲が出た2007年から21年前の話を「Since」でひと言で表現して、自分の射程の長さをリスナーに体感させている。年号を短縮形（'86 = 1986）で置くのはヒップホップの定型で、「おれはこの世界に20年以上いる」を4音節で言い切ってしまう語彙の圧縮術だ。下の行の「they still <strong class="text-[var(--c-text)]">wanna</strong> know」も聴いておきたい——<strong class="text-[var(--c-text)]">wanna</strong>（= want to）はAAVEと口語英語に広く普及した短縮形で、「まだみんなが次作を待っている」＝現役であることの証拠、という自慢を余裕の一言で包んでいる。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">since + 年号</strong> は「〜年から（ずっと）」を表す前置詞句。現在完了形と組み合わせて <em>I've been doing this since '86</em>（86年からずっとやってきた）のように使うのが基本だが、ここではリズムの都合で <em>Since '86 showin'…</em> と分詞句で始まっている。</p>
+          <p><strong class="text-[var(--c-text)]">wanna</strong> は <em>want to</em> の縮約形。<em>gonna（= going to）</em> や <em>gotta（= got to）</em> と並ぶ口語三兄弟で、スピードとリズムを優先する会話・ラップでは事実上の標準形になっている。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ③ fountain of youth — イディオム -->
+      <LearningUnit
+        heading="fountain of youth — イディオムを武器に使う"
+        label="★ イディオム"
+        mc="Rakim（Verse 1）"
+        t={TS["fountain-of-youth"].t} tApprox={TS["fountain-of-youth"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Timeless, so age don't count in the booth<br />When your flow stay submerged in the <QuickSlang word="fountain of youth" desc="「若さの泉」——永遠の若さを保つとされる伝説の泉。ここではラップのフロウが時代を超え続けることの比喩" /></Fragment>
+        <Fragment slot="jpn">タイムレス、だからブース（録音室）では年齢は関係ない／お前のフロウが若さの泉に沈んでいる限り</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 1中盤、Rakimが「なぜ自分はまだクラシックなのか」を語る核心部分。</p>
+        <p>行の後半、「…submerged in the <strong class="text-[var(--c-text)]">fountain of youth</strong>」——「若さの泉」は歴史・文学に由来する<QuickSlang word="イディオム" desc="複数の語が組み合わさって慣用的な意味を持つ固定表現。直訳では意味が取れない" />（慣用表現）です。不老不死の泉という伝説から来た言葉で、ここではRakimのフロウ（ラップのリズム・スタイル）が20年経っても古くならない、という意味で使われている。「submerged（水没している・どっぷり浸かっている）」という動詞の選択も面白くて、「泉に浸かる」という視覚的なイメージが「時代を超える」という抽象概念を生き生きとさせている。前の行の「age <strong class="text-[var(--c-text)]">don't</strong> count」は<strong class="text-[var(--c-text)]">AAVEのコピュラ省略</strong>と三単現s無し——標準英語なら「age doesn't count」だが、三単現の-sを付けない形がAAVEの特徴で、ここでは「年齢は関係ない」という言い切りのリズムを作っている。</p>
+      </LearningUnit>
+
+      <!-- ④ Uptowns / uppies — Nike/NYC スラング -->
+      <LearningUnit
+        heading="Uptowns / uppies — スニーカーが語る地理とステータス"
+        label="★ スラング（地域語）"
+        mc="Rakim（Verse 1）"
+        t={TS["uptowns-uppies"].t} tApprox={TS["uptowns-uppies"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">In a fresh pair of <QuickSlang word="Air Force One" desc="Nikeのバスケットシューズ。1982年発売、NYのストリートで絶大な支持を受けた" /> sneakers<br /><QuickSlang word="Uptowns" desc="Air Force OneのニューヨークNY地元呼び。ハーレム（Uptown）でとくに人気だったことに由来" />, we call 'em <QuickSlang word="uppies" desc="Uptownsのさらなる短縮スラング。女性が履いているときに使われる表現" /> when they're on divas</Fragment>
+        <Fragment slot="jpn">新品のエアフォースワンを履いて／（地元ではUptownsと呼ぶ——女性（divas）が履いてるときはuppiesと言う）</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 1後半、Rakimが自分たちの足元を語りながら他の3MCへ橋渡しする件。</p>
+        <p>これはNikeのキャンペーン曲だから、スニーカーの話が出てくるのは当然——でも面白いのはその<strong class="text-[var(--c-text)]">呼び名の階層</strong>だ。「Air Force One」が公式名称、「<strong class="text-[var(--c-text)]">Uptowns</strong>」がニューヨークでの地元呼び、そして「<strong class="text-[var(--c-text)]">uppies</strong>」が女性が履いているときの更に砕けたスラング——3段階の語彙が2行に収まっている。「<strong class="text-[var(--c-text)]">divas</strong>」は「威風堂々とした女性」を指す語で、ここでは単なる「女性」ではなく存在感のある女性というニュアンス。Uptownsという呼称はハーレム（マンハッタンのUptownエリア）でとくに流行ったことに由来するといわれていて、スニーカーの名前ひとつにNYCの地図が刻み込まれている。スラングは地図でもある、という好例です。</p>
+      </LearningUnit>
+
+      <!-- ⑤ Superfly-ness — 造語とブラクスプロイテーション -->
+      <LearningUnit
+        heading="Superfly-ness — 造語で自分だけの語彙を作る"
+        label="★ 言葉遊び／造語"
+        mc="Kanye West（Verse 2）"
+        t={TS["superfly-ness"].t} tApprox={TS["superfly-ness"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">You can't buy this <QuickSlang word="Superfly-ness" desc="1972年映画『スーパーフライ』に由来するクールさの名詞形。固有名詞に-nessを付けた造語" />, like a shine is<br />Your Highness is performing; look how long the line is</Fragment>
+        <Fragment slot="jpn">この「スーパーフライさ」は金で買えない、輝きのように／殿下（Your Highness）が今パフォームしている——行列を見ろよ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 2の頭、Kanyeが最初の一行目でこの造語を炸裂させてくる。</p>
+        <p>「<strong class="text-[var(--c-text)]">Superfly-ness</strong>」——まずこの語、辞書にはない。Kanyeが作った造語だ。「<strong class="text-[var(--c-text)]">Superfly</strong>」は1972年のBlaxploitation（ブラクスプロイテーション）映画のタイトルで、コカイン密売人を主人公に据えたアウトロー映画。主人公のファッション・態度・クールさが当時の黒人文化に多大な影響を与え、「superfly」自体が「最高にクールな」という形容詞として定着した。そこにKanyeが <strong class="text-[var(--c-text)]">-ness</strong>（名詞を作る接尾辞）を付けて「スーパーフライさ・超絶クールさ」という新しい名詞を自分で作り出している。英語では形容詞に <code>-ness</code> を付けて名詞化するのは標準的な造語法で、<em>coolness、darkness</em> と同じ構造——ただし Superfly はそもそも固有名詞/俗語なので、普通の辞書には出てこない。2行目の「Your Highness」は「殿下」の意で、Kanyeが自分自身を王族に喩えている。行末の <code>line is</code> が前の行の <code>shine is</code> と脚韻を踏み、「-ness / -ine is / -ine is」で3連の音を作る細工も面白い。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">-ness</strong> は形容詞から名詞を作る生産性の高い接尾辞。<em>happy → happiness、dark → darkness、cool → coolness</em> のように。ヒップホップでは既存の語に <code>-ness</code> を付けて新語を即興で作ることも多く、「realness（本物さ）」「flyness（クールさ）」「dopeness（すごさ）」などもその例。</p>
+          <p><strong class="text-[var(--c-text)]">Blaxploitation（ブラクスプロイテーション）</strong>とは「Black＋exploitation（搾取・活用）」の合成語。1970年代初頭にハリウッドが黒人観客向けに量産したアクション・犯罪映画ジャンルで、Shaft（1971）・Superfly（1972）などが代表作。当時のファッションと音楽（Superfly主題歌はCurtis Mayfield）は後世のヒップホップに直接影響を残した。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑥ I be killing s**t — AAVE habitual be -->
+      <LearningUnit
+        heading="I be killing s**t — AAVEのhabitual be"
+        label="★ AAVE文法"
+        mc="Kanye West（Verse 2）"
+        t={TS["habitual-be"].t} tApprox={TS["habitual-be"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">The beat's slow, 'til you listen to my pace<br />'Cause <QuickSlang word="I be killing s**t" desc="AAVEのhabitual be（習慣的be）。「俺はいつも（習慣的に）ぶちかましてる」という反復・継続の意味。一時的な現在とは異なる" />, but that's evident</Fragment>
+        <Fragment slot="jpn">ビートは遅い、俺のペースを聴くまではな／だから俺はいつもぶちかましてるんだよ、それは明らかだろ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 2中盤、Kanyeが自分のラップスタイルを説明する件。下の行が学習対象。</p>
+        <p>下の行の「<strong class="text-[var(--c-text)]">I be killing s**t</strong>」——これがこの曲いちばんの文法的見どころかもしれない。標準英語なら「I am killing it（今ぶちかましてる）」や「I kill it（ぶちかます）」のところを、AAVEでは「<strong class="text-[var(--c-text)]">I be ~ing</strong>」という形にする。これが<QuickSlang word="habitual be" desc="AAVEの文法形式。be動詞を変化させず原形のまま使い、習慣的・反復的な動作や状態を表す。一時的な状態には使わない" />と呼ばれる構文で、「一時的に今やっている」のではなく「いつも、習慣的に、繰り返しそうだ」というニュアンスを乗せる。「俺はいつも（毎回）ぶちかましてる——それが俺の習慣なんだ」という意味だ。<strong class="text-[var(--c-text)]">killing it</strong>（＝killing s**t）は「完璧にこなす・最高のパフォーマンスをする」のスラングで、現代英語でも広く使われる。「that's evident（それは明白だろ）」で自信満々に閉じるKanyeらしい一行だと思う。</p>
+        <Fragment slot="usage">
+          <p>AAVEの <strong class="text-[var(--c-text)]">habitual be</strong>: <code>I be + 動詞-ing</code> の形で、反復・習慣的な行為を表す。標準英語の <em>I am</em>（一時的な現在）や <em>I always + 動詞</em>（習慣）とは別の文法カテゴリ。例: <em>She be late</em>（彼女はいつも遅刻する）、<em>They be working all night</em>（彼らはいつも徹夜で働く）。一時的な状態——「今この瞬間だけ」——には使わないのが重要な使い分けポイント。</p>
+          <p><strong class="text-[var(--c-text)]">kill it / kill s**t</strong> は「完璧にやる・圧倒的なパフォーマンスをする」のスラング。<em>She killed it on stage</em>（ステージで完璧にやってのけた）のように使う。同系統に <em>slay</em> も同意語として普及している。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑦ Amateur Night / Showtime — イディオム -->
+      <LearningUnit
+        heading="Amateur Night, it's Showtime — 2つのイディオムの対比"
+        label="★ イディオム"
+        mc="Nas（Verse 3）"
+        t={TS["amateur-night"].t} tApprox={TS["amateur-night"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Please, you're <QuickSlang word="Amateur Night" desc="「素人の夜」——本物ではない、レベルの低い場のこと。アポロシアターのAmateur Night Jamboreeから来た表現" />, it's <QuickSlang word="Showtime" desc="「本番の時」——真のプロが実力を見せる瞬間。同じくアポロシアターに由来する表現" /></Fragment>
+        <Fragment slot="jpn">頼むよ、お前は素人の夜（Amateur Night）レベルだろ——これは本番（Showtime）だぞ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 3中盤、Nasが偽者を一刀両断する件。1行に2つのイディオムが並ぶ。</p>
+        <p>たった一行に<QuickSlang word="イディオム" desc="複数の語が組み合わさって慣用的な意味を持つ固定表現" />が2つ。「<strong class="text-[var(--c-text)]">Amateur Night</strong>」と「<strong class="text-[var(--c-text)]">Showtime</strong>」——どちらもハーレムの<strong class="text-[var(--c-text)]">アポロシアター</strong>に由来する表現です。アポロシアターは「Amateur Night at the Apollo」という素人参加コンテストで知られていて、観客が容赦なくブーイングして下手なパフォーマーを引き摺り下ろすことで有名だった。一方「Showtime」は「さあ本番だ」という合図で、プロの舞台が始まる瞬間を指す。NasはこのNYC固有の文化的コードを使って「お前はAmateur Night（失笑のレベル）だが、俺はShowtime（本物のプロが集う場）にいる」と一行で対比を作っている。ハーレムの地理感覚がないと完全には刺さらないけど、知ってから聴くとこの一行の密度がまったく変わる。</p>
+      </LearningUnit>
+
+      <!-- ⑧ it's just iron — ストリートスラング／換喩 -->
+      <LearningUnit
+        heading="it's just iron — 「鉄」が「銃」になる換喩"
+        label="★ スラング／換喩"
+        mc="Nas（Verse 3）"
+        t={TS["its-just-iron"].t} tApprox={TS["its-just-iron"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">In the streets I'm in, it's just <QuickSlang word="iron" desc="銃を指すスラング。金属（iron）から武器への換喩（metonymy）。NYストリートで使われる" /><br />Cops keep firin' in my environment</Fragment>
+        <Fragment slot="jpn">俺のいる街には、鉄（＝銃）しかない／警官は俺の環境でずっと撃ち続けている</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 3後半、Nasがクイーンズブリッジの現実を語る件。</p>
+        <p>上の行、「it's just <strong class="text-[var(--c-text)]">iron</strong>」——<strong class="text-[var(--c-text)]">iron</strong>（アイアン）は辞書的には「鉄・アイロン」だが、ストリートスラングでは<strong class="text-[var(--c-text)]">銃</strong>を指す。金属製の武器を素材名（鉄）で呼ぶ<QuickSlang word="換喩" desc="metonymy。関連する属性や素材で事物を呼び換える比喩。例：「銃→鉄」「警察→バッジ」" />（metonymy）で、直接「gun」と言わずに詩的なリズムと距離感を同時に作っている。「俺のいる街には銃しかない」——そのすぐ次に「cops keep firin'（警官が撃ち続ける）」が来ることで、ストリートと警察の暴力がどちらも同じ「撃つ行為」で繋がれる構造だ。<strong class="text-[var(--c-text)]">firin'</strong> は firing のg落ちで、進行形の継続ニュアンスを強調する。さらに <code>iron / environment / firin'</code> に <em>-i(a)n</em> 系の音が流れていて——聴いてみるとわかるけど、このNasの韻の粘りは独特だ。</p>
+        <Fragment slot="usage">
+          <p>銃の呼び名はヒップホップで多彩なスラングが使われる: <strong class="text-[var(--c-text)]">iron</strong>（鉄→銃）、<em>heat</em>（熱→銃）、<em>piece</em>（ひとかけら→銃）、<em>heater</em>（暖房機→銃）など。材質・温度・形状から呼び換えるパターンが多い。聴き取りの際は文脈で「武器として機能する場面」ならスラングとして読む、というのがコツ。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑨ emceein' vs rap — KRS-Oneの定義論 -->
+      <LearningUnit
+        heading="emceein' and rap — KRS-Oneが引いた境界線"
+        label="★ 文化・定義"
+        mc="KRS-One（Verse 4）"
+        t={TS["emceein-vs-rap"].t} tApprox={TS["emceein-vs-rap"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">This is the difference between <QuickSlang word="emceein'" desc="本来の「MC（マイクコントローラー）」としての技芸。KRS-Oneの定義では、民衆を教育・向上させるリリックを紡ぐこと" /> and <QuickSlang word="rap" desc="KRS-Oneの定義では、単なる流行・商業的なリリック。emceein'より格下の行為として区別される" /><br />Rappers spit rhymes that are mostly illegal / Emcees spit rhymes to uplift their people</Fragment>
+        <Fragment slot="jpn">これがemceein'（MC技芸）とrap（単なるラップ）の違いだ／ラッパーは違法なことをほぼ全部ライムにする／エムシーはpeople（民衆）を向上させるためにライムを吐く</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 4後半、KRS-Oneがこの曲いちばんの哲学的命題を投下する件。</p>
+        <p>KRS-Oneはヒップホップで最も有名な二項対立のひとつを作った人だ。「<strong class="text-[var(--c-text)]">emceein'</strong>（MC技芸）」vs「<strong class="text-[var(--c-text)]">rap</strong>（ラップ）」の区別——ラッパーは犯罪・金・暴力をライムにするが、真のMCは民衆（people）を教育し、精神的に<strong class="text-[var(--c-text)]">uplift</strong>（向上）させるリリックを書く、という定義だ。1987年にScott La Rockと作ったデビューアルバム『Criminal Minded』の時代からずっと一貫して言い続けてきた哲学で、同じヴァースの冒頭では「Criminal Mindedを持っているか？」と聴衆に問いかけている。これが2007年のNikeキャンペーン曲のなかに入ってくる。金とブランドのキャンペーンの場で、反商業主義的な哲学を持ち込んでくるKRS-Oneのブレなさというか——個人的にここが曲全体のなかでいちばん面白い瞬間だと思います。</p>
+      </LearningUnit>
+
+      <!-- ⑩ Peace Love Unity — ヒップホップの原点 -->
+      <LearningUnit
+        heading="Peace, Love, Unity, havin' fun — ヒップホップの原点宣言"
+        label="★ 文化・思想"
+        mc="KRS-One（Verse 4）"
+        t={TS["peace-love-unity"].t} tApprox={TS["peace-love-unity"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Peace, Love, Unity, havin' fun<br />These are the lyrics of KRS-One!</Fragment>
+        <Fragment slot="jpn">平和・愛・団結・楽しむこと／これがKRS-Oneのリリックだ！</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 4の締め、KRS-Oneがヒップホップの本質を4語に圧縮して閉じる。</p>
+        <p>「<strong class="text-[var(--c-text)]">Peace, Love, Unity, havin' fun</strong>」——これはDJ Afrika Bambaataaが1970年代にサウスブロンクスで提唱したヒップホップの4つの価値を指している。元々はギャング抗争が激化したブロンクスで、暴力の代わりにDJ・MC・ブレイクダンス・グラフィティという表現で争う、という提案から始まった運動の哲学だ。KRS-Oneはこの曲のなかで「Criminal Minded（自分の出自）→ JMJとScott La Rockへの追悼→ emceein'の定義→ Peace Love Unity（原点）」という流れで4つのトピックを圧縮してヴァースを組んでいる。Nikeキャンペーンという場で、ヒップホップの精神史をこれだけ簡潔に語り切れるMCは彼しかいない。最後の「These are the lyrics of KRS-One!」の感嘆符の温度——4人の中でいちばん声が大きく聞こえる瞬間だと思う。</p>
+      </LearningUnit>
+    </section>
+
+    <!-- ===================== -->
+    <!-- 文化的背景            -->
+    <!-- ===================== -->
+    <section id="background" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        文化的背景
+      </h2>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">Nikeキャンペーンと「Classic」</p>
+        <h3 class="font-semibold text-base mb-3">ブランドが「歴史」を動員した瞬間</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          2007年、NikeはAir Force Oneのキャンペーンとして「Classic (Better Than I've Ever Been)」を制作した。4人のMCの選び方が「クラシックとは何か」を問う曲のテーマと完全に連動している——Rakim（1986年デビュー）、KRS-One（1986/87年デビュー）、Nas（1992年デビュー）、Kanye（2003年デビュー）と、ヒップホップの年表をそのままMCで表現したような布陣だ。スニーカーキャンペーン発の楽曲にこれだけのリリックの密度があることは、今振り返っても面白い。
+        </p>
+      </div>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">3地域・4時代</p>
+        <h3 class="font-semibold text-base mb-3">出身地と時代がリリックに出る</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          RakimとNasはクイーンズ（NY）、KRS-Oneはブロンクス（NY）、Kanyeはシカゴ——出身地が違えば語彙が違い、リリックのトーンも変わる。RakimとKRS-Oneは同じ「old school」でも全く異なるアプローチで（Rakimはフロウと詩的イメージ、KRS-Oneは哲学と教育）、Nasはクイーンズブリッジの現実を直接語り、Kanyeはシカゴ出身ながらNY的なハードコアとは違う洗練されたリリックを書く。地名を辿るとそれぞれのヴァースが「クラシック」という同じテーマに向かいながら、全く別の道を通っていることがわかる。
+        </p>
+      </div>
+
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">キーワード早見表</p>
+        <h3 class="font-semibold text-base mb-3">この曲で学んだ表現の整理</h3>
+        <div class="space-y-3 mt-3">
+          {[
+            ["better than I've ever been", "現在完了形を使った最上級的比較。「今まで生きてきた中で最高」という表現"],
+            ["Since '86", "年号短縮形で経歴の長さを一発で示すヒップホップ的な自己紹介の定型"],
+            ["fountain of youth", "「若さの泉」イディオム。時を超えるフロウの比喩として使用"],
+            ["Uptowns / uppies", "Air Force OneのNYC地元呼び。スニーカー名がそのままNYの地図になっている"],
+            ["Superfly-ness", "固有名詞（Superfly）＋-nessの造語。ブラクスプロイテーション文化由来"],
+            ["I be killing s**t", "AAVEのhabitual be。「いつも習慣的に」という反復・継続の文法形式"],
+            ["Amateur Night / Showtime", "アポロシアター由来のイディオム対比。素人の夜 vs 本番"],
+            ["iron", "銃のストリートスラング（金属→武器の換喩）"],
+            ["emceein' vs rap", "KRS-One由来の概念区別。民衆を向上させる技芸 vs 商業的なライム"],
+          ].map(([term, desc]) => (
+            <div class="flex gap-3 text-sm">
+              <span class="text-[var(--c-gold)] shrink-0 font-semibold min-w-[180px]">{term}</span>
+              <span class="text-[var(--c-muted)]">{desc}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== -->
+    <!-- サンプル・制作の裏側   -->
+    <!-- ===================== -->
+    <section id="behind" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        サンプル・制作の裏側
+      </h2>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">サンプル元</p>
+        <h3 class="font-semibold text-base mb-3">Carl Douglas「Dance the Kung-Fu」(1974)</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          DJ Premierがこのリミックスのビートに使ったのは、Carl Douglasの1974年作「Dance the Kung-Fu」。あの「Kung Fu Fighting」（同年の世界的大ヒット）の続編として書かれたカンフーブームに乗った曲だ。「Classic」というテーマの曲に、ほんものの「クラシック」な70年代ソウル時代の音源を使ってくる——このPremierの選球眼は毎度ながら唸らせる。
+        </p>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed mt-3">
+          DJ Premierのビートの特徴は、ガラスを割ったような硬質なスネアと、ソウル・ファンクの断片をチョップして組み直す技法だ。Gang Starr時代からずっと変わらない美学で、だからこそRakimの「Since '86」という宣言と、Premierのビートの「古さと普遍性」が一体になって「クラシック」というテーマを全方向から支えている。
+        </p>
+      </div>
+
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">DJ Premierのスクラッチ</p>
+        <h3 class="font-semibold text-base mb-3">フックのアカペラは誰の声か</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          フック部分でPremierがスクラッチしているアカペラの声——「Live straight classic」「I'm Rakim, the fiend of a microphone」「I'd like to return to the classics」「Of course - we have Blastmaster KRS-One」など、各フックで異なるフレーズが入ってくる。PremierはGang Starr時代からスクラッチを「5番目のMC」として機能させる作り方を一貫してやってきていて、この曲でも同じ手法が使われている。歌詞として文字に起こされているわけではないが、このスクラッチのフレーズを読み取れるようになると、曲を聴く奥行きが全然変わる。
+        </p>
+      </div>
+    </section>
+
+    <!-- ===================== -->
+    <!-- この曲が意味すること   -->
+    <!-- ===================== -->
+    <section id="legacy" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        この曲が意味すること
+      </h2>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">4MCの「クラシック」定義</p>
+        <h3 class="font-semibold text-base mb-3">誰ひとり同じ答えを出していない</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          この曲を聴いてて気づくのは、「Classic」というフックを4人全員が繰り返しながら、4人が全く別の答えを出していることだ。Rakimにとってクラシックは「時間を超えるフロウ」、Kanyeには「金で買えない個性」、Nasには「何度でも証明できる持続力」、KRS-Oneには「民衆を向上させる思想」——同じ一語が4人の哲学でそれぞれに定義し直される。それを束ねているのがDJ Premierのビートと、「I'm better than I've ever been」というフックだ。4MCがひとつの曲に収まりながら誰もかき消されていない——それだけ4人の声が強いということでもある。
+        </p>
+      </div>
+
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">JMJ と Scott La Rock への追悼</p>
+        <h3 class="font-semibold text-base mb-3">KRS-Oneが名前を残した理由</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          KRS-Oneは「I do it for JMJ and Scott La Rock」と歌う。JMJ（Jam Master Jay）はRun-DMCのDJで2002年に射殺、Scott La RockはKRS-One自身の相棒で1987年に射殺された。この2行は追悼であり、「自分がまだこうして立っているのは彼らのためだ」という誓いでもある。2007年のNikeキャンペーンという場所で、誰も頼んでいないのにこの名前を入れてくる——商業的な場の空気を一瞬変えてしまうKRS-Oneらしい一手だと思う。
+        </p>
+      </div>
+    </section>
+
+    <!-- まとめ -->
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        まとめ
+      </h2>
+      <ul class="space-y-2 text-sm text-[var(--c-muted)] list-disc list-inside leading-relaxed">
+        <li>Rakim・Kanye・Nas・KRS-Oneという3世代4MCが「クラシック」をそれぞれ全く違う言葉で定義する——一曲でヒップホップの思想の幅が体験できる。</li>
+        <li>AAVE文法（habitual be・コピュラ省略）、造語（Superfly-ness）、換喩（iron=銃）、イディオム（fountain of youth・Amateur Night）——多様な英語表現技法が凝縮されている。</li>
+        <li>Carl Douglas「Dance the Kung-Fu」(1974)を軸にしたDJ Premierのビートは、「クラシック」というテーマをサウンドで体現している。</li>
+        <li>KRS-Oneの「emceein' vs rap」論は2007年の商業キャンペーンの場で鳴らされた反商業主義の一撃で、この曲のいちばん面白い矛盾だと思う。</li>
+      </ul>
+    </section>
 
 </SongLayout>
