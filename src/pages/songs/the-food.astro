@@ -1,574 +1,380 @@
 ---
-import LyricsBlock from '../../components/LyricsBlock.astro';
+import LearningUnit from '../../components/LearningUnit.astro';
+import QuickSlang from '../../components/QuickSlang.astro';
 import SongLayout from '../../layouts/SongLayout.astro';
+
+// 学習ユニットのタイムスタンプは agent/src/gen-unit-timestamps.mjs が
+// 基準動画(const YT)の音源を whisper 単語アライメントして units-timestamps.json に書き出す。
+// manualSec があればそれが whisperSec を上書きする二層構造（運営者の実測優先）。
+import tsData from '../../../agent/the-food/assets/units-timestamps.json';
+const YT = "Mco3xpXfnsU";
+const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.approx }]));
 ---
 
 <SongLayout
-  title="The Food 和訳・意味・スラング解説 | Common"
-  description="CommonのThe Foodの歌詞和訳とスラング徹底解説。Kanye Westプロデュース、Otis Reddingサンプルに乗せて描いたシカゴ・サウスサイドの生活哲学。アルバム『Be』収録（2005年）。"
+  title="The Food 和訳・意味・スラング解説 | Common feat. Kanye West"
+  description="CommonとKanye Westの「The Food」を英語学習＋ヒップホップ理解の教材として精読。City of Wind・Sprewells・cuzzo・fair one・had to did など、シカゴ・サウスサイドのスラングとAAVE文法、Kanyeのソウル・サンプリングを表現単位で解説。各表現はライブ映像の該当箇所へ頭出しリンク付き。"
   slug="the-food"
   highlights={[
-    '"Slow motion better than no motion"——前進する限り遅くても構わない、生き残るための哲学',
-    'Kanye Westがフックを担当しプロデュースも兼任——GOOD Musicの夜明け',
-    'Kanye × Commonのシカゴ同士が生んだソウルフルHHの頂点、Otis Reddingサンプリング',
+    'シカゴ・サウスサイドの生活を描く、Commonの代表的ストーリーテリング',
+    'スラング・言葉遊び・AAVE文法を「学ぶ表現」単位で解説（映像頭出しリンク付き）',
+    'Kanye Westがソウル名曲をチョップしたビートと、Chappelle\'s Showでの伝説的ライブ',
   ]}
   youtubeId="Mco3xpXfnsU"
 >
 
-  <section class="mb-6">
-    <h2 class="text-base font-semibold mb-2">■この曲の意味（要約）</h2>
-    <p class="text-sm text-[var(--c-muted)] leading-relaxed">「食物（Food）」をメタファーに、知識・愛・生活の糧・ヒップホップ文化そのものを語るCommonのコンシャスHH。シカゴ・サウスサイドの若者たちが直面する貧困・誘惑・逮捕のリスクと、それでも生き続けることへの誇りが詰まっている。Kanye Westがプロデュースとコーラスを担当した2005年アルバム『Be』の核心曲。</p>
-  </section>
+    <!-- ===================== -->
+    <!-- 導入                  -->
+    <!-- ===================== -->
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■この曲で何を学べるか</h2>
+      <p class="text-sm text-[var(--c-muted)] leading-relaxed">
+        「The Food」は、シカゴ出身の <strong class="text-[var(--c-text)]">Common（コモン）</strong> が、地元サウスサイドで家族を養いながら生きることの重みを語った一曲。派手なパンチラインで殴ってくるタイプの曲ではなく、街の温度や生活の手触りを、スラングと比喩で淡々と積み上げていくのが持ち味です。ヴァースはすべてCommon、フックとリフレインを担当するのが <strong class="text-[var(--c-text)]">Kanye West（カニエ・ウェスト）</strong>。アルバム『Be』(2005年)からの一曲で、KanyeがCommonの全体プロデュースを手がけた時期の作品にあたります。ここで取り上げたいのは、辞書を引いても出てこないシカゴのストリート語彙、AAVE（アフリカ系アメリカ人英語）の文法、そして固有名詞を一語に畳み込む言葉遊び。それぞれを「学ぶ表現」単位で取り出して、用例の断片・和訳・語法と背景を解説していきます。英語が得意じゃなくても、まず英語を音で追って、それから日本語解説に進めば置いていかれないはずです。
+      </p>
+    </section>
 
-  <section class="mb-6">
-    <h2 class="text-base font-semibold mb-2">■概要</h2>
-    <p class="text-sm text-[var(--c-muted)] leading-relaxed">2005年アルバム『Be』収録。Kanye WestプロデュースによりOtis Redding「Nothing Can Change This Love」（1965年）をサンプリング。コーラスボーカルはKanye West自身が担当し、CommonとKanyeの盟友関係を象徴する一曲となった。2004年3月3日にChappelle's Showで初めてライブ披露され、そのライブ音源がアルバム『Be』に収録されたことでも知られる。</p>
-  </section>
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■なぜThe Foodが教材として面白いか</h2>
+      <p class="text-sm text-[var(--c-muted)] leading-relaxed">
+        この曲が教材としてうまみがあるのは、<strong class="text-[var(--c-text)]">「生活の語彙」</strong>がぎっしり詰まっているからだと思います。銃や麻薬といった物騒な単語も出てきますが、軸にあるのはもっと地味で切実なもの——子ども、家賃、警察、働くこと。タイトルの "The Food"（食い扶持）が示すとおり、テーマは「どうやって家族を食わせるか」です。だからスラングも、見栄を張るための語彙というより、その街で生き延びるための実用語として響いてくる。さらにこの曲は、studio版がリリースされる前に <strong class="text-[var(--c-text)]">『Chappelle's Show』</strong>（人気コメディ番組）で2004年に生披露され、そのライブ録音がアルバムにそのまま採用されたという変わった経緯を持っています。観客の熱気ごとパッケージされた珍しい一曲、という点も込みで聴くと味わいが増します。
+      </p>
+    </section>
 
-  <section class="mb-6">
-    <h2 class="text-base font-semibold mb-2">■主なスラング・キーワード</h2>
-    <dl class="text-sm space-y-2">
-      <div><dt class="font-mono text-[var(--c-gold)] inline">City of Wind</dt><dd class="inline ml-2 text-[var(--c-muted)]">シカゴの別名「Windy City」——CommonとKanye双方の故郷へのオマージュ。</dd></div>
-      <div><dt class="font-mono text-[var(--c-gold)] inline">Sprewells</dt><dd class="inline ml-2 text-[var(--c-muted)]">NBAプレイヤーLatrell Sprewellの名を冠したスピナーホイール（回転するリム）——2000年代初頭のゲットーカルチャーの象徴。</dd></div>
-      <div><dt class="font-mono text-[var(--c-gold)] inline">Southside</dt><dd class="inline ml-2 text-[var(--c-muted)]">シカゴ南部——Commonの出身地で、貧困と暴力が混在するエリア。彼のアイデンティティの核心。</dd></div>
-      <div><dt class="font-mono text-[var(--c-gold)] inline">blue and whites</dt><dd class="inline ml-2 text-[var(--c-muted)]">シカゴ警察のパトカー（青白のカラーリング）——Po-poとも呼ばれる警察を指す。</dd></div>
-      <div><dt class="font-mono text-[var(--c-gold)] inline">Throwbacks and Timbs</dt><dd class="inline ml-2 text-[var(--c-muted)]">復刻版ジャージとTimberland製ブーツ——2000年代ゲットーファッションの定番コーデ。</dd></div>
-      <div><dt class="font-mono text-[var(--c-gold)] inline">fair one</dt><dd class="inline ml-2 text-[var(--c-muted)]">正々堂々の1対1の喧嘩——武器なし・介入なしのルールがある街の決闘。「今はもうそんな時代ではない」という諦念が込められている。</dd></div>
-      <div><dt class="font-mono text-[var(--c-gold)] inline">Sam Jack</dt><dd class="inline ml-2 text-[var(--c-muted)]">サミュエル・L・ジャクソン——映画『Jackie Brown』や『Pulp Fiction』での役柄のように、ドラマの中を巧みに生き抜くキャラクターへの比喩。</dd></div>
-      <div><dt class="font-mono text-[var(--c-gold)] inline">blue collar</dt><dd class="inline ml-2 text-[var(--c-muted)]">ブルーカラー＝肉体労働者・低所得労働者層——Commonが自分の立場として誇りを持って語る言葉。</dd></div>
-    </dl>
-  </section>
+    <!-- Table of Contents -->
+    <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
+      <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
+        <li><a href="#story" class="hover:text-[var(--c-gold)] transition-colors">01 — ストーリーの流れ（まず曲全体をつかむ）</a></li>
+        <li><a href="#units" class="hover:text-[var(--c-gold)] transition-colors">02 — 学ぶ表現（スラング・言葉遊び・AAVE）</a></li>
+        <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">03 — 文化的背景</a></li>
+        <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">04 — サンプル・制作の裏側</a></li>
+        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">05 — 評価とその後の影響</a></li>
+      </ol>
+    </nav>
 
-  <section class="mb-6">
-    <h2 class="text-base font-semibold mb-2">■歌詞和訳・解説</h2>
+    <!-- ===================== -->
+    <!-- ストーリー要約        -->
+    <!-- ===================== -->
+    <section id="story" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        ストーリーの流れ — まず曲全体をつかむ
+      </h2>
+      <p class="text-xs text-[var(--c-dim)] mb-5">
+        個々の表現に入る前に、曲が何を語っているのかをざっと押さえておきます。全体像が頭にあると、次章で一語一語を掘るときに、その言葉が物語のどこにあるのかが見えやすくなる。
+      </p>
+      <div class="space-y-4 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          フック（Kanye West）から始まる。家に帰れば子どもが二人、相方（baby mama）の様子もおかしい——だから「やるべきことをやった」、つまり稼ぐために動くしかなかった、と歌う。夜通し金策に走り、警察（po-po）が動き出すまで……。景気よく稼げてはいないけれど、「止まってるよりはマシ（slow motion better than no motion）」と自分に言い聞かせる。生活に追われる人間のリアルな独白が、まずフックで提示される。
+        </p>
+        <p>
+          <strong class="text-[var(--c-text)]">Verse 1（Common）</strong>。シカゴ（City of Wind）の若者たちの暮らしが、街のディテールとともに描かれていく。光り物のリム、転売されるコカイン、ゲームのルールだけ渡されて生き方の説明書はもらえない子どもたち——きらびやかさと荒んだ現実が同じ画面に同居している。
+        </p>
+        <p>
+          <strong class="text-[var(--c-text)]">Verse 2（Common）</strong>では、ファッションやバスケといった日常の風景から、「これは表現のためか、それとも金のためか」という葛藤へと話が深まる。稼いだ金はゲットーに還さなきゃならない、という責任の感覚が顔を出す。
+        </p>
+        <p>
+          <strong class="text-[var(--c-text)]">Verse 3（Common）</strong>は短いけれど核心。泥棒とも牧師とも飯を食う、という雑多な交友から、「金は人間の本質（aura）は変えられないが、娘を食わせることはできる」という一行に着地する。曲のタイトル "The Food" が、ここでようやく腑に落ちる構成です。あいだに挟まるKanyeのリフレイン——「銃を置いて逃げ出すことはできない」——が、抜け出したくても抜け出せない生活の重さを通奏低音のように鳴らし続ける。
+        </p>
+        <p class="text-xs text-[var(--c-dim)]">
+          ※本ページは批評・教育目的で、解説に必要な範囲の断片のみを引用しています。全歌詞の対訳は掲載していません。
+        </p>
+      </div>
+    </section>
 
-    <h3 class="text-xs text-[var(--c-very-dim)] uppercase tracking-widest mb-3">Intro</h3>
+    <!-- ===================== -->
+    <!-- 学習ユニット群        -->
+    <!-- ===================== -->
+    <div id="units"></div>
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2 border-b border-[var(--c-border)] pb-2">
+        学ぶ表現 — スラング・言葉遊び・AAVE
+      </h2>
+      <p class="text-xs text-[var(--c-dim)] mb-6">
+        各見出しは「この曲から学べる英語表現」。各ユニットはまず英語の用例（1〜2行）を上に置いています。<strong class="text-[var(--c-text)]">先に英語を音で追い、行のどこが学習対象かを確かめてから</strong>下の日本語解説に進むと、英語が苦手でも追いやすいはず。🎤はそのパートを歌うMC、▶は公式映像の該当箇所への頭出しリンク（音源解析で付与、秒数は概算）です。
+      </p>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Yeah, It's been a long time comin'<br />
-        But you know what they say, Kanye
-      </Fragment>
-      <Fragment slot="jpn">
-        ああ、長い時間がかかった<br />
-        でもみんな言うだろ、Kanye
-      </Fragment>
-      <Fragment slot="explanation">
-        Commonがプロデューサーのkanyeに語りかけるイントロ。前作『Electric Circus』（2002年）の実験路線から離れ、ソウルフルなHHへ回帰するまでの「長い旅」への言及でもある。
-      </Fragment>
-    </LyricsBlock>
+      <!-- ① had to did -->
+      <LearningUnit
+        heading="So I had to did, what I had to did — AAVEの強調的な過去形"
+        label="★ AAVE文法"
+        mc="Kanye West & Common（Chorus）"
+        t={TS["had-to-did"].t} tApprox={TS["had-to-did"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">So I had to did, what I had to did<br />'Cause I had to get</Fragment>
+        <Fragment slot="jpn">だからやるべきことを、やるしかなかった／手に入れなきゃならなかったから</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 フック2行目。生活のためにやらざるを得なかった、という開き直りの一節。</p>
+        <p>標準英語なら "I had to <strong class="text-[var(--c-text)]">do</strong> what I had to <strong class="text-[var(--c-text)]">do</strong>"（やるべきことをやった）。ところがここでは <strong class="text-[var(--c-text)]">did</strong> が使われている。これは間違いではなく、AAVEでよく見られる<strong class="text-[var(--c-text)]">過去形の重ね使い</strong>で、「もう済んだこと・取り返しのつかないこと」という既成事実感を強める働きがあります。文法的な正しさより、語りの実感を優先した形。歌詞を聞き取るとき、こういう "ズレ" を「訛り」として処理せず、<strong class="text-[var(--c-text)]">意味を担う選択</strong>として拾えると、リリックの読みがぐっと深くなります。</p>
+        <Fragment slot="usage">
+          <p>標準英語の助動詞 <code>had to + 動詞の原形</code>（〜しなければならなかった）に対し、AAVEでは口語的に <code>had to + 過去形</code> の形が現れることがある。<em>had to did</em>、<em>used to could</em> のような重ね方は、規範文法では非標準だが、話者の実体験としての「もう起きてしまった感」を強調するニュアンスを帯びる。</p>
+          <p>学習上は、まず標準形（had to do）を土台に置き、その変形として聞き取るのがコツ。会話やリリックでこの形が出たら「強調された過去」と受け取ればいい。</p>
+        </Fragment>
+      </LearningUnit>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Slow motion better than no motion
-      </Fragment>
-      <Fragment slot="jpn">
-        スローモーションでも、動かないよりはいい
-      </Fragment>
-      <Fragment slot="explanation">
-        曲全体を貫くテーマフレーズ。「遅くても前に進むほうが立ち止まるより価値がある」——貧困・障害を抱えながらも歩み続けることへの哲学的宣言。コーラスのオチにも繰り返し使われる。
-      </Fragment>
-    </LyricsBlock>
+      <!-- ② blue and whites / po-po -->
+      <LearningUnit
+        heading="the blue and whites / po-po — 警察を指すスラング"
+        label="★ スラング"
+        mc="Kanye West & Common（Chorus）"
+        t={TS["blue-whites"].t} tApprox={TS["blue-whites"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">I'm up all night, getting my money right<br />Until the <QuickSlang word="blue and whites" desc="青と白に塗られたパトカー＝警察を指すスラング" /> (<QuickSlang word="po-po" desc="警察を指すアメリカ全土で通じる口語スラング" />! Po-po!)</Fragment>
+        <Fragment slot="jpn">夜通し起きて、金をかき集める／青と白（パトカー）が来るまで（ポポ！ ポポ！）</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 フック後半。夜の金策が、警察の登場で中断される件。</p>
+        <p>学習ポイントは二つ。<strong class="text-[var(--c-text)]">blue and whites</strong> は、青と白に塗装されたパトカーの車体色から来た「警察」の言い換え。色で物を指す換喩（メトニミー）で、シカゴやニューヨークの市警パトカーの配色そのものを語彙にしてしまっている。続く合いの手の <strong class="text-[var(--c-text)]">po-po</strong> は、police の頭を繰り返した全米共通の口語スラング。物騒な単語を一切使わず、色と擬音だけで「警察が来る緊張」を表現しているのが巧い。スラングは、こういう<strong class="text-[var(--c-text)]">遠回しの言い換え</strong>を知っているかどうかで聞こえ方が一変します。</p>
+      </LearningUnit>
 
-    <h3 class="text-xs text-[var(--c-very-dim)] uppercase tracking-widest mb-3 mt-4">Chorus</h3>
+      <!-- ③ City of Wind -->
+      <LearningUnit
+        heading="the City of Wind — 都市のニックネームを言い換える"
+        label="★ 言葉遊び／地名"
+        mc="Common（Verse 1）"
+        t={TS["city-of-wind"].t} tApprox={TS["city-of-wind"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">You love to hear the story, again and again<br />About these young brothers from the City of Wind</Fragment>
+        <Fragment slot="jpn">お前はこの物語を何度でも聞きたがる／「風の街」から来た若い兄弟たちの話を</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 1の冒頭。Commonが「これからする話」を切り出す一行。学習対象は下の行末。</p>
+        <p>行末の <strong class="text-[var(--c-text)]">City of Wind</strong> が学習ポイント。これはCommonの地元 <strong class="text-[var(--c-text)]">シカゴ</strong> のことです。シカゴの定番の愛称 "the Windy City"（風の街）を、ひとひねりして "City of Wind" と言い換えている。固有名詞を直接出さず、<strong class="text-[var(--c-text)]">広く知られたニックネームをさらに加工して</strong>地元を指す——この距離の取り方が、語りに少し詩的な角度をつけています。ちなみに "young brothers"（若い兄弟たち）の <strong class="text-[var(--c-text)]">brothers</strong> も、血縁ではなく「同じコミュニティの黒人の仲間」を指すAAVE的な用法。地名と人称、両方に「言い換え」が効いている冒頭です。</p>
+      </LearningUnit>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        I walked in the crib, got two kids<br />
-        And my baby mama late (Uh oh! Uh oh! Uh oh!)
-      </Fragment>
-      <Fragment slot="jpn">
-        家に帰ったら、子供が二人いて<br />
-        ベイビーママ（子の母）の生理が遅れてる（やばい！やばい！）
-      </Fragment>
-      <Fragment slot="explanation">
-        "baby mama"はシングルマザー、または婚外で子供を持った女性の非公式パートナーを指すスラング。予期せぬ3人目の妊娠という切迫した現実から曲が始まる。
-      </Fragment>
-    </LyricsBlock>
+      <!-- ④ Sprewells -->
+      <LearningUnit
+        heading="the Sprewells — 人名がそのまま製品スラングになる"
+        label="★ スラング／文化"
+        mc="Common（Verse 1）"
+        t={TS["sprewells"].t} tApprox={TS["sprewells"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Y'all know the <QuickSlang word="Sprewells" desc="NBA選手Latrell Sprewellの名を冠した、車輪が止まっても回り続けて見えるスピナー型ホイール" />, and trucks that's detailed</Fragment>
+        <Fragment slot="jpn">お前らも知ってるだろ、スプリーウェル（のホイール）に、ピカピカに磨き上げたトラックを</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 1前半、街にあふれる "光り物" を列挙する件。学習対象は行頭。</p>
+        <p>行頭の <strong class="text-[var(--c-text)]">Sprewells</strong> が学習ポイント。これはNBA選手 <strong class="text-[var(--c-text)]">Latrell Sprewell（ラトレル・スプリーウェル）</strong> の名を冠したスピナー型ホイールのこと。車が停まってもホイールだけ回り続けて見える、2000年代に大流行したカスタムパーツです。面白いのは、<strong class="text-[var(--c-text)]">人名がそのまま製品名＝スラング</strong>として定着している点。"the Sprewells" と複数形＋定冠詞で言うだけで、リスナーは「あの回り続けるリム」を即座に思い浮かべる。固有名詞がモノの代名詞になる、ヒップホップ語彙の典型的な作られ方です。文末の <code>that's detailed</code>（detailing＝念入りに磨き上げる、の過去分詞）も車カルチャーの定番語彙。</p>
+        <Fragment slot="usage">
+          <p>英語では、ブランドや人名が一般名詞化することがある（例: <em>google</em> が「検索する」になるなど）。ヒップホップのスラングはこの現象が特に速く、<strong class="text-[var(--c-text)]">固有名詞 + 複数形/定冠詞</strong>で「その種のモノ全般」を指す形が頻出する。<em>the Sprewells</em>（スピナーリム）、<em>Timbs</em>（Timberlandブーツ）などが好例。</p>
+          <p>聞き取りのコツ: 知らない固有名詞が複数形で出てきたら、「特定の人物」ではなく「その人物にちなんだ製品・スタイル」を疑うとよい。</p>
+        </Fragment>
+      </LearningUnit>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        So I had to did, what I had to did<br />
-        'Cause I had to get (Duh-ough! Duh-ough! Duh-ough!)
-      </Fragment>
-      <Fragment slot="jpn">
-        だからやるべきことをやった<br />
-        稼がなきゃならないから（カネ！カネ！）
-      </Fragment>
-      <Fragment slot="explanation">
-        "had to did"は意図的な文法破格——ストリートスピーク。"Duh-ough"は「dough（金）」の口語的な発音を強調した表現。家族を養うための非合法も含む手段を暗示している。
-      </Fragment>
-    </LyricsBlock>
+      <!-- ⑤ white is selling like Eminem -->
+      <LearningUnit
+        heading="white is selling like Eminem — 一語で二重に効かせる言葉遊び"
+        label="★ 言葉遊び（最重要）"
+        mc="Common（Verse 1）"
+        t={TS["white-eminem"].t} tApprox={TS["white-eminem"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">On the block, <QuickSlang word="white" desc="白い粉＝コカイン/ヘロインを指すスラング。同時に「白人」の意味も掛けている" /> is selling like Eminem</Fragment>
+        <Fragment slot="jpn">ブロック（街区）じゃ、白い（粉）がエミネムみたいに売れている</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 1中盤、"On the block〜" を畳みかける連の一行。</p>
+        <p>この一行は、たった一語 <strong class="text-[var(--c-text)]">white</strong> に二つの意味を通している。①ストリートで売られる <strong class="text-[var(--c-text)]">white</strong>＝白い粉（コカイン/ヘロイン）が飛ぶように売れている、という即物的な意味。そして②比較対象に <strong class="text-[var(--c-text)]">Eminem</strong>（当時、桁外れのセールスを記録していた "白人" ラッパー）を置くことで、"white = 白人" の読みも重なる。「白いブツが、白人（エミネム）並みに売れてる」——売上の比喩と人種のジョークを、一行で同時に走らせているわけです。Commonらしい、声を荒げずにニヤリとさせるタイプの言葉遊び。<code>on the block</code>（街区で／シマで）はストリートの基本語彙なので、ここで覚えておきたい。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">white</strong> はストリートスラングで「白い粉状の麻薬（コカイン等）」を指す代表的な隠語。色で中身を言い換える換喩で、<em>sell white</em>、<em>move white</em> のように使う。ここでは固有名詞 <em>Eminem</em> と並べることで、本来の「白人」の語義も同時に呼び起こす二重構造になっている。</p>
+          <p>こうした<strong class="text-[var(--c-text)]">ダブルミーニング（double entendre）</strong>は、片方の読みだけでも文として成立するのがポイント。直訳で止めず「もう一つの読みはないか」と探す癖をつけると、パンチラインの面白さが見えてくる。</p>
+        </Fragment>
+      </LearningUnit>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        I'm up all night, getting my money right<br />
-        Until the blue and whites (Po-po! Po-po! Po-po!)
-      </Fragment>
-      <Fragment slot="jpn">
-        一晩中起きて金を稼いでいる<br />
-        青白パトカーが来るまで（警察！警察！）
-      </Fragment>
-      <Fragment slot="explanation">
-        "getting my money right"は収入を得ることに必死に取り組む様子。"blue and whites"はシカゴ市警のパトカー。"Po-po"は警察のスラング——逮捕のリスクと隣り合わせの生活を端的に描く。
-      </Fragment>
-    </LyricsBlock>
+      <!-- ⑥ shorties get the game, but no instructions -->
+      <LearningUnit
+        heading="Shorties get the game, but no instructions to assemble it — 比喩で構造を射る"
+        label="★ 比喩／スラング"
+        mc="Common（Verse 1）"
+        t={TS["shorties-game"].t} tApprox={TS["shorties-game"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng"><QuickSlang word="Shorties" desc="子ども・年下の若者を指すスラング。地域によっては恋人の意でも使う" /> get the game, but no instructions to assemble it</Fragment>
+        <Fragment slot="jpn">ガキどもは「ゲーム（生き方のルール）」を渡されるが、組み立て方の説明書はついてこない</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 1後半、街で育つ子どもたちに目を向ける件。</p>
+        <p>まず <strong class="text-[var(--c-text)]">Shorties</strong>。これは「子ども・年下の若者」を指すスラングです（文脈によっては「彼女」の意でも使う多義語）。そして核は <strong class="text-[var(--c-text)]">the game</strong>。ストリートでは "the game" で「その世界の流儀・生き方のルール」を指します。ここでCommonは、子どもたちに <em>game</em> が渡される様子を、組み立て式のおもちゃに重ねている——<strong class="text-[var(--c-text)]">"no instructions to assemble it"（組み立て説明書はついてこない）</strong>。生き方のルールだけ放り込まれて、どう組み上げればいいかは誰も教えてくれない。世代間で知恵が継承されない貧困コミュニティの構造を、おもちゃの比喩ひとつで射抜いている。スラング（game / shorties）と日常の比喩を掛け合わせる、Commonの語り口の真骨頂です。</p>
+      </LearningUnit>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Now the money comin' slow, but a least a n***a know<br />
-        Slow motion better than (No-oh! No-oh! No-oh!)
-      </Fragment>
-      <Fragment slot="jpn">
-        金の入りは遅いが、少なくともわかってる<br />
-        スローモーションでも、（何もない！）よりはいい
-      </Fragment>
-      <Fragment slot="explanation">
-        コーラスのオチでイントロのフレーズを回収。「何もない（no motion）」より「遅くても動いている」ほうがいいというメッセージ。括弧内のコール＆レスポンスが観客参加型のライブを意識した構成。
-      </Fragment>
-    </LyricsBlock>
+      <!-- ⑦ cuzzo -->
+      <LearningUnit
+        heading="Call my man 'cuzzo' — 親称スラングと kin"
+        label="★ スラング／AAVE"
+        mc="Common（Verse 1）"
+        t={TS["cuzzo"].t} tApprox={TS["cuzzo"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Call my man "<QuickSlang word="cuzzo" desc="cousin（いとこ）のくだけた愛称。血縁でなくても親しい仲間を指す" />," like I'm kin to him</Fragment>
+        <Fragment slot="jpn">相棒を「カズオ（兄弟分）」と呼ぶ、まるで血の繋がりがあるみたいに</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 1の終盤、仲間との距離感を語る件。</p>
+        <p><strong class="text-[var(--c-text)]">cuzzo</strong> は cousin（いとこ）をくだけさせた愛称。ポイントは、必ずしも血縁を意味しないこと。親しい仲間を、家族同然の存在として "cuzzo" と呼ぶ——その感覚を、続く <strong class="text-[var(--c-text)]">like I'm kin to him</strong>（まるで血縁みたいに）が補足しています。<strong class="text-[var(--c-text)]">kin</strong> は「血縁・親族」を意味するやや古風な語ですが、AAVEでは今も日常的に使われる。血の繋がらない相手を家族の語彙で呼ぶのは、コミュニティの結束を言葉で確認する行為でもある。<code>my man</code>（相棒・あいつ）という呼びかけも含めて、人間関係を表すストリート語彙がまとめて学べる一行です。</p>
+        <Fragment slot="usage">
+          <p>英語では家族の呼称を「親しさ」の表現に転用することが多い。<strong class="text-[var(--c-text)]">cuzzo</strong>（< cousin）、<em>bro / bruh</em>（< brother）、<em>fam</em>（< family）などは、血縁がなくても親密な相手に使える。語尾に <em>-o</em> を付けて愛称化するのも口語の定番（cousin → cuzzo）。</p>
+          <p><strong class="text-[var(--c-text)]">kin</strong> は「親族・血縁者」を指す名詞（不可算寄り）。<em>next of kin</em>（最近親者）のように堅い文脈でも残るが、AAVEでは日常会話で生きている。</p>
+        </Fragment>
+      </LearningUnit>
 
-    <h3 class="text-xs text-[var(--c-very-dim)] uppercase tracking-widest mb-3 mt-4">Verse 1</h3>
+      <!-- ⑧ the fair one -->
+      <LearningUnit
+        heading="the days of the fair one is over — fair one が指すもの"
+        label="★ スラング"
+        mc="Common（Verse 2）"
+        t={TS["fair-one"].t} tApprox={TS["fair-one"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Some wave, some air guns – the days of the <QuickSlang word="fair one" desc="武器を使わない、素手の一対一の喧嘩（fair fight）を指すスラング" /> is over</Fragment>
+        <Fragment slot="jpn">手を振る奴もいれば、銃を抜く奴もいる——「フェアな一対一」の時代はもう終わった</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 2、街の暴力の質の変化を嘆く件。学習対象は行後半。</p>
+        <p>学習ポイントは <strong class="text-[var(--c-text)]">the fair one</strong>。これは「<strong class="text-[var(--c-text)]">武器を使わない、素手の一対一の喧嘩</strong>」を指すスラングです。"fair"（公平な）+ "one"（一対一）で、ナイフも銃も持ち出さない、拳だけの決着のこと。Commonは <strong class="text-[var(--c-text)]">"the days of the fair one is over"</strong>（フェアな一対一の時代は終わった）と言うことで、喧嘩が即・発砲に直結するようになった街の変化を、たった三語で表現している。なお主語 <em>the days ... is</em> の <strong class="text-[var(--c-text)]">is</strong>（標準英語なら are）も、AAVE/口語で見られる主述の一致のゆるみ。意味は「複数の日々＝あの頃」という一つのまとまりとして捉えられています。</p>
+      </LearningUnit>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        You love to hear the story, again and again<br />
-        About these young brothers from the City of Wind
-      </Fragment>
-      <Fragment slot="jpn">
-        何度でも聞きたいだろ、この話を<br />
-        ウィンディ・シティ出身の若い兄弟たちの話を
-      </Fragment>
-      <Fragment slot="explanation">
-        "City of Wind"はシカゴの別名「Windy City」。聴衆に語りかける口調でバースを始めるCommonの語り部スタイル——「俺たちの話は語り継がれる価値がある」という自負。
-      </Fragment>
-    </LyricsBlock>
+      <!-- ⑨ break bread -->
+      <LearningUnit
+        heading="I break bread with thieves and pastors — break bread のイディオム"
+        label="★ イディオム"
+        mc="Common（Verse 3）"
+        t={TS["break-bread"].t} tApprox={TS["break-bread"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Yeah, I <QuickSlang word="break bread" desc="一緒に食事をする/分かち合う、という意味のイディオム。スラングでは「金を分ける」意でも使う" /> with thieves and pastors, O.G.s and masters</Fragment>
+        <Fragment slot="jpn">そう、俺は泥棒とも牧師とも飯を分かち合う、ベテランの不良とも師とも</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 3の冒頭、雑多な交友関係を一気に並べる件。</p>
+        <p><strong class="text-[var(--c-text)]">break bread</strong> は「一緒にパンを割る」が原義で、そこから「<strong class="text-[var(--c-text)]">食事を共にする／分かち合う</strong>」を意味するイディオム（聖書由来の古い表現）。ヒップホップでは派生して「<strong class="text-[var(--c-text)]">金を分ける・分け前を渡す</strong>」の意でも使われます。ここでCommonは <strong class="text-[var(--c-text)]">thieves and pastors</strong>（泥棒と牧師）、<strong class="text-[var(--c-text)]">O.G.s and masters</strong>（古参の不良と師匠格）という<strong class="text-[var(--c-text)]">対極の人種</strong>を並べることで、自分が善悪の両側と同じ食卓を囲む人間だと示している。<strong class="text-[var(--c-text)]">O.G.</strong> は "Original Gangster"（古株・尊敬される先輩）の略で、今では不良文脈を離れて「ベテラン」一般にも使われる定番スラング。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">break bread (with someone)</strong> は「（人と）食事を共にする、親交を結ぶ」を表すイディオム。聖書の最後の晩餐に由来し、ややフォーマルにも、くだけても使える。ヒップホップ・スラングでは「利益を分配する」の意に拡張されることがあり、文脈で見分ける。</p>
+          <p><strong class="text-[var(--c-text)]">O.G.</strong>（Original Gangster）は名詞・形容詞として「古参の/本物の/尊敬すべきベテラン」。今では音楽やゲームの文脈でも「元祖・古株」を指す広い語になっている。</p>
+        </Fragment>
+      </LearningUnit>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Like juice and gin, in the city, we blend<br />
-        Amongst the hustle, titties and skin, fifties and rims
-      </Fragment>
-      <Fragment slot="jpn">
-        ジュースとジンのように、街に溶け込んで<br />
-        ハッスル・色気・皮膚・50ドル札・リムの中で
-      </Fragment>
-      <Fragment slot="explanation">
-        "fifties"は50ドル紙幣、"rims"は高級ホイール——2000年代のゲットー経済の象徴物が並ぶ。"blend"は混ざり合う・溶け込むという意味で、多様な要素が混在するシカゴの街を表している。
-      </Fragment>
-    </LyricsBlock>
+      <!-- ⑩ paper can't change a man's aura -->
+      <LearningUnit
+        heading="paper can't change a man's aura, it can feed a man's daughter — 曲の主題が宿る一行"
+        label="★ 言葉遊び（主題）"
+        mc="Common（Verse 3）"
+        t={TS["paper-aura"].t} tApprox={TS["paper-aura"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Though <QuickSlang word="paper" desc="紙幣＝金を指すスラング" /> can't change a man's aura,<br />It can feed a man's daughter</Fragment>
+        <Fragment slot="jpn">金は人間の本質（オーラ）までは変えられないが／娘を食わせることはできる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 3、タイトル "The Food" の意味が回収される核心の対句。</p>
+        <p>この曲のテーマがいちばん濃く宿る二行です。<strong class="text-[var(--c-text)]">paper</strong> は紙幣＝金を指すスラング。Commonはまず「金は人間の <strong class="text-[var(--c-text)]">aura</strong>（本質・人格的なオーラ）までは変えられない」と言い切る。その上で、しかし「娘を <strong class="text-[var(--c-text)]">feed</strong>（食わせる）ことはできる」と続ける。金は人を救わないが、家族の腹は満たす——理想と生活のあいだのギリギリの折り合いが、ここにある。聴きどころは音でもあって、<strong class="text-[var(--c-text)]">aura</strong> と <strong class="text-[var(--c-text)]">daughter</strong> がほぼ同じ響きで脚韻を作っている。意味のうえで対になる二語を、音でもぴたりと噛み合わせる。タイトルの "The Food"（食い扶持）が、この <em>feed</em> の一語で回収される構成です。</p>
+      </LearningUnit>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Y'all know the Sprewells, and trucks that's detailed<br />
-        Heartless females that wanna ride in 'em
-      </Fragment>
-      <Fragment slot="jpn">
-        スプリューウェルリムとピカピカのトラックを知ってるだろ<br />
-        乗りたがる打算的な女たちも
-      </Fragment>
-      <Fragment slot="explanation">
-        "Sprewells"はスピナーホイール（車が停まっても回り続ける特殊リム）——2000年代初頭の派手な車文化の象徴。"detailed"は徹底的に磨かれた、という意味のスラング。"Heartless females"は物質的な豊かさだけに惹かれる女性への冷静な観察。
-      </Fragment>
-    </LyricsBlock>
+      <!-- ⑪ Like Sam Jack -->
+      <LearningUnit
+        heading="Like Sam Jack, they maneuver through drama — 固有名詞を形容詞のように使う引用"
+        label="★ 引用／言葉遊び"
+        mc="Common（Verse 3）"
+        t={TS["sam-jack"].t} tApprox={TS["sam-jack"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">I stand for the blue collar – on the side, makin' a few dollars<br />Like <QuickSlang word="Sam Jack" desc="俳優Samuel L. Jacksonの愛称。修羅場を切り抜ける名優のイメージで引用される" />, they maneuver through drama</Fragment>
+        <Fragment slot="jpn">俺は肉体労働者の側に立つ——傍らで、わずかな金を稼ぎながら／サム・ジャック（サミュエル・L・ジャクソン）みたいに、修羅場を切り抜けていく</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 3の締め近く、生活者としての立ち位置を示す件。学習対象は下の行。</p>
+        <p>下の行頭、<strong class="text-[var(--c-text)]">Sam Jack</strong> は俳優 <strong class="text-[var(--c-text)]">Samuel L. Jackson（サミュエル・L・ジャクソン）</strong> の愛称。映画でいつも修羅場を渋く切り抜けるイメージから、「<strong class="text-[var(--c-text)]">maneuver through drama</strong>（ドラマ＝厄介事を巧みに切り抜ける）」の比喩として引かれています。ヒップホップは、こうやって<strong class="text-[var(--c-text)]">有名人の固有名詞をひとつの形容詞のように</strong>放り込んで、説明抜きでイメージを共有する。<strong class="text-[var(--c-text)]">drama</strong> はここでは「演劇」ではなく「もめ事・トラブル」の口語。前の行の <strong class="text-[var(--c-text)]">blue collar</strong>（ブルーカラー＝肉体労働者）+ <strong class="text-[var(--c-text)]">a few dollars</strong> の脚韻も効いていて、「金持ちではなく労働者の側に立つ」という宣言が、韻でしっかり締められています。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">maneuver through ~</strong> は「（障害や混乱の中を）巧みに切り抜ける・立ち回る」。物理的に「縫うように進む」意味から、比喩的に困難な状況を上手にさばく意でも使う。<em>maneuver through traffic</em>（渋滞を縫って進む）→ <em>maneuver through drama</em>（厄介事をさばく）。</p>
+          <p><strong class="text-[var(--c-text)]">drama</strong> は口語で「もめ事・面倒な人間関係のトラブル」を指す。<em>I don't want any drama</em>（揉め事はごめんだ）のように使い、演劇の意味とは文脈で区別する。</p>
+        </Fragment>
+      </LearningUnit>
+    </section>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Felt the Southside venom in rawhides and denim<br />
-        Pimp minds collide with 'em, a system that tries victims
-      </Fragment>
-      <Fragment slot="jpn">
-        生革とデニムの中にサウスサイドの毒を感じた<br />
-        ピンプ思考が衝突し、犠牲者を試すシステムの中で
-      </Fragment>
-      <Fragment slot="explanation">
-        "Southside venom"はシカゴ南部の過酷な現実。"Pimp minds"は搾取的な思考パターン——ストリートのヒエラルキー構造を指す。"a system that tries victims"は司法・社会制度が弱者を試練にさらすという批判的視点。
-      </Fragment>
-    </LyricsBlock>
+    <!-- ===================== -->
+    <!-- 文化的背景            -->
+    <!-- ===================== -->
+    <section id="background" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        文化的背景
+      </h2>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        We livin' in; my man in the fast lane pivotin'<br />
-        On the block, white is selling like Eminem
-      </Fragment>
-      <Fragment slot="jpn">
-        俺たちはそこで生きている；仲間は快走車線でピボットする<br />
-        ブロックでは白いもの（コカイン）がEminemみたいに売れている
-      </Fragment>
-      <Fragment slot="explanation">
-        "white"はコカイン/クラックのスラング。"selling like Eminem"は白人ながら黒人文化で爆発的に売れたEminemと掛けた二重のダジャレ——当時の社会現象を皮肉的に活用したCommonらしいリリック。
-      </Fragment>
-    </LyricsBlock>
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">シカゴ・サウスサイド</p>
+        <h3 class="font-semibold text-base mb-3">Commonが背負う「City of Wind」</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          Commonはシカゴ・サウスサイドの出身で、その土地の手触りはキャリアを通じて作品の核にあり続けています。「The Food」も例外ではなく、語られるのは派手なギャングスタ譚ではなく、子どもを抱え、家賃を払い、警察をやり過ごしながら働く——そういう生活者の視点です。"City of Wind" という言い換えに、地元への距離の取り方と愛着の両方がにじむ。東海岸でも西海岸でもない<strong class="text-[var(--c-text)]">中西部（ミッドウェスト）の語り</strong>として聴くと、当時のヒップホップ地図の中でのこの曲の位置が見えてきます。
+        </p>
+      </div>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        On the block, it jump off like Kim and 'em<br />
-        On the block, it's hot, you can feel it–in your skin and then
-      </Fragment>
-      <Fragment slot="jpn">
-        ブロックでは、Kimたちのようにドンパチが始まる<br />
-        ブロックは熱い、肌で感じられる——そして
-      </Fragment>
-      <Fragment slot="explanation">
-        "jump off"は暴力・乱闘が始まること。"Kim and 'em"はLil' Kim率いるBrooklyn集団、またはシカゴの地元グループへの言及とも解釈できる。"hot"は危険・不安定という意味のスラング。
-      </Fragment>
-    </LyricsBlock>
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">キーワード早見表</p>
+        <h3 class="font-semibold text-base mb-3">この曲で学んだスラングの整理</h3>
+        <div class="space-y-3 mt-3">
+          {[
+            ['City of Wind', 'シカゴの愛称 "Windy City" をひねった言い換え'],
+            ['the Sprewells', 'NBA選手の名を冠したスピナー型ホイール。人名が製品スラング化した例'],
+            ['white', '白い粉状の麻薬（コカイン等）のスラング。"Eminem" と並べて「白人」も掛ける'],
+            ['the game', 'その世界の流儀・生き方のルールを指すストリート語'],
+            ['cuzzo', 'cousin の愛称。血縁でなくても親しい仲間に使う'],
+            ['the fair one', '武器を使わない素手の一対一の喧嘩'],
+            ['break bread', '食事を共にする／分かち合う（派生で「金を分ける」）'],
+            ['paper', '紙幣＝金を指すスラング'],
+          ].map(([term, desc]) => (
+            <div class="flex gap-3 text-sm">
+              <span class="text-[var(--c-gold)] shrink-0 font-semibold min-w-[120px]">{term}</span>
+              <span class="text-[var(--c-muted)]">{desc}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Shorties get the game, but no instructions to assemble it<br />
-        Eyes bright, it seems like the fight is dim in 'em
-      </Fragment>
-      <Fragment slot="jpn">
-        若者たちはゲーム（生き方）を手に入れるが、組み立て方の説明書がない<br />
-        目は輝いているが、その目の中の闘志は薄れているように見える
-      </Fragment>
-      <Fragment slot="explanation">
-        "Shorties"は若者・子供のスラング。説明書なしに渡されたゲームのメタファー——メンターや正しい導きなしにストリートに放り込まれる若者世代の絶望を描く。本バースで最も詩的な一節。
-      </Fragment>
-    </LyricsBlock>
+    <!-- ===================== -->
+    <!-- サンプル・制作の裏側    -->
+    <!-- ===================== -->
+    <section id="behind" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        サンプル・制作の裏側
+      </h2>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Call my man "cuzzo," like I'm kin to him<br />
-        He tryin' to stay straight, the streets is bendin' him
-      </Fragment>
-      <Fragment slot="jpn">
-        仲間を「従兄弟」と呼ぶ、まるで血のつながりがあるように<br />
-        彼はまっすぐ生きようとしているが、ストリートが彼を曲げていく
-      </Fragment>
-      <Fragment slot="explanation">
-        "cuzzo"はcousin（従兄弟）の短縮形——血族でなくても家族のように近い関係を指す黒人コミュニティの文化。"the streets is bendin' him"——ストリートの引力が人を変えてしまう現実をシンプルかつ力強く表現した傑作ライン。
-      </Fragment>
-    </LyricsBlock>
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">サンプル元</p>
+        <h3 class="font-semibold text-base mb-3">Otis Reddingが歌うソウルの名曲をチョップする</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          プロデュースはKanye West。ビートの土台になっているのは、<strong class="text-[var(--c-text)]">Otis Redding（オーティス・レディング）が歌った「Nothing Can Change This Love」</strong>です。この曲はもともと <strong class="text-[var(--c-text)]">Sam Cooke（サム・クック）が1962年に書いて録音した</strong>ソウルの名曲で、Otis Reddingがそれをカヴァーした音源を、Kanyeがチョップ（細切れにして組み直す）して使っています。当時のKanyeは、ソウルのヴォーカルをピッチを上げて速回しする "チップマンク・ソウル" で名を上げた時期。哀感のあるヴォーカル断片を反復させ、Commonの渋い語りの下で温度を作っている。
+        </p>
+      </div>
 
-    <h3 class="text-xs text-[var(--c-very-dim)] uppercase tracking-widest mb-3 mt-4">Chorus</h3>
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">もう一つのサンプル</p>
+        <h3 class="font-semibold text-base mb-3">MC Shan「The Bridge」というヒップホップの古層</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          このトラックには、<strong class="text-[var(--c-text)]">MC Shanの1986年の古典「The Bridge」</strong>の要素も使われています。「The Bridge」はクイーンズブリッジ（ニューヨーク）を讃えた曲で、ヒップホップ黎明期の重要曲のひとつ。ソウルの名曲とヒップホップの古典を同じビートに重ねる——「過去の音を編み直して現在を語る」というサンプリングの本質が、ここにも効いています。
+        </p>
+      </div>
 
-    <LyricsBlock>
-      <Fragment slot="eng">
-        I walked in the crib, got two kids<br />
-        And my baby mama late (Uh oh! Uh oh! Uh oh!)<br />
-        So I had to did, what I had to did<br />
-        'Cause I had to get (Duh-ough! Duh-ough! Duh-ough!)<br />
-        I'm up all night, getting my money right<br />
-        Until the blue and whites (Po-po! Po-po! Po-po!)<br />
-        Now the money comin' slow, but a least a n***a know<br />
-        Slow motion better than (No-oh! No-oh! No-oh!)
-      </Fragment>
-      <Fragment slot="jpn">
-        家に帰ったら子供が二人いて、ベイビーママの生理が遅れてる<br />
-        だからやるべきことをやった——稼がなきゃならないから<br />
-        一晩中起きて金を稼いでいる、パトカーが来るまで<br />
-        金の入りは遅いが、少なくともわかってる——スローモーションでも、何もないよりはいい
-      </Fragment>
-    </LyricsBlock>
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">制作秘話</p>
+        <h3 class="font-semibold text-base mb-3">アルバムに収められたのは「ライブ録音」だった</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          「The Food」が変わっているのは、アルバム『Be』に収録されたヴァージョンが、<strong class="text-[var(--c-text)]">2004年に人気コメディ番組『Chappelle's Show』で生披露されたときのライブ録音</strong>だという点です。観客の歓声や生演奏ならではの揺れごと、スタジオ盤としてパッケージされている。完璧に整えるより、その場の熱を閉じ込めることを選んだ——『Be』というアルバムの体温の高さを象徴する一曲だと思います。
+        </p>
+      </div>
+    </section>
 
-    <h3 class="text-xs text-[var(--c-very-dim)] uppercase tracking-widest mb-3 mt-4">Verse 2</h3>
+    <!-- ===================== -->
+    <!-- 評価と影響            -->
+    <!-- ===================== -->
+    <section id="legacy" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        評価とその後の影響
+      </h2>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        It's all good in the hood, like rats and gyms<br />
-        Throwbacks and Timbs, Blacks and rims
-      </Fragment>
-      <Fragment slot="jpn">
-        フッドでは何でもありだ——ネズミとジムが共存するように<br />
-        復刻ジャージとTimberlandブーツ、黒人とリム
-      </Fragment>
-      <Fragment slot="explanation">
-        "It's all good in the hood"は「フッドでは全部OK（皮肉）」という定型句。ネズミとジム、古着と高級リムという対比でゲットーの複雑な共存状態を描く。"Throwbacks"は復刻版スポーツジャージ——2000年代のNBAカルチャー象徴。
-      </Fragment>
-    </LyricsBlock>
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">アルバム『Be』の中の位置</p>
+        <h3 class="font-semibold text-base mb-3">CommonとKanyeのタッグが生んだ転機</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed mb-4">
+          『Be』(2005年)は、Kanye Westが全面的に関わったことで知られるCommonのアルバムで、彼のキャリアの中でも評価の高い一枚です。「The Food」はそこからのシングルで、『Chappelle's Show』での披露も手伝って広く知られるようになりました。コンシャス・ラップ（社会や内面を見つめる作風）の旗手だったCommonと、ソウル・サンプリングで時代を動かしていたKanye——二人の相性のよさが、生活の手触りをそのまま音にしたこの曲にはっきり出ています。
+        </p>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          派手なヒット曲というより、聴き込むほどに沁みてくるタイプの一曲。だからこそ、スラングと比喩を一つずつ解きほぐしていく教材としては、むしろうってつけだと思います。
+        </p>
+      </div>
+    </section>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Whether on ball courts, attires of all sorts<br />
-        We never fall short – with us it's all Force, like Air 1's
-      </Fragment>
-      <Fragment slot="jpn">
-        バスケコートでも、どんな服装でも<br />
-        俺たちは絶対にショートしない——俺たちは全てフォース、Air Force 1のように
-      </Fragment>
-      <Fragment slot="explanation">
-        "fall short"は足りない・失敗するという意味。"all Force"は全力・Air Force 1スニーカーとの掛け言葉。Nike Air Force 1は2000年代ゲットーファッションで最も象徴的なスニーカー——誇りとスタイルの表明。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Some wave, some air guns – the days of the fair one is over for<br />
-        Cats is colder than four below, with self I go toe to toe
-      </Fragment>
-      <Fragment slot="jpn">
-        手を振る奴もいれば、銃を持ち出す奴もいる——1対1で決める時代は終わった<br />
-        連中はマイナス4度より冷酷で、俺は自分自身とも戦っている
-      </Fragment>
-      <Fragment slot="explanation">
-        "fair one"はルールある1対1の喧嘩——「武器なし・大勢なし」の古典的ストリートルール。"Cats is colder than four below"は人々が極端に冷淡・残酷になったという比喩。"toe to toe with self"は内面との闘いへのシフト。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Wondering if it's for the art or for the dough<br />
-        Though I know to grow a n***a gotta learn to let go
-      </Fragment>
-      <Fragment slot="jpn">
-        アートのためか金のためか、自問している<br />
-        でも成長するには手放すことを学ばなければならないとわかっている
-      </Fragment>
-      <Fragment slot="explanation">
-        アーティストとして常に抱えるジレンマ——芸術的誠実さvs.商業的成功。"let go"は執着を手放す禅的な概念——Commonが内省的なMCとして評価される所以のひとつ。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Though I know the dough I got to bring back to the ghetto<br />
-        Arrows on tarot cards pointin' to the grind
-      </Fragment>
-      <Fragment slot="jpn">
-        稼いだ金はゲットーに持ち帰らないといけないとわかっている<br />
-        タロットカードの矢印はグラインド（日々の努力）を指している
-      </Fragment>
-      <Fragment slot="explanation">
-        "bring back to the ghetto"——成功してもコミュニティへの責任・還元義務の意識。タロットカードをメタファーに使う高度なリリシズム——運命的にグラインドするしかないという諦念と受容。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Po' livin' in more prisons, pointin' to my mind, shine the light up<br />
-        Clench my fists tight, holdin' the right up
-      </Fragment>
-      <Fragment slot="jpn">
-        貧しい生活がより多くの監獄を生む、それが俺の心を指す——光を当てろ<br />
-        拳を強く握って、正義を掲げる
-      </Fragment>
-      <Fragment slot="explanation">
-        "Po' livin' in more prisons"——貧困が精神的・物理的な監獄を増殖させるという構造的批判。"holdin' the right up"は「正しいこと（right）」を掲げるという意味——コンシャスHHの本質的なスタンス。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Freedom fight in dark gear for the years to get brighter<br />
-        Situations, and jaws, get tighter
-      </Fragment>
-      <Fragment slot="jpn">
-        暗い装備で自由のために戦う、年々明るくなるように<br />
-        状況も、締め付けも、どんどん厳しくなっていく
-      </Fragment>
-      <Fragment slot="explanation">
-        "dark gear"は見えない場所での闘争——Civil Rights運動以降の地下での社会正義活動のメタファー。"jaws get tighter"は経済的・社会的締め付けがきつくなるという現実認識。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        My man trying to get his weight and height up – c'mon!
-      </Fragment>
-      <Fragment slot="jpn">
-        仲間は体重も身長も（影響力も）上げようとしている——行けよ！
-      </Fragment>
-      <Fragment slot="explanation">
-        "weight and height up"は文字通りの成長と、ストリートでの存在感・影響力を高めることの二重の意味。バースを締めくくる仲間への叱咤激励——Commonの人間的温かさが滲み出るライン。
-      </Fragment>
-    </LyricsBlock>
-
-    <h3 class="text-xs text-[var(--c-very-dim)] uppercase tracking-widest mb-3 mt-4">Chorus</h3>
-
-    <LyricsBlock>
-      <Fragment slot="eng">
-        I walked in the crib, got two kids<br />
-        And my baby mama late (Uh oh! Uh oh! Uh oh!)<br />
-        So I had to did, what I had to did<br />
-        'Cause I had to get (Duh-ough! Duh-ough! Duh-ough!)<br />
-        I'm up all night, getting my money right<br />
-        Until the blue and whites (Po-po! Po-po! Po-po!)<br />
-        Now the money comin' slow, but a least a n***a know<br />
-        Slow motion better than (No-oh! No-oh! No-oh!)
-      </Fragment>
-      <Fragment slot="jpn">
-        家に帰ったら子供が二人いて、ベイビーママの生理が遅れてる<br />
-        だからやるべきことをやった——稼がなきゃならないから<br />
-        一晩中起きて金を稼いでいる、パトカーが来るまで<br />
-        金の入りは遅いが、少なくともわかってる——スローモーションでも、何もないよりはいい
-      </Fragment>
-    </LyricsBlock>
-
-    <h3 class="text-xs text-[var(--c-very-dim)] uppercase tracking-widest mb-3 mt-4">Refrain</h3>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        I–I know I could make it right<br />
-        If I could just swallow my pride
-      </Fragment>
-      <Fragment slot="jpn">
-        正しい方向に向かえると——プライドさえ飲み込めれば
-      </Fragment>
-      <Fragment slot="explanation">
-        Kanye Westが担当するリフレイン。プライドが行動を阻むという自己認識——ストリートでの「面子（pride）」を保つ文化と自己成長の葛藤を圧縮した一節。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        But I can't run away and put my gun away,<br />
-        You can't front on me
-      </Fragment>
-      <Fragment slot="jpn">
-        でも逃げ出して銃を手放すことはできない<br />
-        俺の前で格好つけるな
-      </Fragment>
-      <Fragment slot="explanation">
-        "front on me"はfrontingのスラング——見せかけの強さ・嘘をつくこと。「逃げられない・銃を手放せない」という矛盾した状況に閉じ込められた自分への告白でもある。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock>
-      <Fragment slot="eng">
-        I–know that I can't let it ride<br />
-        No, no, not tonight
-      </Fragment>
-      <Fragment slot="jpn">
-        見過ごすことができない<br />
-        今夜は絶対に
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock>
-      <Fragment slot="eng">
-        See, I can't run away and put my gun away,<br />
-        You can't front on me
-      </Fragment>
-      <Fragment slot="jpn">
-        逃げ出して銃を手放すことはできない<br />
-        俺の前で格好つけるな
-      </Fragment>
-    </LyricsBlock>
-
-    <h3 class="text-xs text-[var(--c-very-dim)] uppercase tracking-widest mb-3 mt-4">Verse 3</h3>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Yeah, I break bread with thieves and pastors, O.G.s and masters<br />
-        Emcees and actors that seize and capture
-      </Fragment>
-      <Fragment slot="jpn">
-        泥棒と牧師、OGと達人とともにパンを割る<br />
-        瞬間を捉えて切り取るMCと俳優たちとも
-      </Fragment>
-      <Fragment slot="explanation">
-        "break bread"は共に食事をする・協力するという聖書的表現。犯罪者から宗教指導者まで多様な人々と関係を持つCommonのコミュニティ横断的なスタンス——「食物（Food）」というテーマを「パンを割る」行為で具体化している。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Moments like the camcorder<br />
-        You ain't killin' it – yo, that's manslaughter
-      </Fragment>
-      <Fragment slot="jpn">
-        カムコーダーのように瞬間を記録する<br />
-        お前はkillしてない——それは過失致死だ
-      </Fragment>
-      <Fragment slot="explanation">
-        "killin' it"は本来「最高にやってのけること」のスラング。"manslaughter（過失致死）"との対比は——「本当にkillしていないのなら、それは意図的ではない殺しだ」という言葉遊び。ラップの技術論にも、実際の暴力にも読める二重の批評。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Though paper can't change a man's aura,<br />
-        It can feed a man's daughter
-      </Fragment>
-      <Fragment slot="jpn">
-        金は人のオーラは変えられないが<br />
-        男の娘を養うことはできる
-      </Fragment>
-      <Fragment slot="explanation">
-        本曲最も引用される哲学的ライン。金銭の限界（魂・本質は変えられない）と必要性（子供を養える）という二面性——物質主義への批判でも、稼ぐことの正当化でもある絶妙なバランス。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        I stand for the blue collar – on the side, makin' a few dollars<br />
-        Like Sam Jack, they maneuver through drama, like –
-      </Fragment>
-      <Fragment slot="jpn">
-        俺はブルーカラーの側に立つ——傍らで少しの金を稼ぎながら<br />
-        サミュエル・L・ジャクソンのように、ドラマを巧みに生き抜く——
-      </Fragment>
-      <Fragment slot="explanation">
-        "blue collar"への連帯宣言——Commonが自分をエリートではなく労働者階級の代弁者として位置付ける重要な行。"Sam Jack"はサミュエル・L・ジャクソン——映画の中でタフな状況を知的に切り抜けるキャラクターの比喩。バースが「like –」で終わり宙吊りになる演出も技巧的。
-      </Fragment>
-    </LyricsBlock>
-
-    <h3 class="text-xs text-[var(--c-very-dim)] uppercase tracking-widest mb-3 mt-4">Refrain</h3>
-
-    <LyricsBlock>
-      <Fragment slot="eng">
-        I–I know I could make it right<br />
-        If I could just swallow my pride<br />
-        But I can't run away and put my gun away,<br />
-        You can't front on me
-      </Fragment>
-      <Fragment slot="jpn">
-        正しい方向に向かえると——プライドさえ飲み込めれば<br />
-        でも逃げ出して銃を手放すことはできない、俺の前で格好つけるな
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock>
-      <Fragment slot="eng">
-        I–know that I can't let it ride<br />
-        No, no, not tonight<br />
-        See, I can't run away and put my gun away,<br />
-        You can't front on me
-      </Fragment>
-      <Fragment slot="jpn">
-        見過ごすことができない——今夜は絶対に<br />
-        逃げ出して銃を手放すことはできない、俺の前で格好つけるな
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock>
-      <Fragment slot="eng">
-        I–I know I could make it right<br />
-        If I could just swallow my pride<br />
-        But I can't run away and put my gun away,<br />
-        You can't front on me
-      </Fragment>
-      <Fragment slot="jpn">
-        正しい方向に向かえると——プライドさえ飲み込めれば<br />
-        でも逃げ出して銃を手放すことはできない、俺の前で格好つけるな
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock>
-      <Fragment slot="eng">
-        I–know that I can't let it ride<br />
-        No, no, not tonight<br />
-        See, I can't run away and put my gun away,<br />
-        You can't front on me
-      </Fragment>
-      <Fragment slot="jpn">
-        見過ごすことができない——今夜は絶対に<br />
-        逃げ出して銃を手放すことはできない、俺の前で格好つけるな
-      </Fragment>
-    </LyricsBlock>
-
-  </section>
-
-  <section class="mb-6">
-    <h2 class="text-base font-semibold mb-2">■文化的背景</h2>
-    <p class="text-sm text-[var(--c-muted)] leading-relaxed">2005年のアメリカはイラク戦争の泥沼化、ブッシュ政権への不満の高まり、そして同年夏のハリケーン・カトリーナによる甚大な被害と、社会不安が深く刻まれた時代だった。Commonが描くシカゴ・サウスサイドの日常——警察・貧困・麻薬・家族への責任——は、そのような時代の黒人コミュニティが抱える構造的問題を鋭く映し出す。Kanye WestがCommonに「もっとソウルフルに、心を込めて」とプロデュースを通じて促したことで、前作『Electric Circus』の実験路線から解放され、Commonは本来の語り部としての姿を取り戻した。Otis Redding「Nothing Can Change This Love」（1965）のサンプリングは単なる音楽的引用ではなく、1960年代ソウルが持った魂の温もりと社会への眼差しの継承でもある。</p>
-  </section>
-
-  <section class="mb-6">
-    <h2 class="text-base font-semibold mb-2">■ヒップホップ史における意義</h2>
-    <p class="text-sm text-[var(--c-muted)] leading-relaxed">「The Food」はKanye Westが牽引した「ソウルフル・ヒップホップ」ムーブメントの頂点を示す一曲であり、ハードコアなギャングスタラップとクランクが主流だった2000年代中盤に、内省的で普遍的なメッセージを持つHHの可能性を再提示した。またKanye West自身がコーラスを歌い参加したことは、GOOD Musicというレーベルの結束力と、ソウル×HHの融合を象徴する歴史的な瞬間となった。Commonにとっては「The Light」（2000年）と並ぶキャリア最高傑作の一角であり、「paper can't change a man's aura, it can feed a man's daughter」というラインは今日もコンシャスHHの金言として世界中で引用され続けている。</p>
-  </section>
+    <!-- まとめ -->
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        まとめ
+      </h2>
+      <ul class="space-y-2 text-sm text-[var(--c-muted)] list-disc list-inside leading-relaxed">
+        <li>「The Food」は、銃や麻薬の語彙よりも「子ども・家賃・働くこと」という生活の語彙が軸。スラングが見栄ではなく生存の実用語として響く一曲。</li>
+        <li>"white is selling like Eminem"（白い粉/白人の二重）、"paper can't change a man's aura"（aura/daughterの韻）など、声を荒げずにニヤリとさせるCommon流の言葉遊びが学べる。</li>
+        <li>"had to did"・"the days ... is over" などAAVEの非標準文法、"City of Wind"・"the Sprewells"・"the fair one" など地域・時代に根ざしたスラングが詰まっている。</li>
+        <li>ビートはKanye Westが、Sam Cooke作・Otis Redding歌唱の「Nothing Can Change This Love」をチョップしたもの。アルバム盤は『Chappelle's Show』のライブ録音という珍しい一曲。</li>
+      </ul>
+    </section>
 
 </SongLayout>
