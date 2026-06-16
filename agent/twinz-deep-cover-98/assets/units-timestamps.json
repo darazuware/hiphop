@@ -1,10 +1,82 @@
 [
-  { "id": "dead-little-italy",    "t": 22,  "approx": true },
-  { "id": "cold-day-hell",        "t": 36,  "approx": true },
-  { "id": "insanity-pavilion",    "t": 56,  "approx": true },
-  { "id": "cheddar-child-support","t": 68,  "approx": true },
-  { "id": "one-eight-seven",      "t": 80,  "approx": true },
-  { "id": "black-pearl-latina",   "t": 112, "approx": true },
-  { "id": "don-cartagena",        "t": 125, "approx": true },
-  { "id": "street-professors",    "t": 146, "approx": true }
+  {
+    "id": "dead-little-italy",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 22,
+    "t": 22,
+    "source": "fallback",
+    "approx": true,
+    "score": 0.29
+  },
+  {
+    "id": "cold-day-hell",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 36,
+    "t": 36,
+    "source": "fallback",
+    "approx": true,
+    "score": 0.1
+  },
+  {
+    "id": "insanity-pavilion",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 56,
+    "t": 56,
+    "source": "fallback",
+    "approx": true,
+    "score": 0.29
+  },
+  {
+    "id": "cheddar-child-support",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 68,
+    "t": 68,
+    "source": "fallback",
+    "approx": true,
+    "score": 0.29
+  },
+  {
+    "id": "one-eight-seven",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 80,
+    "t": 80,
+    "source": "fallback",
+    "approx": true,
+    "score": 0.17
+  },
+  {
+    "id": "black-pearl-latina",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 112,
+    "t": 112,
+    "source": "fallback",
+    "approx": true,
+    "score": 0
+  },
+  {
+    "id": "don-cartagena",
+    "whisperSec": 166.7,
+    "manualSec": null,
+    "fallbackT": 125,
+    "t": 166.7,
+    "source": "whisper",
+    "approx": true,
+    "score": 1
+  },
+  {
+    "id": "street-professors",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 146,
+    "t": 146,
+    "source": "fallback",
+    "approx": true,
+    "score": 0.33
+  }
 ]

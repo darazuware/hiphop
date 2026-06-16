@@ -1,426 +1,361 @@
 ---
-import LyricsBlock from '../../components/LyricsBlock.astro';
+import LearningUnit from '../../components/LearningUnit.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
 import SongLayout from '../../layouts/SongLayout.astro';
-import AmazonAlbumCta from "../../components/AmazonAlbumCta.astro";
+
+// 学習ユニットのPVタイムスタンプ。agent/src/extract-unit-timestamps.mjs で音源を
+// whisper単語アライメントして取得（whisperSec）し、manualSec があれば上書きする二層構造。
+import tsData from '../../../agent/twinz-deep-cover-98/assets/units-timestamps.json';
+const YT = "AiwvPmRTv6M";
+const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.approx }]));
 ---
 
 <SongLayout
   title="Twinz (Deep Cover 98) 和訳・意味・スラング解説 | Big Pun feat. Fat Joe"
-  description="Big Pun feat. Fat Joe「Twinz (Deep Cover 98)」の歌詞和訳とスラング徹底解説。Dr. Dre「Deep Cover」をブロンクス流に再構築した1998年のマフィオソ・ラップ頂点作。ヒップホップ史上最高の31音節パンチラインを完全解剖。"
+  description="Big Pun feat. Fat Joe「Twinz (Deep Cover 98)」を英語学習教材として精読。31音節の伝説的パンチライン・スラング・AAVE・内部韻を表現単位で解説。各表現はMVの該当箇所へ頭出しリンク付き。"
   slug="twinz-deep-cover-98"
   highlights={[
-    '「Dead in the middle of Little Italy...」——全31音節・8つの同音連鎖という人類史上最も高密度なラインがスタジオの口慣らしから生まれた奇跡の誕生秘話',
-    'Dr. DreとSnoop Doggの西海岸クラシック「Deep Cover」をブロンクスのマフィオソ流儀で再構築——Snoop自身がMVにカメオ出演し東西融和を体現',
-    'ラテン系ソロラッパー史上初のプラチナ認定——ブロンクスのプエルトリコ系としてメインストリームを征服したBig Punの唯一無二のレガシー',
+    '「Dead in the middle of Little Italy…」——31音節・7つの同音連打という人類史上最高密度の内部韻を解剖',
+    'Dr. DreとSnoop Doggの西海岸クラシックをブロンクスのマフィオソ流儀で再構築——Snoop本人がMVに登場し東西融和を体現',
+    'スラング・内部韻・AAVE・バイリンガルな言葉遊びを「学ぶ表現」単位でPV頭出しリンク付きで解説',
   ]}
   youtubeId="AiwvPmRTv6M"
+  sampleYoutubeId="fAgujvqSTno"
+  sampleTitle='Dr. Dre feat. Snoop Doggy Dogg - Deep Cover'
 >
 
-    <!-- この曲の意味 -->
+    <!-- ===================== -->
+    <!-- 導入                  -->
+    <!-- ===================== -->
     <section class="mb-6">
-      <h2 class="text-base font-semibold mb-2">■この曲の意味（要約）</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">ブロンクス出身のプエルトリコ系ラッパー、Big PunとFat Joeが、Dr. DreとSnoop Doggの1992年西海岸クラシック「Deep Cover」のビートを丸ごと流用し、東海岸マフィオソ・ラップとして完全再構築した楽曲。ゴッドファーザー・ワンス・アポン・ア・タイム・イン・アメリカといったマフィア映画の美学を纏いながら、ブロンクスのストリートの冷酷なリアリティを語る。Big Punのラップ技術の到達点「Little Italy」ラインは、スタジオの口慣らしから偶然生まれた歴史的パンチラインとして語り継がれる。</p>
+      <h2 class="text-base font-semibold mb-2">■ブロンクスから西海岸を引用するとき</h2>
+      <p class="text-sm text-[var(--c-muted)] leading-relaxed">
+        Big PunとFat Joeは、Dr. DreとSnoop Doggの1992年西海岸クラシック「Deep Cover」のビートをそのまま借り、東海岸マフィオソ・ラップとして再構築した。それが「Twinz (Deep Cover 98)」——1998年リリース。ブロンクスのプエルトリコ系ラッパーが、ヒップホップ東西抗争が激しかった時代にあえて西のビートを使い、しかもSnoop Dogg本人がMVにカメオ出演してくれたという事実は、音楽そのものが東西融和の媒体になった瞬間として今も語り継がれる。
+      </p>
+      <p class="text-sm text-[var(--c-muted)] leading-relaxed mt-2">
+        この曲を教材として読んでほしい最大の理由は、<strong class="text-[var(--c-text)]">Big Punの圧倒的な技術</strong>にある。内部韻（internal rhyme）のお手本として世界中の音楽関係者が引用する「Little Italy」ラインがあり、スペイン語と英語を行き来するバイリンガルな言葉遊びがあり、マフィア映画の固有名詞をブロンクスのストリートに重ねるイメージのレイヤリングがある。リリックには、辞書だけでは読み解けないストリートスラング、<QuickSlang word="AAVE" desc="African American Vernacular English（アフリカ系アメリカ人英語）。標準英語とは異なる独自の文法・語彙を持つ英語変種" />の文法、そして言葉の重ね方の美学がぎっしりと詰まっています。この記事ではそのひとつひとつを取り出して、Punがどうやって韻の快感と意味を同時に成立させているのかを、必要な断片と和訳、そしてブロンクスの文脈を添えながら追いかけていきます。
+      </p>
     </section>
 
-    <!-- 概要 -->
     <section class="mb-6">
-      <h2 class="text-base font-semibold mb-2">■概要</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">1997年プロモ用12インチ先行リリース後、1998年デビューアルバム『Capital Punishment』に収録。Loud Recordsからリリースされた本作はビルボード200最高5位・R&B/Hip-Hopアルバムチャート1位を記録。Big Punはラテン系ソロラッパーとして史上初のRIAAプラチナ認定（100万枚超）を獲得した。プロデューサーはBig PunとFat Joe（Terror Squad Productions）だが、原曲はDr. Dre・Snoop Doggy Dogg・C. Wolfeが作曲した「Deep Cover」（1992）のトラックを実質流用。Snoop DoggはMVに本人出演し東西の融和を象徴した。</p>
-    </section>
-
-    <!-- 導入 -->
-    <section class="mb-10">
-      <h2 class="text-base font-semibold mb-2">■導入（時代背景）</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">1997〜98年はヒップホップにとって最大の転換期だった。TupacとBiggieの相次ぐ銃撃死（1996・1997年）が東西抗争の悲劇的な終幕を告げ、シーン全体が融和へ向かい始めた時期。ブロンクス出身のBig Punがヒップホップ発祥の地から世界へ名乗りを上げ、しかも西海岸の象徴的アンセムを深いリスペクトで再構築したこの曲は、まさにその時代の証言であり、治癒の音楽だった。ラテン系コミュニティにとっては「自分たちもメインストリームを支配できる」という歴史的な希望の音でもあった。</p>
+      <h2 class="text-base font-semibold mb-2">■なぜBig Punのリリックが教材になるか</h2>
+      <p class="text-sm text-[var(--c-muted)] leading-relaxed">
+        1998年デビューアルバム『Capital Punishment』に収録。Big Punはこの作品でラテン系ソロラッパーとして史上初のRIAAプラチナ認定を獲得しました（本作は Billboard 200 最高5位を記録）。それだけでも革命的なのだが、さらに驚くのは彼のラップ技術の密度。「Dead in the middle of Little Italy」ラインは<strong class="text-[var(--c-text)]">31音節・7つの同音</strong>が一行に連射される——それをスタジオの口慣らし中に思いついて、「笑われる」と思って入れるのを嫌がったというのだから面白い（Fat Joeに猛烈に説得されて渋々入れたらしい）。ラテン系としてのアイデンティティ、映画的な世界観、圧倒的な技術が三位一体になった曲。英語学習として相当おいしいと思います。
+      </p>
     </section>
 
     <!-- Table of Contents -->
     <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
       <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
       <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
-        <li><a href="#lyrics" class="hover:text-[var(--c-gold)] transition-colors">01 — 歌詞和訳と意味解説</a></li>
-        <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">02 — 文化的背景</a></li>
-        <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">03 — 制作の裏側</a></li>
-        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">04 — 評価とその後の影響</a></li>
+        <li><a href="#story" class="hover:text-[var(--c-gold)] transition-colors">01 — ストーリーの流れ（まず曲全体をつかむ）</a></li>
+        <li><a href="#units" class="hover:text-[var(--c-gold)] transition-colors">02 — 学ぶ表現（スラング・韻・言葉遊び・AAVE）</a></li>
+        <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">03 — 文化的背景</a></li>
+        <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">04 — サンプル・制作の裏側</a></li>
+        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">05 — 評価とその後の影響</a></li>
       </ol>
     </nav>
 
-    <div id="lyrics"></div>
-
     <!-- ===================== -->
-    <!-- INTRO: Fat Joe        -->
+    <!-- ストーリー要約          -->
     <!-- ===================== -->
-    <section class="mb-12">
+    <section id="story" class="mb-12">
       <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Intro · Fat Joe
+        ストーリーの流れ — まず曲全体をつかむ
       </h2>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          I support Pun in anything he does, anything he loves<br />
-          A brother from another mother sent from the above<br />
-          A thug n***a just like me, one of the best, might be<br />
-          Even better, leavin' n***as kneelin' on they right knee<br />
-          Spike Lee couldn't paint a better picture<br />
-          You small change, I'm blowin' out your brains, gettin' richer<br />
-          Hit you with the MAC (MAC), smack your b****, n***a, what?<br />
-          You gettin' stuck – my trigger finger's itchy as a f***<br />
-          Truck jewels (Jewels), cruisin' in the Land, bumpin' "Cash Rules"<br />
-          Last crew to want it caught a hundred tryna pass through<br />
-          That's true So who the next to get it?<br />
-          T.S. — the best that did it<br />
-          Get it off your chest, kid, admit it, and it's…
-        </Fragment>
-        <Fragment slot="jpn">
-          どんなことをしていてもPunを支持する、彼が愛するものすべてを<br />
-          別の母から生まれた兄弟、天から遣わされた存在<br />
-          俺と同じサグ野郎、最高の一人かもしれない<br />
-          それ以上かもな、奴らを右膝をついて跪かせてきた<br />
-          スパイク・リーだってこれより良い絵を描けない<br />
-          お前は小銭、俺はお前の脳みそを吹き飛ばしながら金持ちになる<br />
-          MAC（マシンガン）でぶん殴る、お前のビッチを張り倒す、どうだ？<br />
-          お前は詰んだ——俺の引き金を引く指は痒くてしょうがない<br />
-          ランドローバーを乗り回し、「Cash Rules」（CREAM）をかけながら宝石を見せびらかす<br />
-          うちのシマを荒らそうとした最後のクルーは百発食らって通り過ぎた<br />
-          本当のことだ、次にやられるのは誰だ？<br />
-          T.S.（テラー・スクワッド）——最高の連中がやり遂げた<br />
-          胸のうちを吐き出せ、坊主、認めちまえ、それが…
-        </Fragment>
-        <Fragment slot="explanation">
-          Fat Joeによるイントロ。Big PunへのリスペクトとTerror Squad（T.S.）の力を誇示しながら、楽曲の世界観を設定する。「Spike Lee couldn't paint a better picture」でこの物語の映像的鮮明さを宣言。「Cash Rules」はWu-Tang ClanのC.R.E.A.M.への言及。
-        </Fragment>
-      </LyricsBlock>
-    </section>
-
-    <!-- ===================== -->
-    <!-- VERSE 1: Big Pun      -->
-    <!-- ===================== -->
-    <section class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Verse 1 · Big Pun
-      </h2>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          I know these dirty cops that'll get us in<br />
-          If we murder some wop
-        </Fragment>
-        <Fragment slot="jpn">
-          イタリア系マフィアを消してくれたら<br />
-          俺たちを中に入れてくれる汚職警官を知ってるぜ
-        </Fragment>
-        <Fragment slot="explanation">
-          「wop」はイタリア系アメリカ人への蔑称。マフィオソ・ラップとしての世界観をいきなり確立する一行。「汚職警官と手を結んでイタリア系マフィアを始末する」という冷酷な犯罪者視点がすぐさまリスナーを1990年代ブロンクスの裏社会へ引き込む。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Ready for war Joe, how you wanna blow they spot?
-        </Fragment>
-        <Fragment slot="jpn">
-          戦争の準備はできてるぜ、ジョー——<br />
-          奴らのアジトをどうやって急襲する？
-        </Fragment>
-        <Fragment slot="explanation">
-          「blow they spot」は「blow the spot（縄張りを急襲・破壊する）」のストリート文法。Fat Joeに作戦を問いかける形式で、二人の連帯と緊迫感を一行で提示する。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Meet me at Vito's with Noodles,<br />
-          We'll do this dude while he's slurpin' spaghetti
-        </Fragment>
-        <Fragment slot="jpn">
-          ヌードルスとヴィトーの店で落ち合おう——<br />
-          ターゲットがスパゲッティをすすってる間に始末する
-        </Fragment>
-        <Fragment slot="explanation">
-          「ヴィトー」は映画『ゴッドファーザー』のヴィトー・コルレオーネ、「ヌードルス」はロバート・デ・ニーロが演じた映画『ワンス・アポン・ア・タイム・イン・アメリカ』の主人公。マフィア映画の固有名詞を犯罪計画の会話に織り込む映画的センス。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Dead in the middle of Little Italy,<br />
-          Little did we know that we riddled two middlemen who didn't do diddly
-        </Fragment>
-        <Fragment slot="jpn">
-          リトル・イタリーのど真ん中で死体が転がる——<br />
-          何もしていない2人の仲介人を、俺たちがハチの巣にしたとは誰も知るまい
-        </Fragment>
-        <Fragment slot="explanation">
-          ヒップホップ史上最高峰と称される31音節のパンチライン。「middle / Little / Italy / little / riddled / middlemen / diddly」と短い「i」音と「l」子音が機関銃のように連射される。「riddled（ハチの巣にした）」は「尋問した」という意味との多義性も持つ。ターゲットを間違えて無関係な仲介人を始末したという黒いユーモアが、言語芸術と暴力描写を同時に成立させる奇跡のライン。Fat Joeに懇願され嫌々録音したというエピソードも有名。
-        </Fragment>
-      </LyricsBlock>
-    </section>
-
-    <!-- ===================== -->
-    <!-- HOOK                  -->
-    <!-- ===================== -->
-    <section class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Hook · Big Pun &amp; Fat Joe
-      </h2>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Yeah – and you don't stop<br />
-          Twenty-shot Glock with the cop-killers, fill 'em to the top<br />
-          Yeah – and you don't stop<br />
-          Joey cracks the rock, and Big Pun keeps the guns cocked<br />
-          Yeah – and you don't stop<br />
-          We'll make it hot, n***a, what? Bring it, I'll blow your whole spot<br />
-          Yeah – and you don't stop<br />
-          It's still 1-8-7 on an undercover cop
-        </Fragment>
-        <Fragment slot="jpn">
-          そうだ——止まらない<br />
-          20発入りグロックに警官殺し（徹甲弾）を上まで詰め込んでる<br />
-          そうだ——止まらない<br />
-          ジョーイが岩（コカイン）を割り、ビッグ・プンが銃を構えてる<br />
-          そうだ——止まらない<br />
-          俺たちはアツくする、どうだ、かかってこい、お前のシマを吹き飛ばしてやる<br />
-          そうだ——止まらない<br />
-          今でも変わらない——覆面警官を殺す（187）
-        </Fragment>
-        <Fragment slot="explanation">
-          「187」はカリフォルニア州刑法第187条（殺人罪）のコード。Dr. DreとSnoop Doggのオリジナル「Deep Cover」（1992）のサビをそのまま継承し、「*still*（今でも）」という一語を加えることで「東海岸の俺たちも同じ姿勢だ」という反権力宣言を現在形で再提示。Fat Joeの「Yeah – and you don't stop」コールがビートと絡み合い、Big Punの「187」ラインをさらに強調する。
-        </Fragment>
-      </LyricsBlock>
-    </section>
-
-    <!-- ===================== -->
-    <!-- VERSE 2: Big Pun      -->
-    <!-- ===================== -->
-    <section class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Verse 2 · Big Pun
-      </h2>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          F*** the police, I squeeze first, make 'em eat dirt<br />
-          Take 'em feet-first through the morgue, then lodge 'em in the deep earth<br />
-          The street's cursed, the First Amendment's culturally biased<br />
-          Supposed to supply us with rights, tonight, I hold my rosaries tight as I can<br />
-          I'm one man against the world<br />
-          Just me and my girl — Black Pearl Latina, más fina, but keeps it real<br />
-          You know the deal, we steal from the rich and keep it<br />
-          Peep it, it's no secret, watch me and Joe go back and forth and freak it
-        </Fragment>
-        <Fragment slot="jpn">
-          警察なんてクソ食らえ、俺が先に撃って、奴らに土を食わせる<br />
-          足から先に霊安室に運んで、深い土の中に埋めてやる<br />
-          この街は呪われてる、修正第一条（表現の自由）は文化的偏見がある<br />
-          俺たちに権利を与えるはずなのに、今夜、俺はロザリオをできる限りきつく握りしめる<br />
-          俺は世界を相手に一人で戦っている<br />
-          俺と彼女だけ——ブラック・パール、ラテン系、más fina（最高に上品）だが現実を保つ<br />
-          分かってるだろ、俺たちは金持ちから盗んでそれを手元に置く<br />
-          見てろ、秘密じゃない、俺とジョーが交互に攻めてフリークしていくのを
-        </Fragment>
-        <Fragment slot="explanation">
-          Big Punによる第2ヴァース。反警察の姿勢を示しながら、「Black Pearl Latina, más fina」でプエルトリコ系ラテン文化への誇りを表明する。「Más fina（最も上品な）」はスペイン語。「Robin Hood的」な「金持ちから盗む」モチーフが東海岸マフィオソの美学を確立する。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Creep with me, as I cruise in my Bimmer<br />
-          All the kids in the ghetto call me Don Cartagena<br />
-          Kickin' ass as I blast off heat<br />
-          And, you never see me talk to police<br />
-          So, you should know that I really don't care<br />
-          Pull you by the hair, slit your throat, and I'll leave you right there<br />
-          So beware — it's rare that n***as want beef<br />
-          Big Pun — speak, and let these motherf**kers know how we run the streets
-        </Fragment>
-        <Fragment slot="jpn">
-          俺とこっそり行こうぜ、BMW（ビマー）でクルーズしながら<br />
-          ゲットーのガキたちは俺をドン・カルタヘナと呼ぶ<br />
-          ケツを蹴り上げながら熱を撃ち放つ<br />
-          俺が警察と話すのを見ることは絶対にない<br />
-          だから分かるだろ、俺は本当に気にしないんだ<br />
-          お前の髪を掴み、喉をかき切って、その場に放置する<br />
-          気をつけろ——奴らがビーフを求めることはめったにない<br />
-          ビッグ・プン——話せ、このくそ野郎どもに俺たちがどうやってストリートを支配しているかを教えてやれ
-        </Fragment>
-        <Fragment slot="explanation">
-          「Bimmer」はBMWの愛称。「Don Cartagena」はコロンビアの港湾都市カルタヘナとマフィアのドン（ボス）を組み合わせたFat Joeのオルターエゴ。最後の「Big Pun — speak」でFat JoeがPunに声をかけ、次のバース（Fat Joe）へのバトンタッチを演出する。
-        </Fragment>
-      </LyricsBlock>
-    </section>
-
-    <!-- ===================== -->
-    <!-- VERSE 6: Fat Joe      -->
-    <!-- ===================== -->
-    <section class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Verse 6 · Fat Joe
-      </h2>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Creep with me, as I cruise in my Bimmer<br />
-          All the kids in the ghetto call me Don Cartagena
-        </Fragment>
-        <Fragment slot="jpn">
-          俺と一緒に忍び寄れ、Bimmer（BMW）をクルーズしながら<br />
-          ゲットーのガキたちは全員俺をドン・カルタヘナと呼ぶ
-        </Fragment>
-        <Fragment slot="explanation">
-          「Bimmer」はBMWの愛称。「Don Cartagena」はコロンビアの港湾都市カルタヘナとマフィアのドン（ボス）を組み合わせたFat Joeのオルターエゴ。後に自身のアルバムタイトルにもなる。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Kickin' ass as I blast off heat<br />
-          And, you never see me talk to police
-        </Fragment>
-        <Fragment slot="jpn">
-          熱を吹き飛ばしながらケツを蹴り上げる<br />
-          そして俺が警察と話すのを見ることは絶対ない
-        </Fragment>
-        <Fragment slot="explanation">
-          「never talk to police（警察に話さない）」はストリートの絶対的掟。スネッチング（密告）はギャングスタ文化で最大の禁忌。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          So, you should know that I really don't care<br />
-          Pull you by the hair, slit your throat, and I'll leave you right there
-        </Fragment>
-        <Fragment slot="jpn">
-          だから俺が本当に気にしないことを知るべきだ<br />
-          髪をつかんで、喉を切り裂いて、そこに置き去りにする
-        </Fragment>
-        <Fragment slot="explanation">
-          ハードコア・ラップ定番の暴力描写。映画「スカーフェイス」的な残酷さで脅迫のトーンを極限まで引き上げる。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          So beware — it's rare that n***as want beef<br />
-          Big Pun — speak, and let these motherf***ers know how we run the streets
-        </Fragment>
-        <Fragment slot="jpn">
-          だから注意しろ——俺とビーフしたがる奴は滅多にいない<br />
-          Big Pun——語れ、このmotherF***erどもに俺たちのストリートの走り方を教えてやれ
-        </Fragment>
-        <Fragment slot="explanation">
-          Fat JoeからBig Punへのバトンタッチ。「it's rare（滅多にいない）」は恐怖による抑止力の誇示。2人の呼応スタイルがこの曲の最大の特徴。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          F*** peace, I run the streets deep with no compassion<br />
-          Puerto Ricans known for slashin'<br />
-          Catchin' n***as while they sleepin', no relaxin'<br />
-          Keep your eyes open, sharp reflexes<br />
-          Three TEC's is in the Jeep Lexus just in case police test us<br />
-          Street professors, Terror Squad — ghetto scholars<br />
-          Full-A-Clips mob inflicts the fear of God when the metal hollers
-        </Fragment>
-        <Fragment slot="jpn">
-          平和なんてクソ、俺は深く容赦なくストリートを走る<br />
-          プエルトリカンは切ることで知られてる<br />
-          奴らが眠っている間に捕まえる、休む暇なし<br />
-          目を開けとけ、反射神経は鋭く<br />
-          警察が試してきた時のために、ジープのレクサスにTEC（銃）が3丁入ってる<br />
-          ストリートの教授たち、テラー・スクワッド——ゲットーの学者<br />
-          フル弾倉のモブが、金属（銃）が叫ぶとき神の恐怖をもたらす
-        </Fragment>
-        <Fragment slot="explanation">
-          Fat Joeの本番。「Puerto Ricans known for slashin'」でラテン系、特にプエルトリコ系のストリートでの評判を誇示する。「Jeep Lexus」はLexus LX450（当時の高級SUV）。「Street professors, ghetto scholars」でテラー・スクワッドを「ゲットーの知識人」として位置づける皮肉。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Better acknowledge or get knocked down, until I'm locked and shot down<br />
-          Heather B. couldn't make me put my Glock down<br />
-          We lock towns, like rounds in the chamber<br />
-          Boogie Down major like Nine, I bust mine every time<br />
-          Plus, I'm the crime boss of New York<br />
-          Where we taught to walk the walk, all my n***as carry chalk<br />
-          And stalk our prey like a predator<br />
-          Whoever want it — go and get it, set it, baby, and I'ma bury ya<br />
-          So remember the Squad that I'm reppin'<br />
-          I fill a clip of my weapon and punish n***as 'til it's Armageddon
-        </Fragment>
-        <Fragment slot="jpn">
-          認めろ、でなければ叩きのめされる、俺が閉じ込められ撃たれるまで<br />
-          Heather B.（ラッパー）でも俺のグロックを下ろさせることはできない<br />
-          俺たちは街を封鎖する、薬室に込められた弾のように<br />
-          Boogie Downのメジャー、ナインのように、俺は毎回自分のものをぶっ放す<br />
-          さらに、俺はニューヨークのクライム・ボスだ<br />
-          歩き方を叩き込まれた場所、俺の仲間全員がチョーク（白墨/武器）を持ち歩く<br />
-          そして獲物を捕食者のように追い詰める<br />
-          欲しいなら——行って手に入れろ、セットしろ、ベイビー、お前を埋めてやる<br />
-          だから俺が代表するスクワッドを覚えておけ<br />
-          俺は武器に弾倉を詰め込んで、世界の終わり（アルマゲドン）が来るまで奴らを懲らしめる
-        </Fragment>
-        <Fragment slot="explanation">
-          「Heather B.」はHeather B. Gardnerで、Boogie Down Productions（BDP）のフィメール・ラッパー。「Boogie Down major like Nine」はBDPのKRS-OneとDJ Scott La Rockへの敬意。「Carry chalk（チョークを持ち歩く）」は「殺人の証拠（犯行現場で描く輪郭線）」の暗喩であり、常に危険な状況にいることの比喩。「Armageddon」で楽曲の終末的テンションを最高点まで引き上げる。
-        </Fragment>
-      </LyricsBlock>
-    </section>
-
-    <!-- スラング注釈 -->
-    <section class="mb-12">
-      <h2 class="text-base font-semibold mb-4">■重要スラング・用語</h2>
-      <div class="space-y-3">
-        <QuickSlang term="187" reading="ワン・エイティー・セブン" meaning="カリフォルニア州刑法第187条（殺人罪）のコード番号。ヒップホップで「殺す」の代名詞として定着。" />
-        <QuickSlang term="wop" reading="ワップ" meaning="イタリア系アメリカ人への蔑称。楽曲ではイタリア系マフィアを指す。" />
-        <QuickSlang term="blow they spot" reading="ブロウ・ゼア・スポット" meaning="「blow the spot（縄張りを急襲・破壊する）」のストリート文法変形。敵のアジトを急襲すること。" />
-        <QuickSlang term="snub tre-eight" reading="スナブ・トレイ・エイト" meaning="短銃身（スナブノーズ）の.38口径リボルバー。隠し持ちやすく近距離暗殺向きの裏社会の定番武器。" />
-        <QuickSlang term="Boricua" reading="ボリクア" meaning="プエルトリコ人の誇り高き自称。タイノ族の言語「Borikén（勇敢な貴人の土地）」に由来する。" />
-        <QuickSlang term="riddled" reading="リドルド" meaning="「謎をかける・尋問する」と「銃弾でハチの巣にする」の二つの意味を持つ動詞。伝説のLittle Italyラインの多義的な核心語。" />
+      <p class="text-xs text-[var(--c-dim)] mb-5">
+        個々のスラングに入る前に、まず曲が何を語っているかをざっくりとつかんでおきましょう。物語の文脈が頭に入っていると、次章「学ぶ表現」でひとつひとつの言葉を掘るときに、その言葉が曲のどこに位置するのかが立体的に見えてくる。
+      </p>
+      <div class="space-y-4 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          曲は架空のマフィオソ計画から始まる。Big PunがFat Joe（「Joey」）に作戦を伝える——ブロンクスのリトル・イタリー地区で標的を始末し、汚職警官と手を組んで逃げおおせる。映画『ゴッドファーザー』の登場人物「ヴィトー」や、ロバート・デ・ニーロ演じる「ヌードルス」が実際の計画の場所として出てくる。マフィア映画の固有名詞がそのままブロンクスの路地に溶け込んでいるわけで、これがマフィオソ・ラップという様式の核心だ。
+        </p>
+        <p>
+          <strong class="text-[var(--c-text)]">Verse 1（Big Pun）</strong>。スタジオの口慣らしから生まれた「Little Italy」ラインが炸裂する。ターゲットがパスタをすすっている隙に急襲するが、実は無関係な仲介人を仕留めてしまっていたというオチ。31音節に7つの同音が連打されるこの一行は、ラップの技術論として今も世界中で引用される。
+        </p>
+        <p>
+          <strong class="text-[var(--c-text)]">Hook（Big Pun & Fat Joe）</strong>。「1-8-7 on an undercover cop」——カリフォルニア州刑法第187条（殺人罪）のコードを借りたDr. Dre / Snoop Doggのオリジナルフックをそのまま継承しつつ、「still（今でも）」という一語を足す。これが東海岸の宣言になっている。
+        </p>
+        <p>
+          <strong class="text-[var(--c-text)]">Verse 2〜7</strong>では、Big PunとFat Joeが交互にヴァースを担当しながら反警察・反骨精神・ラテン系のアイデンティティを次々に畳みかける。「Black Pearl Latina, más fina」でBig Punはスペイン語を行き来し、Fat Joeは「Don Cartagena（ドン・カルタヘナ）」というマフィアのドンのオルターエゴで自らを位置づける。最後は「Terror Squad（テラー・スクワッド）」というクルー名で締め、ブロンクスのラテン系集団としてのアイデンティティを宣言して曲を閉じる。
+        </p>
+        <p class="text-xs text-[var(--c-dim)]">
+          ※本ページは批評・教育目的で、解説に必要な範囲の断片のみを引用しています。全歌詞の対訳は掲載していません。
+        </p>
       </div>
     </section>
 
-    <div id="background"></div>
+    <!-- ===================== -->
+    <!-- 学習ユニット群（主役）  -->
+    <!-- ===================== -->
+    <div id="units"></div>
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2 border-b border-[var(--c-border)] pb-2">
+        学ぶ表現 — スラング・韻・言葉遊び・AAVE
+      </h2>
+      <p class="text-xs text-[var(--c-dim)] mb-6">
+        各見出しは「この曲から学べる英語表現」。各ユニットはまず上に英語の用例（1〜2行）を置いてあります。<strong class="text-[var(--c-text)]">先に英語を音で追い、行のどこが学習対象かを確かめてから</strong>下の日本語解説に進むと、英語が苦手でも置いていかれません。🎤はそのリリックを歌うMC、▶は公式MVの該当箇所への頭出しリンク（秒数は概算）です。
+      </p>
 
-    <!-- 文化的背景 -->
-    <section class="mb-12 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
-      <h2 class="text-base font-semibold mb-4">■文化的背景</h2>
+      <!-- ① dead-little-italy -->
+      <LearningUnit
+        heading="Dead in the middle of Little Italy — 31音節・内部韻の教科書"
+        label="★ 内部韻（最重要）"
+        mc="Big Pun（Verse 1）"
+        t={TS["dead-little-italy"].t} tApprox={TS["dead-little-italy"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Dead in the middle of <QuickSlang word="Little Italy" desc="ニューヨーク・マンハッタンにあるイタリア系アメリカ人の歴史的居住区。マフィアとの関連が深い地域" /><br />Little did we know, that we riddled some middlemen who didn't do <QuickSlang word="diddly" desc="「何もしない・たいしたことない」を意味するスラング。diddly-squat とも言う" /></Fragment>
+        <Fragment slot="jpn">リトル・イタリーのど真ん中で死体が転がる——<br />俺たちが何もしていない仲介人たちをハチの巣にしたとは、誰も思いもしなかった</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 1終盤、Big Punが計画の顛末を語る件。ヒップホップ史上最も有名な2行。</p>
+        <p>まず声に出して読んでみてください。<strong class="text-[var(--c-text)]">Dead / middle / Little / Italy / Little / riddled / middlemen / diddly</strong>——「-id-」「-ittle-」「-iddl-」系の音が、わずか2行の中で機関銃のように連射されているのが分かるはず。これが<QuickSlang word="内部韻" desc="internal rhyme（インターナル・ライム）。行末だけでなく、行の内側でも同じ音を繰り返す韻の技法" />（internal rhyme）だ。行末だけでなく行の内側でも韻を踏む、ラップ技術の極致。この2行は「31音節に7つの同音」として世界中のリリシストが参照する教科書的なラインになっています。</p>
+        <p class="mt-2">さらに <strong class="text-[var(--c-text)]">riddled</strong> が二重の意味を持つ。「銃弾でハチの巣にする」と「謎をかける（riddle）の過去形」——暴力的な場面をウィットで包む言葉のレイヤリングです。<strong class="text-[var(--c-text)]">diddly</strong> は「何もしていない」という軽蔑的な強調表現で、ターゲットを間違えたという皮肉なオチを口語で締める。ちなみにこのラインはスタジオの口慣らし中に思いついたもので、Fat Joeに「これは地球上で最もハードなラインだ」と猛烈に説得されて渋々録音したという逸話が有名です。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">内部韻（internal rhyme）</strong> は、英語詩・ラップにおける高度な技法。行末の脚韻（end rhyme）に加えて、行の途中の語が互いに音を響き合わせる。ここでは <em>Dead – middle – Little – Italy – Little – riddled – middlemen – diddly</em> が全て「d」子音と短い「i」母音を共有し、連続する。1行を流して読むだけで音のリズムが自然に生まれる——それが内部韻の力です。英語ネイティブでも意識しながら組み立てるのは難しいとされ、Big Punの技術の高さを示すラインとして語り継がれている。</p>
+        </Fragment>
+      </LearningUnit>
 
-      <h3 class="text-sm font-semibold text-[var(--c-gold)] mb-2">マフィオソ・ラップの頂点</h3>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed mb-4">1990年代中盤〜後半の東海岸HHで隆盛したマフィオソ・ラップ（Kool G Rap、Raekwon、Nas、Biggie、Jay-Z）の系譜において、Big PunとFat Joeはイタリア系マフィア映画の美学——ゴッドファーザー、ワンス・アポン・ア・タイム・イン・アメリカ、アンタッチャブル——をブロンクスのストリートに重ね合わせた。MVの冒頭でBig Punが理髪店で髭を剃られるシーンは映画『アンタッチャブル』のアル・カポネ（ロバート・デ・ニーロ）への直接オマージュ。</p>
+      <!-- ② cold-day-hell -->
+      <LearningUnit
+        heading="a cold day in Hell — 慣用句でタフさを示す"
+        label="★ イディオム"
+        mc="Fat Joe（Verse 2）"
+        t={TS["cold-day-hell"].t} tApprox={TS["cold-day-hell"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">It'll be a <QuickSlang word="cold day in Hell" desc="「絶対に起こりえないこと」を表す英語のイディオム。地獄は熱いものというイメージから来る" /> the day I take an <QuickSlang word="L" desc="「L」はloss（負け・失敗）の略。「take an L」＝負けを認める・やられる" /></Fragment>
+        <Fragment slot="jpn">俺が負けを認める日は、地獄に雪が降る日が来てから——つまり絶対にない</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 2冒頭、Fat Joeが自分の姿勢を宣言する一行。</p>
+        <p>上の一行を目で追ってください。前半の <strong class="text-[var(--c-text)]">a cold day in Hell</strong> が今回の学習ポイントです。「地獄は灼熱のもの」というイメージから来る慣用句で、「地獄に冷たい日が来ることは永遠にない」＝「そんなことは絶対に起きない」という意味。これを「俺が <strong class="text-[var(--c-text)]">L（負け）を取る日</strong>」と組み合わせて、「俺が負ける日は絶対来ない」と宣言している。たった一行で<QuickSlang word="イディオム" desc="idiom（イディオム）。構成語の意味の足し算では読めない、慣用的な表現。「cold day in Hell」のように文化的背景を知らないと解読できない" />と街スラングを組み合わせ、自分のタフさをさらりと見せる。Fat Joeらしい簡潔さです。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">a cold day in Hell</strong> は「絶対に起こりえないこと」の強調表現。<em>when Hell freezes over</em>（地獄が凍りつくとき）と同じ意味で、「けっしてない・ありえない」を大げさに言う時に使う。例: <em>"I'll forgive him when it's a cold day in Hell."</em>（あいつを許す日なんて絶対来ない）。日本語の「地獄が氷になるまで」的な言い回しに近い。</p>
+          <p><strong class="text-[var(--c-text)]">L</strong> は <em>loss（負け・敗北）</em> の略字。<code>take an L</code>（Lを取る）で「負けを認める・やられる」の意。逆は <code>take the W</code>（<em>win</em> の略）で「勝つ」。SNSでも使われる現代スラングで、テキストでもそのまま「L lmao」（笑える失敗だな）のように使われる。</p>
+        </Fragment>
+      </LearningUnit>
 
-      <h3 class="text-sm font-semibold text-[var(--c-gold)] mb-2">ラテン系の誇りとアイデンティティ</h3>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed mb-4">ヒップホップはブロンクスでアフリカ系とカリブ海系・ヒスパニック系が共同で創った文化だが、1990年代中盤までラテン系ソロラッパーのメインストリーム進出は稀だった。Big PunがCapital Punishmentでラテン系初のプラチナを獲得したことは、ゲットーで暮らす移民2世全体への巨大な希望の提示となった。</p>
+      <!-- ③ insanity-pavilion -->
+      <LearningUnit
+        heading="Insanity's buildin' a pavilion in my civilian — 言葉で遊び倒す内部韻"
+        label="★ 内部韻／語彙"
+        mc="Big Pun（Verse 3）"
+        t={TS["insanity-pavilion"].t} tApprox={TS["insanity-pavilion"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Insanity's buildin' a pavilion in my civilian<br />The cannon be the <QuickSlang word="anarchy" desc="無政府状態・秩序の崩壊。ここではビッグ・プンの内なる混沌のメタファー" /> that humanity's dealin'</Fragment>
+        <Fragment slot="jpn">俺の心の中に狂気がパビリオン（館）を建てている<br />その大砲（cannon）こそが、人類が向き合わねばならない無政府状態だ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 3前半、Big Punが自分の内面の混沌を語り出す件。</p>
+        <p>音で追いましょう。<strong class="text-[var(--c-text)]">Insanity / pavilion / civilian</strong>——行の中で「-an-」「-illion」「-ivilian」という音が繰り返されているのが聞こえるはず。1行目だけで内部韻が三重に走っている。2行目も <strong class="text-[var(--c-text)]">cannon / anarchy / humanity</strong> で「an」音を引き継ぐ。2行まとめて「-an-/-illion」系の音を使い倒すように設計されているわけです。</p>
+        <p class="mt-2">意味のうえでも面白い。「狂気が俺の内面に館を建てている」という比喩は、「精神的に乗っ取られつつある」という状態を建築物に喩えた詩的な表現。<strong class="text-[var(--c-text)]">civilian</strong> はここでは「体・肉体」の意で使われるスラング（「一般市民＝普通の器としての自分の体」という転用）。難しい語彙をぶつけながら音的に気持ちよく流れる——Big Punの技術力の高さが如実に出るラインです。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">civilian</strong> は標準英語では「民間人・非武装の一般市民」。ヒップホップスラングでは「自分の体・肉体」の意で転用されることがある（「一般人の器としての体」というニュアンス）。<em>in my civilian</em> で「俺の体の内側で」の意。これを知らないと「民間人の中で」と誤読してしまう典型的な語彙のトラップ。</p>
+          <p><strong class="text-[var(--c-text)]">cannon</strong> は「大砲」が直義だが、ここでは Big Pun 自身のラップの攻撃力・破壊力のメタファー。ストリートスラングで「強力な銃器」を指す場合もある。文脈で「俺のリリックそのもの」として読める。</p>
+        </Fragment>
+      </LearningUnit>
 
-      <h3 class="text-sm font-semibold text-[var(--c-gold)] mb-2">東西融和の象徴</h3>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">TupacとBiggie死後の最緊張期、東海岸の2人が西海岸の象徴的アンセムを深いリスペクトで再構築し、Snoop Dog本人がMVにカメオ出演して「Punたちがあのビートを選んだ時点で本物のヒップホップへの敬意があった」と語ったことは、ヒップホップが再び一つの文化として融和していく歴史的マイルストーンだった。</p>
+      <!-- ④ cheddar-child-support -->
+      <LearningUnit
+        heading="take all the cheddar like child support — スラング+直喩"
+        label="★ スラング"
+        mc="Big Pun（Verse 3）"
+        t={TS["cheddar-child-support"].t} tApprox={TS["cheddar-child-support"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">A villain without remorse, who's willin' to out your boss<br />Forever and take all the <QuickSlang word="cheddar" desc="チーズ→金銭。1990年代ヒップホップで「金・現金」を指す定番スラング" /> like child support</Fragment>
+        <Fragment slot="jpn">悔いを知らない悪漢——お前のボスを晒してやる気まんまん<br />永久に、まるで養育費みたいに全部の金をかっさらっていく</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 3後半、Big Punが相手への脅しを重ねる件。学習対象は下の行。</p>
+        <p>下の行の終盤、「…take all the <strong class="text-[var(--c-text)]">cheddar</strong> like <strong class="text-[var(--c-text)]">child support</strong>」——この比喩が面白い。<strong class="text-[var(--c-text)]">cheddar</strong>（チェダーチーズ）は1990年代のヒップホップで「金・現金」を指す定番スラングです（チーズ→黄色い→ゴールド→金という連想ゲームが起源とも言われる）。それを「child support（養育費）みたいに」かっさらう——養育費は法的に強制徴収されるから逃げられない、つまり「必ず全部持っていく」という確実性を比喩にした。スラング+直喩の組み合わせで脅しのトーンをスマートに演出しています。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">cheddar</strong> は「お金・現金」のスラング。1990年代のヒップホップで多用され、今も通用する。<em>stack cheddar</em>（金を積み上げる）、<em>chase the cheddar</em>（金を追いかける）などの形で使われる。同義語: <em>bread, paper, green, guap, loot</em> など。</p>
+          <p><strong class="text-[var(--c-text)]">like ~</strong> を使った直喩（simile）はヒップホップ最多用の修辞技法のひとつ。「〇〇みたいに□□する」という形で、日常的なものに意外な角度から意味を重ねる。<em>child support</em> のように「誰でも知っている社会的概念」を比喩の素材にすることで、リスナーが即座にイメージできる具体性が生まれる。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑤ one-eight-seven -->
+      <LearningUnit
+        heading="1-8-7 on an undercover cop — 西海岸の言語を東海岸が継承する"
+        label="★ スラング／文化"
+        mc="Big Pun & Fat Joe（Hook）"
+        t={TS["one-eight-seven"].t} tApprox={TS["one-eight-seven"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Yeah – and you don't stop<br />It's still <QuickSlang word="1-8-7" desc="カリフォルニア州刑法第187条（殺人罪）。ヒップホップで「殺す」の暗号として定着" /> on an undercover cop</Fragment>
+        <Fragment slot="jpn">そうだ——止まらない<br />今でも変わらない——覆面警官への187（殺す）</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 繰り返されるHook、最終行。Dr. Dreのオリジナルから直接継承されたフレーズ。</p>
+        <p>このフックは、Dr. DreとSnoop Doggの1992年「Deep Cover」から直接引き継いでいます。<strong class="text-[var(--c-text)]">1-8-7</strong>（ワン・エイティー・セブン）はカリフォルニア州刑法第187条——殺人罪のコード番号。1990年代のヒップホップで反権力・反警察の暗号として定着しました。Big PunとFat Joeが「<strong class="text-[var(--c-text)]">still</strong>」という一語を足したことに注目してほしい。これが「西海岸で生まれたあの精神は、東海岸の俺たちの中でも今も生き続けている」という東西融和の宣言になっている。わずか1語の追加に意味の地層が重なるわけです。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">187（one-eighty-seven）</strong> はカリフォルニア州刑法典第187条から来た暗号語で、「殺す・殺人」の意味でヒップホップ全域に広まった。もともとLA周辺のストリートスラングだったが、「Deep Cover」（1992）と「187 on an Undercover Cop」というサブタイトルで全米に知られた。コード番号がそのままスラングになるのは英語圏独特の現象（同様に <em>420</em> は大麻、<em>211</em> は武装強盗などがある）。</p>
+          <p><strong class="text-[var(--c-text)]">undercover cop</strong> は「覆面警察官・潜入捜査官」。秘密裏にコミュニティに入り込んでいる存在として、ストリート文化では最も警戒される対象のひとつ。「密告者（snitch）」と合わせて、ストリートの掟では最大のタブーとされる。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑥ black-pearl-latina -->
+      <LearningUnit
+        heading="Black Pearl Latina, más fina — バイリンガルで誇りを語る"
+        label="★ バイリンガル／文化"
+        mc="Big Pun（Verse 5）"
+        t={TS["black-pearl-latina"].t} tApprox={TS["black-pearl-latina"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Just me and my girl — <QuickSlang word="Black Pearl" desc="アフリカ系・カリブ系の美しい黒人女性を指す詩的な表現" /> Latina, <QuickSlang word="más fina" desc="スペイン語で「最も上品な・最も洗練された」。Big Punがスペイン語と英語を行き来する象徴的な一節" />, but keeps it real</Fragment>
+        <Fragment slot="jpn">俺と彼女だけ——ブラック・パール、ラテン系、最高に上品だが現実を失わない</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 5中盤、Big Punが自分とパートナーを語る一節。行の中ほどにバイリンガルな表現。</p>
+        <p>行の中ほど、「…<strong class="text-[var(--c-text)]">más fina</strong>」の部分が学習ポイントです。<em>más fina</em> はスペイン語で「最も洗練された・最高に上品な」という意味。英語のリリックの途中にそのままスペイン語が入ってくる——これが Big Pun のスタイルの核心で、ブロンクスで育ったプエルトリコ系としての<strong class="text-[var(--c-text)]">バイリンガルなアイデンティティ</strong>がこの一節に凝縮されています。</p>
+        <p class="mt-2"><strong class="text-[var(--c-text)]">Black Pearl</strong> は「黒真珠」——詩的・賛美的な表現でアフリカ系・カリブ系の女性の美しさを指す言葉です。ブロンクスというのはアフリカ系とラテン系が共存する街であり、Big Punのパートナーへの描写に両方の文化が滲んでいるのは自然なことでもある。最後の <em>keeps it real</em>（現実を保つ・地に足がついている）でストリートの価値観への誠実さを示して締める。威勢のいい脅し文句が続く中に、こういう柔らかい一節が入るのが Big Pun の幅の広さだと思います。</p>
+        <Fragment slot="usage">
+          <p>ヒップホップにおける<strong class="text-[var(--c-text)]">コードスイッチング</strong>（code-switching）——英語と別言語を一文の中で行き来する技法——は、ラテン系ラッパーが多用する表現手段。Big Pun、Fat Joe、Pitbull、Cardi Bなどが英語とスペイン語を流動的に行き来し、自分たちの二重アイデンティティをそのままリリックで体現する。言語の切り替え自体が「俺はこっちとあっちの両方だ」という政治的な声明にもなる。</p>
+          <p><strong class="text-[var(--c-text)]">keep it real</strong> は「真実を保つ・誠実でいる・地に足がついている」の意のヒップホップ定番表現。偽りなく本物でいることへの価値観を端的に表す。形容詞形は <em>real</em>（リアルな・本物の）で、<em>a real one</em>（本物の人間・信頼できる人）のように使う。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑦ don-cartagena -->
+      <LearningUnit
+        heading="Don Cartagena — マフィアと地名を合成したオルターエゴ"
+        label="★ スラング／文化"
+        mc="Fat Joe（Verse 6）"
+        t={TS["don-cartagena"].t} tApprox={TS["don-cartagena"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Creep with me, as I cruise in my <QuickSlang word="Bimmer" desc="BMWの愛称。「Beemer」とも。ストリートでの高級車の代名詞" /><br />All the kids in the ghetto call me Don Cartagena</Fragment>
+        <Fragment slot="jpn">俺とこっそり行こう、Bimmer（BMW）でクルーズしながら<br />ゲットーのガキたちは全員、俺をドン・カルタヘナと呼ぶ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 6冒頭、Fat Joeが自分のオルターエゴを宣言する件。学習対象は下の行。</p>
+        <p>下の行の固有名詞、「<strong class="text-[var(--c-text)]">Don Cartagena</strong>」が学習ポイントです。<strong class="text-[var(--c-text)]">Don</strong> はイタリア系マフィアのボスを指す敬称（映画『ゴッドファーザー』の「ドン・コルレオーネ」を思い浮かべてもらえれば）。<strong class="text-[var(--c-text)]">Cartagena</strong>はコロンビアの港湾都市——中南米の麻薬流通と深く結びついた地名です。この二つを合体させて「ドン・カルタヘナ」というオルターエゴを作る。イタリア系マフィア映画のボスの地位と、ラテンアメリカの麻薬帝国的なイメージを一語に封じ込めたわけで、これが1999年の Fat Joe の2ndアルバムのタイトルにもなりました。</p>
+        <p class="mt-2">上の行の <strong class="text-[var(--c-text)]">Bimmer</strong> はBMWの愛称（Beemer とも書く）。当時のブロンクスでBMWは成功の象徴で、ゲットー出身の人間がBMWに乗ることは「成り上がった」ことの視覚的な証明だった。<strong class="text-[var(--c-text)]">creep</strong> は「忍び寄る・こっそり移動する」——目立たずに動く、慎重なストリートの移動を表す。</p>
+        <Fragment slot="usage">
+          <p>ヒップホップのオルターエゴ（alter ego）——本名とは別のキャラクターを演じるスタイル——は1990年代に隆盛した。マフィア映画のキャラクターや歴史的な悪役の名前を借りることで、自分を「単なるラッパー」ではなく「伝説的な人物」として位置づける。Notorious B.I.G. は「Frank White（King of New York）」、Jay-Z は「Hova」など。Fat Joe の「Don Cartagena」もその系譜。</p>
+          <p><strong class="text-[var(--c-text)]">creep</strong> は移動の文脈では「音を立てずにゆっくり動く・忍び込む」。<em>creep through the block</em>（ブロックをこっそり通る）、<em>creep up on someone</em>（誰かに気づかれずに近づく）のように使う。「こっそり」というニュアンスが強く、派手に見せびらかす逆のことをする時に使われる。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑧ street-professors -->
+      <LearningUnit
+        heading="Street professors, Terror Squad — ghetto scholars — オクシモロンで自らを定義する"
+        label="★ 修辞技法（オクシモロン）"
+        mc="Big Pun（Verse 7）"
+        t={TS["street-professors"].t} tApprox={TS["street-professors"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Street professors, <QuickSlang word="Terror Squad" desc="Big PunとFat Joeを中心にしたブロンクス発のヒップホップクルー。メンバーにはArmageddon、Triple Seis、Cuban Link等が在籍" /> — ghetto scholars<br />Full-A-Clips mob inflicts the fear of God when the metal hollers</Fragment>
+        <Fragment slot="jpn">ストリートの教授たち、テラー・スクワッド——ゲットーの学者<br />フル弾倉の集団が、鉄（銃）が叫ぶとき神への恐怖をもたらす</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 7後半、Big PunがTerror Squadを位置づける件。学習対象は上の行。</p>
+        <p>上の行の前半、「<strong class="text-[var(--c-text)]">Street professors</strong>」「<strong class="text-[var(--c-text)]">ghetto scholars</strong>」が学習ポイントです。これは<QuickSlang word="オクシモロン" desc="oxymoron（オクシモロン）。「ストリート＋教授」「ゲットー＋学者」のように、本来矛盾する概念を並べて緊張感や意味の深さを生む修辞技法" />（矛盾語法）——「ストリート（危険な路上）」と「professor（大学教授）」、「ghetto（貧困地区）」と「scholars（学者）」は本来矛盾する言葉の組み合わせです。「俺たちはアカデミックな教育は受けていないが、ストリートで生き延びるための知識と知性を持っている」という逆説的な誇りを、この対比に込めている。</p>
+        <p class="mt-2"><strong class="text-[var(--c-text)]">Terror Squad</strong>（テラー・スクワッド）はBig PunとFat Joeを中心としたブロンクス発のヒップホップクルー。ブロンクスというのはヒップホップが生まれた場所——1970年代に DJたちが公営住宅の廃墟でパーティーを始めた、この文化の原点の街だ。その場所で育ったラテン系のクルーが「ゲットーの学者」と名乗ることは、ヒップホップの起源への誇りでもある。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">オクシモロン（oxymoron）</strong> は相反する語を並べて意味の深みや緊張感を作る修辞技法。「生きた死」「静かな嵐」「甘い悲しみ」などが典型例。ヒップホップでは「ゲットーの哲学者」「貧しい豊かさ」のように、社会的矛盾を言葉の矛盾に投影する使い方が多い。矛盾することで、単純な形容では伝わらない複雑な自己定義を一語に畳み込む。</p>
+          <p><strong class="text-[var(--c-text)]">metal hollers</strong> の <em>metal</em> は銃を指す隠語（「鉄」→「銃器」）。<em>holler</em> は「叫ぶ」——銃声を「金属が叫ぶ」と擬人化する表現。直接「銃が撃たれる」と言わずに詩的に描く技法で、ラップではこうした間接的な暴力描写が頻出する。</p>
+        </Fragment>
+      </LearningUnit>
     </section>
 
-    <div id="behind"></div>
+    <!-- ===================== -->
+    <!-- 文化的背景            -->
+    <!-- ===================== -->
+    <section id="background" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        文化的背景
+      </h2>
 
-    <!-- 制作の裏側 -->
-    <section class="mb-12 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
-      <h2 class="text-base font-semibold mb-4">■制作の裏側</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed mb-3">「Little Italy」ラインはスタジオで録音前の口慣らし（tongue-twister）として Big Punが遊び半分で呟いていたもの。Fat Joeが「これは地球上で最もハードなシットだ。絶対にヴァースに入れろ」と猛烈に説得するも、Big Punは「頭がおかしいのか？笑われるに決まってる」と断固拒否。執拗な説得に折れ嫌々録音したところ、リスナーに度肝を抜かれ彼のキャリアを定義する一行となった。</p>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed mb-3">Loud RecordsのSteve Rifkindは、Big Punのデモを聴いたことすらなかったが面談でそのポテンシャルを即座に見抜き、無名の新人に約2,500万円（当時のレート換算）の異例の契約を結んだ。</p>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">ビートはDr. Dre「Deep Cover」（1992）のトラックを実質流用。原曲はSly & The Family Stone「Sing a Simple Song」（1968）等を下敷きにDreが構築したG-Funkビート。東海岸のBig PunとFat Joeはこれを約92BPMのまま流用し、西海岸の太陽とは無縁の東海岸特有のダークな空気感へと変換することに成功した。</p>
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">マフィオソ・ラップとブロンクス</p>
+        <h3 class="font-semibold text-base mb-3">映画の悪役が住所を持つ街</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          1990年代中盤〜後半の東海岸ヒップホップには、イタリア系マフィア映画の美学を自分たちのストリートの物語に重ね合わせる「マフィオソ・ラップ」という様式が盛んに生まれた。Kool G Rap、Raekwon、Nas、Biggie、Jay-Zなどが先駆けとなり、Big PunとFat Joeはそこにラテン系のアイデンティティを混ぜ込んだ。この曲で「Vito's」（ゴッドファーザーの主人公ヴィトー）や「Noodles」（映画『ワンス・アポン・ア・タイム・イン・アメリカ』のデ・ニーロのキャラ）が実在の犯罪計画の場所として登場するのは、マフィア映画の世界観がリアルのブロンクスの路地に重なっているから。フィクションとリアルの境界を曖昧にするこの語り口が、マフィオソ・ラップの独特の迫力の源だと思う。
+        </p>
+      </div>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">ラテン系のアイデンティティ</p>
+        <h3 class="font-semibold text-base mb-3">ブロンクスはヒップホップの故郷であり、ラテン系の街でもある</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          ヒップホップは1970年代、ブロンクスでアフリカ系アメリカ人とカリブ海系・ヒスパニック系の若者たちが共同で生み出した文化だ。けれど1990年代中盤までのメインストリームでは、ラテン系のソロラッパーがプラチナを取ることはほぼなかった。Big Punが1998年の『Capital Punishment』でラテン系ソロラッパー史上初のRIAAプラチナを獲得したことは、ゲットーで暮らす移民2世世代への「俺たちにもできる」という証明になった。「más fina」というスペイン語が英語のリリックに当然のように入ってくるのは、彼のバイリンガルな存在そのものが表現だということ。
+        </p>
+      </div>
+
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">東西融和</p>
+        <h3 class="font-semibold text-base mb-3">TupacとBiggieの死の後、音楽が橋を架けた</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          1996年のTupac、1997年のBiggie——二つの銃撃死が東西抗争の悲劇的な終幕を告げた直後の1998年に、東海岸のBig PunとFat Joeが西海岸のDr. Dre / Snoop Doggの楽曲を「深いリスペクト」で使った。Snoop Dogg本人がMVにカメオ出演し、「Punたちがあのビートを選んだ時点で本物のリスペクトがあった」と語ったことは記録されている。ヒップホップが再び一つの文化として動き始めるための、音楽的な握手だったと思います。
+        </p>
+      </div>
     </section>
 
-    <div id="legacy"></div>
+    <!-- ===================== -->
+    <!-- サンプル・制作の裏側    -->
+    <!-- ===================== -->
+    <section id="behind" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        サンプル・制作の裏側
+      </h2>
 
-    <!-- 評価とレガシー -->
-    <section class="mb-12 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
-      <h2 class="text-base font-semibold mb-4">■評価とその後の影響</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed mb-3">「Little Italy」ラインはラップ史上最も高密度な多音節ライムとして今も頻繁に引用される。Eminem、Nas、J. Coleをはじめ後世の無数のリリシストが「到達できない基準」として名を挙げた伝説のバー。テクニカルなラップと商業的成功が両立できることをBig Punが証明したことで「アンダーグラウンドでなければ深くない」という業界の固定観念は崩壊した。</p>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed mb-3">2000年2月7日、Big Punは極度の肥満に起因する心不全で28歳にて急逝。ピーク時の体重は約317kgと報じられた。しかし彼が残した2年間の活動は——特にこの「Twinz」の31音節——四半世紀を経た現在も全く色褪せない。</p>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">日本では東京・渋谷の「Club HARLEM」で2004年に開催されたイベントパンフレットにTats Cru（NYのグラフィティチーム）によるBig Pun追悼壁画の写真が掲載され、日本のヒップホップコミュニティが彼の逝去を深く悼んでいたことが記録されている。Fat Joeは現在もBig Punをヒップホップ史上最高のリリシストの一人として世界中で伝え続けている。</p>
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">ビートの素性</p>
+        <h3 class="font-semibold text-base mb-3">Dr. Dre「Deep Cover」（1992）を東海岸に連れてくる</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          「Twinz」のビートは、1992年の映画『ディープ・カバー』サウンドトラックとして制作された Dr. Dre feat. Snoop Doggy Dogg「Deep Cover」のトラックを実質的に流用している（プロデュースクレジットは Big Pun & Fat Joe / Terror Squad Productions だが、ビートの骨格は「Deep Cover」のものだ）。約92BPMのミドルテンポで、西海岸のG-Funkとは異なるダークな空気感をそのまま引き継ぎつつ、ブロンクス特有の硬さが加わった。東西でこれほど音の文脈が違っても、ビート自体の強度は普遍的なのだと思い知らされる。
+        </p>
+      </div>
+
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">制作秘話</p>
+        <h3 class="font-semibold text-base mb-3">嫌がっていた本人が「笑われる」と思ったライン</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          「Dead in the middle of Little Italy」ラインが生まれたのはスタジオの口慣らし（ウォームアップ）中だった。Big Pun が遊び半分で呟いていたものを Fat Joe が聴いて「地球上で最もハードなラインだ、絶対にヴァースに入れろ」と猛烈に説得した。が、当の Pun は「頭がおかしいのか？笑われるに決まってる」と断固拒否。執拗な説得に折れて渋々録音してみたところ、リスナーに度肝を抜かれ、彼のキャリアを定義する一行になった——という話を Fat Joe は後年のインタビューで繰り返し語っている。本人が一番自信を持てなかったラインが、伝説になる。
+        </p>
+      </div>
     </section>
 
-    <AmazonAlbumCta query="Big Pun Capital Punishment" cover="/images/covers/twinz-deep-cover-98.jpg" title="Capital Punishment" artist="Big Pun · 1998 · Loud Records" label="アルバムを聴く" />
+    <!-- ===================== -->
+    <!-- 評価と影響            -->
+    <!-- ===================== -->
+    <section id="legacy" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        評価とその後の影響
+      </h2>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">「Little Italy」ラインの遺産</p>
+        <h3 class="font-semibold text-base mb-3">到達できない基準として語り継がれる</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed mb-3">
+          「Little Italy」ラインは、Eminem、Nas、J. Coleをはじめ後世の無数のリリシストが「自分には到達できない基準」として名前を挙げてきた。31音節・7つの同音という密度は純粋な技術の話として語れるし、ブラックユーモアとして機能する意味の重ね方は詩的な話として語れる——その両方が同時に成立しているのが強い。「テクニカルなラップが商業的なヒットになれる」ことをこの曲が証明したことで、その後のリリシスト的なMCの在り方が変わったとも言われます。
+        </p>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          収録アルバム『Capital Punishment』は Billboard 200 で最高5位を記録。Big Pun は2000年2月7日、肥満に起因する心不全で28歳にて急逝した。ピーク時の体重は300kgを超えていたとも報じられた。残した活動期間はわずか数年だったが、この「Twinz」を含む作品群は四半世紀を経た今も鮮度を失っていない。Fat Joe は現在もBig Punを「ヒップホップ史上最高のリリシストの一人」として世界中で語り続けている。
+        </p>
+      </div>
+
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">この曲で学んだ語彙の整理</p>
+        <h3 class="font-semibold text-base mb-3">キーワード早見表</h3>
+        <div class="space-y-3 mt-3">
+          {[
+            ['internal rhyme', '行の内側で同音を繰り返す内部韻。「Little Italy」ラインで31音節に7つの同音が連打される'],
+            ['a cold day in Hell', '「絶対に起こりえないこと」の強調表現。地獄は熱いはずなのに「冷たい日」が来るはずがない、という論理'],
+            ['cheddar', 'チーズの名称から転じた「現金・金銭」のスラング。1990年代ヒップホップの定番語彙'],
+            ['1-8-7', 'カリフォルニア州刑法第187条（殺人罪）のコード。反権力のシンボルとしてヒップホップ全域に広まった'],
+            ['más fina', 'スペイン語「最も洗練された」。英語のリリックにスペイン語が溶け込む、バイリンガルなコードスイッチングの例'],
+            ['Don Cartagena', 'Fat Joeのオルターエゴ。マフィアのドンとコロンビアの地名を合体させた、映画的な自己定義'],
+            ['oxymoron', '矛盾する概念の組み合わせ。「Street professors」「ghetto scholars」——学問とストリートを並べて逆説的に自己を定義する'],
+          ].map(([term, desc]) => (
+            <div class="flex gap-3 text-sm">
+              <span class="text-[var(--c-gold)] shrink-0 font-semibold min-w-[160px]">{term}</span>
+              <span class="text-[var(--c-muted)]">{desc}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- まとめ -->
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        まとめ
+      </h2>
+      <ul class="space-y-2 text-sm text-[var(--c-muted)] list-disc list-inside leading-relaxed">
+        <li>「Little Italy」ラインは31音節・内部韻の教科書。本人が「笑われる」と思っていたラインが伝説になった。</li>
+        <li>スラング（cheddar・1-8-7）、イディオム（cold day in Hell）、オクシモロン（street professors）、バイリンガルなコードスイッチング（más fina）——英語と詩的技法の宝庫。</li>
+        <li>Dr. DreのビートをBig PunとFat Joeが東海岸に持ち込み、Snoopが本人出演で応答した。1998年という時代の東西融和を音楽が体現した曲です。</li>
+        <li>ブロンクスのプエルトリコ系がラテン系初のプラチナを取った——その事実の重みは今も変わっていない。</li>
+      </ul>
+    </section>
 
 </SongLayout>
