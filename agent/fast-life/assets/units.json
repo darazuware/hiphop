@@ -1,0 +1,56 @@
+[
+  {
+    "id": "fishscales-triple-beams",
+    "anchor": ["fishscales", "from", "triple", "beams"],
+    "fallbackT": 20,
+    "manualSec": null
+  },
+  {
+    "id": "life-of-riley",
+    "anchor": ["livin", "the", "life", "of", "riley"],
+    "fallbackT": 29,
+    "manualSec": null
+  },
+  {
+    "id": "payola-no-cola",
+    "anchor": ["slangin", "that", "coke", "without", "the", "cola"],
+    "fallbackT": 50,
+    "manualSec": null
+  },
+  {
+    "id": "american-dream-cream",
+    "anchor": ["american", "dream", "seven", "figure", "cream"],
+    "fallbackT": 68,
+    "manualSec": null
+  },
+  {
+    "id": "where-all-my-niggas-be",
+    "anchor": ["mid-state", "and", "green", "where", "all"],
+    "fallbackT": 96,
+    "manualSec": null
+  },
+  {
+    "id": "pour-my-beers",
+    "anchor": ["pour", "my", "beers", "for", "my", "peoples"],
+    "fallbackT": 118,
+    "manualSec": null
+  },
+  {
+    "id": "king-solomon-wise-guys",
+    "anchor": ["king", "solomon", "size", "ghetto", "wise", "guys"],
+    "fallbackT": 135,
+    "manualSec": null
+  },
+  {
+    "id": "luciano-siegel",
+    "anchor": ["luciano", "frankie", "yale", "bugsy", "siegel"],
+    "fallbackT": 142,
+    "manualSec": null
+  },
+  {
+    "id": "arm-hammer-scramblers",
+    "anchor": ["arm", "hammer", "supplyin", "scramblers"],
+    "fallbackT": 188,
+    "manualSec": null
+  }
+]

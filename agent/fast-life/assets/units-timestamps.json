@@ -1,0 +1,92 @@
+[
+  {
+    "id": "fishscales-triple-beams",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 20,
+    "t": 20,
+    "source": "fallback",
+    "approx": true,
+    "score": 0.25
+  },
+  {
+    "id": "life-of-riley",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 29,
+    "t": 29,
+    "source": "fallback",
+    "approx": true,
+    "score": 0.4
+  },
+  {
+    "id": "payola-no-cola",
+    "whisperSec": 83.1,
+    "manualSec": null,
+    "fallbackT": 50,
+    "t": 83.1,
+    "source": "whisper",
+    "approx": true,
+    "score": 0.67
+  },
+  {
+    "id": "american-dream-cream",
+    "whisperSec": 257.4,
+    "manualSec": null,
+    "fallbackT": 68,
+    "t": 257.4,
+    "source": "whisper",
+    "approx": true,
+    "score": 0.6
+  },
+  {
+    "id": "where-all-my-niggas-be",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 96,
+    "t": 96,
+    "source": "fallback",
+    "approx": true,
+    "score": 0.2
+  },
+  {
+    "id": "pour-my-beers",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 118,
+    "t": 118,
+    "source": "fallback",
+    "approx": true,
+    "score": 0
+  },
+  {
+    "id": "king-solomon-wise-guys",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 135,
+    "t": 135,
+    "source": "fallback",
+    "approx": true,
+    "score": 0
+  },
+  {
+    "id": "luciano-siegel",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 142,
+    "t": 142,
+    "source": "fallback",
+    "approx": true,
+    "score": 0
+  },
+  {
+    "id": "arm-hammer-scramblers",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 188,
+    "t": 188,
+    "source": "fallback",
+    "approx": true,
+    "score": 0
+  }
+]
