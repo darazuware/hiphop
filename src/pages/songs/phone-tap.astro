@@ -1,562 +1,365 @@
 ---
-import LyricsBlock from '../../components/LyricsBlock.astro';
+import LearningUnit from '../../components/LearningUnit.astro';
+import QuickSlang from '../../components/QuickSlang.astro';
 import SongLayout from '../../layouts/SongLayout.astro';
+
+import tsData from '../../../agent/phone-tap/assets/units-timestamps.json';
+const YT = "if06gRBsBOU";
+const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.approx }]));
 ---
 
 <SongLayout
   title="Phone Tap 和訳・意味・スラング解説 | The Firm"
-  description="The FirmのPhone Tapの歌詞和訳とスラング徹底解説。1997年、Nas・AZ・Dr. Dreが描いたFBI盗聴とマフィオソ世界の緊張を読み解く。"
+  description="The FirmのPhone Tapを英語学習＋ヒップホップ理解の教材として精読。Feds・stee'・static・gats など90s NYスラングをAAVE文法とともに解説。AZ・Nas・Nature・Dr. Dreによる「電話盗聴」という実験的ナラティブを読み解く。"
   slug="phone-tap"
-  youtubeId="tQZUedYu0Hg"
+  youtubeId="if06gRBsBOU"
   highlights={[
-    '"We got yo\' phone tapped, what you gon\' do?"——FBI盗聴への恐怖を楽曲そのものに仕込んだDr. Dreのコンセプト',
-    '"Cats bleed in this cold war"——東西抗争を「冷戦」と呼んだNasの歴史的視座',
-    '"We FBI\'s Most Wanted!"——マフィオソ・ラップの究極の到達点',
+    'FBI監視をテーマにした「電話盗聴」という実験的ナラティブ構造',
+    "Feds・stee'・static・gats・trees など90s NYスラングを単位別解説",
+    'Dr. Dre × Chris "The Glove" Taylor制作、Chris Barber\'s Jazz Bandサンプル（1956年録音）',
   ]}
 >
 
-  <section class="mb-6">
-    <h2 class="text-base font-semibold mb-2">■この曲の意味（要約）</h2>
-    <p class="text-sm text-[var(--c-muted)] leading-relaxed">NasとAZが演じる「Esco」と「Sosa」——映画『スカーフェイス』から借りた二つの別名——の電話会話を軸に、FBI盗聴・追われる組織・東西抗争の緊張を描いたマフィオソ・ラップの頂点。Dr. Dreが仕掛けた「電話ノイズ」のボーカルエフェクトが、実際に会話を盗聴されているような息詰まるリアリティを生む。1997年の東西対立が極限に達した時代、「電話すら安全ではない」という恐怖が曲全体を支配する。</p>
-  </section>
+    <!-- ===================== -->
+    <!-- 導入                  -->
+    <!-- ===================== -->
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■盗聴線の向こうに、誰がいる？</h2>
+      <p class="text-sm text-[var(--c-muted)] leading-relaxed">
+        AZ（"Sosa"）とNas（"Esco"）が交わす電話に、連邦捜査官（<strong class="text-[var(--c-text)]">Feds</strong>）が盗聴器を仕掛けている——これが「Phone Tap」の設定だ。1997年リリース、The Firm（<strong class="text-[var(--c-text)]">Nas・AZ・Foxy Brown・Nature</strong>）のデビューアルバム収録。Dr. Dreがエグゼクティブプロデューサーを務め、フックも自ら担当している。面白いのはFoxy Brownがグループメンバーでありながら、この曲には一切登場しないこと。The Firmとしての曲というより、Nas・AZ・Natureという通話相手と、捜査側であるDreという対立構造で成立している一作です。
+      </p>
+      <p class="text-sm text-[var(--c-muted)] leading-relaxed mt-3">
+        複数の話者が「電話のやり取り」という形式でバースを繋いでいく構成は、当時のヒップホップとしてかなり実験的だった。しかも全体に「盗聴されているかもしれない」という緊張が漂うせいで、登場人物たちは言葉を選びに選ぶ——その「普通の会話に見せかけた情報交換」がリリック全体の緊張感を作っている。その緊張の中に、街のスラング・隠語・AAVEの省略が凝縮されていて、英語学習の教材としても読み応えがある。
+      </p>
+    </section>
 
-  <section class="mb-6">
-    <h2 class="text-base font-semibold mb-2">■概要</h2>
-    <p class="text-sm text-[var(--c-muted)] leading-relaxed">1997年アルバム『The Firm: The Album』収録。プロデュースはDr. Dre & Chris "The Glove" Taylor。Chris Barber's Jazz Bandの「Petite Fleur」のギターリフをインターポレーション（弾き直し）で再構築し、著作権問題を回避しつつ原曲のメランコリックな質感を保った。BPM89・Eマイナーという構成が、盗聴パラノイアのテーマと完全に共鳴する。「電話ボイスエフェクト」はChris "The Glove" Taylorのアイデア。Death Row離脱後のDr. Dreが東海岸のトップ陣と組んだ初の大型プロジェクト。レコーディングは東西両岸の抗争を避けるため中立地帯のマイアミ（Criteria Studios / Crescent Moon Studios）で実施された。</p>
-  </section>
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■なぜPhone Tapが教材として面白いか</h2>
+      <p class="text-sm text-[var(--c-muted)] leading-relaxed">
+        ストリートの語彙を「危機的状況での日常会話」という文脈で学べるのが、この曲の特徴です。Feds（連邦捜査官）・static（もめ事）・gats（銃）・stee'（スタイル）など、辞書には載らないがNYのヒップホップには頻出の語が、一本の通話ドラマの中に自然に散りばめられている。個々の語を覚えるよりも、誰が誰に向けて何を伝えようとしているかという「状況の文脈」の中で覚えると格段に定着しやすい——Phone Tapはその意味で稀有な文脈を提供してくれます。制作は<strong class="text-[var(--c-text)]">Dr. DreとChris "The Glove" Taylor</strong>の共同作業。サンプル元は<strong class="text-[var(--c-text)]">Chris Barber's Jazz Bandの"Petite Fleur"（1956年録音）</strong>で、あの哀愁漂うクラリネットのフレーズが全編を包んでいます（50年代のブリティッシュ・ジャズが90sのNYストリートの緊張を演出するという、サンプリングの妙）。
+      </p>
+    </section>
 
-  <section class="mb-6">
-    <h2 class="text-base font-semibold mb-2">■主なスラング・キーワード</h2>
-    <dl class="text-sm space-y-2">
-      <div><dt class="font-mono text-[var(--c-gold)] inline">Esco</dt><dd class="inline ml-2 text-[var(--c-muted)]">Nasの別名。映画『スカーフェイス』のトニー・モンタナの上司「Alejandro Sosa」に相当するキャラクターから。マフィオソ・ラップの文脈でNasが使う代表的エイリアス。</dd></div>
-      <div><dt class="font-mono text-[var(--c-gold)] inline">Sosa</dt><dd class="inline ml-2 text-[var(--c-muted)]">AZの別名。同じく『スカーフェイス』のボリビア人麻薬王Alejandro Sosから。NasをEsco（トニー・モンタナ側）に見立て、自らをSosaにしたマフィオソ世界の構築。</dd></div>
-      <div><dt class="font-mono text-[var(--c-gold)] inline">Feds</dt><dd class="inline ml-2 text-[var(--c-muted)]">FBI・連邦捜査官。Federal agentsの略。ストリートで最も恐れられる存在で、盗聴・潜入捜査を行う。</dd></div>
-      <div><dt class="font-mono text-[var(--c-gold)] inline">phone tapped</dt><dd class="inline ml-2 text-[var(--c-muted)]">電話盗聴。FBIがORCCIME（組織犯罪）捜査で頻繁に使う手法。RICO法の証拠収集に電話傍受が多用された1990年代の実態を反映。</dd></div>
-      <div><dt class="font-mono text-[var(--c-gold)] inline">the dynasty</dt><dd class="inline ml-2 text-[var(--c-muted)]">Nasが率いる組織・クルーの総称。ヒップホップ上の「王朝」と実際のストリート組織の両方を意味する。</dd></div>
-      <div><dt class="font-mono text-[var(--c-gold)] inline">cold war</dt><dd class="inline ml-2 text-[var(--c-muted)]">東西ヒップホップ抗争を米ソ冷戦になぞらえた比喩。2Pac（1996年9月）とBiggie（1997年3月）が連続して命を落とした時代の「戦争」の重さ。</dd></div>
-      <div><dt class="font-mono text-[var(--c-gold)] inline">one-time</dt><dd class="inline ml-2 text-[var(--c-muted)]">警察の隠語。一度見れば十分（警戒せよ）という意味から転じた東海岸ストリートスラング。</dd></div>
-      <div><dt class="font-mono text-[var(--c-gold)] inline">Dutchie</dt><dd class="inline ml-2 text-[var(--c-muted)]">Dutch Mastersの葉巻を使ったブラント（大麻巻き煙草）。中身を抜いてマリファナを詰めるNYスタイル。</dd></div>
-      <div><dt class="font-mono text-[var(--c-gold)] inline">dunn</dt><dd class="inline ml-2 text-[var(--c-muted)]">仲間・相棒を指すNYスラング。Queensbridge発祥でNasのクルーが多用。「son」「God」と同様の呼びかけ。</dd></div>
-      <div><dt class="font-mono text-[var(--c-gold)] inline">O-T</dt><dd class="inline ml-2 text-[var(--c-muted)]">Out of Townの略。地元を離れて遠征しているときの状態。捜査から逃れるためにも遠征は重要な手段だった。</dd></div>
-      <div><dt class="font-mono text-[var(--c-gold)] inline">Most Wanted</dt><dd class="inline ml-2 text-[var(--c-muted)]">FBIの最重要指名手配リスト「FBI's Ten Most Wanted Fugitives」。1950年代から続くJ・エドガー・フーバー創設の制度で、組織犯罪のトップが対象。</dd></div>
-    </dl>
-  </section>
+    <!-- Table of Contents -->
+    <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
+      <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
+        <li><a href="#story" class="hover:text-[var(--c-gold)] transition-colors">01 — ストーリーの流れ（まず曲全体をつかむ）</a></li>
+        <li><a href="#units" class="hover:text-[var(--c-gold)] transition-colors">02 — 学ぶ表現（スラング・隠語・AAVE）</a></li>
+        <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">03 — 文化的背景</a></li>
+        <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">04 — サンプル・制作の裏側</a></li>
+        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">05 — The Firmとそのレガシー</a></li>
+      </ol>
+    </nav>
 
-  <section class="mb-6">
-    <h2 class="text-base font-semibold mb-2">■歌詞和訳・解説</h2>
+    <!-- ===================== -->
+    <!-- ストーリー要約          -->
+    <!-- ===================== -->
+    <section id="story" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        ストーリーの流れ — まず曲全体をつかむ
+      </h2>
+      <p class="text-xs text-[var(--c-dim)] mb-5">
+        個々のスラングに入る前に、まず曲の流れを散文でつかんでおきましょう。複数の人物が通話でリアルタイムに情報を交わす構造で、「誰かに盗聴されているかもしれない」という前提が全編に漂っています。
+      </p>
+      <div class="space-y-4 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          <strong class="text-[var(--c-text)]">Verse 1（AZ）</strong>：AZがフィラデルフィアに到着した直後、Nasに電話をかける。連邦捜査官（Feds）が周囲を動き回っているという緊迫した状況。共通の知人「Lynn」を待ち伏せしているが行方が分からない。日常会話のトーンを保ちながら、実は危険な情報が流れている。
+        </p>
+        <p>
+          <strong class="text-[var(--c-text)]">Verse 2（Nas & AZ）</strong>：NasはCLKで移動し、息子に玩具のトラックを買った話から入る。マリファナ（trees）で気分を落ち着かせながら背後のカセットからStephanie Millsが流れている——という個人的な描写が、次の瞬間「お前が逮捕されたって聞いたぞ」という詰問に切り替わる。最後に「static is thick（状況がやばい）」と言い電話を一時切る。
+        </p>
+        <p>
+          <strong class="text-[var(--c-text)]">Hook（Dr. Dre）</strong>：「俺たちはお前の電話を盗聴しているぞ——どうするつもりだ？」。Dreが捜査側の声として割り込む。ラッパーの会話と連邦捜査官の傍受が、同一の楽曲空間で交錯するという構造だ。
+        </p>
+        <p>
+          <strong class="text-[var(--c-text)]">Verse 3（AZ）</strong>：AZがホテルで仲間（Mo）の死の知らせを受ける。ダッチ（Dutchie）に火を点けて落ち着かせようとするが、電話が盗まれている感覚が体を覆い、一人で銃（gats）と防弾ベストだけを相棒に動く。
+        </p>
+        <p>
+          <strong class="text-[var(--c-text)]">Verse 4（Nas）</strong>：「目を開けておけ、賢く動け」とNasが警告を発する。かつての誓い、今手にした富、そして続く危険——窓の外には嵐が近づいている。
+        </p>
+        <p>
+          <strong class="text-[var(--c-text)]">Verse 5（Nature）</strong>：デコイの女2人が写真を持ち居場所を探り回っているという情報が届く。「俺は何も教えなかった——あいつらは警察とつながってるかもしれない」。
+        </p>
+        <p>
+          <strong class="text-[var(--c-text)]">Verse 6（Nas）</strong>：NasはAZに向けて最大の警告を発する。「逃げる余地はない——俺たちはFBIのMost Wantedだ。服を替えて荷物をまとめろ、早く帰ってこい」。Hookが再び鳴り響く。
+        </p>
+        <p class="text-xs text-[var(--c-dim)]">
+          ※本ページは批評・教育目的で、解説に必要な範囲の断片のみを引用しています。全歌詞の対訳は掲載していません。
+        </p>
+      </div>
+    </section>
 
-    <h3 class="text-xs text-[var(--c-very-dim)] uppercase tracking-widest mb-3">Intro — Nas</h3>
+    <!-- ===================== -->
+    <!-- 学習ユニット群          -->
+    <!-- ===================== -->
+    <div id="units"></div>
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2 border-b border-[var(--c-border)] pb-2">
+        学ぶ表現 — スラング・隠語・AAVE
+      </h2>
+      <p class="text-xs text-[var(--c-dim)] mb-6">
+        各見出しは「この曲から学べる英語表現」。🎤はMC担当、▶は映像の該当箇所への頭出しリンク（秒数は概算）。英語引用は1〜2行の断片のみ。先に英語を音で追ってから日本語解説に進んでください。
+      </p>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Yo, this Esco, who this?
-      </Fragment>
-      <Fragment slot="jpn">
-        ヨ、こっちはEsco、そっちは誰だ?
-      </Fragment>
-      <Fragment slot="explanation">
-        曲の冒頭から電話会話の演出。「Esco」はNasのマフィオソ別名。受話器越しに相手を確認する一言が、リスナーを会話の傍聴者として即座に引き込む。
-      </Fragment>
-    </LyricsBlock>
+      <!-- ① Feds floatin' -->
+      <LearningUnit
+        heading="Feds floatin' around silly — 連邦捜査官を指す隠語と「浮遊する監視」"
+        label="★ スラング／実録"
+        mc="AZ（Verse 1）"
+        t={TS["feds-floatin"].t} tApprox={TS["feds-floatin"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Feds floatin' around silly</Fragment>
+        <Fragment slot="jpn">連邦捜査官どもがやたらうろちょろしてる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 1の序盤、AZがフィラデルフィアに着いた直後の一言。</p>
+        <p>上の一行、行頭の <strong class="text-[var(--c-text)]">Feds</strong>（フェッズ）がまず学習ポイント。FBI・DEA・ATF など連邦捜査機関の捜査員を指す街のスラングで、NYヒップホップでは頻出の語です。地元警察（NYPD）を指す <em>Jakes</em> や <em>5-0</em>（five-oh）とは別物——連邦レベルの機関を指すこの区別は、ヒップホップのリリックを読む上で一度押さえると後がずっと楽になります。その後ろの <strong class="text-[var(--c-text)]">floatin'</strong>——float（浮く・漂う）の進行形で、監視のために静かに動き回っている様子を表している。「泳ぐ」でも「歩く」でもなく「浮遊する」という動詞の選択が、捜査官の不気味な遍在感をそのまま言語化している。末尾の <strong class="text-[var(--c-text)]">silly</strong>（やたら・ばかみたいに）は強調の副詞。5語だけで「連邦捜査官がそこら中でうろうろしている」という場の空気が立ち上がってくる。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">Feds</strong> は Federal (agencies / agents) の略。<em>the Feds are watching</em>（連邦が見ている）、<em>Feds knocked on the door</em>（連邦が踏み込んできた）のように使う。地元警察を指す <em>Jakes</em>（NY特有）・<em>5-0</em>（全国的）との使い分けを知ると、誰が何を恐れているかという文脈が読めるようになる。<strong class="text-[var(--c-text)]">silly</strong> を副詞で使う用法——<em>tired silly</em>（くたくたに疲れた）、<em>rich silly</em>（信じられないほど金持ち）のように「〜で頭がどうにかなりそうなくらい」という強調の意で使う口語表現。</p>
+        </Fragment>
+      </LearningUnit>
 
-    <h3 class="text-xs text-[var(--c-very-dim)] uppercase tracking-widest mb-3 mt-4">Verse 1 — AZ</h3>
+      <!-- ② trees got me wet -->
+      <LearningUnit
+        heading="Trees got me wet — 「木」が「大麻」になる隠語の論理"
+        label="★ スラング（隠語）"
+        mc="Nas（Verse 2）"
+        t={TS["trees-wet"].t} tApprox={TS["trees-wet"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Trees got me wet</Fragment>
+        <Fragment slot="jpn">（マリファナで）いい感じになってる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 2中盤、Nasが移動中の車内のムードを描写する一行。</p>
+        <p>「Trees got me <strong class="text-[var(--c-text)]">wet</strong>」——行末の <strong class="text-[var(--c-text)]">wet</strong> から。「濡れた」ではなく、ここでは「快感で酩酊した・浸っている」状態を指す口語表現。ドラッグ・アルコール・音楽など、何かに心地よく「浸かっている」状態を <em>wet</em> で表すのはAAVE的な比喩の典型だ。そして <strong class="text-[var(--c-text)]">trees</strong>——木ではなく大麻（marijuana）の隠語。植物形状から来た比喩で、<em>weed / herb / green</em> と並ぶ定番の言い換えの一つ。直前のバースで緊迫した話をしていたのに、Nasが一瞬「今高くなってる」と挟む——この対比が、張り詰めた通話劇に一瞬の人間的な隙間を作っている。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">trees</strong>（大麻の隠語）と同義語: <em>weed, herb, green, grass, reefer, Mary Jane</em> など時代・地域によって使われる語が異なる。<em>trees</em> は90s〜00sのNYで特に多く使われた。<strong class="text-[var(--c-text)]">got me + 形容詞</strong> の構造——「〜な状態にしてくれた・させてくれた」という表現。<em>got me thinking</em>（考えさせてくれた）、<em>got me feeling some type of way</em>（複雑な気持ちにさせられた）のように、感情・状態の原因を示すときに使われる。</p>
+        </Fragment>
+      </LearningUnit>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        What's the deal-y? I just touched grounds down in Philly<br />
-        Brought a pound with me, Feds floatin' around silly
-      </Fragment>
-      <Fragment slot="jpn">
-        どうなってる? 今フィラデルフィアに着いたとこだ<br />
-        ポンドを持ってきた、Fedsがアホみたいにうろついてる
-      </Fragment>
-      <Fragment slot="explanation">
-        "a pound"はマリファナ1ポンド（約453g）。"Feds floatin' around"は連邦捜査官が周囲を把握している状態。開幕から緊張感と犯罪の実態が交差する。
-      </Fragment>
-    </LyricsBlock>
+      <!-- ③ stee' / low-key when O-T -->
+      <LearningUnit
+        heading="That ain't ya stee' / low-key when O-T — スタイルと街の作法"
+        label="★ スラング（NY固有）"
+        mc="Nas（Verse 2）"
+        t={TS["low-key-ot"].t} tApprox={TS["low-key-ot"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">That ain't ya stee', you usually low-key when O-T</Fragment>
+        <Fragment slot="jpn">それはお前のやり方じゃないだろ、お前はいつも遠征中は目立たないようにしてるはずだ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 2終盤、NasがAZの最近の行動（逮捕・警官との喧嘩疑惑）を疑問視する件。</p>
+        <p>行の前半、「That ain't ya <strong class="text-[var(--c-text)]">stee'</strong>」——<strong class="text-[var(--c-text)]">stee'</strong>（スティー）は <em>style</em> の短縮形で、語尾を喉音で引っ張る発音。「お前のスタイルじゃない」＝「それはお前らしくない行動だ」という意味になる。単なる「ファッションのスタイル」ではなく、その人の行動原則・立ち居振る舞い・人格的なスタンスまでを含む言葉として使われる。行の後半の <strong class="text-[var(--c-text)]">O-T</strong> は <em>out of town</em>（地元を離れた遠征先）の短縮形。<strong class="text-[var(--c-text)]">low-key</strong>——「目立たず、静かに動く」という形容詞・副詞。今では広く一般に普及したスラングだけど、この時代の使い方は純粋に「ストリートで目立つな」という生存戦略の言葉だった。NasがAZに対して「いつも遠征先では目立たないようにするはずだ」と言っているのは、単なる批判ではなく仲間を心配してかける言葉——その重みがこの一行に乗っている。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">stee'</strong>（= style）の用法: <em>That's my stee'</em>（それが俺のやり方）、<em>ain't his stee'</em>（奴のスタイルじゃない）のように使う。行動・美学・人格的傾向を指す。<strong class="text-[var(--c-text)]">O-T</strong>（out of town）は「他の街・他の州への遠征」を指し、麻薬の販売網を他の街へ広げる行動という文脈でも出てくる語。<em>move O-T</em>（他の街に出稼ぎに行く）のように動詞と組み合わせる。<strong class="text-[var(--c-text)]">low-key</strong> は現在では「こっそり・地味に」という一般的な副詞としても使われるが、ヒップホップでの原義は「注目を浴びないよう行動する」という生存戦略的な言葉。</p>
+        </Fragment>
+      </LearningUnit>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Tryna find Lynn — b***h supposed to be in the Benz<br />
-        Parked in row 10, her and that slow hoe Gwen
-      </Fragment>
-      <Fragment slot="jpn">
-        Lynnを探してる——あいつはBenzにいるはずだったんだが<br />
-        10列目に駐車して、あいつとトロくさいGwenと一緒に
-      </Fragment>
-      <Fragment slot="explanation">
-        "Benz"はメルセデス・ベンツ——マフィオソ・ラップの定番の富の象徴。女性を使った運搬や見張りという、組織内の役割分担を暗示する。
-      </Fragment>
-    </LyricsBlock>
+      <!-- ④ static is thick -->
+      <LearningUnit
+        heading="the static is thick — 「雑音」が「危険」を指すダブルミーニング"
+        label="★ スラング／比喩"
+        mc="Nas（Verse 2）"
+        t={TS["static-thick"].t} tApprox={TS["static-thick"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Yo <QuickSlang word="dunn" desc="son（仲間・友人）を意味するNY特有の呼びかけ語。クイーンズ・ブルックリン周辺のスラング" />, I'll hit you right back 'cause the static is thick</Fragment>
+        <Fragment slot="jpn">おい、すぐかけ直す——今は状況がやばいから</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 2の最後、Nasが一時電話を切ろうとする件。</p>
+        <p>行頭の <strong class="text-[var(--c-text)]">dunn</strong>——NYクイーンズ・ブルックリン周辺のスラングで「仲間・友人（son）」にあたる呼びかけ語。<em>son</em> が転じて <em>dunn</em> になったとも言われ、NasやAZのリリックに頻繁に登場する。知っていると「Nasのクルー的なコール」として聞こえるし、知らないと通り過ぎてしまう。そして行末、「the <strong class="text-[var(--c-text)]">static</strong> is thick」——表面上は「電話の雑音がひどい」だが、<strong class="text-[var(--c-text)]">static</strong> はストリートスラングで「トラブル・もめ事・危険な状況」を指す。だから「今は状況がやばいから切る」という意味が同時に走っている。盗聴されているかもしれない状況で「回線が悪い」と言えば捜査側には技術的な問題に聞こえ、相手には「ヤバい」と伝わる——完璧なコード・スイッチング（<QuickSlang word="code-switching" desc="状況や相手に応じて言語スタイルや語彙を切り替えること。ヒップホップでは裏の意味と表の意味を同時に走らせる高度な言語技術" />）だ。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">static</strong>（スラング）＝「もめ事・余計な口出し・危険な圧力」。<em>I don't want no static</em>（もめ事はごめんだ）、<em>there's static in the block</em>（ブロックに緊張が走っている）のように使う。<strong class="text-[var(--c-text)]">thick</strong>（＝濃い・深刻な）と合わせて "static is thick" ＝「状況が深刻にやばい」。<em>hit you back</em> は「かけ直す・折り返す」。<em>I'll hit you back</em>＝「折り返すよ」は日常英語でも使える表現。</p>
+        </Fragment>
+      </LearningUnit>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Should've known she was a b***h that we both could've boned<br />
-        If posted alone, the ass had us both in the zone
-      </Fragment>
-      <Fragment slot="jpn">
-        あいつが俺ら二人が抱けた女だとわかっておくべきだった<br />
-        一人でいるとき、その尻が俺らを夢中にさせてたもんだ
-      </Fragment>
-      <Fragment slot="explanation">
-        ビジネス上の判断を誤らせた女性への回顧。"in the zone"は集中力が乱れた状態——マフィオソとしての規律の欠如の反省。
-      </Fragment>
-    </LyricsBlock>
+      <!-- ⑤ phone tapped hook -->
+      <LearningUnit
+        heading="We got yo' phone tapped — 法執行用語がそのままタイトルになるまで"
+        label="★ フック／文化"
+        mc="Dr. Dre（Hook）"
+        t={TS["phone-tapped-hook"].t} tApprox={TS["phone-tapped-hook"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">We got yo' phone tapped, what you <QuickSlang word="gon'" desc="gonna = going to の口語短縮形（AAVE）。未来・意志を表す" /> do?</Fragment>
+        <Fragment slot="jpn">俺たちはお前の電話を盗聴してる——どうするつもりだ？</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 2とVerse 3のあいだ、Dr. Dreが捜査官の声として初めて割り込む件。</p>
+        <p>行頭の <strong class="text-[var(--c-text)]">yo'</strong> は <em>your</em> の短縮形（AAVE的な発音の省略）。そして <strong class="text-[var(--c-text)]">phone tapped</strong>——<em>tap</em> は「盗聴する」という動詞で、<em>wiretap（盗聴装置）</em> の "tap" と同じ語根から来ている法執行用語。令状を取って行う合法的な盗聴も、非合法なものも、この語で指す。行末の <strong class="text-[var(--c-text)]">gon'</strong>（= gonna = going to）——AAVEで未来・意志を示すときの口語短縮形。<em>What you gon' do?</em>（どうするつもりだ？）は "What are you going to do?" が実質2語に圧縮されている。Dr. Dreがフックを担当することで「捜査側の声」と「ラッパー側の声」が一枚の楽曲の中に同居するという映画的な構図が生まれていて、これが曲全体の緊張を統合している。プロデューサーが監視する側を演じる、なかなかメタな仕掛けだと思います。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">tap</strong>（盗聴する）は他動詞。<em>tap a phone / a line</em>（電話・回線を盗聴する）、<em>the lines were tapped</em>（回線が盗聴されていた）のように受動態でも使う。<strong class="text-[var(--c-text)]">gon'</strong>（= gonna = going to）は未来を示すAAVEの短縮形。<em>I'm gon' do it</em>（やるから）、<em>You gon' regret this</em>（後悔するぞ）のように主語の後に置いて意志・予定を表す。<em>gonna</em> のさらなる短縮で、発音は「ゴン」。</p>
+        </Fragment>
+      </LearningUnit>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        But you know the rules, both been schooled by older dudes<br />
-        I know the jewels, no time for them thoughts, too much to lose
-      </Fragment>
-      <Fragment slot="jpn">
-        でも、ルールはわかってる、俺ら二人とも先輩に教わった<br />
-        宝（知恵）は知ってる、そんなことを考える時間はない、失うものが多すぎる
-      </Fragment>
-      <Fragment slot="explanation">
-        "jewels"は知識・知恵を指すNYスラング（特にFive Percenterの語彙）。先輩から受け継いだコードに従い、感情より判断を優先するという組織人の規律。
-      </Fragment>
-    </LyricsBlock>
+      <!-- ⑥ lit a Dutchie -->
+      <LearningUnit
+        heading="lit a Dutchie — ブランド名がそのままスラングになる転用の典型"
+        label="★ スラング／文化"
+        mc="AZ（Verse 3）"
+        t={TS["lit-dutchie"].t} tApprox={TS["lit-dutchie"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">tryna chill, just lit a <QuickSlang word="Dutchie" desc="Dutch Mastersというシガリロブランドの略称。中身を抜いてマリファナを詰め直したブラントを指す" /></Fragment>
+        <Fragment slot="jpn">落ち着こうとして、ダッチ（ブラント）に火を点けた</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 3序盤、AZが仲間の死のニュースを聞いて動揺しているシーン。</p>
+        <p>行の先頭、<strong class="text-[var(--c-text)]">tryna</strong>——<em>trying to</em>（〜しようとしている）が2語まとめて1語に縮んでいる。AAVE・口語英語の音の圧縮で、スピード感と街の温度をそのまま表現する。<em>I'm tryna〜</em>（〜しようとしてる）という形で日常会話にも頻繁に出てくるので、一度慣れると聞き取りが格段に楽になります。そして <strong class="text-[var(--c-text)]">Dutchie</strong>（ダッチ）は Dutch Masters というシガリロ（細型葉巻）ブランドの略称で、中身のタバコを抜いてマリファナを詰め直したブラントのこと。ブランドの固有名詞がそのままスラングになる転用は、ヒップホップのリリックに多い（<em>Timbs</em>＝Timberlands、<em>'Lo</em>＝Polo など）。仲間（Mo）が殺されたという知らせを受けた直後に、落ち着こうとして火を点ける——その行為の選択が、AZのキャラクターの側面を静かに語っている。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">tryna</strong>（= trying to）の使い方: <em>I'm tryna leave</em>（出ようとしてる）、<em>He tryna say something</em>（何か言おうとしてる）のように、主語 + tryna + 動詞原形で使う。<strong class="text-[var(--c-text)]">Dutchie</strong> の背景: Musical Youth の1982年のヒット曲「Pass the Dutchie」でも同義語が使われている。ブラント（blunt）は葉巻の皮にマリファナを巻いたもので、ペーパーで巻いたジョイントとは別物。</p>
+        </Fragment>
+      </LearningUnit>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Just tryna vibe until them hoes roll with the ride<br />
-        Where's your joy and pride? You know, little Des' got your eyes
-      </Fragment>
-      <Fragment slot="jpn">
-        あいつらが乗ってくるまで、ただノリを合わせようとしてただけだ<br />
-        喜びと誇りはどこにある? わかるだろ、リトル・デスにはお前の目があるよ
-      </Fragment>
-      <Fragment slot="explanation">
-        "little Des'"はNasの子供（娘のDestiny）への言及——現実の家族の温かみをマフィオソ・ナラティブの中に差し込む。Desは当時Nasが認知した娘の名前とも一致する。
-      </Fragment>
-    </LyricsBlock>
+      <!-- ⑦ Alone with gats -->
+      <LearningUnit
+        heading="Alone with gats, left with a vest — 武装と孤立を語る語彙"
+        label="★ スラング"
+        mc="AZ（Verse 3）"
+        t={TS["alone-with-gats"].t} tApprox={TS["alone-with-gats"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Alone with <QuickSlang word="gats" desc="拳銃・銃器を指すスラング" />, left with a vest to watch my own back</Fragment>
+        <Fragment slot="jpn">銃だけを相棒に、防弾ベストを着て、一人で自分の身を守る</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 3終盤、AZが孤立した状態での緊張を語る件。</p>
+        <p>行頭の <strong class="text-[var(--c-text)]">gats</strong>（ガッツ）——拳銃・銃器を指すスラング。Gatling gun（ガトリング銃）に由来するとも言われ、90sのNYヒップホップで「銃」を指す語として広く使われていた。<em>burner・heat・piece・iron</em> など同義語は多いが、<em>gats</em> はそのハードな音感も含め、クイーンズ・ブラウンズビル周辺のMCによく出てくる語だ。次の <strong class="text-[var(--c-text)]">vest</strong> は防弾ベスト（bulletproof vest）のこと。行末の <em>watch my own back</em>——「自分で自分の背後を守る」つまり誰も頼れない孤立した状態を表す慣用句。<em>have someone's back</em>（誰かの背中を守る）の否定的バリエーションとして理解するといい。銃・防弾ベスト・孤立・警戒——これだけの情報量が一行に詰まっていて、AZの置かれた状況の重さが肌に刺さってくる。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">gat(s)</strong> は銃器の口語スラング。<em>pack a gat</em>（銃を持ち歩く）のように使う。<strong class="text-[var(--c-text)]">have [someone's] back</strong> は「誰かをサポートする・守る」という慣用表現。<em>I got your back</em>（守ってやる・任せろ）が一般にも広く使われる形。<em>watch my own back</em>（自分で自分を守る）は、その支えが誰もいない孤立を示す。</p>
+        </Fragment>
+      </LearningUnit>
 
-    <h3 class="text-xs text-[var(--c-very-dim)] uppercase tracking-widest mb-3 mt-4">Verse 2 — Nas &amp; AZ</h3>
+      <!-- ⑧ dynasty / cold war -->
+      <LearningUnit
+        heading="dynasty / cold war — 帝国の語彙でストリートを語る"
+        label="★ 比喩／言葉遊び"
+        mc="Nas（Verse 4）"
+        t={TS["dynasty-cold-war"].t} tApprox={TS["dynasty-cold-war"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">About the dynasty, s**t is not minor leagues no more<br />Cats bleed in this cold war</Fragment>
+        <Fragment slot="jpn">俺たちの王朝について——もうマイナーリーグじゃない／この冷戦で仲間たちは血を流している</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 4中盤、Nasがこれまでの生き方と現在の危機を語る件。学習対象は下の行。</p>
+        <p>上は2行で、学習対象は下の行、「Cats bleed in this <strong class="text-[var(--c-text)]">cold war</strong>」——<strong class="text-[var(--c-text)]">cold war</strong>（冷戦）は本来、米ソ間の軍事的・政治的緊張を指す歴史用語。ここでは麻薬・縄張り・裏切りが複雑に絡み合ったストリートの抗争を「冷戦」と呼んでいる。直接対決ではなく、諜報・監視・心理戦という形——「Phone Tap」のテーマそのものと重なっているのが面白い。上の行の <strong class="text-[var(--c-text)]">dynasty</strong>（王朝）と組み合わさって、Nasが自分たちの生き方を歴史的スケールの言葉で語っていることが分かる。<strong class="text-[var(--c-text)]">cats</strong>——ここでは仲間たちを指す口語（人を指す <em>cat</em> はビートニク文化からジャズ→ヒップホップへと継承されたスラング）。<em>minor leagues</em>（マイナーリーグ）という野球の比喩で「小規模な話じゃない」を表すのも、アメリカの語彙感覚が生きているところ。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">cold war</strong> を比喩で使う用法——直接的な武力衝突ではなく、水面下で行われる緊張状態・心理戦・情報戦を指す。ヒップホップでは東西コーストウォーから縄張り争い、人間関係の軋轢まで幅広く「冷戦」という語が比喩的に使われる。<strong class="text-[var(--c-text)]">cats</strong> は「人々・仲間たち・あいつら」を指す口語。ジャズ文化に由来するスラングで、ヒップホップに継承された。</p>
+        </Fragment>
+      </LearningUnit>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        In the cut, drop CLK, the top's up<br />
-        Left the mall, bought little Amar the toy truck
-      </Fragment>
-      <Fragment slot="jpn">
-        隠れたところで、CLKを降りた、幌は上げたまま<br />
-        モールを出て、リトル・アマルに玩具のトラックを買ってやった
-      </Fragment>
-      <Fragment slot="explanation">
-        "drop CLK"はメルセデス・ベンツCLKクラスのコンバーチブル。"Amar"はAZの息子の名前——Destinyに続いてここでも実在の子供が登場し、組織の論理と父親の顔の対比が際立つ。
-      </Fragment>
-    </LyricsBlock>
+      <!-- ⑨ FBI's Most Wanted -->
+      <LearningUnit
+        heading="we FBI's Most Wanted — コピュラ省略と指名手配リストの重み"
+        label="★ AAVE文法／文化"
+        mc="Nas（Verse 6）"
+        t={TS["fbis-most-wanted"].t} tApprox={TS["fbis-most-wanted"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Said there's no runnin', we FBI's Most Wanted!</Fragment>
+        <Fragment slot="jpn">逃げ場はない——俺たちはFBIのMost Wantedだ！</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 6中盤、NasがAZに最大の警告を伝える件。曲の緊張が頂点に達する一行。</p>
+        <p>行の後半、「we <strong class="text-[var(--c-text)]">FBI's Most Wanted</strong>」——標準英語なら <em>we <strong class="text-[var(--c-text)]">are</strong> FBI's Most Wanted</em> と be動詞が入るところ、ここでは省かれている。これが<strong class="text-[var(--c-text)]">AAVE（アフリカ系アメリカ人英語）のコピュラ（be動詞）省略</strong>で、現在形の <em>is / are</em> を落として名詞や形容詞に直結させる文法的特徴だ。省略によって言葉のスピードが上がり、切迫感が増す——文法の「なさ」が表現を強くしている。<strong class="text-[var(--c-text)]">FBI's Ten Most Wanted Fugitives</strong>（FBI十大指名手配犯）は1950年代から続く実在のリスト。「Phone Tap」の最後でこの一言が出てくることで、それまでの通話劇全体の重みが一気に回収される。初めて通して聴いたとき、ここで静かにやられました。</p>
+        <Fragment slot="usage">
+          <p>AAVEのコピュラ省略: 現在形の <em>is / are</em> は省略できる。<em>We good</em>（俺たちは大丈夫）、<em>He dead</em>（奴は終わった）、<em>They ready</em>（あいつらは準備できている）のように、主語に直接形容詞・名詞が続く。過去形（was/were）や文末強調位置のbe動詞は省略しない——この規則性を知ると、リスニングで「動詞が無いのに文が成立している＝AAVEのコピュラ省略」と即座に補完できるようになる。<strong class="text-[var(--c-text)]">no runnin'</strong>（= no running）の用法——<em>there's no + 動名詞</em>は「〜の余地はない・〜することはできない」という決定的な否定。<em>There's no going back</em>（戻ることはできない）のように使う。</p>
+        </Fragment>
+      </LearningUnit>
+    </section>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Your boy's, what? Three-years-old now, correct?<br />
-        He and my daughter age neck-and-neck, they future's set
-      </Fragment>
-      <Fragment slot="jpn">
-        お前の子は何歳? 今3歳だろ、合ってるか?<br />
-        あいつと俺の娘が同い年、二人の未来は約束されてる
-      </Fragment>
-      <Fragment slot="explanation">
-        互いの子供を語り合う会話——犯罪の世界に生きながらも次世代の安定を願う親の顔。「future's set」という安堵と、FBI盗聴という現実の対比がドラマを深める。
-      </Fragment>
-    </LyricsBlock>
+    <!-- ===================== -->
+    <!-- 文化的背景            -->
+    <!-- ===================== -->
+    <section id="background" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        文化的背景
+      </h2>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Trees got me wet<br />
-        In the background's a old cassette — fly Stephanie Mills s**t
-      </Fragment>
-      <Fragment slot="jpn">
-        ウィードでいい感じになってる<br />
-        バックグラウンドでは古いカセット——Stephanie Millsのいかした曲
-      </Fragment>
-      <Fragment slot="explanation">
-        "Trees"はマリファナ。Stephanie Millsは1970〜80年代のR&Bシンガー——現在の会話の背景に流れる過去の音楽が、都会の夕暮れのシーンを映画的に描く。
-      </Fragment>
-    </LyricsBlock>
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">FBI監視の歴史</p>
+        <h3 class="font-semibold text-base mb-3">COINTELPROからドラッグウォーへ——監視される黒人の声</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          「Phone Tap」が単純なフィクションのスリラーでないのは、FBI・DEAによるブラック・コミュニティへの組織的な監視が実際に長く続いてきた歴史があるからだ。1960〜70年代の COINTELPRO（対諜報プログラム）では、MLK・マルコムX・ブラックパンサー党の電話が組織的に盗聴されていたことが公式文書で明らかになっている。90年代の「War on Drugs（ドラッグ戦争）」においても、DEAは大規模な電話監視を麻薬密売の追跡に用いていた。Nas・AZのようなNYのMCにとって「Fedsに電話を盗まれる」という設定は、リアルな恐怖として機能する言葉だった。
+        </p>
+      </div>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        What's the deal with all this s**t I'm hearin' up top?<br />
-        You got arrested? Shot a fair one with a cop?
-      </Fragment>
-      <Fragment slot="jpn">
-        上のほうで聞こえてくる話はどういうことだ?<br />
-        お前、逮捕されたのか? 警官と一対一でやり合ったのか?
-      </Fragment>
-      <Fragment slot="explanation">
-        "up top"はNYCの北部（ハーレム・ブロンクス方面）を指す隠語。"fair one"は一対一のフィストファイト——Nasが噂の真偽を確認しようとする。
-      </Fragment>
-    </LyricsBlock>
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">マフィオソ・ラップ</p>
+        <h3 class="font-semibold text-base mb-3">NYの第三の道——ギャングスタでもG-Funkでもない</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          90年代NYヒップホップには「マフィオソ・ラップ」と呼ばれる流れがあった。イタリア系マフィア映画（<em>Scarface</em>・<em>The Godfather</em>）の語彙と組織論をストリートに接ぎ木した世界観で、Nasの『Illmatic』→ Nas & AZの「Life's a b***h」→ The Firmへと連なるラインがその中心を担った。Jay-Z・Big L・Big Punもそれぞれの形でこの文脈にいたが、The Firmはその中でもNY（Nas・AZ・Nature）とLA（Dr. Dre）の東西連合という稀有な形を取った。東西抗争の余波が残る1997年に、このコラボが実現したことは今でも面白い歴史的事実だと思う。
+        </p>
+      </div>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        That ain't ya stee', you usually low-key when O-T<br />
-        I'm only goin' off of what some weak b***h told me
-      </Fragment>
-      <Fragment slot="jpn">
-        それはお前のスタイルじゃない、出かけてるときはいつも目立たないのに<br />
-        俺はある弱い女が言ったことを基にしているだけだ
-      </Fragment>
-      <Fragment slot="explanation">
-        "stee'"はstyle。"low-key"は目立たず静かに行動すること。情報源が信頼性の低い女だという留保——諜報の不確かさと情報管理の重要性を描く。
-      </Fragment>
-    </LyricsBlock>
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">キーワード早見表</p>
+        <h3 class="font-semibold text-base mb-3">この曲で学んだスラングの整理</h3>
+        <div class="space-y-3 mt-3">
+          {[
+            ['Feds', 'FBI・DEA・ATFなど連邦捜査機関の捜査員を指す総称スラング。地元警察（Jakes/5-0）とは別物'],
+            ['trees', '大麻（marijuana）の隠語。植物形状からの比喩'],
+            ["stee'", 'style（やり方・美学・行動原則）の短縮形。That ain\'t ya stee\' = それはお前らしくない'],
+            ['O-T', 'out of town（地元を離れた遠征先）の短縮形'],
+            ['static', '本来は電気的雑音。スラングで「もめ事・危険な状況」を指す'],
+            ['dunn', 'son（仲間・友人）に相当するNY（クイーンズ周辺）の呼びかけスラング'],
+            ['gats', '拳銃・銃器を指すスラング'],
+            ['Dutchie', 'Dutch Mastersシガリロを使ったブラント（マリファナ巻き煙草）'],
+            ['cold war', 'ストリートの抗争・水面下の緊張を「冷戦」の語で比喩する用法'],
+          ].map(([term, desc]) => (
+            <div class="flex gap-3 text-sm">
+              <span class="text-[var(--c-gold)] shrink-0 font-semibold min-w-[120px]">{term}</span>
+              <span class="text-[var(--c-muted)]">{desc}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        That's some ill s**t, here that b***h go with her clique<br />
-        Yo dunn, I'll hit you right back 'cause the static is thick
-      </Fragment>
-      <Fragment slot="jpn">
-        それはヤバいな、ほらその女がつるんでる奴らと来やがった<br />
-        よう、すぐ折り返すわ——ノイズが酷いから
-      </Fragment>
-      <Fragment slot="explanation">
-        "static is thick"は電話のノイズが激しい、または状況が緊迫しているという二重の意味。「折り返す」という言葉で電話会話を一時中断——監視への意識が滲む。
-      </Fragment>
-    </LyricsBlock>
+    <!-- ===================== -->
+    <!-- サンプル・制作の裏側    -->
+    <!-- ===================== -->
+    <section id="behind" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        サンプル・制作の裏側
+      </h2>
 
-    <h3 class="text-xs text-[var(--c-very-dim)] uppercase tracking-widest mb-3 mt-4">Hook — Dr. Dre</h3>
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">サンプル元</p>
+        <h3 class="font-semibold text-base mb-3">クラリネットの哀愁 — Chris Barber's Jazz Band "Petite Fleur"（1956年録音）</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          「Phone Tap」の底に流れる、あの哀愁漂うクラリネットのフレーズ——その正体は、<strong class="text-[var(--c-text)]">Chris Barber's Jazz Band（クリス・バーバー・ジャズバンド）</strong>が1956年に録音した "Petite Fleur"（小さな花）だ。元の楽曲はシドニー・ベシェ（Sidney Bechet）作曲のジャズ・スタンダード。Chris Barber版は1959年にシングルとして国際的にヒットした。50年代ブリティッシュ・ジャズの録音が、40年後のNYストリートの緊張劇を丸ごと包むことになるとは——これだからサンプリングはやめられない。
+        </p>
+      </div>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        We got yo' phone tapped, what you gon' do?<br />
-        'Cause sooner or later, we'll have your whole crew
-      </Fragment>
-      <Fragment slot="jpn">
-        お前の電話は盗聴されてるぞ、どうするつもりだ?<br />
-        遅かれ早かれ、お前のクルー全員を押さえる
-      </Fragment>
-      <Fragment slot="explanation">
-        フックはDr. Dreがリスナー（＝NasとAZ）に直接語りかけるFBI目線。プロデューサー自身が捜査官を演じるという構造的な仕掛けが、この曲の最大の発明。
-      </Fragment>
-    </LyricsBlock>
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">制作</p>
+        <h3 class="font-semibold text-base mb-3">Dr. Dre × Chris "The Glove" Taylor——東西制作連合の産物</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          プロデュースは<strong class="text-[var(--c-text)]">Dr. Dre と Chris "The Glove" Taylor</strong>の共同作業。Chris "The Glove" Taylorは80年代からDreと長く活動を共にしてきたLAのビートメイカーで、The Firm アルバム全体をDreと支えている。NYのラッパーとLAを拠点とするプロデューサーが組むというのは、当時の東西抗争の空気を考えると決して当たり前のことではなかった。哀愁のクラリネット・サンプルにDreの低音感が乗り、さらにNas・AZ・Natureの極めてリリカルなバースが重なる——この組み合わせが「Phone Tap」をFirmアルバムの中でも別格の一曲にしています。
+        </p>
+      </div>
+    </section>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        All we need now is the right word or two<br />
-        To make it all stick like glue, then you through
-      </Fragment>
-      <Fragment slot="jpn">
-        あとは一言二言、決定的な言葉があれば<br />
-        全部をのりで固めるように固める、そうすればお前は終わりだ
-      </Fragment>
-      <Fragment slot="explanation">
-        "stick like glue"は証拠が固まるという法的比喩。RICO法（組織犯罪規制法）は通話の一言が起訴の決め手になり得る——その現実を「のり」というイメージで可視化。
-      </Fragment>
-    </LyricsBlock>
+    <!-- ===================== -->
+    <!-- レガシー               -->
+    <!-- ===================== -->
+    <section id="legacy" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        The Firmとそのレガシー
+      </h2>
 
-    <LyricsBlock>
-      <Fragment slot="eng">
-        We got yo' phone tapped, what you gon' do?<br />
-        'Cause sooner or later, we'll have your whole crew<br />
-        All we need now is the right word or two<br />
-        To make it all stick like glue, we got you!
-      </Fragment>
-      <Fragment slot="jpn">
-        お前の電話は盗聴されてるぞ、どうするつもりだ?<br />
-        遅かれ早かれ、お前のクルー全員を押さえる<br />
-        あとは一言二言、決定的な言葉があれば<br />
-        全部をのりで固める——お前を確保した!
-      </Fragment>
-    </LyricsBlock>
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">一枚のアルバムで終わったスーパーグループ</p>
+        <h3 class="font-semibold text-base mb-3">1997年10月21日——それだけで充分だった一枚</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed mb-3">
+          The Firmは「The Firm: The Album」（1997年10月21日リリース）一枚だけを残して活動を終えた。Nas・AZ・Foxy Brown・Natureはそれぞれのソロへ向かい、グループとしての続編はない。それでもこのアルバムは、マフィオソ・ラップの記念碑として今も残り続けている。特に「Phone Tap」は、複数の話者が通話形式で物語を構築するという実験的な試みと、Dr. Dreが「捜査側の声」としてフックに立つという対立構造で、ストーリーテリングの文脈では繰り返し言及される。
+        </p>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          Nasは言うまでもなく『Stillmatic』から『King's Disease』シリーズまで現役で傑作を重ね続けた。AZも独自のスタイルでコンシステントにアルバムを出し続け、特にNas周辺との連携を保った。The Firmはそのキャリアの一部に過ぎないかもしれないけれど、このアルバムを知っているかどうかで、Nasファンとしての深度が少し分かれる気がします。
+        </p>
+      </div>
+    </section>
 
-    <h3 class="text-xs text-[var(--c-very-dim)] uppercase tracking-widest mb-3 mt-4">Verse 3 — AZ</h3>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        We just hit the crib-o, I'm curled up on this pillow<br />
-        I'm still low, heard the ill news — these n***as killed Mo
-      </Fragment>
-      <Fragment slot="jpn">
-        今ちょうど家に戻った、枕にうずくまってる<br />
-        まだ潜んでる、ヤバいニュースを聞いた——あいつらがMoを殺した
-      </Fragment>
-      <Fragment slot="explanation">
-        "crib-o"は自宅（crib）のくだけた表現。"still low"は身を潜めている状態。"Mo"は仲間の死——実名を出さず一文字で処理する緊迫した情報伝達のリアリティ。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        The s**t touched me, tryna chill, just lit a Dutchie<br />
-        From a while back, same foul cats who tried to bust me
-      </Fragment>
-      <Fragment slot="jpn">
-        そのことが俺を揺さぶった、落ち着こうとして、Dutchieに火をつけた<br />
-        少し前、同じ汚い連中が俺を捕まえようとしてた奴らだ
-      </Fragment>
-      <Fragment slot="explanation">
-        "Dutchie"はDutch Mastersの葉巻を使ったブラント。感情的な衝撃を「落ち着かせる」ための一服——マリファナが精神安定剤として機能するストリートの現実。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Caught 'em sleepin' in Spanish Harlem with some Puerto Ricans<br />
-        Up in Washington Heights, right off the Deegan
-      </Fragment>
-      <Fragment slot="jpn">
-        スパニッシュ・ハーレムでプエルトリコ人と一緒にいるとこを奇襲した<br />
-        ワシントン・ハイツの、Deeganのすぐそば
-      </Fragment>
-      <Fragment slot="explanation">
-        "sleepin'"は無防備・油断しているの意。"the Deegan"はメジャー・ディーガン高速道路（ブロンクス）。スパニッシュ・ハーレム〜ワシントン・ハイツはドラッグ取引の要所——NYCの具体的な地名がリアリティを担保する。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Feel awful speakin', for some reason, feel the phone's tapped<br />
-        Alone with gats, left with a vest to watch my own back
-      </Fragment>
-      <Fragment slot="jpn">
-        話しながらひどい気分だ、何か理由はわからないけど、電話が盗聴されてる気がする<br />
-        一人で銃を持ち、自分の背中を守るためのベストを着て
-      </Fragment>
-      <Fragment slot="explanation">
-        フックの「We got yo' phone tapped」を受け、AZ自身が盗聴の予感を感じる瞬間——聴衆はすでに「実際に盗聴されている」ことを知っており、この気づきが最大の緊迫感を生む。
-      </Fragment>
-    </LyricsBlock>
-
-    <h3 class="text-xs text-[var(--c-very-dim)] uppercase tracking-widest mb-3 mt-4">Verse 4 — Nas</h3>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Keep your eyes open! Stay wise — s**t is mind-blowin'<br />
-        Look for any sign showin' one-time is knowin'
-      </Fragment>
-      <Fragment slot="jpn">
-        目を開けておけ! 賢くあれ——事態は頭を吹き飛ばすほどヤバい<br />
-        一時（警察）が把握してる兆候を探せ
-      </Fragment>
-      <Fragment slot="explanation">
-        "one-time"は警察のスラング。Nasがパートナーに警戒を促す——情報戦・対監視の実践的な指示が畳み掛けるように続く。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        About the dynasty, s**t is not minor leagues no more<br />
-        Cats bleed in this cold war
-      </Fragment>
-      <Fragment slot="jpn">
-        俺たちの王朝について、もう二軍じゃない<br />
-        この冷戦で、奴らは血を流してる
-      </Fragment>
-      <Fragment slot="explanation">
-        "cold war"——東西ヒップホップ抗争を米ソ冷戦に重ねた本曲最重要フレーズ。1996〜97年に2PacとBiggieが相次いで命を落とした時代背景を凝縮した一行。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Son, we took a oath, then this life took us both<br />
-        We rich now, milked the whole cow, split the growth
-      </Fragment>
-      <Fragment slot="jpn">
-        息子よ、俺たちは誓いを立てた、そしてこの生き方が俺たち二人を引き込んだ<br />
-        今は金持ちだ、牛を丸ごと搾り取って、成長を分け合った
-      </Fragment>
-      <Fragment slot="explanation">
-        "milked the whole cow"は利益を最大限搾取した比喩。誓い（oath）で結ばれた関係と富の分配——ギャング組織のビジネス論理と忠誠心の詩的表現。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Now I'm on the Conduit, headlights on<br />
-        Fluid in the windshield, wipes gone
-      </Fragment>
-      <Fragment slot="jpn">
-        今はConduitを走ってる、ヘッドライトをつけて<br />
-        フロントガラスにウォッシャー液、ワイパーは使い切った
-      </Fragment>
-      <Fragment slot="explanation">
-        "the Conduit"はNYCのサザン・ステート・コンジュイト（クイーンズ）——Nasが帰路を急ぐシーン。細部のリアリティ（ワイパーが無い）が映画的な緊張感を強調する。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        This light storm that's formin' in the sky<br />
-        You comin' home tomorrow? Will you drive or will you fly?
-      </Fragment>
-      <Fragment slot="jpn">
-        空に形成されつつある軽い嵐<br />
-        明日帰ってくるか? 車で来るか、飛行機か?
-      </Fragment>
-      <Fragment slot="explanation">
-        天候の描写がそのまま危機の前兆（嵐）として機能するメタファー。「飛行機か車か」という実務的な質問——移動手段の確認が、盗聴を意識した間接的なコミュニケーション。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock>
-      <Fragment slot="eng">
-        Hold up, my other side
-      </Fragment>
-      <Fragment slot="jpn">
-        ちょっと待ってくれ、もう一方の電話が来た
-      </Fragment>
-    </LyricsBlock>
-
-    <h3 class="text-xs text-[var(--c-very-dim)] uppercase tracking-widest mb-3 mt-4">Verse 5 — Nature</h3>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Yo, son! Some other cats tried to ruin our plans<br />
-        Sendin' two decoy b***hes with pictures of you and your man
-      </Fragment>
-      <Fragment slot="jpn">
-        よう、息子! 別の連中が俺たちの計画を潰そうとした<br />
-        お前とお前の仲間の写真を持った二人のおとり女を送り込んで
-      </Fragment>
-      <Fragment slot="explanation">
-        Natureが割り込んで新情報を伝える——「おとり女」という工作の描写。FBI・敵対勢力どちらの策略かを明示せず曖昧にすることで、誰が敵かわからないパラノイアを演出。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Askin' your whereabouts, I gave 'em no leads<br />
-        For all a n***a know, them hoes f**k with police
-      </Fragment>
-      <Fragment slot="jpn">
-        お前の居場所を聞いてきた、俺は何も教えなかった<br />
-        俺が知る限り、あの女たちは警察と繋がってるかもしれない
-      </Fragment>
-      <Fragment slot="explanation">
-        "gave 'em no leads"は捜査協力を断った、情報を漏らさなかったこと。"f**k with police"は警察のスパイまたは情報提供者であることを示す——信頼できる者と密告者の識別が生死を分ける世界。
-      </Fragment>
-    </LyricsBlock>
-
-    <h3 class="text-xs text-[var(--c-very-dim)] uppercase tracking-widest mb-3 mt-4">Verse 6 — Nas</h3>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        No s**t, I'm clickin' over, I'mma tell Sos' quick<br />
-        Son! Them outta state b***hes tryna get us both hit
-      </Fragment>
-      <Fragment slot="jpn">
-        マジか、電話を切り替えて、すぐにSosに伝える<br />
-        息子! 州外の女たちが俺たち二人を消そうとしてるぞ
-      </Fragment>
-      <Fragment slot="explanation">
-        "clickin' over"はキャッチホンで別の電話に切り替えること。NatureからAZ（Sos）へ緊急情報をリレーする——携帯電話が普及し始めた1997年の通信手段と緊張感が交差する。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        That was Nate, he hit me last night late while in my ho's stomach<br />
-        Said there's no runnin', we FBI's Most Wanted!
-      </Fragment>
-      <Fragment slot="jpn">
-        あれはNateだ、昨夜遅く俺の女のとこにいるときに連絡が来た<br />
-        逃げ場はない、俺たちはFBIの最重要指名手配だ!
-      </Fragment>
-      <Fragment slot="explanation">
-        "FBI's Most Wanted"——マフィオソ・ラップの究極到達点。実際にFBIの最重要指名手配リストに載るという虚構と、1990年代後半の実際の捜査強化が重なり合う。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        So play the low; change your clothes, pack your bags<br />
-        Watch what you say on this phone, get home fast
-      </Fragment>
-      <Fragment slot="jpn">
-        だから身を潜めろ、服を変えて、荷物をまとめろ<br />
-        この電話で何を言うか気をつけろ、早く家に帰れ
-      </Fragment>
-      <Fragment slot="explanation">
-        "Watch what you say on this phone"——曲タイトル「Phone Tap」の直接的な回収。全編を通じて盗聴されていた（フックでDr. Dreが告げていた）事実への気づきが、この行で完結する。
-      </Fragment>
-    </LyricsBlock>
-
-    <h3 class="text-xs text-[var(--c-very-dim)] uppercase tracking-widest mb-3 mt-4">Hook — Dr. Dre</h3>
-
-    <LyricsBlock>
-      <Fragment slot="eng">
-        We got yo' phone tapped, what you gon' do?<br />
-        'Cause sooner or later, we'll have your whole crew<br />
-        All we need now is the right word or two<br />
-        To make all it stick like glue, then you through
-      </Fragment>
-      <Fragment slot="jpn">
-        お前の電話は盗聴されてるぞ、どうするつもりだ?<br />
-        遅かれ早かれ、お前のクルー全員を押さえる<br />
-        あとは一言二言、決定的な言葉があれば<br />
-        全部をのりで固める——そうすればお前は終わりだ
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock>
-      <Fragment slot="eng">
-        We got yo' phone tapped, what you gon' do?<br />
-        'Cause sooner or later, we'll have your whole crew<br />
-        All we need now is the right word or two<br />
-        To make all it stick like glue, we got you!
-      </Fragment>
-      <Fragment slot="jpn">
-        お前の電話は盗聴されてるぞ、どうするつもりだ?<br />
-        遅かれ早かれ、お前のクルー全員を押さえる<br />
-        あとは一言二言、決定的な言葉があれば<br />
-        全部をのりで固める——お前を確保した!
-      </Fragment>
-    </LyricsBlock>
-
-    <h3 class="text-xs text-[var(--c-very-dim)] uppercase tracking-widest mb-3 mt-4">Outro — AZ &amp; Nas</h3>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Yo, it's all good<br />
-        I'mma hit you when I touch down tomorrow, son, word
-      </Fragment>
-      <Fragment slot="jpn">
-        よう、大丈夫だ<br />
-        明日着いたら連絡するよ、息子、マジで
-      </Fragment>
-      <Fragment slot="explanation">
-        "touch down"は着陸する・到着する。Verse 4でNasが「飛行機か車か」と聞いていた問いへの回答——飛行機で帰ることが確定。「all good」と言いながら、フックで既に盗聴済みという矛盾が悲劇を深める。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Stay on-point, don't even use the phone<br />
-        Just come to my crib, yo, word up
-      </Fragment>
-      <Fragment slot="jpn">
-        油断するな、もう電話も使うな<br />
-        ただ俺んちに来い、よう、マジで
-      </Fragment>
-      <Fragment slot="explanation">
-        "stay on-point"は警戒を怠らないこと。「電話を使うな」——Verse 6の「電話で話すことに気をつけろ」の延長で、電話という手段そのものを放棄する決断。曲のタイトルへの最終的な答え。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock>
-      <Fragment slot="eng">
-        Out
-      </Fragment>
-      <Fragment slot="jpn">
-        以上
-      </Fragment>
-    </LyricsBlock>
-
-  </section>
-
-  <section class="mb-6">
-    <h2 class="text-base font-semibold mb-2">■文化的背景</h2>
-    <p class="text-sm text-[var(--c-muted)] leading-relaxed">1997年のヒップホップ界は最も暗い時代にあった。1996年9月に2Pac、1997年3月にThe Notorious B.I.G.が相次いで射殺され、東西対立は制御不能の水準に達していた。The FirmはNas、AZ、Foxy Brown、Natureというイースト・コーストの精鋭が、Death Row離脱後のDr. Dre（Aftermath Entertainment）と手を組んだ異例の東西合体プロジェクト。レコーディングは安全のため中立地帯のマイアミで行われ、Foxy Brownはスタジオ入りのための飛行機を5回逃すほどの混乱の中で進められた。</p>
-    <p class="text-sm text-[var(--c-muted)] leading-relaxed mt-2">「Phone Tap」はそのような時代の産物として、FBI盗聴というリアルな恐怖を楽曲フォーマットに組み込んだ。1990年代初頭のBiz Markieサンプリング訴訟以降、著作権取得が困難になっていた状況を背景に、Dr. DreはChris Barber's Jazz Bandの「Petite Fleur」をインターポレーション（弾き直し）で再構築——法的制約を技術的進化で乗り越えた手法が、後の制作スタンダードとなった。NasとAZの「Esco」「Sosa」というキャラクター設定は映画『スカーフェイス』から借用し、マフィオソ・ラップが単なるスタイルではなく一つのシネマティック・ユニバースとして機能することを証明した。</p>
-  </section>
-
-  <section class="mb-6">
-    <h2 class="text-base font-semibold mb-2">■レガシー</h2>
-    <p class="text-sm text-[var(--c-muted)] leading-relaxed">「Phone Tap」は1990年代ヒップホップにおける「コンセプト・ソング」の最高峰のひとつとして評価される。プロデューサーがフックで「捜査官」を演じるという構造——DreがNasとAZの会話を外から俯瞰するFBIの役割を担う——は、楽曲を聴くという行為そのものを「盗聴」に変える革命的なアイデアだった。この構造的な発明はその後のコンセプトアルバム制作に影響を与え、Jay-ZのAmerican Gangster（2007）など「映画的ヒップホップ」の先駆として語られる。インターポレーション手法はDr. Dreが2001年以降の制作でも多用し、サンプリング文化からライブ演奏・再録音へのシフトをリードするモデルケースとなった。日本ではマフィオソ・ラップの教科書として1990年代後半から2000年代にかけて圧倒的な支持を集め、当時の国内ラッパーたちのリリック観に多大な影響を残した。</p>
-  </section>
+    <!-- まとめ -->
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        まとめ
+      </h2>
+      <ul class="space-y-2 text-sm text-[var(--c-muted)] list-disc list-inside leading-relaxed">
+        <li>「Phone Tap」は通話形式という実験的なナラティブ構造で、FBI監視と逃走のドラマを描く97年マフィオソ・ラップの傑作。</li>
+        <li>Feds・static・stee'・gats・trees・Dutchieなど、知らないと意味が取れない90s NYスラングが密集していて、語彙学習の素材として充実している。</li>
+        <li>AAVEの特徴（コピュラ省略・gon'の短縮・tryna・them+名詞など）が通話という日常的な設定の中に自然に現れていて、文法項目を肌感覚で学べる。</li>
+        <li>Chris Barber's Jazz Band（1956年録音）のクラリネットがNYの緊張劇を演出するというサンプリングの妙。Dr. Dre × Chris "The Glove" Taylor制作。</li>
+      </ul>
+    </section>
 
 </SongLayout>

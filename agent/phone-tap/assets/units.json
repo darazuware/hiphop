@@ -1,0 +1,56 @@
+[
+  {
+    "id": "feds-floatin",
+    "anchor": ["feds", "floatin", "around", "silly"],
+    "fallbackT": 28,
+    "manualSec": null
+  },
+  {
+    "id": "trees-wet",
+    "anchor": ["trees", "got", "me", "wet"],
+    "fallbackT": 132,
+    "manualSec": null
+  },
+  {
+    "id": "low-key-ot",
+    "anchor": ["you", "usually", "low", "key", "when", "o", "t"],
+    "fallbackT": 155,
+    "manualSec": null
+  },
+  {
+    "id": "static-thick",
+    "anchor": ["hit", "you", "right", "back", "cause", "the", "static", "is", "thick"],
+    "fallbackT": 170,
+    "manualSec": null
+  },
+  {
+    "id": "phone-tapped-hook",
+    "anchor": ["we", "got", "yo", "phone", "tapped", "what", "you", "gon", "do"],
+    "fallbackT": 185,
+    "manualSec": null
+  },
+  {
+    "id": "lit-dutchie",
+    "anchor": ["tryna", "chill", "just", "lit", "a", "dutchie"],
+    "fallbackT": 212,
+    "manualSec": null
+  },
+  {
+    "id": "alone-with-gats",
+    "anchor": ["alone", "with", "gats", "left", "with", "a", "vest"],
+    "fallbackT": 235,
+    "manualSec": null
+  },
+  {
+    "id": "dynasty-cold-war",
+    "anchor": ["about", "the", "dynasty", "shit", "is", "not", "minor", "leagues"],
+    "fallbackT": 248,
+    "manualSec": null
+  },
+  {
+    "id": "fbis-most-wanted",
+    "anchor": ["said", "there", "s", "no", "runnin", "we", "fbi", "s", "most", "wanted"],
+    "fallbackT": 318,
+    "manualSec": null
+  }
+]
