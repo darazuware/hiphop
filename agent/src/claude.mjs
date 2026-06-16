@@ -104,9 +104,11 @@ ${jsonPath}
    - anchor: そのユニットが扱う引用行の連続する数語を小文字・記号無しで（whisperが拾える固有性の高い語を選ぶ）。
    - fallbackT: その箇所のおおよその秒数（whisperが外した時の保険）。manualSec は必ず null（運営者が後で実測上書き）。
    - 秒数自体（whisperSec/t）は書かない。秒数は後段の whisper パイプラインが units-timestamps.json に自動生成する。
-3. src/data/songs.ts にエントリ追記
+3. src/data/songs.ts にエントリ反映
+   - **【既存エントリの上書き変換に注意】** slug '/songs/${slug}' が songs.ts に既にある場合は、**新しい行を追加せず、その既存行をその場で更新**する（行の重複を絶対に作らない）。era/region/producer/bpm/sample 等の事実はステップ0で裏取りした値で上書き修正する。
+   - 既存行が無い場合のみ新規追記する。
    - slug: '/songs/${slug}' （固定・変更禁止）
-   - **tier: "core" を必ず付ける**（未設定だとトップ/sitemap/RSSから除外され不可視になる）
+   - **tier: "core" を必ず付ける**（未設定だとトップ/sitemap/RSSから除外され不可視になる。既存行更新時も維持）
    - asin: 上記ASINの値をそのまま設定（nullの場合はnull）
    - era/region/producer/bpmは**ステップ0で裏取りした事実**から正確に埋める
    - 文字列はダブルクォートを使う

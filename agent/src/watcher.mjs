@@ -209,6 +209,17 @@ async function processTrigger(triggerFile) {
     return;
   }
 
+  // push抑止ゲート（人間確認フロー用）: /tmp/hiphop-no-push が在れば push せず commit を残置
+  try {
+    readFileSync('/tmp/hiphop-no-push', 'utf-8');
+    console.log('\n⏸ push抑止ゲート有効（/tmp/hiphop-no-push）— commit＋クリーンビルドのみ完了。pushは保留。');
+    await writeDone(0, 'PUSH_HELD');
+    cleanup(triggerFile, promptFile);
+    return;
+  } catch {
+    // ゲート無し → 通常push
+  }
+
   // push（クリーンビルド通過後のみ）
   console.log('\ngit push...');
   const gitResult = await run('git push', { silent: true });
