@@ -1,678 +1,356 @@
 ---
-import LyricsBlock from '../../components/LyricsBlock.astro';
+import LearningUnit from '../../components/LearningUnit.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
 import SongLayout from '../../layouts/SongLayout.astro';
+
+import tsData from '../../../agent/hold-you-down/assets/units-timestamps.json';
+const YT = "-54DaeRivck";
+const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.approx }]));
 ---
 
 <SongLayout
   title="Hold You Down 和訳・意味・スラング解説 | The Alchemist feat. Prodigy, Nina Sky & Illa Ghee"
-  description="The Alchemist「Hold You Down」の歌詞和訳とスラング徹底解説。Prodigy・Nina Sky・Illa Gheeが共演した2004年の名曲。Al Kooperサンプル、ストリートの忠誠心、クイーンズブリッジの絆を解説。"
+  description="The Alchemist「Hold You Down」（2004）の英語学習＋ヒップホップ解説。foreverly・get wigged・finna・fulliesなどのAAVEとストリートスラング、Al Kooperサンプル、クイーンズブリッジの忠誠心の文化を表現単位で読む。"
   slug="hold-you-down"
   highlights={[
-    'Al Kooper「Love Theme from "The Landlord"」（1970）をサンプリング——哀愁あるギターリフがストリートの絆を彩る',
-    'Nina Skyの甘いフックとProdigyの冷酷なヴァースが生む極端なコントラスト——愛とストリート的忠誠心の二重構造',
-    'プロデューサーのThe Alchemist自身がヴァース2でラップ——インディーズから世界へ逆襲したビートメイカー兼MCの宣言',
+    '"Hold You Down"は愛の言葉ではなくストリートの忠誠誓約——命がけで仲間を支える4語',
+    'Al Kooper「Love Theme from "The Landlord"」（1970）サンプル——陽光あるソウルをダーク化したAlchemistの逆算',
+    'ProdigyのAAVE語法「foreverly」、「finna get wigged」など、辞書に載らない生きた英語が密集',
   ]}
   youtubeId="-54DaeRivck"
   sampleYoutubeId=""
   sampleTitle=""
 >
 
-    <!-- この曲の意味 -->
+    <!-- ===================== -->
+    <!-- 導入                  -->
+    <!-- ===================== -->
     <section class="mb-6">
-      <h2 class="text-base font-semibold mb-2">■この曲の意味（要約）</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">「Hold You Down（支え続ける）」という言葉を軸に、ロマンチックな愛ではなくストリートの過酷な掟における「血の結束と自己犠牲」を描いた楽曲。Nina Skyが歌う「何があってもそばにいる」という献身と、ProdigyやIlla Gheeが語る「死と隣り合わせの忠誠心」の対比が核心にある。The Alchemist自らもマイクを握り、沈黙の掟（オメルタ）と家族への愛を宣言した稀有な一曲。</p>
+      <h2 class="text-base font-semibold mb-2">■クイーンズブリッジから届く「支える」という言葉</h2>
+      <p class="text-sm text-[var(--c-muted)] leading-relaxed">
+        「Hold You Down（支え続ける）」——たった4語だが、この曲でその言葉が放たれる文脈は、恋愛の甘い約束ではない。銃・刑務所・麻薬がリアルな日常として存在する<strong class="text-[var(--c-text)]">クイーンズブリッジ（QB）</strong>のストリートで、命をかけて仲間の隣に立つという誓約だ。Nina Skyの甘いフックと、Prodigyの凍えるようなヴァースが同じ4語を共有することで、「愛」と「忠誠」の二つの意味が同時に走る。2004年リリース、The AlchemistのデビューアルバムのリードシングルとしてKoch Recordsからリリース。この記事では、英語学習とヒップホップ理解の教材として、各表現を「学ぶ表現」単位で取り出していきたいと思います。
+      </p>
     </section>
 
-    <!-- 概要 -->
     <section class="mb-6">
-      <h2 class="text-base font-semibold mb-2">■概要</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">2004年、The AlchemistのデビューアルバムのリードシングルとしてALC Records / Koch Recordsよりリリース。プロデュースはThe Alchemist本人。Al Kooper「Love Theme from "The Landlord"」（1970）のアコースティックギターをチョップし、Lil' Kim（Junior M.A.F.I.A.）のスクラッチをフックの裏に仕込んだ多層構造のビート。BPM 91。Billboard Hot 100は95位、Hot R&B/Hip-Hop Songsは47位にランクイン。アンダーグラウンドの純度を保ちながらメインストリームをクロスオーバーした快挙として評価される。</p>
-    </section>
-
-    <!-- 導入 -->
-    <section class="mb-10">
-      <h2 class="text-base font-semibold mb-2">■導入（時代背景）</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">2004年のヒップホップ・シーンはKanye Westが確立した「チップマンク・ソウル」とG-Unitのギャングスタ・ラップが二極化していた。The Alchemistはソウルをサンプリングしながらも、流行の高揚感を拒否し、クイーンズブリッジ直系の冷暗いテクスチャを維持した。当時レゲトン・ムーブメントで爆発的人気を誇っていたNina Skyをフックに起用したことで、ストリートの硬派なメッセージをラジオ・クラブシーンにも届けるクロスオーバーを果たした。</p>
+      <h2 class="text-base font-semibold mb-2">■なぜ教材として読むと面白いか</h2>
+      <p class="text-sm text-[var(--c-muted)] leading-relaxed">
+        プロデューサーのThe Alchemist（本名：Daniel Alan Maman）自身がヴァース2でマイクを握り、「仲間を守るために死んでも証言台には立たない」と宣言する——プロデューサーが主役を張るアルバム形式の先駆けとして評価された一曲でもある。<strong class="text-[var(--c-text)]">Prodigy（Mobb Deep）</strong>が担当するヴァース1・4と、<strong class="text-[var(--c-text)]">Illa Ghee</strong>のヴァース3は、クイーンズブリッジ直系の冷たくタフな英語表現の見本市になっている。<QuickSlang word="AAVE" desc="African American Vernacular English（アフリカ系アメリカ人英語）。標準英語とは異なる独自の文法規則と語彙体系を持つ" />（アフリカ系アメリカ人英語）特有の語法、辞書に載らないスラング、省略と圧縮の技術が凝縮されているので、英語学習の素材として密度が高い。また、Al Kooper「Love Theme from "The Landlord"」（1970）のソウルをサンプリングした制作面も読み応えがあります。
+      </p>
     </section>
 
     <!-- Table of Contents -->
     <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
       <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
       <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
-        <li><a href="#lyrics" class="hover:text-[var(--c-gold)] transition-colors">01 — 歌詞和訳と意味解説</a></li>
-        <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">02 — 文化的背景</a></li>
-        <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">03 — 制作の裏側</a></li>
-        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">04 — 評価とその後の影響</a></li>
+        <li><a href="#story" class="hover:text-[var(--c-gold)] transition-colors">01 — ストーリーの流れ（まず曲全体をつかむ）</a></li>
+        <li><a href="#units" class="hover:text-[var(--c-gold)] transition-colors">02 — 学ぶ表現（スラング・韻・言葉遊び・AAVE）</a></li>
+        <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">03 — 文化的背景</a></li>
+        <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">04 — サンプル・制作の裏側</a></li>
+        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">05 — 評価とその後</a></li>
       </ol>
     </nav>
 
-    <div id="lyrics"></div>
-
     <!-- ===================== -->
-    <!-- INTRO                 -->
+    <!-- ストーリー要約          -->
     <!-- ===================== -->
-    <section class="mb-12">
+    <section id="story" class="mb-12">
       <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Intro · Prodigy
+        ストーリーの流れ — まず曲全体をつかむ
       </h2>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Let's do this s**t, ayo<br />
-          It's like this man, ayo
-        </Fragment>
-        <Fragment slot="jpn">
-          やるぞ、おい<br />
-          こういうことだ、おい
-        </Fragment>
-        <Fragment slot="explanation">
-          Prodigyがセッションの口火を切る短い導入。「Ayo」はNYヒップホップで頻出するアテンション・コール。緊張感を高める短い宣言だけで、楽曲の硬派なトーンを一瞬で設定する。
-        </Fragment>
-      </LyricsBlock>
-    </section>
-
-    <!-- ===================== -->
-    <!-- VERSE 1               -->
-    <!-- ===================== -->
-    <section class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Verse 1 · Prodigy
-      </h2>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          When it comes to Tecs, I'm similar to a Menace<br />
-          An O-Dog sniffing 'caine couldn't f**k with the damage
-        </Fragment>
-        <Fragment slot="jpn">
-          テック（短機関銃）に関しちゃ、俺はメナスそっくりだ<br />
-          コカインを吸ったO-Dogでさえ、俺のダメージには敵わない
-        </Fragment>
-        <Fragment slot="explanation">
-          「Tecs」はTEC-9（スウェーデン製短機関銃）の略称で90年代ギャングスタ・ラップの象徴的な武器。「Menace」と「O-Dog」は1993年の映画『Menace II Society（ポケットいっぱいの涙）』の最凶キャラクターへの言及——自分がそれに匹敵する危険人物だと宣言している。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          That I do to a bastard, keep f**kin' around<br />
-          Won't be nobody strong enough to (hold you down)
-        </Fragment>
-        <Fragment slot="jpn">
-          俺がそいつに与えるダメージを。舐め続けてみろ<br />
-          お前を支えられる奴は誰もいなくなるぞ
-        </Fragment>
-        <Fragment slot="explanation">
-          「Hold you down」が初めて登場。ここでは「支え続ける」ではなく「押さえ込む（地に倒す）」という威嚇的な意味。同じフレーズを複数の文脈で使い分けるProdigyの言語的巧みさが光る。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Yeah, I leave 'em in shock<br />
-          n***as get sentenced to life, they stressed in the box
-        </Fragment>
-        <Fragment slot="jpn">
-          そうさ、奴らをショック状態に叩き込む<br />
-          仲間は終身刑を宣告され、独房でストレスをためている
-        </Fragment>
-        <Fragment slot="explanation">
-          「Box」は刑務所の独房（Solitary confinement）を指すスラング。黒人コミュニティにおける大量投獄（Mass Incarceration）の現実を一言に凝縮。Prodigyは生涯を通じて収監リスクにさらされており、このラインには実体験が滲む。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Most of my friends got murdered and damn I feel lost<br />
-          Wish I was there when it popped off to (hold you down)
-        </Fragment>
-        <Fragment slot="jpn">
-          友人のほとんどが殺されて、くそ、俺は途方に暮れている<br />
-          事件が起きた時にそこにいて、お前を支えられたらよかった
-        </Fragment>
-        <Fragment slot="explanation">
-          「Popped off」は「銃撃が起きた」を意味するスラング。ここで「hold you down」は「死んでいく仲間を守れなかった後悔」という切ない意味へと反転する。武力自慢から喪失感への転換がProdigyリリシズムの核心。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Nobody but me, I got a whole gang of n***as<br />
-          But that's how you gotta think
-        </Fragment>
-        <Fragment slot="jpn">
-          俺だけじゃない、仲間は大勢いる<br />
-          でもそういう風に考えなきゃいけない
-        </Fragment>
-        <Fragment slot="explanation">
-          矛盾するように見えるが、「いざとなれば頼れるのは自分だけ」という孤独なストリート・サバイバルの哲学。大勢の仲間がいながらも、最終的には自分の判断力が生死を分けるというリアリズム。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          If you wanna make it alive and all in one piece<br />
-          It takes much more than them things to (hold you down)
-        </Fragment>
-        <Fragment slot="jpn">
-          生きたまま、五体満足でやり抜きたいなら<br />
-          それだけじゃ足りない——お前を支え続けるには
-        </Fragment>
-        <Fragment slot="explanation">
-          「Them things」は文脈上「銃やカネ」を指す。武器や金だけでは生き抜けない——真の絆（Loyalty）こそが必要だという主張。フックのNina Skyの愛のメッセージへの接続を準備する。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Yo, sonny, I'm well connected in the streets (let him too you)<br />
-          We loyal to each other, when it comes to that beef, we get (down)
-        </Fragment>
-        <Fragment slot="jpn">
-          よう、俺はストリートに太いコネがある<br />
-          俺たちは互いに忠実だ、抗争になれば一緒に戦う
-        </Fragment>
-        <Fragment slot="explanation">
-          「Sonny」は親しい男性への呼びかけ（SON由来）。「Beef」はラッパー間またはストリートの「抗争・深刻なもめごと」を意味する重要スラング。仲間のbeefは自分のbeefという、Mobb Deep流の血の掟を宣言。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Don't worry 'bout a thing my n***a, I foreverly (hold you down)
-        </Fragment>
-        <Fragment slot="jpn">
-          何も心配するな、俺は永遠にお前を支え続ける
-        </Fragment>
-        <Fragment slot="explanation">
-          「Foreverly」はProdigy特有の造語（forever + -ly）。Mobb Deep独特のスラング感覚が凝縮されている。「Dun dun（ダンダン）」は使われていないが、このラインはクイーンズブリッジ兄弟愛の典型的な表現。
-        </Fragment>
-      </LyricsBlock>
-    </section>
-
-    <!-- ===================== -->
-    <!-- CHORUS                -->
-    <!-- ===================== -->
-    <section class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Chorus · Nina Sky
-      </h2>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Even when s**t gets hard I'm going to<br />
-          Make sure that I'm around to hold you (down)
-        </Fragment>
-        <Fragment slot="jpn">
-          たとえ状況が最悪になっても<br />
-          そばにいてお前を支え続ける
-        </Fragment>
-        <Fragment slot="explanation">
-          Nina Skyのフックは、Prodigyのハードコアなヴァースとの最大のコントラストを生む。「s**t gets hard」は「状況が過酷になる」という直接的な表現。フックを担うことでR&B・レゲトンリスナーまで引き込む戦略的キャスティング。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Will never leave your side<br />
-          Until the day I die, I'm gonna (hold you down)
-        </Fragment>
-        <Fragment slot="jpn">
-          決してあなたのそばを離れない<br />
-          死ぬ日まで、あなたを支え続ける
-        </Fragment>
-        <Fragment slot="explanation">
-          「Until the day I die」は死への言及で、ストリートの文脈ではより重くなる。Nina Skyの甘い歌声で届けられることで、曲全体の忠誠心テーマに感情的な深みが加わる。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Recognize that this game could be hard<br />
-          Long as you roll with me, we are (down)<br />
-          Here by your side always to (hold me down, baby!)
-        </Fragment>
-        <Fragment slot="jpn">
-          このゲームは過酷だと知れ<br />
-          俺と一緒にいる限り、俺たちは大丈夫<br />
-          いつもそばにいる——俺を支えておくれ、ベイビー！
-        </Fragment>
-        <Fragment slot="explanation">
-          「This game」はヒップホップ・ビジネスとストリートの両方を指す。最後の「hold me down, baby!」はLil' Kim（Junior M.A.F.I.A.）のサンプルをDJスクラッチで挿入したもの。70年代ソウル×90年代NYハードコアというThe Alchemistの歴史的レイヤリング。
-        </Fragment>
-      </LyricsBlock>
-    </section>
-
-    <!-- ===================== -->
-    <!-- VERSE 2               -->
-    <!-- ===================== -->
-    <section class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Verse 2 · The Alchemist
-      </h2>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          When the time is worst<br />
-          Never leave my fam in a jam, I'm dying first
-        </Fragment>
-        <Fragment slot="jpn">
-          最悪の状況になっても<br />
-          家族を窮地に放置しない——俺が先に死ぬ
-        </Fragment>
-        <Fragment slot="explanation">
-          ビートメイカーとして知られるThe Alchemistが自らマイクを握るヴァース。「Fam in a jam（窮地の家族）」は脚韻を踏んだ表現。「I'm dying first（俺が最初に死ぬ）」——家族のために命を張るという最大の忠誠宣言。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Never (down) to my last dollar, I'm grinding first<br />
-          Never take the stand on my fam, I'm silent first
-        </Fragment>
-        <Fragment slot="jpn">
-          最後の1ドルになっても、俺はまず稼ぎ続ける<br />
-          家族のことで証言台には立たない——俺はまず黙り続ける
-        </Fragment>
-        <Fragment slot="explanation">
-          「Take the stand（証言台に立つ）」は法廷での証言、つまり仲間を売る「Snitching（密告）」の隠語。「I'm silent first」はイタリアン・マフィアの沈黙の掟（オメルタ）と同じ価値観。Beverly Hills出身でありながらストリートの掟を内面化したThe Alchemistのアイデンティティが凝縮されている。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          It's going down, feel me, the Alchemist in the flesh<br />
-          And I love this profession, but I'll throw it all away in a second
-        </Fragment>
-        <Fragment slot="jpn">
-          始まるぞ、わかるか、生身のThe Alchemistだ<br />
-          この仕事（音楽）は大好きだ。でも一秒でも全部捨てられる
-        </Fragment>
-        <Fragment slot="explanation">
-          「In the flesh（生身の）」——本物の自分がここにいるという自己紹介。「Profession（職業）」は音楽プロデューサーとしてのキャリアを指し、家族や仲間のためなら全てを捨てる覚悟があると宣言している。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          'Cause I'm (down) for the cause when my life is threatened<br />
-          Take this and that, maybe that'll (hold you down)
-        </Fragment>
-        <Fragment slot="jpn">
-          命が脅かされる時でも、俺はそのために戦う<br />
-          これとあれを受け取れ、それがお前を支えるだろう
-        </Fragment>
-        <Fragment slot="explanation">
-          「Down for the cause」は「大義のために全力を尽くす」という忠誠の慣用句。「Take this and that」は具体的な物（カネ・情報・武器）の提供を示唆しており、言葉だけでなく行動で支えるという宣言。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Now you know how we cooks the pot up<br />
-          You could get caught up in some things you would not wanna
-        </Fragment>
-        <Fragment slot="jpn">
-          今わかっただろう、俺たちのやり方を<br />
-          望まないことに巻き込まれることもある
-        </Fragment>
-        <Fragment slot="explanation">
-          「Cook the pot up」は料理のメタファーで、ビートやラップのプロセスを指すこともあるが、ここではストリートの「仕込み」全般。この業界の罠に気をつけろという警告を含む。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          So slow (down) and watch how I mold the sound<br />
-          So when I ain't around the music still (hold you down)
-        </Fragment>
-        <Fragment slot="jpn">
-          落ち着いて、俺がどうサウンドを形作るか見ろ<br />
-          俺がいない時でも、音楽がお前を支え続けるように
-        </Fragment>
-        <Fragment slot="explanation">
-          曲中唯一の「音楽そのものが持つ力」への言及。The Alchemistのプロデューサーとしての哲学——自分が不在でもビートが聴く者を守り支えるという信念。楽曲テーマ全体の最も詩的な解釈。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          But I'mma keep my eyes open, yo, I don't even blink<br />
-          Keep my pen moving down the line, I don't even think
-        </Fragment>
-        <Fragment slot="jpn">
-          でも目は開けたままだ——まばたきもしない<br />
-          ペンを動かし続ける——考えすらしない
-        </Fragment>
-        <Fragment slot="explanation">
-          「Keep my eyes open（目を開けたまま）」はストリートの警戒心と、音楽制作への集中を同時に表す。「I don't even think, just write」は直感的な創作プロセス——The Alchemistのビートメイクの本質を言語化している。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Just write it (down) on the paper, get my vocals in sync<br />
-          Check how it sound (hold... you... down)
-        </Fragment>
-        <Fragment slot="jpn">
-          ただ紙に書き落とし、ボーカルを合わせるだけ<br />
-          どんな音になるか聴いてくれ——（ホールド…ユー…ダウン）
-        </Fragment>
-        <Fragment slot="explanation">
-          ヴァースの締めで「hold you down」をスローで反芻させ、楽曲タイトルそのものをビートの一部として機能させる演出。The Alchemistが作曲プロセスを実況しながら、曲の核心フレーズへと戻ってくる洗練された構成。
-        </Fragment>
-      </LyricsBlock>
-    </section>
-
-    <!-- ===================== -->
-    <!-- CHORUS (2)            -->
-    <!-- ===================== -->
-    <section class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Chorus · Nina Sky
-      </h2>
-
-      <LyricsBlock hasExplanation={false}>
-        <Fragment slot="eng">
-          Even when s**t gets hard I'm going to<br />
-          Make sure that I'm around to hold you (down)<br />
-          Will never leave your side<br />
-          Until the day I die, I'm gonna (hold you down)<br />
-          Recognize that this game could be hard<br />
-          Long as you roll with me, we are (down)<br />
-          Here by your side always to (hold me down, baby!)
-        </Fragment>
-        <Fragment slot="jpn">
-          たとえ状況が最悪になっても<br />
-          そばにいてお前を支え続ける<br />
-          決してそばを離れない<br />
-          死ぬ日まで、あなたを支え続ける<br />
-          このゲームは過酷だと知れ<br />
-          俺と一緒にいる限り、俺たちは大丈夫<br />
-          いつもそばにいる——俺を支えておくれ、ベイビー！
-        </Fragment>
-      </LyricsBlock>
-    </section>
-
-    <!-- ===================== -->
-    <!-- VERSE 3               -->
-    <!-- ===================== -->
-    <section class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Verse 3 · Illa Ghee
-      </h2>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          For all my n***as I war for<br />
-          Blow the 4-4 for, you know I gets (down)
-        </Fragment>
-        <Fragment slot="jpn">
-          俺が戦う全ての仲間のために<br />
-          44口径を撃ちまくる——俺が本気を出すのはわかるだろ
-        </Fragment>
-        <Fragment slot="explanation">
-          「4-4」は44マグナム拳銃の略称。「Gets down」はここで「本気で行動する・全力を尽くす」の意味。Illa Gheeはブルックリン出身のアンダーグラウンド・ラッパーで、仲間への忠誠心をより直接的な暴力言語で表現する。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Even if we trapped standing back to back, I'll (hold you down)<br />
-          No matter if you wrong or right, you still right
-        </Fragment>
-        <Fragment slot="jpn">
-          たとえ背中合わせに追い詰められても、俺はお前を守る<br />
-          お前が間違っていようが正しかろうが、お前は正しい
-        </Fragment>
-        <Fragment slot="explanation">
-          「Back to back（背中合わせ）」は四方を囲まれた絶体絶命の状況のメタファー。「No matter if you wrong or right, you still right」——道徳的判断を超えた純粋な仲間への忠誠心の表明。ストリートの掟における最大の絆。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          For you, I'll lay a n***a (down)<br />
-          I don't care if it's the president. I cock my s**t and (hold you down)
-        </Fragment>
-        <Fragment slot="jpn">
-          お前のためなら誰でも倒す<br />
-          たとえ大統領でも関係ない。銃を構えてお前を守る
-        </Fragment>
-        <Fragment slot="explanation">
-          「Lay a n***a down（誰かを倒す）」は暴力的な処理を指すスラング。「The president」という最高権力者への言及は誇張表現（ハイパーボリー）だが、仲間のためには誰にでも立ち向かうという忠誠心の強調。「Cock my s**t」は銃の撃鉄を起こすジェスチャー。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          For all y'all b***hes in the club<br />
-          If you hop in my truck, first thing you're gonna go (down)
-        </Fragment>
-        <Fragment slot="jpn">
-          クラブにいる女たちよ<br />
-          俺のトラックに乗り込んできたら、最初にやること——（ダウン）
-        </Fragment>
-        <Fragment slot="explanation">
-          「Hold you down」を性的な文脈に使う部分。ヴァースの前半（戦友への忠誠）との落差が意図的で、「down」という言葉の多義性——友情・忠誠・性行為——を一曲の中で全展開するThe Alchemistの言語設計の一部。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          And when we get to the telly<br />
-          I'mma bend you over and (hold you down)
-        </Fragment>
-        <Fragment slot="jpn">
-          ホテルに着いたら<br />
-          お前を押さえつけて（ホールドダウン）
-        </Fragment>
-        <Fragment slot="explanation">
-          「Telly」は「hotel（ホテル）」の短縮スラング。性的な意味での「hold you down（押さえつける）」で締めくくることで、同じフレーズが友情・忠誠・暴力・性愛と全ての意味を網羅したことになる。
-        </Fragment>
-      </LyricsBlock>
-    </section>
-
-    <!-- ===================== -->
-    <!-- VERSE 4               -->
-    <!-- ===================== -->
-    <section class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Verse 4 · Prodigy
-      </h2>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Ayo, Mobb Thugs, drops and trucks<br />
-          We got enough paper to front, you see our guns and duck (down)
-        </Fragment>
-        <Fragment slot="jpn">
-          よう、Mobbのサグたち、オープンカーとトラック<br />
-          誇示できるほどのカネがある——俺たちの銃を見てしゃがめ
-        </Fragment>
-        <Fragment slot="explanation">
-          「Drops（オープンカー）」と「trucks（トラック・SUV）」はストリートの成功を示す乗り物。「Paper（紙幣＝カネ）」「Front（見せびらかす）」。「See our guns and duck（銃を見てしゃがめ）」——力の誇示とNYストリートのリアルな描写。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Somebody finna get wigged<br />
-          Homie, I hope your outfitter (hold you down)
-        </Fragment>
-        <Fragment slot="jpn">
-          誰かがやられそうだ<br />
-          ホーミー、お前の服が防弾になってくれればいいな
-        </Fragment>
-        <Fragment slot="explanation">
-          「Finna（gonna）」はAAVE（アフリカ系アメリカ人英語）の近未来形。「Get wigged（やられる・頭を撃たれる）」は暴力の婉曲表現。「Outfitter（服装）」が「hold you down」してくれるかは皮肉——防弾チョッキでもなければ守れないという脅し。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          I seriously doubt it, my chain cost a quarter mill<br />
-          Imagine what I spend gun shopping
-        </Fragment>
-        <Fragment slot="jpn">
-          まず無理だろう。俺のチェーンは25万ドルする<br />
-          俺が銃の買い物に何を使うか想像してみろ
-        </Fragment>
-        <Fragment slot="explanation">
-          「Quarter mill（25万ドル）」のチェーンは2000年代初頭の東海岸ラッパーのステータスシンボル。「Gun shopping（銃の買い物）」を普通の買い物のように語ることで、暴力と富を並列させるProdigy特有のクールな語り口。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Got bullets by the thousands<br />
-          The shots won't never stop, they say that we wilding
-        </Fragment>
-        <Fragment slot="jpn">
-          弾丸は何千発もある<br />
-          撃ち続ける——俺たちが暴走してると言われても
-        </Fragment>
-        <Fragment slot="explanation">
-          「Wilding（暴走・荒れ狂う）」はNYスラング——法を逸脱した過激な行動を指す。大量の弾薬と止まらない銃撃という誇張によって、Mobb Deepの「誰も止められない」という威圧的なイメージを最大化。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          And I'm far from recluse<br />
-          We right on front street with the fullies in the coupe
-        </Fragment>
-        <Fragment slot="jpn">
-          俺は隠れていない<br />
-          クーペに全自動銃を積んで、表通りにいる
-        </Fragment>
-        <Fragment slot="explanation">
-          「Recluse（隠遁者）」の否定——恐れて隠れているのではなく、公然と存在を示す。「Front street（表通り）」は「堂々と・隠さずに」の意味。「Fullies（full automatic weapons・全自動銃）」「coupe（クーペ車）」——過剰な武装をあえてオープンに誇示するProdigyの美学。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          For the drama and the shooting<br />
-          Then I take bullets and die to (hold you down)
-        </Fragment>
-        <Fragment slot="jpn">
-          揉め事と銃撃のために<br />
-          弾丸を受けて死んでもお前を守る
-        </Fragment>
-        <Fragment slot="explanation">
-          ヴァース4の締め——そして楽曲全体の最も重い一行。威嚇・誇示・暴力のすべてを経て、最終的に「死んでも仲間を守る」という原点の忠誠心に戻ってくる。Prodigyにとって「hold you down」の究極形は、命を賭けることだった。
-        </Fragment>
-      </LyricsBlock>
-    </section>
-
-    <!-- ===================== -->
-    <!-- CHORUS (3)            -->
-    <!-- ===================== -->
-    <section class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Chorus · Nina Sky
-      </h2>
-
-      <LyricsBlock hasExplanation={false}>
-        <Fragment slot="eng">
-          Even when s**t gets hard I'm going to<br />
-          Make sure that I'm around to hold you (down)<br />
-          Will never leave your side<br />
-          Until the day I die, I'm gonna (hold you down)<br />
-          Recognize that this game could be hard<br />
-          Long as you roll with me, we are (down)
-        </Fragment>
-        <Fragment slot="jpn">
-          たとえ状況が最悪になっても<br />
-          そばにいてお前を支え続ける<br />
-          決してそばを離れない<br />
-          死ぬ日まで、あなたを支え続ける<br />
-          このゲームは過酷だと知れ<br />
-          俺と一緒にいる限り、俺たちは大丈夫
-        </Fragment>
-      </LyricsBlock>
-    </section>
-
-    <!-- ===================== -->
-    <!-- OUTRO                 -->
-    <!-- ===================== -->
-    <section class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Outro · Snoop Dogg
-      </h2>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          "Alchemist been my nephew for a minute..."<br />
-          "Soon, you'll, un-der-stand"
-        </Fragment>
-        <Fragment slot="jpn">
-          「The Alchemistは昔から俺の甥っ子みたいな存在だ……」<br />
-          「そのうち、お・ま・え・も・わかるだろう」
-        </Fragment>
-        <Fragment slot="explanation">
-          Snoop DoggによるThe Alchemistへのお墨付き。「Nephew（甥）」はベテランがキャリア初期の若者を認める際のスラング的呼称。「Soon you'll understand」はAl Kooperのサンプル元・JAY-Zの楽曲名と同名——ヒップホップの歴史的連続性を意識したアウトロ。West CoastレジェンドからのNY新鋭への横断的な承認がThe Alchemistのクロスオーバー性を象徴。
-        </Fragment>
-      </LyricsBlock>
-    </section>
-
-    <!-- QuickSlang -->
-    <section class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Quick Slang
-      </h2>
-      <QuickSlang term="Tecs / Tec-9" meaning="スウェーデン製半自動短機関銃。安価で入手しやすいため、90年代のギャングスタ・ラップで暴力の象徴として頻出。" />
-      <QuickSlang term="O-Dog / Menace" meaning="1993年映画『Menace II Society』の最凶キャラクター。コントロール不能な危険人物の代名詞としてラップで使われる。" />
-      <QuickSlang term="Box" meaning="刑務所の独房（Solitary confinement）またはプリズン全般を指すスラング。" />
-      <QuickSlang term="Beef" meaning="ラッパー間またはストリートでの「抗争・深刻な揉め事」。仲間のbeefは自分のbeef——Mobb Deep流の血の掟。" />
-      <QuickSlang term="Dun / Son" meaning="クイーンズブリッジ発祥のスラングで「親友・ブラザー」の意。「Son」の発音訛りから生まれ、Mobb Deepが世界に広めた。" />
-      <QuickSlang term="Finna" meaning="AAVE（アフリカ系アメリカ人英語）の「gonna（〜するつもり）」の変形。直近の行動・意図を示す。" />
-      <QuickSlang term="Fullies" meaning="Full automatic weapons（全自動銃）の短縮スラング。" />
-      <QuickSlang term="Telly" meaning="Hotel（ホテル）の短縮スラング。主にNYヒップホップで使われる。" />
-      <QuickSlang term="Paper" meaning="紙幣＝金銭。「Get paper（金を稼ぐ）」「paper to front（誇示できるカネ）」などの形で使用。" />
-      <QuickSlang term="Wilding" meaning="NYスラングで「暴走・荒れ狂う・法を逸脱した過激な行動」。Wild outとも。" />
-    </section>
-
-    <!-- 文化的背景 -->
-    <div id="background"></div>
-    <section class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Cultural Background · 文化的背景
-      </h2>
+      <p class="text-xs text-[var(--c-dim)] mb-5">
+        スラングの細部に入る前に、曲が何を語っているかを散文でつかんでおこう。物語の輪郭が見えると、次の「学ぶ表現」で一語一語を掘ったとき、その言葉が曲のどの位置にあるかが立体的に見えてくる。
+      </p>
       <div class="space-y-4 text-sm text-[var(--c-muted)] leading-relaxed">
-        <p>2004年のヒップホップ・シーンは「チップマンク・ソウル」対「ハードコア・ギャングスタ」の二極化が進んでいた。Kanye WestとJust Blazeが確立した古いソウルの回転数を上げてボーカルを高音にするサウンドがチャートを席巻する一方、50 Cent率いるG-Unitが圧倒的なマッチョイズムで市場を支配していた。</p>
-        <p>The Alchemistはその両方の流行を巧みに取り込みながら、どちらにも迎合しなかった。Al Kooperのソウルをサンプリングしながらも、ピッチを操作してクイーンズブリッジ直系の冷暗いテクスチャを維持し、ストリートの泥臭さに引き戻した。この「流行への迎合拒否」がThe Alchemistの矜持であり、後に「アルバムをトータル・キュレーションするプロデューサー」という役割の先駆けとなった。</p>
-        <p>Nina Skyの起用は戦略的だった。当時「Move Ya Body」の大ヒットでレゲトン・ムーブメントの象徴となっていた彼女たちをフックに据えることで、Hot 97などのラジオ局やクラブDJがピークタイムにかけられる曲に変換した。アンダーグラウンドの威厳を一切損なわずにR&B・レゲトンのリスナー層を獲得した見事なクロスオーバー。</p>
+        <p>
+          イントロでProdigyが「やるぞ」と短く口火を切り、すぐにヴァース1へ突入する。Prodigyは自分を映画『<strong class="text-[var(--c-text)]">Menace II Society</strong>』（1993）のキャラクターに重ね、「俺の周囲でどれだけの仲間が服役し、死んでいったか」を淡々と語る。感情的な嘆きではなく、現実を報告するような口調——それがProdigyらしさだ。ヴァースの最後で「永遠にお前を支える（foreverly hold you down）」という誓いが飛び出し、フックへと渡される。
+        </p>
+        <p>
+          <strong class="text-[var(--c-text)]">フック（Nina Sky）</strong>は、同じ「hold you down」をロマンティックな響きで歌い上げる。ヴァースの冷たさとフックの甘さが交互に来ることで、曲のタイトルフレーズが持つ意味の振れ幅——愛の約束からストリートの死の誓約まで——が何度も提示される。
+        </p>
+        <p>
+          <strong class="text-[var(--c-text)]">ヴァース2（The Alchemist）</strong>では、プロデューサー自身が「家族を巻き込んでも証言台には立たない」「音楽で稼いでいても、大事なものは捨てない」という信念を宣言する。「音楽が俺の代わりにお前を支え続ける（the music still hold you down）」というライン——タイトルフレーズを音楽制作の文脈に転用する瞬間は、聴いていて思わず「うまい」と唸る。
+        </p>
+        <p>
+          <strong class="text-[var(--c-text)]">ヴァース3（Illa Ghee）</strong>は忠誠の誓いをより剥き出しに畳みかけ、<strong class="text-[var(--c-text)]">ヴァース4（Prodigy）</strong>は一転してブーストした自慢——高価なチェーン、大量の弾丸、「表の通りで堂々と待ち構えている」という宣言——へと移行する。最後にSnoop Doggの一言が添えられてアウトロへ。
+        </p>
+        <p class="text-xs text-[var(--c-dim)]">
+          ※本ページは批評・教育目的で、解説に必要な範囲の断片のみを引用しています。全歌詞の対訳は掲載していません。
+        </p>
       </div>
     </section>
 
-    <!-- 制作の裏側 -->
-    <div id="behind"></div>
+    <!-- ===================== -->
+    <!-- 学習ユニット群          -->
+    <!-- ===================== -->
+    <div id="units"></div>
     <section class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Behind the Track · 制作の裏側
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2 border-b border-[var(--c-border)] pb-2">
+        学ぶ表現 — スラング・韻・言葉遊び・AAVE
       </h2>
-      <div class="space-y-4 text-sm text-[var(--c-muted)] leading-relaxed">
-        <p><strong>サンプルの錬金術：</strong>Al Kooper「Love Theme from "The Landlord"」（1970年映画サウンドトラック）のアコースティックギターとハミングをチョップして哀愁あるループを構築。同じサンプルをJust BlazeがJAY-Zの「Soon You'll Understand」（2000年）でシネマティックに使用していたが、The Alchemistはピッチを変え、ギターリフを細かく再配列し、東海岸特有のストリート・サウンドに昇華した。</p>
-        <p><strong>Lil' Kimのスクラッチ：</strong>フックの裏に微かに挿入された「Hold me down baby!」という声はJunior M.A.F.I.A.楽曲におけるLil' Kimのサンプル。70年代ロックのメロディ構造と90年代NYハードコアのボーカルを重層化することで、ヒップホップの歴史的連続性を付与した。</p>
-        <p><strong>ASR-10の質感：</strong>The AlchemistはEnsoniq ASR-10というサンプラーを愛用し、独特の「空気の圧と太さ」を生み出してきた。日本のプロデューサーJJJはこのASR-10から鳴る音を「何にも形容できない」と語り、「Hold You Down」のサウンドが日本のビートメイカーの血肉になったと証言している。</p>
-        <p><strong>インディーズからのクロスオーバー：</strong>自身のALC RecordsとKoch Recordsのジョイント・ベンチャーとしてリリース。Billboard Hot 100は95位、Hot R&B/Hip-Hop Songsは47位を記録し、メジャーの後ろ盾なしにメインストリームを奪取した。</p>
+      <p class="text-xs text-[var(--c-dim)] mb-6">
+        各見出しは「この曲から学べる英語表現」。まず上の英語引用（1〜2行）を音で追い、<strong class="text-[var(--c-text)]">行のどこが学習ポイントかを確かめてから</strong>日本語解説へ進むと、英語が苦手でも置いていかれません。🎤はリリックを歌うMC、▶は公式動画への頭出しリンク（秒数は概算）。引用は解説に必要な最小限の断片のみ。
+      </p>
+
+      <!-- ① Menace / O-Dog -->
+      <LearningUnit
+        heading="similar to a Menace / O-Dog sniffing 'caine — 映画キャラでストリートを語る"
+        label="★ 文化参照／スラング"
+        mc="Prodigy（Verse 1）"
+        t={TS["menace-o-dog"].t} tApprox={TS["menace-o-dog"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">When it comes to <QuickSlang word="Tecs" desc="TEC-9：安価なセミオート拳銃。ストリートで多用されたため頻出スラング" />, I'm similar to a <QuickSlang word="Menace" desc="映画『Menace II Society』（1993）の主人公Caine、または特にギャング的暴力を連想させる人物" /><br />An <QuickSlang word="O-Dog" desc="映画『Menace II Society』の最凶キャラクター。無慈悲な暴力の象徴として頻繁に引用される" /> sniffing 'caine couldn't f**k with the damage</Fragment>
+        <Fragment slot="jpn">Tec（銃）に関しては、俺はメナス（悪の権化）そのものだ／コカインを嗅ぐO-Dogでも、俺の与えるダメージには敵わない</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 1の冒頭一行目。Prodigyが自分を映画キャラに重ねて凄む開幕。</p>
+        <p>上の2行、前半と後半の構造に注目してほしい。1行目後半の <strong class="text-[var(--c-text)]">Menace</strong>（脅威・悪の権化）と、2行目冒頭の <strong class="text-[var(--c-text)]">O-Dog</strong> は、どちらも1993年公開の映画『Menace II Society』の参照。O-Dogは同作で仲間思いだが道徳的歯止めのない最凶キャラで、当時のNYハードコアシーンでは「容赦のない暴力」の代名詞として頻繁に引用された。「O-Dogでさえ俺に及ばない」という比較の構文で、Prodigyは自分の危険度を映画的イメージに乗せて証明する。2行目の <strong class="text-[var(--c-text)]">sniffing 'caine</strong>（'caine = cocaine、コカインを吸引している状態）は、錯乱した最凶状態という意味合いで、それでもなお「俺の方が上」というわけだ。こういう映画参照をスラング的に使う手法は、90〜00年代NYヒップホップの定番語法で、知っておくと他の多くの曲でも引っかかってくる。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">couldn't f**k with ~</strong> は「〜には到底敵わない・〜の足元にも及ばない」という強い否定の<QuickSlang word="イディオム" desc="複数の語が組み合わさって、個々の語の意味からは推測しにくい固定表現になったもの" />。<code>can't f**k with X</code>（Xには勝てない）の過去形で、対象のレベルの高さを逆説的に称賛するときにも使う。例: <em>Nobody could f**k with Prodigy's pen</em>（Prodigyのリリックには誰も歯が立たない）。フォーマルな場では使えない口語表現だが、ヒップホップ／ストリート英語では頻出なので聞き取れると理解度が格段に上がる。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ② sentenced to life / the box -->
+      <LearningUnit
+        heading="sentenced to life, stressed in the box — 刑務所スラング「box」"
+        label="★ スラング（刑事系）"
+        mc="Prodigy（Verse 1）"
+        t={TS["sentenced-to-box"].t} tApprox={TS["sentenced-to-box"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">n***as get sentenced to life, they stressed in the <QuickSlang word="box" desc="独房（solitary confinement）、または刑務所全般を指すスラング" /><br />Most of my friends got murdered and damn I feel lost</Fragment>
+        <Fragment slot="jpn">仲間は終身刑を食らい、独房でストレスを抱えている／友人の大半が殺され、くそ、俺は途方に暮れている</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 1中盤。Prodigyが身近な喪失を重ねて語る件。学習対象は上の行。</p>
+        <p>上の行の終わり「…stressed in the <strong class="text-[var(--c-text)]">box</strong>」——この <strong class="text-[var(--c-text)]">box</strong> が学習ポイントです。刑務所の独房（solitary confinement）を指すスラングで、壁に囲まれた文字通りの「箱」から来ている。終身刑（sentenced to life）を受けた者が独房に入れられ精神的に追い詰められている情景を、たった一語で圧縮する。下の行に続く「仲間が殺された」という告白と合わせて、Prodigyの周囲がいかに壊滅的な状況にあるかが一気に伝わってくる。このテンポの速い報告口調——感傷的な言い訳を一切挟まないまま事実を積み上げる語り方——が、クイーンズブリッジ出身アーティストの特徴的なスタイルだ。2行目の <code>damn I feel lost</code> は珍しく感情が漏れる瞬間で、Prodigyが普段の鉄面皮から一瞬崩れる箇所として印象深い。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">the box</strong> は文脈によって複数の意味を持つ。刑務所全般を指すこともあれば、独房（solitary）に限定することも。関連語として <em>locked up</em>（服役中）、<em>doing time</em>（刑期を務めている）、<em>on the inside</em>（塀の中）なども覚えておくと、ヒップホップのリリックで一気に理解できる表現が増える。<strong class="text-[var(--c-text)]">sentenced to life</strong> は「終身刑を言い渡される」という表現で、<em>get sentenced to ~</em>（〜の判決を受ける）の形で使う。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ③ foreverly -->
+      <LearningUnit
+        heading="foreverly hold you down — ProdigyのAAVE的造語"
+        label="★ AAVE文法／語法"
+        mc="Prodigy（Verse 1）"
+        t={TS["foreverly"].t} tApprox={TS["foreverly"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Don't worry 'bout a thing my n***a, I <QuickSlang word="foreverly" desc="「forever」に副詞語尾「-ly」をProdigyが独自に付加した造語。「永遠に・ずっと」という意味の強調形" /> (hold you down)</Fragment>
+        <Fragment slot="jpn">何も心配するな、俺は永遠にお前を支え続ける</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 1の締め。Prodigyがヴァースを誓約で閉じる一行。行の真ん中が学習ポイント。</p>
+        <p>「…I <strong class="text-[var(--c-text)]">foreverly</strong> (hold you down)」——この <strong class="text-[var(--c-text)]">foreverly</strong> という語は英語辞書には存在しない。<code>forever</code>（永遠に）という副詞がすでに副詞なのに、さらに副詞語尾の <code>-ly</code> を付けた造語だ。文法的には「誤り」だが、AAVEのコンテキストでは、こういう強調のための語形変形は珍しくない。むしろこのへんの意図的な逸脱が、話者のスタイルと強調の意思を同時に示す。Prodigyが発明したわけではなく、クイーンズブリッジやNYハードコアのコミュニティで使われていた口語が歌詞に入ったもの。<em>Don't worry 'bout a thing</em> の出だしは、ボブ・マーリーの「Three Little Birds」を思わせる（意図的な引用かどうかは不明だが、面白い響きの一致ではある）。ヴァース全体を通して積み重ねた緊張感を、この一行で一気に解放し、フックのNina Skyに繋ぐ構成が巧い。</p>
+        <Fragment slot="usage">
+          <p>標準英語では <em>forever</em> がすでに副詞として完結しているため <em>foreverly</em> は非標準形。しかし英語には <em>always → alwayslier</em>（古語）のような歴史的な重複副詞の例もある。AAVEに限らず、強調や語感のリズムのために語尾を足す操作は多くの英語変種で見られる。「文法的に正しいか」と「実際に使われているか」は別の話で、後者の視点でリリックを読むと、辞書に載らない生きた語法の現場に立ち会える。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ④ hold-you-down hook -->
+      <LearningUnit
+        heading="hold you down — フックが変換するフレーズの意味"
+        label="★ イディオム／フック"
+        mc="Nina Sky（Hook）"
+        t={TS["hold-you-down-hook"].t} tApprox={TS["hold-you-down-hook"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Even when s**t gets hard I'm going to<br />Make sure that I'm around to hold you (down)</Fragment>
+        <Fragment slot="jpn">どんなにきつくなっても、私はそばにいてあなたを支え続ける</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 フック（Nina Sky）。ヴァース1の後、最初に現れる繰り返し部分。</p>
+        <p>上の2行、下の行末に注目してほしい。「…to <strong class="text-[var(--c-text)]">hold you down</strong>」——このフレーズが曲のタイトルであり、全体を貫くキーワードだ。<strong class="text-[var(--c-text)]">hold someone down</strong> は「（困難な時に）側に居続ける、見捨てない、支え続ける」という意味のAAVEイディオム。恋愛的な文脈では「どんな状況でも一緒にいる」になり、ストリートの文脈では「仲間のために死をも辞さない」という忠誠の誓いになる。同じ4語がNina Skyの甘い声で歌われるとロマンティックに聞こえ、Prodigyの乾いた声で宣言されると命がけの誓約になる——この文脈による意味の振れ幅が、この曲の構造的な妙だと思う。上の行 <code>when s**t gets hard</code> も口語的な使い方として覚えておきたい。<em>get + 形容詞</em>（〜な状態になる）の変化動詞で、<em>s**t</em> はここで「事態・状況」を指す。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">hold someone down</strong> の関連表現: <em>hold it down</em>（その場・集団を守り切る、頑張る）、<em>hold the fort</em>（砦を守る→留守を守る）。AAVEでは <em>hold someone down</em> は特に「相手が不在・困難の状態でも見捨てずサポートし続ける」という長期的忠誠のニュアンスが強い。<em>I got you</em>（俺がいる・大丈夫だ）とセットで使われることが多く、仲間への宣言として両方覚えておくと会話でも使えるようになる。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑤ dying first / grinding first / silent first -->
+      <LearningUnit
+        heading="dying first / grinding first / silent first — アナフォラで刻む沈黙の掟"
+        label="★ 修辞技法／オメルタ"
+        mc="The Alchemist（Verse 2）"
+        t={TS["dying-first"].t} tApprox={TS["dying-first"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Never leave my fam in a jam, I'm dying first<br />Never (down) to my last dollar, I'm grinding first<br />Never <QuickSlang word="take the stand" desc="証人として証言台に立つ（in court）。ストリートの掟では「密告しない」の象徴的表現" /> on my fam, I'm silent first</Fragment>
+        <Fragment slot="jpn">家族を窮地に陥れることは絶対ない、死んでも先に死ぬ／最後の一ドルまで稼ぎ続ける前に諦めることはない／家族を売るために証言台には立たない、沈黙を選ぶ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 2（The Alchemist）の冒頭3行。プロデューサー本人が信念を連打する件。</p>
+        <p>上の3行を声に出して追ってみてほしい。「Never…, I'm ___ first」という同じ骨格が3回繰り返される——これが<QuickSlang word="アナフォラ" desc="同じ言葉や構文を繰り返すことでリズムと強調を生む修辞技法。キング牧師「I Have a Dream」も同じ構造" />（anaphora、同一構文の繰り返し）の修辞技法で、畳みかけるうちに宣言の重みがどんどん積み上がっていく。3行目の <strong class="text-[var(--c-text)]">take the stand</strong>（証言台に立つ）が核心。法廷で証言すること＝仲間を売ること、という文脈で、絶対にそれはしない（I'm silent first＝黙って死ぬ方を選ぶ）という宣言だ。これはイタリアンマフィアの「<strong class="text-[var(--c-text)]">オメルタ</strong>（omertà）」——沈黙の掟——に近い概念で、ストリートコードとして広くヒップホップに登場する。The Alchemist自身がビートメイカーとして音楽業界に身を置きながら、なおこのコードに忠実であることを宣言している点がこのヴァースを特別なものにしている。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">take the stand</strong> は「（法廷で）証言台に立つ、証人として証言する」。ストリート/ヒップホップの文脈では「仲間のことを当局に話す＝密告する」の婉曲表現として使われることがほとんど。関連語: <em>snitch</em>（密告者）、<em>rat</em>（チクり屋）、<em>cooperate (with the feds)</em>（連邦捜査官に協力する）。「<em>I'm (doing X) first</em>」の構文は「〜する前に（最悪の事態を）先に選ぶ」という「寧ろ死ぬ方が先だ」的な最大限の強調。<em>I'd rather die first</em> の省略形に近い語法。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑥ cooks the pot up -->
+      <LearningUnit
+        heading="how we cooks the pot up — ドラッグ調理の隠語が制作論に転じる瞬間"
+        label="★ スラング（二重意味）"
+        mc="The Alchemist（Verse 2）"
+        t={TS["cooks-the-pot"].t} tApprox={TS["cooks-the-pot"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Now you know how we <QuickSlang word="cooks the pot up" desc="クラックコカイン製造の隠語（重曹と粉末コカインを鍋で加熱して固形化する工程）。また転じて「ビートを調理する＝曲を作る」の意にも読める" /><br />You could get caught up in some things you would not wanna</Fragment>
+        <Fragment slot="jpn">俺たちのやり方（調理法）はわかっただろう／望まないものに巻き込まれることになるぞ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 2中盤、Alchemistが「仕込みの仕方」を語る件。学習対象は上の行。</p>
+        <p>上の行、「Now you know how we <strong class="text-[var(--c-text)]">cooks the pot up</strong>」——この <strong class="text-[var(--c-text)]">cook the pot up</strong> は、クラックコカインを製造するプロセスの隠語（重曹と粉末コカインを鍋＝pot で加熱して固形化する）として機能しながら、同時にThe Alchemistがプロデューサーとして「ビートを調理する・曲を料理する」という制作論の比喩としても読める二重構造になっている。アルケミスト（錬金術師）という名前自体が「素材を変質させる者」という意味で、この「鍋で調理する」比喩とぴったり重なる（だから彼はこの芸名を選んだとも言われている）。文法的には三人称複数主語 <em>we</em> に対して <em>cooks</em>（三単現のs）が付いているのも興味深い——これはAAVEでは主語人称と動詞変化が一致しないことがある（コピュラ省略と同じ仕組み）。下の行の <code>caught up</code>（巻き込まれる）も頻出表現。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">get caught up</strong> は「（望まない状況に）巻き込まれる、はまり込む」。<em>get caught up in drama</em>（揉め事に巻き込まれる）、<em>get caught up in the lifestyle</em>（そのライフスタイルに引きずられる）のように使う。受け身的な「気がついたら深みにはまっていた」ニュアンスが強い。ヒップホップでは「ストリートに引き戻される」文脈でよく登場する。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑦ finna get wigged -->
+      <LearningUnit
+        heading="finna get wigged — 「もうすぐ」を表すAAVEの時制マーカー"
+        label="★ AAVE文法（finna）"
+        mc="Prodigy（Verse 4）"
+        t={TS["finna-get-wigged"].t} tApprox={TS["finna-get-wigged"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Somebody <QuickSlang word="finna" desc="「fixing to」の短縮。AAVE特有の近接未来マーカー。「もうすぐ〜しようとしている」を表す" /> get <QuickSlang word="wigged" desc="撃たれる・殺される。「wig」（かつら）の動詞転用で「頭部を吹き飛ばされる」が原義とされる" /><br />Homie, I hope your outfitter (hold you down)</Fragment>
+        <Fragment slot="jpn">誰かがもうすぐやられる（撃たれる）／仲間よ、お前の武装がお前を守ってくれるといいな</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 4（Prodigy）、緊迫した状況を告げる件。学習対象は上の行（finna + wigged）。</p>
+        <p>上の行、「Somebody <strong class="text-[var(--c-text)]">finna</strong> get <strong class="text-[var(--c-text)]">wigged</strong>」——2つの語が学習ポイントです。まず <strong class="text-[var(--c-text)]">finna</strong>。これは <em>fixing to</em>（〜しようとしている）が縮んだAAVEの近接未来マーカーで、<em>going to / gonna</em> に近いが、より「今まさに〜が起ころうとしている」という切迫感が強い。例: <em>I'm finna go</em>（俺は今から行くとこだ）。次に <strong class="text-[var(--c-text)]">wigged</strong>（get wigged）——「撃たれる・殺される」を意味するスラングで、かつらが吹き飛ぶ（頭部への銃撃）という由来とされる。下の行の <strong class="text-[var(--c-text)]">outfitter</strong>（武装・装備、ここでは武器）もユニークな語法で、本来は「装備を提供する業者」という意味だが、ここでは「防弾ベストや銃などの装備品」を指す。「お前の装備がお前を守ってくれるといいな」というProdigyの冷ややかな警告で、タイトルフレーズ「hold you down」を最後に装備の文脈で使う皮肉な転用になっている。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">finna</strong> の使い方: <code>finna + 動詞原形</code>。例: <em>She finna call you</em>（彼女が今すぐ電話してくるぞ）、<em>They finna beef</em>（あいつらもうすぐやり合うぞ）。<em>gonna</em> との違いは切迫感と確信度——<em>finna</em> は「今この瞬間に始まろうとしている」という直前未来で使われることが多い。リスニングでは速く発音されるため <em>finna</em> と聞こえないこともあるが、文脈で「主語 + 動詞原形が直後に来る」ときは <em>finna</em> の可能性を疑ってみてほしい。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑧ fullies in the coupe -->
+      <LearningUnit
+        heading="front street / fullies in the coupe — 「隠れない宣言」と武装語彙"
+        label="★ スラング（武装語彙）"
+        mc="Prodigy（Verse 4）"
+        t={TS["fullies-in-the-coupe"].t} tApprox={TS["fullies-in-the-coupe"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">We right on <QuickSlang word="front street" desc="「表通り（で堂々と）」。隠れず、公然と行動する状態。「on front street」＝公の場に晒す、堂々と存在する" /> with the <QuickSlang word="fullies" desc="フルオートマチック（全自動）銃器の俗称。「full auto」の短縮形" /> in the coupe</Fragment>
+        <Fragment slot="jpn">俺たちは表通りに堂々と、クーペ（車）にフルオート（銃）を積んで</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 4終盤、Prodigyが「隠れない」という宣言をする件。</p>
+        <p>「We right on <strong class="text-[var(--c-text)]">front street</strong>」——まず <strong class="text-[var(--c-text)]">front street</strong> から。「表通り、公の場」という意味のスラングで、<em>on front street</em> で「隠さず公然と」のニュアンスになる。「俺たちはここにいる、隠れていない」という非常にアグレッシブな宣言。「with the <strong class="text-[var(--c-text)]">fullies</strong>」の <strong class="text-[var(--c-text)]">fullies</strong> は <em>full auto</em>（フルオートマチック銃）の短縮形。<strong class="text-[var(--c-text)]">coupe</strong>（クーペ）は2ドア車を指し、高級車や移動手段として頻出するヒップホップ語彙。「クーペにフルオートを積んで表通りに堂々と居る」という一行で、Prodigyはヴァース4全体の方向性——威圧と自己誇示——を一気に凝縮している。ヴァース1の「仲間への誓約」から、ヴァース4では「自己誇示と武装宣言」へとトーンが変わっているのも面白い。両方のベクトルが「hold you down（支え続ける）」というタイトルの下に共存している。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">put (someone) on front street</strong> は「（秘密や弱みを）公衆の面前に晒す、恥をかかせる」の意で使われることも多い。例: <em>Why you put me on front street like that?</em>（なんであんな場で俺のことバラすんだよ）。方向性が逆（「晒される側」）になるが同じ「front street = 公の場」の概念から来ている。<code>coupe</code> は発音が「クープ」（クーペの仏語読み）で、ライムに使いやすいためヒップホップではほぼ定番語。</p>
+        </Fragment>
+      </LearningUnit>
+    </section>
+
+    <!-- ===================== -->
+    <!-- 文化的背景            -->
+    <!-- ===================== -->
+    <section id="background" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        文化的背景
+      </h2>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">クイーンズブリッジ（QB）</p>
+        <h3 class="font-semibold text-base mb-3">Mobb Deepが育った、米国最大規模の公営団地</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          クイーンズブリッジ・プロジェクトはニューヨーク市クイーンズ区にある公営住宅群で、建設当時は米国最大規模だった。NasやMobb Deep（Havoc & Prodigy）、Marley Marlなど多くのヒップホップ伝説を輩出した場所として知られる。Prodigyのリリックに流れる「報告するように淡々と語る」冷たい温度感と、感傷を排した事実の積み上げ——そのスタイルはQBという特定の地理から育まれたものだ。「クイーンズブリッジの出身」という事実が、彼らのラップに地名以上の重みを与えている。
+        </p>
+      </div>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">2004年のヒップホップ地図</p>
+        <h3 class="font-semibold text-base mb-3">Kanye対G-Unitの二極化の隙間で</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          2004年はKanye Westがソウルサンプリングを洗練させた『The College Dropout』をリリースし、50 CentとG-Unitがギャングスタ路線で席巻していた時期。The Alchemistは、ソウルをサンプリングするという手法はKanye的な文脈と重なりながらも、流行の高揚感やポップ志向を完全に拒否し、NYハードコアの暗くソリッドなテクスチャを保った。同年に活躍を始めたレゲトンシーンのNina Skyを起用したことは、ストリートのメッセージをラジオ・クラブ向けにクロスオーバーさせる戦略的な選択だったとも言える。
+        </p>
+      </div>
+
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">キーワード早見表</p>
+        <h3 class="font-semibold text-base mb-3">この曲で学んだ表現の整理</h3>
+        <div class="space-y-3 mt-3">
+          {[
+            ['hold you down', '側に居続ける・見捨てない・支え続ける。恋愛からストリートの忠誠まで文脈で意味が変わる'],
+            ['finna', 'fixing toの短縮。AAVEの近接未来マーカー。「もうすぐ〜する」の切迫感'],
+            ['get wigged', '撃たれる・殺される。wigが動詞転用された暗語'],
+            ['the box', '独房・刑務所全般を指すスラング'],
+            ['take the stand', '証言台に立つ＝仲間を売る。沈黙の掟（オメルタ）の文脈で登場'],
+            ['foreverly', 'foreverにAAVE的な-lyを付けたProdigyの強調語形'],
+            ['front street', '公の場・堂々と。on front street = 隠さず公然と'],
+            ['fullies', 'フルオートマチック銃器の俗称'],
+          ].map(([term, desc]) => (
+            <div class="flex gap-3 text-sm">
+              <span class="text-[var(--c-gold)] shrink-0 font-semibold min-w-[120px]">{term}</span>
+              <span class="text-[var(--c-muted)]">{desc}</span>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
 
-    <!-- レガシー -->
-    <div id="legacy"></div>
+    <!-- ===================== -->
+    <!-- サンプル・制作の裏側    -->
+    <!-- ===================== -->
+    <section id="behind" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        サンプル・制作の裏側
+      </h2>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">サンプル元</p>
+        <h3 class="font-semibold text-base mb-3">Al Kooper「Love Theme from "The Landlord"」（1970）</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          このビートの背骨になっているメランコリックなギターとストリングスの断片は、<strong class="text-[var(--c-text)]">Al Kooper</strong>（ブルース・プロジェクト、ブラッド・スウェット＆ティアーズで知られるミュージシャン）が1970年の映画『The Landlord』のために書いたラブテーマから取られている。甘く叙情的な映画音楽を素材に選んで、そこにハードなドラムと低体温のラップを重ねることで、オリジナルの温かさを逆算的に壊してダークな色に塗り替えていく——The Alchemistのサンプリング哲学がよく表れたチョイスだ。原曲の美しさを知ってから聴くと、この「温度差」がより面白く聞こえます。
+        </p>
+      </div>
+
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">制作コンセプト</p>
+        <h3 class="font-semibold text-base mb-3">プロデューサーが主役を張るアルバムの先駆け</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          『1st Infantry』（2004）は、The Alchemistのデビューソロアルバムとして、「プロデューサーが名前を冠し、豪華な客演を集めて一枚を作る」というフォーマットをNYハードコアのフィールドに持ち込んだ。後にMadlib（Madvillainy）やDJ Premier（Rooftop Riddimz）らが踏み固めていくプロデューサー主導型アルバムの潮流の一つとして位置付けられる。The Alchemist自身もヴァース2でマイクを持ち、「音楽が俺の代わりにお前を支え続ける（the music still hold you down）」と語ることで、ビートメイカーとしてのアイデンティティを誓約の言葉で表現した——これがこのアルバムのコンセプトと整合しているのが面白い。
+        </p>
+      </div>
+    </section>
+
+    <!-- ===================== -->
+    <!-- 評価と影響            -->
+    <!-- ===================== -->
+    <section id="legacy" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        評価とその後
+      </h2>
+
+      <div class="mb-4 rounded-lg overflow-hidden border border-[var(--c-border)] text-sm">
+        <div class="grid grid-cols-3 bg-[var(--c-bg)] text-[var(--c-very-dim)] text-xs uppercase tracking-widest">
+          <div class="p-3 border-b border-[var(--c-border)]">指標</div>
+          <div class="p-3 border-b border-l border-[var(--c-border)]">記録</div>
+          <div class="p-3 border-b border-l border-[var(--c-border)]">備考</div>
+        </div>
+        {[
+          ['Billboard Hot 100', '95位', '2004年チャートイン。アンダーグラウンドのハードコアがメインストリームの壁を突破'],
+          ['Hot R&B/Hip-Hop Songs', '47位', 'クロスオーバー成功の証明。Nina Skyのフックがラジオ親和性を生んだ'],
+          ['収録アルバム', '1st Infantry（2004）', 'The AlchemistのデビューソロアルバムのリードシングルとしてKoch Recordsよりリリース'],
+        ].map(([metric, record, significance]) => (
+          <div class="grid grid-cols-3">
+            <div class="p-3 border-b border-[var(--c-border)] text-[var(--c-dim)]">{metric}</div>
+            <div class="p-3 border-b border-l border-[var(--c-border)] text-[var(--c-gold)] font-medium">{record}</div>
+            <div class="p-3 border-b border-l border-[var(--c-border)] text-[var(--c-muted)] text-xs">{significance}</div>
+          </div>
+        ))}
+      </div>
+
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">後世への影響</p>
+        <h3 class="font-semibold text-base mb-3">「Alchemist節」の確立</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed mb-3">
+          「Hold You Down」がリードシングルとして機能したことで、The Alchemistの名前はプロデューサーとしてだけでなく、「NYハードコアを代表するアルバムアーティスト」として広く認知されるようになった。その後、Mobb Deep・Prodigy・Ghostface Killah・Eminemなど多くのトップアーティストへの楽曲提供を続けながら、2010年代にはEvilgeniusシリーズを中心に「Alchemist節」——ソウルサンプリングとハードなビートの融合——を深化させていく。
+        </p>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          Prodigyは2017年に亡くなったが、「Hold You Down」はMobb Deep / Prodigyの2000年代の代表的な記録として今も聴かれ続けている。「foreverly hold you down」という言葉が、皮肉にも彼自身の遺産を語るフレーズになってしまった——と言ったら大げさかもしれないが、そう聞こえても仕方ない重さが今はある。
+        </p>
+      </div>
+    </section>
+
+    <!-- まとめ -->
     <section class="mb-12">
       <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Legacy · 評価とその後の影響
+        まとめ
       </h2>
-      <div class="space-y-4 text-sm text-[var(--c-muted)] leading-relaxed">
-        <p>「Hold You Down」のヒットはThe Alchemistを「ビートを売るだけの裏方」から「アルバムをトータル・キュレーションするプロデューサー・アーティスト」へと押し上げた。翌2005年にはEmineのオフィシャル・ツアーDJに大抜擢され、世界最高峰のラッパーの右腕となった。</p>
-        <p><strong>日本への影響：</strong>2004年当時、専門誌『blast』のレビューで絶賛され、渋谷のマンハッタンレコードやシスコでの輸入盤12インチが瞬く間に完売した。DINARY DELTA FORCEのDUSTY HUSKYや16FLIPらがミックステープに収録し、プロデューサーhokutoは「高校生の時にThe Alchemistのスタイルに衝撃を受け、即座にタワーレコードへ走った」と語る。JJJはThe Alchemistの来日時に渋谷のマンハッタンレコードへサインをもらいに走り「彼がいなければ自分はヒップホップの世界で生きていこうとは思わなかった」と証言している。</p>
-        <p><strong>プロデューサー主導型パラダイムの先駆け：</strong>The AlchemistがそのキャリアでEarl Sweatshirt、Freddie Gibbs、Action Bronsonらと築いた「プロデューサーが全体をキュレーションするアルバム」の先例は、まさに「Hold You Down」を収録した『1st Infantry』から始まっている。2020年代のアルバム制作の美学に直結する歴史的出発点。</p>
-      </div>
+      <ul class="space-y-2 text-sm text-[var(--c-muted)] list-disc list-inside leading-relaxed">
+        <li>「hold you down」は文脈で意味が変わる多義イディオム——恋愛的な約束からストリートの命がけの誓約まで、Nina SkyとProdigyが同じ4語を全く異なる温度で歌う構造がこの曲の肝。</li>
+        <li>AAVEの時制マーカー「finna」、副詞造語「foreverly」、コピュラ省略など、辞書に載らない生きた英語文法が密集している。</li>
+        <li>Al Kooperの叙情的なソウルをダーク化するサンプリング——素材の温度を逆転させるAlchemistの手法の好例。</li>
+        <li>プロデューサーが主役を張るアルバム形式の先駆けとして、「1st Infantry」（2004）はNYヒップホップ史の流れの中に位置付けられる。</li>
+      </ul>
     </section>
 
 </SongLayout>

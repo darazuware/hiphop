@@ -1,0 +1,50 @@
+[
+  {
+    "id": "menace-o-dog",
+    "anchor": ["similar", "to", "a", "menace"],
+    "fallbackT": 20,
+    "manualSec": null
+  },
+  {
+    "id": "sentenced-to-box",
+    "anchor": ["sentenced", "to", "life", "stressed"],
+    "fallbackT": 35,
+    "manualSec": null
+  },
+  {
+    "id": "foreverly",
+    "anchor": ["foreverly", "hold", "you", "down"],
+    "fallbackT": 62,
+    "manualSec": null
+  },
+  {
+    "id": "hold-you-down-hook",
+    "anchor": ["even", "when", "shit", "gets", "hard"],
+    "fallbackT": 82,
+    "manualSec": null
+  },
+  {
+    "id": "dying-first",
+    "anchor": ["never", "leave", "my", "fam", "in", "a", "jam"],
+    "fallbackT": 115,
+    "manualSec": null
+  },
+  {
+    "id": "cooks-the-pot",
+    "anchor": ["you", "know", "how", "we", "cooks", "the", "pot"],
+    "fallbackT": 142,
+    "manualSec": null
+  },
+  {
+    "id": "finna-get-wigged",
+    "anchor": ["somebody", "finna", "get", "wigged"],
+    "fallbackT": 272,
+    "manualSec": null
+  },
+  {
+    "id": "fullies-in-the-coupe",
+    "anchor": ["fullies", "in", "the", "coupe"],
+    "fallbackT": 295,
+    "manualSec": null
+  }
+]

@@ -1,0 +1,82 @@
+[
+  {
+    "id": "menace-o-dog",
+    "whisperSec": 24.8,
+    "manualSec": null,
+    "fallbackT": 20,
+    "t": 24.8,
+    "source": "whisper",
+    "approx": true,
+    "score": 1
+  },
+  {
+    "id": "sentenced-to-box",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 35,
+    "t": 35,
+    "source": "fallback",
+    "approx": true,
+    "score": 0.25
+  },
+  {
+    "id": "foreverly",
+    "whisperSec": 71.2,
+    "manualSec": null,
+    "fallbackT": 62,
+    "t": 71.2,
+    "source": "whisper",
+    "approx": true,
+    "score": 0.5
+  },
+  {
+    "id": "hold-you-down-hook",
+    "whisperSec": 214.9,
+    "manualSec": null,
+    "fallbackT": 82,
+    "t": 214.9,
+    "source": "whisper",
+    "approx": true,
+    "score": 0.6
+  },
+  {
+    "id": "dying-first",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 115,
+    "t": 115,
+    "source": "fallback",
+    "approx": true,
+    "score": 0.29
+  },
+  {
+    "id": "cooks-the-pot",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 142,
+    "t": 142,
+    "source": "fallback",
+    "approx": true,
+    "score": 0.14
+  },
+  {
+    "id": "finna-get-wigged",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 272,
+    "t": 272,
+    "source": "fallback",
+    "approx": true,
+    "score": 0
+  },
+  {
+    "id": "fullies-in-the-coupe",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 295,
+    "t": 295,
+    "source": "fallback",
+    "approx": true,
+    "score": 0.25
+  }
+]
