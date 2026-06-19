@@ -1,0 +1,82 @@
+[
+  {
+    "id": "dead-presidents-title",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 8,
+    "t": 8,
+    "source": "fallback",
+    "approx": true,
+    "score": 0
+  },
+  {
+    "id": "conglomerate",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 28,
+    "t": 28,
+    "source": "fallback",
+    "approx": true,
+    "score": 0
+  },
+  {
+    "id": "kosher-hasidic",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 65,
+    "t": 65,
+    "source": "fallback",
+    "approx": true,
+    "score": 0
+  },
+  {
+    "id": "narcin-bargain",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 80,
+    "t": 80,
+    "source": "fallback",
+    "approx": true,
+    "score": 0
+  },
+  {
+    "id": "no-puddin",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 142,
+    "t": 142,
+    "source": "fallback",
+    "approx": true,
+    "score": 0
+  },
+  {
+    "id": "sl-bail-toast",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 158,
+    "t": 158,
+    "source": "fallback",
+    "approx": true,
+    "score": 0
+  },
+  {
+    "id": "rico-good-week",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 185,
+    "t": 185,
+    "source": "fallback",
+    "approx": true,
+    "score": 0
+  },
+  {
+    "id": "money-play-out",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 210,
+    "t": 210,
+    "source": "fallback",
+    "approx": true,
+    "score": 0
+  }
+]

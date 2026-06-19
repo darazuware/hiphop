@@ -1,568 +1,316 @@
 ---
-import LyricsBlock from '../../components/LyricsBlock.astro';
+import LearningUnit from '../../components/LearningUnit.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
 import SongLayout from '../../layouts/SongLayout.astro';
+
+import tsData from '../../../agent/dead-presidents/assets/units-timestamps.json';
+const YT = "hCKXOgHmWhQ";
+const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.approx }]));
 ---
 
 <SongLayout
-  title="Dead Presidents 和訳・意味・スラング解説 | Jay-Z"
-  description="Jay-Zの「Dead Presidents」(DP1)の歌詞和訳とスラング解説。Ski Beatzプロデュース、Nasフック・サンプリング使用のRoc-A-Fella旗揚げシングル（1996）を完全解説。Jay-Z vs. Nasビーフの起点となった歴史的一曲。"
+  title="Dead Presidents 和訳・スラング解説 | Jay-Z"
+  description="Jay-Zのデビューシングル「Dead Presidents」（1996）をスラング・韻・ビジネス語彙の観点で精読。Ski Beatz×Nasサンプル、RICO法・conglomerate・kosherなどのストリート用語をPV頭出しリンク付きで解説。"
   slug="dead-presidents"
-  youtubeId="hCKXOgHmWhQ"
   highlights={[
-    '「Dead Presidents」= 紙幣（大統領の肖像）= お金——ジェイ・Zがストリート経済を資本主義の言語で語り始めた歴史的デビューシングル',
-    'Nasの「The World Is Yours」フックを無断サンプリング——後のJay-Z vs. Nasビーフの直接の起点',
-    'Ski Beatsが偶然逆再生スネアを得た録音秘話——奇跡的なプロダクションの産物',
+    '「Dead Presidents」= 紙幣——ストリートの言葉でビジネスと金を語った歴史的シングル',
+    'Ski BeatzがNasの「The World Is Yours」をサンプリング——後のJay-Z vs. Nasビーフの起点',
+    'conglomerate・RICO・kosherなど、法律・宗教・企業用語を横断するJay-Zの語彙を徹底解剖',
   ]}
+  youtubeId="hCKXOgHmWhQ"
 >
-    <div id="lyrics"></div>
 
-    <!-- INTRO -->
-    <section class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Intro · Nas &amp; JAŸ-Z
-      </h2>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          —Presidents to represent me (Get money, rock on, Roc-A-Fella, y'all)
-        </Fragment>
-        <Fragment slot="jpn">
-          ——大統領たちに俺を代表させる（金を稼げ、ロック・オン、ロッカフェラ）
-        </Fragment>
-        <Fragment slot="explanation">
-          「Presidents to represent me」はNasの「The World Is Yours」（1994）からのサンプル。「dead presidents」= アメリカ紙幣のスラング（ジョージ・ワシントンやリンカーンらの肖像から）。Roc-A-Fella = Jay-Zが1994年に設立した自主レーベル。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={false}>
-        <Fragment slot="eng">
-          I'm out for presidents to represent me (Get money)<br />
-          I'm out for presidents to represent me (Get money)<br />
-          I'm out for dead f***in' presidents to represent me (Whose—)
-        </Fragment>
-        <Fragment slot="jpn">
-          俺は大統領たちに俺を代表させたい（金を稼げ）<br />
-          俺は大統領たちに俺を代表させたい（金を稼げ）<br />
-          俺は死んだ大統領たちに俺を代表させたい（誰が——）
-        </Fragment>
-      </LyricsBlock>
+    <!-- 導入 -->
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■ビジネス語彙でストリートを書き直す</h2>
+      <p class="text-sm text-[var(--c-muted)] leading-relaxed">
+        1996年2月、Jay-ZはDamon DashとBiggs Burkeが立ち上げたばかりの自主レーベル<strong class="text-[var(--c-text)]">Roc-A-Fella Records</strong>から12インチシングルとしてこの曲をリリースした。メジャー契約なし、プロモ予算もほぼなし——それでもニューヨークのクラブで火がついた。「Dead Presidents（死んだ大統領たち）」とはドル紙幣のスラングで、紙幣に印刷された歴代大統領の肖像から来ている。金への執念を語りながら、その金に翻弄される自分を冷静に見つめるような複雑な視点が、Jay-Zの初期リリシズムの核だ。この記事では英語学習とヒップホップ理解の教材として読んでもらえればと思います。
+      </p>
     </section>
 
-    <!-- QUICK SLANG -->
-    <div class="mb-10 flex flex-wrap gap-3">
-      <QuickSlang term="Dead Presidents" reading="デッド・プレジデンツ" meaning="紙幣・現金（大統領の肖像が印刷された米ドル紙幣）" />
-      <QuickSlang term="Conglomerate" reading="コングロマリット" meaning="複合企業——ドラッグディーラーをCEOになぞらえる" />
-      <QuickSlang term="Cream" reading="クリーム" meaning="金・現金（Cash Rules Everything Around Me の略でも）" />
-      <QuickSlang term="NARC'in" reading="ナーキン" meaning="麻薬捜査官に情報を流すこと・密告" />
-      <QuickSlang term="RICO" reading="リコ" meaning="組織犯罪処罰法（Racketeer Influenced and Corrupt Organizations Act）" />
-      <QuickSlang term="Presidential" reading="プレジデンシャル" meaning="ロレックス デイデイト（プレジデント・ブレスレット）= 超高級時計" />
-    </div>
-
-    <!-- VERSE 1 -->
-    <section class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Verse 1 · JAŸ-Z
-      </h2>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          While others spit that Wonderama s**t, me and my conglomerate<br />
-          Shall remain anonymous, caught up in the finest s**t
-        </Fragment>
-        <Fragment slot="jpn">
-          他のやつらがワンダラマ（子供番組）みたいなくだらないラップをしてる間<br />
-          俺と俺のコングロマリットは匿名のまま、最高のものに包まれている
-        </Fragment>
-        <Fragment slot="explanation">
-          「Wonderama」= 1950〜70年代のNY子供向けテレビ番組——幼稚なラップへの侮辱。「conglomerate（複合企業）」= ドラッグビジネスを企業経営に見立てる、Jay-Z独自のビジネス哲学の宣言。「anonymous（匿名）」= 当局に追われないよう目立たず動く用心深さ。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Live out my dreams until my heart give out<br />
-          Involved with cream, you know exactly what this s**t's about
-        </Fragment>
-        <Fragment slot="jpn">
-          心臓が止まるまで夢を生き続ける<br />
-          金に関わっている——このことが何を意味するか、お前には分かるだろ
-        </Fragment>
-        <Fragment slot="explanation">
-          「cream」= 金・現金のスラング。「until my heart give out」= 死ぬまで——ストリートの生き様への執念。ブルックリン・マーシー・プロジェクトで育ったJay-Zが、ラップではなくドラッグで生き抜いていた時代の本音。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          f**k y'all mean? Handlin' since a teen, I dish out<br />
-          Like the point guard off your favorite team, without doubt
-        </Fragment>
-        <Fragment slot="jpn">
-          何が言いたい？ 10代から仕切ってきた、俺は配給する<br />
-          お前のお気に入りのチームのポイントガードのように、間違いなく
-        </Fragment>
-        <Fragment slot="explanation">
-          「handlin' since a teen」= 10代からドラッグを取り扱ってきた。「dish out」= 配給する（ドラッグの配布）。ポイントガードの比喩——ゲームを支配し、パスを出す司令塔として自分を描く。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          My life ain't rosy but I roll with it<br />
-          My mind was fine 'till the dough hit it and told me that the Mo' did it
-        </Fragment>
-        <Fragment slot="jpn">
-          俺の人生は薔薇色じゃないが、それでも続けている<br />
-          金が頭に入ってくるまでは正気だった——そしてモエ（シャンパン）がやらかしてくれた
-        </Fragment>
-        <Fragment slot="explanation">
-          「dough」= お金のスラング。「Mo'」= Moët（モエ・シャンドン）シャンパン——当時ハスラーのステータスシンボル。金とシャンパンが理性を狂わせるという自己批判的な告白。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          And now it's kosher, s**t is so Hasidic<br />
-          I blow a digit on a diamond in a minute but, no b***hes
-        </Fragment>
-        <Fragment slot="jpn">
-          今やすべて適正（コーシャー）——ユダヤ教の戒律みたいに厳格だ<br />
-          ダイヤモンドに一桁万ドルは一瞬で使うが、女には金を使わない
-        </Fragment>
-        <Fragment slot="explanation">
-          「kosher」= ユダヤ教の食事規定「コーシャ」= 適正・問題なし。「Hasidic」= ハシディズム（ユダヤ教超正統派）——ブルックリンのウィリアムズバーグに多く居住。「blow a digit」= 5〜6桁のドルを使う。ダイヤには金を使うが女には使わないという冷徹さ。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Watch how I'm walkin', 'cause even the thoroughest n***as be NARC'in<br />
-          Tryin' to strike a bargain, hopin' that they might get pardoned
-        </Fragment>
-        <Fragment slot="jpn">
-          俺の歩き方を見ろ——最も筋の通ったやつでさえ密告者になる<br />
-          取引を成立させようとして、恩赦を望んでいる
-        </Fragment>
-        <Fragment slot="explanation">
-          「thoroughest n***as be NARC'in」= 最も信頼できると思っていた男が麻薬捜査官に協力して密告する——ストリートの裏切りへの警戒。「strike a bargain」= 司法取引——刑を軽くするために仲間を売ること。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          s**t I'm involved with got me pins and needles<br />
-          And my cerebral breeds the wickedest evil, thoughts that this sport'll feed you
-        </Fragment>
-        <Fragment slot="jpn">
-          俺が関わっていることで神経がピリピリしている<br />
-          そして俺の脳は最も邪悪な悪を育て——このゲームがお前に与える考えを
-        </Fragment>
-        <Fragment slot="explanation">
-          「pins and needles」= ヒリヒリする・神経質になる（慣用句）。「cerebral」= 脳・知性——「this sport」= ドラッグゲーム。ストリートに生きることで脳が腐食されていく感覚を知的な言語で描写。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Peep facts, in the game so deep fiends could catch a<br />
-          Freeze off my kneecap, can y'all believe that?
-        </Fragment>
-        <Fragment slot="jpn">
-          事実を見ろ——ゲームにこれほど深く入っているから<br />
-          中毒者たちが俺の膝から凍りつくほどの冷気を受けるくらいだ——信じられるか？
-        </Fragment>
-        <Fragment slot="explanation">
-          「fiends」= 中毒者・常用者。「catch a freeze off my kneecap」= Jay-Zの存在感・クールさが強烈すぎて、中毒者でさえ凍りつくというハイパーボリックな誇示。ゲームへの深い関与を強調。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Got the city drinkin' Cristals, re-up the fee<br />
-          Rappers goin' broke tryin' to keep up with me
-        </Fragment>
-        <Fragment slot="jpn">
-          街にクリスタル（シャンパン）を飲ませている、報酬を更新する<br />
-          ラッパーたちは俺についていこうとして破産していく
-        </Fragment>
-        <Fragment slot="explanation">
-          「Cristal（クリスタル）」= Louis Roederer Cristal——最高級シャンパン、当時ヒップホップの究極のステータスシンボル。「re-up the fee」= 報酬・手数料を更新する。自分のライフスタイルを模倣しようとしたラッパーが破産していくという優越感。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          My rise to riches surprised the b***hes, think harder<br />
-          You know this n***a, JAŸ-Z, Shawn Carter
-        </Fragment>
-        <Fragment slot="jpn">
-          俺の富への上昇は女たちを驚かせた——もっと考えろ<br />
-          このn***aを知っているだろ——JAŸ-Z、ショーン・カーター
-        </Fragment>
-        <Fragment slot="explanation">
-          「rise to riches」= 一文無しから富へ。「think harder」= 俺の言っていることの意味を深く考えろ。「Shawn Carter」= Jay-Zの本名——デビュー曲で本名を明かす大胆なフレックス。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          G.S. the f**k up, dree-ess the f**k up<br />
-          Watch me shine like a Breitling, Breguets the f**k up
-        </Fragment>
-        <Fragment slot="jpn">
-          G.S.（レクサスGS）を乗り回して、着飾って<br />
-          ブライトリング（時計）のように輝く俺を見ろ——ブレゲもだ
-        </Fragment>
-        <Fragment slot="explanation">
-          「G.S.」= レクサスGS 300——当時ハスラーのステータスカー。「dree-ess（dress）the f**k up」= 高級品で着飾る。「Breitling」= スイスの高級時計ブランド。「Breguets」= フランスの超高級時計ブレゲ——時計で富を誇示。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          All rhymers forget it like Alzheimer's<br />
-          Small timers, I said it, I'm addressin' all drama
-        </Fragment>
-        <Fragment slot="jpn">
-          すべてのライマーはアルツハイマーのように忘れろ<br />
-          小物たち、言ったぞ——俺はすべてのドラマに対処する
-        </Fragment>
-        <Fragment slot="explanation">
-          「Alzheimer's（アルツハイマー）」と「rhymers（ライマー）」の脚韻。「small timers」= 小物・格下——他のラッパーを見下す表現。1996年のデビュー前から俺がトップだという宣言。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={false}>
-        <Fragment slot="eng">
-          Talk to me
-        </Fragment>
-        <Fragment slot="jpn">
-          俺に話しかけてみろ
-        </Fragment>
-      </LyricsBlock>
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■この曲が英語教材として面白い理由</h2>
+      <p class="text-sm text-[var(--c-muted)] leading-relaxed">
+        Jay-Zのリリックの特徴は、<strong class="text-[var(--c-text)]">企業・法律・宗教の専門用語をストリートスラングと同じ一行に混ぜる</strong>こと。conglomerate（複合企業）、RICO（組織犯罪処罰法）、kosher（ユダヤ教の戒律＝問題なし）——どれも辞書通りの意味ではなく、ストリートの文脈に引き込まれた語彙として使われている。そこが他のMCと一線を画す部分で、解読する面白さがある。プロデューサーの<strong class="text-[var(--c-text)]">Ski Beatz</strong>（本名David Willis）はNasの「The World Is Yours (Tip Mix)」（1994）からフックをサンプリングし、Lonnie Liston Smithの「A Garden of Peace」（1975）のジャズピアノと組み合わせた。そのサンプリングが後の<strong class="text-[var(--c-text)]">Jay-Z vs. Nasビーフ</strong>の火種のひとつになった、というおまけ付きで（2001年に「Takeover」vs「Ether」で全面化し、2005年のコンサートで和解する）。
+      </p>
     </section>
 
-    <!-- CHORUS 1 -->
-    <section class="mb-12">
+    <!-- 目次 -->
+    <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
+      <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
+        <li><a href="#story" class="hover:text-[var(--c-gold)] transition-colors">01 — ストーリーの流れ</a></li>
+        <li><a href="#units" class="hover:text-[var(--c-gold)] transition-colors">02 — 学ぶ表現（スラング・韻・言葉遊び・AAVE）</a></li>
+        <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">03 — 文化的背景</a></li>
+        <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">04 — サンプル・制作の裏側</a></li>
+        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">05 — レガシー</a></li>
+      </ol>
+    </nav>
+
+    <!-- ストーリー -->
+    <section id="story" class="mb-12">
       <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Chorus · Nas &amp; JAŸ-Z
+        ストーリーの流れ — まず曲全体をつかむ
       </h2>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          I'm out for presidents to represent me (Get money)<br />
-          I'm out for presidents to represent me (Get money)<br />
-          I'm out for presidents to represent me (Get money)<br />
-          I'm out for dead f***in' presidents to represent me (Whose—, believe that)
-        </Fragment>
-        <Fragment slot="jpn">
-          俺は大統領たちに俺を代表させたい（金を稼げ）<br />
-          俺は大統領たちに俺を代表させたい（金を稼げ）<br />
-          俺は大統領たちに俺を代表させたい（金を稼げ）<br />
-          俺は死んだ大統領たちに俺を代表させたい（誰が——信じろ）
-        </Fragment>
-        <Fragment slot="explanation">
-          このフックはNasの「The World Is Yours (Tip Mix)」（1994）からのサンプル。Ski Beatsが「クリーン版」レコードをサンプリングした際、逆再生処理された「f***in'」の箇所のスネアドラムも偶然逆再生され、それがビートと完璧にハマるという奇跡が生まれた。政治家（大統領）ではなく「金（紙幣上の死んだ大統領）」だけが自分を代表するというシニカルな資本主義批判。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={false}>
-        <Fragment slot="eng">
-          I'm out for presidents to represent me (Get money)<br />
-          I'm out for presidents to represent me (Get money)<br />
-          I'm out for presidents to represent me (Get money)<br />
-          I'm out for dead f***in' presidents to represent me (Whose—)
-        </Fragment>
-        <Fragment slot="jpn">
-          俺は大統領たちに俺を代表させたい（金を稼げ）<br />
-          俺は大統領たちに俺を代表させたい（金を稼げ）<br />
-          俺は大統領たちに俺を代表させたい（金を稼げ）<br />
-          俺は死んだ大統領たちに俺を代表させたい（誰が——）
-        </Fragment>
-      </LyricsBlock>
-    </section>
-
-    <!-- VERSE 2 -->
-    <section class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Verse 2 · JAŸ-Z
-      </h2>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          So sick of n***as, "I want money like Cosby," who wouldn't?<br />
-          This the kinda talk that make me think you probably ain't got no puddin'
-        </Fragment>
-        <Fragment slot="jpn">
-          n***aたちにうんざりだ——「コスビーみたいに金持ちになりたい」、なりたくない奴がいるか？<br />
-          そういう話を聞くと、お前には中身（実力）がないんだろうなと思う
-        </Fragment>
-        <Fragment slot="explanation">
-          「Cosby」= Bill Cosby——当時テレビで最も成功した黒人エンターテイナー。「ain't got no puddin'」= プリンがない = 証明する実績・中身がない（ことわざ「The proof is in the pudding（実績で証明しろ）」から）。夢を語るだけで行動しない者への批判。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          n***as got them kinda dreams from jail<br />
-          You in the streets, n***a, make your moves, get your mail
-        </Fragment>
-        <Fragment slot="jpn">
-          n***aたちはそういう夢を刑務所で見る<br />
-          お前はストリートにいる——動け、金を稼げ
-        </Fragment>
-        <Fragment slot="explanation">
-          「mail」= お金のスラング（郵便→小切手→現金のイメージ）。刑務所の中でしか夢を見ない奴と、ストリートで実際に動いて金を作る奴の対比。行動主義の哲学。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          n***as'll coast in the SL but can't post bail<br />
-          n***as'll roast a L, but scared to throw your toast, well
-        </Fragment>
-        <Fragment slot="jpn">
-          SL（メルセデス）を乗り回しても保釈金を払えないn***a<br />
-          L（マリファナ）を吸っても、銃を向けるのは怖いn***a
-        </Fragment>
-        <Fragment slot="explanation">
-          「SL」= メルセデス・ベンツSLクラス——高級スポーツカー。「post bail」= 保釈金を払う。「roast a L」= マリファナを吸う（Lはブラント・タバコ葉で巻いたもの）。「toast」= 銃のスラング。見た目は派手でも肝心な時に動けない偽物への軽蔑。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          I'm here to tell n***as it ain't all swell<br />
-          There's heaven, then there's hell, n***as
-        </Fragment>
-        <Fragment slot="jpn">
-          n***aたちに言っておく——すべてが順調なわけじゃない<br />
-          天国があれば、地獄もある
-        </Fragment>
-        <Fragment slot="explanation">
-          「swell」= 素晴らしい（スラング）。ストリートのグラマラスな側面だけでなく、地獄のような危険と隣り合わせの現実を直視させる。ヒップホップのアンセムとしての警告——「Dead Presidents」は金の賛歌であると同時に、その代償を語る曲でもある。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          One day you're cruisin' in your 7, next day, you're sweatin', forgettin' your lies<br />
-          Alibis ain't matchin' up, bulls**t catchin' up
-        </Fragment>
-        <Fragment slot="jpn">
-          ある日はベンツ7シリーズ（BMW）でクルージング、次の日は嘘を忘れて汗をかいている<br />
-          アリバイが合わなくなって、でたらめが追いついてくる
-        </Fragment>
-        <Fragment slot="explanation">
-          「7」= BMW 7シリーズ。「sweatin'」= 慌てる・緊張する。警察や敵に追い詰められた時、今まで吐いてきた嘘が崩れていく瞬間——ストリートの転落の描写として極めてリアル。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Hit with the RICO, they repo your vehicle<br />
-          Everything was all good just a week ago
-        </Fragment>
-        <Fragment tool="jpn">
-          RICO法で摘発され、車も没収される<br />
-          ついこの間まで何もかもうまくいっていたのに
-        </Fragment>
-        <Fragment slot="jpn">
-          RICO法で摘発され、車も没収される<br />
-          ついこの間まで何もかもうまくいっていたのに
-        </Fragment>
-        <Fragment slot="explanation">
-          「RICO」= 組織犯罪処罰法——麻薬組織のリーダーも含めて起訴できる強力な法律。「repo your vehicle」= 車を差し押さえる。「Everything was all good just a week ago」= Jay-Zの最も引用される名フレーズのひとつ——成功の絶頂から転落までの速さ。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          'Bout to start b***hin', ain't you? Ready to start snitchin', ain't you?<br />
-          I'll forgive your weak ass, hustlin' just ain't you
-        </Fragment>
-        <Fragment slot="jpn">
-          泣き言を言い始めようとしてるだろ？ 密告する準備ができてるだろ？<br />
-          お前の情けない姿を許してやる——ハッスルはお前には向いていない
-        </Fragment>
-        <Fragment slot="explanation">
-          「b***hin'」= 泣き言・愚痴。「snitchin'」= 密告。二つの単語が脚韻——司法取引を選んだ仲間への軽蔑と諦め。「hustlin' just ain't you」= ストリートのゲームはお前には合っていない——冷徹な切り捨て。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Aside from the fast cars, honeys that shake they ass at bars<br />
-          You know you wouldn't be involved
-        </Fragment>
-        <Fragment slot="jpn">
-          速い車と、バーで踊る女たちがなければ<br />
-          お前はこんなことに関わっていないだろ
-        </Fragment>
-        <Fragment slot="explanation">
-          「honeys that shake they ass at bars」= バーやクラブで踊る女性たち。ストリートにいる動機が「金・車・女」という表面的な見栄であることへの皮肉——本当の危険と覚悟がなければゲームに入るな、という警告。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          With the underworld dealers, carriers of MAC-millers<br />
-          East Coast bodiers, West Coast cap-peelers
-        </Fragment>
-        <Fragment slot="jpn">
-          地下経済のディーラーたち、MAC（マシンピストル）使い<br />
-          イーストコーストの殺し屋、ウェストコーストの頭部を狙う者
-        </Fragment>
-        <Fragment slot="explanation">
-          「MAC-millers」= MAC-10・MAC-11（マシンピストル）を持ち歩く者。「bodiers」= 人を殺す者（body = 死体から）。「cap-peelers」= 頭（cap）を撃ち抜く者。東西両岸の暴力の象徴を対比——1996年当時の東西ビーフの文脈でも読める。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Little monkey n***as turn gorillas<br />
-          Stopped in the station, filled up on octane, and now they not sane
-        </Fragment>
-        <Fragment slot="jpn">
-          小さな猿のn***aがゴリラに変わる<br />
-          スタンドに止まり、オクタン価の高いガソリンを満タンにして——今や正気じゃない
-        </Fragment>
-        <Fragment slot="explanation">
-          「monkey → gorillas」= 小物が危険な大物へと成長・変貌。「filled up on octane」= 高性能燃料で満タンに（比喩：金や権力を手に入れて暴走した）。ストリートで力を得た者が制御不能になる様子の比喩。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          And not playin', that goes without sayin'<br />
-          Slayin' day in and day out, when money play in, then they play you out
-        </Fragment>
-        <Fragment slot="jpn">
-          冗談じゃない——言うまでもないことだが<br />
-          毎日毎日殺し続ける——金が関わると、今度は金にゲームアウトにされる
-        </Fragment>
-        <Fragment slot="explanation">
-          「playin'」「sayin'」「slayin'」の脚韻が連続。「when money play in, then they play you out」= 金を追いかけると最終的に金に支配される——ストリート経済の皮肉なサイクルを一行で要約する名フレーズ。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Tryin' to escape my own mind, lurkin' the enemy<br />
-          Representin' infinity with presidencies, you know?
-        </Fragment>
-        <Fragment slot="jpn">
-          自分自身の心から逃げようとして、敵を潜伏して追いかける<br />
-          大統領紙幣で無限を体現する——分かるか？
-        </Fragment>
-        <Fragment slot="explanation">
-          「lurkin' the enemy」= 敵（警察・ライバル・自分自身の悪意）を警戒する。「representin' infinity with presidencies」= 紙幣（大統領）で無限の富を象徴する——楽曲のタイトルに戻る締め。内的葛藤と物質的野望の同居がJay-Zの初期リリシズムの核心。
-        </Fragment>
-      </LyricsBlock>
-    </section>
-
-    <!-- BRIDGE -->
-    <section class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Bridge · Nas（サンプル）
-      </h2>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          —Dead f***in' presidents to represent me (Whose—)<br />
-          —Dead f***in' presidents to represent me (Whose—)<br />
-          —Dead f***in' presidents to represent me (Whose—)<br />
-          —Dead f***in' presidents to represent me (Whose—)
-        </Fragment>
-        <Fragment slot="jpn">
-          ——死んだ大統領たちに俺を代表させる（誰が——）<br />
-          ——死んだ大統領たちに俺を代表させる（誰が——）<br />
-          ——死んだ大統領たちに俺を代表させる（誰が——）<br />
-          ——死んだ大統領たちに俺を代表させる（誰が——）
-        </Fragment>
-        <Fragment slot="explanation">
-          Ski BeatsがNasの「The World Is Yours (Tip Mix)」のクリーン盤をサンプリングした際、逆再生（リバース）処理された箇所のスネアドラムも誤って逆再生され、それがビートと完璧に合致する奇跡が起きた。このブリッジはその「事故の産物」のハイライト——ヒップホップ史上最も偶然の美しいプロダクション秘話のひとつ。
-        </Fragment>
-      </LyricsBlock>
-    </section>
-
-    <!-- CHORUS 2 -->
-    <section class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Chorus · Nas（サンプル）
-      </h2>
-
-      <LyricsBlock hasExplanation={false}>
-        <Fragment slot="eng">
-          I'm out for presidents to represent me (Get money)<br />
-          I'm out for presidents to represent me (Get money)<br />
-          I'm out for presidents to represent me (Get money)<br />
-          I'm out for presidents to represent me (Get money)<br />
-          I'm out for presidents to represent me (Get money)<br />
-          I'm out for presidents to represent me (Get money)<br />
-          I'm out for presidents to represent me (Get money)<br />
-          I'm out for dead f***in' presidents to represent me (Whose—)
-        </Fragment>
-        <Fragment slot="jpn">
-          俺は大統領たちに俺を代表させたい（金を稼げ）<br />
-          俺は大統領たちに俺を代表させたい（金を稼げ）<br />
-          俺は大統領たちに俺を代表させたい（金を稼げ）<br />
-          俺は大統領たちに俺を代表させたい（金を稼げ）<br />
-          俺は大統領たちに俺を代表させたい（金を稼げ）<br />
-          俺は大統領たちに俺を代表させたい（金を稼げ）<br />
-          俺は大統領たちに俺を代表させたい（金を稼げ）<br />
-          俺は死んだ大統領たちに俺を代表させたい（誰が——）
-        </Fragment>
-      </LyricsBlock>
-    </section>
-
-    <!-- 文化背景 -->
-    <section class="mb-12 p-6 bg-[var(--c-surface)] rounded-xl border border-[var(--c-border)]">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-4">文化背景 · Cultural Context</h2>
-      <div class="space-y-4 text-sm leading-relaxed text-[var(--c-text-muted)]">
+      <p class="text-xs text-[var(--c-dim)] mb-5">
+        個々のスラングに入る前に、曲が何を語っているかをざっと散文でつかんでおきましょう。全体の輪郭が分かっていると、次の「学ぶ表現」で一語一語を掘るときに、その言葉が曲のどこに置かれているか立体的に見えてくる。
+      </p>
+      <div class="space-y-4 text-sm text-[var(--c-muted)] leading-relaxed">
         <p>
-          「Dead Presidents」は1996年2月20日、Jay-ZがDamon DashとBiggs Burkeと共に設立した自主レーベル
-          <strong class="text-[var(--c-text)]">Roc-A-Fella Records</strong>からリリースされたデビューシングル（DP1）。
-          メジャーレーベルとの契約を得られなかったJay-Zがインディペンデントでリリースしたこの12インチシングルは、
-          瞬く間にNYのクラブシーンを席巻した。
+          曲はNasのサンプルから始まる。「I'm out for presidents to represent me」——「大統領（＝紙幣）が俺を代表してくれればいい」、つまり「金さえあれば」という意味のフレーズが繰り返されるイントロだ。Jay-ZがNas自身の声でこの曲を始めるのは、リスペクトとも挑発とも読める大胆な選択だった。
         </p>
         <p>
-          プロデューサー<strong class="text-[var(--c-text)]">Ski Beatz</strong>（本名David Willis）は、
-          Lonnie Liston Smithの「A Garden of Peace」（1975）のピアノリフと
-          A Tribe Called Questのドラムをサンプリング。ベース用キーボードを持っていなかった彼は、
-          サンプラーのローパスフィルターで高音域を削り低音のみを抽出するという職人的手法を用いた。
-          さらにNasの「The World Is Yours (Tip Mix)」クリーン盤をサンプリングした際、
-          逆再生処理されたスネアが偶然ビートと完璧に噛み合う奇跡が生まれた。
+          <strong class="text-[var(--c-text)]">Verse 1</strong>は、ブルックリン・マーシー・プロジェクト（Marcy Projects）で過ごしたハスラーとしての日々を語る。ドラッグビジネスを「conglomerate（複合企業）」と呼び、密告者に気をつけろと説きながら、Breitlingの時計とCristalのシャンパンでフレックスする。金に支配されながらも、その金に翻弄される自分を見つめるような、複雑な一人称。「Alzheimer's / rhymers」「NARC'in / bargain / pardoned」と韻が連打され続ける。
         </p>
         <p>
-          このサンプリングがJay-Zとの関係に亀裂を生じさせ、
-          後の<strong class="text-[var(--c-text)]">Jay-Z vs. Nas</strong>——ヒップホップ史上最も芸術的に実りあるビーフの直接の起点となった。
-          2005年のコンサートでの和解まで、両者はサンプリング・著作権・ビジネスの知識を武器に10年間の知能戦を繰り広げた。
+          <strong class="text-[var(--c-text)]">Verse 2</strong>は「金持ちになりたいと言うだけなら誰でもできる、動け」という叱責から始まる。高級車に乗りながら保釈金も払えない偽者、マリファナは吸えても銃を向けられない腰抜け——そういう奴らへの辛口の批評が続く。そしてRICO法で摘発、車も没収、「ついこの間まで全部うまくいってたのに」という転落のサイクルで締める。金を追いかけると今度は金にゲームアウトにされる——この構造が繰り返される皮肉が、曲全体の通奏低音だ。
+        </p>
+        <p class="text-xs text-[var(--c-dim)]">
+          ※本ページは批評・教育目的で、解説に必要な範囲の断片のみを引用しています。全歌詞の対訳は掲載していません。
+        </p>
+      </div>
+    </section>
+
+    <!-- 学習ユニット -->
+    <div id="units"></div>
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2 border-b border-[var(--c-border)] pb-2">
+        学ぶ表現 — スラング・韻・言葉遊び・AAVE
+      </h2>
+      <p class="text-xs text-[var(--c-dim)] mb-6">
+        各見出しは「この曲から学べる英語表現」。各ユニットはまず上に英語の用例（1〜2行）を置いてあります。<strong class="text-[var(--c-text)]">先に英語を音で追い、行のどこが学習対象かを確かめてから</strong>下の日本語解説に進むと置いていかれません。🎤はそのリリックを担当するMC、▶は公式PVの概算頭出しリンク（秒数は概算）です。
+      </p>
+
+      <!-- ① Dead Presidents = 紙幣 -->
+      <LearningUnit
+        heading="dead presidents — 紙幣を「死んだ大統領」と呼ぶ換喩"
+        label="★ スラング／タイトル"
+        mc="Nas（サンプル・Intro）"
+        t={TS["dead-presidents-title"].t} tApprox={TS["dead-presidents-title"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">I'm out for presidents to represent me</Fragment>
+        <Fragment slot="jpn">大統領たちに俺を代表させたい（＝金が欲しい）</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Intro、Nasのサンプルが曲全体を通じて繰り返されるフックの核心フレーズ。</p>
+        <p>上の一文の<strong class="text-[var(--c-text)]">「presidents（大統領たち）」</strong>が、この曲の全体像を握る語です。アメリカの紙幣には歴代大統領の肖像が刷ってある——ジョージ・ワシントン（1ドル）、アブラハム・リンカーン（5ドル）、アンドリュー・ジャクソン（20ドル）など。そこから転じて<strong class="text-[var(--c-text)]">「dead presidents（死んだ大統領たち）」＝ドル紙幣＝現金</strong>というスラングが定着した。「represent me（俺を代表する）」と組み合わせることで、政治家への不信と金への信頼を一行に重ねる——単なる金の話が、そのまま政治批評にもなっている。この行はもともとNas自身が「The World Is Yours (Tip Mix)」（1994）で使ったフレーズで、Ski BeatsがそのサンプルでJay-Zのデビューシングルを始めるのは、Nasの声を借りた大胆な宣言に見える。知ってから聴くと、イントロの意味が変わってくると思います。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">Dead presidents</strong> は「米ドル紙幣」を指すストリートスラング。単複問わず「現金」の意味で使う。同義語に <em>paper</em>（ペイパー）、<em>cream</em>（クリーム＝Cash Rules Everything Around Me）、<em>loot</em>、<em>bread</em>、<em>guap</em> などがあり、それぞれ微妙に温度感が違う。<em>dead presidents</em> は紙幣の「肖像」に注目した知的なスラングで、他より少しリリカルな響きがある。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ② conglomerate / Wonderama -->
+      <LearningUnit
+        heading="Wonderama s**t vs. conglomerate — 幼稚 vs. 企業"
+        label="★ 対比／ビジネス語彙"
+        mc="Jay-Z（Verse 1）"
+        t={TS["conglomerate"].t} tApprox={TS["conglomerate"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">While others spit that Wonderama s**t, me and my conglomerate<br />Shall remain anonymous, caught up in the finest s**t</Fragment>
+        <Fragment slot="jpn">他の奴らが子供番組みたいな内容をラップしてる間、俺たちのコングロマリット（複合企業）は／匿名のまま、最高のものに包まれている</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 1の冒頭、Jay-Zがライバルとの差をいきなり打ち出す一行目。上は2行、学習対象は前半。</p>
+        <p>まず音で追ってみてください。上の行の前半「others spit that <strong class="text-[var(--c-text)]">Wonderama</strong> s**t」——<strong class="text-[var(--c-text)]">Wonderama</strong>（ワンダラマ）は1950〜70年代にニューヨークで放送されていた子供向けテレビ番組の名前。「他のラッパーはその程度（子供向け）のことを言っている」という侮辱として使っている。対して自分は「<strong class="text-[var(--c-text)]">conglomerate</strong>（コングロマリット＝複合企業）」——ドラッグのネットワークを企業グループに喩えるこの発想がJay-Zのリリシズムの核心だ。ストリートの話を「〇〇なんだよ」と語るのではなく、経営者のボキャブラリーで語る。この一行だけで、他との語彙の設計図の違いが見える。下の行の<strong class="text-[var(--c-text)]">anonymous（匿名）</strong>は、当局に目をつけられないよう目立たず動くという用心深さで、これも経営者的な頭の使い方だ。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">conglomerate</strong> はビジネス英語で「複数の事業を傘下に持つ大企業グループ」のこと。ここではドラッグ取引のネットワークをそう呼ぶことで、ストリートビジネスを正規の企業活動と同列に置く。Jay-Zはキャリアを通じて「実業家としてのラッパー」というスタンスを磨き続け、後に本当にDef Jam CEOになる——この一行にはそのDNAが詰まっている。<em>spit</em> は「（ラップを）吐き出す・ラップする」という動詞。<em>spit bars</em>（バースを吐く）のように使う。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ③ kosher / Hasidic -->
+      <LearningUnit
+        heading="kosher / so Hasidic — 宗教語彙をスラングに借用する"
+        label="★ スラング（文化的借用）"
+        mc="Jay-Z（Verse 1）"
+        t={TS["kosher-hasidic"].t} tApprox={TS["kosher-hasidic"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">And now it's kosher, s**t is so Hasidic<br />I blow a digit on a diamond in a minute but, no b***hes</Fragment>
+        <Fragment slot="jpn">今や全部コーシャー（適正）——ハシディズムのように厳格だ／ダイヤモンドに一桁万ドルは一瞬で使うが、女には金を使わない</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 1中盤、Jay-Zが自分のルールを宣言する件。上の行の前半が学習対象。</p>
+        <p>「…it's <strong class="text-[var(--c-text)]">kosher</strong>, s**t is so <strong class="text-[var(--c-text)]">Hasidic</strong>」——この二語がポイントです。<strong class="text-[var(--c-text)]">kosher</strong>（コーシャー）はもともとユダヤ教の食事規定で「律法に適った」を意味するヘブライ語由来の語。英語スラングでは「正当・問題なし・OK」の意味で幅広く使われる。<strong class="text-[var(--c-text)]">Hasidic</strong>（ハシディック）はユダヤ教超正統派「ハシディズム」の形容詞。ブルックリンのウィリアムズバーグにはハシディム派のコミュニティが密集していて、Jay-Zの地元マーシー・プロジェクトとも地理的に近い。「ハシディズムのように厳格なルールで動いている」——宗教的な厳格さをアウトローの行動規範に重ねてしまうこの言語感覚が面白い。知っておくとNY系ラッパーのリリックでよく出てくる語彙です。下の行「blow a digit」の <em>digit</em> は「桁」——一桁分のドルをダイヤに使うという誇示で、行末の「no b***hes」と対にして「宝石には惜しまないが女には使わない」という冷徹さを出している。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">kosher</strong> のスラング用法: <em>Is this kosher?</em>（これ大丈夫？）、<em>Keep it kosher</em>（きちんとやれ）。宗教的文脈なしに「legitimate（合法・正当）」や「okay」の意味で日常的に使われる。NY出身のラッパーが好んで使う語彙のひとつで、ブルックリンのユダヤ人コミュニティとの地理的な近さが背景にある。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ④ NARC'in / strike a bargain -->
+      <LearningUnit
+        heading="NARC'in / strike a bargain — 密告文化のボキャブラリー"
+        label="★ スラング（ストリート）"
+        mc="Jay-Z（Verse 1）"
+        t={TS["narcin-bargain"].t} tApprox={TS["narcin-bargain"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">even the thoroughest n***as be NARC'in<br />Tryin' to strike a bargain, hopin' that they might get pardoned</Fragment>
+        <Fragment slot="jpn">最も筋の通ったやつでさえ密告者になる／取引を成立させようとして、恩赦を望んでいる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 1後半、信頼の崩壊を警告する件。上の行の末尾と下の行が学習対象。</p>
+        <p>「even the thoroughest n***as be <strong class="text-[var(--c-text)]">NARC'in</strong>」——行末の <QuickSlang word="narc" desc="narcotics officer（麻薬捜査官）の略。動詞化してNARC'in = 密告する・仲間を売る" />（ナーク）が学習ポイントです。<em>narc</em> は narcotics officer（麻薬捜査官）の略で、動詞化した <em>narcing</em> は「当局に情報を流す・仲間を売る」こと。「thoroughest（ソロウエスト）」は <em>thorough</em>（徹底した・筋の通った）の最上級——つまり「一番信頼できると思っていた人間が密告者になる」という皮肉だ。下の行の<strong class="text-[var(--c-text)]">strike a bargain</strong>（取引をまとめる）は司法取引を指し、<strong class="text-[var(--c-text)]">get pardoned</strong>（恩赦・減刑を受ける）まで連なって、逮捕後の法的な流れがそのままリリックになっている。narc / bargain / pardoned——韻を踏みながら法律用語を3つ連打する密度は、Jay-Zならではです。「be NARC'in」の <QuickSlang word="habitual be" desc="AAVEの文法。'be + 動詞-ing'で「いつもそうしている」という習慣的な行為を表す。標準英語のis/areとは異なる" /> は習慣的な行為を表すAAVEの構文（「いつもそうしている」の意）。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">narc</strong>（名詞・動詞）: 名詞は「麻薬捜査官または密告者」、動詞 <em>narc (on someone)</em> は「（誰かを）密告する」。<em>Don't narc on me</em>（俺を売るな）。<em>strike a bargain</em> は「取引をまとめる」一般的な表現で、ここでは「司法取引（plea bargain）をする」意味で使われている。<em>get pardoned</em>（恩赦・減刑を受ける）とセットで、逮捕後の流れを一行に凝縮している。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑤ ain't got no puddin' -->
+      <LearningUnit
+        heading="ain't got no puddin' — イディオムを崩して使う"
+        label="★ イディオム／AAVE"
+        mc="Jay-Z（Verse 2）"
+        t={TS["no-puddin"].t} tApprox={TS["no-puddin"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">This the kinda talk that make me think you probably ain't got no puddin'</Fragment>
+        <Fragment slot="jpn">そういう話を聞くと、お前にはたぶん中身（実力）がないんだろうな、と思う</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 2の冒頭、「コスビーみたいに金持ちになりたい」と夢を語るだけの奴への反応として出てくる一行。</p>
+        <p>行末の<strong class="text-[var(--c-text)]">「puddin'」</strong>が学習ポイントです。英語の古いことわざ <strong class="text-[var(--c-text)]">"The proof is in the pudding"</strong>（「実力は結果で証明するもの」）をベースにした表現で、「証明するプリン（＝実績・中身）がない」＝「言うだけで何も証明できないやつ」という意味。「行末に置いたpuddin'でオチをつける」という構造が、この一行のリズムを作っている。さらっとした一行なのに、古いことわざ・二重否定のAAVE文法・ストリートへの批評が全部入っている。<strong class="text-[var(--c-text)]">ain't got no</strong> は二重否定（<QuickSlang word="二重否定" desc="AAVEでは'ain't got no ~'/'don't have no ~'が否定の強調。標準英語と違い、肯定には転じない" />）で、「まったく持っていない」という強い否定。「This the kinda talk」の <em>this</em> の後に <em>is</em> が省略されているのもAAVEのコピュラ（be動詞）省略だ。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">"The proof is in the pudding"</strong> は古い英語のことわざで「物事の真価は実際に試してみて初めてわかる」の意。Jay-Zはこれを崩して「お前にはそのプリン（証明）がない」と一語に圧縮している。</p>
+          <p>AAVEの二重否定: <em>I ain't got no money</em> / <em>I don't know nothing</em> のように、否定語を重ねて否定を強調する。標準英語では「二重否定＝肯定」だが、AAVEでは純粋に「より強い否定」として機能する。ラップで非常に頻繁に出てくる構造なので慣れておくと聞き取りが楽になる。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑥ roast a L / throw your toast -->
+      <LearningUnit
+        heading="roast a L / throw your toast — 一行に2つのスラングを仕込む"
+        label="★ スラング（多義）"
+        mc="Jay-Z（Verse 2）"
+        t={TS["sl-bail-toast"].t} tApprox={TS["sl-bail-toast"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">n***as'll roast a L, but scared to throw your toast, well</Fragment>
+        <Fragment slot="jpn">マリファナは吸えても、銃を向けるのは怖いn**a——まあそうだろ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 2前半、見た目だけのハスラーへの皮肉が続く件の一行。</p>
+        <p>一行に2つのスラングが仕込まれています。行の前半<strong class="text-[var(--c-text)]">「roast a L」</strong>——<strong class="text-[var(--c-text)]">L</strong> は葉巻タバコの葉（Phillie Bluntsなど）で巻いたマリファナのブラントを指す。<em>roast</em>（炙る）と組み合わせて「マリファナを吸う」。行の後半<strong class="text-[var(--c-text)]">「throw your toast」</strong>——<strong class="text-[var(--c-text)]">toast</strong> は銃のスラング。<em>throw</em>（向ける・構える）と合わせて「銃を向ける」。この2語が <em>L / well</em> で脚韻を踏みながら、「非暴力的なリスク（マリファナ）はやれても、本物のリスクは取れない偽者」という対比を一行で完結させている。前の行の「SL（メルセデスSLクラス）に乗ってるのに保釈金も払えない」と合わせて、見た目の派手さと中身のなさへの批評が続く構造だ。一行にスラングを2つ詰め込んで脚韻まで踏む——Jay-Zの「言語の経済性」がよく出ている。</p>
+      </LearningUnit>
+
+      <!-- ⑦ RICO / Everything was all good -->
+      <LearningUnit
+        heading="RICO / Everything was all good just a week ago — 転落の法律と名フレーズ"
+        label="★ スラング（法律）／名フレーズ"
+        mc="Jay-Z（Verse 2）"
+        t={TS["rico-good-week"].t} tApprox={TS["rico-good-week"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Hit with the RICO, they repo your vehicle<br />Everything was all good just a week ago</Fragment>
+        <Fragment slot="jpn">RICO法で摘発、車も没収される／ついこの間まで何もかもうまくいってたのに</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 2中盤、ストリートの転落を描く件。2行ともに学習ポイント。</p>
+        <p>上の行から。<strong class="text-[var(--c-text)]">RICO</strong>（リコ）は <QuickSlang word="RICO" desc="Racketeer Influenced and Corrupt Organizations Act（組織犯罪処罰法・1970年制定）。組織のトップも起訴できる連邦法で、ストリートで最も恐れられる法律のひとつ" /> の略。「Hit with the RICO」＝RICO法で起訴される。「repo」は <em>repossession</em>（差し押さえ）の略で、資産として車まで没収されるという意味だ。上の行末の <em>vehicle</em> と次の行末の <em>week ago</em> で /i/ 音の緩やかな連鎖がある。そして下の行「<strong class="text-[var(--c-text)]">Everything was all good just a week ago</strong>」——これはJay-Zの一文として最もよく引用される名フレーズのひとつで、成功の絶頂から転落まで「たった一週間」というスリルと恐怖を8語に詰め込んでいる。後にColdplayのChris Martinとの「Homecoming」（2007）でも引用され、フレーズとして独り歩きするようになった。出典ごと知っておくと他の曲で出てきたとき気づける。</p>
+      </LearningUnit>
+
+      <!-- ⑧ when money play in, then they play you out -->
+      <LearningUnit
+        heading="when money play in, then they play you out — 一行に仕込む皮肉な哲学"
+        label="★ 韻／句動詞"
+        mc="Jay-Z（Verse 2）"
+        t={TS["money-play-out"].t} tApprox={TS["money-play-out"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Slayin' day in and day out, when money play in, then they play you out</Fragment>
+        <Fragment slot="jpn">毎日毎日やり続ける——金が関わると、今度は金にゲームアウトにされる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 2終盤、ストリートの皮肉な循環を語る件の核心一行。</p>
+        <p>まず音を追ってみてください。<strong class="text-[var(--c-text)]">slayin' / day in and day out / play in / play you out</strong>——<em>-ay</em> の音が一行に連打される。その音の気持ちよさとは裏腹に、意味の核心は「when money <strong class="text-[var(--c-text)]">play in</strong>, then they <strong class="text-[var(--c-text)]">play you out</strong>」の部分だ。<em>play in</em>（ゲームに加わる・関与する）と <em>play you out</em>（お前をゲームアウトにする・使い捨てにする）——同じ <em>play</em> の語が正反対の方向に使われている。金を追いかけると、最終的には金に支配されてゲームオーバーにされる。ストリート経済の構造的な矛盾——「金のために入ったゲームで、金に殺される」——をたった一行で語ってしまう。個人的に、Jay-Zのリリックで最も静かにやられる一行のひとつです。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">play out</strong>（句動詞）: ①「展開する・結末に至る」（<em>Let's see how this plays out</em>）②「使い果たす・ゲームオーバーにする」（<em>They played him out</em>）。ここでは②の「利用して捨てる」のニュアンス。<em>play in</em> は「（ゲーム・活動に）加わる」——前置詞の違いで意味が正反対になる句動詞の典型例。日本語の「出る」と「出す」くらい違う。セットで覚えておくと良い。</p>
+        </Fragment>
+      </LearningUnit>
+
+    </section>
+
+    <!-- 文化的背景 -->
+    <section id="background" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        文化的背景
+      </h2>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">Roc-A-Fella Records</p>
+        <h3 class="font-semibold text-base mb-3">インディーズから始まった帝国の最初の一音</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          Jay-Z（本名Shawn Corey Carter）はブルックリン・マーシー・プロジェクト（Marcy Projects）出身。複数のメジャーレーベルからデモを断られた後、1994年にDamon DashとKareem "Biggs" Burkeと共にRoc-A-Fella Recordsを設立した。「Dead Presidents」はそのレーベルの最初のシングル（通称DP1）で、続く「In My Lifetime (Vol. 1)」（DP2）と合わせてニューヨークのクラブで火がつき、デビューアルバム『Reasonable Doubt』（1996年6月25日リリース）への足がかりとなった。アーティストが自分でレーベルを立ち上げてメジャーと対等に渡り合う——その流れの早い時期にあった実例がこの12インチシングルだと思います。
+        </p>
+      </div>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">Nasのサンプルとビーフの起点</p>
+        <h3 class="font-semibold text-base mb-3">リスペクトか、挑発か</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          Jay-ZがNasの「The World Is Yours (Tip Mix)」（1994）のフックをそのまま使ったことは、当時のヒップホップ界で話題になった。一般的にはリスペクトの表明として受け取られたが、Jay-Zが急成長してNasに肩を並べ始めるにつれ、後から「あれは挑戦状だったのでは」という読み方も生まれた。2001年の「Takeover」（Jay-Z）と「Ether」（Nas）で両者のビーフが全面化し、ヒップホップ史上最も激しいディス合戦として記録される。2005年のコンサートで和解。「Dead Presidents」がそのビーフの遠い起点のひとつとして語られるのは、今から見ると面白い——というか恐ろしい話だと思います。
+        </p>
+      </div>
+
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">キーワード早見表</p>
+        <h3 class="font-semibold text-base mb-3">この曲で学んだ語彙の整理</h3>
+        <div class="space-y-3 mt-3">
+          {[
+            ['Dead Presidents', '米ドル紙幣のスラング。紙幣に印刷された歴代大統領の肖像から'],
+            ['Conglomerate', '複合企業——ドラッグビジネスを経営体として語るJay-Zの比喩'],
+            ['Kosher', 'ユダヤ教の「律法に適った」が転じて「問題なし・OK」のスラング'],
+            ["NARC'in", 'narc（麻薬捜査官）の動詞化——密告する・仲間を売る'],
+            ['Strike a bargain', '取引をまとめる（ここでは司法取引を指す）'],
+            ['Roast a L', 'マリファナのブラントを吸う。LはPhillie Buntなど葉巻葉で巻いたもの'],
+            ['Toast', '銃のスラング。throw your toast = 銃を向ける'],
+            ['RICO', '組織犯罪処罰法（1970年）。組織のリーダーも起訴できる連邦法'],
+          ].map(([term, desc]) => (
+            <div class="flex gap-3 text-sm">
+              <span class="text-[var(--c-gold)] shrink-0 font-semibold min-w-[140px]">{term}</span>
+              <span class="text-[var(--c-muted)]">{desc}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- サンプル・制作 -->
+    <section id="behind" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        サンプル・制作の裏側
+      </h2>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">サンプル元</p>
+        <h3 class="font-semibold text-base mb-3">浮遊するジャズピアノの正体 — Lonnie Liston Smith</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          ビートの骨格になっているあのピアノリフ——Ski Beatsが選んだのは<strong class="text-[var(--c-text)]">Lonnie Liston Smithの「A Garden of Peace」（1975）</strong>のピアノだ。スピリチュアルで浮遊感のあるあのループが曲の空気を作っている。そこにNasの「The World Is Yours (Tip Mix)」（1994）のフックをサンプリングして骨格に据えた。Ski Beatsはベース専用のキーボードを持っていなかったため、サンプラーのローパスフィルターで高音域を削って低音だけを抽出するという手持ちの機材での工夫でベースラインを作り上げた。機材が揃っていれば解決できる話を、知恵だけで乗り越えた。
+        </p>
+      </div>
+
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">制作秘話</p>
+        <h3 class="font-semibold text-base mb-3">逆再生スネアが生んだ偶然のグルーヴ</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          Nasの「The World Is Yours (Tip Mix)」はexplicit表現を逆再生処理したクリーン版だった。それをサンプリングした際、処理された箇所のスネアドラムも一緒に逆再生されていた——そのままビートにぶつけてみたら、完璧に噛み合った。これは完全に偶然の産物で、わざと狙ったわけではない。でもその偶然が、この曲特有の「引っかかるグルーヴ」を作り出した。C.R.E.A.M.の「消えたtouch」と同じように、制約と偶然がそのまま作品になる——初期ヒップホップの面白さがここにも詰まっていると思う。
         </p>
       </div>
     </section>
 
     <!-- レガシー -->
-    <section class="mb-12 p-6 bg-[var(--c-surface)] rounded-xl border border-[var(--c-border)]">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-4">レガシー · Legacy</h2>
-      <div class="space-y-4 text-sm leading-relaxed text-[var(--c-text-muted)]">
-        <p>
-          「Dead Presidents」が提示したのは、ストリートの現実を<strong class="text-[var(--c-text)]">ビジネスの言語</strong>で語るという革命的な枠組みだった。
-          「conglomerate（複合企業）」「fiscal year（会計年度）」などのビジネス用語を麻薬取引に適用することで、
-          Jay-Zは自分自身を単なるギャングではなく<strong class="text-[var(--c-text)]">冷徹なCEO</strong>として位置づけた。
-          これは後の彼のRoc-A-Fella帝国、Def Jam CEO就任、そして28億ドルのビリオネアへの道筋の最初の宣言だった。
+    <section id="legacy" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        レガシー
+      </h2>
+
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">後世への影響</p>
+        <h3 class="font-semibold text-base mb-3">「ハスラー＝CEO」という言語の発明</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed mb-3">
+          「Dead Presidents」が持ち込んだ最大のものは、<strong class="text-[var(--c-text)]">ストリートのビジネスを企業経営の言語で語る</strong>という枠組みだと思う。conglomerate、anonymous operation（匿名の事業体）、fiscal discipline（支出の規律）——ドラッグの話をしながら実はMBAのボキャブラリーで語っている。このスタンスがJay-Zのキャリアを通じた一貫した軸で、後のRoc-A-Fella帝国、Def Jam CEOへの就任、アーマンド・ド・ブリニャックのシャンパンブランドから不動産投資まで、「俺はラッパーであり実業家だ」という主張の最も初期の宣言がこの一曲にある。
         </p>
-        <p>
-          日本では、KREVAが「1996年当時のクラブで一晩に2回もかかっていた」と証言するほど熱狂的に受容された。
-          BUDDHA BRANDが2000年の「Rain（梅雨）」で同じLonnie Liston Smithの「A Garden of Peace」をサンプリングし、
-          DEV LARGEがUSシーンと同じ音楽的感性を共有していたことを証明した。
-        </p>
-        <p>
-          2026年2月20日、リリースから30周年に際してストリーミング配信が解禁。
-          Jay-ZのアーティスとしてYに変音記号が付く初期表記「<strong class="text-[var(--c-text)]">JAŸ-Z</strong>」名義での再リリースは、
-          ヒップホップのアーカイブとしての歴史的価値を改めて証明した。
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          日本への接点という意味では、BUDDHA BRANDが2000年の「Rain（梅雨）」で同じLonnie Liston Smithの「A Garden of Peace」をサンプリングしているのが面白い。NYのクラブシーンと東京のヘッズが同じ音源をほぼ同時代に掘り当てていた——Ski BeatsとDEV LARGEの耳が、大西洋を挟んで同じ場所に辿り着いていたことになる。知ってから「Rain（梅雨）」を聴き直すと、また聞こえ方が変わります。
         </p>
       </div>
     </section>
+
+    <!-- まとめ -->
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        まとめ
+      </h2>
+      <ul class="space-y-2 text-sm text-[var(--c-muted)] list-disc list-inside leading-relaxed">
+        <li>「Dead Presidents」は企業・法律・宗教の専門語をストリートスラングと同じ行に混ぜるJay-Zの語彙設計がそのまま英語教材になる一曲。</li>
+        <li>RICO・conglomerate・kosher・NARC'in——どれも辞書の定義とは一段ズレた使われ方をしているので、文脈で読む力を鍛えるのに向いている。</li>
+        <li>「Everything was all good just a week ago」はJay-Zの名フレーズとして独り歩きしているので、出典ごと知っておくと他の曲でも気づける。</li>
+        <li>Ski Beatsの逆再生スネアの偶然と、Lonnie Liston Smithのジャズピアノ——サンプリングと偶然が重なって生まれたあの音が、Roc-A-Fella帝国の最初の一音になった。</li>
+      </ul>
+    </section>
+
 </SongLayout>

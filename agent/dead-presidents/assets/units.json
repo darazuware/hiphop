@@ -1,0 +1,50 @@
+[
+  {
+    "id": "dead-presidents-title",
+    "anchor": ["presidents", "to", "represent", "me"],
+    "fallbackT": 8,
+    "manualSec": null
+  },
+  {
+    "id": "conglomerate",
+    "anchor": ["wonderama", "shit", "me", "and", "my"],
+    "fallbackT": 28,
+    "manualSec": null
+  },
+  {
+    "id": "kosher-hasidic",
+    "anchor": ["now", "its", "kosher", "shit", "is"],
+    "fallbackT": 65,
+    "manualSec": null
+  },
+  {
+    "id": "narcin-bargain",
+    "anchor": ["thoroughest", "niggas", "be", "narcin"],
+    "fallbackT": 80,
+    "manualSec": null
+  },
+  {
+    "id": "no-puddin",
+    "anchor": ["kinda", "talk", "that", "make", "me"],
+    "fallbackT": 142,
+    "manualSec": null
+  },
+  {
+    "id": "sl-bail-toast",
+    "anchor": ["coast", "in", "the", "sl", "but"],
+    "fallbackT": 158,
+    "manualSec": null
+  },
+  {
+    "id": "rico-good-week",
+    "anchor": ["hit", "with", "the", "rico", "they"],
+    "fallbackT": 185,
+    "manualSec": null
+  },
+  {
+    "id": "money-play-out",
+    "anchor": ["when", "money", "play", "in", "then"],
+    "fallbackT": 210,
+    "manualSec": null
+  }
+]
