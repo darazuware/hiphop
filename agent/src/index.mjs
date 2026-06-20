@@ -29,9 +29,22 @@ import { getUpdates, sendMessage, parseMessage } from './telegram.mjs';
 import { runResearch, extractMetadata } from './research.mjs';
 import { fetchLyrics } from './genius.mjs';
 import { processAndDeploy } from './processor.mjs';
+import { runFreeform } from './claude.mjs';
 import { deriveSlug, inspectExistingSong, buildConversionData } from './existing-song.mjs';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '../..');
+
+/** /menu・/help で返すコマンド一覧 */
+const MENU_TEXT =
+  `📋 *コマンド一覧*\n\n` +
+  `🎵 \`Artist - Song [Year]\` → 曲記事を自動生成\n` +
+  `🛠️ \`/do <依頼>\` → 任意のタスクを実行（例: \`/do put-it-onのジャケットを直して\`）\n` +
+  `🎬 \`/short <slug>\` → ショート動画を生成\n` +
+  `📹 YouTube URL → 動画翻訳記事をキューに追加\n` +
+  `📢 \`/publishvideo\` → キュー先頭を今すぐ公開\n` +
+  `📊 \`/status\` → ショート生成状況を確認\n\n` +
+  `※ \`-\` や \`:\` を含む依頼は曲名と誤認されることがあるので \`/do\` を付けてください\n` +
+  `例: \`Wu-Tang Clan - C.R.E.A.M. [1994]\``;
 
 /** /short コマンドを処理 */
 async function handleShortCommand(slug, chatId) {
@@ -45,6 +58,21 @@ async function handleShortCommand(slug, chatId) {
   } catch (e) {
     const detail = e.stderr?.toString().slice(-300) || e.message.slice(0, 300);
     await sendMessage(`❌ ショート生成失敗: ${slug}\n${detail}`, chatId);
+  }
+}
+
+/** 自由指示（任意の依頼）を Claude に委譲して実行する */
+async function handleFreeformCommand(instruction, chatId) {
+  await sendMessage('🛠️ 依頼を処理中…（数分かかることがあります）', chatId);
+  try {
+    const r = await runFreeform(instruction);
+    if (r.success) {
+      await sendMessage(`✅ 完了\n${r.output || ''}`.trim(), chatId);
+    } else {
+      await sendMessage(`❌ 失敗: ${String(r.error || '').slice(0, 300)}`, chatId);
+    }
+  } catch (e) {
+    await sendMessage(`❌ エラー: ${String(e.message).slice(0, 200)}`, chatId);
   }
 }
 
@@ -347,6 +375,19 @@ async function main() {
           continue;
         }
 
+        // /menu, /help → コマンド一覧
+        if (text.trim() === '/menu' || text.trim() === '/help') {
+          sendMessage(MENU_TEXT, chatId).catch(() => {});
+          continue;
+        }
+
+        // /do <依頼> または /task <依頼> → 自由指示（任意タスク）を Claude に委譲
+        if (text.startsWith('/do ') || text.startsWith('/task ')) {
+          const instruction = text.replace(/^\/(do|task)\s+/, '').trim();
+          if (instruction) handleFreeformCommand(instruction, chatId).catch(() => {});
+          continue;
+        }
+
         // YouTube URL → 動画記事生成
         const youtubeMatch = text.match(/https?:\/\/(?:www\.)?(?:youtube\.com\/watch\?v=|youtu\.be\/)[\w-]+/);
         if (youtubeMatch) {
@@ -366,18 +407,8 @@ async function main() {
           continue;
         }
 
-        // それ以外 → コマンドメニュー
-        sendMessage(
-          `📋 *コマンド一覧*\n\n` +
-          `🎵 \`Artist - Song [Year]\` → 曲記事を自動生成\n` +
-          `🎬 \`/short <slug>\` → ショート動画を生成\n` +
-          `📹 YouTube URL → 動画翻訳記事をキューに追加\n` +
-          `📢 \`/publishvideo\` → キュー先頭を今すぐ公開\n` +
-          `📊 \`/status\` → ショート生成状況を確認\n\n` +
-          `例: \`Wu-Tang Clan - C.R.E.A.M. [1994]\`\n` +
-          `例: \`https://www.youtube.com/watch?v=XXXX\``,
-          chatId
-        ).catch(() => {});
+        // それ以外 → 自由指示タスクとして Claude に委譲（旧 hiphop_lexicon_bot 相当）
+        handleFreeformCommand(text, chatId).catch(() => {});
       }
     } catch (error) {
       console.error(`ポーリングエラー: ${error.message}`);

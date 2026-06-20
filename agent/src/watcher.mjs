@@ -57,6 +57,25 @@ async function processTrigger(triggerFile) {
   const writeDone = (exitCode, error = null) =>
     writeFile(doneFile, JSON.stringify({ exitCode, error }), 'utf-8');
 
+  // 自由指示モード: Claude 自身に build/git まで行わせ、記事用の後処理はスキップする
+  if (meta.mode === 'freeform') {
+    console.log('\n[freeform] Claude実行中...');
+    const r = await run(
+      `cat "${promptFile}" | ${CLAUDE_BIN} --print --permission-mode acceptEdits --dangerously-skip-permissions 2>&1 | tee /tmp/hiphop-claude.log`,
+      { silent: true }
+    );
+    const m = r.stdout.match(/SUMMARY:\s*(.+?)\s*$/m);
+    const summary = m ? m[1].trim() : '';
+    console.log(`[freeform] 完了 (exit: ${r.code})${summary ? ' — ' + summary : ''}`);
+    await writeFile(
+      doneFile,
+      JSON.stringify({ exitCode: r.code, error: r.code === 0 ? null : `Claude exit ${r.code}`, summary }),
+      'utf-8'
+    );
+    cleanup(triggerFile, promptFile);
+    return;
+  }
+
   console.log(`\n[1/4] Claude記事生成中... slug=${slug || '(unknown)'}`);
 
   // Step 1: Claude CLI実行

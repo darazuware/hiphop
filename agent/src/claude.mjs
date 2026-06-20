@@ -152,6 +152,69 @@ ${jsonPath}
   return { success: false, output: '', error: 'タイムアウト（45分）' };
 }
 
+/**
+ * doneファイルが現れるまで待ち、結果オブジェクトを返す。
+ * @param {string} doneFile
+ * @returns {Promise<{ exitCode: number, error: string|null, summary?: string }>}
+ */
+async function waitForDone(doneFile) {
+  const start = Date.now();
+  while (Date.now() - start < TIMEOUT_MS) {
+    await sleep(5000);
+    try {
+      await access(doneFile);
+      const raw = (await readFile(doneFile, 'utf-8')).trim();
+      try { return JSON.parse(raw); } catch { return { exitCode: parseInt(raw) || 1, error: null }; }
+    } catch {
+      // まだ存在しない
+    }
+  }
+  return { exitCode: 1, error: 'タイムアウト（45分）' };
+}
+
+/**
+ * 自由指示（任意の依頼）を watcher 経由で Claude CLI に実行させる。
+ * 記事生成と違い slug 後処理は行わず、Claude 自身に build/git まで行わせる。
+ * （launchd からは Claude の OAuth に届かないため、Terminal の watcher に委譲する）
+ * @param {string} instruction
+ * @returns {Promise<{ success: boolean, output: string, error: string|null }>}
+ */
+export async function runFreeform(instruction) {
+  const ts = Date.now();
+  const promptFile = `/tmp/hiphop-prompt-${ts}.txt`;
+  const triggerFile = `/tmp/hiphop-trigger-${ts}.txt`;
+  const doneFile = `/tmp/hiphop-done-${ts}.txt`;
+
+  const prompt = `あなたは WAX&THINK（Astro製のhiphop解説サイト。リポジトリ直下 ${HIPHOP_CWD} で作業）の運営補助です。次の依頼を、承認を求めず全自動で最後までやり切ってください。
+
+## 依頼
+${instruction}
+
+## ルール
+- 着手前に必要に応じて CLAUDE.md と docs/ のルールを Read する。新規の曲ページを作る依頼なら learning型（雛形 src/pages/songs/cream.astro）で作る。
+- 変更を加えたら必ず \`npm run build\` を実行し、ビルドが通ることを確認する。
+- 自分が変更・作成したファイルだけを \`git add <ファイルパス>\`（複数可・明示列挙）→ \`git commit\` → \`git push origin main\` する。**\`git add .\` および \`git add -A\` は絶対に使わない**（ユーザーのローカル作業と競合するため）。
+- 調査だけ／変更が無い依頼なら commit・push はしない。
+- 歌詞の英語行などセンシティブな本文はレスポンスに出力しない。
+- 最後に必ず、実施結果を日本語1行で要約して \`SUMMARY: <要約>\` の形式で出力する（この1行だけが Telegram に通知される。歌詞は含めない）。`;
+
+  await writeFile(promptFile, prompt, 'utf-8');
+
+  // watcherが動いていなければTerminalで自動起動
+  await ensureWatcher();
+
+  // triggerにfreeformモードを指定（watcherが記事後処理をスキップする）
+  await writeFile(triggerFile, JSON.stringify({ promptFile, mode: 'freeform' }), 'utf-8');
+  console.log('  [Claude] 自由指示を watcher に委譲...');
+
+  const result = await waitForDone(doneFile);
+  return {
+    success: result.exitCode === 0,
+    output: result.summary || '',
+    error: result.error || (result.exitCode === 0 ? null : `exit ${result.exitCode}`),
+  };
+}
+
 function sleep(ms) {
   return new Promise(r => setTimeout(r, ms));
 }
