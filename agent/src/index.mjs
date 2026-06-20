@@ -11,6 +11,14 @@
 
 import 'dotenv/config';
 
+// IPv6が落ちている環境でも fetch が固まらないようにする。
+// setDefaultResultOrder だけでは undici の Happy Eyeballs(autoSelectFamily) が
+// 死んだIPv6へ接続を試みて ETIMEDOUT するため、両方を設定してIPv4のみに固定する。
+import { setDefaultResultOrder } from 'node:dns';
+import net from 'node:net';
+setDefaultResultOrder('ipv4first');
+net.setDefaultAutoSelectFamily?.(false);
+
 // Homebrew PATH（nohup起動時にPATHが引き継がれないため明示的に追加）
 process.env.PATH = `/opt/homebrew/bin:/usr/local/bin:${process.env.PATH}`;
 import { mkdir, writeFile, readFile, unlink } from 'node:fs/promises';
