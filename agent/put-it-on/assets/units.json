@@ -1,0 +1,12 @@
+[
+  { "id": "reeboks",           "anchor": ["l","keep","rappers","hearts","pumpin"], "fallbackT": 15, "manualSec": null },
+  { "id": "thirty-five-bodies","anchor": ["thirty","five","bodies","buddy","dont"], "fallbackT": 42, "manualSec": null },
+  { "id": "put-it-on-title",   "anchor": ["word","is","born","i","leave"], "fallbackT": 52, "manualSec": null },
+  { "id": "gas-shotty",        "anchor": ["im","known","to","gas","a"], "fallbackT": 82, "manualSec": null },
+  { "id": "money-getter",      "anchor": ["cause","im","a","money","getter"], "fallbackT": 105, "manualSec": null },
+  { "id": "catchin-wreck",     "anchor": ["im","catchin","wreck","to","the"], "fallbackT": 117, "manualSec": null },
+  { "id": "major-chubby",      "anchor": ["some","boys","see","me","gun"], "fallbackT": 133, "manualSec": null },
+  { "id": "born-dead",         "anchor": ["i","smash","mics","like","cornbread"], "fallbackT": 163, "manualSec": null },
+  { "id": "peel-wigs",         "anchor": ["i","run","with","ill","kids"], "fallbackT": 173, "manualSec": null },
+  { "id": "ditc-outro",        "anchor": ["lord","finesse","he","be","puttin"], "fallbackT": 218, "manualSec": null }
+]

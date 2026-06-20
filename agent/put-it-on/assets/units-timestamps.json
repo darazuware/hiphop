@@ -1,0 +1,102 @@
+[
+  {
+    "id": "reeboks",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 15,
+    "t": 15,
+    "source": "fallback",
+    "approx": true,
+    "score": 0.4
+  },
+  {
+    "id": "thirty-five-bodies",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 42,
+    "t": 42,
+    "source": "fallback",
+    "approx": true,
+    "score": 0.4
+  },
+  {
+    "id": "put-it-on-title",
+    "whisperSec": 61.7,
+    "manualSec": null,
+    "fallbackT": 52,
+    "t": 61.7,
+    "source": "whisper",
+    "approx": true,
+    "score": 0.6
+  },
+  {
+    "id": "gas-shotty",
+    "whisperSec": 80.9,
+    "manualSec": null,
+    "fallbackT": 82,
+    "t": 80.9,
+    "source": "whisper",
+    "approx": true,
+    "score": 0.8
+  },
+  {
+    "id": "money-getter",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 105,
+    "t": 105,
+    "source": "fallback",
+    "approx": true,
+    "score": 0.4
+  },
+  {
+    "id": "catchin-wreck",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 117,
+    "t": 117,
+    "source": "fallback",
+    "approx": true,
+    "score": 0.2
+  },
+  {
+    "id": "major-chubby",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 133,
+    "t": 133,
+    "source": "fallback",
+    "approx": true,
+    "score": 0.2
+  },
+  {
+    "id": "born-dead",
+    "whisperSec": 152.6,
+    "manualSec": null,
+    "fallbackT": 163,
+    "t": 152.6,
+    "source": "whisper",
+    "approx": true,
+    "score": 0.8
+  },
+  {
+    "id": "peel-wigs",
+    "whisperSec": 158.4,
+    "manualSec": null,
+    "fallbackT": 173,
+    "t": 158.4,
+    "source": "whisper",
+    "approx": true,
+    "score": 1
+  },
+  {
+    "id": "ditc-outro",
+    "whisperSec": 192.9,
+    "manualSec": null,
+    "fallbackT": 218,
+    "t": 192.9,
+    "source": "whisper",
+    "approx": true,
+    "score": 0.8
+  }
+]
