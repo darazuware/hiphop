@@ -21,6 +21,7 @@ import { getUpdates, sendMessage, parseMessage } from './telegram.mjs';
 import { runResearch, extractMetadata } from './research.mjs';
 import { fetchLyrics } from './genius.mjs';
 import { processAndDeploy } from './processor.mjs';
+import { deriveSlug, inspectExistingSong, buildConversionData } from './existing-song.mjs';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '../..');
 
@@ -165,26 +166,43 @@ async function processSong(song, chatId) {
   // ステータス通知
   await sendMessage(`🔍 リサーチ開始: *${label}*`, chatId);
 
-  // 1. Gemini Deep Research
-  console.log('[Step 1/4] Gemini Deep Research...');
-  let research = '';
-  try {
-    research = await runResearch(song);
-  } catch (error) {
-    console.error(`リサーチ失敗: ${error.message}`);
-    await sendMessage(`❌ リサーチ失敗: ${error.message}`, chatId);
-    return;
-  }
+  // Step 0: 既存曲（従来型）判定。learning変換対象なら Gemini をスキップする。
+  const slug = deriveSlug(song.title);
+  const existing = inspectExistingSong(slug, ROOT);
+  const isConversion = existing.registered && existing.astroSrc && !existing.isLearning;
 
-  // リサーチ結果から正式名称・年号を抽出（表記揺れ補正・年自動取得）
-  console.log('[Step 1b] メタデータ抽出...');
-  const meta = await extractMetadata(research, song);
-  if (meta.artist !== song.artist || meta.title !== song.title || meta.year !== song.year) {
-    console.log(`  補正: "${song.artist} - ${song.title}" → "${meta.artist} - ${meta.title} [${meta.year}]"`);
+  let research = '';
+  let conversionSlug = null;
+  if (isConversion) {
+    // 既存従来型 → learning変換: Gemini を経由せず songs.ts＋既存.astroから組み立てる
+    console.log(`[Step 1/4] 既存従来型→learning変換モード（Geminiスキップ）: /songs/${slug}`);
+    const built = buildConversionData(slug, existing);
+    research = built.research;
+    conversionSlug = slug;
+    song.artist = built.meta.artist || song.artist;
+    song.title = built.meta.title || song.title;
+    song.year = built.meta.year ?? song.year;
+  } else {
+    // 1. Gemini Deep Research（新規曲のみ）
+    console.log('[Step 1/4] Gemini Deep Research...');
+    try {
+      research = await runResearch(song);
+    } catch (error) {
+      console.error(`リサーチ失敗: ${error.message}`);
+      await sendMessage(`❌ リサーチ失敗: ${error.message}`, chatId);
+      return;
+    }
+
+    // リサーチ結果から正式名称・年号を抽出（表記揺れ補正・年自動取得）
+    console.log('[Step 1b] メタデータ抽出...');
+    const meta = await extractMetadata(research, song);
+    if (meta.artist !== song.artist || meta.title !== song.title || meta.year !== song.year) {
+      console.log(`  補正: "${song.artist} - ${song.title}" → "${meta.artist} - ${meta.title} [${meta.year}]"`);
+    }
+    song.artist = meta.artist;
+    song.title = meta.title;
+    song.year = meta.year ?? song.year;
   }
-  song.artist = meta.artist;
-  song.title = meta.title;
-  song.year = meta.year ?? song.year;
 
   // 2. Genius 歌詞取得
   console.log('[Step 2/4] Genius 歌詞取得...');
@@ -200,6 +218,7 @@ async function processSong(song, chatId) {
     artist: song.artist,
     title: song.title,
     year: song.year,
+    ...(conversionSlug ? { slug: conversionSlug } : {}),
     research,
     lyrics,
     geniusUrl,
@@ -225,6 +244,11 @@ async function processSong(song, chatId) {
       chatId
     );
     console.log(`✅ 完了: ${label}${url ? ` — ${url}` : ''}`);
+  } else if (String(result.error).startsWith('already-learning:')) {
+    // すでにlearning型変換済み → スキップ通知（エラーではない）
+    const url = result.slug ? `https://waxthink.com/songs/${result.slug}` : '';
+    await sendMessage(`ℹ️ スキップ: ${label}\nすでにlearning型です。${url ? `\n${url}` : ''}`, chatId);
+    console.log(`ℹ️ スキップ（変換済み）: ${label}`);
   } else {
     // Markdown パースエラーを避けるためプレーンテキストで送信
     const errorMsg = String(result.error || '不明なエラー').slice(0, 500);

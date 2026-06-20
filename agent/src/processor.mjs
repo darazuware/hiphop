@@ -1,7 +1,8 @@
 import { writeFile, readFile } from 'node:fs/promises';
-import { writeFileSync, readFileSync } from 'node:fs';
+import { writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { runClaude } from './claude.mjs';
+import { inspectExistingSong } from './existing-song.mjs';
 import dotenv from 'dotenv';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
@@ -68,16 +69,14 @@ export async function processAndDeploy(jsonPath) {
 
     slug = data.slug || title.toLowerCase().replace(/ /g, '-').replace(/[^a-z0-9-]/g, '');
 
-    // 重複チェック（/tmp/hiphop-allow-dup が在れば既存slugの上書き変換を許可＝learning化バッチ用）
-    const songsSrc = readFileSync(join(HIPHOP_CWD, 'src/data/songs.ts'), 'utf-8');
-    if (songsSrc.includes(`slug: '/songs/${slug}'`)) {
-      let allowDup = false;
-      try { readFileSync('/tmp/hiphop-allow-dup', 'utf-8'); allowDup = true; } catch {}
-      if (!allowDup) {
-        console.warn(`  [Processor] スキップ: /songs/${slug} はすでに登録済み`);
-        return { success: false, error: `duplicate: ${slug}`, slug };
+    // 重複チェック → learning型判定による自動切替（共通関数で index.mjs と一致）
+    const existing = inspectExistingSong(slug, HIPHOP_CWD);
+    if (existing.registered) {
+      if (existing.isLearning) {
+        console.log(`  [Processor] スキップ: /songs/${slug} はすでにlearning型`);
+        return { success: false, error: `already-learning: ${slug}`, slug };
       }
-      console.log(`  [Processor] 既存slugの上書き変換を許可（/tmp/hiphop-allow-dup）: /songs/${slug}`);
+      console.log(`  [Processor] 従来型→learning型変換モード: /songs/${slug}`);
     }
 
     const coversDir = join(HIPHOP_CWD, 'public/images/covers');
