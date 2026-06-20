@@ -1,0 +1,12 @@
+[
+  { "id": "had-beef",              "anchor": ["me","and","my","mama","had","beef"],                    "fallbackT": 17,  "manualSec": null },
+  { "id": "crack-fiend-black-queen","anchor": ["even","as","a","crack","fiend"],                       "fallbackT": 82,  "manualSec": null },
+  { "id": "raise-a-man",           "anchor": ["for","a","woman","it","aint","easy"],                   "fallbackT": 91,  "manualSec": null },
+  { "id": "welfare",               "anchor": ["poor","single","mother","on","welfare"],                 "fallbackT": 100, "manualSec": null },
+  { "id": "place-no-one",          "anchor": ["place","no","one","above"],                             "fallbackT": 113, "manualSec": null },
+  { "id": "slangin",               "anchor": ["i","needed","money","of","my","own","so","i","started"],"fallbackT": 140, "manualSec": null },
+  { "id": "sell-rocks",            "anchor": ["even","though","i","sell","rocks"],                     "fallbackT": 150, "manualSec": null },
+  { "id": "scraps",                "anchor": ["workin","with","the","scraps","you","was","given"],      "fallbackT": 173, "manualSec": null },
+  { "id": "pour-out-liquor",       "anchor": ["pour","out","some","liquor"],                           "fallbackT": 200, "manualSec": null },
+  { "id": "brighter-day",          "anchor": ["if","you","can","make","it","through","the","night"],    "fallbackT": 228, "manualSec": null }
+]

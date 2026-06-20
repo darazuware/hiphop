@@ -1,0 +1,102 @@
+[
+  {
+    "id": "had-beef",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 17,
+    "t": 17,
+    "source": "fallback",
+    "approx": true,
+    "score": 0.33
+  },
+  {
+    "id": "crack-fiend-black-queen",
+    "whisperSec": 58.3,
+    "manualSec": null,
+    "fallbackT": 82,
+    "t": 58.3,
+    "source": "whisper",
+    "approx": true,
+    "score": 1
+  },
+  {
+    "id": "raise-a-man",
+    "whisperSec": 65.4,
+    "manualSec": null,
+    "fallbackT": 91,
+    "t": 65.4,
+    "source": "whisper",
+    "approx": true,
+    "score": 0.83
+  },
+  {
+    "id": "welfare",
+    "whisperSec": 70.7,
+    "manualSec": null,
+    "fallbackT": 100,
+    "t": 70.7,
+    "source": "whisper",
+    "approx": true,
+    "score": 1
+  },
+  {
+    "id": "place-no-one",
+    "whisperSec": 248,
+    "manualSec": null,
+    "fallbackT": 113,
+    "t": 248,
+    "source": "whisper",
+    "approx": true,
+    "score": 1
+  },
+  {
+    "id": "slangin",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 140,
+    "t": 140,
+    "source": "fallback",
+    "approx": true,
+    "score": 0.11
+  },
+  {
+    "id": "sell-rocks",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 150,
+    "t": 150,
+    "source": "fallback",
+    "approx": true,
+    "score": 0
+  },
+  {
+    "id": "scraps",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 173,
+    "t": 173,
+    "source": "fallback",
+    "approx": true,
+    "score": 0.14
+  },
+  {
+    "id": "pour-out-liquor",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 200,
+    "t": 200,
+    "source": "fallback",
+    "approx": true,
+    "score": 0
+  },
+  {
+    "id": "brighter-day",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 228,
+    "t": 228,
+    "source": "fallback",
+    "approx": true,
+    "score": 0.13
+  }
+]
