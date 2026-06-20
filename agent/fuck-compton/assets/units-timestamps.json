@@ -1,0 +1,82 @@
+[
+  {
+    "id": "nitty-gritty",
+    "whisperSec": 23.5,
+    "manualSec": null,
+    "fallbackT": 10,
+    "t": 23.5,
+    "source": "whisper",
+    "approx": true,
+    "score": 0.83
+  },
+  {
+    "id": "no-comp",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 20,
+    "t": 20,
+    "source": "fallback",
+    "approx": true,
+    "score": 0.17
+  },
+  {
+    "id": "spray-raid",
+    "whisperSec": 39.8,
+    "manualSec": null,
+    "fallbackT": 28,
+    "t": 39.8,
+    "source": "whisper",
+    "approx": true,
+    "score": 1
+  },
+  {
+    "id": "ballistics",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 68,
+    "t": 68,
+    "source": "fallback",
+    "approx": true,
+    "score": 0.33
+  },
+  {
+    "id": "fighting-colors",
+    "whisperSec": 86.8,
+    "manualSec": null,
+    "fallbackT": 80,
+    "t": 86.8,
+    "source": "whisper",
+    "approx": true,
+    "score": 0.67
+  },
+  {
+    "id": "jheri-curl",
+    "whisperSec": 95.8,
+    "manualSec": null,
+    "fallbackT": 95,
+    "t": 95.8,
+    "source": "whisper",
+    "approx": true,
+    "score": 0.5
+  },
+  {
+    "id": "hundred-miles",
+    "whisperSec": 140.8,
+    "manualSec": null,
+    "fallbackT": 130,
+    "t": 140.8,
+    "source": "whisper",
+    "approx": true,
+    "score": 1
+  },
+  {
+    "id": "riff-spliff",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 155,
+    "t": 155,
+    "source": "fallback",
+    "approx": true,
+    "score": 0.4
+  }
+]

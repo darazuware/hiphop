@@ -1,344 +1,242 @@
 ---
-import LyricsBlock from '../../components/LyricsBlock.astro';
+import LearningUnit from '../../components/LearningUnit.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
 import SongLayout from '../../layouts/SongLayout.astro';
+
+import tsData from '../../../agent/fuck-compton/assets/units-timestamps.json';
+const YT = "AwzeM2J3Emk";
+const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.approx }]));
 ---
 
 <SongLayout
-  title="F*** Compton 和訳・意味・スラング解説 | Tim Dog"
-  description="Tim Dogの「F*** Compton」の歌詞和訳とスラング解説。東西ヒップホップ抗争の導火線となった1991年のディストラックを徹底解説。"
-  slug="f***-compton"
+  title="f**k Compton 和訳・意味・スラング解説 | Tim Dog"
+  description="Tim Dogの「f**k Compton」（1991）を英語学習＋ヒップホップ理解の教材として精読。nitty-gritty・no comp・ballistics・jheri curlなどのスラングとマルチシラビック韻を表現単位で解説。各表現はPVの該当箇所へ頭出しリンク付き。"
+  slug="fuck-compton"
   highlights={[
-    'Tim DogがDr. Dreによる女性司会者Dee Barnes暴行事件を1991年時点で公然と告発',
-    'N.W.Aの楽曲名「100 Miles and Runnin\'」を逆用した高度なバトルラップの技',
-    'Billboard Hot Rap Songs 1位——東西ヒップホップ抗争の導火線となったSouth Bronxの咆哮',
+    'サウス・ブロンクスから西海岸へ放たれた宣戦布告——東西ビーフの火蓋を切った1991年の問題作',
+    'スラング・韻・ダブルミーニングを「学ぶ表現」単位で解説（PV頭出しリンク付き）',
+    'Ced-Gee（Ultramagnetic MCs）がESG「UFO」をサンプリングした不穏なビートの秘密',
   ]}
   youtubeId="AwzeM2J3Emk"
   sampleYoutubeId="X_vuSse9sFY"
-  sampleTitle="ESG - UFO"
+  sampleTitle={'ESG - UFO'}
 >
-    <div id="lyrics"></div>
 
     <!-- ===================== -->
-    <!-- INTRO                 -->
+    <!-- 導入                  -->
     <!-- ===================== -->
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■サウス・ブロンクスから放たれた怒りの一発</h2>
+      <p class="text-sm text-[var(--c-muted)] leading-relaxed">
+        1991年。N.W.Aの『Straight Outta Compton』（1988）からわずか3年、ギャングスタラップが全米の注目を独占し、ヒップホップの商業的な重心が一気に西海岸へ傾いていた時期に、<strong class="text-[var(--c-text)]">Tim Dog</strong>はこの曲を世に放った。曲名そのものがディスであるという、当時としても異例の振り切り方。東海岸——とりわけサウス・ブロンクス（ヒップホップが産声を上げた場所）——が積み上げてきたリリシズムと文化的プライドを背負って、N.W.AとEazy-E・Dr. Dreを名指しで叩きのめす内容だ。
+      </p>
+      <p class="text-sm text-[var(--c-muted)] leading-relaxed mt-3">
+        この記事は英語学習とヒップホップ理解の教材として読んでもらえればと思います。ラップするのはTim Dog一人だが、リリックには<strong class="text-[var(--c-text)]">ダブルミーニング</strong>・<strong class="text-[var(--c-text)]">マルチシラビック（多音節）韻</strong>・固有名詞を逆手に取る言葉遊びが凝縮されている。ニューヨーク・スタイルのバトルラップを「学ぶ表現」単位で取り出して解説していきたいと思います。
+      </p>
+    </section>
+
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■この曲で何を学べるか</h2>
+      <p class="text-sm text-[var(--c-muted)] leading-relaxed">
+        プロデュースは<strong class="text-[var(--c-text)]">Ced-Gee（Ultramagnetic MCs）</strong>。ESGの「UFO」をスローダウンしてサンプリングした不穏なビートに、Tim Dogの一本気な怒鳴り声が乗る。音作り自体が「派手じゃなくても凄める」ニューヨーク流の証明になっています。アルバム『Penicillin on Wax』（Ruffhouse Records / Columbia Records・1991年）収録。
+      </p>
+      <p class="text-sm text-[var(--c-muted)] leading-relaxed mt-3">
+        なぜこれが教材として面白いか。ひとつは<strong class="text-[var(--c-text)]">語とダブルミーニングの密度</strong>——「no comp」の一語に二つの意味が仕込まれていたり、「spray your ass like a roach」からの「Raid」にトリプルの読みが走っていたり、短い行に意味がぎっしり詰まっている。もうひとつは<strong class="text-[var(--c-text)]">韻のパターン</strong>——simplistic / imperialistic / idealistic / ballistics という-istic の連発がどういう効果を生むのか、耳で聴くと一気に分かる。西海岸ラップと聴き比べると、東海岸のリリシズムの違いが体感できます。
+      </p>
+    </section>
+
+    <!-- Table of Contents -->
+    <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
+      <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
+        <li><a href="#story" class="hover:text-[var(--c-gold)] transition-colors">01 — ストーリーの流れ（まず曲全体をつかむ）</a></li>
+        <li><a href="#units" class="hover:text-[var(--c-gold)] transition-colors">02 — 学ぶ表現（スラング・韻・言葉遊び）</a></li>
+        <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">03 — 文化的背景</a></li>
+        <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">04 — サンプル・制作の裏側</a></li>
+        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">05 — 評価とその後の影響</a></li>
+      </ol>
+    </nav>
+
+    <!-- ===================== -->
+    <!-- ストーリー要約         -->
+    <!-- ===================== -->
+    <section id="story" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        ストーリーの流れ — まず曲全体をつかむ
+      </h2>
+      <p class="text-xs text-[var(--c-dim)] mb-5">
+        個々のスラングに入る前に、まず曲が何を語っているかをざっと散文でつかんでおきましょう。全体の流れが頭に入っていると、次章「学ぶ表現」で一語一語を掘るときに、その言葉が物語のどこに位置するのかが立体的に見えてくる。
+      </p>
+      <div class="space-y-4 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          曲は「Tim Dog、ここに参上」という宣言から幕を開ける。冒頭の数行でコンプトン（N.W.Aの出身地）を「bulls**t city（デタラメな街）」と断じ、Eazy-Eの名前を呼んでタイトルフレーズへなだれ込む——開始30秒でほぼすべての煽り文句を宣言してしまう、いさぎよいイントロだ。
+        </p>
+        <p>
+          <strong class="text-[var(--c-text)]">Verse 1</strong>。「俺はニューヨーク生まれのハードな兄弟、わざわざ喋らなくてもタフさは証明済みだ」という自己紹介と、西海岸へのディスが交互に出てくる。ジェリー・カールのヘアスタイルとサングラスというN.W.Aのビジュアルを「ゴキブリにレイドをかけてやる」と一蹴するあたりで、単なる悪口を超えた言葉遊びが始まる。
+        </p>
+        <p>
+          <strong class="text-[var(--c-text)]">Verse 2</strong>が一番密度が高い。Eazy-EとDr. Dreを名指しし、Ice-T は「cool with（ダチだ）」と明示することで、ディスのターゲットを絞る。「Dr. Dre による Dee Barnes 暴行事件」を1991年時点で公然と歌詞に書き込んだあたりは、ジャーナリズム的な告発に近い。中盤以降はギャングのカラー抗争（赤と青の「服の色で殺し合う文化」）を「馬鹿のやること」と一蹴し、「ニューヨークに来い、誰が身ぐるみを剥がされるか見せてやる」と啖呵を切る。
+        </p>
+        <p>
+          <strong class="text-[var(--c-text)]">Verse 3</strong>では戦線がさらに個人的な方向へ。N.W.Aの楽曲名「100 Miles and Runnin'」をそのまま引用して「俺が来たらお前らはその通り逃げ惑う」に転換し、Dr. Dreの当時の恋人・Michel'leへの侮辱でビーフを取り返しのつかない次元に持ち込む。曲末の「riff / lift / gift / if / fifth / shift / spliff」の連続韻は、ほぼ言葉の実験みたいな様相を呈している。全体として「怒り＋知的な言葉遊び＋東海岸のプライド」が同居した、なかなか食えない一曲です。
+        </p>
+        <p class="text-xs text-[var(--c-dim)]">
+          ※本ページは批評・教育目的で、解説に必要な範囲の断片のみを引用しています。全歌詞の対訳は掲載していません。
+        </p>
+      </div>
+    </section>
+
+    <!-- ===================== -->
+    <!-- 学習ユニット群         -->
+    <!-- ===================== -->
+    <div id="units"></div>
     <section class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Intro · Tim Dog
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2 border-b border-[var(--c-border)] pb-2">
+        学ぶ表現 — スラング・韻・言葉遊び
       </h2>
+      <p class="text-xs text-[var(--c-dim)] mb-6">
+        各見出しは「この曲から学べる英語表現」。各ユニットはまず上に英語の用例（1〜2行）を置いてあります。<strong class="text-[var(--c-text)]">先に英語を音で追い、行のどこが学習対象かを確かめてから</strong>下の日本語解説に進むと、英語が苦手でも置いていかれません。🎤はそのリリックを歌うMC、▶は公式PVの該当箇所への頭出しリンク（音源解析で付与、秒数は概算）です。引用は解説に必要な最小限の断片だけに留めています。
+      </p>
 
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Oh s*** motherf**kers step to the rear and cheer<br />
-          Cause Tim Dog is here<br />
-          Let's get down to the <QuickSlang word="nitty gritty" desc="物事の核心、最も重要で泥臭い本質的な部分を意味する英語のイディオム。西海岸の商業化されたラップに対する、ニューヨークのストリートの隠れた真実を暴くという宣戦布告" /><br />
-          And talk about a bulls**t city<br />
-          Talking about n***as from Compton<br />
-          They're <QuickSlang word="no comp" desc="「competition（競争相手）」の略語と「Compton（コンプトン）」という都市名の略称のダブルミーニング。あいつらは相手にもならないコンプトン出身者だという鋭い皮肉" /> and they truly ain't stomping
+      <!-- ① nitty-gritty -->
+      <LearningUnit
+        heading="nitty-gritty — 「核心」を泥臭く言う定番イディオム"
+        label="★ イディオム"
+        mc="Tim Dog（Verse 1）"
+        t={TS["nitty-gritty"].t} tApprox={TS["nitty-gritty"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Let's get right down to the <QuickSlang word="nitty-gritty" desc="イディオム：物事のいちばん泥臭い核心・本質。細かい詳細や不都合な現実まで含む「ガチの中身」のこと" /><br />And talk about a bulls**t city</Fragment>
+        <Fragment slot="jpn">さあ、核心（泥臭い本質）に迫ろうぜ／あるデタラメなクソ街の話をな</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 1の冒頭近く。宣言の直後、Tim Dogが「本題に入るぞ」と言い放つ件。</p>
+        <p>上の行の中盤、「…down to the <strong class="text-[var(--c-text)]">nitty-gritty</strong>」が今回の学習ポイント。<strong class="text-[var(--c-text)]">nitty-gritty</strong> は<QuickSlang word="イディオム" desc="複数の語が組み合わさって、字義通りとは異なる固定された意味を持つ表現。慣用句とも" />で「物事の最も生々しく本質的な部分、やっかいな細部まで含めた核心」を指します。nit（シラミの卵）や grit（砂粒・砂利）に由来するとも言われるように、きれいごとのない泥臭さが含意されている。<code>get down to the nitty-gritty</code>（= get to the real point）は「建前を抜きにして本質に入る」という定番の言い回し。Tim Dog はこの一フレーズで「お上品なことは言わない、本当のことを言うぞ」という空気を一気に作る。ヒップホップのマイクチェック的な宣言として今でも使われます。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">nitty-gritty</strong> は <code>the nitty-gritty of ~</code>（〜の核心）・<code>get down to the nitty-gritty</code>（核心に入る）という形で使う。会話でも「OK, let's get to the nitty-gritty」（じゃあ本題に入ろう）のように使えます。「核心」を表す似た表現に <em>brass tacks</em>（<em>get down to brass tacks</em>）もあって、同じ感覚で使い回せます。</p>
         </Fragment>
-        <Fragment slot="jpn">
-          おいクソ野郎ども、後ろに下がって歓声を上げな<br />
-          なぜならTim Dog様がここにいるからだ<br />
-          さあ、核心（泥臭い真実）に迫ろうぜ<br />
-          あるデタラメなクソ街についての話をな<br />
-          コンプトンから来た黒人どもの話さ<br />
-          奴らは相手（コンペティション）にもならねえし、全く凄みもねえ
+      </LearningUnit>
+
+      <!-- ② no comp -->
+      <LearningUnit
+        heading="no comp — 一語に地名と実力評価を重ねるダブルミーニング"
+        label="★ 言葉遊び"
+        mc="Tim Dog（Verse 1）"
+        t={TS["no-comp"].t} tApprox={TS["no-comp"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Talkin' about n***as from Compton<br />They're <QuickSlang word="no comp" desc="①competition（競争相手）の略で「相手にならない」②Compton（地名）の略——「コンプトン出身で相手にもならない」のダブルミーニング" /> and they truly ain't stomping</Fragment>
+        <Fragment slot="jpn">コンプトンから来た連中の話さ／あいつらは相手（コンペティション）にもならないし、全く凄みもない</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 1序盤、コンプトン批判に入ってすぐ。学習対象は下の行の冒頭。</p>
+        <p>下の行の頭、「They're <strong class="text-[var(--c-text)]">no comp</strong>」——この <strong class="text-[var(--c-text)]">comp</strong> が仕掛けです。ひとつは <em>competition</em>（競争相手・勝負になる相手）の略、もうひとつは <strong class="text-[var(--c-text)]">Compton</strong>（直前の行に出てくる地名）の略。「あいつらは競合にもならない（no competition）」と言いながら、同時に「コンプトン出身（no Compton）」という地名までサッと含意させてしまう。しかも直前の行で「Compton」と言っておいてすぐ「no comp」と返すから、聞いているほうには自動的に両方の意味が走る。2語でこれをやってのける、バトルラップの言語感覚がよく出ている行です。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">comp</strong> は <em>competition</em> の略で口語・スラングに頻出します。<em>no comp</em> = 相手にならない、<em>there's no comp</em> = 勝負にならない。ヒップホップでは "no competition" を "no comp" と縮めて使うのが定番。縮め方ひとつで韻が踏みやすくなり、別の意味まで呼び込める——この語感が東海岸ラップの語彙遊びの醍醐味です。</p>
         </Fragment>
-        <Fragment slot="explanation">
-          冒頭からrear/cheer/here、gritty/city、Compton/stompingという連続したAABBのライムスキームを採用。「They're no comp」の「comp」は「competition（競争相手）」の略語でありながら「Compton」という都市名の略称にもかけた鋭いダブルミーニング。西海岸への対決姿勢を即座に鮮明にするイントロだ。
+      </LearningUnit>
+
+      <!-- ③ spray like a roach / Raid -->
+      <LearningUnit
+        heading="spray your ass like a roach / yelling Raid — トリプルミーニングの罵倒術"
+        label="★ 言葉遊び（最重要）"
+        mc="Tim Dog（Verse 1）"
+        t={TS["spray-raid"].t} tApprox={TS["spray-raid"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">I'll diss and spray your ass like a roach<br />…I'll roll thick and you'll be yellin' out, "<QuickSlang word="Raid" desc="①米国の有名殺虫剤ブランド ②ストリートスラングで「警察/敵ギャングの急襲」のダブルミーニング——ゴキブリ（roach）に殺虫剤（Raid）という比喩に急襲の意味まで重なるトリプル構造" />"</Fragment>
+        <Fragment slot="jpn">ディスってゴキブリみたいにスプレーをぶっかけてやる／俺が大勢で乗り込んだら、お前は「レイド（殺虫剤）だ！」と叫ぶことになる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 1中盤、西海岸ラッパーを害虫に例える件。学習対象は2行にまたがる仕掛け。</p>
+        <p>上の行で <strong class="text-[var(--c-text)]">roach</strong>（ゴキブリ）というワードが出て、下の行末で <strong class="text-[var(--c-text)]">Raid</strong> が出てくる構造に注目してください。<strong class="text-[var(--c-text)]">Raid</strong> には三つの読みが同時に走っています。①アメリカで有名な殺虫剤ブランド（roach → Raid の連想）、②ストリートスラングで「警察や敵勢力による急襲・ガサ入れ」、③N.W.Aのアンセム的なビジュアル（レイダースキャップ＝Raiders）への皮肉。1行目でゴキブリの比喩を作り、2行目でそのゴキブリが殺虫剤に飛び跳ねる情景を描きながら、急襲の脅しまで含意させてしまう。ヒップホップにおけるトリプルミーニングの好例で、2行をセットで聴いてはじめて仕掛けが全部見える。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">roach</strong> はゴキブリ（アメリカ英語では主にチャバネゴキブリ）のことで、「みすぼらしい・駆除すべき存在」の比喩として使われる。<em>spray like a roach</em>（ゴキブリに殺虫剤をかけるように）という言い回しは「無力化する・完全にやっつける」のイメージで使う。なお <em>roach</em> にはマリファナの吸殻（ジョイントの終わり）という別のスラング意味もあり、文脈次第で意味が変わる多義語のひとつ。</p>
         </Fragment>
-      </LyricsBlock>
+      </LearningUnit>
+
+      <!-- ④ ballistics / マルチシラビック -->
+      <LearningUnit
+        heading="simplistic / imperialistic / idealistic / ballistics — マルチシラビック韻の見本"
+        label="★ 韻（多音節ライム）"
+        mc="Tim Dog（Verse 2）"
+        t={TS["ballistics"].t} tApprox={TS["ballistics"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">I'm <QuickSlang word="simplistic" desc="単純明快な・率直な（ここでは自己評価として使い、複雑さより直球を好む東海岸スタイルの宣言)" />, <QuickSlang word="imperialistic" desc="帝国主義的・支配的（ヒップホップの領土における覇者という自己宣言）" />, <QuickSlang word="idealistic" desc="理想主義的（妥協しない信念を持つという意味合い）" /><br />And I'm kicking the <QuickSlang word="ballistics" desc="弾道学。ここでは「過激なライム・パンチライン」のダブルミーニング" /></Fragment>
+        <Fragment slot="jpn">俺はシンプルで、帝国的で、理想主義的だ／そして弾道学（過激なライム）をぶちかましている</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 2中盤、自己定義のラインが連なる件。学習対象は2行全体の韻の構造。</p>
+        <p>まず声に出して追ってみてください。<strong class="text-[var(--c-text)]">simplistic / imperialistic / idealistic</strong>——そして次の行末の <strong class="text-[var(--c-text)]">ballistics</strong>。全部 <code>-istic(s)</code> の音で揃っている。これが<strong class="text-[var(--c-text)]">マルチシラビック韻</strong>（<QuickSlang word="マルチシラビック" desc="multi-syllabic rhyme：複数の音節にまたがって音を揃える韻のこと。1音節の単純な脚韻より技術的に難易度が高く、東海岸スタイルの象徴とされる" />）です。1音節の「flow / go」みたいな単純な脚韻ではなく、4〜6音節の長い語の末尾まで揃える。この技術的な難度の高さが「東海岸のリリシズムはニューヨーク的知性の証明だ」というTim Dogのスタンスそのものになっている。内容も「シンプルで帝国的で理想主義的だ」という自己宣言と、「だからこそ弾道学（ballistics）のように精密な言葉を撃ち込む」という比喩が重なって、韻の形式と内容が一致している。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">kicking the ballistics</strong> の <em>kick</em> は「（言葉・知識・フロウを）放つ・繰り出す」という動詞で、ヒップホップスラングの定番。<em>kick a verse</em>（ヴァースをかます）・<em>kick knowledge</em>（知識を説く）のように使う。<em>ballistics</em>（弾道学）は「過激なリリック」の比喩として機能し、精度の高さと破壊力の両方を含意している。マルチシラビック韻の技術とこの比喩が組み合わさることで、Tim Dogは「俺の言葉は科学的に精密で、かつ弾丸のように威力がある」と言っている。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑤ fighting over colors -->
+      <LearningUnit
+        heading="Fighting over colors? — カラーギャングへの正面批判"
+        label="★ 文化・スラング"
+        mc="Tim Dog（Verse 2）"
+        t={TS["fighting-colors"].t} tApprox={TS["fighting-colors"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Having that <QuickSlang word="gang war" desc="ギャング抗争。ロサンゼルスでは赤（Bloods）と青（Crips）という服の色でギャングを識別するカラーコードが定着していた" /><br />We wanna know what you're fighting for / Fighting over <QuickSlang word="colors" desc="ブラッズ（赤）とクリップス（青）のギャングカラー。服の色が帰属ギャングを示す識別子として機能していた" />?</Fragment>
+        <Fragment slot="jpn">あのギャング抗争とやら／いったい何のために戦ってるのか聞かせてくれよ／服の色を巡って殺し合い？</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 2後半、Tim Dogがギャング文化を論理的に否定するライン。</p>
+        <p>「Fighting over <strong class="text-[var(--c-text)]">colors</strong>?」——この一行が刺さるのは、ロサンゼルスのカラーギャング文化の具体的な文脈を知っているからです。<strong class="text-[var(--c-text)]">colors</strong>（複数形）はここで「服の色」を指す。ブラッズ（Bloods）は赤、クリップス（Crips）は青を纏い、着ている色だけで敵と味方を判断してしまう識別システムが1980〜90年代のLAで定着していた。Tim Dogはニューヨーク出身の視点から「服の色で人間を殺すって何の理屈だ」と一蹴する。これは単なる悪口ではなく、東海岸から見た西海岸ギャング文化への構造的な批判です。直後に「All that gang s**t's for dumb motherf**kers」と断言する言い方も、東海岸のリリシズム的な「論理で相手を潰す」スタイルが出ている。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">colors</strong> がカラーギャングの文脈で使われるとき、単に色を指すのではなくギャングの「帰属・忠誠・アイデンティティ」全体を象徴する。<em>What color do you bang?</em>（どのギャングにいる？）・<em>fly your colors</em>（ギャングカラーを見せる）のように使われる。1988年にDennis Hopperが監督した映画 "Colors" もこの文化を題材にしており、当時の文脈を知るうえで参考になります。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑥ jheri curl / black hats -->
+      <LearningUnit
+        heading="Take your jheri curl, take your black hats — ビジュアルアイコンを「持って帰れ」"
+        label="★ スラング／文化"
+        mc="Tim Dog（Verse 2）"
+        t={TS["jheri-curl"].t} tApprox={TS["jheri-curl"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Take your <QuickSlang word="jheri curl" desc="ジェリー・カール。1980〜90年代に西海岸で大流行した艶やかなパーマ。Eazy-EやIce Cubeが愛用し西海岸ギャングスタラップの視覚的象徴となっていた" />, take your <QuickSlang word="black hats" desc="ロサンゼルス・レイダースの黒いキャップ。N.W.Aのメンバーが好んで着用し「反逆」のシンボルとして全米のストリートに広まった" /><br />Take your wack lyrics and your bulls**t tracks</Fragment>
+        <Fragment slot="jpn">お前らのジェリー・カールも黒い帽子も持って帰れ／ダサいリリックとデタラメなトラックも一緒に持ち去りな</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 2の締め近く。音楽的批判の直前に、ファッションを一蹴する件。</p>
+        <p>「Take your <strong class="text-[var(--c-text)]">jheri curl</strong>」——上の行の頭に出てくる <strong class="text-[var(--c-text)]">jheri curl</strong> は、Eazy-EとIce Cubeのトレードマークだったヘアスタイル。光沢のある化学パーマで、1980年代〜90年代初頭の西海岸ポップカルチャーを象徴するビジュアルでした。続く <strong class="text-[var(--c-text)]">black hats</strong> はロサンゼルス・レイダースの黒いキャップ——N.W.Aが愛用し「反体制」のアイコンになっていたもの。Tim Dogはこの2アイテムを「音楽的な実力のなさ」を象徴する小道具として一括りにして「全部持って帰れ」と突き返す。ファッションで作られたイメージを言葉で剥がしてしまうやり方は、ニューヨーク流のディス技法のひとつです。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">wack</strong>（または whack）は「ダサい・質が低い・話にならない」という形容詞で、ヒップホップ語彙の基本。<em>That verse is wack</em>（あのヴァースはダサい）のように使う。対義語は <em>dope / ill / fire</em>（かっこいい・優れている）。<em>wack lyrics</em>（ダサいリリック）と <em>bulls**t tracks</em>（デタラメなトラック）を並べて、ファッション批判から音楽的批判へとシームレスにつなぐ行末の流れも確認しておきましょう。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑦ hundred miles and running -->
+      <LearningUnit
+        heading="a hundred miles and running — 相手の曲名を武器に変える"
+        label="★ 言葉遊び（バトルラップの技法）"
+        mc="Tim Dog（Verse 3）"
+        t={TS["hundred-miles"].t} tApprox={TS["hundred-miles"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Buck-buck-buck! Shots are cold gunning<br />And you'll really be a <QuickSlang word="hundred miles and running" desc="N.W.AがIce Cube脱退後の1990年にリリースしたEPタイトル「100 Miles and Runnin'」の直接引用。相手が誇りにする楽曲名を逆用して「俺から逃げ惑う」という惨めな逃走に転換する高度なバトルラップの技" /></Fragment>
+        <Fragment slot="jpn">バン・バン・バン！弾丸が冷酷に撃ち込まれる／そしてお前らは本当に「百マイル逃げ惑う（Hundred Miles and Running）」ことになる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 3中盤、銃声の擬音から間髪入れずN.W.Aの楽曲名が飛び出す件。学習対象は下の行。</p>
+        <p>下の行末、「you'll really be a <strong class="text-[var(--c-text)]">hundred miles and running</strong>」——ここに仕掛けがあります。N.W.AはIce Cube脱退後の1990年に <em>"100 Miles and Runnin'"</em> というEPをリリースしていた。Tim Dogはそのタイトルをそのまま引用しながら、「俺が来たらお前らはその通り100マイル逃げ惑うことになる」という惨めな逃走の描写に転換してしまう。相手が誇りを持つ楽曲名を逆手に取って侮辱のパンチラインに仕立て直す——これはバトルラップで最も難易度が高い技法のひとつです。ただ悪口を言うのではなく、相手の固有の言葉を素材にする。「知っていないと使えない」という意味でも、東海岸のリリシズムを象徴する行だと思います。</p>
+        <Fragment slot="usage">
+          <p>バトルラップで「相手のアルバム名・曲名・スローガンを引用して逆用する」技法は <strong class="text-[var(--c-text)]">flip（フリップ）</strong>と呼ばれます。相手の言葉や素材を取り上げて（flip して）、相手への攻撃に転換する。後にTupacが「Hit 'Em Up」でB.I.G.の曲名や発言を引用して反撃したのも同じ技法。ヒップホップのビーフ文化における定石として定着しています。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑧ riff / lift / gift / if / fifth / shift / spliff -->
+      <LearningUnit
+        heading="the riff / the lift / the gift / the if / the fifth / the shift / the spliff — 韻の実験"
+        label="★ 韻（連続多音韻）"
+        mc="Tim Dog（Verse 3）"
+        t={TS["riff-spliff"].t} tApprox={TS["riff-spliff"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">The <QuickSlang word="riff" desc="ギターやキーボードの繰り返しフレーズ。ここでは「俺のスタイル・ひと節」という意味" />, the lift, the gift, the if, the <QuickSlang word="fifth" desc="①5番目 ②Fifth Avenue（ニューヨーク）への暗示 ③フィフス（750ml入り酒瓶）のダブルミーニング" /><br />The shift, the <QuickSlang word="spliff" desc="マリファナのジョイント（タバコ混じりの巻きたばこ）を指すスラング" />, that's in control to hold</Fragment>
+        <Fragment slot="jpn">リフ、リフト、ギフト、if（もし）、5番目（fifth）／シフト、スプリフ（ジョイント）——それが支配しコントロールする</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 3終盤。曲のいちばん最後に近いラインで、Tim Dogが韻の洪水で締めくくる件。</p>
+        <p>「The <strong class="text-[var(--c-text)]">riff</strong>, the lift, the gift, the if, the fifth / The shift, the <strong class="text-[var(--c-text)]">spliff</strong>」——まず音だけ追ってください。全部 <code>-iff / -ift / -if</code> の音域で揃っている。意味よりも<strong class="text-[var(--c-text)]">音の密度</strong>が優先されている行で、ほぼ言語実験に近い様相を呈しています。ここが面白いのは、Tim Dogがこの曲の大半を「内容のある怒りの告発」として書きながら、最後の最後でこういう「意味よりも韻の快楽」に振り切るからです。ヒップホップにおける韻は、意味を補強するためだけじゃなく、<strong class="text-[var(--c-text)]">音自体が武器になる</strong>——その側面をいちばん純粋に出している一節だと思います。</p>
+        <Fragment slot="usage">
+          <p>この行で使われている韻のパターンは <strong class="text-[var(--c-text)]">internal rhyme（内部韻）</strong>と <em>end rhyme（脚韻）</em>の組み合わせ。行の中に同じ音域の語を連続させて、リズムを加速させる。<em>the if</em> のように「接続詞の if をそのまま名詞として使う」のもAAVE的な語の転用で、品詞の枠を外して音だけで語を選んでいる証拠。こういう「音の並び方だけを追う聴き方」もヒップホップの楽しみ方のひとつで、意味が取れなくても音で気持ちよくなれる行というのが存在します。</p>
+        </Fragment>
+      </LearningUnit>
     </section>
 
     <!-- ===================== -->
-    <!-- VERSE 1               -->
-    <!-- ===================== -->
-    <section id="verse1" class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Verse 1 · Tim Dog
-      </h2>
-
-      <LyricsBlock hasExplanation={true} label="★ ビジュアル・アイコンの粉砕">
-        <Fragment slot="eng">
-          Tim Dog, a black man's task<br />
-          I'm so bad I'll whip Superman's ass<br />
-          All you suckers that rif on the West Coast<br />
-          I'll dis and spray your ass like a roach<br />
-          You think you're cool with your <QuickSlang word="curls" desc="ジェリー・カール。1980〜90年代に西海岸で大流行した艶やかなカールのヘアスタイル。N.W.AのEazy-EやIce Cubeが愛用し西海岸カルチャーの視覚的象徴となっていた" /> and your shades<br />
-          I'll roll thick and you'll be yelling out <QuickSlang word="raid" desc="①米国で有名な殺虫剤ブランド ②ストリートスラングで「警察・敵対ギャングの急襲（ガサ入れ）」のダブルミーニング。西海岸ラッパーを無力な害虫に例えた絶妙なトリプルミーニング" /><br />
-          A hard brother that lives in New York<br />
-          Where suckers are hard and we don't have to talk<br />
-          Shut your mouth 'fore we come out stomping<br />
-          Hey, yo <QuickSlang word="Eazy" desc="Eazy-E（イージー・イー）。本名Eric Wright。N.W.AのフロントマンでありRuthless Recordsの創設者。本楽曲で名指しでディスされた最初のターゲット" />! F*** Compton!
-        </Fragment>
-        <Fragment slot="jpn">
-          Tim Dog、黒人の使命を帯びた男<br />
-          俺は極悪だからスーパーマンのケツだって蹴り飛ばすぜ<br />
-          西海岸でイキってるサッカーMC（偽物）ども全員<br />
-          ディスって、ゴキブリみたいにスプレーを吹きかけてやる<br />
-          カールヘアにサングラスでクールにキメてるつもりだろうが<br />
-          俺が大人数で乗り込んだら、お前らは「レイド（殺虫剤）だ！」って叫ぶことになる<br />
-          ニューヨークに住むハードなブラザー<br />
-          ここの連中はタフだから、いちいち口で語る必要はねえんだよ<br />
-          俺たちが踏み潰しに行く前に、その口を閉じな<br />
-          おい、Eazy（Eazy-E）！ コンプトンなんてクソくらえだ！
-        </Fragment>
-        <Fragment slot="explanation">
-          「I'll spray your ass like a roach（ゴキブリみたいにスプレーをかけてやる）」から「yelling out raid」への流れは見事なトリプルミーニング。「Raid（レイド）」は殺虫剤ブランドでありながら、ストリートスラングでは「警察の急襲（ガサ入れ）」を意味する。ゴキブリ（害虫）に見立てた西海岸ラッパーへの殺虫剤散布と、ギャング的急襲を重ね合わせる言葉遊びの精巧さはNY特有の知的ラップ伝統の証。「curls and your shades」でEazy-Eらのトレードマークを直接標的にし、西海岸のビジュアル・アイコンを「女々しいファッション」として名指しで粉砕している。
-        </Fragment>
-      </LyricsBlock>
-    </section>
-
-    <!-- ===================== -->
-    <!-- HOOK 1                -->
-    <!-- ===================== -->
-    <section class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Hook · Tim Dog
-      </h2>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          F*** Compton!<br />
-          F*** Compton<br />
-          F*** Compton (yeah!)<br />
-          F*** Compton (oh, yeah!)<br />
-          F*** 'em
-        </Fragment>
-        <Fragment slot="jpn">
-          コンプトンなんてクソくらえ！<br />
-          コンプトンなんてクソくらえ<br />
-          コンプトンなんてクソくらえ（イェー！）<br />
-          コンプトンなんてクソくらえ（オー、イェー！）<br />
-          あいつらなんかクソくらえだ
-        </Fragment>
-        <Fragment slot="explanation">
-          複雑な比喩を一切排し、極めてシンプルかつ直接的なフレーズを執拗に反復する構造。クラブやライブ会場でのアンセム化を強く意図したコール＆レスポンスの仕掛けである。言葉の壁や地域性を越えて、ニューヨークのBボーイたちが怒りを共有し、西海岸に向けて一体となって中指を立てる姿が目に浮かぶ圧倒的な破壊力と求心力を持つフックだ。
-        </Fragment>
-      </LyricsBlock>
-    </section>
-
-    <!-- ===================== -->
-    <!-- VERSE 2               -->
-    <!-- ===================== -->
-    <section id="verse2" class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Verse 2 · Tim Dog
-      </h2>
-
-      <LyricsBlock hasExplanation={true} label="★ Dee Barnes暴行事件の告発とギャングカルチャーの論理的否定">
-        <Fragment slot="eng">
-          (Why you dissing Eazy?)<br />
-          Cause the boy ain't s***<br />
-          Chew him with tobacco, and spit him in s***<br />
-          I'll crush Ice Cube, I'm cool wit <QuickSlang word="Ice T" desc="Ice-T。西海岸ロサンゼルス出身のギャングスタ・ラップのパイオニア。Tim Dogが「ダチだ（cool with）」と敬意を示した数少ない西海岸アーティスト" /><br />
-          But NWA ain't s*** to me<br />
-          <QuickSlang word="Dre, beating on Dee" desc="1990年にFOXの人気HIPHOP番組「Pump It Up」の女性司会者Dee Barnesに対し、Dr. Dreが凄惨な暴行を加えた実際の事件への告発。Tim Dogは1991年の時点でこの不都合な事実を楽曲で公然と突いた。この事件は2015年の映画「Straight Outta Compton」からも意図的に削除され再び批判を浴びた" /> from Pump it Up!<br />
-          Step to the Dog and get f***ed up!<br />
-          I'm simplistic, imperialistic, idealistic<br />
-          And I'm kicking the <QuickSlang word="ballistics" desc="弾道学。ここでは「過激なライム」のダブルミーニング。simplistic/imperialistic/idealistic/ballisticsというマルチシラビック（多音節）押韻は東海岸の技巧的ライム伝統の証明" /><br />
-          Having that gang war<br />
-          We want to know what you're fighting for<br />
-          Fighting over colors?<br />
-          All that gang s***'s for dumb motherf**kers!<br />
-          But you go on thinking you're hard<br />
-          Come to New York and we'll see who gets robbed!<br />
-          Take your <QuickSlang word="jheri curls" desc="ジェリー・カール。Eazy-E・初期Ice Cube・Snoop Doggらが愛用した艶やかなカールのヘアスタイル。西海岸ギャングスタ・ラップ・カルチャーを視覚的に象徴するアイコン" />, take your <QuickSlang word="black hats" desc="ロサンゼルス・レイダースの黒いキャップや黒のニット帽。N.W.Aのメンバーが好んで着用し「反逆」や「ギャングスタ」のユニフォームとして全米のストリートに定着していた" /><br />
-          Take your wack lyrics and your bulls**t tracks
-        </Fragment>
-        <Fragment slot="jpn">
-          （なぜEazyをディスるんだ？）<br />
-          あんなガキ、クソの役にも立たねえからさ<br />
-          噛みタバコと一緒に噛み砕いて、クソの中に吐き捨ててやる<br />
-          Ice Cubeを叩き潰すぜ、Ice-Tとはダチだけどな<br />
-          だがN.W.A.は俺にとって全く無価値だ<br />
-          Dre、お前は『Pump It Up』のDee（Dee Barnes）を殴りやがったな！<br />
-          このDog様に歯向かってみろ、ボコボコにしてやる！<br />
-          俺はシンプルで、帝国的で、理想主義的だ<br />
-          そして弾道学（過激なライム）をブチかましている<br />
-          あのギャング抗争とかいうやつ<br />
-          お前らがいったい何のために戦ってるのか知りたいね<br />
-          服の色を巡って殺し合う？<br />
-          そんなギャングごっこは馬鹿なクソ野郎どものやることだ！<br />
-          だが、お前らは自分がハードコアだと思い込み続けてる<br />
-          ニューヨークに来てみろよ、誰が身ぐるみ剥がされるか見てみようぜ！<br />
-          お前らのジェリー・カールも、黒い帽子も持って帰れ<br />
-          お前らのダサいリリックと、デタラメなトラックと一緒に持ち去りな
-        </Fragment>
-        <Fragment slot="explanation">
-          このヴァースはHIPHOP史において最も物議を醸したブロックである。「Dre, beating on Dee from Pump it Up!」は単なるディスを超えたジャーナリズム的告発——Dr. Dreによる女性司会者Dee Barnesへの実際の暴行事件を公然と糾弾した。ストリートのタフガイを気取りながら無抵抗な女性に手を上げた偽善を1991年の時点で突いた点は先見的だった。「Fighting over colors?」でブラッズ（赤）とクリップス（青）のカラーギャング抗争を「馬鹿どものやること」と一蹴するラインは、NYのストリートがLAの「服の色で殺し合う」システムより本質的なサバイバル競争であるという主張の核心。「simplistic/imperialistic/idealistic/ballistics」という-isticの多重韻は東海岸のマルチシラビック（多音節ライム）技術の見せつけでもある。
-        </Fragment>
-      </LyricsBlock>
-    </section>
-
-    <!-- ===================== -->
-    <!-- HOOK 2                -->
-    <!-- ===================== -->
-    <section class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Hook 2 · Tim Dog
-      </h2>
-
-      <LyricsBlock hasExplanation={true}>
-        <Fragment slot="eng">
-          Now you're mad and you're thinking about stomping<br />
-          Well I'm from the <QuickSlang word="South Bronx" desc="ニューヨーク市ブロンクス区の南部。1973年にDJ Kool Hercがブロックパーティーを開きブレイクビーツを生み出した「HIPHOP誕生の聖地」。極度の貧困と高い犯罪率で知られる" />, f*** Compton!<br />
-          F*** Compton!<br />
-          F*** Compton (yeah!)<br />
-          F*** Compton (oh, yeah!)<br />
-          F*** 'em
-        </Fragment>
-        <Fragment slot="jpn">
-          さあ、お前らは怒り狂って踏み潰しに来ようと考えてるだろう<br />
-          だが、俺はサウス・ブロンクスの出身だ、コンプトンなんてクソくらえ！<br />
-          コンプトンなんてクソくらえ！<br />
-          コンプトンなんてクソくらえ（イェー！）<br />
-          コンプトンなんてクソくらえ（オー、イェー！）<br />
-          あいつらなんかクソくらえだ
-        </Fragment>
-        <Fragment slot="explanation">
-          フックの直前に「サウス・ブロンクス」という地名を意図的に配置することで、HIPHOPの「正当な血統」と「文化の源流」がどこにあるのかを聴衆に再認識させている。西海岸のファンがこの曲を聴いて激怒し、暴力的な報復を考えるであろうことすら完全に見越した上での完璧なヒール（悪役）的プロモーション手法の極致。
-        </Fragment>
-      </LyricsBlock>
-    </section>
-
-    <!-- ===================== -->
-    <!-- VERSE 3               -->
-    <!-- ===================== -->
-    <section id="verse3" class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Verse 3 · Tim Dog
-      </h2>
-
-      <LyricsBlock hasExplanation={true} label="★ N.W.A楽曲名を逆用した最大の屈辱">
-        <Fragment slot="eng">
-          Tim Dog and I'm the best from the East<br />
-          And all this Compton s*** must cease<br />
-          So keep your eyes on the prize<br />
-          And don't jeopardize my wife cause that's not wise<br />
-          You really think that you can rhyme?<br />
-          Well come and get some of this loaded <QuickSlang word="Tec-9" desc="スウェーデン設計・米国製造の9ミリ口径半自動拳銃。安価で装弾数が多く1980〜90年代のストリート・ギャングに広く普及したギャングスタ・ラップの代名詞的銃器" /><br />
-          Buck-buck-buck! Shots are cold gunning<br />
-          And you'll really be a <QuickSlang word="hundred miles and running" desc="N.W.AがIce Cube脱退後の1990年にリリースしたEPタイトル「100 Miles and Runnin'」の直接引用。相手の誇りである楽曲名を逆用して「俺が来たらお前らはビビって逃げ出す」という強烈なパンチラインに昇華させた高度な技" /><br />
-          You wanna play? Go ride in a sleigh<br />
-          I'm so large I f***ed <QuickSlang word="Michel'le" desc="当時Ruthless Recordsに所属した人気R&BシンガーでありDr. Dreの当時の恋人・婚約者。敵対する相手のパートナーを性的に侮辱するHIPHOPのビーフにおける最終兵器。TupacがB.I.G.の妻Faith Evansを抱いたと主張した「Hit 'Em Up」の明確な先駆け" /><br />
-          In the bathroom we was bonin'<br />
-          You shoulda heard how the b**** was moanin'
-        </Fragment>
-        <Fragment slot="jpn">
-          俺はTim Dog、東海岸の最高峰だ<br />
-          そして、このコンプトンのクソ騒ぎは終わらせなきゃならねえ<br />
-          だから頂点から目を離すなよ<br />
-          俺の女（嫁）を危険に晒すようなマネはするな、それは賢い選択じゃねえ<br />
-          自分たちが本当にラップできると思ってるのか？<br />
-          なら、この弾が装填されたTec-9の味を喰らいに来いよ<br />
-          バン・バン・バン！銃弾が冷酷に撃ち込まれる<br />
-          そうすりゃ、お前らは本当に「100マイル逃げ惑う（Hundred Miles and Running）」ことになるぜ<br />
-          遊びたいならソリにでも乗ってな<br />
-          俺は超ビッグだから、Michel'le（ミッシェル）とヤッてやったぜ<br />
-          バスルームで骨の髄まで愛し合ったんだ<br />
-          あのビッチがどんな風に喘いでたか、お前らにも聞かせてやりたかったぜ
-        </Fragment>
-        <Fragment slot="explanation">
-          「Buck-buck-buck」という銃声の擬音から間髪入れずN.W.Aの楽曲名「100 Miles and Runnin'」を引用する技は、相手の誇りである楽曲タイトルをそのまま利用して惨めな逃走を描写するHIPHOPラップバトルの定石を完璧に踏襲した高度な技である。そして楽曲の最大の炎上ポイント——Dr. Dreの当時の恋人であり子供の母親でもあったMichel'leへの性的侮辱。この一行によりTim DogとDr. Dreの確執は修復不可能な個人的怨恨の次元へと突入した。後のTupac「Hit 'Em Up」の明確な先駆け事例として、HIPHOPビーフの歴史の中で特筆されている。
-        </Fragment>
-      </LyricsBlock>
-
-      <LyricsBlock hasExplanation={true} label="★ Michel'leへの侮辱——罵倒スキャットと自己宣言">
-        <Fragment slot="eng">
-          Do, do, boo-do, doo-doo<br />
-          Do, do, do-do, do, do<br />
-          Shut the f*** up b****, you can't sing<br />
-          You sound like a kid playing on a swing (F*** you!)<br />
-          I'm the man at hand to run the band that's in command<br />
-          You know who the f*** I am<br />
-          Tim Dog, what's my motherf***ing name?<br />
-          Tim Dog, that's my motherf***ing game<br />
-          So whether you think that I'm just a myth<br />
-          The riff, the lift, the gift, the if, the fifth<br />
-          The shift, the spliff, that's in control to hold<br />
-          To fold, to bold and make an ache and take and fake<br />
-          Woo, and I'm still too great
-        </Fragment>
-        <Fragment slot="jpn">
-          ドゥ、ドゥ、ブー・ドゥ、ドゥードゥー<br />
-          ドゥ、ドゥ、ドゥードゥー、ドゥ、ドゥ<br />
-          黙れクソビッチ、お前は歌えないだろ<br />
-          ブランコで遊ぶガキみたいな声しやがって（クソッ！）<br />
-          俺はこのバンドを仕切る、指揮を執る男だ<br />
-          俺が誰だかわかるだろ<br />
-          Tim Dog、俺の名前は何だ？<br />
-          Tim Dog、それが俺のゲームだ<br />
-          俺が単なる神話に過ぎないと思うかもしれないが<br />
-          リフ、リフト、ギフト、if、fifth（5番目）<br />
-          シフト、スプリフ（マリファナ）、制御して保持して<br />
-          折り畳んで、大胆にして、痛みを作って取って偽って<br />
-          ウー、それでも俺はまだ偉大すぎる
-        </Fragment>
-        <Fragment slot="explanation">
-          Michel'leの歌声を「ブランコで遊ぶガキ」と罵倒するこのセクションは楽曲の中で最もコミカルかつ残酷な箇所。「The riff, the lift, the gift, the if, the fifth / The shift, the spliff」という-ifと-iftの多重韻は言葉を純粋な音として操る高度なライミング技術。最後に「I'm still too great（それでも俺はまだ偉大すぎる）」と自己完結するエゴの塊のような一節だが、これもHIPHOPにおける伝統的な自己誇示（Braggadocio）の極致として機能している。
-        </Fragment>
-      </LyricsBlock>
-    </section>
-
-    <!-- ===================== -->
-    <!-- INTERLUDE             -->
-    <!-- ===================== -->
-    <section class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Interlude · Tim Dog
-      </h2>
-
-      <LyricsBlock hasExplanation={false}>
-        <Fragment slot="eng">
-          Yo, it's about time we got somebody from the South Bronx<br />
-          Speakin' on them wack-ass rappers from Compton (Yeah)<br />
-          Know what, man? They really ain't s***
-        </Fragment>
-        <Fragment slot="jpn">
-          ヨォ、そろそろサウス・ブロンクスから誰かが声を上げる時が来た<br />
-          コンプトンのあのダサいラッパーどもについてな（イェー）<br />
-          わかるか、あいつらは本当にゴミだぜ
-        </Fragment>
-      </LyricsBlock>
-    </section>
-
-    <!-- ===================== -->
-    <!-- OUTRO                 -->
-    <!-- ===================== -->
-    <section class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        Outro · Tim Dog
-      </h2>
-
-      <LyricsBlock hasExplanation={false}>
-        <Fragment slot="eng">
-          F*** Compton<br />
-          F*** Compton (Yeah)<br />
-          F*** Compton<br />
-          Yeah, this a little somethin' to let you know<br />
-          That these West Coast rappers ain't takin' over<br />
-          'Cause I'ma say out the South Bronx<br />
-          And we ain't havin' that s***<br />
-          Tim Dog, peace out<br />
-          F*** 'em
-        </Fragment>
-        <Fragment slot="jpn">
-          コンプトンなんてクソくらえ<br />
-          コンプトンなんてクソくらえ（イェー）<br />
-          コンプトンなんてクソくらえ<br />
-          ああ、これはちょっとした知らせだ<br />
-          西海岸のラッパーどもが制圧することはない<br />
-          なぜなら俺はサウス・ブロンクス出身だからだ<br />
-          そんな真似は許さない<br />
-          Tim Dog、以上だ<br />
-          あいつらなんかクソくらえだ
-        </Fragment>
-      </LyricsBlock>
-    </section>
-
-    <!-- ===================== -->
-    <!-- CULTURAL BACKGROUND   -->
+    <!-- 文化的背景            -->
     <!-- ===================== -->
     <section id="background" class="mb-12">
       <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
@@ -346,34 +244,37 @@ import SongLayout from '../../layouts/SongLayout.astro';
       </h2>
 
       <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
-        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">HIPHOPの東西対立</p>
-        <h3 class="font-semibold text-base mb-3">「Straight Outta Compton」が変えたパワーバランス</h3>
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">東西のパワーバランス</p>
+        <h3 class="font-semibold text-base mb-3">「Straight Outta Compton」が動かした重心</h3>
         <p class="text-[var(--c-muted)] text-sm leading-relaxed">
-          HIPHOPは1970年代にニューヨーク・サウス・ブロンクスで産声を上げた。しかし1988年にN.W.Aが『Straight Outta Compton』をリリースしてからギャングスタ・ラップが全米を席巻し、<strong class="text-[var(--c-text)]">HIPHOPの商業的中心地は西海岸へと急速に移動</strong>した。東海岸のアーティストたちはメディアやレーベルが「コンプトン出身」というだけで西海岸アーティストを優遇する状況に深刻な疎外感と憤りを募らせていた。
+          ヒップホップは1973年、ニューヨークのサウス・ブロンクスで生まれた。DJ Kool Hercのブロックパーティー、Afrika Bambaataaの思想、Grandmaster Flashの技術——その伝統を継承してきた東海岸の側からすると、1988年のN.W.A『Straight Outta Compton』が全米を席巻してからのパワーシフトは相当なものだった。メディアとレーベルの目が一斉に西海岸へ向き、「コンプトン出身」というだけで新人が注目される時代になった。Tim Dogが感じていたのは、個人的な恨みというより、こういう業界構造への苛立ちだったと本人は後のインタビューで語っています。
         </p>
       </div>
 
       <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
-        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">東西のスタイル対立</p>
-        <h3 class="font-semibold text-base mb-3">リリカルな純粋主義 vs. ストリートの映画的リアリズム</h3>
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">スタイルの対立</p>
+        <h3 class="font-semibold text-base mb-3">リリシズム vs. 映画的リアリズム</h3>
         <p class="text-[var(--c-muted)] text-sm leading-relaxed">
-          東海岸はサンプリング芸術の追求、複雑で知的なリリックの構造を重んじる純粋主義的価値観に支配されていた。一方、西海岸はPファンクに影響を受けた重低音とグルーヴィーなビートを基調とし、ストリートの過酷な現実をいかに映画的に描写するかに重きが置かれていた。ファッション的には、東海岸がティンバーランドのブーツやNike Air Force 1を、西海岸がレイダースのキャップとジェリー・カールを象徴として持ち、<strong class="text-[var(--c-text)]">すべてのアイデンティティが衝突</strong>していた。
+          東海岸はサンプリングの芸術性と複雑なライム構造を重視するリリシズムの文化、西海岸はPファンクをベースにした重低音とストリートの現実を映画的に描写するギャングスタラップ——この2つのスタイルの対立は音楽論争でもあった。Tim Dogの「simplistic / imperialistic / idealistic / ballistics」という多音節韻の並べ方は、その主張の内容だけでなく、技術的な難度そのものが「東海岸のほうが高度だ」という証明になっている。ファッション（ジェリー・カールと黒いキャップ）への攻撃もその延長で、「イメージで売っているだけ」という批判が込められていた。
         </p>
       </div>
 
       <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
-        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">キーワード解説</p>
-        <h3 class="font-semibold text-base mb-3">楽曲を読み解く重要スラング・用語</h3>
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">キーワード早見表</p>
+        <h3 class="font-semibold text-base mb-3">この曲で学んだスラング・用語の整理</h3>
         <div class="space-y-3 mt-3">
           {[
-            ['Jheri Curls', '1980〜90年代に西海岸で大流行した艶やかなカールのヘアスタイル。Eazy-EやIce Cubeのトレードマーク。Tim Dogはこれを「女々しいファッション」として直接攻撃した'],
-            ['Black Hats', 'ロサンゼルス・レイダースの黒いキャップ。N.W.Aが着用し「反逆」の象徴として全米に定着したが、Tim Dogはこれも「持って帰れ」と一蹴した'],
-            ['100 Miles and Running', 'N.W.AがIce Cube脱退後にリリースしたEPタイトル。相手の楽曲名を逆用して「俺から逃げ惑え」と宣告する高度なラップバトルの技'],
-            ['Dee Barnes', '「Pump It Up」の女性司会者。Dr. Dreに暴行された実際の事件。Tim Dogは1991年時点でこれを公然と告発した先見的な一行'],
-            ['South Bronx', 'HIPHOPが誕生した「聖地」。DJ Kool Hercが1973年にブロックパーティーを開催した場所。Tim Dogがコンプトンに対して突き付けた「本家の証明」'],
+            ['nitty-gritty', 'イディオム：建前抜きの本質・核心。get down to the nitty-grittyで「本題に入る」'],
+            ['no comp', 'competitionの略「相手にならない」＋地名Comptonの略——ダブルミーニング'],
+            ['roach / Raid', 'ゴキブリ→殺虫剤ブランドRaid→ストリートの急襲、のトリプルミーニング連鎖'],
+            ['ballistics', '弾道学＝過激なライムのダブルミーニング。kick the ballistics＝パンチラインをかます'],
+            ['colors', 'カラーギャング（Bloods赤／Crips青）の識別色。LAのギャング文化のシンボル'],
+            ['jheri curl', 'Eazy-E・Ice Cubeのトレードマークだった艶やかな化学パーマ。西海岸文化の視覚的象徴'],
+            ['wack', 'ダサい・質が低い・話にならない。対義語はdope/ill/fire'],
+            ['spliff', 'マリファナのジョイント（タバコ混じり）を指すスラング'],
           ].map(([term, desc]) => (
             <div class="flex gap-3 text-sm">
-              <span class="text-[var(--c-gold)] shrink-0 font-semibold min-w-[140px]">{term}</span>
+              <span class="text-[var(--c-gold)] shrink-0 font-semibold min-w-[130px]">{term}</span>
               <span class="text-[var(--c-muted)]">{desc}</span>
             </div>
           ))}
@@ -382,79 +283,41 @@ import SongLayout from '../../layouts/SongLayout.astro';
     </section>
 
     <!-- ===================== -->
-    <!-- VERSIONS              -->
-    <!-- ===================== -->
-    <section id="versions" class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        バージョン違い
-      </h2>
-
-      <div class="mb-4 rounded-lg overflow-hidden border border-[var(--c-border)] text-sm">
-        <div class="grid grid-cols-3 bg-[var(--c-bg)] text-[var(--c-very-dim)] text-xs uppercase tracking-widest">
-          <div class="p-3 border-b border-[var(--c-border)]">バージョン</div>
-          <div class="p-3 border-b border-l border-[var(--c-border)]">特徴</div>
-          <div class="p-3 border-b border-l border-[var(--c-border)]">意義</div>
-        </div>
-        {[
-          ['"F*** Compton" (Original)', '1991年アルバム『Penicillin on Wax』収録の完全無修正版。Fワードと過激描写そのまま', 'ストリートやアンダーグラウンドのクラブで最も熱狂的に支持された歴史的マスターピース'],
-          ['"Funky Compton" (Clean)', 'ラジオ・MTV用クリーン版。Fワードが「Forget」「Funky」に差し替え', 'HIPHOPファンからは「楽曲の殺気を完全に殺している妥協の産物」として酷評された'],
-          ['Instrumental', 'Ced-GeeとTim Dogが構築したビートのみを抽出したバージョン', '東海岸のBボーイたちのサイファー（フリースタイル）用トラックとして重宝された'],
-          ['"The Original Dog" (BX Mix / 2005)', '2005年リリースの実質的続編。Bob Jamesの「Nautilus」をサンプリング', '抗争から14年後の自己オマージュ的リミックス。新世代の「Dog」ラッパーたちへの牙'],
-        ].map(([name, desc, significance]) => (
-          <div class="grid grid-cols-3">
-            <div class="p-3 border-b border-[var(--c-border)] text-[var(--c-text)] font-medium">{name}</div>
-            <div class="p-3 border-b border-l border-[var(--c-border)] text-[var(--c-muted)]">{desc}</div>
-            <div class="p-3 border-b border-l border-[var(--c-border)] text-[var(--c-dim)] text-xs">{significance}</div>
-          </div>
-        ))}
-      </div>
-    </section>
-
-    <!-- ===================== -->
-    <!-- BEHIND THE SCENES     -->
+    <!-- サンプル・制作の裏側    -->
     <!-- ===================== -->
     <section id="behind" class="mb-12">
       <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        制作の裏側
+        サンプル・制作の裏側
       </h2>
 
       <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
-        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">制作秘話 01</p>
-        <h3 class="font-semibold text-base mb-3">Ced-Geeの地下室と伝説のサンプラーE-mu SP-1200</h3>
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">サンプル元</p>
+        <h3 class="font-semibold text-base mb-3">ESG「UFO」——ノーウェーブの奇妙なグルーヴをスローダウン</h3>
         <p class="text-[var(--c-muted)] text-sm leading-relaxed">
-          本作のサウンドプロダクションを担ったのはUltramagnetic MCsのCed-Gee。彼はHIPHOP制作の歴史を変えた伝説のサンプラー<strong class="text-[var(--c-text)]">「E-mu SP-1200」</strong>の機能を極限まで引き出す魔術師として知られる。楽曲の核となる不穏で攻撃的なビートは、ESGの名曲「UFO」をスローダウンさせてサンプリングし、そこに鋭く突き刺さるようなギターのスタッブを重ねることで構築された。
+          ビートの背骨になっているあの不穏なループの正体は、<strong class="text-[var(--c-text)]">ESGの「UFO」（1981年）</strong>をスローダウンしてサンプリングしたもの。ESGはニューヨーク・サウス・ブロンクスの姉妹バンドで、ポストパンクとファンクをノーウェーブ的に解体した独特のグルーヴを持つグループ。曲名が「UFO（未確認飛行物体）」というあたりも含め、普通のソウルやジャズとは異なる異物感がある素材で、それをぶっとい怒鳴り声に組み合わせることで、他の東海岸トラックとも違う攻撃的な音が生まれた。
         </p>
         <p class="text-[var(--c-muted)] text-sm leading-relaxed mt-3">
-          録音当時、Tim DogはCed-Geeの実家の<strong class="text-[var(--c-text)]">地下室に居候している状態</strong>だった。そこでラップのスキルを磨き、Ultramagnetic MCsの「A Chorus Line」への参加を勝ち取り、これが業界の目に留まりRuffhouse Recordsとの契約に繋がった。
-        </p>
-      </div>
-
-      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
-        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">制作秘話 02</p>
-        <h3 class="font-semibold text-base mb-3">「半ばブラックジョーク」——Tim Dog自身が認めた誇張</h3>
-        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
-          Tim Dog自身は後のインタビューで、元々は西海岸のラッパー全員やコンプトンという街そのものに個人的な深い憎悪を抱いていたわけではないと語っている。真の狙いは「N.W.Aが個人的に気に入らなかったこと」と<strong class="text-[var(--c-text)]">「コンプトン出身というだけで実力が伴わなくともレコード会社と契約できる当時の不公平な業界の風潮」</strong>への強烈な苛立ちを表現することだった。
-        </p>
-        <p class="text-[var(--c-muted)] text-sm leading-relaxed mt-3">
-          彼はこの曲が後に死者を出すほどの巨大な東西抗争に発展するとは夢にも思っておらず、半ばプロレスにおけるヒール（悪役）的なエンターテインメントとして向かっていた。しかし彼が放った言葉はあまりにも鋭く、パンドラの箱を開け放つこととなった。
+          プロデュースした<strong class="text-[var(--c-text)]">Ced-Gee（Ultramagnetic MCs）</strong>は、E-mu SP-1200（サンプラー）の扱いに長けたプロデューサーとして知られる。Tim DogはCed-Geeとの関係の中でスキルを磨き、Ultramagnetic MCsの「A Chorus Line」への参加を経てRuffhouse RecordsとColumbia Recordsとの契約につながった。
         </p>
       </div>
 
       <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
-        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">制作秘話 03</p>
-        <h3 class="font-semibold text-base mb-3">「話題作り」の提案——レーベル側のセンセーショナル戦略</h3>
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">制作の文脈</p>
+        <h3 class="font-semibold text-base mb-3">「半ばブラックジョーク」——Tim Dog自身が語った本音</h3>
         <p class="text-[var(--c-muted)] text-sm leading-relaxed">
-          レーベル側は新人であるTim Dogを売り出すための強烈な話題作り（バズ）を求めていた。Tim Dogは声の迫力こそ圧倒的だったものの、Rakimのような極めて高度なリリシストというわけではなく、純粋なラップスキルだけで市場を制圧するのは困難だと見なされていた。そこでレーベル側から<strong class="text-[var(--c-text)]">「西海岸のラッパーを強烈にディスしてはどうか」</strong>というセンセーショナルな提案がなされたとされる。商業的な戦略から生まれた楽曲が、結果としてHIPHOP史の地政学を永遠に塗り替えてしまった皮肉な事例だ。
+          後のインタビューでTim Dogは、コンプトンやN.W.Aの全員に個人的な深い憎悪を持っていたわけではなかったと語っている。本当の標的は「N.W.Aが気に入らなかったこと」と、「コンプトン出身というだけで実力に関係なく注目される当時の業界の流れ」への苛立ちだったと。
+
+          この曲が後に死者を出すほどの抗争の導火線になるとは夢にも思っておらず、プロレスのヒール（悪役）的なエンターテインメントのつもりで向かっていた——でも言葉はあまりにも鋭すぎた。
         </p>
       </div>
     </section>
 
     <!-- ===================== -->
-    <!-- LEGACY                -->
+    <!-- 評価と影響            -->
     <!-- ===================== -->
     <section id="legacy" class="mb-12">
       <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        評価と足跡
+        評価とその後の影響
       </h2>
 
       <div class="mb-4 rounded-lg overflow-hidden border border-[var(--c-border)] text-sm">
@@ -464,11 +327,10 @@ import SongLayout from '../../layouts/SongLayout.astro';
           <div class="p-3 border-b border-l border-[var(--c-border)]">意義</div>
         </div>
         {[
-          ['US Billboard Hot Rap Songs', '最高1位 (1991年)', '過激な内容でラジオでの放送を制限されながらも、ストリート発の熱狂でチャート首位を獲得した歴史的快挙'],
-          ['Complex誌ランキング', '史上最高のディスソング50選 第19位 (2018年)', 'ディスという行為をエンターテインメントの極致へと引き上げた芸術作品としての地位を確立'],
-          ['アンサーソング', 'Dr. Dre, Snoop, DJ Quik, MC Eihtら複数が反撃', '西海岸オールスターが立ち向かうほどの衝撃。HIPHOP史上類を見ない規模でアンサーソングが制作された'],
-          ['東西抗争への影響', 'Tupac・B.I.G.の悲劇の「導火線」', '1995年のSource Awardsでの公然とした挑発を経て、1996〜97年の二大スターの命を奪う対立の遠因となった'],
-          ['Eminemによる言及', '「Ricky Ticky Toc」でネームドロップ', 'Dr. Dreの愛弟子EminemがTim Dogの名を刻んだことが楽曲の歴史的重みを証明している'],
+          ['US Billboard Hot Rap Songs', '最高1位（1991年）', 'ラジオ放送が制限される過激な内容でありながら、ストリート発の熱狂でチャート首位を獲得'],
+          ['アンサーソング', 'Dr. Dre & Snoop「f**k Wit Dre Day」（1992）', 'Dr. DreがSnoop Doggとともに反撃。MVにTim Dogを模したキャラクターが登場し「Play with my bone, would ya Timmy?」と嘲笑'],
+          ['Complex誌', '史上最高のディスソング50選 第19位（2018年）', '怒りを言語の技術に転換した点が評価された'],
+          ['東西抗争への影響', '1996〜97年のTupac・B.I.G.の悲劇の遠因', '商業的センセーションとして始まったビーフが、取り返しのつかない個人的怨恨へと変質していく最初期の事例'],
         ].map(([metric, record, significance]) => (
           <div class="grid grid-cols-3">
             <div class="p-3 border-b border-[var(--c-border)] text-[var(--c-dim)]">{metric}</div>
@@ -480,105 +342,39 @@ import SongLayout from '../../layouts/SongLayout.astro';
 
       <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
         <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">後世への影響</p>
-        <h3 class="font-semibold text-base mb-3">言葉が歴史を動かした——HIPHOPの最大のケーススタディ</h3>
+        <h3 class="font-semibold text-base mb-3">言葉がパンドラの箱を開けた</h3>
         <p class="text-[var(--c-muted)] text-sm leading-relaxed mb-4">
-          一人の無名に近いブロンクスのラッパーが放った怒りの言葉が、結果として西海岸の巨大な音楽帝国を揺るがし、HIPHOP全体の地政学と歴史を永遠に変えてしまった。2年後の1993年、ブルックリンから現れた新星The Notorious B.I.G.が<a href="/songs/party-and-bulls**t" class="text-[var(--c-gold)] hover:underline">「Party and Bulls**t」</a>で東海岸の復権を力強く宣言し、Tim Dogが切り開いた東西対立の文脈をそのまま継承した。そして13年後、Nasは<a href="/songs/hiphop-is-dead" class="text-[var(--c-gold)] hover:underline">「Hip Hop Is Dead」</a>でその東西抗争が生んだ商業化の末路を痛烈に批判することになる。
+          一人の無名に近いブロンクスのラッパーが放った怒りの言葉が、ヒップホップ全体の地政学を変えてしまった——というのは少し大きく言いすぎかもしれないけど、少なくとも「ビーフとはこうやってエスカレートするんだ」というパターンを初めて見せた曲であることは確かだと思います。Dr. Dre & Snoopの「f**k Wit Dre Day」での反撃、その後の東西抗争の激化。言葉の応酬が、いつの間にか現実の暴力と接続していった。
         </p>
         <ul class="space-y-3 text-sm">
           <li class="flex gap-3">
-            <span class="text-[var(--c-gold)] shrink-0">Dr. Dre &amp; Snoop</span>
-            <span class="text-[var(--c-muted)]">「F*** Wit Dre Day」で反撃。Snoopが「Play with my bone, would ya Timmy?」とTim Dogを嘲笑し、MVではTim Dogを模したキャラクターを登場させた。</span>
+            <span class="text-[var(--c-gold)] shrink-0">Tupac「Hit 'Em Up」</span>
+            <span class="text-[var(--c-muted)]">Tim DogがMichel'leへの性的侮辱という手法を最初に使ったことが、後のTupacによるFaith Evans侮辱の先駆けとなった。ビーフ技法の継承という意味でも参照される。</span>
           </li>
           <li class="flex gap-3">
-            <span class="text-[var(--c-gold)] shrink-0">Tupac &amp; Hit 'Em Up</span>
-            <span class="text-[var(--c-muted)]">Tim DogがMichel'leへの性的侮辱という「最終兵器」を使ったことが、後のTupacによるFaith Evans侮辱の先駆けとなった。</span>
-          </li>
-          <li class="flex gap-3">
-            <span class="text-[var(--c-gold)] shrink-0">現代のビーフ文化</span>
-            <span class="text-[var(--c-muted)]">「メディアやエンターテインメントとしてのディス」がリアルな暴力へとエスカレートするプロセスの最初の完全な事例として、現在も研究・参照される。</span>
+            <span class="text-[var(--c-gold)] shrink-0">ディス文化の定着</span>
+            <span class="text-[var(--c-muted)]">「エンターテインメントとしてのディス」が「リアルな個人攻撃」へ変質するプロセスの最初の完全な事例として、ヒップホップの歴史研究では繰り返し参照される。</span>
           </li>
         </ul>
       </div>
     </section>
 
-
-    <!-- ===================== -->
-    <!-- まとめ               -->
-    <!-- ===================== -->
+    <!-- まとめ -->
     <section class="mb-12">
       <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
         まとめ
       </h2>
       <ul class="space-y-2 text-sm text-[var(--c-muted)] list-disc list-inside leading-relaxed">
-        <li>Well I'm from the South Bronx, f*** Compton——東西ヒップホップ抗争の導火線となったヒップホップ史上最も重要なディストラック。</li>
-        <li>1991年、N.W.Aの全米制圧に対しサウス・ブロンクスから放たれた怒りの宣戦布告。Eazy-E・Dr. Dre・Ice Cubeを名指しでディス。</li>
-        <li>Ced-Gee（Ultramagnetic MCs）がESGの「UFO」を不穏にサンプリング。Tim Dogは言葉の戦争（ディストラック）でリアルを証明した。</li>
-      </ul>
-    </section>
-    <!-- ===================== -->
-    <!-- RELATED ARTICLES      -->
-    <!-- ===================== -->
-    <section class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        関連記事（内部リンク）
-      </h2>
-      <ul class="space-y-3">
-        <li>
-          <a href="/songs/party-and-bulls**t" class="flex items-center justify-between p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg hover:border-[var(--c-gold)] transition-colors">
-            <div>
-              <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-0.5">Puff Daddy Produced · 1993</p>
-              <p class="font-semibold">Party and Bulls**t 和訳・意味解説</p>
-              <p class="text-[var(--c-dim)] text-xs mt-0.5">The Notorious B.I.G.</p>
-            </div>
-            <span class="text-[var(--c-very-dim)] text-lg">→</span>
-          </a>
-        </li>
-        <li>
-          <a href="/songs/cream" class="flex items-center justify-between p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg hover:border-[var(--c-gold)] transition-colors">
-            <div>
-              <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-0.5">RZA Produced · 1994</p>
-              <p class="font-semibold">C.R.E.A.M. 和訳・意味解説</p>
-              <p class="text-[var(--c-dim)] text-xs mt-0.5">Wu-Tang Clan</p>
-            </div>
-            <span class="text-[var(--c-very-dim)] text-lg">→</span>
-          </a>
-        </li>
-        <li>
-          <a href="/songs/hiphop-is-dead" class="flex items-center justify-between p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg hover:border-[var(--c-gold)] transition-colors">
-            <div>
-              <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-0.5">will.i.am Produced · 2006</p>
-              <p class="font-semibold">Hip Hop Is Dead 和訳・意味解説</p>
-              <p class="text-[var(--c-dim)] text-xs mt-0.5">Nas feat. will.i.am</p>
-            </div>
-            <span class="text-[var(--c-very-dim)] text-lg">→</span>
-          </a>
-        </li>
-        <li>
-          <a href="/songs/protect-ya-neck" class="flex items-center justify-between p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg hover:border-[var(--c-gold)] transition-colors">
-            <div>
-              <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-0.5">RZA Produced · 1993</p>
-              <p class="font-semibold">Protect Ya Neck 和訳・意味解説</p>
-              <p class="text-[var(--c-dim)] text-xs mt-0.5">Wu-Tang Clan</p>
-            </div>
-            <span class="text-[var(--c-very-dim)] text-lg">→</span>
-          </a>
-        </li>
-        <li>
-          <a href="/songs/come-clean" class="flex items-center justify-between p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg hover:border-[var(--c-gold)] transition-colors">
-            <div>
-              <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-0.5">DJ Premier Produced · 1993</p>
-              <p class="font-semibold">Come Clean 和訳・意味解説</p>
-              <p class="text-[var(--c-dim)] text-xs mt-0.5">Jeru the Damaja</p>
-            </div>
-            <span class="text-[var(--c-very-dim)] text-lg">→</span>
-          </a>
-        </li>
+        <li>「f**k Compton」は東西ビーフの火蓋を切った1991年のディストラック。Tim DogがサウスブロンクスからN.W.A・Eazy-E・Dr. Dreを名指しで攻撃した。</li>
+        <li>ダブルミーニング（no comp）・トリプルミーニング（Raid）・多音節韻（-istic の連発）・相手の曲名の逆用（hundred miles and running）など、バトルラップの技法がぎっしり詰まっている。</li>
+        <li>Ced-Gee（Ultramagnetic MCs）がESG「UFO」をスローダウンした不穏なビートは、派手さとは違う「凄みの音」がある。元ネタを聴いてから聴き直すと、また面白さが変わります。</li>
+        <li>Tim Dog自身は「半ばブラックジョーク」のつもりだったと語るが、言葉は制御を離れて歴史を動かした——ヒップホップにおける言語の力の、皮肉な証明でもある。</li>
       </ul>
     </section>
 
     <!-- Footer -->
     <footer class="border-t border-[var(--c-border)] pt-6 text-[var(--c-very-dim)] text-xs">
-      <p>Producer: Ced-Gee (Ultramagnetic MCs) & Tim Dog · Sample: ESG "UFO" · Album: Penicillin on Wax (1991)</p>
+      <p>Producer: Ced-Gee (Ultramagnetic MCs) & Tim Dog · Sample: ESG "UFO" (1981) · Album: Penicillin on Wax (Ruffhouse / Columbia, 1991)</p>
     </footer>
 
 </SongLayout>

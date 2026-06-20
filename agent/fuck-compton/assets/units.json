@@ -1,0 +1,50 @@
+[
+  {
+    "id": "nitty-gritty",
+    "anchor": ["get", "right", "down", "to", "the", "nitty"],
+    "fallbackT": 10,
+    "manualSec": null
+  },
+  {
+    "id": "no-comp",
+    "anchor": ["theyre", "no", "comp", "and", "they", "truly"],
+    "fallbackT": 20,
+    "manualSec": null
+  },
+  {
+    "id": "spray-raid",
+    "anchor": ["spray", "your", "ass", "like", "a", "roach"],
+    "fallbackT": 28,
+    "manualSec": null
+  },
+  {
+    "id": "ballistics",
+    "anchor": ["simplistic", "imperialistic", "idealistic"],
+    "fallbackT": 68,
+    "manualSec": null
+  },
+  {
+    "id": "fighting-colors",
+    "anchor": ["fighting", "over", "colors"],
+    "fallbackT": 80,
+    "manualSec": null
+  },
+  {
+    "id": "jheri-curl",
+    "anchor": ["take", "your", "jheri", "curl"],
+    "fallbackT": 95,
+    "manualSec": null
+  },
+  {
+    "id": "hundred-miles",
+    "anchor": ["really", "be", "a", "hundred", "miles"],
+    "fallbackT": 130,
+    "manualSec": null
+  },
+  {
+    "id": "riff-spliff",
+    "anchor": ["riff", "the", "lift", "the", "gift"],
+    "fallbackT": 155,
+    "manualSec": null
+  }
+]
