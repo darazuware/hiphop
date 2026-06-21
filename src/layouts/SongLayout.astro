@@ -605,7 +605,7 @@ const relatedColumns = song
     for (let i = 0; i < N_BARS; i++) {
       const div = document.createElement('div');
       const h = Math.round(barHeights[i] * 20);
-      div.style.cssText = `width:2px;height:${h}px;border-radius:1px;flex-shrink:0;background:#484848`;
+      div.style.cssText = `flex:1 1 0;min-width:1px;height:${h}px;border-radius:1px;background:#484848`;
       seekwaveEl.appendChild(div);
       seekBars.push(div);
     }
@@ -641,7 +641,7 @@ const relatedColumns = song
       const currentBar = Math.floor((t / DURATION) * N_BARS);
       for (let i = 0; i < N_BARS; i++) {
         if (i === currentBar) {
-          seekBars[i].style.background = '#FF4D00';
+          seekBars[i].style.background = '#FFFFFF';
         } else if (i < currentBar) {
           seekBars[i].style.background = barSectionColors[i];
         } else {
