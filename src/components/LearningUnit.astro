@@ -72,14 +72,33 @@ const ghostWord = heading.split(/[—\s]/)[0].slice(0, 6).toUpperCase();
 
     {(mc || mmss) && (
       <div class="flex flex-wrap items-center gap-x-4 gap-y-1 mb-3 text-xs text-[var(--c-dim)]">
-        {mc && <span>🎤 <span class="text-[var(--c-muted)]">{mc}</span></span>}
+        {mc && (
+          <span class="inline-flex items-center gap-1">
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <rect x="3" y="1" width="4" height="6" rx="2"/>
+              <path d="M1.5 6.5C1.5 8 3 9 5 9s3.5-1 3.5-2.5"/>
+              <line x1="5" y1="9" x2="5" y2="10"/>
+            </svg>
+            <span class="text-[var(--c-muted)]">{mc}</span>
+          </span>
+        )}
         {mmss && (
           ytUrl ? (
-            <a href={ytUrl} target="_blank" rel="noopener" class="text-[var(--c-orange)] hover:text-[var(--c-green)] transition-colors font-mono">
-              ▶ {tApprox ? "≈" : ""}{mmss} から再生
+            <a
+              href={ytUrl}
+              target="_blank"
+              rel="noopener"
+              class="inline-flex items-center gap-1.5 font-mono text-black bg-[var(--c-orange)] hover:bg-[var(--c-green)] transition-colors px-2 py-0.5 text-[11px] font-bold tracking-wide"
+              style="border-radius:2px"
+            >
+              <svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor" aria-hidden="true"><polygon points="1,0 8,4 1,8"/></svg>
+              {tApprox ? "≈" : ""}{mmss}
             </a>
           ) : (
-            <span class="font-mono">▶ {tApprox ? "≈" : ""}{mmss}</span>
+            <span class="inline-flex items-center gap-1 font-mono text-[var(--c-dim)] border border-[var(--c-border)] px-2 py-0.5 text-[11px]" style="border-radius:2px">
+              <svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor" aria-hidden="true"><polygon points="1,0 8,4 1,8"/></svg>
+              {tApprox ? "≈" : ""}{mmss}
+            </span>
           )
         )}
       </div>

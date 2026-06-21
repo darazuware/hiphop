@@ -605,7 +605,7 @@ const relatedColumns = song
     for (let i = 0; i < N_BARS; i++) {
       const div = document.createElement('div');
       const h = Math.round(barHeights[i] * 20);
-      div.style.cssText = `width:2px;height:${h}px;border-radius:1px;flex-shrink:0;background:#1e1e1e`;
+      div.style.cssText = `width:2px;height:${h}px;border-radius:1px;flex-shrink:0;background:#484848`;
       seekwaveEl.appendChild(div);
       seekBars.push(div);
     }
@@ -645,7 +645,7 @@ const relatedColumns = song
         } else if (i < currentBar) {
           seekBars[i].style.background = barSectionColors[i];
         } else {
-          seekBars[i].style.background = '#1e1e1e';
+          seekBars[i].style.background = '#484848';
         }
       }
     }
@@ -686,8 +686,6 @@ const relatedColumns = song
         bandEl.style.background = SECTION_COLORS[section] ?? 'var(--c-section-intro)';
         labelEl.textContent = section.toUpperCase();
         updateActiveStrip(elapsed);
-        // Scroll card into view softly
-        active.el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       }
 
       if (elapsed < DURATION) {
