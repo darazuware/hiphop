@@ -37,14 +37,13 @@ const ROOT = join(__dirname, '../..');
 /** /menu・/help で返すコマンド一覧 */
 const MENU_TEXT =
   `📋 *コマンド一覧*\n\n` +
-  `🎵 \`Artist - Song [Year]\` → 曲記事を自動生成\n` +
-  `🛠️ \`/do <依頼>\` → 任意のタスクを実行（例: \`/do put-it-onのジャケットを直して\`）\n` +
+  `🎵 \`/song Artist - Song [Year]\` → 曲記事を自動生成\n` +
+  `🛠️ 任意のテキスト → 任意のタスクを実行（例: \`put-it-onのジャケットを直して\`）\n` +
   `🎬 \`/short <slug>\` → ショート動画を生成\n` +
   `📹 YouTube URL → 動画翻訳記事をキューに追加\n` +
   `📢 \`/publishvideo\` → キュー先頭を今すぐ公開\n` +
   `📊 \`/status\` → ショート生成状況を確認\n\n` +
-  `※ \`-\` や \`:\` を含む依頼は曲名と誤認されることがあるので \`/do\` を付けてください\n` +
-  `例: \`Wu-Tang Clan - C.R.E.A.M. [1994]\``;
+  `例: \`/song Wu-Tang Clan - C.R.E.A.M. [1994]\``;
 
 /** /short コマンドを処理 */
 async function handleShortCommand(slug, chatId) {
@@ -381,7 +380,24 @@ async function main() {
           continue;
         }
 
-        // /do <依頼> または /task <依頼> → 自由指示（任意タスク）を Claude に委譲
+        // /song <Artist - Song [Year]> → 曲記事生成
+        if (text.startsWith('/song ') || text.startsWith('/article ')) {
+          const songText = text.replace(/^\/(song|article)\s+/, '').trim();
+          const songs = songText ? parseMessage(songText) : null;
+          if (songs) {
+            for (const song of songs) {
+              processSong(song, chatId).catch((error) => {
+                console.error(`処理エラー: ${error.message}`);
+                sendMessage(`❌ 処理エラー: ${String(error.message).slice(0, 200)}`, chatId).catch(() => {});
+              });
+            }
+          } else {
+            sendMessage(`❌ 形式エラー: \`/song Artist - Song [Year]\` の形式で入力してください`, chatId).catch(() => {});
+          }
+          continue;
+        }
+
+        // /do <依頼> または /task <依頼> → 自由指示（後方互換）
         if (text.startsWith('/do ') || text.startsWith('/task ')) {
           const instruction = text.replace(/^\/(do|task)\s+/, '').trim();
           if (instruction) handleFreeformCommand(instruction, chatId).catch(() => {});
@@ -395,19 +411,7 @@ async function main() {
           continue;
         }
 
-        // 曲記事生成パース（"Artist - Song [Year]" 形式）
-        const songs = parseMessage(text);
-        if (songs) {
-          for (const song of songs) {
-            processSong(song, chatId).catch((error) => {
-              console.error(`処理エラー: ${error.message}`);
-              sendMessage(`❌ 処理エラー: ${String(error.message).slice(0, 200)}`, chatId).catch(() => {});
-            });
-          }
-          continue;
-        }
-
-        // それ以外 → 自由指示タスクとして Claude に委譲（旧 hiphop_lexicon_bot 相当）
+        // それ以外（素のテキスト）→ 自由指示タスクとして Claude に委譲
         handleFreeformCommand(text, chatId).catch(() => {});
       }
     } catch (error) {
