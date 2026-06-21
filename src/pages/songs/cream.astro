@@ -86,6 +86,32 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
     </section>
 
     <!-- ===================== -->
+    <!-- Deep-Dive Teaser (BEFORE units) -->
+    <!-- ===================== -->
+    <div class="mb-10 relative overflow-hidden border-2 border-[var(--c-orange)] bg-[var(--c-card-bg)] p-5 hover:-translate-y-0.5 transition-transform duration-200" style="border-radius:0">
+      <div aria-hidden="true" class="pointer-events-none absolute right-[-0.05em] top-[-0.1em] select-none font-black leading-none text-[var(--c-orange)] opacity-[0.05] z-0" style="font-size:clamp(3rem,14vw,7rem);letter-spacing:-0.04em">DEEP</div>
+      <div class="relative z-10">
+        <p class="text-[var(--c-orange)] text-[10px] font-bold uppercase tracking-widest mb-2">関連コラム — 読み込む前に</p>
+        <div class="space-y-3">
+          <a href="/columns/crack-epidemic-hiphop" class="flex items-start justify-between gap-4 group">
+            <div>
+              <p class="text-[var(--c-text)] text-sm font-semibold group-hover:text-[var(--c-orange)] transition-colors leading-snug">クラック・エピデミックとヒップホップ — 1980〜90年代インナーシティの実像</p>
+              <p class="text-[var(--c-dim)] text-xs mt-0.5">このヴァースが産まれた時代背景をまず知ると、解説の密度が変わる</p>
+            </div>
+            <span class="text-[var(--c-dim)] text-xs shrink-0 font-mono whitespace-nowrap">約5分</span>
+          </a>
+          <a href="/columns/ny-golden-era-1994" class="flex items-start justify-between gap-4 group">
+            <div>
+              <p class="text-[var(--c-text)] text-sm font-semibold group-hover:text-[var(--c-orange)] transition-colors leading-snug">1994年NYヒップホップ黄金期 — Nas・Wu-Tang・Bigが同時に産まれた年</p>
+              <p class="text-[var(--c-dim)] text-xs mt-0.5">C.R.E.A.M.リリースの同年、なにが起きていたのかを一望する</p>
+            </div>
+            <span class="text-[var(--c-dim)] text-xs shrink-0 font-mono whitespace-nowrap">約7分</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== -->
     <!-- 学習ユニット群（主役）  -->
     <!-- ===================== -->
     <div id="units"></div>
@@ -291,6 +317,32 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
     </section>
 
     <!-- ===================== -->
+    <!-- Deep-Dive Teaser (AFTER units) -->
+    <!-- ===================== -->
+    <div class="mb-10 relative overflow-hidden border-2 border-[var(--c-orange)] bg-[var(--c-card-bg)] p-5 hover:-translate-y-0.5 transition-transform duration-200" style="border-radius:0">
+      <div aria-hidden="true" class="pointer-events-none absolute right-[-0.05em] top-[-0.1em] select-none font-black leading-none text-[var(--c-orange)] opacity-[0.05] z-0" style="font-size:clamp(3rem,14vw,7rem);letter-spacing:-0.04em">WU</div>
+      <div class="relative z-10">
+        <p class="text-[var(--c-orange)] text-[10px] font-bold uppercase tracking-widest mb-2">関連コラム — さらに掘る</p>
+        <div class="space-y-3">
+          <a href="/columns/wu-tang-clan" class="flex items-start justify-between gap-4 group">
+            <div>
+              <p class="text-[var(--c-text)] text-sm font-semibold group-hover:text-[var(--c-orange)] transition-colors leading-snug">Wu-Tang Clan — スタテンアイランドから世界を獲った9人の武術哲学</p>
+              <p class="text-[var(--c-dim)] text-xs mt-0.5">RZAの構想、36 Chambers制作の舞台裏、各メンバーのスタイルを一本で読む</p>
+            </div>
+            <span class="text-[var(--c-dim)] text-xs shrink-0 font-mono whitespace-nowrap">約8分</span>
+          </a>
+          <a href="/columns/crack-epidemic-hiphop" class="flex items-start justify-between gap-4 group">
+            <div>
+              <p class="text-[var(--c-text)] text-sm font-semibold group-hover:text-[var(--c-orange)] transition-colors leading-snug">クラック・エピデミックとヒップホップ — ヴァースが語る構造的暴力の正体</p>
+              <p class="text-[var(--c-dim)] text-xs mt-0.5">解説で触れた「麻薬・貧困・逃走」のループを社会史の文脈から読み解く</p>
+            </div>
+            <span class="text-[var(--c-dim)] text-xs shrink-0 font-mono whitespace-nowrap">約5分</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== -->
     <!-- 文化的背景            -->
     <!-- ===================== -->
     <section id="background" class="mb-12">
@@ -298,24 +350,24 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         文化的背景
       </h2>
 
-      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
-        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">クラック・エピデミック</p>
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">クラック・エピデミック</p>
         <h3 class="font-semibold text-base mb-3">1990年代ニューヨークを破壊した麻薬の惨禍</h3>
         <p class="text-[var(--c-muted)] text-sm leading-relaxed">
           粉末コカインを重曹で固形化した安価なクラック・コカインは、レーガノミクスによる社会福祉削減で疲弊したインナーシティに、文字通り壊滅的な打撃を与えた。1992年のニューヨーク市の殺人事件数は年間<strong class="text-[var(--c-text)]">2,225件</strong>（2020年は477件）——もう数字を見るだけで、まさに戦場だったとわかる。Wu-Tang Clanが育ったスタテンアイランドのパークヒル・プロジェクトも、この惨禍のど真ん中だった。だから彼らのリリックは、エピデミックの渦中でいかにして生き延びるかという、生存戦略そのものなのだ。
         </p>
       </div>
 
-      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
-        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">Shaolin（少林）= スタテンアイランド</p>
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">Shaolin（少林）= スタテンアイランド</p>
         <h3 class="font-semibold text-base mb-3">孤立した島が生んだ純粋培養の文化</h3>
         <p class="text-[var(--c-muted)] text-sm leading-relaxed">
           ニューヨーク5区の中で、スタテンアイランドだけが地下鉄と繋がっていない。フェリーがなければマンハッタンへも行けない——この<strong class="text-[var(--c-text)]">地理的な孤立</strong>こそが、独自のスラングとハングリー精神を純粋培養したのだと思う。RZAたちはこの島に、カンフー映画「少林寺武者房（Shaolin and Wu Tang / 1983）」の世界観を重ねて「Shaolin」と呼んだ。東洋の武術哲学とアメリカのインナーシティを融合させるこのAfro-Asian aesthetic（アフロ＝アジア的美学）は、のちのKanye Westや日本産アニメ「アフロサムライ」にまで影響を伸ばしていく。
         </p>
       </div>
 
-      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
-        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">キーワード早見表</p>
+      <div class="p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">キーワード早見表</p>
         <h3 class="font-semibold text-base mb-3">この曲で学んだスラングの整理</h3>
         <div class="space-y-3 mt-3">
           {[
@@ -328,7 +380,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
             ['Old Earth', 'Five-Percent Nationの語彙で「母親」を指す敬称'],
           ].map(([term, desc]) => (
             <div class="flex gap-3 text-sm">
-              <span class="text-[var(--c-gold)] shrink-0 font-semibold min-w-[120px]">{term}</span>
+              <span class="text-[var(--c-orange)] shrink-0 font-semibold min-w-[120px]">{term}</span>
               <span class="text-[var(--c-muted)]">{desc}</span>
             </div>
           ))}
@@ -344,8 +396,8 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         サンプル・制作の裏側
       </h2>
 
-      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
-        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">サンプル元</p>
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">サンプル元</p>
         <h3 class="font-semibold text-base mb-3">哀愁ピアノの正体 — The Charmels "As Long As I've Got You"</h3>
         <p class="text-[var(--c-muted)] text-sm leading-relaxed">
           楽曲の背骨になっている、あの悲哀に満ちたピアノリフ。その正体は、Isaac HayesとDavid Porterがプロデュースした<strong class="text-[var(--c-text)]">The Charmelsの1967年ソウル楽曲「As Long As I've Got You」</strong>のオープニングを、執拗にループさせたものだ。さらにその下に、Otis ReddingとCarla Thomasの「Tramp」から抜き出した荒々しいドラムブレイクを重ねている。
@@ -355,16 +407,16 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         </p>
       </div>
 
-      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
-        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">制作秘話</p>
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">制作秘話</p>
         <h3 class="font-semibold text-base mb-3">消えた「touch」——機材のミスが生んだ奇跡の空白</h3>
         <p class="text-[var(--c-muted)] text-sm leading-relaxed">
           Inspectah Deckのヴァース中盤、「what I could not...」の後に続くはずだった<strong class="text-[var(--c-text)]">「touch」という言葉が、音源から完全に消えている</strong>。長年リスナーたちは「手の届かない夢を表す、意図的な芸術的空白だ」と絶賛してきた。ところが実際は、RZAがピンポン・ディレイエフェクトを手動でかけようとした際に、アナログ機材の限界でディケイが極端に早くかかりすぎてしまった——ただそれだけのことだったらしい。けれど、この<strong class="text-[var(--c-text)]">偶然のミス</strong>がリリックのテーマと奇跡的にリンクして、結果ヒップホップ史上もっとも美しい空白を生んでしまった。事実は小説より奇なり、です。
         </p>
       </div>
 
-      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
-        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">音響</p>
+      <div class="p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">音響</p>
         <h3 class="font-semibold text-base mb-3">60 Second Assassinの呻き声とDelfonicsの断片</h3>
         <p class="text-[var(--c-muted)] text-sm leading-relaxed">
           ビートの隙間には、Delfonicsの「Hey Love」からサンプリングした微かな音の断片と、Wu-Tang系列メンバーの<strong class="text-[var(--c-text)]">60 Second Assassinが録音したバックグラウンドの呻き声（"oohs"）</strong>が忍ばせてある。美しさと不穏さが同居するこの唯一無二の音響空間は、低予算のFirehouse Studioならではの、人間的な温かみと偶発性から生まれたものだ。お金をかければ出る音、というわけではないのが面白い。
@@ -380,7 +432,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         評価とその後の影響
       </h2>
 
-      <div class="mb-4 rounded-lg overflow-hidden border border-[var(--c-border)] text-sm">
+      <div class="mb-4 overflow-hidden border-2 border-[var(--c-orange)] text-sm" style="border-radius:0">
         <div class="grid grid-cols-3 bg-[var(--c-bg)] text-[var(--c-very-dim)] text-xs uppercase tracking-widest">
           <div class="p-3 border-b border-[var(--c-border)]">指標</div>
           <div class="p-3 border-b border-l border-[var(--c-border)]">記録</div>
@@ -396,29 +448,29 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         ].map(([metric, record, significance]) => (
           <div class="grid grid-cols-3">
             <div class="p-3 border-b border-[var(--c-border)] text-[var(--c-dim)]">{metric}</div>
-            <div class="p-3 border-b border-l border-[var(--c-border)] text-[var(--c-gold)] font-medium">{record}</div>
+            <div class="p-3 border-b border-l border-[var(--c-border)] text-[var(--c-green)] font-medium">{record}</div>
             <div class="p-3 border-b border-l border-[var(--c-border)] text-[var(--c-muted)] text-xs">{significance}</div>
           </div>
         ))}
       </div>
 
-      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
-        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">後世への影響</p>
+      <div class="p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">後世への影響</p>
         <h3 class="font-semibold text-base mb-3">「Cream」が英語の辞書に載った日</h3>
         <p class="text-[var(--c-muted)] text-sm leading-relaxed mb-4">
           「C.R.E.A.M.（Cream）」はリリース後、「現金」を意味する新しいスラングとして、英語圏の辞書に載るほどまでに定着した。かつてシェイクスピアが英語の語彙そのものを押し広げたのと同じように、Wu-Tang Clanもまた現代英語に言語学的な貢献を果たした——と言ったら大げさに聞こえるだろうか。でも事実だ。「Dollar, dollar bill, y'all」というパンチラインは、のちのThe Notorious B.I.G.・Drake・JAY-Z・Kanye Westら、数えきれないほどの作品でサンプリング／引用されている。
         </p>
         <ul class="space-y-3 text-sm">
           <li class="flex gap-3">
-            <span class="text-[var(--c-gold)] shrink-0">Kanye West</span>
+            <span class="text-[var(--c-green)] shrink-0 font-semibold">Kanye West</span>
             <span class="text-[var(--c-muted)]">RZAとの深い交流が、後の楽曲における東洋的なオリエンタリズムの導入に影響を与えたとされる。Wu-TangのAfro-Asian aestheticの現代への翻訳。</span>
           </li>
           <li class="flex gap-3">
-            <span class="text-[var(--c-gold)] shrink-0">アフロサムライ</span>
+            <span class="text-[var(--c-green)] shrink-0 font-semibold">アフロサムライ</span>
             <span class="text-[var(--c-muted)]">RZA自身がサウンドトラックを手掛けた日本産アニメ。Wu-Tangが提示した「東洋武術×ブラック・アメリカ」の文化融合の最終形態。</span>
           </li>
           <li class="flex gap-3">
-            <span class="text-[var(--c-gold)] shrink-0">LoFi Hip-Hop</span>
+            <span class="text-[var(--c-green)] shrink-0 font-semibold">LoFi Hip-Hop</span>
             <span class="text-[var(--c-muted)]">クオンタイズを無視した「埃っぽいドラム」の手法は、後のLoFi Hip-Hopムーブメントの直接的な源流。制約と偶然を芸術に変えるRZAの哲学は今も生き続けている。</span>
           </li>
         </ul>
