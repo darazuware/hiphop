@@ -32,7 +32,11 @@ const ytUrl = t != null && youtubeId ? `https://www.youtube.com/watch?v=${youtub
 const hasUsage = Astro.slots.has("usage");
 ---
 
-<section class="learning-unit mb-10">
+<section
+  class={`learning-unit mb-10 rounded-xl border-2 border-[var(--c-orange)] bg-[var(--c-card-bg)] px-5 pt-4 pb-5 transition-all duration-300${label?.startsWith('★') ? ' key' : ''}`}
+  data-t={t != null ? t : undefined}
+  data-mc={mc ?? ''}
+>
   <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-2">
     <h3 class="text-lg font-semibold text-[var(--c-text)]">{heading}</h3>
     {label && (

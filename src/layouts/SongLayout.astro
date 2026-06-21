@@ -15,9 +15,10 @@ interface Props {
   sampleTitle?: string;
   youtubeShortId?: string;
   noindex?: boolean;
+  learningPage?: boolean;
 }
 
-const { title, description, slug, highlights, youtubeId, sampleYoutubeId, sampleTitle, youtubeShortId, noindex = false } = Astro.props;
+const { title, description, slug, highlights, youtubeId, sampleYoutubeId, sampleTitle, youtubeShortId, noindex = false, learningPage = false } = Astro.props;
 
 const song = songs.find(s => s.slug === `/songs/${slug}`);
 const artist = song ? artists.find(a => a.slug === song.artistSlug) : null;
@@ -38,22 +39,53 @@ const relatedColumns = song
   <!-- Progress bar -->
   <div id="progress-bar" class="fixed top-0 left-0 h-0.5 bg-[var(--c-gold)] z-50 transition-none" style="width:0%"></div>
 
+  <!-- Fixed player bar (learning pages only) -->
+  {learningPage && (
+    <div id="learning-player-bar" class="fixed bottom-0 left-0 right-0 z-50 flex flex-col" style="display:none">
+      <!-- Section color band -->
+      <div id="player-section-band" class="h-1 w-full transition-colors duration-500" style="background:var(--c-section-intro)"></div>
+      <!-- Main bar -->
+      <div class="flex items-center gap-3 px-4 py-2 bg-[#0d0d0d]/95 backdrop-blur-md border-t border-[var(--c-border)]">
+        <!-- Play/pause -->
+        <button id="player-playpause" aria-label="再生/停止" class="shrink-0 text-[var(--c-orange)] hover:text-[var(--c-gold)] transition-colors text-lg leading-none">▶</button>
+        <!-- Section label -->
+        <span id="player-section-label" class="text-[10px] uppercase tracking-widest text-[var(--c-dim)] shrink-0 min-w-[52px]">—</span>
+        <!-- Waveform -->
+        <div id="player-waveform" class="flex items-end gap-[2px] h-5 text-[var(--c-orange)] shrink-0">
+          <div class="waveform-bar paused"></div>
+          <div class="waveform-bar paused"></div>
+          <div class="waveform-bar paused"></div>
+          <div class="waveform-bar paused"></div>
+          <div class="waveform-bar paused"></div>
+          <div class="waveform-bar paused"></div>
+          <div class="waveform-bar paused"></div>
+        </div>
+        <!-- Progress bar -->
+        <div class="flex-1 h-1 bg-[var(--c-border)] rounded-full overflow-hidden">
+          <div id="player-progress" class="h-full rounded-full transition-all duration-1000 linear" style="width:0%;background:var(--c-orange)"></div>
+        </div>
+        <!-- Time -->
+        <span id="player-time" class="text-[10px] font-mono text-[var(--c-dim)] shrink-0">0:00</span>
+      </div>
+    </div>
+  )}
+
   <!-- Scroll to top (mobile only) -->
   <button
     id="back-to-top"
     aria-label="ページ先頭へ"
-    class="lg:hidden fixed bottom-20 right-4 z-40 w-12 h-12 rounded-full bg-[var(--c-surface)] border border-[var(--c-gold)]/60 text-[var(--c-gold)] text-lg flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 shadow-md"
+    class={`lg:hidden fixed ${learningPage ? 'bottom-28' : 'bottom-20'} right-4 z-40 w-12 h-12 rounded-full bg-[var(--c-surface)] border border-[var(--c-gold)]/60 text-[var(--c-gold)] text-lg flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 shadow-md`}
   >↑</button>
 
   <!-- Scroll to bottom (mobile only) -->
   <button
     id="to-bottom"
     aria-label="ページ末尾へ"
-    class="lg:hidden fixed bottom-36 right-4 z-40 w-12 h-12 rounded-full bg-[var(--c-surface)] border border-[var(--c-gold)]/60 text-[var(--c-gold)] text-lg flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 shadow-md"
+    class={`lg:hidden fixed ${learningPage ? 'bottom-44' : 'bottom-36'} right-4 z-40 w-12 h-12 rounded-full bg-[var(--c-surface)] border border-[var(--c-gold)]/60 text-[var(--c-gold)] text-lg flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 shadow-md`}
   >↓</button>
 
   <!-- Floating explanation toggle (always visible) -->
-  <div id="exp-float" class="fixed bottom-6 right-4 z-40 flex rounded-full overflow-hidden border border-[var(--c-border)] bg-[var(--c-surface)]/90 backdrop-blur-sm shadow-lg font-mono text-[10px]">
+  <div id="exp-float" class={`fixed ${learningPage ? 'bottom-14' : 'bottom-6'} right-4 z-40 flex rounded-full overflow-hidden border border-[var(--c-border)] bg-[var(--c-surface)]/90 backdrop-blur-sm shadow-lg font-mono text-[10px]`}>
     <button data-e="tap" class="exp-btn exp-float-btn px-3 py-2 transition-colors">タップ</button>
     <button data-e="always" class="exp-btn exp-float-btn px-3 py-2 transition-colors border-l border-[var(--c-border)]">常時</button>
   </div>
@@ -420,4 +452,121 @@ const relatedColumns = song
       }
     }
   });
+
+  // ── Learning page player bar ──────────────────────────────────────────
+  (function () {
+    const bar = document.getElementById('learning-player-bar');
+    if (!bar) return;
+
+    // Section color palette (matches CSS vars)
+    const SECTION_COLORS: Record<string, string> = {
+      'verse 1': 'var(--c-section-verse1)',
+      'verse 2': 'var(--c-section-verse2)',
+      'hook':    'var(--c-section-hook)',
+      'bridge':  'var(--c-section-bridge)',
+      'intro':   'var(--c-section-intro)',
+      'outro':   'var(--c-section-outro)',
+    };
+
+    // Collect learning units with data-t
+    const units = Array.from(document.querySelectorAll<HTMLElement>('.learning-unit[data-t]'))
+      .map(el => ({
+        el,
+        t: parseFloat(el.dataset.t ?? '0'),
+        mc: el.dataset.mc ?? '',
+      }))
+      .filter(u => !isNaN(u.t))
+      .sort((a, b) => a.t - b.t);
+
+    if (units.length === 0) return;
+
+    // Show bar
+    bar.style.display = 'flex';
+    bar.style.flexDirection = 'column';
+
+    const bandEl      = document.getElementById('player-section-band')!;
+    const labelEl     = document.getElementById('player-section-label')!;
+    const waveformEl  = document.getElementById('player-waveform')!;
+    const progressEl  = document.getElementById('player-progress')!;
+    const timeEl      = document.getElementById('player-time')!;
+    const playBtn     = document.getElementById('player-playpause')!;
+    const waveBarEls  = waveformEl.querySelectorAll<HTMLElement>('.waveform-bar');
+
+    let playing = false;
+    let elapsed = 0;
+    let lastTick = 0;
+    let rafId = 0;
+    const DURATION = units[units.length - 1].t + 30;
+
+    function toMMSS(s: number) {
+      const m = Math.floor(s / 60);
+      return `${m}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
+    }
+
+    function getSectionForMc(mc: string): string {
+      const lc = mc.toLowerCase();
+      if (lc.includes('verse 1') || (lc.includes('verse') && lc.includes('raekwon'))) return 'verse 1';
+      if (lc.includes('verse 2') || (lc.includes('verse') && lc.includes('inspectah'))) return 'verse 2';
+      if (lc.includes('hook')) return 'hook';
+      if (lc.includes('bridge')) return 'bridge';
+      return 'intro';
+    }
+
+    function getActiveUnit(t: number) {
+      let active = null;
+      for (const u of units) {
+        if (u.t <= t) active = u;
+        else break;
+      }
+      return active;
+    }
+
+    function tick(ts: number) {
+      if (!playing) return;
+      const dt = lastTick ? (ts - lastTick) / 1000 : 0;
+      lastTick = ts;
+      elapsed = Math.min(elapsed + dt, DURATION);
+
+      // Update time
+      timeEl.textContent = toMMSS(elapsed);
+
+      // Update progress
+      progressEl.style.width = ((elapsed / DURATION) * 100).toFixed(2) + '%';
+
+      // Update active card + section
+      const active = getActiveUnit(elapsed);
+      document.querySelectorAll<HTMLElement>('.learning-unit').forEach(el => el.classList.remove('playing'));
+      if (active) {
+        active.el.classList.add('playing');
+        const section = getSectionForMc(active.mc);
+        bandEl.style.background = SECTION_COLORS[section] ?? 'var(--c-section-intro)';
+        labelEl.textContent = section.toUpperCase();
+        // Scroll card into view softly
+        active.el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+
+      if (elapsed < DURATION) {
+        rafId = requestAnimationFrame(tick);
+      } else {
+        playing = false;
+        playBtn.textContent = '▶';
+        waveBarEls.forEach(b => b.classList.add('paused'));
+      }
+    }
+
+    playBtn.addEventListener('click', () => {
+      playing = !playing;
+      playBtn.textContent = playing ? '⏸' : '▶';
+      waveBarEls.forEach(b => b.classList.toggle('paused', !playing));
+      if (playing) {
+        lastTick = 0;
+        rafId = requestAnimationFrame(tick);
+      } else {
+        cancelAnimationFrame(rafId);
+      }
+    });
+
+    // Add bottom padding so content isn't hidden behind bar
+    document.body.style.paddingBottom = '56px';
+  })();
 </script>
