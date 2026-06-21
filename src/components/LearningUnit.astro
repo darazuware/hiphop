@@ -68,7 +68,7 @@ const ghostWord = heading.split(/[—\s]/)[0].slice(0, 6).toUpperCase();
   <!-- Content above ghost -->
   <div class="relative z-10">
     <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-2">
-      <h3 class="text-lg font-semibold text-[var(--c-text)]">{heading}</h3>
+      <h3 class="text-[clamp(1.8rem,5vw,2.4rem)] font-black uppercase tracking-tight text-[var(--c-text)]" style="font-family:'Impact','Anton',system-ui,sans-serif;line-height:1.1">{heading}</h3>
       {label && !isKey && (
         <span class="text-[var(--c-orange)] text-xs font-bold uppercase tracking-widest opacity-90">{label}</span>
       )}
@@ -92,10 +92,10 @@ const ghostWord = heading.split(/[—\s]/)[0].slice(0, 6).toUpperCase();
               href={ytUrl}
               target="_blank"
               rel="noopener"
-              class="inline-flex items-center gap-1.5 font-mono text-black bg-[var(--c-orange)] hover:bg-[var(--c-green)] transition-colors px-2 py-0.5 text-[11px] font-bold tracking-wide"
-              style="border-radius:2px"
+              class="inline-flex items-center gap-2 font-mono text-black bg-[#FF4D00] hover:bg-[var(--c-green)] transition-colors px-3 py-1.5 text-sm font-black tracking-wide"
+              style="border-radius:3px"
             >
-              <svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor" aria-hidden="true"><polygon points="1,0 8,4 1,8"/></svg>
+              <svg width="12" height="12" viewBox="0 0 8 8" fill="currentColor" aria-hidden="true"><polygon points="1,0 8,4 1,8"/></svg>
               {tApprox ? "≈" : ""}{mmss}
             </a>
           ) : (
