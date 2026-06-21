@@ -1,12 +1,102 @@
 [
-  { "id": "lost-angel",     "t": 20,  "approx": true },
-  { "id": "four-oh-five",   "t": 34,  "approx": true },
-  { "id": "four-oh-one-k",  "t": 65,  "approx": true },
-  { "id": "peace-not-word", "t": 83,  "approx": true },
-  { "id": "vets-pet-doctors","t": 128, "approx": true },
-  { "id": "j-o-payroll",    "t": 152, "approx": true },
-  { "id": "ice-t-reckless", "t": 183, "approx": true },
-  { "id": "chess-checkers", "t": 215, "approx": true },
-  { "id": "hail-reign-la",  "t": 242, "approx": true },
-  { "id": "pmd-outro",      "t": 264, "approx": true }
+  {
+    "id": "lost-angel",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 20,
+    "t": 20,
+    "source": "fallback",
+    "approx": true,
+    "score": 0
+  },
+  {
+    "id": "four-oh-five",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 34,
+    "t": 34,
+    "source": "fallback",
+    "approx": true,
+    "score": 0.17
+  },
+  {
+    "id": "four-oh-one-k",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 65,
+    "t": 65,
+    "source": "fallback",
+    "approx": true,
+    "score": 0.11
+  },
+  {
+    "id": "peace-not-word",
+    "whisperSec": 60.6,
+    "manualSec": null,
+    "fallbackT": 83,
+    "t": 60.6,
+    "source": "whisper",
+    "approx": true,
+    "score": 0.83
+  },
+  {
+    "id": "vets-pet-doctors",
+    "whisperSec": 96.2,
+    "manualSec": null,
+    "fallbackT": 128,
+    "t": 96.2,
+    "source": "whisper",
+    "approx": true,
+    "score": 0.75
+  },
+  {
+    "id": "j-o-payroll",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 152,
+    "t": 152,
+    "source": "fallback",
+    "approx": true,
+    "score": 0.44
+  },
+  {
+    "id": "ice-t-reckless",
+    "whisperSec": 155.2,
+    "manualSec": null,
+    "fallbackT": 183,
+    "t": 155.2,
+    "source": "whisper",
+    "approx": true,
+    "score": 0.71
+  },
+  {
+    "id": "chess-checkers",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 215,
+    "t": 215,
+    "source": "fallback",
+    "approx": true,
+    "score": 0.25
+  },
+  {
+    "id": "hail-reign-la",
+    "whisperSec": 195.8,
+    "manualSec": null,
+    "fallbackT": 242,
+    "t": 195.8,
+    "source": "whisper",
+    "approx": true,
+    "score": 1
+  },
+  {
+    "id": "pmd-outro",
+    "whisperSec": 224.7,
+    "manualSec": null,
+    "fallbackT": 264,
+    "t": 224.7,
+    "source": "whisper",
+    "approx": true,
+    "score": 0.5
+  }
 ]
