@@ -35,6 +35,15 @@ const isKey = label?.startsWith('★');
 const ghostWord = heading.split(/[—\s]/)[0].slice(0, 6).toUpperCase();
 ---
 
+<style>
+  .learning-unit.key {
+    box-shadow: 0 0 20px 7px rgba(255, 77, 0, 0.55), 0 0 42px 14px rgba(255, 77, 0, 0.28);
+  }
+  .learning-unit.playing {
+    box-shadow: 0 0 20px 7px rgba(0, 232, 75, 0.55), 0 0 42px 14px rgba(0, 232, 75, 0.28);
+  }
+</style>
+
 <section
   class={`learning-unit relative mb-8 overflow-hidden border-2 border-[var(--c-orange)] bg-[var(--c-card-bg)] px-5 pt-4 pb-5 transition-all duration-300${isKey ? ' key' : ''}`}
   style="border-radius:0"

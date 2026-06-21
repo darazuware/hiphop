@@ -41,11 +41,9 @@ const relatedColumns = song
 
   <!-- Fixed player bar (learning pages only) -->
   {learningPage && (
-    <div id="learning-player-bar" class="fixed bottom-0 left-0 right-0 z-50 flex flex-col" style="display:none">
-      <!-- Section color band -->
-      <div id="player-section-band" class="h-1 w-full transition-colors duration-500" style="background:var(--c-section-intro)"></div>
+    <div id="learning-player-bar" class="fixed top-0 left-0 right-0 z-50 flex flex-col" style="display:none">
       <!-- Main bar -->
-      <div class="flex items-center gap-3 px-4 py-2 bg-[#0d0d0d]/95 backdrop-blur-md border-t border-[var(--c-border)]">
+      <div class="flex items-center gap-3 px-4 py-2 bg-[#0d0d0d]/95 backdrop-blur-md border-b border-[var(--c-border)]">
         <!-- Play/pause -->
         <button id="player-playpause" aria-label="再生/停止" class="shrink-0 text-[var(--c-orange)] hover:text-[var(--c-gold)] transition-colors text-lg leading-none">▶</button>
         <!-- Section label -->
@@ -67,6 +65,8 @@ const relatedColumns = song
         <!-- Time -->
         <span id="player-time" class="text-[10px] font-mono text-[var(--c-dim)] shrink-0">0:00</span>
       </div>
+      <!-- Section color band -->
+      <div id="player-section-band" class="h-1 w-full transition-colors duration-500" style="background:var(--c-section-intro)"></div>
     </div>
   )}
 
@@ -74,23 +74,23 @@ const relatedColumns = song
   <button
     id="back-to-top"
     aria-label="ページ先頭へ"
-    class={`lg:hidden fixed ${learningPage ? 'bottom-28' : 'bottom-20'} right-4 z-40 w-12 h-12 rounded-full bg-[var(--c-surface)] border border-[var(--c-gold)]/60 text-[var(--c-gold)] text-lg flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 shadow-md`}
+    class={`lg:hidden fixed bottom-20 right-4 z-40 w-12 h-12 rounded-full bg-[var(--c-surface)] border border-[var(--c-gold)]/60 text-[var(--c-gold)] text-lg flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 shadow-md`}
   >↑</button>
 
   <!-- Scroll to bottom (mobile only) -->
   <button
     id="to-bottom"
     aria-label="ページ末尾へ"
-    class={`lg:hidden fixed ${learningPage ? 'bottom-44' : 'bottom-36'} right-4 z-40 w-12 h-12 rounded-full bg-[var(--c-surface)] border border-[var(--c-gold)]/60 text-[var(--c-gold)] text-lg flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 shadow-md`}
+    class={`lg:hidden fixed bottom-36 right-4 z-40 w-12 h-12 rounded-full bg-[var(--c-surface)] border border-[var(--c-gold)]/60 text-[var(--c-gold)] text-lg flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 shadow-md`}
   >↓</button>
 
   <!-- Floating explanation toggle (always visible) -->
-  <div id="exp-float" class={`fixed ${learningPage ? 'bottom-14' : 'bottom-6'} right-4 z-40 flex rounded-full overflow-hidden border border-[var(--c-border)] bg-[var(--c-surface)]/90 backdrop-blur-sm shadow-lg font-mono text-[10px]`}>
+  <div id="exp-float" class={`fixed bottom-6 right-4 z-40 flex rounded-full overflow-hidden border border-[var(--c-border)] bg-[var(--c-surface)]/90 backdrop-blur-sm shadow-lg font-mono text-[10px]`}>
     <button data-e="tap" class="exp-btn exp-float-btn px-3 py-2 transition-colors">タップ</button>
     <button data-e="always" class="exp-btn exp-float-btn px-3 py-2 transition-colors border-l border-[var(--c-border)]">常時</button>
   </div>
 
-  <div class="max-w-5xl mx-auto px-4 py-8 lg:grid lg:grid-cols-[1fr_260px] lg:gap-12 lg:items-start">
+  <div class={`max-w-5xl mx-auto px-4 py-8 lg:grid lg:grid-cols-[1fr_260px] lg:gap-12 lg:items-start${learningPage ? ' pt-16' : ''}`}>
 
     <!-- Main column -->
     <div>
