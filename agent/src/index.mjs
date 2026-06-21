@@ -5,7 +5,7 @@
  * "アーティスト - 曲名 [年]" メッセージを検出して処理する。
  *
  * フロー:
- *   Telegram受信 → Gemini Deep Research → Genius歌詞取得
+ *   Telegram受信 → Genius歌詞取得（リサーチはClaude側WebSearchに委譲・Gemini不使用）
  *   → JSON保存 → Claude Code CLI → Telegram通知
  */
 
@@ -26,7 +26,6 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execSync } from 'node:child_process';
 import { getUpdates, sendMessage, parseMessage } from './telegram.mjs';
-import { runResearch, extractMetadata } from './research.mjs';
 import { fetchLyrics } from './genius.mjs';
 import { processAndDeploy } from './processor.mjs';
 import { runFreeform } from './claude.mjs';
@@ -218,25 +217,11 @@ async function processSong(song, chatId) {
     song.title = built.meta.title || song.title;
     song.year = built.meta.year ?? song.year;
   } else {
-    // 1. Gemini Deep Research（新規曲のみ）
-    console.log('[Step 1/4] Gemini Deep Research...');
-    try {
-      research = await runResearch(song);
-    } catch (error) {
-      console.error(`リサーチ失敗: ${error.message}`);
-      await sendMessage(`❌ リサーチ失敗: ${error.message}`, chatId);
-      return;
-    }
-
-    // リサーチ結果から正式名称・年号を抽出（表記揺れ補正・年自動取得）
-    console.log('[Step 1b] メタデータ抽出...');
-    const meta = await extractMetadata(research, song);
-    if (meta.artist !== song.artist || meta.title !== song.title || meta.year !== song.year) {
-      console.log(`  補正: "${song.artist} - ${song.title}" → "${meta.artist} - ${meta.title} [${meta.year}]"`);
-    }
-    song.artist = meta.artist;
-    song.title = meta.title;
-    song.year = meta.year ?? song.year;
+    // 1. リサーチは Gemini を使わない方針。watcher内のClaudeが WebSearch tool で
+    //    一次ソース（WhoSampled/Wikipedia/Discogs/Genius）から事実を自前で裏取りする。
+    //    ここでは素材を渡さず（research空）、メタデータはユーザー入力の /song をそのまま使う。
+    console.log('[Step 1/4] リサーチはClaude側WebSearchに委譲（Gemini不使用）');
+    research = '';
   }
 
   // 2. Genius 歌詞取得
@@ -295,7 +280,7 @@ async function processSong(song, chatId) {
 /** メインポーリングループ */
 async function main() {
   // 環境変数チェック
-  const required = ['TELEGRAM_BOT_TOKEN', 'TELEGRAM_CHAT_ID', 'GOOGLE_AI_API_KEY'];
+  const required = ['TELEGRAM_BOT_TOKEN', 'TELEGRAM_CHAT_ID'];
   const missing = required.filter((key) => !process.env[key]);
   if (missing.length > 0) {
     console.error(`❌ 環境変数が未設定: ${missing.join(', ')}`);
