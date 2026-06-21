@@ -31,6 +31,10 @@ const mmss = t != null ? `${Math.floor(t / 60)}:${String(Math.floor(t % 60)).pad
 const ytUrl = t != null && youtubeId ? `https://www.youtube.com/watch?v=${youtubeId}&t=${Math.floor(t)}s` : null;
 const hasUsage = Astro.slots.has("usage");
 const isKey = label?.includes('最重要');
+// Split heading into expression (big) and explanation (normal) at "—"
+const dashIdx = heading.indexOf('—');
+const headingMain = dashIdx >= 0 ? heading.slice(0, dashIdx).trim() : heading;
+const headingSub = dashIdx >= 0 ? '— ' + heading.slice(dashIdx + 1).trim() : '';
 // Ghost text: first meaningful word of heading for background display
 const ghostWord = heading.split(/[—\s]/)[0].slice(0, 6).toUpperCase();
 ---
@@ -68,7 +72,10 @@ const ghostWord = heading.split(/[—\s]/)[0].slice(0, 6).toUpperCase();
   <!-- Content above ghost -->
   <div class="relative z-10">
     <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-2">
-      <h3 class="text-[clamp(1.8rem,5vw,2.4rem)] font-black uppercase tracking-tight text-[var(--c-text)]" style="font-family:'Impact','Anton',system-ui,sans-serif;line-height:1.1">{heading}</h3>
+      <h3 class="text-[var(--c-text)]">
+        <span class="block text-[clamp(1.8rem,5vw,2.4rem)] font-black uppercase tracking-tight" style="font-family:'Impact','Anton',system-ui,sans-serif;line-height:1.1">{headingMain}</span>
+        {headingSub && <span class="block text-lg font-semibold mt-1">{headingSub}</span>}
+      </h3>
       {label && !isKey && (
         <span class="text-[var(--c-orange)] text-xs font-bold uppercase tracking-widest opacity-90">{label}</span>
       )}
