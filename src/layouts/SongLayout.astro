@@ -48,20 +48,8 @@ const relatedColumns = song
         <button id="player-playpause" aria-label="再生/停止" class="shrink-0 text-[var(--c-orange)] hover:text-[var(--c-gold)] transition-colors text-lg leading-none">▶</button>
         <!-- Section label -->
         <span id="player-section-label" class="text-[10px] uppercase tracking-widest text-[var(--c-dim)] shrink-0 min-w-[52px]">—</span>
-        <!-- Waveform -->
-        <div id="player-waveform" class="flex items-end gap-[2px] h-5 text-[var(--c-orange)] shrink-0">
-          <div class="waveform-bar paused"></div>
-          <div class="waveform-bar paused"></div>
-          <div class="waveform-bar paused"></div>
-          <div class="waveform-bar paused"></div>
-          <div class="waveform-bar paused"></div>
-          <div class="waveform-bar paused"></div>
-          <div class="waveform-bar paused"></div>
-        </div>
-        <!-- Progress bar -->
-        <div class="flex-1 h-1 bg-[var(--c-border)] rounded-full overflow-hidden">
-          <div id="player-progress" class="h-full rounded-full transition-all duration-1000 linear" style="width:0%;background:var(--c-orange)"></div>
-        </div>
+        <!-- Seekwave -->
+        <div id="player-seekwave" class="flex-1 h-5 flex items-end gap-[1px] cursor-pointer overflow-hidden" style="min-width:0"></div>
         <!-- Time -->
         <span id="player-time" class="text-[10px] font-mono text-[var(--c-dim)] shrink-0">0:00</span>
       </div>
@@ -489,11 +477,9 @@ const relatedColumns = song
     const bandEl      = document.getElementById('player-section-band')!;
     const stripEl     = document.getElementById('player-section-strip')!;
     const labelEl     = document.getElementById('player-section-label')!;
-    const waveformEl  = document.getElementById('player-waveform')!;
-    const progressEl  = document.getElementById('player-progress')!;
+    const seekwaveEl  = document.getElementById('player-seekwave')!;
     const timeEl      = document.getElementById('player-time')!;
     const playBtn     = document.getElementById('player-playpause')!;
-    const waveBarEls  = waveformEl.querySelectorAll<HTMLElement>('.waveform-bar');
 
     let playing = false;
     let elapsed = 0;
@@ -596,11 +582,83 @@ const relatedColumns = song
       return active;
     }
 
-    // Color waveform bars by current section
-    function updateWaveformColor(section: string) {
-      const color = SECTION_COLORS[section] ?? 'var(--c-section-intro)';
-      waveBarEls.forEach(b => { (b as HTMLElement).style.color = color; });
+    // ── Seekwave ──────────────────────────────────────────────────────────
+    const N_BARS = 80;
+    const barHeights: number[] = [];
+    // Pseudo-random waveform heights (seeded for consistency)
+    let rngSeed = 42;
+    function rng() {
+      rngSeed = (rngSeed * 1664525 + 1013904223) & 0xffffffff;
+      return (rngSeed >>> 0) / 0xffffffff;
     }
+    for (let i = 0; i < N_BARS; i++) {
+      const wave = Math.sin(i * 0.35) * 0.25 + 0.55;
+      barHeights.push(Math.max(0.15, Math.min(1.0, wave + rng() * 0.4 - 0.1)));
+    }
+
+    const seekBars: HTMLElement[] = [];
+    for (let i = 0; i < N_BARS; i++) {
+      const div = document.createElement('div');
+      const h = Math.round(barHeights[i] * 20);
+      div.style.cssText = `width:2px;height:${h}px;border-radius:1px;flex-shrink:0;background:#1e1e1e`;
+      seekwaveEl.appendChild(div);
+      seekBars.push(div);
+    }
+
+    // Resolve CSS section color vars to actual color strings
+    const rootStyle = getComputedStyle(document.documentElement);
+    const SECTION_VAR_MAP: Record<string, string> = {
+      'verse 1': '--c-section-verse1',
+      'verse 2': '--c-section-verse2',
+      'hook':    '--c-section-hook',
+      'bridge':  '--c-section-bridge',
+      'intro':   '--c-section-intro',
+      'outro':   '--c-section-outro',
+    };
+    function getResolvedSectionColor(section: string): string {
+      return rootStyle.getPropertyValue(SECTION_VAR_MAP[section] ?? '--c-section-intro').trim() || '#2a2a2a';
+    }
+
+    // Precompute which section each bar belongs to
+    function getBarSection(barIdx: number): string {
+      const t = (barIdx / N_BARS) * DURATION;
+      let sec = 'intro';
+      for (const b of sectionBoundaries) {
+        if (b.startT <= t) sec = b.section;
+        else break;
+      }
+      return sec;
+    }
+
+    const barSectionColors: string[] = seekBars.map((_, i) => getResolvedSectionColor(getBarSection(i)));
+
+    function updateSeekwave(t: number) {
+      const currentBar = Math.floor((t / DURATION) * N_BARS);
+      for (let i = 0; i < N_BARS; i++) {
+        if (i === currentBar) {
+          seekBars[i].style.background = '#FF4D00';
+        } else if (i < currentBar) {
+          seekBars[i].style.background = barSectionColors[i];
+        } else {
+          seekBars[i].style.background = '#1e1e1e';
+        }
+      }
+    }
+
+    function handleSeek(clientX: number) {
+      const rect = seekwaveEl.getBoundingClientRect();
+      const pct = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
+      elapsed = pct * DURATION;
+      timeEl.textContent = toMMSS(elapsed);
+      updateSeekwave(elapsed);
+      updateActiveStrip(elapsed);
+    }
+
+    seekwaveEl.addEventListener('click', (e: MouseEvent) => handleSeek(e.clientX));
+    seekwaveEl.addEventListener('touchstart', (e: TouchEvent) => {
+      e.preventDefault();
+      if (e.touches[0]) handleSeek(e.touches[0].clientX);
+    }, { passive: false });
 
     function tick(ts: number) {
       if (!playing) return;
@@ -611,8 +669,8 @@ const relatedColumns = song
       // Update time
       timeEl.textContent = toMMSS(elapsed);
 
-      // Update progress
-      progressEl.style.width = ((elapsed / DURATION) * 100).toFixed(2) + '%';
+      // Update seekwave
+      updateSeekwave(elapsed);
 
       // Update active card + section
       const active = getActiveUnit(elapsed);
@@ -622,7 +680,6 @@ const relatedColumns = song
         const section = getSectionForMc(active.mc);
         bandEl.style.background = SECTION_COLORS[section] ?? 'var(--c-section-intro)';
         labelEl.textContent = section.toUpperCase();
-        updateWaveformColor(section);
         updateActiveStrip(elapsed);
         // Scroll card into view softly
         active.el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -633,14 +690,12 @@ const relatedColumns = song
       } else {
         playing = false;
         playBtn.textContent = '▶';
-        waveBarEls.forEach(b => b.classList.add('paused'));
       }
     }
 
     playBtn.addEventListener('click', () => {
       playing = !playing;
       playBtn.textContent = playing ? '⏸' : '▶';
-      waveBarEls.forEach(b => b.classList.toggle('paused', !playing));
       if (playing) {
         lastTick = 0;
         rafId = requestAnimationFrame(tick);
