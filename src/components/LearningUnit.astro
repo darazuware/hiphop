@@ -37,12 +37,16 @@ const ghostWord = heading.split(/[—\s]/)[0].slice(0, 6).toUpperCase();
 
 <style>
   .learning-unit.playing {
-    box-shadow: 0 0 22px 8px rgba(0, 232, 75, 0.6), 0 0 48px 16px rgba(0, 232, 75, 0.3);
+    box-shadow:
+      0 0 0 2px var(--c-green),
+      0 0 30px 10px var(--c-green-glow),
+      0 0 60px 20px rgba(0, 255, 100, 0.3),
+      0 0 100px 40px rgba(0, 255, 100, 0.15);
   }
 </style>
 
 <section
-  class={`learning-unit relative mb-8 overflow-hidden border-2 border-[var(--c-orange)] bg-[var(--c-card-bg)] px-5 pt-4 pb-5 transition-all duration-300${isKey ? ' key' : ''}`}
+  class={`learning-unit relative mb-8 overflow-hidden border-2 border-[var(--c-card-border)] bg-[var(--c-card-bg)] px-5 pt-4 pb-5 transition-all duration-300${isKey ? ' key' : ''}`}
   style="border-radius:0"
   data-t={t != null ? t : undefined}
   data-mc={mc ?? ''}
