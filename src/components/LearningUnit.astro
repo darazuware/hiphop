@@ -36,11 +36,8 @@ const ghostWord = heading.split(/[—\s]/)[0].slice(0, 6).toUpperCase();
 ---
 
 <style>
-  .learning-unit.key {
-    box-shadow: 0 0 20px 7px rgba(255, 77, 0, 0.55), 0 0 42px 14px rgba(255, 77, 0, 0.28);
-  }
   .learning-unit.playing {
-    box-shadow: 0 0 20px 7px rgba(0, 232, 75, 0.55), 0 0 42px 14px rgba(0, 232, 75, 0.28);
+    box-shadow: 0 0 22px 8px rgba(0, 232, 75, 0.6), 0 0 48px 16px rgba(0, 232, 75, 0.3);
   }
 </style>
 
@@ -57,11 +54,18 @@ const ghostWord = heading.split(/[—\s]/)[0].slice(0, 6).toUpperCase();
     style="font-size:clamp(4rem,18vw,9rem);letter-spacing:-0.04em;line-height:1"
   >{ghostWord}</div>
 
+  <!-- Key badge (top-right corner) -->
+  {isKey && (
+    <div class="absolute top-0 right-0 z-20 flex items-center gap-1 bg-[#FF4D00] px-2 py-0.5 text-black text-[10px] font-bold uppercase tracking-widest leading-none" style="border-radius:0 0 0 4px">
+      ★ 聴きどころ
+    </div>
+  )}
+
   <!-- Content above ghost -->
   <div class="relative z-10">
     <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-2">
       <h3 class="text-lg font-semibold text-[var(--c-text)]">{heading}</h3>
-      {label && (
+      {label && !isKey && (
         <span class="text-[var(--c-orange)] text-xs font-bold uppercase tracking-widest opacity-90">{label}</span>
       )}
     </div>
