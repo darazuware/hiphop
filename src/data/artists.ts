@@ -521,6 +521,15 @@ export const artists = [
     summary: '本名Michael Perretta。カリフォルニア州ロサンゼルス（ビバリーヒルズ育ち）出身。幼少期からグラフィティライターとしてLAのストリートカルチャーに根ざし、Rakaa IriscienceとDJ Babuとともに「Dilated Peoples」を結成。2001年のセルフタイトルアルバム（Rawkus Records）でアンダーグラウンドHHシーンに頭角を現す。2007年にRhymesayers Entertainmentからソロデビューアルバム「The Weatherman LP」をリリースし、プロデューサー名義「The Weatherman」としても活動。ゆったりとした重みあるフロー（=Mr.Slow Flow）と精緻なリリシズムで知られ、The Alchemistとのコラボ名義「Step Brothers」（2012）でも高い評価を得た。続く「Cats & Dogs」（2011）・「Weather or Not」（2018）でもアンダーグラウンドHHの中心的存在であり続ける。現役のグラフィティライターとしての顔も持つ。',
     japan: 'Dilated Peoples時代から渋谷系のアンダーグラウンドHHリスナーを中心に支持され、「The Weatherman LP」リリース後は複数回来日公演を実施。ゆったりとしたフローと精緻なライム構成が日本のリリカル派ラッパーに参照され、輸入盤CDが専門店で高評価を得た。',
   },
+  {
+    slug: 'vacca-giovane-feddini',
+    name: 'Vacca & Giovane Feddini',
+    origin: 'Milano / Venezia, Italia',
+    active: '2000s–',
+    genre: 'Italian Hip-Hop / Underground Rap',
+    summary: "ヴァッカ（Alessandro Vacca、1979年サルデーニャ島カリャリ生まれ、ミラノ育ち）とジョヴァーネ・フェッディーニ（ヴェネツィア拠点）によるイタリアン・アンダーグラウンド・ラップのコラボユニット。ヴァッカは2000年代初頭からミラノのHIPHOPシーンで活動し、レゲエ・ダンスホール要素とハードコアラップを融合させてきたベテラン。2024年のジョイントアルバム「GRAVEYARD DUPPIES」でコラボレーションし、イタリア語のリリシズムとスロウフロウにこだわったスタイルで注目を集めた。Armani Doc・DJ Skizo・DJ Brontほか多数のアーティストとのネットワークを持つイタリアン・インディーズの重要人物。",
+    japan: "イタリアHIPHOPは日本でまだニッチなジャンルだが、アンダーグラウンドHHを掘るリスナーの間でVaccaの名前は知られている。「GRAVEYARD DUPPIES」はSpotifyほか各ストリーミングサービスで聴けるため、日本語圏のリスナーにも届きやすくなった。",
+  },
 ] as const;
 
 export type Artist = typeof artists[number];

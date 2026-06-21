@@ -1,0 +1,62 @@
+[
+  {
+    "id": "slow-flow-yall",
+    "anchor": ["slow", "flows", "yall", "to", "death"],
+    "fallbackT": 25,
+    "manualSec": null
+  },
+  {
+    "id": "ass-primendo",
+    "anchor": ["parlo", "del", "suo", "culo", "mi"],
+    "fallbackT": 58,
+    "manualSec": null
+  },
+  {
+    "id": "sony-playstation",
+    "anchor": ["sony", "ha", "fatto", "i", "contratti"],
+    "fallbackT": 70,
+    "manualSec": null
+  },
+  {
+    "id": "beyonce-jayz",
+    "anchor": ["il", "flow", "e", "cosi", "beyonce"],
+    "fallbackT": 82,
+    "manualSec": null
+  },
+  {
+    "id": "nb580-ultra",
+    "anchor": ["new", "balance", "580", "come", "fossi"],
+    "fallbackT": 98,
+    "manualSec": null
+  },
+  {
+    "id": "j-prince-2pac",
+    "anchor": ["sono", "piu", "stile", "j", "prince"],
+    "fallbackT": 112,
+    "manualSec": null
+  },
+  {
+    "id": "crime-paie-booba",
+    "anchor": ["sanno", "che", "le", "crime", "paie"],
+    "fallbackT": 145,
+    "manualSec": null
+  },
+  {
+    "id": "kinte-kunta",
+    "anchor": ["sognamo", "tutti", "di", "fuggire", "come"],
+    "fallbackT": 168,
+    "manualSec": null
+  },
+  {
+    "id": "dunga-firenze",
+    "anchor": ["leggenda", "nel", "gioco", "da", "quando"],
+    "fallbackT": 196,
+    "manualSec": null
+  },
+  {
+    "id": "teddy-boy-udine",
+    "anchor": ["teddy", "boy", "come", "a", "udine"],
+    "fallbackT": 212,
+    "manualSec": null
+  }
+]

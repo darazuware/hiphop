@@ -1,0 +1,322 @@
+---
+import LearningUnit from '../../components/LearningUnit.astro';
+import QuickSlang from '../../components/QuickSlang.astro';
+import SongLayout from '../../layouts/SongLayout.astro';
+
+import tsData from '../../../agent/slow-flow/assets/units-timestamps.json';
+const YT = "uO_e6TKrHi4";
+const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.approx }]));
+---
+
+<SongLayout
+  title="MR SLOWFLOW 歌詞・意味・スラング解説 | Vacca & Giovane Feddini"
+  description="イタリアンラップのVacca & Giovane Feddiniによる「MR SLOWFLOW」（2024年アルバムGRAVEYARD DUPPIES収録）を解説。スロウフロウの美学、イタリア語のワードプレイ、Kanye・Booba・2Pac・Dunga等の固有名詞まで、表現単位で丁寧に読み解く。"
+  slug="slow-flow"
+  highlights={[
+    'ミラノ×ヴェネツィア発のイタリアンアンダーグラウンドラップ（2024年）',
+    'イタリア語の言葉遊び・グローバル固有名詞・スローフロウの美学を単位解説',
+    'Kanye / Beyoncé / 2Pac / Booba / Dunga…ヒップホップ史と欧州文化の交差点',
+  ]}
+  youtubeId="uO_e6TKrHi4"
+>
+
+    <!-- ===================== -->
+    <!-- 導入                  -->
+    <!-- ===================== -->
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■ミラノとヴェネツィアが組んだ「スロウフロウ宣言」</h2>
+      <p class="text-sm text-[var(--c-muted)] leading-relaxed">
+        2024年5月にリリースされたジョイントアルバム「GRAVEYARD DUPPIES」の5曲目。ミラノ（正確にはサルデーニャ島カリャリ生まれでミラノ育ち）の <strong class="text-[var(--c-text)]">Vacca（ヴァッカ）</strong> と、ヴェネツィアを拠点とする <strong class="text-[var(--c-text)]">Giovane Feddini（ジョヴァーネ・フェッディーニ）</strong> が、さらにミラノのArmani Doc、そしてDJ Skizo・DJ Brontを迎えた5人編成のトラック。
+      </p>
+      <p class="text-sm text-[var(--c-muted)] leading-relaxed mt-3">
+        曲タイトルの「MR SLOWFLOW」はそのままラップスタイルの宣言で、急かさず、余裕を持って言葉を並べていく「スロウフロウ」のことをMr.と敬称で呼んでいる。歌詞はほぼ全篇イタリア語だが、Kanye・Beyoncé・2Pac・J Prince・Booba・Dunga・Kunta Kinteとグローバルな固有名詞が次々に出てきて、ニューヨーク・LA・パリ・フィレンツェが一本の曲の中で交差する。その固有名詞の密度と、各MСのスタイルを解説するのがこの記事の目的です。
+      </p>
+    </section>
+
+    <!-- Table of Contents -->
+    <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
+      <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
+        <li><a href="#story" class="hover:text-[var(--c-gold)] transition-colors">01 — 曲の流れ（3人のバース構成）</a></li>
+        <li><a href="#units" class="hover:text-[var(--c-gold)] transition-colors">02 — 学ぶ表現（イタリア語スラング・固有名詞・言葉遊び）</a></li>
+        <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">03 — イタリアンラップの文脈</a></li>
+        <li><a href="#album" class="hover:text-[var(--c-gold)] transition-colors">04 — GRAVEYARD DUPPIESについて</a></li>
+      </ol>
+    </nav>
+
+    <!-- ===================== -->
+    <!-- ストーリー要約         -->
+    <!-- ===================== -->
+    <section id="story" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        曲の流れ — 3人のバース構成
+      </h2>
+      <p class="text-xs text-[var(--c-dim)] mb-5">
+        各バースが別のMCを担当し、語り口が変わっていく。まず全体の構成を頭に入れておくと、下の「学ぶ表現」で個々の行を読むとき、どのMCが何を語っているかが立体的につかめます。
+      </p>
+      <div class="space-y-4 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          <strong class="text-[var(--c-text)]">イントロ（Armani Doc & Giovane Feddini）</strong>。「Yo, Feddini, com'è, frate'? Vacca, com'è?（よ、フェッディーニ、元気か？ヴァッカ、どうだ？）」という挨拶から始まる。ミラノとヴェネツィアの仲間が顔を揃えた感じが出ていて、アルバム全体の空気感のプレビューになっている。
+        </p>
+        <p>
+          <strong class="text-[var(--c-text)]">Strofa 1（Giovane Feddini & Armani Doc）</strong>。Feddiniがヴェネツィアの街を歩きながら、自分たちのスタイルとキャリアの話を入れていく。Sony（メジャーレーベル）への皮肉、Kanyeへの言及、Beyoncé/Jay-Zを使った比喩——このバースに最もグローバルな固有名詞が集まっている。
+        </p>
+        <p>
+          <strong class="text-[var(--c-text)]">Strofa 2（Armani Doc）</strong>。「Vengo da M-I（ミラノ出身）」と明言し、ミラノを中心に話す。New Balance 580・J Prince・2Pac・Booba（フランスのラッパー）とサッカーのウルトラスに言及しながら、自分のスタイルと仲間たちへのリスペクトを語る。
+        </p>
+        <p>
+          <strong class="text-[var(--c-text)]">Strofa 3（Vacca & Armani Doc）</strong>。Vaccaが締める最終バース。フィレンツェ（ドゥンガ時代のフィオレンティーナ）、ウーディネのテディボーイ文化、KuntaKinteの逃走への比喩——固有名詞の解像度がより細かく、ローカルな地名と歴史的参照が混ざる。「Still war all day / Underground hitman」というアウトロで幕を閉じる。
+        </p>
+        <p class="text-xs text-[var(--c-dim)]">
+          ※本ページは批評・教育目的で、解説に必要な範囲の断片のみを引用しています。
+        </p>
+      </div>
+    </section>
+
+    <!-- ===================== -->
+    <!-- 学習ユニット群         -->
+    <!-- ===================== -->
+    <div id="units"></div>
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2 border-b border-[var(--c-border)] pb-2">
+        学ぶ表現 — イタリア語スラング・固有名詞・言葉遊び
+      </h2>
+      <p class="text-xs text-[var(--c-dim)] mb-6">
+        各見出しは「この曲から学べるフレーズや表現」。引用はイタリア語原文（1〜2行）＋日本語訳の順で置いてあります。<strong class="text-[var(--c-text)]">先にイタリア語を音で追い、どこが学習対象かを確かめてから</strong>日本語解説に進むとより立体的に入ってきます。🎤はMC担当、▶は公式動画の該当箇所への頭出しリンク（概算秒）。
+      </p>
+
+      <!-- ① slow flows y'all to death -->
+      <LearningUnit
+        heading={`"I slow flows y'all to death" — イタリアン・バースに突然英語が飛び込む`}
+        label="★ コードスイッチング"
+        mc="Giovane Feddini（Strofa 1）"
+        t={TS["slow-flow-yall"].t} tApprox={TS["slow-flow-yall"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">I slow flows y'all to death</Fragment>
+        <Fragment slot="jpn">俺は「スロウフロウ」でお前らを圧倒する</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Strofa 1の序盤、Feddiniがラップスタイルの宣言をする一行。</p>
+        <p>全篇イタリア語の曲の中で、この一行だけが英語で放り込まれている。これは<strong class="text-[var(--c-text)]">コードスイッチング</strong>（code switching）——会話や歌詞の中で言語を切り替えるテクニックで、ヒップホップでは強調や格好つけのために使われる。英語を使うことでグローバル・ヒップホップへの帰属を示しながら、直後にまたイタリア語に戻るという遊び方。
+
+</p>
+        <p>「<strong class="text-[var(--c-text)]">slow flow</strong>」は文字通り「遅いフロウ」ではなく、急がず・余裕を持って・言葉を丁寧に乗せていくラップスタイルのこと。このアルバムのタイトルトラックでもあり、スロウフロウ自体を人格化して「Mr.」と呼ぶのがアルバム全体のコンセプト。「<strong class="text-[var(--c-text)]">y'all</strong>」は<QuickSlang word="y'all" desc="you allの短縮形。南部アメリカ英語・AAVEで「お前ら全員」を指す二人称複数" />の典型的な使い方で、イタリア人MCがあえて使うことで黒人音楽文化へのリスペクトも匂わせている。</p>
+      </LearningUnit>
+
+      <!-- ② ass-primendo -->
+      <LearningUnit
+        heading='"mi sto ass-primendo" — イタリア語×英語のバイリンガル・ダジャレ'
+        label="★ 言葉遊び（最重要）"
+        mc="Giovane Feddini（Strofa 1）"
+        t={TS["ass-primendo"].t} tApprox={TS["ass-primendo"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Parlo del suo culo, mi sto ass-primendo</Fragment>
+        <Fragment slot="jpn">彼女のお尻の話をしてるんだ、俺は「ass-primendo（表現）中」で</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Strofa 1の中盤、Feddiniが女性について語りながら洒落を仕込む一行。</p>
+        <p>この行の聴きどころは行末の <strong class="text-[var(--c-text)]">ass-primendo</strong> という造語。イタリア語の <em>esprimendo</em>（= expressing、表現している）の語頭 <em>e-</em> を英語の <strong class="text-[var(--c-text)]">ass</strong>（お尻）に置き換えたバイリンガル・ダジャレで、「culo（お尻）について話している＝ass-primendoしている」という二重の意味が一語に畳み込まれている。</p>
+        <p>こういう二言語にまたがった語呂合わせは英語では <strong class="text-[var(--c-text)]">portmanteau</strong>（混成語）の一種とも言えるが、ここはむしろ「わざと気づかせる」パンチラインとしての機能が強い。後ろのAhah（笑い声）のアドリブが、観客に「分かった？」と確認しているようで面白い。一聴して「あ、それか」と気づいた瞬間がちょっと気持ちいいタイプの仕掛け。</p>
+      </LearningUnit>
+
+      <!-- ③ Sony / PlayStation -->
+      <LearningUnit
+        heading='"Sony ha fatto i contratti... non sono una PlayStation" — 独立の哲学をゲーム機で語る'
+        label="★ 比喩／メタファー"
+        mc="Giovane Feddini（Strofa 1）"
+        t={TS["sony-playstation"].t} tApprox={TS["sony-playstation"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Sony ha fatto i contratti, sono uscito correndo<br />Voleva controllarmi, non sono una PlayStation</Fragment>
+        <Fragment slot="jpn">Sonyが契約書を持ってきたが、俺は走って逃げた／俺をコントロールしようとしたが、俺はPlayStationじゃない</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Strofa 1の終盤、Feddiniがメジャーレーベルとの決裂を語る2行。</p>
+        <p>2行セットで読んでほしい。上の行「Sony ha fatto i contratti, sono uscito correndo（ソニーが契約書を出したが、走って出てきた）」でメジャーレーベルのオファーを断ったという事実を語り、下の行でその理由をゲーム機の比喩で説明する。</p>
+        <p><strong class="text-[var(--c-text)]">controllarmi</strong>（コントロールする）という動詞と、Sonyの代表的なゲームハード <strong class="text-[var(--c-text)]">PlayStation</strong> が掛かる——コントローラーで操作するゲーム機と、レーベルに管理されるアーティストを重ねたメタファー。Sonyがゲーム機を作る会社でもあるため、Sony→PlayStation という連想が一直線につながるのがうまい。インディーズでの自律性と、メジャーシステムへの批判はヒップホップ普遍のテーマだが、ここはゲーム機1つで全部言い切ってしまっている。</p>
+      </LearningUnit>
+
+      <!-- ④ Beyoncé / Jay-Z -->
+      <LearningUnit
+        heading='"Il flow è così Beyoncé, metto Jay-Z ai miei piedi" — 夫婦ペアを使った逆転比喩'
+        label="★ 固有名詞メタファー"
+        mc="Giovane Feddini（Strofa 1）"
+        t={TS["beyonce-jayz"].t} tApprox={TS["beyonce-jayz"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Il flow è così Beyoncé, metto Jay-Z ai miei piedi</Fragment>
+        <Fragment slot="jpn">俺のフロウはBeYoncéのように（圧倒的だから）、Jay-Zを自分の足元に置く</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Strofa 1の締め近く、Feddiniが自分のスキルを2大スターで表現する一行。</p>
+        <p>行の前半 <strong class="text-[var(--c-text)]">Il flow è così Beyoncé</strong>（フロウがBeYoncéみたいだ）でまずレベルの高さを示し、後半 <strong class="text-[var(--c-text)]">metto Jay-Z ai miei piedi</strong>（Jay-Zを俺の足元に置く）で逆転が起きる。</p>
+        <p>BeYoncéとJay-Zは現実に夫婦で、音楽界の頂点に立つカップルだ。ここでFeddiniは「俺のフロウがBeYoncéレベルだから、Jay-Zは俺の下になる」という構造を使っている。比喩が2段階になっていて、①BeYoncé＝最高峰のフロウの喩え、②Jay-Z＝その夫＝上から数えて二番目、というロジック。直後に「È solo una metafora（これはただの比喩だ）」とわざわざ補足を入れているのが、おかしくて好き。それだけ大口を叩いたという自覚がある（笑）。</p>
+      </LearningUnit>
+
+      <!-- ⑤ New Balance 580 / Ultra -->
+      <LearningUnit
+        heading='"New Balance 580 come fossi un ultra" — 靴でウルトラスになる'
+        label="★ スラング／サッカー文化"
+        mc="Armani Doc（Strofa 2）"
+        t={TS["nb580-ultra"].t} tApprox={TS["nb580-ultra"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">New Balance 580 come fossi un ultra</Fragment>
+        <Fragment slot="jpn">New Balance 580を履いて、まるでウルトラスみたいに</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Strofa 2の冒頭、Armani Docが自分のスタイルを靴で語り始める一行。</p>
+        <p>行全体が一つのイメージ。<strong class="text-[var(--c-text)]">New Balance 580</strong> はランニングシューズだが、イタリアのサッカー <strong class="text-[var(--c-text)]"><QuickSlang word="ウルトラス" desc="イタリアのサッカースタジアムで最も熱狂的な応援集団（ultras）。単なるサポーターを超えた独自のファッション・音楽・政治文化を持つ" /></strong>（ultras）がスタジアムで愛用するスニーカーとして知られていて、NB 580 はウルトラスカルチャーのアイコン的なアイテムになっている。</p>
+        <p>「come fossi un ultra」（まるでウルトラスのように）という比喩によって、単に「New Balanceを履いている」という事実が「スタジアムの最前列で音楽と暴力の境界にいる男たちのような強度で存在している」というニュアンスに変わる。ファッションが帰属意識を語る道具になっているのはヒップホップも同じだが、イタリアではサッカーカルチャーと直結している点が独特。</p>
+      </LearningUnit>
+
+      <!-- ⑥ J Prince / 2Pac -->
+      <LearningUnit
+        heading='"Sono più stile J Prince, vi lascio fare i 2Pac" — 二つの対照的なレジェンド'
+        label="★ 固有名詞／ラップ史"
+        mc="Armani Doc（Strofa 2）"
+        t={TS["j-prince-2pac"].t} tApprox={TS["j-prince-2pac"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Sono più stile J Prince, vi lascio fare i 2Pac</Fragment>
+        <Fragment slot="jpn">俺はどちらかというとJ Princeスタイル、2Pac的なのはお前らに任せる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Strofa 2の中盤、Armani Docが自分と対照的なスタイルを並べて語る一行。</p>
+        <p>2人の対比が面白い。<strong class="text-[var(--c-text)]">J Prince</strong>（J. プリンス）はヒューストンのRap-A-Lot Recordsの創設者で、舞台裏の交渉・ビジネスで業界を動かしてきた「陰の帝王」的な人物。一方 <strong class="text-[var(--c-text)]">2Pac</strong> は伝説的なラッパーで、怒り・情熱・フロントラインに立つ姿勢の象徴として語られることが多い。</p>
+        <p>Armani Docは「俺はJ Princeスタイル＝舞台裏で静かに動く側。2Pacみたいに前に出ていくのはお前らに任せる」と言っている。J Princeは自分でマイクを持つ人ではないが、ラッパーたちが尊敬するボスである——その選択が自分のスタンスを語っている。ラップで「俺は戦わない」と宣言するのに、もっとも語れる比喩を選んでいる。</p>
+      </LearningUnit>
+
+      <!-- ⑦ crime paie / Booba -->
+      <LearningUnit
+        heading='"le crime paie come a Paris Booba" — フランスのラップ帝王への参照'
+        label="★ 固有名詞／フレンチラップ"
+        mc="Armani Doc（Strofa 2）"
+        t={TS["crime-paie-booba"].t} tApprox={TS["crime-paie-booba"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Sanno che le crime paie come a Paris Booba</Fragment>
+        <Fragment slot="jpn">みんな知ってる——犯罪は報われる、パリのBooba（ブーバ）みたいに</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Strofa 2の終盤、Armani Docがキャリアの実績を語る文脈で出てくる一行。</p>
+        <p>「le crime paie」は「crime pays（犯罪は報われる）」のフランス語・イタリア語混合表現（paie はフランス語の動詞 payer の三人称単数）。ここで登場する <strong class="text-[var(--c-text)]">Booba（ブーバ）</strong> はフランスのセネガル系ラッパーで、パリを拠点に2000年代から活動するフレンチラップ最大の実力者の一人。ストリートの現実を歌いながらも多数のアルバムをヒットさせてきた。</p>
+        <p>「パリのBooba」という表現がうまくて、単に「成功している」という事実を言うのに、国境を越えてフレンチラップのシンボルを引っ張ってくる。イタリア語の歌詞の中に英語のcrime・フランス語のpaie・パリ・Boobaが一行に収まる国際密度が、この曲の特徴でもある。同じ曲でカニエやベイオンセ、J Princeが出てきた後にブーバが出てくる——ヨーロッパのラッパーがどれだけグローバルな参照系の中で自分を語っているかが分かる一行です。</p>
+      </LearningUnit>
+
+      <!-- ⑧ Kinte Kunta -->
+      <LearningUnit
+        heading='"Sognamo tutti di fuggire come Kinte Kunta" — アメリカの奴隷史をイタリアで引く'
+        label="★ 文化的参照／歴史"
+        mc="Vacca（Strofa 3）"
+        t={TS["kinte-kunta"].t} tApprox={TS["kinte-kunta"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Sognamo tutti di fuggire come Kinte Kunta</Fragment>
+        <Fragment slot="jpn">俺たちは皆、Kunta Kinteのように逃げ出すことを夢見ている</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Strofa 3の序盤、Vaccaがシステムからの脱出願望を語る一行。</p>
+        <p><strong class="text-[var(--c-text)]">Kunta Kinte（クンタ・キンテ）</strong> はアレックス・ヘイリーの小説『ルーツ』（1976年）の主人公。18世紀に西アフリカ（現ガンビア）からアメリカに連行された奴隷で、何度も脱走を試みたことで知られる。1977年のTV版も含めて世界的に広く知られた物語で、「逃げることをあきらめなかった者」の象徴として語られる。</p>
+        <p>Vaccaはイタリアのアンダーグラウンドシーンという文脈で、社会や業界の拘束から逃げ出したいという感覚を語るのにKunta Kinteを引く。奴隷制とイタリアン・インディーラップを同列に置くのは大げさに見えるかもしれないが、「システムに縛られた者が自由を夢見る」という原型的なイメージとして使われている。ヒップホップが出発点に持つ「抵抗と自由」のテーマが、1700年代のガンビアまで遡って引用されているのが面白い。</p>
+      </LearningUnit>
+
+      <!-- ⑨ Dunga / Firenze -->
+      <LearningUnit
+        heading='"da quando a Firenze giocava Dunga" — フィレンツェでサッカーが時代を測る'
+        label="★ 固有名詞／イタリア文化"
+        mc="Vacca（Strofa 3）"
+        t={TS["dunga-firenze"].t} tApprox={TS["dunga-firenze"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Leggenda nel gioco da quando a Firenze giocava Dunga</Fragment>
+        <Fragment slot="jpn">ゲームの伝説——フィレンツェでDunga（ドゥンガ）がプレーしていた頃から</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Strofa 3の中盤、Vaccaが自分のキャリアの長さを語る一行。</p>
+        <p><strong class="text-[var(--c-text)]">Dunga（ドゥンガ）</strong> はブラジルの元サッカー選手で、1994年W杯優勝時のブラジル代表キャプテン。1988年から1992年にかけて <strong class="text-[var(--c-text)]">フィオレンティーナ（フィレンツェ）</strong> でプレーしていた。つまり「ドゥンガがフィレンツェにいた1988〜92年頃から、俺はゲーム（＝ラップ）の伝説だ」と言っているわけだが、これは「何十年もやってきた」というキャリアの長さを、固有の時代マーカーで示す手法。</p>
+        <p>「ドゥンガがフィレンツェにいた時代」という表現は、イタリアのサッカーファンには即座に「あの時代か」と伝わる時代感がある（ちなみに当時のセリエAはミラン・インテルが全盛で、フィオレンティーナも強かった）。年表や数字を使わずに時代を固有名詞一つで測るのは、ヒップホップ的な語りの得意技。</p>
+      </LearningUnit>
+
+      <!-- ⑩ Teddy Boy / Udine -->
+      <LearningUnit
+        heading='"Teddy Boy come a Udine" — 北イタリアのサブカルチャー'
+        label="★ スラング／サブカルチャー"
+        mc="Vacca（Strofa 3）"
+        t={TS["teddy-boy-udine"].t} tApprox={TS["teddy-boy-udine"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Teddy Boy come a Udine<br />Qui, bro, conta lo stile e soprattutto l'attitudine</Fragment>
+        <Fragment slot="jpn">ウーディネのテディボーイみたいに／ここでは、スタイルとなによりアティテュードが大事だ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Strofa 3の終盤、Vaccaがスタイルの哲学を語る2行。曲の終盤（最終バースの後半）。</p>
+        <p><strong class="text-[var(--c-text)]">テディボーイ（Teddy Boy）</strong> は1950年代イギリスで生まれたサブカルチャーで、エドワード朝（テューダー朝）風のロングジャケット・ドレーク・ポンパドールヘアが特徴。イタリアでは北部の都市、特に <strong class="text-[var(--c-text)]">ウーディネ（Udine）</strong> にテディボーイカルチャーが根付いていて、独自のシーンが今も続いている（スペシャルズやスカパンクとも混ざりながら）。</p>
+        <p>Vaccaが「ウーディネのテディボーイみたいに」と言うとき、単なるファッション比喩ではなく「流行に流されず、確固たるスタイルを持ち続けている」という信念を、ローカルなサブカルチャーへの参照で表現している。続く「qui conta lo stile e soprattutto l'attitudine（ここではスタイルとアティテュードこそが大事）」という一行が、テディボーイ比喩の意味を補完する。ヒップホップで言う「attitude」と、70年以上の歴史を持つ英国発のサブカルチャーが、北イタリアの地名一つで繋がる——この曲の中で最もローカルな固有名詞がここにある。</p>
+      </LearningUnit>
+    </section>
+
+    <!-- ===================== -->
+    <!-- 文化的背景            -->
+    <!-- ===================== -->
+    <section id="background" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        イタリアンラップの文脈
+      </h2>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">Vacca（ヴァッカ）</p>
+        <h3 class="font-semibold text-base mb-3">カリャリ生まれ、ミラノ育ちのベテラン</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          1979年サルデーニャ島カリャリ生まれ。幼少期にミラノのクアルト・オッジャーロ地区に移り、ミラノのアンダーグラウンドHHシーンで2000年代から活動。レゲエ・ダンスホールとラップを自然に混ぜ合わせるスタイルが特徴で、インディーズで数多くのアルバムをリリースしてきたベテラン。曲中の「M-I」というのはミラノの略称で、Armani Docが「Vengo da M-I」と宣言することでミラノへの帰属を示している。
+        </p>
+      </div>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">グローバル参照系の密度</p>
+        <h3 class="font-semibold text-base mb-3">一曲に10の固有名詞が詰まる理由</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          この曲に出てくる固有名詞を並べると——Kanye, Beyoncé, Jay-Z, J Prince, 2Pac, Booba, Kunta Kinte, Dunga, Sony, PlayStation, New Balance——と、アメリカ・フランス・ブラジル・イギリス起源の参照が並ぶ。イタリアン・ラップが島国的に閉じていないということが、この密度から分かる。インターネット以降の世代のラッパーは、自分が生まれた街と、YouTubeで見てきたグローバルな文化を同じ解像度で語れるようになっている。</p>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed mt-2">
+          同時に、ドゥンガ@フィレンツェやウーディネのテディボーイ、Esselunga（イタリアのスーパーマーケットチェーン）のポイントカードといった、超ローカルな参照も混ざっている。グローバルとハイパーローカルを一曲に同居させること——これが2020年代のイタリアンラップの特徴の一つだと思います。
+        </p>
+      </div>
+
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">キーワード早見表</p>
+        <h3 class="font-semibold text-base mb-3">この曲で出てきた参照の整理</h3>
+        <div class="space-y-3 mt-3">
+          {[
+            ['slow flow', '急がず余裕を持って言葉を乗せるラップスタイル。この曲のテーマそのもの'],
+            ['ultras（ウルトラス）', 'イタリアのサッカースタジアムで最も熱狂的な応援集団。New Balance 580と結びついた独自のファッション文化'],
+            ['J Prince', 'ヒューストンのRap-A-Lot Records創設者。舞台裏でラップ業界を動かしてきた人物'],
+            ['Booba', 'フランスのセネガル系ラッパー。パリを拠点に2000年代から活動するフレンチラップの重要人物'],
+            ['Kunta Kinte', "アレックス・ヘイリー『ルーツ』の主人公。脱走を試み続けた奴隷として「自由への意志」の象徴"],
+            ['Dunga', 'ブラジルの元サッカー選手。1988-1992年フィオレンティーナ（フィレンツェ）所属。時代を測る固有名詞として使用'],
+            ['テディボーイ', '1950年代英国発のサブカルチャー。北イタリア・ウーディネに根付いた独自シーンがある'],
+          ].map(([term, desc]) => (
+            <div class="flex gap-3 text-sm">
+              <span class="text-[var(--c-gold)] shrink-0 font-semibold min-w-[130px]">{term}</span>
+              <span class="text-[var(--c-muted)]">{desc}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== -->
+    <!-- アルバム              -->
+    <!-- ===================== -->
+    <section id="album" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        GRAVEYARD DUPPIES — 2024年のジョイントアルバム
+      </h2>
+
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">アルバムについて</p>
+        <h3 class="font-semibold text-base mb-3">2024年5月10日リリース</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          「GRAVEYARD DUPPIES」はVaccaとGiovane Feddiniが2024年5月にリリースしたジョイントアルバム。「Duppies（デュピーズ）」はカリブ海の民間信仰で「幽霊・亡霊」を指す言葉で、Vaccaのレゲエ・ダンスホールへの親しみが見える。13曲入りで、本曲「MR SLOWFLOW」はその5曲目にあたる。Armani Doc、G Leggenda、Lil' Pin、Pessimo 17ほか多数のアーティストを客演に迎えている。
+        </p>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed mt-3">
+          アルバムタイトルに「墓場の幽霊」を置きながら、収録曲はアルコーブな（閉じた・深い）雰囲気よりも、路上と都市生活のテクスチャーを丁寧に描いたものが多い。「MR SLOWFLOW」のアウトロにある「Still war all day / Underground hitman」という英語の2行がその象徴で、穏やかそうな「スロウフロウ」の外見の裏に、地下の戦場という自己認識がある。
+        </p>
+      </div>
+    </section>
+
+    <!-- まとめ -->
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        まとめ
+      </h2>
+      <ul class="space-y-2 text-sm text-[var(--c-muted)] list-disc list-inside leading-relaxed">
+        <li>「MR SLOWFLOW」はイタリア語ラップの中に英語・フランス語・グローバルな固有名詞が混ざる、2020年代的なボーダレスな曲。</li>
+        <li>Sony→PlayStationの比喩・ass-primendoのバイリンガルダジャレ・Beyoncé→Jay-Zの逆転構造など、言葉遊びのレイヤーが複数ある。</li>
+        <li>J Prince vs 2Pac、ウルトラス、ドゥンガ@フィレンツェ、テディボーイ@ウーディネ——固有名詞一つで時代・スタンス・文化的出自が一気に伝わる書き方を学べる。</li>
+        <li>「スタイルとアティテュード」を一貫したテーマとして持ちながら、ミラノとヴェネツィアという2都市の声が自然に混ざり合っている。</li>
+      </ul>
+    </section>
+
+</SongLayout>

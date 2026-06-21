@@ -1,0 +1,102 @@
+[
+  {
+    "id": "slow-flow-yall",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 25,
+    "t": 25,
+    "source": "fallback",
+    "approx": true,
+    "score": 0
+  },
+  {
+    "id": "ass-primendo",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 58,
+    "t": 58,
+    "source": "fallback",
+    "approx": true,
+    "score": 0
+  },
+  {
+    "id": "sony-playstation",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 70,
+    "t": 70,
+    "source": "fallback",
+    "approx": true,
+    "score": 0
+  },
+  {
+    "id": "beyonce-jayz",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 82,
+    "t": 82,
+    "source": "fallback",
+    "approx": true,
+    "score": 0
+  },
+  {
+    "id": "nb580-ultra",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 98,
+    "t": 98,
+    "source": "fallback",
+    "approx": true,
+    "score": 0
+  },
+  {
+    "id": "j-prince-2pac",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 112,
+    "t": 112,
+    "source": "fallback",
+    "approx": true,
+    "score": 0
+  },
+  {
+    "id": "crime-paie-booba",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 145,
+    "t": 145,
+    "source": "fallback",
+    "approx": true,
+    "score": 0
+  },
+  {
+    "id": "kinte-kunta",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 168,
+    "t": 168,
+    "source": "fallback",
+    "approx": true,
+    "score": 0
+  },
+  {
+    "id": "dunga-firenze",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 196,
+    "t": 196,
+    "source": "fallback",
+    "approx": true,
+    "score": 0
+  },
+  {
+    "id": "teddy-boy-udine",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 212,
+    "t": 212,
+    "source": "fallback",
+    "approx": true,
+    "score": 0
+  }
+]
