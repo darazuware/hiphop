@@ -1,0 +1,394 @@
+---
+import LearningUnit from '../../components/LearningUnit.astro';
+import QuickSlang from '../../components/QuickSlang.astro';
+import SongLayout from '../../layouts/SongLayout.astro';
+
+import tsData from '../../../agent/mr-slow-flow/assets/units-timestamps.json';
+const YT = "81Bfuakz87k";
+const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.approx }]));
+---
+
+<SongLayout
+  title="Mr. Slow Flow 和訳・意味・スラング解説 | Evidence"
+  description="EvidenceのソロデビューシングルMr. Slow Flowを英語学習＋ヒップホップ理解の教材として精読。Lost Angel・four-oh-five・vets/pet doctors・hail/reignなどのLA固有スラングと言葉遊びを表現単位で解説。各表現はPVの該当箇所へ頭出しリンク付き。"
+  slug="mr-slow-flow"
+  highlights={[
+    'Evidenceのソロデビューシングル。"The Weatherman LP"（2007）収録',
+    'Lost Angel・405・401K など、LAの地名・文化を埋め込んだリリシズム',
+    'hail/reign/rain、vets/pet doctorsなど二重三重の言葉遊びが随所に',
+  ]}
+  youtubeId="81Bfuakz87k"
+>
+
+    <!-- ===================== -->
+    <!-- 導入                  -->
+    <!-- ===================== -->
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■ LAのスローフロー、ここから始まる</h2>
+      <p class="text-sm text-[var(--c-muted)] leading-relaxed">
+        2007年、ロサンゼルスのアンダーグラウンドシーンに長く根ざしてきたグループ・Dilated Peoplesのメンバー、Evidenceが満を持してソロデビューアルバム「The Weatherman LP」をRhymesayers Entertainmentからリリースした。その先行シングルが「Mr. Slow Flow」——タイトルそのものが彼のスタイル宣言だ。
+      </p>
+      <p class="text-sm text-[var(--c-muted)] leading-relaxed mt-3">
+        プロデュースはSid Roams。ゆったりとしたテンポの上に、EvidenceがLAの地名・文化・人生観をギュッと埋め込んだヴァースを3本並べていく。EPMDのPMDもアウトロに顔を出す。リリックには辞書に載らないLA固有スラング、巧みな掛け言葉、そしてヒップホップへの深いリスペクトが凝縮されています。それぞれを「学ぶ表現」単位で取り出して、用例の断片・和訳・語法と文化背景を解説していきたいと思います。
+      </p>
+    </section>
+
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■ 遅くても、重い——「スローフロー」という哲学</h2>
+      <p class="text-sm text-[var(--c-muted)] leading-relaxed">
+        ヒップホップのフロー（ラップの流れ・リズムの乗り方）には、速さを競うスタイルと、言葉を一つひとつ丁寧に置くスタイルがある。EvidenceはDilated Peoples時代から後者の代表格で、テンポを落とした分だけ、一語の重さと言葉遊びの密度が際立つ。「Mr. Slow Flow」という名は彼自身のニックネームでもあり、このリリースでその名を曲タイトルに冠したことで、自分のスタイルに堂々とセルフラベルを貼ってみせた。英語学習の教材として見ると、ゆっくりめのテンポは一語一語が聴き取りやすく、言葉遊びを追う余裕が生まれる。何度聴いても新しい発見がある曲です。
+      </p>
+    </section>
+
+    <!-- Table of Contents -->
+    <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
+      <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
+        <li><a href="#story" class="hover:text-[var(--c-gold)] transition-colors">01 — ストーリーの流れ（まず曲全体をつかむ）</a></li>
+        <li><a href="#units" class="hover:text-[var(--c-gold)] transition-colors">02 — 学ぶ表現（スラング・韻・言葉遊び・AAVE）</a></li>
+        <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">03 — 文化的背景</a></li>
+        <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">04 — 制作の裏側</a></li>
+        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">05 — Evidenceとアンダーグラウンドの系譜</a></li>
+      </ol>
+    </nav>
+
+    <!-- ===================== -->
+    <!-- ストーリー要約          -->
+    <!-- ===================== -->
+    <section id="story" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        ストーリーの流れ — まず曲全体をつかむ
+      </h2>
+      <p class="text-xs text-[var(--c-dim)] mb-5">
+        スラングを掘る前に、まず曲が何を語っているかをざっと流しておきます。全体の地図が頭に入ると、個々の言葉遊びが曲のどこに埋まっているかが見えてくる。
+      </p>
+      <div class="space-y-4 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          曲はイントロのひと声「Step it up」から始まる。プロデューサーSid Roamsが作り出すどこか不穏で、コーラスっぽい響きのビートが敷かれ、Evidenceが「Mr. Slow Flow」のペルソナを纏ってマイクに向かう。
+        </p>
+        <p>
+          <strong class="text-[var(--c-text)]">Verse 1</strong>では、自分がLAのウェストサイドを背負ったアーティストであることを宣言する。405号線、グラフィティ、アンダーグラウンドの生き残り——地名と文化を手掛かりに、自分が何者かを一行ずつ積み上げていく。終盤の「Peace ain't the word to play—it's violence / I ain't have shit good to say, so here's silence」は、Main Sourceの名曲へのリスペクトとも取れるし、業界の茶番に黙って突きつける皮肉とも読める。
+        </p>
+        <p>
+          <strong class="text-[var(--c-text)]">Hook</strong>はDJ Revolutionによるスクラッチ——「I slow flows y'all to death」。歌詞ではなく、切り貼りした音のコラージュがフックを担う。ある種のセルフ宣言をターンテーブルが担うという構成が粋だ。
+        </p>
+        <p>
+          <strong class="text-[var(--c-text)]">Verse 2</strong>は、感情を押し殺してベストを出すことの難しさ、過去の後悔を引きずらない姿勢、そして「J-O」（＝仕事）に真剣に向き合う現在地を語る。キャリアの変節点——Dilated Peoples時代から自分自身の名前でやっていくことへの、静かな決意表明のようなヴァース。
+        </p>
+        <p>
+          <strong class="text-[var(--c-text)]">Verse 3</strong>はもっと内省的で、かつての無謀さ（Ice-Tの「Reckless」を引いて）と今の自分を対比させる。チェスとチェッカーの比喩、夢で繰り返す悪夢——そして最後に、「LAから雨は降らないのに、なんでLAからゲームを制覇できないと言う？」という痛烈なパンチライン。
+        </p>
+        <p>
+          アウトロでEPMDのPMD（Parrish Smith）が突然登場し、短い二行で「Mr. Slow Flow」の名を封印するように締めていく。
+        </p>
+        <p class="text-xs text-[var(--c-dim)]">
+          ※本ページは批評・教育目的で、解説に必要な範囲の断片のみを引用しています。全歌詞の対訳は掲載していません。
+        </p>
+      </div>
+    </section>
+
+    <!-- ===================== -->
+    <!-- 学習ユニット群（主役）  -->
+    <!-- ===================== -->
+    <div id="units"></div>
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2 border-b border-[var(--c-border)] pb-2">
+        学ぶ表現 — スラング・韻・言葉遊び・AAVE
+      </h2>
+      <p class="text-xs text-[var(--c-dim)] mb-6">
+        各見出しは「この曲から学べる英語表現」。各ユニットはまず上に英語の用例（1〜2行）を置いてあります。<strong class="text-[var(--c-text)]">先に英語を音で追い、行のどこが学習対象かを確かめてから</strong>下の日本語解説に進んでください。🎤はそのリリックを歌うMC、▶は公式PVの該当箇所への頭出しリンク（秒数は概算）です。引用は解説に必要な最小限の断片のみ。
+      </p>
+
+      <!-- ① Lost Angel -->
+      <LearningUnit
+        heading="Lost Angel, Westside rider — LAを「失われた天使の街」と呼ぶ"
+        label="★ スラング／地域語"
+        mc="Evidence（Verse 1）"
+        t={TS["lost-angel"].t} tApprox={TS["lost-angel"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Lost Angel, <QuickSlang word="Westside rider" desc="ウェストサイド（LAの西側地区）を背負ったライダー。地元へのロイヤリティを示す常套句" /><br />The official, <QuickSlang word="four-oh-five Friday" desc="ロサンゼルスの405号線は週末前の金曜に最悪の渋滞が起きることで有名。LAの生活感そのものを一語に凝縮した表現" />, sound provider</Fragment>
+        <Fragment slot="jpn">ロスト・エンジェル（失われた天使の街）、ウェストサイドの使者／公式のサウンドを提供する者、405フライデーの男</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 1の冒頭。EvidenceがLAアーティストとしての自己紹介を始める最初の二行。</p>
+        <p>まず上の一行目、<strong class="text-[var(--c-text)]">Lost Angel</strong>。これはLos Angeles（ロスアンジェルス）の英訳ダジャレで、スペイン語の「los ángeles（天使たち）」を「Lost（失われた）Angel（天使）」に読み替えた言い方です。LAのラッパーがよく使う地元の別称で、Westcoastのアーティストがここを出していくと「あ、LAの人だ」とすぐわかる。行末の<strong class="text-[var(--c-text)]">Westside rider</strong>は、LAウェストサイドの住人・代表者というニュアンス——自分のルーツを宣言する定番の一句。</p>
+        <p class="mt-2">二行目の<strong class="text-[var(--c-text)]">four-oh-five Friday</strong>は、そのままLA市民の日常生活感そのもの。LA在住者はこれだけでニヤリとする固有名詞です。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">rider</strong> はヒップホップで「～の側に立つ人・忠誠心を持つ人」の意。<em>ride for someone</em>（～の味方につく）という句動詞から来ており、<em>Westside rider</em> なら「ウェストサイドのために乗り込む＝ウェストサイドを背負って生きる者」。East/West/Southside に付けて、自分のフッドへのロイヤリティを示す常套句として広く使われる。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ② Four-oh-one K -->
+      <LearningUnit
+        heading="Four-oh-one K — 405と401kを重ねた数字ダジャレ"
+        label="★ 言葉遊び"
+        mc="Evidence（Verse 1）"
+        t={TS["four-oh-one-k"].t} tApprox={TS["four-oh-one-k"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng"><QuickSlang word="Four-oh-one K" desc="401(k)＝アメリカの確定拠出型年金制度。ここでは「405号線」と「引退（retire）」も掛けた三重ダジャレ" />, and I don't mean retire</Fragment>
+        <Fragment slot="jpn">フォーオーワンK（401k）——でも引退するって意味じゃない</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 1中盤。上で「four-oh-five」を出した直後、数字の変形を仕掛けてくる件。</p>
+        <p>上の行をまず声に出して追ってみてください。<strong class="text-[var(--c-text)]">Four-oh-one K</strong>。直前にあった「four-oh-five」（405号線）の語呂を崩して、今度は<strong class="text-[var(--c-text)]">401(k)</strong>——アメリカの確定拠出型年金（老後のための積立制度）を指す数字に変えてきた。</p>
+        <p class="mt-2">さらにその直後に「and I don't mean retire（引退するって意味じゃない）」と付く。401kは老後資金→引退、という連想を自分でわざわざ刈ると同時に「俺はまだまだやるつもりだ」というアンサーを一息で叩き込む。four-oh-fiveから一文字変えてDAJARE成立、しかも引退否定まで入れた三段構え——こういう遊びが随所にある曲です。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">401(k)</strong> はアメリカの税法401条(k)項に定められた確定拠出年金制度。給与天引きで積み立て、運用益に課税されない仕組みで、日本のiDeCoに近い。「引退・老後」の象徴として使われるので、ここで「I don't mean retire」と即否定することで、「俺の405は老後の話じゃなく、今ここのLA高速の話だ」という二重の意図が立ち上がる。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ③ Peace ain't the word -->
+      <LearningUnit
+        heading="Peace ain't the word to play — Main Sourceへのリスペクト"
+        label="★ リリカル・リファレンス"
+        mc="Evidence（Verse 1）"
+        t={TS["peace-not-word"].t} tApprox={TS["peace-not-word"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Peace ain't the word to play — it's violence<br />I ain't have shit good to say, so here's silence</Fragment>
+        <Fragment slot="jpn">「平和」は今の俺には似合わない——あるのは暴力だ／言えることが何もないから、ここは沈黙でいく</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 1の締め近く。業界への苛立ちと沈黙という強さを対比させる。</p>
+        <p>上の二行をまず追ってください。一行目「<strong class="text-[var(--c-text)]">Peace ain't the word to play</strong>」は、1992年のMain Source（Large Professor主導のトリオ）の楽曲「Peace Is Not the Word to Play」への直接的なオマージュ。ヒップホップの先達の言葉を引きながら、自分の状況を重ねていく書き方です。</p>
+        <p class="mt-2">そしてそれを受けて二行目「I ain't have shit good to say, so here's silence」。言うべきことがないから「沈黙を置く」——これが本来は批判や反論の場面で使われる手なのに、あえてヴァース内で「黙ります」と宣言して閉じていく。<strong class="text-[var(--c-text)]">沈黙を意図的に武器にする</strong>という逆張りの文体がカッコいい。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">ain't have</strong> はAAVEの否定過去形。標準英語なら <em>didn't have</em>。<code>ain't</code> は be動詞・have・do の否定に広く使えるため、ここでは <em>I didn't have anything good to say</em> と同義。<em>shit</em> は「何も（ない）」を強調する俗語で、<em>ain't have shit</em> ＝ 「何一つ持っていない／言えることが全くない」。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ④ vets / pet doctors -->
+      <LearningUnit
+        heading="Learned from vets and they ain't pet doctors — 「vet」二重義"
+        label="★ 言葉遊び（ダブルミーニング）"
+        mc="Evidence（Verse 2）"
+        t={TS["vets-pet-doctors"].t} tApprox={TS["vets-pet-doctors"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Learned from <QuickSlang word="vets" desc="①退役軍人（veterans）②獣医（veterinarians）のダブルミーニング。ここでは「先輩・猛者」の意で用いてさらに混乱を加える" /> and they ain't pet doctors<br />They the type they arrest in "Clockers"</Fragment>
+        <Fragment slot="jpn">「ベテラン（vet）」たちから学んだ——ペットの医者（獣医）じゃない方の / 逮捕されるタイプの——映画「クロッカーズ」に出てくるような</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 2序盤。自分の師匠筋を語りながら「どんな人物か」を笑いと凄みで描写する。</p>
+        <p>行の真ん中、「Learned from <strong class="text-[var(--c-text)]">vets</strong>」——まず音で追ってみると、<em>vets</em> が二つの意味を持つと分かります。①<strong class="text-[var(--c-text)]">veterans</strong>（退役軍人→転じて「業界の猛者・先輩」）、②<strong class="text-[var(--c-text)]">veterinarians</strong>（獣医）。Evidenceは一拍置いてすぐ「and they ain't pet doctors」と足し、「獣医じゃないほうね」と自分で種を明かす。笑いで軽く崩しておいて、次行「映画クロッカーズに出てくるような逮捕されるタイプ」でスッと締める。この緩急が面白い。</p>
+        <p class="mt-2">「Clockers（クロッカーズ）」はスパイク・リー監督の1995年映画で、ドラッグディーラーたちの苦悩を描いた作品。「そういう世界の人たちから俺は学んだ」——ただし獣医からじゃない、というわけです。</p>
+        <Fragment slot="usage">
+          <p>ヒップホップでの<strong class="text-[var(--c-text)]">vet</strong>（ベット）の使い方: <em>veteran</em> の短縮形として「業界の先輩・猛者」を指す。<em>rap vets</em>（ラップの先輩世代）、<em>game vets</em>（ゲームのベテラン）のように使う。発音が<em>veterinarian</em>（獣医）の短縮形と全く同じなので、直後に「pet doctors じゃない」と打ち消せばダジャレが成立する。英語の<strong class="text-[var(--c-text)]">異義同音語ギャグ</strong>の典型パターン。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑤ J-O payroll -->
+      <LearningUnit
+        heading="I'm on my J-O, issue payroll — 「仕事」を隠語で言う"
+        label="★ スラング（AAVE語彙）"
+        mc="Evidence（Verse 2）"
+        t={TS["j-o-payroll"].t} tApprox={TS["j-o-payroll"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Right now I'm on my <QuickSlang word="J-O" desc="J-O-B（仕事）の頭二文字。「仕事モード」「グラインド中」の意。口に出したくない普通の労働を隠語化したスラング" />, issue payroll</Fragment>
+        <Fragment slot="jpn">今は自分のJ-O（仕事）に集中してる、給料を出す側として</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 2後半。今の自分のスタンスを宣言するパンチライン。学習対象は行の前半「J-O」。</p>
+        <p>行の前半「I'm on my <strong class="text-[var(--c-text)]">J-O</strong>」——この J-O が学習ポイント。J-O-B（ジョブ＝仕事）の最初の二文字だけを取り出して、仕事・グラインドを指す隠語として使う。「仕事」を面と向かって言いたくないストリートの空気感から生まれたスラングで、「今は真面目にやってる」「仕事モードに入っている」のニュアンス。</p>
+        <p class="mt-2">後半「issue payroll（給料を払う立場として）」と続くことで、ただ働いているだけじゃなく、人に仕事を与える側に回ってきた——という成り上がりのニュアンスが加わる。<em>issue payroll</em> は少し硬い表現を使うことで、ちょっとした威厳が出る。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">on my J-O</strong> の構文: <em>be on one's ~</em> は「〜に集中している・〜モードに入っている」。<em>I'm on my grind</em>（必死に稼いでいる）、<em>I'm on my shit</em>（自分のスタイルでやってる）と同じ構造。J-O のようなイニシャル略語は、具体的な語を直接言いたくないときや、韻のリズムに合わせたいときに使われる。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑥ Ice-T Reckless -->
+      <LearningUnit
+        heading="I used to be Ice-T &quot;Reckless&quot; — アルバムタイトルを形容詞として使う"
+        label="★ リリカル・リファレンス"
+        mc="Evidence（Verse 3）"
+        t={TS["ice-t-reckless"].t} tApprox={TS["ice-t-reckless"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">I used to be Ice-T "<QuickSlang word="Reckless" desc="Ice-Tの1987年アルバム「Rhyme Pays」収録曲「Somebody's Gotta Do It (Pimpin' Ain't Easy!!)」と混同されやすいが、Ice-Tの無法な若い頃のイメージの象徴として「Reckless」が使われる" />" (RECKLESS)<br />Wild out like I'd never see breakfast</Fragment>
+        <Fragment slot="jpn">かつての俺はIce-Tみたいに「無謀（Reckless）」だった／朝飯を二度と食えないかもと思いながら、やりたい放題だった</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 3冒頭。過去の自分を振り返るスタート地点。</p>
+        <p>「I used to be Ice-T <strong class="text-[var(--c-text)]">"Reckless"</strong>」——行の中ほど、引用符付きの <em>Reckless</em> に注目。Ice-TはLAのOGで、無謀でアウトロー的なキャラクターで知られる。ここでは彼の名前を冠したまま「reckless（無謀・向こう見ず）」という形容詞として機能させている。アーティスト名をそのまま形容詞的に埋め込む——これはヒップホップリリックの技術のひとつで、聴き手が背景を知っているほど多層的に読める。</p>
+        <p class="mt-2">続く「Wild out like I'd never see breakfast」——朝ごはんを二度と食えないかも（＝死ぬかも）と思いながら暴れていた、という意味。死が常に隣にある過去をさらっと一行に閉じ込める。今のEvidenceから当時の自分を語る、少し遠い目のような一行です。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">wild out</strong> は「激しく暴れる・過激に振る舞う・制御を失う」の意。<em>He wilded out at the party</em>（パーティでやりたい放題やった）のように使う。<em>like I'd never see ~</em>（〜を二度と見られないかのように）は「命がけで・ガムシャラに」を表す比喩表現で、<em>eat like I'd never see food again</em>（食べられないかのように食い散らかす）のようなパターンで頻出する。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑦ chess / checkers -->
+      <LearningUnit
+        heading="They win at chess, still lose at checkers — 勝ちの中の本当の負け"
+        label="★ 比喩・イディオム"
+        mc="Evidence（Verse 3）"
+        t={TS["chess-checkers"].t} tApprox={TS["chess-checkers"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">They win at chess, still lose at checkers<br />That ain't weakness, it's a death wish</Fragment>
+        <Fragment slot="jpn">チェスで勝っても、チェッカーでは負ける／それは弱さじゃない——死を望んでるようなものだ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 3中盤。対抗相手への評価を独自の比喩で言い切る一節。</p>
+        <p>上の二行をまず音で追ってみてください。<strong class="text-[var(--c-text)]">chess / checkers</strong> の対比が聴きどころです。チェスは複雑な戦略ゲーム、チェッカーはよりシンプルなボードゲーム——「複雑な場面では勝てても、基本的なところで足元をすくわれる」という逆説を、ゲーム名の対比一発で表現している。</p>
+        <p class="mt-2">続く「That ain't weakness, it's a death wish」——それは単純な弱さじゃなく、死を望んでいるようなものだ、という断定。比喩から一転して直球の警告へ。短い二行に冷ややかな皮肉が詰まっていて、何度聴いても刺さる。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">death wish</strong>（デスウィッシュ）は「死を望む心理・自滅願望」。<em>You have a death wish</em>（死にたいのか）は、危険な行動を取る相手への警告・皮肉として口語でよく使う。映画タイトルとしても有名で（1974年「Death Wish」など）、ヒップホップでは「リスクを無視して突っ込む者」への批評として使われる。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑧ hail / reign -->
+      <LearningUnit
+        heading="hails in L.A / reign the game and hail from L.A — 三重の掛け声"
+        label="★ 言葉遊び（同音異義）"
+        mc="Evidence（Verse 3）"
+        t={TS["hail-reign-la"].t} tApprox={TS["hail-reign-la"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">And just because it barely ever <QuickSlang word="hails" desc="①hail（ひょうが降る）②hail（賞賛・敬意を示す）" /> in L.A<br />They say I can't <QuickSlang word="reign" desc="reign（支配・君臨）。rain（雨）・hail（ひょう）と「天気」シリーズで続く同音異義語" /> the game and <QuickSlang word="hail from" desc="hail from〜（〜の出身である）。hail（ひょう）と同音" /> L.A.?</Fragment>
+        <Fragment slot="jpn">LAにひょう（hail）がほとんど降らないからって／LA出身者（hail from L.A.）が、ゲームに君臨（reign）できないと言うのか？</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 3の終盤。曲のいちばんの言葉遊びが炸裂する。</p>
+        <p>まず上の二行を声に出してみてください。<strong class="text-[var(--c-text)]">hails / reign / hail from</strong>——天気・支配・出身が絡み合っています。</p>
+        <p class="mt-2">一行目の <strong class="text-[var(--c-text)]">hails</strong>：「ひょうが降る（hail）」。LAはほとんどひょうが降らないことで知られる。二行目の <strong class="text-[var(--c-text)]">reign</strong>：「支配・君臨（reign）」——発音は「rain（雨）」と全く同じ。そして <strong class="text-[var(--c-text)]">hail from L.A.</strong>：「LAの出身である（hail from）」——これも「ひょう（hail）」と同音。</p>
+        <p class="mt-2">「LAはひょう（hail）が降らない→だからLAの奴（hail from L.A.）はゲームに君臨（reign=rain）できない、なんて言う？」という、<em>hail / reign(=rain)</em> の天気シリーズをひとつの文脈に全部詰め込んだパンチライン。初めて気づくと思わず笑ってしまう仕掛けです。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">hail from</strong> は「〜の出身である」を表すやや格調のある表現。<em>Where do you hail from?</em>（どちらのご出身ですか）のように使われる。<strong class="text-[var(--c-text)]">reign</strong>（レイン）と <strong class="text-[var(--c-text)]">rain</strong>（レイン）は完全同音（ホモフォン）。ヒップホップリリックでは「reign the game」＝「ゲームを支配する」という表現の裏に「rain（雨が降る）」の視覚的イメージを重ねることで多層的な読みが生まれる。The Weatherman（気象予報士）というプロデューサー名義も持つEvidenceらしい、天気を絡めた言葉遊び。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑨ PMD outro -->
+      <LearningUnit
+        heading="by Mr. Slow Flow — PMDが名を封印して締める"
+        label="★ ゲスト／アウトロ"
+        mc="PMD（アウトロ）"
+        t={TS["pmd-outro"].t} tApprox={TS["pmd-outro"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">When <QuickSlang word="five-oh" desc="警察官を指すスラング。ハワイ5-0（Hawaii Five-O）というTV番組名が由来とされる" /> roll, they say what's the M.O<br />Another rapper was hit, by Mr. Slow Flow</Fragment>
+        <Fragment slot="jpn">警察（five-oh）が来て言う、動機は何だ（M.O）って／また一人ラッパーがやられた、Mr.スローフローにな</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 アウトロ。EPMDのPMD（Parrish Smith）がわずか二行で締める。</p>
+        <p>Verse 3が終わったと思ったら、EPMDのPMD（Parrish Smith）が突然二行だけ登場します。警察が「動機は何だ（<strong class="text-[var(--c-text)]">M.O</strong>）」と訊いている——答えは「Mr. Slow Flow（Evidence）がやった」。刑事ドラマの一場面を模した短いシーン仕立てで、曲タイトルを最後に確認して終わる。</p>
+        <p class="mt-2"><strong class="text-[var(--c-text)]">five-oh</strong> は警察官を指す定番スラング。<strong class="text-[var(--c-text)]">M.O</strong> はラテン語 <em>modus operandi</em>（手口・やり口）の略で、犯罪捜査の文脈で「犯行の動機・手口」を指す。刑事ドラマで頻出する語で、ヒップホップにも多く取り込まれています。EPMDとEvidenceは長くつながりのあるアーティスト同士で、このわずか二行のカメオがアルバム全体のラストサインを締める演出になっています。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">five-oh</strong>（ファイブオー）: 1968年〜1980年のアメリカのTVドラマ「Hawaii Five-O」のタイトルナンバーが語源とされる警察スラング。<em>The five-oh is on us</em>（警察が追ってる）のように使う。<strong class="text-[var(--c-text)]">M.O</strong>（エムオー）: <em>modus operandi</em> の略。<em>What's his M.O?</em>（あいつのやり口は何だ？）のように、犯行手口・常套手段を指す。ドラマやニュースにも頻出する表現。</p>
+        </Fragment>
+      </LearningUnit>
+
+    </section>
+
+    <!-- ===================== -->
+    <!-- 文化的背景            -->
+    <!-- ===================== -->
+    <section id="background" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        文化的背景
+      </h2>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">Dilated Peoples とLAアンダーグラウンド</p>
+        <h3 class="font-semibold text-base mb-3">90年代〜00年代のウェストコースト独立路線</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          Evidenceが所属するDilated Peoples（Evidence・Rakaa Iriscience・DJ Babu）は、G-Funk全盛のウェストコーストで、サンプリングベースのブームバップを貫き続けたグループ。2001年のセルフタイトルアルバム（Rawkus Records）はNY系のレーベルからリリースされ、「東西の垣根を超えたリリシスト」という評価を固めた。
+        </p>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed mt-3">
+          EvidenceはDJ Muggs（Cypress Hill）を通じてビートメイクを学び、ターンテーブリストのDJ Babuはグローバルなビートジャンキーズ（Beat Junkies）の創設メンバーでもある。コアにあるのはLAのストリートカルチャーとグラフィティ——Evidenceは今でも現役のグラフィティライターとしても知られる。
+        </p>
+      </div>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">Rhymesayers Entertainment</p>
+        <h3 class="font-semibold text-base mb-3">独立系レーベルが育てた言葉の人たち</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          The Weatherman LPのリリース先となったRhymesayers Entertainmentは、ミネソタ州ミネアポリスを拠点とする独立系ヒップホップレーベル。Atmosphere（Slug & Ant）が1995年に立ち上げ、Brother Ali・Eyedea & Abilities・Aesop Rock・Blueprintらを擁する。メジャーレーベルとは距離を置き、リリックの深度と制作の自由を重視するその姿勢は、Evidenceのスタイルとも合致していた。
+        </p>
+      </div>
+
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">キーワード早見表</p>
+        <h3 class="font-semibold text-base mb-3">この曲で学んだスラングの整理</h3>
+        <div class="space-y-3 mt-3">
+          {[
+            ['Lost Angel', 'Los Angelesをスペイン語訳から英語に転じた別称（los ángeles=天使たち→Lost Angel）'],
+            ['four-oh-five', 'LA渋滞の象徴、Interstate 405のスラング表記'],
+            ['four-oh-one K', '401(k)＝確定拠出型年金。「四百五」と一文字ずらして掛けた数字ダジャレ'],
+            ['vets', 'veterans（先輩・猛者）と veterinarians（獣医）のダブルミーニング'],
+            ['J-O', 'J-O-B（仕事）の頭二文字。グラインド・仕事モードを指す'],
+            ['five-oh', '警察官のスラング（TV番組「Hawaii Five-O」由来）'],
+            ['M.O', 'modus operandi（犯行手口）の略。犯罪捜査で使われるラテン語由来の語'],
+            ['reign / hail', 'reign（支配）＝rain（雨）と同音。hail（ひょう）・hail from（出身）とで「天気」シリーズのパンチライン'],
+          ].map(([term, desc]) => (
+            <div class="flex gap-3 text-sm">
+              <span class="text-[var(--c-gold)] shrink-0 font-semibold min-w-[120px]">{term}</span>
+              <span class="text-[var(--c-muted)]">{desc}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== -->
+    <!-- 制作の裏側            -->
+    <!-- ===================== -->
+    <section id="behind" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        制作の裏側
+      </h2>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">プロデューサー</p>
+        <h3 class="font-semibold text-base mb-3">Sid Roamsが作った「不穏なコーラス」</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          「Mr. Slow Flow」のビートを手掛けたのはSid Roams。Geniusの注釈では「ominous yet choir-like sound（不穏だがコーラス的な響き）」と形容されている——確かに、あの浮遊感のある音は聴き始めから耳に残る。EvidenceがThe Weathermanというプロデューサー名義を持つことから「自己プロデュース」と誤解されやすいが、このトラックに限ってはSid Roamsの作品だ。
+        </p>
+      </div>
+
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">フックの担当</p>
+        <h3 class="font-semibold text-base mb-3">DJ Revolutionのスクラッチがフックを担う</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          この曲のフック（サビ）はDJ Revolutionによるスクラッチで構成されている——「I slow flows y'all to death」というフレーズをターンテーブルが繰り返す形式。ラッパーが歌詞でフックを作るのではなく、DJ技術がそのまま「サビ」を担うという古典的なヒップホップの構造。Dilated PeoplesでDJ Babuとともに活動してきたEvidenceにとって、ターンテーブルをフックの中心に据えるのはごく自然な選択だったのだと思います。
+        </p>
+      </div>
+    </section>
+
+    <!-- ===================== -->
+    <!-- Evidenceとアンダーグラウンドの系譜 -->
+    <!-- ===================== -->
+    <section id="legacy" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        Evidenceとアンダーグラウンドの系譜
+      </h2>
+
+      <div class="mb-4 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          The Weatherman LPは、2007年のアンダーグラウンドHHシーンにおいて高い評価を得た一枚だ。トラップが台頭し始め、メインストリームの音が急速に変わっていくなかで、Evidenceはゆったりとしたブームバップサウンドに言葉の密度を詰め込む路線を譲らなかった。
+        </p>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed mt-3">
+          その後も「Cats & Dogs」（2011）、「Weather or Not」（2018）とソロ作を重ね、The Alchemistとのコラボプロジェクト「Step Brothers」（2012）でも話題を呼んだ。「Mr. Slow Flow」という名前は、2007年からずっとEvidenceの代名詞として機能し続けている。言葉を急がずに、でも軽くせずに置いていく——そのスタイルはいまも変わっていない。
+        </p>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed mt-3">
+          日本では、Dilated Peoples時代からアンダーグラウンドHHのリスナー層を中心に根強い評価がある。リリカルな密度とウェストコーストのゆったりとしたグルーヴの組み合わせは、日本のリリシスト系ラッパーへの影響も少なくない。
+        </p>
+      </div>
+
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">後続との関係</p>
+        <ul class="space-y-3 text-sm mt-2">
+          <li class="flex gap-3">
+            <span class="text-[var(--c-gold)] shrink-0">The Alchemist</span>
+            <span class="text-[var(--c-muted)]">ビバリーヒルズ育ちという共通点を持つ長年の盟友。Step Brothers名義での共同作業は、同世代のプロデューサー＋MCコンビとして高く評価された。</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="text-[var(--c-gold)] shrink-0">Dilated Peoples</span>
+            <span class="text-[var(--c-muted)]">Rakaa Iriscience・DJ Babuとのグループ活動は継続。ソロとグループを行き来しながらキャリアを積む構造が、個々の表現の幅を広げている。</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="text-[var(--c-gold)] shrink-0">PMD（EPMD）</span>
+            <span class="text-[var(--c-muted)]">アウトロに登場するPMD（Parrish Smith）はEPMDの一員。LAとNYのアンダーグラウンドが繋がる一コマ——EPMDのリリックは「Strictly Snappin' Necks」など複数曲でEvidenceのリリックに影響を与えている。</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- まとめ -->
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        まとめ
+      </h2>
+      <ul class="space-y-2 text-sm text-[var(--c-muted)] list-disc list-inside leading-relaxed">
+        <li>「Mr. Slow Flow」はLAの地名・文化・天気まで言葉遊びに組み込んだリリシズムが詰まった一曲。英語学習素材として、単語の掛け言葉や同音異義語を体感するのに理想的な曲です。</li>
+        <li>Lost Angel・four-oh-five・401K・hail/reign——地域固有のスラングと音の仕掛けを組み合わせることで、一行の情報量がぐっと上がる。</li>
+        <li>vets/pet doctors のダジャレ、J-Oの隠語化、Ice-Tのアルバム名を形容詞として使う手法——ヒップホップが日常英語をどう拡張するか、この曲だけで何パターンも学べます。</li>
+        <li>Sid Roamsが作った不穏でコーラスっぽいビートの上に、EvidenceがゆったりとしたフローでLAへのロイヤリティとアーティストとしての矜持を乗せていく——2007年のアンダーグラウンドらしい一枚の幕開けです。</li>
+      </ul>
+    </section>
+
+</SongLayout>

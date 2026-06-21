@@ -1,0 +1,62 @@
+[
+  {
+    "id": "lost-angel",
+    "anchor": ["lost", "angel", "westside", "rider"],
+    "fallbackT": 20,
+    "manualSec": null
+  },
+  {
+    "id": "four-oh-five",
+    "anchor": ["four", "oh", "five", "friday", "sound", "provider"],
+    "fallbackT": 34,
+    "manualSec": null
+  },
+  {
+    "id": "four-oh-one-k",
+    "anchor": ["four", "oh", "one", "k", "and", "i", "dont", "mean", "retire"],
+    "fallbackT": 65,
+    "manualSec": null
+  },
+  {
+    "id": "peace-not-word",
+    "anchor": ["peace", "aint", "the", "word", "to", "play"],
+    "fallbackT": 83,
+    "manualSec": null
+  },
+  {
+    "id": "vets-pet-doctors",
+    "anchor": ["learned", "from", "vets", "and", "they", "aint", "pet", "doctors"],
+    "fallbackT": 128,
+    "manualSec": null
+  },
+  {
+    "id": "j-o-payroll",
+    "anchor": ["right", "now", "im", "on", "my", "j", "o", "issue", "payroll"],
+    "fallbackT": 152,
+    "manualSec": null
+  },
+  {
+    "id": "ice-t-reckless",
+    "anchor": ["i", "used", "to", "be", "ice", "t", "reckless"],
+    "fallbackT": 183,
+    "manualSec": null
+  },
+  {
+    "id": "chess-checkers",
+    "anchor": ["they", "win", "at", "chess", "still", "lose", "at", "checkers"],
+    "fallbackT": 215,
+    "manualSec": null
+  },
+  {
+    "id": "hail-reign-la",
+    "anchor": ["it", "barely", "ever", "hails", "in"],
+    "fallbackT": 242,
+    "manualSec": null
+  },
+  {
+    "id": "pmd-outro",
+    "anchor": ["when", "five", "oh", "roll", "they", "say", "whats", "the"],
+    "fallbackT": 264,
+    "manualSec": null
+  }
+]

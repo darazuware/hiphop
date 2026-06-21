@@ -503,6 +503,15 @@ export const artists = [
     summary: 'ニュージャージー州トレントン出身のヒップホップ・トリオ。リードMCのWise Intelligent、バッキング・ボーカル兼プロデューサーのCulture Freedom、DJ兼プロデューサーのFather Shaheedの3人で構成。1990年にデビューアルバム『Holy Intellect』（Profile Records）をリリースし、「Rock Dis Funky Joint」がゴールドに迫るヒットを記録。Nation of Gods and Earths（Five Percent Nation）の教義に基づき「黒人こそが神であり文明の根源」という思想をラップに昇華させた「God Hop」の代表的存在。Rakim、Brand Nubian、X-Clan、KRS-Oneらと並びコンシャスラップの最前線を走った。1996年の最終作『The New World Order』ではFugees、KRS-One、Junior Reidがゲスト参加し、商業的苦戦とは裏腹に「アンダーグラウンドのマスターピース」として後年再評価された。',
     japan: '1990年代後半〜2000年代にかけて、コンシャスHHやレコードコレクターの間でBrand Nubian・X-Clanと並んで語られるグループとして認識された。「神学×ラップ×ブームバップ」という独自の組み合わせと、Five Percent Nationの難解なタームを解読する知的楽しさが日本のアンダーグラウンドHHリスナーに支持された。Wise Intelligentの後年のソロ作品も一部コレクターに知られる。',
   },
+  {
+    slug: 'evidence',
+    name: 'Evidence',
+    origin: 'Los Angeles, California',
+    active: '1992–',
+    genre: 'West Coast Hip-Hop / Underground Hip-Hop / Boom Bap',
+    summary: '本名Michael Perretta。カリフォルニア州ロサンゼルス（ビバリーヒルズ育ち）出身。幼少期からグラフィティライターとしてLAのストリートカルチャーに根ざし、Rakaa IriscienceとDJ Babuとともに「Dilated Peoples」を結成。2001年のセルフタイトルアルバム（Rawkus Records）でアンダーグラウンドHHシーンに頭角を現す。2007年にRhymesayers Entertainmentからソロデビューアルバム「The Weatherman LP」をリリースし、プロデューサー名義「The Weatherman」としても活動。ゆったりとした重みあるフロー（=Mr.Slow Flow）と精緻なリリシズムで知られ、The Alchemistとのコラボ名義「Step Brothers」（2012）でも高い評価を得た。続く「Cats & Dogs」（2011）・「Weather or Not」（2018）でもアンダーグラウンドHHの中心的存在であり続ける。現役のグラフィティライターとしての顔も持つ。',
+    japan: 'Dilated Peoples時代から渋谷系のアンダーグラウンドHHリスナーを中心に支持され、「The Weatherman LP」リリース後は複数回来日公演を実施。ゆったりとしたフローと精緻なライム構成が日本のリリカル派ラッパーに参照され、輸入盤CDが専門店で高評価を得た。',
+  },
 ] as const;
 
 export type Artist = typeof artists[number];
