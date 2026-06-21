@@ -12,6 +12,8 @@ import { readFileSync } from 'node:fs';
 import { spawn } from 'node:child_process';
 
 const CLAUDE_BIN = '/Users/ktamatzmoto/.local/bin/claude';
+// 記事生成・自由指示は事実チェック＋長文構成が重いので Opus 固定（文体の安定・評論家口調の抑制）
+const CLAUDE_FLAGS = '--model opus --print --permission-mode acceptEdits --dangerously-skip-permissions';
 const HIPHOP_CWD = '/Users/ktamatzmoto/Desktop/hiphop';
 const POLL_MS = 3000;
 
@@ -61,7 +63,7 @@ async function processTrigger(triggerFile) {
   if (meta.mode === 'freeform') {
     console.log('\n[freeform] Claude実行中...');
     const r = await run(
-      `cat "${promptFile}" | ${CLAUDE_BIN} --print --permission-mode acceptEdits --dangerously-skip-permissions 2>&1 | tee /tmp/hiphop-claude.log`,
+      `cat "${promptFile}" | ${CLAUDE_BIN} ${CLAUDE_FLAGS} 2>&1 | tee /tmp/hiphop-claude.log`,
       { silent: true }
     );
     const m = r.stdout.match(/SUMMARY:\s*(.+?)\s*$/m);
@@ -80,7 +82,7 @@ async function processTrigger(triggerFile) {
 
   // Step 1: Claude CLI実行
   const claudeResult = await run(
-    `cat "${promptFile}" | ${CLAUDE_BIN} --print --permission-mode acceptEdits --dangerously-skip-permissions 2>&1 | tee /tmp/hiphop-claude.log`
+    `cat "${promptFile}" | ${CLAUDE_BIN} ${CLAUDE_FLAGS} 2>&1 | tee /tmp/hiphop-claude.log`
   );
 
   if (claudeResult.code !== 0) {

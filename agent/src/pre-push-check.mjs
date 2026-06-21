@@ -132,6 +132,61 @@ function checkDuplicateGuard() {
   return true;
 }
 
+// ============================================================================
+// Item 7: 評論家口調ガード（散文の禁止語検出）
+//   docs/article-tone.md の「評論家ヅラ禁止」リストと同期。変更された曲のみ走査。
+//   出力は検出語と件数のみ（歌詞・本文は出さない＝コンテンツフィルター対策）。
+// ============================================================================
+// 散文でほぼ常に格付け・分析口調になる高精度の語のみ（誤検出で正記事をブロックしない範囲）
+const CRITIC_PATTERNS = [
+  '圧巻',
+  '秀逸',
+  '見事',
+  '通奏低音',
+  '言語の経済性',
+  'リリシズムの核',
+  'にほかならない',
+  'に他ならない',
+  '先駆けとして',
+  'として位置づけ',
+  'として位置付け',
+  'スタイルを確立',
+  '多層的に読める',
+];
+
+// .astro から日本語散文だけを取り出す（eng スロット・タグ除去）
+function jpBody(raw) {
+  let body = raw.replace(/^---[\s\S]*?\n---/, '');
+  body = body.replace(/<Fragment\s+slot="eng">[\s\S]*?<\/Fragment>/g, ' ');
+  body = body.replace(/<[^>]+>/g, ' ').replace(/&[a-z]+;/g, ' ');
+  return body;
+}
+
+function checkCriticTone(paths) {
+  let failed = false;
+  for (const p of paths) {
+    const slug = basename(p, '.astro');
+    const file = join(songsDir, `${slug}.astro`);
+    if (!existsSync(file)) continue;
+    const body = jpBody(readFileSync(file, 'utf-8'));
+    const hits = [];
+    for (const w of CRITIC_PATTERNS) {
+      const n = (body.match(new RegExp(w, 'g')) || []).length;
+      if (n) hits.push(`${w}×${n}`);
+    }
+    if (hits.length) {
+      console.log(`❌ [TONE] ${slug}: 評論家口調の禁止語 → ${hits.join(' / ')}`);
+      failed = true;
+    } else {
+      console.log(`✅ [TONE] ${slug}: 評論家口調の禁止語なし`);
+    }
+  }
+  if (failed) {
+    console.log('   → docs/article-tone.md の禁止リスト参照。〈発見の共有〉〈一人称の感想〉に書き換えてください。');
+  }
+  return failed;
+}
+
 // --- Item 6: Fetch lyrics (短尺フェッチ対策つき) ---
 // returns { lines, incomplete }
 async function fetchLyrics(title, artist, slug) {
@@ -218,6 +273,9 @@ if (changedPaths.length === 0) {
   }
   process.exit(0);
 }
+
+// Item 7: 評論家口調ガード（変更された曲のみ走査）
+if (checkCriticTone(changedPaths)) anyFailed = true;
 
 for (const filePath of changedPaths) {
   const slug = basename(filePath, '.astro');
