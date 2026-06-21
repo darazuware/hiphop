@@ -1,0 +1,442 @@
+---
+import LearningUnit from '../../components/LearningUnit.astro';
+import QuickSlang from '../../components/QuickSlang.astro';
+import SongLayout from '../../layouts/SongLayout.astro';
+
+import tsData from '../../../agent/bad-and-boujee-feat-lil-uzi-vert/assets/units-timestamps.json';
+const YT = "S-sJp1FfG7Q";
+const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.approx }]));
+---
+
+<SongLayout
+  title="Bad and Boujee 和訳・意味・スラング解説 | Migos feat. Lil Uzi Vert"
+  description="MigosのBad and Boujeeを英語学習＋ヒップホップ理解の教材として精読。Boujee・Raindrop drop top・Lean（muddy）・Trap・Draco・MigosトリプレットフロウなどのスラングとAAVEを表現単位で解説。各表現は公式PVの該当箇所へ頭出しリンク付き。"
+  slug="bad-and-boujee-feat-lil-uzi-vert"
+  highlights={[
+    '「Raindrop, drop top」が生んだミーム現象とトリプレットフロウの仕掛け',
+    'Boujee・Lean・Trap・Dracoなどトラップ必須スラングを用例断片で解説',
+    'Metro Boomin × MigosがBillboard Hot 100を制圧した2016年アトランタの文脈',
+  ]}
+  youtubeId="S-sJp1FfG7Q"
+>
+
+    <!-- ===================== -->
+    <!-- 導入                  -->
+    <!-- ===================== -->
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■「Raindrop, drop top」が世界を飲み込んだ日</h2>
+      <p class="text-sm text-[var(--c-muted)] leading-relaxed">
+        2016年10月28日、アトランタ出身のトリオ Migos（ミーゴス）がシングル「Bad and Boujee」をリリースした。翌2017年1月、Billboard Hot 100で初登場1位——Migosにとっても、フィーチャリングのLil Uzi Vertにとっても初の全米チャート制覇だった。フック冒頭の「Raindrop, drop top」はSNSで爆発的にミーム化し、気づけば世界中の人間がこの7音節を口ずさんでいた。この記事は英語学習とヒップホップ理解の教材として読んでもらえればと思います。
+      </p>
+      <p class="text-sm text-[var(--c-muted)] leading-relaxed mt-3">
+        Migos の3人——Quavo（クエイボ）、Offset（オフセット）、Takeoff（テイクオフ）——はジョージア州グウィネット郡出身のいとこ同士。プロデューサーは <strong class="text-[var(--c-text)]">Metro Boomin（メトロ・ブーミン）と G Koop</strong> のコンビ。リリックにはトラップ特有のスラング、AAVE（アフリカ系アメリカ人英語）の文法、そして韻とフロウへの徹底したこだわりが詰まっている。それぞれを「学ぶ表現」単位で取り出し、用例の断片・和訳・語法と文化背景を解説していきたいと思います。
+      </p>
+    </section>
+
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■トラップスラング教材として</h2>
+      <p class="text-sm text-[var(--c-muted)] leading-relaxed">
+        「Bad and Boujee」は、2016年以降のヒップホップを理解する上でほぼ欠かせない1曲だと思います。Lean（リン）、Draco（ドレイコ）、trap（トラップ）動詞の使い方、hotbox——いずれも辞書には載らないが現代ヒップホップを聴いていれば必ず出会うワードが、この1曲に凝縮されている。しかも Quavo、Offset、Lil Uzi Vert それぞれのスタイルを聴き比べられる構造になっているので、MCごとのフロウと語彙の違いが自然と耳に入ってくる。
+      </p>
+      <p class="text-sm text-[var(--c-muted)] leading-relaxed mt-3">
+        それと、いわゆる「<strong class="text-[var(--c-text)]">Migos Flow（トリプレットフロウ）</strong>」——3連符に言葉を当てていく独特のリズム感——も、この曲を繰り返し聴くことで体に入ってくる。Drake や Cardi B など後のアーティストがこのフロウを借用したほど影響力が強い。教材として、純粋に面白い1曲です。
+      </p>
+    </section>
+
+    <!-- Table of Contents -->
+    <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
+      <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
+        <li><a href="#story" class="hover:text-[var(--c-gold)] transition-colors">01 — ストーリーの流れ</a></li>
+        <li><a href="#units" class="hover:text-[var(--c-gold)] transition-colors">02 — 学ぶ表現（スラング・韻・フロウ・AAVE）</a></li>
+        <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">03 — 文化的背景</a></li>
+        <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">04 — 制作と時代背景</a></li>
+        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">05 — チャートとその後の影響</a></li>
+      </ol>
+    </nav>
+
+    <!-- ===================== -->
+    <!-- ストーリー要約          -->
+    <!-- ===================== -->
+    <section id="story" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        ストーリーの流れ
+      </h2>
+      <p class="text-xs text-[var(--c-dim)] mb-5">
+        各スラングに入る前に、曲全体が何を語っているかを散文でつかんでおきましょう。
+      </p>
+      <div class="space-y-4 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          曲はOffsetの語りで幕を開ける。「俺たちは古い金を持ったことがない、でも新しい金はたんまりある」——ここがこの曲の核にある姿勢だ。旧来の資産家（old money）ではなく、ゼロから稼ぎ上げた新興の富（new money）。それが「Bad and Boujee」という言葉に込められた自己規定でもある。
+        </p>
+        <p>
+          <strong class="text-[var(--c-text)]">コーラス（Offset）</strong>は「Raindrop, drop top」で始まり、ドラッグ調理・武器・女性・そして "bad and boujee"（ワルくてブルジョワ）な彼女というイメージを畳みかけて繰り返す。フックは一語一語よりもリズムとサウンドが先に来る——これがトラップのフックの作り方だ。
+        </p>
+        <p>
+          <strong class="text-[var(--c-text)]">Verse 1（Offset）</strong>は、稼いだ金・乗り回す高級車・ドラッグ密売・武器という定番のトラップ語彙を、高速のトリプレットフロウで積み上げていく。
+        </p>
+        <p>
+          <strong class="text-[var(--c-text)]">Verse 2（Quavo）</strong>は、Lean（リン）の飲用から始まり、Ratatouille（映画の名前）まで飛び出すユーモアある自己紹介を経て、かつて地下鉄（Subway）のそばでトラッピングをしていた過去に触れる。Offsetのヴァースよりも自由で跳ねるようなフロウが特徴。
+        </p>
+        <p>
+          <strong class="text-[var(--c-text)]">Verse 3（Lil Uzi Vert）</strong>は最もパーソナルな内容で、Ferrari 458を乗り回す今と、クローンのように自分を真似する者たちへの牽制、そしてGucciとの出会いを経由して「俺たちは勝ってる」で締める。フィリー出身のUziのフロウはMigosとは別の種類の柔軟さを持っていて、ここで一気に温度が変わる。
+        </p>
+        <p class="text-xs text-[var(--c-dim)]">
+          ※本ページは批評・教育目的で、解説に必要な範囲の断片のみを引用しています。全歌詞の対訳は掲載していません。
+        </p>
+      </div>
+    </section>
+
+    <!-- ===================== -->
+    <!-- 学習ユニット群          -->
+    <!-- ===================== -->
+    <div id="units"></div>
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2 border-b border-[var(--c-border)] pb-2">
+        学ぶ表現 — スラング・韻・フロウ・AAVE
+      </h2>
+      <p class="text-xs text-[var(--c-dim)] mb-6">
+        各見出しは「この曲から学べる英語表現」。上に英語の用例（1〜2行）を置いてあります。<strong class="text-[var(--c-text)]">先に英語を音で追い、行のどこが学習対象かを確かめてから</strong>下の日本語解説に進んでください。🎤はそのリリックを歌うMC、▶は公式PVの該当箇所への頭出しリンク（秒数は概算）です。
+      </p>
+
+      <!-- ① Raindrop, drop top -->
+      <LearningUnit
+        heading="Raindrop, drop top — 韻とオノマトペで世界を取った7音節"
+        label="★ 韻／フック"
+        mc="Offset（コーラス）"
+        t={TS["raindrop-drop-top"].t} tApprox={TS["raindrop-drop-top"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Raindrop (Drip), drop-top (Drop-top)<br />Smokin' on Cookie in the <QuickSlang word="hotbox" desc="窓を閉め切った車内でマリファナを吸い、煙を充満させる行為。またはその空間" /></Fragment>
+        <Fragment slot="jpn">雨粒が落ちる、屋根を開ける（ドリップする、ドロップトップ）／クッキー（高級マリファナ株）を車内でホットボックスしながら吸う</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 コーラスの冒頭、一番最初に出てくる行。フックの核心。</p>
+        <p>上の1行目の音だけを追ってみてください。<strong class="text-[var(--c-text)]">Raindrop / drop-top</strong>——「レインドロップ」「ドロップトップ」とほぼ同じ音が2回返ってくる。これが韻です。そのうえ <strong class="text-[var(--c-text)]">Drip</strong>（括弧内の相槌）が「滴る＝金が垂れ流れる」のストリートスラングとして機能し、音と意味が同時に走る。</p>
+        <p><strong class="text-[var(--c-text)]">drop-top</strong> は屋根が開くオープンカー（コンバーチブル）のこと。つまりこの行は「雨粒が落ちる中、オープンカーで走る」という映像を、同じ音の繰り返し（オノマトペ的な韻）で表現している。意味の前に音のキャッチーさが来る——それがトラップフックの発想だ。7音節なのにこれだけ情報が詰まっている、なかなか食えない書き方だと思います。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">drip</strong> はストリートスラングで「（金・センス・スタイルが）垂れ流れている状態」を指す。<em>He got drip</em>（センスがある）、<em>drip too hard</em>（スタイルがやばすぎる）のように形容的に使う。ここでは括弧の相槌として入っているが、音として <em>raindrop</em> に掛かっている。</p>
+          <p><strong class="text-[var(--c-text)]">drop-top</strong> はコンバーチブル（幌を下げられる車）の口語表現。<em>pull up in a drop-top</em>（オープンカーで乗り付ける）のように使う。高級車文化の語彙として現代ヒップホップでは頻出。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ② Smokin' on Cookie in the hotbox / thot -->
+      <LearningUnit
+        heading="Cookin' up dope in the crockpot — 料理動詞がドラッグ調理に転用される"
+        label="★ スラング（隠語）"
+        mc="Offset（コーラス）"
+        t={TS["smokin-cookie-hotbox"].t} tApprox={TS["smokin-cookie-hotbox"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Cookin' up <QuickSlang word="dope" desc="①麻薬全般の口語②クールな・やばい（形容詞）、ここでは①の意味" /> in the crockpot (Pot)</Fragment>
+        <Fragment slot="jpn">クロックポット（炊飯器のような低温調理器）でドープ（麻薬）を調理している</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 コーラス4行目、「Cookin' up dope」の行。</p>
+        <p>行の前半、「<strong class="text-[var(--c-text)]">Cookin' up dope</strong>」の動詞に注目。<em>cook up</em> は本来「料理を作る」の句動詞だが、トラップ文化では「（コカインや麻薬を）調理する＝加工する」という意味で使う。コカインを重曹で加工してクラックにする工程を、ごく日常的な料理の語彙に置き換えているわけです。</p>
+        <p><strong class="text-[var(--c-text)]">crockpot</strong>（クロックポット）は低温でじっくり煮込む家庭用の電気調理器。これも同じ文脈——台所にあるものがそのままドラッグ調理の道具として出てくる。詳述しない、聴き手が補完する、という書き方が徹底されていて、知ってる人だけにわかる設計になっている。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">cook up</strong> は「（手を加えて）作り上げる」という意味の句動詞。料理のほか、<em>cook up a plan</em>（計画を練り上げる）のように比喩的にも使う。トラップ文化での「麻薬調理」という用法は、日常語を隠語に転用するという長いヒップホップの伝統の一例。</p>
+          <p><strong class="text-[var(--c-text)]">dope</strong> は「麻薬・ドラッグ（全般）」を指す口語で、名詞だけでなく形容詞（「やばい・かっこいい」）にもなる多義語。<em>That beat is dope</em>（そのビートやばい）のように使う。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ③ bad and boujee -->
+      <LearningUnit
+        heading="bad and boujee — タイトルに仕込まれた二重の意味"
+        label="★ スラング（語義）"
+        mc="Offset（コーラス）"
+        t={TS["bad-and-boujee-hook"].t} tApprox={TS["bad-and-boujee-hook"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">My bitch is bad and <QuickSlang word="bougie" desc="bourgeois（ブルジョワ）から派生したスラング。高級志向・金持ちっぽい振る舞いを指す。Migosはあえて「boujee」と綴りを変えた" /> (Bad)</Fragment>
+        <Fragment slot="jpn">俺の女はワルくてブルジョワ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 コーラス後半、タイトルフレーズが初めて登場する行。</p>
+        <p>行全体が学習対象です。<strong class="text-[var(--c-text)]">bad</strong> はAAVEで「魅力的な・セクシーな」という肯定の形容詞。標準英語の「悪い」ではない——ここが最初のポイント。<strong class="text-[var(--c-text)]">boujee</strong>（=bougie）は <em>bourgeois</em>（フランス語起源の「ブルジョワ階級」）が崩れたスラングで、「金持ちっぽい・高級志向・気取った」という意味を持つ。</p>
+        <p>面白いのは、Migosが意図的に綴りを <em>bougie</em> ではなく <strong class="text-[var(--c-text)]">boujee</strong> と変えたこと。これはAAVE的な発音の視覚化であり、同時に「我々独自の語彙だ」という主張でもある。「ワルくてブルジョワ」——貧しい出発点から成り上がり、今やリッチに生きている。その複層的な自己表現がこの4文字に入っています。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">bad</strong> はAAVEで肯定的に使われる形容詞の代表例。<em>She's bad</em>（彼女は魅力的だ）、<em>that's bad</em>（やばい＝かっこいい）のように文脈で正反対の意味を持つ。「標準英語の意味≠AAVE的な意味」という逆転を知っておくと、ラップを聴くときに混乱しない。</p>
+          <p><strong class="text-[var(--c-text)]">bougie / boujee</strong> は形容詞として単独でも「気取った」「ブルジョワ的な」の意味で使える。<em>Don't be so bougie</em>（そんなに気取るな）のように批判的文脈でも使うが、この曲では誇りとして使っている点がポイント。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ④ Rackaids on rackaids -->
+      <LearningUnit
+        heading="Rackaids on rackaids — 繰り返し構文で金を積む"
+        label="★ スラング／構文"
+        mc="Offset（Verse 1）"
+        t={TS["rackaids-racks"].t} tApprox={TS["rackaids-racks"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng"><QuickSlang word="Rackaids" desc="Racks（束になった大金）の複数形・誇張表現。1 rack = 1,000ドルが基本単位" /> on rackaids, got back-ends on back-ends</Fragment>
+        <Fragment slot="jpn">束の金が山積み、バックエンド（バックロイヤリティ）もたんまりある</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 1（Offset）の冒頭。ヴァースが始まる最初の一行。</p>
+        <p>行全体の構造を見てください。<strong class="text-[var(--c-text)]">Rackaids on rackaids</strong> という「X on X」の繰り返しパターン——これはトラップリリックで頻繁に出てくる強調構文です。<em>X on X</em> は「Xの上にさらにX＝Xが山積みになっている」という意味で、量・積み重なりを誇示する定番の書き方。</p>
+        <p><strong class="text-[var(--c-text)]">rack</strong> は1,000ドルを表すストリートスラング（<em>racks</em> でその複数）。<em>rackaids</em> は Migos 流の誇張表現。後半の <strong class="text-[var(--c-text)]">back-ends</strong> はバックエンドの利益（ロイヤリティ・後払い報酬）を指し、音楽業界の文脈を重ねている。前景（表の稼ぎ）も後景（裏の収入）も両方ある——ということ。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">X on X</strong> 構文（例: <em>racks on racks</em>、<em>bands on bands</em>、<em>stacks on stacks</em>）は「～が山積み・連続」という過剰な量を表す口語強調構文。<em>back-ends on back-ends</em> のように抽象的な概念にも使える。</p>
+          <p>金額スラングの基本単位: <strong class="text-[var(--c-text)]">rack</strong> = $1,000、<strong class="text-[var(--c-text)]">band</strong> = $1,000（輪ゴムで束ねた束から）、<strong class="text-[var(--c-text)]">stack</strong> = $1,000、<strong class="text-[var(--c-text)]">G</strong> = $1,000（grand の略）。これらを押さえるとトラップの金スラングが一気に読めるようになります。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑤ pull up in Ghosts -->
+      <LearningUnit
+        heading="pull up in Ghosts — 高級車をスラングで呼ぶ"
+        label="★ スラング（ブランド）"
+        mc="Offset（Verse 1）"
+        t={TS["pull-up-ghosts"].t} tApprox={TS["pull-up-ghosts"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Yeah, pull up in <QuickSlang word="Ghosts" desc="Rolls-Royce Ghostのこと。超高級車を車種名の一部だけで呼ぶトラップの定番表現" /> (Woo)</Fragment>
+        <Fragment slot="jpn">ロールスロイス・ゴーストで乗り付ける</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 1（Offset）中盤、高級車のくだり。</p>
+        <p>行の核は「<strong class="text-[var(--c-text)]">pull up in Ghosts</strong>」。<em>pull up</em>（=乗り付ける・到着する）という句動詞と、<strong class="text-[var(--c-text)]">Ghosts</strong>（=Rolls-Royce Ghost）の組み合わせ。注目は、Rolls-Royce Ghost という正式名称を「Ghosts」という一単語に縮めていること。ブランド名の省略はヒップホップの定番手法で、聴き手が補完できる前提で最小の音数に削る。</p>
+        <p><em>pull up in ~</em>（～で乗り付ける・現れる）は、どの乗り物で来るかをフレックスする表現として頻出。<em>pull up in a Benz / a Lamb' / a Ghost</em> のように車種を変えて使い回す。括弧の「Woo」は Migos 特有の相槌インタージェクション——フロウの隙間に挿し込んでビートとの一体感を作る。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">pull up</strong> は「（特定の場所に）乗り物で来る・現れる」という句動詞。<em>I'll pull up later</em>（後で行くよ）のように交通手段を問わず使えるが、フレックス文脈では必ず「何に乗って来るか」が後続する。<em>pull up on sb</em>（誰かのところに乗り込む）という対人的な用法もある。</p>
+          <p>車種の固有名詞スラング: <strong>Ghost</strong>=Rolls-Royce Ghost、<strong>'Rari</strong>=Ferrari、<strong>Lamb'</strong>=Lamborghini、<strong>Benz</strong>=Mercedes-Benz。頭を覚えてしまうとトラップを聴くのがかなり楽になります。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑥ Dabbin' on 'em -->
+      <LearningUnit
+        heading="Dabbin' on 'em like the usual — Dabダンスとフレックス動詞"
+        label="★ 文化／動詞"
+        mc="Offset（Verse 1）"
+        t={TS["dabbin-usual"].t} tApprox={TS["dabbin-usual"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Dabbin' on 'em like the usual (<QuickSlang word="Dab" desc="アトランタ発祥のヒップホップダンスムーブ。片腕を顔に埋めてもう一方を伸ばすポーズ。2015〜2016年にMigosが流行させた" />)</Fragment>
+        <Fragment slot="jpn">いつものようにダブって（=圧倒して）やる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 1（Offset）後半、フレックスの畳み込み。</p>
+        <p>行の中、「<strong class="text-[var(--c-text)]">Dabbin' on 'em</strong>」。<strong class="text-[var(--c-text)]">Dab</strong>（ダブ）は2015〜2016年にアトランタで大流行したダンスムーブで、片腕を顔に埋めてもう一方を斜め上に伸ばすあのポーズ。Migosはこのダンスの流行に深く関わっていた。</p>
+        <p>ここでの <em>dabbin' on 'em</em> は「ダブのポーズをとってやる（＝見せつける・圧倒する）」という意味で、ダンスの具体的な動作が「相手を制する」という比喩的な意味に拡張されている。<em>like the usual</em>（=いつものように）が後続して「もう当たり前のことだ」という余裕感を加える。アトランタ発の流行文化がそのままリリックの動詞になっているのが面白いところです。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">dab on</strong> は「（ダブのポーズで）相手に見せつける・圧倒する」というフレックス動詞として使われる。<em>dab on the haters</em>（アンチにダブを決める=無視して上から行く）のように対象に <em>on</em> をとる。</p>
+          <p><em>like the usual</em> は <em>as usual</em>（いつものように）の口語的変形。文法的には非標準だが、AAVEや口語英語では <em>like</em> を接続詞的に使う例が多い（<em>like I said</em>、<em>like that</em> など）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑦ Pour a four, muddy -->
+      <LearningUnit
+        heading="Pour a four, droppin' muddy — Lean（リン）の語彙"
+        label="★ スラング（サブカルチャー）"
+        mc="Quavo（Verse 2）"
+        t={TS["pour-four-muddy"].t} tApprox={TS["pour-four-muddy"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Pour a <QuickSlang word="four" desc="咳止め薬（コデイン入りPromethazine）を4オンス（=4 fl oz、約120ml）注ぐこと。Leanの基本単位" />, I'm droppin' <QuickSlang word="muddy" desc="Lean（コデイン入りのシロップをソーダで割った飲み物）。色が泥水のように紫・茶色っぽいことから" />, outer space, Kid Cudi (Drank)</Fragment>
+        <Fragment slot="jpn">4オンス注いで、マディ（Lean）をキメてる、宇宙の彼方、キッド・カディみたいに（飲み物）</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 2（Quavo）の冒頭、ヴァース一行目。</p>
+        <p>Verse 2はいきなりここから始まります。<strong class="text-[var(--c-text)]">Pour a four</strong>（4オンス注ぐ）——これは Lean と呼ばれる飲み物の準備。Lean は処方箋咳止めシロップ（コデイン＋プロメタジン）をソーダやジュースで割ったドリンクで、アトランタ・ヒューストンを中心に南部ラップシーンで長く語られてきた文化的トピック。</p>
+        <p>色が暗紫色〜茶色になることから <strong class="text-[var(--c-text)]">muddy</strong>（泥水みたいな）と呼ばれる。<em>outer space, Kid Cudi</em> は Lean を飲んだ後の浮遊感を、Kid Cudi の音楽（Man on the Moon シリーズで知られる宇宙・夢遊的な世界観）に喩えた一節。比喩としてアーティスト名をそのまま差し込む書き方は現代ヒップホップで頻出します。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">Lean</strong>（別名: Purple Drank、Sizzurp、Dirty Sprite）は南部ラップの文化的コンテキストでほぼ必ず出てくる語彙。<em>sip Lean</em>（リンを飲む）、<em>lean back</em>（Lean の影響でぼーっとする）のように動詞的にも使う。健康被害が大きく社会問題でもある。</p>
+          <p>量の表現: <strong>four</strong> = 4 fl oz（約120ml）、<strong>deuce</strong> = 2 fl oz、<strong>a double cup</strong> = スタイロフォームのカップを二重重ねにしてLeanを入れること（南部の象徴的な飲み方）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑧ call me Quavo Ratatouille -->
+      <LearningUnit
+        heading="call me Quavo Ratatouille — 映画タイトルで自分を語る"
+        label="★ ユーモア／文化引用"
+        mc="Quavo（Verse 2）"
+        t={TS["quavo-ratatouille"].t} tApprox={TS["quavo-ratatouille"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Still be playin' with pots and pans, call me Quavo Ratatouille (Cook it up)</Fragment>
+        <Fragment slot="jpn">今でも鍋とフライパンをいじってる、俺はクエイボ・ラタトゥイユと呼んでくれ（料理してるぜ）</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 2（Quavo）中盤、料理隠語を映画タイトルに掛けた件。</p>
+        <p>行全体が学習ポイントです。<strong class="text-[var(--c-text)]">playin' with pots and pans</strong>（鍋とフライパンで遊ぶ）——これは前の学習ユニットと同じ「ドラッグ調理」の比喩。そこに Pixar 映画 <strong class="text-[var(--c-text)]">Ratatouille</strong>（ラタトゥイユ）のネズムのシェフを掛けてくる。「俺はクエイボ・ラタトゥイユだ」——料理（=調理=密売）のスキルを、映画の料理人キャラに重ねたユーモア。</p>
+        <p>括弧の「Cook it up」が相槌として入り、ダブルミーニングを確定させる。このくらいの遊び心でさらっと映画タイトルを自分のニックネームにする書き方、こういうポップカルチャー引用が現代ヒップホップにはたくさん出てきます。意味が分かると「うまい」と思えて聴こえ方が変わる（と思います）。</p>
+      </LearningUnit>
+
+      <!-- ⑨ trap by the Subway -->
+      <LearningUnit
+        heading="I used to trap by the Subway — trap を動詞で使う"
+        label="★ AAVE／動詞"
+        mc="Quavo（Verse 2）"
+        t={TS["trap-by-subway"].t} tApprox={TS["trap-by-subway"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">I used to <QuickSlang word="trap" desc="動詞として使われるtrap。麻薬密売・ストリートの稼ぎをすること。trapperがその実行者" /> by the Subway (Trappin', trappin')</Fragment>
+        <Fragment slot="jpn">昔はサブウェイ（地下鉄駅 or サンドイッチチェーン）のそばでトラッピングをしてた</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 2（Quavo）後半、過去を振り返る件。</p>
+        <p>この一行の学習ポイントは行の真ん中、「I used to <strong class="text-[var(--c-text)]">trap</strong> by the Subway」の動詞 <strong class="text-[var(--c-text)]">trap</strong>。ヒップホップで「トラップ（trap）」と言えばジャンル名として知られているが、元は動詞——<strong class="text-[var(--c-text)]">ドラッグを売る・ストリートで稼ぐ</strong>という意味で使う。<em>trapper</em> がその実行者。</p>
+        <p><strong class="text-[var(--c-text)]">Subway</strong> は「地下鉄駅」の可能性と「サンドイッチチェーンの Subway」の両方が考えられる。グウィネット郡（郊外）の具体的な地名として固有名詞化されていて、「その辺で売ってた」という過去の情景がリアルに浮かんでくる。<em>I used to ~</em>（昔は～したものだ）は過去の習慣を表す助動詞句で、今との対比を作る定番表現です。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">trap</strong>（動詞）の使い方: <em>he traps</em>（彼はストリートで稼ぐ）、<em>trap out the bando</em>（廃屋でトラッピングをする）、<em>trap house</em>（麻薬密売の拠点）、<em>trapper</em>（実行者）。ジャンル名「trap music」はこの動詞・文化から来ている。</p>
+          <p><em>I used to ~</em> は過去の反復習慣（今はもうそうでない）を表す。<em>I used to live there</em>（昔あそこに住んでた）のように使う。<em>used to</em> と <em>would</em>（過去の反復）の違い: <em>used to</em> は状態変化を含意し「今はもう違う」という含みがある。この文脈では「昔はそうだったが今は成功した」というサクセスストーリーの前置きとして機能している。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑩ Switchin' flows like clothes -->
+      <LearningUnit
+        heading="Switchin' my hoes like my flows / flows like my clothes — 三語連鎖の韻"
+        label="★ 韻／フロウ"
+        mc="Lil Uzi Vert（Verse 3）"
+        t={TS["switchin-flows-clothes"].t} tApprox={TS["switchin-flows-clothes"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Switchin' my hoes like my flows (What?)<br />Switchin' my flows like my clothes (Like what?)</Fragment>
+        <Fragment slot="jpn">女を変えるようにフロウを変える／フロウを変えるように服を変える</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 3（Lil Uzi Vert）序盤、連続する2行。</p>
+        <p>この2行はまず声に出して追ってみてください。<strong class="text-[var(--c-text)]">hoes / flows / clothes</strong>——3つの語が同じ音（<em>-ows</em>）で揃っていて、しかも2行に渡って「A like B、B like C」という連鎖置換の構造になっている。女→フロウ→服という3つのものが「切り替える頻度が同じ」という等価の比喩でつながれる。</p>
+        <p>これは Lil Uzi Vert が Migos とはまた別の種類の言葉遊びを持っているということを示す2行で、フィリー（フィラデルフィア）出身の彼が Migos のビートの上でどれだけ柔軟かを示すみたいな一節です。括弧の「What?」「Like what?」はアドリブで、驚き・煽りの相槌。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">switch</strong>（他動詞）は「切り替える・変える」。<em>switch lanes</em>（車線変更する=方向を変える）、<em>switch up</em>（変節する・手のひらを返す）のように句動詞にもなる。ここの <em>switchin' my flows</em> は「（ラップの）スタイルを変える」という意味で、ラッパーが自分のフロウの多様性を自慢する文脈で使う。</p>
+          <p><strong class="text-[var(--c-text)]">flow</strong> は「（ラッパーの）ラップのリズム・韻律・語り口」。<em>his flow is crazy</em>（フロウがえぐい）のように使う。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑪ 'Rari 458 -->
+      <LearningUnit
+        heading="Drive the 'Rari, that bitch got no roof / Wait — 458 — 固有名詞でステータスを語る"
+        label="★ スラング（車）"
+        mc="Lil Uzi Vert（Verse 3）"
+        t={TS["rari-458"].t} tApprox={TS["rari-458"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Drive the '<QuickSlang word="Rari" desc="Ferrariの略。ヒップホップでの定番短縮形" />, that bitch got no roof (Skrrt)<br />Wait, what kind of 'Rari? (Wait) 458 (Damn)</Fragment>
+        <Fragment slot="jpn">フェラーリ乗ってる、そいつ（その車）には屋根がない／ちょっと待って、どのフェラーリ？458だ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">📍 Verse 3（Lil Uzi Vert）中盤、車のフレックス。</p>
+        <p>この2行は構造が面白い。1行目で「'Rariを乗り回している、屋根なし（オープン）だ」と言い切って、2行目で「どのモデルだよ？」と自己ツッコミを入れて「458」で答える——一人漫才みたいな展開です。</p>
+        <p><strong class="text-[var(--c-text)]">'Rari</strong>（=Ferrari）は頭の Fe- を落とした短縮形。<strong class="text-[var(--c-text)]">458</strong> は Ferrari 458 Italia のことで、2009〜2015年に生産されたV8ミッドシップのスーパーカー。「屋根がない」という描写から、おそらく Ferrari 458 Spider（オープンルーフ版）を指しているのだと思います。車種まで言い切る——そこまで具体にすることでステータスの主張が一段増す。括弧の「Skrrt」はタイヤのスキール音のオノマトペ。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">Skrrt</strong>（スカート）は車がドリフト・急ブレーキ・急発進したときのタイヤ音を模したオノマトペ。ヒップホップで「速い動き・去り際・興奮」の文脈で広く使われる。Migos が流行させたとも言われるアドリブ語の一つ。</p>
+          <p>ヒップホップで頻出する Ferrari 系スラング: <strong>'Rari</strong>=Ferrari全般、<strong>Testarossa</strong>=Ferrari Testarossa（クラシック）、<strong>LaFerrari</strong>=LaFerrari（超高級）。型番で指定するほど具体的なほどフレックス度が上がる。</p>
+        </Fragment>
+      </LearningUnit>
+
+    </section>
+
+    <!-- ===================== -->
+    <!-- 文化的背景              -->
+    <!-- ===================== -->
+    <section id="background" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        文化的背景
+      </h2>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">Migos Flow（トリプレットフロウ）</p>
+        <h3 class="font-semibold text-base mb-3">3連符に言葉を載せる——現代ヒップホップのリズムを変えた技法</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          「Bad and Boujee」を聴いてまず耳に入るのは、そのリズムの独特さだ。通常のヒップホップが2連符・4連符の枠で言葉を配置するのに対し、Migos は3連符（トリプレット）の枠に言葉を当てていく。この<strong class="text-[var(--c-text)]">Migos Flow（トリプレットフロウ）</strong>はグウィネット郡で磨かれ、「Bad and Boujee」の大ヒットによって世界に広まった。
+        </p>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed mt-3">
+          Drake が 2016 年のアルバム『Views』で露骨にこのフロウを取り入れ、その後 Cardi B、21 Savage ら無数のアーティストが同じリズム感を採用した（Migos のメンバーが「Drakeが盗んだ」と発言したことも話題になった）。今やこのフロウはトラップの標準語になっていて、2016年以降のヒップホップを理解するためにはほぼ避けて通れない。
+        </p>
+      </div>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">Gwinnett County（グウィネット郡）</p>
+        <h3 class="font-semibold text-base mb-3">アトランタ郊外が生んだ「new money」の感覚</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          Migos の 3 人はアトランタ市内ではなく、郊外のジョージア州グウィネット郡出身。移民が多く住む多文化な郊外で育った彼らの「ゼロから成り上がった新しい金（new money）」という感覚は、旧来のニューヨーク・LAのゲットー語彙とは微妙に異なる温度感を持っている。"Bad and Boujee" という言葉そのものが、その出自と現在地の落差から来ているんだと思う。
+        </p>
+      </div>
+
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">キーワード早見表</p>
+        <h3 class="font-semibold text-base mb-3">この曲で学んだスラングの整理</h3>
+        <div class="space-y-3 mt-3">
+          {[
+            ['boujee', 'bourgeois（ブルジョワ）崩れ。高級志向・気取った振る舞いを指す。Migosは綴りを独自化'],
+            ['drip', 'センス・スタイルが垂れ流れている状態。形容詞的にも動詞的にも使う'],
+            ['cook up', '料理する=（麻薬を）調理・加工する。料理語彙のトラップ転用'],
+            ['rack', '1,000ドルの単位。racks on racks で山積みの金を表す'],
+            ['trap', '動詞:ドラッグを売る・ストリートで稼ぐ。ジャンル名「trap」の語源'],
+            ['muddy', 'Lean（コデイン系シロップ飲料）の別名。色が泥水状なことから'],
+            ['pull up', '乗り物で来る・現れる。何で来るかでフレックス度が決まる'],
+            ["'Rari", 'Ferrari の略。型番（458等）まで言い切るほど具体性が増す'],
+            ['Skrrt', 'タイヤのスキール音のオノマトペ。Migosが広めたアドリブ語の一つ'],
+          ].map(([term, desc]) => (
+            <div class="flex gap-3 text-sm">
+              <span class="text-[var(--c-gold)] shrink-0 font-semibold min-w-[100px]">{term}</span>
+              <span class="text-[var(--c-muted)]">{desc}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== -->
+    <!-- 制作と時代背景          -->
+    <!-- ===================== -->
+    <section id="behind" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        制作と時代背景
+      </h2>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">Metro Boomin × Migos</p>
+        <h3 class="font-semibold text-base mb-3">ミニマルなビートが3連符フロウを引き立てる</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          プロデューサーは <strong class="text-[var(--c-text)]">Metro Boomin（本名 Leland Tyler Wayne）と G Koop</strong> のコンビ。Metro Boomin はセントルイス出身で、当時すでに Young Thug や Future との仕事でアトランタ・トラップシーンの中心にいた。
+        </p>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed mt-3">
+          このトラックのビートはシンプルで隙間が多い。808のキックとハイハットのロール、控えめなシンセ——その「引き算のプロダクション」が、Migos のトリプレットフロウを前面に出す。ビートが主張しすぎると、フロウの細かいリズムが埋もれてしまう。スペースを作ることでラッパーが活きる——そういうバランス感覚が Metro Boomin の強みで、この曲はそれがよく出た1枚だと思います。
+        </p>
+      </div>
+
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">Lil Uzi Vert のフィーチャリング</p>
+        <h3 class="font-semibold text-base mb-3">フィラデルフィアからアトランタへ</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          フィーチャリングの <strong class="text-[var(--c-text)]">Lil Uzi Vert</strong> はフィラデルフィア出身で、Migos とは異なるシーンからやってきた。当時すでに "Money Longer" などで注目されていたが、"Bad and Boujee" がBillboard Hot 100の1位に達したことで彼の知名度も一気に全国区になった。Verse 3 の Uzi のフロウは、Migos のトリプレット中心とは異なり、よりメロディアスで柔軟な語り口。同じビートの上で3人分の個性が聴ける構成になっています。
+        </p>
+      </div>
+    </section>
+
+    <!-- ===================== -->
+    <!-- チャートと影響          -->
+    <!-- ===================== -->
+    <section id="legacy" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        チャートとその後の影響
+      </h2>
+
+      <div class="mb-4 rounded-lg overflow-hidden border border-[var(--c-border)] text-sm">
+        <div class="grid grid-cols-3 bg-[var(--c-bg)] text-[var(--c-very-dim)] text-xs uppercase tracking-widest">
+          <div class="p-3 border-b border-[var(--c-border)]">指標</div>
+          <div class="p-3 border-b border-l border-[var(--c-border)]">記録</div>
+          <div class="p-3 border-b border-l border-[var(--c-border)]">備考</div>
+        </div>
+        {[
+          ['Billboard Hot 100', '1位（2017年1月）', 'Migos / Lil Uzi Vert 両者にとって初の全米チャート1位'],
+          ['Hot R&B/Hip-Hop Songs', '1位', 'R&B/Hip-Hopチャートも制覇'],
+          ['Rhythmic Airplay', '1位', 'ラジオ系チャートでも首位'],
+          ['収録アルバム', "『Culture』（2017年）", 'Quality Control / 300 Entertainment / Atlantic Records'],
+          ['シングルリリース', '2016年10月28日', 'アルバム先行シングル。ミームとして拡散し知名度が先行した'],
+        ].map(([metric, record, significance]) => (
+          <div class="grid grid-cols-3">
+            <div class="p-3 border-b border-[var(--c-border)] text-[var(--c-dim)]">{metric}</div>
+            <div class="p-3 border-b border-l border-[var(--c-border)] text-[var(--c-gold)] font-medium">{record}</div>
+            <div class="p-3 border-b border-l border-[var(--c-border)] text-[var(--c-muted)] text-xs">{significance}</div>
+          </div>
+        ))}
+      </div>
+
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">インターネットミームと「Raindrop, drop top」現象</p>
+        <h3 class="font-semibold text-base mb-3">7音節が文化になる</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed mb-4">
+          「Raindrop, drop top」は2017年初頭のSNSで爆発的にミーム化した。このフレーズの後に意味不明な言葉を続けるパロディが無数に生まれ、コメディアンのドナルド・グローバー（ドナルド・グローバー本人がGolden Globes授賞式後のインタビューで口にしたことも話題になった）。言葉の意味が分からなくても、音のキャッチーさだけで広まる——ヒップホップのフックが音として自立している典型例だと思います。
+        </p>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          この曲の影響はフロウにも及ぶ。Drake・Cardi B・21 Savage らが Migos Flow を取り込んでいった2016〜2018年のトラップブームは、実質この曲の全米1位が起点にある。そういう意味では、現代ヒップホップの地図を引き直した1曲として、今聴いても面白い曲です。
+        </p>
+      </div>
+    </section>
+
+    <!-- まとめ -->
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        まとめ
+      </h2>
+      <ul class="space-y-2 text-sm text-[var(--c-muted)] list-disc list-inside leading-relaxed">
+        <li>「boujee」「drip」「cook up」「trap」「muddy」など、現代トラップを読み解くスラングがこの1曲に凝縮されている。</li>
+        <li>Migos Flow（トリプレットフロウ）を体感するのに最適な教材。繰り返し聴くだけでリズムの感覚が入ってくる。</li>
+        <li>Offset・Quavo・Lil Uzi Vert 3人のフロウと語彙の違いを聴き比べられる構成。</li>
+        <li>「Raindrop, drop top」はミームとして言葉が音から先に広まった例。フックが自立して走る現象がよく分かる。</li>
+      </ul>
+    </section>
+
+</SongLayout>

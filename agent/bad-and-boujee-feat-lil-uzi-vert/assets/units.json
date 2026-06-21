@@ -1,0 +1,68 @@
+[
+  {
+    "id": "raindrop-drop-top",
+    "anchor": ["raindrop", "drop", "top"],
+    "fallbackT": 28,
+    "manualSec": null
+  },
+  {
+    "id": "smokin-cookie-hotbox",
+    "anchor": ["smokin", "on", "cookie", "in", "the", "hotbox"],
+    "fallbackT": 35,
+    "manualSec": null
+  },
+  {
+    "id": "bad-and-boujee-hook",
+    "anchor": ["my", "bitch", "is", "bad", "and", "bougie"],
+    "fallbackT": 44,
+    "manualSec": null
+  },
+  {
+    "id": "rackaids-racks",
+    "anchor": ["rackaids", "on", "rackaids"],
+    "fallbackT": 75,
+    "manualSec": null
+  },
+  {
+    "id": "pull-up-ghosts",
+    "anchor": ["pull", "up", "in", "ghosts"],
+    "fallbackT": 100,
+    "manualSec": null
+  },
+  {
+    "id": "dabbin-usual",
+    "anchor": ["dabbin", "on", "em", "like", "the", "usual"],
+    "fallbackT": 118,
+    "manualSec": null
+  },
+  {
+    "id": "pour-four-muddy",
+    "anchor": ["pour", "a", "four", "im", "droppin", "muddy"],
+    "fallbackT": 170,
+    "manualSec": null
+  },
+  {
+    "id": "quavo-ratatouille",
+    "anchor": ["call", "me", "quavo", "ratatouille"],
+    "fallbackT": 200,
+    "manualSec": null
+  },
+  {
+    "id": "trap-by-subway",
+    "anchor": ["i", "used", "to", "trap", "by", "the", "subway"],
+    "fallbackT": 220,
+    "manualSec": null
+  },
+  {
+    "id": "switchin-flows-clothes",
+    "anchor": ["switchin", "my", "hoes", "like", "my", "flows"],
+    "fallbackT": 278,
+    "manualSec": null
+  },
+  {
+    "id": "rari-458",
+    "anchor": ["drive", "the", "rari", "that", "bitch", "got", "no", "roof"],
+    "fallbackT": 300,
+    "manualSec": null
+  }
+]

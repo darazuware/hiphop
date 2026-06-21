@@ -1,5 +1,14 @@
 export const artists = [
   {
+    slug: 'migos',
+    name: 'Migos',
+    origin: 'Gwinnett County, Georgia',
+    active: '2008–2022',
+    genre: 'Trap / Hip-Hop',
+    summary: 'Quavo（本名Quavious Keyate Marshall）、Offset（本名Kiari Kendrell Cephus）、Takeoff（本名Kirshnik Khari Ball、1994-2022）のいとこ3人組。ジョージア州グウィネット郡出身。2013年のミックステープ「Young Rich Niggas」でアトランタのトラップシーンから頭角を現し、2016年シングル「Bad and Boujee（feat. Lil Uzi Vert）」がBillboard Hot 100で1位を獲得、グループ初の全米チャート首位となった。3連符（トリプレット）を多用した独自のリズムフロウ「Migos Flow」はDrake、Cardi Bら多くのアーティストに採用され、2016年以降のトラップサウンドのリズム言語を刷新した。2022年11月、TakeoffがヒューストンでのパーティーでOffsetらとともにいた際に銃撃を受け28歳で死去。',
+    japan: '2017年「Culture」リリース後、日本でもトラップブームの波に乗り幅広いリスナーに浸透。「Raindrop, drop top」のフレーズはSNSでミーム化し、日本のヒップホップファンにも広く知られる。Summer Sonic 2017への出演が日本での認知を一気に高めた。Migosのトリプレットフロウは日本の若手トラップアーティストのリズム感にも影響を与えた。',
+  },
+  {
     slug: 'ol-dirty-bastard',
     name: "Ol' Dirty Bastard",
     origin: 'Brooklyn / Staten Island, New York',

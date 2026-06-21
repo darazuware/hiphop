@@ -1,0 +1,13 @@
+[
+  { "id": "raindrop-drop-top",    "whisperSec": null, "manualSec": null, "fallbackT": 28,  "t": 28,  "source": "fallback", "approx": true, "score": 0 },
+  { "id": "smokin-cookie-hotbox", "whisperSec": null, "manualSec": null, "fallbackT": 35,  "t": 35,  "source": "fallback", "approx": true, "score": 0 },
+  { "id": "bad-and-boujee-hook",  "whisperSec": null, "manualSec": null, "fallbackT": 44,  "t": 44,  "source": "fallback", "approx": true, "score": 0 },
+  { "id": "rackaids-racks",       "whisperSec": null, "manualSec": null, "fallbackT": 75,  "t": 75,  "source": "fallback", "approx": true, "score": 0 },
+  { "id": "pull-up-ghosts",       "whisperSec": null, "manualSec": null, "fallbackT": 100, "t": 100, "source": "fallback", "approx": true, "score": 0 },
+  { "id": "dabbin-usual",         "whisperSec": null, "manualSec": null, "fallbackT": 118, "t": 118, "source": "fallback", "approx": true, "score": 0 },
+  { "id": "pour-four-muddy",      "whisperSec": null, "manualSec": null, "fallbackT": 170, "t": 170, "source": "fallback", "approx": true, "score": 0 },
+  { "id": "quavo-ratatouille",    "whisperSec": null, "manualSec": null, "fallbackT": 200, "t": 200, "source": "fallback", "approx": true, "score": 0 },
+  { "id": "trap-by-subway",       "whisperSec": null, "manualSec": null, "fallbackT": 220, "t": 220, "source": "fallback", "approx": true, "score": 0 },
+  { "id": "switchin-flows-clothes","whisperSec": null, "manualSec": null, "fallbackT": 278, "t": 278, "source": "fallback", "approx": true, "score": 0 },
+  { "id": "rari-458",             "whisperSec": null, "manualSec": null, "fallbackT": 300, "t": 300, "source": "fallback", "approx": true, "score": 0 }
+]
