@@ -137,11 +137,11 @@ function checkDuplicateGuard() {
 //   docs/article-tone.md の「評論家ヅラ禁止」リストと同期。変更された曲のみ走査。
 //   出力は検出語と件数のみ（歌詞・本文は出さない＝コンテンツフィルター対策）。
 // ============================================================================
-// 散文でほぼ常に格付け・分析口調になる高精度の語のみ（誤検出で正記事をブロックしない範囲）
+// 散文でほぼ常に格付け・分析口調になる高精度の語のみ（誤検出で正記事をブロックしない範囲）。
+// 「見事」は marvelous 等の語義注釈・和訳でも出る多義語のため、ガード対象から外しプロンプト側で抑制する。
 const CRITIC_PATTERNS = [
   '圧巻',
   '秀逸',
-  '見事',
   '通奏低音',
   '言語の経済性',
   'リリシズムの核',
@@ -154,10 +154,11 @@ const CRITIC_PATTERNS = [
   '多層的に読める',
 ];
 
-// .astro から日本語散文だけを取り出す（eng スロット・タグ除去）
+// .astro から運営者の日本語解説だけを取り出す（eng＝英語引用 / jpn＝和訳 スロット・タグ除去）。
+// トーン規約は解説散文のみ対象（和訳の語をトーン違反に数えない）。
 function jpBody(raw) {
   let body = raw.replace(/^---[\s\S]*?\n---/, '');
-  body = body.replace(/<Fragment\s+slot="eng">[\s\S]*?<\/Fragment>/g, ' ');
+  body = body.replace(/<Fragment\s+slot="(?:eng|jpn)">[\s\S]*?<\/Fragment>/g, ' ');
   body = body.replace(/<[^>]+>/g, ' ').replace(/&[a-z]+;/g, ' ');
   return body;
 }
