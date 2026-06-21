@@ -30,7 +30,7 @@ const { heading, mc, t = null, youtubeId, tApprox = false, label, eng, jpn, embe
 const mmss = t != null ? `${Math.floor(t / 60)}:${String(Math.floor(t % 60)).padStart(2, "0")}` : null;
 const ytUrl = t != null && youtubeId ? `https://www.youtube.com/watch?v=${youtubeId}&t=${Math.floor(t)}s` : null;
 const hasUsage = Astro.slots.has("usage");
-const isKey = label?.startsWith('★');
+const isKey = label?.includes('最重要');
 // Ghost text: first meaningful word of heading for background display
 const ghostWord = heading.split(/[—\s]/)[0].slice(0, 6).toUpperCase();
 ---

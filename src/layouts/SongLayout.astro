@@ -65,7 +65,9 @@ const relatedColumns = song
         <!-- Time -->
         <span id="player-time" class="text-[10px] font-mono text-[var(--c-dim)] shrink-0">0:00</span>
       </div>
-      <!-- Section color band -->
+      <!-- Section jump strip (populated by JS) -->
+      <div id="player-section-strip" class="flex h-5 w-full cursor-pointer overflow-hidden" style="display:none"></div>
+      <!-- Section color band (current section indicator) -->
       <div id="player-section-band" class="h-1 w-full transition-colors duration-500" style="background:var(--c-section-intro)"></div>
     </div>
   )}
@@ -485,6 +487,7 @@ const relatedColumns = song
     bar.style.flexDirection = 'column';
 
     const bandEl      = document.getElementById('player-section-band')!;
+    const stripEl     = document.getElementById('player-section-strip')!;
     const labelEl     = document.getElementById('player-section-label')!;
     const waveformEl  = document.getElementById('player-waveform')!;
     const progressEl  = document.getElementById('player-progress')!;
@@ -512,6 +515,78 @@ const relatedColumns = song
       return 'intro';
     }
 
+    // Build section boundaries from units
+    // Each boundary: { section, startT, firstUnit }
+    type SectionBoundary = { section: string; startT: number; firstUnit: typeof units[0] };
+    const sectionBoundaries: SectionBoundary[] = [];
+    for (const u of units) {
+      const sec = getSectionForMc(u.mc);
+      const last = sectionBoundaries[sectionBoundaries.length - 1];
+      if (!last || last.section !== sec) {
+        sectionBoundaries.push({ section: sec, startT: u.t, firstUnit: u });
+      }
+    }
+
+    // Compute section strip segments (proportional widths)
+    if (sectionBoundaries.length > 0) {
+      // Add intro segment if first unit doesn't start at 0
+      const segments: Array<{ section: string; startT: number; endT: number; firstUnit: typeof units[0] | null }> = [];
+      if (sectionBoundaries[0].startT > 0) {
+        segments.push({ section: 'intro', startT: 0, endT: sectionBoundaries[0].startT, firstUnit: null });
+      }
+      for (let i = 0; i < sectionBoundaries.length; i++) {
+        const startT = sectionBoundaries[i].startT;
+        const endT = i + 1 < sectionBoundaries.length ? sectionBoundaries[i + 1].startT : DURATION;
+        segments.push({ section: sectionBoundaries[i].section, startT, endT, firstUnit: sectionBoundaries[i].firstUnit });
+      }
+
+      const SECTION_LABELS: Record<string, string> = {
+        'intro': 'Intro', 'verse 1': 'Verse 1', 'verse 2': 'Verse 2',
+        'hook': 'Hook', 'bridge': 'Bridge', 'outro': 'Outro',
+      };
+
+      for (const seg of segments) {
+        const width = ((seg.endT - seg.startT) / DURATION * 100).toFixed(2) + '%';
+        const color = SECTION_COLORS[seg.section] ?? 'var(--c-section-intro)';
+        const btn = document.createElement('button');
+        btn.style.cssText = `width:${width};background:${color};opacity:0.55;border:none;padding:0;height:100%;font-size:9px;color:#fff;overflow:hidden;white-space:nowrap;transition:opacity 0.2s`;
+        btn.textContent = SECTION_LABELS[seg.section] ?? seg.section;
+        btn.title = SECTION_LABELS[seg.section] ?? seg.section;
+        btn.dataset.startT = String(seg.startT);
+        btn.addEventListener('mouseenter', () => { btn.style.opacity = '0.9'; });
+        btn.addEventListener('mouseleave', () => { btn.style.opacity = activeStripBtn === btn ? '1' : '0.55'; });
+        btn.addEventListener('click', () => {
+          // Jump to section start time
+          elapsed = seg.startT;
+          timeEl.textContent = toMMSS(elapsed);
+          progressEl.style.width = ((elapsed / DURATION) * 100).toFixed(2) + '%';
+          // Scroll to first unit of this section
+          if (seg.firstUnit) {
+            seg.firstUnit.el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+          updateActiveStrip(elapsed);
+        });
+        stripEl.appendChild(btn);
+      }
+      stripEl.style.display = 'flex';
+    }
+
+    let activeStripBtn: HTMLElement | null = null;
+    function updateActiveStrip(t: number) {
+      const btns = Array.from(stripEl.querySelectorAll<HTMLElement>('button'));
+      let newActive: HTMLElement | null = null;
+      for (const btn of btns) {
+        const startT = parseFloat(btn.dataset.startT ?? '0');
+        if (startT <= t) newActive = btn;
+        else break;
+      }
+      if (newActive !== activeStripBtn) {
+        if (activeStripBtn) activeStripBtn.style.opacity = '0.55';
+        if (newActive) newActive.style.opacity = '1';
+        activeStripBtn = newActive;
+      }
+    }
+
     function getActiveUnit(t: number) {
       let active = null;
       for (const u of units) {
@@ -519,6 +594,12 @@ const relatedColumns = song
         else break;
       }
       return active;
+    }
+
+    // Color waveform bars by current section
+    function updateWaveformColor(section: string) {
+      const color = SECTION_COLORS[section] ?? 'var(--c-section-intro)';
+      waveBarEls.forEach(b => { (b as HTMLElement).style.color = color; });
     }
 
     function tick(ts: number) {
@@ -541,6 +622,8 @@ const relatedColumns = song
         const section = getSectionForMc(active.mc);
         bandEl.style.background = SECTION_COLORS[section] ?? 'var(--c-section-intro)';
         labelEl.textContent = section.toUpperCase();
+        updateWaveformColor(section);
+        updateActiveStrip(elapsed);
         // Scroll card into view softly
         active.el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       }
@@ -567,6 +650,6 @@ const relatedColumns = song
     });
 
     // Add bottom padding so content isn't hidden behind bar
-    document.body.style.paddingBottom = '56px';
+    document.body.style.paddingBottom = '72px';
   })();
 </script>
