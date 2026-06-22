@@ -14,6 +14,13 @@ export const columns = [
     relatedSongs: ['/songs/mass-appeal', '/songs/mathematics', '/songs/ny-state-of-mind', '/songs/supa-star', '/songs/bodega', '/songs/the-1st-time'],
   },
   {
+    slug: '/columns/rza-sampling-philosophy',
+    title: "RZAのサンプリング哲学——埃まみれのソウルを、Wu-Tangの音にした手つき",
+    description: 'RZA（Wu-Tang Clan）のビート制作を読み解く。AKAI MPCとE-mu SP-1200で古いソウルを刻み、クオンタイズをあえて無視して生んだ泥臭いグルーヴ。C.R.E.A.M.を中心に、消えた「touch」の真相まで。',
+    tag: 'プロデューサー論',
+    relatedSongs: ['/songs/cream', '/songs/protect-ya-neck', '/songs/criminology', '/songs/incarcerated-scarfaces'],
+  },
+  {
     slug: '/columns/crack-epidemic-hiphop',
     title: 'クラック・エピデミックとヒップホップ——1980〜90年代NYの現実',
     description: 'クラック・コカインの蔓延がニューヨークのストリートをいかに変え、ヒップホップの歌詞にいかに刻み込まれたか。Nas、Notorious B.I.G.、Wu-Tang Clanらの楽曲から読み解く。',
@@ -33,6 +40,34 @@ export const columns = [
     description: 'African American Vernacular English（AAVE）の文法・語彙・音韻を解説。ヒップホップの歌詞がAAVEをいかに使い、それが世界中に広まった経緯を読み解く。',
     tag: '言語・スラング',
     relatedSongs: ['/songs/ebonics', '/songs/check-the-rhime', '/songs/electric-relaxation', '/songs/ny-state-of-mind', '/songs/bodega'],
+  },
+  {
+    slug: '/columns/time-is-illmatic',
+    title: "ドキュメンタリー『Time Is Illmatic』——Nasの名盤『Illmatic』はいかにして生まれたか",
+    description: 'One9監督による2014年のドキュメンタリー『Time Is Illmatic』を解説。Nasのデビューアルバム『Illmatic』の制作背景、クイーンズブリッジの現実、そして名盤が残した影響を事実ベースで読み解く。',
+    tag: '映画解説',
+    relatedSongs: ['/songs/ny-state-of-mind', '/songs/nas-is-like'],
+  },
+  {
+    slug: '/columns/juice',
+    title: "映画『Juice』——Tupac Shakurの俳優デビュー作と、Ernest Dickersonが描いたハーレムの青春",
+    description: 'Ernest Dickerson監督による1992年の映画『Juice』を解説。あらすじ、Tupac Shakurの俳優デビュー、そしてEric B. & Rakim「Juice (Know the Ledge)」が果たした役割を事実ベースで読み解く。',
+    tag: '映画解説',
+    relatedSongs: ['/songs/juice-know-the-ledge'],
+  },
+  {
+    slug: '/columns/do-the-right-thing',
+    title: "映画『Do the Right Thing』——Spike Leeが描いた1989年、人種と熱波のブルックリン",
+    description: 'Spike Lee監督による1989年の映画『Do the Right Thing』を解説。あらすじ、人種問題というテーマ、そしてPublic Enemy「Fight the Power」が果たした役割を事実ベースで読み解く。',
+    tag: '映画解説',
+    relatedSongs: ['/songs/fight-the-power'],
+  },
+  {
+    slug: '/columns/how-high',
+    title: "映画『How High』——Method Man & Redmanが主演した2001年のストーナー・コメディ",
+    description: 'Method ManとRedmanが主演した2001年の映画『How High』を解説。あらすじ、ヒップホップ文化的な背景、サウンドトラック、そして二人のコンビとしての歩みを事実ベースで読み解く。',
+    tag: '映画解説',
+    relatedSongs: ['/songs/say'],
   },
   {
     slug: '/columns/wu-tang-clan',

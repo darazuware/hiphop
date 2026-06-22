@@ -52,8 +52,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <li><a href="#story" class="hover:text-[var(--c-gold)] transition-colors">01 — ストーリーの流れ（まず曲全体をつかむ）</a></li>
         <li><a href="#units" class="hover:text-[var(--c-gold)] transition-colors">02 — 学ぶ表現（スラング・韻・言葉遊び・AAVE）</a></li>
         <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">03 — 文化的背景</a></li>
-        <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">04 — サンプル・制作の裏側</a></li>
-        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">05 — 評価とその後の影響</a></li>
+        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">04 — 評価とその後の影響</a></li>
       </ol>
     </nav>
 
@@ -390,42 +389,6 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
     </section>
 
     <!-- ===================== -->
-    <!-- サンプル・制作の裏側    -->
-    <!-- ===================== -->
-    <section id="behind" class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        サンプル・制作の裏側
-      </h2>
-
-      <div class="mb-6 p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
-        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">サンプル元</p>
-        <h3 class="font-semibold text-base mb-3">哀愁ピアノの正体 — The Charmels "As Long As I've Got You"</h3>
-        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
-          楽曲の背骨になっている、あの悲哀に満ちたピアノリフ。その正体は、Isaac HayesとDavid Porterがプロデュースした<strong class="text-[var(--c-text)]">The Charmelsの1967年ソウル楽曲「As Long As I've Got You」</strong>のオープニングを、執拗にループさせたものだ。さらにその下に、Otis ReddingとCarla Thomasの「Tramp」から抜き出した荒々しいドラムブレイクを重ねている。
-        </p>
-        <p class="text-[var(--c-muted)] text-sm leading-relaxed mt-3">
-          西海岸のDr. DreがMoogシンセでクリアなベースラインを弾き直すのとは対照的に、RZAは<strong class="text-[var(--c-text)]">AKAI MPCとE-mu SP-1200</strong>を駆使して、埃にまみれた古いレコードをコラージュする手法を極限まで磨き上げた。クオンタイズ（リズムの自動補正）をあえて無視する——それによって、人間の鼓動のような、泥臭くて生々しいグルーヴが生まれている。ここがRZAの真骨頂です。
-        </p>
-      </div>
-
-      <div class="mb-6 p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
-        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">制作秘話</p>
-        <h3 class="font-semibold text-base mb-3">消えた「touch」——機材のミスが生んだ奇跡の空白</h3>
-        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
-          Inspectah Deckのヴァース中盤、「what I could not...」の後に続くはずだった<strong class="text-[var(--c-text)]">「touch」という言葉が、音源から完全に消えている</strong>。長年リスナーたちは「手の届かない夢を表す、意図的な芸術的空白だ」と絶賛してきた。ところが実際は、RZAがピンポン・ディレイエフェクトを手動でかけようとした際に、アナログ機材の限界でディケイが極端に早くかかりすぎてしまった——ただそれだけのことだったらしい。けれど、この<strong class="text-[var(--c-text)]">偶然のミス</strong>がリリックのテーマと奇跡的にリンクして、結果ヒップホップ史上もっとも美しい空白を生んでしまった。事実は小説より奇なり、です。
-        </p>
-      </div>
-
-      <div class="p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
-        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">音響</p>
-        <h3 class="font-semibold text-base mb-3">60 Second Assassinの呻き声とDelfonicsの断片</h3>
-        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
-          ビートの隙間には、Delfonicsの「Hey Love」からサンプリングした微かな音の断片と、Wu-Tang系列メンバーの<strong class="text-[var(--c-text)]">60 Second Assassinが録音したバックグラウンドの呻き声（"oohs"）</strong>が忍ばせてある。美しさと不穏さが同居するこの唯一無二の音響空間は、低予算のFirehouse Studioならではの、人間的な温かみと偶発性から生まれたものだ。お金をかければ出る音、というわけではないのが面白い。
-        </p>
-      </div>
-    </section>
-
-    <!-- ===================== -->
     <!-- 評価と影響            -->
     <!-- ===================== -->
     <section id="legacy" class="mb-12">
@@ -502,12 +465,12 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
           hint: "SI",
         },
         {
-          href: "/columns/wu-tang-clan",
-          icon: "🐝",
-          kicker: "アーティスト論",
-          title: "Wu-Tang Clanとは何者か",
-          desc: "スタテン島の9人がなぜヒップホップの歴史ごと書き換えられたのか。RZAの設計図と神話体系を読む。",
-          hint: "WU",
+          href: "/columns/rza-sampling-philosophy",
+          icon: "🎛",
+          kicker: "制作の裏側",
+          title: "消えた「touch」とRZAのサンプリング哲学",
+          desc: "機材ミスが生んだ奇跡の空白。The Charmelsの哀愁ピアノをループし続けた手つきの全貌。",
+          hint: "RZA",
         },
         {
           href: "/columns/ny-golden-era-1994",

@@ -1,0 +1,51 @@
+---
+import ColumnLayout from '../../layouts/ColumnLayout.astro';
+import ColumnAlbums from '../../components/ColumnAlbums.astro';
+---
+
+<ColumnLayout
+  title="RZAのサンプリング哲学——埃まみれのソウルを、Wu-Tangの音にした手つき"
+  description="RZA（Wu-Tang Clan）のビート制作を読み解く。AKAI MPCとE-mu SP-1200で古いソウルを刻み、クオンタイズをあえて無視して生んだ泥臭いグルーヴ。C.R.E.A.M.を中心に、消えた「touch」の真相まで。"
+  slug="rza-sampling-philosophy"
+  pubDate="2026-06-23"
+>
+
+  <h2>古いソウルを「コラージュ」する人</h2>
+
+  <p>
+    Wu-Tang Clanの音は、RZAというひとりのプロデューサーの手つきから生まれている。きらびやかに弾き直すのではなく、古いレコードの埃ごと持ってきて貼り合わせる——その独特の質感を、ここでは <a href="/songs/cream">C.R.E.A.M.</a> を中心に分解してみたい。代表例を一つ深く掘れば、RZAが何をやっている人なのかが見えてくる。
+  </p>
+
+  <h2>哀愁ピアノの正体 — The Charmels「As Long As I've Got You」</h2>
+
+  <p>
+    楽曲の背骨になっている、あの悲哀に満ちたピアノリフ。その正体は、Isaac HayesとDavid Porterがプロデュースした<strong>The Charmelsの1967年ソウル楽曲「As Long As I've Got You」</strong>のオープニングを、執拗にループさせたものだ。さらにその下に、Otis ReddingとCarla Thomasの「Tramp」から抜き出した荒々しいドラムブレイクを重ねている。
+  </p>
+  <p>
+    西海岸のDr. DreがMoogシンセでクリアなベースラインを弾き直すのとは対照的に、RZAは<strong>AKAI MPCとE-mu SP-1200</strong>を駆使して、埃にまみれた古いレコードをコラージュする手法を極限まで磨き上げた。クオンタイズ（リズムの自動補正）をあえて無視する——それによって、人間の鼓動のような、泥臭くて生々しいグルーヴが生まれている。ここがRZAの真骨頂です。
+  </p>
+
+  <h2>消えた「touch」——機材のミスが生んだ奇跡の空白</h2>
+
+  <p>
+    Inspectah Deckのヴァース中盤、「what I could not...」の後に続くはずだった<strong>「touch」という言葉が、音源から完全に消えている</strong>。長年リスナーたちは「手の届かない夢を表す、意図的な芸術的空白だ」と絶賛してきた。ところが実際は、RZAがピンポン・ディレイエフェクトを手動でかけようとした際に、アナログ機材の限界でディケイが極端に早くかかりすぎてしまった——ただそれだけのことだったらしい。けれど、この<strong>偶然のミス</strong>がリリックのテーマと奇跡的にリンクして、結果ヒップホップ史上もっとも美しい空白を生んでしまった。事実は小説より奇なり、です。
+  </p>
+
+  <h2>60 Second Assassinの呻き声とDelfonicsの断片</h2>
+
+  <p>
+    ビートの隙間には、Delfonicsの「Hey Love」からサンプリングした微かな音の断片と、Wu-Tang系列メンバーの<strong>60 Second Assassinが録音したバックグラウンドの呻き声（"oohs"）</strong>が忍ばせてある。美しさと不穏さが同居するこの唯一無二の音響空間は、低予算のFirehouse Studioならではの、人間的な温かみと偶発性から生まれたものだ。お金をかければ出る音、というわけではないのが面白い。
+  </p>
+
+  <h2>同じ手つきは、Wu-Tang全体に貫かれている</h2>
+
+  <p>
+    C.R.E.A.M.で聴ける手つき——古いソウルを刻み、クオンタイズを無視し、機材の偶然すら受け入れる——は、RZAがプロデュースしたWu-Tang周辺の作品に共通している。<a href="/songs/protect-ya-neck">Protect Ya Neck</a> の刻みも、Raekwonの『Only Built 4 Cuban Linx…』に収められた <a href="/songs/criminology">Criminology</a>・<a href="/songs/incarcerated-scarfaces">Incarcerated Scarfaces</a> も、同じ美学の上に立っている。各曲が具体的にどのレコードを刻んでいるか、制作の細部は、それぞれの解説記事のほうで掘り下げている。
+  </p>
+
+  <ColumnAlbums albums={[
+    { label: "Wu-Tang Clan「Enter the Wu-Tang (36 Chambers)」（C.R.E.A.M. / Protect Ya Neck収録）", asin: "B000002WPR" },
+    { label: "Raekwon「Only Built 4 Cuban Linx…」（Criminology / Incarcerated Scarfaces収録）", query: "Raekwon Only Built 4 Cuban Linx" },
+  ]} />
+
+</ColumnLayout>
