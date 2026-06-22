@@ -48,6 +48,7 @@ public/images/   # アルバムアート
 曲ページには2種類ある。検証フックはページ種別で自動分岐する（`<LearningUnit>` の有無で判定）。
 - **learning型（新標準）**: 学習解説主体ページ。歌詞全行は載せず、スラング・韻・言葉遊び・AAVE文法を「学ぶ表現」単位で解説。英語は用例断片のみ引用。`src/components/LearningUnit.astro` を使う。雛形＝`cream.astro`。詳細は [[project_learning_page]]（memory）。
   - **新規の曲ページは原則 learning型で作る。**
+  - **背景/制作/評価の深掘りは [`docs/column-split-rules.md`](docs/column-split-rules.md) の閾値で「曲ページ内包」か「別コラム化」を判定する。** 別コラム化したら曲ページからは [`src/components/DiveCards.astro`](src/components/DiveCards.astro)（記事末＝動線）＋units前の予告ブロックの2箇所で誘導。リンク先は実在コラムのみ（デッドリンク厳禁）。**薄い内容を無理に別コラム化しない**（AdSense Low value content 回避）。
   - 検証は [B]ハルシネーション必須＋[C]独自性（独自解説JP > 英語引用 かつ ≥1200字）＋[D]引用最小性（eng引用率<60%＝全行掲載でない）＋[E]タイムスタンプ構造（任意）。
   - **[A]全行カバレッジ判定は learning型には適用しない**（全行非掲載が正常なため）。
 - **従来型（旧・歌詞対訳）**: LyricsBlockで歌詞をセンテンス単位に分け対訳。残存ページのみ。検証は従来通り [A]≥閾値＋[B]。
