@@ -1,5 +1,6 @@
 ---
 import LearningUnit from '../../components/LearningUnit.astro';
+import DiveCards from '../../components/DiveCards.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
 import SongLayout from '../../layouts/SongLayout.astro';
 
@@ -489,5 +490,34 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <li>消えた「touch」は、機材ミスが生んだ奇跡の空白。制約と偶然をそのまま芸術に変えてしまう、ヒップホップの初期衝動を象徴している。</li>
       </ul>
     </section>
+
+    <DiveCards
+      cards={[
+        {
+          href: "/columns/crack-epidemic-hiphop",
+          icon: "🏚",
+          kicker: "文化・歴史",
+          title: "クラック・エピデミックとヒップホップ",
+          desc: "1992年のNY市の殺人件数2,225件。曲の言葉がそのまま生存戦略だった時代の話を、もう少し掘り下げて。",
+          hint: "SI",
+        },
+        {
+          href: "/columns/wu-tang-clan",
+          icon: "🐝",
+          kicker: "アーティスト論",
+          title: "Wu-Tang Clanとは何者か",
+          desc: "スタテン島の9人がなぜヒップホップの歴史ごと書き換えられたのか。RZAの設計図と神話体系を読む。",
+          hint: "WU",
+        },
+        {
+          href: "/columns/ny-golden-era-1994",
+          icon: "📀",
+          kicker: "時代解説",
+          title: "1994年——NY黄金期の頂点",
+          desc: "C.R.E.A.M.が出たのと同じ年、Nas・Big・Wu-Tangが一斉に名盤を放っていた。その狂った一年の全景。",
+          hint: "94",
+        },
+      ]}
+    />
 
 </SongLayout>

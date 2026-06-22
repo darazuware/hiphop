@@ -1,0 +1,115 @@
+---
+// 再利用可能な「深掘りはコラムへ」誘導カード（learning型ページ末尾の動線）
+// mock: cream-final.html の DIVE CARDS を --c-* トークンで再現
+interface Card {
+  href: string;
+  icon: string;
+  kicker: string;
+  title: string;
+  desc: string;
+  hint?: string;
+}
+interface Props {
+  eyebrow?: string;
+  heading?: string;
+  intro?: string;
+  cards: Card[];
+}
+const {
+  eyebrow = "もっと深く",
+  heading = "背景を読む",
+  intro = "制作の裏側・時代背景・評価の詳細は、各コラムで掘り下げている。",
+  cards,
+} = Astro.props as Props;
+---
+
+<section class="mb-12">
+  <p class="text-[var(--c-orange)] text-[10px] font-bold uppercase tracking-widest mb-2">{eyebrow}</p>
+  <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3 border-b border-[var(--c-border)] pb-2">{heading}</h2>
+  {intro && <p class="text-[var(--c-muted)] text-sm leading-relaxed mb-4">{intro}</p>}
+
+  <div class="dive-grid">
+    {cards.map((c) => (
+      <a class="dive" href={c.href}>
+        <div class="dico" aria-hidden="true">{c.icon}</div>
+        <div class="dk">{c.kicker}</div>
+        <h3>{c.title}</h3>
+        <p>{c.desc}</p>
+        <div class="dgo">読む →</div>
+        {c.hint && <div class="dhint" aria-hidden="true">{c.hint}</div>}
+      </a>
+    ))}
+  </div>
+</section>
+
+<style>
+  .dive-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  .dive {
+    background: var(--c-surface);
+    border: 2px solid var(--c-orange);
+    border-radius: 0;
+    padding: 20px 18px;
+    text-decoration: none;
+    color: var(--c-text);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: transform 0.2s, border-color 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .dive:hover {
+    transform: translateY(-3px);
+    border-color: var(--c-gold);
+  }
+  .dive .dico {
+    font-size: 26px;
+    line-height: 1;
+  }
+  .dive .dk {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 9px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--c-orange);
+  }
+  .dive h3 {
+    font-size: 14px;
+    font-weight: 900;
+    line-height: 1.4;
+    color: var(--c-text);
+  }
+  .dive p {
+    font-size: 12.5px;
+    color: var(--c-dim);
+    line-height: 1.7;
+    flex: 1;
+  }
+  .dive .dgo {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 11px;
+    color: var(--c-orange);
+    margin-top: 4px;
+  }
+  .dive .dhint {
+    position: absolute;
+    right: 8px;
+    bottom: 2px;
+    font-weight: 900;
+    font-size: 44px;
+    color: var(--c-orange);
+    opacity: 0.07;
+    line-height: 1;
+    pointer-events: none;
+    letter-spacing: -0.04em;
+  }
+  @media (max-width: 580px) {
+    .dive-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
