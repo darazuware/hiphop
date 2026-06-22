@@ -1,5 +1,6 @@
 ---
 import LearningUnit from '../../components/LearningUnit.astro';
+import DiveCards from '../../components/DiveCards.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
 import SongLayout from '../../layouts/SongLayout.astro';
 
@@ -384,5 +385,34 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <li>RZAがThe J.B.'s「The Grunt」の絶叫サックスを刻んだ音と、自主制作からメジャー契約を勝ち取ったインディー独立の物語が、この一曲に詰まっている。</li>
       </ul>
     </section>
+
+    <DiveCards
+      cards={[
+        {
+          href: "/columns/wu-tang-clan",
+          icon: "🐝",
+          kicker: "アーティスト論",
+          title: "Wu-Tang Clanとは何者か",
+          desc: "フックなしで8人が斬り合うデビュー曲の主役たち。スタテン島の集団がどう歴史を書き換えたか。",
+          hint: "WU",
+        },
+        {
+          href: "/columns/triumph-nine-mcs",
+          icon: "🎤",
+          kicker: "深掘り",
+          title: "Triumph — 全9人が揃った瞬間",
+          desc: "多人数で回すのがWu-Tangの真骨頂。9人のMCが1曲に揃うことがなぜ奇跡だったかを読む。",
+          hint: "9MC",
+        },
+        {
+          href: "/columns/crack-epidemic-hiphop",
+          icon: "🏚",
+          kicker: "文化・歴史",
+          title: "クラック・エピデミックとヒップホップ",
+          desc: "Wu-Tangが育ったスタテン島パークヒルもその渦中だった。歌詞の裏にある時代を。",
+          hint: "SI",
+        },
+      ]}
+    />
 
 </SongLayout>

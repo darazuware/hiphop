@@ -1,5 +1,6 @@
 ---
 import LearningUnit from '../../components/LearningUnit.astro';
+import DiveCards from '../../components/DiveCards.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
 import SongLayout from '../../layouts/SongLayout.astro';
 
@@ -380,5 +381,34 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <li>DJ PremierがJoe Chambers・Kool & the Gang・Donald Byrdを刻み、Rakimの声をスクラッチでフックにした制作も含め、初期ヒップホップの手つきが詰まっている。</li>
       </ul>
     </section>
+
+    <DiveCards
+      cards={[
+        {
+          href: "/columns/dj-premier-sampling",
+          icon: "🎛",
+          kicker: "プロデューサー論",
+          title: "DJ Premierのサンプリング哲学",
+          desc: "Joe ChambersやDonald Byrdをどう刻めばこのビートになるのか。プリモの手つきを掘り下げて。",
+          hint: "PRIMO",
+        },
+        {
+          href: "/columns/time-is-illmatic",
+          icon: "🎬",
+          kicker: "映画解説",
+          title: "ドキュメンタリー『Time Is Illmatic』",
+          desc: "この曲が幕を開けるアルバム『Illmatic』はどう生まれたか。クイーンズブリッジの現実と20歳のNas。",
+          hint: "NAS",
+        },
+        {
+          href: "/columns/crack-epidemic-hiphop",
+          icon: "🏚",
+          kicker: "文化・歴史",
+          title: "クラック・エピデミックとヒップホップ",
+          desc: "20歳のNasが記録したクイーンズブリッジの現実。あの生々しさの裏にあった時代を。",
+          hint: "QB",
+        },
+      ]}
+    />
 
 </SongLayout>
