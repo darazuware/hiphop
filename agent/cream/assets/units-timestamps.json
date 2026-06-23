@@ -118,5 +118,15 @@
     "source": "manual",
     "approx": false,
     "score": 0.67
+  },
+  {
+    "id": "livin-proof",
+    "whisperSec": null,
+    "manualSec": 160,
+    "fallbackT": 165,
+    "t": 160,
+    "source": "manual",
+    "approx": false,
+    "score": 1
   }
 ]

@@ -134,5 +134,17 @@
     ],
     "fallbackT": 160,
     "manualSec": 156
+  },
+  {
+    "id": "livin-proof",
+    "anchor": [
+      "leave",
+      "it",
+      "up",
+      "to",
+      "me"
+    ],
+    "fallbackT": 165,
+    "manualSec": 160
   }
 ]
