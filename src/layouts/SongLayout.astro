@@ -652,17 +652,30 @@ const relatedColumns = song
       barHeights.push(Math.max(0.15, Math.min(1.0, wave + rng() * 0.4 - 0.1)));
     }
 
-    // Serato風: 各バーを擬似3バンド(低/中/高音)のRGB加算色にして発光させる
-    const barBaseColors: string[] = [];
-    for (let i = 0; i < N_BARS; i++) {
-      const low  = Math.abs(Math.sin(i * 0.19 + 0.4)) * (0.55 + rng() * 0.45);
-      const mid  = Math.abs(Math.sin(i * 0.43 + 1.6)) * (0.55 + rng() * 0.45);
-      const high = Math.abs(Math.sin(i * 0.83 + 3.0)) * (0.55 + rng() * 0.45);
-      const r = Math.round(50 + Math.min(1, low ) * 205);
-      const g = Math.round(50 + Math.min(1, mid ) * 205);
-      const b = Math.round(50 + Math.min(1, high) * 205);
-      barBaseColors.push(`rgb(${r},${g},${b})`);
+    // セクション単位の配色（明るいパレット。CSS変数 --c-section-* を解決）
+    const rootStyle = getComputedStyle(document.documentElement);
+    const SECTION_VAR_MAP: Record<string, string> = {
+      'verse 1': '--c-section-verse1',
+      'verse 2': '--c-section-verse2',
+      'hook':    '--c-section-hook',
+      'bridge':  '--c-section-bridge',
+      'intro':   '--c-section-intro',
+      'outro':   '--c-section-outro',
+    };
+    function getResolvedSectionColor(section: string): string {
+      return rootStyle.getPropertyValue(SECTION_VAR_MAP[section] ?? '--c-section-intro').trim() || '#94a3b8';
     }
+    function getBarSection(barIdx: number): string {
+      const t = (barIdx / N_BARS) * DURATION;
+      let sec = 'intro';
+      for (const b of sectionBoundaries) {
+        if (b.startT <= t) sec = b.section;
+        else break;
+      }
+      return sec;
+    }
+    const barBaseColors: string[] = [];
+    for (let i = 0; i < N_BARS; i++) barBaseColors.push(getResolvedSectionColor(getBarSection(i)));
 
     const seekBars: HTMLElement[] = [];
     for (let i = 0; i < N_BARS; i++) {

@@ -37,13 +37,13 @@ h1, h2, h3 {
   --c-card-border: #000;
   --c-card-bg: #161616;
 
-  /* Section colors */
-  --c-section-verse1: #1e3a5f;
-  --c-section-verse2: #3a1e5f;
-  --c-section-hook: #5f3a1e;
-  --c-section-bridge: #1e5f3a;
-  --c-section-intro: #2a2a2a;
-  --c-section-outro: #2a1a2a;
+  /* Section colors (明るいパレット) */
+  --c-section-verse1: #3b82f6;
+  --c-section-verse2: #a855f7;
+  --c-section-hook: #fbbf24;
+  --c-section-bridge: #2dd4bf;
+  --c-section-intro: #64748b;
+  --c-section-outro: #f472b6;
 }
 
 html[data-theme="light"] {
