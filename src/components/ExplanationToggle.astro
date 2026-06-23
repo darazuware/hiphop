@@ -12,7 +12,7 @@
 <script is:inline>
   (function () {
     function setDetails(open) {
-      document.querySelectorAll('.lyrics-block details').forEach(function (d) {
+      document.querySelectorAll('.lyrics-block details, .learning-unit details').forEach(function (d) {
         if (open) d.setAttribute('open', '');
         else d.removeAttribute('open');
       });
