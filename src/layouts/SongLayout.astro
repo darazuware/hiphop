@@ -652,51 +652,43 @@ const relatedColumns = song
       barHeights.push(Math.max(0.15, Math.min(1.0, wave + rng() * 0.4 - 0.1)));
     }
 
+    // Serato風: 各バーを擬似3バンド(低/中/高音)のRGB加算色にして発光させる
+    const barBaseColors: string[] = [];
+    for (let i = 0; i < N_BARS; i++) {
+      const low  = Math.abs(Math.sin(i * 0.19 + 0.4)) * (0.55 + rng() * 0.45);
+      const mid  = Math.abs(Math.sin(i * 0.43 + 1.6)) * (0.55 + rng() * 0.45);
+      const high = Math.abs(Math.sin(i * 0.83 + 3.0)) * (0.55 + rng() * 0.45);
+      const r = Math.round(50 + Math.min(1, low ) * 205);
+      const g = Math.round(50 + Math.min(1, mid ) * 205);
+      const b = Math.round(50 + Math.min(1, high) * 205);
+      barBaseColors.push(`rgb(${r},${g},${b})`);
+    }
+
     const seekBars: HTMLElement[] = [];
     for (let i = 0; i < N_BARS; i++) {
       const div = document.createElement('div');
       const h = Math.round(barHeights[i] * 20);
-      div.style.cssText = `flex:1 1 0;min-width:1px;height:${h}px;border-radius:1px;background:#484848`;
+      div.style.cssText = `flex:1 1 0;min-width:1px;height:${h}px;border-radius:1px;background:${barBaseColors[i]};opacity:0.4;transition:opacity 0.1s,box-shadow 0.1s`;
       seekwaveEl.appendChild(div);
       seekBars.push(div);
     }
 
-    // Resolve CSS section color vars to actual color strings
-    const rootStyle = getComputedStyle(document.documentElement);
-    const SECTION_VAR_MAP: Record<string, string> = {
-      'verse 1': '--c-section-verse1',
-      'verse 2': '--c-section-verse2',
-      'hook':    '--c-section-hook',
-      'bridge':  '--c-section-bridge',
-      'intro':   '--c-section-intro',
-      'outro':   '--c-section-outro',
-    };
-    function getResolvedSectionColor(section: string): string {
-      return rootStyle.getPropertyValue(SECTION_VAR_MAP[section] ?? '--c-section-intro').trim() || '#2a2a2a';
-    }
-
-    // Precompute which section each bar belongs to
-    function getBarSection(barIdx: number): string {
-      const t = (barIdx / N_BARS) * DURATION;
-      let sec = 'intro';
-      for (const b of sectionBoundaries) {
-        if (b.startT <= t) sec = b.section;
-        else break;
-      }
-      return sec;
-    }
-
-    const barSectionColors: string[] = seekBars.map((_, i) => getResolvedSectionColor(getBarSection(i)));
-
     function updateSeekwave(t: number) {
       const currentBar = Math.floor((t / DURATION) * N_BARS);
       for (let i = 0; i < N_BARS; i++) {
+        const el = seekBars[i];
         if (i === currentBar) {
-          seekBars[i].style.background = '#FFFFFF';
+          el.style.background = '#ffffff';
+          el.style.boxShadow = '0 0 9px #ffffff, 0 0 3px #ffffff';
+          el.style.opacity = '1';
         } else if (i < currentBar) {
-          seekBars[i].style.background = barSectionColors[i];
+          el.style.background = barBaseColors[i];
+          el.style.boxShadow = `0 0 6px ${barBaseColors[i]}`;
+          el.style.opacity = '1';
         } else {
-          seekBars[i].style.background = '#484848';
+          el.style.background = barBaseColors[i];
+          el.style.boxShadow = 'none';
+          el.style.opacity = '0.4';
         }
       }
     }
