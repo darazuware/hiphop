@@ -61,6 +61,19 @@ const relatedColumns = song
       <div id="player-section-strip" class="flex h-5 w-full cursor-pointer overflow-hidden" style="display:none"></div>
       <!-- Section color band (current section indicator) -->
       <div id="player-section-band" class="h-1 w-full transition-colors duration-500" style="background:var(--c-section-intro)"></div>
+
+      <!-- Follow chip: 受動再生で再生カードが画面外の時だけ出す「いま鳴ってるカードへ」誘導 -->
+      <button
+        id="player-follow"
+        aria-label="再生中のカードへ移動"
+        class="follow-chip"
+        style="display:none;position:absolute;left:50%;top:100%;transform:translateX(-50%);margin-top:10px;align-items:center;gap:8px;max-width:min(86vw,360px);padding:7px 14px 7px 11px;border:none;border-radius:999px;background:#0d0d0d;color:#fff;cursor:pointer;box-shadow:0 0 0 1.5px var(--c-green),0 6px 24px rgba(0,0,0,0.45),0 0 22px var(--c-green-glow);font-size:12px;line-height:1;white-space:nowrap"
+      >
+        <span aria-hidden="true" class="follow-dot" style="width:8px;height:8px;border-radius:50%;background:var(--c-green);box-shadow:0 0 8px var(--c-green);flex-shrink:0"></span>
+        <span id="player-follow-arrow" aria-hidden="true" style="font-weight:700;color:var(--c-green)">↓</span>
+        <span class="text-[var(--c-dim)]" style="flex-shrink:0">再生中</span>
+        <span id="player-follow-text" style="overflow:hidden;text-overflow:ellipsis;font-weight:700"></span>
+      </button>
     </div>
   )}
 
@@ -573,6 +586,39 @@ const relatedColumns = song
     const playBtn     = document.getElementById('player-playpause')!;
     const iconPlay    = document.getElementById('player-icon-play')!;
     const iconPause   = document.getElementById('player-icon-pause')!;
+    const followBtn   = document.getElementById('player-follow')!;
+    const followArrow = document.getElementById('player-follow-arrow')!;
+    const followText  = document.getElementById('player-follow-text')!;
+
+    // 固定プレーヤーバーの高さぶんオフセットしてカードを画面内に収めるスクロール
+    function barOffset() { return bar.getBoundingClientRect().height + 12; }
+    function scrollToUnit(el: HTMLElement) {
+      const y = el.getBoundingClientRect().top + window.scrollY - barOffset();
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+    function isUnitInView(el: HTMLElement) {
+      const r = el.getBoundingClientRect();
+      return r.top < window.innerHeight * 0.85 && r.bottom > barOffset();
+    }
+
+    // いま鳴っている学習カード（マーカー区間ではnull）
+    let currentPlayingEl: HTMLElement | null = null;
+    // 受動再生中で再生カードが画面外の時だけ誘導チップを出す。読書中は邪魔しない。
+    function updateFollowChip() {
+      if (!playing || !currentPlayingEl || isUnitInView(currentPlayingEl)) {
+        followBtn.style.display = 'none';
+        return;
+      }
+      const r = currentPlayingEl.getBoundingClientRect();
+      followArrow.textContent = r.top < barOffset() ? '↑' : '↓';
+      const h = currentPlayingEl.querySelector('h3 span')?.textContent?.trim() ?? '';
+      followText.textContent = h;
+      followBtn.style.display = 'flex';
+    }
+    followBtn.addEventListener('click', () => {
+      if (currentPlayingEl) scrollToUnit(currentPlayingEl);
+      followBtn.style.display = 'none';
+    });
 
     let playing = false;
     let elapsed = 0;
@@ -683,10 +729,9 @@ const relatedColumns = song
           if (ytReady && ytPlayer?.seekTo) ytPlayer.seekTo(elapsed, true);
           updateSeekwave(elapsed);
           timeEl.textContent = toMMSS(elapsed);
-          // Scroll to first unit of this section
-          if (seg.firstUnit) {
-            seg.firstUnit.el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }
+          followBtn.style.display = 'none';
+          // Scroll to first unit of this section（固定バーぶんオフセット）
+          if (seg.firstUnit) scrollToUnit(seg.firstUnit.el);
           updateActiveStrip(elapsed);
         });
         stripEl.appendChild(btn);
@@ -792,7 +837,7 @@ const relatedColumns = song
       const pct = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
       elapsed = pct * DURATION;
       if (ytReady && ytPlayer?.seekTo) ytPlayer.seekTo(elapsed, true);
-      render(elapsed);
+      render(elapsed, true);
     }
 
     seekwaveEl.addEventListener('click', (e: MouseEvent) => handleSeek(e.clientX));
@@ -820,21 +865,31 @@ const relatedColumns = song
         iconPlay.style.display = 'none';
         iconPause.style.display = 'block';
       }
-      render(elapsed);
+      render(elapsed, true);
     });
 
     // 現在時刻 t に対する見た目（時間表示・波形・ハイライト・帯）を更新
-    function render(t: number) {
+    // userSeek=true（バー/帯を能動的にタップ）なら該当カードへ即スクロール。
+    // 受動再生（loop）では画面を動かさず、画面外なら誘導チップだけ出す。
+    function render(t: number, userSeek = false) {
       timeEl.textContent = toMMSS(t);
       updateSeekwave(t);
       const active = getActiveUnit(t);
       document.querySelectorAll<HTMLElement>('.learning-unit').forEach(el => el.classList.remove('playing'));
+      currentPlayingEl = null;
       if (active) {
         active.el.classList.add('playing');
+        if (active.el.classList.contains('learning-unit')) currentPlayingEl = active.el;
         const section = getSectionForMc(active.mc);
         bandEl.style.background = SECTION_COLORS[section] ?? 'var(--c-section-intro)';
         labelEl.textContent = section.toUpperCase();
         updateActiveStrip(t);
+      }
+      if (userSeek) {
+        followBtn.style.display = 'none';
+        if (currentPlayingEl) scrollToUnit(currentPlayingEl);
+      } else {
+        updateFollowChip();
       }
     }
 
@@ -861,7 +916,7 @@ const relatedColumns = song
       iconPlay.style.display = p ? 'none' : 'block';
       iconPause.style.display = p ? 'block' : 'none';
       if (p) { lastTick = 0; rafId = requestAnimationFrame(loop); }
-      else { cancelAnimationFrame(rafId); }
+      else { cancelAnimationFrame(rafId); updateFollowChip(); }
     }
 
     playBtn.addEventListener('click', () => {

@@ -133,3 +133,24 @@ html[data-theme="light"] {
   animation-play-state: paused;
   height: 4px;
 }
+
+/* Follow chip: 再生中カードへの誘導（受動再生・画面外時のみ表示） */
+@keyframes follow-chip-in {
+  from { opacity: 0; transform: translateX(-50%) translateY(-6px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+@keyframes follow-dot-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.5; transform: scale(0.7); }
+}
+.follow-chip {
+  display: none;
+  animation: follow-chip-in 0.22s ease-out;
+  transition: box-shadow 0.2s;
+}
+.follow-chip:hover { box-shadow: 0 0 0 1.5px var(--c-green), 0 6px 24px rgba(0,0,0,0.5), 0 0 30px var(--c-green-glow); }
+.follow-chip .follow-dot { animation: follow-dot-pulse 1.4s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .follow-chip { animation: none; }
+  .follow-chip .follow-dot { animation: none; }
+}
