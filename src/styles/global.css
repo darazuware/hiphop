@@ -37,13 +37,13 @@ h1, h2, h3 {
   --c-card-border: #000;
   --c-card-bg: #161616;
 
-  /* Section colors (明るいパレット) */
-  --c-section-verse1: #3b82f6;
-  --c-section-verse2: #a855f7;
-  --c-section-hook: #fbbf24;
-  --c-section-bridge: #2dd4bf;
-  --c-section-intro: #64748b;
-  --c-section-outro: #f472b6;
+  /* Section colors (暖色＋無彩色：intro/outro=グレー, verse=オレンジ濃淡, hook=ゴールド) */
+  --c-section-verse1: #ea7317;
+  --c-section-verse2: #c2410c;
+  --c-section-hook: #f5c518;
+  --c-section-bridge: #92400e;
+  --c-section-intro: #6b6b6b;
+  --c-section-outro: #8a8a8a;
 }
 
 html[data-theme="light"] {
@@ -55,8 +55,8 @@ html[data-theme="light"] {
   --c-muted-mid: #777;
   --c-dim: #555;
   --c-very-dim: #888;
-  --c-gold: #a07800;
-  --c-gold-light: #c49a00;
+  --c-gold: #e0a800;
+  --c-gold-light: #f5c518;
 
   /* Learning page card design (light) */
   --c-orange: #c45f00;

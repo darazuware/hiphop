@@ -556,6 +556,18 @@ const relatedColumns = song
       'outro':   'var(--c-section-outro)',
     };
 
+    // verse 3/4/5… は2色のオレンジを奇偶で交互に割り当て（番号無制限）
+    function sectionColorKey(section: string): string {
+      const m = section.match(/^verse\s*(\d+)/i);
+      if (m) return parseInt(m[1], 10) % 2 === 1 ? 'verse 1' : 'verse 2';
+      return section;
+    }
+    function sectionLabelOf(section: string): string {
+      const m = section.match(/^verse\s*(\d+)/i);
+      if (m) return 'Verse ' + m[1];
+      return section.charAt(0).toUpperCase() + section.slice(1);
+    }
+
     // Collect learning units + 非表示の時間軸マーカー（[data-player-marker]）。
     // マーカーは解説カードを持たず、セクション帯/シークの区切りだけを担う。
     const unitEls = [
@@ -729,18 +741,14 @@ const relatedColumns = song
         segments.push({ section: sectionBoundaries[i].section, startT, endT, firstUnit: sectionBoundaries[i].firstUnit });
       }
 
-      const SECTION_LABELS: Record<string, string> = {
-        'intro': 'Intro', 'verse 1': 'Verse 1', 'verse 2': 'Verse 2',
-        'hook': 'Hook', 'bridge': 'Bridge', 'outro': 'Outro',
-      };
-
       for (const seg of segments) {
         const width = ((seg.endT - seg.startT) / DURATION * 100).toFixed(2) + '%';
-        const color = SECTION_COLORS[seg.section] ?? 'var(--c-section-intro)';
+        const color = SECTION_COLORS[sectionColorKey(seg.section)] ?? 'var(--c-section-intro)';
+        const label = sectionLabelOf(seg.section);
         const btn = document.createElement('button');
         btn.style.cssText = `width:${width};background:${color};opacity:0.55;border:none;padding:0;height:100%;font-size:9px;color:#fff;overflow:hidden;white-space:nowrap;transition:opacity 0.2s`;
-        btn.textContent = SECTION_LABELS[seg.section] ?? seg.section;
-        btn.title = SECTION_LABELS[seg.section] ?? seg.section;
+        btn.textContent = label;
+        btn.title = label;
         btn.dataset.startT = String(seg.startT);
         btn.addEventListener('mouseenter', () => { btn.style.opacity = '0.9'; });
         btn.addEventListener('mouseleave', () => { btn.style.opacity = activeStripBtn === btn ? '1' : '0.55'; });
@@ -810,7 +818,7 @@ const relatedColumns = song
       'outro':   '--c-section-outro',
     };
     function getResolvedSectionColor(section: string): string {
-      return rootStyle.getPropertyValue(SECTION_VAR_MAP[section] ?? '--c-section-intro').trim() || '#94a3b8';
+      return rootStyle.getPropertyValue(SECTION_VAR_MAP[sectionColorKey(section)] ?? '--c-section-intro').trim() || '#94a3b8';
     }
     function getBarSection(barIdx: number): string {
       const t = (barIdx / N_BARS) * DURATION;
@@ -902,7 +910,7 @@ const relatedColumns = song
         active.el.classList.add('playing');
         if (active.el.classList.contains('learning-unit')) currentPlayingEl = active.el;
         const section = getSectionForMc(active.mc);
-        bandEl.style.background = SECTION_COLORS[section] ?? 'var(--c-section-intro)';
+        bandEl.style.background = SECTION_COLORS[sectionColorKey(section)] ?? 'var(--c-section-intro)';
         labelEl.textContent = section.toUpperCase();
         updateActiveStrip(t);
       }

@@ -67,13 +67,6 @@ const regions = [
   { value: 'Other', label: 'Other' },
 ];
 
-const tickerArtists = [
-  'Wu-Tang Clan', 'Nas', 'The Notorious B.I.G.', '2Pac', 'Jay-Z',
-  'Kendrick Lamar', 'Public Enemy', 'A Tribe Called Quest', 'Ice Cube',
-  'Eminem', 'Gang Starr', 'Mobb Deep', 'Outkast', 'De La Soul',
-  'Raekwon', 'Eric B. & Rakim', 'Big L', 'KRS-One', 'Mos Def',
-  'Common', 'Talib Kweli', 'Cypress Hill', 'Dr. Dre', 'Snoop Dogg',
-];
 ---
 
 <Layout title="WAX&amp;THINK — ヒップホップ歌詞和訳・スラング解説" description="ヒップホップの名曲を歌詞和訳とスラング解説で深掘り。C.R.E.A.M.・Nasなど名曲のスラングと文化背景を日本語で徹底解説。">
@@ -106,21 +99,14 @@ const tickerArtists = [
 
   <!-- ① HERO -->
   <section class="border-b border-[var(--c-border)] relative overflow-hidden hero-section">
-    <!-- Ambient background -->
-    <div class="absolute inset-0 pointer-events-none select-none" aria-hidden="true">
-      <img src="/images/covers/cream.jpg" class="w-full h-full object-cover opacity-[0.08] blur-3xl scale-125" loading="eager" fetchpriority="high" alt="" />
-      <div class="absolute inset-0" style="background:linear-gradient(135deg,var(--c-bg) 0%,transparent 60%,var(--c-bg) 100%)"></div>
-    </div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 pt-14 md:pt-20 pb-0 lg:grid lg:grid-cols-[1fr_auto] lg:gap-16 lg:items-end">
       <div class="max-w-2xl lg:max-w-4xl pb-6 md:pb-20">
-        <p class="text-[var(--c-gold)] text-[10px] uppercase tracking-[0.35em] font-mono mb-5">
-          Hip-Hop Lyrics &amp; Slang — Japanese Deep Dive
-        </p>
+        <p class="text-[var(--c-gold)] text-[11px] tracking-[0.2em] mb-5">洋楽ヒップホップ・歌詞和訳＋スラング解説</p>
         <h1 class="text-[var(--c-text)] font-black leading-[0.95] tracking-tighter mb-6 hero-headline">
-          音だった歌詞が、<br/><span class="text-[var(--c-gold)]">言葉になる。</span>
+          ヒップホップの歌詞を、<span class="text-[var(--c-gold)]">和訳する。</span>
         </h1>
         <p class="text-[var(--c-muted)] text-sm md:text-base leading-loose mb-3">
-          歌詞の一語一語に眠る<strong class="text-[var(--c-text)]">スラング・文化・歴史</strong>を徹底解剖。
+          一語一語に眠る<strong class="text-[var(--c-text)]">スラング・文化・歴史</strong>まで、日本語で読み解く。
         </p>
         <p class="text-[var(--c-very-dim)] text-xs md:text-sm leading-loose mb-8 font-mono">
           {totalSongs}曲 · 150+用語 · {totalArtists}アーティスト収録
@@ -175,36 +161,6 @@ const tickerArtists = [
       </div>
     </div>
 
-    <!-- Artist ticker -->
-    <div class="border-t border-[var(--c-border)] overflow-hidden py-2.5 mt-0">
-      <div class="ticker-track flex gap-6 whitespace-nowrap text-[var(--c-very-dim)] text-[10px] uppercase tracking-[0.2em] font-mono select-none">
-        {[...tickerArtists, ...tickerArtists].map((name, i) => (
-          <span class="shrink-0">{name}<span class="ml-6 text-[var(--c-border)]">·</span></span>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- ② STATS -->
-  <section class="border-b border-[var(--c-border)] bg-[var(--c-surface)]">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="grid grid-cols-2 md:grid-cols-4 divide-[var(--c-border)]">
-        {[
-          { value: String(totalSongs), unit: '曲', label: '解説曲数', sub: '随時更新中' },
-          { value: String(totalArtists), unit: '組', label: 'アーティスト', sub: '90s–現在' },
-          { value: '150+', unit: '語', label: 'スラング収録', sub: '随時追加' },
-          { value: '1988', unit: '–', label: '時代をカバー', sub: '2026まで' },
-        ].map((stat, i) => (
-          <div class={`py-6 px-4 text-center border-[var(--c-border)] ${i % 2 === 0 ? 'border-r' : ''} ${i < 2 ? 'border-b md:border-b-0' : ''} ${i < 3 ? 'md:border-r' : ''}`}>
-            <p class="text-4xl md:text-5xl font-black text-[var(--c-gold)] tabular-nums leading-none">
-              {stat.value}<span class="text-xl font-bold ml-0.5">{stat.unit}</span>
-            </p>
-            <p class="text-[var(--c-muted)] text-xs mt-1.5 font-medium">{stat.label}</p>
-            <p class="text-[var(--c-very-dim)] text-[10px] mt-0.5 font-mono">{stat.sub}</p>
-          </div>
-        ))}
-      </div>
-    </div>
   </section>
 
   <!-- ③ FEATURED PICKS -->
@@ -212,9 +168,8 @@ const tickerArtists = [
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="flex items-end justify-between mb-7">
         <div class="border-l-2 border-[var(--c-gold)] pl-4">
-          <p class="text-[var(--c-gold)] text-[10px] uppercase tracking-[0.3em] font-mono mb-1.5">Featured Picks</p>
-          <h2 class="text-[var(--c-text)] text-xl font-bold">必読解説</h2>
-          <p class="text-[var(--c-very-dim)] text-xs mt-1">歌詞・スラング・文化背景を徹底解剖した6記事</p>
+          <h2 class="text-[var(--c-text)] text-xl font-bold">まずはこの6曲から</h2>
+          <p class="text-[var(--c-very-dim)] text-xs mt-1">歌詞・スラング・背景まで掘り下げた記事</p>
         </div>
         <a href="#all-songs" class="text-[var(--c-gold)] text-xs font-mono hover:underline underline-offset-4 hidden sm:block">全{totalSongs}曲を見る →</a>
       </div>
@@ -237,7 +192,6 @@ const tickerArtists = [
               <div class={`absolute inset-0 transition-opacity duration-300 ${isHero ? 'hero-card-overlay' : 'card-overlay'}`} />
               {isHero ? (
                 <>
-                  <span class="absolute top-4 left-5 text-[10px] font-mono text-[var(--c-gold)] uppercase tracking-[0.3em] select-none">Editor's Pick</span>
                   <div class="relative z-10 p-5 md:p-8">
                     {song.tag && (
                       <span class="inline-block text-[10px] font-black uppercase tracking-wide px-2 py-0.5 mb-3 bg-[var(--c-gold)] text-[#111] rounded-sm">
@@ -247,7 +201,7 @@ const tickerArtists = [
                     <p class="font-black text-2xl md:text-4xl text-white leading-tight mb-2 drop-shadow max-w-lg">{song.title}</p>
                     <p class="text-white/65 text-sm mb-1">{song.artists}</p>
                     <p class="text-white/35 text-[10px] uppercase tracking-widest">{song.subtitle.split(' · ').pop()}</p>
-                    <p class="text-[var(--c-gold)] text-xs font-mono mt-4 opacity-0 group-hover:opacity-100 transition-opacity">READ FULL ARTICLE →</p>
+                    <p class="text-[var(--c-gold)] text-xs mt-4 opacity-0 group-hover:opacity-100 transition-opacity">記事を読む →</p>
                   </div>
                 </>
               ) : (
@@ -263,7 +217,7 @@ const tickerArtists = [
                     <p class="text-white/60 text-xs truncate">{song.artists}</p>
                     <div class="flex items-center justify-between mt-1.5">
                       <p class="text-white/35 text-[10px] uppercase tracking-widest">{song.subtitle.split(' · ').pop()}</p>
-                      <p class="text-[var(--c-gold)] text-[10px] font-mono opacity-0 group-hover:opacity-100 transition-opacity">READ →</p>
+                      <p class="text-[var(--c-gold)] text-[10px] opacity-0 group-hover:opacity-100 transition-opacity">読む →</p>
                     </div>
                   </div>
                 </>
@@ -280,7 +234,6 @@ const tickerArtists = [
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="flex items-end justify-between mb-7">
         <div class="border-l-2 border-[var(--c-gold)] pl-4">
-          <p class="text-[var(--c-gold)] text-[10px] uppercase tracking-[0.3em] font-mono mb-1.5">Series</p>
           <h2 class="text-[var(--c-text)] text-xl font-bold">テーマ別特集</h2>
           <p class="text-[var(--c-very-dim)] text-xs mt-1">ジャンル・時代・プロデューサーでまとめた名曲コレクション</p>
         </div>
@@ -342,7 +295,6 @@ const tickerArtists = [
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="flex items-end justify-between mb-7">
         <div class="border-l-2 border-[var(--c-gold)] pl-4">
-          <p class="text-[var(--c-gold)] text-[10px] uppercase tracking-[0.3em] font-mono mb-1.5">Columns</p>
           <h2 class="text-[var(--c-text)] text-xl font-bold">読み物</h2>
           <p class="text-[var(--c-very-dim)] text-xs mt-1">歌詞を超えた、ヒップホップの文化・歴史・言語</p>
         </div>
@@ -363,7 +315,6 @@ const tickerArtists = [
   <section id="ranking" class="border-b border-[var(--c-border)] py-10 md:py-14">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="mb-7 border-l-2 border-[var(--c-gold)] pl-4">
-        <p class="text-[var(--c-gold)] text-[10px] uppercase tracking-[0.3em] font-mono mb-1.5">Access Ranking</p>
         <h2 class="text-[var(--c-text)] text-xl font-bold">アクセスランキング</h2>
       </div>
       <ol class="space-y-3">
@@ -404,7 +355,6 @@ const tickerArtists = [
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="flex items-end justify-between mb-7">
         <div class="border-l-2 border-[var(--c-gold)] pl-4">
-          <p class="text-[var(--c-gold)] text-[10px] uppercase tracking-[0.3em] font-mono mb-1.5">Latest</p>
           <h2 class="text-[var(--c-text)] text-xl font-bold">最新追加</h2>
         </div>
         <a href="#all-songs" class="text-[var(--c-gold)] text-xs font-mono hover:underline underline-offset-4 hidden sm:block">全曲を見る →</a>
@@ -435,7 +385,6 @@ const tickerArtists = [
   <section class="border-b border-[var(--c-border)] py-10 md:py-14">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
       <div>
-        <p class="text-[var(--c-gold)] text-[10px] uppercase tracking-[0.3em] font-mono mb-2">Slang Index</p>
         <h2 class="text-[var(--c-text)] text-2xl md:text-3xl font-black leading-tight mb-2">150+ スラング・用語を収録</h2>
         <p class="text-[var(--c-muted)] text-sm">Hip-Hopの隠語・ストリートスラングを日本語で完全解説</p>
       </div>
@@ -788,15 +737,6 @@ const tickerArtists = [
     font-size: clamp(2.8rem, 10vw, 5.5rem);
     line-height: 0.95;
     letter-spacing: -0.04em;
-  }
-
-  @keyframes ticker {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-  }
-  .ticker-track {
-    animation: ticker 40s linear infinite;
-    width: max-content;
   }
 
   .ranking-num {
