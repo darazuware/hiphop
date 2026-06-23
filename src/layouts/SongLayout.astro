@@ -510,6 +510,7 @@ const relatedColumns = song
     let ytPlayer: any = null;
     let ytReady = false;
     let pendingPlay = false;  // 準備完了前に押された再生意図を保持
+    let pendingSeek: number | null = null;  // 準備完了前に押された頭出し先（秒）
     const ytIframe = document.getElementById('song-yt-player');
     if (ytIframe && (window as any).YT === undefined) {
       const s = document.createElement('script');
@@ -520,7 +521,11 @@ const relatedColumns = song
       if (!ytIframe || !(window as any).YT?.Player) return;
       ytPlayer = new (window as any).YT.Player('song-yt-player', {
         events: {
-          onReady: () => { ytReady = true; if (pendingPlay) { pendingPlay = false; ytPlayer.playVideo(); } },
+          onReady: () => {
+            ytReady = true;
+            if (pendingSeek != null) { ytPlayer.seekTo(pendingSeek, true); pendingSeek = null; }
+            if (pendingPlay) { pendingPlay = false; ytPlayer.playVideo(); }
+          },
           onStateChange: (e: any) => {
             const YTNS = (window as any).YT;
             if (e.data === YTNS.PlayerState.PLAYING) setPlaying(true);
@@ -709,6 +714,28 @@ const relatedColumns = song
       e.preventDefault();
       if (e.touches[0]) handleSeek(e.touches[0].clientX);
     }, { passive: false });
+
+    // 各ユニットの▶ボタン: 上部プレーヤーを該当秒へジャンプ＋再生。
+    // YTプレーヤーがある場合はYouTube遷移を抑止して内部シーク。無ければ素のリンク動作にフォールバック。
+    document.addEventListener('click', (e: MouseEvent) => {
+      const link = (e.target as HTMLElement)?.closest('[data-seek]') as HTMLElement | null;
+      if (!link || !ytIframe) return;  // 動画なし＝従来どおりリンクで開く
+      const sec = parseFloat(link.getAttribute('data-seek') ?? '');
+      if (isNaN(sec)) return;
+      e.preventDefault();
+      elapsed = Math.min(sec, DURATION);
+      if (ytReady && ytPlayer?.seekTo) {
+        ytPlayer.seekTo(sec, true);
+        ytPlayer.playVideo();
+      } else {
+        // API準備前: 頭出し先と再生意図をキュー
+        pendingSeek = sec;
+        pendingPlay = true;
+        iconPlay.style.display = 'none';
+        iconPause.style.display = 'block';
+      }
+      render(elapsed);
+    });
 
     // 現在時刻 t に対する見た目（時間表示・波形・ハイライト・帯）を更新
     function render(t: number) {

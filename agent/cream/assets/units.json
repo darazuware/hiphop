@@ -146,5 +146,16 @@
     ],
     "fallbackT": 165,
     "manualSec": 160
+  },
+  {
+    "id": "kick-truth",
+    "anchor": [
+      "to",
+      "kick",
+      "the",
+      "truth"
+    ],
+    "fallbackT": 164,
+    "manualSec": 163
   }
 ]

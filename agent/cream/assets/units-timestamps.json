@@ -128,5 +128,15 @@
     "source": "manual",
     "approx": false,
     "score": 1
+  },
+  {
+    "id": "kick-truth",
+    "whisperSec": null,
+    "manualSec": 163,
+    "fallbackT": 164,
+    "t": 163,
+    "source": "manual",
+    "approx": false,
+    "score": 1
   }
 ]
