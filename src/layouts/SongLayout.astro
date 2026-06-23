@@ -64,19 +64,34 @@ const relatedColumns = song
     </div>
   )}
 
-  <!-- Scroll to top (mobile only) -->
-  <button
-    id="back-to-top"
-    aria-label="ページ先頭へ"
-    class={`lg:hidden fixed bottom-20 right-4 z-40 w-12 h-12 rounded-full bg-[var(--c-surface)] border border-[var(--c-gold)]/60 text-[var(--c-gold)] text-lg flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 shadow-md`}
-  >↑</button>
-
-  <!-- Scroll to bottom (mobile only) -->
-  <button
-    id="to-bottom"
-    aria-label="ページ末尾へ"
-    class={`lg:hidden fixed bottom-36 right-4 z-40 w-12 h-12 rounded-full bg-[var(--c-surface)] border border-[var(--c-gold)]/60 text-[var(--c-gold)] text-lg flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 shadow-md`}
-  >↓</button>
+  <!-- Drag scrubber rail (mobile only) -->
+  <div
+    id="scrub-rail"
+    class="lg:hidden fixed right-1 top-[20%] z-40 h-[58vh] w-8 flex justify-center"
+    style="display:none"
+  >
+    <!-- track -->
+    <div class="absolute inset-y-0 left-1/2 -translate-x-1/2 w-[3px] rounded-full bg-[var(--c-border)]"></div>
+    <!-- progress fill -->
+    <div id="scrub-fill" class="absolute top-0 left-1/2 -translate-x-1/2 w-[3px] rounded-full bg-[var(--c-gold)]/50" style="height:0"></div>
+    <!-- thumb -->
+    <button
+      id="scrub-thumb"
+      aria-label="ドラッグでスクロール位置を移動"
+      class="absolute left-1/2 -translate-x-1/2 w-8 h-11 rounded-full bg-[var(--c-surface)] border border-[var(--c-gold)]/70 shadow-md flex flex-col items-center justify-center gap-[3px] touch-none transition-transform duration-150"
+      style="top:0"
+    >
+      <span class="block w-3.5 h-[2px] bg-[var(--c-gold)]/80 rounded-full"></span>
+      <span class="block w-3.5 h-[2px] bg-[var(--c-gold)]/80 rounded-full"></span>
+      <span class="block w-3.5 h-[2px] bg-[var(--c-gold)]/80 rounded-full"></span>
+    </button>
+    <!-- section label tooltip -->
+    <div
+      id="scrub-label"
+      class="absolute right-10 px-2.5 py-1 rounded-md bg-[var(--c-surface)] border border-[var(--c-gold)]/60 text-[var(--c-gold)] text-xs font-bold whitespace-nowrap shadow-lg opacity-0 transition-opacity duration-150 pointer-events-none max-w-[58vw] truncate"
+      style="top:0"
+    ></div>
+  </div>
 
   <!-- Floating explanation toggle (always visible) -->
   <div id="exp-float" class={`fixed bottom-6 right-4 z-40 flex rounded-full overflow-hidden border border-[var(--c-border)] bg-[var(--c-surface)]/90 backdrop-blur-sm shadow-lg font-mono text-[10px]`}>
@@ -398,36 +413,102 @@ const relatedColumns = song
     }, { passive: true });
   }
 
-  const topBtn = document.getElementById('back-to-top');
-  if (topBtn) {
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 300) {
-        topBtn.classList.remove('opacity-0', 'pointer-events-none');
-      } else {
-        topBtn.classList.add('opacity-0', 'pointer-events-none');
-      }
-    }, { passive: true });
-    topBtn.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  }
+  const rail = document.getElementById('scrub-rail');
+  const thumb = document.getElementById('scrub-thumb');
+  const fill = document.getElementById('scrub-fill');
+  const railLabel = document.getElementById('scrub-label');
+  if (rail && thumb && fill && railLabel) {
+    const doc = document.documentElement;
+    let thumbH = 0, travel = 0, dragging = false;
 
-  const bottomBtn = document.getElementById('to-bottom');
-  if (bottomBtn) {
-    const updateBottom = () => {
-      const h = document.documentElement;
-      const nearBottom = h.scrollTop + h.clientHeight >= h.scrollHeight - 300;
-      if (nearBottom) {
-        bottomBtn.classList.add('opacity-0', 'pointer-events-none');
+    const units = Array.from(document.querySelectorAll('.learning-unit')).map((el) => {
+      const h = el.querySelector('h3');
+      const name = h ? ((h.querySelector('span')?.textContent || h.textContent || '').trim()) : '';
+      return { el, name };
+    });
+
+    const measure = () => {
+      thumbH = thumb.offsetHeight;
+      travel = rail.clientHeight - thumbH;
+    };
+    const scrollable = () => doc.scrollHeight - doc.clientHeight;
+
+    const sectionNameAt = (scrollTop) => {
+      if (!units.length) return '';
+      const probe = scrollTop + doc.clientHeight * 0.3;
+      let current = units[0].name;
+      for (const u of units) {
+        if (u.el.offsetTop <= probe) current = u.name; else break;
+      }
+      return current;
+    };
+
+    const place = (y) => {
+      thumb.style.top = y + 'px';
+      fill.style.height = (y + thumbH / 2) + 'px';
+      railLabel.style.top = Math.max(0, Math.min(travel, y)) + 'px';
+    };
+
+    const syncFromScroll = () => {
+      if (dragging) return;
+      const max = scrollable();
+      const y = (max > 0 ? doc.scrollTop / max : 0) * travel;
+      place(y);
+    };
+
+    const setFromY = (rawY) => {
+      const y = Math.max(0, Math.min(travel, rawY));
+      place(y);
+      const target = (travel > 0 ? y / travel : 0) * scrollable();
+      window.scrollTo({ top: target });
+      railLabel.textContent = sectionNameAt(target);
+    };
+
+    const pointerY = (e) => (e.touches && e.touches[0] ? e.touches[0].clientY : e.clientY);
+    const onMove = (e) => {
+      if (!dragging) return;
+      e.preventDefault();
+      setFromY(pointerY(e) - rail.getBoundingClientRect().top - thumbH / 2);
+    };
+    const onUp = () => {
+      if (!dragging) return;
+      dragging = false;
+      railLabel.classList.add('opacity-0');
+      thumb.classList.remove('scale-110');
+      document.removeEventListener('mousemove', onMove);
+      document.removeEventListener('mouseup', onUp);
+      document.removeEventListener('touchmove', onMove);
+      document.removeEventListener('touchend', onUp);
+    };
+    const onDown = (e) => {
+      dragging = true;
+      measure();
+      railLabel.classList.remove('opacity-0');
+      thumb.classList.add('scale-110');
+      onMove(e);
+      document.addEventListener('mousemove', onMove);
+      document.addEventListener('mouseup', onUp);
+      document.addEventListener('touchmove', onMove, { passive: false });
+      document.addEventListener('touchend', onUp);
+    };
+
+    thumb.addEventListener('mousedown', onDown);
+    thumb.addEventListener('touchstart', onDown, { passive: false });
+
+    const showIfNeeded = () => {
+      if (scrollable() > 200) {
+        rail.style.display = 'flex';
+        measure();
+        syncFromScroll();
       } else {
-        bottomBtn.classList.remove('opacity-0', 'pointer-events-none');
+        rail.style.display = 'none';
       }
     };
-    window.addEventListener('scroll', updateBottom, { passive: true });
-    updateBottom();
-    bottomBtn.addEventListener('click', () => {
-      window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' });
-    });
+
+    window.addEventListener('scroll', syncFromScroll, { passive: true });
+    window.addEventListener('resize', showIfNeeded);
+    window.addEventListener('load', showIfNeeded);
+    showIfNeeded();
   }
 
   const shareBtn = document.getElementById('share-btn');
