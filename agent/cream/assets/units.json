@@ -1,14 +1,138 @@
 [
-  { "id": "crime-side",       "anchor": ["i","grew","up","on","the"], "fallbackT": 23, "manualSec": 23 },
-  { "id": "lo-goose",         "anchor": ["a","young","youth"], "fallbackT": 33, "manualSec": 33 },
-  { "id": "g-off",            "anchor": ["only","way","i","begin","to"], "fallbackT": 41 },
-  { "id": "runnin-up-gates",  "anchor": ["runnin","up","in","gates"], "fallbackT": 55 },
-  { "id": "keys-seas",        "anchor": ["catchin","keys","from","across"], "fallbackT": 81 },
-  { "id": "tec-9",            "anchor": ["respect","mine","or","anger"], "fallbackT": 87 },
-  { "id": "cream-hook",       "anchor": ["cash","rules","everything","around"], "fallbackT": 92 },
-  { "id": "could-not-touch",  "anchor": ["trying","to","get","a","clutch"], "fallbackT": 121 },
-  { "id": "world-cell",       "anchor": ["living","in","the","world","no"], "fallbackT": 137 },
-  { "id": "jakes-base",       "anchor": ["every","day","i","escape","from"], "fallbackT": 139 },
-  { "id": "old-earth",        "anchor": ["ready","to","give","up","so"], "fallbackT": 153 },
-  { "id": "stickup-kids",     "anchor": ["we","got","stick"], "fallbackT": 160 }
+  {
+    "id": "crime-side",
+    "anchor": [
+      "i",
+      "grew",
+      "up",
+      "on",
+      "the"
+    ],
+    "fallbackT": 23,
+    "manualSec": 23
+  },
+  {
+    "id": "lo-goose",
+    "anchor": [
+      "a",
+      "young",
+      "youth"
+    ],
+    "fallbackT": 33,
+    "manualSec": 35
+  },
+  {
+    "id": "g-off",
+    "anchor": [
+      "only",
+      "way",
+      "i",
+      "begin",
+      "to"
+    ],
+    "fallbackT": 41,
+    "manualSec": 37
+  },
+  {
+    "id": "runnin-up-gates",
+    "anchor": [
+      "runnin",
+      "up",
+      "in",
+      "gates"
+    ],
+    "fallbackT": 55,
+    "manualSec": 49
+  },
+  {
+    "id": "keys-seas",
+    "anchor": [
+      "catchin",
+      "keys",
+      "from",
+      "across"
+    ],
+    "fallbackT": 81,
+    "manualSec": 76
+  },
+  {
+    "id": "tec-9",
+    "anchor": [
+      "respect",
+      "mine",
+      "or",
+      "anger"
+    ],
+    "fallbackT": 87,
+    "manualSec": 83
+  },
+  {
+    "id": "cream-hook",
+    "anchor": [
+      "cash",
+      "rules",
+      "everything",
+      "around"
+    ],
+    "fallbackT": 92,
+    "manualSec": 86
+  },
+  {
+    "id": "could-not-touch",
+    "anchor": [
+      "trying",
+      "to",
+      "get",
+      "a",
+      "clutch"
+    ],
+    "fallbackT": 121,
+    "manualSec": 116
+  },
+  {
+    "id": "world-cell",
+    "anchor": [
+      "living",
+      "in",
+      "the",
+      "world",
+      "no"
+    ],
+    "fallbackT": 137,
+    "manualSec": 132
+  },
+  {
+    "id": "jakes-base",
+    "anchor": [
+      "every",
+      "day",
+      "i",
+      "escape",
+      "from"
+    ],
+    "fallbackT": 139,
+    "manualSec": 135
+  },
+  {
+    "id": "old-earth",
+    "anchor": [
+      "ready",
+      "to",
+      "give",
+      "up",
+      "so"
+    ],
+    "fallbackT": 153,
+    "manualSec": 149
+  },
+  {
+    "id": "stickup-kids",
+    "anchor": [
+      "we",
+      "got",
+      "stick"
+    ],
+    "fallbackT": 160,
+    "manualSec": 156
+  }
 ]
