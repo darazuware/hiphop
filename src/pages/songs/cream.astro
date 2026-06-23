@@ -18,6 +18,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
   description="Wu-Tang ClanのC.R.E.A.M.を英語学習＋ヒップホップ理解の教材として精読。'Lo goose・G off・keys・Old EarthなどのスラングとAAVE、RZAのサンプリングを表現単位で解説。各表現はPVの該当箇所へ頭出しリンク付き。"
   slug="cream"
   learningPage={true}
+  songDuration={252}
   highlights={[
     'C.R.E.A.M.は拝金主義ではなく貧困の構造的暴力への告発',
     'スラング・韻・言葉遊びを「学ぶ表現」単位で解説（PV頭出しリンク付き）',
@@ -314,6 +315,10 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2終盤、Deckが街区（ブロック）の混沌を名詞で畳みかける件。</p>
         <p>上は2行。まず音だけ追ってみてください。<strong class="text-[var(--c-text)]">cops / rocks / shots / hot / block</strong> と <code>-o(c/t)</code> 系の音が連打されている——これが今回の聴きどころです。そこに名詞を畳みかけて、ブロック（街区）の混沌をひと息に描く。<strong class="text-[var(--c-text)]">stickup kids</strong>（強盗常習の若者）、<strong class="text-[var(--c-text)]">crack rocks</strong>（クラックの塊）、<strong class="text-[var(--c-text)]">stray shots</strong>（流れ弾）が、それぞれ情景の一片を担う。下の行末の <code>stays hot</code> は「（警察の目・銃撃で）常にヤバい状態が続く」。列挙と脚韻、それだけで一つの風景が立ち上がる。ヒップホップ的な構文の基本形がここに詰まっています。</p>
       </LearningUnit>
+
+      <!-- 時間軸マーカー: 3:00(180s)で締めのフック反復が始まる（PV/Apple Music実測）。
+           解説カードは持たず、プレーヤー帯のラベルを Verse 2→Hook に切り替えるだけ。 -->
+      <div data-player-marker data-t="180" data-mc="Method Man（Hook）" hidden></div>
     </section>
 
     <!-- ===================== -->

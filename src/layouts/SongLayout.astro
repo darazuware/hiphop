@@ -16,9 +16,10 @@ interface Props {
   youtubeShortId?: string;
   noindex?: boolean;
   learningPage?: boolean;
+  songDuration?: number;  // 実曲長（秒）。プレーヤーのタイムライン総尺。未指定なら最終ユニット+30秒
 }
 
-const { title, description, slug, highlights, youtubeId, sampleYoutubeId, sampleTitle, youtubeShortId, noindex = false, learningPage = false } = Astro.props;
+const { title, description, slug, highlights, youtubeId, sampleYoutubeId, sampleTitle, youtubeShortId, noindex = false, learningPage = false, songDuration } = Astro.props;
 
 const song = songs.find(s => s.slug === `/songs/${slug}`);
 const artist = song ? artists.find(a => a.slug === song.artistSlug) : null;
@@ -41,7 +42,7 @@ const relatedColumns = song
 
   <!-- Fixed player bar (learning pages only) -->
   {learningPage && (
-    <div id="learning-player-bar" class="fixed top-0 left-0 right-0 z-50 flex flex-col" style="display:none">
+    <div id="learning-player-bar" class="fixed top-0 left-0 right-0 z-50 flex flex-col" style="display:none" data-duration={songDuration != null ? String(songDuration) : undefined}>
       <!-- Main bar -->
       <div class="flex items-center gap-3 px-4 py-2 bg-[#0d0d0d]/95 backdrop-blur-md border-b border-[var(--c-border)]">
         <!-- Play/pause -->
@@ -461,8 +462,13 @@ const relatedColumns = song
       'outro':   'var(--c-section-outro)',
     };
 
-    // Collect learning units with data-t
-    const units = Array.from(document.querySelectorAll<HTMLElement>('.learning-unit[data-t]'))
+    // Collect learning units + 非表示の時間軸マーカー（[data-player-marker]）。
+    // マーカーは解説カードを持たず、セクション帯/シークの区切りだけを担う。
+    const unitEls = [
+      ...document.querySelectorAll<HTMLElement>('.learning-unit[data-t]'),
+      ...document.querySelectorAll<HTMLElement>('[data-player-marker][data-t]'),
+    ];
+    const units = unitEls
       .map(el => ({
         el,
         t: parseFloat(el.dataset.t ?? '0'),
@@ -490,7 +496,11 @@ const relatedColumns = song
     let elapsed = 0;
     let lastTick = 0;
     let rafId = 0;
-    const DURATION = units[units.length - 1].t + 30;
+    // 実曲長(data-duration)があればそれを総尺に。無ければ最終ユニット+30秒。
+    const durAttr = parseFloat(bar.dataset.duration ?? '');
+    const DURATION = !isNaN(durAttr) && durAttr > units[units.length - 1].t
+      ? durAttr
+      : units[units.length - 1].t + 30;
 
     function toMMSS(s: number) {
       const m = Math.floor(s / 60);
