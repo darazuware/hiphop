@@ -34,6 +34,11 @@ const related = song
 const relatedColumns = song
   ? columns.filter(c => c.relatedSongs.includes(song.slug))
   : [];
+
+// 実曲の事前計算波形（agent/{slug}/assets/audio.mp3 → gen-waveform.mjs）。
+// あればプレーヤーの棒グラフ高さに使い、無ければJS側の擬似乱数にフォールバック。
+const waveformModules = import.meta.glob<{ default: number[] }>('../data/waveforms/*.json', { eager: true });
+const waveformPeaks = waveformModules[`../data/waveforms/${slug}.json`]?.default ?? null;
 ---
 
 <Layout title={title} description={description} ogType="article" publishedTime={song?.pubDate} modifiedTime={updatedDate ?? undefined} noindex={noindex}>
@@ -42,7 +47,7 @@ const relatedColumns = song
 
   <!-- Fixed player bar (learning pages only) -->
   {learningPage && (
-    <div id="learning-player-bar" class="fixed top-11 left-0 right-0 z-40 flex flex-col" style="display:none" data-duration={songDuration != null ? String(songDuration) : undefined}>
+    <div id="learning-player-bar" class="fixed top-11 left-0 right-0 z-40 flex flex-col" style="display:none" data-duration={songDuration != null ? String(songDuration) : undefined} data-peaks={waveformPeaks ? JSON.stringify(waveformPeaks) : undefined}>
       <!-- Main bar -->
       <div class="flex items-center gap-3 px-4 py-2 bg-[#0d0d0d]/95 backdrop-blur-md border-b border-[var(--c-border)]">
         <!-- Play/pause -->
@@ -796,15 +801,27 @@ const relatedColumns = song
     // ── Seekwave ──────────────────────────────────────────────────────────
     const N_BARS = 80;
     const barHeights: number[] = [];
-    // Pseudo-random waveform heights (seeded for consistency)
+    // 実曲の事前計算波形（data-peaks）。無ければシード乱数でSerato風にフォールバック。
+    let realPeaks: number[] | null = null;
+    try {
+      const raw = bar.dataset.peaks;
+      if (raw) {
+        const parsed = JSON.parse(raw);
+        if (Array.isArray(parsed) && parsed.length === N_BARS) realPeaks = parsed;
+      }
+    } catch { /* ignore */ }
     let rngSeed = 42;
     function rng() {
       rngSeed = (rngSeed * 1664525 + 1013904223) & 0xffffffff;
       return (rngSeed >>> 0) / 0xffffffff;
     }
     for (let i = 0; i < N_BARS; i++) {
-      const wave = Math.sin(i * 0.35) * 0.25 + 0.55;
-      barHeights.push(Math.max(0.15, Math.min(1.0, wave + rng() * 0.4 - 0.1)));
+      if (realPeaks) {
+        barHeights.push(Math.max(0.12, Math.min(1.0, realPeaks[i])));
+      } else {
+        const wave = Math.sin(i * 0.35) * 0.25 + 0.55;
+        barHeights.push(Math.max(0.15, Math.min(1.0, wave + rng() * 0.4 - 0.1)));
+      }
     }
 
     // セクション単位の配色（明るいパレット。CSS変数 --c-section-* を解決）
