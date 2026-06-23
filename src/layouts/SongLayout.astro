@@ -186,9 +186,10 @@ const relatedColumns = song
       {youtubeId && (
         <div class="mb-8 aspect-video w-full rounded-lg overflow-hidden">
           <iframe
+            id="song-yt-player"
             loading="lazy"
             class="w-full h-full"
-            src={`https://www.youtube.com/embed/${youtubeId}`}
+            src={`https://www.youtube.com/embed/${youtubeId}?enablejsapi=1`}
             title={title}
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -502,6 +503,40 @@ const relatedColumns = song
       ? durAttr
       : units[units.length - 1].t + 30;
 
+    // ── YouTube IFrame Player API（公式PVを実音源として再生・無料/キー不要）──
+    // 既存のページ内PV埋め込み(#song-yt-player)をAPI制御。実 currentTime で
+    // ハイライトを駆動する（タイムスタンプはPV基準なのでオフセット補正不要）。
+    // APIが読めない/動画が無い場合は従来のサイレント時間軸にフォールバック。
+    let ytPlayer: any = null;
+    let ytReady = false;
+    let pendingPlay = false;  // 準備完了前に押された再生意図を保持
+    const ytIframe = document.getElementById('song-yt-player');
+    if (ytIframe && (window as any).YT === undefined) {
+      const s = document.createElement('script');
+      s.src = 'https://www.youtube.com/iframe_api';
+      document.head.appendChild(s);
+    }
+    function initYT() {
+      if (!ytIframe || !(window as any).YT?.Player) return;
+      ytPlayer = new (window as any).YT.Player('song-yt-player', {
+        events: {
+          onReady: () => { ytReady = true; if (pendingPlay) { pendingPlay = false; ytPlayer.playVideo(); } },
+          onStateChange: (e: any) => {
+            const YTNS = (window as any).YT;
+            if (e.data === YTNS.PlayerState.PLAYING) setPlaying(true);
+            else if (e.data === YTNS.PlayerState.PAUSED || e.data === YTNS.PlayerState.ENDED) setPlaying(false);
+          },
+        },
+      });
+    }
+    if (ytIframe) {
+      if ((window as any).YT?.Player) initYT();
+      else {
+        const prev = (window as any).onYouTubeIframeAPIReady;
+        (window as any).onYouTubeIframeAPIReady = () => { prev?.(); initYT(); };
+      }
+    }
+
     function toMMSS(s: number) {
       const m = Math.floor(s / 60);
       return `${m}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
@@ -559,8 +594,9 @@ const relatedColumns = song
         btn.addEventListener('click', () => {
           // Jump to section start time
           elapsed = seg.startT;
+          if (ytReady && ytPlayer?.seekTo) ytPlayer.seekTo(elapsed, true);
+          updateSeekwave(elapsed);
           timeEl.textContent = toMMSS(elapsed);
-          progressEl.style.width = ((elapsed / DURATION) * 100).toFixed(2) + '%';
           // Scroll to first unit of this section
           if (seg.firstUnit) {
             seg.firstUnit.el.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -664,9 +700,8 @@ const relatedColumns = song
       const rect = seekwaveEl.getBoundingClientRect();
       const pct = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
       elapsed = pct * DURATION;
-      timeEl.textContent = toMMSS(elapsed);
-      updateSeekwave(elapsed);
-      updateActiveStrip(elapsed);
+      if (ytReady && ytPlayer?.seekTo) ytPlayer.seekTo(elapsed, true);
+      render(elapsed);
     }
 
     seekwaveEl.addEventListener('click', (e: MouseEvent) => handleSeek(e.clientX));
@@ -675,46 +710,62 @@ const relatedColumns = song
       if (e.touches[0]) handleSeek(e.touches[0].clientX);
     }, { passive: false });
 
-    function tick(ts: number) {
-      if (!playing) return;
-      const dt = lastTick ? (ts - lastTick) / 1000 : 0;
-      lastTick = ts;
-      elapsed = Math.min(elapsed + dt, DURATION);
-
-      // Update time
-      timeEl.textContent = toMMSS(elapsed);
-
-      // Update seekwave
-      updateSeekwave(elapsed);
-
-      // Update active card + section
-      const active = getActiveUnit(elapsed);
+    // 現在時刻 t に対する見た目（時間表示・波形・ハイライト・帯）を更新
+    function render(t: number) {
+      timeEl.textContent = toMMSS(t);
+      updateSeekwave(t);
+      const active = getActiveUnit(t);
       document.querySelectorAll<HTMLElement>('.learning-unit').forEach(el => el.classList.remove('playing'));
       if (active) {
         active.el.classList.add('playing');
         const section = getSectionForMc(active.mc);
         bandEl.style.background = SECTION_COLORS[section] ?? 'var(--c-section-intro)';
         labelEl.textContent = section.toUpperCase();
-        updateActiveStrip(elapsed);
-      }
-
-      if (elapsed < DURATION) {
-        rafId = requestAnimationFrame(tick);
-      } else {
-        playing = false;
-        iconPlay.style.display = 'block'; iconPause.style.display = 'none';
+        updateActiveStrip(t);
       }
     }
 
-    playBtn.addEventListener('click', () => {
-      playing = !playing;
-      iconPlay.style.display = playing ? 'none' : 'block';
-      iconPause.style.display = playing ? 'block' : 'none';
-      if (playing) {
-        lastTick = 0;
-        rafId = requestAnimationFrame(tick);
+    function loop(ts: number) {
+      if (!playing) return;
+      if (ytReady && ytPlayer?.getCurrentTime) {
+        // 実音源の再生位置を正とする（ハイライト同期）
+        elapsed = Math.min(ytPlayer.getCurrentTime(), DURATION);
       } else {
-        cancelAnimationFrame(rafId);
+        // フォールバック: サイレントに時間を進める
+        const dt = lastTick ? (ts - lastTick) / 1000 : 0;
+        elapsed = Math.min(elapsed + dt, DURATION);
+      }
+      lastTick = ts;
+      render(elapsed);
+      if (!ytReady && elapsed >= DURATION) { setPlaying(false); return; }
+      rafId = requestAnimationFrame(loop);
+    }
+
+    // 再生状態の単一の出入口。YT再生時は onStateChange からも呼ばれる。
+    function setPlaying(p: boolean) {
+      if (p === playing) return;
+      playing = p;
+      iconPlay.style.display = p ? 'none' : 'block';
+      iconPause.style.display = p ? 'block' : 'none';
+      if (p) { lastTick = 0; rafId = requestAnimationFrame(loop); }
+      else { cancelAnimationFrame(rafId); }
+    }
+
+    playBtn.addEventListener('click', () => {
+      if (ytIframe) {
+        // PVがある＝実音源で再生。状態は onStateChange→setPlaying で反映。
+        if (ytReady && ytPlayer) {
+          if (playing) ytPlayer.pauseVideo();
+          else ytPlayer.playVideo();
+        } else {
+          // API準備前: 再生意図をキューしてアイコンだけ先に切り替える
+          pendingPlay = !pendingPlay;
+          iconPlay.style.display = pendingPlay ? 'none' : 'block';
+          iconPause.style.display = pendingPlay ? 'block' : 'none';
+        }
+      } else {
+        // 動画なしのページのみ従来のサイレント時間軸
+        setPlaying(!playing);
       }
     });
 
