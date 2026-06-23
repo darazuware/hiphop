@@ -42,7 +42,7 @@ const relatedColumns = song
 
   <!-- Fixed player bar (learning pages only) -->
   {learningPage && (
-    <div id="learning-player-bar" class="fixed top-0 left-0 right-0 z-50 flex flex-col" style="display:none" data-duration={songDuration != null ? String(songDuration) : undefined}>
+    <div id="learning-player-bar" class="fixed top-11 left-0 right-0 z-40 flex flex-col" style="display:none" data-duration={songDuration != null ? String(songDuration) : undefined}>
       <!-- Main bar -->
       <div class="flex items-center gap-3 px-4 py-2 bg-[#0d0d0d]/95 backdrop-blur-md border-b border-[var(--c-border)]">
         <!-- Play/pause -->
@@ -589,8 +589,30 @@ const relatedColumns = song
     const followArrow = document.getElementById('player-follow-arrow')!;
     const followText  = document.getElementById('player-follow-text')!;
 
+    // 下スクロール中はサイトヘッダーを退避し、プレーヤーバーを最上部へ詰める。
+    // 上スクロール／最上部付近ではヘッダーを戻す（モバイルの占有面積を削減）。
+    (function () {
+      const header = document.querySelector<HTMLElement>('header');
+      if (!header) return;
+      header.style.transition = 'transform .25s ease';
+      bar.style.transition = 'top .25s ease';
+      let lastY = window.scrollY;
+      const setHidden = (hide: boolean) => {
+        header.style.transform = hide ? 'translateY(-100%)' : '';
+        bar.style.top = hide ? '0px' : '';
+      };
+      window.addEventListener('scroll', () => {
+        const y = window.scrollY;
+        if (y < 80) setHidden(false);
+        else if (y > lastY + 4) setHidden(true);
+        else if (y < lastY - 4) setHidden(false);
+        lastY = y;
+      }, { passive: true });
+    })();
+
     // 固定プレーヤーバーの高さぶんオフセットしてカードを画面内に収めるスクロール
-    function barOffset() { return bar.getBoundingClientRect().height + 12; }
+    // （バーの下端基準。ヘッダー退避でバー位置が変わっても追従する）
+    function barOffset() { return bar.getBoundingClientRect().bottom + 12; }
     function scrollToUnit(el: HTMLElement) {
       const y = el.getBoundingClientRect().top + window.scrollY - barOffset();
       window.scrollTo({ top: y, behavior: 'smooth' });
