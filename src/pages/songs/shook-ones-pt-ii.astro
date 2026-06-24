@@ -1,472 +1,379 @@
 ---
-import LyricsBlock from '../../components/LyricsBlock.astro';
+import LearningUnit from '../../components/LearningUnit.astro';
+import RelatedColumnTeaser from '../../components/RelatedColumnTeaser.astro';
+import DiveCards from '../../components/DiveCards.astro';
+import QuickSlang from '../../components/QuickSlang.astro';
 import SongLayout from '../../layouts/SongLayout.astro';
+
+import tsData from '../../../agent/shook-ones-pt-ii/assets/units-timestamps.json';
+const YT = "yoYZf-lBF_U";
+const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.approx }]));
 ---
 
 <SongLayout
-  noindex={true}
   title="Shook Ones Pt. II 和訳・意味・スラング解説 | Mobb Deep"
-  description="Mobb DeepのShook Ones Pt. IIの歌詞和訳とスラング徹底解説。1995年、Queensbridgeから放たれたNYハードコアHIPHOPの頂点を読み解く。"
+  description="Mobb DeepのShook Ones Pt. IIを英語学習＋ヒップホップ理解の教材として精読。「shook」「halfway crooks」「I'm only nineteen, but my mind is older」などスラング・名言・AAVE表現を解説。各表現はPVの該当箇所へ頭出しリンク付き。"
   slug="shook-ones-pt-ii"
+  learningPage={true}
+  songDuration={202}
   highlights={[
-    '"ain\'t no such things as halfway crooks"——中途半端な生き方への完全否定',
-    '"I\'m only nineteen, but my mind is older"——Prodigyの早熟な冷徹さ',
-    '"For every rhyme I write it\'s twenty-five to life"——HavocのVerse 2が持つ重さ',
+    "'ain\\'t no such things as halfway crooks'——中途半端な生き方への完全否定",
+    "'I\\'m only nineteen, but my mind is older'——Prodigyが19歳で書いた最も誠実な告白",
+    "スラング・韻・言葉遊びを「学ぶ表現」単位で解説（PV頭出しリンク付き）",
   ]}
   youtubeId="yoYZf-lBF_U"
 >
 
-  <section class="mb-6">
-    <h2 class="text-base font-semibold mb-2">■この曲の意味（要約）</h2>
-    <p class="text-sm text-[var(--c-muted)] leading-relaxed">「shook one（怖気づいた者）」と「halfway crook（中途半端なクリミナル）」への容赦ない蔑視——Queensbridge最貧困地区で育ったProdigyとHavocが、恐怖と死と生存を淡々と語る。華やかさゼロのビートと無表情なデリバリーが、1995年のNYヒップホップの空気を完全に変えた一曲。</p>
-  </section>
+    <!-- 導入 -->
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■この曲で何を学べるか</h2>
+      <p class="text-sm text-[var(--c-muted)] leading-relaxed">
+        「shook one（ビビりな奴）」と「halfway crook（中途半端なクリミナル）」への完全否定——Queensbridge最貧困地区で育った<strong class="text-[var(--c-text)]">ProdigyとHavoc</strong>、このふたりがMobb Deepとして1995年に放った一撃です。装飾ゼロ、自慢ゼロ。あるのは生き延びることの重さと、「本物か偽者か」を二択に圧縮した哲学だけ。個人的にNYハードコアの中でいちばん好きな一曲です。この記事は英語学習とヒップホップ理解の教材として読んでもらえれば。リリックには、辞書に載らないストリートスラング、AAVE（アフリカ系アメリカ人英語）の文法、そして「in gats we trust」みたいな既成フレーズのパロディが詰まっています。それを「学ぶ表現」単位で取り出して、用例の断片・和訳・語法と文化背景を解説していきたいと思います。
+      </p>
+    </section>
 
-  <section class="mb-6">
-    <h2 class="text-base font-semibold mb-2">■概要</h2>
-    <p class="text-sm text-[var(--c-muted)] leading-relaxed">1995年2ndアルバム『The Infamous』収録。Havocが組み上げた暗鬱なピアノループとドラムが土台（ピアノは長年サンプル元が謎だったが、Herbie Hancock「Jessica」(1969)と判明している）。「Shook Ones Pt. I」のリメイクではなく全く新しいビートと歌詞で構成された「続編」。後にEminem映画「8 Mile」（2002年）で使用され世界的知名度を獲得。ヒップホップ史上最重要トラックのひとつとして現在も絶大な評価を持つ。</p>
-  </section>
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■なぜShook Ones Pt. IIが教材として優れるか</h2>
+      <p class="text-sm text-[var(--c-muted)] leading-relaxed">
+        理由はいくつかあって、まず<strong class="text-[var(--c-text)]">言葉の密度がとにかく高い</strong>。「shook」一語がストリートの価値観をまるごと運び、「halfway crooks」二語で哲学的命題になってしまう。この言語的な経済性が尋常じゃない。それから、ProdigyとHavocという全く異なる個性を持つふたりのMCが同じビートで対比されているのも面白いです。Prodigy（Verse 1）は感情的な告白とハードな宣告を交互に繰り出し、Havoc（Verse 2）は冷静で実務的——「自分は死ぬ資格があるのか」と問いかけながら即座に攻撃的に立て直す二面性が見事です。ビートはHavoc自身のプロデュース。長年サンプル元が不明だったピアノループは、Herbie Hancockの「Jessica」（1969年）だったとのちに判明しています。長い謎解きにもなかなか味がある（笑）。
+      </p>
+    </section>
 
-  <section class="mb-6">
-    <h2 class="text-base font-semibold mb-2">■主なスラング・キーワード</h2>
-    <dl class="text-sm space-y-2">
-      <div><dt class="font-mono text-[var(--c-gold)] inline">shook</dt><dd class="inline ml-2 text-[var(--c-muted)]">怖気づいた、ビビった状態。恐怖で動けない状態。ストリートでは最大の侮辱のひとつ。</dd></div>
-      <div><dt class="font-mono text-[var(--c-gold)] inline">halfway crook</dt><dd class="inline ml-2 text-[var(--c-muted)]">中途半端なクリミナル——本物の犯罪者でも真人間でもない、どっちつかずの偽者。</dd></div>
-      <div><dt class="font-mono text-[var(--c-gold)] inline">infamous</dt><dd class="inline ml-2 text-[var(--c-muted)]">悪名高い。Mobb Deepの代名詞的形容詞でありアルバム名でもある。</dd></div>
-      <div><dt class="font-mono text-[var(--c-gold)] inline">Queensbridge</dt><dd class="inline ml-2 text-[var(--c-muted)]">NY・クイーンズにある米国最大規模の公営住宅。Nas・Mobb Deepを輩出した地区。</dd></div>
-      <div><dt class="font-mono text-[var(--c-gold)] inline">gats</dt><dd class="inline ml-2 text-[var(--c-muted)]">銃（ガトリングガンから転じたスラング）。</dd></div>
-      <div><dt class="font-mono text-[var(--c-gold)] inline">dome</dt><dd class="inline ml-2 text-[var(--c-muted)]">頭。"one in your dome"は頭に一発という意味。</dd></div>
-      <div><dt class="font-mono text-[var(--c-gold)] inline">loot</dt><dd class="inline ml-2 text-[var(--c-muted)]">金銭、カネ。</dd></div>
-      <div><dt class="font-mono text-[var(--c-gold)] inline">featherweight</dt><dd class="inline ml-2 text-[var(--c-muted)]">ボクシングの最軽量級——弱小な、取るに足らないという意味。</dd></div>
-    </dl>
-  </section>
+    <!-- 目次 -->
+    <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
+      <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
+        <li><a href="#story" class="hover:text-[var(--c-gold)] transition-colors">01 — ストーリーの流れ（まず曲全体をつかむ）</a></li>
+        <li><a href="#units" class="hover:text-[var(--c-gold)] transition-colors">02 — 学ぶ表現（スラング・韻・言葉遊び・AAVE）</a></li>
+        <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">03 — 文化的背景</a></li>
+        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">04 — 評価とその後の影響</a></li>
+      </ol>
+    </nav>
 
-  <section class="mb-6">
-    <h2 class="text-base font-semibold mb-2">■歌詞和訳・解説</h2>
+    <!-- ストーリーの流れ -->
+    <section id="story" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        ストーリーの流れ — まず曲全体をつかむ
+      </h2>
+      <p class="text-xs text-[var(--c-dim)] mb-5">
+        個々のスラングに入る前に、まず曲が何を語っているかをざっと散文でつかんでおきましょう。「shook one」と「halfway crook」という二つのキーワードが曲全体を貫いています。
+      </p>
+      <div class="space-y-4 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          イントロは短い語りから始まる。「word up, son」「to all the killers and a hundred dollar billers」——これは曲の聴衆を選ぶ宣言だ。この後に続くのは「本物」のための音楽だ、という宣告。
+        </p>
+        <p>
+          <strong class="text-[var(--c-text)]">Verse 1（Prodigy）</strong>。Mobb Deepの看板を掲げながら、Queensbridgeの「本物」であることの意味を語り始める。偽者（「profile and pose」する奴ら）への暴力的な宣告、クルーが弱小だという指摘（「featherweight」）、そして曲最大の告白——「I'm only nineteen, but my mind is older / And when the things get for real, my warm heart turns cold」。19歳で書いたとは思えない早熟さと諦観が、あの淡々としたデリバリーで刺さってくる。
+        </p>
+        <p>
+          <strong class="text-[var(--c-text)]">Chorus</strong>。「ain't no such things as halfway crooks / Scared to death, scared to look, they shook」——曲のタイトルにもなったこの二行が、すべての核心です。本物の犯罪者でも真人間でもない「中途半端な奴」は存在価値がない、という二択の哲学。「shook」であること＝ビビっていること、がここで最大の侮辱語として機能する。
+        </p>
+        <p>
+          <strong class="text-[var(--c-text)]">Verse 2（Havoc）</strong>は、Prodigyとは対照的な冷徹さで始まる。「For every rhyme I write it's twenty-five to life」——ライムひとつひとつが終身刑に相当するという比喩から始まり、「in gats we trust」という「In God We Trust」のパロディへ。Queensbridge Projectsで育った13年間が自分の精神を作ったという自負と、「do I deserve to live?」という珍しい内省がある。でも即座に立て直す。それがHavocらしさで、曲が閉じていく。
+        </p>
+        <p class="text-xs text-[var(--c-dim)]">
+          ※批評・教育目的で解説に必要な断片のみを引用。歌詞の全行対訳は載せていません。
+        </p>
+      </div>
+    </section>
 
-    <h3 class="text-xs text-[var(--c-very-dim)] uppercase tracking-widest mb-3">Intro</h3>
+    <!-- 関連コラム予告 -->
+    <RelatedColumnTeaser
+      eyebrow="関連コラム — 読み込む前に"
+      cards={[
+        {
+          href: "/columns/crack-epidemic-hiphop",
+          kicker: "COLUMN ／ 文化・歴史",
+          title: "クラック・エピデミックとヒップホップ",
+          desc: "1990年代初頭のQueensbridge Projectsで何が起きていたか。このリリックが産まれた時代背景を先に知ると、解説の密度が変わる。",
+          time: "約5分",
+        },
+        {
+          href: "/columns/ny-golden-era-1994",
+          kicker: "COLUMN ／ 時代解説",
+          title: "1994〜95年 NYヒップホップ黄金期",
+          desc: "Nas・Mobb Deep・Bigが同時期に名盤を出した時代。Shook Ones Pt. IIを生んだ空気を一望する。",
+          time: "約7分",
+        },
+      ]}
+    >
+      下は<strong>別ページのコラム</strong>。Queensbridgeの歴史と時代を頭に入れてから読むと、リリックの重みがもう一段上がります。
+    </RelatedColumnTeaser>
 
-    <LyricsBlock>
-      <Fragment slot="eng">
-        Word up, son, word<br />
-        Yeah, to all the killers and a hundred dollar billers
-      </Fragment>
-      <Fragment slot="jpn">
-        本当だ、わかるだろ<br />
-        そうだ、殺し屋と100ドル稼ぎ続ける奴ら全員に
-      </Fragment>
-    </LyricsBlock>
+    <!-- 学習ユニット群 -->
+    <div id="units"></div>
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2 border-b border-[var(--c-border)] pb-2">
+        学ぶ表現 — スラング・韻・言葉遊び・AAVE
+      </h2>
+      <p class="text-xs text-[var(--c-dim)] mb-6">
+        各ユニットは「Shook Ones Pt. IIで学べる英語表現」を一つずつ取り出して解説しています。まず上の英語行を音で追ってから下の解説へ——そうしないと意味だけ覚えてリズムが入ってこない。マイクアイコンはそのリリックを歌うMC、▶は公式PVの該当箇所への頭出しリンク（秒数は概算）。
+      </p>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        For real n***as who ain't got no feelings<br />
-        Keep your eyes open
-      </Fragment>
-      <Fragment slot="jpn">
-        感情のないリアルな奴ら<br />
-        目を開けておけ
-      </Fragment>
-      <Fragment slot="explanation">
-        "ain't got no feelings"——感情（恐れ・痛み・罪悪感）を持たない冷徹さがストリートでの強さの証とされる。二重否定は強調。
-      </Fragment>
-    </LyricsBlock>
+      <!-- ① stuck off the realness / infamous -->
+      <LearningUnit
+        heading="stuck off the realness / the infamous — 開幕の名刺がわりの一発"
+        label="★ スラング／ブランディング"
+        mc="Prodigy（Verse 1）"
+        t={TS["stuck-realness"].t} tApprox={TS["stuck-realness"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">I got you <QuickSlang word="stuck off" desc="圧倒的な本物感・リアルさで相手を言葉を失わせること" /> the realness, we be the <QuickSlang word="infamous" desc="悪名高い。Mobb Deepの代名詞的形容詞でありアルバム名でもある" /><br />You heard of us, official Queensbridge murderers</Fragment>
+        <Fragment slot="jpn">俺のリアルさにお前を釘付けにした、俺たちが悪名高きものだ／聞いたことあるだろ、公式Queensbridgeの殺し屋たちを</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1のいちばん最初、Prodigyが曲の口火を切る一行目。</p>
+        <p>この2行はMobb Deepの自己紹介でもある。まず学習ポイントは行頭の <strong class="text-[var(--c-text)]">stuck off the realness</strong>。<code>stuck off ~</code> は「〜によって言葉を失う、釘付けになる」——ここでは「圧倒的な本物感で相手をフリーズさせた」という意味だ。続く <strong class="text-[var(--c-text)]">infamous</strong> は「悪名高い（notoriously evil）」の形容詞で、これがそのままアルバム名『The Infamous』になっている。自分たちを「悪名高き者たち」と誇らしげに名乗るセンスが面白い。そして「official Queensbridge murderers」——"official"（公式の）を殺し屋に付けるという逆説的な肩書きが、Mobb Deepのユーモアと矜持を同時に見せている。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">stuck off ~</strong> は「〜に圧倒されて止まる、魅了される」という句動詞的表現。<code>stuck on ~</code>（〜に夢中）に近いが、<em>off</em> が入ることで「その衝撃で思考停止する」のニュアンスが加わる。ここでの <code>realness</code>（本物性、リアルであること）は、ヒップホップで非常に重要なコンセプト——本物かどうかがすべての価値基準になる文化的背景がある。</p>
+        </Fragment>
+      </LearningUnit>
 
-    <LyricsBlock>
-      <Fragment slot="eng">
-        No doubt, no doubt son, I got this, I got this<br />
-        Justwatchmy back, I got the front, yo<br />
-        Check it out now
-      </Fragment>
-      <Fragment slot="jpn">
-        間違いない、俺が持ってる<br />
-        後ろを見てくれ、俺は前を持つ<br />
-        さあ聴け
-      </Fragment>
-    </LyricsBlock>
+      <!-- ② profile and pose -->
+      <LearningUnit
+        heading="profile and pose — 格好だけつけることへの最大の侮蔑"
+        label="★ スラング"
+        mc="Prodigy（Verse 1）"
+        t={TS["profile-pose"].t} tApprox={TS["profile-pose"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">For all of those who wanna <QuickSlang word="profile" desc="ストリートで格好をつけて見せびらかすこと。実力のない者が外見だけ取り繕う行為" /> and pose<br />Rock you in your face, stab your brain with your nose bone</Fragment>
+        <Fragment slot="jpn">格好だけつけてポーズをとりたい奴ら全員に／顔面を砕き、鼻骨で脳を刺す</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1中盤、偽者への警告を出す件。学習対象は上の行。</p>
+        <p>上の行、「wanna <strong class="text-[var(--c-text)]">profile</strong> and <strong class="text-[var(--c-text)]">pose</strong>」——この2語が学習ポイントです。<strong class="text-[var(--c-text)]">profile</strong>（動詞）は「実態以上に格好よく見せようとする、見栄を張る」こと。<strong class="text-[var(--c-text)]">pose</strong>はそのまま「ポーズをとる」——合わせて「実力もないのに外見だけ整えて虚勢を張る」行為を指す。この曲が「shook one」と並んで最も嫌うのが、この「profile and pose」するタイプだ。下の行の暴力描写は意図的にグロテスクで、「偽者には容赦しない」を最大強度の言葉で言い切る。Prodigyの詩的センスの核心でもある。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">profile</strong> の動詞用法はヒップホップ文脈特有。「犯罪者として警察にマークされる（racial profiling）」という別の意味もあるが、この文脈では「格好だけつける」という意味。<code>profile and pose</code> はセットフレーズとしてよく使われ、頭韻（p音の反復）のリズムも気持ちいい。</p>
+        </Fragment>
+      </LearningUnit>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Word up, say it to them n***as, check this out it's amurder
-      </Fragment>
-      <Fragment slot="jpn">
-        そうだ、奴らに言え——これは殺しだ
-      </Fragment>
-      <Fragment slot="explanation">
-        "it's a murder"でイントロを締める——これから始まるヴァースが「殺人」級のインパクトを持つという宣言。
-      </Fragment>
-    </LyricsBlock>
+      <!-- ③ featherweight / levitate -->
+      <LearningUnit
+        heading="featherweight / levitate — ボクシングの比喩とダークな言葉遊び"
+        label="★ 言葉遊び"
+        mc="Prodigy（Verse 1）"
+        t={TS["featherweight"].t} tApprox={TS["featherweight"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Your crew is <QuickSlang word="featherweight" desc="ボクシングの最軽量級——弱小な、取るに足らないという意味" />, my gunshots'll make you levitate</Fragment>
+        <Fragment slot="jpn">お前のクルーは最軽量級、俺の銃声でお前を浮かせてやる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1後半、クルーへの宣告。一行に2つの仕掛けがある。</p>
+        <p>一行に二つの仕掛けが入っている。まず <strong class="text-[var(--c-text)]">featherweight</strong>——ボクシングの最軽量級の意。「お前たちのクルーは一番軽い、弱い」という侮辱をスポーツ用語で包む。そして <strong class="text-[var(--c-text)]">levitate</strong>（空中に浮く）——弾が当たって体が飛ぶ、という残忍な描写を「浮く」という詩的な動詞で表現している。<code>featherweight</code>（羽のように軽い）と <code>levitate</code>（浮く）が「軽さ」で繋がり、その内容がボクシングから銃撃へと一気に転換する。音で聴いてから意味を取ると、このつなぎ方が気持ちよく決まっているのがわかる。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">featherweight</strong> は転義で「弱小・取るに足りない」を意味する。ボクシングには上から heavyweight, light heavyweight, middleweight ... featherweight, bantamweight, flyweight とある。最軽量に近い級名を「弱さ」の比喩に使うのはわかりやすい。<code>heavyweight</code>（重量級）が「大物・強力」の意味で使われるのと対照的。</p>
+        </Fragment>
+      </LearningUnit>
 
-    <h3 class="text-xs text-[var(--c-very-dim)] uppercase tracking-widest mb-3 mt-4">Verse 1 — Prodigy</h3>
+      <!-- ④ I'm only nineteen -->
+      <LearningUnit
+        heading="I'm only nineteen, but my mind is older — 最も引用された告白"
+        label="★ 最重要パンチライン"
+        mc="Prodigy（Verse 1）"
+        t={TS["nineteen"].t} tApprox={TS["nineteen"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">I'm only nineteen, but my mind is older<br />And when the things get for real, my warm heart turns cold</Fragment>
+        <Fragment slot="jpn">俺はまだ19歳、でも精神は老いている／本物の事態になれば、温かい心が冷える</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1終盤、ハードな宣告の流れからいきなり内面を晒す件。</p>
+        <p>「I'm only <strong class="text-[var(--c-text)]">nineteen</strong>, but my mind is older」——ヒップホップ史上最も引用されてきた一行のひとつ。レコーディング時、Prodigyは実際に10代だった（1974年11月2日生まれ、1994年末のレコーディング当時19歳）。強がりや虚勢ではなく、年齢という事実をそのまま歌詞に入れてくる。その直後「when the things get for real, my warm heart turns cold（本物の事態になれば、温かい心が冷える）」——感情的な離断、つまり感情をシャットダウンして生き延びることを覚えた、という告白だ。プロジェクト育ちの少年がどんな経験でその精神に至ったかを、たった2行で語り切っている。個人的にこの行を初めて意味ごと理解したとき、静かに鳥肌が立ちました。</p>
+        <Fragment slot="usage">
+          <p><code>get for real</code> は「本当に深刻になる、本物の緊張感が来る」という口語表現。<code>things get real</code>（事態が本物になる）の変形で、争いや危険が現実になる瞬間を指す。<code>when ~ turn cold</code>（〜が冷える）は感情・表情・態度が硬くなる、感情を消す意味。「warm heart turns cold」は対比の妙——本来ある「温かさ」があるから、その喪失が痛い。</p>
+        </Fragment>
+      </LearningUnit>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        I got you stuck off the realness, we be the infamous<br />
-        You heard of us, official Queensbridge murderers
-      </Fragment>
-      <Fragment slot="jpn">
-        俺のリアルさにお前を釘付けにした、俺たちが悪名高きものだ<br />
-        聞いたことあるだろ、公式クイーンズブリッジの殺し屋たちを
-      </Fragment>
-      <Fragment slot="explanation">
-        "stuck off the realness"——本物のリアルさに言葉を失わせること。"infamous"はアルバム名でもあり、Mobb Deepの看板形容詞。
-      </Fragment>
-    </LyricsBlock>
+      <!-- ⑤ halfway crooks / shook -->
+      <LearningUnit
+        heading="ain't no such things as halfway crooks — 中途半端を否定する哲学"
+        label="★ フック（最重要）"
+        mc="Prodigy（Chorus）"
+        t={TS["halfway-crooks"].t} tApprox={TS["halfway-crooks"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">'Cause ain't no such things as <QuickSlang word="halfway crooks" desc="中途半端なクリミナル——本物の犯罪者でも真人間でもない、どっちつかずの偽者" /><br />Scared to death, scared to look, they <QuickSlang word="shook" desc="怖気づいた、ビビった状態。ストリートでは最大の侮辱のひとつ" /></Fragment>
+        <Fragment slot="jpn">中途半端なクリミナルなんてものは存在しないから／死ぬほど怖くて目も向けられない、奴らはビビってる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ コーラス、この曲の核心。二行に哲学が詰まっている。</p>
+        <p>曲全体の核心がここにある。<strong class="text-[var(--c-text)]">halfway crooks</strong>——「クリミナル（犯罪者）として完全に生きるか、まったく手を出さないかのどちらかしかない。中間はない」というのがMobb Deepの宣言だ。<em>halfway crook</em>、つまり「中途半端な悪人」は最も軽蔑される存在で、それは臆病（cowardice）と同義。そして <strong class="text-[var(--c-text)]">shook</strong>——ビビっている、恐怖で動けないという形容詞（AAVEでの過去形→形容詞化）。ストリートでは「shook」と言われることが最大の侮辱のひとつだ。「ain't no such things as」という二重否定も重要——標準英語なら "there's no such thing as" だが、AAVE的な二重否定が強調として機能している。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">shook</strong> は動詞 <em>shake</em>（揺れる）の過去分詞が形容詞化したもの。「震えあがっている＝ビビっている」の意で、述語形容詞として <code>they shook</code>（be動詞省略のAAVE構文）で使う。名詞化した <em>shook one（s）</em> は「ビビりな奴ら」。「I'm not shook」と言えば「俺はビビってない」。</p>
+          <p>二重否定の <code>ain't no such thing</code> はAAVEの定番構文。標準英語ではひとつの否定（there's no such thing）で済むが、否定を重ねることで強調する。「中途半端な悪人なんて絶対に存在しない」という断言の強度が、二重否定によって増幅されている。</p>
+        </Fragment>
+      </LearningUnit>
 
-    <LyricsBlock>
-      <Fragment slot="eng">
-        The Mobb comes equipped for warfare, beware<br />
-        Of my crime family who got 'nough shots to share
-      </Fragment>
-      <Fragment slot="jpn">
-        Mobbは戦争の準備ができている、気をつけろ<br />
-        俺の犯罪ファミリーは十分な弾を持っている
-      </Fragment>
-    </LyricsBlock>
+      <!-- ⑥ twenty-five to life / in gats we trust -->
+      <LearningUnit
+        heading="twenty-five to life / in gats we trust — ライムと国家のパロディ"
+        label="★ 言葉遊び（パロディ）"
+        mc="Havoc（Verse 2）"
+        t={TS["twenty-five"].t} tApprox={TS["twenty-five"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">For every rhyme I write it's <QuickSlang word="twenty-five to life" desc="NY州の重罪に科される最低25年の終身刑" /><br />Yo, it's a must, in <QuickSlang word="gats" desc="銃（ガトリングガンから転じたスラング）" /> we trust, safeguardin' my life</Fragment>
+        <Fragment slot="jpn">俺が書くライムのひとつひとつが終身刑25年分／銃を信じる、命を守るために</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の冒頭、Havocが口火を切る2行。</p>
+        <p>2行に仕掛けが詰まっている。まず1行目の <strong class="text-[var(--c-text)]">twenty-five to life</strong>——NY州の重罪に科される「最低25年の終身刑」という量刑が正式名称だ。「ライムを書くたびに命懸けの証言をしている」という比喩で、Havocが音楽に与える重みを一語で表す。2行目の <strong class="text-[var(--c-text)]">in gats we trust</strong>——これは米国の公式国家モットー「In God We Trust（神を信じる）」のパロディ。<em>God</em> を <em>gats</em>（銃）に替えるだけで、「神の代わりに銃に命を預けている」というQueensbridge流の信仰告白になる。これ、かなりキてる一行だと思います。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">gats</strong> は銃を指すスラング。ガトリングガン（Gatling gun）から派生したとされる。単数形 <em>gat</em>、複数形 <em>gats</em>。90年代NYハードコアで頻出する語彙。</p>
+          <p>パロディ構文 <code>In ___ we trust</code> は「In God We Trust」をテンプレートに使ったもの。米ドル紙幣にも印字されているこのモットーを改変することで、「自分たちの信仰対象は国家の神ではなく武器だ」という皮肉が成立する。言葉遊びとしては単純だが、文化的含意は深い。</p>
+        </Fragment>
+      </LearningUnit>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        For all of those who wanna profile and pose<br />
-        Rock you in your face, stab your brain with your nose bone
-      </Fragment>
-      <Fragment slot="jpn">
-        ポーズを決めてプロファイルしたい奴ら全員に<br />
-        顔面を砕き、鼻骨で脳を刺す
-      </Fragment>
-      <Fragment slot="explanation">
-        "profile and pose"——格好だけつける偽者への警告。続く描写は残忍で、Prodigyの暴力的イメージを確立した行。
-      </Fragment>
-    </LyricsBlock>
+      <!-- ⑦ one in your dome / thirteen years in the projects -->
+      <LearningUnit
+        heading="one in your dome / thirteen years in the projects — スラングと自伝"
+        label="★ スラング／背景"
+        mc="Havoc（Verse 2）"
+        t={TS["thirteen-years"].t} tApprox={TS["thirteen-years"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Once the smoke clears, you'll be left with one in your <QuickSlang word="dome" desc="頭。「one in your dome」は頭部への一発という意味" /><br />Thirteen years in the <QuickSlang word="projects" desc="公営住宅（housing projects）。Queensbridge Projectsを指す" />—my mentality is what, kid?</Fragment>
+        <Fragment slot="jpn">煙が晴れたとき、お前の頭に一発残る／プロジェクト（公営住宅）で13年——俺のメンタリティはどんなもんだ？</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2中盤、Havocが自分の出自を問いかける件。</p>
+        <p>2行に2つのスラングが入っている。1行目の <strong class="text-[var(--c-text)]">dome</strong>（頭）——「one in your dome」は頭部への銃弾一発。日常語の「丸天井・ドーム」から派生した隠語で、頭部を建築的なドームに見立てる。2行目の <strong class="text-[var(--c-text)]">projects</strong>——「公営住宅（housing projects）」の略で、ここではQueensbridge Projectsを指す。Havocは実際にこの公営住宅で13年間育った。自分のバックグラウンドを「13年」という数字でそのまま出してくる率直さが、この行の迫力だ。「my mentality is what, kid?」と問い返す——そのメンタリティが答えるまでもなく伝わってくる構造になっている。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">dome</strong> は頭部を指すインフォーマルな語で、<code>one in the dome</code>（頭に一発）の形で暴力的な文脈によく出てくる。</p>
+          <p><strong class="text-[var(--c-text)]">projects</strong> は <em>housing projects</em>（公営住宅団地）の略。低所得層向けの集合住宅で、クラック・エピデミック時代には犯罪・暴力の中心地になったとされる。NY最大の公営住宅群がQueensbridge Projectsで、Nasも同じ団地で育っている。</p>
+        </Fragment>
+      </LearningUnit>
 
-    <LyricsBlock>
-      <Fragment slot="eng">
-        You all alone in these streets, cousin<br />
-        Every man for they self in this land we be gunnin'<br />
-        And keep them shook crews runnin', like they supposed to
-      </Fragment>
-      <Fragment slot="jpn">
-        お前はこのストリートでひとりだ、兄弟<br />
-        この土地では誰もが自分のために戦い、俺たちは撃ち続ける<br />
-        怖気づいたクルーを走らせ続ける、それが当然の姿
-      </Fragment>
-    </LyricsBlock>
+      <!-- ⑧ do I deserve to live / lay on your back -->
+      <LearningUnit
+        heading="do I deserve to live? / lay on your back — 内省と即座の回収"
+        label="★ 内省と反転"
+        mc="Havoc（Verse 2）"
+        t={TS["deserve-live"].t} tApprox={TS["deserve-live"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Sometimes I wonder, do I deserve to live?<br />Or am I gonna burn in Hell for all the things I did?<br />No time to dwell on that, 'cause my brain reacts<br /><QuickSlang word="Front" desc="偽者を演じる、強がりを見せる。frontすることはshookと同様に軽蔑される" /> if you want, kid, lay on your back</Fragment>
+        <Fragment slot="jpn">時々思う、俺は生きる資格があるのか？／それとも、やってきたことすべてのために地獄で燃えるのか？／それを考える時間はない、脳が反応するから／強がってみろ、倒れることになる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2後半、Havocが珍しく内省してから即座に立て直す件。</p>
+        <p>この4行がHavocの複雑さを一番よく表している。最初の2行はほぼMobb Deepらしくない——「俺は生きる資格があるのか、地獄に落ちるのか」という自己批判的な問いだ。ハードコアの文脈では異質な脆さで、だからこそ印象に残る。しかし「No time to dwell on that」で即座に切り捨てる。省察にひたる暇はない、という論理で内省から攻撃的姿勢へと0秒で切り替わる。最後の <strong class="text-[var(--c-text)]">Front if you want, kid, lay on your back</strong>——「<strong class="text-[var(--c-text)]">Front</strong>（強がりを見せる）」するなら <strong class="text-[var(--c-text)]">lay on your back</strong>（地面に倒れる、やられる）ことになる、という宣告。この緩急こそがHavocらしさで、脆さを瞬時に武器に変えてしまう。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">dwell on ~</strong> は「〜をくよくよ考え続ける、いつまでも引きずる」という動詞句。<em>don't dwell on it</em>（いつまでも引きずるな）の形でよく使う。ここではその時間的余裕もないという極限状態を示す。</p>
+          <p><strong class="text-[var(--c-text)]">front</strong> は動詞で「偽者のふりをする、強がりを見せる」。<em>frontin'</em>（フロンティン）の形でも使い、本来の自分ではない姿で偽物のイメージを演じること。ストリートではこれも <em>profile and pose</em> 同様に軽蔑される行為。<code>lay on your back</code>（背中をつける＝倒れる・死ぬ）は暴力の結果を示す婉曲表現。</p>
+        </Fragment>
+      </LearningUnit>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        They come around, but they never come close to<br />
-        I can see it inside your face, you're in the wrong place
-      </Fragment>
-      <Fragment slot="jpn">
-        奴らは近づくが、決して近くには来ない<br />
-        お前の顔を見ればわかる、お前はいる場所が違う
-      </Fragment>
-      <Fragment slot="explanation">
-        "in the wrong place"——Queensbridgeに来た余所者への宣告。場所の所有権の主張。
-      </Fragment>
-    </LyricsBlock>
+    </section>
 
-    <LyricsBlock>
-      <Fragment slot="eng">
-        Cowards like you just get they whole body laced up<br />
-        With bullet holes and such<br />
-        Speak the wrong words, man, and you will get touched
-      </Fragment>
-      <Fragment slot="jpn">
-        お前みたいな臆病者は全身を飾られる<br />
-        弾痕で<br />
-        間違った言葉を口にすれば、やられる
-      </Fragment>
-    </LyricsBlock>
+    <!-- 文化的背景 -->
+    <section id="background" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        文化的背景
+      </h2>
 
-    <LyricsBlock>
-      <Fragment slot="eng">
-        You can put your whole army against my team and<br />
-        I guarantee you it'll be your very last time breathin'
-      </Fragment>
-      <Fragment slot="jpn">
-        お前の軍隊全部を俺のチームにぶつけてみろ<br />
-        保証するが、それがお前の最後の呼吸になる
-      </Fragment>
-    </LyricsBlock>
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">Queensbridge Projects</p>
+        <h3 class="font-semibold text-base mb-3">アメリカ最大の公営住宅から来た音</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          Queensbridge Projectsは、ニューヨーク市クイーンズ地区にある米国最大規模の公営住宅群だ。Mobb Deepのふたり、そして同じ団地育ちのNasを輩出したことで、90年代NYヒップホップを語るうえで避けられない場所になった。クラック・エピデミックが猛威を振るった時代、プロジェクトの内部では暴力・貧困・ドラッグが日常だった。Shook Ones Pt. IIのリリックが「教育」でも「エンタメ」でもなく、生存の記録として聴こえるのはそのせいだと思う。ちなみにHavocは実際に13年間ここで育ち、その経験がVerse 2のあの問いかけ（「俺は生きる資格があるのか」）を生んでいる。背景を知ると、あの行の重みが全然違って聴こえます。
+        </p>
+      </div>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Your simple words just don't move me<br />
-        You're minor, we're major<br />
-        You're all up in the game and don't deserve to be a player
-      </Fragment>
-      <Fragment slot="jpn">
-        お前の単純な言葉は俺を動かさない<br />
-        お前はマイナー、俺たちはメジャー<br />
-        お前はゲームにいるが、プレイヤーたる資格がない
-      </Fragment>
-      <Fragment slot="explanation">
-        "minor/major"——音楽用語の転用。格の違いを端的に表す。"in the game"はストリート・ドラッグビジネスへの参加を指す。
-      </Fragment>
-    </LyricsBlock>
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">ビートの謎とHerbie Hancock</p>
+        <h3 class="font-semibold text-base mb-3">長年不明だったサンプル元</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          Shook Ones Pt. IIのあのピアノループのサンプル元は、長い間ヒップホップファンの間で「謎」だった。最終的にHerbie Hancockの「Jessica」（1969年のアルバム『Fat Albert Rotunda』収録）だったと判明している。他にもQuincy Jonesや（オーストラリアの）Daly-Wilson Big Bandからのサンプルが使われているが、プロデューサーのHavocがこれをQueensbridge最暗部の空気に変えてしまった手腕は本当にすごい。「素材が何かよりも、どう使うか」というプロデューサーとしての本質がここにある。
+        </p>
+      </div>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Don't make me have to call your name out<br />
-        Your crew is featherweight, my gunshots'll make you levitate
-      </Fragment>
-      <Fragment slot="jpn">
-        俺にお前の名前を呼ばせるな<br />
-        お前のクルーは最軽量級、俺の銃声でお前を浮かせてやる
-      </Fragment>
-      <Fragment slot="explanation">
-        "featherweight"はボクシング最軽量級で弱小の意。"levitate"（浮遊する）は弾が当たって体が飛ぶ描写——暴力描写を詩的に表現。
-      </Fragment>
-    </LyricsBlock>
+      <div class="p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">キーワード早見表</p>
+        <h3 class="font-semibold text-base mb-3">この曲で学んだスラングの整理</h3>
+        <div class="space-y-3 mt-3">
+          {[
+            ['shook', 'ビビっている、恐怖で動けない状態。形容詞として使う（AAVE）。ストリートでの最大の侮辱'],
+            ['halfway crook', '中途半端なクリミナル——本物でも真人間でもない、どっちつかずの偽者'],
+            ['infamous', '悪名高い。Mobb Deepのアルバム名でもあり自己定義の形容詞'],
+            ['stuck off the realness', '本物のリアルさで相手を釘付けにする'],
+            ['profile and pose', '実力なしで格好だけつけること。最も軽蔑される行為のひとつ'],
+            ['featherweight', 'ボクシング最軽量級から転じて「弱小・取るに足りない」'],
+            ['twenty-five to life', 'NY州の重罪量刑（最低25年の終身刑）'],
+            ['in gats we trust', '「In God We Trust」のパロディ。銃への依存を宣言'],
+            ['dome', '頭部のスラング'],
+            ['projects', '公営住宅（housing projects）の略。Queensbridge Projectsを指す'],
+            ['front', '偽者を演じる、強がりを見せること'],
+          ].map(([term, desc]) => (
+            <div class="flex gap-3 text-sm">
+              <span class="text-[var(--c-orange)] shrink-0 font-semibold min-w-[160px]">{term}</span>
+              <span class="text-[var(--c-muted)]">{desc}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        I'm only nineteen, but my mind is older<br />
-        And when the things get for real, my warm heart turns cold
-      </Fragment>
-      <Fragment slot="jpn">
-        俺はまだ19歳、でも精神は老いている<br />
-        本物の事態になれば、温かい心が冷える
-      </Fragment>
-      <Fragment slot="explanation">
-        Prodigyの実年齢を告白した伝説的な行。プロジェクト育ちの早熟な精神と感情的離断を表す。ヒップホップ史上最も引用された行のひとつ。
-      </Fragment>
-    </LyricsBlock>
+    <!-- 評価と影響 -->
+    <section id="legacy" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        評価とその後の影響
+      </h2>
 
-    <LyricsBlock>
-      <Fragment slot="eng">
-        Another n***a deceased, another story gets told<br />
-        It ain't nothin' really, ayo Dun, spark the Philly<br />
-        So I can get my mind off these yellow-backed n***as<br />
-        Why they still alive? I don't know, go figure
-      </Fragment>
-      <Fragment slot="jpn">
-        また誰か死んで、また話が生まれる<br />
-        大したことじゃない、なあDun、フィリーに火つけてくれ<br />
-        この臆病者どもから頭を離したい<br />
-        なぜまだ生きているのか？わからない、考えてみろ
-      </Fragment>
-    </LyricsBlock>
+      <div class="mb-4 overflow-hidden border-2 border-[var(--c-orange)] text-sm" style="border-radius:0">
+        <div class="grid grid-cols-3 bg-[var(--c-bg)] text-[var(--c-very-dim)] text-xs uppercase tracking-widest">
+          <div class="p-3 border-b border-[var(--c-border)]">指標</div>
+          <div class="p-3 border-b border-l border-[var(--c-border)]">記録</div>
+          <div class="p-3 border-b border-l border-[var(--c-border)]">意義</div>
+        </div>
+        {[
+          ['アルバム「The Infamous」', 'Billboard 200 最高3位（1995年）', 'ハードコアNYヒップホップがメインストリームのチャート頂点圏に到達したことを証明した'],
+          ['8 Mile（映画・2002年）', '冒頭のラップバトルシーンで使用', 'Eminemがバトルの相手の出だしを潰すために使ったビートとして世界的に知名度が広がった'],
+          ['影響と引用', '後世への無数の引用', '"halfway crooks" という概念はヒップホップの価値観の語彙として定着。"shook one" も侮辱語として生き続けている'],
+        ].map(([metric, record, significance]) => (
+          <div class="grid grid-cols-3">
+            <div class="p-3 border-b border-[var(--c-border)] text-[var(--c-dim)]">{metric}</div>
+            <div class="p-3 border-b border-l border-[var(--c-border)] text-[var(--c-green)] font-medium">{record}</div>
+            <div class="p-3 border-b border-l border-[var(--c-border)] text-[var(--c-muted)] text-xs">{significance}</div>
+          </div>
+        ))}
+      </div>
 
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Meanwhile back in Queens the realness and foundation<br />
-        If I die, I couldn't choose a better location
-      </Fragment>
-      <Fragment slot="jpn">
-        一方クイーンズではリアルさと基盤がある<br />
-        俺が死ぬなら、これ以上の場所は選べない
-      </Fragment>
-      <Fragment slot="explanation">
-        Queensbridgeへの複雑な愛着——死に場所として誇れる場所という逆説的な帰属意識。
-      </Fragment>
-    </LyricsBlock>
+      <div class="p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">「ラップの試金石」</p>
+        <h3 class="font-semibold text-base mb-3">「Shook Onesのビートで自由にラップできるか」</h3>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed mb-4">
+          この曲は時間が経つほど評価が上がったタイプの楽曲だ。90年代に聴いたとき、2000年代に8 Mile経由で出会ったとき、そして2010年代以降にヒップホップの歴史を振り返る文脈で再評価されたとき——それぞれで新しい意味が加わっていった。ヒップホップ界では「Shook Ones Pt. IIのビートの上でラップできるか」が一種の実力試験として扱われることがあるほど、この曲のビートと歌詞の密度は異次元だ。Eminemが8 Mileでこのビートを選んだのも、そういう文脈があってのことだと思います（「これだけは俺に続けさせてくれ」みたいな感じで映画が始まる）。Prodigyは2017年に鎌状赤血球症の合併症で逝去。その後も、彼が19歳で書いたあの一行——「my mind is older」——は引き続き引用され続けている。
+        </p>
+      </div>
+    </section>
 
-    <LyricsBlock>
-      <Fragment slot="eng">
-        When the slugs penetrate, you feel a burnin' sensation<br />
-        Gettin' closer to God in a tight situation now<br />
-        Take these words home and think it through<br />
-        Or the next rhyme I write might be about you
-      </Fragment>
-      <Fragment slot="jpn">
-        弾丸が貫通するとき、灼熱感を感じる<br />
-        厳しい状況で神に近づいていく<br />
-        この言葉を持ち帰ってよく考えろ<br />
-        さもなければ次に俺が書くライムはお前のことかもしれない
-      </Fragment>
-    </LyricsBlock>
+    <!-- まとめ -->
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        まとめ
+      </h2>
+      <ul class="space-y-2 text-sm text-[var(--c-muted)] list-disc list-inside leading-relaxed">
+        <li>「shook」と「halfway crooks」——たった数語に圧縮されたMobb Deepの哲学が、この曲を30年経っても色褪せない理由だと思う。</li>
+        <li>ProdigyとHavocのMCとしての対比が際立つ構成。感情的告白と冷静な即時回収、ふたつの個性が一つのビートで完結している。</li>
+        <li>「in gats we trust」のような既成フレーズの改変、「featherweight / levitate」のような暗い言葉遊びなど、語彙の運用が教材として学べる密度を持つ。</li>
+        <li>ビートのサンプル元（Herbie Hancock「Jessica」）が長年謎だったという事実が、この曲の持つ独特な雰囲気の源泉にもなっているかもしれない。</li>
+      </ul>
+    </section>
 
-    <h3 class="text-xs text-[var(--c-very-dim)] uppercase tracking-widest mb-3 mt-4">Chorus</h3>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        Son, they shook<br />
-        'Cause ain't no such things as halfway crooks<br />
-        Scared to death, scared to look, they shook
-      </Fragment>
-      <Fragment slot="jpn">
-        奴らはびびってる<br />
-        中途半端なクリミナルなんてものは存在しないから<br />
-        死ぬほど怖くて目も向けられない、びびってる
-      </Fragment>
-      <Fragment slot="explanation">
-        "halfway crook"——本曲最重要フレーズ。完全に犯罪者として生きるか、まったく手を出さないかのどちらかしかない。中間はなく、中途半端な者は「shook one」として蔑まれる。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock>
-      <Fragment slot="eng">
-        Livin' the life that of diamonds and guns<br />
-        There's numerous ways you can choose to earn funds (Funds)<br />
-        So some get shot, locked down, and turn nuns<br />
-        Cowardly hearts and straight up shook ones, shook ones (Take it all)<br />
-        He ain't a crook, son, (Crook, son) he's just a shook one (Two four two)
-      </Fragment>
-      <Fragment slot="jpn">
-        ダイヤモンドと銃の生活<br />
-        金を稼ぐ方法はいくらでもある<br />
-        だから撃たれて、刑務所に入って、修道女になる奴もいる<br />
-        臆病な心、完全にびびった奴ら<br />
-        こいつはクリミナルじゃない、ただのびびり野郎だ
-      </Fragment>
-    </LyricsBlock>
-
-    <h3 class="text-xs text-[var(--c-very-dim)] uppercase tracking-widest mb-3 mt-4">Verse 2 — Havoc</h3>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        For every rhyme I write it's twenty-five to life<br />
-        Yo, it's a must, in gats we trust, safeguardin' my life
-      </Fragment>
-      <Fragment slot="jpn">
-        俺が書くライムのひとつひとつが終身刑25年分<br />
-        銃を信じる、命を守るために
-      </Fragment>
-      <Fragment slot="explanation">
-        "twenty-five to life"——NY州の重罪に科される最低25年の終身刑。ライムを書くことが命がけという比喩。"in gats we trust"はIn God We Trust（神を信じる）のパロディ。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock>
-      <Fragment slot="eng">
-        Ain't no time for hesitation, that only leads to incarceration<br />
-        You don't know me, there's no relation<br />
-        Queensbridge and we don't play
-      </Fragment>
-      <Fragment slot="jpn">
-        躊躇する時間はない、それは収監につながるだけ<br />
-        俺を知らない、関係もない<br />
-        Queensbridge、俺たちは本気だ
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock>
-      <Fragment slot="eng">
-        I don't got time for your petty-thinkin' mind<br />
-        Son, I'm bigger than those<br />
-        Claimin' that you pack heat, but you're scared to hold
-      </Fragment>
-      <Fragment slot="jpn">
-        お前のちっぽけな考えに時間はない<br />
-        俺はそういう連中より格が上だ<br />
-        銃を持ってると言いながら、持つのが怖い
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        And once the smoke clears, you'll be left with one in your dome<br />
-        Thirteen years in the projects—my mentality is what, kid?
-      </Fragment>
-      <Fragment slot="jpn">
-        煙が晴れたとき、お前の頭に一発残る<br />
-        プロジェクトで13年——俺のメンタリティはどんなもんだ？
-      </Fragment>
-      <Fragment slot="explanation">
-        "projects"はHavocが育ったQueensbridge Projectsの公営住宅。13年の生活が作り上げた精神的タフさを問いかける。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock>
-      <Fragment slot="eng">
-        You talk a good one, but you don't want it<br />
-        Sometimes I wonder, do I deserve to live?<br />
-        Or am I gonna burn in Hell for all the things I did?
-      </Fragment>
-      <Fragment slot="jpn">
-        口だけは達者だが、本気じゃない<br />
-        時々思う、俺は生きる資格があるのか？<br />
-        それとも、やってきたことすべてのために地獄で燃えるのか？
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        No time to dwell on that, 'cause my brain reacts<br />
-        Front if you want, kid, lay on your back
-      </Fragment>
-      <Fragment slot="jpn">
-        それを考える時間はない、脳が反応するから<br />
-        格好つけてみろ、背中をつけることになる
-      </Fragment>
-      <Fragment slot="explanation">
-        "lay on your back"——倒れる・死ぬという意味。自己批判的な問いから即座に攻撃的に転換するHavocの二面性。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock>
-      <Fragment slot="eng">
-        I don't fake jax, kid, you know I bring it to you live<br />
-        Stay in a child's place, kid, you out of line<br />
-        Criminal minds thirsty for recognition
-      </Fragment>
-      <Fragment slot="jpn">
-        俺は嘘をつかない、本物を届ける<br />
-        子供の場所にいろ、出る杭は打たれる<br />
-        認められることに渇望する犯罪者の精神
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        I'm sippin', E&amp;J got my mind flippin'<br />
-        I'm buggin', diggin' my ways out of holes by hustlin'
-      </Fragment>
-      <Fragment slot="jpn">
-        飲んでいる、E&Jで頭が飛ぶ<br />
-        やばい状態で、ハッスルで穴から這い出している
-      </Fragment>
-      <Fragment slot="explanation">
-        "E&J"はE&J Gallo Winery製のブランデー——廉価なアルコールとしてゲットーで定番。"hustlin'"は合法・非合法を問わず金を稼ぎ続けること。
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock>
-      <Fragment slot="eng">
-        Get that loot, kid, you know my function (Function)<br />
-        'Cause long as I'm alive, I'ma live illegal<br />
-        And once I get on, I'ma put on all my peoples
-      </Fragment>
-      <Fragment slot="jpn">
-        金をとれ、俺の役割を知ってるだろ<br />
-        生きている限り、違法に生きていく<br />
-        成功したら、仲間全員を引き上げる
-      </Fragment>
-    </LyricsBlock>
-
-    <LyricsBlock hasExplanation={true}>
-      <Fragment slot="eng">
-        React quick, spit lyrics like MACs, I hit your dome up<br />
-        When I roll up, don't be caught sleepin', 'cause I'm creepin'
-      </Fragment>
-      <Fragment slot="jpn">
-        素早く反応し、MAC（銃）みたいにリリックを吐き出す、頭を狙う<br />
-        俺が来たとき油断するな、俺は忍び寄っているから
-      </Fragment>
-      <Fragment slot="explanation">
-        "spit lyrics like MACs"——MAC-10などの自動小銃のように連続してリリックを放つ比喩。"creepin'"は静かに近づくこと——不意打ちの予告。
-      </Fragment>
-    </LyricsBlock>
-
-    <h3 class="text-xs text-[var(--c-very-dim)] uppercase tracking-widest mb-3 mt-4">Outro</h3>
-
-    <LyricsBlock>
-      <Fragment slot="eng">
-        Yeah, yeah-yeah, yeah<br />
-        To all the villains and a hundred dollar billers<br />
-        To real brothers who ain't got no feelings<br />
-        G-yeah, the whole Bridge<br />
-        Queens get the money<br />
-        41st side, keepin' it real, you know<br />
-        It's all good, you know wha' I'm sayin', yeah, huh
-      </Fragment>
-      <Fragment slot="jpn">
-        悪人たちと100ドル稼ぎ続ける奴ら全員へ<br />
-        感情のないリアルな兄弟へ<br />
-        ブリッジ全体、Queensが金をとる<br />
-        41番地、リアルを保ち続ける
-      </Fragment>
-    </LyricsBlock>
-
-  </section>
+    <DiveCards
+      cards={[
+        {
+          href: "/columns/crack-epidemic-hiphop",
+          icon: "QB",
+          kicker: "文化・歴史",
+          title: "クラック・エピデミックとヒップホップ",
+          desc: "Queensbridge Projectsが生んだリリックの背景にある時代の暴力。この曲の言葉が何を土台にしているかを掘り下げて。",
+          hint: "QB",
+        },
+        {
+          href: "/columns/aave-hiphop-language",
+          icon: "AAVE",
+          kicker: "言語・表現",
+          title: "AAVEとヒップホップの言語",
+          desc: "「shook」「ain't no such things」「they shook（be動詞省略）」——この曲に出てくるAAVE文法の全体像を整理する。",
+          hint: "AAVE",
+        },
+        {
+          href: "/columns/ny-golden-era-1994",
+          icon: "95",
+          kicker: "時代解説",
+          title: "NYヒップホップ黄金期",
+          desc: "Shook Ones Pt. IIが生まれた1995年前後、NYで何が起きていたのか。Nas・Bigと並走した時代の地図。",
+          hint: "95",
+        },
+      ]}
+    />
 
 </SongLayout>
