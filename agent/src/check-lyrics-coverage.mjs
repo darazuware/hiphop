@@ -89,10 +89,11 @@ function parseLyricLinesRaw(raw) {
   return result;
 }
 
-// --- Extract eng slot text from astro file ---
-function extractEngLines(astro) {
+// --- Extract slot text (eng / usage) from astro file ---
+// slotName="eng" → 用例本体。slotName="usage" → 「語法 — どう使うか」折りたたみ内の用例英語。
+function extractSlotLines(astro, slotName) {
   const result = [];
-  const blockRe = /<Fragment\s+slot="eng">([\s\S]*?)<\/Fragment>/g;
+  const blockRe = new RegExp(`<Fragment\\s+slot="${slotName}">([\\s\\S]*?)<\\/Fragment>`, 'g');
   let match;
   while ((match = blockRe.exec(astro)) !== null) {
     const inner = match[1];
@@ -200,8 +201,12 @@ function bodyText(astro) {
 // --- Main ---
 const lyricLines = parseLyricLines(lyricsRaw);        // deduped (3+ repeats removed) — used for [A]
 const allLyricLines = parseLyricLinesRaw(lyricsRaw);  // all lines incl. repeats — used for [B] corpus
-const engLines = extractEngLines(astroRaw);
+const engLines = extractSlotLines(astroRaw, 'eng');
 const engNorms = engLines.map(normalize);
+// [D] 母数: 折りたたみ用例スロット（slot="usage"）内の英語も引用とみなして加算する。
+// [B]ハルシネーション・[C]独自性は eng スロットのみで判定（usage を混ぜない）。
+const usageNorms = extractSlotLines(astroRaw, 'usage').map(normalize);
+const engNormsForD = [...engNorms, ...usageNorms];
 const lyricNorms = lyricLines.map(normalize);
 
 // Direction A: Genius → .astro (omission check)
@@ -231,6 +236,9 @@ for (const engLine of engLines) {
 const total = lyricLines.length;
 const coveredCount = covered.length;
 const pct = total === 0 ? 100 : Math.round((coveredCount / total) * 100);
+// [D] 用: eng + usage（折りたたみ用例）スロットの両方で被覆を測る
+const coveredCountD = total === 0 ? 0 : lyricLines.filter(line => engNormsForD.some(n => isLineMatch(line, n))).length;
+const pctD = total === 0 ? 100 : Math.round((coveredCountD / total) * 100);
 const learning = isLearningPage(astroRaw);
 const noindexThin = !learning && isNoindexPage(astroRaw);
 const luCount = (astroRaw.match(/<LearningUnit[\s>]/g) || []).length;
@@ -280,8 +288,8 @@ if (learning) {
   }
 
   // [D] 引用最小性（著作権）: 全行歌詞掲載でないこと
-  console.log(`\n[D] 引用最小性: eng引用カバレッジ=${pct}%（上限${MAX_COVERAGE}%）`);
-  if (pct >= MAX_COVERAGE) {
+  console.log(`\n[D] 引用最小性: eng+用例引用カバレッジ=${pctD}%（上限${MAX_COVERAGE}%）`);
+  if (pctD >= MAX_COVERAGE) {
     console.log('❌ [D] 学習ページなのに歌詞をほぼ全行引用している疑い（用例断片に削減せよ）');
     hasError = true;
   } else {
