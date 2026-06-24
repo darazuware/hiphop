@@ -1,10 +1,21 @@
 [
-  {"id": "stuck-realness",   "t": 30,  "approx": true},
-  {"id": "profile-pose",     "t": 41,  "approx": true},
-  {"id": "featherweight",    "t": 79,  "approx": true},
-  {"id": "nineteen",         "t": 82,  "approx": true},
-  {"id": "halfway-crooks",   "t": 112, "approx": true},
+  {"id": "stuck-realness",   "t": 30,  "approx": false},
+  {"id": "warfare",          "t": 36,  "approx": true},
+  {"id": "profile-pose",     "t": 41,  "approx": false},
+  {"id": "shook-crews",      "t": 50,  "approx": true},
+  {"id": "featherweight",    "t": 79,  "approx": false},
+  {"id": "nineteen",         "t": 82,  "approx": false},
+  {"id": "foundation",       "t": 94,  "approx": true},
+  {"id": "next-rhyme",       "t": 102, "approx": true},
+  {"id": "halfway-crooks",   "t": 112, "approx": false},
+  {"id": "shook-one",        "t": 120, "approx": true},
   {"id": "twenty-five",      "t": 140, "approx": true},
-  {"id": "thirteen-years",   "t": 158, "approx": true},
-  {"id": "deserve-live",     "t": 168, "approx": true}
+  {"id": "gats",             "t": 143, "approx": true},
+  {"id": "incarceration",    "t": 146, "approx": true},
+  {"id": "pack-heat",        "t": 155, "approx": true},
+  {"id": "dome",             "t": 158, "approx": true},
+  {"id": "projects",         "t": 160, "approx": true},
+  {"id": "deserve-live",     "t": 165, "approx": true},
+  {"id": "dwell-front",      "t": 169, "approx": true},
+  {"id": "live-illegal",     "t": 185, "approx": true}
 ]

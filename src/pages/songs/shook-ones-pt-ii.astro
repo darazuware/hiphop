@@ -8,8 +8,6 @@ import SongLayout from '../../layouts/SongLayout.astro';
 import tsData from '../../../agent/shook-ones-pt-ii/assets/units-timestamps.json';
 const YT = "yoYZf-lBF_U";
 const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.approx }]));
-const seek = (id) => `https://www.youtube.com/watch?v=${YT}&t=${Math.floor(TS[id].t)}s`;
-const mmss = (id) => `${Math.floor(TS[id].t / 60)}:${String(Math.floor(TS[id].t % 60)).padStart(2, "0")}`;
 ---
 
 <SongLayout
@@ -46,7 +44,7 @@ const mmss = (id) => `${Math.floor(TS[id].t / 60)}:${String(Math.floor(TS[id].t 
       <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
       <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
         <li><a href="#story" class="hover:text-[var(--c-gold)] transition-colors">01 — ストーリーの流れ（まず曲全体をつかむ）</a></li>
-        <li><a href="#units" class="hover:text-[var(--c-gold)] transition-colors">02 — 学ぶ表現（Verse 1 / Chorus / Verse 2 を順に精読）</a></li>
+        <li><a href="#units" class="hover:text-[var(--c-gold)] transition-colors">02 — 学ぶ表現（スラング・韻・言葉遊び・AAVE）</a></li>
         <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">03 — 文化的背景</a></li>
         <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">04 — 評価とその後の影響</a></li>
       </ol>
@@ -102,74 +100,297 @@ const mmss = (id) => `${Math.floor(TS[id].t / 60)}:${String(Math.floor(TS[id].t 
       下は<strong>別ページのコラム</strong>。Queensbridgeの歴史と時代を頭に入れてから読むと、リリックの重みがもう一段上がります。
     </RelatedColumnTeaser>
 
-    <!-- 学習ユニット群（verse単位の注釈ストリップ） -->
+    <!-- 学習ユニット群 -->
     <div id="units"></div>
     <section class="mb-12">
       <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2 border-b border-[var(--c-border)] pb-2">
-        学ぶ表現 — Verse 1 / Chorus / Verse 2 を順に精読
+        学ぶ表現 — スラング・韻・言葉遊び・AAVE
       </h2>
       <p class="text-xs text-[var(--c-dim)] mb-6">
-        ここからはバース単位で、主要なラインを<strong class="text-[var(--c-muted)]">曲の流れ通りに</strong>並べて精読します。まず各ブロックの英語を音で追ってから下の解説へ——そうしないと意味だけ覚えてリズムが入ってこない。英語中の<span class="border-b border-[var(--c-gold)]">下線つきの語</span>はタップでスラング解説、各ブロック見出しの▶は公式PVの該当箇所への頭出しリンク（秒数は概算）。解説文中の▶リンクで、バース内の細かい頭出しもできます。
+        各ユニットは「Shook Ones Pt. IIで学べる英語表現」を一つずつ取り出して解説しています。曲の流れ通り（Verse 1 → Chorus → Verse 2）に並んでいるので、上から順に追えば曲全体もつかめる。まず上の英語行を音で追ってから下の解説へ——そうしないと意味だけ覚えてリズムが入ってこない。マイクアイコンはそのリリックを歌うMC、▶は公式PVの該当箇所への頭出しリンク（≈は概算）。
       </p>
 
       <!-- ===== Verse 1 — Prodigy ===== -->
+      <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-3 mt-2">Verse 1 — Prodigy</p>
+
+      <!-- 01 stuck off the realness / infamous / official -->
       <LearningUnit
-        heading="Verse 1 — Prodigyが口火を切る"
-        label="★ 名刺がわりの導入から最大の告白まで"
+        heading="stuck off the realness / Infamous — 名刺がわりの一発"
+        label="★ スラング／ブランディング"
         mc="Prodigy（Verse 1）"
         t={TS["stuck-realness"].t} tApprox={TS["stuck-realness"].approx} youtubeId={YT}
         embed=""
       >
-        <Fragment slot="eng">I got you <QuickSlang word="stuck off" desc="圧倒的な本物感で相手をフリーズさせること。stuck on（夢中）の変形で、offが「衝撃で思考停止する」ニュアンスを加える。realness＝本物性はヒップホップの根幹的価値観" /> the realness, we be the <QuickSlang word="Infamous" desc="悪名高い（notoriously evil）。Mobb Deepの自己定義語であり1995年の代表作アルバム『The Infamous』の名前の由来。自分たちを誇らしげに「悪名高き者たち」と名乗るセンス" /><br />You heard of us, <QuickSlang word="official" desc="「公式の・正規の」という権威の語を殺し屋に冠する逆説。Queensbridge公認の殺し屋、と不敵かつユーモラスに自称してみせる" /> Queensbridge murderers<br />The Mobb comes <QuickSlang word="equipped for warfare" desc="戦争向けに完全装備した、の意。軍隊・抗争の語彙で臨戦態勢を示す常套句で、クルーの結束と暴力性を同時に提示する" />, beware<br />Of my <QuickSlang word="crime family" desc="犯罪一家。マフィア用語をクルー（Mobb Deep一派）に当てた呼称で、血縁にも似た結束と組織的な暴力性を匂わせる" /> who got 'nough shots to share<br />For all of those who wanna <QuickSlang word="profile" desc="実態以上に格好よく見せようとすること。racial profilingとは別義。実力なしの外見取り繕いがこの曲で最も軽蔑される行為のひとつ" /> and <QuickSlang word="pose" desc="見栄を張ってポーズを決めること。profileとセットで「中身のない外見だけの虚勢」を指し、p音の頭韻でリズムも作る" /><br />Rock you in your face, stab your brain with your nose bone<br />Every man for they self in this land we be gunnin'<br />And keep them <QuickSlang word="shook" desc="ビビっている、怖気づいた状態。ここでは shook crews＝怯えたクルー。shake（揺れる）の過去分詞が形容詞化したAAVE用法" /> crews runnin', like they supposed to<br />Your crew is <QuickSlang word="featherweight" desc="ボクシング最軽量級（〜126lb）から転じて「弱小・取るに足りない」の意。heavyweightが「大物」の比喩になるのと対照的" />, my gunshots'll make you <QuickSlang word="levitate" desc="空中に浮く。銃弾で体が浮く残忍な描写を詩的な一語に変換。直前のfeatherweight（軽い）と「軽さ」で意味と韻を繋ぐ言葉遊び" /><br />I'm only nineteen, but my mind is older<br />When the things <QuickSlang word="get for real" desc="事態が本物になる、洒落では済まない局面が来る、の口語表現。things get realの変形で、争いや危険が現実になる瞬間を指す" />, my <QuickSlang word="warm heart turns cold" desc="温かい心が冷える＝生き延びるために感情を遮断する比喩。本来の温かさがある前提だからこそ、その喪失の痛みが伝わる" /><br />Another nigga deceased, another story gets told<br />Meanwhile back in Queens the <QuickSlang word="realness" desc="本物性。ヒップホップ最重要の価値基準で、嘘やfront（虚勢）の対極にある。realでないことは最大の不名誉" /> and <QuickSlang word="foundation" desc="土台・基盤。ここではQueensbridgeで培った揺るがぬ拠り所・原点を指し、自分が何者かを支える根のことを言う" /><br />If I die, I couldn't choose a better location<br />Take these words home and think it through<br />Or the next rhyme I write might be about you</Fragment>
-        <Fragment slot="jpn">俺のリアルさにお前を釘付けにした、俺たちが悪名高きものだ／聞いたことあるだろ、公式Queensbridgeの殺し屋たちを／Mobbは戦争装備で来る、用心しろ／たっぷり弾を持つ俺の犯罪一家を／格好だけつけてポーズをとりたい奴ら全員に／顔面を砕き、鼻骨で脳を刺す／この地では各自が己のため、俺たちは撃つ／怯えたクルーを走らせ続ける、そうあるべきように／お前のクルーは最軽量級、俺の銃声で浮かせてやる／俺はまだ19歳、でも精神は老いている／本物の事態になれば、温かい心が冷える／また一人死に、また物語が語られる／一方クイーンズには本物さと土台がある／もし死ぬなら、これ以上の場所は選べない／この言葉を持ち帰ってよく考えろ／さもなきゃ次に書くライムはお前のことかもな</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ バース冒頭から頭出し。流れ通りに読みながら、気になる語をタップ。</p>
-        <p>冒頭の2行はMobb Deepの名刺がわりだ。<strong class="text-[var(--c-text)]">stuck off the realness</strong>（圧倒的な本物感でフリーズさせる）→ <strong class="text-[var(--c-text)]">Infamous</strong>（悪名高き者たち＝アルバム名そのもの）→ <strong class="text-[var(--c-text)]">official Queensbridge murderers</strong>。"official"（公式の）を殺し屋に付ける逆説的な肩書きに、彼らのユーモアと矜持が同居している。続く「equipped for warfare」「crime family」という軍隊・マフィアの語彙で、クルーが臨戦態勢にあることを宣言する。</p>
-        <p>中盤、矛先が偽者へ向かう。<a href={seek("profile-pose")} target="_blank" rel="noopener" class="text-[var(--c-orange)] font-mono">▶ ≈{mmss("profile-pose")}</a> <strong class="text-[var(--c-text)]">profile and pose</strong>——「実力もないのに外見だけ整えて虚勢を張る」連中だ。この曲が「shook one」と並んで最も嫌うのがこのタイプで、直後の暴力描写（nose bone うんぬん）は意図的にグロテスクに振り切れている。そして「keep them <strong class="text-[var(--c-text)]">shook</strong> crews runnin'」——怯えたクルーを蹴散らす、と。</p>
-        <p>バース後半は仕掛けの宝庫だ。<a href={seek("featherweight")} target="_blank" rel="noopener" class="text-[var(--c-orange)] font-mono">▶ ≈{mmss("featherweight")}</a> 「Your crew is <strong class="text-[var(--c-text)]">featherweight</strong>, my gunshots'll make you <strong class="text-[var(--c-text)]">levitate</strong>」——ボクシング最軽量級（featherweight＝軽い）と「浮く（levitate）」を「軽さ」でつなぎ、内容はボクシングから銃撃へ一気に転換する。音で聴くと、このつなぎがどれだけ気持ちよく決まっているかがわかる。</p>
-        <p>そして<a href={seek("nineteen")} target="_blank" rel="noopener" class="text-[var(--c-orange)] font-mono">▶ ≈{mmss("nineteen")}</a> 曲最大の告白——「I'm only nineteen, but my mind is older / When the things <strong class="text-[var(--c-text)]">get for real</strong>, my <strong class="text-[var(--c-text)]">warm heart turns cold</strong>」。レコーディング当時、Prodigyは実際に19歳だった（1974年生まれ）。強がりでなく年齢という事実をそのまま歌詞に入れ、その直後に「本物の事態になれば温かい心が冷える」と感情のシャットダウンを告白する。個人的にこの2行を意味ごと理解したとき、静かに鳥肌が立ちました。バースは「Meanwhile back in Queens the <strong class="text-[var(--c-text)]">realness</strong> and <strong class="text-[var(--c-text)]">foundation</strong>」で原点へ立ち返り、「次のライムはお前のことかも」と聴き手を巻き込んで閉じる。</p>
+        <Fragment slot="eng">I got you <QuickSlang word="stuck off" desc="圧倒的な本物感で相手をフリーズさせること。stuck on（夢中）の変形で、offが「衝撃で思考停止する」ニュアンスを加える。realness＝本物性はヒップホップの根幹的価値観" /> the realness, we be the <QuickSlang word="Infamous" desc="悪名高い（notoriously evil）。Mobb Deepの自己定義語であり1995年の代表作アルバム『The Infamous』の名前の由来。自分たちを誇らしげに「悪名高き者たち」と名乗るセンス" /><br />You heard of us, <QuickSlang word="official" desc="「公式の・正規の」という権威の語を殺し屋に冠する逆説。Queensbridge公認の殺し屋、と不敵かつユーモラスに自称してみせる" /> Queensbridge murderers</Fragment>
+        <Fragment slot="jpn">俺のリアルさにお前を釘付けにした、俺たちが悪名高きものだ／聞いたことあるだろ、公式Queensbridgeの殺し屋たちを</Fragment>
+        <p>曲の口火を切る2行は、そのままMobb Deepの自己紹介になっている。<strong class="text-[var(--c-text)]">stuck off the realness</strong>＝圧倒的な本物感で相手をフリーズさせた、続く <strong class="text-[var(--c-text)]">Infamous</strong>（悪名高き者たち）はそのままアルバム名『The Infamous』。そして「<strong class="text-[var(--c-text)]">official</strong> Queensbridge murderers」——"official"（公式の）を殺し屋に付ける逆説的な肩書きに、彼らのユーモアと矜持が同時に出ている。</p>
         <Fragment slot="usage">
-          <p><strong class="text-[var(--c-text)]">stuck off ~</strong> は「〜に圧倒されて止まる、魅了される」という句動詞的表現。<code>stuck on ~</code>（〜に夢中）に近いが、<em>off</em> が入ると「その衝撃で思考停止する」ニュアンスが加わる。</p>
-          <p><strong class="text-[var(--c-text)]">profile</strong>（動詞）＋ <strong class="text-[var(--c-text)]">pose</strong> はセットフレーズ。「実力なしで外見だけ取り繕う」を指し、p音の頭韻が効く。<strong class="text-[var(--c-text)]">featherweight</strong> はボクシングの軽量級から転じた「弱小・取るに足りない」の比喩で、<code>heavyweight</code>（大物・強力）と対になる。</p>
-          <p><code>get for real</code> は <code>things get real</code>（事態が本物になる）の口語変形。<code>when ~ turn cold</code> は感情・態度が硬くなる・感情を消す意で、「warm heart turns cold」は本来の温かさを前提にした対比の妙。</p>
+          <p><strong class="text-[var(--c-text)]">stuck off ~</strong> は「〜に圧倒されて止まる、魅了される」という句動詞的表現。<code>stuck on ~</code>（〜に夢中）に近いが、<em>off</em> が入ると「その衝撃で思考停止する」ニュアンスが加わる。<code>realness</code>（本物性）はヒップホップで何より重要な価値基準。</p>
         </Fragment>
       </LearningUnit>
 
-      <!-- ===== Chorus ===== -->
+      <!-- 02 equipped for warfare / crime family -->
       <LearningUnit
-        heading="Chorus — ain't no such things as halfway crooks"
-        label="★ フック（最重要・曲の核心）"
+        heading="equipped for warfare / crime family — 臨戦態勢のクルー"
+        label="★ 語彙（軍隊・マフィア）"
+        mc="Prodigy（Verse 1）"
+        t={TS["warfare"].t} tApprox={TS["warfare"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">The Mobb comes <QuickSlang word="equipped for warfare" desc="戦争向けに完全装備した、の意。軍隊・抗争の語彙で臨戦態勢を示す常套句で、クルーの結束と暴力性を同時に提示する" />, beware<br />Of my <QuickSlang word="crime family" desc="犯罪一家。マフィア用語をクルー（Mobb Deep一派）に当てた呼称で、血縁にも似た結束と組織的な暴力性を匂わせる" /> who got 'nough shots to share</Fragment>
+        <Fragment slot="jpn">Mobbは戦争装備で来る、用心しろ／たっぷり弾を持つ俺の犯罪一家を</Fragment>
+        <p>名乗りの直後、矛先を相手へ向ける2行。<strong class="text-[var(--c-text)]">equipped for warfare</strong>（戦争装備）と <strong class="text-[var(--c-text)]">crime family</strong>（犯罪一家）という軍隊・マフィアの語彙で、クルーが臨戦態勢にあることと、血縁にも似た結束を同時に宣言する。「'nough shots to share（分けてやるだけの弾はある）」という言い回しの不穏なユーモアも効いている。</p>
+      </LearningUnit>
+
+      <!-- 03 profile and pose -->
+      <LearningUnit
+        heading="profile and pose — 格好だけつけることへの最大の侮蔑"
+        label="★ スラング"
+        mc="Prodigy（Verse 1）"
+        t={TS["profile-pose"].t} tApprox={TS["profile-pose"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">For all of those who wanna <QuickSlang word="profile" desc="実態以上に格好よく見せようとすること。racial profilingとは別義。実力なしの外見取り繕いがこの曲で最も軽蔑される行為のひとつ" /> and <QuickSlang word="pose" desc="見栄を張ってポーズを決めること。profileとセットで「中身のない外見だけの虚勢」を指し、p音の頭韻でリズムも作る" /><br />Rock you in your face, stab your brain with your nose bone</Fragment>
+        <Fragment slot="jpn">格好だけつけてポーズをとりたい奴ら全員に／顔面を砕き、鼻骨で脳を刺す</Fragment>
+        <p>「wanna <strong class="text-[var(--c-text)]">profile</strong> and <strong class="text-[var(--c-text)]">pose</strong>」——この2語が学習ポイント。合わせて「実力もないのに外見だけ整えて虚勢を張る」行為を指す。この曲が「shook one」と並んで最も嫌うのがこのタイプだ。下の行の暴力描写は意図的にグロテスクで、「偽者には容赦しない」を最大強度で言い切る。Prodigyの詩的センスの核心でもある。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">profile</strong>（動詞）はヒップホップ文脈特有で「格好だけつける」。<code>profile and pose</code> はセットフレーズとしてよく使われ、p音の頭韻のリズムが気持ちいい。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- 04 shook crews -->
+      <LearningUnit
+        heading="shook crews — 怯えたクルーを蹴散らす"
+        label="★ スラング（shookの初出）"
+        mc="Prodigy（Verse 1）"
+        t={TS["shook-crews"].t} tApprox={TS["shook-crews"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Every man for they self in this land we be gunnin'<br />And keep them <QuickSlang word="shook" desc="ビビっている、怖気づいた状態。ここでは shook crews＝怯えたクルー。shake（揺れる）の過去分詞が形容詞化したAAVE用法。曲を貫くキーワードの初出" /> crews runnin', like they supposed to</Fragment>
+        <Fragment slot="jpn">この地では各自が己のため、俺たちは撃つ／怯えたクルーを走らせ続ける、そうあるべきように</Fragment>
+        <p>「Every man for they self（各自が己のため）」というQueensbridgeの生存原理を示してから、曲のキーワード <strong class="text-[var(--c-text)]">shook</strong> が初めて出てくる。<em>shook crews</em>＝怯えて逃げ回るクルー。「like they supposed to（そうあるべきように）」と付け足すことで、弱者が逃げるのは当然だという冷たい確信が滲む。コーラスで爆発する "shook" の伏線になっている。</p>
+      </LearningUnit>
+
+      <!-- 05 featherweight / levitate -->
+      <LearningUnit
+        heading="featherweight / levitate — ボクシングの比喩とダークな言葉遊び"
+        label="★ 言葉遊び"
+        mc="Prodigy（Verse 1）"
+        t={TS["featherweight"].t} tApprox={TS["featherweight"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Your crew is <QuickSlang word="featherweight" desc="ボクシング最軽量級（〜126lb）から転じて「弱小・取るに足りない」の意。heavyweightが「大物」の比喩になるのと対照的" />, my gunshots'll make you <QuickSlang word="levitate" desc="空中に浮く。銃弾で体が浮く残忍な描写を詩的な一語に変換。直前のfeatherweight（軽い）と「軽さ」で意味と韻を繋ぐ言葉遊び" /></Fragment>
+        <Fragment slot="jpn">お前のクルーは最軽量級、俺の銃声でお前を浮かせてやる</Fragment>
+        <p>一行に二つの仕掛けがある。<strong class="text-[var(--c-text)]">featherweight</strong>（ボクシング最軽量級＝弱い）と <strong class="text-[var(--c-text)]">levitate</strong>（浮く）が「軽さ」で繋がり、内容はボクシングから銃撃へ一気に転換する。弾が当たって体が飛ぶ残忍な描写を「浮く」という詩的な動詞で表現する——音で聴くと、このつなぎがどれだけ気持ちよく決まっているかがわかる。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">featherweight</strong> は転義で「弱小・取るに足りない」。<code>heavyweight</code>（重量級＝大物・強力）と対照的に使われる。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- 06 I'm only nineteen / warm heart turns cold -->
+      <LearningUnit
+        heading="I'm only nineteen, but my mind is older — 最も引用された告白"
+        label="★ 最重要パンチライン"
+        mc="Prodigy（Verse 1）"
+        t={TS["nineteen"].t} tApprox={TS["nineteen"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">I'm only nineteen, but my mind is older<br />When the things <QuickSlang word="get for real" desc="事態が本物になる、洒落では済まない局面が来る、の口語表現。things get realの変形で、争いや危険が現実になる瞬間を指す" />, my <QuickSlang word="warm heart turns cold" desc="温かい心が冷える＝生き延びるために感情を遮断する比喩。本来の温かさがある前提だからこそ、その喪失の痛みが伝わる" /></Fragment>
+        <Fragment slot="jpn">俺はまだ19歳、でも精神は老いている／本物の事態になれば、温かい心が冷える</Fragment>
+        <p>ヒップホップ史上最も引用されてきた一行のひとつ。レコーディング時、Prodigyは実際に19歳だった（1974年生まれ）。強がりでなく年齢という事実をそのまま歌詞に入れ、直後に「本物の事態になれば温かい心が冷える」と感情のシャットダウンを告白する。プロジェクト育ちの少年がどんな経験でその精神に至ったかを、たった2行で語り切っている。個人的にこの行を意味ごと理解したとき、静かに鳥肌が立ちました。</p>
+        <Fragment slot="usage">
+          <p><code>get for real</code> は <code>things get real</code>（事態が本物になる）の口語変形。<code>when ~ turn cold</code> は感情・態度が硬くなる意で、「warm heart turns cold」は本来の温かさを前提にした対比の妙。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- 07 realness / foundation -->
+      <LearningUnit
+        heading="the realness and foundation — クイーンズという原点"
+        label="★ 概念語"
+        mc="Prodigy（Verse 1）"
+        t={TS["foundation"].t} tApprox={TS["foundation"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Meanwhile back in Queens the <QuickSlang word="realness" desc="本物性。ヒップホップ最重要の価値基準で、嘘やfront（虚勢）の対極にある。realでないことは最大の不名誉" /> and <QuickSlang word="foundation" desc="土台・基盤。ここではQueensbridgeで培った揺るがぬ拠り所・原点を指し、自分が何者かを支える根のことを言う" /><br />If I die, I couldn't choose a better location</Fragment>
+        <Fragment slot="jpn">一方クイーンズには本物さと土台がある／もし死ぬなら、これ以上の場所は選べない</Fragment>
+        <p>暴力的な宣告の合間に、原点へ立ち返る2行。<strong class="text-[var(--c-text)]">realness</strong>（本物性）と <strong class="text-[var(--c-text)]">foundation</strong>（土台）は、Queensbridgeで培った揺るがぬ拠り所のことだ。「もしここで死ぬなら、これ以上の場所は選べない」——故郷への帰属を、死に場所として肯定するという独特の重さがある。</p>
+      </LearningUnit>
+
+      <!-- 08 next rhyme might be about you -->
+      <LearningUnit
+        heading="the next rhyme I write might be about you — 聴き手を巻き込む結び"
+        label="★ レトリック"
+        mc="Prodigy（Verse 1）"
+        t={TS["next-rhyme"].t} tApprox={TS["next-rhyme"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Take these words home and think it through<br />Or the next rhyme I write might be about you</Fragment>
+        <Fragment slot="jpn">この言葉を持ち帰ってよく考えろ／さもなきゃ次に書くライムはお前のことかもな</Fragment>
+        <p>バースの締めは、聴き手への直接の警告だ。「この言葉を持ち帰って考えろ、さもなきゃ次のライムはお前のことだ」——ラップそのものを脅迫の道具に変える、メタ的な一手。MCにとって「曲の題材にされる＝倒される」と同義で、ペン一本が銃と等価になる世界観がここに凝縮されている。</p>
+      </LearningUnit>
+
+      <!-- ===== Chorus ===== -->
+      <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-3 mt-8">Chorus</p>
+
+      <!-- 09 halfway crooks / shook -->
+      <LearningUnit
+        heading="ain't no such things as halfway crooks — 中途半端を否定する哲学"
+        label="★ フック（最重要）"
         mc="Prodigy & Havoc（Chorus）"
         t={TS["halfway-crooks"].t} tApprox={TS["halfway-crooks"].approx} youtubeId={YT}
         embed=""
       >
-        <Fragment slot="eng">Son, they <QuickSlang word="shook" desc="shake（揺れる）の過去分詞が形容詞化。ビビって震えている状態を指す。be動詞省略のAAVEで「they shook」と使う。ストリート最大の侮辱語のひとつ" /><br />'Cause <QuickSlang word="ain't no" desc="AAVEの二重否定。標準英語のthere's no such thingを否定の重ねがけで強調し「絶対に存在しない」という断言の強度を増幅する定番構文" /> such things as <QuickSlang word="halfway crooks" desc="中途半端なクリミナル。「本物の悪人か、まったく足を踏み入れないか」の二択しかなく、中間の偽者は最大の軽蔑対象。この曲の核心的哲学" /><br />Scared to death and scared to look, they shook<br />He ain't a <QuickSlang word="crook" desc="犯罪者・ワル。本物のcrookかどうかが問われる文脈で、ビビり（shook one）と鋭く対比される。「奴は本物のワルじゃない」と切り捨てる語" />, son<br />He's just a <QuickSlang word="shook one" desc="ビビり野郎。shookの名詞化で、曲タイトルそのもの。「奴はcrookじゃない、ただのshook oneだ」と最終的に格付けを下す決め台詞" /></Fragment>
-        <Fragment slot="jpn">なあ、奴らはビビってる／中途半端なクリミナルなんて存在しないから／死ぬほど怖くて目も向けられない、奴らはビビってる／奴は本物のワルじゃない／ただのビビり野郎さ</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ コーラスから頭出し。二行に曲全体の哲学が詰まっている。</p>
-        <p>曲全体の核心がここにある。<strong class="text-[var(--c-text)]">halfway crooks</strong>——「クリミナルとして完全に生きるか、まったく手を出さないかのどちらかしかない。中間はない」というのがMobb Deepの宣言だ。<em>halfway crook</em>（中途半端な悪人）は最も軽蔑される存在で、それは臆病（cowardice）と同義。そして <strong class="text-[var(--c-text)]">shook</strong>——ビビって動けない状態。ストリートで「shook」と言われることは、最大の侮辱のひとつだ。</p>
-        <p>最後の「He ain't a <strong class="text-[var(--c-text)]">crook</strong>, son / He's just a <strong class="text-[var(--c-text)]">shook one</strong>」は、相手への最終的な格付けだ。「あいつは本物のワル（crook）ですらない、ただのビビり（shook one）だ」——本物か偽者かの二択を、ここで一人の人間に当てはめて言い切っている。曲タイトルの "shook ones" がそのまま侮辱語として落とされる瞬間です。</p>
+        <Fragment slot="eng">Son, they <QuickSlang word="shook" desc="shake（揺れる）の過去分詞が形容詞化。ビビって震えている状態を指す。be動詞省略のAAVEで「they shook」と使う。ストリート最大の侮辱語のひとつ" /><br />'Cause <QuickSlang word="ain't no" desc="AAVEの二重否定。標準英語のthere's no such thingを否定の重ねがけで強調し「絶対に存在しない」という断言の強度を増幅する定番構文" /> such things as <QuickSlang word="halfway crooks" desc="中途半端なクリミナル。「本物の悪人か、まったく足を踏み入れないか」の二択しかなく、中間の偽者は最大の軽蔑対象。この曲の核心的哲学" /><br />Scared to death and scared to look, they shook</Fragment>
+        <Fragment slot="jpn">なあ、奴らはビビってる／中途半端なクリミナルなんて存在しないから／死ぬほど怖くて目も向けられない、奴らはビビってる</Fragment>
+        <p>曲全体の核心。<strong class="text-[var(--c-text)]">halfway crooks</strong>——「クリミナルとして完全に生きるか、まったく手を出さないかのどちらかしかない。中間はない」というのがMobb Deepの宣言だ。中途半端な悪人は最も軽蔑される存在で、それは臆病（cowardice）と同義。そして <strong class="text-[var(--c-text)]">shook</strong>——ビビって動けない状態。ストリートで「shook」と言われることは、最大の侮辱のひとつだ。</p>
         <Fragment slot="usage">
-          <p><strong class="text-[var(--c-text)]">shook</strong> は動詞 <em>shake</em>（揺れる）の過去分詞が形容詞化したもの。「震えあがっている＝ビビっている」の意で、述語形容詞として <code>they shook</code>（be動詞省略のAAVE構文）で使う。名詞化した <em>shook one(s)</em> は「ビビりな奴ら」。「I'm not shook」と言えば「俺はビビってない」。</p>
-          <p>二重否定の <code>ain't no such thing</code> はAAVEの定番構文。標準英語ではひとつの否定（there's no such thing）で済むが、否定を重ねることで強調する。「中途半端な悪人なんて絶対に存在しない」という断言の強度が、二重否定によって増幅されている。</p>
+          <p><strong class="text-[var(--c-text)]">shook</strong> は動詞 <em>shake</em> の過去分詞が形容詞化したもの。述語形容詞として <code>they shook</code>（be動詞省略のAAVE構文）で使う。名詞化した <em>shook one(s)</em> は「ビビりな奴ら」。</p>
+          <p>二重否定の <code>ain't no such thing</code> はAAVEの定番。標準英語なら否定ひとつ（there's no such thing）で済むが、否定を重ねて「絶対に存在しない」という断言の強度を増幅している。</p>
         </Fragment>
       </LearningUnit>
 
-      <!-- ===== Verse 2 — Havoc ===== -->
+      <!-- 10 he's just a shook one -->
       <LearningUnit
-        heading="Verse 2 — Havocの冷徹と内省"
-        label="★ 実務的な視点と珍しい脆さ"
+        heading="He's just a shook one — 最終的な格付け"
+        label="★ タイトルの着地"
+        mc="Prodigy & Havoc（Chorus）"
+        t={TS["shook-one"].t} tApprox={TS["shook-one"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">He ain't a <QuickSlang word="crook" desc="犯罪者・ワル。本物のcrookかどうかが問われる文脈で、ビビり（shook one）と鋭く対比される。「奴は本物のワルじゃない」と切り捨てる語" />, son<br />He's just a <QuickSlang word="shook one" desc="ビビり野郎。shookの名詞化で、曲タイトルそのもの。「奴はcrookじゃない、ただのshook oneだ」と最終的に格付けを下す決め台詞" /></Fragment>
+        <Fragment slot="jpn">奴は本物のワルじゃない／ただのビビり野郎さ</Fragment>
+        <p>「He ain't a <strong class="text-[var(--c-text)]">crook</strong>, son / He's just a <strong class="text-[var(--c-text)]">shook one</strong>」は、相手への最終的な格付けだ。「あいつは本物のワル（crook）ですらない、ただのビビり（shook one）だ」——本物か偽者かの二択を一人の人間に当てはめて言い切る。曲タイトルの "shook ones" がそのまま侮辱語として落とされる瞬間です。</p>
+      </LearningUnit>
+
+      <!-- ===== Verse 2 — Havoc ===== -->
+      <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-3 mt-8">Verse 2 — Havoc</p>
+
+      <!-- 11 twenty-five to life -->
+      <LearningUnit
+        heading="twenty-five to life — ライムに与える重み"
+        label="★ 法律スラング"
         mc="Havoc（Verse 2）"
         t={TS["twenty-five"].t} tApprox={TS["twenty-five"].approx} youtubeId={YT}
         embed=""
       >
-        <Fragment slot="eng">For every rhyme I write, it's <QuickSlang word="twenty-five to life" desc="NY州重罪の量刑区分。仮釈放まで最低25年服役する終身刑を意味する。「ライムひとつが命がけの証言」という比喩でHavocの音楽への覚悟を一語で表す" /><br />Yo, it's a must, in <QuickSlang word="gats" desc="銃を指すスラング。ガトリングガン（Gatling gun）から派生したとされる。単数gat、複数gats。90年代NYハードコアで頻出する語彙" /> we trust, <QuickSlang word="safeguardin'" desc="safeguard（守る）の進行形。命を守るために、の意。「In God We Trust」のパロディに続けて、神でなく銃に身を委ねる自衛の論理を示す" /> my life<br />Ain't no time for hesitation, that only leads to <QuickSlang word="incarceration" desc="投獄・収監。hesitation（ためらい）と脚韻を踏みつつ「迷えば刑務所行き」という冷徹な因果を示す。Havocの実務的な語り口の典型" /><br />Queensbridge and we don't play<br />Claimin' that you <QuickSlang word="pack heat" desc="銃を携帯する。heat＝銃のスラング。「銃を持つと言うくせに構える度胸はない」と相手の臆病（scared to hold）を暴く" />, but you're scared to hold<br />And once the smoke clears, you'll be left with one in your <QuickSlang word="dome" desc="頭部を指すスラング。「丸天井＝ドーム」に見立てた隠語。one in the dome（頭に一発）の形で暴力的文脈に使う" /><br />Thirteen years in the <QuickSlang word="projects" desc="公営住宅（housing projects）の略。ここではNY最大規模のQueensbridge Projectsを指す。NasもHavocも同じ団地育ちで、クラック禍の暴力の中心地だった" />—my <QuickSlang word="mentality" desc="メンタリティ・精神性。13年の公営住宅暮らしが形作った精神を「What, kid?!」と挑発的に問い返し、答えるまでもないと突きつける" /> is "What, kid?!"<br />You talk a good one, but you don't want it<br />Sometimes I wonder, do I deserve to live?<br />And am I gonna <QuickSlang word="burn in Hell" desc="地獄で焼かれる。自らの所業への因果応報を問う宗教的な内省で、ハードコアの文脈では異質な脆さ。だからこそ強く印象に残る" /> for all the things I did?<br />No time to <QuickSlang word="dwell on" desc="～をくよくよ考え続ける、引きずる。don't dwell on itの形で頻出。ここでは内省に浸る時間的余裕すらない極限状態を示す" /> that, 'cause my brain reacts<br /><QuickSlang word="Front" desc="偽者のふりをする、強がりを見せること。frontin'の形でも使う。profile and poseと並ぶ軽蔑行為で、frontする者はshook oneと同様に「本物でない」と見なされる" /> if you want, <QuickSlang word="kid" desc="NY特有の二人称呼びかけ語。son同様に相手を軽く見下す/親密に呼ぶ両義を持ち、Queensbridge周辺のMCが多用する" />, <QuickSlang word="lay on your back" desc="仰向けに倒れる＝やられる・死ぬの婉曲表現。frontするなら倒すぞ、という宣告。暴力の結果を直接言わずに示す" /><br />'Cause long as I'm alive, I'ma <QuickSlang word="live illegal" desc="非合法に生きる。生きている限り違法な生き方を貫くという開き直りの宣言で、選択肢のない環境への諦観と覚悟が同居する" /><br />And once I get on, I'ma <QuickSlang word="put on" desc="仲間を引き上げる・成功させてやること。get on（成り上がる）と対で「自分が上がれば仲間皆を上げる」という結束を示す" /> all my peoples</Fragment>
-        <Fragment slot="jpn">俺が書くライムのひとつひとつが終身刑25年分／銃を信じる、命を守るために、それは必須だ／ためらう暇はない、迷えば収監されるだけ／Queensbridge、俺たちは遊びじゃない／銃を持つと言うが、お前は構える度胸もない／煙が晴れたとき、お前の頭に一発残る／プロジェクトで13年——俺のメンタリティは「何だって？」だ／口だけは達者だが、本気でやる気はない／時々思う、俺は生きる資格があるのか？／やってきたことすべてのために地獄で燃えるのか？／それを引きずる暇はない、脳が反応するから／強がってみろ、倒れることになる／生きている限り、俺は非合法に生きる／成り上がったら、仲間みんなを引き上げる</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2冒頭から頭出し。Prodigyとは対照的な冷徹さに注目。</p>
-        <p>Havocの入りは実務的だ。「For every rhyme I write, it's <strong class="text-[var(--c-text)]">twenty-five to life</strong>」——NY州の「最低25年の終身刑」を持ち出し、ライムを書くたびに命懸けの証言をしている、と音楽への重みを一語で示す。続く「in <strong class="text-[var(--c-text)]">gats</strong> we trust, <strong class="text-[var(--c-text)]">safeguardin'</strong> my life」は米国の国家モットー「In God We Trust（神を信じる）」のパロディ。<em>God</em> を <em>gats</em>（銃）に替えるだけで、神の代わりに銃に命を預けるQueensbridge流の信仰告白になる。「hesitation → <strong class="text-[var(--c-text)]">incarceration</strong>」の脚韻で「迷えば刑務所行き」という冷徹な因果まで畳みかける。</p>
-        <p>中盤は相手の臆病を暴く。「Claimin' that you <strong class="text-[var(--c-text)]">pack heat</strong>, but you're scared to hold」——銃を持つと言うくせに構える度胸はない、と。<a href={seek("thirteen-years")} target="_blank" rel="noopener" class="text-[var(--c-orange)] font-mono">▶ ≈{mmss("thirteen-years")}</a> そして「Thirteen years in the <strong class="text-[var(--c-text)]">projects</strong>—my <strong class="text-[var(--c-text)]">mentality</strong> is 'What, kid?!'」。Havocは実際にこの公営住宅で13年間育った。自分の出自を「13年」という数字でそのまま出してくる率直さが、この行の迫力だ。</p>
-        <p><a href={seek("deserve-live")} target="_blank" rel="noopener" class="text-[var(--c-orange)] font-mono">▶ ≈{mmss("deserve-live")}</a> ここでHavocの複雑さが一番よく出る。「do I deserve to live? / am I gonna <strong class="text-[var(--c-text)]">burn in Hell</strong> for all the things I did?」——「俺は生きる資格があるのか、地獄に落ちるのか」という自己批判的な問いは、ハードコアの文脈では異質な脆さで、だからこそ刺さる。しかし「No time to <strong class="text-[var(--c-text)]">dwell on</strong> that」で即座に切り捨てる。省察にひたる暇はない、という論理で内省から攻撃へ0秒で切り替わる。「<strong class="text-[var(--c-text)]">Front</strong> if you want, <strong class="text-[var(--c-text)]">kid</strong>, <strong class="text-[var(--c-text)]">lay on your back</strong>」——強がるなら倒れることになる、と。最後は「<strong class="text-[var(--c-text)]">live illegal</strong>」「<strong class="text-[var(--c-text)]">put on</strong> all my peoples」、非合法に生きる覚悟と仲間を引き上げる結束で締める。脆さを瞬時に武器へ変えてしまう、これがHavocらしさです。</p>
+        <Fragment slot="eng">For every rhyme I write, it's <QuickSlang word="twenty-five to life" desc="NY州重罪の量刑区分。仮釈放まで最低25年服役する終身刑を意味する。「ライムひとつが命がけの証言」という比喩でHavocの音楽への覚悟を一語で表す" /></Fragment>
+        <Fragment slot="jpn">俺が書くライムのひとつひとつが終身刑25年分</Fragment>
+        <p>Havocの入りは実務的だ。<strong class="text-[var(--c-text)]">twenty-five to life</strong>——NY州の「最低25年の終身刑」という量刑の正式名称を持ち出し、「ライムを書くたびに命懸けの証言をしている」と音楽への重みを一語で示す。Prodigyの感情的な告白とは対照的な、冷静で計量的な語り口の宣言だ。</p>
+      </LearningUnit>
+
+      <!-- 12 in gats we trust -->
+      <LearningUnit
+        heading="in gats we trust — 国家モットーのパロディ"
+        label="★ 言葉遊び（パロディ）"
+        mc="Havoc（Verse 2）"
+        t={TS["gats"].t} tApprox={TS["gats"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Yo, it's a must, in <QuickSlang word="gats" desc="銃を指すスラング。ガトリングガン（Gatling gun）から派生したとされる。単数gat、複数gats。90年代NYハードコアで頻出する語彙" /> we trust, <QuickSlang word="safeguardin'" desc="safeguard（守る）の進行形。命を守るために、の意。神でなく銃に身を委ねる自衛の論理を示す" /> my life</Fragment>
+        <Fragment slot="jpn">銃を信じる、命を守るために、それは必須だ</Fragment>
+        <p><strong class="text-[var(--c-text)]">in gats we trust</strong>——米国の国家モットー「In God We Trust（神を信じる）」のパロディ。<em>God</em> を <em>gats</em>（銃）に替えるだけで、神の代わりに銃に命を預けるQueensbridge流の信仰告白になる。これ、かなりキてる一行だと思います。<strong class="text-[var(--c-text)]">safeguardin'（守る）</strong> と続けて、その「信仰」が生存のための自衛だと理屈づける。</p>
         <Fragment slot="usage">
-          <p><strong class="text-[var(--c-text)]">gats</strong> は銃を指すスラング（ガトリングガン由来とされる）。<code>In ___ we trust</code> は「In God We Trust」をテンプレに使ったパロディ構文で、米ドル紙幣のモットーを改変して「信仰対象は国家の神ではなく武器だ」という皮肉を成立させる。<strong class="text-[var(--c-text)]">pack heat</strong> の <em>heat</em> も銃のスラング。</p>
-          <p><strong class="text-[var(--c-text)]">dwell on ~</strong> は「〜をくよくよ考え続ける、いつまでも引きずる」。<em>don't dwell on it</em> の形でよく使う。<strong class="text-[var(--c-text)]">front</strong> は「偽者のふりをする、強がる」で、<em>frontin'</em> の形も頻出。<code>lay on your back</code>（倒れる・死ぬ）は暴力の結果を示す婉曲表現。<strong class="text-[var(--c-text)]">kid</strong> / <em>son</em> はNY特有の二人称呼びかけ語で、見下しと親密さの両義を持つ。</p>
+          <p><strong class="text-[var(--c-text)]">gats</strong> は銃のスラング（ガトリングガン由来とされる）。<code>In ___ we trust</code> は米ドル紙幣のモットーをテンプレに使ったパロディ構文で、「信仰対象は国家の神ではなく武器だ」という皮肉を成立させる。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- 13 hesitation / incarceration -->
+      <LearningUnit
+        heading="hesitation leads to incarceration — 脚韻で示す因果"
+        label="★ 韻（脚韻）"
+        mc="Havoc（Verse 2）"
+        t={TS["incarceration"].t} tApprox={TS["incarceration"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Ain't no time for hesitation, that only leads to <QuickSlang word="incarceration" desc="投獄・収監。hesitation（ためらい）と脚韻を踏みつつ「迷えば刑務所行き」という冷徹な因果を示す。Havocの実務的な語り口の典型" /></Fragment>
+        <Fragment slot="jpn">ためらう暇はない、迷えば収監されるだけ</Fragment>
+        <p><strong class="text-[var(--c-text)]">hesitation</strong>（ためらい）→ <strong class="text-[var(--c-text)]">incarceration</strong>（収監）という長い母音の脚韻で、「迷えば刑務所行き」という冷徹な因果を畳みかける。多音節の堅い名詞を韻に使うのはHavocの十八番で、内容の重さと音の心地よさが両立している。</p>
+      </LearningUnit>
+
+      <!-- 14 pack heat -->
+      <LearningUnit
+        heading="pack heat, but scared to hold — 臆病を暴く"
+        label="★ スラング（heat=銃）"
+        mc="Havoc（Verse 2）"
+        t={TS["pack-heat"].t} tApprox={TS["pack-heat"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Claimin' that you <QuickSlang word="pack heat" desc="銃を携帯する。heat＝銃のスラング。「銃を持つと言うくせに構える度胸はない」と相手の臆病（scared to hold）を暴く" />, but you're scared to hold</Fragment>
+        <Fragment slot="jpn">銃を持つと言うが、お前は構える度胸もない</Fragment>
+        <p><strong class="text-[var(--c-text)]">pack heat</strong>＝銃を携帯する（<em>heat</em> が銃のスラング）。「銃を持っていると言い張るくせに、いざ構える度胸はない」——相手の虚勢を一行で暴く。これはVerse 1の「profile and pose」と同じ構図で、ProdigyとHavocが共有する「中身のない奴を見抜く」という視線がここにも貫かれている。</p>
+      </LearningUnit>
+
+      <!-- 15 one in your dome -->
+      <LearningUnit
+        heading="one in your dome — 頭部のスラング"
+        label="★ スラング（身体）"
+        mc="Havoc（Verse 2）"
+        t={TS["dome"].t} tApprox={TS["dome"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">And once the smoke clears, you'll be left with one in your <QuickSlang word="dome" desc="頭部を指すスラング。「丸天井＝ドーム」に見立てた隠語。one in the dome（頭に一発）の形で暴力的文脈に使う。日常語から転じた身体部位スラングの典型" /></Fragment>
+        <Fragment slot="jpn">煙が晴れたとき、お前の頭に一発残る</Fragment>
+        <p><strong class="text-[var(--c-text)]">dome</strong>（頭）——「one in your dome」は頭部への銃弾一発。日常語の「丸天井・ドーム」から派生した隠語で、頭部を建築的なドームに見立てる。「煙が晴れたら〜が残る」という時間差の描写が、暴力をかえって淡々と冷たく見せている。</p>
+      </LearningUnit>
+
+      <!-- 16 thirteen years in the projects / mentality -->
+      <LearningUnit
+        heading="thirteen years in the projects — Havocの自伝"
+        label="★ 背景／概念語"
+        mc="Havoc（Verse 2）"
+        t={TS["projects"].t} tApprox={TS["projects"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Thirteen years in the <QuickSlang word="projects" desc="公営住宅（housing projects）の略。ここではNY最大規模のQueensbridge Projectsを指す。NasもHavocも同じ団地育ちで、クラック禍の暴力の中心地だった" />—my <QuickSlang word="mentality" desc="メンタリティ・精神性。13年の公営住宅暮らしが形作った精神を「What, kid?!」と挑発的に問い返し、答えるまでもないと突きつける" /> is "What, kid?!"</Fragment>
+        <Fragment slot="jpn">プロジェクトで13年——俺のメンタリティは「何だって？」だ</Fragment>
+        <p><strong class="text-[var(--c-text)]">projects</strong>＝公営住宅（housing projects）の略で、ここではQueensbridge Projectsを指す。Havocは実際にこの団地で13年間育った。自分の出自を「13年」という数字でそのまま出してくる率直さが、この行の迫力だ。「my <strong class="text-[var(--c-text)]">mentality</strong> is 'What, kid?!'」——そのメンタリティが、答えるまでもなく伝わってくる構造になっている。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">projects</strong> は <em>housing projects</em>（公営住宅団地）の略。NY最大の公営住宅群がQueensbridge Projectsで、Nasも同じ団地で育っている。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- 17 do I deserve to live / burn in Hell -->
+      <LearningUnit
+        heading="do I deserve to live? — ハードコアに珍しい内省"
+        label="★ 内省"
+        mc="Havoc（Verse 2）"
+        t={TS["deserve-live"].t} tApprox={TS["deserve-live"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Sometimes I wonder, do I deserve to live?<br />And am I gonna <QuickSlang word="burn in Hell" desc="地獄で焼かれる。自らの所業への因果応報を問う宗教的な内省で、ハードコアの文脈では異質な脆さ。だからこそ強く印象に残る" /> for all the things I did?</Fragment>
+        <Fragment slot="jpn">時々思う、俺は生きる資格があるのか？／やってきたことすべてのために地獄で燃えるのか？</Fragment>
+        <p>ここでHavocの複雑さが一番よく出る。「俺は生きる資格があるのか、<strong class="text-[var(--c-text)]">地獄で燃える（burn in Hell）</strong>のか」——自己批判的で宗教的なこの問いは、ハードコアの文脈では異質な脆さだ。だからこそ刺さる。攻撃一辺倒でないこの一瞬の揺らぎが、彼の人間像に奥行きを与えている。</p>
+      </LearningUnit>
+
+      <!-- 18 no time to dwell / front / lay on your back -->
+      <LearningUnit
+        heading="No time to dwell — 内省から攻撃への即時回収"
+        label="★ スラング／反転"
+        mc="Havoc（Verse 2）"
+        t={TS["dwell-front"].t} tApprox={TS["dwell-front"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">No time to <QuickSlang word="dwell on" desc="～をくよくよ考え続ける、引きずる。don't dwell on itの形で頻出。ここでは内省に浸る時間的余裕すらない極限状態を示す" /> that, 'cause my brain reacts<br /><QuickSlang word="Front" desc="偽者のふりをする、強がりを見せること。frontin'の形でも使う。profile and poseと並ぶ軽蔑行為で、frontする者はshook oneと同様に「本物でない」と見なされる" /> if you want, <QuickSlang word="kid" desc="NY特有の二人称呼びかけ語。son同様に相手を軽く見下す/親密に呼ぶ両義を持ち、Queensbridge周辺のMCが多用する" />, <QuickSlang word="lay on your back" desc="仰向けに倒れる＝やられる・死ぬの婉曲表現。frontするなら倒すぞ、という宣告。暴力の結果を直接言わずに示す" /></Fragment>
+        <Fragment slot="jpn">それを引きずる暇はない、脳が反応するから／強がってみろ、倒れることになる</Fragment>
+        <p>直前の内省を「No time to <strong class="text-[var(--c-text)]">dwell on</strong> that（引きずる暇はない）」で即座に切り捨てる。省察にひたる余裕はない、という論理で内省から攻撃へ0秒で切り替わる。「<strong class="text-[var(--c-text)]">Front</strong> if you want, <strong class="text-[var(--c-text)]">kid</strong>, <strong class="text-[var(--c-text)]">lay on your back</strong>」——強がるなら倒れることになる、と。脆さを瞬時に武器へ変えてしまう、これがHavocらしさです。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">dwell on ~</strong> は「〜をくよくよ考え続ける、引きずる」。<em>don't dwell on it</em> の形でよく使う。<strong class="text-[var(--c-text)]">front</strong> は「偽者のふりをする、強がる」で <em>frontin'</em> の形も頻出。<code>lay on your back</code>（倒れる・死ぬ）は暴力の結果を示す婉曲表現。<strong class="text-[var(--c-text)]">kid</strong> / <em>son</em> はNY特有の二人称呼びかけ語。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- 19 live illegal / put on -->
+      <LearningUnit
+        heading="I'ma live illegal / put on all my peoples — 覚悟と結束で締める"
+        label="★ スラング（締め）"
+        mc="Havoc（Verse 2）"
+        t={TS["live-illegal"].t} tApprox={TS["live-illegal"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">'Cause long as I'm alive, I'ma <QuickSlang word="live illegal" desc="非合法に生きる。生きている限り違法な生き方を貫くという開き直りの宣言で、選択肢のない環境への諦観と覚悟が同居する" /><br />And once I get on, I'ma <QuickSlang word="put on" desc="仲間を引き上げる・成功させてやること。get on（成り上がる）と対で「自分が上がれば仲間皆を上げる」という結束を示す" /> all my peoples</Fragment>
+        <Fragment slot="jpn">生きている限り、俺は非合法に生きる／成り上がったら、仲間みんなを引き上げる</Fragment>
+        <p>バースの締めは、覚悟と結束の2行だ。「<strong class="text-[var(--c-text)]">live illegal</strong>（非合法に生きる）」という開き直りには、選択肢のない環境への諦観と覚悟が同居する。だが最後は「once I get on, I'ma <strong class="text-[var(--c-text)]">put on</strong> all my peoples（成り上がったら仲間皆を引き上げる）」——自分だけでなくクルー全体の浮上を誓って終わる。個人の暴力性が、最後に共同体への忠誠で着地するのが効いている。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">get on</strong> は「成り上がる、軌道に乗る」。<strong class="text-[var(--c-text)]">put on ~</strong> は「〜を引き上げる、成功の機会を与える」で、ヒップホップでは先に成功した者が地元の仲間を業界に引き入れる文脈で頻出する。</p>
         </Fragment>
       </LearningUnit>
 
@@ -216,6 +437,7 @@ const mmss = (id) => `${Math.floor(TS[id].t / 60)}:${String(Math.floor(TS[id].t 
             ['projects', '公営住宅（housing projects）の略。Queensbridge Projectsを指す'],
             ['front', '偽者を演じる、強がりを見せること'],
             ['dwell on', '〜をくよくよ引きずる。内省にひたる'],
+            ['put on', '成り上がって仲間を引き上げる'],
           ].map(([term, desc]) => (
             <div class="flex gap-3 text-sm">
               <span class="text-[var(--c-orange)] shrink-0 font-semibold min-w-[180px]">{term}</span>
