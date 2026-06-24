@@ -1,5 +1,6 @@
 ---
 import LearningUnit from '../../components/LearningUnit.astro';
+import DiveCards from '../../components/DiveCards.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
 import SongLayout from '../../layouts/SongLayout.astro';
 
@@ -354,5 +355,18 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <li>Lou FerrignoもZenith TVも、知っているか知らないかで情景の解像度が全く違う——文化の辞書を厚くすることがリリック読解の近道だと思います。</li>
       </ul>
     </section>
+
+    <DiveCards
+      cards={[
+        {
+          href: "/columns/wu-tang-clan",
+          icon: "WU",
+          kicker: "アーティスト論",
+          title: "Wu-Tang Clanとは何者か",
+          desc: "Raekwonが「Pardon the French, let me speak Italian」と宣言した背景——スタテン島9人組の思想とビジネスを解剖する。",
+          hint: "WU",
+        },
+      ]}
+    />
 
 </SongLayout>

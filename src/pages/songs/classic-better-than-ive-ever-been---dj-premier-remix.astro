@@ -1,5 +1,6 @@
 ---
 import LearningUnit from '../../components/LearningUnit.astro';
+import DiveCards from '../../components/DiveCards.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
 import SongLayout from '../../layouts/SongLayout.astro';
 
@@ -362,5 +363,18 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <li>KRS-Oneの「emceein' vs rap」論は2007年の商業キャンペーンの場で鳴らされた反商業主義の一撃で、この曲のいちばん面白い矛盾だと思う。</li>
       </ul>
     </section>
+
+    <DiveCards
+      cards={[
+        {
+          href: "/columns/dj-premier-sampling",
+          icon: "PRE",
+          kicker: "制作深掘り",
+          title: "DJ Premierのサンプリング哲学",
+          desc: "Carl Douglas「Dance the Kung-Fu」をどう料理したか——Premierが70〜80年代のレコードを現代のリリックに接続する方法論を解剖する。",
+          hint: "PRE",
+        },
+      ]}
+    />
 
 </SongLayout>

@@ -1,5 +1,6 @@
 ---
 import LearningUnit from '../../components/LearningUnit.astro';
+import DiveCards from '../../components/DiveCards.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
 import SongLayout from '../../layouts/SongLayout.astro';
 
@@ -378,5 +379,18 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <li>AAVEの習慣のbe（I be coolin'）、bones to pickのイディオム遊び、Good Vibrationsの引用など、文法・言葉遊び・レファレンスも一通り押さえられる。</li>
       </ul>
     </section>
+
+    <DiveCards
+      cards={[
+        {
+          href: "/columns/ny-golden-era-1994",
+          icon: "94",
+          kicker: "時代解説",
+          title: "1994年——NY黄金期の頂点",
+          desc: "「93 'Til Infinity」が出た翌年、Nas・Big・Wu-Tangが一斉に名盤を放っていた。西海岸のチルと東海岸の緊張感が交差した時代の全景。",
+          hint: "94",
+        },
+      ]}
+    />
 
 </SongLayout>

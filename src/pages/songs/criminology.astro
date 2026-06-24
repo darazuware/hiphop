@@ -1,5 +1,6 @@
 ---
 import LearningUnit from '../../components/LearningUnit.astro';
+import DiveCards from '../../components/DiveCards.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
 import SongLayout from '../../layouts/SongLayout.astro';
 
@@ -333,5 +334,18 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <li>RZAのソウル・サンプル＋映画『スカーフェイス』のセリフ。甘さと危うさの同居がマフィオソ・ラップの肝。</li>
       </ul>
     </section>
+
+    <DiveCards
+      cards={[
+        {
+          href: "/columns/wu-tang-clan",
+          icon: "WU",
+          kicker: "アーティスト論",
+          title: "Wu-Tang Clanとは何者か",
+          desc: "RZAのビジョン、Five-Percentの思想、スタテン島から世界を変えた9人の全貌。Criminologyが生まれた磁場を知る。",
+          hint: "WU",
+        },
+      ]}
+    />
 
 </SongLayout>
