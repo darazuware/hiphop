@@ -1,0 +1,151 @@
+---
+// 関連コラムへの付箋（post-it）風テザー。learning型曲ページで units 前に置く想定。
+// リンク先は実在コラムのみ（デッドリンク厳禁・column-split-rules.md 準拠）。
+interface Card {
+  href: string;
+  kicker: string;
+  title: string;
+  desc: string;
+  time: string;
+}
+interface Props {
+  eyebrow: string;
+  cards: Card[];
+}
+const { eyebrow, cards } = Astro.props;
+---
+
+<div class="relctn mb-12">
+  <p class="relctn-eyebrow">{eyebrow}</p>
+  <p class="relctn-lead"><slot /></p>
+  <div class="relctn-grid">
+    {cards.map((c) => (
+      <a href={c.href} class="pit">
+        <span class="pit-tape" aria-hidden="true"></span>
+        <span class="pit-kicker">{c.kicker}</span>
+        <span class="pit-title">{c.title}</span>
+        <span class="pit-desc">{c.desc}</span>
+        <span class="pit-foot"><span class="pit-time">{c.time}</span><span class="pit-go">コラムを読む →</span></span>
+      </a>
+    ))}
+  </div>
+</div>
+
+<style>
+  .relctn-eyebrow {
+    color: var(--c-orange);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+  .relctn-lead {
+    color: var(--c-muted);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 1.1rem;
+  }
+  .relctn-lead :global(strong) {
+    color: var(--c-text);
+    border-bottom: 2px solid var(--c-orange);
+    padding-bottom: 1px;
+  }
+  .relctn-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px 18px;
+    padding: 4px 2px 10px;
+  }
+  .pit {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    padding: 22px 20px 18px;
+    text-decoration: none;
+    color: var(--c-text);
+    background: var(--c-surface);
+    border: 1px solid var(--c-border);
+    border-top: 4px solid var(--c-orange);
+    box-shadow: 4px 7px 16px rgba(0, 0, 0, 0.38);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+  .pit:nth-child(odd) { transform: rotate(-1.1deg); }
+  .pit:nth-child(even) { transform: rotate(1deg); }
+  .pit:hover {
+    transform: rotate(0deg) translateY(-4px);
+    box-shadow: 5px 12px 24px rgba(0, 0, 0, 0.5);
+    border-color: var(--c-orange);
+  }
+  /* 上部のマスキングテープ */
+  .pit-tape {
+    position: absolute;
+    top: -11px;
+    left: 50%;
+    width: 78px;
+    height: 22px;
+    transform: translateX(-50%) rotate(-2.5deg);
+    background: var(--c-orange);
+    opacity: 0.85;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  }
+  .pit-tape::before,
+  .pit-tape::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 6px;
+    background: repeating-linear-gradient(-45deg, rgba(0,0,0,0.18) 0 3px, transparent 3px 6px);
+  }
+  .pit-tape::before { left: 0; }
+  .pit-tape::after { right: 0; }
+  .pit-kicker {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--c-orange);
+    margin-top: 6px;
+  }
+  .pit-title {
+    font-size: 1.12rem;
+    font-weight: 800;
+    line-height: 1.45;
+    color: var(--c-text);
+  }
+  .pit:hover .pit-title { color: var(--c-orange); }
+  .pit-desc {
+    font-size: 0.92rem;
+    line-height: 1.75;
+    color: var(--c-muted);
+    flex: 1;
+  }
+  .pit-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 6px;
+    padding-top: 10px;
+    border-top: 1px dashed var(--c-border);
+  }
+  .pit-time {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.82rem;
+    color: var(--c-dim);
+  }
+  .pit-go {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--c-orange);
+    white-space: nowrap;
+  }
+  @media (max-width: 580px) {
+    .relctn-grid { grid-template-columns: 1fr; gap: 26px; }
+    .pit:nth-child(odd),
+    .pit:nth-child(even) { transform: rotate(0deg); }
+  }
+</style>
