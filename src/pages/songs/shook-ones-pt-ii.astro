@@ -27,16 +27,32 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
     <!-- 導入 -->
     <section class="mb-6">
       <h2 class="text-base font-semibold mb-2">■この曲で何を学べるか</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">
-        「shook one（ビビりな奴）」と「halfway crook（中途半端なクリミナル）」への完全否定——Queensbridge最貧困地区で育った<strong class="text-[var(--c-text)]">ProdigyとHavoc</strong>、このふたりがMobb Deepとして1995年に放った一撃です。装飾ゼロ、自慢ゼロ。あるのは生き延びることの重さと、「本物か偽者か」を二択に圧縮した哲学だけ。個人的にNYハードコアの中でいちばん好きな一曲です。この記事は英語学習とヒップホップ理解の教材として読んでもらえれば。リリックには、辞書に載らないストリートスラング、AAVE（アフリカ系アメリカ人英語）の文法、そして「in gats we trust」みたいな既成フレーズのパロディが詰まっています。それを「学ぶ表現」単位で取り出して、用例の断片・和訳・語法と文化背景を解説していきたいと思います。
-      </p>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          「shook one（ビビりな奴）」と「halfway crook（中途半端なクリミナル）」への完全否定——Queensbridge最貧困地区で育った<strong class="text-[var(--c-text)]">ProdigyとHavoc</strong>、このふたりがMobb Deepとして1995年に放った一撃です。
+        </p>
+        <p>
+          装飾ゼロ、自慢ゼロ。あるのは生き延びることの重さと、「本物か偽者か」を二択に圧縮した哲学だけ。個人的にNYハードコアの中でいちばん好きな一曲です。
+        </p>
+        <p>
+          この記事は英語学習とヒップホップ理解の教材として読んでもらえれば。リリックには、辞書に載らないストリートスラング、AAVE（アフリカ系アメリカ人英語）の文法、そして「in gats we trust」みたいな既成フレーズのパロディが詰まっています。それを「学ぶ表現」単位で取り出して、用例の断片・和訳・語法と文化背景を解説していきたいと思います。
+        </p>
+      </div>
     </section>
 
     <section class="mb-6">
       <h2 class="text-base font-semibold mb-2">■なぜShook Ones Pt. IIが教材として優れるか</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">
-        理由はいくつかあって、まず<strong class="text-[var(--c-text)]">言葉の密度がとにかく高い</strong>。「shook」一語がストリートの価値観をまるごと運び、「halfway crooks」二語で哲学的命題になってしまう。この言語的な経済性が尋常じゃない。それから、ProdigyとHavocという全く異なる個性を持つふたりのMCが同じビートで対比されているのも面白いです。Prodigy（Verse 1）は感情的な告白とハードな宣告を交互に繰り出し、Havoc（Verse 2）は冷静で実務的——「自分は死ぬ資格があるのか」と問いかけながら即座に攻撃的に立て直す二面性が見事です。ビートはHavoc自身のプロデュース。長年サンプル元が不明だったピアノループは、Herbie Hancockの「Jessica」（1969年）だったとのちに判明しています。長い謎解きにもなかなか味がある（笑）。
-      </p>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          理由はいくつかあって、まず<strong class="text-[var(--c-text)]">言葉の密度がとにかく高い</strong>。「shook」一語がストリートの価値観をまるごと運び、「halfway crooks」二語で哲学的命題になってしまう。この言語的な経済性が尋常じゃない。
+        </p>
+        <p>
+          それから、ProdigyとHavocという全く異なる個性を持つふたりのMCが同じビートで対比されているのも面白いです。Prodigy（Verse 1）は感情的な告白とハードな宣告を交互に繰り出し、Havoc（Verse 2）は冷静で実務的——「自分は死ぬ資格があるのか」と問いかけながら即座に攻撃的に立て直す二面性が見事です。
+        </p>
+        <p>
+          ビートはHavoc自身のプロデュース。長年サンプル元が不明だったピアノループは、Herbie Hancockの「Jessica」（1969年）だったとのちに判明しています。長い謎解きにもなかなか味がある（笑）。
+        </p>
+      </div>
     </section>
 
     <!-- 目次 -->
@@ -123,7 +139,8 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       >
         <Fragment slot="eng">Yeah, to all the killers and a <QuickSlang word="hundred dollar billers" desc="百ドル札を束で動かす者＝ドラッグ等で大金を稼ぐストリートの実力者。killersと並べて「本物の聴衆」を名指しする。billはここで動詞的に金を回す意" /></Fragment>
         <Fragment slot="jpn">そうだ、すべての殺し屋と、百ドル札を動かす連中へ</Fragment>
-        <p>曲はいきなり聴衆を選ぶ宣言から始まる。「killers（殺し屋）」と「<strong class="text-[var(--c-text)]">hundred dollar billers</strong>（大金を回す者）」——この曲はそういう「本物」のための音楽だ、という線引きだ。エンタメとして広く届けるのでなく、特定の生活を生きる人間に向けて鳴らす、という最初の合図になっている。</p>
+        <p>曲はいきなり聴衆を選ぶ宣言から始まる。「killers（殺し屋）」と「<strong class="text-[var(--c-text)]">hundred dollar billers</strong>（大金を回す者）」——この曲はそういう「本物」のための音楽だ、という線引きだ。</p>
+        <p>エンタメとして広く届けるのでなく、特定の生活を生きる人間に向けて鳴らす。その最初の合図になっている。</p>
       </LearningUnit>
 
       <!-- ===== Verse 1 — Prodigy ===== -->
@@ -139,7 +156,8 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       >
         <Fragment slot="eng">I got you <QuickSlang word="stuck off" desc="圧倒的な本物感で相手をフリーズさせること。stuck on（夢中）の変形で、offが「衝撃で思考停止する」ニュアンスを加える。realness＝本物性はヒップホップの根幹的価値観" /> the realness, we be the <QuickSlang word="Infamous" desc="悪名高い（notoriously evil）。Mobb Deepの自己定義語であり1995年の代表作アルバム『The Infamous』の名前の由来。自分たちを誇らしげに「悪名高き者たち」と名乗るセンス" /><br />You heard of us, <QuickSlang word="official" desc="「公式の・正規の」という権威の語を殺し屋に冠する逆説。Queensbridge公認の殺し屋、と不敵かつユーモラスに自称してみせる" /> Queensbridge murderers</Fragment>
         <Fragment slot="jpn">俺のリアルさにお前を釘付けにした、俺たちが悪名高きものだ／聞いたことあるだろ、公式Queensbridgeの殺し屋たちを</Fragment>
-        <p>曲の口火を切る2行は、そのままMobb Deepの自己紹介になっている。<strong class="text-[var(--c-text)]">stuck off the realness</strong>＝圧倒的な本物感で相手をフリーズさせた、続く <strong class="text-[var(--c-text)]">Infamous</strong>（悪名高き者たち）はそのままアルバム名『The Infamous』。そして「<strong class="text-[var(--c-text)]">official</strong> Queensbridge murderers」——"official"（公式の）を殺し屋に付ける逆説的な肩書きに、彼らのユーモアと矜持が同時に出ている。</p>
+        <p>曲の口火を切る2行は、そのままMobb Deepの自己紹介になっている。<strong class="text-[var(--c-text)]">stuck off the realness</strong>＝圧倒的な本物感で相手をフリーズさせた、続く <strong class="text-[var(--c-text)]">Infamous</strong>（悪名高き者たち）はそのままアルバム名『The Infamous』。</p>
+        <p>そして「<strong class="text-[var(--c-text)]">official</strong> Queensbridge murderers」——"official"（公式の）を殺し屋に付ける逆説的な肩書きに、彼らのユーモアと矜持が同時に出ている。</p>
         <Fragment slot="usage">
           <p><strong class="text-[var(--c-text)]">stuck off ~</strong> は「〜に圧倒されて止まる、魅了される」という句動詞的表現。<code>stuck on ~</code>（〜に夢中）に近いが、<em>off</em> が入ると「その衝撃で思考停止する」ニュアンスが加わる。<code>realness</code>（本物性）はヒップホップで何より重要な価値基準。</p>
         </Fragment>
@@ -155,7 +173,8 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       >
         <Fragment slot="eng">The Mobb comes <QuickSlang word="equipped for warfare" desc="戦争向けに完全装備した、の意。軍隊・抗争の語彙で臨戦態勢を示す常套句で、クルーの結束と暴力性を同時に提示する" />, beware<br />Of my <QuickSlang word="crime family" desc="犯罪一家。マフィア用語をクルー（Mobb Deep一派）に当てた呼称で、血縁にも似た結束と組織的な暴力性を匂わせる" /> who got 'nough shots to share</Fragment>
         <Fragment slot="jpn">Mobbは戦争装備で来る、用心しろ／たっぷり弾を持つ俺の犯罪一家を</Fragment>
-        <p>名乗りの直後、矛先を相手へ向ける2行。<strong class="text-[var(--c-text)]">equipped for warfare</strong>（戦争装備）と <strong class="text-[var(--c-text)]">crime family</strong>（犯罪一家）という軍隊・マフィアの語彙で、クルーが臨戦態勢にあることと、血縁にも似た結束を同時に宣言する。「'nough shots to share（分けてやるだけの弾はある）」という言い回しの不穏なユーモアも効いている。</p>
+        <p>名乗りの直後、矛先を相手へ向ける2行。<strong class="text-[var(--c-text)]">equipped for warfare</strong>（戦争装備）と <strong class="text-[var(--c-text)]">crime family</strong>（犯罪一家）という軍隊・マフィアの語彙で、クルーが臨戦態勢にあることと、血縁にも似た結束を同時に宣言する。</p>
+        <p>「'nough shots to share（分けてやるだけの弾はある）」という言い回しの不穏なユーモアも効いている。</p>
       </LearningUnit>
 
       <!-- 03 profile and pose -->
@@ -168,7 +187,8 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       >
         <Fragment slot="eng">For all of those who wanna <QuickSlang word="profile" desc="実態以上に格好よく見せようとすること。racial profilingとは別義。実力なしの外見取り繕いがこの曲で最も軽蔑される行為のひとつ" /> and <QuickSlang word="pose" desc="見栄を張ってポーズを決めること。profileとセットで「中身のない外見だけの虚勢」を指し、p音の頭韻でリズムも作る" /><br />Rock you in your face, stab your brain with your nose bone</Fragment>
         <Fragment slot="jpn">格好だけつけてポーズをとりたい奴ら全員に／顔面を砕き、鼻骨で脳を刺す</Fragment>
-        <p>「wanna <strong class="text-[var(--c-text)]">profile</strong> and <strong class="text-[var(--c-text)]">pose</strong>」——この2語が学習ポイント。合わせて「実力もないのに外見だけ整えて虚勢を張る」行為を指す。この曲が「shook one」と並んでいちばん嫌うのが、このタイプなんですよね。下の行の暴力描写はわざとグロテスクに振ってあって、「偽者には容赦しない」を最大音量で言い切ってる。こういう言葉選びのえげつなさが、Prodigyの真骨頂だと思います。</p>
+        <p>「wanna <strong class="text-[var(--c-text)]">profile</strong> and <strong class="text-[var(--c-text)]">pose</strong>」——この2語が学習ポイント。合わせて「実力もないのに外見だけ整えて虚勢を張る」行為を指す。この曲が「shook one」と並んでいちばん嫌うのが、このタイプなんですよね。</p>
+        <p>下の行の暴力描写はわざとグロテスクに振ってあって、「偽者には容赦しない」を最大音量で言い切ってる。こういう言葉選びのえげつなさが、Prodigyの真骨頂だと思います。</p>
         <Fragment slot="usage">
           <p><strong class="text-[var(--c-text)]">profile</strong>（動詞）はヒップホップ文脈特有で「格好だけつける」。<code>profile and pose</code> はセットフレーズとしてよく使われ、p音の頭韻のリズムが気持ちいい。</p>
         </Fragment>
@@ -184,7 +204,8 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       >
         <Fragment slot="eng">Every man for they self in this land we be gunnin'<br />And keep them <QuickSlang word="shook" desc="ビビって動けない、怖気づいた状態を指す形容詞。動詞 shake（震える・揺れる）の過去分詞 shaken が口語で shook に縮まり、そのまま形容詞化したAAVE用法。標準英語の I'm shaken（動揺している）に近いが、ストリートでは「恐怖で固まって何もできない＝最高にダサい」という侮蔑のニュアンスが乗る。ここでは shook crews＝怯えたクルーで、曲を貫くキーワードの初出" /> crews runnin', like they supposed to</Fragment>
         <Fragment slot="jpn">この地では各自が己のため、俺たちは撃つ／怯えたクルーを走らせ続ける、そうあるべきように</Fragment>
-        <p>「Every man for they self（各自が己のため）」というQueensbridgeの生存原理を示してから、曲のキーワード <strong class="text-[var(--c-text)]">shook</strong> が初めて出てくる。<em>shook crews</em>＝怯えて逃げ回るクルー。「like they supposed to（そうあるべきように）」と付け足すことで、弱者が逃げるのは当然だという冷たい確信が滲む。コーラスで爆発する "shook" の伏線になっている。</p>
+        <p>「Every man for they self（各自が己のため）」というQueensbridgeの生存原理を示してから、曲のキーワード <strong class="text-[var(--c-text)]">shook</strong> が初めて出てくる。<em>shook crews</em>＝怯えて逃げ回るクルー。</p>
+        <p>「like they supposed to（そうあるべきように）」と付け足すことで、弱者が逃げるのは当然だという冷たい確信が滲む。コーラスで爆発する "shook" の伏線になっている。</p>
       </LearningUnit>
 
       <!-- 04b laced up with bullet holes -->
@@ -197,7 +218,8 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       >
         <Fragment slot="eng">Cowards like you just get they whole body <QuickSlang word="laced up" desc="本来は「靴ひもを結ぶ・着飾る・薬物を盛る」の意。ここでは体が銃弾の穴だらけにされることを、装飾するかのように皮肉って言う暴力の婉曲表現" /><br />With bullet holes and such</Fragment>
         <Fragment slot="jpn">お前みたいな臆病者は全身を「飾り立てられる」／弾の穴だらけにな</Fragment>
-        <p><strong class="text-[var(--c-text)]">laced up</strong>——本来は「靴ひもを結ぶ／着飾る」、あるいは「（飲み物などに）薬物を盛る」の意。それを「体を弾で穴だらけにする」描写に転用して、まるで装飾するかのように皮肉る。次の行「With bullet holes（弾の穴で）」で種明かしする組み立てで、暴力をあえて上品な言葉で包む冷たいユーモアが効いている。</p>
+        <p><strong class="text-[var(--c-text)]">laced up</strong>——本来は「靴ひもを結ぶ／着飾る」、あるいは「（飲み物などに）薬物を盛る」の意。それを「体を弾で穴だらけにする」描写に転用して、まるで装飾するかのように皮肉る。</p>
+        <p>次の行「With bullet holes（弾の穴で）」で種明かしする組み立てで、暴力をあえて上品な言葉で包む冷たいユーモアが効いている。</p>
       </LearningUnit>
 
       <!-- 04c minor / major / player -->
@@ -223,7 +245,8 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       >
         <Fragment slot="eng">Your crew is <QuickSlang word="featherweight" desc="ボクシング最軽量級（〜126lb）から転じて「弱小・取るに足りない」の意。heavyweightが「大物」の比喩になるのと対照的" />, my gunshots'll make you <QuickSlang word="levitate" desc="空中に浮く。銃弾で体が浮く残忍な描写を詩的な一語に変換。直前のfeatherweight（軽い）と「軽さ」で意味と韻を繋ぐ言葉遊び" /></Fragment>
         <Fragment slot="jpn">お前のクルーは最軽量級、俺の銃声でお前を浮かせてやる</Fragment>
-        <p>一行に二つの仕掛けがある。<strong class="text-[var(--c-text)]">featherweight</strong>（ボクシング最軽量級＝弱い）と <strong class="text-[var(--c-text)]">levitate</strong>（浮く）が「軽さ」で繋がり、内容はボクシングから銃撃へ一気に転換する。弾が当たって体が飛ぶ残忍な描写を「浮く」という詩的な動詞で表現する——音で聴くと、このつなぎがどれだけ気持ちよく決まっているかがわかる。</p>
+        <p>一行に二つの仕掛けがある。<strong class="text-[var(--c-text)]">featherweight</strong>（ボクシング最軽量級＝弱い）と <strong class="text-[var(--c-text)]">levitate</strong>（浮く）が「軽さ」で繋がり、内容はボクシングから銃撃へ一気に転換する。</p>
+        <p>弾が当たって体が飛ぶ残忍な描写を「浮く」という詩的な動詞で表現する——音で聴くと、このつなぎがどれだけ気持ちよく決まっているかがわかる。</p>
         <Fragment slot="usage">
           <p><strong class="text-[var(--c-text)]">featherweight</strong> は転義で「弱小・取るに足りない」。<code>heavyweight</code>（重量級＝大物・強力）と対照的に使われる。</p>
         </Fragment>
@@ -268,7 +291,8 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       >
         <Fragment slot="eng">So I can get my mind off these <QuickSlang word="yellow-backed" desc="臆病な、腰抜けの。英語でyellow＝臆病を表す古い比喩（yellow-belliedと同系）から。shook（ビビり）と並ぶ、この曲の侮蔑語" /> niggas</Fragment>
         <Fragment slot="jpn">こんな腰抜けどもから気を逸らせるように</Fragment>
-        <p><strong class="text-[var(--c-text)]">yellow-backed</strong>＝臆病な、腰抜けの。英語では <em>yellow</em> が「臆病」を表す古い比喩（<em>yellow-bellied</em> と同系統）で、これがこの曲のもう一つの侮蔑語になる。コーラスの「shook」、Verse 1の「coward」と一直線に繋がる——「ビビり＝最低」という価値観を、Prodigyは手を替え品を替え何度も刻んでくる。</p>
+        <p><strong class="text-[var(--c-text)]">yellow-backed</strong>＝臆病な、腰抜けの。英語では <em>yellow</em> が「臆病」を表す古い比喩（<em>yellow-bellied</em> と同系統）で、これがこの曲のもう一つの侮蔑語になる。</p>
+        <p>コーラスの「shook」、Verse 1の「coward」と一直線に繋がる——「ビビり＝最低」という価値観を、Prodigyは手を替え品を替え何度も刻んでくる。</p>
       </LearningUnit>
 
       <!-- 07 realness / foundation -->
@@ -295,7 +319,8 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       >
         <Fragment slot="eng">When the <QuickSlang word="slugs" desc="銃弾・弾丸のスラング。本来は「ナメクジ」「金属の塊」の意で、そこから弾を指す。bullets よりストリート寄りの語感" /> penetrate, you feel a burnin' sensation<br />Gettin' closer to God in a <QuickSlang word="tight situation" desc="切羽詰まった状況・窮地。ここでは命の危機。撃たれて死に近づく＝皮肉にも神に近づく、という宗教的な反転を伴う" /></Fragment>
         <Fragment slot="jpn">弾が貫くと、焼けるような感覚が走る／窮地で、神に近づいていく</Fragment>
-        <p>ここで視点が反転する。撃つ側を散々描いてきた流れで、突然「撃たれる側」の感覚——<strong class="text-[var(--c-text)]">slugs</strong>（弾）が貫く「burnin' sensation（焼けるような感覚）」を描く。そして「<strong class="text-[var(--c-text)]">tight situation</strong>（窮地）で神に近づく」。死に瀕した瞬間に神を意識するという宗教的な反転が、暴力の描写に一瞬だけ深い陰影を落とす。Verse 2のHavocの内省（「地獄で燃えるのか」）とも響き合う一節だ。</p>
+        <p>ここで視点が反転する。撃つ側を散々描いてきた流れで、突然「撃たれる側」の感覚——<strong class="text-[var(--c-text)]">slugs</strong>（弾）が貫く「burnin' sensation（焼けるような感覚）」を描く。</p>
+        <p>そして「<strong class="text-[var(--c-text)]">tight situation</strong>（窮地）で神に近づく」。死に瀕した瞬間に神を意識するという宗教的な反転が、暴力の描写に一瞬だけ深い陰影を落とす。Verse 2のHavocの内省（「地獄で燃えるのか」）とも響き合う一節だ。</p>
       </LearningUnit>
 
       <!-- 08 next rhyme might be about you -->
@@ -405,7 +430,8 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       >
         <Fragment slot="eng">Claimin' that you <QuickSlang word="pack heat" desc="銃を携帯する。heat＝銃のスラング。「銃を持つと言うくせに構える度胸はない」と相手の臆病（scared to hold）を暴く" />, but you're scared to hold</Fragment>
         <Fragment slot="jpn">銃を持つと言うが、お前は構える度胸もない</Fragment>
-        <p><strong class="text-[var(--c-text)]">pack heat</strong>＝銃を携帯する（<em>heat</em> が銃のスラング）。「銃を持っていると言い張るくせに、いざ構える度胸はない」——相手の虚勢を一行で暴く。これはVerse 1の「profile and pose」と同じ構図で、ProdigyとHavocが共有する「中身のない奴を見抜く」という視線がここにも貫かれている。</p>
+        <p><strong class="text-[var(--c-text)]">pack heat</strong>＝銃を携帯する（<em>heat</em> が銃のスラング）。「銃を持っていると言い張るくせに、いざ構える度胸はない」——相手の虚勢を一行で暴く。</p>
+        <p>これはVerse 1の「profile and pose」と同じ構図で、ProdigyとHavocが共有する「中身のない奴を見抜く」という視線がここにも貫かれている。</p>
       </LearningUnit>
 
       <!-- 15 one in your dome -->
@@ -432,7 +458,8 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       >
         <Fragment slot="eng">Thirteen years in the <QuickSlang word="projects" desc="公営住宅（housing projects）の略。ここではNY最大規模のQueensbridge Projectsを指す。NasもHavocも同じ団地育ちで、クラック禍の暴力の中心地だった" />—my <QuickSlang word="mentality" desc="メンタリティ・精神性。13年の公営住宅暮らしが形作った精神を「What, kid?!」と挑発的に問い返し、答えるまでもないと突きつける" /> is "What, kid?!"</Fragment>
         <Fragment slot="jpn">プロジェクトで13年——俺のメンタリティは「何だって？」だ</Fragment>
-        <p><strong class="text-[var(--c-text)]">projects</strong>＝公営住宅（housing projects）の略で、ここではQueensbridge Projectsを指す。Havocは実際にこの団地で13年間育った。自分の出自を「13年」という数字でそのまま出してくる率直さが、この行の迫力だ。「my <strong class="text-[var(--c-text)]">mentality</strong> is 'What, kid?!'」——そのメンタリティが、答えるまでもなく伝わってくる構造になっている。</p>
+        <p><strong class="text-[var(--c-text)]">projects</strong>＝公営住宅（housing projects）の略で、ここではQueensbridge Projectsを指す。Havocは実際にこの団地で13年間育った。自分の出自を「13年」という数字でそのまま出してくる率直さが、この行の迫力だ。</p>
+        <p>「my <strong class="text-[var(--c-text)]">mentality</strong> is 'What, kid?!'」——そのメンタリティが、答えるまでもなく伝わってくる構造になっている。</p>
         <Fragment slot="usage">
           <p><strong class="text-[var(--c-text)]">projects</strong> は <em>housing projects</em>（公営住宅団地）の略。NY最大の公営住宅群がQueensbridge Projectsで、Nasも同じ団地で育っている。</p>
         </Fragment>
@@ -479,7 +506,8 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       >
         <Fragment slot="eng">I don't <QuickSlang word="fake jax" desc="作り話・はったりをかますこと。fake（偽る）＋jacks（話・出来事）で、ありもしないワルな経歴をでっち上げる行為を指すQB周辺のスラング" /></Fragment>
         <Fragment slot="jpn">俺ははったりはかまさない</Fragment>
-        <p><strong class="text-[var(--c-text)]">fake jax</strong>＝作り話・はったりをかますこと。ありもしないワルな経歴や手柄をでっち上げる行為で、Verse 1の「profile and pose」、Havoc自身の「pack heat but scared to hold」と同じ系譜の「偽物」批判だ。「俺はそれをやらない＝全部本物だ」という、realnessの裏返しの宣言になっている。</p>
+        <p><strong class="text-[var(--c-text)]">fake jax</strong>＝作り話・はったりをかますこと。ありもしないワルな経歴や手柄をでっち上げる行為で、Verse 1の「profile and pose」、Havoc自身の「pack heat but scared to hold」と同じ系譜の「偽物」批判だ。</p>
+        <p>「俺はそれをやらない＝全部本物だ」という、realnessの裏返しの宣言になっている。</p>
       </LearningUnit>
 
       <!-- 18c E&J / mind flippin' -->
@@ -492,7 +520,8 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       >
         <Fragment slot="eng">I'm sippin', <QuickSlang word="E&J" desc="E&J Brandy＝カリフォルニアのE&J Gallo社が出す安価なブランデーの銘柄。手の届く値段からストリートの定番酒になり、90年代NYラップの歌詞に何度も登場する。抽象的な「酒」ではなく実在の銘柄を出すことで、生活のリアルさが立ち上がる" /> got my mind <QuickSlang word="flippin'" desc="頭がぐるぐる回る・思考が乱れる・キレる。flip（ひっくり返る）から。酒で意識が反転していく感覚を指す" /></Fragment>
         <Fragment slot="jpn">飲んでる、E&Jで頭が回ってきた</Fragment>
-        <p><strong class="text-[var(--c-text)]">E&J</strong> はE&J Brandy——カリフォルニア産の安価なブランデーで、90年代ヒップホップに頻出する酒の固有名詞だ。それで「mind <strong class="text-[var(--c-text)]">flippin'</strong>（頭が回る・思考が乱れる）」。具体的な銘柄を出すことで、抽象的なワル自慢ではなく「いま実際に飲んでいる生活」のディテールが立ち上がる。こういう固有名詞の使い方も、リアリティの作り方として学べるポイントです。</p>
+        <p><strong class="text-[var(--c-text)]">E&J</strong> はE&J Brandy——カリフォルニア産の安価なブランデーで、90年代ヒップホップに頻出する酒の固有名詞だ。それで「mind <strong class="text-[var(--c-text)]">flippin'</strong>（頭が回る・思考が乱れる）」。</p>
+        <p>具体的な銘柄を出すことで、抽象的なワル自慢ではなく「いま実際に飲んでいる生活」のディテールが立ち上がる。こういう固有名詞の使い方も、リアリティの作り方として学べるポイントです。</p>
       </LearningUnit>
 
       <!-- 19 live illegal / put on -->
@@ -522,7 +551,8 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       >
         <Fragment slot="eng">React quick, spit lyrics like <QuickSlang word="MACs" desc="MAC-10/MAC-11（小型の全自動短機関銃）。連射できる銃で、ライムを「マシンガンのように撃ち出す」と速射性に喩える直喩" />, I hit</Fragment>
         <Fragment slot="jpn">素早く反応する、MACのようにライムを撃ち出す、当てる</Fragment>
-        <p><strong class="text-[var(--c-text)]">MACs</strong>＝MAC-10/MAC-11、連射できる小型の短機関銃のこと。「spit lyrics like MACs（MACのようにライムを撃ち出す）」は、言葉の速射性・連射性を銃に喩える直喩だ。この曲を貫く「ペン＝銃」のメタファーが、ここで最も直接的な形で表れる。<em>spit</em>（吐く＝ラップする）という動詞自体もヒップホップ頻出語として押さえておきたい。</p>
+        <p><strong class="text-[var(--c-text)]">MACs</strong>＝MAC-10/MAC-11、連射できる小型の短機関銃のこと。「spit lyrics like MACs（MACのようにライムを撃ち出す）」は、言葉の速射性・連射性を銃に喩える直喩だ。</p>
+        <p>この曲を貫く「ペン＝銃」のメタファーが、ここで最も直接的な形で表れる。<em>spit</em>（吐く＝ラップする）という動詞自体もヒップホップ頻出語として押さえておきたい。</p>
       </LearningUnit>
 
       <!-- 19c caught sleepin' / creepin' -->
@@ -552,7 +582,8 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       >
         <Fragment slot="eng">Queens get the money<br />The <QuickSlang word="41st side" desc="Queensbridge Projectsを指す地元の通称。団地が41st Avenue沿いにあることから。地名そのものが帰属とアイデンティティの宣言になる" />, <QuickSlang word="keepin' it real" desc="本物であり続ける、嘘をつかない。realnessを動詞句にした、ヒップホップ最重要のスローガン的フレーズ" /></Fragment>
         <Fragment slot="jpn">クイーンズは金を稼ぐ／41番通り側、本物を貫く</Fragment>
-        <p>曲はQueensbridgeコールで閉じる。「Queens get the money」は地元の有名なスローガンで、「<strong class="text-[var(--c-text)]">the 41st side</strong>」はQueensbridge Projectsの通称（団地が41st Avenue沿いにあることから）。そして「<strong class="text-[var(--c-text)]">keepin' it real</strong>（本物を貫く）」——曲の冒頭の "realness" がここで動詞句として回収される。最初から最後まで「本物であること」だけを問い続けた曲の、これ以上ない締めくくりだ。</p>
+        <p>曲はQueensbridgeコールで閉じる。「Queens get the money」は地元の有名なスローガンで、「<strong class="text-[var(--c-text)]">the 41st side</strong>」はQueensbridge Projectsの通称（団地が41st Avenue沿いにあることから）。</p>
+        <p>そして「<strong class="text-[var(--c-text)]">keepin' it real</strong>（本物を貫く）」——曲の冒頭の "realness" がここで動詞句として回収される。最初から最後まで「本物であること」だけを問い続けた曲の、これ以上ない締めくくりだ。</p>
         <Fragment slot="usage">
           <p><strong class="text-[var(--c-text)]">keep it real</strong> は「本物であり続ける、自分に正直でいる」。<code>realness</code> を動詞句にしたヒップホップ最重要スローガンのひとつで、front（虚勢）やfake（偽り）の対極を示す。</p>
         </Fragment>
@@ -569,17 +600,30 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       <div class="mb-6 p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
         <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">Queensbridge Projects</p>
         <h3 class="font-semibold text-base mb-3">アメリカ最大の公営住宅から来た音</h3>
-        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
-          Queensbridge Projectsは、ニューヨーク市クイーンズ地区にある米国最大規模の公営住宅群だ。Mobb Deepのふたり、そして同じ団地育ちのNasを輩出したことで、90年代NYヒップホップを語るうえで避けられない場所になった。クラック・エピデミックが猛威を振るった時代、プロジェクトの内部では暴力・貧困・ドラッグが日常だった。Shook Ones Pt. IIのリリックが「教育」でも「エンタメ」でもなく、生存の記録として聴こえるのはそのせいだと思う。ちなみにHavocは実際に13年間ここで育ち、その経験がVerse 2のあの問いかけ（「俺は生きる資格があるのか」）を生んでいる。背景を知ると、あの行の重みが全然違って聴こえます。
-        </p>
+        <div class="text-[var(--c-muted)] text-sm leading-relaxed space-y-3">
+          <p>
+            Queensbridge Projectsは、ニューヨーク市クイーンズ地区にある米国最大規模の公営住宅群だ。Mobb Deepのふたり、そして同じ団地育ちのNasを輩出したことで、90年代NYヒップホップを語るうえで避けられない場所になった。
+          </p>
+          <p>
+            クラック・エピデミックが猛威を振るった時代、プロジェクトの内部では暴力・貧困・ドラッグが日常だった。Shook Ones Pt. IIのリリックが「教育」でも「エンタメ」でもなく、生存の記録として聴こえるのはそのせいだと思う。
+          </p>
+          <p>
+            ちなみにHavocは実際に13年間ここで育ち、その経験がVerse 2のあの問いかけ（「俺は生きる資格があるのか」）を生んでいる。背景を知ると、あの行の重みが全然違って聴こえます。
+          </p>
+        </div>
       </div>
 
       <div class="mb-6 p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
         <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">ビートの謎とHerbie Hancock</p>
         <h3 class="font-semibold text-base mb-3">長年不明だったサンプル元</h3>
-        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
-          Shook Ones Pt. IIのあのピアノループのサンプル元は、長い間ヒップホップファンの間で「謎」だった。最終的にHerbie Hancockの「Jessica」（1969年のアルバム『Fat Albert Rotunda』収録）だったと判明している。他にもQuincy Jonesや（オーストラリアの）Daly-Wilson Big Bandからのサンプルが使われているが、プロデューサーのHavocがこれをQueensbridge最暗部の空気に変えてしまった手腕は本当にすごい。「素材が何かよりも、どう使うか」というプロデューサーとしての本質がここにある。
-        </p>
+        <div class="text-[var(--c-muted)] text-sm leading-relaxed space-y-3">
+          <p>
+            Shook Ones Pt. IIのあのピアノループのサンプル元は、長い間ヒップホップファンの間で「謎」だった。最終的にHerbie Hancockの「Jessica」（1969年のアルバム『Fat Albert Rotunda』収録）だったと判明している。
+          </p>
+          <p>
+            他にもQuincy Jonesや（オーストラリアの）Daly-Wilson Big Bandからのサンプルが使われているが、プロデューサーのHavocがこれをQueensbridge最暗部の空気に変えてしまった手腕は本当にすごい。「素材が何かよりも、どう使うか」というプロデューサーとしての本質がここにある。
+          </p>
+        </div>
       </div>
 
       <div class="p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
@@ -640,9 +684,17 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       <div class="p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
         <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">「ラップの試金石」</p>
         <h3 class="font-semibold text-base mb-3">「Shook Onesのビートで自由にラップできるか」</h3>
-        <p class="text-[var(--c-muted)] text-sm leading-relaxed mb-4">
-          この曲は時間が経つほど評価が上がったタイプの楽曲だ。90年代に聴いたとき、2000年代に8 Mile経由で出会ったとき、そして2010年代以降にヒップホップの歴史を振り返る文脈で再評価されたとき——それぞれで新しい意味が加わっていった。ヒップホップ界では「Shook Ones Pt. IIのビートの上でラップできるか」が一種の実力試験として扱われることがあるほど、この曲のビートと歌詞の密度は異次元だ。Eminemが8 Mileでこのビートを選んだのも、そういう文脈があってのことだと思います（「これだけは俺に続けさせてくれ」みたいな感じで映画が始まる）。Prodigyは2017年に鎌状赤血球症の合併症で亡くなりました。それでも、彼が19歳で書いた「my mind is older」の一行は、いまも引用され続けています。
-        </p>
+        <div class="text-[var(--c-muted)] text-sm leading-relaxed space-y-3 mb-4">
+          <p>
+            この曲は時間が経つほど評価が上がったタイプの楽曲だ。90年代に聴いたとき、2000年代に8 Mile経由で出会ったとき、そして2010年代以降にヒップホップの歴史を振り返る文脈で再評価されたとき——それぞれで新しい意味が加わっていった。
+          </p>
+          <p>
+            ヒップホップ界では「Shook Ones Pt. IIのビートの上でラップできるか」が一種の実力試験として扱われることがあるほど、この曲のビートと歌詞の密度は異次元だ。Eminemが8 Mileでこのビートを選んだのも、そういう文脈があってのことだと思います（「これだけは俺に続けさせてくれ」みたいな感じで映画が始まる）。
+          </p>
+          <p>
+            Prodigyは2017年に鎌状赤血球症の合併症で亡くなりました。それでも、彼が19歳で書いた「my mind is older」の一行は、いまも引用され続けています。
+          </p>
+        </div>
       </div>
     </section>
 
