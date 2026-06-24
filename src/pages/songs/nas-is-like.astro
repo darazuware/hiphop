@@ -1,5 +1,7 @@
 ---
 import LearningUnit from '../../components/LearningUnit.astro';
+import RelatedColumnTeaser from '../../components/RelatedColumnTeaser.astro';
+import DiveCards from '../../components/DiveCards.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
 import SongLayout from '../../layouts/SongLayout.astro';
 
@@ -15,6 +17,8 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
   title="Nas Is Like 和訳・意味・スラング解説 | Nas（DJ Premier）"
   description="NasのNas Is Likeを英語学習＋ヒップホップ理解の教材として精読。half-man half-amazin'、Before the Christ After the Death（B.C./A.D.）の言葉遊び、they＝theirのAAVE、siete zerosのバイリンガル、DJ Premierのサンプリングを表現単位で解説。各表現はPVの該当箇所へ頭出しリンク付き。"
   slug="nas-is-like"
+  learningPage={true}
+  songDuration={237}
   highlights={[
     'Nas Is Likeは「Nas is like 〜」の直喩を engine にした metaphysical braggadocio',
     'スラング・韻・言葉遊び・AAVEを「学ぶ表現」単位で解説（PV頭出しリンク付き）',
@@ -78,6 +82,29 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         </p>
       </div>
     </section>
+
+    <!-- Deep-Dive Teaser (BEFORE units) -->
+    <RelatedColumnTeaser
+      eyebrow="関連コラム — 読み込む前に"
+      cards={[
+        {
+          href: "/columns/dj-premier-sampling",
+          kicker: "COLUMN ／ プロデューサー論",
+          title: "DJ Premierのサンプリング哲学",
+          desc: "讃美歌の10インチを刻んでフックにする——このトラックの作り方の根っこにあるプリモの方法論を、別ページでまとめて。",
+          time: "約7分",
+        },
+        {
+          href: "/columns/time-is-illmatic",
+          kicker: "COLUMN ／ ドキュメンタリー",
+          title: "『Time Is Illmatic』とNasの原点",
+          desc: "クイーンズブリッジ団地、『Illmatic』の神童という重圧——「First it was Nasty」の背後にある物語を先に入れておくと、解説の入りが変わる。",
+          time: "約6分",
+        },
+      ]}
+    >
+      下は<strong>別ページのコラム</strong>。Nasの出自とプリモの手口を先に押さえておくと、各ユニットの解説がぐっと入りやすくなる。
+    </RelatedColumnTeaser>
 
     <!-- 学習ユニット -->
     <div id="units"></div>
@@ -164,7 +191,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <Fragment slot="eng">Earth, Wind & Fire, rims and tires<br />Bulletproof glass, inside is the realest driver</Fragment>
         <Fragment slot="jpn">アース・ウィンド・アンド・ファイアー、リムとタイヤ／防弾ガラス、中にいるのは最もリアルなドライバー</Fragment>
         <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の冒頭、比喩の連射が始まる件。まず音で。</p>
-        <p>まず音だけ追ってください。<strong class="text-[var(--c-text)]">Fire / tires / driver</strong> と <code>-ire / -ier</code> 系の母音が3連続で返ってくる——これが今回の聴きどころです。そのうえ行頭の <strong class="text-[var(--c-text)]">Earth, Wind &amp; Fire</strong> は、伝説のソウル／ファンクバンドの名前をそのまま借りた引用。バンド名を一語の比喩素材として放り込みながら、即座に <code>rims and tires</code>（リムとタイヤ＝高級車）へ韻で滑り込む。<strong class="text-[var(--c-text)]">固有名詞 → 韻 → イメージ</strong>の流れが一行で完結している。比喩・引用・脚韻を同時に走らせる、Nasの面目躍如な一節です。</p>
+        <p>まず音だけ追ってください。<strong class="text-[var(--c-text)]">Fire / tires / driver</strong> と <code>-ire / -ier</code> 系の母音が3連続で返ってくる——これが今回の聴きどころです。そのうえ行頭の <strong class="text-[var(--c-text)]">Earth, Wind &amp; Fire</strong> は、伝説のソウル／ファンクバンドの名前をそのまま借りた引用。バンド名を一語の比喩素材として放り込みながら、即座に <code>rims and tires</code>（リムとタイヤ＝高級車）へ韻で滑り込む。<strong class="text-[var(--c-text)]">固有名詞 → 韻 → イメージ</strong>の流れが一行で完結している。比喩・引用・脚韻を一行で同時に走らせる作りなので、まず音だけで何度か回してから意味を当てにいくと、構造がよく見えてきます。</p>
       </LearningUnit>
 
       <!-- ⑥ B.C./A.D. wordplay -->
@@ -270,16 +297,16 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         文化的背景
       </h2>
 
-      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
-        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">Nasty Nas から Nas へ</p>
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">Nasty Nas から Nas へ</p>
         <h3 class="font-semibold text-base mb-3">『Illmatic』の神童が背負った重圧</h3>
         <p class="text-[var(--c-muted)] text-sm leading-relaxed">
           Nasはニューヨーク・クイーンズのクイーンズブリッジ団地出身。10代から <strong class="text-[var(--c-text)]">"Nasty Nas"</strong> として頭角を現し、1994年のデビュー作『Illmatic』は「史上最高のヒップホップ・アルバム」の常連に挙げられる金字塔になった。あまりに完璧なデビューゆえに、その後の作品は常に『Illmatic』と比較される——という宿命を背負うことになります。「Nas Is Like」は3rdアルバム『I Am...』（1999年）の曲で、プロデューサーに『Illmatic』の盟友 <strong class="text-[var(--c-text)]">DJ Premier</strong> を再び迎え、原点回帰の象徴として受け止められました。「First it was Nasty, but times have changed」という一行には、この改名と成熟の物語がそのまま入っています。
         </p>
       </div>
 
-      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
-        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">キーワード早見表</p>
+      <div class="p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">キーワード早見表</p>
         <h3 class="font-semibold text-base mb-3">この曲で学んだ表現の整理</h3>
         <div class="space-y-3 mt-3">
           {[
@@ -292,7 +319,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
             ['thug poet', 'ならず者＋詩人の撞着語法(oxymoron)による自己定義'],
           ].map(([term, desc]) => (
             <div class="flex gap-3 text-sm">
-              <span class="text-[var(--c-gold)] shrink-0 font-semibold min-w-[150px]">{term}</span>
+              <span class="text-[var(--c-orange)] shrink-0 font-semibold min-w-[150px]">{term}</span>
               <span class="text-[var(--c-muted)]">{desc}</span>
             </div>
           ))}
@@ -306,19 +333,19 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         サンプル・制作の裏側
       </h2>
 
-      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
-        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">サンプル元</p>
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">サンプル元</p>
         <h3 class="font-semibold text-base mb-3">捨てかけた讃美歌レコード — "What Child Is This?"</h3>
         <p class="text-[var(--c-muted)] text-sm leading-relaxed">
           このトラックの不思議な浮遊感の正体は、<strong class="text-[var(--c-text)]">John V. Rydgren と Bob R. Way による1966年の宗教音楽「What Child Is This?」</strong>。ルター派教会が出した10インチのレコード（ピンク色で、黒い魚＝キリスト教のシンボルが描かれていた盤）からのサンプリングです。DJ Premier はこの盤をあやうく捨てかけたものの、念のためターンテーブルに乗せたところで、この音を見つけたと語っています。彼はそれを <strong class="text-[var(--c-text)]">3つのパートに刻み</strong>、すでに組んでいたドラムに合わせて<strong class="text-[var(--c-text)]">手でスクラッチして</strong>乗せた。危うくゴミ箱行きだった一枚が、名曲のフックの芯になっている。掘る嗅覚と、指先のスクラッチひとつ——プリモのビートは結局そこに尽きる。
         </p>
       </div>
 
-      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
-        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">フックの作り方</p>
+      <div class="p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">フックの作り方</p>
         <h3 class="font-semibold text-base mb-3">Nas自身の声を切り刻んで組んだサビ</h3>
         <p class="text-[var(--c-muted)] text-sm leading-relaxed">
-          このフックの最大の特徴は、<strong class="text-[var(--c-text)]">Nasが新しく歌っていない</strong>こと。「Nas is like...」「life or death」「my poetry's deep, I never fell」といったフレーズは、Premierが <strong class="text-[var(--c-text)]">Nasの過去の楽曲やヴァースから肉声を切り出し、スクラッチでコラージュした</strong>もの。声そのものを楽器のように刻んでサビを構築するのは、DJ Premierの代名詞ともいえる手法です。だからこの曲のフックは、聴くたびに「Nasという声の断片で作られたNas論」になっている。技法と内容がぴたりと噛み合っている、プリモ仕事の真骨頂です。
+          このフックの最大の特徴は、<strong class="text-[var(--c-text)]">Nasが新しく歌っていない</strong>こと。サビを構成する肉声は、Premierが <strong class="text-[var(--c-text)]">Nasの過去曲「It Ain't Hard to Tell」（1994）と「Street Dreams」（1996）から声を切り出し、スクラッチでコラージュした</strong>もの。声そのものを楽器のように刻んでサビを組むのは、プリモの十八番です。だからこのフックは、聴くたびに「Nasという声の断片で作られたNas論」になっている。素材がNas、語るのもNas——技法と中身が同じ一点で噛み合っているのが、この曲を一度聴くと忘れられない理由のひとつだと思っています。
         </p>
       </div>
     </section>
@@ -329,31 +356,31 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         評価とその後の影響
       </h2>
 
-      <div class="mb-4 rounded-lg overflow-hidden border border-[var(--c-border)] text-sm">
+      <div class="mb-4 overflow-hidden border-2 border-[var(--c-orange)] text-sm" style="border-radius:0">
         <div class="grid grid-cols-3 bg-[var(--c-bg)] text-[var(--c-very-dim)] text-xs uppercase tracking-widest">
           <div class="p-3 border-b border-[var(--c-border)]">指標</div>
           <div class="p-3 border-b border-l border-[var(--c-border)]">記録</div>
           <div class="p-3 border-b border-l border-[var(--c-border)]">意義</div>
         </div>
         {[
-          ['US Billboard Hot 100', '最高86位', '内省的でハードコアな曲調ながらメインストリームのチャートにも到達'],
-          ['US Hot Rap Songs', '最高3位', 'ラップ・リスナーからの圧倒的支持。『I Am...』の代表曲に'],
-          ['アルバム', '『I Am...』（1999）13曲目', '『Illmatic』の盟友DJ Premierを再起用した原点回帰の象徴'],
-          ['YouTube', 'Nas名義で初の1億再生突破MV', '世代を超えて再生され続ける定番曲としての証'],
+          ['US Billboard Hot 100', '最高86位', '内省的でハードコアな曲調ながら、メインストリームのチャートにも到達'],
+          ['US Hot Rap Songs', '最高3位', 'ラップ・リスナーからの支持。『I Am...』の代表曲のひとつに'],
+          ['アルバム', '『I Am...』（1999）13曲目', '『Illmatic』の盟友DJ Premierを再起用。アルバムの先行1stシングル'],
+          ['セルフサンプル', '「Define My Name」（2024）', '25年後にNas×Premierが再タッグ。この曲自体を素材に新曲を組んだ'],
         ].map(([metric, record, significance]) => (
           <div class="grid grid-cols-3">
             <div class="p-3 border-b border-[var(--c-border)] text-[var(--c-dim)]">{metric}</div>
-            <div class="p-3 border-b border-l border-[var(--c-border)] text-[var(--c-gold)] font-medium">{record}</div>
+            <div class="p-3 border-b border-l border-[var(--c-border)] text-[var(--c-green)] font-medium">{record}</div>
             <div class="p-3 border-b border-l border-[var(--c-border)] text-[var(--c-muted)] text-xs">{significance}</div>
           </div>
         ))}
       </div>
 
-      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
-        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">後世への影響</p>
+      <div class="p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">後世への影響</p>
         <h3 class="font-semibold text-base mb-3">25年越しのセルフサンプリング</h3>
         <p class="text-[var(--c-muted)] text-sm leading-relaxed">
-          「Nas Is Like」は、NasとDJ Premierという組み合わせが『Illmatic』以降も健在だと示した一曲として、ファンに長く愛されてきました。面白いのはその後日談で、2024年にNasとPremierが再タッグを組んだ「Define My Name」で、<strong class="text-[var(--c-text)]">この「Nas Is Like」自体がサンプリングされている</strong>。25年の時を越えて、自分たちの曲を素材に新曲を作る——プリモらしい円環の閉じ方です。AllMusicは本作を「Illmaticの完成度そのもの」と評し、Premierの構築的なプロダクションとNasの声の質を高く評価しました。直喩だけで自画像を描き切るこの実験は、今も多くのリスナーとMCの教材であり続けています。
+          「Nas Is Like」は、NasとDJ Premierという組み合わせが『Illmatic』以降も健在だと示した一曲として、ファンに長く愛されてきました。面白いのはその後日談で、2024年にNasとPremierが再タッグを組んだ「Define My Name」で、<strong class="text-[var(--c-text)]">この「Nas Is Like」自体がサンプリングされている</strong>（WhoSampledで確認できます）。25年の時を越えて、自分たちの曲を素材に新曲を作る——円環をそのまま閉じにいくやり方が、いかにもプリモらしい。直喩だけで自画像を描き切るこの実験は、いま聴いてもリスナーとMC双方にとっての教材であり続けていると思います。
         </p>
       </div>
     </section>
@@ -370,5 +397,34 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <li>フックはNas自身の声をDJ Premierが刻んで組んだコラージュ。讃美歌の捨てかけレコードから生まれたトラックともども、制約と偶然を作品に変えるヒップホップの体温が出ている。</li>
       </ul>
     </section>
+
+    <DiveCards
+      cards={[
+        {
+          href: "/columns/dj-premier-sampling",
+          icon: "DJP",
+          kicker: "プロデューサー論",
+          title: "DJ Premierのサンプリング哲学",
+          desc: "讃美歌の10インチを3つに刻んでスクラッチで組む——「Nas Is Like」のトラックを成り立たせているプリモの方法論を、もう一段掘り下げて。",
+          hint: "DJP",
+        },
+        {
+          href: "/columns/time-is-illmatic",
+          icon: "QB",
+          kicker: "ドキュメンタリー",
+          title: "『Time Is Illmatic』とNasの原点",
+          desc: "クイーンズブリッジ団地と『Illmatic』の重圧。「First it was Nasty, but times have changed」の背後にあるNasの来歴を事実ベースで。",
+          hint: "QB",
+        },
+        {
+          href: "/columns/aave-hiphop-language",
+          icon: "AAVE",
+          kicker: "言語・スラング",
+          title: "AAVEとは何か",
+          desc: "they（＝their）の所有格や be 動詞の使い方は、崩れた英語ではなく規則的な文法。この曲で出会ったAAVEを体系から眺め直す。",
+          hint: "AAVE",
+        },
+      ]}
+    />
 
 </SongLayout>

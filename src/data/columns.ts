@@ -11,7 +11,7 @@ export const columns = [
     title: "DJ Premierのサンプリング哲学——なぜプリモのビートは「語る」のか",
     description: 'ヒップホップ史上最高のプロデューサーの一人、DJ Premierのサンプリング技法を解剖。ループの選び方、スクラッチによるテーマ提示、チョップの美学を実際の楽曲から読み解く。',
     tag: 'プロデューサー論',
-    relatedSongs: ['/songs/mass-appeal', '/songs/mathematics', '/songs/ny-state-of-mind', '/songs/supa-star', '/songs/bodega', '/songs/the-1st-time'],
+    relatedSongs: ['/songs/mass-appeal', '/songs/mathematics', '/songs/ny-state-of-mind', '/songs/supa-star', '/songs/bodega', '/songs/the-1st-time', '/songs/nas-is-like'],
   },
   {
     slug: '/columns/rza-sampling-philosophy',
@@ -39,7 +39,7 @@ export const columns = [
     title: 'AAVEとは何か——ヒップホップが世界に広めた言語',
     description: 'African American Vernacular English（AAVE）の文法・語彙・音韻を解説。ヒップホップの歌詞がAAVEをいかに使い、それが世界中に広まった経緯を読み解く。',
     tag: '言語・スラング',
-    relatedSongs: ['/songs/ebonics', '/songs/check-the-rhime', '/songs/electric-relaxation', '/songs/ny-state-of-mind', '/songs/bodega'],
+    relatedSongs: ['/songs/ebonics', '/songs/check-the-rhime', '/songs/electric-relaxation', '/songs/ny-state-of-mind', '/songs/bodega', '/songs/nas-is-like'],
   },
   {
     slug: '/columns/time-is-illmatic',

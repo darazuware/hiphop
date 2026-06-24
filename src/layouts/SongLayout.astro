@@ -344,8 +344,8 @@ const waveformPeaks = waveformModules[`../data/waveforms/${slug}.json`]?.default
     </div>
 
     <!-- Sidebar (desktop only) -->
-    <aside class="hidden lg:block">
-      <div class="sticky top-8 space-y-6">
+    <aside class="hidden lg:block lg:sticky lg:top-8 self-start max-h-[calc(100vh-4rem)] overflow-y-auto">
+      <div class="space-y-6">
 
         {highlights && (
           <section class="p-4 border border-[var(--c-gold)]/30 rounded-lg bg-[var(--c-surface)]">
@@ -714,10 +714,13 @@ const waveformPeaks = waveformModules[`../data/waveforms/${slug}.json`]?.default
 
     function getSectionForMc(mc: string): string {
       const lc = mc.toLowerCase();
-      if (lc.includes('verse 1') || (lc.includes('verse') && lc.includes('raekwon'))) return 'verse 1';
-      if (lc.includes('verse 2') || (lc.includes('verse') && lc.includes('inspectah'))) return 'verse 2';
+      const vm = lc.match(/verse\s*(\d+)/);
+      if (vm) return 'verse ' + vm[1];
+      if (lc.includes('verse') && lc.includes('raekwon')) return 'verse 1';
+      if (lc.includes('verse') && lc.includes('inspectah')) return 'verse 2';
       if (lc.includes('hook')) return 'hook';
       if (lc.includes('bridge')) return 'bridge';
+      if (lc.includes('outro')) return 'outro';
       return 'intro';
     }
 
