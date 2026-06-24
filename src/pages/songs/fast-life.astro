@@ -2,6 +2,7 @@
 import LearningUnit from '../../components/LearningUnit.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
 import SongLayout from '../../layouts/SongLayout.astro';
+import DiveCards from '../../components/DiveCards.astro';
 
 // 学習ユニットのPVタイムスタンプ。agent/src/extract-unit-timestamps.mjs で
 // whisper単語アライメントして取得し、manualSecが上書きする二層構造。
@@ -355,4 +356,15 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       </ul>
     </section>
 
+  <DiveCards
+    cards={[
+      {
+        href: "/columns/crack-epidemic-hiphop",
+        icon: "GR",
+        kicker: "文化・歴史",
+        title: "クラック・エピデミックとヒップホップ",
+        desc: "Kool G RapはサウスブロンクスのクラックTime、NasはクイーンズブリッジのそれをVerse 2で語る。二人が生きた時代の地面の話をここで。",
+      },
+    ]}
+  />
 </SongLayout>

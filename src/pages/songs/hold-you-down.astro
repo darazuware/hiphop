@@ -2,6 +2,7 @@
 import LearningUnit from '../../components/LearningUnit.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
 import SongLayout from '../../layouts/SongLayout.astro';
+import DiveCards from '../../components/DiveCards.astro';
 
 import tsData from '../../../agent/hold-you-down/assets/units-timestamps.json';
 const YT = "-54DaeRivck";
@@ -353,4 +354,15 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       </ul>
     </section>
 
+  <DiveCards
+    cards={[
+      {
+        href: "/columns/crack-epidemic-hiphop",
+        icon: "AL",
+        kicker: "文化・歴史",
+        title: "クラック・エピデミックとヒップホップ",
+        desc: "Prodigyが「hold you down」と言うとき、それは生死のかかったブロックの掟から来ている。Mobb Deepが記録したクイーンズブリッジの時代をここで。",
+      },
+    ]}
+  />
 </SongLayout>

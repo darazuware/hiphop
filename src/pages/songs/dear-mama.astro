@@ -3,6 +3,7 @@ import LearningUnit from '../../components/LearningUnit.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
 import SongLayout from '../../layouts/SongLayout.astro';
 import AmazonAlbumCta from '../../components/AmazonAlbumCta.astro';
+import DiveCards from '../../components/DiveCards.astro';
 
 import tsData from '../../../agent/dear-mama/assets/units-timestamps.json';
 const YT = "Mb1ZvUDvLDY";
@@ -426,4 +427,15 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       </ul>
     </section>
 
+  <DiveCards
+    cards={[
+      {
+        href: "/columns/crack-epidemic-hiphop",
+        icon: "2P",
+        kicker: "文化・歴史",
+        title: "クラック・エピデミックとヒップホップ",
+        desc: "Afeniがブラック・パンサーからクラック依存に至った道は、1980年代のアメリカで何が起きたかを物語る。「Dear Mama」の感情の重さの背景をここで。",
+      },
+    ]}
+  />
 </SongLayout>

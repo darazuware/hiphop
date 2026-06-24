@@ -2,6 +2,7 @@
 import LearningUnit from '../../components/LearningUnit.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
 import SongLayout from '../../layouts/SongLayout.astro';
+import DiveCards from '../../components/DiveCards.astro';
 
 import tsData from '../../../agent/phone-tap/assets/units-timestamps.json';
 const YT = "if06gRBsBOU";
@@ -362,4 +363,15 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       </ul>
     </section>
 
+  <DiveCards
+    cards={[
+      {
+        href: "/columns/crack-epidemic-hiphop",
+        icon: "FBI",
+        kicker: "文化・歴史",
+        title: "クラック・エピデミックとヒップホップ",
+        desc: "FBIの盗聴・RICO法・証人保護——「Phone Tap」が描くマフィオソの世界は、90年代NYの麻薬戦争が現実に動かしていた仕組みだ。その背景をここで。",
+      },
+    ]}
+  />
 </SongLayout>

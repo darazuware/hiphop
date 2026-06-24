@@ -2,6 +2,7 @@
 import LearningUnit from '../../components/LearningUnit.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
 import SongLayout from '../../layouts/SongLayout.astro';
+import DiveCards from '../../components/DiveCards.astro';
 
 import tsData from '../../../agent/werdz-from-ghetto-child/assets/units-timestamps.json';
 const YT = "oT6GbzXTC_o";
@@ -327,4 +328,15 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       </ul>
     </section>
 
+  <DiveCards
+    cards={[
+      {
+        href: "/columns/dj-premier-sampling",
+        icon: "GS",
+        kicker: "制作・サンプリング",
+        title: "DJ Premierのサンプリング哲学",
+        desc: "ビートはGalt MacDermot「Coffee Cold」(1966)——60年代のジャズが2003年のゲットーの言葉を乗せる。プリモの「発見」の感覚を、サンプリング哲学の記事でもう一段深く。",
+      },
+    ]}
+  />
 </SongLayout>

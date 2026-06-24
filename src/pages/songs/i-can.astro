@@ -2,6 +2,7 @@
 import LearningUnit from '../../components/LearningUnit.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
 import SongLayout from '../../layouts/SongLayout.astro';
+import DiveCards from '../../components/DiveCards.astro';
 
 import tsData from '../../../agent/i-can/assets/units-timestamps.json';
 const YT = "RvVfgvHucRY";
@@ -341,4 +342,15 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       </ul>
     </section>
 
+  <DiveCards
+    cards={[
+      {
+        href: "/columns/time-is-illmatic",
+        icon: "NAS",
+        kicker: "ドキュメンタリー",
+        title: "ドキュメンタリー『Time Is Illmatic』",
+        desc: "「I Can」でコンシャスに語りかけるNasが、なぜ20歳であれほど深い作品を作れたのか。クイーンズブリッジとIllmatic誕生の経緯を掘り下げた記事へ。",
+      },
+    ]}
+  />
 </SongLayout>

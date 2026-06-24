@@ -2,6 +2,7 @@
 import LearningUnit from '../../components/LearningUnit.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
 import SongLayout from '../../layouts/SongLayout.astro';
+import DiveCards from '../../components/DiveCards.astro';
 
 const YT = "T8pDh5e6XLg";
 ---
@@ -357,4 +358,15 @@ const YT = "T8pDh5e6XLg";
       </div>
     </section>
 
+  <DiveCards
+    cards={[
+      {
+        href: "/columns/aave-hiphop-language",
+        icon: "5%",
+        kicker: "言語・AAVE",
+        title: "AAVEとは何か——ヒップホップが世界に広めた言語",
+        desc: "Poor Righteous TeachersのFive Percenter用語はAAVEの特殊変種。「We Dat Nice」の語彙が読めるようになると、コンシャスHH全体のコードが開く。",
+      },
+    ]}
+  />
 </SongLayout>

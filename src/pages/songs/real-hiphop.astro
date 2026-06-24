@@ -2,6 +2,7 @@
 import LearningUnit from '../../components/LearningUnit.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
 import SongLayout from '../../layouts/SongLayout.astro';
+import DiveCards from '../../components/DiveCards.astro';
 
 import tsData from '../../../agent/real-hiphop/assets/units-timestamps.json';
 const YT = "Jxg6FckcesI";
@@ -321,4 +322,15 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       </ul>
     </section>
 
+  <DiveCards
+    cards={[
+      {
+        href: "/columns/dj-premier-sampling",
+        icon: "PRE",
+        kicker: "制作・サンプリング",
+        title: "DJ Premierのサンプリング哲学",
+        desc: "「Lego / l'eggo / Eggo」の三段重ねは偶然じゃない。EggoジングルをビートとDas EFXの韻に連動させたプリモの発想を、サンプリング哲学の記事で掘り下げて。",
+      },
+    ]}
+  />
 </SongLayout>

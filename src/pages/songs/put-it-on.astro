@@ -2,6 +2,7 @@
 import LearningUnit from '../../components/LearningUnit.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
 import SongLayout from '../../layouts/SongLayout.astro';
+import DiveCards from '../../components/DiveCards.astro';
 
 import tsData from '../../../agent/put-it-on/assets/units-timestamps.json';
 const YT = "WWMjRMJ0dTI";
@@ -408,4 +409,15 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       </ul>
     </section>
 
+  <DiveCards
+    cards={[
+      {
+        href: "/columns/ny-golden-era-1994",
+        icon: "BL",
+        kicker: "文化・歴史",
+        title: "1994年——NYヒップホップ黄金時代の頂点",
+        desc: "「Put It On」が出た1994年、IllmaticとReady to Dieも同じ年に生まれた。Big Lのデビューシングルを受け取ったハーレムと、その年代の地図をここで。",
+      },
+    ]}
+  />
 </SongLayout>

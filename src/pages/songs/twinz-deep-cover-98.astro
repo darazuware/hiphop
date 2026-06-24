@@ -2,6 +2,7 @@
 import LearningUnit from '../../components/LearningUnit.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
 import SongLayout from '../../layouts/SongLayout.astro';
+import DiveCards from '../../components/DiveCards.astro';
 
 // 学習ユニットのPVタイムスタンプ。agent/src/extract-unit-timestamps.mjs で音源を
 // whisper単語アライメントして取得（whisperSec）し、manualSec があれば上書きする二層構造。
@@ -358,4 +359,15 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       </ul>
     </section>
 
+  <DiveCards
+    cards={[
+      {
+        href: "/columns/crack-epidemic-hiphop",
+        icon: "BP",
+        kicker: "文化・歴史",
+        title: "クラック・エピデミックとヒップホップ",
+        desc: "Big PunとFat Joeのブロンクスのストリートは、クラック禍が落ち着き始めた90年代末の生き残りの記録でもある。マフィオソ・ラップの地面をここで。",
+      },
+    ]}
+  />
 </SongLayout>
