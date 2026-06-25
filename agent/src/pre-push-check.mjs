@@ -139,7 +139,8 @@ function checkDuplicateGuard() {
 // ============================================================================
 // 散文でほぼ常に格付け・分析口調になる高精度の語のみ（誤検出で正記事をブロックしない範囲）。
 // 「見事」は marvelous 等の語義注釈・和訳でも出る多義語のため、ガード対象から外しプロンプト側で抑制する。
-const CRITIC_PATTERNS = [
+// HARD＝中立用法がほぼ無い評論家確定語。検出＝ブロック。
+const CRITIC_HARD = [
   '圧巻',
   '秀逸',
   '通奏低音',
@@ -152,13 +153,47 @@ const CRITIC_PATTERNS = [
   'として位置付け',
   'スタイルを確立',
   '多層的に読める',
+  'と言えるだろう',
+  'と言えよう',
+  'ではないだろうか',
+  'なのである',
+  'と言っても過言ではない',
+  'たらしめ',
+  '諦観',
+  '省察',
 ];
+// SOFT＝AI臭いが中立用法もある語（既存記事に多い）。検出＝警告のみ・ブロックしない。
+// 「格付け」は article-tone.md 承認の一人称言い換え（「格付けを下しにいく」）と衝突するため非対象。
+const CRITIC_SOFT = [
+  '唯一無二',
+  '色褪せ',
+  '金字塔',
+  '不朽の',
+  '真骨頂',
+  'を体現',
+  'に昇華',
+  '極北',
+  'いわば',
+  '凝縮されて',
+  '奥行きを与え',
+  '証左',
+];
+
+// AI/評論家臭の最大tell＝ダッシュ強調（— em / – en / ― horizontal bar）。
+// article-tone.md「ダッシュで挟む強調をやめる」と同期。解説散文では全廃方針。
+const DASH_RE = /[—–―]/g;
+
+// 【最優先】評論家の体言止め断定「〜だ。／である。」。ですます基調なら本来ごく少数のはず。
+// 会話調「なんだ。」「〜だよな」は許容したいので lookbehind で「ん／な」直後の「だ。」を除外。
+// 余韻としての体言止めは ASSERT_LIMIT まで許容し、超過＝評論家口調としてブロックする。
+const ASSERT_RE = /(?<![んな])だ。|である。/g;
+const ASSERT_LIMIT = 5;
 
 // .astro から運営者の日本語解説だけを取り出す（eng＝英語引用 / jpn＝和訳 スロット・タグ除去）。
 // トーン規約は解説散文のみ対象（和訳の語をトーン違反に数えない）。
 function jpBody(raw) {
   let body = raw.replace(/^---[\s\S]*?\n---/, '');
-  body = body.replace(/<Fragment\s+slot="(?:eng|jpn)">[\s\S]*?<\/Fragment>/g, ' ');
+  body = body.replace(/<Fragment\b[^>]*slot="(?:eng|jpn)"[^>]*>[\s\S]*?<\/Fragment>/g, ' ');
   body = body.replace(/<[^>]+>/g, ' ').replace(/&[a-z]+;/g, ' ');
   return body;
 }
@@ -170,16 +205,28 @@ function checkCriticTone(paths) {
     const file = join(songsDir, `${slug}.astro`);
     if (!existsSync(file)) continue;
     const body = jpBody(readFileSync(file, 'utf-8'));
+    // 【ブロック】体言止め断定の多用（=最優先・評論家口調の本丸）＋ HARD評論語
     const hits = [];
-    for (const w of CRITIC_PATTERNS) {
+    const an = (body.match(ASSERT_RE) || []).length;
+    if (an > ASSERT_LIMIT) hits.push(`体言止め断定(だ。/である。)×${an}＞許容${ASSERT_LIMIT}`);
+    for (const w of CRITIC_HARD) {
       const n = (body.match(new RegExp(w, 'g')) || []).length;
       if (n) hits.push(`${w}×${n}`);
     }
+    // 【警告のみ】SOFT常套句・ダッシュ（中立用法あり／副次。気づいたら直す）
+    const warns = [];
+    for (const w of CRITIC_SOFT) {
+      const n = (body.match(new RegExp(w, 'g')) || []).length;
+      if (n) warns.push(`${w}×${n}`);
+    }
+    const dn = (body.match(DASH_RE) || []).length;
+    if (dn) warns.push(`ダッシュ(—/–)×${dn}`);
+    if (warns.length) console.log(`⚠ [TONE] ${slug}: 推奨改善（ブロックなし）→ ${warns.join(' / ')}`);
     if (hits.length) {
-      console.log(`❌ [TONE] ${slug}: 評論家口調の禁止語 → ${hits.join(' / ')}`);
+      console.log(`❌ [TONE] ${slug}: 評論家口調（ブロック）→ ${hits.join(' / ')}`);
       failed = true;
     } else {
-      console.log(`✅ [TONE] ${slug}: 評論家口調の禁止語なし`);
+      console.log(`✅ [TONE] ${slug}: 評論家口調ブロックなし`);
     }
   }
   if (failed) {

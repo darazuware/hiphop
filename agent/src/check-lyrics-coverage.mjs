@@ -288,8 +288,11 @@ if (learning) {
   }
 
   // [D] 引用最小性（著作権）: 全行歌詞掲載でないこと
+  // Genius不完全フェッチ時(skipB)は総行数が縮みカバレッジが見かけ上膨らむため、[B]同様に警告へ降格。
   console.log(`\n[D] 引用最小性: eng+用例引用カバレッジ=${pctD}%（上限${MAX_COVERAGE}%）`);
-  if (pctD >= MAX_COVERAGE) {
+  if (pctD >= MAX_COVERAGE && skipB) {
+    console.log('⚠️  [D] カバレッジ高だが Genius fetch不完全のため [D] skipped（要手動確認）');
+  } else if (pctD >= MAX_COVERAGE) {
     console.log('❌ [D] 学習ページなのに歌詞をほぼ全行引用している疑い（用例断片に削減せよ）');
     hasError = true;
   } else {
