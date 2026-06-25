@@ -122,9 +122,9 @@
   {
     "id": "livin-proof",
     "whisperSec": null,
-    "manualSec": 160,
+    "manualSec": 161,
     "fallbackT": 165,
-    "t": 160,
+    "t": 161,
     "source": "manual",
     "approx": false,
     "score": 1
