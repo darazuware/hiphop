@@ -48,11 +48,16 @@ export async function getUpdates(offset) {
  * @param {string|number} chatId - 送信先 Chat ID（省略時は環境変数）
  * @returns {Promise<any>}
  */
-export async function sendMessage(text, chatId) {
+function escapeMd(text) {
+  // Markdown V1 の特殊文字（_ * ` [ ]）をエスケープ。意図的なMarkdown記法は壊さない最小限対応。
+  return String(text).replace(/[_*`\[\]]/g, '\\$&');
+}
+
+export async function sendMessage(text, chatId, { safe = false } = {}) {
   const targetChat = chatId || process.env.TELEGRAM_CHAT_ID;
   return callApi('sendMessage', {
     chat_id: targetChat,
-    text,
+    text: safe ? escapeMd(text) : text,
     parse_mode: 'Markdown',
   });
 }

@@ -45,11 +45,16 @@ function parseAstroFile(slug) {
       const engText = cleanText(engMatch[1]);
       const jpnText = cleanText(jpnMatch[1]);
 
-      // 空白でない場合のみ追加
-      if (engText || jpnText) {
+      // <br />で改行された行ごとに分割し、トリミングを行う
+      const engLines = engText.split('\n').map(l => l.trim()).filter(Boolean);
+      const jpnLines = jpnText.split('\n').map(l => l.trim()).filter(Boolean);
+      const len = Math.min(engLines.length, jpnLines.length);
+
+      // ブロック内の英語と日本語を1:1のペアにしてフラットに追加する
+      for (let i = 0; i < len; i++) {
         lyricsBlocks.push({
-          eng: engText,
-          jpn: jpnText
+          eng: engLines[i],
+          jpn: jpnLines[i]
         });
       }
     }
@@ -218,8 +223,8 @@ function parseVtt(filePath) {
 }
 
 /**
- * Astroの対訳歌詞ブロックとWebVTT字幕のタイミングを同期（アライメント）する
- * @param {Array<object>} lyrics - Astroから抽出した歌詞 [{ eng, jpn }]
+ * Astroの対訳歌詞（1行ずつ）とWebVTT字幕のタイミングを同期（アライメント）する
+ * @param {Array<object>} lyrics - Astroから抽出した歌詞（1行ペアの配列） [{ eng, jpn }]
  * @param {Array<object>} vttItems - VTTからパースした字幕 [{ start, end, text }]
  * @returns {Array<object>} 同期済み歌詞リスト [{ start, end, eng, jpn }]
  */
@@ -231,7 +236,7 @@ function alignLyrics(lyrics, vttItems) {
 
   for (let i = 0; i < lyrics.length; i++) {
     const block = lyrics[i];
-    const firstLine = block.eng.split('\n')[0];
+    const firstLine = block.eng;
     
     let bestMatchIdx = -1;
     let maxSim = 0.15; // 最低類似度しきい値
@@ -251,23 +256,6 @@ function alignLyrics(lyrics, vttItems) {
     if (bestMatchIdx !== -1) {
       vttIdx = bestMatchIdx;
       const start = vttItems[vttIdx].start;
-      
-      // ブロックの最後の行にマッチするVTTを探索し、終了時間を決定する
-      const engLines = block.eng.split('\n');
-      const lastLine = engLines[engLines.length - 1];
-      let endVttIdx = vttIdx;
-      let lastMaxSim = 0.15;
-
-      const endSearchRange = Math.min(vttItems.length, vttIdx + engLines.length + 3);
-      for (let j = vttIdx; j < endSearchRange; j++) {
-        const sim = getSimilarity(lastLine, vttItems[j].text);
-        if (sim > lastMaxSim) {
-          lastMaxSim = sim;
-          endVttIdx = j;
-        }
-      }
-
-      vttIdx = endVttIdx;
       const end = vttItems[vttIdx].end;
 
       aligned.push({
@@ -304,7 +292,7 @@ function alignLyrics(lyrics, vttItems) {
     }
   }
 
-  console.log(`-> アライメント完了: 全 ${lyrics.length} ブロック中、${aligned.filter(b => !b.isEstimated).length} ブロックの同期に成功。`);
+  console.log(`-> アライメント完了: 全 ${lyrics.length} 行中、${aligned.filter(b => !b.isEstimated).length} 行の同期に成功。`);
   return aligned;
 }
 
@@ -381,11 +369,77 @@ function secondsToAssTime(secs) {
 }
 
 /**
- * 同期した歌詞データから、FFmpegで焼き付けるためのASS字幕ファイルを生成する
- * @param {Array<object>} alignedLyrics - 同期済み歌詞
- * @param {string} outputPath - 出力先ASSファイルのパス
+ * 日本語を自然な位置で改行する（最大16文字）
+ * @param {string} text - 対象の日本語テキスト
+ * @param {number} max - 改行の基準文字数
+ * @returns {string} 改行コード \N で結合されたテキスト
  */
-function generateAssSubtitle(alignedLyrics, outputPath) {
+function wrapJpn(text, max = 16) {
+  const cleanedText = text.replace(/\n/g, "").replace(/,/g, "，").trim();
+  if (cleanedText.length <= max) return cleanedText;
+  
+  const lines = [];
+  let remaining = cleanedText;
+  while (remaining.length > max) {
+    let breakAt = -1;
+    // max文字以内で最後の句読点やスペースを探す
+    for (let i = Math.min(max, remaining.length - 1); i >= Math.floor(max * 0.5); i--) {
+      if ("。、！？ 　".includes(remaining[i])) {
+        breakAt = i + 1;
+        break;
+      }
+    }
+    // 区切り文字が無ければ max 文字で改行
+    if (breakAt === -1) {
+      breakAt = max;
+    }
+    lines.push(remaining.slice(0, breakAt).trim());
+    remaining = remaining.slice(breakAt).trim();
+  }
+  if (remaining) {
+    lines.push(remaining);
+  }
+  return lines.join("\\N");
+}
+
+/**
+ * 英語を自然な位置で改行する（最大30文字）
+ * @param {string} text - 対象の英語テキスト
+ * @param {number} max - 改行の基準文字数
+ * @returns {string} 改行コード \N で結合されたテキスト
+ */
+function wrapEng(text, max = 30) {
+  const cleanedText = text.replace(/\n/g, " ").replace(/\s+/g, " ").trim();
+  if (cleanedText.length <= max) return cleanedText;
+
+  const words = cleanedText.split(" ");
+  const lines = [];
+  let currentLine = "";
+
+  for (const word of words) {
+    if ((currentLine + " " + word).trim().length <= max) {
+      currentLine = (currentLine + " " + word).trim();
+    } else {
+      if (currentLine) {
+        lines.push(currentLine);
+      }
+      currentLine = word;
+    }
+  }
+  if (currentLine) {
+    lines.push(currentLine);
+  }
+  return lines.join("\\N");
+}
+
+/**
+ * 同期した歌詞データから、FFmpegで焼き付けるためのASS字幕ファイルを生成する
+ * @param {Array<object>} alignedLyrics - 同期済み歌詞（1行ずつのリスト）
+ * @param {string} outputPath - 出力先ASSファイルのパス
+ * @param {number} startTimeSec - 動画の開始時刻（秒）
+ * @param {number} duration - 動画の長さ（秒）
+ */
+function generateAssSubtitle(alignedLyrics, outputPath, startTimeSec = 0, duration = 30) {
   const assHeader = `[Script Info]
 Title: Waxthink Short Video Subtitles
 ScriptType: v4.00+
@@ -403,40 +457,30 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 
   let events = '';
 
-  for (const block of alignedLyrics) {
+  for (let i = 0; i < alignedLyrics.length; i++) {
+    const block = alignedLyrics[i];
     const startSec = timecodeToSeconds(block.start);
     const endSec = timecodeToSeconds(block.end);
-    const duration = endSec - startSec;
 
-    // 改行で分割し、空行を除外した配列を作成
-    const engLines = block.eng.split('\n').map(l => l.trim()).filter(Boolean);
-    const jpnLines = block.jpn.split('\n').map(l => l.trim()).filter(Boolean);
-    const lineCount = Math.max(engLines.length, jpnLines.length);
+    const start = secondsToAssTime(startSec);
+    const end = secondsToAssTime(endSec);
 
-    if (lineCount === 0) continue;
+    const engPartText = wrapEng(block.eng);
+    const jpnPartText = wrapJpn(block.jpn);
 
-    // ブロック全体の時間を歌詞行数で等分
-    const segmentDuration = duration / lineCount;
+    const isLast = i === alignedLyrics.length - 1;
+    const fadTag = isLast ? '\\fad(0,1000)' : '';
+    const engPart = `{\\fs60${fadTag}\\c&HFFFFFF&\\3c&H000000&\\b1}${engPartText}`;
+    const jpnPart = `{\\fs44\\c&H00FFFF&\\3c&H000000&\\b1}${jpnPartText}`;
+    const text = `${engPart}\\N${jpnPart}`;
 
-    for (let i = 0; i < lineCount; i++) {
-      const segStart = startSec + i * segmentDuration;
-      const segEnd = segStart + segmentDuration;
-
-      const start = secondsToAssTime(segStart);
-      const end = secondsToAssTime(segEnd);
-
-      const engPartText = engLines[i] || '';
-      const jpnPartText = jpnLines[i] || '';
-
-      // ASSの装飾タグを使い、英語を上（白・太字）、日本語を下（黄色・太字）に配置する。文字サイズと太い黒縁で可読性向上
-      // 画面の幅からはみ出さないよう、程よいサイズ（英語60, 日本語45）に設定
-      const engPart = `{\\fs60\\c&HFFFFFF&\\3c&H000000&\\b1}${engPartText}`;
-      const jpnPart = `{\\fs44\\c&H00FFFF&\\3c&H000000&\\b1}${jpnPartText}`;
-      const text = `${engPart}\\N${jpnPart}`;
-
-      events += `Dialogue: 0,${start},${end},Default,,0,0,0,,${text}\n`;
-    }
+    events += `Dialogue: 0,${start},${end},Default,,0,0,0,,${text}\n`;
   }
+
+  // ロゴテキストを最後の2秒にフェードイン
+  const logoStart = secondsToAssTime(startTimeSec + duration - 2);
+  const logoEnd = secondsToAssTime(startTimeSec + duration);
+  events += `Dialogue: 0,${logoStart},${logoEnd},Default,,0,0,0,,{\\an5\\fad(800,0)\\fs90\\c&H00D7FF&\\3c&H000000&\\b1}WAXTHINK\n`;
 
   fs.writeFileSync(outputPath, assHeader + events, 'utf-8');
   console.log(`-> ASS字幕ファイルを生成しました: ${outputPath}`);
@@ -597,7 +641,7 @@ async function main() {
     }
 
     // 4. ASS字幕ファイルの生成
-    generateAssSubtitle(alignedLyrics, tempAssPath);
+    generateAssSubtitle(alignedLyrics, tempAssPath, timecodeToSeconds(startTime), duration);
 
     // 5. ショート動画のエンコード生成
     generateVideo({

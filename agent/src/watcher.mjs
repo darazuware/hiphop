@@ -14,6 +14,16 @@ import { spawn } from 'node:child_process';
 const CLAUDE_BIN = '/Users/ktamatzmoto/.local/bin/claude';
 // 記事生成・自由指示は事実チェック＋長文構成が重いので Opus 固定（文体の安定・評論家口調の抑制）
 const CLAUDE_FLAGS = '--model opus --print --permission-mode acceptEdits --dangerously-skip-permissions';
+
+// 課金方針: API従量課金を避け、Claude サブスク（OAuth）で動かす。
+// CLAUDE_CODE_OAUTH_TOKEN（`claude setup-token` で発行）があればそれを使い、
+// ANTHROPIC_API_KEY は claude に渡さない（API_KEY があるとCLIがそちらを優先＝課金されるため）。
+if (process.env.CLAUDE_CODE_OAUTH_TOKEN) {
+  delete process.env.ANTHROPIC_API_KEY;
+  console.log('  [auth] CLAUDE_CODE_OAUTH_TOKEN を検出 → サブスク(OAuth)で実行（API課金なし）');
+} else {
+  console.warn('  [auth] CLAUDE_CODE_OAUTH_TOKEN 未設定 → API_KEY 経路（従量課金）。`claude setup-token` 推奨');
+}
 const HIPHOP_CWD = '/Users/ktamatzmoto/Desktop/hiphop';
 const POLL_MS = 3000;
 
@@ -40,6 +50,64 @@ function run(cmd, opts = {}) {
   });
 }
 
+/** claude を JSON出力で実行し、結果テキストと session_id を返す。resumeId 指定で会話継続。 */
+async function runClaudeJson(promptFile, resumeId) {
+  const outJson = '/tmp/hiphop-claude.json';
+  const errLog = '/tmp/hiphop-claude.log';
+  const resumeFlag = resumeId ? `--resume ${resumeId}` : '';
+  // stdout=JSON / stderr=エラーログ に分離（JSONを汚さない）。pipeline末尾がclaudeなのでcodeはclaudeの終了コード。
+  const r = await run(
+    `set -o pipefail; cat "${promptFile}" | ${CLAUDE_BIN} ${CLAUDE_FLAGS} --output-format json ${resumeFlag} >"${outJson}" 2>"${errLog}"`,
+    { silent: true }
+  );
+  let json = null;
+  try { json = JSON.parse(await readFile(outJson, 'utf-8')); } catch {}
+  const errText = await readFile(errLog, 'utf-8').catch(() => '');
+  return { code: r.code, json, errText };
+}
+
+/** Claude CLI 失敗ログから人間が読める原因を1行抽出する（歌詞は載らない運用前提のログ末尾を見る） */
+function extractErrorReason(log) {
+  const known = [
+    /Credit balance is too low/i,
+    /rate limit/i,
+    /usage limit/i,
+    /Invalid API key|authentication|OAuth|not logged in/i,
+    /quota/i,
+  ];
+  const lines = log.split('\n').map(l => l.trim()).filter(Boolean);
+  for (const re of known) {
+    const hit = lines.find(l => re.test(l));
+    if (hit) return hit.slice(0, 200);
+  }
+  // 既知パターンが無ければ末尾の非空行を返す
+  return (lines[lines.length - 1] || '').slice(0, 200);
+}
+
+/** SUMMARY 行に加え、実際にコミットされた成果物（件名・変更ファイル）を本文化して返す */
+async function buildDeliverableReport(summary, headBefore, headAfter) {
+  const parts = [];
+  if (summary) parts.push(summary);
+
+  const committed = headAfter && headBefore && headAfter !== headBefore;
+  if (committed) {
+    const subject = (await run(`git log -1 --format=%s`, { silent: true })).stdout.trim();
+    const files = (await run(`git show --stat --format= --name-only HEAD`, { silent: true }))
+      .stdout.split('\n').map(s => s.trim()).filter(Boolean);
+    const fileLine = files.length
+      ? `変更: ${files.slice(0, 6).join(', ')}${files.length > 6 ? ` ほか${files.length - 6}件` : ''}`
+      : '';
+    // SUMMARY が空でも、コミット件名を成果物として必ず返す（「完了」のみ防止）
+    if (!summary && subject) parts.push(subject);
+    parts.push(`📦 commit: ${subject}`.trim());
+    if (fileLine) parts.push(fileLine);
+  } else if (!summary) {
+    // コミットも SUMMARY も無い＝調査/変更なし。空通知を防ぐフォールバック
+    parts.push('（変更なし・調査のみ完了。詳細はSUMMARY未出力）');
+  }
+  return parts.join('\n').slice(0, 1500);
+}
+
 async function processTrigger(triggerFile) {
   const ts = triggerFile.match(/hiphop-trigger-(\d+)\.txt$/)?.[1];
   if (!ts) return;
@@ -61,17 +129,42 @@ async function processTrigger(triggerFile) {
 
   // 自由指示モード: Claude 自身に build/git まで行わせ、記事用の後処理はスキップする
   if (meta.mode === 'freeform') {
-    console.log('\n[freeform] Claude実行中...');
-    const r = await run(
-      `cat "${promptFile}" | ${CLAUDE_BIN} ${CLAUDE_FLAGS} 2>&1 | tee /tmp/hiphop-claude.log`,
-      { silent: true }
-    );
-    const m = r.stdout.match(/SUMMARY:\s*(.+?)\s*$/m);
+    console.log(`\n[freeform] Claude実行中...${meta.resumeId ? ' (継続 resume)' : ''}`);
+    // 実行前後の HEAD を記録し、コミットの有無＝成果物を後で判定する
+    const headBefore = (await run(`git rev-parse HEAD`, { silent: true })).stdout.trim();
+
+    let res = await runClaudeJson(promptFile, meta.resumeId || null);
+    // resume指定が無効（古い/壊れたセッション）なら新規セッションで1回だけリトライ
+    if (meta.resumeId && (res.code !== 0 || !res.json)) {
+      console.warn('[freeform] resume失敗 → 新規セッションでリトライ');
+      res = await runClaudeJson(promptFile, null);
+    }
+
+    // 失敗時: stderr から実際の理由（例: Credit balance is too low）を抽出して返す
+    if (res.code !== 0 || !res.json || res.json.is_error) {
+      const errLine = extractErrorReason(res.errText || (res.json && res.json.result) || '');
+      console.log(`[freeform] 失敗 (exit: ${res.code}) — ${errLine}`);
+      await writeFile(
+        doneFile,
+        JSON.stringify({ exitCode: res.code || 1, error: errLine || `Claude exit ${res.code}`, summary: '' }),
+        'utf-8'
+      );
+      cleanup(triggerFile, promptFile);
+      return;
+    }
+
+    // 成功時: SUMMARY に加えて、実際にコミットされた成果物（件名・変更ファイル）を添える
+    const resultText = String(res.json.result || '');
+    const m = resultText.match(/SUMMARY:\s*(.+?)\s*$/m);
     const summary = m ? m[1].trim() : '';
-    console.log(`[freeform] 完了 (exit: ${r.code})${summary ? ' — ' + summary : ''}`);
+    const sessionId = res.json.session_id || null;
+
+    const headAfter = (await run(`git rev-parse HEAD`, { silent: true })).stdout.trim();
+    const report = await buildDeliverableReport(summary, headBefore, headAfter);
+    console.log(`[freeform] 完了 — ${report.replace(/\n/g, ' / ')}`);
     await writeFile(
       doneFile,
-      JSON.stringify({ exitCode: r.code, error: r.code === 0 ? null : `Claude exit ${r.code}`, summary }),
+      JSON.stringify({ exitCode: 0, error: null, summary: report, sessionId }),
       'utf-8'
     );
     cleanup(triggerFile, promptFile);

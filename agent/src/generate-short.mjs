@@ -584,16 +584,21 @@ if (pvMode) {
   events += `Dialogue: 0,0:00:00.00,${endT},WaterMark,,0,0,0,,WAX\\N{\\fs20\\c${accentASS}}&{\\r}\\NTHINK\n`;
 }
 
-usedPairs.forEach((block) => {
+for (let i = 0; i < usedPairs.length; i++) {
+  const block = usedPairs[i];
+  const isLast = i === usedPairs.length - 1;
   const t0 = assTime(Math.max(0, block.start + offsetSec));
-  const t1 = assTime(Math.min(block.end + offsetSec, shortDuration - 0.05));
+  let blockEndSec = block.end + offsetSec;
+  if (isLast) blockEndSec = Math.min(blockEndSec, shortDuration - 4);
+  const t1 = assTime(Math.min(blockEndSec, shortDuration - 0.05));
   if (pvMode) {
-    // PVモード: 文字数に応じて自動縮小 → 常に1行表示
-    events += `Dialogue: 0,${t0},${t1},Eng,,0,0,0,,${fitEng(block.eng)}\n`;
-    events += `Dialogue: 0,${t0},${t1},Jpn,,0,0,0,,${fitJpn(block.jpn)}\n`;
+    const fadPrefix = isLast ? `{\\fad(0,1500)}` : '';
+    events += `Dialogue: 0,${t0},${t1},Eng,,0,0,0,,${fadPrefix}${fitEng(block.eng)}\n`;
+    events += `Dialogue: 0,${t0},${t1},Jpn,,0,0,0,,${fadPrefix}${fitJpn(block.jpn)}\n`;
   } else {
     // アルバムアートモード: Eng(白・小)+Jpn(金・大)を1つのLyrics boxに統合
-    const engPart = `{\\fnHelvetica Neue\\fs46\\b1\\c&H00FFFFFF&}${wrapEng(block.eng)}`;
+    const fadTag = isLast ? '\\fad(0,1500)' : '';
+    const engPart = `{\\fnHelvetica Neue\\fs46\\b1\\c&H00FFFFFF&${fadTag}}${wrapEng(block.eng)}`;
     const jpnPart = `{\\r}${wrapJpn(block.jpn)}`;
     events += `Dialogue: 0,${t0},${t1},Lyrics,,0,0,0,,${engPart}\\N${jpnPart}\n`;
   }
@@ -608,7 +613,16 @@ usedPairs.forEach((block) => {
       events += `Dialogue: 0,${t0},${t1},ExpDesc,,0,0,0,,${wrapJpn(block.exp, 22)}\n`;
     }
   }
-});
+}
+
+// エンディング: 歌詞フェードアウト後にWAXTHINKフェードイン
+const logoStartT = assTime(shortDuration - 2.5);
+const logoEndT = assTime(shortDuration - 0.2);
+if (pvMode) {
+  events += `Dialogue: 0,${logoStartT},${logoEndT},Eng,,0,0,0,,{\\an5\\pos(540,1400)\\fad(1000,300)\\fs100\\fnHelvetica Neue\\c${accentASS}\\3c&H000000&\\b1}WAXTHINK\n`;
+} else {
+  events += `Dialogue: 0,${logoStartT},${logoEndT},Lyrics,,0,0,0,,{\\an5\\fad(1000,300)\\fs90\\fnHelvetica Neue\\c&H00D7FF&\\3c&H000000&\\b1}WAXTHINK\n`;
+}
 
 fs.writeFileSync(assFile, assHeader + events);
 console.log(`[ass] Written: ${assFile}`);

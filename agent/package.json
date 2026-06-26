@@ -6,7 +6,8 @@
   "main": "src/index.mjs",
   "scripts": {
     "start": "node src/index.mjs",
-    "dev": "node --watch src/index.mjs"
+    "dev": "node --watch src/index.mjs",
+    "bot": "node src/wax-bot.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.96.0",

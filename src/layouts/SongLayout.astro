@@ -49,16 +49,16 @@ const waveformPeaks = waveformModules[`../data/waveforms/${slug}.json`]?.default
   {learningPage && (
     <div id="learning-player-bar" class="fixed top-11 left-0 right-0 z-40 flex flex-col" style="display:none" data-duration={songDuration != null ? String(songDuration) : undefined} data-peaks={waveformPeaks ? JSON.stringify(waveformPeaks) : undefined}>
       <!-- Main bar -->
-      <div class="flex items-center gap-3 px-4 py-2 bg-[#0d0d0d]/95 backdrop-blur-md border-b border-[var(--c-border)]">
+      <div class="flex items-center gap-2 px-3 py-2 bg-[#0d0d0d]/95 backdrop-blur-md border-b border-[var(--c-border)]">
         <!-- Play/pause -->
         <button id="player-playpause" aria-label="再生/停止" class="shrink-0 transition-transform duration-150 hover:scale-110" style="width:42px;height:42px;background:#FF4D00;border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0">
           <svg id="player-icon-play" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="black" style="display:block;margin-left:2px"><polygon points="3,1 15,8 3,15"/></svg>
           <svg id="player-icon-pause" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="black" style="display:none"><rect x="1" y="1" width="4" height="12" rx="1"/><rect x="9" y="1" width="4" height="12" rx="1"/></svg>
         </button>
-        <!-- Section label -->
-        <span id="player-section-label" class="text-[10px] uppercase tracking-widest text-[var(--c-dim)] shrink-0 min-w-[52px]">—</span>
-        <!-- Seekwave -->
+        <!-- Seekwave (直後に配置) -->
         <div id="player-seekwave" class="flex-1 h-5 flex items-end gap-[1px] cursor-pointer overflow-hidden" style="min-width:0"></div>
+        <!-- Section label -->
+        <span id="player-section-label" class="text-[10px] uppercase tracking-widest text-[var(--c-dim)] shrink-0 min-w-[44px] text-right">—</span>
         <!-- Time -->
         <span id="player-time" class="text-[10px] font-mono text-[var(--c-dim)] shrink-0">0:00</span>
         <!-- Auto-follow toggle -->
@@ -66,7 +66,7 @@ const waveformPeaks = waveformModules[`../data/waveforms/${slug}.json`]?.default
           id="player-sync-toggle"
           aria-label="連動スクロール切替"
           title="固定 / 連動"
-          style="shrink:0;background:transparent;border:1.5px solid var(--c-border);border-radius:3px;cursor:pointer;padding:2px 7px;font-size:9px;font-weight:700;letter-spacing:.08em;color:var(--c-dim);transition:color .15s,border-color .15s;white-space:nowrap"
+          style="flex-shrink:0;background:transparent;border:1.5px solid var(--c-border);border-radius:4px;cursor:pointer;padding:5px 12px;font-size:11px;font-weight:700;letter-spacing:.08em;color:var(--c-dim);transition:color .15s,border-color .15s;white-space:nowrap"
         >固定</button>
       </div>
       <!-- Section jump strip (populated by JS) -->

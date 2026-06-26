@@ -22,6 +22,7 @@ net.setDefaultAutoSelectFamily?.(false);
 // Homebrew PATH（nohup起動時にPATHが引き継がれないため明示的に追加）
 process.env.PATH = `/opt/homebrew/bin:/usr/local/bin:${process.env.PATH}`;
 import { mkdir, writeFile, readFile, unlink } from 'node:fs/promises';
+import { readFileSync, writeFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execSync } from 'node:child_process';
@@ -38,11 +39,24 @@ const MENU_TEXT =
   `📋 *コマンド一覧*\n\n` +
   `🎵 \`/song Artist - Song [Year]\` → 曲記事を自動生成\n` +
   `🛠️ 任意のテキスト → 任意のタスクを実行（例: \`put-it-onのジャケットを直して\`）\n` +
+  `   ↳ 続けて送ると前回の文脈を引き継ぎます。\`/new\` で新しいスレッド\n` +
   `🎬 \`/short <slug>\` → ショート動画を生成\n` +
   `📹 YouTube URL → 動画翻訳記事をキューに追加\n` +
   `📢 \`/publishvideo\` → キュー先頭を今すぐ公開\n` +
   `📊 \`/status\` → ショート生成状況を確認\n\n` +
   `例: \`/song Wu-Tang Clan - C.R.E.A.M. [1994]\``;
+
+// チャットごとの直近セッションIDを保存し、自由指示の会話継続（--resume）に使う
+const SESSIONS_FILE = '/tmp/hiphop-sessions.json';
+function loadSession(chatId) {
+  try { return JSON.parse(readFileSync(SESSIONS_FILE, 'utf-8'))[String(chatId)] || null; } catch { return null; }
+}
+function saveSession(chatId, sessionId) {
+  let m = {};
+  try { m = JSON.parse(readFileSync(SESSIONS_FILE, 'utf-8')); } catch {}
+  if (sessionId) m[String(chatId)] = sessionId; else delete m[String(chatId)];
+  try { writeFileSync(SESSIONS_FILE, JSON.stringify(m)); } catch {}
+}
 
 /** /short コマンドを処理 */
 async function handleShortCommand(slug, chatId) {
@@ -55,22 +69,25 @@ async function handleShortCommand(slug, chatId) {
     await sendMessage(`✅ ショート生成完了: ${slug}`, chatId);
   } catch (e) {
     const detail = e.stderr?.toString().slice(-300) || e.message.slice(0, 300);
-    await sendMessage(`❌ ショート生成失敗: ${slug}\n${detail}`, chatId);
+    await sendMessage(`❌ ショート生成失敗: ${slug}
+${detail}`, chatId, { safe: true });
   }
 }
 
 /** 自由指示（任意の依頼）を Claude に委譲して実行する */
 async function handleFreeformCommand(instruction, chatId) {
-  await sendMessage('🛠️ 依頼を処理中…（数分かかることがあります）', chatId);
+  const resumeId = loadSession(chatId);
+  await sendMessage(`🛠️ 依頼を処理中…${resumeId ? '（前回の続き）' : ''}（数分かかることがあります）`, chatId);
   try {
-    const r = await runFreeform(instruction);
+    const r = await runFreeform(instruction, resumeId);
     if (r.success) {
+      if (r.sessionId) saveSession(chatId, r.sessionId);
       await sendMessage(`✅ 完了\n${r.output || ''}`.trim(), chatId);
     } else {
-      await sendMessage(`❌ 失敗: ${String(r.error || '').slice(0, 300)}`, chatId);
+      await sendMessage(`❌ 失敗: ${String(r.error || '').slice(0, 300)}`, chatId, { safe: true });
     }
   } catch (e) {
-    await sendMessage(`❌ エラー: ${String(e.message).slice(0, 200)}`, chatId);
+    await sendMessage(`❌ エラー: ${String(e.message).slice(0, 200)}`, chatId, { safe: true });
   }
 }
 
@@ -91,7 +108,7 @@ async function handleVideoCommand(youtubeUrl, chatId) {
     );
   } catch (e) {
     const detail = (e.stderr?.toString() || e.message).slice(-400);
-    await sendMessage(`❌ 動画記事生成失敗\n${detail}`, chatId);
+    await sendMessage(`❌ 動画記事生成失敗\n${detail}`, chatId, { safe: true });
   }
 }
 
@@ -108,7 +125,7 @@ async function handlePublishVideoCommand(chatId) {
     await sendMessage(`✅ 公開完了${url ? `\n${url}` : ''}`, chatId);
   } catch (e) {
     const detail = (e.stderr?.toString() || e.message).slice(-400);
-    await sendMessage(`❌ 公開失敗\n${detail}`, chatId);
+    await sendMessage(`❌ 公開失敗\n${detail}`, chatId, { safe: true });
   }
 }
 
@@ -272,7 +289,7 @@ async function processSong(song, chatId) {
   } else {
     // Markdown パースエラーを避けるためプレーンテキストで送信
     const errorMsg = String(result.error || '不明なエラー').slice(0, 500);
-    await sendMessage(`❌ Claude Code エラー: ${label}\n\n${errorMsg}`, chatId);
+    await sendMessage(`❌ Claude Code エラー: ${label}\n\n${errorMsg}`, chatId, { safe: true });
     console.log(`❌ エラー: ${label} — ${result.error}`);
   }
 }
@@ -365,6 +382,13 @@ async function main() {
           continue;
         }
 
+        // /new, /reset → 自由指示の会話文脈をリセット（新しいスレッド）
+        if (text.trim() === '/new' || text.trim() === '/reset') {
+          saveSession(chatId, null);
+          sendMessage('🆕 新しいスレッドを開始しました（前回までの文脈をリセット）', chatId).catch(() => {});
+          continue;
+        }
+
         // /song <Artist - Song [Year]> → 曲記事生成
         if (text.startsWith('/song ') || text.startsWith('/article ')) {
           const songText = text.replace(/^\/(song|article)\s+/, '').trim();
@@ -373,7 +397,7 @@ async function main() {
             for (const song of songs) {
               processSong(song, chatId).catch((error) => {
                 console.error(`処理エラー: ${error.message}`);
-                sendMessage(`❌ 処理エラー: ${String(error.message).slice(0, 200)}`, chatId).catch(() => {});
+                sendMessage(`❌ 処理エラー: ${String(error.message).slice(0, 200)}`, chatId, { safe: true }).catch(() => {});
               });
             }
           } else {
