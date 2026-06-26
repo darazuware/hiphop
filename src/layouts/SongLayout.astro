@@ -61,6 +61,13 @@ const waveformPeaks = waveformModules[`../data/waveforms/${slug}.json`]?.default
         <div id="player-seekwave" class="flex-1 h-5 flex items-end gap-[1px] cursor-pointer overflow-hidden" style="min-width:0"></div>
         <!-- Time -->
         <span id="player-time" class="text-[10px] font-mono text-[var(--c-dim)] shrink-0">0:00</span>
+        <!-- Auto-follow toggle -->
+        <button
+          id="player-sync-toggle"
+          aria-label="連動スクロール切替"
+          title="固定 / 連動"
+          style="shrink:0;background:transparent;border:1.5px solid var(--c-border);border-radius:3px;cursor:pointer;padding:2px 7px;font-size:9px;font-weight:700;letter-spacing:.08em;color:var(--c-dim);transition:color .15s,border-color .15s;white-space:nowrap"
+        >固定</button>
       </div>
       <!-- Section jump strip (populated by JS) -->
       <div id="player-section-strip" class="flex h-5 w-full cursor-pointer overflow-hidden" style="display:none"></div>
@@ -605,6 +612,18 @@ const waveformPeaks = waveformModules[`../data/waveforms/${slug}.json`]?.default
     const followBtn   = document.getElementById('player-follow')!;
     const followArrow = document.getElementById('player-follow-arrow')!;
     const followText  = document.getElementById('player-follow-text')!;
+    const syncToggle  = document.getElementById('player-sync-toggle') as HTMLButtonElement | null;
+
+    let autoFollow = false;
+    syncToggle?.addEventListener('click', () => {
+      autoFollow = !autoFollow;
+      if (syncToggle) {
+        syncToggle.textContent = autoFollow ? '連動' : '固定';
+        syncToggle.style.color = autoFollow ? 'var(--c-green)' : 'var(--c-dim)';
+        syncToggle.style.borderColor = autoFollow ? 'var(--c-green)' : 'var(--c-border)';
+      }
+      if (autoFollow && currentPlayingEl) scrollToUnit(currentPlayingEl);
+    });
 
     // 下スクロール中はサイトヘッダーを退避し、プレーヤーバーを最上部へ詰める。
     // 上スクロール／最上部付近ではヘッダーを戻す（モバイルの占有面積を削減）。
@@ -919,7 +938,8 @@ const waveformPeaks = waveformModules[`../data/waveforms/${slug}.json`]?.default
 
     // 現在時刻 t に対する見た目（時間表示・波形・ハイライト・帯）を更新
     // userSeek=true（バー/帯を能動的にタップ）なら該当カードへ即スクロール。
-    // 受動再生（loop）では画面を動かさず、画面外なら誘導チップだけ出す。
+    // 受動再生（loop）では autoFollow ON=ユニット切替時に自動スクロール、OFF=誘導チップのみ。
+    let lastScrolledUnit: HTMLElement | null = null;
     function render(t: number, userSeek = false) {
       timeEl.textContent = toMMSS(t);
       updateSeekwave(t);
@@ -936,7 +956,12 @@ const waveformPeaks = waveformModules[`../data/waveforms/${slug}.json`]?.default
       }
       if (userSeek) {
         followBtn.style.display = 'none';
+        lastScrolledUnit = currentPlayingEl;
         if (currentPlayingEl) scrollToUnit(currentPlayingEl);
+      } else if (autoFollow && currentPlayingEl && currentPlayingEl !== lastScrolledUnit) {
+        lastScrolledUnit = currentPlayingEl;
+        followBtn.style.display = 'none';
+        scrollToUnit(currentPlayingEl);
       } else {
         updateFollowChip();
       }
