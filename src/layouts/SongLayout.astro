@@ -47,7 +47,7 @@ const waveformPeaks = waveformModules[`../data/waveforms/${slug}.json`]?.default
 
   <!-- Fixed player bar (learning pages only) -->
   {learningPage && (
-    <div id="learning-player-bar" class="fixed top-11 left-0 right-0 z-40 flex flex-col" style="display:none" data-duration={songDuration != null ? String(songDuration) : undefined} data-peaks={waveformPeaks ? JSON.stringify(waveformPeaks) : undefined}>
+    <div id="learning-player-bar" class="fixed top-11 left-0 right-0 z-40 flex flex-col items-center" style="display:none" data-duration={songDuration != null ? String(songDuration) : undefined} data-peaks={waveformPeaks ? JSON.stringify(waveformPeaks) : undefined}>
       <!-- Main bar -->
       <div class="flex items-center gap-2 px-3 py-2 bg-[#0d0d0d]/95 backdrop-blur-md border-b border-[var(--c-border)] max-w-3xl mx-auto w-full">
         <!-- Play/pause -->
@@ -70,9 +70,9 @@ const waveformPeaks = waveformModules[`../data/waveforms/${slug}.json`]?.default
         >固定</button>
       </div>
       <!-- Section jump strip (populated by JS) -->
-      <div id="player-section-strip" class="flex h-5 w-full cursor-pointer overflow-hidden" style="display:none"></div>
+      <div id="player-section-strip" class="flex h-5 w-full max-w-3xl cursor-pointer overflow-hidden" style="display:none"></div>
       <!-- Section color band (current section indicator) -->
-      <div id="player-section-band" class="h-1 w-full transition-colors duration-500" style="background:var(--c-section-intro)"></div>
+      <div id="player-section-band" class="h-1 w-full max-w-3xl transition-colors duration-500" style="background:var(--c-section-intro)"></div>
 
       <!-- Follow chip: 受動再生で再生カードが画面外の時だけ出す「いま鳴ってるカードへ」誘導 -->
       <button
