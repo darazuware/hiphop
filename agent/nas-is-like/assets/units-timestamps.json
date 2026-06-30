@@ -108,5 +108,85 @@
     "source": "fallback",
     "approx": true,
     "score": 0.4
+  },
+  {
+    "id": "defines-my-name",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 20,
+    "t": 20,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "fiends-flatline",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 32,
+    "t": 32,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "nas-spell",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 62,
+    "t": 62,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "pharaoh-nas",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 97,
+    "t": 97,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "cant-take-it",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 116,
+    "t": 116,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "much-success-prophet",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 135,
+    "t": 135,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "like-pac",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 180,
+    "t": 180,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "summer-jam",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 193,
+    "t": 193,
+    "source": "fallback",
+    "approx": true,
+    "score": null
   }
 ]

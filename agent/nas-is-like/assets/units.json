@@ -9,5 +9,13 @@
   { "id": "siete-pesos", "anchor": ["bet","my","nine","spit","for","the","pesos"], "fallbackT": 113 },
   { "id": "street-sweeper", "anchor": ["like","a","street","sweeper","green","leaf"], "fallbackT": 175 },
   { "id": "greeks-egypt", "anchor": ["like","greeks","in","egypt","learning"], "fallbackT": 182 },
-  { "id": "thug-poet", "anchor": ["poor","man","dream","thug","poet"], "fallbackT": 212 }
+  { "id": "thug-poet", "anchor": ["poor","man","dream","thug","poet"], "fallbackT": 212 },
+  { "id": "defines-my-name", "anchor": ["my","plateau","and","also","what","defines"], "fallbackT": 20 },
+  { "id": "fiends-flatline", "anchor": ["saw","fiends","shoot","up","and","do","lines"], "fallbackT": 32 },
+  { "id": "nas-spell", "anchor": ["are","the","letters","that","spell"], "fallbackT": 62 },
+  { "id": "pharaoh-nas", "anchor": ["tarot","cards","you","can","see","the","pharaoh"], "fallbackT": 97 },
+  { "id": "cant-take-it", "anchor": ["can","take","it","with","you","under","this"], "fallbackT": 116 },
+  { "id": "much-success-prophet", "anchor": ["much","success","to","you","even","if"], "fallbackT": 135 },
+  { "id": "like-pac", "anchor": ["always","got","you","like","pac"], "fallbackT": 180 },
+  { "id": "summer-jam", "anchor": ["like","the","99","summer","jam"], "fallbackT": 193 }
 ]
