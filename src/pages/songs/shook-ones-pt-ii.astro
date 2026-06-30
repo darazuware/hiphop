@@ -65,7 +65,6 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <li><a href="#story" class="hover:text-[var(--c-gold)] transition-colors">01 — ストーリーの流れ（まず曲全体をつかむ）</a></li>
         <li><a href="#units" class="hover:text-[var(--c-gold)] transition-colors">02 — 学ぶ表現（スラング・韻・言葉遊び・AAVE）</a></li>
         <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">03 — 文化的背景</a></li>
-        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">04 — 評価とその後の影響</a></li>
       </ol>
     </nav>
 
@@ -103,6 +102,13 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
     <RelatedColumnTeaser
       eyebrow="関連コラム — 読み込む前に"
       cards={[
+        {
+          href: "/columns/shook-ones-making-of",
+          kicker: "COLUMN ／ 制作・評価",
+          title: "Shook Ones Pt. IIを深掘り",
+          desc: "Pt. Iからの上書き、謎だったピアノループの正体、8 Mile。制作と評価の話はこちらにまとめました。",
+          time: "約6分",
+        },
         {
           href: "/columns/crack-epidemic-hiphop",
           kicker: "COLUMN ／ 文化・歴史",
@@ -339,7 +345,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <Fragment slot="eng">Take these words home and think it through<br />Or the next rhyme I write might be about you</Fragment>
         <Fragment slot="jpn">この言葉を持ち帰ってよく考えろ／さもなきゃ次に書くライムはお前のことかもな</Fragment>
         <p>バースの締めは、聴き手への直接の警告です。「この言葉を持ち帰ってよく考えろ。さもなきゃ次に書くライムはお前のことかもな」。</p>
-        <p>ラップそのものを脅迫の道具にしてしまう1フレーズ。MCの世界では「曲の題材にされる＝やられる」が同じ意味になる。つまりペン一本が、そのまま銃みたいに効いてくる。そんなラインです。</p>
+        <p>ラップそのものを脅迫の道具にしてしまう1フレーズ。MCの世界では「曲の題材にされる＝やられる」が同じ意味になる。つまりペン一本が、そのまま銃みたいに効いてくるんです。</p>
       </LearningUnit>
 
       <!-- ===== Chorus ===== -->
@@ -615,28 +621,15 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         </div>
       </div>
 
-      <div class="mb-6 p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
-        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">Pt. I があった</p>
-        <h3 class="font-semibold text-base mb-3">なぜ「Pt. II」が決定版になったのか</h3>
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)]" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">制作と評価は別コラムで</p>
+        <h3 class="font-semibold text-base mb-3">Pt. Iからの上書き、Herbie Hancockのサンプル、8 Mile</h3>
         <div class="text-[var(--c-muted)] text-sm leading-relaxed space-y-3">
           <p>
-            タイトルが「Pt. II」なのは、文字通り Pt. I が先にあったからです。<br />1994年の「Shook Ones」（＝Pt. I）は、いま誰もが知るあのピアノループとは別のビート。<br />これが大きくは跳ねなかった。
+            なぜ「Pt. II」が決定版になったのか、長年謎だったあのピアノループの正体、Billboard 200最高3位、そして「ラップの試金石」と呼ばれるまで——制作秘話と評価の話は、深くなりすぎるのでひとつの記事に分けました。
           </p>
           <p>
-            そこでHavocがビートを丸ごと差し替えて作り直したのが、この Pt. II です。<br />Pt. II は Pt. I のヴォーカル（"shook ones" のフレーズ）を引っぱってきて自己サンプリングしていて、続編というより「上書き」に近い。<br />結果として、95年の『The Infamous』に収まったこちらが完全な決定版になり、Pt. I はマニア以外ほぼ顧みられなくなりました。<br />「同じ曲の作り直しで歴史が変わる」という、ヒップホップらしい逆転です。
-          </p>
-        </div>
-      </div>
-
-      <div class="mb-6 p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
-        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">ビートの謎とHerbie Hancock</p>
-        <h3 class="font-semibold text-base mb-3">サンプル元は何だったのか</h3>
-        <div class="text-[var(--c-muted)] text-sm leading-relaxed space-y-3">
-          <p>
-            Pt. II のあの不穏なピアノループ。<br />これが何をサンプリングしているのか、長年ヒップホップファンの間で謎でした。<br />最終的に、Herbie Hancockの「Jessica」（1969年のアルバム『Fat Albert Rotunda』収録）のわずか数秒をピッチダウンし、チョップして引き伸ばしたものだと判明しています。
-          </p>
-          <p>
-            浮遊感のある美しいジャズの旋律を、サンプラーの粗い質感で、息の詰まる「QBの空気」へ変えてしまったHavocの手腕。<br />ほかにもQuincy Jones「Kitty With the Bent Frame」、オーストラリアのDaly-Wilson Big Band「Dirty Feet」のサンプルが重ねられています（いずれもWhoSampledで確認できます）。<br />素材が何かより、どう使うか。<br />この曲はその一番わかりやすい実例だと思う。
+            → <a href="/columns/shook-ones-making-of" class="text-[var(--c-gold)] hover:underline">Shook Ones Pt. IIを深掘り——Pt. Iからの上書きと、Herbie Hancockのサンプルの謎</a>
           </p>
         </div>
       </div>
@@ -671,48 +664,6 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       </div>
     </section>
 
-    <!-- 評価と影響 -->
-    <section id="legacy" class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        評価とその後の影響
-      </h2>
-
-      <div class="mb-4 overflow-hidden border-2 border-[var(--c-orange)] text-sm" style="border-radius:0">
-        <div class="grid grid-cols-3 bg-[var(--c-bg)] text-[var(--c-very-dim)] text-xs uppercase tracking-widest">
-          <div class="p-3 border-b border-[var(--c-border)]">指標</div>
-          <div class="p-3 border-b border-l border-[var(--c-border)]">記録</div>
-          <div class="p-3 border-b border-l border-[var(--c-border)]">意義</div>
-        </div>
-        {[
-          ['アルバム「The Infamous」', 'Billboard 200 最高3位（1995年）', 'ハードコアNYヒップホップがメインストリームのチャート頂点圏に到達したことを証明した'],
-          ['8 Mile（映画・2002年）', '冒頭のラップバトルシーンで使用', 'Eminemがバトルの相手の出だしを潰すために使ったビートとして世界的に知名度が広がった'],
-          ['影響と引用', '後世への無数の引用', '"halfway crooks" という概念はヒップホップの価値観の語彙として定着。"shook one" も侮辱語として生き続けている'],
-        ].map(([metric, record, significance]) => (
-          <div class="grid grid-cols-3">
-            <div class="p-3 border-b border-[var(--c-border)] text-[var(--c-dim)]">{metric}</div>
-            <div class="p-3 border-b border-l border-[var(--c-border)] text-[var(--c-green)] font-medium">{record}</div>
-            <div class="p-3 border-b border-l border-[var(--c-border)] text-[var(--c-muted)] text-xs">{significance}</div>
-          </div>
-        ))}
-      </div>
-
-      <div class="p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
-        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">「ラップの試金石」</p>
-        <h3 class="font-semibold text-base mb-3">「Shook Onesのビートで自由にラップできるか」</h3>
-        <div class="text-[var(--c-muted)] text-sm leading-relaxed space-y-3 mb-4">
-          <p>
-            この曲は、時間が経つほど評価が上がっていったタイプの曲です。<br />90年代にリアルタイムで聴いたとき。<br />2000年代に8 Mile経由で出会ったとき。<br />そして2010年代以降、ヒップホップの歴史を振り返る文脈で再評価されたとき。<br />それぞれの場面で、新しい意味が積み重なっていきました。
-          </p>
-          <p>
-            ヒップホップ界では「Shook Ones Pt. IIのビートの上でラップできるか」が、一種の実力試験のように扱われることがあります。<br />それくらい、このビートと歌詞の密度は別格。<br />Eminemが8 Mileでこのビートを選んだのも、そういう文脈があってのことだと思う（映画の冒頭、主人公がこのビートでバトルに挑むものの、緊張で一言も出ないまま固まって負ける、あの有名なオープニングシーンです）。
-          </p>
-          <p>
-            Prodigyは2017年、鎌状赤血球症の合併症で亡くなりました。<br />それでも、彼が19歳で書いた「my mind is older」の一行は、いまも引用され続けています。
-          </p>
-        </div>
-      </div>
-    </section>
-
     <!-- まとめ -->
     <section class="mb-12">
       <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
@@ -722,12 +673,20 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <li>「shook」と「halfway crooks」。たった数語に圧縮されたMobb Deepの哲学が、この曲が30年経っても古びない理由だと思う。</li>
         <li>ProdigyとHavocのMCとしての対比が際立つ構成。Verse 1は感情の告白、Verse 2は冷静な即時回収。性格の違う二人が同じワンループの上で交互に出てくるのが、何度聴いても面白いところです。</li>
         <li>「in gats we trust」のような既成フレーズの改変、「featherweight / levitate」のような暗い言葉遊びなど、語彙の運用が教材として学べる密度を持つ。</li>
-        <li>ビートのサンプル元（Herbie Hancock「Jessica」）が長年謎だったというのも、この曲を語るうえで外せない話。元ネタを知ってから聴くと、また少し聞こえ方が変わります。</li>
+        <li>制作の経緯（Pt. Iからの上書き、長年謎だったピアノループの正体）と評価のされ方は、<a href="/columns/shook-ones-making-of" class="text-[var(--c-gold)] hover:underline">別コラム</a>に分けてまとめました。元ネタや8 Mileの話が気になったらそちらへ。</li>
       </ul>
     </section>
 
     <DiveCards
       cards={[
+        {
+          href: "/columns/shook-ones-making-of",
+          icon: "MK",
+          kicker: "制作・評価",
+          title: "Shook Ones Pt. IIを深掘り",
+          desc: "Pt. Iからの上書き、長年謎だったピアノループの正体（Herbie Hancock）、Billboard 3位と8 Mile。制作秘話と評価をまとめて。",
+          hint: "MK",
+        },
         {
           href: "/columns/crack-epidemic-hiphop",
           icon: "QB",

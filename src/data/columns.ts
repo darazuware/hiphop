@@ -70,6 +70,13 @@ export const columns = [
     relatedSongs: ['/songs/say'],
   },
   {
+    slug: '/columns/shook-ones-making-of',
+    title: 'Shook Ones Pt. IIを深掘り——Pt. Iからの上書きと、Herbie Hancockのサンプルの謎',
+    description: 'Mobb Deep「Shook Ones Pt. II」の制作と評価を掘り下げる。なぜ「Pt. II」が決定版になったのか、長年謎だったあのピアノループの正体（Herbie Hancock「Jessica」）、Billboard 200最高3位、8 Mile、そして「ラップの試金石」と呼ばれるまでの軌跡。',
+    tag: '制作・評価',
+    relatedSongs: ['/songs/shook-ones-pt-ii'],
+  },
+  {
     slug: '/columns/wu-tang-clan',
     title: 'Wu-Tang Clanとは何者か——スタテン島から世界を変えた9人',
     description: '1992年結成、スタテン島出身の9人組コレクティブWu-Tang Clan。RZAのビジョン、独自の神話体系、ビジネスモデルの革新——なぜWu-Tangはヒップホップの歴史を変えたのかを解説する。',
