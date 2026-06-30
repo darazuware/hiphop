@@ -311,7 +311,7 @@ export const artists = [
     origin: 'Queensbridge, New York',
     active: '1991–2017',
     genre: 'East Coast Hip-Hop / hardcore rap',
-    summary: 'ProdigyとHavocによるQueensbridge出身のデュオ。1995年の2ndアルバム『The Infamous』はNYハードコアHIPHOPの頂点として今も語り継がれる。Havocの暗鬱なビートとProdigyの冷淡なリリシズムが融合した「Shook Ones Pt. II」は全米HIPHOPシーン随一の名曲として不動の地位を持つ。2017年6月にProdigy（本名Albert Johnson）が鎌状赤血球症の合併症で42歳で急逝。',
+    summary: 'ProdigyとHavocによるQueensbridge出身のデュオ。1995年の2ndアルバム『The Infamous』はNYハードコアHIPHOPの頂点として今も語り継がれる。Havocの重く沈んだビートにProdigyの淡々と冷たいリリックが乗った「Shook Ones Pt. II」は、いまもNYラップの話になると必ず名前が挙がる一曲です。2017年6月にProdigy（本名Albert Johnson）が鎌状赤血球症の合併症で42歳で急逝。',
     japan: '「Shook Ones Pt. II」のピアノリフはEminem「8 Mile Road」映画での使用で日本でも広く認知された。ハードコアNY HIPHOPの教科書的存在として日本のリスナーにも深く浸透し、90年代スタイルを愛するDJやMCにとって聖典的作品。',
   },
   {
