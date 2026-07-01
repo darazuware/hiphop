@@ -32,20 +32,35 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
     <!-- 導入 -->
     <section class="mb-6">
       <h2 class="text-base font-semibold mb-2">■この曲で何を学べるか</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">
-        「Nas is like 〜（ナズって、まぁ、こんな感じ）」この一つの型を、ヴァースの頭から終わりまで延々と変奏し続ける曲。1999年のアルバム『I Am...』13曲目に収められた、Nasの自己定義ソングです。
-直喩（simile）と暗喩（metaphor）と並置（juxtaposition）だけで自分が何者かを描き切ろうとする、ある種の言語実験みたいな一曲だと思っています。プロデュースは <strong class="text-[var(--c-text)]">DJ Premier（プリモ）</strong>。リリックには、辞書に載らないスラング、AAVE（アフリカ系アメリカ人英語）の文法、英語とスペイン語のコードスイッチ、そして「B.C./A.D.」みたいな二重の意味を仕込んだ言葉遊びがぎっしり。それを「学ぶ表現」単位で取り出して、用例の断片・和訳・語法と文化背景を解説していきます。
-      </p>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          「Nas is like 〜（ナズって、まぁ、こんな感じ）」この一つの型を、ヴァースの頭から終わりまで延々と変奏し続ける曲。1999年のアルバム『I Am...』13曲目に収められた、Nasの自己定義ソングです。
+        </p>
+        <p>
+          直喩（simile）と暗喩（metaphor）と並置（juxtaposition）だけで自分が何者かを描き切ろうとする、ある種の言語実験みたいな一曲だと思っています。プロデュースは <strong class="text-[var(--c-text)]">DJ Premier（プリモ）</strong>。
+        </p>
+        <p>
+          リリックには、辞書に載らないスラング、AAVE（アフリカ系アメリカ人英語）の文法、英語とスペイン語のコードスイッチ、そして「B.C./A.D.」みたいな二重の意味を仕込んだ言葉遊びがぎっしり。それを「学ぶ表現」単位で取り出して、用例の断片・和訳・語法と文化背景を解説していきます。
+        </p>
+      </div>
     </section>
 
     <section class="mb-6">
       <h2 class="text-base font-semibold mb-2">■なぜNas Is Likeが教材として優れるか</h2>
-      <p class="text-sm text-[var(--c-muted)] leading-relaxed">
-        理由はシンプルで、<strong class="text-[var(--c-text)]">「A is like B」という英語のいちばん基本的な構文</strong>が、これでもかと出てくるから。直喩は中学で習う型ですが、ネイティブのラッパーが使うとここまで化けるのか、というのを体感できます。しかも比較対象（B）に当てる固有名詞が、Earth, Wind &amp; Fire（バンド）からIron Mike（マイク・タイソン）、'Pac（2Pac）、ギリシャとエジプトの歴史まで飛び回る。
-比喩を読むことが、そのまま黒人文化の元ネタ・引用を読み解くことになるんです。
-そこにスペイン語が混ざり（siete＝7、pesos＝金）、AAVEの所有格 <code>they</code>（＝their）が混ざる。教科書とストリートとバイリンガルが一行のなかで同居する。リアルな英語の手触りを学ぶ素材として、これほど密度の高い曲もそうないかと思います。
-ちなみにNasはこの曲の前は <strong class="text-[var(--c-text)]">"Nasty Nas"</strong> を名乗っていて、その改名の話までリリックに織り込まれています。
-      </p>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          理由はシンプルで、<strong class="text-[var(--c-text)]">「A is like B」という英語のいちばん基本的な構文</strong>が、これでもかと出てくるから。直喩は中学で習う型ですが、ネイティブのラッパーが使うとここまで化けるのか、というのを体感できます。しかも比較対象（B）に当てる固有名詞が、Earth, Wind &amp; Fire（バンド）からIron Mike（マイク・タイソン）、'Pac（2Pac）、ギリシャとエジプトの歴史まで飛び回る。
+        </p>
+        <p>
+          比喩を読むことが、そのまま黒人文化の元ネタ・引用を読み解くことになるんです。
+        </p>
+        <p>
+          そこにスペイン語が混ざり（siete＝7、pesos＝金）、AAVEの所有格 <code>they</code>（＝their）が混ざる。教科書とストリートとバイリンガルが一行のなかで同居する。リアルな英語の手触りを学ぶ素材として、これほど密度の高い曲もそうないかと思います。
+        </p>
+        <p>
+          ちなみにNasはこの曲の前は <strong class="text-[var(--c-text)]">"Nasty Nas"</strong> を名乗っていて、その改名の話までリリックに織り込まれています。
+        </p>
+      </div>
     </section>
 
     <!-- Table of Contents -->
@@ -425,9 +440,17 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       <div class="mb-6 p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
         <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">Nasty Nas から Nas へ</p>
         <h3 class="font-semibold text-base mb-3">『Illmatic』の神童が背負った重圧</h3>
-        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
-          Nasはニューヨーク・クイーンズのクイーンズブリッジ団地出身。10代から <strong class="text-[var(--c-text)]">"Nasty Nas"</strong> として頭角を現し、1994年のデビュー作『Illmatic』は「史上最高のヒップホップ・アルバム」として必ず名前が挙がる一枚になりました。あまりに完璧なデビューだったせいで、その後の作品は常に『Illmatic』と比べられる。そういう宿命を背負うことになります。「Nas Is Like」は3rdアルバム『I Am...』（1999年）の曲で、プロデューサーに『Illmatic』の盟友 <strong class="text-[var(--c-text)]">DJ Premier</strong> を再び迎え、原点回帰の象徴として受け止められました。「First it was Nasty, but times have changed」という一行には、この改名と成熟の物語がそのまま入っています。
-        </p>
+        <div class="space-y-3 text-[var(--c-muted)] text-sm leading-relaxed">
+          <p>
+            Nasはニューヨーク・クイーンズのクイーンズブリッジ団地出身。10代から <strong class="text-[var(--c-text)]">"Nasty Nas"</strong> として頭角を現し、1994年のデビュー作『Illmatic』は「史上最高のヒップホップ・アルバム」として必ず名前が挙がる一枚になりました。
+          </p>
+          <p>
+            あまりに完璧なデビューだったせいで、その後の作品は常に『Illmatic』と比べられる。そういう宿命を背負うことになります。
+          </p>
+          <p>
+            「Nas Is Like」は3rdアルバム『I Am...』（1999年）の曲で、プロデューサーに『Illmatic』の盟友 <strong class="text-[var(--c-text)]">DJ Premier</strong> を再び迎え、原点回帰の象徴として受け止められました。「First it was Nasty, but times have changed」という一行には、この改名と成熟の物語がそのまま入っています。
+          </p>
+        </div>
       </div>
 
       <div class="p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
@@ -465,17 +488,33 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       <div class="mb-6 p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
         <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">サンプル元</p>
         <h3 class="font-semibold text-base mb-3">捨てかけた讃美歌レコード — "What Child Is This?"</h3>
-        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
-          このトラックの不思議な浮遊感の正体は、<strong class="text-[var(--c-text)]">John V. Rydgren と Bob R. Way による1966年の宗教音楽「What Child Is This?」</strong>。ルター派教会が出した10インチのレコード（ピンク色で、黒い魚＝キリスト教のシンボルが描かれていた盤）からのサンプリングです。DJ Premier はこの盤をあやうく捨てかけたものの、念のためターンテーブルに乗せたところで、この音を見つけたと語っています。彼はそれを <strong class="text-[var(--c-text)]">3つのパートに刻み</strong>、すでに組んでいたドラムに合わせて<strong class="text-[var(--c-text)]">手でスクラッチして</strong>乗せた。危うくゴミ箱行きだった一枚が、名曲のフックの芯になっています。掘る嗅覚と、指先のスクラッチひとつ。プリモのビートは、結局そこに尽きるんだと思います。
-        </p>
+        <div class="space-y-3 text-[var(--c-muted)] text-sm leading-relaxed">
+          <p>
+            このトラックの不思議な浮遊感の正体は、<strong class="text-[var(--c-text)]">John V. Rydgren と Bob R. Way による1966年の宗教音楽「What Child Is This?」</strong>。ルター派教会が出した10インチのレコード（ピンク色で、黒い魚＝キリスト教のシンボルが描かれていた盤）からのサンプリングです。
+          </p>
+          <p>
+            DJ Premier はこの盤をあやうく捨てかけたものの、念のためターンテーブルに乗せたところで、この音を見つけたと語っています。彼はそれを <strong class="text-[var(--c-text)]">3つのパートに刻み</strong>、すでに組んでいたドラムに合わせて<strong class="text-[var(--c-text)]">手でスクラッチして</strong>乗せた。
+          </p>
+          <p>
+            危うくゴミ箱行きだった一枚が、名曲のフックの芯になっています。掘る嗅覚と、指先のスクラッチひとつ。プリモのビートは、結局そこに尽きるんだと思います。
+          </p>
+        </div>
       </div>
 
       <div class="p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
         <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">フックの作り方</p>
         <h3 class="font-semibold text-base mb-3">Nas自身の声を切り刻んで組んだサビ</h3>
-        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
-          このフックの最大の特徴は、<strong class="text-[var(--c-text)]">Nasが新しく歌っていない</strong>こと。サビを構成する肉声は、Premierが <strong class="text-[var(--c-text)]">Nasの過去曲「It Ain't Hard to Tell」（1994）と「Street Dreams」（1996）から声を切り出し、スクラッチでコラージュした</strong>もの。声そのものを楽器のように刻んで新しくビートを組むのは、CHOP&FLIPという手法で、プリモの十八番です。だからこのフックは、聴くたびに「Nasという声の断片で作られたNas論」になっています。素材がNas、語るのもNas。技法と中身が同じ一点で噛み合っているのが、この曲を一度聴くと忘れられない理由のひとつだと思っています。
-        </p>
+        <div class="space-y-3 text-[var(--c-muted)] text-sm leading-relaxed">
+          <p>
+            このフックの最大の特徴は、<strong class="text-[var(--c-text)]">Nasが新しく歌っていない</strong>こと。サビを構成する肉声は、Premierが <strong class="text-[var(--c-text)]">Nasの過去曲「It Ain't Hard to Tell」（1994）と「Street Dreams」（1996）から声を切り出し、スクラッチでコラージュした</strong>もの。
+          </p>
+          <p>
+            声そのものを楽器のように刻んで新しくビートを組むのは、CHOP&FLIPという手法で、プリモの十八番です。だからこのフックは、聴くたびに「Nasという声の断片で作られたNas論」になっています。
+          </p>
+          <p>
+            素材がNas、語るのもNas。技法と中身が同じ一点で噛み合っているのが、この曲を一度聴くと忘れられない理由のひとつだと思っています。
+          </p>
+        </div>
       </div>
     </section>
 
@@ -508,9 +547,17 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       <div class="p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
         <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">後世への影響</p>
         <h3 class="font-semibold text-base mb-3">25年越しのセルフサンプリング</h3>
-        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
-          「Nas Is Like」は、NasとDJ Premierという組み合わせが『Illmatic』以降も健在だと示した一曲として、ファンに長く愛されてきました。面白いのはその後日談で、2024年にNasとPremierが再タッグを組んだ「Define My Name」で、<strong class="text-[var(--c-text)]">この「Nas Is Like」自体がサンプリングされている</strong>（WhoSampledで確認できます）。25年の時を越えて、自分たちの曲を素材に新曲を作る。円環をそのまま閉じにいくやり方が、いかにもプリモらしい。直喩だけで自画像を描き切るこの実験は、いま聴いてもリスナーとMC双方にとっての教材であり続けていると思います。
-        </p>
+        <div class="space-y-3 text-[var(--c-muted)] text-sm leading-relaxed">
+          <p>
+            「Nas Is Like」は、NasとDJ Premierという組み合わせが『Illmatic』以降も健在だと示した一曲として、ファンに長く愛されてきました。
+          </p>
+          <p>
+            面白いのはその後日談で、2024年にNasとPremierが再タッグを組んだ「Define My Name」で、<strong class="text-[var(--c-text)]">この「Nas Is Like」自体がサンプリングされている</strong>（WhoSampledで確認できます）。25年の時を越えて、自分たちの曲を素材に新曲を作る。円環をそのまま閉じにいくやり方が、いかにもプリモらしい。
+          </p>
+          <p>
+            直喩だけで自画像を描き切るこの実験は、いま聴いてもリスナーとMC双方にとっての教材であり続けていると思います。
+          </p>
+        </div>
       </div>
     </section>
 
