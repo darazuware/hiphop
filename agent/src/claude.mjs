@@ -14,7 +14,8 @@ import { readFile, writeFile } from 'node:fs/promises';
 import { access } from 'node:fs/promises';
 import { execSync, spawn } from 'node:child_process';
 
-const HIPHOP_CWD = '/Users/ktamatzmoto/Desktop/hiphop';
+// review運用（2026-07-02〜）: 実作業は常設worktree hiphop-review（reviewブランチ）で行う。
+const HIPHOP_CWD = '/Users/ktamatzmoto/Desktop/hiphop-review';
 const WATCHER_SCRIPT = '/Users/ktamatzmoto/Desktop/hiphop/agent/src/watcher.mjs';
 const TIMEOUT_MS = 45 * 60 * 1000; // 45分（3曲並列でもwatcher処理が終わるまで待てる）
 
@@ -211,10 +212,11 @@ ${instruction}
 - **【評論家口調・禁止語（厳守）】** 記事・コラムの日本語散文を書く／書き直す場合、次の語・言い回しを使わない: 「圧巻」「秀逸」「見事」「通奏低音」「言語の経済性」「リリシズムの核」「〜にほかならない／に他ならない」「〜の先駆けとして」「〜として位置づけられる／位置付けられる」「〜スタイルを確立」「〜の核だ／〜の核心だ」「多層的に読める」。審査員的に上から裁定せず、発見の共有・一人称の感想に置き換える。pre-push の評論家口調ガードがブロックする。
 - **【AI臭の禁止（厳守・ガードがブロック）】** ①ダッシュ（em \`—\`／en \`–\`）で語句を挟む/補足する型を日本語解説で一切使わない（読点・丸括弧・改行で書く）。②「まさに／いわば／〜と言えるだろう／〜ではないだろうか／〜なのである／〜と言っても過言ではない／唯一無二／色褪せない／金字塔／不朽の名作／真骨頂／〜を体現／〜に昇華／〜の極北」を使わない。③体言止めで作品を上から品評する型を多用しない（ですます基調、断定は「〜なんです／と思います」で受ける）。**pre-push ガードは体言止め断定の多用と常套句をブロック**する（ダッシュは警告のみ）。
 - 変更を加えたら必ず \`npm run build\` を実行し、ビルドが通ることを確認する。
-- 自分が変更・作成したファイルだけを \`git add <ファイルパス>\`（複数可・明示列挙）→ \`git commit\` → \`git push origin main\` する。**\`git add .\` および \`git add -A\` は絶対に使わない**（ユーザーのローカル作業と競合するため）。
+- 自分が変更・作成したファイルだけを \`git add <ファイルパス>\`（複数可・明示列挙）→ \`git commit\` → \`git push origin review\` する。**\`git add .\` および \`git add -A\` は絶対に使わない**（ユーザーのローカル作業と競合するため）。
+- **【厳守】\`main\` ブランチへは絶対にチェックアウト・マージ・pushしない。** あなたは常に \`review\` ブランチで作業する（作業ディレクトリ自体が review 用worktreeなので、通常は何もしなくてもreview上にいる）。本番（main）への反映はユーザーが \`/publish\` コマンドで別途行う専用フローであり、あなたはそれを代行しない。
 - 調査だけ／変更が無い依頼なら commit・push はしない。
 - 歌詞の英語行などセンシティブな本文はレスポンスに出力しない。
-- 最後に必ず \`SUMMARY: <要約>\` の形式で実施結果を日本語で出力する（この行が Telegram に通知される。歌詞は含めない）。**「完了」「対応しました」等の中身の無い一言は禁止**。次を具体的に書く: ①何をしたか（作成/修正したページ・ファイル名や対象曲名）②結果（ビルド可否・commit/pushの有無）③あれば公開URL。例: \`SUMMARY: dead-presidents の記事を新規作成しビルド通過、push済み。https://waxthink.com/songs/dead-presidents\`。調査だけの依頼なら結論を1〜2文で要約する。`;
+- 最後に必ず \`SUMMARY: <要約>\` の形式で実施結果を日本語で出力する（この行が Telegram に通知される。歌詞は含めない）。**「完了」「対応しました」等の中身の無い一言は禁止**。次を具体的に書く: ①何をしたか（作成/修正したページ・ファイル名や対象曲名）②結果（ビルド可否・commit/pushの有無）③あればプレビューURL（**まだ本番ではない**ことが分かる書き方で。例: \`https://review.waxthink.pages.dev/songs/dead-presidents\`）。例: \`SUMMARY: dead-presidents の記事を新規作成しビルド通過、reviewブランチへpush済み（未公開）。プレビュー: https://review.waxthink.pages.dev/songs/dead-presidents\`。調査だけの依頼なら結論を1〜2文で要約する。`;
 
   await writeFile(promptFile, prompt, 'utf-8');
 

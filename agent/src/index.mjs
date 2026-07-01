@@ -43,7 +43,9 @@ const MENU_TEXT =
   `🎬 \`/short <slug>\` → ショート動画を生成\n` +
   `📹 YouTube URL → 動画翻訳記事をキューに追加\n` +
   `📢 \`/publishvideo\` → キュー先頭を今すぐ公開\n` +
+  `🚀 \`/publish\` → review ブランチの変更を本番(main)へ反映（レビュー確認後に手動実行）\n` +
   `📊 \`/status\` → ショート生成状況を確認\n\n` +
+  `記事編集は review ブランチで行われます（本番未反映）。プレビューで確認後 \`/publish\` してください。\n` +
   `例: \`/song Wu-Tang Clan - C.R.E.A.M. [1994]\``;
 
 // チャットごとの直近セッションIDを保存し、自由指示の会話継続（--resume）に使う
@@ -109,6 +111,25 @@ async function handleVideoCommand(youtubeUrl, chatId) {
   } catch (e) {
     const detail = (e.stderr?.toString() || e.message).slice(-400);
     await sendMessage(`❌ 動画記事生成失敗\n${detail}`, chatId, { safe: true });
+  }
+}
+
+/** /publish コマンド → review ブランチを main へ反映（本番push、1日1回想定） */
+async function handlePublishCommand(chatId) {
+  await sendMessage(`🚀 review → main へ反映中...`, chatId);
+  try {
+    const output = execSync(
+      `node "${join(__dirname, 'publish-main.mjs')}"`,
+      { cwd: ROOT, stdio: 'pipe', timeout: 300_000, encoding: 'utf-8' }
+    );
+    if (output.includes('NOTHING_TO_PUBLISH')) {
+      await sendMessage(`ℹ️ reviewに新しい変更はありません（反映するものなし）`, chatId);
+    } else {
+      await sendMessage(`✅ 本番反映しました\n\n${output.trim()}`, chatId, { safe: true });
+    }
+  } catch (e) {
+    const detail = (e.stdout?.toString() || e.stderr?.toString() || e.message).slice(-800);
+    await sendMessage(`❌ 本番反映失敗\n${detail}`, chatId, { safe: true });
   }
 }
 
@@ -367,6 +388,12 @@ async function main() {
         // /status コマンド
         if (text.trim() === '/status') {
           handleStatusCommand(chatId).catch(() => {});
+          continue;
+        }
+
+        // /publish コマンド → review を main へ本番反映
+        if (text.trim() === '/publish') {
+          handlePublishCommand(chatId).catch(() => {});
           continue;
         }
 
