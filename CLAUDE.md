@@ -9,6 +9,12 @@
 - 核心: 常体（だ・である）基調に要所で敬体（です・ます／〜と思います）を混ぜ、**常体敬体のゆらぎを許容**して固さを消す。作品への熱と敬意、軽い口語の抜け、一文の長短の緩急、専門語の直後の噛み砕き。
 - **トーンはラフでも事実は厳密。** トーン調整は日本語解説部分のみで行い、英語引用（eng）・和訳（jpn）の分量は増やさない。事実主張は上記「事実チェック」に従う。
 
+## review運用（本番push制限・重要・2026-07-02〜）
+- AdSense審査対策として、**mainへの本番pushは1日1回程度に抑える**運用にした。記事（.astro・songs.ts・artists.ts・画像等サイトコンテンツ）の編集は、常設worktree **`/Users/ktamatzmoto/Desktop/hiphop-review`（`review`ブランチ）** で行い、`git push origin review` する。**mainへの直pushはしない**（対話セッション・Telegram bot共通）。
+- Cloudflare Pagesが`review`ブランチのプレビューを自動デプロイする。ユーザーはスマホでプレビューURLを確認し、Telegramでフィードバックを出す。
+- 承認後の本番反映（`review`→`main`のマージ・build確認・push）は決定的スクリプト [`agent/src/publish-main.mjs`](agent/src/publish-main.mjs)（Telegramの`/publish`コマンド）でのみ行う。対話セッションが自然文の指示で代わりにmainへマージ・pushしない。
+- **例外**: `agent/`配下のbotスクリプトや`docs/`のドキュメント、`CLAUDE.md`自体など、Astroビルド出力（`src/`・`public/`）に影響しないインフラ/ドキュメント変更は、この制限の対象外（サイトの表示内容が変わらないため）。これらはmainへ直接commit・pushしてよい。
+
 ## 絵文字禁止（サイト全体）
 - サイトのソースコード（.astro / .ts / .tsx / コンポーネント）に絵文字（Unicode Emoji）を使わない。DiveCardsの `icon` propなどもテキストラベル（例: "RZA", "94", "WU"）で代替する。
 - ★ や ▶ などの記号文字（Dingbats / Geometric Shapes）はUIパーツとして許容。
@@ -42,6 +48,7 @@ public/images/   # アルバムアート
 - コメント不要、型安全を維持
 - **songs.tsの文字列はダブルクォートを使う**（アポストロフィを含む曲名・タイトルでシングルクォートを使うとシンタックスエラーになる）
 - **git push前に必ず `npm run build` でビルド確認**してからpushすること
+- **記事コンテンツの変更は `review` ブランチへpushする**（上記「review運用」参照）。mainへの直pushは禁止（インフラ/ドキュメント変更は例外）
 
 ## スラング詳細リンクのルール
 - `QuickSlang` は中央辞書 `src/data/slang.ts` に登録がある語のみ「もう一度タップで詳細 →」リンクを表示する（実線下線）。未登録の日常語（ill 等）は簡易解説ツールチップのみ（点線下線・デッドリンクなし）
@@ -132,8 +139,9 @@ public/images/   # アルバムアート
    - **定型句ガード（pre-push-check.mjs / Item4）**: 全曲.astroを横断し、25文字以上の同一日本語解説文が複数曲で使い回されていないか検出する（eng歌詞断片は除外。出力は該当slugと重複箇所数のみ＝歌詞英語行を出さない）。許容済みの既存重複は `agent/.dup-baseline.json` にハッシュで記録（平文非保存）。baselineに無いnet-newの曲間重複はブロックする。意図的に許容する場合のみ `node agent/src/pre-push-check.mjs --update-dup-baseline` で焼き直す。**同一/酷似の解説文を曲間でコピペ再利用しない**（[`docs/article-tone.md`](docs/article-tone.md)）。
    - **Genius短尺フェッチ対策（pre-push-check.mjs / Item6）**: キャッシュ2h超過時の再フェッチは、(a)取得歌詞が既存キャッシュより行数が少なければ不完全とみなしキャッシュを上書きしない（行数が同等以上の時のみ更新）、(b)不完全フェッチ時は[B]を失敗ブロックでなくスキップ＋警告（`SKIP_B=1`／要手動確認）にして誤検出で正しい記事を改変しない、(c)短尺が返ったら最大3回リトライし最長版を採用する。出力は行数・カウントのみ。
 12. npm run build でビルド確認
-13. 自分が変更・作成したファイル（.astro, songs.ts, artists.ts, public/images/covers/{slug}.jpg）のみを git add → git commit → git push
+13. 自分が変更・作成したファイル（.astro, songs.ts, artists.ts, public/images/covers/{slug}.jpg）のみを、**`hiphop-review` worktree（reviewブランチ）で** git add → git commit → git push origin review
     ※【厳守】絶対に "git add ." を実行しないこと（ユーザーのローカル作業と競合するため）
+    ※【厳守】mainへ直接pushしない。本番反映はユーザーが `/publish` コマンドで行う
 ```
 
 ## アーティスト自動追加ルール（重要）

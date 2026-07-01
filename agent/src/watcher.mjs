@@ -24,7 +24,9 @@ if (process.env.CLAUDE_CODE_OAUTH_TOKEN) {
 } else {
   console.warn('  [auth] CLAUDE_CODE_OAUTH_TOKEN 未設定 → API_KEY 経路（従量課金）。`claude setup-token` 推奨');
 }
-const HIPHOP_CWD = '/Users/ktamatzmoto/Desktop/hiphop';
+// review運用（2026-07-02〜）: 記事の実作業は常設worktree hiphop-review（reviewブランチ）で行い、
+// mainへは agent/src/publish-main.mjs（/publishコマンド）経由でのみ反映する。
+const HIPHOP_CWD = '/Users/ktamatzmoto/Desktop/hiphop-review';
 const POLL_MS = 3000;
 
 console.log('═══════════════════════════════════════');
@@ -334,9 +336,9 @@ async function processTrigger(triggerFile) {
     // ゲート無し → 通常push
   }
 
-  // push（クリーンビルド通過後のみ）
-  console.log('\ngit push...');
-  const gitResult = await run('git push', { silent: true });
+  // push（クリーンビルド通過後のみ）— reviewブランチへのみpush。mainへはpublish-main.mjs経由。
+  console.log('\ngit push origin review...');
+  const gitResult = await run('git push origin review', { silent: true });
   if (gitResult.code !== 0) {
     console.error('git push失敗');
     console.log(gitResult.stdout);
