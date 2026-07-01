@@ -11,7 +11,7 @@
 
 ## review運用（本番push制限・重要・2026-07-02〜）
 - AdSense審査対策として、**mainへの本番pushは1日1回程度に抑える**運用にした。記事（.astro・songs.ts・artists.ts・画像等サイトコンテンツ）の編集は、常設worktree **`/Users/ktamatzmoto/Desktop/hiphop-review`（`review`ブランチ）** で行い、`git push origin review` する。**mainへの直pushはしない**（対話セッション・Telegram bot共通）。
-- Cloudflare Pagesが`review`ブランチのプレビューを自動デプロイする。ユーザーはスマホでプレビューURLを確認し、Telegramでフィードバックを出す。
+- **デプロイ実体はVercel**（GitHub連携。Cloudflareはドメイン前段のDNS/プロキシのみで、ビルド・プレビューはCloudflareではない）。Vercelが`review`ブランチのプレビューを自動デプロイする。固定プレビューURL: `https://hiphop-git-review-darazuwares-projects.vercel.app`（プッシュのたびに内容が更新される。個別デプロイのハッシュ付きURLはpushごとに変わるので使わない）。ユーザーはスマホでこのURLを確認し、Telegramでフィードバックを出す。Vercelのデプロイ保護が有効なため初回はVercelログインを求められることがある。
 - 承認後の本番反映（`review`→`main`のマージ・build確認・push）は決定的スクリプト [`agent/src/publish-main.mjs`](agent/src/publish-main.mjs)（Telegramの`/publish`コマンド）でのみ行う。対話セッションが自然文の指示で代わりにmainへマージ・pushしない。
 - **例外**: `agent/`配下のbotスクリプトや`docs/`のドキュメント、`CLAUDE.md`自体など、Astroビルド出力（`src/`・`public/`）に影響しないインフラ/ドキュメント変更は、この制限の対象外（サイトの表示内容が変わらないため）。これらはmainへ直接commit・pushしてよい。
 
@@ -21,7 +21,7 @@
 
 ## スタック
 - Astro + Tailwind CSS v4 + TypeScript
-- デプロイ: Cloudflare Pages（GitHub連携 → git pushで自動デプロイ）
+- デプロイ: Vercel（GitHub連携 → git pushで自動デプロイ。Cloudflareはドメイン前段のDNS/プロキシのみ、ホスティング本体ではない）
 - サイトURL: https://waxthink.com
 
 ## ディレクトリ構成
@@ -39,7 +39,7 @@ public/images/   # アルバムアート
 ## 開発コマンド
 - 開発サーバー: `npm run dev` → http://localhost:4321
 - ビルド確認: `npm run build`
-- デプロイ: `git push` (Cloudflare Pages自動)
+- デプロイ: `git push` (Vercel自動。Cloudflareはドメイン前段のプロキシのみ)
 
 ## ルール
 - 新曲追加は `src/data/songs.ts` にデータ追記 → `src/pages/songs/[slug].astro` 作成

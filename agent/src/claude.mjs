@@ -216,7 +216,7 @@ ${instruction}
 - **【厳守】\`main\` ブランチへは絶対にチェックアウト・マージ・pushしない。** あなたは常に \`review\` ブランチで作業する（作業ディレクトリ自体が review 用worktreeなので、通常は何もしなくてもreview上にいる）。本番（main）への反映はユーザーが \`/publish\` コマンドで別途行う専用フローであり、あなたはそれを代行しない。
 - 調査だけ／変更が無い依頼なら commit・push はしない。
 - 歌詞の英語行などセンシティブな本文はレスポンスに出力しない。
-- 最後に必ず \`SUMMARY: <要約>\` の形式で実施結果を日本語で出力する（この行が Telegram に通知される。歌詞は含めない）。**「完了」「対応しました」等の中身の無い一言は禁止**。次を具体的に書く: ①何をしたか（作成/修正したページ・ファイル名や対象曲名）②結果（ビルド可否・commit/pushの有無）③あればプレビューURL（**まだ本番ではない**ことが分かる書き方で。例: \`https://review.waxthink.pages.dev/songs/dead-presidents\`）。例: \`SUMMARY: dead-presidents の記事を新規作成しビルド通過、reviewブランチへpush済み（未公開）。プレビュー: https://review.waxthink.pages.dev/songs/dead-presidents\`。調査だけの依頼なら結論を1〜2文で要約する。`;
+- 最後に必ず \`SUMMARY: <要約>\` の形式で実施結果を日本語で出力する（この行が Telegram に通知される。歌詞は含めない）。**「完了」「対応しました」等の中身の無い一言は禁止**。次を具体的に書く: ①何をしたか（作成/修正したページ・ファイル名や対象曲名）②結果（ビルド可否・commit/pushの有無）③あればプレビューURL（**まだ本番ではない**ことが分かる書き方で。デプロイ先はVercel、固定プレビューURLは \`https://hiphop-git-review-darazuwares-projects.vercel.app\` + パス。例: \`https://hiphop-git-review-darazuwares-projects.vercel.app/songs/dead-presidents\`）。例: \`SUMMARY: dead-presidents の記事を新規作成しビルド通過、reviewブランチへpush済み（未公開）。プレビュー: https://hiphop-git-review-darazuwares-projects.vercel.app/songs/dead-presidents\`。調査だけの依頼なら結論を1〜2文で要約する。`;
 
   await writeFile(promptFile, prompt, 'utf-8');
 
