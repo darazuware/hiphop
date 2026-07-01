@@ -177,10 +177,15 @@ const CRITIC_SOFT = [
   '凝縮されて',
   '奥行きを与え',
   '証左',
+  '大仰',
 ];
 
+// 読者に手順を命じる命令形（「声に出して」「〜てください」）＝イラッとくる語りかけ。警告。
+// article-tone.md 文体ルール6「読者に作業を命じる命令形を使わない」と同期。
+const READER_CMD_RE = /て(?:ください|下さい)|声に出して/g;
+
 // AI/評論家臭の最大tell＝ダッシュ強調（— em / – en / ― horizontal bar）。
-// article-tone.md「ダッシュで挟む強調をやめる」と同期。解説散文では全廃方針。
+// article-tone.md「ダッシュで挟む強調をやめる（全廃）」と同期。解説散文ではブロック。
 const DASH_RE = /[—–―]/g;
 
 // 【最優先】評論家の体言止め断定「〜だ。／である。」。ですます基調なら本来ごく少数のはず。
@@ -194,6 +199,10 @@ const ASSERT_LIMIT = 5;
 function jpBody(raw) {
   let body = raw.replace(/^---[\s\S]*?\n---/, '');
   body = body.replace(/<Fragment\b[^>]*slot="(?:eng|jpn)"[^>]*>[\s\S]*?<\/Fragment>/g, ' ');
+  // トーン規約は「日本語解説散文」が対象。見出し(h1-6)・目次(nav)のタイトルは
+  // 設計上の区切り（例「ストーリーの流れ — まず曲全体をつかむ」）で解説ではないため除外する。
+  body = body.replace(/<h[1-6][^>]*>[\s\S]*?<\/h[1-6]>/g, ' ');
+  body = body.replace(/<nav\b[^>]*>[\s\S]*?<\/nav>/g, ' ');
   body = body.replace(/<[^>]+>/g, ' ').replace(/&[a-z]+;/g, ' ');
   return body;
 }
@@ -213,14 +222,17 @@ function checkCriticTone(paths) {
       const n = (body.match(new RegExp(w, 'g')) || []).length;
       if (n) hits.push(`${w}×${n}`);
     }
-    // 【警告のみ】SOFT常套句・ダッシュ（中立用法あり／副次。気づいたら直す）
+    // 【ブロック】ダッシュ全廃（AI臭の最大tell。すり抜け防止で警告→ブロックに格上げ）
+    const dn = (body.match(DASH_RE) || []).length;
+    if (dn) hits.push(`ダッシュ(—/–/―)×${dn}`);
+    // 【警告のみ】SOFT常套句・命令形（中立用法あり／副次。気づいたら直す）
     const warns = [];
     for (const w of CRITIC_SOFT) {
       const n = (body.match(new RegExp(w, 'g')) || []).length;
       if (n) warns.push(`${w}×${n}`);
     }
-    const dn = (body.match(DASH_RE) || []).length;
-    if (dn) warns.push(`ダッシュ(—/–)×${dn}`);
+    const cn = (body.match(READER_CMD_RE) || []).length;
+    if (cn) warns.push(`読者への命令形×${cn}`);
     if (warns.length) console.log(`⚠ [TONE] ${slug}: 推奨改善（ブロックなし）→ ${warns.join(' / ')}`);
     if (hits.length) {
       console.log(`❌ [TONE] ${slug}: 評論家口調（ブロック）→ ${hits.join(' / ')}`);
