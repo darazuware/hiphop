@@ -1,5 +1,20 @@
 # 学習ユニット秒数の実測上書き（manualSec）運用
 
+## 【最重要・2026-07-03確定】新規曲は whisper を実行しない
+
+新規記事の生成時は**音源DL・whisper解析・extract-unit-timestamps.mjs / gen-unit-timestamps.mjs を実行しない**
+（AI・計算資源の無駄。精度も実測に劣る）。手順は次の通り:
+
+1. 生成時: `units.json` を曲順に作り、各unitに `fallbackT`（**Verse頭の位置から1行≈2.5〜3秒の線形補間**による概算秒・整数）を付ける。
+2. `node agent/src/gen-fallback-timestamps.mjs --slug {slug}` で `units-timestamps.json` を決定的に生成
+   （watcher の bot フローは自動実行する。対話セッションでは手で実行）。
+3. 公開後、**運営者がプレビューの▶リンクを実測してズレたunitの秒数を指示**する。
+   受け取ったら `set-manual-timestamp.mjs` で焼く（下記「運営者が秒数を渡す手順」）。
+
+whisper 関連スクリプトは過去曲の資産・再解析用として残すのみで、新規フローでは呼ばない。
+
+---
+
 learning型ページの各学習ユニットには、公式PVへの頭出しリンク（▶ X:XX から再生）が付く。
 この秒数は2層で持つ。**whisperは外す**ことを前提にした設計。
 

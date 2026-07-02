@@ -95,22 +95,24 @@ ${jsonPath}
 ## 実行手順
 1. 上記JSONファイルを読み込む（researchは上記ステップ0で裏取りした事実のみを根拠とする）
 2. ファイル名は必ず src/pages/songs/${slug}.astro（上記slugをそのまま使うこと・変更禁止）
-   - **雛形は cream.astro。必ず src/pages/songs/cream.astro を Read して構造を踏襲する。**
+   - **雛形（完全模範）は nas-is-like.astro。必ず src/pages/songs/nas-is-like.astro を Read して構造・文体・改行構造を踏襲する**（2026-07-03一本化。見出し文言は曲ごとに固有で書く。cream.astroは模範外）。
    - **learning型で作る。歌詞全行は載せない。** src/components/LearningUnit.astro を使い、「学ぶ表現」単位（スラング・韻・言葉遊び・AAVE文法）で解説する。
    - 各 LearningUnit: 見出し（学ぶ表現）＋ MC担当 ＋ 秒数頭出しリンク ＋ 日本語の位置案内 ＋ **2行程度の英語引用断片（eng）** ＋ 和訳（jpn）＋ 語法・文化背景の独自解説。
    - 引用は**用例の断片のみ**（その表現を含む行/対句だけ）。**eng引用率 < 60%**（全行掲載にしない）。
    - **歌詞引用の要否・分量は docs/fact-check-rules.md の引用ルールに必ず従う。** スラングの種別によって引用の要否を判断し（引用が要る語／簡易解説で足りる語を切り分ける）、同ルールに定める引用量の上限を厳守する。疑わしきは引用を縮小する。
+   - **【[D]予算運用】** unitを数個書くごとに \`node agent/src/check-lyrics-coverage.mjs ${slug}\` を回し、[D]が57%を超えたら以降のunitは「引用不要スラング方式」（eng/jpnスロット無し・見出しに表現＋本文で位置と語解説＋▶頭出しで完結）に切り替える。コーラス等3回以上反復する行は[D]母数外なので引用自由。usage（語法）スロット内の英語も[D]に算入される。詳細は docs/fact-check-rules.md「引用予算の運用」。
    - **LearningUnit は曲の冒頭から終盤まで満遍なく配置する。** 序盤・中盤に偏らせず、各バース／セクションから最低1つ拾い、**曲尺の最後の4分の1（終盤）に必ず1つ以上**ユニットを置く（fallbackT の秒数分布で終盤が空かないこと）。
    - **独自解説の日本語（jpn/explanation/本文）は英語引用より分量を多くし、合計 ≥ 1200字。**
    - QuickSlangで重要スラングに注釈、文化背景・レガシーは独自解説として記述。
    - **頭出しリンク基準動画**: .astro冒頭に \`const YT = "<11桁youtubeId>";\` を必ず置く（songs.tsのyoutubeIdが無くてもこの YT を使う）。全 LearningUnit の頭出しは同じ YT を参照する。
-   - **秒数の表示は固定で書かない**: 各 LearningUnit の \`t=\` は \`TS["<id>"].t\` 形式で units-timestamps.json から取る（cream.astro と同形）。冒頭に \`import tsData from '../../../agent/${slug}/assets/units-timestamps.json';\` と \`const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.approx }]));\` を置く。
-2b. **agent/${slug}/assets/units.json を必ず作成する**（whisper秒数生成の入力。これが無いと頭出し秒数が出ず、import先のjson不在でビルドが落ちる）。
+   - **秒数の表示は固定で書かない**: 各 LearningUnit の \`t=\` は \`TS["<id>"].t\` 形式で units-timestamps.json から取る（nas-is-like.astro と同形）。冒頭に \`import tsData from '../../../agent/${slug}/assets/units-timestamps.json';\` と \`const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.approx }]));\` を置く。
+2b. **agent/${slug}/assets/units.json を必ず作成する**（頭出し秒数生成の入力。これが無いと頭出し秒数が出ず、import先のjson不在でビルドが落ちる）。
    - 形式: \`[{ "id": "<英数ハイフンの一意id>", "anchor": ["lowercase","words","from","the","quoted","line"], "fallbackT": <概算秒・整数>, "manualSec": null }]\`
+   - **曲の時系列順に並べる**（.astroのユニット順とも一致させる。フック説明を先頭に置く場合を除く）。
    - id は各 LearningUnit と1対1（.astro の \`TS["<id>"]\` と一致させる）。
-   - anchor: そのユニットが扱う引用行の連続する数語を小文字・記号無しで（whisperが拾える固有性の高い語を選ぶ）。
-   - fallbackT: その箇所のおおよその秒数（whisperが外した時の保険）。manualSec は必ず null（運営者が後で実測上書き）。
-   - 秒数自体（whisperSec/t）は書かない。秒数は後段の whisper パイプラインが units-timestamps.json に自動生成する。
+   - anchor: そのユニットが扱う行の連続する数語を小文字・記号無しで（将来の音声アライメント用に残す）。
+   - fallbackT: その箇所のおおよその秒数。**Verse頭の位置から「1行≈2.5〜3秒」の線形補間で概算**すればよい。manualSec は必ず null（運営者が後で実測上書き）。
+   - **whisper・音源DL等のAI音源解析は使わない（2026-07-03確定）。** 秒数は後段の \`gen-fallback-timestamps.mjs\` が fallbackT から units-timestamps.json に決定的に生成する。正確な秒数は運営者がプレビュー実測で指示し \`set-manual-timestamp.mjs\` で焼く。
 2c. **【深掘りセクション（背景／制作／評価）のコラム自動振り分け — docs/column-split-rules.md の閾値で機械的に判定】**
    - 判定対象は3セクションのみ: **背景**（時代・文化）／**制作**（サンプル元・機材・プロデューサーの手法）／**評価**（チャート・受賞・後世への影響）。曲まるごとではなく**各セクションを個別に**判定する。
    - 次の3条件を **すべて満たすセクションだけ別コラム化** する: ①そのセクションの日本語解説を **600字以上** 書ける、②裏取り済みの**固有エピソードが2件以上**（固有＝その曲/アーティスト固有で一般論でない事実。例: 制作なら「消えたtouch＝機材ミス」「The Charmelsを執拗にループ」で2件）、③その固有事実がステップ0の一次ソース照合を通過済み（裏が取れない話は分量に数えない）。
@@ -119,7 +121,7 @@ ${jsonPath}
    - 既存に無く新規に別コラム化する場合のみ:
      a) src/data/columns.ts に \`{ slug: '/columns/<新slug>', title, description, tag, relatedSongs: ['/songs/${slug}', ...] }\` を追加（未登録＝ページ生成されず内部リンク切れ）。
      b) src/pages/columns/<新slug>.astro を作成（既存の src/pages/columns/*.astro の構造を踏襲。散文は article-tone.md のトーン・上記の評論家口調禁止語を厳守。事実は一次ソース裏取り済みのみ）。
-   - 別コラム化したセクション（既存流用も新規も）への**曲ページからの誘導は2箇所**: ①記事末に DiveCards.astro（\`import DiveCards from '../../components/DiveCards.astro';\` + cards に該当コラム。cream.astro 参照）、②LearningUnit群の**前**に「深掘りはコラムへ」の短い予告ブロック。
+   - 別コラム化したセクション（既存流用も新規も）への**曲ページからの誘導は2箇所**: ①記事末に DiveCards.astro（\`import DiveCards from '../../components/DiveCards.astro';\` + cards に該当コラム。nas-is-like.astro 参照）、②LearningUnit群の**前**に「深掘りはコラムへ」の短い予告ブロック。
    - **DiveCards / 予告のリンク先は実在するコラムのみ**（作っていないコラムのカードは出さない＝デッドリンク厳禁）。
    - **同一/酷似の解説文を曲ページとコラムに二重掲載しない。** 別コラム化＝その散文は曲ページ側から消し、DiveCards／予告の短い誘導文に置き換える（pre-push の定型句ガードが25字以上の重複をブロックする）。
 
@@ -207,7 +209,7 @@ export async function runFreeform(instruction, resumeId = null) {
 ${instruction}
 
 ## ルール
-- 着手前に必要に応じて CLAUDE.md と docs/ のルールを Read する。新規の曲ページを作る依頼なら learning型（雛形 src/pages/songs/cream.astro）で作る。
+- 着手前に必要に応じて CLAUDE.md と docs/ のルールを Read する。新規の曲ページを作る依頼なら learning型（完全模範＝src/pages/songs/nas-is-like.astro）で作る。
 - **背景／制作／評価の深掘りを書く場合は docs/column-split-rules.md の閾値で振り分ける**: 1セクションにつき「日本語600字以上＋裏取り済みの固有エピソード2件以上＋一次ソース照合済み」の3条件をすべて満たす時のみ別コラム化（src/data/columns.ts 登録＋src/pages/columns/<slug>.astro 作成＋曲ページから DiveCards と units前予告の2箇所で誘導）。欠ければ曲ページ内包でコラムを作らない（Low value content回避）。切り出す前に必ず columns.ts を読み、同テーマの既存コラムがあれば新規作成せず既存へ誘導。曲ページとコラムで同一/酷似の解説文を二重掲載しない（切り出し＝片方から消す）。
 - **【評論家口調・禁止語（厳守）】** 記事・コラムの日本語散文を書く／書き直す場合、次の語・言い回しを使わない: 「圧巻」「秀逸」「見事」「通奏低音」「言語の経済性」「リリシズムの核」「〜にほかならない／に他ならない」「〜の先駆けとして」「〜として位置づけられる／位置付けられる」「〜スタイルを確立」「〜の核だ／〜の核心だ」「多層的に読める」。審査員的に上から裁定せず、発見の共有・一人称の感想に置き換える。pre-push の評論家口調ガードがブロックする。
 - **【AI臭の禁止（厳守・ガードがブロック）】** ①ダッシュ（em \`—\`／en \`–\`）で語句を挟む/補足する型を日本語解説で一切使わない（読点・丸括弧・改行で書く）。②「まさに／いわば／〜と言えるだろう／〜ではないだろうか／〜なのである／〜と言っても過言ではない／唯一無二／色褪せない／金字塔／不朽の名作／真骨頂／〜を体現／〜に昇華／〜の極北」を使わない。③体言止めで作品を上から品評する型を多用しない（ですます基調、断定は「〜なんです／と思います」で受ける）。**pre-push ガードは体言止め断定の多用と常套句をブロック**する（ダッシュは警告のみ）。
@@ -216,7 +218,7 @@ ${instruction}
 - **【厳守】\`main\` ブランチへは絶対にチェックアウト・マージ・pushしない。** あなたは常に \`review\` ブランチで作業する（作業ディレクトリ自体が review 用worktreeなので、通常は何もしなくてもreview上にいる）。本番（main）への反映はユーザーが \`/publish\` コマンドで別途行う専用フローであり、あなたはそれを代行しない。
 - 調査だけ／変更が無い依頼なら commit・push はしない。
 - 歌詞の英語行などセンシティブな本文はレスポンスに出力しない。
-- 最後に必ず \`SUMMARY: <要約>\` の形式で実施結果を日本語で出力する（この行が Telegram に通知される。歌詞は含めない）。**「完了」「対応しました」等の中身の無い一言は禁止**。次を具体的に書く: ①何をしたか（作成/修正したページ・ファイル名や対象曲名）②結果（ビルド可否・commit/pushの有無）③あればプレビューURL（**まだ本番ではない**ことが分かる書き方で。例: \`https://review.waxthink.pages.dev/songs/dead-presidents\`）。例: \`SUMMARY: dead-presidents の記事を新規作成しビルド通過、reviewブランチへpush済み（未公開）。プレビュー: https://review.waxthink.pages.dev/songs/dead-presidents\`。調査だけの依頼なら結論を1〜2文で要約する。`;
+- 最後に必ず \`SUMMARY: <要約>\` の形式で実施結果を日本語で出力する（この行が Telegram に通知される。歌詞は含めない）。**「完了」「対応しました」等の中身の無い一言は禁止**。次を具体的に書く: ①何をしたか（作成/修正したページ・ファイル名や対象曲名）②結果（ビルド可否・commit/pushの有無）③あればプレビューURL（**まだ本番ではない**ことが分かる書き方で。デプロイ先はVercel、固定プレビューURLは \`https://hiphop-git-review-darazuwares-projects.vercel.app\` + パス。例: \`https://hiphop-git-review-darazuwares-projects.vercel.app/songs/dead-presidents\`）。例: \`SUMMARY: dead-presidents の記事を新規作成しビルド通過、reviewブランチへpush済み（未公開）。プレビュー: https://hiphop-git-review-darazuwares-projects.vercel.app/songs/dead-presidents\`。調査だけの依頼なら結論を1〜2文で要約する。`;
 
   await writeFile(promptFile, prompt, 'utf-8');
 
