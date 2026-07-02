@@ -32,7 +32,7 @@ learning型の曲ページで、背景・制作・評価のセクションを **
 - 切り出し先コラムは [`src/data/columns.ts`](../src/data/columns.ts) に必ず登録（slug/title/description/tag/relatedSongs）。未登録＝アーティストページ同様ページが生成されない／内部リンク切れ。
 - 曲ページからの誘導は [`src/components/DiveCards.astro`](../src/components/DiveCards.astro)（記事末＝動線）と、units前の予告ブロック（読み込む前に）の **2箇所配置** を標準とする。
 - DiveCardsのリンク先は **実在するコラムのみ**（デッドリンク厳禁）。コラム未作成なら、そのカードは出さない。
-- **既存の確定サンプル散文は文言を壊さない。** [`article-tone.md`](article-tone.md) で cream.astro の散文は「確定版・最上位サンプル」指定。切り出し（移動）時も文言を改変しない。トーン基準として参照し続ける。
+- **既存の確定サンプル散文は文言を壊さない。** cream.astro の散文は記録として文言不変（切り出し＝移動時も改変しない）。ただし**トーン模範としては参照停止**（2026-07-02〜。現行模範は nas-is-like.astro、詳細は [`article-tone.md`](article-tone.md)）。
 - 切り出しても **同一/酷似の解説文を曲ページとコラムで二重に置かない**（pre-push の定型句ガードが25字以上の重複を検出）。移動＝片方から消す。曲ページ側はDiveCardsの短い誘導文に置き換える。
 
 ## 既存コラムとの突き合わせ
