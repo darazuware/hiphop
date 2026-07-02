@@ -23,6 +23,10 @@ import { join, basename } from 'node:path';
 import { execSync } from 'node:child_process';
 import { createRequire } from 'node:module';
 import { createHash } from 'node:crypto';
+import {
+  CRITIC_HARD, CRITIC_SOFT, READER_CMD_RE, DASH_RE, ASSERT_RE, ASSERT_LIMIT,
+  jpBody, jpCharCount, escapeRe, loadDictWords,
+} from './tone-rules.mjs';
 
 const require = createRequire(import.meta.url);
 const projectRoot = new URL('../../', import.meta.url).pathname.replace(/\/$/, '');
@@ -54,11 +58,6 @@ function getSongMeta(slug) {
 const DUP_MIN_CHARS = 25;                 // この文字数以上の同一解説文を検出対象にする
 const DUP_BASELINE = join(projectRoot, 'agent/.dup-baseline.json');
 const songsDir = join(projectRoot, 'src/pages/songs');
-
-// 日本語文字数（ひらがな・カタカナ・漢字・々ー）
-function jpCharCount(s) {
-  return (s.match(/[぀-ゟ゠-ヿ一-鿿々ー]/g) || []).length;
-}
 
 // .astro 本文から日本語解説文を抽出（eng スロットは除外＝英語歌詞断片を拾わない）
 function prosesentences(raw) {
@@ -134,101 +133,37 @@ function checkDuplicateGuard() {
 
 // ============================================================================
 // Item 7: 評論家口調ガード（散文の禁止語検出）
-//   docs/article-tone.md の「評論家ヅラ禁止」リストと同期。変更された曲のみ走査。
+//   リスト・正規表現の実体は agent/src/tone-rules.mjs（docs/article-tone.md と同期）。
+//   加えて Obsidian言い換え辞書由来の agent/.tone-ng-words.json をマージする
+//   （生成: node agent/src/sync-tone-dict.mjs。JSONが無い環境では空＝ハードコード分のみで動く）。
 //   出力は検出語と件数のみ（歌詞・本文は出さない＝コンテンツフィルター対策）。
 // ============================================================================
-// 散文でほぼ常に格付け・分析口調になる高精度の語のみ（誤検出で正記事をブロックしない範囲）。
-// 「見事」は marvelous 等の語義注釈・和訳でも出る多義語のため、ガード対象から外しプロンプト側で抑制する。
-// HARD＝中立用法がほぼ無い評論家確定語。検出＝ブロック。
-const CRITIC_HARD = [
-  '圧巻',
-  '秀逸',
-  '通奏低音',
-  '言語の経済性',
-  'リリシズムの核',
-  'にほかならない',
-  'に他ならない',
-  '先駆けとして',
-  'として位置づけ',
-  'として位置付け',
-  'スタイルを確立',
-  '多層的に読める',
-  'と言えるだろう',
-  'と言えよう',
-  'ではないだろうか',
-  'なのである',
-  'と言っても過言ではない',
-  'たらしめ',
-  '諦観',
-  '省察',
-];
-// SOFT＝AI臭いが中立用法もある語（既存記事に多い）。検出＝警告のみ・ブロックしない。
-// 「格付け」は article-tone.md 承認の一人称言い換え（「格付けを下しにいく」）と衝突するため非対象。
-const CRITIC_SOFT = [
-  '唯一無二',
-  '色褪せ',
-  '金字塔',
-  '不朽の',
-  '真骨頂',
-  'を体現',
-  'に昇華',
-  '極北',
-  'いわば',
-  '凝縮されて',
-  '奥行きを与え',
-  '証左',
-  '大仰',
-];
-
-// 読者に手順を命じる命令形（「声に出して」「〜てください」）＝イラッとくる語りかけ。警告。
-// article-tone.md 文体ルール6「読者に作業を命じる命令形を使わない」と同期。
-const READER_CMD_RE = /て(?:ください|下さい)|声に出して/g;
-
-// AI/評論家臭の最大tell＝ダッシュ強調（— em / – en / ― horizontal bar）。
-// article-tone.md「ダッシュで挟む強調をやめる（全廃）」と同期。解説散文ではブロック。
-const DASH_RE = /[—–―]/g;
-
-// 【最優先】評論家の体言止め断定「〜だ。／である。」。ですます基調なら本来ごく少数のはず。
-// 会話調「なんだ。」「〜だよな」は許容したいので lookbehind で「ん／な」直後の「だ。」を除外。
-// 余韻としての体言止めは ASSERT_LIMIT まで許容し、超過＝評論家口調としてブロックする。
-const ASSERT_RE = /(?<![んな])だ。|である。/g;
-const ASSERT_LIMIT = 5;
-
-// .astro から運営者の日本語解説だけを取り出す（eng＝英語引用 / jpn＝和訳 スロット・タグ除去）。
-// トーン規約は解説散文のみ対象（和訳の語をトーン違反に数えない）。
-function jpBody(raw) {
-  let body = raw.replace(/^---[\s\S]*?\n---/, '');
-  body = body.replace(/<Fragment\b[^>]*slot="(?:eng|jpn)"[^>]*>[\s\S]*?<\/Fragment>/g, ' ');
-  // トーン規約は「日本語解説散文」が対象。見出し(h1-6)・目次(nav)のタイトルは
-  // 設計上の区切り（例「ストーリーの流れ — まず曲全体をつかむ」）で解説ではないため除外する。
-  body = body.replace(/<h[1-6][^>]*>[\s\S]*?<\/h[1-6]>/g, ' ');
-  body = body.replace(/<nav\b[^>]*>[\s\S]*?<\/nav>/g, ' ');
-  body = body.replace(/<[^>]+>/g, ' ').replace(/&[a-z]+;/g, ' ');
-  return body;
-}
-
 function checkCriticTone(paths) {
+  const dict = loadDictWords(projectRoot);
+  if (dict.block.length || dict.warn.length) {
+    console.log(`📖 [TONE] 言い換え辞書由来のNG語をマージ: block ${dict.block.length}語 / warn ${dict.warn.length}語`);
+  }
   let failed = false;
   for (const p of paths) {
     const slug = basename(p, '.astro');
     const file = join(songsDir, `${slug}.astro`);
     if (!existsSync(file)) continue;
     const body = jpBody(readFileSync(file, 'utf-8'));
-    // 【ブロック】体言止め断定の多用（=最優先・評論家口調の本丸）＋ HARD評論語
+    // 【ブロック】体言止め断定の多用（=最優先・評論家口調の本丸）＋ HARD評論語＋辞書block語
     const hits = [];
     const an = (body.match(ASSERT_RE) || []).length;
     if (an > ASSERT_LIMIT) hits.push(`体言止め断定(だ。/である。)×${an}＞許容${ASSERT_LIMIT}`);
-    for (const w of CRITIC_HARD) {
-      const n = (body.match(new RegExp(w, 'g')) || []).length;
+    for (const w of [...CRITIC_HARD, ...dict.block]) {
+      const n = (body.match(new RegExp(escapeRe(w), 'g')) || []).length;
       if (n) hits.push(`${w}×${n}`);
     }
     // 【ブロック】ダッシュ全廃（AI臭の最大tell。すり抜け防止で警告→ブロックに格上げ）
     const dn = (body.match(DASH_RE) || []).length;
     if (dn) hits.push(`ダッシュ(—/–/―)×${dn}`);
-    // 【警告のみ】SOFT常套句・命令形（中立用法あり／副次。気づいたら直す）
+    // 【警告のみ】SOFT常套句・辞書warn語（既存曲にヒットあり＝誤爆回避で降格）・命令形
     const warns = [];
-    for (const w of CRITIC_SOFT) {
-      const n = (body.match(new RegExp(w, 'g')) || []).length;
+    for (const w of [...CRITIC_SOFT, ...dict.warn]) {
+      const n = (body.match(new RegExp(escapeRe(w), 'g')) || []).length;
       if (n) warns.push(`${w}×${n}`);
     }
     const cn = (body.match(READER_CMD_RE) || []).length;

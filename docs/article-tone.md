@@ -3,6 +3,7 @@
 日本語散文（曲ページ導入・unit本文・文化背景・コラム）を書く／直すときは本ファイルだけ読めばよい。
 経緯・崩れの実例・旧模範は [`article-tone-archive.md`](article-tone-archive.md)（生成時に読まない）。
 機械ガード＝ [`agent/src/pre-push-check.mjs`](../agent/src/pre-push-check.mjs)（Item4定型句／Item7評論家口調）。
+Obsidian言い換え辞書（`~/Desktop/hiphop-notes/tone/言い換え辞書.md`）のNG語は `node agent/src/sync-tone-dict.mjs` で `agent/.tone-ng-words.json` に同期され、Item7が自動マージする（既存曲にヒットする語は警告降格・辞書更新のたびに再同期）。
 事実の厳密さは [`fact-check-rules.md`](fact-check-rules.md)。**トーンはラフでも事実は厳密。**
 
 ## 模範（唯一）

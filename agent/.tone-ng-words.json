@@ -1,0 +1,17 @@
+{
+  "generated": "2026-07-02",
+  "source": "~/Desktop/hiphop-notes/tone/言い換え辞書.md",
+  "note": "sync-tone-dict.mjs が生成（手編集しない）。block=既存曲ヒット0の確定NG語、warn=既存曲にヒットあり（誤爆回避で警告降格）。再同期: node agent/src/sync-tone-dict.mjs",
+  "block": [
+    "だいぶ利口に組まれている",
+    "スクラッチの引っかき音",
+    "ドラムは硬く隙間が多い",
+    "一語ずつ切り出してつないだ",
+    "利口"
+  ],
+  "warn": [
+    "提示している。",
+    "白眉",
+    "見えてくる。"
+  ]
+}
