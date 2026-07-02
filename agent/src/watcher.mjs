@@ -249,16 +249,17 @@ async function processTrigger(triggerFile) {
     }
   }
 
-  // Step 5.5: learning型の頭出し秒数を whisper で生成（units.jsonが在る曲のみ）
-  // 頭出しリンクの基準youtubeId(.astroのconst YT)とwhisper入力を同一動画に固定して尺ズレ防止。
+  // Step 5.5: learning型の頭出し秒数を units.json の fallbackT から決定的に生成（units.jsonが在る曲のみ）
+  // 2026-07-03確定: whisper/音源DLは使わない（AI不使用）。正確な秒数は運営者がプレビュー実測で
+  // 指示し set-manual-timestamp.mjs で焼く（docs/timestamp-override.md）。
   if (slug) {
     const hasUnits = (() => {
       try { return readFileSync(`${HIPHOP_CWD}/agent/${slug}/assets/units.json`, 'utf-8').length > 0; }
       catch { return false; }
     })();
     if (hasUnits) {
-      console.log(`\n[6/8] whisper秒数生成 (learning型)...`);
-      const tsResult = await run(`node agent/src/gen-unit-timestamps.mjs --slug ${slug}`, { silent: true });
+      console.log(`\n[6/8] 頭出し秒数生成 (fallbackT・whisper不使用)...`);
+      const tsResult = await run(`node agent/src/gen-fallback-timestamps.mjs --slug ${slug}`, { silent: true });
       console.log(tsResult.stdout);
       // 低信頼でも file が出来ていれば続行。生成自体に失敗(exit2)した時のみブロック
       // （.astroが units-timestamps.json を import するため不在だとビルド/クリーンビルドで落ちる）。
@@ -347,6 +348,16 @@ async function processTrigger(triggerFile) {
     return;
   }
   console.log('push 完了');
+
+  // push成功後: レビュー依頼をTelegramへ決定的に送る（プレビューURL付き・失敗しても処理は止めない）
+  if (slug) {
+    const notifyResult = await run(`node agent/src/notify-review.mjs ${slug}`, { silent: true });
+    if (notifyResult.code !== 0) {
+      console.warn(`⚠ レビュー通知失敗（処理は続行）: ${notifyResult.stdout.slice(-200)}`);
+    } else {
+      console.log(notifyResult.stdout.trim());
+    }
+  }
 
   await writeDone(0);
   cleanup(triggerFile, promptFile);
