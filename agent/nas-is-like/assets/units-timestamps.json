@@ -10,6 +10,16 @@
     "score": 0.2
   },
   {
+    "id": "defines-my-name",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 20,
+    "t": 20,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "nasty-name",
     "whisperSec": null,
     "manualSec": null,
@@ -20,6 +30,46 @@
     "score": 0.17
   },
   {
+    "id": "time-game-fame",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 28,
+    "t": 28,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "fiends-flatline",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 32,
+    "t": 32,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "weak-picture-squeeze",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 39,
+    "t": 39,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "street-scriptures",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 44,
+    "t": 44,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "they-possessive",
     "whisperSec": null,
     "manualSec": null,
@@ -28,6 +78,26 @@
     "source": "fallback",
     "approx": true,
     "score": 0.2
+  },
+  {
+    "id": "nas-spell",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 62,
+    "t": 62,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "poetry-never-fell",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 73,
+    "t": 73,
+    "source": "fallback",
+    "approx": true,
+    "score": null
   },
   {
     "id": "half-man-amazin",
@@ -50,6 +120,16 @@
     "score": 0.67
   },
   {
+    "id": "pharaoh-nas",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 97,
+    "t": 97,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "before-christ-after-death",
     "whisperSec": 104.2,
     "manualSec": null,
@@ -70,6 +150,16 @@
     "score": 0.8
   },
   {
+    "id": "chips-cake",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 110,
+    "t": 110,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "siete-pesos",
     "whisperSec": null,
     "manualSec": null,
@@ -78,6 +168,46 @@
     "source": "fallback",
     "approx": true,
     "score": 0.43
+  },
+  {
+    "id": "cant-take-it",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 116,
+    "t": 116,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "numbers-called",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 120,
+    "t": 120,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "much-success-prophet",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 135,
+    "t": 135,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "beef-heat",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 169,
+    "t": 169,
+    "source": "fallback",
+    "approx": true,
+    "score": null
   },
   {
     "id": "street-sweeper",
@@ -100,76 +230,6 @@
     "score": 0.8
   },
   {
-    "id": "thug-poet",
-    "whisperSec": null,
-    "manualSec": null,
-    "fallbackT": 212,
-    "t": 212,
-    "source": "fallback",
-    "approx": true,
-    "score": 0.4
-  },
-  {
-    "id": "defines-my-name",
-    "whisperSec": null,
-    "manualSec": null,
-    "fallbackT": 20,
-    "t": 20,
-    "source": "fallback",
-    "approx": true,
-    "score": null
-  },
-  {
-    "id": "fiends-flatline",
-    "whisperSec": null,
-    "manualSec": null,
-    "fallbackT": 32,
-    "t": 32,
-    "source": "fallback",
-    "approx": true,
-    "score": null
-  },
-  {
-    "id": "nas-spell",
-    "whisperSec": null,
-    "manualSec": null,
-    "fallbackT": 62,
-    "t": 62,
-    "source": "fallback",
-    "approx": true,
-    "score": null
-  },
-  {
-    "id": "pharaoh-nas",
-    "whisperSec": null,
-    "manualSec": null,
-    "fallbackT": 97,
-    "t": 97,
-    "source": "fallback",
-    "approx": true,
-    "score": null
-  },
-  {
-    "id": "cant-take-it",
-    "whisperSec": null,
-    "manualSec": null,
-    "fallbackT": 116,
-    "t": 116,
-    "source": "fallback",
-    "approx": true,
-    "score": null
-  },
-  {
-    "id": "much-success-prophet",
-    "whisperSec": null,
-    "manualSec": null,
-    "fallbackT": 135,
-    "t": 135,
-    "source": "fallback",
-    "approx": true,
-    "score": null
-  },
-  {
     "id": "like-pac",
     "whisperSec": null,
     "manualSec": null,
@@ -180,11 +240,51 @@
     "score": null
   },
   {
+    "id": "loot-crisp",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 185,
+    "t": 185,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "summer-jam",
     "whisperSec": null,
     "manualSec": null,
     "fallbackT": 193,
     "t": 193,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "locked-down-fam",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 197,
+    "t": 197,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "thug-poet",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 212,
+    "t": 212,
+    "source": "fallback",
+    "approx": true,
+    "score": 0.4
+  },
+  {
+    "id": "system-every-night",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 217,
+    "t": 217,
     "source": "fallback",
     "approx": true,
     "score": null

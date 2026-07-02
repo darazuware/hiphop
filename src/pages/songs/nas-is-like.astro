@@ -46,7 +46,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
     </section>
 
     <section class="mb-6">
-      <h2 class="text-base font-semibold mb-2">■なぜNas Is Likeが教材として優れるか</h2>
+      <h2 class="text-base font-semibold mb-2">■中学英語の "A is like B" が、ここまで化ける</h2>
       <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
         <p>
           理由はシンプルで、<strong class="text-[var(--c-text)]">「A is like B」という英語のいちばん基本的な構文</strong>が、これでもかと出てくるから。直喩は中学で習う型ですが、ネイティブのラッパーが使うとここまで化けるのか、というのを体感できます。しかも比較対象（B）に当てる固有名詞が、Earth, Wind &amp; Fire（バンド）からIron Mike（マイク・タイソン）、'Pac（2Pac）、ギリシャとエジプトの歴史まで飛び回る。
@@ -132,7 +132,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         学ぶ表現 — スラング・韻・言葉遊び・AAVE
       </h2>
       <p class="text-xs text-[var(--c-dim)] mb-6">
-        各見出しは「この曲から学べる英語表現」。各ユニットはまず上に英語の用例（1〜2行）を置いてあります。<strong class="text-[var(--c-text)]">先に英語を音で追い、行のどこが学習対象かを確かめてから</strong>下の日本語解説に進むと、英語が苦手でも置いていかれません。マイクはそのリリックを歌うMC、▶は公式PVの該当箇所への頭出しリンク（音源解析で付与した概算。「≈」付きは未検証の推定値で、運営者の実測で随時上書きします）。引用は解説に必要な最小限の断片に留めています。
+        各見出しは「この曲から学べる英語表現」。多くのユニットはまず上に英語の用例（1〜2行）を置いてあります。<strong class="text-[var(--c-text)]">先に英語を音で追い、行のどこが学習対象かを確かめてから</strong>下の日本語解説に進むと、英語が苦手でも置いていかれません。金や銃まわりの語彙・ブランド名を扱うユニットは、行を引かずに語の意味と背景だけで解説しています（引用を必要最小限に絞る方針のため。▶で該当箇所へ飛べます）。マイクはそのリリックを歌うMC、▶は公式PVの該当箇所への頭出しリンク（音源解析で付与した概算。「≈」付きは未検証の推定値で、運営者の実測で随時上書きします）。引用は解説に必要な最小限の断片に留めています。
       </p>
 
       <!-- ① 直喩の engine -->
@@ -198,6 +198,22 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <p>上の行の <strong class="text-[var(--c-text)]">Nasty</strong> は、Nasの初期の名義 <strong class="text-[var(--c-text)]">"Nasty Nas"</strong> のこと。デビュー前の彼はこう呼ばれていました。<code>First it was Nasty, but times have changed</code>（最初はナスティだった、でも時代は変わった）は、ティーンの荒っぽいMCから一人の「アーティスト」へ成熟した自己認識の宣言。でも次の行で <code>but hardcore</code> と付け足して、洗練はしても牙は抜いていない、と釘を刺すのが彼らしい。ヒップホップでは <strong class="text-[var(--c-text)]">MC名そのものが物語を背負う</strong>。名前の変遷を辿ると、その人のキャリア観が見えてくる好例です。<code>times have changed</code>（時代は変わった）は日常会話でもそのまま使える定番フレーズです。</p>
       </LearningUnit>
 
+      <!-- ③a-2 the game / -ame rhyme run -->
+      <LearningUnit
+        heading="time in the game — 「ゲーム＝この稼業」と -ame で畳む韻"
+        label="★ スラング／韻"
+        mc="Nas（Verse 1）"
+        t={TS["time-game-fame"].t} tApprox={TS["time-game-fame"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1中盤、改名の話のすぐ後に続く件。ここは行を引かず、語だけ取り出します。</p>
+        <p>この件でNasは、自分が時間を費やしてきた場所を <strong class="text-[var(--c-text)]">the game</strong> と呼びます。学習ポイントはこの一語。ボードゲームの話ではなく、<strong class="text-[var(--c-text)]">ラップ稼業、あるいはストリートの経済そのもの</strong>を指す定番スラングです。in the game で「この世界に身を置いて」。日本語の「業界」にかなり近い温度で使われます。</p>
+        <p>もう一つ、この辺りは行末の母音がずっと揃っています。pain、game、fame、cocaine、sane、aim。<strong class="text-[var(--c-text)]">-ain / -ame の同じ響き</strong>で数行まるごと畳んでいく区間なので、意味を追う前に音だけ追ってもらうと、韻が段落の接着剤になっているのが分かります。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">the game</strong> は「rap game」「dope game」のように業界名と組んで「〜稼業」を表します。in the game（現役で）、out the game（足を洗って）まで含めて頻出。文脈が無くても the game 単体で「この稼業」と通じるのがポイントです。</p>
+        </Fragment>
+      </LearningUnit>
+
       <!-- ③b fiends / flatline -->
       <LearningUnit
         heading="Saw fiends shoot up... am I sane? — fiend(ヤク中)と反復のSaw..."
@@ -213,6 +229,35 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <Fragment slot="usage">
           <p><strong class="text-[var(--c-text)]">fiend</strong> は名詞で「中毒者」、動詞 <em>fiend (for)</em> で「〜を異常に欲しがる」。<em>dope fiend / crack fiend</em> のように薬物名と結びつく。比喩的に <em>fiend for attention</em>（注目に飢える）のようにも使える。</p>
         </Fragment>
+      </LearningUnit>
+
+      <!-- ③c squeeze -->
+      <LearningUnit
+        heading="squeeze — 引き金を「絞る」、の一語で撃つ"
+        label="★ スラング"
+        mc="Nas（Verse 1）"
+        t={TS["weak-picture-squeeze"].t} tApprox={TS["weak-picture-squeeze"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ fiendの件の直後、屋上での射撃描写。語彙ものなので行は引きません。</p>
+        <p>ここで描かれるのは、屋上で射撃の腕を磨く光景です。木にライバルMCのCDジャケットをテープで貼り、その写真に銃身の照準を合わせる。そして行末に置かれる動詞が <strong class="text-[var(--c-text)]">squeeze</strong> です。</p>
+        <p>squeeze は本来「握る・絞る」。squeeze the trigger（引き金を絞る）の trigger を省いて、<strong class="text-[var(--c-text)]">一語で「撃つ」を意味する</strong>ようになった隠語です。的が的紙ではなく気に入らないMCのジャケ写、しかもそれを weak（弱い）と呼び捨てる。物騒ですが、実弾で相手を消す話ではなく「お前のラップを標的にする」というMCバトルの誇張表現の系譜です。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">squeeze</strong> は日常英語では「絞る・ぎゅっと握る」（squeeze a lemon）。ストリート文脈で目的語なしに置かれたら「発砲する」を疑うと聞き取りが速くなります。同じ件には MAC-10（マックテン）という短機関銃の名前も出てきて、銃器の固有名詞がそのまま日常語彙になっている世界が見えます。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ③d street scriptures -->
+      <LearningUnit
+        heading="street scriptures — 街の「経典」を書くという自負"
+        label="★ 比喩／テーマ"
+        mc="Nas（Verse 1）"
+        t={TS["street-scriptures"].t} tApprox={TS["street-scriptures"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1中盤、自分のラップが誰のためのものかを名指しする件。</p>
+        <p>この件でNasは、自分のラップを <strong class="text-[var(--c-text)]">street scriptures（街の経典）</strong>と呼びます。scripture は聖書のような「聖典」を指すかたい単語。それを street と組み合わせた瞬間、ラップが「路上で生きる者のための聖書」になります。ストーリー欄で触れた「街の経典を書く者としての自負」の出どころは、ここです。</p>
+        <p>誰に向けた経典かも行の中で名指しされています。crossroads（岐路）に立つ lost souls（迷える魂）、車のために <strong class="text-[var(--c-text)]">hustle</strong>（手段を選ばず稼ぐ）する corner <QuickSlang word="thugs" desc="街角で生きる荒くれ者たち。この曲では経典を届ける相手として名指しされ、終盤の自己定義 thug poet への伏線にもなる" />。ここに出てくる <strong class="text-[var(--c-text)]">dough</strong> は「パン生地」ではなく金のスラングです。読者を選んで書く、という宣言まで含めて、聖典の比喩が一貫しています。</p>
       </LearningUnit>
 
       <!-- ④ AAVE they = their -->
@@ -245,6 +290,24 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <Fragment slot="jpn">天国と地獄、ラップの伝説、存在感は感じられる／そしてもちろん、N-A-S が綴る文字は…</Fragment>
         <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の最後、そのままコーラスへ雪崩れ込む件。</p>
         <p>これはVerse 1を締めて <strong class="text-[var(--c-text)]">フックへ橋渡しする</strong>仕掛けの行。<code>Heaven and Hell</code>（天国と地獄）の対比、<strong class="text-[var(--c-text)]">presence is felt</strong>（存在感が感じられる＝受動態の定番形）で自分の重みを置いてから、<strong class="text-[var(--c-text)]">N-A-S</strong> と一文字ずつ名前を綴り、文を途中で切る。その続き（"spell..."）が、そのままコーラスの <code>Nas is like...</code> に受け渡される構成です。名前そのものを曲の構造に編み込んでいます。<code>of course</code>（もちろん）の軽い口語の挟み方も効いていて、全体が重くなりすぎずに済んでいます。</p>
+      </LearningUnit>
+
+      <!-- ④c poetry / never fell -->
+      <LearningUnit
+        heading="My poetry's deep, I never fell — fall off（落ち目になる）の否定"
+        label="★ スラング／フック"
+        mc="Nas（Hook）"
+        t={TS["poetry-never-fell"].t} tApprox={TS["poetry-never-fell"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">My poetry's deep, I never fell</Fragment>
+        <Fragment slot="jpn">俺の詩は深い、俺は一度も落ちていない</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ フックの2行目。「Nas is like...」の合間に差し込まれる自己弁護の一行。</p>
+        <p>学習ポイントは行末の <strong class="text-[var(--c-text)]">fell</strong>。fall（落ちる）の過去形ですが、ここで転んだ話をしているわけではありません。背負っているのは <strong class="text-[var(--c-text)]">fall off（落ち目になる・第一線から転落する）</strong>という、ラッパーの評価を語るうえで欠かせないスラングです。</p>
+        <p>『Illmatic』が完璧すぎたせいで、Nasには「次で落ちるのでは」という視線がずっと付きまとっていました（詳しくは文化的背景の章で）。だからこの I never fell は、ただの自慢ではなく経歴への反論なんです。自分のラップを poetry（詩）と呼ぶ選択も、終盤の thug poet の自己定義まで一直線につながっています。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">fall off</strong> は「（人気・実力が）落ちる」。He fell off（あいつは落ち目だ）はラップ談義の決まり文句で、反対の動きが blow up（ブレイクする）。キャリアの上げ下げはこの2つの句動詞で語られます。</p>
+        </Fragment>
       </LearningUnit>
 
       <!-- ⑤ Earth Wind Fire / rhyme -->
@@ -289,24 +352,6 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <p>下の行が、この曲いちばんの仕掛けです。「<strong class="text-[var(--c-text)]">Before the Christ</strong>, <strong class="text-[var(--c-text)]">After the Death</strong>」。これは西暦の <strong class="text-[var(--c-text)]">B.C.（Before Christ＝紀元前）</strong>と、暗に <strong class="text-[var(--c-text)]">A.D.</strong> を「After the Death」と読み替えた言葉遊びです。本来 A.D. はラテン語 Anno Domini（主の年）ですが、英語話者がしばしば誤解する "After Death" を逆手に取って、キリストの前後＝歴史そのものに自分を重ねています。上の行の <strong class="text-[var(--c-text)]">Iron Mike</strong> はMike Tyson（マイク・タイソン）、<strong class="text-[var(--c-text)]">Messiah</strong> は救世主。たった2行で、ボクシングの伝説と宗教的スケールに自分を並べてしまう。気づくとナズすごっとなる一節。</p>
       </LearningUnit>
 
-      <!-- ⑦ Spanish code-switch -->
-      <LearningUnit
-        heading="siete zeros / pesos — 英語にスペイン語を差し込むコードスイッチ"
-        label="★ スラング／バイリンガル"
-        mc="Nas（Verse 2）"
-        t={TS["siete-pesos"].t} tApprox={TS["siete-pesos"].approx} youtubeId={YT}
-        embed=""
-      >
-        <Fragment slot="eng">Let my cash invest in stock<br />...siete zeros, bet my nine spit for the pesos</Fragment>
-        <Fragment slot="jpn">俺の金は株に投資させる／…七つのゼロ、金のためなら俺の9ミリが火を噴く</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2中盤、富と暴力を畳みかける件。学習対象はスペイン語が混ざる2語。</p>
-        <p>注目は <strong class="text-[var(--c-text)]">siete zeros</strong> と <strong class="text-[var(--c-text)]">pesos</strong>。どちらもスペイン語で、<strong class="text-[var(--c-text)]">siete＝7</strong>（つまり「ゼロが7つ＝数百万ドル」）、<strong class="text-[var(--c-text)]">pesos＝お金</strong>。英語のラインに自然にスペイン語を差し込む <strong class="text-[var(--c-text)]">コードスイッチング</strong>は、ラティーノ人口の多いニューヨークのストリート英語ではごく普通の現象です。さらに同じ件には <strong class="text-[var(--c-text)]"><QuickSlang word="nine" desc="9mm拳銃（nine millimeter）のスラング" /></strong>（9mm拳銃）も出てくる。一行のなかで英語・スペイン語・隠語が三層に重なる、密度の高い箇所です。</p>
-        <Fragment slot="usage">
-          <p>数字や金の単位をスペイン語にする <strong class="text-[var(--c-text)]">コードスイッチ</strong>は、NYヒップホップの常套句。<em>dinero</em>（金）、<em>pesos</em>（金）、<em>siete / ocho</em>（7／8）などは英語ラップに頻出するので、基本のスペイン語数詞と金関連語を押さえると聞き取りが一気に楽になる。</p>
-          <p><strong class="text-[var(--c-text)]">nine</strong> は <em>nine millimeter</em>（9mm拳銃）の略。数字がそのまま物騒なスラングの核になります。英語ラップではよくあるパターンです。</p>
-        </Fragment>
-      </LearningUnit>
-
       <!-- ⑧ come-up / Seiko Rolex -->
       <LearningUnit
         heading="from Seiko to Rolex — モノで語る come-up（成り上がり）"
@@ -322,6 +367,37 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <Fragment slot="usage">
           <p><strong class="text-[var(--c-text)]">come a long way</strong> は「（人・物事が）大きく進歩した・遠くまで来た」を表すイディオム。<em>I've come a long way</em>（自分は成長した）のように現在完了で使うのが定番。ラップでは過去の貧困から現在の成功までの距離を示す決め台詞として多用される。</p>
           <p><strong class="text-[var(--c-text)]">go from A to B</strong>（AからBへ移る）は変化を語る基本構文。ここでは安物→高級ブランドの対比で「成り上がり」を一行に圧縮しています。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑧a-2 chips / cake -->
+      <LearningUnit
+        heading="no chips → large cake — 金を「食べもの」で言うスラング群"
+        label="★ スラング（金）"
+        mc="Nas（Verse 2）"
+        t={TS["chips-cake"].t} tApprox={TS["chips-cake"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ セイコーからロレックスへ、のすぐ次の行。金の語彙ものなので行は引きません。</p>
+        <p>成り上がりの話がもう一行続きます。ここで出てくるのが <strong class="text-[var(--c-text)]"><QuickSlang word="chips" desc="お金・現金。この曲では「projects（団地）暮らしで chips が無かった頃」という形で、無一文の過去を指す" /></strong>（チップ＝現金）と <strong class="text-[var(--c-text)]">cake</strong>（ケーキ＝大金）。projects（公営団地）で chips が無かった頃から、large cake を手にする側になった、という一行です。</p>
+        <p>英語のスラングは金を食べものに言い換えるのが大好きで、dough（パン生地）、bread（パン）、cheddar（チーズ）あたりが定番。この曲だけでも dough と chips と cake が出てきます。ちなみに projects はアメリカの低所得者向け公営住宅のことで、Nasの場合はクイーンズブリッジ団地。地名まで置き換えて読むと、セイコーからロレックスまでの距離がぐっと具体的になります。</p>
+      </LearningUnit>
+
+      <!-- ⑧a-3 Spanish code-switch -->
+      <LearningUnit
+        heading="siete zeros / pesos — 英語にスペイン語を差し込むコードスイッチ"
+        label="★ スラング／バイリンガル"
+        mc="Nas（Verse 2）"
+        t={TS["siete-pesos"].t} tApprox={TS["siete-pesos"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Let my cash invest in stock<br />...siete zeros, bet my nine spit for the pesos</Fragment>
+        <Fragment slot="jpn">俺の金は株に投資させる／…七つのゼロ、金のためなら俺の9ミリが火を噴く</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2中盤、富と暴力を畳みかける件。学習対象はスペイン語が混ざる2語。</p>
+        <p>注目は <strong class="text-[var(--c-text)]">siete zeros</strong> と <strong class="text-[var(--c-text)]">pesos</strong>。どちらもスペイン語で、<strong class="text-[var(--c-text)]">siete＝7</strong>（つまり「ゼロが7つ＝数百万ドル」）、<strong class="text-[var(--c-text)]">pesos＝お金</strong>。英語のラインに自然にスペイン語を差し込む <strong class="text-[var(--c-text)]">コードスイッチング</strong>は、ラティーノ人口の多いニューヨークのストリート英語ではごく普通の現象です。さらに同じ件には <strong class="text-[var(--c-text)]"><QuickSlang word="nine" desc="9mm拳銃（nine millimeter）のスラング" /></strong>（9mm拳銃）も出てくる。一行のなかで英語・スペイン語・隠語が三層に重なる、密度の高い箇所です。</p>
+        <Fragment slot="usage">
+          <p>数字や金の単位をスペイン語にする <strong class="text-[var(--c-text)]">コードスイッチ</strong>は、NYヒップホップの常套句。<em>dinero</em>（金）、<em>pesos</em>（金）、<em>siete / ocho</em>（7／8）などは英語ラップに頻出するので、基本のスペイン語数詞と金関連語を押さえると聞き取りが一気に楽になる。</p>
+          <p><strong class="text-[var(--c-text)]">nine</strong> は <em>nine millimeter</em>（9mm拳銃）の略。数字がそのまま物騒なスラングの核になります。英語ラップではよくあるパターンです。</p>
         </Fragment>
       </LearningUnit>
 
@@ -342,6 +418,19 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         </Fragment>
       </LearningUnit>
 
+      <!-- ⑧b-2 number's called -->
+      <LearningUnit
+        heading="before my number's called — 「番号を呼ばれる」＝死の婉曲表現"
+        label="★ イディオム"
+        mc="Nas（Verse 2）"
+        t={TS["numbers-called"].t} tApprox={TS["numbers-called"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 「あの世に金は持っていけない」の少し後。慣用句ものなので語だけ取り出します。</p>
+        <p>この件にはっきり出てくるのが <strong class="text-[var(--c-text)]">before my number's called</strong> という言い回しです。<strong class="text-[var(--c-text)]">one's number is called / one's number is up</strong> は、順番待ちで番号を呼ばれるイメージを死に重ねた<strong class="text-[var(--c-text)]">「死ぬ」の婉曲表現</strong>（遠回しな言い方）。「お迎えが来る前に、歴史は作っておく」という宣言になります。</p>
+        <p>直前には、死んだ金持ちは結局墓を暴かれるだけだ、なら生きて稼いでいる方がいい、という身も蓋もない現実主義も置かれていて、Verse 2の後半はこの「富と死」の往復で進みます。die と言わずに死を語る言い方は英語に山ほどあって、pass away（亡くなる）が丁寧側なら、number's up はくだけた側。セットで覚えておくと便利です。</p>
+      </LearningUnit>
+
       <!-- ⑧c much success / prophet -->
       <LearningUnit
         heading="Much success to you... who the prophet is — 余裕の宣戦と prophet"
@@ -354,6 +443,22 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <Fragment slot="jpn">お前の成功を願うよ、たとえお前が俺に逆を願っても／遅かれ早かれ、誰が預言者かは皆に分かる</Fragment>
         <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の締め。敵に余裕を見せて終わる件。</p>
         <p><code>Much success to you, even if you wish me <strong class="text-[var(--c-text)]">the opposite</strong></code>＝「お前が俺の不幸を願っても、俺はお前の成功を願う」。敵意に余裕で応じる大人の構え。そして <code>we'll all see who <strong class="text-[var(--c-text)]">the prophet</strong> is</code>（誰が預言者か、いずれ分かる）で自分を <strong class="text-[var(--c-text)]">prophet（預言者・本物）</strong>の側に置く。<strong class="text-[var(--c-text)]">opposite / prophet</strong> の脚韻で2行を締めているのも仕事が細かい。<code>sooner or later</code>（遅かれ早かれ）は会話でも使える定番フレーズです。</p>
+      </LearningUnit>
+
+      <!-- ⑨-0 beef / heat -->
+      <LearningUnit
+        heading="beef / bustin' heat — 「揉め事」と「火を噴く銃」"
+        label="★ スラング（最頻出級）"
+        mc="Nas（Verse 3）"
+        t={TS["beef-heat"].t} tApprox={TS["beef-heat"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3の頭、「俺は甘くない」と切り出す件。語彙ものなので語だけ取り出します。</p>
+        <p>Verse 3の入りに、ヒップホップの最重要スラングが二つ並びます。<strong class="text-[var(--c-text)]">beef</strong> と <strong class="text-[var(--c-text)]">heat</strong>。beef は牛肉ではなく<strong class="text-[var(--c-text)]">「揉め事・因縁・抗争」</strong>。日本語のヒップホップ記事でも「ビーフ」とカタカナのまま使われる語です。</p>
+        <p>heat は<strong class="text-[var(--c-text)]">銃</strong>を指す隠語。bust（ぶっ放す）と組んで bustin' heat＝撃ちまくる、になります。窓を撃ち抜いてくる beef そのもののような男だ、という自己定義で、Verse 3の「I'm like 〜」連射はこの物騒な直喩から幕を開けます。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">beef</strong> は have beef with 〜（〜と揉めている）、squash beef（手打ちにする）の形が必修コンボ。<strong class="text-[var(--c-text)]">heat</strong> は carry heat（銃を持ち歩く）でも使われ、pack heat と言えば同じ意味。どちらも90年代NYに限らず、現行のラップでも生きている語彙です。</p>
+        </Fragment>
       </LearningUnit>
 
       <!-- ⑨ street sweeper double meaning -->
@@ -398,6 +503,19 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <p>Verse 3は <code>I'm like 〜</code> の直喩を高速で積む作り。ここでは <strong class="text-[var(--c-text)]">'Pac</strong>（＝<strong class="text-[var(--c-text)]">2Pac / Tupac Shakur</strong>）を引いています。1996年に銃撃で世を去った2Pacは、リスナーが感情移入し涙する象徴的存在。<code>your man you would <strong class="text-[var(--c-text)]">die for</strong></code> と <code>I'm like 'Pac, dude you would <strong class="text-[var(--c-text)]">cry for</strong></code> で、<strong class="text-[var(--c-text)]">die for / cry for</strong> の脚韻を踏みながら、「命を懸ける相棒」から「涙する存在」へと意味をずらしていく。上の行の <code>.9</code> は前にも出た <em>nine</em>（9mm拳銃）。同時代を生きたもう一人の巨人の名前を、比喩素材として一語で置けるのがNasの強みです。</p>
       </LearningUnit>
 
+      <!-- ⑩b-2 loot / crisp money -->
+      <LearningUnit
+        heading="a whole lot of loot / crisp money — 現ナマの手触りまで直喩にする"
+        label="★ スラング（金）"
+        mc="Nas（Verse 3）"
+        t={TS["loot-crisp"].t} tApprox={TS["loot-crisp"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 'Pacの件のすぐ後。比喩の連射が今度は金に向かう件。語彙ものなので語だけ。</p>
+        <p><strong class="text-[var(--c-text)]">loot</strong> は辞書では「戦利品・略奪品」。そこから転じて、ストリートでは<strong class="text-[var(--c-text)]">現金そのもの</strong>を指します。a whole lot of loot で「どっさりの現ナマ」。ゲームで手に入る「ルート（戦利品）」と同じ単語なので、ゲーマーには案外なじみのある語かもしれません。</p>
+        <p>続けて出てくる <strong class="text-[var(--c-text)]">crisp</strong>（パリッとした）が効いていて、「俺は湿った小銭じゃなく、刷りたてのパリパリの札みたいな男だ」というわけです。さらに corporate accounts（大企業の法人口座）まで比喩に持ち出して、ストリートの現金から企業のカネへとスケールを一段上げる。金の語彙だけで格の違いを3段階に描き分けている区間です。</p>
+      </LearningUnit>
+
       <!-- ⑩c Summer Jam -->
       <LearningUnit
         heading="all races combined in one man / the '99 Summer Jam — 固有名詞の引用"
@@ -410,6 +528,22 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <Fragment slot="jpn">俺は女たちにとってのエクスタシー、あらゆる人種が一人に集約された男のようだ／'99年のサマー・ジャムのようだ</Fragment>
         <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3後半、比喩のスケールを一気に上げる件。学習対象は固有名詞。</p>
         <p><code>all races combined in one man</code>（あらゆる人種が一人に集約された）で普遍性を主張してから、<strong class="text-[var(--c-text)]">the '99 Summer Jam</strong> を引く。<strong class="text-[var(--c-text)]">Summer Jam</strong> は、ニューヨークのヒップホップ・ラジオ局 <strong class="text-[var(--c-text)]">Hot 97</strong> が毎夏開く巨大コンサートで、当時アメリカ最大級のヒップホップの祭典。その1999年版に自分をなぞらえることで「俺はそれ級のイベントだ」と言っています。<strong class="text-[var(--c-text)]">固有名詞そのものを比喩の物差しにする</strong>。直喩エンジンの応用編で、元ネタ（ここでは当時のヒップホップ文化のスケール感）を知っているほど一行の効きが分かる箇所です。</p>
+      </LearningUnit>
+
+      <!-- ⑩d locked down / fam -->
+      <LearningUnit
+        heading="locked down / none of 'em fam — 収監の語彙と「ファム」"
+        label="★ スラング／AAVE"
+        mc="Nas（Verse 3）"
+        t={TS["locked-down-fam"].t} tApprox={TS["locked-down-fam"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ サマー・ジャムの直後、防弾ハマーの一行を挟んで比喩が暗転する件。</p>
+        <p>防弾仕様の <QuickSlang word="Hummer" desc="この曲では防弾ガラス仕様のHummerに自分を例える。90年代に成功の象徴だった軍用由来のSUV" /> で見栄を張った次の瞬間、比喩は独房に飛びます。<strong class="text-[var(--c-text)]">locked down</strong>＝<strong class="text-[var(--c-text)]">収監されている</strong>。lock down（施錠して閉じ込める）の受け身のイメージがそのまま隠語になった形です。</p>
+        <p>そこに続くのが「見知らぬ顔ばかり、誰ひとり <strong class="text-[var(--c-text)]">fam</strong> じゃない」という一節。fam は family の短縮で、血縁に限らず<strong class="text-[var(--c-text)]">「家族同然の仲間」</strong>を指す超頻出スラング。'em は them の口語形です。富と名声の直喩を積み上げた直後に、独房の孤独まで同じ「I'm like」の型に載せてしまう。この明暗の落差も、直喩エンジンの使い方のひとつです。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">fam</strong> は呼びかけにも使えます（What's good, fam?）。<strong class="text-[var(--c-text)]">locked down</strong> は「収監中」のほか、恋愛で「(相手に)縛られている」の意味でも使われる多義語。文脈で使い分けを判断します。</p>
+        </Fragment>
       </LearningUnit>
 
       <!-- ⑪ thug poet -->
@@ -427,6 +561,22 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <Fragment slot="usage">
           <p><strong class="text-[var(--c-text)]">oxymoron（撞着語法）</strong>は、矛盾する語を意図的に並べて新しい意味を生む技法。<em>thug poet</em>（ならず者の詩人）、<em>bittersweet</em>（ほろ苦い）、<em>living dead</em>（生ける屍）などが典型。対立する二語をぶつけることで、単独では言えない複雑な自己像を一語で立ち上げる。</p>
           <p><strong class="text-[var(--c-text)]">blow up</strong> は句動詞で「爆発する」のほか「（人・作品が）一気に有名になる・バズる」の意。<em>The song blew up</em>（その曲は大ヒットした）のように使う、現代英語の超頻出表現。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑪b system / y'all -->
+      <LearningUnit
+        heading="play it in your system — system＝カーステレオ、で幕を引く"
+        label="★ スラング／構成"
+        mc="Nas（Verse 3）"
+        t={TS["system-every-night"].t} tApprox={TS["system-every-night"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ バースの本当に最後の一行。ここで初めて語りの矛先がリスナーに向きます。</p>
+        <p>thug poet と言い切った直後、Nasは「お前らは俺がどんな男か知ってるはずだ、毎晩 system でかけてるんだから」とこちらへ向き直ります。学習ポイントは <strong class="text-[var(--c-text)]">system</strong>。ここでは制度や行政のシステムではなく、<strong class="text-[var(--c-text)]">カーオーディオ（sound system）</strong>のこと。車の重低音でラップを鳴らす文化をそのまま背負った一語です。</p>
+        <p>文頭の <strong class="text-[var(--c-text)]">y'all</strong>（you all の縮約＝お前ら全員）は南部発で、いまや全米区の定番口語。3分半かけて「Nasは〜のようだ」と積み上げてきた直喩の答え合わせを、最後は「もう毎晩聴いてるだろ」と聴き手に投げて終わります。比喩ではなく聴き手の生活で締める。この曲でここだけの閉じ方です。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">y'all</strong> は複数の相手への呼びかけの定番で、単数の you と区別できる便利な語。<strong class="text-[var(--c-text)]">system</strong> が音響機材を指すのはレゲエの sound system 文化とも地続きで、bang it in your system（爆音でかけろ）のような形で頻出します。</p>
         </Fragment>
       </LearningUnit>
     </section>
@@ -466,7 +616,15 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
             ['from Seiko to Rolex', 'モノの格上げで成り上がり(come-up)を語る定番表現'],
             ['as far as ~ go(es)', '「〜に関して言えば」と話題を限定する構文。AAVEで三単現のsが落ちgoに'],
             ['fiend', '麻薬中毒者(ヤク中)のスラング。dope fiendの形でも。動詞で「異常に欲しがる」'],
+            ['the game', 'ラップ稼業・ストリートの経済。in the game＝この世界に身を置いて'],
+            ['squeeze', '引き金を絞る＝撃つ。squeeze the triggerのtriggerを省いた隠語'],
+            ['fall off（I never fell）', '落ち目になる・第一線から転落する。フックはその否定'],
             ["can't take it with you", '「死んだら金はあの世に持っていけない」の定番イディオム'],
+            ["my number's called", '番号を呼ばれる＝死ぬ、の婉曲表現。number is upとも'],
+            ['loot / chips / cake / dough', '全部「金」。戦利品や食べものへの言い換えが定番'],
+            ['beef / heat', 'beef＝揉め事・抗争、heat＝銃。bustin\' heatで「ぶっ放す」'],
+            ['fam', 'familyの短縮。血縁に限らない「家族同然の仲間」。呼びかけにも'],
+            ['system', 'カーオーディオ(sound system)。車の重低音で聴く文化を背負う語'],
             ['Summer Jam', 'Hot 97(NYのヒップホップ局)が毎夏開く最大級のコンサート。固有名詞を比喩の物差しに'],
             ['thug poet', 'ならず者＋詩人の撞着語法(oxymoron)による自己定義'],
           ].map(([term, desc]) => (

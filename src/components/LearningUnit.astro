@@ -30,6 +30,10 @@ const { heading, mc, t = null, youtubeId, tApprox = false, label, eng, jpn, embe
 const mmss = t != null ? `${Math.floor(t / 60)}:${String(Math.floor(t % 60)).padStart(2, "0")}` : null;
 const ytUrl = t != null && youtubeId ? `https://www.youtube.com/watch?v=${youtubeId}&t=${Math.floor(t)}s` : null;
 const hasUsage = Astro.slots.has("usage");
+// eng/jpn は props と slot の両対応（全曲ページは <Fragment slot="eng"> で渡している）。
+// props のみ見て slot 渡しの引用が描画されないバグの修正（2026-07-03）。
+const hasEng = !!eng || Astro.slots.has("eng");
+const hasJpn = !!jpn || Astro.slots.has("jpn");
 const isKey = label?.includes('最重要');
 // Split heading into expression (big) and explanation (normal) at "—"
 const dashIdx = heading.indexOf('—');
@@ -116,9 +120,9 @@ const ghostWord = heading.split(/[—\s]/)[0].slice(0, 6).toUpperCase();
       </div>
     )}
 
-    {(eng || jpn) && (
+    {(hasEng || hasJpn) && (
       <blockquote class="my-3 pl-4" style="border-left:3px solid var(--c-orange)">
-        {eng && (
+        {hasEng && (
           <p
             class="text-[var(--c-text)] text-base leading-relaxed"
             style="background:rgba(0,232,75,0.06);padding:0.25rem 0.5rem;margin-left:-0.5rem"
@@ -126,7 +130,7 @@ const ghostWord = heading.split(/[—\s]/)[0].slice(0, 6).toUpperCase();
             <slot name="eng">{eng}</slot>
           </p>
         )}
-        {jpn && <p class="text-[var(--c-muted)] text-sm leading-relaxed italic mt-1 ml-0"><slot name="jpn">{jpn}</slot></p>}
+        {hasJpn && <p class="text-[var(--c-muted)] text-sm leading-relaxed italic mt-1 ml-0"><slot name="jpn">{jpn}</slot></p>}
       </blockquote>
     )}
 
