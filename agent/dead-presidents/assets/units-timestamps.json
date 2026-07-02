@@ -10,6 +10,16 @@
     "score": 0
   },
   {
+    "id": "out-for-get-money",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 12,
+    "t": 12,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "conglomerate",
     "whisperSec": null,
     "manualSec": null,
@@ -18,6 +28,36 @@
     "source": "fallback",
     "approx": true,
     "score": 0
+  },
+  {
+    "id": "involved-with-cream",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 37,
+    "t": 37,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "dish-out-point-guard",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 46,
+    "t": 46,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "roll-with-it-mo",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 58,
+    "t": 58,
+    "source": "fallback",
+    "approx": true,
+    "score": null
   },
   {
     "id": "kosher-hasidic",
@@ -40,6 +80,66 @@
     "score": 0
   },
   {
+    "id": "pins-and-needles",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 86,
+    "t": 86,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "catch-a-freeze",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 92,
+    "t": 92,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "re-up-cristal",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 98,
+    "t": 98,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "rise-to-riches",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 104,
+    "t": 104,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "breitling-breguet",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 113,
+    "t": 113,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "alzheimers-small-timers",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 116,
+    "t": 116,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "no-puddin",
     "whisperSec": null,
     "manualSec": null,
@@ -48,6 +148,16 @@
     "source": "fallback",
     "approx": true,
     "score": 0
+  },
+  {
+    "id": "make-moves-mail",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 152,
+    "t": 152,
+    "source": "fallback",
+    "approx": true,
+    "score": null
   },
   {
     "id": "sl-bail-toast",
@@ -60,6 +170,16 @@
     "score": 0
   },
   {
+    "id": "cruisin-in-your-7",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 176,
+    "t": 176,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "rico-good-week",
     "whisperSec": null,
     "manualSec": null,
@@ -70,6 +190,46 @@
     "score": 0
   },
   {
+    "id": "snitchin-aint-you",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 190,
+    "t": 190,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "aside-from-honeys",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 194,
+    "t": 194,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "bodiers-cap-peelers",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 201,
+    "t": 201,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "octane-goes-without-sayin",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 205,
+    "t": 205,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "money-play-out",
     "whisperSec": null,
     "manualSec": null,
@@ -78,5 +238,15 @@
     "source": "fallback",
     "approx": true,
     "score": 0
+  },
+  {
+    "id": "infinity-presidencies",
+    "whisperSec": null,
+    "manualSec": null,
+    "fallbackT": 215,
+    "t": 215,
+    "source": "fallback",
+    "approx": true,
+    "score": null
   }
 ]

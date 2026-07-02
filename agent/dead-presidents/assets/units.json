@@ -1,50 +1,27 @@
 [
-  {
-    "id": "dead-presidents-title",
-    "anchor": ["presidents", "to", "represent", "me"],
-    "fallbackT": 8,
-    "manualSec": null
-  },
-  {
-    "id": "conglomerate",
-    "anchor": ["wonderama", "shit", "me", "and", "my"],
-    "fallbackT": 28,
-    "manualSec": null
-  },
-  {
-    "id": "kosher-hasidic",
-    "anchor": ["now", "its", "kosher", "shit", "is"],
-    "fallbackT": 65,
-    "manualSec": null
-  },
-  {
-    "id": "narcin-bargain",
-    "anchor": ["thoroughest", "niggas", "be", "narcin"],
-    "fallbackT": 80,
-    "manualSec": null
-  },
-  {
-    "id": "no-puddin",
-    "anchor": ["kinda", "talk", "that", "make", "me"],
-    "fallbackT": 142,
-    "manualSec": null
-  },
-  {
-    "id": "sl-bail-toast",
-    "anchor": ["coast", "in", "the", "sl", "but"],
-    "fallbackT": 158,
-    "manualSec": null
-  },
-  {
-    "id": "rico-good-week",
-    "anchor": ["hit", "with", "the", "rico", "they"],
-    "fallbackT": 185,
-    "manualSec": null
-  },
-  {
-    "id": "money-play-out",
-    "anchor": ["when", "money", "play", "in", "then"],
-    "fallbackT": 210,
-    "manualSec": null
-  }
+  { "id": "dead-presidents-title", "anchor": ["presidents", "to", "represent", "me"], "fallbackT": 8, "manualSec": null },
+  { "id": "out-for-get-money", "anchor": ["get", "money", "rock", "on"], "fallbackT": 12, "manualSec": null },
+  { "id": "conglomerate", "anchor": ["wonderama", "shit", "me", "and", "my"], "fallbackT": 28, "manualSec": null },
+  { "id": "involved-with-cream", "anchor": ["involved", "with", "cream", "you", "know"], "fallbackT": 37, "manualSec": null },
+  { "id": "dish-out-point-guard", "anchor": ["handling", "since", "a", "teen", "i", "dish"], "fallbackT": 46, "manualSec": null },
+  { "id": "roll-with-it-mo", "anchor": ["my", "mind", "was", "fine", "till", "the", "dough"], "fallbackT": 58, "manualSec": null },
+  { "id": "kosher-hasidic", "anchor": ["now", "its", "kosher", "shit", "is"], "fallbackT": 65, "manualSec": null },
+  { "id": "narcin-bargain", "anchor": ["thoroughest", "niggas", "be", "narcin"], "fallbackT": 80, "manualSec": null },
+  { "id": "pins-and-needles", "anchor": ["got", "me", "pins", "and", "needles"], "fallbackT": 86, "manualSec": null },
+  { "id": "catch-a-freeze", "anchor": ["in", "the", "game", "so", "deep", "fiends"], "fallbackT": 92, "manualSec": null },
+  { "id": "re-up-cristal", "anchor": ["got", "the", "city", "drinking", "cristals"], "fallbackT": 98, "manualSec": null },
+  { "id": "rise-to-riches", "anchor": ["my", "rise", "to", "riches", "surprised"], "fallbackT": 104, "manualSec": null },
+  { "id": "breitling-breguet", "anchor": ["shine", "like", "a", "breitling"], "fallbackT": 113, "manualSec": null },
+  { "id": "alzheimers-small-timers", "anchor": ["all", "rhymers", "forget", "it", "like"], "fallbackT": 116, "manualSec": null },
+  { "id": "no-puddin", "anchor": ["kinda", "talk", "that", "make", "me"], "fallbackT": 142, "manualSec": null },
+  { "id": "make-moves-mail", "anchor": ["make", "your", "moves", "get", "your", "mail"], "fallbackT": 152, "manualSec": null },
+  { "id": "sl-bail-toast", "anchor": ["coast", "in", "the", "sl", "but"], "fallbackT": 158, "manualSec": null },
+  { "id": "cruisin-in-your-7", "anchor": ["cruising", "in", "your", "7", "next", "day"], "fallbackT": 176, "manualSec": null },
+  { "id": "rico-good-week", "anchor": ["hit", "with", "the", "rico", "they"], "fallbackT": 185, "manualSec": null },
+  { "id": "snitchin-aint-you", "anchor": ["ready", "to", "start", "snitching", "ain't", "you"], "fallbackT": 190, "manualSec": null },
+  { "id": "aside-from-honeys", "anchor": ["aside", "from", "the", "fast", "cars"], "fallbackT": 194, "manualSec": null },
+  { "id": "bodiers-cap-peelers", "anchor": ["east", "coast", "bodiers", "west", "coast"], "fallbackT": 201, "manualSec": null },
+  { "id": "octane-goes-without-sayin", "anchor": ["filled", "up", "on", "octane"], "fallbackT": 205, "manualSec": null },
+  { "id": "money-play-out", "anchor": ["when", "money", "play", "in", "then"], "fallbackT": 210, "manualSec": null },
+  { "id": "infinity-presidencies", "anchor": ["representing", "infinity", "with", "presidencies"], "fallbackT": 215, "manualSec": null }
 ]

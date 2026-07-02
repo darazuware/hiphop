@@ -115,7 +115,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         学ぶ表現 — スラング・韻・言葉遊び・AAVE
       </h2>
       <p class="text-xs text-[var(--c-dim)] mb-6">
-        各見出しは「この曲から学べる英語表現」。各ユニットはまず上に英語の用例（1〜2行）を置いてあります。<strong class="text-[var(--c-text)]">先に英語を音で追い、行のどこが学習対象かを確かめてから</strong>下の日本語解説に進むと置いていかれません。マイクはそのリリックを担当するMC、▶は公式PVの概算頭出しリンク（秒数は概算）です。
+        各見出しは「この曲から学べる英語表現」。ほとんどのユニットはまず上に英語の用例（1〜2行）を置いてあります。<strong class="text-[var(--c-text)]">先に英語を音で追い、行のどこが学習対象かを確かめてから</strong>下の日本語解説に進むと置いていかれません。イディオムや語彙が主役の一部ユニットは、行を引かず語の説明だけで完結させています。マイクはそのリリックを担当するMC、▶は公式PVの概算頭出しリンク（秒数は概算）です。
       </p>
 
       <!-- ① Dead Presidents = 紙幣 -->
@@ -135,6 +135,24 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         </Fragment>
       </LearningUnit>
 
+      <!-- ①b out for / Get money -->
+      <LearningUnit
+        heading="I'm out for 〜 / (Get money) — 「狙ってる」の構文と相の手"
+        label="★ 構文／フック"
+        mc="Nas（サンプル）＆Jay-Z（Intro）"
+        t={TS["out-for-get-money"].t} tApprox={TS["out-for-get-money"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">I'm out for presidents to represent me (Get money)</Fragment>
+        <Fragment slot="jpn">大統領たち（紙幣）に俺をレペゼンさせたい（稼げ）</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Intro〜フック。タイトルの意味は前のユニットで押さえたので、今度は構文と掛け声を。</p>
+        <p>フックは構文そのものも学習素材です。文頭の <strong class="text-[var(--c-text)]">be out for 〜</strong> は「〜を狙っている・〜目当てだ」。out for money（金目当て）、out for revenge（復讐狙い）のように使う口語構文で、フックはこの型に presidents（紙幣）を流し込んだ形になっています。</p>
+        <p>もうひとつ、括弧の <strong class="text-[var(--c-text)]">(Get money)</strong>。これは <QuickSlang word="アドリブ" desc="ad-lib。メインのラップの合間に差し込む相の手・掛け声。フックの一部として定着していて、時代やクルーの署名にもなる" /> と呼ばれる相の手です。同時期のNYでは Junior M.A.F.I.A. の「Get Money」（1995）がヒットしていて、この掛け声が街の合言葉だった時期。イントロの数秒に、1996年のクラブの空気がそのまま残っています。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">be out for 〜</strong> は「〜を得ようと動いている」。<em>He's only out for himself</em>（あいつは自分の利益しか考えてない）は日常会話の定番。似た形の <em>be out to do</em>（〜しようと躍起になっている）とセットで覚えると便利です。</p>
+        </Fragment>
+      </LearningUnit>
+
       <!-- ② conglomerate / Wonderama -->
       <LearningUnit
         heading="Wonderama s**t vs. conglomerate — 幼稚 vs. 企業"
@@ -146,9 +164,60 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <Fragment slot="eng">While others spit that Wonderama s**t, me and my conglomerate<br />Shall remain anonymous, caught up in the finest s**t</Fragment>
         <Fragment slot="jpn">他の奴らが子供番組みたいな内容をラップしてる間、俺たちのコングロマリット（複合企業）は／匿名のまま、最高のものに包まれている</Fragment>
         <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の冒頭、Jay-Zがライバルとの差をいきなり打ち出す一行目。上は2行、学習対象は前半。</p>
-        <p>まず音で追ってみてください。上の行の前半「others spit that <strong class="text-[var(--c-text)]">Wonderama</strong> s**t」。<strong class="text-[var(--c-text)]">Wonderama</strong>（ワンダラマ）は1950〜70年代にニューヨークで放送されていた子供向けテレビ番組の名前。「他のラッパーはその程度（子供向け）のことを言っている」という侮辱として使っている。対して自分は「<strong class="text-[var(--c-text)]">conglomerate</strong>（コングロマリット＝複合企業）」。ドラッグのネットワークを企業グループに喩えるこの発想が、いかにもJay-Zらしい。ストリートの話を「〇〇なんだよ」と語るのではなく、経営者のボキャブラリーで語る。この一行だけで、他との語彙の設計図の違いが見える。下の行の<strong class="text-[var(--c-text)]">anonymous（匿名）</strong>は、当局に目をつけられないよう目立たず動くという用心深さで、これも経営者的な頭の使い方です。</p>
+        <p>まず音から。上の行の前半「others spit that <strong class="text-[var(--c-text)]">Wonderama</strong> s**t」。<strong class="text-[var(--c-text)]">Wonderama</strong>（ワンダラマ）は1950〜70年代にニューヨークで放送されていた子供向けテレビ番組の名前。「他のラッパーはその程度（子供向け）のことを言っている」という侮辱として使っている。対して自分は「<strong class="text-[var(--c-text)]">conglomerate</strong>（コングロマリット＝複合企業）」。ドラッグのネットワークを企業グループに喩えるこの発想が、いかにもJay-Zらしい。ストリートの話を「〇〇なんだよ」と語るのではなく、経営者のボキャブラリーで語る。この一行だけで、他との語彙の設計図の違いが見える。下の行の<strong class="text-[var(--c-text)]">anonymous（匿名）</strong>は、当局に目をつけられないよう目立たず動くという用心深さで、これも経営者的な頭の使い方です。</p>
         <Fragment slot="usage">
           <p><strong class="text-[var(--c-text)]">conglomerate</strong> はビジネス英語で「複数の事業を傘下に持つ大企業グループ」のこと。ここではドラッグ取引のネットワークをそう呼ぶことで、ストリートビジネスを正規の企業活動と同列に置く。Jay-Zはキャリアを通じて「実業家としてのラッパー」というスタンスを磨き続け、後に本当にDef Jam CEOになる。この一行にはそのDNAが詰まっている。<em>spit</em> は「（ラップを）吐き出す・ラップする」という動詞。<em>spit bars</em>（バースを吐く）のように使う。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ②b involved with cream -->
+      <LearningUnit
+        heading="Involved with cream — 「クリーム」＝現金、Wu-Tang語彙の継承"
+        label="★ スラング（金）"
+        mc="Jay-Z（Verse 1）"
+        t={TS["involved-with-cream"].t} tApprox={TS["involved-with-cream"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Involved with cream</Fragment>
+        <Fragment slot="jpn">クリーム（現金）にどっぷりだ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1序盤、conglomerate宣言のすぐ後。行頭の一語が学習ポイント。</p>
+        <p>行頭の <strong class="text-[var(--c-text)]">cream</strong>。生クリームではなく<strong class="text-[var(--c-text)]">現金</strong>です。Wu-Tang Clanの「C.R.E.A.M.」（1993）が広めた「Cash Rules Everything Around Me」の頭字語で、この曲の3年前にはもうNYの共通語になっていました。dead presidents、cream、そして後半に出てくる mail。この曲だけで金の言い換えが3つ登場します。</p>
+        <p>行の続きでJay-Zは「これが何の話かはお前も分かってるだろ」と、わざわざ中身を説明しません。言い換えが通じる相手にだけ話す、という距離の取り方まで含めてストリートの語法です。creamの語源と使われ方は<a href="/songs/cream" class="text-[var(--c-gold)] hover:underline">C.R.E.A.M.の記事</a>で一曲まるごと掘っているので、セットで読むと繋がります。</p>
+      </LearningUnit>
+
+      <!-- ②c dish out / point guard -->
+      <LearningUnit
+        heading="I dish out like the point guard — バスケ用語で語る「捌き」"
+        label="★ 比喩／スポーツ語彙"
+        mc="Jay-Z（Verse 1）"
+        t={TS["dish-out-point-guard"].t} tApprox={TS["dish-out-point-guard"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Handlin' since a teen, I dish out<br />Like the point guard off your favorite team, without doubt</Fragment>
+        <Fragment slot="jpn">10代から捌いてきた、俺は配る側だ／お前の好きなチームのポイントガードみたいに、間違いなく</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1序盤、商売の腕前をスポーツで語る件。行末から次行への流れが学習対象。</p>
+        <p>行末の <strong class="text-[var(--c-text)]">dish out</strong> が学習ポイント。バスケットボールで「アシストパスを配る」を意味する動詞句で、それをドラッグを「捌く・配る」に重ねています。行頭の <strong class="text-[var(--c-text)]">handlin'</strong>（ハンドリング）もボール扱いと商品の扱いの二重写しで、ひとつのバスケ比喩が2語にまたがって効いている。</p>
+        <p>自分を「点を取るエース」ではなく「配球するポイントガード（攻撃の司令塔）」に喩えるのも見逃せないところで、前のユニットの conglomerate と同じく、現場の売人ではなく組織を回す側だという自己認識が出ています。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">dish out</strong> は日常英語では「（食事を）よそう」「（批判・罰を）浴びせる」。<em>He can dish it out but can't take it</em>（人には言うくせに言われるのには弱い）は性格描写の定番フレーズです。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ②d roll with it / the Mo' -->
+      <LearningUnit
+        heading="the dough hit it / the Mo' did it — 金とモエが頭を狂わせる"
+        label="★ スラング／内部韻"
+        mc="Jay-Z（Verse 1）"
+        t={TS["roll-with-it-mo"].t} tApprox={TS["roll-with-it-mo"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">My mind was fine 'till the dough hit it and told me that the Mo' did it</Fragment>
+        <Fragment slot="jpn">俺の頭はまともだった、金（ドウ）が直撃して、モエのせいだと囁いてくるまでは</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1前半、稼ぎ始めた頃の浮つきを自分で茶化す件。</p>
+        <p>一行の中に金と酒のスラングが同居します。<strong class="text-[var(--c-text)]">dough</strong>（パン生地）は金。行末の <strong class="text-[var(--c-text)]">the Mo'</strong> は <QuickSlang word="Moët" desc="モエ・エ・シャンドン。この曲では稼ぎたての浮かれの象徴として、頭がおかしくなった言い訳役で登場する" />（モエ・エ・シャンドン＝シャンパン）の略称です。頭がおかしくなったのは金のせい、いや、モエのせいってことにしておく。稼ぎ始めた人間の浮つきを、自分で茶化して描く一行。</p>
+        <p>音の面では fine / mind / hit it / did it と小刻みな内部韻が連なって、酔いが回っていくようなリズムになっています。直前の行の「My life ain't rosy but I roll with it」（人生バラ色じゃないが、流れに乗ってやる）の <strong class="text-[var(--c-text)]">roll with it</strong> も、そのまま日常会話で使える定番イディオムです。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">roll with it</strong> は「（多少不満でも）流れに合わせる・受け流す」。<em>Just roll with it</em>（まあ合わせておけ）。<strong class="text-[var(--c-text)]">dough</strong> は bread と並ぶ「金＝パン系」スラングの代表格で、日常でも通じます。</p>
         </Fragment>
       </LearningUnit>
 
@@ -186,6 +255,109 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         </Fragment>
       </LearningUnit>
 
+      <!-- ④b pins and needles -->
+      <LearningUnit
+        heading="pins and needles — 「ピンと針」の緊張感"
+        label="★ イディオム"
+        mc="Jay-Z（Verse 1）"
+        t={TS["pins-and-needles"].t} tApprox={TS["pins-and-needles"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1後半、密告への警戒のすぐ後。イディオムものなので行は引かず、語だけ取り出します。</p>
+        <p>密告者に気をつけろと言った直後、Jay-Zは自分の今の状態を <strong class="text-[var(--c-text)]">pins and needles</strong> という言葉で置きます。直訳は「ピンと針」。しびれた足のチクチクする感覚から来た言い回しで、<strong class="text-[var(--c-text)]">be on pins and needles＝緊張で落ち着かない・気が気でない</strong>という定番イディオムです。</p>
+        <p>羽振りの良さを並べてきた同じバースの中で、その裏側の神経のすり減りをイディオムひとつで差し込む。この浮き沈みの速さが、「金に振り回される」というこの曲のテーマの縮図になっています。</p>
+        <Fragment slot="usage">
+          <p><em>I'm on pins and needles waiting for the results</em>（結果待ちで気が気でない）。日常会話からビジネスメールまで使える汎用イディオムで、ここだけ切り取ってもすぐ実戦投入できます。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ④c enjambment / catch a freeze -->
+      <LearningUnit
+        heading="so deep fiends could catch a / Freeze — 行またぎで一語を吊る"
+        label="★ 表現技法／スラング"
+        mc="Jay-Z（Verse 1）"
+        t={TS["catch-a-freeze"].t} tApprox={TS["catch-a-freeze"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Peep facts, in the game so deep fiends could catch a<br />Freeze off my kneecap, can y'all believe that?</Fragment>
+        <Fragment slot="jpn">現実を見ろ、俺はゲームにどっぷりで、ヤク中が俺の膝から痺れをもらえるほどだ、信じられるか？</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1後半。ここは意味より先に「行の切り方」が学習対象。</p>
+        <p>上の行が <strong class="text-[var(--c-text)]">catch a</strong> で宙ぶらりんに終わり、次の行頭の <strong class="text-[var(--c-text)]">Freeze</strong> で着地します。文を行の切れ目で意図的にまたがせるこの技法を <QuickSlang word="エンジャンブメント" desc="enjambment（句またがり）。文法上のまとまりを行末で切らず次の行へ流す詩の技法。ラップではフロウの緩急と「次の一語」への期待を作る" /> と呼びます。聴いていると「catch a...何？」と一瞬吊られる。その空白が、次の一語を強くする仕掛けです。</p>
+        <p>意味の面では、<strong class="text-[var(--c-text)]">freeze</strong> はコカインの痺れを指す隠語で、「膝から痺れをもらえるほど身体ごと商品に浸かっている」という誇張、という読みが定番です。行頭の <strong class="text-[var(--c-text)]">peep</strong>（見ろ・チェックしろ）もストリート頻出の口語。fiend（中毒者）はNYリリックの常連語です。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">peep</strong> は「見る・確認する」のくだけた動詞。<em>Peep this</em>（ちょっとこれ見てみ）。<em>peep game</em>（やり口をよく見ろ）という定番コンボもあります。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ④d re-up / Cristal -->
+      <LearningUnit
+        heading="re-up the fee — 「再仕入れ」を一語で言う"
+        label="★ スラング（商売）"
+        mc="Jay-Z（Verse 1）"
+        t={TS["re-up-cristal"].t} tApprox={TS["re-up-cristal"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Got the city drinkin' Cristals, re-up the fee</Fragment>
+        <Fragment slot="jpn">街中にクリスタルを飲ませて、また元手を仕込む</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1後半、商売の回転を語る件。行末の一語が学習ポイント。</p>
+        <p>行末の <strong class="text-[var(--c-text)]">re-up</strong>。up（仕入れる）を re-（再び）でやり直す、つまり<strong class="text-[var(--c-text)]">売り切った商品を再仕入れする</strong>ことを指すハスラー用語です。軍隊の「再入隊（re-up）」由来とされる語で、ドラッグ経済の回転をたった一語で表す。conglomerate、dish out ときて re-up。この曲の商売語彙の列に自然に並びます。</p>
+        <p>行頭の <strong class="text-[var(--c-text)]">Cristal</strong>（クリスタル）は高級シャンパンの銘柄で、「街中に飲ませている」は羽振りと影響力の誇示。次の行では「Rappers goin' broke tryin' to keep up with me」（俺に張り合って破産していくラッパーたち）と続けて、消費競争の構図を2行で描いています。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">re-up</strong> は現代では「（在庫・補給を）補充する」全般に広がっていて、ゲームやSNSでも見かけます。<strong class="text-[var(--c-text)]">keep up with 〜</strong>（〜に付いていく・張り合う）は日常必修の句動詞。<em>keeping up with the Joneses</em>（隣人と張り合う見栄の競争）という定番イディオムも同じ型です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ④e rise to riches / Shawn Carter -->
+      <LearningUnit
+        heading="My rise to riches — rags-to-richesを韻に組み替える"
+        label="★ 表現／韻"
+        mc="Jay-Z（Verse 1）"
+        t={TS["rise-to-riches"].t} tApprox={TS["rise-to-riches"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">My rise to riches surprised the b***hes, think harder</Fragment>
+        <Fragment slot="jpn">俺の成り上がりに驚いたか、もっとよく考えろ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1終盤、名乗りへ向かう件。行頭の言い回しが学習対象。</p>
+        <p><strong class="text-[var(--c-text)]">rise to riches</strong> は、英語の定番句 <strong class="text-[var(--c-text)]">rags to riches</strong>（ぼろ着から大金持ちへ＝成り上がり物語）を下敷きにした言い回しです。rags（ぼろ着）を rise（上昇）に差し替えて、riches / surprised / b***hes の韻の連なりに滑り込ませている。定型句を少しだけずらして韻の駒にする手口です。</p>
+        <p>そしてこの直後、Jay-Zは「You know this n***a, JAŸ-Z, Shawn Carter」と<strong class="text-[var(--c-text)]">本名（ショーン・カーター）</strong>まで名乗ります。デビューシングルの1バース目で芸名と本名を両方置く。名乗りがそのままブランディングだという意識が、キャリアの最初からはっきり出ています。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">rags to riches</strong> はニュースや書評でも使う定番句。<em>a rags-to-riches story</em>（成り上がり物語）の形で覚えておくと読解で役立ちます。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ④f Breitling / Breguet -->
+      <LearningUnit
+        heading="shine like a Breitling — 高級時計ブランドを動詞に変える"
+        label="★ 言葉遊び（ブランド）"
+        mc="Jay-Z（Verse 1）"
+        t={TS["breitling-breguet"].t} tApprox={TS["breitling-breguet"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Watch me shine like a Breitling, Breguets the f**k up</Fragment>
+        <Fragment slot="jpn">ブライトリングみたいに輝く俺を見ろ、ブレゲ級に決めてやる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1終盤、フレックスが最高潮になる件。ブランド名の使い方が学習対象。</p>
+        <p><strong class="text-[var(--c-text)]">Breitling</strong>（ブライトリング）と <strong class="text-[var(--c-text)]">Breguet</strong>（ブレゲ）は、どちらもスイスの高級時計ブランド。前半は「時計のように輝く」という直喩ですが、後半はブランド名 Breguet が dress up（着飾る）と同じ位置に置かれて、<strong class="text-[var(--c-text)]">そのまま動詞のように</strong>使われます。「ブレゲる」とでも言うような遊びです。</p>
+        <p>ブランド名の動詞化は英語スラングの十八番で、発想としては日本語の「ググる」と同じ。ちなみに文頭の「Watch me」には watch（時計）との掛けも読めて、時計の行の頭に watch を置く芸の細かさまで含めて楽しめる一行です。</p>
+      </LearningUnit>
+
+      <!-- ④g Alzheimer's rhyme -->
+      <LearningUnit
+        heading="rhymers / Alzheimer's / small timers — 病名まで韻の駒にする"
+        label="★ 韻（多音節）"
+        mc="Jay-Z（Verse 1）"
+        t={TS["alzheimers-small-timers"].t} tApprox={TS["alzheimers-small-timers"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">All rhymers forget it like Alzheimer's<br />Small timers, I said it, I'm addressin' all drama</Fragment>
+        <Fragment slot="jpn">ライマー（ラッパー）どもは全員忘れろ、アルツハイマーみたいに／小物ども、言ってやったぞ、揉め事は全部俺が受けて立つ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の締め。まず音で3連の響きを確かめるのが早い件。</p>
+        <p>Verse 1の締めで、<strong class="text-[var(--c-text)]">rhymers / Alzheimer's / (small) timers</strong> と3連続の多音節韻が落ちます。「忘れる」つながりでアルツハイマー病を比喩に引く、不謹慎ぎりぎりの選択ですが、-imers の響きを3回転させる駒としてここに置かれている。意味と音の優先順位が音側に倒れる瞬間で、ラップの韻がどう組み立てられるかの見本です。</p>
+        <p><strong class="text-[var(--c-text)]">small timer</strong>（スモールタイマー）は「小物・三下」。big time（大成功）の反対側の言い回しで、small-time criminal（コソ泥）のように形容詞の形でも使われます。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">big time / small time</strong>: <em>He made it big time</em>（大成功した）／<em>a small-time hustler</em>（しがない小物）。規模の大小をtimeで言う、覚えやすいペアです。</p>
+        </Fragment>
+      </LearningUnit>
+
       <!-- ⑤ ain't got no puddin' -->
       <LearningUnit
         heading="ain't got no puddin' — イディオムを崩して使う"
@@ -204,6 +376,22 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         </Fragment>
       </LearningUnit>
 
+      <!-- ⑤b make moves / get mail -->
+      <LearningUnit
+        heading="make your moves, get your mail — 「動け、稼げ」の対句"
+        label="★ スラング（金）"
+        mc="Jay-Z（Verse 2）"
+        t={TS["make-moves-mail"].t} tApprox={TS["make-moves-mail"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の頭、夢を語るだけの奴への号令。語彙ものなので行は引きません。</p>
+        <p>「刑務所の中で夢だけ語る」連中への皮肉に続けて、外にいる人間への号令が来ます。<strong class="text-[var(--c-text)]">make your moves</strong>（動け・仕掛けろ）と <strong class="text-[var(--c-text)]">get your mail</strong>（稼ぎを取りに行け）。この <strong class="text-[var(--c-text)]">mail</strong> は手紙ではなく<strong class="text-[var(--c-text)]">金・実入り</strong>を指す90年代NYのスラングです。</p>
+        <p>夢を語るだけの奴（前のユニットの puddin' の話）と、実際に動いて取りに行く人間。この対比がVerse 2の説教全体の軸で、mail はその「実際に手元に入るもの」側の語彙になっています。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">make a move / make moves</strong> は日常でも「行動を起こす」。<em>It's time to make moves</em>（そろそろ動く時だ）。ビジネス口語でもそのまま通じます。</p>
+        </Fragment>
+      </LearningUnit>
+
       <!-- ⑥ roast a L / throw your toast -->
       <LearningUnit
         heading="roast a L / throw your toast — 一行に2つのスラングを仕込む"
@@ -216,6 +404,24 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <Fragment slot="jpn">マリファナは吸えても、銃を向けるのは怖いn**a——まあそうだろ</Fragment>
         <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2前半、見た目だけのハスラーへの皮肉が続く件の一行。</p>
         <p>一行に2つのスラングが仕込まれています。行の前半<strong class="text-[var(--c-text)]">「roast a L」</strong>。<strong class="text-[var(--c-text)]">L</strong> は葉巻タバコの葉（Phillie Bluntsなど）で巻いたマリファナのブラントを指す。<em>roast</em>（炙る）と組み合わせて「マリファナを吸う」。行の後半<strong class="text-[var(--c-text)]">「throw your toast」</strong>。<strong class="text-[var(--c-text)]">toast</strong> は銃のスラング。<em>throw</em>（向ける・構える）と合わせて「銃を向ける」。この2語が <em>L / well</em> で脚韻を踏みながら、「非暴力的なリスク（マリファナ）はやれても、本物のリスクは取れない偽者」という対比を一行で完結させている。前の行の「SL（メルセデスSLクラス）に乗ってるのに保釈金も払えない」と合わせて、見た目の派手さと中身のなさへの批評が続いていきます。一行にスラングを2つ詰め込んで脚韻まで踏む。この詰め込みっぷりがいかにもJay-Zなんですよね。</p>
+      </LearningUnit>
+
+      <!-- ⑥b cruisin' in your 7 -->
+      <LearningUnit
+        heading="cruisin' in your 7 — 数字だけで車種を言う"
+        label="★ スラング（車）／対比"
+        mc="Jay-Z（Verse 2）"
+        t={TS["cruisin-in-your-7"].t} tApprox={TS["cruisin-in-your-7"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">One day you're cruisin' in your 7, next day, you're sweatin', forgettin' your lies</Fragment>
+        <Fragment slot="jpn">ある日は7シリーズで流してたのに、次の日には冷や汗、ついた嘘も思い出せない</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2中盤、転落の予兆が始まる件。行の前半の数字が学習ポイント。</p>
+        <p><strong class="text-[var(--c-text)]">your 7</strong> は <strong class="text-[var(--c-text)]">BMW 7シリーズ</strong>のこと。ブランド名を省いて数字だけで呼んでいます。少し前の行の <strong class="text-[var(--c-text)]">SL</strong>（メルセデスSLクラス）も同じで、車種を型番だけで呼ぶのは「分かる相手にだけ通じればいい」という省略の作法です。</p>
+        <p>構文は <strong class="text-[var(--c-text)]">One day 〜, next day 〜</strong> の対比。絶頂と転落を一行に圧縮する型で、この2行後の「Everything was all good just a week ago」（次のユニット）の予告編になっています。<strong class="text-[var(--c-text)]">sweat</strong> は「汗をかく」から「焦る・追い詰められる」への転義です。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">one day ~, the next ~</strong> は物語りの定番構文。<strong class="text-[var(--c-text)]">sweat</strong> は <em>Don't sweat it</em>（気にするな）の形で日常必修。追い詰められる側の <em>sweatin'</em> と合わせて表裏で覚えられます。</p>
+        </Fragment>
       </LearningUnit>
 
       <!-- ⑦ RICO / Everything was all good -->
@@ -232,6 +438,78 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <p>上の行から。<strong class="text-[var(--c-text)]">RICO</strong>（リコ）は <QuickSlang word="RICO" desc="Racketeer Influenced and Corrupt Organizations Act（組織犯罪処罰法・1970年制定）。組織のトップも起訴できる連邦法で、ストリートで最も恐れられる法律のひとつ" /> の略。「Hit with the RICO」＝RICO法で起訴される。「repo」は <em>repossession</em>（差し押さえ）の略で、資産として車まで没収されるという意味です。上の行末の <em>vehicle</em> と次の行末の <em>week ago</em> で /i/ 音の緩やかな連鎖がある。そして下の行「<strong class="text-[var(--c-text)]">Everything was all good just a week ago</strong>」。これはJay-Zの一文として最もよく引用される名フレーズのひとつで、成功の絶頂から転落まで「たった一週間」というスリルと恐怖を8語に詰め込んでいる。後にColdplayのChris Martinとの「Homecoming」（2007）でも引用され、フレーズとして独り歩きするようになった。出典ごと知っておくと他の曲で出てきたとき気づける。</p>
       </LearningUnit>
 
+      <!-- ⑦b snitchin' ain't you -->
+      <LearningUnit
+        heading="snitchin', ain't you? — 密告の語彙と、詰め寄る付加疑問"
+        label="★ スラング／文法"
+        mc="Jay-Z（Verse 2）"
+        t={TS["snitchin-aint-you"].t} tApprox={TS["snitchin-aint-you"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">'Bout to start b***hin', ain't you? Ready to start snitchin', ain't you?</Fragment>
+        <Fragment slot="jpn">泣き言を言い出す頃だろ？ 密告を始める頃だろ？</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ RICOで摘発された直後、捕まった側の内面へ畳みかける件。</p>
+        <p><strong class="text-[var(--c-text)]">snitch</strong>（スニッチ）はヒップホップ最重要級の語彙で、<strong class="text-[var(--c-text)]">密告する・仲間を売る</strong>こと。Verse 1に出てきた NARC'in（既出ユニット）が「捜査官」由来の語なのに対して、snitch は仲間内から出る裏切り者を指す響きが強い語です。</p>
+        <p>文法面の学習ポイントは、2つの文をどちらも <strong class="text-[var(--c-text)]">ain't you?</strong>（〜だろ？）で締める付加疑問の連打。標準英語の aren't you? のくだけた形で、逃げ場を塞いで詰め寄る尋問のリズムを作っています。文頭の <strong class="text-[var(--c-text)]">'Bout</strong> は about の頭が落ちた形（be about to＝〜しかけている）。次の行の「hustlin' just ain't you」（ハスラーはお前の柄じゃない）の <em>it ain't you</em>（お前らしくない）も、そのまま使える口語です。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">snitch</strong> は名詞・動詞両方で使い、<em>snitch on someone</em>（〜を密告する）。<em>Snitches get stitches</em>（密告者は縫う羽目になる）という物騒な定番句があるほど、文化的に重い語です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑦c aside from / honeys -->
+      <LearningUnit
+        heading="Aside from the fast cars... — 教科書構文とAAVEのthey"
+        label="★ 構文／AAVE"
+        mc="Jay-Z（Verse 2）"
+        t={TS["aside-from-honeys"].t} tApprox={TS["aside-from-honeys"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Aside from the fast cars, honeys that shake they ass at bars</Fragment>
+        <Fragment slot="jpn">速い車と、バーで尻を振るハニーたちを別にすれば</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2後半、説得の畳みかけが続く件。行頭の構文と行中のtheyが学習対象。</p>
+        <p>行頭の <strong class="text-[var(--c-text)]">Aside from 〜</strong>（〜を別にすれば・〜はさておき）は、そのまま英作文で使える整った構文です。派手な暮らしの魅力をいったん「別枠」に置いてから、「それを除いたら、お前は本当はこの世界に関わりたくないはずだ」と次の行で畳む。皮肉の効いた説得の型。</p>
+        <p>そして行中の <strong class="text-[var(--c-text)]">shake they ass</strong> の <strong class="text-[var(--c-text)]">they</strong>。標準英語なら their です。AAVEの所有格 they は当サイトだと Nas Is Like のユニットでも扱った頻出パターンで、cars / bars の脚韻と合わせると、この行は「教科書構文＋AAVE＋韻」の三点セットになっています。<strong class="text-[var(--c-text)]">honey</strong> は女性を指す軽い呼び方です。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">aside from</strong> ≒ apart from ≒ except for。書き言葉でも使える便利な前置詞句で、TOEIC頻出でもあります。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑦d bodiers / cap-peelers -->
+      <LearningUnit
+        heading="bodiers / cap-peelers — 「殺し屋」を新語で作る東西対比"
+        label="★ 語形成（造語）"
+        mc="Jay-Z（Verse 2）"
+        t={TS["bodiers-cap-peelers"].t} tApprox={TS["bodiers-cap-peelers"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">East Coast bodiers, West Coast cap-peelers</Fragment>
+        <Fragment slot="jpn">東海岸のボディアー（殺る側）、西海岸のキャップ・ピーラー（撃ち手）</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2後半、underworldの住人を列挙する件。辞書に無い2語が学習対象。</p>
+        <p>この行、辞書に載っていない単語が2つ並びます。<strong class="text-[var(--c-text)]">bodier</strong> は body（死体。転じて動詞で「殺す」）に -er を付けた造語で「人を殺める者」。<strong class="text-[var(--c-text)]">cap-peeler</strong> は peel someone's cap（頭を撃ち抜く）から作った「撃ち手」。どちらも<strong class="text-[var(--c-text)]">動詞＋-er で行為者名詞を作る</strong>英語の基本ルールに乗っているので、初見でも意味の見当がつくようにできています。</p>
+        <p>East Coast / West Coast を対にして「どちらの海岸の殺し屋とも隣り合う世界」を描く行で、リリースは1996年、東西海岸の抗争の真っ只中です。時代の空気と造語の作り方が同時に学べる一行。直後の「Little monkey n***as turn gorillas」（小猿が図に乗ってゴリラになる）も、成り上がりの凶暴化を動物で言い切る絵の強い比喩です。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">動詞＋-er</strong> の行為者名詞化はいくらでも量産が効きます（hater, shooter, dealer, baller...）。スラングの新語も大半はこのルール製なので、知らない -er 語は動詞側から逆算すると読めます。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑦e octane / goes without sayin' -->
+      <LearningUnit
+        heading="filled up on octane — ガソリンの比喩と「言うまでもない」"
+        label="★ 比喩／イディオム"
+        mc="Jay-Z（Verse 2）"
+        t={TS["octane-goes-without-sayin"].t} tApprox={TS["octane-goes-without-sayin"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Stopped in the station, filled up on octane, and now they not sane<br />And not playin', that goes without sayin'</Fragment>
+        <Fragment slot="jpn">スタンドに寄ってハイオクを満タンにして、もう正気じゃない／遊びでもない、そんなのは言うまでもない</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2終盤、凶暴化した小物の描写が続く件。比喩と行末のイディオムが学習対象。</p>
+        <p>上の行は、車の給油の絵をそのまま人間に重ねる比喩です。<strong class="text-[var(--c-text)]">octane</strong>（オクタン価＝ガソリンの等級）を満タンにする、つまり調子づく燃料が入って歯止めが効かなくなる。直前の「猿がゴリラになる」描写から続く、小物が急に凶暴化していく流れの締めです。</p>
+        <p>音では octane / not sane / not playin' / sayin' と韻が連なって、着地が <strong class="text-[var(--c-text)]">that goes without sayin'</strong>（言うまでもない）。ど真ん中の定番イディオムをそのまま韻の駒に使っています。「they not sane」は be動詞が落ちるAAVEのコピュラ省略です。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">It goes without saying that ~</strong>（〜は言うまでもない）はエッセイやビジネス英語の頻出表現。現代スラングの <em>gas someone up</em>（おだてて調子づかせる）も同じガソリン系の発想で、セットにすると忘れません。</p>
+        </Fragment>
+      </LearningUnit>
+
       <!-- ⑧ when money play in, then they play you out -->
       <LearningUnit
         heading="when money play in, then they play you out — 一行に仕込む皮肉な哲学"
@@ -243,10 +521,25 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <Fragment slot="eng">Slayin' day in and day out, when money play in, then they play you out</Fragment>
         <Fragment slot="jpn">毎日毎日やり続ける——金が関わると、今度は金にゲームアウトにされる</Fragment>
         <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2終盤、ストリートの皮肉な循環を語る件の核心一行。</p>
-        <p>まず音を追ってみてください。<strong class="text-[var(--c-text)]">slayin' / day in and day out / play in / play you out</strong>。<em>-ay</em> の音が一行に連打される。その音の気持ちよさとは裏腹に、意味の核心は「when money <strong class="text-[var(--c-text)]">play in</strong>, then they <strong class="text-[var(--c-text)]">play you out</strong>」の部分です。<em>play in</em>（ゲームに加わる・関与する）と <em>play you out</em>（お前をゲームアウトにする・使い捨てにする）、同じ <em>play</em> の語が正反対の方向に使われている。金を追いかけると、最終的には金に支配されてゲームオーバーにされる。ストリート経済の構造的な矛盾、「金のために入ったゲームで、金に殺される」をたった一行で語ってしまう。個人的に、Jay-Zのリリックで最も静かにやられる一行のひとつです。</p>
+        <p>先に音だけ拾うと分かりやすい一行です。<strong class="text-[var(--c-text)]">slayin' / day in and day out / play in / play you out</strong>。<em>-ay</em> の音が一行に連打される。その音の気持ちよさとは裏腹に、意味の核心は「when money <strong class="text-[var(--c-text)]">play in</strong>, then they <strong class="text-[var(--c-text)]">play you out</strong>」の部分です。<em>play in</em>（ゲームに加わる・関与する）と <em>play you out</em>（お前をゲームアウトにする・使い捨てにする）、同じ <em>play</em> の語が正反対の方向に使われている。金を追いかけると、最終的には金に支配されてゲームオーバーにされる。ストリート経済の構造的な矛盾、「金のために入ったゲームで、金に殺される」をたった一行で語ってしまう。個人的に、Jay-Zのリリックで最も静かにやられる一行のひとつです。</p>
         <Fragment slot="usage">
           <p><strong class="text-[var(--c-text)]">play out</strong>（句動詞）: ①「展開する・結末に至る」（<em>Let's see how this plays out</em>）②「使い果たす・ゲームオーバーにする」（<em>They played him out</em>）。ここでは②の「利用して捨てる」のニュアンス。<em>play in</em> は「（ゲーム・活動に）加わる」。前置詞の違いで意味が正反対になる句動詞の典型例。日本語の「出る」と「出す」くらい違う。セットで覚えておくと良い。</p>
         </Fragment>
+      </LearningUnit>
+
+      <!-- ⑧b infinity / presidencies -->
+      <LearningUnit
+        heading="Representin' infinity with presidencies — フックへ返す締めの一行"
+        label="★ 韻／構成"
+        mc="Jay-Z（Verse 2）"
+        t={TS["infinity-presidencies"].t} tApprox={TS["infinity-presidencies"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Representin' infinity with presidencies</Fragment>
+        <Fragment slot="jpn">大統領たち（紙幣）で無限をレペゼンする</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ バースの本当に最後の一行。曲全体がここでフックに折り返します。</p>
+        <p><strong class="text-[var(--c-text)]">infinity / presidencies</strong> の多音節韻で、フックの「presidents to represent me」へ <strong class="text-[var(--c-text)]">represent</strong> の語ごと投げ返して曲を循環させる構成です。直前の行では「Tryin' to escape my own mind」（自分の頭の中から逃げようとしている）とも言っていて、金の全能感と、それに憑かれた頭の不穏さが最後まで並走したままフックに戻っていきます。</p>
+        <p><strong class="text-[var(--c-text)]">represent</strong> はヒップホップ最重要動詞のひとつ。「代表する」から「（地元・仲間を）背負って立つ」まで意味が広がり、「レペゼン」として日本語ラップにもそのまま輸入されました。デビューシングルの最後の行が represent で終わる。看板としてよくできすぎなくらいです。</p>
       </LearningUnit>
 
     </section>
@@ -302,6 +595,14 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
             ['Roast a L', 'マリファナのブラントを吸う。LはPhillie Buntなど葉巻葉で巻いたもの'],
             ['Toast', '銃のスラング。throw your toast = 銃を向ける'],
             ['RICO', '組織犯罪処罰法（1970年）。組織のリーダーも起訴できる連邦法'],
+            ['Cream', '現金。Wu-Tang「C.R.E.A.M.」の頭字語が96年にはNYの共通語に'],
+            ["Dough / the Mo'", 'ドウ（金）とモエ（シャンパン）。浮かれの燃料2点セット'],
+            ['Dish out / re-up', '捌く（バスケのアシスト由来）／再仕入れする。商売の動詞コンビ'],
+            ['Pins and needles', '緊張で気が気でない。しびれの感覚から来た定番イディオム'],
+            ['Mail', '金・実入りを指す90年代NYスラング。get your mail＝稼ぎに行け'],
+            ['Snitch', '密告者・密告する。snitches get stitchesという定番句があるほど重い語'],
+            ['Your 7 / SL', 'BMW 7シリーズ／メルセデスSL。車種を型番だけで呼ぶ省略の作法'],
+            ['Bodier / cap-peeler', '動詞+erで作られた「殺し屋」の造語。語形成ルールの見本'],
           ].map(([term, desc]) => (
             <div class="flex gap-3 text-sm">
               <span class="text-[var(--c-gold)] shrink-0 font-semibold min-w-[140px]">{term}</span>
