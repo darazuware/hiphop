@@ -17,9 +17,10 @@ interface Props {
   noindex?: boolean;
   learningPage?: boolean;
   songDuration?: number;  // 実曲長（秒）。プレーヤーのタイムライン総尺。未指定なら最終ユニット+30秒
+  youtubeStartSeconds?: number;  // PVの実音源開始位置（秒）。イントロ映像等でmp3と頭出しがズレる曲用。初回再生時にここへシーク
 }
 
-const { title, description, slug, highlights, youtubeId, sampleYoutubeId, sampleTitle, youtubeShortId, noindex = false, learningPage = false, songDuration } = Astro.props;
+const { title, description, slug, highlights, youtubeId, sampleYoutubeId, sampleTitle, youtubeShortId, noindex = false, learningPage = false, songDuration, youtubeStartSeconds } = Astro.props;
 
 const song = songs.find(s => s.slug === `/songs/${slug}`);
 const artist = song ? artists.find(a => a.slug === song.artistSlug) : null;
@@ -47,7 +48,7 @@ const waveformPeaks = waveformModules[`../data/waveforms/${slug}.json`]?.default
 
   <!-- Fixed player bar (learning pages only) -->
   {learningPage && (
-    <div id="learning-player-bar" class="fixed top-11 left-0 right-0 z-40 flex flex-col items-center" style="display:none" data-duration={songDuration != null ? String(songDuration) : undefined} data-peaks={waveformPeaks ? JSON.stringify(waveformPeaks) : undefined}>
+    <div id="learning-player-bar" class="fixed top-11 left-0 right-0 z-40 flex flex-col items-center" style="display:none" data-duration={songDuration != null ? String(songDuration) : undefined} data-peaks={waveformPeaks ? JSON.stringify(waveformPeaks) : undefined} data-yt-start={youtubeStartSeconds != null ? String(youtubeStartSeconds) : undefined}>
       <!-- Main bar -->
       <div class="flex items-center gap-2 px-3 py-2 bg-[#0d0d0d]/95 backdrop-blur-md border-b border-[var(--c-border)] max-w-3xl mx-auto w-full">
         <!-- Play/pause -->
@@ -686,6 +687,10 @@ const waveformPeaks = waveformModules[`../data/waveforms/${slug}.json`]?.default
     const DURATION = !isNaN(durAttr) && durAttr > units[units.length - 1].t
       ? durAttr
       : units[units.length - 1].t + 30;
+    // PVイントロ映像がmp3と頭出しがズレる曲用。初回再生時のみここへシークする。
+    const ytStartAttr = parseFloat(bar.dataset.ytStart ?? '');
+    const YT_START = !isNaN(ytStartAttr) && ytStartAttr > 0 ? ytStartAttr : null;
+    let hasSeekedToStart = false;
 
     // ── YouTube IFrame Player API（公式PVを実音源として再生・無料/キー不要）──
     // 既存のページ内PV埋め込み(#song-yt-player)をAPI制御。実 currentTime で
@@ -782,6 +787,7 @@ const waveformPeaks = waveformModules[`../data/waveforms/${slug}.json`]?.default
         btn.addEventListener('click', () => {
           // Jump to section start time
           elapsed = seg.startT;
+          hasSeekedToStart = true;
           if (ytReady && ytPlayer?.seekTo) ytPlayer.seekTo(elapsed, true);
           updateSeekwave(elapsed);
           timeEl.textContent = toMMSS(elapsed);
@@ -904,6 +910,7 @@ const waveformPeaks = waveformModules[`../data/waveforms/${slug}.json`]?.default
       const rect = seekwaveEl.getBoundingClientRect();
       const pct = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
       elapsed = pct * DURATION;
+      hasSeekedToStart = true;
       if (ytReady && ytPlayer?.seekTo) ytPlayer.seekTo(elapsed, true);
       render(elapsed, true);
     }
@@ -923,6 +930,7 @@ const waveformPeaks = waveformModules[`../data/waveforms/${slug}.json`]?.default
       if (isNaN(sec)) return;
       e.preventDefault();
       elapsed = Math.min(sec, DURATION);
+      hasSeekedToStart = true;
       if (ytReady && ytPlayer?.seekTo) {
         ytPlayer.seekTo(sec, true);
         ytPlayer.playVideo();
@@ -998,9 +1006,21 @@ const waveformPeaks = waveformModules[`../data/waveforms/${slug}.json`]?.default
         // PVがある＝実音源で再生。状態は onStateChange→setPlaying で反映。
         if (ytReady && ytPlayer) {
           if (playing) ytPlayer.pauseVideo();
-          else ytPlayer.playVideo();
+          else {
+            // 初回再生のみ: PVイントロ映像(ヘリの音等)を飛ばして実曲の始まりへシーク
+            if (YT_START != null && !hasSeekedToStart) {
+              hasSeekedToStart = true;
+              const ct = ytPlayer.getCurrentTime ? ytPlayer.getCurrentTime() : 0;
+              if (ct < YT_START) ytPlayer.seekTo(YT_START, true);
+            }
+            ytPlayer.playVideo();
+          }
         } else {
           // API準備前: 再生意図をキューしてアイコンだけ先に切り替える
+          if (YT_START != null && !hasSeekedToStart) {
+            hasSeekedToStart = true;
+            pendingSeek = YT_START;
+          }
           pendingPlay = !pendingPlay;
           iconPlay.style.display = pendingPlay ? 'none' : 'block';
           iconPause.style.display = pendingPlay ? 'block' : 'none';
