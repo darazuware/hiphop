@@ -38,7 +38,11 @@ try {
   fail(`main checkout/pull失敗: ${(e.stderr || e.message).toString().slice(-400)}`);
 }
 
-const beforeHead = run('git rev-parse HEAD').trim();
+// 「公開すべき新規分」はorigin/main基準で判定する（マージ直前のローカルHEAD基準だと、
+// 前回試行がビルド/pushで失敗してmainがローカルにマージ済みのまま残っているケースで
+// 「マージしても新規コミットが増えない＝反映なし」と誤判定し、pushすべき分を永遠に
+// 取りこぼす）。
+const remoteMainBeforeMerge = run('git rev-parse origin/main').trim();
 
 try {
   run('git merge --no-edit origin/review');
@@ -49,7 +53,7 @@ try {
 
 const afterMergeHead = run('git rev-parse HEAD').trim();
 
-if (beforeHead === afterMergeHead) {
+if (remoteMainBeforeMerge === afterMergeHead) {
   console.log('ℹ️ NOTHING_TO_PUBLISH: reviewに新しい変更はありません');
   process.exit(0);
 }
@@ -67,7 +71,7 @@ try {
   fail(`git push失敗: ${(e.stderr || e.message).toString().slice(-400)}`);
 }
 
-const subjects = run(`git log --pretty=format:%s ${beforeHead}..${afterMergeHead}`)
+const subjects = run(`git log --pretty=format:%s ${remoteMainBeforeMerge}..${afterMergeHead}`)
   .split('\n')
   .filter(Boolean);
 

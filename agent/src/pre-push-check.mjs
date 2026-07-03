@@ -44,12 +44,16 @@ if (!apiKey) {
 // --- Parse songs.ts for title/artist lookup ---
 const songsTs = readFileSync(join(projectRoot, 'src/data/songs.ts'), 'utf-8');
 function getSongMeta(slug) {
+  // title/artistsはアポストロフィを含む場合ダブルクォート表記（例: "93 'Til Infinity"）。
+  // 旧実装は [^'"]+ で捕捉していたため、値中のアポストロフィで手前が誤って閉じ扱いになり
+  // タイトルが途中で切れる不具合があった（実例: "93 'Til Infinity" → "93 " に短縮され、
+  // Genius検索が破綻し無関係な短い歌詞を安定して掴んで[B]誤検出を起こした）。
+  // 開始デリミタと同じ文字が現れるまでを捕捉することで、値中の反対側クォート文字を許容する。
   const re = new RegExp(
-    `slug:\\s*['"]\/songs\/${slug}['"][^}]+?title:\\s*['"]([^'"]+)['"][^}]+?artists:\\s*['"]([^'"]+)['"]`,
-    's'
+    `slug:\\s*['"]\/songs\/${slug}['"][^}]+?title:\\s*(['"])((?:(?!\\1)[\\s\\S])+?)\\1[^}]+?artists:\\s*(['"])((?:(?!\\3)[\\s\\S])+?)\\3`
   );
   const m = songsTs.match(re);
-  return m ? { title: m[1], artist: m[2] } : null;
+  return m ? { title: m[2], artist: m[4] } : null;
 }
 
 // ============================================================================
@@ -216,12 +220,17 @@ async function fetchLyrics(title, artist, slug) {
   const { getLyrics } = require(join(projectRoot, 'agent/node_modules/genius-lyrics-api/index.js'));
   let best = null, bestLines = 0;
   const target = Math.max(cachedLines, 20); // 充分な長さの目安
+  // 初回フェッチ（既存キャッシュ無し）は「20行超えたら即採用」だと、稀に発生する
+  // 短い/途中で切れたスクレイピング結果を誤って完全版扱いしてしまう（実例: 138行の曲が
+  // 1回目の試行で37行しか返らず、20行超えのため即break→不完全なままキャッシュされ続けた）。
+  // 比較対象となる既存キャッシュが無い場合は必ず3回試して最長版を採用する。
+  const hasReferenceLength = cachedLines > 0;
   for (let attempt = 1; attempt <= 3; attempt++) {
     let lyrics = null;
     try { lyrics = await getLyrics({ apiKey, title, artist, optimizeQuery: false }); } catch {}
     const n = lyrics ? lyrics.split('\n').length : 0;
     if (n > bestLines) { best = lyrics; bestLines = n; }
-    if (bestLines >= target) break;
+    if (hasReferenceLength && bestLines >= target) break;
   }
 
   // フェッチ完全失敗
