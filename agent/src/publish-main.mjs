@@ -3,7 +3,7 @@
  * review ブランチを main へ反映する（本番push）専用スクリプト。
  * 自然文解釈ではなく決定的な手順のみで実行する（Telegram /publish コマンドから呼ばれる）。
  *
- * 手順: fetch → main checkout/pull → merge review → build確認 → push origin main
+ * 手順: fetch → main checkout/reset --hard origin/main → merge review → build確認 → push origin main
  * 失敗時は main を汚さず（コンフリクト時は merge --abort）、pushもしない。
  *
  * 実行は主worktree（このファイルの2階層上 = リポジトリ直下）で行う。
@@ -33,9 +33,16 @@ try {
 
 try {
   run('git checkout main');
-  run('git pull origin main');
+  // pullではなくreset --hardでorigin/mainへ強制同期する。このスクリプトの実行順序上、
+  // ローカルmainはこの直後にmergeしてbuild確認後すぐpushする一時的な作業台に過ぎず、
+  // 実行間で保持すべきローカル専用コミットは存在しない前提。にもかかわらず、過去に
+  // ビルド/push失敗でローカルmainだけがマージ済みのまま取り残されたことがあり、その
+  // 状態でorigin/main側が別途進む（例: このファイル自体の修正コミット）とローカルと
+  // リモートが分岐し、`git pull`が「reconcile方法未指定」で失敗する事故が起きた。
+  // reset --hardなら分岐の有無に関わらず常にorigin/mainへ確実に揃う。
+  run('git reset --hard origin/main');
 } catch (e) {
-  fail(`main checkout/pull失敗: ${(e.stderr || e.message).toString().slice(-400)}`);
+  fail(`main checkout/reset失敗: ${(e.stderr || e.message).toString().slice(-400)}`);
 }
 
 // 「公開すべき新規分」はorigin/main基準で判定する（マージ直前のローカルHEAD基準だと、
