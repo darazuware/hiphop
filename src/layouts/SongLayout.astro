@@ -119,6 +119,20 @@ const waveformPeaks = waveformModules[`../data/waveforms/${slug}.json`]?.default
     ></div>
   </div>
 
+  <!-- Seek magnifier loupe (long-press on the player waveform, mobile) -->
+  <div
+    id="seek-loupe"
+    class="fixed z-[60] pointer-events-none"
+    style="display:none;width:220px;left:0;top:0;transform:translateX(-50%) scale(.85);opacity:0;transition:opacity .12s ease,transform .12s ease;will-change:left,top,opacity,transform"
+  >
+    <div style="position:relative;background:#0d0d0dF2;border:1.5px solid var(--c-gold);border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.55),0 0 0 4px rgba(0,0,0,.35);padding:8px 8px 6px;backdrop-filter:blur(6px)">
+      <canvas id="seek-loupe-canvas" width="408" height="128" style="display:block;width:204px;height:64px"></canvas>
+      <div id="seek-loupe-time" class="font-mono" style="text-align:center;margin-top:4px;font-size:12px;font-weight:700;color:var(--c-gold);letter-spacing:.05em">0:00</div>
+      <!-- upward pointer (loupeは波形の直下に出るので上向き) -->
+      <div style="position:absolute;left:50%;top:-7px;transform:translateX(-50%) rotate(45deg);width:12px;height:12px;background:#0d0d0d;border-left:1.5px solid var(--c-gold);border-top:1.5px solid var(--c-gold)"></div>
+    </div>
+  </div>
+
   <!-- Floating explanation toggle (always visible) -->
   <div id="exp-float" class={`fixed bottom-6 right-4 z-40 flex rounded-full overflow-hidden border border-[var(--c-border)] bg-[var(--c-surface)]/90 backdrop-blur-sm shadow-lg font-mono text-[10px]`}>
     <button data-e="tap" class="exp-btn exp-float-btn px-3 py-2 transition-colors">タップ</button>
@@ -916,10 +930,132 @@ const waveformPeaks = waveformModules[`../data/waveforms/${slug}.json`]?.default
     }
 
     seekwaveEl.addEventListener('click', (e: MouseEvent) => handleSeek(e.clientX));
+
+    // ── Long-press magnifier loupe（モバイルの精密シーク）───────────────────
+    // 細い波形バーはピンポイント位置に合わせづらいので、長押しで拡大ルーペを出し、
+    // 指の移動量を拡大率で割って1秒単位で微調整できるようにする（iOSの虫眼鏡風）。
+    const loupeEl     = document.getElementById('seek-loupe');
+    const loupeCanvas = document.getElementById('seek-loupe-canvas') as HTMLCanvasElement | null;
+    const loupeTime   = document.getElementById('seek-loupe-time');
+    const lctx = loupeCanvas?.getContext('2d') ?? null;
+    const LOUPE_PX_PER_SEC = 16;   // 拡大密度（=移動感度。16px動かすと1秒ぶん動く）
+    const LP_W = 204, LP_H = 64, LP_DPR = 2;
+
+    seekwaveEl.style.touchAction = 'none';
+    (seekwaveEl.style as any).webkitUserSelect = 'none';
+    (seekwaveEl.style as any).webkitTouchCallout = 'none';
+    seekwaveEl.style.userSelect = 'none';
+
+    function drawLoupe(t: number) {
+      if (!lctx) return;
+      lctx.setTransform(LP_DPR, 0, 0, LP_DPR, 0, 0);
+      lctx.clearRect(0, 0, LP_W, LP_H);
+      const cx = LP_W / 2;
+      const barSec = DURATION / N_BARS;
+      const bw = Math.max(1.5, barSec * LOUPE_PX_PER_SEC - 1);
+      for (let i = 0; i < N_BARS; i++) {
+        const barT = (i + 0.5) * barSec;
+        const x = cx + (barT - t) * LOUPE_PX_PER_SEC;
+        if (x < -bw || x > LP_W + bw) continue;
+        const h = Math.max(3, barHeights[i] * (LP_H - 16));
+        lctx.globalAlpha = barT <= t ? 0.95 : 0.4;
+        lctx.fillStyle = barBaseColors[i];
+        lctx.fillRect(x - bw / 2, (LP_H - h) / 2, bw, h);
+      }
+      // 中央プレイヘッド（白いクロスヘア）
+      lctx.globalAlpha = 1;
+      lctx.fillStyle = '#ffffff';
+      lctx.shadowColor = '#ffffff';
+      lctx.shadowBlur = 6;
+      lctx.fillRect(cx - 1, 4, 2, LP_H - 8);
+      lctx.shadowBlur = 0;
+      if (loupeTime) loupeTime.textContent = toMMSS(t);
+    }
+
+    function positionLoupe(clientX: number) {
+      if (!loupeEl) return;
+      const rect = seekwaveEl.getBoundingClientRect();
+      const x = Math.max(rect.left, Math.min(rect.right, clientX));
+      const half = LP_W / 2 + 6;
+      const left = Math.max(half, Math.min(window.innerWidth - half, x));
+      loupeEl.style.left = left + 'px';
+      loupeEl.style.top = (rect.bottom + 14) + 'px';  // 指の下＝波形の直下に出す
+    }
+
+    // 精密モード中はスクロールを起こさず視覚と音源だけ追従（多数の微移動でページが暴れないように）
+    function previewSeek(t: number) {
+      elapsed = Math.max(0, Math.min(t, DURATION));
+      hasSeekedToStart = true;
+      if (ytReady && ytPlayer?.seekTo) ytPlayer.seekTo(elapsed, true);
+      updateSeekwave(elapsed);
+      timeEl.textContent = toMMSS(elapsed);
+    }
+
+    let lpTimer: number | null = null;
+    let lpActive = false, lpMoved = false, lpAnchorX = 0, lpAnchorT = 0;
+
+    function enterLoupe(clientX: number) {
+      lpActive = true;
+      lpAnchorX = clientX;
+      lpAnchorT = elapsed;
+      if (loupeEl) {
+        loupeEl.style.display = 'block';
+        positionLoupe(clientX);
+        drawLoupe(elapsed);
+        requestAnimationFrame(() => {
+          loupeEl.style.opacity = '1';
+          loupeEl.style.transform = 'translateX(-50%) scale(1)';
+        });
+      }
+      if ((navigator as any).vibrate) { try { (navigator as any).vibrate(12); } catch { /* noop */ } }
+    }
+
+    function exitLoupe() {
+      if (lpTimer != null) { clearTimeout(lpTimer); lpTimer = null; }
+      const wasActive = lpActive;
+      if (wasActive && loupeEl) {
+        loupeEl.style.opacity = '0';
+        loupeEl.style.transform = 'translateX(-50%) scale(.85)';
+        setTimeout(() => { if (!lpActive && loupeEl) loupeEl.style.display = 'none'; }, 130);
+      }
+      lpActive = false;
+      lpMoved = false;
+      if (wasActive) render(elapsed, true);  // 着地点へ最終スクロール
+    }
+
     seekwaveEl.addEventListener('touchstart', (e: TouchEvent) => {
+      const tch = e.touches[0];
+      if (!tch) return;
       e.preventDefault();
-      if (e.touches[0]) handleSeek(e.touches[0].clientX);
+      lpMoved = false;
+      handleSeek(tch.clientX);  // 即時のcoarseシーク（従来のタップ挙動）
+      if (lpTimer != null) clearTimeout(lpTimer);
+      const sx = tch.clientX;
+      lpTimer = window.setTimeout(() => {
+        lpTimer = null;
+        if (!lpMoved) enterLoupe(sx);
+      }, 300);
     }, { passive: false });
+
+    seekwaveEl.addEventListener('touchmove', (e: TouchEvent) => {
+      const tch = e.touches[0];
+      if (!tch) return;
+      e.preventDefault();
+      if (lpActive) {
+        const nt = lpAnchorT + (tch.clientX - lpAnchorX) / LOUPE_PX_PER_SEC;
+        previewSeek(nt);
+        positionLoupe(tch.clientX);
+        drawLoupe(elapsed);
+      } else {
+        lpMoved = true;
+        if (lpTimer != null) { clearTimeout(lpTimer); lpTimer = null; }
+        handleSeek(tch.clientX);  // 長押し前の移動は通常ドラッグ（coarse）
+      }
+    }, { passive: false });
+
+    const onSeekEnd = (e: TouchEvent) => { if (lpActive) e.preventDefault(); exitLoupe(); };
+    seekwaveEl.addEventListener('touchend', onSeekEnd, { passive: false });
+    seekwaveEl.addEventListener('touchcancel', onSeekEnd, { passive: false });
 
     // 各ユニットの▶ボタン: 上部プレーヤーを該当秒へジャンプ＋再生。
     // YTプレーヤーがある場合はYouTube遷移を抑止して内部シーク。無ければ素のリンク動作にフォールバック。
