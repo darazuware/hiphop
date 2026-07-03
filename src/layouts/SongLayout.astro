@@ -50,31 +50,54 @@ const waveformPeaks = waveformModules[`../data/waveforms/${slug}.json`]?.default
   {learningPage && (
     <div id="learning-player-bar" class="fixed top-11 left-0 right-0 z-40 flex flex-col items-center" style="display:none" data-duration={songDuration != null ? String(songDuration) : undefined} data-peaks={waveformPeaks ? JSON.stringify(waveformPeaks) : undefined} data-yt-start={youtubeStartSeconds != null ? String(youtubeStartSeconds) : undefined}>
       <!-- Main bar -->
-      <div class="flex flex-col gap-1.5 px-3 py-2 bg-[#0d0d0d]/95 backdrop-blur-md border-b border-[var(--c-border)] max-w-3xl mx-auto w-full">
-        <!-- Row 1: 再生ボタン ＋ 波形（波形は横幅いっぱい確保。誤タッチ防止にギャップを広めに） -->
-        <div class="flex items-center gap-4">
-          <!-- Play/pause -->
-          <button id="player-playpause" aria-label="再生/停止" class="shrink-0 transition-transform duration-150 hover:scale-110" style="width:42px;height:42px;background:#FF4D00;border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0">
-            <svg id="player-icon-play" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="black" style="display:block;margin-left:2px"><polygon points="3,1 15,8 3,15"/></svg>
-            <svg id="player-icon-pause" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="black" style="display:none"><rect x="1" y="1" width="4" height="12" rx="1"/><rect x="9" y="1" width="4" height="12" rx="1"/></svg>
-          </button>
-          <!-- Seekwave -->
-          <div id="player-seekwave" class="flex-1 h-7 flex items-end justify-center gap-[1px] cursor-pointer overflow-hidden" style="min-width:0"></div>
-        </div>
-        <!-- Row 2: verse・時間・固定/連動（波形の下・再生ボタンぶん左を空けて波形に揃える） -->
-        <div class="flex items-center gap-3" style="padding-left:58px">
-          <!-- Section label -->
-          <span id="player-section-label" class="text-[10px] uppercase tracking-widest text-[var(--c-dim)] shrink-0">—</span>
-          <!-- Time -->
-          <span id="player-time" class="text-[10px] font-mono text-[var(--c-dim)] shrink-0">0:00</span>
-          <div class="flex-1"></div>
-          <!-- Auto-follow toggle -->
-          <button
-            id="player-sync-toggle"
-            aria-label="連動スクロール切替"
-            title="固定 / 連動"
-            style="flex-shrink:0;background:transparent;border:1.5px solid var(--c-border);border-radius:6px;cursor:pointer;padding:5px 16px;font-size:12px;font-weight:700;letter-spacing:.08em;color:var(--c-dim);transition:color .15s,border-color .15s;white-space:nowrap"
-          >固定</button>
+      <!-- 再生ボタンを縦2段ぶんの高さに据え、その右に「波形→ラベル」を縦積み。
+           ボタン(42px)が全体高を決めるので旧・単一行と同じ薄さのまま文字が波形の下に来る。 -->
+      <div class="flex items-center gap-3 px-3 py-1.5 bg-[#0d0d0d]/95 backdrop-blur-md border-b border-[var(--c-border)] max-w-3xl mx-auto w-full">
+        <!-- Play/pause（縦センター・2段ぶんを占める） -->
+        <button id="player-playpause" aria-label="再生/停止" class="shrink-0 transition-transform duration-150 hover:scale-110" style="width:42px;height:42px;background:#FF4D00;border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0">
+          <svg id="player-icon-play" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="black" style="display:block;margin-left:2px"><polygon points="3,1 15,8 3,15"/></svg>
+          <svg id="player-icon-pause" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="black" style="display:none"><rect x="1" y="1" width="4" height="12" rx="1"/><rect x="9" y="1" width="4" height="12" rx="1"/></svg>
+        </button>
+        <!-- 波形＋ラベルを縦積み（波形は薄め・指タッチで拡大できるので情報密度優先） -->
+        <div class="flex-1 flex flex-col gap-0.5 min-w-0">
+          <!-- 波形 -->
+          <div id="player-seekwave" class="h-6 flex items-end justify-center gap-[1px] cursor-pointer overflow-hidden" style="min-width:0"></div>
+          <!-- 時間・スクロール切替・速度（波形の直下。3要素をjustify-betweenで等間隔に。
+               非表示要素(display:none)はflexで無視されるので各画面幅で見える3要素が均等になる） -->
+          <div class="flex items-center justify-between gap-2">
+            <!-- Time readout（デジタル時計風・経過/総尺を同サイズで） -->
+            <div class="flex items-baseline gap-1 shrink-0 select-none">
+              <span id="player-time" class="player-time-led font-mono font-bold tabular-nums leading-none">0:00</span>
+              <span id="player-duration" class="player-time-total font-mono font-bold tabular-nums leading-none">/&nbsp;0:00</span>
+            </div>
+            <!-- スクロール追従の切替（固定＝ページ動かさない / 連動＝再生に合わせて自動スクロール） -->
+            <div class="flex items-center gap-1.5 shrink-0">
+              <span class="hidden min-[430px]:inline text-[9px] leading-none tracking-wide text-[var(--c-dim)] whitespace-nowrap">スクロール</span>
+              <div id="player-sync-seg" role="group" aria-label="再生に合わせた自動スクロールの切替" class="flex rounded-md overflow-hidden" style="border:1.5px solid var(--c-border)">
+                <button id="sync-fixed" type="button" aria-pressed="true" title="固定：再生中もページを動かさず自分のペースで読む" style="border:none;cursor:pointer;padding:3px 9px;font-size:11px;font-weight:700;letter-spacing:.04em;white-space:nowrap;transition:background .15s,color .15s">固定</button>
+                <button id="sync-follow" type="button" aria-pressed="false" title="連動：再生位置に合わせて解説へ自動スクロール" style="border:none;border-left:1.5px solid var(--c-border);cursor:pointer;padding:3px 9px;font-size:11px;font-weight:700;letter-spacing:.04em;white-space:nowrap;transition:background .15s,color .15s">連動</button>
+              </div>
+            </div>
+            <!-- 再生速度（速いラップの聞き取り用スロー） -->
+            <!-- モバイル：省スペースの循環ボタン（タップで 1× → 0.75× → 0.5×） -->
+            <button
+              id="player-speed"
+              type="button"
+              aria-label="再生速度切替"
+              title="再生速度：タップで 1× → 0.75× → 0.5×（速いラップの聞き取り用）"
+              class="shrink-0 min-[560px]:hidden"
+              style="border:1.5px solid var(--c-border);border-radius:6px;cursor:pointer;padding:3px 8px;font-size:11px;font-weight:700;letter-spacing:.02em;white-space:nowrap;background:transparent;color:var(--c-dim);font-variant-numeric:tabular-nums;transition:background .15s,color .15s,border-color .15s"
+            >1×</button>
+            <!-- 広い画面：全段セグメント＋「スピード」ラベル -->
+            <div class="hidden min-[560px]:flex items-center gap-1.5 shrink-0">
+              <span class="text-[9px] leading-none tracking-wide text-[var(--c-dim)] whitespace-nowrap">スピード</span>
+              <div id="player-speed-seg" role="group" aria-label="再生速度の切替" class="flex rounded-md overflow-hidden" style="border:1.5px solid var(--c-border)">
+                <button type="button" data-rate="1" title="等速" style="border:none;cursor:pointer;padding:3px 8px;font-size:11px;font-weight:700;white-space:nowrap;font-variant-numeric:tabular-nums;transition:background .15s,color .15s">1×</button>
+                <button type="button" data-rate="0.75" title="0.75倍速（聞き取り用）" style="border:none;border-left:1.5px solid var(--c-border);cursor:pointer;padding:3px 8px;font-size:11px;font-weight:700;white-space:nowrap;font-variant-numeric:tabular-nums;transition:background .15s,color .15s">0.75×</button>
+                <button type="button" data-rate="0.5" title="0.5倍速（じっくり聞き取り）" style="border:none;border-left:1.5px solid var(--c-border);cursor:pointer;padding:3px 8px;font-size:11px;font-weight:700;white-space:nowrap;font-variant-numeric:tabular-nums;transition:background .15s,color .15s">0.5×</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <!-- Section jump strip (populated by JS) -->
@@ -625,7 +648,7 @@ const waveformPeaks = waveformModules[`../data/waveforms/${slug}.json`]?.default
 
     const bandEl      = document.getElementById('player-section-band')!;
     const stripEl     = document.getElementById('player-section-strip')!;
-    const labelEl     = document.getElementById('player-section-label')!;
+    const durEl       = document.getElementById('player-duration');
     const seekwaveEl  = document.getElementById('player-seekwave')!;
     const timeEl      = document.getElementById('player-time')!;
     const playBtn     = document.getElementById('player-playpause')!;
@@ -634,18 +657,74 @@ const waveformPeaks = waveformModules[`../data/waveforms/${slug}.json`]?.default
     const followBtn   = document.getElementById('player-follow')!;
     const followArrow = document.getElementById('player-follow-arrow')!;
     const followText  = document.getElementById('player-follow-text')!;
-    const syncToggle  = document.getElementById('player-sync-toggle') as HTMLButtonElement | null;
+    const segFixed    = document.getElementById('sync-fixed') as HTMLButtonElement | null;
+    const segFollow   = document.getElementById('sync-follow') as HTMLButtonElement | null;
 
     let autoFollow = false;
-    syncToggle?.addEventListener('click', () => {
-      autoFollow = !autoFollow;
-      if (syncToggle) {
-        syncToggle.textContent = autoFollow ? '連動' : '固定';
-        syncToggle.style.color = autoFollow ? 'var(--c-green)' : 'var(--c-dim)';
-        syncToggle.style.borderColor = autoFollow ? 'var(--c-green)' : 'var(--c-border)';
+    // セグメント表示を現在状態に同期（固定＝中立ハイライト / 連動＝緑で「追従中」を明示）
+    function renderSyncSeg() {
+      if (segFixed) {
+        segFixed.style.background = !autoFollow ? 'rgba(255,255,255,.14)' : 'transparent';
+        segFixed.style.color = !autoFollow ? '#fff' : 'var(--c-dim)';
+        segFixed.setAttribute('aria-pressed', String(!autoFollow));
       }
-      if (autoFollow && currentPlayingEl) scrollToUnit(currentPlayingEl);
+      if (segFollow) {
+        segFollow.style.background = autoFollow ? 'var(--c-green)' : 'transparent';
+        segFollow.style.color = autoFollow ? '#0d0d0d' : 'var(--c-dim)';
+        segFollow.setAttribute('aria-pressed', String(autoFollow));
+      }
+    }
+    renderSyncSeg();
+    segFixed?.addEventListener('click', () => {
+      if (!autoFollow) return;
+      autoFollow = false;
+      renderSyncSeg();
     });
+    segFollow?.addEventListener('click', () => {
+      if (autoFollow) return;
+      autoFollow = true;
+      renderSyncSeg();
+      if (currentPlayingEl) scrollToUnit(currentPlayingEl);
+    });
+
+    // 再生速度（速いラップの聞き取り用スロー）。実音源はgetCurrentTime基準なので同期は自動。
+    // モバイル：循環ボタン(#player-speed) / 広い画面：全段セグメント(#player-speed-seg)。状態は共有。
+    const speedBtn  = document.getElementById('player-speed') as HTMLButtonElement | null;
+    const speedSeg  = document.getElementById('player-speed-seg');
+    const segRateBtns = speedSeg ? Array.from(speedSeg.querySelectorAll<HTMLButtonElement>('button[data-rate]')) : [];
+    const RATES = [1, 0.75, 0.5];
+    let rateIdx = 0;
+    function applyRate() {
+      const r = RATES[rateIdx];
+      const slowed = r !== 1;
+      if (ytReady && ytPlayer?.setPlaybackRate) ytPlayer.setPlaybackRate(r);
+      // 循環ボタン（モバイル）
+      if (speedBtn) {
+        speedBtn.textContent = r + '×';
+        speedBtn.style.background = slowed ? 'var(--c-gold)' : 'transparent';
+        speedBtn.style.color = slowed ? '#0d0d0d' : 'var(--c-dim)';
+        speedBtn.style.borderColor = slowed ? 'var(--c-gold)' : 'var(--c-border)';
+      }
+      // セグメント（広い画面）
+      for (const b of segRateBtns) {
+        const active = parseFloat(b.dataset.rate ?? '') === r;
+        b.style.background = active ? 'var(--c-gold)' : 'transparent';
+        b.style.color = active ? '#0d0d0d' : 'var(--c-dim)';
+        b.setAttribute('aria-pressed', String(active));
+      }
+    }
+    speedBtn?.addEventListener('click', () => {
+      rateIdx = (rateIdx + 1) % RATES.length;
+      applyRate();
+    });
+    for (const b of segRateBtns) {
+      b.addEventListener('click', () => {
+        const idx = RATES.indexOf(parseFloat(b.dataset.rate ?? ''));
+        if (idx < 0 || idx === rateIdx) return;
+        rateIdx = idx;
+        applyRate();
+      });
+    }
 
     // 下スクロール中はサイトヘッダーを退避し、プレーヤーバーを最上部へ詰める。
     // 上スクロール／最上部付近ではヘッダーを戻す（モバイルの占有面積を削減）。
@@ -712,6 +791,7 @@ const waveformPeaks = waveformModules[`../data/waveforms/${slug}.json`]?.default
     const ytStartAttr = parseFloat(bar.dataset.ytStart ?? '');
     const YT_START = !isNaN(ytStartAttr) && ytStartAttr > 0 ? ytStartAttr : null;
     let hasSeekedToStart = false;
+    if (durEl) durEl.textContent = '/ ' + toMMSS(DURATION);
 
     // ── YouTube IFrame Player API（公式PVを実音源として再生・無料/キー不要）──
     // 既存のページ内PV埋め込み(#song-yt-player)をAPI制御。実 currentTime で
@@ -719,6 +799,8 @@ const waveformPeaks = waveformModules[`../data/waveforms/${slug}.json`]?.default
     // APIが読めない/動画が無い場合は従来のサイレント時間軸にフォールバック。
     let ytPlayer: any = null;
     let ytReady = false;
+    // 速度コントロールの初期表示（ここでytReady宣言後に呼ぶ＝TDZ回避。PV無しページでも初期化される）
+    applyRate();
     let pendingPlay = false;  // 準備完了前に押された再生意図を保持
     let pendingSeek: number | null = null;  // 準備完了前に押された頭出し先（秒）
     const ytIframe = document.getElementById('song-yt-player');
@@ -733,6 +815,7 @@ const waveformPeaks = waveformModules[`../data/waveforms/${slug}.json`]?.default
         events: {
           onReady: () => {
             ytReady = true;
+            applyRate();
             if (pendingSeek != null) { ytPlayer.seekTo(pendingSeek, true); pendingSeek = null; }
             if (pendingPlay) { pendingPlay = false; ytPlayer.playVideo(); }
           },
@@ -799,12 +882,12 @@ const waveformPeaks = waveformModules[`../data/waveforms/${slug}.json`]?.default
         const color = SECTION_COLORS[sectionColorKey(seg.section)] ?? 'var(--c-section-intro)';
         const label = sectionLabelOf(seg.section);
         const btn = document.createElement('button');
-        btn.style.cssText = `width:${width};background:${color};opacity:0.55;border:none;padding:0;height:100%;font-size:9px;color:#fff;overflow:hidden;white-space:nowrap;transition:opacity 0.2s`;
+        btn.style.cssText = `width:${width};background:${color};opacity:0.45;border:none;padding:0;height:100%;font-size:9px;color:#fff;overflow:hidden;white-space:nowrap;position:relative;transition:opacity 0.2s,box-shadow 0.2s`;
         btn.textContent = label;
         btn.title = label;
         btn.dataset.startT = String(seg.startT);
         btn.addEventListener('mouseenter', () => { btn.style.opacity = '0.9'; });
-        btn.addEventListener('mouseleave', () => { btn.style.opacity = activeStripBtn === btn ? '1' : '0.55'; });
+        btn.addEventListener('mouseleave', () => { btn.style.opacity = activeStripBtn === btn ? '1' : '0.45'; });
         btn.addEventListener('click', () => {
           // Jump to section start time
           elapsed = seg.startT;
@@ -832,8 +915,19 @@ const waveformPeaks = waveformModules[`../data/waveforms/${slug}.json`]?.default
         else break;
       }
       if (newActive !== activeStripBtn) {
-        if (activeStripBtn) activeStripBtn.style.opacity = '0.55';
-        if (newActive) newActive.style.opacity = '1';
+        if (activeStripBtn) {
+          activeStripBtn.style.opacity = '0.45';
+          activeStripBtn.style.fontWeight = '400';
+          activeStripBtn.style.boxShadow = 'none';
+          activeStripBtn.style.zIndex = '0';
+        }
+        if (newActive) {
+          newActive.style.opacity = '1';
+          newActive.style.fontWeight = '800';
+          // 内側リング＋外側グローで「点灯」感を出す
+          newActive.style.boxShadow = 'inset 0 0 0 1.5px rgba(255,255,255,.6), 0 0 10px rgba(255,255,255,.25)';
+          newActive.style.zIndex = '1';
+        }
         activeStripBtn = newActive;
       }
     }
@@ -901,7 +995,7 @@ const waveformPeaks = waveformModules[`../data/waveforms/${slug}.json`]?.default
     const seekBars: HTMLElement[] = [];
     for (let i = 0; i < N_BARS; i++) {
       const div = document.createElement('div');
-      const h = Math.round(barHeights[i] * 20);
+      const h = Math.round(barHeights[i] * 24);
       div.style.cssText = `flex:1 1 0;min-width:1px;height:${h}px;border-radius:1px;background:${barBaseColors[i]};opacity:0.4;transition:opacity 0.1s,box-shadow 0.1s`;
       seekwaveEl.appendChild(div);
       seekBars.push(div);
@@ -1102,9 +1196,12 @@ const waveformPeaks = waveformModules[`../data/waveforms/${slug}.json`]?.default
         if (active.el.classList.contains('learning-unit')) currentPlayingEl = active.el;
         const section = getSectionForMc(active.mc);
         bandEl.style.background = SECTION_COLORS[sectionColorKey(section)] ?? 'var(--c-section-intro)';
-        labelEl.textContent = section.toUpperCase();
-        updateActiveStrip(t);
+      } else {
+        // Intro等・まだユニットが始まっていない区間は帯をintro色に
+        bandEl.style.background = SECTION_COLORS['intro'] ?? 'var(--c-section-intro)';
       }
+      // 帯のライトアップはactiveユニット有無に関係なく毎回更新（Introも点灯させる）
+      updateActiveStrip(t);
       if (userSeek) {
         followBtn.style.display = 'none';
         lastScrolledUnit = currentPlayingEl;

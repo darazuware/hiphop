@@ -154,3 +154,16 @@ html[data-theme="light"] {
   .follow-chip { animation: none; }
   .follow-chip .follow-dot { animation: none; }
 }
+
+/* プレーヤーの時間表示：デジタル時計風（グロー無し・等幅で桁が跳ねない）。
+   経過も総尺も同じ大きさで「0:27 / 4:12」を素直に見せる */
+.player-time-led {
+  font-size: 15px;
+  letter-spacing: 0.06em;
+  color: var(--c-gold-light);
+}
+.player-time-total {
+  font-size: 15px;
+  letter-spacing: 0.06em;
+  color: var(--c-dim);
+}
