@@ -1,6 +1,7 @@
 ---
 import Layout from './Layout.astro';
 import ExplanationToggle from '../components/ExplanationToggle.astro';
+import MercariCta from '../components/MercariCta.astro';
 import { songs } from '../data/songs';
 import { artists } from '../data/artists';
 import { columns } from '../data/columns';
@@ -286,6 +287,12 @@ const waveformPeaks = waveformModules[`../data/waveforms/${slug}.json`]?.default
           </a>
         </div>
       ) : null}
+
+      {song && (
+        <div class="-mt-4 mb-6">
+          <MercariCta query={`${song.artists} ${song.album}`} label="中古レコード・CDをメルカリで探す" />
+        </div>
+      )}
 
       {youtubeId && (
         <div class="mb-8 aspect-video w-full rounded-lg overflow-hidden">

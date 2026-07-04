@@ -1,0 +1,22 @@
+---
+// メルカリアフィリエイトCTA（共通コンポーネント）。
+// タグ(afid)は本コンポーネントで集中管理し、ページに生のmercari URLを直書きしない。
+// Amazon戦略と同じ「検索リンクを踏ませる」方式: 個別出品への直リンクは売却・削除で
+// すぐ死にリンク化するため使わない。検索結果ページは常に何か表示され死なない。
+interface Props {
+  query: string;  // 検索キーワード（例: "Nas Illmatic レコード" "Wu-Tang Clan Tシャツ"）
+  label?: string; // 表示ラベル（既定: "メルカリで探す"）
+}
+const { query, label = "メルカリで探す" } = Astro.props as Props;
+const AFID = "3150124771";
+const href = `https://jp.mercari.com/search?keyword=${encodeURIComponent(query)}&afid=${AFID}`;
+---
+
+<a
+  href={href}
+  target="_blank"
+  rel="noopener sponsored nofollow"
+  class="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-widest text-[var(--c-very-dim)] hover:text-[var(--c-gold)] transition-colors"
+>
+  <span class="normal-case">[PR]</span> {label} →
+</a>
