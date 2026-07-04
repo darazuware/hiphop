@@ -1,5 +1,9 @@
 # hiphop — プロジェクト設定
 
+## 任務遂行プロトコル（最重要・常駐・全モデル共通）
+- **どの任務も着手前に [`docs/mission-protocol.md`](docs/mission-protocol.md) に従う。** 要点: ①任務は「入口1コマンド＋機械検証のDoD＋review push出口」の3点セットを持つ（無ければ先に作る） ②文章は三稿制（初稿→check-tone-only＋他人の目で再読→仕上げ） ③内部リンクは手書きせず生成に任せる ④同種の失敗2回目は必ずルール追記かガード化までやる ⑤❌残しの完了報告禁止。
+- ショート動画関連は [`docs/shorts-strategy.md`](docs/shorts-strategy.md)（MV切り抜き禁止・既存パイプライン厳守）。
+
 ## 事実チェック（最重要・常駐）
 - **サンプル系記事（曲ページ・コラム）を追加／編集するときは、作業前に必ず [`docs/fact-check-rules.md`](docs/fact-check-rules.md) を読み、本ルールに従う。**
 - サンプル・年・アルバム・客演・チャート順位・曲の実在性に関する事実主張は、生成時のハルシネーションを前提に一次ソース（WhoSampled / Wikipedia / Discogs / Genius）で必ず裏取りする。
@@ -94,6 +98,8 @@ public/images/   # アルバムアート
    - 追加項目: slug, name, origin, active, genre, summary, japan
    - step2のリサーチ結果から自動生成
 7. Claudeが.astroページを生成（SongLayout使用）
+   - **【三稿制・必須】** 初稿を書き切る → `node agent/src/check-tone-only.mjs {slug}` を通す → 「外注ライターがAIで書いた文に見えないか」の一点で自分の文を他人として再読し直す → 仕上げて再チェック（[`docs/mission-protocol.md`](docs/mission-protocol.md) §3）
+   - **【関連記事カード手書き禁止】** 記事末の関連記事リンクはSongLayoutが songs.ts から自動生成する（同アーティスト→同プロデューサー→同じ元ネタ→同時代×同地域）。`.astro` 本文に手書きの関連記事セクションを新設しない（腐ってデッドリンク化した前例あり）
    - **【文体】生成する日本語文章は [`docs/article-tone.md`](docs/article-tone.md)（チェックリスト）に従い、模範＝nas-is-like.astroの文体・改行構造を踏襲する**（見出し文言は曲固有）。敬体基調＋常体スパイス・作品への熱・軽い口語の抜け・専門語の噛み砕き。ガチガチのライター調にしない。ただし事実は [`docs/fact-check-rules.md`](docs/fact-check-rules.md) で厳密に裏取りし、英語引用（eng）量は増やさない。
    - **Amazonアフィリエイトリンクは手書き不要**。SongLayoutが冒頭の**ジャケット画像をクリック型アフィリエイトリンク**として自動表示する:
      - asin設定済み: Amazon商品画像リンク（`/dp/{asin}` + tag=wax1124-22）
