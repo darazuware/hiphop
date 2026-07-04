@@ -10,6 +10,7 @@
  */
 
 import { execSync } from 'node:child_process';
+import { readFileSync, unlinkSync, existsSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -52,6 +53,29 @@ try {
 // 「マージしても新規コミットが増えない＝反映なし」と誤判定し、pushすべき分を永遠に
 // 取りこぼす）。
 const remoteMainBeforeMerge = run('git rev-parse origin/main').trim();
+
+// 主worktreeで下書きしたファイルをreview worktree側でコミットすると、主worktreeに
+// 未追跡コピーが残り「untracked working tree files would be overwritten by merge」で
+// マージが中断する（2026-07-04 映画コラム4本で実際に発生）。
+// review側のコミット内容と完全一致する未追跡コピーのみ自動削除して先へ進む。
+// 内容が異なる場合はローカル独自の作業の可能性があるため、何も消さずfailする。
+try {
+  const incoming = run('git diff --name-only HEAD origin/review').split('\n').filter(Boolean);
+  const untracked = new Set(run('git ls-files --others --exclude-standard').split('\n').filter(Boolean));
+  for (const f of incoming) {
+    if (!untracked.has(f) || !existsSync(join(ROOT, f))) continue;
+    const local = readFileSync(join(ROOT, f));
+    const inReview = execSync(`git show origin/review:"${f}"`, { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'] });
+    if (local.equals(inReview)) {
+      unlinkSync(join(ROOT, f));
+      console.log(`ℹ️ reviewと同一内容の未追跡コピーを削除: ${f}`);
+    } else {
+      fail(`未追跡ファイルがreviewの変更と衝突し内容も異なります: ${f}（手動で退避/削除してから再実行）`);
+    }
+  }
+} catch (e) {
+  fail(`未追跡ファイル衝突チェック失敗: ${(e.stderr || e.message).toString().slice(-400)}`);
+}
 
 try {
   run('git merge --no-edit origin/review');
