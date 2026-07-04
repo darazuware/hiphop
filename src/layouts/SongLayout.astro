@@ -29,7 +29,10 @@ const h1 = song ? `${song.title} — ${song.artists} 和訳・スラング解説
 // 更新日メカニズム: データに updatedDate があれば表示（遡及入力は不要・任意）
 const updatedDate = (song as { updatedDate?: string } | undefined)?.updatedDate ?? null;
 const releaseYear = song?.subtitle.match(/·\s*(\d{4})/)?.[1] ?? null;
-// 関連記事: 同アーティスト → 同プロデューサー → 同時代×同地域 の3段で最大6本（内部リンク強化）
+// 関連記事: 同アーティスト → 同プロデューサー → 同じ元ネタ → 同時代×同地域 の4段で最大6本。
+// songs.ts から build 時に自動計算されるため、曲が増えるほどリンクは勝手に増える（手書き禁止）。
+const sampleArtistOf = (s: { sample: string | null }) =>
+  s.sample?.match(/^([^"]+?)\s*"/)?.[1]?.trim() ?? null;
 const related = song
   ? (() => {
       const others = songs.filter(s => s.slug !== song.slug && s.tier === 'core');
@@ -39,9 +42,11 @@ const related = song
           .filter(s => !seen.has(s.slug) && pred(s))
           .slice(0, limit)
           .map(s => { seen.add(s.slug); return { ...s, reason }; });
+      const mySampleArtist = sampleArtistOf(song);
       return [
         ...pick(s => s.artistSlug === song.artistSlug, '同アーティスト', 3),
         ...pick(s => !!song.producer && s.producer === song.producer, `${song.producer} プロデュース`, 2),
+        ...pick(s => !!mySampleArtist && sampleArtistOf(s) === mySampleArtist, `同じ元ネタ（${mySampleArtist}）`, 2),
         ...pick(s => s.era === song.era && s.region === song.region, `${song.era}・${song.region}シーン`, 3),
       ].slice(0, 6);
     })()
