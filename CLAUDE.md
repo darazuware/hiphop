@@ -147,7 +147,11 @@ public/images/   # アルバムアート
    - `agent/{slug}/assets/units.json` を曲順に作成し、各unitに `fallbackT`（Verse頭から1行≈2.5〜3秒の線形補間による概算秒）と `manualSec: null` を付ける
    - `node agent/src/gen-fallback-timestamps.mjs --slug {slug}` で `units-timestamps.json` を決定的に生成（音源DL・whisper・extract-unit-timestamps.mjsは実行しない）
    - 正確な秒数は**運営者がプレビューを見て実測指示**する。受け取ったら `node agent/src/set-manual-timestamp.mjs --slug {slug} id=秒 ...` で焼く（[`docs/timestamp-override.md`](docs/timestamp-override.md)）
-13. npm run build でビルド確認
+13. 総合チェック（必須・1コマンド）:
+   node agent/src/check-article.mjs {slug}
+   - IMG/YT/歌詞・トーン・定型句/ビルド/内部リンク/SEOを一括実行し✅❌サマリーを出す（歌詞テキストは出力しない）
+   - **❌が1つでもあれば修正して再実行。全✅になるまでcommitしない**（step 9〜11を個別に回した場合でも最後にこれを必ず通す）
+   - 内部リンク検査[LNK]はサイト全体を走査する。自分の変更と無関係な既存デッドリンクが出た場合はそれも直す（デッドリンク厳禁）
 14. 自分が変更・作成したファイル（.astro, songs.ts, artists.ts, public/images/covers/{slug}.jpg, agent/{slug}/assets/*.json）のみを、**`hiphop-review` worktree（reviewブランチ）で** git add → git commit → git push origin review
     ※【厳守】絶対に "git add ." を実行しないこと（ユーザーのローカル作業と競合するため）
     ※【厳守】mainへ直接pushしない。本番反映はユーザーが `/publish` コマンドで行う

@@ -74,6 +74,14 @@ try {
   fail(`ビルド失敗（pushしていません。mainはローカルにマージ済みのまま残置）: ${(e.stderr || e.message).toString().slice(-800)}`);
 }
 
+// デッドリンクを本番に出さない最終ゲート（dist走査・歌詞非出力）。SEO lintの❌も同様にブロック。
+try {
+  run('node agent/src/check-internal-links.mjs');
+  run('node agent/src/check-seo.mjs');
+} catch (e) {
+  fail(`リンク/SEO検査失敗（pushしていません）: ${(e.stdout || '').toString().slice(-600)}${(e.stderr || e.message).toString().slice(-400)}`);
+}
+
 try {
   run('git push origin main');
 } catch (e) {
