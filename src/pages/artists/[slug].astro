@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import MercariCta from '../../components/MercariCta.astro';
 import { artists } from '../../data/artists';
 import { songs } from '../../data/songs';
 
@@ -34,6 +35,14 @@ const noindex = artistSongs.length === 0;
       </dl>
       <p class="text-[var(--c-muted)] text-sm leading-relaxed">{artist.summary}</p>
     </header>
+
+    <MercariCta
+      items={[
+        { query: `${artist.name} Tシャツ`, label: `${artist.name}のTシャツをメルカリで探す` },
+        { query: `${artist.name} グッズ`, label: `${artist.name}のグッズをメルカリで探す` },
+        { query: `${artist.name} レコード`, label: `${artist.name}のレコードをメルカリで探す` },
+      ]}
+    />
 
     <!-- Japan connection -->
     <section class="mb-10 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
