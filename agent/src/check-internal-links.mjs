@@ -89,10 +89,14 @@ for (const f of htmlPages) {
   }
 
   if (slugMatch) {
-    const contentLinks = [...targets].filter((t) =>
-      /^\/(songs|artists|columns|slang)(\/|$)/.test(t) && t !== route && !t.endsWith(".png") && !t.endsWith(".jpg")
-    );
-    songLinkCounts.push({ route, count: contentLinks.length });
+    // noindex（thin曲）はSEO対象外のためL2の内部リンク数警告から除外する
+    const noindex = /<meta\s+name="robots"\s+content="[^"]*noindex/.test(html);
+    if (!noindex) {
+      const contentLinks = [...targets].filter((t) =>
+        /^\/(songs|artists|columns|slang)(\/|$)/.test(t) && t !== route && !t.endsWith(".png") && !t.endsWith(".jpg")
+      );
+      songLinkCounts.push({ route, count: contentLinks.length });
+    }
   }
 }
 
