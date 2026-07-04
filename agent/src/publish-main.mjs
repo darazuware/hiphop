@@ -13,6 +13,7 @@ import { execSync } from 'node:child_process';
 import { readFileSync, unlinkSync, existsSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { buildToneDiffReport } from './tone-diff-report.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '../..');
@@ -120,3 +121,14 @@ console.log('✅ PUBLISHED');
 console.log('COMMITS:');
 for (const s of subjects) console.log(`- ${s}`);
 console.log('URL: https://waxthink.com');
+
+try {
+  const toneReport = buildToneDiffReport(remoteMainBeforeMerge, afterMergeHead);
+  if (toneReport) {
+    console.log('');
+    console.log(toneReport);
+  }
+} catch (e) {
+  console.log('');
+  console.log(`⚠️ 文言差分レポート生成失敗（本番反映自体は成功済み）: ${(e.stderr || e.message || '').toString().slice(-300)}`);
+}
