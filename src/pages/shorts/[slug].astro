@@ -49,13 +49,15 @@ const { short } = Astro.props;
         <h1 class="text-white text-xl font-black tracking-tight mb-1 truncate">{short.title}</h1>
         <p class="text-[var(--c-very-dim)] text-xs font-mono">{short.year}&nbsp;·&nbsp;{short.producer}</p>
       </div>
-      <a
-        href={short.songSlug}
-        class="shrink-0 inline-flex items-center gap-2 border border-[var(--c-gold)]/60 text-[var(--c-gold)] text-sm px-4 py-2 rounded-lg hover:bg-[var(--c-gold)] hover:text-black transition-colors"
-      >
-        記事
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
+      {short.songSlug && (
+        <a
+          href={short.songSlug}
+          class="shrink-0 inline-flex items-center gap-2 border border-[var(--c-gold)]/60 text-[var(--c-gold)] text-sm px-4 py-2 rounded-lg hover:bg-[var(--c-gold)] hover:text-black transition-colors"
+        >
+          記事
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      )}
     </div>
 
   </div>
