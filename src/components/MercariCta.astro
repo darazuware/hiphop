@@ -3,20 +3,34 @@
 // タグ(afid)は本コンポーネントで集中管理し、ページに生のmercari URLを直書きしない。
 // Amazon戦略と同じ「検索リンクを踏ませる」方式: 個別出品への直リンクは売却・削除で
 // すぐ死にリンク化するため使わない。検索結果ページは常に何か表示され死なない。
-interface Props {
-  query: string;  // 検索キーワード（例: "Nas Illmatic レコード" "Wu-Tang Clan Tシャツ"）
-  label?: string; // 表示ラベル（既定: "メルカリで探す"）
+// 3本柱（アルバム名・曲名・アーティスト名）で検索角度を変え、ヒット率を最大化する。
+interface Item {
+  query: string; // 検索キーワード
+  label: string; // ボタン表示名（実名を出して埋没させない）
 }
-const { query, label = "メルカリで探す" } = Astro.props as Props;
+interface Props {
+  items: Item[];
+  heading?: string;
+}
+const { items, heading = "メルカリで探す" } = Astro.props as Props;
 const AFID = "3150124771";
-const href = `https://jp.mercari.com/search?keyword=${encodeURIComponent(query)}&afid=${AFID}`;
+const hrefFor = (q: string) => `https://jp.mercari.com/search?keyword=${encodeURIComponent(q)}&afid=${AFID}`;
 ---
 
-<a
-  href={href}
-  target="_blank"
-  rel="noopener sponsored nofollow"
-  class="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-widest text-[var(--c-very-dim)] hover:text-[var(--c-gold)] transition-colors"
->
-  <span class="normal-case">[PR]</span> {label} →
-</a>
+<section class="mb-8 p-4 bg-[var(--c-surface)] border border-[var(--c-gold)]/30 rounded-lg">
+  <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">
+    <span class="text-[var(--c-very-dim)] normal-case">[PR]</span> {heading}
+  </p>
+  <div class="flex flex-wrap gap-2">
+    {items.map(item => (
+      <a
+        href={hrefFor(item.query)}
+        target="_blank"
+        rel="noopener sponsored nofollow"
+        class="inline-flex items-center gap-1.5 border border-[var(--c-gold)]/60 text-[var(--c-gold)] text-sm font-semibold px-4 py-2.5 rounded-lg hover:bg-[var(--c-gold)] hover:text-black transition-colors"
+      >
+        {item.label} →
+      </a>
+    ))}
+  </div>
+</section>

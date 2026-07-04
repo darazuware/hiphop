@@ -34,10 +34,15 @@ const noindex = artistSongs.length === 0;
         <dd>{artist.genre}</dd>
       </dl>
       <p class="text-[var(--c-muted)] text-sm leading-relaxed">{artist.summary}</p>
-      <div class="mt-3">
-        <MercariCta query={`${artist.name} Tシャツ グッズ`} label={`${artist.name}のグッズ・古着をメルカリで探す`} />
-      </div>
     </header>
+
+    <MercariCta
+      items={[
+        { query: `${artist.name} Tシャツ`, label: `${artist.name}のTシャツをメルカリで探す` },
+        { query: `${artist.name} グッズ`, label: `${artist.name}のグッズをメルカリで探す` },
+        { query: `${artist.name} レコード`, label: `${artist.name}のレコードをメルカリで探す` },
+      ]}
+    />
 
     <!-- Japan connection -->
     <section class="mb-10 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">

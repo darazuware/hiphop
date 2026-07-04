@@ -289,9 +289,13 @@ const waveformPeaks = waveformModules[`../data/waveforms/${slug}.json`]?.default
       ) : null}
 
       {song && (
-        <div class="-mt-4 mb-6">
-          <MercariCta query={`${song.artists} ${song.album}`} label="中古レコード・CDをメルカリで探す" />
-        </div>
+        <MercariCta
+          items={[
+            { query: `${song.artists} ${song.album}`, label: `${song.album}をメルカリで探す` },
+            { query: `${song.artists} ${song.title}`, label: `${song.title}をメルカリで探す` },
+            { query: song.artists, label: `${song.artists}の商品をメルカリで探す` },
+          ]}
+        />
       )}
 
       {youtubeId && (
@@ -388,6 +392,17 @@ const waveformPeaks = waveformModules[`../data/waveforms/${slug}.json`]?.default
             ))}
           </ul>
         </section>
+      )}
+
+      {song && (
+        <MercariCta
+          heading="この曲の中古盤・グッズをメルカリで探す"
+          items={[
+            { query: `${song.artists} ${song.album}`, label: `${song.album}をメルカリで探す` },
+            { query: `${song.artists} ${song.title}`, label: `${song.title}をメルカリで探す` },
+            { query: song.artists, label: `${song.artists}の商品をメルカリで探す` },
+          ]}
+        />
       )}
 
       <!-- Share -->
