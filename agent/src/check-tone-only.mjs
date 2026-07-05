@@ -7,6 +7,7 @@
  */
 import { readFileSync, existsSync } from 'node:fs';
 import { basename, join } from 'node:path';
+import { keitaiRatio, KEITAI_WARN, KEITAI_BLOCK, KEITAI_MIN_SENTENCES } from './tone-rules.mjs';
 
 const projectRoot = new URL('../../', import.meta.url).pathname.replace(/\/$/, '');
 const songsDir = join(projectRoot, 'src/pages/songs');
@@ -61,11 +62,19 @@ for (const arg of args) {
   if (dn) hits.push(`ダッシュ(—/–/―)×${dn}`);
   const cn = (body.match(READER_CMD_RE) || []).length;
   if (cn) hits.push(`読者への命令形×${cn}`);
+  const kr = keitaiRatio(body);
+  const measurable = kr.kei + kr.jo >= KEITAI_MIN_SENTENCES;
+  if (measurable && kr.ratio >= KEITAI_BLOCK) {
+    hits.push(`常体述語過多(敬体率${kr.ratio.toFixed(2)}≧${KEITAI_BLOCK}／敬${kr.kei}:常${kr.jo})`);
+  }
 
   const warns = [];
   for (const w of CRITIC_SOFT) {
     const n = (body.match(new RegExp(w, 'g')) || []).length;
     if (n) warns.push(`${w}×${n}`);
+  }
+  if (measurable && kr.ratio >= KEITAI_WARN && kr.ratio < KEITAI_BLOCK) {
+    warns.push(`敬体率やや高め(${kr.ratio.toFixed(2)}／常体末尾: ${kr.joTails.slice(0, 6).join('・')}…)`);
   }
   if (warns.length) console.log(`⚠ [TONE] ${slug}: 推奨改善（ブロックなし）→ ${warns.join(' / ')}`);
 

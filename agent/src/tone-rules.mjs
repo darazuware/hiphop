@@ -80,6 +80,41 @@ export function escapeRe(s) {
   return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
+// 敬体（です・ます）の文末。「ました。」等も敬体なので JOTAI より先に判定する。
+const KEITAI_END = /(です|ます|ました|ません|ませ|でした|ましょう|でしょう|ください|ますね|ですね|ますよ|ですよ|ますか|ですか|でしょ)$/;
+// 常体の述語止め（動詞・形容詞の plain 終止）。体言止め（名詞終わり）は該当せず不算入。
+const JOTAI_END = /(ている|てる|ていく|てくる|られる|れる|せる|なる|ない|ある|いる|だ|った|んだ|る|た|う|く|き|い)$/;
+
+// 敬体率の閾値（唯一のトーン模範 nas-is-like≈0.26 を基準に較正・2026-07-05）。
+// WARN 超で推奨改善、BLOCK 超でハードブロック。shook(量参照・非トーン模範)≈0.36は警告どまり、
+// 常体過多ドラフト(93初稿≈0.44/0.40)はブロック。checkCriticTone は変更曲のみ走査＝既存曲は非破壊。
+export const KEITAI_WARN = 0.30;
+export const KEITAI_BLOCK = 0.38;
+// 文数がこの数未満のページは母数不足で率がブレるため判定しない。
+export const KEITAI_MIN_SENTENCES = 20;
+
+// 敬体基調の度合いを測る。ratio = 常体述語 / (敬体 + 常体述語)。体言止めは分母に入れない。
+// ゆらぎ許容のため体言止め・i形容詞スパイスは残しつつ、常体述語の密度だけを見る。
+// docs/article-tone.md ルール1（敬体基調）の機械化。
+export function keitaiRatio(jpText) {
+  const sents = jpText
+    .split(/。/)
+    .map((s) => s.replace(/[\s　「」『』（）()、,]/g, ''))
+    .filter((s) => /[ぁ-んァ-ヶ一-龠]/.test(s) && s.length >= 4);
+  let kei = 0;
+  let jo = 0;
+  const joTails = [];
+  for (const s of sents) {
+    if (KEITAI_END.test(s)) kei++;
+    else if (JOTAI_END.test(s)) {
+      jo++;
+      if (joTails.length < 20) joTails.push(s.slice(-6));
+    }
+  }
+  const ratio = kei + jo === 0 ? 0 : jo / (kei + jo);
+  return { kei, jo, ratio, joTails };
+}
+
 // ハードコード済み・既存正規表現ガードで既にカバー済みの語か（辞書由来の重複登録を弾く）
 export function coveredByBuiltins(word) {
   if (CRITIC_HARD.includes(word) || CRITIC_SOFT.includes(word)) return true;
