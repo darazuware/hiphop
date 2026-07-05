@@ -4,7 +4,7 @@
     "whisperSec": null,
     "manualSec": null,
     "fallbackT": 5,
-    "t": 6,
+    "t": 5,
     "source": "fallback",
     "approx": true,
     "score": 1
@@ -14,7 +14,7 @@
     "whisperSec": null,
     "manualSec": null,
     "fallbackT": 26,
-    "t": 30,
+    "t": 26,
     "source": "fallback",
     "approx": true,
     "score": 0.8
@@ -44,8 +44,8 @@
     "whisperSec": 111.7,
     "manualSec": null,
     "fallbackT": 108,
-    "t": 111.7,
-    "source": "whisper",
+    "t": 108,
+    "source": "fallback",
     "approx": true,
     "score": 0.8
   },
@@ -54,8 +54,8 @@
     "whisperSec": 116.8,
     "manualSec": null,
     "fallbackT": 114,
-    "t": 116.8,
-    "source": "whisper",
+    "t": 114,
+    "source": "fallback",
     "approx": true,
     "score": 0.8
   },
@@ -64,8 +64,8 @@
     "whisperSec": 161.4,
     "manualSec": null,
     "fallbackT": 165,
-    "t": 161.4,
-    "source": "whisper",
+    "t": 165,
+    "source": "fallback",
     "approx": true,
     "score": 1
   },
@@ -74,8 +74,8 @@
     "whisperSec": 207,
     "manualSec": null,
     "fallbackT": 205,
-    "t": 207,
-    "source": "whisper",
+    "t": 205,
+    "source": "fallback",
     "approx": true,
     "score": 1
   },
@@ -84,8 +84,8 @@
     "whisperSec": 212.2,
     "manualSec": null,
     "fallbackT": 212,
-    "t": 212.2,
-    "source": "whisper",
+    "t": 212,
+    "source": "fallback",
     "approx": true,
     "score": 1
   }

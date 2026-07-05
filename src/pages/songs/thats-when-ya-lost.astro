@@ -18,6 +18,8 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
     "just deserts・sleep on・step to・illin'——挑発とbattleの生きた英語を「学ぶ表現」単位で解説（PV頭出しリンク付き）",
     "Jack Bruce「Statues」(1969)のベースラインを土台に、A-Plusが組んだオークランド産のメロウなバトルビート",
   ]}
+  learningPage={true}
+  songDuration={215}
 >
 
     <!-- ===================== -->
@@ -100,7 +102,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         学ぶ表現 — スラング・韻・言葉遊び・AAVE
       </h2>
       <p class="text-xs text-[var(--c-dim)] mb-6">
-        各見出しは「この曲から学べる英語表現」。各ユニットはまず上に英語の用例（1〜2行）を置いてあります。<strong class="text-[var(--c-text)]">先に英語を音で追い、行のどこが学習対象かを確かめてから</strong>下の日本語解説に進むと、英語が苦手でも置いていかれません。マイクはそのリリックを歌うMC、▶は公式PVの該当箇所への頭出しリンク（音源解析で付与、秒数は概算）です。引用は解説に必要な最小限の断片だけに留めています。
+        各見出しは「この曲から学べる英語表現」。各ユニットはまず上に英語の用例（1〜2行）を置いてあります。<strong class="text-[var(--c-text)]">先に英語を音で追い、行のどこが学習対象かを確かめてから</strong>下の日本語解説に進むと、英語が苦手でも置いていかれません。
       </p>
 
       <!-- ① sleep on -->
@@ -113,7 +115,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <Fragment slot="eng">Please don't sleep<br />Yo, that's when you lost</Fragment>
         <Fragment slot="jpn">頼むからナメてかかるなよ／それがお前の負けた瞬間だ</Fragment>
         <p class="text-xs text-[var(--c-dim)] mb-1">▶ イントロ、笑い声のあと曲のテーマを先に提示する件。上は2行で、学習対象は上の行。</p>
-        <p>まず上の行を声に出してみてください。鍵は <strong class="text-[var(--c-text)]">sleep</strong>。文字通りなら「眠る」ですが、ここでは「<strong class="text-[var(--c-text)]">なめてかかる・油断して見くびる</strong>」という<QuickSlang word="イディオム" desc="idiom。単語をバラバラに訳しても意味が出ない、ひとかたまりで決まった意味を持つ言い回し" />（決まり文句）として使われています。正式には <code>sleep on ~</code>（～を見くびる）の形で、<em>Don't sleep on this rookie</em>（あの新人をナメるな）のように使う。だから「Please don't sleep」は「俺たちを甘く見るなよ」という挑発。そして次の行の <strong class="text-[var(--c-text)]">that's when you lost</strong> がタイトルそのもので、「（油断した）その瞬間にお前はもう負けている」と繋がっていく。曲全体のテーマが、この2行に凝縮されています。</p>
+        <p>まず上の行を音読すると、リズムがつかめます。鍵は <strong class="text-[var(--c-text)]">sleep</strong>。文字通りなら「眠る」ですが、ここでは「<strong class="text-[var(--c-text)]">なめてかかる・油断して見くびる</strong>」という<QuickSlang word="イディオム" desc="idiom。単語をバラバラに訳しても意味が出ない、ひとかたまりで決まった意味を持つ言い回し" />（決まり文句）として使われています。正式には <code>sleep on ~</code>（～を見くびる）の形で、<em>Don't sleep on this rookie</em>（あの新人をナメるな）のように使う。だから「Please don't sleep」は「俺たちを甘く見るなよ」という挑発。そして次の行の <strong class="text-[var(--c-text)]">that's when you lost</strong> がタイトルそのもので、「（油断した）その瞬間にお前はもう負けている」と繋がっていく。曲全体のテーマが、この2行に詰まっています。</p>
         <Fragment slot="usage">
           <p><strong class="text-[var(--c-text)]">sleep on ~</strong> は「～を過小評価する・見くびって放っておく」。ヒップホップでは超頻出のイディオムで、優れたアーティストや作品が正当に評価されていないときにも使う（<em>People slept on that album</em>＝あのアルバムは過小評価された）。反対に「ちゃんと注目しろ」と言いたいときは <em>Don't sleep!</em>。</p>
           <p>命令形 <code>Don't sleep</code> 単独でも「油断するな／見くびるな」の意味で成立する。前置詞 on の後ろの目的語（人・作品）が文脈で明らかなときは、こうして省かれることも多い。</p>
@@ -164,7 +166,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <Fragment slot="eng">I'm carouselin' kids while they wallow and swallow hollow tips</Fragment>
         <Fragment slot="jpn">奴らをメリーゴーラウンドのように振り回す、地べたを這い（wallow）、空っぽの弾（hollow tips）を飲み込みながら</Fragment>
         <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2、Phestoが医学的な比喩で畳みかける流れの一行。学習対象は行の後半。</p>
-        <p>この一行は、まず<strong class="text-[var(--c-text)]">音だけ</strong>追ってみてください。行の後半、<strong class="text-[var(--c-text)]">wallow</strong>（のたうつ）→ <strong class="text-[var(--c-text)]">swallow</strong>（飲み込む）→ <strong class="text-[var(--c-text)]">hollow</strong>（空洞の）と、<code>-allow / -ollow</code> の音が3連発で押し寄せる。これが Hieroglyphics の十八番、<strong class="text-[var(--c-text)]">多音節ライム</strong>です。1音節だけでなく語尾の2音節まるごとをそろえることで、転がるようなグルーヴが生まれる。意味のほうは <strong class="text-[var(--c-text)]">hollow tips</strong>（ホローポイント弾＝先端がくぼんだ殺傷力の高い弾丸）まで持ち出した物騒な battle 比喩ですが、聴覚的な快感が先に立つように設計されている。意味より先に「音が気持ちいい」と感じさせる、そこにこのクルーらしさが出ています。</p>
+        <p>この一行は、まず<strong class="text-[var(--c-text)]">音だけ</strong>追うのがおすすめです。行の後半、<strong class="text-[var(--c-text)]">wallow</strong>（のたうつ）→ <strong class="text-[var(--c-text)]">swallow</strong>（飲み込む）→ <strong class="text-[var(--c-text)]">hollow</strong>（空洞の）と、<code>-allow / -ollow</code> の音が3連発で押し寄せる。これが Hieroglyphics の十八番、<strong class="text-[var(--c-text)]">多音節ライム</strong>です。1音節だけでなく語尾の2音節まるごとをそろえることで、転がるようなグルーヴが生まれる。意味のほうは <strong class="text-[var(--c-text)]">hollow tips</strong>（ホローポイント弾＝先端がくぼんだ殺傷力の高い弾丸）まで持ち出した物騒な battle 比喩ですが、聴覚的な快感が先に立つように設計されている。意味より先に「音が気持ちいい」と感じさせる、そこにこのクルーらしさが出ています。</p>
         <Fragment slot="usage">
           <p><strong class="text-[var(--c-text)]">多音節ライム（multisyllabic rhyme）</strong>は、英語ラップを聴き込むうえでの最重要概念のひとつ。<em>cat / hat</em> のように最後の1音節だけ合わせるのが単純な韻なら、<em>wallow / swallow / hollow</em> のように<strong class="text-[var(--c-text)]">複数音節のかたまり</strong>で合わせるのが多音節ライム。難度が高いぶん、決まったときの爽快感も大きい。</p>
           <p>聞き取りのコツ: 意味を取ろうと焦らず、まず「同じ音が連続している部分」を耳でマークする。どこで韻を踏んでいるかが見えると、ラッパーがどの単語を"狙って"置いたのかが分かり、リスニング全体がぐっと立体的になる。</p>
@@ -261,7 +263,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">braggadocio</p>
         <h3 class="font-semibold text-base mb-3">「自慢」という、れっきとしたラップの様式</h3>
         <p class="text-[var(--c-muted)] text-sm leading-relaxed">
-          この曲のように、ひたすら「俺はすごい・お前は弱い」を言い立てるスタイルを <strong class="text-[var(--c-text)]">braggadocio（ブラガドーシオ＝大言壮語）</strong>と呼ぶ。ヒップホップ草創期からの中核的な様式で、その源流をたどればアフリカ系アメリカ人の言葉遊びの伝統「<strong class="text-[var(--c-text)]">the dozens</strong>」（即興で相手をけなし合う言葉のゲーム）にも繋がる。大事なのは、これが実際の暴力ではなく<strong class="text-[var(--c-text)]">言葉の腕比べ</strong>だということ。だからこそ、いかに比喩を凝らし、いかに韻を細かく踏むかが評価された。「That's When Ya Lost」は、その様式を4人ぶん浴びられる、いわば見本市のような一曲です。
+          この曲のように、ひたすら「俺はすごい・お前は弱い」を言い立てるスタイルを <strong class="text-[var(--c-text)]">braggadocio（ブラガドーシオ＝大言壮語）</strong>と呼ぶ。ヒップホップ草創期からの中核的な様式で、その源流をたどればアフリカ系アメリカ人の言葉遊びの伝統「<strong class="text-[var(--c-text)]">the dozens</strong>」（即興で相手をけなし合う言葉のゲーム）にも繋がる。大事なのは、これが実際の暴力ではなく<strong class="text-[var(--c-text)]">言葉の腕比べ</strong>だということ。だからこそ、いかに比喩を凝らし、いかに韻を細かく踏むかが評価された。「That's When Ya Lost」は、その様式を4人ぶん浴びられる、ちょっとした見本市のような一曲です。
         </p>
       </div>
 
@@ -339,7 +341,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">後世への影響</p>
         <h3 class="font-semibold text-base mb-3">独立独歩のクルー運営という遺産</h3>
         <p class="text-[var(--c-muted)] text-sm leading-relaxed mb-4">
-          Hieroglyphics は後年、メジャーから離れて<strong class="text-[var(--c-text)]">自分たちのレーベル（Hiero Imperium）を立ち上げ</strong>、ネット黎明期から通販やコミュニティ運営を自前で回したことでも知られる。大資本に頼らず、ファンと直接つながって生き残るそのスタイルは、現在のインディペンデントなアーティスト運営の先駆けでもあった。「That's When Ya Lost」でフックがクルーの名を読み上げていく光景は、のちに彼らが体現する"仲間で固まって独立してやっていく"という生き方の、いわば宣誓のようにも聴こえてきます。
+          Hieroglyphics は後年、メジャーから離れて<strong class="text-[var(--c-text)]">自分たちのレーベル（Hiero Imperium）を立ち上げ</strong>、ネット黎明期から通販やコミュニティ運営を自前で回したことでも知られる。大資本に頼らず、ファンと直接つながって生き残るそのスタイルは、現在のインディペンデントなアーティスト運営の先駆けでもあった。「That's When Ya Lost」でフックがクルーの名を読み上げていく光景は、のちに彼らが体現する"仲間で固まって独立してやっていく"という生き方の、まるで宣誓のようにも聴こえてきます。
         </p>
         <ul class="space-y-3 text-sm">
           <li class="flex gap-3">

@@ -53,7 +53,7 @@
       "chill",
       "from"
     ],
-    "fallbackT": 90
+    "fallbackT": 8
   },
   {
     "id": "indo",
@@ -93,7 +93,7 @@
       "new",
       "kicks"
     ],
-    "fallbackT": 172
+    "fallbackT": 150
   },
   {
     "id": "bite-flows",
@@ -102,7 +102,7 @@
       "bite",
       "flows"
     ],
-    "fallbackT": 150
+    "fallbackT": 172
   },
   {
     "id": "the-land",
