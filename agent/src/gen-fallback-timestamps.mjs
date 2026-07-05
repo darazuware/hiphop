@@ -37,9 +37,11 @@ const results = units.map((u) => {
   const manualSec = u.manualSec ?? old.manualSec ?? null;
   const whisperSec = old.whisperSec ?? null;
   const fallbackT = u.fallbackT ?? old.fallbackT ?? null;
+  // whisper（2026-07-03廃止・不正確でフック等を誤マッチし逆行を生む）は t に採用しない。
+  // 優先度は manualSec（運営者実測）> fallbackT（DOM順の線形補間）> none。
+  // whisperSec は記録のため field には残すが t には使わない。
   let t, source;
   if (manualSec != null)       { t = manualSec;  source = "manual"; }
-  else if (old.source === "whisper" && old.t != null) { t = old.t; source = "whisper"; }
   else if (fallbackT != null)  { t = fallbackT;  source = "fallback"; }
   else                         { t = null;       source = "none"; }
   return {

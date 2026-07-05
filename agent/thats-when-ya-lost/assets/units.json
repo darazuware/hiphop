@@ -1,11 +1,98 @@
 [
-  { "id": "intro-sleep", "anchor": ["please", "don't", "sleep"], "fallbackT": 9, "manualSec": null },
-  { "id": "smash-fine-bits", "anchor": ["smash", "mcs", "into", "fine"], "fallbackT": 27, "manualSec": null },
-  { "id": "just-deserts", "anchor": ["just", "deserts", "for", "all"], "fallbackT": 21, "manualSec": null },
-  { "id": "hollow-tips", "anchor": ["wallow", "and", "swallow", "hollow"], "fallbackT": 78, "manualSec": null },
-  { "id": "step-to", "anchor": ["steppin", "to", "a", "plus"], "fallbackT": 92, "manualSec": null },
-  { "id": "illin", "anchor": ["illin", "will", "get", "you"], "fallbackT": 110, "manualSec": null },
-  { "id": "west-coast", "anchor": ["how", "the", "west", "coast"], "fallbackT": 130, "manualSec": null },
-  { "id": "wake-up-words", "anchor": ["wake", "up", "words"], "fallbackT": 175, "manualSec": null },
-  { "id": "hiero-crew", "anchor": ["around", "with", "hieroglyphics"], "fallbackT": 185, "manualSec": null }
+  {
+    "id": "intro-sleep",
+    "anchor": [
+      "please",
+      "don't",
+      "sleep"
+    ],
+    "fallbackT": 9,
+    "manualSec": null
+  },
+  {
+    "id": "smash-fine-bits",
+    "anchor": [
+      "smash",
+      "mcs",
+      "into",
+      "fine"
+    ],
+    "fallbackT": 27,
+    "manualSec": null
+  },
+  {
+    "id": "just-deserts",
+    "anchor": [
+      "just",
+      "deserts",
+      "for",
+      "all"
+    ],
+    "fallbackT": 33,
+    "manualSec": null
+  },
+  {
+    "id": "hollow-tips",
+    "anchor": [
+      "wallow",
+      "and",
+      "swallow",
+      "hollow"
+    ],
+    "fallbackT": 78,
+    "manualSec": null
+  },
+  {
+    "id": "step-to",
+    "anchor": [
+      "steppin",
+      "to",
+      "a",
+      "plus"
+    ],
+    "fallbackT": 92,
+    "manualSec": null
+  },
+  {
+    "id": "illin",
+    "anchor": [
+      "illin",
+      "will",
+      "get",
+      "you"
+    ],
+    "fallbackT": 110,
+    "manualSec": null
+  },
+  {
+    "id": "west-coast",
+    "anchor": [
+      "how",
+      "the",
+      "west",
+      "coast"
+    ],
+    "fallbackT": 130,
+    "manualSec": null
+  },
+  {
+    "id": "wake-up-words",
+    "anchor": [
+      "wake",
+      "up",
+      "words"
+    ],
+    "fallbackT": 175,
+    "manualSec": null
+  },
+  {
+    "id": "hiero-crew",
+    "anchor": [
+      "around",
+      "with",
+      "hieroglyphics"
+    ],
+    "fallbackT": 185,
+    "manualSec": null
+  }
 ]

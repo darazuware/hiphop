@@ -24,8 +24,8 @@
     "whisperSec": 83.1,
     "manualSec": null,
     "fallbackT": 50,
-    "t": 83.1,
-    "source": "whisper",
+    "t": 50,
+    "source": "fallback",
     "approx": true,
     "score": 0.67
   },
@@ -34,8 +34,8 @@
     "whisperSec": 257.4,
     "manualSec": null,
     "fallbackT": 68,
-    "t": 257.4,
-    "source": "whisper",
+    "t": 68,
+    "source": "fallback",
     "approx": true,
     "score": 0.6
   },

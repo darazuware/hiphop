@@ -82,6 +82,41 @@ step("[YT] YouTube埋め込み", `node agent/src/check-youtube.mjs ${slug}`);
   }
 }
 
+// 2.6 頭出し時系列（learning型は .astro のunit出現順＝曲の時系列。t が逆行すると
+//     ▶頭出しラベルが 1:15→0:33→0:26… と戻り、自動追従スクロールも逆走する）。
+{
+  console.log("\n━━━ [SEQ] 頭出し時系列 ━━━");
+  const astroSrc = readFileSync(astroPath, "utf-8");
+  const isLearning = /<LearningUnit\b/.test(astroSrc);
+  const tsPath = join(projectRoot, "agent", slug, "assets", "units-timestamps.json");
+  if (!isLearning || !existsSync(tsPath)) {
+    console.log(isLearning ? "⏭️  timestamps無し" : "⏭️  従来型（対象外）");
+    results.push({ label: "[SEQ] 頭出し時系列", ok: true });
+  } else {
+    const ts = JSON.parse(readFileSync(tsPath, "utf-8"));
+    const tmap = Object.fromEntries(ts.map((u) => [u.id, u.t]));
+    const whisper = ts.filter((u) => u.source === "whisper").map((u) => u.id);
+    const ids = [...astroSrc.matchAll(/TS\["([^"]+)"\]\.t/g)].map((m) => m[1]);
+    const inv = [];
+    let prev = -Infinity;
+    for (const id of ids) {
+      const t = tmap[id];
+      if (t == null) continue;
+      if (t < prev - 0.01) inv.push(`${id}(${t})`);
+      prev = Math.max(prev, t);
+    }
+    if (inv.length || whisper.length) {
+      if (inv.length) console.error(`❌ unit出現順に対し t が逆行（非時系列）: ${inv.join(" / ")}`);
+      if (whisper.length) console.error(`❌ 廃止済みwhisper由来のtが残存（gen-fallback-timestampsで再生成を）: ${whisper.length}件`);
+      console.error("   → agent/" + slug + "/assets/units.json の fallbackT をDOM順に直す or .astroのunit並び替え → node agent/src/gen-fallback-timestamps.mjs --slug " + slug);
+      results.push({ label: "[SEQ] 頭出し時系列", ok: false });
+    } else {
+      console.log(`✅ ${ids.length}unit すべて時系列（t 非減少・whisper無し）`);
+      results.push({ label: "[SEQ] 頭出し時系列", ok: true });
+    }
+  }
+}
+
 // 3. 定型句＋トーン＋歌詞（pre-push-check が Item4/Item7/[B][C][D] を一括実行）
 step("[LYR] 歌詞・トーン・定型句", `node agent/src/pre-push-check.mjs src/pages/songs/${slug}.astro`);
 

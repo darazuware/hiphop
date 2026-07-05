@@ -14,8 +14,8 @@
     "whisperSec": 58.3,
     "manualSec": null,
     "fallbackT": 82,
-    "t": 58.3,
-    "source": "whisper",
+    "t": 82,
+    "source": "fallback",
     "approx": true,
     "score": 1
   },
@@ -24,8 +24,8 @@
     "whisperSec": 65.4,
     "manualSec": null,
     "fallbackT": 91,
-    "t": 65.4,
-    "source": "whisper",
+    "t": 91,
+    "source": "fallback",
     "approx": true,
     "score": 0.83
   },
@@ -34,8 +34,8 @@
     "whisperSec": 70.7,
     "manualSec": null,
     "fallbackT": 100,
-    "t": 70.7,
-    "source": "whisper",
+    "t": 100,
+    "source": "fallback",
     "approx": true,
     "score": 1
   },
@@ -44,8 +44,8 @@
     "whisperSec": 248,
     "manualSec": null,
     "fallbackT": 113,
-    "t": 248,
-    "source": "whisper",
+    "t": 113,
+    "source": "fallback",
     "approx": true,
     "score": 1
   },
