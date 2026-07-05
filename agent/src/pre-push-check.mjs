@@ -26,6 +26,7 @@ import { createHash } from 'node:crypto';
 import {
   CRITIC_HARD, CRITIC_SOFT, READER_CMD_RE, DASH_RE, ASSERT_RE, ASSERT_LIMIT,
   jpBody, jpCharCount, escapeRe, loadDictWords,
+  keitaiRatio, KEITAI_WARN, KEITAI_BLOCK, KEITAI_MIN_SENTENCES,
 } from './tone-rules.mjs';
 
 const require = createRequire(import.meta.url);
@@ -168,8 +169,18 @@ function checkCriticTone(paths) {
     // 既存15曲の無関係pushは壊さず、触った曲だけ必ずクリーンに矯正される（2026-07-05格上げ）
     const cn = (body.match(READER_CMD_RE) || []).length;
     if (cn) hits.push(`読者への命令形×${cn}`);
+    // 【ブロック/警告】敬体率（常体述語の密度）。BLOCK超は常体基調とみなしブロック。
+    const kr = keitaiRatio(body);
+    if (kr.kei + kr.jo >= KEITAI_MIN_SENTENCES) {
+      if (kr.ratio >= KEITAI_BLOCK) {
+        hits.push(`常体述語過多(敬体率${kr.ratio.toFixed(2)}≧${KEITAI_BLOCK}／敬${kr.kei}:常${kr.jo})`);
+      }
+    }
     // 【警告のみ】SOFT常套句・辞書warn語（既存曲にヒットあり＝誤爆回避で降格）
     const warns = [];
+    if (kr.kei + kr.jo >= KEITAI_MIN_SENTENCES && kr.ratio >= KEITAI_WARN && kr.ratio < KEITAI_BLOCK) {
+      warns.push(`敬体率やや高め(${kr.ratio.toFixed(2)}／常体末尾: ${kr.joTails.slice(0, 6).join('・')}…)`);
+    }
     for (const w of [...CRITIC_SOFT, ...dict.warn]) {
       const n = (body.match(new RegExp(escapeRe(w), 'g')) || []).length;
       if (n) warns.push(`${w}×${n}`);
