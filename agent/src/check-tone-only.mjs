@@ -59,14 +59,14 @@ for (const arg of args) {
   }
   const dn = (body.match(DASH_RE) || []).length;
   if (dn) hits.push(`ダッシュ(—/–/―)×${dn}`);
+  const cn = (body.match(READER_CMD_RE) || []).length;
+  if (cn) hits.push(`読者への命令形×${cn}`);
 
   const warns = [];
   for (const w of CRITIC_SOFT) {
     const n = (body.match(new RegExp(w, 'g')) || []).length;
     if (n) warns.push(`${w}×${n}`);
   }
-  const cn = (body.match(READER_CMD_RE) || []).length;
-  if (cn) warns.push(`読者への命令形×${cn}`);
   if (warns.length) console.log(`⚠ [TONE] ${slug}: 推奨改善（ブロックなし）→ ${warns.join(' / ')}`);
 
   if (hits.length) {
