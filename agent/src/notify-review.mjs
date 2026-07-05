@@ -31,7 +31,7 @@ const CHAT_ID = (process.env.TELEGRAM_CHAT_ID || '').split(',')[0].trim();
 const args = process.argv.slice(2);
 const noteIdx = args.indexOf('--note');
 const note = noteIdx >= 0 ? (args[noteIdx + 1] || '') : '';
-const targets = args.filter((a, i) => i !== noteIdx && i !== noteIdx + 1 && !a.startsWith('--'));
+const targets = args.filter((a, i) => !a.startsWith('--') && !(noteIdx >= 0 && (i === noteIdx || i === noteIdx + 1)));
 
 if (!TOKEN || !CHAT_ID) {
   console.error('[notify-review] TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID が未設定です（agent/.env）');

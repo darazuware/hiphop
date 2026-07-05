@@ -164,14 +164,16 @@ function checkCriticTone(paths) {
     // 【ブロック】ダッシュ全廃（AI臭の最大tell。すり抜け防止で警告→ブロックに格上げ）
     const dn = (body.match(DASH_RE) || []).length;
     if (dn) hits.push(`ダッシュ(—/–/―)×${dn}`);
-    // 【警告のみ】SOFT常套句・辞書warn語（既存曲にヒットあり＝誤爆回避で降格）・命令形
+    // 【ブロック】読者への命令形（〜てください／声に出して）。変更した曲のみ走査するため
+    // 既存15曲の無関係pushは壊さず、触った曲だけ必ずクリーンに矯正される（2026-07-05格上げ）
+    const cn = (body.match(READER_CMD_RE) || []).length;
+    if (cn) hits.push(`読者への命令形×${cn}`);
+    // 【警告のみ】SOFT常套句・辞書warn語（既存曲にヒットあり＝誤爆回避で降格）
     const warns = [];
     for (const w of [...CRITIC_SOFT, ...dict.warn]) {
       const n = (body.match(new RegExp(escapeRe(w), 'g')) || []).length;
       if (n) warns.push(`${w}×${n}`);
     }
-    const cn = (body.match(READER_CMD_RE) || []).length;
-    if (cn) warns.push(`読者への命令形×${cn}`);
     if (warns.length) console.log(`⚠ [TONE] ${slug}: 推奨改善（ブロックなし）→ ${warns.join(' / ')}`);
     if (hits.length) {
       console.log(`❌ [TONE] ${slug}: 評論家口調（ブロック）→ ${hits.join(' / ')}`);
