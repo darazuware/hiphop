@@ -154,35 +154,52 @@ function checkCriticTone(paths) {
     const file = join(songsDir, `${slug}.astro`);
     if (!existsSync(file)) continue;
     const body = jpBody(readFileSync(file, 'utf-8'));
+    // 【非破壊の原則】origin/main のライブ版をベースラインに取り、ブロックは
+    // 「ベースラインより違反が悪化した曲」だけに絞る。注記削除など全曲横断の些末な
+    // コミットで既存の常体記事がdiffに紛れ込んでも、既にライブ済みのトーン問題で
+    // publishを止めない（＝checkCriticTone本来の「既存曲は非破壊」を機械的に担保）。
+    // origin/main に存在しない＝新規記事は baseBody='' ＝全カウント0で全面適用される。
+    let baseBody = '';
+    let isNew = true;
+    try {
+      baseBody = jpBody(execSync(`git show origin/main:src/pages/songs/${slug}.astro`,
+        { cwd: projectRoot, encoding: 'utf-8', stdio: ['ignore', 'pipe', 'ignore'] }));
+      isNew = false;
+    } catch { /* origin/main に無い新規記事 */ }
+    const cnt = (text, re) => (text.match(re) || []).length;
+    const wcnt = (text, w) => (text.match(new RegExp(escapeRe(w), 'g')) || []).length;
+
     // 【ブロック】体言止め断定の多用（=最優先・評論家口調の本丸）＋ HARD評論語＋辞書block語
     const hits = [];
-    const an = (body.match(ASSERT_RE) || []).length;
-    if (an > ASSERT_LIMIT) hits.push(`体言止め断定(だ。/である。)×${an}＞許容${ASSERT_LIMIT}`);
+    const an = cnt(body, ASSERT_RE);
+    if (an > ASSERT_LIMIT && an > cnt(baseBody, ASSERT_RE)) hits.push(`体言止め断定(だ。/である。)×${an}＞許容${ASSERT_LIMIT}`);
     for (const w of [...CRITIC_HARD, ...dict.block]) {
-      const n = (body.match(new RegExp(escapeRe(w), 'g')) || []).length;
-      if (n) hits.push(`${w}×${n}`);
+      const n = wcnt(body, w);
+      if (n > wcnt(baseBody, w)) hits.push(`${w}×${n}`);
     }
     // 【ブロック】ダッシュ全廃（AI臭の最大tell。すり抜け防止で警告→ブロックに格上げ）
-    const dn = (body.match(DASH_RE) || []).length;
-    if (dn) hits.push(`ダッシュ(—/–/―)×${dn}`);
-    // 【ブロック】読者への命令形（〜てください／声に出して）。変更した曲のみ走査するため
-    // 既存15曲の無関係pushは壊さず、触った曲だけ必ずクリーンに矯正される（2026-07-05格上げ）
-    const cn = (body.match(READER_CMD_RE) || []).length;
-    if (cn) hits.push(`読者への命令形×${cn}`);
-    // 【ブロック/警告】敬体率（常体述語の密度）。BLOCK超は常体基調とみなしブロック。
+    const dn = cnt(body, DASH_RE);
+    if (dn > cnt(baseBody, DASH_RE)) hits.push(`ダッシュ(—/–/―)×${dn}`);
+    // 【ブロック】読者への命令形（〜てください／声に出して）。ベースラインより増えた時だけ
+    // ＝新規に書いた命令形は必ずクリーンに矯正され、既存ライブ分は非破壊（2026-07-06 非破壊化）
+    const cn = cnt(body, READER_CMD_RE);
+    if (cn > cnt(baseBody, READER_CMD_RE)) hits.push(`読者への命令形×${cn}`);
+    // 【ブロック/警告】敬体率（常体述語の密度）。BLOCK超 かつ ベースラインより
+    // 「常体述語を実数で増やした（＝著者が常体の文を足した）」時だけブロックする。
+    // 敬体の定型注記が削られると率だけ上がるが常体数は不変＝非破壊で通す。新規は baseJo=-1。
     const kr = keitaiRatio(body);
-    if (kr.kei + kr.jo >= KEITAI_MIN_SENTENCES) {
-      if (kr.ratio >= KEITAI_BLOCK) {
-        hits.push(`常体述語過多(敬体率${kr.ratio.toFixed(2)}≧${KEITAI_BLOCK}／敬${kr.kei}:常${kr.jo})`);
-      }
+    const measurable = kr.kei + kr.jo >= KEITAI_MIN_SENTENCES;
+    const baseJo = isNew ? -1 : keitaiRatio(baseBody).jo;
+    if (measurable && kr.ratio >= KEITAI_BLOCK && kr.jo > baseJo) {
+      hits.push(`常体述語過多(敬体率${kr.ratio.toFixed(2)}≧${KEITAI_BLOCK}／敬${kr.kei}:常${kr.jo})`);
     }
     // 【警告のみ】SOFT常套句・辞書warn語（既存曲にヒットあり＝誤爆回避で降格）
     const warns = [];
-    if (kr.kei + kr.jo >= KEITAI_MIN_SENTENCES && kr.ratio >= KEITAI_WARN && kr.ratio < KEITAI_BLOCK) {
+    if (measurable && kr.ratio >= KEITAI_WARN && kr.ratio < KEITAI_BLOCK) {
       warns.push(`敬体率やや高め(${kr.ratio.toFixed(2)}／常体末尾: ${kr.joTails.slice(0, 6).join('・')}…)`);
     }
     for (const w of [...CRITIC_SOFT, ...dict.warn]) {
-      const n = (body.match(new RegExp(escapeRe(w), 'g')) || []).length;
+      const n = wcnt(body, w);
       if (n) warns.push(`${w}×${n}`);
     }
     if (warns.length) console.log(`⚠ [TONE] ${slug}: 推奨改善（ブロックなし）→ ${warns.join(' / ')}`);
