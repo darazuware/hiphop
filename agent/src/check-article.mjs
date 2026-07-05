@@ -64,6 +64,24 @@ if (hasAsin) {
 // 2. YouTube
 step("[YT] YouTube埋め込み", `node agent/src/check-youtube.mjs ${slug}`);
 
+// 2.5 プレーヤー整合（learning型は learningPage={true} 必須 — 無いと固定プレーヤーバーが描画されない）
+{
+  console.log("\n━━━ [PLR] プレーヤー整合 ━━━");
+  const astroSrc = readFileSync(astroPath, "utf-8");
+  const isLearning = /<LearningUnit\b/.test(astroSrc);
+  const hasLearningPageProp = /learningPage=\{true\}/.test(astroSrc);
+  if (isLearning && !hasLearningPageProp) {
+    console.error("❌ LearningUnit使用ページに learningPage={true} が無い → プレーヤーバーが表示されません");
+    results.push({ label: "[PLR] プレーヤー整合", ok: false });
+  } else if (isLearning && !/songDuration=\{\d+\}/.test(astroSrc)) {
+    console.error("❌ learning型に songDuration が無い → 総再生時間/波形が出ません");
+    results.push({ label: "[PLR] プレーヤー整合", ok: false });
+  } else {
+    console.log(isLearning ? "✅ learningPage / songDuration OK" : "⏭️  従来型（プレーヤー対象外）");
+    results.push({ label: "[PLR] プレーヤー整合", ok: true });
+  }
+}
+
 // 3. 定型句＋トーン＋歌詞（pre-push-check が Item4/Item7/[B][C][D] を一括実行）
 step("[LYR] 歌詞・トーン・定型句", `node agent/src/pre-push-check.mjs src/pages/songs/${slug}.astro`);
 
