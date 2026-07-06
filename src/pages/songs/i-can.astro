@@ -77,11 +77,11 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         ストーリーの流れ — まず曲全体をつかむ
       </h2>
       <p class="text-xs text-[var(--c-dim)] mb-5">
-        この曲は、Nasが子供たちに順番に「人生の授業」をしていく構成です。3つのヴァースがそれぞれ別のテーマを持っているので、先に流れを押さえておくと、一語ずつ拾うときに「今どの授業の話か」が見えて迷いません。
+        この曲は、Nasが子供たちに順番に「人生の授業」をしていく構成です。3つのバースがそれぞれ別のテーマを持っているので、先に流れを押さえておくと、一語ずつ拾うときに「今どの授業の話か」が見えて迷いません。
       </p>
       <div class="space-y-4 text-sm text-[var(--c-muted)] leading-relaxed">
         <p>
-          まず<strong class="text-[var(--c-text)]">フック</strong>。子供たちの合唱が「<em>I know I can, be what I wanna be, if I work hard at it</em>（頑張れば、なりたい自分になれる）」と歌う。これが曲全体を貫く"おまじない"であり、各ヴァースのあとに必ず戻ってくる芯になっています。
+          まず<strong class="text-[var(--c-text)]">フック</strong>。子供たちの合唱が「<em>I know I can, be what I wanna be, if I work hard at it</em>（頑張れば、なりたい自分になれる）」と歌う。これが曲全体を貫く"おまじない"であり、各バースのあとに必ず戻ってくる芯になっています。
         </p>
         <p>
           <strong class="text-[var(--c-text)]">Verse 1</strong>は、ドラッグの話。歌手を夢見た美しい女性が、付き合う相手を間違えてヘロインに溺れ、若くして心身を壊していく。「付き合う仲間を選べ（watch the company you keep）」という、具体的で生々しい警告だ。<strong class="text-[var(--c-text)]">Verse 2</strong>は、まだ10代なのに背伸びして大人の世界に入ろうとする少女・少年への忠告。「歳相応に振る舞え（act your age）、時間をかけて成長しろ」と諭す。
@@ -116,7 +116,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       >
         <Fragment slot="eng">I know I can, be what I wanna be<br />If I work hard at it, I'll be where I wanna be</Fragment>
         <Fragment slot="jpn">僕にはできるって分かってる、なりたい自分になれる／頑張れば、行きたい場所にたどり着ける</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 曲の冒頭、子供たちの合唱で始まり、各ヴァースのあとに必ず戻ってくるフック。</p>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 曲の冒頭、子供たちの合唱で始まり、各バースのあとに必ず戻ってくるフック。</p>
         <p>まず上の2行を口に出してみてください。中学英語の総まとめみたいな、きれいな構文です。鍵は助動詞 <strong class="text-[var(--c-text)]">can</strong>（〜できる）。<code>I know I can</code> は「自分にはできると分かっている」、<code>I wanna be</code> は <em>I want to be</em>（なりたい）のくだけた形。後半は <strong class="text-[var(--c-text)]">If I work hard at it</strong>（それに一生懸命取り組めば）という<QuickSlang word="条件文" desc="conditional。「もし〜なら」を表すif節と、その結果を表す主節からなる文。ここはif現在形＋will未来形の典型形" />（条件文）＋ <code>I'll</code>（I will＝未来）の組み合わせ。「努力すれば望む場所に行ける」という、英語学習者がそのまま暗唱したくなるお手本の一文です。Nasがこれを子供たちに合唱させたのには、英語のリズムで前向きさを刷り込む狙いがある。</p>
         <Fragment slot="usage">
           <p><strong class="text-[var(--c-text)]">work hard at ~</strong> は「〜に熱心に取り組む」。前置詞 at が「努力の対象（一点）」を指す。<em>work hard at school</em>（学業に励む）、<em>work hard at your English</em>（英語を頑張る）のように使う。</p>
@@ -128,13 +128,13 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       <LearningUnit
         heading="B-boys and girls, listen up — 呼びかけと命令の listen up"
         label="★ 文化／句動詞"
-        mc="Nas（各ヴァース冒頭）"
+        mc="Nas（各バース冒頭）"
         t={TS["bboys-listen"].t} tApprox={TS["bboys-listen"].approx} youtubeId={YT}
       >
         <Fragment slot="eng">B-boys and girls, listen up<br />You can be anything in the world</Fragment>
         <Fragment slot="jpn">B-boyたち、女の子たち、よく聞いて／君は世界で何にだってなれる</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 各ヴァースの冒頭でNasが子供たちへ呼びかける決まり文句。</p>
-        <p>各ヴァースは、この呼びかけで始まります。<strong class="text-[var(--c-text)]">B-boys</strong> はもともと「break-boys＝ブレイクダンスを踊る少年」を指すヒップホップの言葉で、転じて「ヒップホップ世代の若者・男子」全般を指します。ここでは女の子（girls）と並べて「ヒップホップで育つ子供たちみんな」への呼びかけ。続く <strong class="text-[var(--c-text)]">listen up</strong> は「注目して聞け・よく聞いて」という<QuickSlang word="句動詞" desc="phrasal verb。動詞＋副詞/前置詞がセットで一つの意味になる表現。listen upで「しっかり耳を傾ける」" />（句動詞）。<code>up</code> が「しっかり・きちんと」という強めの意味を添えていて、ただの listen より「集中して聞け」のニュアンスが強い。先生が教室で使うような、呼びかけの定番表現です。</p>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 各バースの冒頭でNasが子供たちへ呼びかける決まり文句。</p>
+        <p>各バースは、この呼びかけで始まります。<strong class="text-[var(--c-text)]">B-boys</strong> はもともと「break-boys＝ブレイクダンスを踊る少年」を指すヒップホップの言葉で、転じて「ヒップホップ世代の若者・男子」全般を指します。ここでは女の子（girls）と並べて「ヒップホップで育つ子供たちみんな」への呼びかけ。続く <strong class="text-[var(--c-text)]">listen up</strong> は「注目して聞け・よく聞いて」という<QuickSlang word="句動詞" desc="phrasal verb。動詞＋副詞/前置詞がセットで一つの意味になる表現。listen upで「しっかり耳を傾ける」" />（句動詞）。<code>up</code> が「しっかり・きちんと」という強めの意味を添えていて、ただの listen より「集中して聞け」のニュアンスが強い。先生が教室で使うような、呼びかけの定番表現です。</p>
         <Fragment slot="usage">
           <p><strong class="text-[var(--c-text)]">listen up</strong> は「（みんな）よく聞いて」と注意を引くときの命令形。<em>Listen up, everyone!</em> の形で、教室・スポーツ・職場の号令として日常的に使われる。同じく <em>up</em> で強める仲間に <em>speak up</em>（もっと大きな声で）、<em>hurry up</em>（急いで）などがある。</p>
           <p><code>can be anything</code>（何にでもなれる）は、可能性を語る定型。<em>You can be anything you want</em> はこの曲のメッセージそのもので、子供への励ましの決まり文句として英語圏で広く使われる。</p>
@@ -210,7 +210,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <Fragment slot="eng">Before we came to this country<br />We were kings and queens</Fragment>
         <Fragment slot="jpn">この国（アメリカ）に連れてこられる前／俺たちは王であり、女王だった</Fragment>
         <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3の冒頭、視点が現代から奴隷制以前のアフリカへ飛ぶ転換点。</p>
-        <p>ここからNasの語りは歴史へ飛びます。<strong class="text-[var(--c-text)]">we were kings and queens</strong>（俺たちは王であり女王だった）は、<strong class="text-[var(--c-text)]">アフロセントリズム</strong>（アフリカ中心主義）の核心的なフレーズ。奴隷としてアメリカに連れてこられる前、アフリカには <strong class="text-[var(--c-text)]">クシュ王国（Kush）</strong>や、学問の都として栄えた <strong class="text-[var(--c-text)]">ティンブクトゥ（Timbuktu）</strong>といった高度な文明があった、という史実を引いて、黒人の子供たちに「お前たちのルーツは奴隷ではなく王だ」と誇りを取り戻させようとしている。なお、このヴァースには学術的に議論のある主張（アレクサンドロス大王のくだり等）も混じります。歴史の正確さというより、<strong class="text-[var(--c-text)]">"何のために語っているか"</strong>、子供たちの自己肯定感を立て直すための物語として受け取るのが、この曲の正しい聴き方だと思います。</p>
+        <p>ここからNasの語りは歴史へ飛びます。<strong class="text-[var(--c-text)]">we were kings and queens</strong>（俺たちは王であり女王だった）は、<strong class="text-[var(--c-text)]">アフロセントリズム</strong>（アフリカ中心主義）の核心的なフレーズ。奴隷としてアメリカに連れてこられる前、アフリカには <strong class="text-[var(--c-text)]">クシュ王国（Kush）</strong>や、学問の都として栄えた <strong class="text-[var(--c-text)]">ティンブクトゥ（Timbuktu）</strong>といった高度な文明があった、という史実を引いて、黒人の子供たちに「お前たちのルーツは奴隷ではなく王だ」と誇りを取り戻させようとしている。なお、このバースには学術的に議論のある主張（アレクサンドロス大王のくだり等）も混じります。歴史の正確さというより、<strong class="text-[var(--c-text)]">"何のために語っているか"</strong>、子供たちの自己肯定感を立て直すための物語として受け取るのが、この曲の正しい聴き方だと思います。</p>
       </LearningUnit>
 
       <!-- ⑧ read more learn more -->
