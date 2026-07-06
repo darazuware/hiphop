@@ -121,6 +121,14 @@ export const slang: SlangEntry[] = [
   { word: "five-oh",               desc: "警察・警官を指す定番スラング。1968〜1980年のTVドラマ「Hawaii Five-O」のタイトルナンバーが語源とされる。the five-oh is on us（警察が追ってる）のように使う" },
   { word: "J-O",                   desc: "J-O-B（job＝仕事）の頭二文字だけを取り出した隠語。「仕事モード」「グラインド中」を指す。on my J-O で「今は仕事に集中している」。堅気の労働を面と向かって言いたくないストリートの空気から生まれた語" },
   { word: "vets",                  desc: "veterans（退役軍人）の短縮形から転じて「業界の先輩・猛者」の意。rap vets（ラップの先輩世代）のように使う。発音が veterinarians（獣医）の短縮形と同じなのでダジャレの種にもなる" },
+  { word: "po-po",                 desc: "警察を指す全米共通の口語スラング。police の頭の音を繰り返して作った幼児語的な言い換えで、the po-po is coming（警察が来る）のように使う。物騒さを抜いて緊張だけを伝える語感が持ち味" },
+  { word: "paper",                 desc: "紙幣＝金を指す定番スラング。get that paper（金を稼ぐ）、paper chase（金稼ぎに追われること）のように使う。cash・bread・cheese などと並ぶ「金」の言い換えの一つ" },
+  { word: "white",                 desc: "白い粉状の麻薬（コカイン等）を色で言い換えたストリートの隠語。sell white・move white のように使う。文脈次第で「白人」の語義と掛けたダブルミーニングにもなる" },
+  { word: "cuzzo",                 desc: "cousin（いとこ）をくだけさせた愛称。血縁でなくても親しい仲間を家族同然に呼ぶときに使う。bro・fam などと同じく、家族の呼称を親密さの表現に転用した語" },
+  { word: "Shorties",              desc: "子ども・年下の若者を指すスラング（shortyの複数形）。文脈によっては「彼女・気になる女性」の意にもなる多義語。街で育つ若い世代をまとめて指すときによく使う" },
+  { word: "break bread",           desc: "「一緒にパンを割る」が原義で、食事を共にする・親交を結ぶを表すイディオム（聖書の最後の晩餐に由来）。ヒップホップでは派生して「金・分け前を分ける」の意でも使われる" },
+  { word: "fair one",              desc: "武器を使わない素手の一対一の喧嘩を指すスラング。fair（公平な）+ one（一対一）で、ナイフも銃も持ち出さない拳だけの決着のこと。squash the beef with a fair one のように使う" },
+  { word: "Sprewells",             desc: "NBA選手 Latrell Sprewell の名を冠したスピナー型ホイール。車が停まってもホイールだけ回り続けて見える、2000年代に大流行したカスタムパーツ。人名がそのまま製品スラング化した例" },
 ];
 
 // Strip Japanese annotation '（…）'/'(...)' and trim → clean English keyword
