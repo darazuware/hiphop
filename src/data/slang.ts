@@ -108,6 +108,13 @@ export const slang: SlangEntry[] = [
   { word: "woolies",               desc: "マリファナにコカインやクラックを混ぜた非常に危険なジョイント" },
   { word: "Wu-Tang Clan",          desc: "1993年にニューヨーク・スタテンアイランドで結成された伝説的ヒップホップ・グループ。RZAをリーダーとし9人のMCで構成。カンフー映画「Shaolin and Wu Tang」に由来する名称" },
   { word: "神（God）",              desc: "「Five-Percent Nation」の教義で黒人男性への敬称。キリスト教的な神への呼びかけではない" },
+  { word: "bodies",                desc: "ストリートスラングで「殺した人数」。警察の捜査用語 body count（死者数）から転用された。got bodies＝殺しの実績がある、body someone（動詞）＝殺す、body a track＝曲を圧倒的に制する、と文脈で意味が変わる" },
+  { word: "put it on",             desc: "「着る・のせる」が字義だが、ヒップホップでは「スキルを全開にする・地元を代表する・やり遂げる」の意で使う句動詞。put it on for my city のように for+場所/人 を続けることが多い" },
+  { word: "catchin' wreck",        desc: "catch wreck＝ラップで圧倒的なパフォーマンスを見せ、場を制圧するイディオム。wreck（残骸・破壊）を引き起こすことから「場を荒らすほどの勢いでやる」に転じた" },
+  { word: "peel wigs",            desc: "wig（かつら＝頭部）を peel（剥ぐ）＝頭を撃ち抜く・殺すというヴィジュアルメタファー。split your wig（頭を割る）と同系統で、直接的な kill を避ける婉曲語法" },
+  { word: "born dead",            desc: "「生まれながらに死んでいた＝死を恐れない・無敵だ」を逆説で表すオキシモロン（撞着語法）。you can't kill me, I was born dead のように殺しの脅しへ論理的に反論を封じるパンチラインに使う" },
+  { word: "gas",                   desc: "動詞で「お世辞を言う・持ち上げる・おだてる」。stop gassing me up（おだてるのをやめろ）のように使う。gas a hottie＝可愛い女を口説く" },
+  { word: "gwan",                  desc: "ジャマイカ・パトワ語で going to（〜するつもりだ）の短縮形。you gwan dead＝you're going to die。NYのカリブ系移民経由でヒップホップに流入した語彙" },
 ];
 
 // Strip Japanese annotation '（…）'/'(...)' and trim → clean English keyword
