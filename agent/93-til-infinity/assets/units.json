@@ -1,117 +1,127 @@
 [
   {
-    "id": "forty-stoge",
-    "anchor": [
-      "heres",
-      "a",
-      "forty",
-      "swig",
-      "it"
-    ],
-    "fallbackT": 26
-  },
-  {
-    "id": "good-vibrations",
-    "anchor": [
-      "now",
-      "we",
-      "feel",
-      "the",
-      "good",
-      "vibrations"
-    ],
-    "fallbackT": 34
-  },
-  {
-    "id": "bones-to-pick",
-    "anchor": [
-      "roam",
-      "the",
-      "strip",
-      "for",
-      "bones"
-    ],
-    "fallbackT": 50
-  },
-  {
-    "id": "all-that-phat",
-    "anchor": [
-      "the",
-      "mans",
-      "all",
-      "that"
-    ],
-    "fallbackT": 80
-  },
-  {
     "id": "chill-93-til",
-    "anchor": [
-      "this",
-      "is",
-      "how",
-      "we",
-      "chill",
-      "from"
-    ],
+    "anchor": ["this", "is", "how", "we", "chill", "from"],
     "fallbackT": 8
   },
   {
+    "id": "intro-maxin",
+    "anchor": ["im", "chillin", "with", "my", "man", "phesto"],
+    "fallbackT": 12
+  },
+  {
+    "id": "intro-cloudy",
+    "anchor": ["and", "um", "sometimes", "it", "gets", "a"],
+    "fallbackT": 18
+  },
+  {
+    "id": "v1-seven-digits",
+    "anchor": ["dial", "the", "seven", "digits", "call", "up"],
+    "fallbackT": 24
+  },
+  {
+    "id": "forty-stoge",
+    "anchor": ["heres", "a", "forty", "swig", "it"],
+    "fallbackT": 30
+  },
+  {
+    "id": "good-vibrations",
+    "anchor": ["now", "we", "feel", "the", "good", "vibrations"],
+    "fallbackT": 38
+  },
+  {
+    "id": "bones-to-pick",
+    "anchor": ["roam", "the", "strip", "for", "bones"],
+    "fallbackT": 50
+  },
+  {
+    "id": "v3-in-the-cut",
+    "anchor": ["we", "in", "the", "cut", "the", "cinema"],
+    "fallbackT": 66
+  },
+  {
+    "id": "v4-throws-game",
+    "anchor": ["close", "range", "i", "throws", "game", "at"],
+    "fallbackT": 74
+  },
+  {
+    "id": "all-that-phat",
+    "anchor": ["cause", "the", "mans", "all", "that"],
+    "fallbackT": 80
+  },
+  {
+    "id": "v5-timbs",
+    "anchor": ["huh", "my", "black", "timbs", "do", "me"],
+    "fallbackT": 92
+  },
+  {
+    "id": "v6-blunts-flip",
+    "anchor": ["to", "hit", "blunts", "and", "flip", "once"],
+    "fallbackT": 104
+  },
+  {
+    "id": "v7-posted",
+    "anchor": ["im", "posted", "most", "kids", "accept", "this"],
+    "fallbackT": 116
+  },
+  {
     "id": "indo",
-    "anchor": [
-      "tons",
-      "of",
-      "indo"
-    ],
-    "fallbackT": 88
+    "anchor": ["so", "i", "got", "tons", "of", "indo"],
+    "fallbackT": 128
   },
   {
     "id": "greenbacks-stacks",
-    "anchor": [
-      "greenbacks",
-      "in",
-      "stacks"
-    ],
-    "fallbackT": 95
+    "anchor": ["greenbacks", "in", "stacks"],
+    "fallbackT": 138
   },
   {
     "id": "habitual-be",
-    "anchor": [
-      "be",
-      "coolin",
-      "schools",
-      "in",
-      "session"
-    ],
-    "fallbackT": 102
+    "anchor": ["be", "coolin", "schools", "in", "session"],
+    "fallbackT": 156
+  },
+  {
+    "id": "v10-mall",
+    "anchor": ["restin", "at", "the", "mall", "attendants"],
+    "fallbackT": 170
   },
   {
     "id": "fashion-dipped",
-    "anchor": [
-      "few",
-      "fits",
-      "some",
-      "new",
-      "kicks"
-    ],
-    "fallbackT": 150
+    "anchor": ["some", "few", "fits", "some", "new", "kicks"],
+    "fallbackT": 178
+  },
+  {
+    "id": "v11-main-squeeze",
+    "anchor": ["keep", "tabs", "on", "your", "main", "squeeze"],
+    "fallbackT": 186
+  },
+  {
+    "id": "v12-mack",
+    "anchor": ["i", "mack", "her", "attack", "her", "with"],
+    "fallbackT": 196
   },
   {
     "id": "bite-flows",
-    "anchor": [
-      "they",
-      "bite",
-      "flows"
-    ],
-    "fallbackT": 172
+    "anchor": ["they", "bite", "flows"],
+    "fallbackT": 202
+  },
+  {
+    "id": "v12-loot",
+    "anchor": ["but", "i", "get", "my", "loot", "from"],
+    "fallbackT": 208
+  },
+  {
+    "id": "outro-crew",
+    "anchor": ["yo", "whos", "chillin", "i", "think", "i"],
+    "fallbackT": 232
   },
   {
     "id": "the-land",
-    "anchor": [
-      "chillin",
-      "around",
-      "the",
-      "land"
-    ],
-    "fallbackT": 200
+    "anchor": ["chillin", "around", "the", "land"],
+    "fallbackT": 240
+  },
+  {
+    "id": "outro-92-93",
+    "anchor": ["92", "is", "over", "93", "thats", "when"],
+    "fallbackT": 262
   }
 ]
