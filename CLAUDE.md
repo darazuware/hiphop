@@ -61,6 +61,17 @@ public/images/   # アルバムアート
 - **頻出スラングのdesc集約（2026-07-03確定）**: 複数曲に出る語の「素の意味・語源」は `slang.ts` に1回だけ書き、ページ側の `desc` は「この曲での使われ方・ニュアンス」中心に書く。同一descの曲間コピペは定型句ガード（Item4）に当たるため禁止、毎回のゼロから書き直しも不要
 - 詳細リンク先 `/slang?q={英語語}` では、その語を使う全曲が「使用曲」として自動内部リンクされる（`word=`/`term=` 両prop・日本語注釈付き対応済み）
 
+## 既存曲の自動修正ルーティン（Telegram: `修正依頼 <曲名>`・2026-07-06確定）
+- 入口は Telegram の **`修正依頼 <曲名>`**（例: `修正依頼 put it on`）。`index.mjs` → `claude.mjs` の `runToneFix` が固定手順を流す。実装を変える時は両者と本節を同期する。
+- **モデルは Sonnet 固定**（`trigger.meta.model='sonnet'`。watcherが受けて `--model sonnet` で実行）。**毎回Opusで文体修正するのはトークンの浪費**なので、品質はモデルでなく下記の三稿制＋機械検証に持たせる。
+- **必ず三稿制で回す（`docs/mission-protocol.md` §3）**: ①第1稿=作る ②第2稿=「外注ライターがAIで書いた文に見えないか」の一点で他人として疑い直す ③第3稿=`check-tone-only` を通して仕上げる。1パスで終わらせない。
+- **1回の修正依頼で必ず4点すべてやる**:
+  1. 文体を **nas-is-like基調**へ（`docs/article-tone.md`。評論家ヅラ・AI臭・ダッシュ・読者命令形ゼロ、敬体率ガードに触れない）
+  2. **1〜2文ごとの改行**（`<p>`に3文以上詰めない。全パート適用）
+  3. **内部リンク修正**（重要スラングを `slang.ts` に登録／文中リンク先の実在確認。関連記事カードは手書き禁止＝SongLayout自動生成）
+  4. **unitを上限ギリギリまで増強**（learning型のみ）: shook級25〜30unit・量MAXへ。硬い上限は [D] eng引用率<60% と [C] 独自解説JP>英語引用(≥1200字)の2ガードのみ、その内で最大化。unit追加時は `units.json` 追記＋`gen-fallback-timestamps.mjs` 再生成を必ずやる（怠るとimport不在でビルド落ち）。従来型はunit増強を飛ばし1〜3のみ。
+- 出口は共通: `check-article.mjs` 全✅ → `git push origin review` → `notify-review.mjs`（mainへは直pushしない）。
+
 ## ページ種別（重要・新標準）
 曲ページには2種類ある。検証フックはページ種別で自動分岐する（`<LearningUnit>` の有無で判定）。
 - **learning型（新標準）**: 学習解説主体ページ。歌詞全行は載せず、スラング・韻・言葉遊び・AAVE文法を「学ぶ表現」単位で解説。英語は用例断片のみ引用。`src/components/LearningUnit.astro` を使う。**完全模範＝`nas-is-like.astro`**（2026-07-03一本化。shook級への増補完了までの分量参照のみ `shook-ones-pt-ii.astro`）。詳細は [[project_learning_page]]（memory）。
