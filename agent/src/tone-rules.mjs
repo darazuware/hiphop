@@ -104,15 +104,57 @@ export function keitaiRatio(jpText) {
   let kei = 0;
   let jo = 0;
   const joTails = [];
+  let run = 0;
+  let maxJoRun = 0;
+  let maxJoRunTails = [];
   for (const s of sents) {
-    if (KEITAI_END.test(s)) kei++;
-    else if (JOTAI_END.test(s)) {
+    if (KEITAI_END.test(s)) {
+      kei++;
+      run = 0;
+    } else if (JOTAI_END.test(s)) {
       jo++;
+      run++;
       if (joTails.length < 20) joTails.push(s.slice(-6));
+      if (run > maxJoRun) {
+        maxJoRun = run;
+        maxJoRunTails = [...maxJoRunTails.slice(-(run - 1)), s.slice(-6)];
+      } else if (run === maxJoRun) {
+        maxJoRunTails.push(s.slice(-6));
+      }
+    } else {
+      run = 0; // 体言止め等の中立文はゆらぎとしてカウント＝連打をリセット
     }
   }
   const ratio = kei + jo === 0 ? 0 : jo / (kei + jo);
-  return { kei, jo, ratio, joTails };
+  return { kei, jo, ratio, joTails, maxJoRun, maxJoRunTails: maxJoRunTails.slice(-6) };
+}
+
+// 常体述語（〜ていく。〜ている。〜てくる。〜になる。する。等）の連打検知の閾値。
+// 「敬体率」は全体平均のため、局所的に4文以上ノンストップで同系統の弱い動詞終止が
+// 連続しても検出できない（2026-07-06 ny-state-of-mind で発覚）。ratioとは独立に見る。
+export const JOTAI_RUN_WARN = 3;
+export const JOTAI_RUN_BLOCK = 4;
+
+// 1〜2文ごとの改行ルール（docs/article-tone.md ルール5・2026-07-05恒久化）の機械化。
+// <p>内の文（。区切り）が3文以上あれば違反。eng/jpn Fragment・見出し・navは対象外。
+export const PARAGRAPH_SENTENCE_LIMIT = 2;
+export function checkParagraphSentences(raw) {
+  let body = raw.replace(/^---[\s\S]*?\n---/, '');
+  body = body.replace(/<Fragment\b[^>]*slot="(?:eng|jpn)"[^>]*>[\s\S]*?<\/Fragment>/g, ' ');
+  body = body.replace(/<h[1-6][^>]*>[\s\S]*?<\/h[1-6]>/g, ' ');
+  body = body.replace(/<nav\b[^>]*>[\s\S]*?<\/nav>/g, ' ');
+  const paragraphs = [...body.matchAll(/<p[^>]*>([\s\S]*?)<\/p>/g)];
+  let violations = 0;
+  const samples = [];
+  for (const m of paragraphs) {
+    const text = m[1].replace(/<[^>]+>/g, '');
+    const sentCount = (text.match(/。/g) || []).length;
+    if (sentCount > PARAGRAPH_SENTENCE_LIMIT) {
+      violations++;
+      if (samples.length < 5) samples.push(sentCount);
+    }
+  }
+  return { total: paragraphs.length, violations, samples };
 }
 
 // ハードコード済み・既存正規表現ガードで既にカバー済みの語か（辞書由来の重複登録を弾く）

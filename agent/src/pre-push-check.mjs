@@ -27,6 +27,7 @@ import {
   CRITIC_HARD, CRITIC_SOFT, READER_CMD_RE, DASH_RE, ASSERT_RE, ASSERT_LIMIT,
   jpBody, jpCharCount, escapeRe, loadDictWords,
   keitaiRatio, KEITAI_WARN, KEITAI_BLOCK, KEITAI_MIN_SENTENCES,
+  JOTAI_RUN_WARN, JOTAI_RUN_BLOCK, checkParagraphSentences,
 } from './tone-rules.mjs';
 
 const require = createRequire(import.meta.url);
@@ -153,17 +154,20 @@ function checkCriticTone(paths) {
     const slug = basename(p, '.astro');
     const file = join(songsDir, `${slug}.astro`);
     if (!existsSync(file)) continue;
-    const body = jpBody(readFileSync(file, 'utf-8'));
+    const raw = readFileSync(file, 'utf-8');
+    const body = jpBody(raw);
     // 【非破壊の原則】origin/main のライブ版をベースラインに取り、ブロックは
     // 「ベースラインより違反が悪化した曲」だけに絞る。注記削除など全曲横断の些末な
     // コミットで既存の常体記事がdiffに紛れ込んでも、既にライブ済みのトーン問題で
     // publishを止めない（＝checkCriticTone本来の「既存曲は非破壊」を機械的に担保）。
     // origin/main に存在しない＝新規記事は baseBody='' ＝全カウント0で全面適用される。
     let baseBody = '';
+    let baseRaw = '';
     let isNew = true;
     try {
-      baseBody = jpBody(execSync(`git show origin/main:src/pages/songs/${slug}.astro`,
-        { cwd: projectRoot, encoding: 'utf-8', stdio: ['ignore', 'pipe', 'ignore'] }));
+      baseRaw = execSync(`git show origin/main:src/pages/songs/${slug}.astro`,
+        { cwd: projectRoot, encoding: 'utf-8', stdio: ['ignore', 'pipe', 'ignore'] });
+      baseBody = jpBody(baseRaw);
       isNew = false;
     } catch { /* origin/main に無い新規記事 */ }
     const cnt = (text, re) => (text.match(re) || []).length;
@@ -193,10 +197,27 @@ function checkCriticTone(paths) {
     if (measurable && kr.ratio >= KEITAI_BLOCK && kr.jo > baseJo) {
       hits.push(`常体述語過多(敬体率${kr.ratio.toFixed(2)}≧${KEITAI_BLOCK}／敬${kr.kei}:常${kr.jo})`);
     }
+    // 【ブロック】常体文末の連打（〜ていく。〜ている。〜てくる。〜になる。する。等が
+    // 敬体で割られずに続く）。敬体率は全体平均のため局所的な連打は素通りしてしまう
+    // （2026-07-06 ny-state-of-mind で発覚）。ベースラインより連打が悪化した時のみブロック。
+    const baseMaxJoRun = isNew ? -1 : keitaiRatio(baseBody).maxJoRun;
+    if (kr.maxJoRun >= JOTAI_RUN_BLOCK && kr.maxJoRun > baseMaxJoRun) {
+      hits.push(`常体文末の連打×${kr.maxJoRun}連続（${kr.maxJoRunTails.join('・')}）＞許容${JOTAI_RUN_BLOCK - 1}`);
+    }
+    // 【ブロック】改行不足（docs/article-tone.md ルール5・1〜2文/p恒久ルールの機械化）。
+    // ベースラインより違反<p>数が増えた時のみブロック（既存記事は非破壊）。
+    const ps = checkParagraphSentences(raw);
+    const basePs = isNew ? { violations: -1 } : checkParagraphSentences(baseRaw);
+    if (ps.violations > 0 && ps.violations > basePs.violations) {
+      hits.push(`改行不足(1〜2文/pルール違反)×${ps.violations}箇所／全${ps.total}p`);
+    }
     // 【警告のみ】SOFT常套句・辞書warn語（既存曲にヒットあり＝誤爆回避で降格）
     const warns = [];
     if (measurable && kr.ratio >= KEITAI_WARN && kr.ratio < KEITAI_BLOCK) {
       warns.push(`敬体率やや高め(${kr.ratio.toFixed(2)}／常体末尾: ${kr.joTails.slice(0, 6).join('・')}…)`);
+    }
+    if (kr.maxJoRun === JOTAI_RUN_WARN) {
+      warns.push(`常体文末の連打×${kr.maxJoRun}連続（${kr.maxJoRunTails.join('・')}）`);
     }
     for (const w of [...CRITIC_SOFT, ...dict.warn]) {
       const n = wcnt(body, w);
