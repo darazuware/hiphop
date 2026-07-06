@@ -118,6 +118,9 @@ export const slang: SlangEntry[] = [
   { word: "born dead",            desc: "「生まれながらに死んでいた＝死を恐れない・無敵だ」を逆説で表すオキシモロン（撞着語法）。you can't kill me, I was born dead のように殺しの脅しへ論理的に反論を封じるパンチラインに使う" },
   { word: "gas",                   desc: "動詞で「お世辞を言う・持ち上げる・おだてる」。stop gassing me up（おだてるのをやめろ）のように使う。gas a hottie＝可愛い女を口説く" },
   { word: "gwan",                  desc: "ジャマイカ・パトワ語で going to（〜するつもりだ）の短縮形。you gwan dead＝you're going to die。NYのカリブ系移民経由でヒップホップに流入した語彙" },
+  { word: "five-oh",               desc: "警察・警官を指す定番スラング。1968〜1980年のTVドラマ「Hawaii Five-O」のタイトルナンバーが語源とされる。the five-oh is on us（警察が追ってる）のように使う" },
+  { word: "J-O",                   desc: "J-O-B（job＝仕事）の頭二文字だけを取り出した隠語。「仕事モード」「グラインド中」を指す。on my J-O で「今は仕事に集中している」。堅気の労働を面と向かって言いたくないストリートの空気から生まれた語" },
+  { word: "vets",                  desc: "veterans（退役軍人）の短縮形から転じて「業界の先輩・猛者」の意。rap vets（ラップの先輩世代）のように使う。発音が veterinarians（獣医）の短縮形と同じなのでダジャレの種にもなる" },
 ];
 
 // Strip Japanese annotation '（…）'/'(...)' and trim → clean English keyword
