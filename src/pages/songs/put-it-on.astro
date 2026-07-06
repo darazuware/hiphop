@@ -22,6 +22,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
   sampleYoutubeId=""
   sampleTitle=""
   learningPage={true}
+  songDuration={251}
 >
 
     <!-- ===================== -->
@@ -31,10 +32,13 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       <h2 class="text-base font-semibold mb-2">■ハーレムから撃ち込まれた一発</h2>
       <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
         <p>
-          1994年、ニューヨーク・ハーレム出身の20歳がこのシングルで登場した。Big L、本名Lamont Coleman。Kid Capriをハイプマンに据えたこの曲は、数語に複数の意味を積んでくる多音節ライムと、聴いた瞬間ニヤッとさせるパンチラインが密度高く詰め込まれていて、初めて通しで聴いたときに「これ、どこまで続くんだ」と思ったのを覚えています。
+          1994年、ニューヨーク・ハーレム出身の20歳がこのシングルで登場しました。Big L、本名Lamont Coleman。
         </p>
         <p>
-          リリックには、辞書に載らないハーレムのストリートスラング、<QuickSlang word="AAVE" desc="African American Vernacular English。アフリカ系アメリカ人の日常言語。独自の文法規則と語彙体系を持つ" />固有の言い回し、そして子音まで噛み合わせてくる多音節ライムが、一行のなかに何重にも折り畳まれている。
+          Kid Capriをハイプマンに据えたこの曲は、数語に複数の意味を積んでくる多音節ライムと、聴いた瞬間ニヤッとさせるパンチラインが密度高く詰め込まれている。初めて通しで聴いたときに「これ、どこまで続くんだ」と思ったのを覚えています。
+        </p>
+        <p>
+          リリックには、辞書に載らないハーレムのストリートスラング、<QuickSlang word="AAVE" desc="African American Vernacular English。アフリカ系アメリカ人の日常言語。独自の文法規則と語彙体系を持つ" />固有の言い回し、そして子音まで噛み合わせてくる多音節ライムが、一行のなかに何重にも折り畳まれています。
         </p>
         <p>
           以下では、その折り目を一つずつほどくつもりで、表現ごとに用例の断片と和訳を添え、語法とハーレムの文脈を読み解いていきます。
@@ -46,13 +50,16 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       <h2 class="text-base font-semibold mb-2">■この曲を知っておくと何が変わるか</h2>
       <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
         <p>
-          1994年11月リリース、翌1995年3月発表のデビューアルバム『Lifestylez ov da Poor & Dangerous』のリードシングル。プロデューサーは<strong class="text-[var(--c-text)]">Buckwild</strong>。<QuickSlang word="D.I.T.C." desc="Diggin' In The Crates Crew。Lord Finesse、Buckwild、Diamond D、Fat Joe、Showbiz & A.G.、O.C.らNY系プロデューサー・MCが集ったクルー" />の一員で、レコードを深く掘り（Diggin' In The Crates）、ジャズやソウルの断片を組み合わせるスタイルで知られる人物。
+          1994年11月リリース、翌1995年3月発表のデビューアルバム『Lifestylez ov da Poor & Dangerous』のリードシングル。プロデューサーは<strong class="text-[var(--c-text)]">Buckwild</strong>。
         </p>
         <p>
-          ビートの土台は<strong class="text-[var(--c-text)]">Buster Williams "Vibrations"（1976）</strong>のベースラインと<strong class="text-[var(--c-text)]">Skull Snaps "It's a New Day"（1973）</strong>のドラムブレイクです。コーラスを担当したKid Capriは当時NYで最も影響力を持つDJの一人で、その掛け合いがこの曲のグルーヴを支えている。
+          <QuickSlang word="D.I.T.C." desc="Diggin' In The Crates Crew。Lord Finesse、Buckwild、Diamond D、Fat Joe、Showbiz & A.G.、O.C.らNY系プロデューサー・MCが集ったクルー" />の一員で、レコードを深く掘り（Diggin' In The Crates）、ジャズやソウルの断片を組み合わせるスタイルで知られる人物。
         </p>
         <p>
-          Big LのリリックはJay-ZやNasとほぼ同世代でしたが、パンチラインとマルチシラブル（多音節韻）の密度という点では飛び抜けていた。そのスキルの原石がこの一曲に全部入っています。
+          ビートの土台は<strong class="text-[var(--c-text)]">Buster Williams "Vibrations"（1976）</strong>のベースラインと<strong class="text-[var(--c-text)]">Skull Snaps "It's a New Day"（1973）</strong>のドラムブレイクです。コーラスを担当したKid Capriは当時NYで最も影響力を持つDJの一人で、その掛け合いがこの曲のグルーヴを支えています。
+        </p>
+        <p>
+          Big LのリリックはJay-ZやNasとほぼ同世代でしたが、パンチラインとマルチシラブル（多音節韻）の密度という点では飛び抜けていました。そのスキルの原石がこの一曲に全部入っています。
         </p>
       </div>
     </section>
@@ -77,23 +84,23 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         ストーリーの流れ — まず曲全体をつかむ
       </h2>
       <p class="text-xs text-[var(--c-dim)] mb-5">
-        個々の表現に入る前に、まず曲が何を語っているかをざっと散文でつかんでおきましょう。全体の流れが頭に入っていると、次章「学ぶ表現」で一語一語を掘るときに、その言葉が曲のどこに位置するかが立体的に見えてくる。
+        個々の表現に入る前に、まず曲が何を語っているかをざっと散文でつかんでおきましょう。全体の流れが頭に入っていると、次章「学ぶ表現」で一語一語を掘るときに、その言葉が曲のどこに位置するかが立体的に見えてきます。
       </p>
       <div class="space-y-4 text-sm text-[var(--c-muted)] leading-relaxed">
         <p>
-          Kid CapriのIntoから始まる曲は、<strong class="text-[var(--c-text)]">Verse 1</strong>でBig Lが自分のスキルと存在感を矢継ぎ早に打ち出していく構成。「俺のせいでラッパーは心臓が爆発しそうになる」という自己紹介から、ルックス・女性関係・ストリートでの評判まで、パンチラインを畳みかける。
+          Kid CapriのIntoから始まる曲は、<strong class="text-[var(--c-text)]">Verse 1</strong>でBig Lが自分のスキルと存在感を矢継ぎ早に打ち出していく構成です。「俺のせいでラッパーは心臓が爆発しそうになる」という自己紹介から、ルックス・女性関係・ストリートでの評判まで、パンチラインを畳みかけていきます。
         </p>
         <p>
-          <strong class="text-[var(--c-text)]">Chorus</strong>はKid Capriが「Put it on, Big L!」と煽るシンプルな構造。「put it on」は「やって見せろ・代表しろ」という意味合いで、MCが自分のスキルをフルに発揮する行為を指す。
+          <strong class="text-[var(--c-text)]">Chorus</strong>はKid Capriが「Put it on, Big L!」と煽るシンプルな構造です。「put it on」は「やって見せろ・代表しろ」という意味合いで、MCが自分のスキルをフルに発揮する行為を指します。
         </p>
         <p>
-          <strong class="text-[var(--c-text)]">Verse 2</strong>に入ると、ライミングの密度がさらに上がる。内部韻（行の途中で韻を踏む）を駆使して、対戦相手への挑発、金と女への誇示、そして「俺のショウを見逃すのは賢くない」という自信が続く。
+          <strong class="text-[var(--c-text)]">Verse 2</strong>に入ると、ライミングの密度がさらに上がります。内部韻（行の途中で韻を踏む）を駆使して、対戦相手への挑発、金と女への誇示、そして「俺のショウを見逃すのは賢くない」という自信が続きます。
         </p>
         <p>
-          <strong class="text-[var(--c-text)]">Bridge</strong>はMajor Chubbyがジャマイカのパトワ語（クレオール語）で登場する。「gwan dead」「fi joke」などの表現が、英語圏のリスナーにも謎めいた緊張感を与える。
+          <strong class="text-[var(--c-text)]">Bridge</strong>ではMajor Chubbyがジャマイカのパトワ語（クレオール語）で登場します。「gwan dead」「fi joke」などの表現が、英語圏のリスナーにも謎めいた緊張感を与えます。
         </p>
         <p>
-          <strong class="text-[var(--c-text)]">Verse 3</strong>はハーレムへの帰属意識と、バトルで負けた相手への凄みが混在する。「cornbread / born dead」のオキシモロン（撞着語法）パンチラインがクライマックスで、アウトロはD.I.T.C.クルー全員へのシャウトアウト（呼びかけ）で締まる。
+          <strong class="text-[var(--c-text)]">Verse 3</strong>はハーレムへの帰属意識と、バトルで負けた相手への凄みが混在します。「cornbread / born dead」のオキシモロン（撞着語法）パンチラインがクライマックスで、アウトロはD.I.T.C.クルー全員へのシャウトアウト（呼びかけ）で締まります。
         </p>
         <p class="text-xs text-[var(--c-dim)]">
           ※本ページは批評・教育目的で、解説に必要な範囲の断片のみを引用しています。全歌詞の対訳は掲載していません。
@@ -124,10 +131,13 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <Fragment slot="eng">L keep rappers' hearts <QuickSlang word="pumpin'" desc="①心臓がドキドキ鼓動する ②Reebok Pumpというエアポンプ式スニーカーを膨らませる動作、のダブルミーニング" /> like Reeboks</Fragment>
         <Fragment slot="jpn">LはラッパーたちをReebokみたいにドキドキさせ続ける（Reebok Pumpを膨らませ続ける）</Fragment>
         <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の2行目、Big Lが自己紹介の口火を切る一発目のパンチライン。</p>
-        <p>上の一行を声に出してみてください。学習ポイントは行の後半、「…hearts <strong class="text-[var(--c-text)]">pumpin' like Reeboks</strong>」。ここに2つの意味が同時に走っている。①<em>pump</em>＝心臓が激しく鼓動する（ビビって心臓が飛び出そうになる）、②当時爆発的に流行していた<strong class="text-[var(--c-text)]">Reebok Pump</strong>（かかと部分のポンプで内側の空気圧を調整できるスニーカー）を「pumpin'（膨らませる）」という動作で表現している。</p>
-        <p>「Big Lの前に立つとラッパーたちの心臓はReebokみたいにドクドクする」と読めるし、「Reebokのエアポンプを膨らませるみたいにずっとラッパーたちを不安にさせ続ける」とも読める。固有名詞（ブランド名）を動詞・形容詞的に使いきってパンチラインに仕立てるのはヒップホップ特有のレトリックで、90年代NYには特に多い。こういう二重読みが1行に当然のように入ってくるのがBig Lのスタイルです。</p>
+        <p>上の一行を声に出してみてください。学習ポイントは行の後半、「…hearts <strong class="text-[var(--c-text)]">pumpin' like Reeboks</strong>」。</p>
+        <p>ここに2つの意味が同時に走っている。①<em>pump</em>＝心臓が激しく鼓動する（ビビって心臓が飛び出そうになる）、②当時爆発的に流行していた<strong class="text-[var(--c-text)]">Reebok Pump</strong>（かかと部分のポンプで内側の空気圧を調整できるスニーカー）を「pumpin'（膨らませる）」という動作で表現している。</p>
+        <p>「Big Lの前に立つとラッパーたちの心臓はReebokみたいにドクドクする」と読めるし、「Reebokのエアポンプを膨らませるみたいにずっとラッパーたちを不安にさせ続ける」とも読める。</p>
+        <p>固有名詞（ブランド名）を動詞・形容詞的に使いきってパンチラインに仕立てるのはヒップホップ特有のレトリックで、90年代NYには特に多い。こういう二重読みが1行に当然のように入ってくるのがBig Lのスタイルです。</p>
         <Fragment slot="usage">
-          <p><strong class="text-[var(--c-text)]">like</strong> を使った比喩（直喩）は英語で最も基本的な比喩の形。<code>A keeps B pumpin' like C</code> の構造で「CのようにBをpumpin'させ続ける」という因果関係を簡潔に表現する。ラップでは音節数を合わせながら情報量を詰めるために、<em>like + 固有名詞</em> の形が多用される。Reebok Pumpのような時代のアイコンを差し込むことで、当時のリスナーは瞬時にビジュアルを思い浮かべられた。</p>
+          <p><strong class="text-[var(--c-text)]">like</strong> を使った比喩（直喩）は英語で最も基本的な比喩の形。<code>A keeps B pumpin' like C</code> の構造で「CのようにBをpumpin'させ続ける」という因果関係を簡潔に表現する。</p>
+          <p>ラップでは音節数を合わせながら情報量を詰めるために、<em>like + 固有名詞</em> の形が多用される。Reebok Pumpのような時代のアイコンを差し込むことで、当時のリスナーは瞬時にビジュアルを思い浮かべられた。</p>
         </Fragment>
       </LearningUnit>
 
@@ -142,10 +152,13 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <Fragment slot="eng">Got thirty-five <QuickSlang word="bodies" desc="ストリートスラングで「殺した人数」を指す。警察用語のhomicide（殺人件数）をインフォーマルに言い換えたもの" />, buddy, don't make it thirty-six</Fragment>
         <Fragment slot="jpn">もう35人の（殺しの）実績がある。相棒、36人目にさせるなよ</Fragment>
         <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の終盤近く、Big Lがストリートでの凄みを語る件。</p>
-        <p>一行まるごとが学習ポイントです。「Got thirty-five <strong class="text-[var(--c-text)]">bodies</strong>」。この <strong class="text-[var(--c-text)]">bodies</strong> は「死体の数」、つまりストリートスラングで「殺した件数」を指します。警察の捜査用語 <em>body count</em>（死者数）から派生して、ヒップホップ・ストリート文化に転用された語。</p>
-        <p>で、ここが面白くて、これをそのまま「35人殺した」と字義通りに受け取るのか、誇張（ハイパーボール）のパンチラインとして「それほど手強い」という自己主張として受け取るのかは、リスナーに委ねられている。Big Lのリリックはこの種の「事実か誇張か」の境界線上で凄む表現が多い。後半「don't make it thirty-six」は相手に向けた警告で、<em>buddy</em>（相棒）という皮肉な呼びかけが不気味さを増幅させます。</p>
+        <p>一行まるごとが学習ポイントです。「Got thirty-five <strong class="text-[var(--c-text)]">bodies</strong>」。この <strong class="text-[var(--c-text)]">bodies</strong> は「死体の数」、つまりストリートスラングで「殺した件数」を指します。</p>
+        <p>警察の捜査用語 <em>body count</em>（死者数）から派生して、ヒップホップ・ストリート文化に転用された語。</p>
+        <p>で、ここが面白くて、これをそのまま「35人殺した」と字義通りに受け取るのか、誇張（ハイパーボール）のパンチラインとして「それほど手強い」という自己主張として受け取るのかは、リスナーに委ねられている。</p>
+        <p>Big Lのリリックはこの種の「事実か誇張か」の境界線上で凄む表現が多い。後半「don't make it thirty-six」は相手に向けた警告で、<em>buddy</em>（相棒）という皮肉な呼びかけが不気味さを増幅させます。</p>
         <Fragment slot="usage">
-          <p><strong class="text-[var(--c-text)]">bodies</strong> の用法はヒップホップ文脈では複数の使い方がある。① <em>got bodies</em>＝殺しの実績がある、② <em>body someone</em>（動詞）＝殺す、③ <em>body a track</em>（動詞）＝曲を圧倒的に制する。この曲では①の用法。同じ語が「死体・実績・支配」と文脈次第で意味を変えるので、どの用法かは前後の文脈で判断する。<em>buddy</em> は通常「友達・相棒」だが、警告や脅しの文脈ではむしろ皮肉的なニュアンスになる点も押さえておきたい。</p>
+          <p><strong class="text-[var(--c-text)]">bodies</strong> の用法はヒップホップ文脈では複数の使い方がある。① <em>got bodies</em>＝殺しの実績がある、② <em>body someone</em>（動詞）＝殺す、③ <em>body a track</em>（動詞）＝曲を圧倒的に制する。この曲では①の用法。</p>
+          <p>同じ語が「死体・実績・支配」と文脈次第で意味を変えるので、どの用法かは前後の文脈で判断する。<em>buddy</em> は通常「友達・相棒」だが、警告や脅しの文脈ではむしろ皮肉的なニュアンスになる点も押さえておきたい。</p>
         </Fragment>
       </LearningUnit>
 
@@ -161,9 +174,11 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <Fragment slot="jpn">本当のことを言う——マイクを引き裂くほどの勢いでやって見せる</Fragment>
         <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の最後の行、曲タイトルが初めて登場する場所。</p>
         <p>上の行の末尾、「…when I <strong class="text-[var(--c-text)]">put it on</strong>」。これが曲タイトルの正体です。<strong class="text-[var(--c-text)]">put it on</strong> は辞書的には「着る・のせる」ですが、ここでは全然違う。①自分のスキルをフルに発揮する、②地元（ハーレム）を代表する・背負う、③ステージや曲でやり遂げる、この3つが重なっているイディオムです。</p>
-        <p>「Word is born」は「Word is bond（言葉は絆・本当のことだ）」の変形で、「これは本当の話」という宣誓の間投詞。「I leave mics torn」は「マイクをボロボロにするほど激しくラップする」というラップ文化特有のハイパーボール。パフォーマーとしての自信を、「マイクを引き裂く」という暴力的なイメージで表現するのはNYハードコアヒップホップらしい語法です。</p>
+        <p>「Word is born」は「Word is bond（言葉は絆・本当のことだ）」の変形で、「これは本当の話」という宣誓の間投詞。「I leave mics torn」は「マイクをボロボロにするほど激しくラップする」というラップ文化特有のハイパーボール。</p>
+        <p>パフォーマーとしての自信を、「マイクを引き裂く」という暴力的なイメージで表現するのはNYハードコアヒップホップらしい語法です。</p>
         <Fragment slot="usage">
-          <p><strong class="text-[var(--c-text)]">put it on</strong>（イディオム）は文脈によって大きく意味が変わる句動詞。一般的には「着る（put on a coat）」「上演する（put on a show）」だが、ヒップホップでは「全力でやる・代表する」の意で使われる。<em>put it on for my city</em>（地元のために全力を尽くす）のように、<em>for + 場所/人</em> を続けることが多い。<em>Word is bond</em>（→ <em>Word is born</em>）は「本当に・誓う」という強調の間投詞で、会話やラップで発言の正直さを保証するために添える。</p>
+          <p><strong class="text-[var(--c-text)]">put it on</strong>（イディオム）は文脈によって大きく意味が変わる句動詞。一般的には「着る（put on a coat）」「上演する（put on a show）」だが、ヒップホップでは「全力でやる・代表する」の意で使われる。</p>
+          <p><em>put it on for my city</em>（地元のために全力を尽くす）のように、<em>for + 場所/人</em> を続けることが多い。<em>Word is bond</em>（→ <em>Word is born</em>）は「本当に・誓う」という強調の間投詞で、会話やラップで発言の正直さを保証するために添える。</p>
         </Fragment>
       </LearningUnit>
 
@@ -179,9 +194,11 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <Fragment slot="jpn">可愛い女を口説くのも得意だし、ショットガンを撃つのも辞さない</Fragment>
         <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の序盤、Big Lが自分のキャラクターの二面性を一行で提示する件。</p>
         <p>上の一行、まず音から追ってください。<strong class="text-[var(--c-text)]">gas a hottie / blast a shotty</strong>。<em>hottie</em> と <em>shotty</em> が行の中で韻を踏んでいる。これが<strong class="text-[var(--c-text)]">内部韻（internal rhyme）</strong>と呼ばれる技法で、行末だけでなく行の途中でも韻を仕込むことで、1行が2倍のリズムを持つ。</p>
-        <p>意味的にも面白い対比になっている。<strong class="text-[var(--c-text)]">gas</strong>（甘い言葉で口説く・持ち上げる）というソフトな行為と、<strong class="text-[var(--c-text)]">blast a shotty</strong>（ショットガンを撃つ）という暴力的な行為が、同じ一行に並ぶ。女性には優しく、敵には容赦ないというBig Lのキャラクターの両面を、音の心地よさに乗せて提示するわけです。対比する2つの要素を内部韻で繋ぐのはBig Lが得意とする技法で、この曲全体に散らばっています。</p>
+        <p>意味的にも面白い対比になっている。<strong class="text-[var(--c-text)]">gas</strong>（甘い言葉で口説く・持ち上げる）というソフトな行為と、<strong class="text-[var(--c-text)]">blast a shotty</strong>（ショットガンを撃つ）という暴力的な行為が、同じ一行に並ぶ。</p>
+        <p>女性には優しく、敵には容赦ないというBig Lのキャラクターの両面を、音の心地よさに乗せて提示するわけです。対比する2つの要素を内部韻で繋ぐのはBig Lが得意とする技法で、この曲全体に散らばっています。</p>
         <Fragment slot="usage">
-          <p><strong class="text-[var(--c-text)]">gas</strong> は動詞で「お世辞を言う・持ち上げる・おだてる」。<em>stop gassing me up</em>（おだてるのをやめろ）のように使う。名詞では <em>that's gas</em>（最高だ）とポジティブな評価でも使われる（英国・ニュージーランド系スラングと別系統）。<strong class="text-[var(--c-text)]">shotty</strong> は <em>shotgun</em> の短縮形。<em>call shotty</em>（助手席を呼ぶ）という全く別の使い方もあるので文脈を要確認。<em>blast</em> は「撃つ・爆発させる・大音量で鳴らす」の多義語で、<em>blast someone</em>＝撃つ、<em>blast music</em>＝爆音で流す。</p>
+          <p><strong class="text-[var(--c-text)]">gas</strong> は動詞で「お世辞を言う・持ち上げる・おだてる」。<em>stop gassing me up</em>（おだてるのをやめろ）のように使う。名詞では <em>that's gas</em>（最高だ）とポジティブな評価でも使われる（英国・ニュージーランド系スラングと別系統）。</p>
+          <p><strong class="text-[var(--c-text)]">shotty</strong> は <em>shotgun</em> の短縮形。<em>call shotty</em>（助手席を呼ぶ）という全く別の使い方もあるので文脈を要確認。<em>blast</em> は「撃つ・爆発させる・大音量で鳴らす」の多義語で、<em>blast someone</em>＝撃つ、<em>blast music</em>＝爆音で流す。</p>
         </Fragment>
       </LearningUnit>
 
@@ -196,10 +213,13 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <Fragment slot="eng">'Cause I'm a <QuickSlang word="money getter" desc="金を稼ぐ者。ストリートやビジネスで利益を上げる人を指すフレーズ" />, also a <QuickSlang word="honey hitter" desc="魅力的な女性（honey）に対してアプローチする者。「hitter」は積極的に動く人" /></Fragment>
         <Fragment slot="jpn">なぜなら俺は稼ぐ男でもあり、女の落とし方も知っている</Fragment>
         <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2中盤、Big Lが自分の二面性を多音節韻で畳みかける件。</p>
-        <p>この一行はBig Lの韻の構築を理解するのに最適な例です。「<strong class="text-[var(--c-text)]">money getter</strong>」と「<strong class="text-[var(--c-text)]">honey hitter</strong>」。発音を並べると <em>mún-ee-gét-er</em> / <em>hún-ee-hít-er</em>。最初の音節 <strong class="text-[var(--c-text)]">money/honey</strong> が「マネー/ハネー」で韻を踏み、さらに <strong class="text-[var(--c-text)]">getter/hitter</strong> も「ゲター/ヒター」で踏む。これが<strong class="text-[var(--c-text)]">マルチシラブル・ライム（多音節韻）</strong>の典型例で、単語単体ではなく複数音節にまたがって韻を組む技法です。</p>
-        <p>意味の対応も綺麗で、<em>money</em>（金）と <em>honey</em>（女性への愛称）が対になり、<em>getter</em>（稼ぐ者）と <em>hitter</em>（アプローチする者）が対応する。音と意味の両方が整合している、だから気持ちがいいんです。Big Lはこういう「音の一致と意味の対応が同時に成立する」ライムをどこかで必ず仕込んでくる。この曲を繰り返し聴くと、その感覚が耳に染み込んできます。</p>
+        <p>この一行はBig Lの韻の構築を理解するのに最適な例です。「<strong class="text-[var(--c-text)]">money getter</strong>」と「<strong class="text-[var(--c-text)]">honey hitter</strong>」。発音を並べると <em>mún-ee-gét-er</em> / <em>hún-ee-hít-er</em>。</p>
+        <p>最初の音節 <strong class="text-[var(--c-text)]">money/honey</strong> が「マネー/ハネー」で韻を踏み、さらに <strong class="text-[var(--c-text)]">getter/hitter</strong> も「ゲター/ヒター」で踏む。これが<strong class="text-[var(--c-text)]">マルチシラブル・ライム（多音節韻）</strong>の典型例で、単語単体ではなく複数音節にまたがって韻を組む技法です。</p>
+        <p>意味の対応も綺麗で、<em>money</em>（金）と <em>honey</em>（女性への愛称）が対になり、<em>getter</em>（稼ぐ者）と <em>hitter</em>（アプローチする者）が対応する。音と意味の両方が整合している、だから気持ちがいいんです。</p>
+        <p>Big Lはこういう「音の一致と意味の対応が同時に成立する」ライムをどこかで必ず仕込んでくる。この曲を繰り返し聴くと、その感覚が耳に染み込んできます。</p>
         <Fragment slot="usage">
-          <p><strong class="text-[var(--c-text)]">多音節韻（multisyllabic rhyme）</strong>とは、2音節以上の対応を使って韻を踏む技法。単音節の <em>cat / bat</em> よりも複雑で、ラッパーの語彙力と音の設計力が問われる。<em>money getter / honey hitter</em> はパーフェクトライム（完全韻）と呼ばれる類で、アクセントのある音節から後の音がすべて一致している。90年代NYのラッパー（Big L、Nas、Big Pun等）はこの技法を競うように使い込んでいた。<em>honey</em> は「甘い・愛しい」から転じて魅力的な女性を指す愛称。</p>
+          <p><strong class="text-[var(--c-text)]">多音節韻（multisyllabic rhyme）</strong>とは、2音節以上の対応を使って韻を踏む技法。単音節の <em>cat / bat</em> よりも複雑で、ラッパーの語彙力と音の設計力が問われる。</p>
+          <p><em>money getter / honey hitter</em> はパーフェクトライム（完全韻）と呼ばれる類で、アクセントのある音節から後の音がすべて一致している。90年代NYのラッパー（Big L、Nas、Big Pun等）はこの技法を競うように使い込んでいた。<em>honey</em> は「甘い・愛しい」から転じて魅力的な女性を指す愛称。</p>
         </Fragment>
       </LearningUnit>
 
@@ -215,9 +235,12 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <Fragment slot="jpn">夜明けまでぶっ続けで暴れ続ける（圧倒的なパフォーマンスを見せ続ける）</Fragment>
         <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の最後の前の行、Verse 2の締めに向けて畳みかける場面。</p>
         <p>行の冒頭近く、「I'm <strong class="text-[var(--c-text)]">catchin' wreck</strong> to the break of dawn」。この <strong class="text-[var(--c-text)]">catchin' wreck</strong> が学習ポイント。<em>wreck</em> は「残骸・破壊」ですが、ここでは「ラップで圧倒的なパフォーマンスを繰り広げ、場を完全に制圧すること」を指すヒップホップ固有のイディオムです。</p>
-        <p>「to the break of dawn」は「夜明けまで」。徹夜で続けるというニュアンスの決まり文句。元はパーティカルチャー（夜明けまで踊り続ける）の語彙がラップに取り込まれた表現で、大げさにやり続けるという誇示を込めている。全体で「夜が明けるまでずっと場を制圧し続ける」。これでVerse 2を締めて、次はコーラスへ入る流れ。Verse 2全体のテンポと密度を考えると、この一行がクールダウンを拒否する勢いで機能していてかっこいいんです。</p>
+        <p>「to the break of dawn」は「夜明けまで」。徹夜で続けるというニュアンスの決まり文句。元はパーティカルチャー（夜明けまで踊り続ける）の語彙がラップに取り込まれた表現で、大げさにやり続けるという誇示を込めている。</p>
+        <p>全体で「夜が明けるまでずっと場を制圧し続ける」。これでVerse 2を締めて、次はコーラスへ入る流れ。</p>
+        <p>Verse 2全体のテンポと密度を考えると、この一行がクールダウンを拒否する勢いで機能していてかっこいいんです。</p>
         <Fragment slot="usage">
-          <p><strong class="text-[var(--c-text)]">catch wreck</strong>（イディオム）は「ラップで暴れる・圧倒的な力を見せる」。<em>wreck</em>（残骸・廃墟）を「引き起こす」ことから「場を荒らすほどの勢いでパフォーマンスする」に転じた。<em>catch</em> は句動詞的に使われており、<em>catch wreck</em> で一つのイディオムとして機能する。<em>to the break of dawn</em>（夜明けまで）は度量の大きさ・しぶとさを表す慣用句。パーティ文化由来で「夜明けまで続ける」から「徹底的に・とことん」の意に広がった。</p>
+          <p><strong class="text-[var(--c-text)]">catch wreck</strong>（イディオム）は「ラップで暴れる・圧倒的な力を見せる」。<em>wreck</em>（残骸・廃墟）を「引き起こす」ことから「場を荒らすほどの勢いでパフォーマンスする」に転じた。</p>
+          <p><em>catch</em> は句動詞的に使われており、<em>catch wreck</em> で一つのイディオムとして機能する。<em>to the break of dawn</em>（夜明けまで）は度量の大きさ・しぶとさを表す慣用句。パーティ文化由来で「夜明けまで続ける」から「徹底的に・とことん」の意に広がった。</p>
         </Fragment>
       </LearningUnit>
 
@@ -234,9 +257,11 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <p class="text-xs text-[var(--c-dim)] mb-1">▶ コーラスとVerse 3のあいだ、Major ChubbyがBridgeで登場する場面。</p>
         <p>Bridgeを担当するMajor Chubbyの言葉を聴くと、Big Lのリリックとは明らかに語法が違うことに気づく。「<strong class="text-[var(--c-text)]">gwan</strong> dead」「<strong class="text-[var(--c-text)]">fi</strong> joke」「<strong class="text-[var(--c-text)]">provoke</strong>」。これはジャマイカの<strong class="text-[var(--c-text)]">パトワ語（Patois）</strong>、つまりジャマイカ・クレオール語です。</p>
         <p><strong class="text-[var(--c-text)]">gwan</strong> は <em>going to</em> の短縮形。「you gwan dead」＝「you're going to die（死ぬことになる）」という意味。<strong class="text-[var(--c-text)]">fi</strong>（目的語を導く前置詞・「〜のために・〜として」）は英語の <em>for / to</em> に近い機能語。「take me fi joke」＝「俺を冗談だと思っている」という意味になる。</p>
-        <p>ニューヨークのヒップホップにカリブ系移民のリリシストが参加してくるのは珍しくなく、それぞれの言語背景がそのまま作品に出る。異なる英語変種（AAVE・パトワ語）が一曲の中に共存しているのは、NYという多文化都市の縮図でもあります。このBridgeがあることで、Big Lのヴァースの英語がより「標準的」に聞こえるという逆説的な効果もある。</p>
+        <p>ニューヨークのヒップホップにカリブ系移民のリリシストが参加してくるのは珍しくなく、それぞれの言語背景がそのまま作品に出る。異なる英語変種（AAVE・パトワ語）が一曲の中に共存しているのは、NYという多文化都市の縮図でもあります。</p>
+        <p>このBridgeがあることで、Big Lのヴァースの英語がより「標準的」に聞こえるという逆説的な効果もある。</p>
         <Fragment slot="usage">
-          <p>ジャマイカ・<strong class="text-[var(--c-text)]">パトワ語</strong>は英語を基盤に西アフリカ語・スペイン語・ポルトガル語が混ざったクレオール語。<em>gwan</em>（going to）、<em>fi</em>（for/to）、<em>mi</em>（I/me）、<em>ting</em>（thing）などが代表的な語彙。1990年代のNYには多くのジャマイカ系住民がいて、パトワ語の語彙はAAVEと相互に影響を与えてきた。<em>batty</em>（臀部）、<em>irie</em>（いい感じ）などはパトワ語由来でAAVEにも定着した語の例。クレオール語とは、異なる言語集団が接触した際に生まれた混成言語のこと。</p>
+          <p>ジャマイカ・<strong class="text-[var(--c-text)]">パトワ語</strong>は英語を基盤に西アフリカ語・スペイン語・ポルトガル語が混ざったクレオール語。<em>gwan</em>（going to）、<em>fi</em>（for/to）、<em>mi</em>（I/me）、<em>ting</em>（thing）などが代表的な語彙。</p>
+          <p>1990年代のNYには多くのジャマイカ系住民がいて、パトワ語の語彙はAAVEと相互に影響を与えてきた。<em>batty</em>（臀部）、<em>irie</em>（いい感じ）などはパトワ語由来でAAVEにも定着した語の例。クレオール語とは、異なる言語集団が接触した際に生まれた混成言語のこと。</p>
         </Fragment>
       </LearningUnit>
 
@@ -252,9 +277,12 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <Fragment slot="jpn">コーンブレッドを砕くようにマイクを砕く、お前には俺を殺せない——俺は生まれながらに死んでいたんだから</Fragment>
         <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3中盤、バトルへの挑発が最高潮に達する一行。</p>
         <p>この一行を聴くと少し止まって考えてしまう。「I smash mics like <strong class="text-[var(--c-text)]">cornbread</strong>」。コーンブレッドは崩れやすいパンなので「マイクをコーンブレッドを砕くように叩き壊す」という直喩（ライムを踏むために選ばれた比喩）。そして「you can't kill me, I was <strong class="text-[var(--c-text)]">born dead</strong>」、これが本命のパンチラインです。</p>
-        <p>「生まれながらに死んでいた」という矛盾した表現は<strong class="text-[var(--c-text)]">オキシモロン（撞着語法）</strong>と呼ばれる修辞技法。「死を恐れない・無敵だ」という意味を逆説で表現している。「お前は俺を殺せない、なぜなら俺はもう死んでいるから」。殺人の脅しに対して論理的に反論を封じてしまうパンチライン。<em>cornbread</em> と <em>born dead</em> の韻もよく効いていて、「コーンブレッド / ボーン・デッド」の音の近さが、行全体に心地よいリズムを与えている。</p>
+        <p>「生まれながらに死んでいた」という矛盾した表現は<strong class="text-[var(--c-text)]">オキシモロン（撞着語法）</strong>と呼ばれる修辞技法。「死を恐れない・無敵だ」という意味を逆説で表現している。</p>
+        <p>「お前は俺を殺せない、なぜなら俺はもう死んでいるから」。殺人の脅しに対して論理的に反論を封じてしまうパンチライン。</p>
+        <p><em>cornbread</em> と <em>born dead</em> の韻もよく効いていて、「コーンブレッド / ボーン・デッド」の音の近さが、行全体に心地よいリズムを与えている。</p>
         <Fragment slot="usage">
-          <p><strong class="text-[var(--c-text)]">オキシモロン（oxymoron）</strong>は相矛盾する概念を組み合わせた修辞技法。<em>living dead（生ける屍）</em>、<em>deafening silence（沈黙の轟音）</em>、<em>bitter sweet（苦くて甘い）</em>などが英語の典型例。ラップでは「論理的には不可能なことを主張する」ことで不死身・無敵の誇示に使われることが多い。<em>I was born dead</em> のパターンは後続のラッパーにも引用・変形された。<em>smash mics</em> はラップのパフォーマンスを「マイクを砕く」という暴力的イメージで表現する定型フレーズで、Big Lに限らず90年代NYのラッパーが多用した。</p>
+          <p><strong class="text-[var(--c-text)]">オキシモロン（oxymoron）</strong>は相矛盾する概念を組み合わせた修辞技法。<em>living dead（生ける屍）</em>、<em>deafening silence（沈黙の轟音）</em>、<em>bitter sweet（苦くて甘い）</em>などが英語の典型例。</p>
+          <p>ラップでは「論理的には不可能なことを主張する」ことで不死身・無敵の誇示に使われることが多い。<em>I was born dead</em> のパターンは後続のラッパーにも引用・変形された。<em>smash mics</em> はラップのパフォーマンスを「マイクを砕く」という暴力的イメージで表現する定型フレーズで、Big Lに限らず90年代NYのラッパーが多用した。</p>
         </Fragment>
       </LearningUnit>
 
@@ -269,10 +297,13 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <Fragment slot="eng">I run with <QuickSlang word="ill" desc="①ヒップホップでは「スキルが高い・やばい（ポジティブ）」②「危険・凶暴」の両義で使われる。文脈で判断" /> kids and real nigs who <QuickSlang word="peel wigs" desc="頭を撃ち抜く（かつらを剥がす）というヴィジュアルメタファー。「kill」の婉曲表現" /></Fragment>
         <Fragment slot="jpn">俺がつるんでいるのは、ヤバいやつらと、かつらを剥がすような（頭を吹っ飛ばす）本物たち</Fragment>
         <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3後半、Big Lがクルーの凄みを語る件。</p>
-        <p>行末、「…real nigs who <strong class="text-[var(--c-text)]">peel wigs</strong>」の <strong class="text-[var(--c-text)]">peel wigs</strong> が学習ポイント。<em>peel</em> は「皮を剥く」、<em>wig</em> は「かつら（頭部）」。合わせると「かつらを剥がす＝頭を撃ち抜く・殺す」というヴィジュアルメタファーです。殺すという行為を直接表現せずに、画像として間接的に表現するこの種の婉曲語法は、ヒップホップのリリックに頻繁に登場します。</p>
-        <p>行の前半 <strong class="text-[var(--c-text)]">ill kids</strong> の <strong class="text-[var(--c-text)]">ill</strong> は、90年代NYヒップホップで「スキルが高い・やばい（良い意味）」と「危険・凶暴」の両方に使える形容詞。「sick」も同様の多義性を持つ語で、英語の「病気・悪い」が「すごい・最高」に意味が転倒するヒップホップ特有の価値観の表れです。この行は音の面でも、<em>ill / real / peel</em> の「イル・リル・ピール」という音の連鎖が心地よい。</p>
+        <p>行末、「…real nigs who <strong class="text-[var(--c-text)]">peel wigs</strong>」の <strong class="text-[var(--c-text)]">peel wigs</strong> が学習ポイント。<em>peel</em> は「皮を剥く」、<em>wig</em> は「かつら（頭部）」。合わせると「かつらを剥がす＝頭を撃ち抜く・殺す」というヴィジュアルメタファーです。</p>
+        <p>殺すという行為を直接表現せずに、画像として間接的に表現するこの種の婉曲語法は、ヒップホップのリリックに頻繁に登場します。</p>
+        <p>行の前半 <strong class="text-[var(--c-text)]">ill kids</strong> の <strong class="text-[var(--c-text)]">ill</strong> は、90年代NYヒップホップで「スキルが高い・やばい（良い意味）」と「危険・凶暴」の両方に使える形容詞。「sick」も同様の多義性を持つ語で、英語の「病気・悪い」が「すごい・最高」に意味が転倒するヒップホップ特有の価値観の表れです。</p>
+        <p>この行は音の面でも、<em>ill / real / peel</em> の「イル・リル・ピール」という音の連鎖が心地よい。</p>
         <Fragment slot="usage">
-          <p><strong class="text-[var(--c-text)]">peel wigs</strong> 以外にも、銃撃を視覚的に表現するスラングはいくつかある。<em>split your wig</em>（頭を割る）、<em>cap someone</em>（銃で撃つ）、<em>wet someone up</em>（血で濡らす＝撃ちまくる）など。いずれも直接的な「kill / shoot」を避けて映像的な言い換えにする点が共通。<strong class="text-[var(--c-text)]">ill</strong> はNYヒップホップを理解する上で外せない形容詞で、「病的なほど素晴らしい」という誇張から「最高」「凄い」のポジティブな意味で定着した。<em>that's ill</em>（最高だ）のように使う。</p>
+          <p><strong class="text-[var(--c-text)]">peel wigs</strong> 以外にも、銃撃を視覚的に表現するスラングはいくつかある。<em>split your wig</em>（頭を割る）、<em>cap someone</em>（銃で撃つ）、<em>wet someone up</em>（血で濡らす＝撃ちまくる）など。いずれも直接的な「kill / shoot」を避けて映像的な言い換えにする点が共通。</p>
+          <p><strong class="text-[var(--c-text)]">ill</strong> はNYヒップホップを理解する上で外せない形容詞で、「病的なほど素晴らしい」という誇張から「最高」「凄い」のポジティブな意味で定着した。<em>that's ill</em>（最高だ）のように使う。</p>
         </Fragment>
       </LearningUnit>
 
@@ -288,10 +319,13 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <Fragment slot="jpn">Lord Finesse（あいつはやってる）/ 俺の仲間Buckwild（あいつはずっとやってる）/ D.I.T.C.全員（そう、あいつら全員やってる）</Fragment>
         <p class="text-xs text-[var(--c-dim)] mb-1">▶ 曲の最後、アウトロのシャウトアウト（呼びかけ・挨拶）。</p>
         <p>アウトロでBig LとKid Capriが交互に呼びかけるのが<strong class="text-[var(--c-text)]">シャウトアウト（shout-out）</strong>。ヒップホップで仲間や恩人に感謝や敬意を表す口頭の挨拶です。ここで名前が挙がるのは Lord Finesse、Buckwild、Fat Joe、Showbiz & A.G.、Diamond D、Kid Capri、そして「The whole D.I.T.C.」。</p>
-        <p>これがただのお礼ではなく、<strong class="text-[var(--c-text)]">D.I.T.C.（Diggin' In The Crates Crew）</strong>というクルーの存在宣言でもある。1990年代前半にNYで結成されたこのクルーは、ジャズ・ソウルレコードを深く掘り（Diggin' In The Crates）、サンプリングベースのヒップホップを制作するプロデューサー・MCたちの集まり。Big Lはこのクルーに所属して活動を本格化させた。この曲のプロデューサーBuckwildもD.I.T.C.の一員だから、アウトロは制作チーム全員へのクレジットであり、ハーレム〜ブロンクス周辺のシーンへの宣戦布告でもある。</p>
-        <p>「he be puttin' it on」の <strong class="text-[var(--c-text)]">be</strong> はAAVEの<strong class="text-[var(--c-text)]">習慣的be（habitual be）</strong>。「常にそれをしている・いつもそうだ」という反復・習慣の意味を持つAAVE固有の文法で、標準英語にはないニュアンス。「he is puttin' it on（今やってる）」とは違い、「あいつはいつでも全力でやってる」という継続的な評価を表す。</p>
+        <p>これがただのお礼ではなく、<strong class="text-[var(--c-text)]">D.I.T.C.（Diggin' In The Crates Crew）</strong>というクルーの存在宣言でもある。1990年代前半にNYで結成されたこのクルーは、ジャズ・ソウルレコードを深く掘り（Diggin' In The Crates）、サンプリングベースのヒップホップを制作するプロデューサー・MCたちの集まり。</p>
+        <p>Big Lはこのクルーに所属して活動を本格化させた。この曲のプロデューサーBuckwildもD.I.T.C.の一員だから、アウトロは制作チーム全員へのクレジットであり、ハーレム〜ブロンクス周辺のシーンへの宣戦布告でもある。</p>
+        <p>「he be puttin' it on」の <strong class="text-[var(--c-text)]">be</strong> はAAVEの<strong class="text-[var(--c-text)]">習慣的be（habitual be）</strong>。「常にそれをしている・いつもそうだ」という反復・習慣の意味を持つAAVE固有の文法で、標準英語にはないニュアンス。</p>
+        <p>「he is puttin' it on（今やってる）」とは違い、「あいつはいつでも全力でやってる」という継続的な評価を表す。</p>
         <Fragment slot="usage">
-          <p><strong class="text-[var(--c-text)]">習慣的be（habitual be / invariant be）</strong>はAAVEの代表的な文法現象。<em>She be working late</em>（彼女はいつも遅くまで働いている）のように、現在進行形ではなく「いつもそうしている」という習慣・傾向を表す。主語の人称にかかわらず <em>be</em> の形が変わらないのが特徴（三単現の -s が付かない）。このルールを知っていると、ラップで <em>he/she/they be doing</em> という形を聞いたとき、即座に「それが習慣的な行動の描写だ」と理解できる。<strong class="text-[var(--c-text)]">shout-out</strong>（シャウトアウト）は、曲中・ライブで特定の個人・グループ・場所に感謝や敬意を贈る口頭のクレジット。ヒップホップ文化に深く根付いた慣習で、アウトロで使われることが多い。</p>
+          <p><strong class="text-[var(--c-text)]">習慣的be（habitual be / invariant be）</strong>はAAVEの代表的な文法現象。<em>She be working late</em>（彼女はいつも遅くまで働いている）のように、現在進行形ではなく「いつもそうしている」という習慣・傾向を表す。主語の人称にかかわらず <em>be</em> の形が変わらないのが特徴（三単現の -s が付かない）。</p>
+          <p>このルールを知っていると、ラップで <em>he/she/they be doing</em> という形を聞いたとき、即座に「それが習慣的な行動の描写だ」と理解できる。<strong class="text-[var(--c-text)]">shout-out</strong>（シャウトアウト）は、曲中・ライブで特定の個人・グループ・場所に感謝や敬意を贈る口頭のクレジット。ヒップホップ文化に深く根付いた慣習で、アウトロで使われることが多い。</p>
         </Fragment>
       </LearningUnit>
     </section>
@@ -309,13 +343,13 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <h3 class="font-semibold text-base mb-3">140丁目付近で育ったリリシスト</h3>
         <div class="space-y-3 text-[var(--c-muted)] text-sm leading-relaxed">
           <p>
-            Big L（本名Lamont Coleman、1974年〜1999年）はマンハッタン・ハーレムの出身。クイーンズブリッジのNas、スタテンアイランドのWu-Tang、サウスブロンクスのKRS-Oneが代表する各地のカラーとは別に、ハーレムはこの時代まだ全米的な「顔」を持つラッパーを輩出できていなかった。
+            Big L（本名Lamont Coleman、1974年〜1999年）はマンハッタン・ハーレムの出身です。クイーンズブリッジのNas、スタテンアイランドのWu-Tang、サウスブロンクスのKRS-Oneが代表する各地のカラーとは別に、ハーレムはこの時代まだ全米的な「顔」を持つラッパーを輩出できていませんでした。
           </p>
           <p>
-            Big Lはその空白を埋める存在として出てきた人物で、「Put It On」はその宣言だった。歌詞の端々に「Harlem」という地名が出てくるのはただの帰属意識の表れだけじゃなく、「ここもNYの正統なヒップホップの産地だ」という主張でもある。
+            Big Lはその空白を埋める存在として出てきた人物で、「Put It On」はその宣言でした。歌詞の端々に「Harlem」という地名が出てくるのはただの帰属意識の表れだけじゃなく、「ここもNYの正統なヒップホップの産地だ」という主張でもあります。
           </p>
           <p>
-            Verse 3で「'cause I be hangin' in Harlem and s**t is for real here」と言い切るのは、そういう文脈で聴くとより鮮明に聞こえる。
+            Verse 3で「'cause I be hangin' in Harlem and s**t is for real here」と言い切るのは、そういう文脈で聴くとより鮮明に聞こえてきます。
           </p>
         </div>
       </div>
@@ -325,13 +359,13 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <h3 class="font-semibold text-base mb-3">「どこで笑わせるか」を設計するラッパー</h3>
         <div class="space-y-3 text-[var(--c-muted)] text-sm leading-relaxed">
           <p>
-            Big Lのリリックスタイルは、比較的シンプルなフロウの中に密度高くパンチラインを詰める作り。同世代のNasが物語性と情景描写で評価されたのに対して、Big Lは「聴いた瞬間にニヤッとさせる」という瞬発力で際立っていた。
+            Big Lのリリックスタイルは、比較的シンプルなフロウの中に密度高くパンチラインを詰める作りです。同世代のNasが物語性と情景描写で評価されたのに対して、Big Lは「聴いた瞬間にニヤッとさせる」という瞬発力で際立っていました。
           </p>
           <p>
             「Got thirty-five bodies, buddy, don't make it thirty-six」「I got girls that make that chick Toni Braxton look like Whoopi」。こういう、勢いがあって笑えてかつ凄みもある、というバランス感覚がBig Lの持ち味です。
           </p>
           <p>
-            Jay-Zとのフリースタイルバトルが今も語り継がれるのも、その瞬発力がバトルという形式と抜群に相性が良かったから。
+            Jay-Zとのフリースタイルバトルが今も語り継がれるのも、その瞬発力がバトルという形式と抜群に相性が良かったからだと思います。
           </p>
         </div>
       </div>
@@ -377,7 +411,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
             「Put It On」のビートを作ったのはBuckwild。D.I.T.C.（Diggin' In The Crates）のメンバーで、ジャズ・ファンク・ソウルのレコードを掘り起こしてサンプリングするスタイルが特徴のプロデューサーです。
           </p>
           <p>
-            のちにKool G Rapとの「Fast Life」（1995年、Nasが参加）や多くのNY産クラシックを手がけ、ビートメイカーとしての地位を確立していく。Big Lとは同じD.I.T.C.クルーのメンバーとして、この曲の時期から連携していた。
+            のちにKool G Rapとの「Fast Life」（1995年、Nasが参加）や多くのNY産クラシックを手がけ、ビートメイカーとして名を上げていきます。Big Lとは同じD.I.T.C.クルーのメンバーとして、この曲の時期から連携していました。
           </p>
           <p>
             アウトロのシャウトアウトにBuckwildの名前が出てくるのは、そういう関係性の表れです。
@@ -393,10 +427,13 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
             ビートの土台はふたつのサンプルで組まれています。ベースラインは<strong class="text-[var(--c-text)]">Buster Williams "Vibrations"（1976年、アルバム『Crystal Reflections』収録）</strong>から。Buster Williamsはニューヨーク出身のジャズベーシストで、Herbie HancockやStan Getzのバンドにも参加した人物。
           </p>
           <p>
-            そのジャジーで重いベースが、Big Lのリリックの重さを底から支えています。ドラムは<strong class="text-[var(--c-text)]">Skull Snaps "It's a New Day"（1973年）</strong>のブレイクを使用。
+            そのジャジーで重いベースが、Big Lのリリックの重さを底から支えています。ドラムは<strong class="text-[var(--c-text)]">Skull Snaps "It's a New Day"（1973年）</strong>のブレイクを使っています。
           </p>
           <p>
-            Skull Snapsのドラムブレイクはヒップホップ黎明期から繰り返しサンプリングされ続けているソースのひとつで、このパリッとした音質が90年代NYのヒップホップビートの顔になった。BuckwildがD.I.T.C.スタイルでレコードを掘り、この組み合わせを見つけ出した。ジャズのベースと70年代ファンクのドラムが、1994年のハーレムで新しい形で鳴り直す。
+            Skull Snapsのドラムブレイクはヒップホップ黎明期から繰り返しサンプリングされ続けているソースのひとつで、このパリッとした音質が90年代NYのヒップホップビートの顔になりました。BuckwildがD.I.T.C.スタイルでレコードを掘り、この組み合わせを見つけ出した。
+          </p>
+          <p>
+            ジャズのベースと70年代ファンクのドラムが、1994年のハーレムで新しい形で鳴り直す。
           </p>
           <p>
             そういう掘り下げ方が「Diggin' In The Crates」という名前の意味するものだと思います。
@@ -418,13 +455,13 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <h3 class="font-semibold text-base mb-3">「Put It On」から5年間の軌跡</h3>
         <div class="space-y-3 text-[var(--c-muted)] text-sm leading-relaxed">
           <p>
-            「Put It On」でデビューし、1995年に『Lifestylez ov da Poor & Dangerous』を発表したBig Lは、その後もフリースタイルバトルやシングルでスキルを示し続けた。
+            「Put It On」でデビューし、1995年に『Lifestylez ov da Poor & Dangerous』を発表したBig Lは、その後もフリースタイルバトルやシングルでスキルを示し続けました。
           </p>
           <p>
             1998年発表の「Ebonics」はニューヨークのストリートスラングを辞書化するという独創的なアプローチで話題を呼び、今もヒップホップの語学教材として参照されています。
           </p>
           <p>
-            しかし1999年2月、ハーレムの路上で銃撃を受け24歳で死去。死後に発表された『The Big Picture』（2000年）が遺作となった。
+            しかし1999年2月、ハーレムの路上で銃撃を受け24歳で死去。死後に発表された『The Big Picture』（2000年）が遺作となりました。
           </p>
           <p>
             もし生きていたらどこまで行ったか、という問いはいまだに答えが出ない。同世代のJay-ZやNasが20年以上かけて積み上げた仕事と、Big Lの5年間を並べると、その密度のちがいと早逝の理不尽さを改めて感じます。
@@ -440,10 +477,13 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
             Big Lのリリックが今もMCの教材として引用されるのは、パンチラインの構造が解剖しやすいからだと思っています。ダブルミーニング・内部韻・多音節韻がどこで使われているか、一行ずつ追うとはっきり分かる。
           </p>
           <p>
-            Nasの物語詩やRaekwonの情景描写とは別のアプローチで、「1行に何を詰めるか」を徹底した人だった。
+            Nasの物語詩やRaekwonの情景描写とは別のアプローチで、「1行に何を詰めるか」を徹底した人でした。
           </p>
           <p>
-            日本のヒップホップシーンでも、ラップを始める人間が「まず聴くべき一枚」として『Lifestylez ov da Poor & Dangerous』が挙げられることは珍しくない。スラングや文化背景を知らなくても、韻とパンチラインの面白さはリズムとして身体に届く。そういう普遍性がこの曲には最初から入っていた気がします。
+            日本のヒップホップシーンでも、ラップを始める人間が「まず聴くべき一枚」として『Lifestylez ov da Poor & Dangerous』が挙げられることは珍しくない。スラングや文化背景を知らなくても、韻とパンチラインの面白さはリズムとして身体に届く。
+          </p>
+          <p>
+            そういう普遍性がこの曲には最初から入っていた気がします。
           </p>
         </div>
       </div>
