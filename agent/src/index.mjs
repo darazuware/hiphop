@@ -38,7 +38,7 @@ const ROOT = join(__dirname, '../..');
 const MENU_TEXT =
   `📋 *コマンド一覧*\n\n` +
   `🎵 \`/song Artist - Song [Year]\` → 曲記事を自動生成\n` +
-  `📝 \`修正依頼 <曲名>\` → 既存曲を三稿制で自動仕上げ: nas-is-like基調の文体・1〜2文改行・内部リンク・unit上限まで増強（例: \`修正依頼 put it on\`）\n` +
+  `📝 \`修正依頼 <曲名>\` / \`記事修正 <曲名>\` → 既存曲を三稿制で自動仕上げ: nas-is-like基調の文体・1〜2文改行・内部リンク・unit上限まで増強（例: \`修正依頼 put it on\`）\n` +
   `🛠️ 任意のテキスト → 任意のタスクを実行（例: \`put-it-onのジャケットを直して\`）\n` +
   `   ↳ 続けて送ると前回の文脈を引き継ぎます。\`/new\` で新しいスレッド\n` +
   `🎬 \`/short <slug>\` → ショート動画を生成\n` +
@@ -449,9 +449,9 @@ async function main() {
           continue;
         }
 
-        // 修正依頼 <曲名> → 既存曲の文体・改行・内部リンク修正（決定的パイプライン）
-        if (text.trim().startsWith('修正依頼')) {
-          const query = text.replace(/^修正依頼\s*/, '').trim();
+        // 修正依頼/記事修正 <曲名> → 既存曲の文体・改行・内部リンク修正（決定的パイプライン）
+        if (/^(修正依頼|記事修正)/.test(text.trim())) {
+          const query = text.trim().replace(/^(修正依頼|記事修正)[\s　]*/, '').trim();
           if (query) {
             handleToneFixCommand(query, chatId).catch((error) => {
               console.error(`修正依頼処理エラー: ${error.message}`);
