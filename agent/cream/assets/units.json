@@ -1,161 +1,28 @@
 [
-  {
-    "id": "crime-side",
-    "anchor": [
-      "i",
-      "grew",
-      "up",
-      "on",
-      "the"
-    ],
-    "fallbackT": 23,
-    "manualSec": 23
-  },
-  {
-    "id": "lo-goose",
-    "anchor": [
-      "a",
-      "young",
-      "youth"
-    ],
-    "fallbackT": 33,
-    "manualSec": 35
-  },
-  {
-    "id": "g-off",
-    "anchor": [
-      "only",
-      "way",
-      "i",
-      "begin",
-      "to"
-    ],
-    "fallbackT": 41,
-    "manualSec": 37
-  },
-  {
-    "id": "runnin-up-gates",
-    "anchor": [
-      "runnin",
-      "up",
-      "in",
-      "gates"
-    ],
-    "fallbackT": 55,
-    "manualSec": 49
-  },
-  {
-    "id": "keys-seas",
-    "anchor": [
-      "catchin",
-      "keys",
-      "from",
-      "across"
-    ],
-    "fallbackT": 81,
-    "manualSec": 76
-  },
-  {
-    "id": "tec-9",
-    "anchor": [
-      "respect",
-      "mine",
-      "or",
-      "anger"
-    ],
-    "fallbackT": 87,
-    "manualSec": 83
-  },
-  {
-    "id": "cream-hook",
-    "anchor": [
-      "cash",
-      "rules",
-      "everything",
-      "around"
-    ],
-    "fallbackT": 92,
-    "manualSec": 86
-  },
-  {
-    "id": "could-not-touch",
-    "anchor": [
-      "trying",
-      "to",
-      "get",
-      "a",
-      "clutch"
-    ],
-    "fallbackT": 121,
-    "manualSec": 116
-  },
-  {
-    "id": "world-cell",
-    "anchor": [
-      "living",
-      "in",
-      "the",
-      "world",
-      "no"
-    ],
-    "fallbackT": 137,
-    "manualSec": 132
-  },
-  {
-    "id": "jakes-base",
-    "anchor": [
-      "every",
-      "day",
-      "i",
-      "escape",
-      "from"
-    ],
-    "fallbackT": 139,
-    "manualSec": 135
-  },
-  {
-    "id": "old-earth",
-    "anchor": [
-      "ready",
-      "to",
-      "give",
-      "up",
-      "so"
-    ],
-    "fallbackT": 153,
-    "manualSec": 149
-  },
-  {
-    "id": "stickup-kids",
-    "anchor": [
-      "we",
-      "got",
-      "stick"
-    ],
-    "fallbackT": 160,
-    "manualSec": 156
-  },
-  {
-    "id": "livin-proof",
-    "anchor": [
-      "leave",
-      "it",
-      "up",
-      "to",
-      "me"
-    ],
-    "fallbackT": 165,
-    "manualSec": 161
-  },
-  {
-    "id": "kick-truth",
-    "anchor": [
-      "to",
-      "kick",
-      "the",
-      "truth"
-    ],
-    "fallbackT": 164,
-    "manualSec": 163
-  }
+  { "id": "intro-vendor", "anchor": ["two", "for", "five"], "fallbackT": 5, "manualSec": null },
+  { "id": "crime-side", "anchor": ["i", "grew", "up", "on", "the"], "fallbackT": 23, "manualSec": 23 },
+  { "id": "no-jive", "anchor": ["stayin", "alive", "was", "no"], "fallbackT": 27, "manualSec": null },
+  { "id": "lo-goose", "anchor": ["a", "young", "youth"], "fallbackT": 33, "manualSec": 35 },
+  { "id": "gold-tooth", "anchor": ["rockin", "the", "gold", "tooth"], "fallbackT": 35, "manualSec": null },
+  { "id": "shaolin-land", "anchor": ["so", "then", "we", "moved"], "fallbackT": 36, "manualSec": null },
+  { "id": "g-off", "anchor": ["only", "way", "i", "begin", "to"], "fallbackT": 41, "manualSec": 37 },
+  { "id": "runnin-up-gates", "anchor": ["runnin", "up", "in", "gates"], "fallbackT": 55, "manualSec": 49 },
+  { "id": "keys-seas", "anchor": ["catchin", "keys", "from", "across"], "fallbackT": 81, "manualSec": 76 },
+  { "id": "mpv-forty-g", "anchor": ["rollin", "in", "mpv"], "fallbackT": 79, "manualSec": null },
+  { "id": "tec-9", "anchor": ["respect", "mine", "or", "anger"], "fallbackT": 87, "manualSec": 83 },
+  { "id": "cream-hook", "anchor": ["cash", "rules", "everything", "around"], "fallbackT": 92, "manualSec": 86 },
+  { "id": "could-not-touch", "anchor": ["trying", "to", "get", "a", "clutch"], "fallbackT": 121, "manualSec": 116 },
+  { "id": "shorty-life", "anchor": ["as", "a", "shorty"], "fallbackT": 118, "manualSec": null },
+  { "id": "fifteen-bagged", "anchor": ["at", "the", "age", "of", "fifteen"], "fallbackT": 120, "manualSec": null },
+  { "id": "world-cell", "anchor": ["living", "in", "the", "world", "no"], "fallbackT": 137, "manualSec": 132 },
+  { "id": "life-is-hell", "anchor": ["i", "learned", "life", "is", "hell"], "fallbackT": 133, "manualSec": null },
+  { "id": "jakes-base", "anchor": ["every", "day", "i", "escape", "from"], "fallbackT": 139, "manualSec": 135 },
+  { "id": "whats-it-worth", "anchor": ["and", "i", "ask", "whats"], "fallbackT": 147, "manualSec": null },
+  { "id": "old-earth", "anchor": ["ready", "to", "give", "up", "so"], "fallbackT": 153, "manualSec": 149 },
+  { "id": "bones-staircase", "anchor": ["smokin", "bones", "in", "the"], "fallbackT": 138, "manualSec": null },
+  { "id": "stickup-kids", "anchor": ["we", "got", "stick"], "fallbackT": 160, "manualSec": 156 },
+  { "id": "livin-proof", "anchor": ["leave", "it", "up", "to", "me"], "fallbackT": 165, "manualSec": 161 },
+  { "id": "kick-truth", "anchor": ["to", "kick", "the", "truth"], "fallbackT": 164, "manualSec": 163 },
+  { "id": "chop-term", "anchor": ["chop"], "fallbackT": 175, "manualSec": null },
+  { "id": "dollar-outro", "anchor": ["dollar", "dollar", "bill", "yall"], "fallbackT": 185, "manualSec": null }
 ]

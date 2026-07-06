@@ -161,6 +161,19 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         各見出しは「この曲から学べる英語表現」。各ユニットはまず上に英語の用例（1〜2行）を置いてあります。<strong class="text-[var(--c-text)]">先に英語を音で追い、行のどこが学習対象かを確かめてから</strong>下の日本語解説に進むと、英語が苦手でも置いていかれません。
       </p>
 
+      <!-- ⓪ intro dialogue -->
+      <LearningUnit
+        heading="Two for five — 路上相場の呼び声から始まる"
+        label="★ スラング／導入"
+        mc="Raekwon &amp; Method Man（Intro）"
+        t={TS["intro-vendor"].t} tApprox={TS["intro-vendor"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 曲のいちばん最初、バースが始まる前の路上の掛け合い。ここは語だけ取り出します。</p>
+        <p>曲はラップではなく、路上の呼び声から幕を開けます。ここで飛び交うのが <strong class="text-[var(--c-text)]">two for five</strong>（2個で5ドル）という言い回し。数字＋for＋数字で「いくつでいくら」を示す、露店や街角の売り買いでそのまま使う口語です。ここでは売られているのが日用品ではなく、ドラッグだというのがミソです。</p>
+        <p>相場の呼び声をそのまま曲頭に置くことで、これから語られる世界の温度が、歌詞が始まる前にもう決まってしまいます。「舞台は路上、通貨はドラッグ」という前提を、説明ぬきで耳に刷り込む導入になっています。掛け合いの主はRaekwonとMethod Man、この二人がバースとフックの担い手なので、声の顔ぶれの予告にもなっています。</p>
+      </LearningUnit>
+
       <!-- ① crime side / New York Times side -->
       <LearningUnit
         heading="crime side / New York Times side — 同音をぶつける言葉遊び"
@@ -175,6 +188,23 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <p>まず上の一行を音で追ってみると、鍵は行の前半 <strong class="text-[var(--c-text)]">crime side</strong>（犯罪多発地域）と後半 <strong class="text-[var(--c-text)]">Times side</strong>、ここで同じ「- side」の音が返ってくるのに気づきます。冒頭の一行にもう脚韻が仕込まれているんです。</p>
         <p>そのうえ後半の <strong class="text-[var(--c-text)]">New York Times</strong> が「権威ある新聞」と「自分の街＝ニューヨーク」のダブルミーニング。つまり「育った場所は、事件として新聞の三面記事に載るような街だった」を、固有名詞ひとつにギュッと畳んでいる。</p>
         <p><code>- side</code> を韻の軸に据えるこの作り、まず音から入ると一気に腑に落ちます。</p>
+      </LearningUnit>
+
+      <!-- ①b no jive -->
+      <LearningUnit
+        heading="Stayin' alive was no jive — 「マジな話」を意味する no jive"
+        label="★ イディオム／韻"
+        mc="Raekwon（Verse 1）"
+        t={TS["no-jive"].t} tApprox={TS["no-jive"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ ①「crime side」の直後、Verse 1の2行目。前のユニットで引いた行なので、ここは語だけ取り出します。</p>
+        <p>ユニット①で引いた行の後半、<strong class="text-[var(--c-text)]">was no jive</strong> が今回の学習ポイント。<strong class="text-[var(--c-text)]">jive</strong> はもともと「でたらめ・ふざけた話」を指す黒人英語の古い語で、<code>no jive</code> で「冗談ごとじゃない・マジな話」という意味になります。「生き延びることは、ちっとも軽い話じゃなかった」というわけです。</p>
+        <p>音のうえでも <code>alive / jive</code> で脚韻を踏んでいて、意味と韻が同時に決まっている。jive は1970年代のスラング（映画やソウルの歌詞で有名）で、90年代のバースにこの古語が自然に出てくるあたり、ストリート英語が世代を越えて受け継がれているのだと分かります。<code>no 〜</code> で名詞を否定して「〜なんかじゃない」と言い切る形は、口語で幅広く使えます。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">jive</strong> は名詞・形容詞で「でたらめ（な）」。<em>Don't give me that jive</em>（たわ言はやめろ）、<em>a jive story</em>（いいかげんな話）のように使う。<code>no jive</code> は「本気だ・ウソじゃない」と念押しする決まり文句。</p>
+          <p>同系の口語に <em>no joke</em>（冗談抜き）、<em>for real</em>（マジで）がある。jive はやや古風で、レトロな響きを出したいときに効く。</p>
+        </Fragment>
       </LearningUnit>
 
       <!-- ② 'Lo goose -->
@@ -197,6 +227,32 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
           <p>例: <em>rock a gold chain</em>（金のチェーンをキメる）、<em>rock those sneakers</em>（あのスニーカーを履きこなす）。進行形 <code>rockin'</code> で「今まさに着こなしている」状態を表す。</p>
           <p>ブランド名を短縮した <strong class="text-[var(--c-text)]">'Lo</strong>（＝Polo）のように、ヒップホップでは固有名詞を切り詰めてスラング化するのが定石。リスナーが元を補完できる前提で、語感とリズムを優先して縮める。</p>
         </Fragment>
+      </LearningUnit>
+
+      <!-- ②a gold tooth -->
+      <LearningUnit
+        heading="rockin' the gold tooth — 貧しさの中の見栄というアイテム"
+        label="★ スラング／文化"
+        mc="Raekwon（Verse 1）"
+        t={TS["gold-tooth"].t} tApprox={TS["gold-tooth"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ ②「'Lo goose」と同じ行の前半。少年時代の身なりを描く件。前ユニットで引いた行なので語だけ取り出します。</p>
+        <p>ユニット②で引いた行、その前半に出てくる <strong class="text-[var(--c-text)]">gold tooth</strong>（金歯）が今回の学習ポイント。文字どおり金でできた差し歯・被せ歯のことで、<code>rockin' the gold tooth</code> で「金歯を光らせている」。②で見た動詞 <strong class="text-[var(--c-text)]">rock</strong>（かっこよく身につける）が、ここでも効いています。</p>
+        <p>金歯は、当時のインナーシティで<strong class="text-[var(--c-text)]">「持たざる者のジュエリー」</strong>のような意味を持っていました。高価な宝石は買えなくても、口元に金を仕込むことで富の記号をまとえます。'Lo goose（ポロのダウン）と並べて置かれることで、貧しさの中でこそステータスに執着する感覚が、身なりの描写だけで立ち上がってきます。モノを列挙するだけで人物の背景を語る、ヒップホップの人物描写の基本形です。</p>
+      </LearningUnit>
+
+      <!-- ②b Shaolin land -->
+      <LearningUnit
+        heading="moved to Shaolin land — 地名を神話に変える"
+        label="★ スラング（地域語）"
+        mc="Raekwon（Verse 1）"
+        t={TS["shaolin-land"].t} tApprox={TS["shaolin-land"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1前半、②「'Lo goose」の少し手前で出てくる地名。語だけ取り出します。</p>
+        <p>Raekwonは自分が移り住んだ土地を <strong class="text-[var(--c-text)]">Shaolin land</strong> と呼びます。学習ポイントはこの <strong class="text-[var(--c-text)]">Shaolin</strong>。地図上のどこにも「シャオリン」という街はありません。これはWu-Tang Clanが自分たちの地元スタテンアイランドに付けた<strong class="text-[var(--c-text)]">符牒（あだ名としての地名）</strong>です。</p>
+        <p>カンフー映画の聖地・少林寺（Shaolin）を、麻薬と暴力の島に重ねる。過酷な現実の街を、武術修行の霊山として読み替えてしまう発想が、この一語に詰まっています。固有名詞を知らないと字面では追えないけれど、背景が分かった瞬間に世界観が立ち上がります。スラングが地図であると同時に神話にもなる好例です（島の孤立とこの呼称の由来は「文化的背景」でもう少し掘ります）。</p>
       </LearningUnit>
 
       <!-- ③ G off -->
@@ -258,6 +314,23 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <p>過酷な過去から合法的成功へ、その転換点を、語の多義性だけで描いてしまう。一行でこれをやられると、正直かなわないなと思う。</p>
       </LearningUnit>
 
+      <!-- ⑤b MPV / forty G's -->
+      <LearningUnit
+        heading="every week we made forty G's — G＝grand（千ドル）の数え方"
+        label="★ スラング（金）"
+        mc="Raekwon（Verse 1）"
+        t={TS["mpv-forty-g"].t} tApprox={TS["mpv-forty-g"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ ⑤「keys / seas」のすぐ次の行。稼ぎの額を口にする件。金の語彙ものなので語だけ取り出します。</p>
+        <p>密輸の稼ぎを語るこの件で、Raekwonは金額を <strong class="text-[var(--c-text)]">forty G's</strong> と言います。学習ポイントはこの <strong class="text-[var(--c-text)]">G</strong>。ここでのGは <strong class="text-[var(--c-text)]">grand＝1,000ドル</strong>の頭文字で、forty G's なら「4万ドル」。それを毎週（every week）稼いでいた、という一行です。</p>
+        <p>金額を Gで数えるのはヒップホップの定番で、五十音でいう「万」の感覚に近い。ユニット③の「G off」でGが grand の意味も背負っていたのと、ここでちゃんと呼応しています。ちなみに同じ行に出てくる <strong class="text-[var(--c-text)]">MPV</strong> はミニバンの車種名。派手なスポーツカーではなく実用車を挙げるあたりに、見栄よりも運び屋としての現実味がにじみます。これだけ稼いでも暮らしは楽にならない、という次の展開への布石にもなっています。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">G</strong> は <em>grand</em>（1,000ドル）の略で、複数形は <em>G's</em>。<em>ten G's</em>（1万ドル）、<em>a hundred G's</em>（10万ドル）のように数える。<em>grand</em> 自体も <em>five grand</em> のようにそのまま使える。</p>
+          <p>同じGでも文脈で意味が変わる語で、呼びかけの <em>What's good, G?</em> なら「相棒・仲間」の意（gangsta / homeboy 由来）。金額の話か呼びかけかは、前後で見分ける。</p>
+        </Fragment>
+      </LearningUnit>
+
       <!-- ⑥ here go the TEC-9 -->
       <LearningUnit
         heading="here go the TEC-9 — AAVEの提示構文「here go」"
@@ -311,6 +384,36 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <p>行頭近くの <code>get a clutch at ~</code>（必死に掴もうとする）という言い回しも覚えておきたい。ミスがそのままいちばんの名場面になってしまうあたり、この時代のヒップホップはやっぱり面白い。</p>
       </LearningUnit>
 
+      <!-- ⑧b life as a shorty -->
+      <LearningUnit
+        heading="shorty — 子ども時代を指すNYのストリート語"
+        label="★ スラング（地域語）"
+        mc="Inspectah Deck（Verse 2）"
+        t={TS["shorty-life"].t} tApprox={TS["shorty-life"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2序盤、Deckが自分の生い立ちを振り返り始める件。語だけ取り出します。</p>
+        <p>Deckが自分の幼少期を語るときに使うのが <strong class="text-[var(--c-text)]">shorty</strong> です。学習ポイントはこの一語。short（背が低い）から来たスラングで、もともとは<strong class="text-[var(--c-text)]">「背の低い者＝子ども」</strong>を指します。ここでは「子どもの頃の俺」というニュアンス。</p>
+        <p>面白いのは、この語が文脈で意味を変えること。子どもを指すこともあれば、後年のヒップホップでは「若い女性・彼女」への呼びかけ（Hey shorty）にもなる。ニューヨークのストリート語として長く生き残ってきた多義語です。ここでは、まだ何も持たない「shorty」だった頃から絶望が始まっていた、という時間の起点を置く役割を担っています。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">shorty</strong>（<em>shawty</em> とも綴る）は文脈で(1)子ども・年下、(2)若い女性・恋人、の二つに大きく振れる。<em>when I was a shorty</em> なら前者、<em>What's up, shorty?</em> なら後者。</p>
+          <p>南部ヒップホップでは <em>shawty</em> の綴りで「相棒・お前」くらいの軽い呼びかけにも広がりました。どの意味かは相手・場面で判断します。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑧c fifteen / bagged -->
+      <LearningUnit
+        heading="at the age of fifteen — 数字が語る収監の早さ"
+        label="★ 表現／時代背景"
+        mc="Inspectah Deck（Verse 2）"
+        t={TS["fifteen-bagged"].t} tApprox={TS["fifteen-bagged"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2序盤、Deckが人生の転落点を年齢で刻む件。語だけ取り出します。</p>
+        <p>Deckは自分が捕まった時期を <strong class="text-[var(--c-text)]">at the age of fifteen</strong>（15歳のとき）と、はっきり数字で置きます。学習ポイントは、この<strong class="text-[var(--c-text)]">具体的な年齢の効かせ方</strong>。抽象的に「若くして」と言うのではなく「15」と刻むことで、投獄がどれほど早く訪れたかが一撃で伝わります。</p>
+        <p>ストーリー欄で触れた「15歳での投獄」の出どころは、ここです。まだ子ども（前のユニットの shorty）だった者が、15で塀の中へ。数字ひとつが、失われた時間の重さを物語ります。事実を淡々と置くだけで感情を動かす、ドキュメンタリーのような書き方がこのVerse 2の持ち味です。</p>
+      </LearningUnit>
+
       <!-- ⑨ world no different from a cell -->
       <LearningUnit
         heading="the world no different from a cell — 比喩で社会構造を一言で射る"
@@ -331,6 +434,19 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
           <p>使い分けの目安: 省略できるのは<strong class="text-[var(--c-text)]">現在形</strong>で、標準英語なら短縮形（'s / 're）になる位置。過去形 was/were や、文末で強調する位置（例: <em>Yes he is</em>）は省略しない。</p>
           <p>この規則性を知ると、聞き取り時に「動詞が抜けている＝AAVEの現在形」と即座に補完できる。</p>
         </Fragment>
+      </LearningUnit>
+
+      <!-- ⑨b life is hell -->
+      <LearningUnit
+        heading="life is hell — 断定を支える AAVE の時制感覚"
+        label="★ AAVE文法／表現"
+        mc="Inspectah Deck（Verse 2）"
+        t={TS["life-is-hell"].t} tApprox={TS["life-is-hell"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ ⑨「world / cell」と同じ件の前半。世界観を一言で言い切る件。語だけ取り出します。</p>
+        <p>ユニット⑨で見た「独房と変わらない世界」の直前で、Deckは <strong class="text-[var(--c-text)]">life is hell</strong>（人生は地獄だ）と言い切ります。学習ポイントは、この<strong class="text-[var(--c-text)]">現在形の断定</strong>。過去の一時期の話ではなく、<code>is</code> を使うことで「今も、いつも地獄だ」という<strong class="text-[var(--c-text)]">恒常的な状態</strong>として置いています。</p>
+        <p><code>learned life is hell</code>（人生は地獄だと学んだ）という形で、<strong class="text-[var(--c-text)]">learn that 〜 の that が省かれている</strong>のも口語らしいところ。標準英語なら <em>learned that life is hell</em> ですが、話し言葉では that はよく落ちます。難しい語をひとつも使わずに、現在形と接続詞の省略だけで「これは一時の不幸ではなく常態だ」という諦めの深さを出している。文法の選択がそのまま感情の温度になる一行です。</p>
       </LearningUnit>
 
       <!-- ⑩ Jakes / base -->
@@ -354,6 +470,32 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
           <p>地域スラングの使い分けも重要: 同じ「警察」でもニューヨークでは <strong class="text-[var(--c-text)]">Jakes</strong>、ロサンゼルスでは <em>one-time</em>、他にも <em>5-0（five-oh）</em> など呼称が街ごとに違う。</p>
           <p>どの語が出るかで、語り手がどの土地の人間かが分かる。スラングは話者の出自を示す地図でもある。</p>
         </Fragment>
+      </LearningUnit>
+
+      <!-- ⑩a bones / staircase -->
+      <LearningUnit
+        heading="smokin' bones in the staircase — 「bones」が意味するもの"
+        label="★ スラング（地域語）"
+        mc="Inspectah Deck（Verse 2）"
+        t={TS["bones-staircase"].t} tApprox={TS["bones-staircase"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ ⑩「Jakes / base」と同じ件の行末。日々の光景を描くもう一語。語だけ取り出します。</p>
+        <p>密売と逃走を描くこの件の締めに出てくるのが <strong class="text-[var(--c-text)]">bones</strong> です。学習ポイントはこの一語。骨のことではなく、ここでは <strong class="text-[var(--c-text)]">巻いたジョイント（マリファナ煙草）</strong>を指すスラング。<code>smokin' bones</code> で「ジョイントをふかす」。</p>
+        <p>そしてその場所が <strong class="text-[var(--c-text)]">staircase</strong>（団地の階段）だというのが効いています。公営団地（projects）の吹きさらしの階段は、行き場のない若者のたまり場そのもの。特別な事件ではなく、階段でただ煙をくゆらせる日常の一コマを置くことで、出口のなさがかえって濃く出ます。地名も小道具もすべて団地の現実に根ざしていて、抽象的な貧困論とは温度が違います。</p>
+      </LearningUnit>
+
+      <!-- ⑩b what's it worth -->
+      <LearningUnit
+        heading="What's it worth? — 富を積んだ末の反語"
+        label="★ 表現／テーマ"
+        mc="Inspectah Deck（Verse 2）"
+        t={TS["whats-it-worth"].t} tApprox={TS["whats-it-worth"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ ⑪「Old Earth」と同じ件の直前、Deckが自問する件。前ユニットで引く行と続きなので語だけ取り出します。</p>
+        <p>母（Old Earth）に救いを求める直前、Deckは <strong class="text-[var(--c-text)]">What's it worth?</strong>（これに何の意味がある？）と自らに問いかけます。学習ポイントは、この<strong class="text-[var(--c-text)]">反語（レトリカル・クエスチョン）</strong>。答えを求めているのではなく、「たいした意味なんてない」という諦めを、あえて問いの形で置いている。</p>
+        <p>面白いのは、この問いがVerse 1のRaekwonやフックのGet the moneyと<strong class="text-[var(--c-text)]">正面から衝突する</strong>ところ。曲の前半で積み上げてきた「金がすべて」という価値観に、Verse 2の当事者が「その金に何の意味がある」と疑問符を突きつけます。同じ曲の中で主張と反問がぶつかり、拝金の讃歌が生きるための悲鳴へと反転していく。その転回点になる、小さいけれど重い一言です。</p>
       </LearningUnit>
 
       <!-- ⑪ Old Earth -->
@@ -427,6 +569,34 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <Fragment slot="usage">
           <p><code>kick the truth</code> は「真実を勢いよく投げかける／説く」のヒップホップ定型句。<code>kick a rhyme / kick knowledge / kick a verse</code> と同系で、<code>kick</code>＝言葉を放つ動詞として機能する。日常英語の「蹴る」とは別の用法です。</p>
         </Fragment>
+      </LearningUnit>
+
+      <!-- ⑭b chop / production term -->
+      <LearningUnit
+        heading="chop — サンプリングを語るための一語"
+        label="★ 用語（制作）"
+        mc="RZA（Production）"
+        t={TS["chop-term"].t} tApprox={TS["chop-term"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 歌詞ではなくトラックの話。ビートを語るときに必ず出てくる基本用語を1つ。</p>
+        <p>ここは歌詞から少し離れて、このビートを語るための言葉をひとつ。<strong class="text-[var(--c-text)]"><QuickSlang word="chop" desc="サンプリングで、元のレコードの一節を短く切り出して並べ替える手法。chop（刻む）が動詞。RZAやDJ Premierの代名詞的技法" /></strong>（チョップ＝刻む）です。RZAは The Charmels の哀愁ピアノを、そのまま流すのではなく短く切り出して組み直しています。この「切って並べ替える」動作を英語で <code>chop</code> と呼びます。</p>
+        <p>ヒップホップのビートを英語で語ると、<code>chop the sample</code>（サンプルを刻む）、<code>flip it</code>（別物に作り変える）、<code>loop</code>（繰り返す）あたりが基本動詞。この曲のトラックは、原曲のもの悲しさを<strong class="text-[var(--c-text)]">刻んで</strong>ループにしたことで、リリックの絶望と溶け合っています。歌詞のスラングだけでなく、制作を語る語彙も一緒に押さえておくと、洋楽ヒップホップの記事やインタビューがぐっと読みやすくなります（The Charmels のサンプルとRZAの手法は「文化的背景」でもう少し掘ります）。</p>
+      </LearningUnit>
+
+      <!-- ⑮ Dollar dollar bill y'all outro -->
+      <LearningUnit
+        heading="Dollar, dollar bill, y'all — 反復が呪文になるアウトロ"
+        label="★ フック／構成"
+        mc="Method Man（Outro）"
+        t={TS["dollar-outro"].t} tApprox={TS["dollar-outro"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Cash rules everything around me / C.R.E.A.M. / Get the money / Dollar, dollar bill, y'all</Fragment>
+        <Fragment slot="jpn">金が俺の周りのすべてを支配する／C.R.E.A.M.／金を手に入れろ／ドル札だ、お前ら</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の絶望を語り終えた直後、フックが繰り返されながら曲がフェードアウトしていくアウトロ。</p>
+        <p>アウトロで注目したいのは <strong class="text-[var(--c-text)]">Dollar, dollar bill, y'all</strong> の<strong class="text-[var(--c-text)]">反復</strong>そのものです。ユニット⑦で見たとおり、このフレーズはJimmy Spicerの1983年「Money (Dollar Bill Y'all)」を引いたもの。ここでは意味を進めるのではなく、同じ言葉が呪文のように繰り返されて曲が閉じていきます。</p>
+        <p>面白いのは、<code>Get the money</code>（金を手に入れろ）という号令が、Verse 2の「出口のない街」を通過した後だと、まったく違って響くこと。景気のいい掛け声のはずが、「そうしなければ生き残れない」という強迫に聴こえてきます。同じ一言でも、置かれる場所で意味が反転してしまう。この曲がずっとやってきたことを、最後にもう一度だけ、フェードアウトしながら念押ししている終わり方です。</p>
       </LearningUnit>
 
       <!-- 時間軸マーカー: 3:00(180s)で締めのフック反復が始まる（PV/Apple Music実測）。
