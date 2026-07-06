@@ -239,6 +239,65 @@ ${instruction}
   };
 }
 
+/**
+ * 「修正依頼 <曲名>」専用の決定的パイプライン。
+ * 自由指示（runFreeform）は依頼文をClaudeの解釈に委ねるため、毎回やることが揺れる
+ * （文体は直すが改行整形や内部リンク確認が抜ける、check-article完走前にcommitする等）。
+ * ここでは既存曲のトーン修正で必ずやる3点（文体・改行・内部リンク）と
+ * 検証ゲート（check-tone-only→check-article全✅）・push・notify-review を固定手順として渡す。
+ * @param {string} query 曲名・アーティスト名・slugのいずれか（部分一致で特定させる）
+ * @returns {Promise<{ success: boolean, output: string, error: string|null }>}
+ */
+export async function runToneFix(query, resumeId = null) {
+  const ts = Date.now();
+  const promptFile = `/tmp/hiphop-prompt-${ts}.txt`;
+  const triggerFile = `/tmp/hiphop-trigger-${ts}.txt`;
+  const doneFile = `/tmp/hiphop-done-${ts}.txt`;
+
+  const prompt = `あなたは WAX&THINK（Astro製のhiphop解説サイト。リポジトリ直下 ${HIPHOP_CWD} で作業）の運営補助です。既存の曲記事1本のトーン修正依頼を、承認を求めず全自動で最後までやり切ってください。
+
+## 依頼対象の特定
+「${query}」に該当する曲ページ（src/pages/songs/*.astro）を src/data/songs.ts から特定する（slug・曲名・アーティスト名のいずれかで部分一致検索）。複数候補があれば最も一致度が高い1件を選ぶ。該当が無ければ何も変更せず、SUMMARYに「該当曲が見つかりません: ${query}」とだけ書いて終了する。
+
+## 着手前に必ず Read する
+- CLAUDE.md
+- docs/article-tone.md
+
+## 実施内容（この3点を必ず全部行う。事実・見出し・英語引用(eng/jpn slot)の内容は変更しない）
+1. **文体修正**: docs/article-tone.md の基準（敬体基調＋常体スパイス／評論家ヅラ・AI臭禁止語ゼロ／読者への命令形「〜てください」「声に出して」禁止／ダッシュ—–―禁止）に日本語解説文を合わせる。\`node agent/src/check-tone-only.mjs <slug>\` を実行し、❌が消えるまで直す（⚠は許容）。
+2. **改行整形**: 長い日本語解説の <p> を、1〜2文（意味のまとまり単位）ごとに <p> を分割する。1つの<p>に3文以上詰め込まない。
+3. **内部リンク**: 曲中の重要スラングが src/data/slang.ts に未登録なら追加してQuickSlangの詳細リンクを有効化する。記事末の関連記事はSongLayoutの自動生成に任せ、本文に手書きの関連記事リンクを新設しない。
+
+## 検証ゲート（必須・全部✅になるまでcommitしない）
+\`node agent/src/check-article.mjs <slug>\` を実行し、❌が1つでも残っていたら修正して再実行する（[LNK]はサイト全体を見るため、自分の変更と無関係な既存デッドリンクが出た場合もついでに直す）。
+
+## ルール
+- 事実（年・客演・サンプル・アルバム等）は一切変更しない。文体・改行・内部リンクのみを触る。
+- 変更を加えたら必ず \`npm run build\` を実行しビルドが通ることを確認する。
+- 自分が変更したファイルだけを \`git add <ファイルパス>\`（明示列挙）→ \`git commit\`。\`git add .\` \`git add -A\` は絶対に使わない。
+- \`main\` へは絶対にpushしない。作業は常に \`review\` ブランチ（このworktree自体がreview用）。
+- commit後、必ず \`git push origin review\` → 続けて \`node agent/src/notify-review.mjs <slug>\`（特定した実際のslugを使う）を実行する。これがレビュー依頼通知になる。
+- 歌詞本文などセンシティブな内容はレスポンスに出力しない。
+- 最後に必ず \`SUMMARY: <要約>\` を日本語で出力する。①特定した曲(slug)②check-tone-only/check-articleの結果（❌が何個から何個になったか）③push・notify-reviewの実行有無、を具体的に書く。「完了」「対応しました」等の中身の無い一言は禁止。`;
+
+  await writeFile(promptFile, prompt, 'utf-8');
+
+  // watcherが動いていなければTerminalで自動起動
+  await ensureWatcher();
+
+  // triggerにfreeformモードを指定（watcherが記事後処理をスキップし、上記手順にすべて任せる）
+  await writeFile(triggerFile, JSON.stringify({ promptFile, mode: 'freeform', resumeId }), 'utf-8');
+  console.log(`  [Claude] 修正依頼を watcher に委譲... (query: ${query})`);
+
+  const result = await waitForDone(doneFile);
+  return {
+    success: result.exitCode === 0,
+    output: result.summary || '',
+    sessionId: result.sessionId || null,
+    error: result.error || (result.exitCode === 0 ? null : `exit ${result.exitCode}`),
+  };
+}
+
 function sleep(ms) {
   return new Promise(r => setTimeout(r, ms));
 }

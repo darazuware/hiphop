@@ -29,7 +29,7 @@ import { execSync } from 'node:child_process';
 import { getUpdates, sendMessage, parseMessage } from './telegram.mjs';
 import { fetchLyrics } from './genius.mjs';
 import { processAndDeploy } from './processor.mjs';
-import { runFreeform } from './claude.mjs';
+import { runFreeform, runToneFix } from './claude.mjs';
 import { deriveSlug, inspectExistingSong, buildConversionData } from './existing-song.mjs';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '../..');
@@ -38,6 +38,7 @@ const ROOT = join(__dirname, '../..');
 const MENU_TEXT =
   `📋 *コマンド一覧*\n\n` +
   `🎵 \`/song Artist - Song [Year]\` → 曲記事を自動生成\n` +
+  `📝 \`修正依頼 <曲名>\` → 既存曲の文体・改行・内部リンクを機械検証込みで自動修正（例: \`修正依頼 put it on\`）\n` +
   `🛠️ 任意のテキスト → 任意のタスクを実行（例: \`put-it-onのジャケットを直して\`）\n` +
   `   ↳ 続けて送ると前回の文脈を引き継ぎます。\`/new\` で新しいスレッド\n` +
   `🎬 \`/short <slug>\` → ショート動画を生成\n` +
@@ -84,6 +85,21 @@ async function handleFreeformCommand(instruction, chatId) {
     const r = await runFreeform(instruction, resumeId);
     if (r.success) {
       if (r.sessionId) saveSession(chatId, r.sessionId);
+      await sendMessage(`✅ 完了\n${r.output || ''}`.trim(), chatId);
+    } else {
+      await sendMessage(`❌ 失敗: ${String(r.error || '').slice(0, 300)}`, chatId, { safe: true });
+    }
+  } catch (e) {
+    await sendMessage(`❌ エラー: ${String(e.message).slice(0, 200)}`, chatId, { safe: true });
+  }
+}
+
+/** 「修正依頼 <曲名>」→ 既存曲のトーン修正を決定的パイプラインで実行 */
+async function handleToneFixCommand(query, chatId) {
+  await sendMessage(`📝 修正依頼を処理中: *${query}*（文体→改行→内部リンク→機械検証まで自動でやります）`, chatId);
+  try {
+    const r = await runToneFix(query);
+    if (r.success) {
       await sendMessage(`✅ 完了\n${r.output || ''}`.trim(), chatId);
     } else {
       await sendMessage(`❌ 失敗: ${String(r.error || '').slice(0, 300)}`, chatId, { safe: true });
@@ -429,6 +445,20 @@ async function main() {
             }
           } else {
             sendMessage(`❌ 形式エラー: \`/song Artist - Song [Year]\` の形式で入力してください`, chatId).catch(() => {});
+          }
+          continue;
+        }
+
+        // 修正依頼 <曲名> → 既存曲の文体・改行・内部リンク修正（決定的パイプライン）
+        if (text.trim().startsWith('修正依頼')) {
+          const query = text.replace(/^修正依頼\s*/, '').trim();
+          if (query) {
+            handleToneFixCommand(query, chatId).catch((error) => {
+              console.error(`修正依頼処理エラー: ${error.message}`);
+              sendMessage(`❌ 修正依頼エラー: ${String(error.message).slice(0, 200)}`, chatId, { safe: true }).catch(() => {});
+            });
+          } else {
+            sendMessage('❌ 曲名を指定してください（例: `修正依頼 put it on`）', chatId).catch(() => {});
           }
           continue;
         }
