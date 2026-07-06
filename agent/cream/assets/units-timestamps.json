@@ -240,16 +240,6 @@
     "score": 1
   },
   {
-    "id": "chop-term",
-    "whisperSec": null,
-    "manualSec": null,
-    "fallbackT": 175,
-    "t": 175,
-    "source": "fallback",
-    "approx": true,
-    "score": null
-  },
-  {
     "id": "dollar-outro",
     "whisperSec": null,
     "manualSec": null,

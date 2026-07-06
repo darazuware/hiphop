@@ -23,6 +23,5 @@
   { "id": "stickup-kids", "anchor": ["we", "got", "stick"], "fallbackT": 160, "manualSec": 156 },
   { "id": "livin-proof", "anchor": ["leave", "it", "up", "to", "me"], "fallbackT": 165, "manualSec": 161 },
   { "id": "kick-truth", "anchor": ["to", "kick", "the", "truth"], "fallbackT": 164, "manualSec": 163 },
-  { "id": "chop-term", "anchor": ["chop"], "fallbackT": 175, "manualSec": null },
   { "id": "dollar-outro", "anchor": ["dollar", "dollar", "bill", "yall"], "fallbackT": 185, "manualSec": null }
 ]
