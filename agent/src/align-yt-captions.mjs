@@ -127,6 +127,44 @@ for (const u of units) {
   }
 }
 
+// ---- 単調化ポストパス（check-article [SEQ] 準拠: tはunit出現順に非減少） ----
+// 同一対句を複数unitで解説するページ構成では、キャプション上の秒が前のunitより
+// 小さくなることがある（正しい挙動）。SEQガードに合わせて前値へクランプする。
+// 8秒超の後退は誤マッチとみなし captionSec を破棄（fallbackT運用に戻す）。
+// 【重要】[SEQ]ガードはページDOM順で判定するため、units.json順でなく
+// .astro内の TS["id"] 出現順で回す（両者は一致しないことがある）。
+{
+  let domOrder = units;
+  const astroPath = `src/pages/songs/${slug}.astro`;
+  if (fs.existsSync(astroPath)) {
+    const ids = [...fs.readFileSync(astroPath, "utf8").matchAll(/TS\["([\w-]+)"\]/g)].map(m => m[1]);
+    const seen = [...new Set(ids)];
+    const byId = Object.fromEntries(units.map(u => [u.id, u]));
+    const inDom = seen.filter(id => byId[id]).map(id => byId[id]);
+    const rest = units.filter(u => !seen.includes(u.id));
+    if (inDom.length) domOrder = [...inDom, ...rest];
+  }
+  let prevT = 0;
+  for (const u of domOrder) {
+    const r = rows.find(x => x.id === u.id);
+    const eff = u.manualSec ?? r?.captionSec ?? u.fallbackT ?? null;
+    if (eff == null) continue;
+    if (eff < prevT) {
+      if (u.manualSec != null) { prevT = eff; continue; } // 実測は正・触らない
+      if (r?.captionSec != null) {
+        if (prevT - eff <= 8) { r.captionSec = prevT; r.clamped = true; }
+        else { r.captionSec = null; r.score = 0; r.dropped = true; if (!notFound.includes(u.id)) notFound.push(u.id); }
+      }
+      if (r?.captionSec == null && u.fallbackT != null && u.fallbackT < prevT) {
+        u.fallbackT = prevT; r.bumpedFallback = true;
+      }
+      prevT = u.manualSec ?? r?.captionSec ?? u.fallbackT ?? prevT;
+    } else {
+      prevT = eff;
+    }
+  }
+}
+
 // ---- レポート（歌詞は出さない・idと秒のみ） ----
 const tsPath = `agent/${slug}/assets/units-timestamps.json`;
 const prevTs = fs.existsSync(tsPath)
@@ -138,7 +176,8 @@ for (const r of rows) {
   if (r.captionSec == null) { console.log(`  ❌ ${r.id.padEnd(24)} NOT_FOUND bestScore=${r.score.toFixed(2)}（動画に該当パートなし＝バージョン違い/クリーン版改変/表記差の疑い）`); continue; }
   const diff = cur != null ? (r.captionSec - cur >= 0 ? "+" : "") + (r.captionSec - cur) : "-";
   const mm = `${Math.floor(r.captionSec / 60)}:${String(r.captionSec % 60).padStart(2, "0")}`;
-  console.log(`  ✅ ${r.id.padEnd(24)} captionSec=${String(r.captionSec).padStart(3)}s (${mm}) 現行t=${cur ?? "null"} 差=${diff} score=${r.score.toFixed(2)}`);
+  const tags = (r.clamped ? " [SEQ準拠クランプ]" : "") + (r.bumpedFallback ? " [fallbackT前送り]" : "");
+  console.log(`  ✅ ${r.id.padEnd(24)} captionSec=${String(r.captionSec).padStart(3)}s (${mm}) 現行t=${cur ?? "null"} 差=${diff} score=${r.score.toFixed(2)}${tags}`);
 }
 if (notFound.length) console.log(`[warn] NOT_FOUND ${notFound.length}件: ${notFound.join(", ")} → 動画バージョンと引用の食い違いを確認`);
 
