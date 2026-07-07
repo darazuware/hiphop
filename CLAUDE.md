@@ -160,10 +160,10 @@ public/images/   # アルバムアート
    - pre-pushフック（`agent/hooks/pre-push`）は `agent/src/pre-push-check.mjs` を呼ぶ。commit前にここで通しておく。**ガードを `--no-verify` でバイパスしない**（種別判定が正しく効く）。
    - **定型句ガード（pre-push-check.mjs / Item4）**: 全曲.astroを横断し、25文字以上の同一日本語解説文が複数曲で使い回されていないか検出する（eng歌詞断片は除外。出力は該当slugと重複箇所数のみ＝歌詞英語行を出さない）。許容済みの既存重複は `agent/.dup-baseline.json` にハッシュで記録（平文非保存）。baselineに無いnet-newの曲間重複はブロックする。意図的に許容する場合のみ `node agent/src/pre-push-check.mjs --update-dup-baseline` で焼き直す。**同一/酷似の解説文を曲間でコピペ再利用しない**（[`docs/article-tone.md`](docs/article-tone.md)）。
    - **Genius短尺フェッチ対策（pre-push-check.mjs / Item6）**: キャッシュ2h超過時の再フェッチは、(a)取得歌詞が既存キャッシュより行数が少なければ不完全とみなしキャッシュを上書きしない（行数が同等以上の時のみ更新）、(b)不完全フェッチ時は[B]を失敗ブロックでなくスキップ＋警告（`SKIP_B=1`／要手動確認）にして誤検出で正しい記事を改変しない、(c)短尺が返ったら最大3回リトライし最長版を採用する。出力は行数・カウントのみ。
-12. 頭出しタイムスタンプ生成（learning型・**whisper/AI音源解析は使わない**・2026-07-03確定）:
-   - `agent/{slug}/assets/units.json` を曲順に作成し、各unitに `fallbackT`（Verse頭から1行≈2.5〜3秒の線形補間による概算秒）と `manualSec: null` を付ける
-   - `node agent/src/gen-fallback-timestamps.mjs --slug {slug}` で `units-timestamps.json` を決定的に生成（音源DL・whisper・extract-unit-timestamps.mjsは実行しない）
-   - 正確な秒数は**運営者がプレビューを見て実測指示**する。受け取ったら `node agent/src/set-manual-timestamp.mjs --slug {slug} id=秒 ...` で焼く（[`docs/timestamp-override.md`](docs/timestamp-override.md)）
+12. 頭出しタイムスタンプ生成（learning型・**whisper/AI音源解析は使わない**・2026-07-03確定 / キャプション自動整合2026-07-08追加）:
+   - `agent/{slug}/assets/units.json` を曲順に作成し、各unitに `anchor`（引用行の単語列）・`fallbackT`（Verse頭から1行≈2.5〜3秒の線形補間による概算秒）・`manualSec: null` を付ける
+   - **`node agent/src/align-yt-captions.mjs --slug {slug}`** でYouTube公式キャプションとanchorを照合（dry-run・音源DLなし）→ NOT_FOUNDの原因判定（MV未収録パートは units.json に `"mvAbsent": true` を付け▶非表示に）→ `--apply` で `captionSec` を焼く（[`docs/timestamp-caption-alignment.md`](docs/timestamp-caption-alignment.md)）。字幕トラックが無い動画は従来どおり `node agent/src/gen-fallback-timestamps.mjs --slug {slug}` のfallbackTのみ
+   - 優先度は `manualSec`（運営者実測・最優先）> `captionSec` > `fallbackT`。レビューで実測指示を受けたら `node agent/src/set-manual-timestamp.mjs --slug {slug} id=秒 ...` で焼く（[`docs/timestamp-override.md`](docs/timestamp-override.md)）
 13. 総合チェック（必須・1コマンド）:
    node agent/src/check-article.mjs {slug}
    - IMG/YT/歌詞・トーン・定型句/ビルド/内部リンク/SEOを一括実行し✅❌サマリーを出す（歌詞テキストは出力しない）

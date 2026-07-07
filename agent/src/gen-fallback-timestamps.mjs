@@ -35,23 +35,30 @@ const prev = fs.existsSync(outPath)
 const results = units.map((u) => {
   const old = prev[u.id] || {};
   const manualSec = u.manualSec ?? old.manualSec ?? null;
+  const captionSec = u.captionSec ?? old.captionSec ?? null;
   const whisperSec = old.whisperSec ?? null;
   const fallbackT = u.fallbackT ?? old.fallbackT ?? null;
   // whisper（2026-07-03廃止・不正確でフック等を誤マッチし逆行を生む）は t に採用しない。
-  // 優先度は manualSec（運営者実測）> fallbackT（DOM順の線形補間）> none。
+  // 優先度は manualSec（運営者実測）> captionSec（align-yt-captions.mjs・埋め込み動画の
+  // 公式キャプション由来）> fallbackT（DOM順の線形補間）> none。
   // whisperSec は記録のため field には残すが t には使わない。
+  // mvAbsent: 引用パートが埋め込み動画に存在しない（アルバム版のみ等）。
+  // ▶頭出しリンクを出さないのが正なので t=null を意図的に返す（missing扱いしない）。
   let t, source;
-  if (manualSec != null)       { t = manualSec;  source = "manual"; }
+  if (u.mvAbsent)              { t = null;       source = "mv-absent"; }
+  else if (manualSec != null)  { t = manualSec;  source = "manual"; }
+  else if (captionSec != null) { t = captionSec; source = "caption"; }
   else if (fallbackT != null)  { t = fallbackT;  source = "fallback"; }
   else                         { t = null;       source = "none"; }
   return {
     id: u.id,
     whisperSec,
     manualSec,
+    captionSec,
     fallbackT,
     t,
     source,
-    approx: source !== "manual",
+    approx: source !== "manual" && source !== "caption",
     score: old.score ?? null,
   };
 });
@@ -60,7 +67,7 @@ fs.writeFileSync(outPath, JSON.stringify(results, null, 2));
 
 for (const r of results) {
   const mm = r.t == null ? " --:-- " : `${String(Math.floor(r.t / 60)).padStart(2, "0")}:${String(Math.floor(r.t % 60)).padStart(2, "0")}`;
-  const icon = r.source === "manual" ? "🔧" : r.source === "whisper" ? "♻️" : r.source === "fallback" ? "🛟" : "❌";
+  const icon = r.source === "manual" ? "🔧" : r.source === "caption" ? "🎯" : r.source === "mv-absent" ? "🚫" : r.source === "whisper" ? "♻️" : r.source === "fallback" ? "🛟" : "❌";
   console.log(`  ${icon} ${r.id.padEnd(24)} t=${r.t == null ? "null" : r.t + "s"} (${mm}) src=${r.source}`);
 }
 const missing = results.filter((r) => r.source === "none").length;
