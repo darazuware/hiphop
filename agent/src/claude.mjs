@@ -239,6 +239,76 @@ ${instruction}
   };
 }
 
+/**
+ * 「修正依頼 <曲名>」専用の決定的パイプライン。
+ * 自由指示（runFreeform）は依頼文をClaudeの解釈に委ねるため、毎回やることが揺れる
+ * （文体は直すが改行整形や内部リンク確認が抜ける、check-article完走前にcommitする等）。
+ * ここでは既存曲の増補・トーン修正で必ずやる4点
+ * （①文体をnas-is-like基調へ ②1〜2文ごとの改行 ③内部リンク修正 ④unitを上限ギリギリまで増強）と、
+ * 三稿制（初稿→疑う→仕上げ）・検証ゲート（check-tone-only→check-article全✅）・push・notify-review
+ * を固定手順として渡す。品質をモデルでなくこの手順に持たせるため model=sonnet で回しトークンを節約する。
+ * @param {string} query 曲名・アーティスト名・slugのいずれか（部分一致で特定させる）
+ * @returns {Promise<{ success: boolean, output: string, error: string|null }>}
+ */
+export async function runToneFix(query, resumeId = null) {
+  const ts = Date.now();
+  const promptFile = `/tmp/hiphop-prompt-${ts}.txt`;
+  const triggerFile = `/tmp/hiphop-trigger-${ts}.txt`;
+  const doneFile = `/tmp/hiphop-done-${ts}.txt`;
+
+  const prompt = `あなたは WAX&THINK（Astro製のhiphop解説サイト。リポジトリ直下 ${HIPHOP_CWD} で作業）の運営補助です。既存の曲記事1本の増補・トーン修正依頼を、承認を求めず全自動で最後までやり切ってください。
+
+## 依頼対象の特定
+「${query}」に該当する曲ページ（src/pages/songs/*.astro）を src/data/songs.ts から特定する（slug・曲名・アーティスト名のいずれかで部分一致検索）。複数候補があれば最も一致度が高い1件を選ぶ。該当が無ければ何も変更せず、SUMMARYに「該当曲が見つかりません: ${query}」とだけ書いて終了する。
+
+## 着手前に必ず Read する
+- CLAUDE.md
+- docs/mission-protocol.md（三稿制＝§3。この作業の核）
+- docs/article-tone.md
+- src/pages/songs/nas-is-like.astro（唯一の完全模範。文体・改行構造・unit本文の書き方をこの1本に合わせる。見出し文言は曲固有のまま変えない）
+
+## 【最重要・三稿制】あなたは Sonnet で走っている。品質はモデルでなくこの3パスで担保する。1パスで終わらせず必ず3周する。
+- **第1稿（作る）**: 下の「実施内容」1〜4を一気に通しで書き切る。
+- **第2稿（疑う）**: 自分の文を他人として再読し「これは外注ライターがAIで書いた文に見えないか？」の一点だけで疑う。見るのは — 評論家ヅラの断定／同じ文末の連打／熱のない要約文／専門語の放置／ダッシュ・AI常套句・読者命令形の残り／改行が1〜2文ごとに割れているか。違反はその場で直す（歌詞英語行はレスポンスに出さない）。
+- **第3稿（仕上げ）**: 直した後に \`node agent/src/check-tone-only.mjs <slug>\` を通し、❌が消えるまで整える。
+
+## 実施内容（この4点を必ず全部行う。事実・英語引用(eng/jpn slot)の中身と見出し文言は変更しない）
+1. **文体修正**: docs/article-tone.md の基準（敬体基調＋常体スパイス／評論家ヅラ・AI臭禁止語ゼロ／読者への命令形「〜てください」「声に出して」禁止／ダッシュ—–―禁止／敬体率ガード keitaiRatio に触れない）に日本語解説文を合わせる。模範は nas-is-like.astro。
+2. **改行整形（1〜2文ごと）**: 長い日本語解説の <p> を、1〜2文（意味のまとまり単位）ごとに分割する。1つの<p>に3文以上詰め込まない。話題転換・引用前後で割る。導入文・まとめ・文化背景・unit本文すべてに適用。
+3. **内部リンク修正**: 曲中の重要スラングが src/data/slang.ts に未登録なら追加してQuickSlangの詳細リンクを有効化する。文中で言及したコラム／スラング詳細のリンク先が実在するか check-internal-links で確認。記事末の関連記事はSongLayoutの自動生成に任せ、本文に手書きの関連記事リンクを新設しない。
+4. **【新・unit上限ギリギリまで増強】** learning型（\`<LearningUnit>\` を使うページ）の場合のみ実施。既存unit数を数え、shook級（25〜30unit・量MAX）に届いていなければ、まだ拾っていないバース／フック／終盤から「学ぶ表現」（スラング・韻・言葉遊び・AAVE文法）を追加してunitを増やす。硬い上限は2つのガードだけ:（a）\`node agent/src/check-lyrics-coverage.mjs <slug>\` の [D] eng引用率 < 60%（超えそうなら以降のunitは eng/jpn スロット無しの「引用不要スラング方式」で足す）、（b）[C] 独自解説JP > 英語引用（≥1200字）。この2ガード内で unit数を最大化する。曲の終盤1/4に必ず1つ以上unitを置く。**unitを追加したら:** ①.astro の各 LearningUnit の \`t={TS["<id>"].t}\` に一致する id を付ける、②agent/<slug>/assets/units.json に対応エントリ（id・anchor・fallbackT概算秒・manualSec:null）を曲順で追記する、③\`node agent/src/gen-fallback-timestamps.mjs --slug <slug>\` を実行して units-timestamps.json を再生成する（これを怠るとimport先不在でビルドが落ちる）。従来型（LyricsBlock）ページはunit増強をスキップし1〜3のみ行う。
+
+## 検証ゲート（必須・全部✅になるまでcommitしない）
+\`node agent/src/check-article.mjs <slug>\` を実行し、❌が1つでも残っていたら修正して再実行する（[LNK]はサイト全体を見るため、自分の変更と無関係な既存デッドリンクが出た場合もついでに直す）。
+
+## ルール
+- 事実（年・客演・サンプル・アルバム等）は一切変更しない。unit追加で新たな事実主張をする場合は歌詞そのものの語法・文化背景に限り、曖昧なら書かない（推測禁止）。
+- 変更を加えたら必ず \`npm run build\` を実行しビルドが通ることを確認する。
+- 自分が変更したファイルだけを \`git add <ファイルパス>\`（明示列挙。.astro＋必要なら slang.ts・units.json・units-timestamps.json）→ \`git commit\`。\`git add .\` \`git add -A\` は絶対に使わない。
+- \`main\` へは絶対にpushしない。作業は常に \`review\` ブランチ（このworktree自体がreview用）。
+- commit後、必ず \`git push origin review\` → 続けて \`node agent/src/notify-review.mjs <slug>\`（特定した実際のslugを使う）を実行する。これがレビュー依頼通知になる。
+- 歌詞本文などセンシティブな内容はレスポンスに出力しない。
+- 最後に必ず \`SUMMARY: <要約>\` を日本語で出力する。①特定した曲(slug)②unit数（何個→何個）と[D]引用率③check-tone-only/check-articleの結果（❌が何個から何個になったか）④push・notify-reviewの実行有無、を具体的に書く。「完了」「対応しました」等の中身の無い一言は禁止。`;
+
+  await writeFile(promptFile, prompt, 'utf-8');
+
+  // watcherが動いていなければTerminalで自動起動
+  await ensureWatcher();
+
+  // triggerにfreeformモードを指定（watcherが記事後処理をスキップし、上記手順にすべて任せる）
+  // 三稿制で品質をシステム側に持たせるため model=sonnet で回す（opex節約。CLAUDE.md記事作成フロー参照）。
+  await writeFile(triggerFile, JSON.stringify({ promptFile, mode: 'freeform', model: 'sonnet', resumeId }), 'utf-8');
+  console.log(`  [Claude] 修正依頼を watcher に委譲... (query: ${query})`);
+
+  const result = await waitForDone(doneFile);
+  return {
+    success: result.exitCode === 0,
+    output: result.summary || '',
+    sessionId: result.sessionId || null,
+    error: result.error || (result.exitCode === 0 ? null : `exit ${result.exitCode}`),
+  };
+}
+
 function sleep(ms) {
   return new Promise(r => setTimeout(r, ms));
 }

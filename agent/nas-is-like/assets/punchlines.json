@@ -1,0 +1,180 @@
+{
+  "slug": "nas-is-like",
+  "meta": {
+    "title": "Nas Is Like",
+    "artist": "Nas",
+    "year": "1999"
+  },
+  "generatedAt": "2026-07-07",
+  "candidates": [
+    {
+      "i": 0,
+      "eng": "Nas is like... life or death; I'm a rebel \\N Nas is like... half-man, half-amazin'",
+      "jpn": "ナズはこんな感じだ…生か死か、俺は反逆者／ナズはこんな感じだ…半分人間、半分驚異",
+      "abs": null,
+      "conf": 0
+    },
+    {
+      "i": 1,
+      "eng": "Freedom or jail, clips inserted \\N A baby's bein' born, same time a man is murdered",
+      "jpn": "自由か監獄か、弾倉は装填済み／赤ん坊が生まれる、同じ瞬間に男が殺される",
+      "abs": null,
+      "conf": 0
+    },
+    {
+      "i": 2,
+      "eng": "As far as rap go, it's only natural, I explain \\N My plateau, and also what defines my name",
+      "jpn": "ラップに関して言えば、自然なことだ、俺は説明する／自分の到達点を、そして俺の名を定義するものを",
+      "abs": null,
+      "conf": 0
+    },
+    {
+      "i": 3,
+      "eng": "First it was Nasty, but times have changed \\N Ask me now, I'm the artist, but hardcore",
+      "jpn": "最初は\"ナスティ\"だった、だが時代は変わった／今訊いてみろ、俺はアーティストだ、だがハードコアなままだ",
+      "abs": null,
+      "conf": 0
+    },
+    {
+      "i": 4,
+      "eng": "Saw fiends shoot up and do lines of cocaine \\N Saw my close friends shot, flatline, am I sane?",
+      "jpn": "ヤク中が注射し、コカインのラインを吸うのを見た／親しい友が撃たれ、心電図が止まるのを見た、俺は正気か？",
+      "abs": null,
+      "conf": 0
+    },
+    {
+      "i": 5,
+      "eng": "It's what you make it, suicide, few try to take it \\N Belt tied around they neck in jail cells naked",
+      "jpn": "人生は自分次第、自殺、それを選ぶ者は少ない／ベルトを首に巻きつけ、監房で裸のまま",
+      "abs": 60.81,
+      "conf": 0.83
+    },
+    {
+      "i": 6,
+      "eng": "Heaven and Hell, rap legend, presence is felt \\N And of course, N-A-S are the letters that spell...",
+      "jpn": "天国と地獄、ラップの伝説、存在感は感じられる／そしてもちろん、N-A-S が綴る文字は…",
+      "abs": 66.28,
+      "conf": 1
+    },
+    {
+      "i": 7,
+      "eng": "My poetry's deep, I never fell",
+      "jpn": "俺の詩は深い、俺は一度も落ちていない",
+      "abs": 74.56,
+      "conf": 0.6
+    },
+    {
+      "i": 8,
+      "eng": "Earth, Wind & Fire, rims and tires \\N Bulletproof glass, inside is the realest driver",
+      "jpn": "アース・ウィンド・アンド・ファイアー、リムとタイヤ／防弾ガラス、中にいるのは最もリアルなドライバー",
+      "abs": 93.02,
+      "conf": 0.67
+    },
+    {
+      "i": 9,
+      "eng": "Tarot cards, you can see the pharaoh Nas",
+      "jpn": "タロットカード、そこに見えるのはファラオ・ナズ",
+      "abs": 99.76,
+      "conf": 1
+    },
+    {
+      "i": 10,
+      "eng": "Iron Mike, Messiah type \\N Before the Christ, After the Death, the last one left",
+      "jpn": "アイアン・マイク、救世主タイプ／キリスト以前、死の後、最後に残る一人",
+      "abs": 103.11,
+      "conf": 0.83
+    },
+    {
+      "i": 11,
+      "eng": "Came a long way from blastin' TECs on blocks \\N Went from Seiko to Rolex, ownin' acres",
+      "jpn": "ブロックでTECをぶっ放してた頃から、長い道のりを来た／セイコーからロレックスへ、土地まで手にした",
+      "abs": null,
+      "conf": 0
+    },
+    {
+      "i": 12,
+      "eng": "Let my cash invest in stock \\N ...siete zeros, bet my nine spit for the pesos",
+      "jpn": "俺の金は株に投資させる／…七つのゼロ、金のためなら俺の9ミリが火を噴く",
+      "abs": 107.47,
+      "conf": 1
+    },
+    {
+      "i": 13,
+      "eng": "But what's it all worth? Can't take it with you under this Earth",
+      "jpn": "でも全部、何の価値がある？ この地の下へは持っていけない",
+      "abs": 121.88,
+      "conf": 0.5
+    },
+    {
+      "i": 14,
+      "eng": "Much success to you, even if you wish me the opposite \\N Sooner or later, we'll all see who the prophet is",
+      "jpn": "お前の成功を願うよ、たとえお前が俺に逆を願っても／遅かれ早かれ、誰が預言者かは皆に分かる",
+      "abs": 142.46,
+      "conf": 0.67
+    },
+    {
+      "i": 15,
+      "eng": "I'm like a street sweeper, green leaf breather \\N Like Greeks in Egypt, learnin' somethin' deep from they teachers",
+      "jpn": "俺は街の掃除屋（ストリート・スウィーパー）、緑の葉を吸う者／エジプトのギリシャ人のように、師から深い何かを学ぶ",
+      "abs": null,
+      "conf": 0
+    },
+    {
+      "i": 16,
+      "eng": "Like Greeks in Egypt, learnin' somethin' deep from they teachers",
+      "jpn": "エジプトのギリシャ人のように、師から深い何かを学ぶ",
+      "abs": 175.52,
+      "conf": 0.5
+    },
+    {
+      "i": 17,
+      "eng": "I'm like crime, like your .9, your man you would die for \\N Always got you, I'm like 'Pac, dude you would cry for",
+      "jpn": "俺は犯罪のようだ、お前の9ミリのようだ、お前が命を懸ける相棒のようだ／いつもお前の味方、俺は'Pacのようだ、お前が涙する男",
+      "abs": 178.31,
+      "conf": 0.83
+    },
+    {
+      "i": 18,
+      "eng": "I'm like ecstasy for ladies; I'm like all races combined in one man \\N Like the '99 Summer Jam",
+      "jpn": "俺は女たちにとってのエクスタシー、あらゆる人種が一人に集約された男のようだ／'99年のサマー・ジャムのようだ",
+      "abs": 188.12,
+      "conf": 1
+    },
+    {
+      "i": 19,
+      "eng": "I'm a poor man's dream, a thug poet \\N Live it and I write down, and I watch it blow up",
+      "jpn": "俺は貧しき者の夢、ならず者の詩人（サグ・ポエット）／それを生き、書き留め、爆発するのを見届ける",
+      "abs": 201.32,
+      "conf": 0.5
+    }
+  ],
+  "clips": [
+    {
+      "id": "pl1",
+      "hook": "Nasの代名詞になった一節。DJプレミアのビートに乗るVerse1後半",
+      "lines": [
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "id": "pl2",
+      "hook": "半人半神を名乗る男の自己紹介。Verse2の畳みかけ",
+      "lines": [
+        9,
+        10,
+        12
+      ]
+    },
+    {
+      "id": "pl3",
+      "hook": "ラスト、キャリアを一行で総括するパンチライン",
+      "lines": [
+        16,
+        17,
+        18
+      ]
+    }
+  ]
+}

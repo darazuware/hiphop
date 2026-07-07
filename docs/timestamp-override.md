@@ -20,11 +20,13 @@ learning型ページの各学習ユニットには、公式PVへの頭出しリ�
 
 | レイヤ | 由来 | offset補正 | 優先度 |
 |---|---|---|---|
-| `whisperSec` | whisper単語アライメント（album相対・自動） | 受ける（`--offset`） | 低（概算・参考値） |
-| `fallbackT` | 手動推定（whisperが取り違えた時の保険） | 受けない | 中 |
+| `whisperSec` | whisper単語アライメント（album相対・自動） | 受ける（`--offset`） | 記録のみ（tに不採用） |
+| `fallbackT` | 手動推定（線形補間の保険） | 受けない | 低 |
+| `captionSec` | **align-yt-captions.mjs**（埋め込み動画の公式キャプション照合・[docs/timestamp-caption-alignment.md](timestamp-caption-alignment.md)） | 受けない | 中（PV絶対秒） |
 | `manualSec` | **運営者が実機(PV)で測った実測秒（PV絶対秒）** | 受けない | **最優先** |
 
-最終表示値 `t` は `manualSec ?? (whisperSec - offset) ?? fallbackT`。
+最終表示値 `t` は `manualSec ?? captionSec ?? fallbackT`（whisperSecは不採用）。
+`mvAbsent: true` のunitは引用パートが動画に存在しない（アルバム版のみ等）ため t=null＝▶非表示。
 つまり **manualSec が入っていれば常にそれが勝つ**。記事には `units-timestamps.json` の `t` が出る。
 
 ## なぜ一律オフセット補正をやめたか

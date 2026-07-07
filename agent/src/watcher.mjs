@@ -12,8 +12,12 @@ import { readFileSync } from 'node:fs';
 import { spawn } from 'node:child_process';
 
 const CLAUDE_BIN = '/Users/ktamatzmoto/.local/bin/claude';
-// 記事生成・自由指示は事実チェック＋長文構成が重いので Opus 固定（文体の安定・評論家口調の抑制）
-const CLAUDE_FLAGS = '--model opus --print --permission-mode acceptEdits --dangerously-skip-permissions';
+// モデルは trigger の meta.model で切り替える（既定 opus）。
+// 記事生成・自由指示は事実チェック＋長文構成が重いので Opus 既定。
+// トーン修正（修正依頼）は三稿制（初稿→疑う→仕上げ）で品質をシステム側に持たせるため Sonnet で回してトークンを節約する。
+const DEFAULT_MODEL = 'opus';
+const CLAUDE_FLAGS_TAIL = '--print --permission-mode acceptEdits --dangerously-skip-permissions';
+const claudeFlags = (model) => `--model ${model || DEFAULT_MODEL} ${CLAUDE_FLAGS_TAIL}`;
 
 // 課金方針: API従量課金を避け、Claude サブスク（OAuth）で動かす。
 // CLAUDE_CODE_OAUTH_TOKEN（`claude setup-token` で発行）があればそれを使い、
@@ -53,13 +57,13 @@ function run(cmd, opts = {}) {
 }
 
 /** claude を JSON出力で実行し、結果テキストと session_id を返す。resumeId 指定で会話継続。 */
-async function runClaudeJson(promptFile, resumeId) {
+async function runClaudeJson(promptFile, resumeId, model) {
   const outJson = '/tmp/hiphop-claude.json';
   const errLog = '/tmp/hiphop-claude.log';
   const resumeFlag = resumeId ? `--resume ${resumeId}` : '';
   // stdout=JSON / stderr=エラーログ に分離（JSONを汚さない）。pipeline末尾がclaudeなのでcodeはclaudeの終了コード。
   const r = await run(
-    `set -o pipefail; cat "${promptFile}" | ${CLAUDE_BIN} ${CLAUDE_FLAGS} --output-format json ${resumeFlag} >"${outJson}" 2>"${errLog}"`,
+    `set -o pipefail; cat "${promptFile}" | ${CLAUDE_BIN} ${claudeFlags(model)} --output-format json ${resumeFlag} >"${outJson}" 2>"${errLog}"`,
     { silent: true }
   );
   let json = null;
@@ -131,15 +135,15 @@ async function processTrigger(triggerFile) {
 
   // 自由指示モード: Claude 自身に build/git まで行わせ、記事用の後処理はスキップする
   if (meta.mode === 'freeform') {
-    console.log(`\n[freeform] Claude実行中...${meta.resumeId ? ' (継続 resume)' : ''}`);
+    console.log(`\n[freeform] Claude実行中（model=${meta.model || DEFAULT_MODEL}）...${meta.resumeId ? ' (継続 resume)' : ''}`);
     // 実行前後の HEAD を記録し、コミットの有無＝成果物を後で判定する
     const headBefore = (await run(`git rev-parse HEAD`, { silent: true })).stdout.trim();
 
-    let res = await runClaudeJson(promptFile, meta.resumeId || null);
+    let res = await runClaudeJson(promptFile, meta.resumeId || null, meta.model);
     // resume指定が無効（古い/壊れたセッション）なら新規セッションで1回だけリトライ
     if (meta.resumeId && (res.code !== 0 || !res.json)) {
       console.warn('[freeform] resume失敗 → 新規セッションでリトライ');
-      res = await runClaudeJson(promptFile, null);
+      res = await runClaudeJson(promptFile, null, meta.model);
     }
 
     // 失敗時: stderr から実際の理由（例: Credit balance is too low）を抽出して返す
@@ -175,9 +179,9 @@ async function processTrigger(triggerFile) {
 
   console.log(`\n[1/4] Claude記事生成中... slug=${slug || '(unknown)'}`);
 
-  // Step 1: Claude CLI実行
+  // Step 1: Claude CLI実行（記事生成は事実チェックが重いので既定モデル＝Opus）
   const claudeResult = await run(
-    `cat "${promptFile}" | ${CLAUDE_BIN} ${CLAUDE_FLAGS} 2>&1 | tee /tmp/hiphop-claude.log`
+    `cat "${promptFile}" | ${CLAUDE_BIN} ${claudeFlags(meta.model)} 2>&1 | tee /tmp/hiphop-claude.log`
   );
 
   if (claudeResult.code !== 0) {
