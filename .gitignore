@@ -29,3 +29,7 @@ pnpm-debug.log*
 
 # AntiCrow ローカルデータ
 .anticrow/
+
+# パンチラインショート出力（SNS手動アップロード用・サイト非掲載）
+agent/shorts-out/
+agent/audio/*.whisper.json

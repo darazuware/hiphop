@@ -2,7 +2,7 @@
 
 ## 任務遂行プロトコル（最重要・常駐・全モデル共通）
 - **どの任務も着手前に [`docs/mission-protocol.md`](docs/mission-protocol.md) に従う。** 要点: ①任務は「入口1コマンド＋機械検証のDoD＋review push出口」の3点セットを持つ（無ければ先に作る） ②文章は三稿制（初稿→check-tone-only＋他人の目で再読→仕上げ） ③内部リンクは手書きせず生成に任せる ④同種の失敗2回目は必ずルール追記かガード化までやる ⑤❌残しの完了報告禁止。
-- ショート動画関連は [`docs/shorts-strategy.md`](docs/shorts-strategy.md)（MV切り抜き禁止・既存パイプライン厳守）。
+- ショート動画関連は [`docs/shorts-strategy.md`](docs/shorts-strategy.md)（MV切り抜き禁止・既存パイプライン厳守）。SNS流入用のパンチライン切り抜き（無音・アプリ内サウンド戦略）は [`docs/punchline-shorts.md`](docs/punchline-shorts.md)（入口 `node agent/src/punchline-shorts.mjs init --slug {slug}`・サイト非掲載）。
 
 ## 事実チェック（最重要・常駐）
 - **サンプル系記事（曲ページ・コラム）を追加／編集するときは、作業前に必ず [`docs/fact-check-rules.md`](docs/fact-check-rules.md) を読み、本ルールに従う。**

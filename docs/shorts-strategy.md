@@ -33,6 +33,12 @@
 - TikTok / Instagram Reels は同一mp4を手動投稿（APIは審査制のため当面ユーザーが実施）
 - プロフィール/固定コメントにサイトURL。動画内にも `waxthink.com` を常時表示（generate-short側で焼き込み済みか確認）
 
+## パンチラインショート（2026-07-07新設・アプリ内サウンド戦略）
+- Insta/TikTok/YouTube/X向けの**無音・黒背景白文字**の15〜40秒クリップを量産する別系統。
+  音源は各アプリ内サウンドを投稿時に付ける（Content IDリスクゼロ・サイト非掲載・手動アップ）
+- 専用パイプライン: [`docs/punchline-shorts.md`](punchline-shorts.md)（入口 `node agent/src/punchline-shorts.mjs init --slug {slug}`）
+- 本ページ上部の既存フロー（音源焼き込み+YouTube自動投稿）とは独立。混ぜない
+
 ## DoD（この任務のDone）
 - [ ] check-short-alignment ✅
 - [ ] YouTube上で再生確認（限定公開でも可）
