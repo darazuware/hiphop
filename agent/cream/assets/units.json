@@ -69,7 +69,7 @@
     ],
     "fallbackT": 36,
     "manualSec": null,
-    "captionSec": 30
+    "captionSec": 32
   },
   {
     "id": "g-off",
@@ -176,7 +176,7 @@
       "of",
       "fifteen"
     ],
-    "fallbackT": 120,
+    "fallbackT": 126,
     "manualSec": null,
     "captionSec": null
   },
@@ -204,7 +204,7 @@
     ],
     "fallbackT": 133,
     "manualSec": null,
-    "captionSec": 126
+    "captionSec": 132
   },
   {
     "id": "jakes-base",
