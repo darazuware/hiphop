@@ -22,17 +22,6 @@
     "score": 1
   },
   {
-    "id": "no-jive",
-    "whisperSec": null,
-    "manualSec": null,
-    "captionSec": 25,
-    "fallbackT": 27,
-    "t": 25,
-    "source": "caption",
-    "approx": false,
-    "score": null
-  },
-  {
     "id": "lo-goose",
     "whisperSec": 37.2,
     "manualSec": 31,

@@ -25,18 +25,6 @@
     "captionSec": 22
   },
   {
-    "id": "no-jive",
-    "anchor": [
-      "stayin",
-      "alive",
-      "was",
-      "no"
-    ],
-    "fallbackT": 27,
-    "manualSec": null,
-    "captionSec": 25
-  },
-  {
     "id": "lo-goose",
     "anchor": [
       "a",
