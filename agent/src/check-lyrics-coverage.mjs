@@ -7,6 +7,7 @@
 
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { createHash } from 'node:crypto';
 
 const slug = process.argv[2];
 const verbose = process.argv.includes('--verbose');
@@ -121,14 +122,19 @@ function extractSlotLines(astro, slotName) {
 // --- Normalize for comparison: lowercase, strip punctuation, collapse whitespace ---
 // Also expands censored forms (f**k → fuck, n***a → nigga) so censor-lyrics.mjs
 // output still matches against Genius lyrics.
-function normalize(s) {
+// 定番の伏せ字（censor-lyrics.mjs標準形）を先に展開する。
+// expandCensoredWithCorpus より必ず先に適用すること（s**t が任意展開で
+// コーパス先頭の別の s…t 語に化ける誤マッチを防ぐ）。
+function expandFixedCensor(s) {
   return s
-    .toLowerCase()
-    // Expand censored forms before stripping symbols
     .replace(/f\*\*k(in'?g?|ed|er[sz]?|[sz])?\b/g, (_m, suffix = '') => 'fuck' + (suffix || ''))
     .replace(/n\*{2,}(a[sz]?|er[sz]?|y|edy)\b/g, (m, suffix) => 'nigg' + suffix)
     .replace(/b\*{2,}h(es|in'?g?)?\b/g, (m, suffix = '') => 'bitch' + suffix)
-    .replace(/s\*{2,}t(t(?:y|ier|iest|ing)|[sz])?\b/g, (m, suffix = '') => 'shit' + (suffix || ''))
+    .replace(/s\*{2,}t(t(?:y|ier|iest|ing)|[sz])?\b/g, (m, suffix = '') => 'shit' + (suffix || ''));
+}
+
+function normalize(s) {
+  return expandFixedCensor(s.toLowerCase())
     .replace(/[''`]/g, "'")
     .replace(/["""]/g, '"')
     // アポストロフィは照合から除外（li'l/lil'・muthafuckin/muthafuckin'・'cross等の表記ゆれ吸収）
@@ -218,7 +224,8 @@ function buildBigramSet(normLines) {
 // ②バイグラム被覆率 ≥ 60%（行内アドリブ表記差などの軽微なズレを許容）
 // 語順を見るため、単語だけ一致する誤帰属行（別曲の行の混入）は弾ける。
 function isEngLineCovered(engLine, geniusCorpus, bigramSet, corpusWordSet) {
-  const expanded = expandCensoredWithCorpus(engLine, corpusWordSet);
+  // 定番伏せ字（s**t等）を先に確定展開してから、残りの任意伏せ字をコーパス展開する
+  const expanded = expandCensoredWithCorpus(expandFixedCensor(engLine.toLowerCase()), corpusWordSet);
   const engNorm = normalize(expanded);
   if (engNorm.length < 4) return true;
 
@@ -303,9 +310,20 @@ const geniusCorpus = corpusNormLines.join(' ');
 const bigramSet = buildBigramSet(corpusNormLines);
 const corpusWordSet = new Set(geniusCorpus.split(' '));
 const engLinesForB = extractSlotLinesPerBr(astroRaw, 'eng');
+// [B]許容リスト: Genius側の明白なtypo等、照合例外を理由付きで文書化して許す
+// （agent/.b-allowlist.json。正規化行のsha256ハッシュ管理＝歌詞平文は保存しない。
+//   追加は: node -e で normalize した行のhashを計算し reason と共に記載）
+let bAllowHashes = new Set();
+try {
+  const allow = JSON.parse(readFileSync(join(projectRoot, 'agent/.b-allowlist.json'), 'utf-8'));
+  for (const e of allow[slug] || []) bAllowHashes.add(e.hash);
+} catch {}
 const hallucinated = [];
+let bAllowedCount = 0;
 for (const engLine of engLinesForB) {
   if (!isEngLineCovered(engLine, geniusCorpus, bigramSet, corpusWordSet)) {
+    const h = createHash('sha256').update(normalize(engLine)).digest('hex').slice(0, 16);
+    if (bAllowHashes.has(h)) { bAllowedCount++; continue; }
     hallucinated.push(engLine);
   }
 }
@@ -331,6 +349,9 @@ let hasError = false;
 // ── [B] ハルシネーションチェック（両タイプ必須）──────────────────────────
 // SKIP_B=1（Genius不完全フェッチ時に pre-push-check が設定）は失敗ブロックせず警告に降格。
 const skipB = process.env.SKIP_B === '1';
+if (bAllowedCount > 0) {
+  console.log(`\nℹ️  [B] allowlist許容: ${bAllowedCount}行（agent/.b-allowlist.json・理由付き文書化済み）`);
+}
 if (hallucinated.length === 0) {
   console.log('\n✅ [B] No hallucinations — all .astro eng lines match Genius.');
 } else if (skipB) {
