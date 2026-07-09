@@ -14,8 +14,10 @@
 ```
 1. node agent/src/punchline-shorts.mjs init --slug {slug}
    → .astroからeng/jpn候補を抽出し、音源DL＋whisperで各候補の絶対秒(abs)を自動解決
+   → さらにYouTube公式キャプションを取得して二重照合（capT/subT/nonContiguousを焼く・v2）
    → agent/{slug}/assets/punchlines.json が生成される（candidates[]にabs/confが入る）
    ※前提: 曲記事が存在すること（記事なしのショートは作らない）
+   ※[guard]警告（non-contiguous / drift）が出た候補はその時点で使用対象から外す
 
 2. punchlines.json の clips[] にパンチラインを定義（下記フォーマット）
    - 候補選定基準は docs/shorts-strategy.md と同じ:「その曲で一番強い1〜2表現」、
@@ -58,6 +60,21 @@
 - タイトルカード（0〜先頭ライン直前）→ ライン切替表示 → WAXTHINKエンドカード（末尾2秒）
 - メタバー「ARTIST · "Title" · YEAR」＋ waxthink.com 常時表示
 - 無音AACトラック入り（X/IG互換のため音声ストリーム必須。BGMは載せない）
+
+## 歌詞位置ガード（2026-07-09新設・nas-is-like pl2事故の再発防止）
+記事のeng引用ブロックは**曲中で連続していない2行を1ブロックに引用することがある**（記事としては合法）。
+これをショートにそのまま使うと「画面の歌詞と実際に鳴っている歌詞が別物」になる。
+以下は init/check が機械検出し、**❌が出た候補・クリップは絶対に使わない**（バイパス禁止）:
+
+- **nonContiguous**: ブロック内の行間がキャプション実測で6.5s超 → resolveClipが拒否。
+  別の候補を選ぶ（そのブロックの片方の行だけが欲しい場合も、単独行の別候補を探す）
+- **whisper/caption mismatch**: absと公式キャプション秒の乖離>2.5s → 誤マッチ疑いで拒否。
+  運営者がSpotify等で実測し tManual を焼いた場合のみ実測を正とする
+- **クリップ窓外の行**: 表示する全行（\N内の各行）がクリップの音声窓内で歌われていなければ拒否
+- **字幕トラックが無い曲**: check が⚠を出す。whisper単独になるので、
+  QuickTime＋Spotifyでの口パク確認を必ずやってから完了報告する
+- punchlines.json が旧形式（v2でない）の場合 check が❌ → init を再実行してから進める
+- 表示は「歌い終わり＋3.2s」で自動的に消える（次のラインまで無関係な小節に被せない）
 
 ## 禁止・注意（コンテンツフィルター/著作権）
 - **歌詞テキストをstdout・チャット・commit message・caption.txtに出さない**

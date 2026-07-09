@@ -190,6 +190,112 @@ function whisperWords(data) {
   return words;
 }
 
+// ── YouTube公式キャプション（二重照合用・align-yt-captions.mjs と同方式） ─────
+const capCache = path.join(audioDir, `${slug}.captions.json`);
+const normCap = (s) => s.toLowerCase()
+  .replace(/’|'/g, "")
+  .replace(/\[[^\]]*\]|\([^)]*\)/g, " ")
+  .replace(/[^a-z0-9\s]/g, " ")
+  .replace(/\s+/g, " ").trim();
+const tokMatch = (a, b) => a === b || (a.length >= 4 && b.length >= 4 && (a.startsWith(b) || b.startsWith(a)));
+
+function fetchCaptions(youtubeId) {
+  if (fs.existsSync(capCache)) return JSON.parse(fs.readFileSync(capCache, "utf-8"));
+  if (!youtubeId) return null;
+  const tmp = fs.mkdtempSync(path.join("/tmp", `plcap-${slug}-`));
+  const dl = (auto) => {
+    const a = ["--skip-download", "--write-subs"];
+    if (auto) a.push("--write-auto-subs");
+    a.push("--sub-langs", "en.*", "--sub-format", "json3", "-o", path.join(tmp, "cap"),
+      `https://www.youtube.com/watch?v=${youtubeId}`);
+    try { execSync(`yt-dlp ${a.map((x) => `"${x}"`).join(" ")}`, { stdio: "pipe", timeout: 60000 }); } catch {}
+    return fs.readdirSync(tmp).filter((f) => f.endsWith(".json3")).map((f) => path.join(tmp, f));
+  };
+  let files = dl(false), source = "manual";
+  if (!files.length) { files = dl(true); source = "auto"; }
+  if (!files.length) { fs.rmSync(tmp, { recursive: true, force: true }); return null; }
+  const j = JSON.parse(fs.readFileSync(files[0], "utf-8"));
+  const stream = [];
+  for (const ev of j.events || []) {
+    if (!ev.segs) continue;
+    for (const seg of ev.segs) {
+      const t = Math.round((ev.tStartMs + (seg.tOffsetMs || 0))) / 1000;
+      for (const w of normCap(seg.utf8 || "").split(" ")) if (w) stream.push({ sec: t, tok: w });
+    }
+  }
+  fs.rmSync(tmp, { recursive: true, force: true });
+  if (stream.length < 20) return null;
+  const data = { videoId: youtubeId, source, stream };
+  fs.writeFileSync(capCache, JSON.stringify(data));
+  return data;
+}
+
+// キャプション単語ストリームからテキストの最良マッチ秒を返す（prefix寛容・0.55未満はnull）
+// hintSec指定時、スコア同点なら hint に近い位置を採用（手前の類似フレーズ誤拾い防止）
+function capBestMatch(stream, text, fromSec = 0, toSec = Infinity, hintSec = null) {
+  const toks = normCap(expandCensor(text.replace(/\\N/g, " ").toLowerCase()))
+    .split(" ").filter((w) => w.length > 1).slice(0, 10);
+  if (toks.length < 2) return null;
+  let best = null;
+  for (let i = 0; i < stream.length; i++) {
+    if (stream[i].sec < fromSec) continue;
+    if (stream[i].sec > toSec) break;
+    const startAt = tokMatch(stream[i].tok, toks[0]) ? 0 : tokMatch(stream[i].tok, toks[1]) ? 1 : -1;
+    if (startAt < 0) continue;
+    let matched = 1, si = i + 1, ti = startAt + 1;
+    while (ti < toks.length && si < Math.min(i + 25, stream.length)) {
+      if (tokMatch(stream[si].tok, toks[ti])) { matched++; ti++; }
+      si++;
+    }
+    const ratio = matched / toks.length;
+    const sec = Math.round(stream[i].sec * 10) / 10;
+    const better = !best || ratio > best.score + 1e-9 ||
+      (Math.abs(ratio - best.score) < 1e-9 && hintSec != null &&
+        Math.abs(sec - hintSec) < Math.abs(best.sec - hintSec));
+    if (better) best = { sec, score: Math.round(ratio * 100) / 100 };
+  }
+  return best && best.score >= 0.55 ? best : null;
+}
+
+const NONCONTIG_GAP = 6.5; // ブロック内の行間がこれを超えたら「非連続引用」とみなす
+
+// 各候補に capT（キャプション秒）・subT（\N行ごとの秒）・nonContiguous を焼く
+function annotateWithCaptions(candidates, cap) {
+  if (!cap) return;
+  for (const c of candidates) {
+    const subs = c.eng.split(/\s*\\N\s*/).map((s) => s.trim()).filter(Boolean);
+    // ブロック先頭のキャプション秒（whisper absの近傍を優先、無ければ全域）
+    const near = c.abs != null
+      ? capBestMatch(cap.stream, subs[0], Math.max(0, c.abs - 4), c.abs + 8, c.abs)
+      : null;
+    const first = near ?? capBestMatch(cap.stream, subs[0]);
+    c.capT = first?.sec ?? null;
+    c.capConf = first?.score ?? 0;
+    // whisperが取れなかった候補はキャプションからabsを補完
+    if (c.abs == null && first && first.score >= 0.7) {
+      c.abs = first.sec;
+      c.conf = first.score;
+      c.src = "caption";
+    }
+    // \N複数行は行ごとに照合し、連続性を判定
+    if (subs.length >= 2) {
+      const times = [c.capT];
+      let from = c.capT != null ? c.capT + 0.3 : 0;
+      for (let k = 1; k < subs.length; k++) {
+        const hit = capBestMatch(cap.stream, subs[k], from, from + 30);
+        times.push(hit?.sec ?? null);
+        if (hit) from = hit.sec + 0.3;
+      }
+      c.subT = times;
+      c.nonContiguous = times.some((t, i) =>
+        i > 0 && t != null && times[i - 1] != null && t - times[i - 1] > NONCONTIG_GAP);
+    } else {
+      c.subT = null;
+      c.nonContiguous = false;
+    }
+  }
+}
+
 // 候補ごとに全域スキャンで最良マッチ → 増加列フィルタで順序矛盾を除去
 function alignCandidates(pairs, words) {
   const matched = pairs.map((pair) => {
@@ -249,21 +355,48 @@ function cmdInit() {
   console.log(`[whisper] ${words.length} words`);
 
   const candidates = alignCandidates(pairs, words).map((c, i) => ({ i, ...c }));
+
+  // YouTube公式キャプションで二重照合（whisper単独の誤マッチ・非連続引用ブロックを検出）
+  const cap = fetchCaptions(youtubeId);
+  if (cap) console.log(`[captions] ${cap.source} track (${cap.stream.length} words) → cross-check enabled`);
+  else console.log(`[captions] ⚠ no caption track — cross-check unavailable (whisper only)`);
+  annotateWithCaptions(candidates, cap);
+
   const aligned = candidates.filter((c) => c.abs != null);
   console.log(`[align] ${aligned.length}/${candidates.length} candidates resolved`);
+  const nonContig = candidates.filter((c) => c.nonContiguous);
+  if (nonContig.length) {
+    console.log(`[guard] ⚠ non-contiguous quote blocks (shorts使用不可): ${nonContig.map((c) => "#" + c.i).join(" ")}`);
+  }
+  const drift = candidates.filter((c) => c.abs != null && c.capT != null && Math.abs(c.abs - c.capT) > 2.5);
+  if (drift.length) {
+    console.log(`[guard] ⚠ whisper/caption drift >2.5s: ${drift.map((c) => `#${c.i}(${c.abs}s vs ${c.capT}s)`).join(" ")}`);
+  }
 
   const prev = readData();
   const data = {
     slug,
+    v: 2,
     meta: readSongMeta(),
+    captions: cap ? { videoId: cap.videoId, source: cap.source } : null,
     generatedAt: new Date().toISOString().slice(0, 10),
     candidates,
     clips: prev?.clips ?? [],
   };
+  // clips[]が参照する候補のengが変わっていたら警告（.astro編集でindexズレの疑い）
+  if (prev?.candidates && data.clips.length) {
+    for (const clip of data.clips) {
+      for (const idx of clip.lines || []) {
+        if (prev.candidates[idx] && candidates[idx] && prev.candidates[idx].eng !== candidates[idx].eng) {
+          console.log(`[guard] ⚠ [${clip.id}] line #${idx} の引用内容が前回initから変化 — clips[]のindexを確認`);
+        }
+      }
+    }
+  }
   writeData(data);
 
   // 歌詞は出さずタイミング概要のみ
-  const timeline = aligned.map((c) => `#${c.i}@${Math.round(c.abs)}s(${c.conf})`).join(" ");
+  const timeline = aligned.map((c) => `#${c.i}@${Math.round(c.abs)}s(${c.conf}${c.src === "caption" ? "c" : ""})`).join(" ");
   console.log(`[timeline] ${timeline}`);
   console.log(`\n✅ init done: ${path.relative(ROOT, dataFile)}`);
   console.log(`次: clips[] にパンチラインを定義（docs/punchline-shorts.md 参照）→ render`);
@@ -275,10 +408,17 @@ function resolveClip(data, clip) {
   const lines = (clip.lines || []).map((idx) => {
     const c = data.candidates[idx];
     if (!c) { errs.push(`line index ${idx} out of range`); return null; }
+    if (c.nonContiguous) {
+      errs.push(`line #${idx} quotes non-contiguous lyrics (行間>${NONCONTIG_GAP}s) — 1ブロック表示不可。別の候補を選ぶ`);
+    }
     const manual = clip.tManual?.[String(idx)];
     const abs = manual != null ? manual : c.abs;
     if (abs == null) errs.push(`line #${idx} has no timestamp (abs=null, set tManual)`);
-    return { idx, eng: c.eng, jpn: c.jpn, abs };
+    // whisperとYouTube公式キャプションの二重照合（tManual指定時は実測を正とする）
+    if (manual == null && abs != null && c.capT != null && Math.abs(abs - c.capT) > 2.5) {
+      errs.push(`line #${idx} whisper/caption mismatch (${abs}s vs ${c.capT}s) — 誤マッチ疑い。tManualで実測を焼く`);
+    }
+    return { idx, eng: c.eng, jpn: c.jpn, abs, subT: c.subT ?? null };
   }).filter(Boolean);
 
   if (!lines.length) errs.push("no lines");
@@ -290,19 +430,30 @@ function resolveClip(data, clip) {
   if (errs.length) return { errs };
 
   const firstAbs = lines[0].abs;
-  const lastAbs = lines[lines.length - 1].abs;
+  // 最終ラインが\N複数行なら「最後の行が歌われる秒」までクリップに含める
+  const lastLine = lines[lines.length - 1];
+  const lastSung = Math.max(lastLine.abs, ...(lastLine.subT || []).filter((t) => t != null));
   const songStartSec = clip.songStartSec != null
     ? clip.songStartSec
     : Math.max(0, Math.round((firstAbs - LEAD_IN) * 10) / 10);
   let durationSec = clip.durationSec != null
     ? clip.durationSec
-    : Math.round((lastAbs + OUTRO - songStartSec) * 10) / 10;
+    : Math.round((lastSung + OUTRO - songStartSec) * 10) / 10;
   durationSec = Math.min(Math.max(durationSec, MIN_DUR), MAX_DUR);
 
   const timed = lines.map((l) => ({ ...l, t: Math.round((l.abs - songStartSec) * 100) / 100 }));
   if (timed[0].t < 0.8) errs.push(`first line too early (t=${timed[0].t}s, need >=0.8s; lower songStartSec)`);
   if (timed[timed.length - 1].t > durationSec - 2.0) {
     errs.push(`last line too late (t=${timed[timed.length - 1].t}s vs duration ${durationSec}s)`);
+  }
+  // 表示する全行がクリップの音声窓内で実際に歌われるか（キャプション実測で検証）
+  const endAbs = songStartSec + durationSec;
+  for (const l of lines) {
+    for (const t of (l.subT || []).filter((x) => x != null)) {
+      if (t < songStartSec - 0.5 || t > endAbs + 0.5) {
+        errs.push(`line #${l.idx} は ${t}s に歌われる行を含む — クリップ窓 [${songStartSec}-${endAbs.toFixed(1)}s] の外`);
+      }
+    }
   }
   if (errs.length) return { errs };
   return { songStartSec, durationSec, lines: timed, errs: [] };
@@ -385,11 +536,17 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
   ev += `Dialogue: 0,${assTime(cardEnd)},${endAll},Meta,,0,0,0,,{\\fad(200,0)}${metaLine}\n`;
   ev += `Dialogue: 0,${assTime(0.15)},${endAll},Mark,,0,0,0,,waxthink.com\n`;
 
-  // 歌詞ライン: 次のライン開始まで保持
+  // 歌詞ライン: 次のライン開始まで保持（ただし歌い終わり+3.2sで消す＝無関係な小節に被せない）
   const lastHoldEnd = durationSec - 2.2;
   for (let i = 0; i < lines.length; i++) {
     const t0 = lines[i].t;
-    const t1 = i + 1 < lines.length ? lines[i + 1].t - 0.05 : lastHoldEnd;
+    const subT = (lines[i].subT || []).filter((x) => x != null);
+    const sungSpan = subT.length >= 2
+      ? subT[subT.length - 1] - subT[0]
+      : (lines[i].eng.split(/\\N/).length - 1) * 2.8;
+    const holdCap = t0 + Math.max(sungSpan, 0) + 3.2;
+    let t1 = i + 1 < lines.length ? lines[i + 1].t - 0.05 : lastHoldEnd;
+    t1 = Math.min(t1, holdCap);
     if (t1 <= t0) continue;
     const engPart = `{\\fs68\\c${WHITE}\\b1}${wrapEng(lines[i].eng)}`;
     const jpnPart = `{\\fnHiragino Sans W6\\fs44\\c${GOLD}\\b0}${wrapJpn(lines[i].jpn)}`;
@@ -489,6 +646,11 @@ function cmdCheck() {
   const fail = (id, msg) => { hasError = true; console.log(`  ❌ [${id}] ${msg}`); };
 
   console.log(`[check] ${slug}: ${clips.length} clips`);
+  if (data.v !== 2) {
+    fail("schema", "punchlines.json が旧形式（キャプション二重照合なし）— init を再実行してから check する");
+  } else if (!data.captions) {
+    console.log(`  ⚠ 字幕トラックなし: whisper単独アライメント。QuickTime+Spotifyでの口パク確認を必ずやる`);
+  }
   for (const clip of clips) {
     if (!clip.id) { fail("?", "clip without id"); continue; }
     const resolved = resolveClip(data, clip);
@@ -523,7 +685,11 @@ function cmdCheck() {
       if (!c.includes("サウンド開始位置")) fail(clip.id, "caption missing sound start position");
       if (engFrags.some((e) => normalize(c).includes(e))) fail(clip.id, "caption contains lyric text");
     }
-    console.log(`  [${clip.id}] ${durationSec}s, ${lines.length} lines, sound@${fmtMMSS(songStartSec)}, t=[${lines.map((l) => l.t.toFixed(1)).join(", ")}]`);
+    const dcap = lines.map((l) => {
+      const c = data.candidates[l.idx];
+      return c?.capT != null ? (l.abs - c.capT).toFixed(1) : "-";
+    });
+    console.log(`  [${clip.id}] ${durationSec}s, ${lines.length} lines, sound@${fmtMMSS(songStartSec)}, t=[${lines.map((l) => l.t.toFixed(1)).join(", ")}], Δcap=[${dcap.join(", ")}]`);
   }
 
   console.log("");
