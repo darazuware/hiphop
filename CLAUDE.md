@@ -184,6 +184,7 @@ public/images/   # アルバムアート
 - 必ずGeniusから歌詞を直接fetchして正とする
 - リサーチ結果とGeniusで差異があればGenius優先
 - 歌詞の抜け・重複・順序ミスはGenius照合で修正すること
+- **行の存在/非存在を理由に記事を改変する前に、必ず `check-lyrics-coverage.mjs {slug}` の[B]で機械検証する**（記憶ベースの「この行は本曲に無い」断定禁止。詳細は [`docs/fact-check-rules.md`](docs/fact-check-rules.md)「歌詞行の存在/非存在」。誤フェッチ疑い時はキャッシュのpreambleで曲名確認）
 
 **ユーザーの指示例:**
 - `「{アーティスト} {曲名} の記事作成して」`（WebSearch裏取りから開始）
