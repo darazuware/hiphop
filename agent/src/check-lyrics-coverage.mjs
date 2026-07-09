@@ -69,6 +69,8 @@ function parseLyricLines(raw) {
 }
 
 // Raw version (no repeat-filtering) — used to build the B-check corpus
+// [B]コーパスには括弧だけの行（コール&レスポンス/アドリブ）も含める。
+// 記事側はフックの応答行を正当に引用するため、除外すると誤検出になる。
 function parseLyricLinesRaw(raw) {
   const lines = raw.split('\n');
   const result = [];
@@ -79,12 +81,11 @@ function parseLyricLinesRaw(raw) {
     if (/\[/.test(trimmed)) {
       inLyrics = true;
       const afterHeader = trimmed.replace(/^.*\[[^\]]+\]\s*/, '').trim();
-      if (afterHeader && !/^\(.*\)$/.test(afterHeader)) result.push(afterHeader);
+      if (afterHeader) result.push(afterHeader.replace(/^\((.*)\)$/, '$1'));
       continue;
     }
     if (!inLyrics) continue;
-    if (/^\(.*\)$/.test(trimmed)) continue;
-    result.push(trimmed);
+    result.push(trimmed.replace(/^\((.*)\)$/, '$1'));
   }
   return result;
 }
@@ -130,7 +131,9 @@ function normalize(s) {
     .replace(/s\*{2,}t(t(?:y|ier|iest|ing)|[sz])?\b/g, (m, suffix = '') => 'shit' + (suffix || ''))
     .replace(/[''`]/g, "'")
     .replace(/["""]/g, '"')
-    .replace(/[^a-z0-9'\s]/g, ' ')
+    // アポストロフィは照合から除外（li'l/lil'・muthafuckin/muthafuckin'・'cross等の表記ゆれ吸収）
+    .replace(/'/g, '')
+    .replace(/[^a-z0-9\s]/g, ' ')
     .replace(/\s+/g, ' ')
     .trim();
 }
@@ -152,19 +155,88 @@ function isLineMatch(lyricLine, engLine) {
   return false;
 }
 
-// --- Check if an eng line is backed by Genius lyrics (checked against full corpus) ---
-// An eng slot may combine multiple Genius lines into one block, so we check word-level
-// coverage against the entire Genius lyrics joined as a single string.
-function isEngLineCovered(engLine, geniusCorpus) {
-  // normalize() already expands censored forms (f**k → fuck etc.), so no special skip needed
-  const engNorm = normalize(engLine);
+// --- [B]用: eng スロットを <br> 区切りの行単位に分解 ---
+// 旧実装はスロット全体を1本に潰して単語の袋詰めで照合していたため、
+// 「この曲に頻出する単語で構成された別の曲の行」を検出できなかった（語順不問の欠陥）。
+function extractSlotLinesPerBr(astro, slotName) {
+  const result = [];
+  const blockRe = new RegExp(`<Fragment\\s+slot="${slotName}">([\\s\\S]*?)<\\/Fragment>`, 'g');
+  let match;
+  while ((match = blockRe.exec(astro)) !== null) {
+    const inner = match[1]
+      .replace(/<br\s*\/?>/gi, '\n')
+      .replace(/<QuickSlang\s+word="([^"]+)"[^>]*>/g, '$1')
+      .replace(/<[^>]+>/g, ' ')
+      .replace(/&apos;/g, "'")
+      .replace(/&amp;/g, '&')
+      .replace(/&quot;/g, '"')
+      .replace(/&lt;/g, '<')
+      .replace(/&gt;/g, '>');
+    for (const l of inner.split('\n')) {
+      const t = l.replace(/\s+/g, ' ').trim();
+      if (t) result.push(t);
+    }
+  }
+  return result;
+}
+
+// --- 伏せ字トークンをコーパス実在語へ動的展開（muthaf**ka → muthafucka 等）---
+// normalize() の固定パターン（f**k 等）で拾えない任意の伏せ字を、
+// リテラル部分を保った正規表現に変換してコーパス語彙から復元する。
+function expandCensoredWithCorpus(rawLine, corpusWordSet) {
+  return rawLine.replace(/[A-Za-z']*\*[A-Za-z'*]*/g, (token) => {
+    const pattern = token
+      .split('')
+      .map(ch => (ch === '*' ? '@' : ch.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')))
+      .join('')
+      .replace(/@+/g, "[a-z']{1,4}");
+    const re = new RegExp(`^${pattern}$`, 'i');
+    for (const w of corpusWordSet) {
+      if (re.test(w)) return w;
+    }
+    return token;
+  });
+}
+
+// --- コーパス（正規化済み行配列）からバイグラム集合を構築 ---
+// 行内の連続2語＋連続行の境界をまたぐ2語（引用が複数行連結のことがあるため）。
+function buildBigramSet(normLines) {
+  const set = new Set();
+  for (let i = 0; i < normLines.length; i++) {
+    const w = normLines[i].split(' ').filter(Boolean);
+    for (let j = 0; j < w.length - 1; j++) set.add(w[j] + ' ' + w[j + 1]);
+    if (i + 1 < normLines.length) {
+      const next = normLines[i + 1].split(' ').filter(Boolean);
+      if (w.length && next.length) set.add(w[w.length - 1] + ' ' + next[0]);
+    }
+  }
+  return set;
+}
+
+// --- Check if an eng line is backed by Genius lyrics (sequence-aware) ---
+// ①正規化後の完全連続一致（正当な引用はほぼここで通る）
+// ②バイグラム被覆率 ≥ 60%（行内アドリブ表記差などの軽微なズレを許容）
+// 語順を見るため、単語だけ一致する誤帰属行（別曲の行の混入）は弾ける。
+function isEngLineCovered(engLine, geniusCorpus, bigramSet, corpusWordSet) {
+  const expanded = expandCensoredWithCorpus(engLine, corpusWordSet);
+  const engNorm = normalize(expanded);
   if (engNorm.length < 4) return true;
 
-  const engWords = engNorm.split(' ').filter(w => w.length > 3);
-  if (engWords.length === 0) return true;
+  const words = engNorm.split(' ').filter(Boolean);
+  if (words.filter(w => w.length > 3).length === 0) return true;
 
-  const matchCount = engWords.filter(w => geniusCorpus.includes(w)).length;
-  return matchCount / engWords.length >= 0.7;
+  // ① 完全連続一致
+  if (geniusCorpus.includes(engNorm)) return true;
+
+  // ② バイグラム被覆率
+  if (words.length < 3) {
+    // 2語以下はバイグラム判定が不安定 → 両語がコーパスに存在すれば許容
+    return words.every(w => geniusCorpus.includes(w));
+  }
+  const bigrams = [];
+  for (let j = 0; j < words.length - 1; j++) bigrams.push(words[j] + ' ' + words[j + 1]);
+  const hit = bigrams.filter(b => bigramSet.has(b)).length;
+  return hit / bigrams.length >= 0.6;
 }
 
 // --- Page-type detection: learning型 (学習解説主体) vs 従来型 (歌詞対訳) ---
@@ -224,11 +296,16 @@ for (const line of lyricLines) {
 }
 
 // Direction B: .astro → Genius (hallucination check)
-// Use all lines (incl. repeats) for corpus so repeated-but-valid lines aren't flagged
-const geniusCorpus = allLyricLines.map(normalize).join(' ');
+// Use all lines (incl. repeats + 括弧行) for corpus so repeated-but-valid lines aren't flagged.
+// 行単位（<br>区切り）で照合し、完全連続一致→バイグラム被覆率の2段で実在を検証する。
+const corpusNormLines = allLyricLines.map(normalize).filter(Boolean);
+const geniusCorpus = corpusNormLines.join(' ');
+const bigramSet = buildBigramSet(corpusNormLines);
+const corpusWordSet = new Set(geniusCorpus.split(' '));
+const engLinesForB = extractSlotLinesPerBr(astroRaw, 'eng');
 const hallucinated = [];
-for (const engLine of engLines) {
-  if (!isEngLineCovered(engLine, geniusCorpus)) {
+for (const engLine of engLinesForB) {
+  if (!isEngLineCovered(engLine, geniusCorpus, bigramSet, corpusWordSet)) {
     hallucinated.push(engLine);
   }
 }
