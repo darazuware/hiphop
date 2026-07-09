@@ -238,6 +238,13 @@ function checkCriticTone(paths) {
 }
 
 // --- Item 6: Fetch lyrics (短尺フェッチ対策つき) ---
+// ソース上書き（agent/.lyrics-sources.json）: 1曲がGenius側で複数ページに
+// 分割されている等の曲はURL明示で結合コーパスを作る（check-all-lyrics.mjsと共通仕様）。
+let lyricsSources = {};
+try {
+  lyricsSources = JSON.parse(readFileSync(join(projectRoot, 'agent/.lyrics-sources.json'), 'utf-8'));
+} catch {}
+
 // returns { lines, incomplete }
 async function fetchLyrics(title, artist, slug) {
   // feat./ft./featuring 以降を除去し主アーティストでクエリ（誤マッチ防止）。
@@ -249,6 +256,37 @@ async function fetchLyrics(title, artist, slug) {
     cachedText = readFileSync(cachePath, 'utf-8');
     cachedLines = cachedText.split('\n').length;
   } catch {}
+
+  const override = lyricsSources[slug];
+  if (override?.urls?.length) {
+    try {
+      const ageMs = Date.now() - statSync(cachePath).mtimeMs;
+      if (ageMs < 2 * 60 * 60 * 1000) {
+        console.log(`  Using cached lyrics (${Math.round(ageMs / 60000)}m old, ${cachedLines} lines, url-sources)`);
+        return { lines: cachedLines, incomplete: false };
+      }
+    } catch {}
+    try {
+      const extractLyrics = require(join(projectRoot, 'agent/node_modules/genius-lyrics-api/lib/utils/extractLyrics.js'));
+      const parts = [];
+      for (const url of override.urls) {
+        const p = await extractLyrics(url);
+        if (!p) throw new Error(`empty: ${url}`);
+        parts.push(p);
+      }
+      const combined = parts.join('\n\n');
+      writeFileSync(cachePath, combined);
+      const n = combined.split('\n').length;
+      console.log(`  Fetched ${n} lines from ${override.urls.length} url-source page(s)`);
+      return { lines: n, incomplete: false };
+    } catch (e) {
+      if (cachedText) {
+        console.log(`  url-source fetch failed (${e.message}); keeping stale cache (${cachedLines} lines)`);
+        return { lines: cachedLines, incomplete: true };
+      }
+      throw e;
+    }
+  }
 
   // フレッシュなキャッシュ（2h未満）はそのまま使う
   try {
@@ -341,6 +379,15 @@ for (const filePath of changedPaths) {
     console.warn(`  ⚠️  Song not found in songs.ts: ${slug} — skipping`);
     continue;
   }
+
+  // 引用0行（eng/usageスロットなし）のページは歌詞照合の対象がない（noindex/thin型など）
+  try {
+    const astroText = readFileSync(join(projectRoot, 'src/pages/songs', `${slug}.astro`), 'utf-8');
+    if (!/<Fragment\s+slot="(eng|usage)">/.test(astroText)) {
+      console.log('  引用0行（eng/usageスロットなし）— 歌詞照合対象外 ✅');
+      continue;
+    }
+  } catch {}
 
   let incomplete = false;
   try {

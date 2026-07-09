@@ -63,9 +63,38 @@ function titleMatches(lyrics, expectedTitle) {
   return preamble.includes(target);
 }
 
+// --- ソース上書き（agent/.lyrics-sources.json）---
+// 1曲がGenius側で複数ページに分割されている等、タイトル検索では正しいコーパスを
+// 組めない曲のGenius URLを明示する。urls指定時は各ページを取得して結合する
+// （URL明示のためtitleMatches照合は不要）。
+let lyricsSources = {};
+try {
+  lyricsSources = JSON.parse(readFileSync(join(projectRoot, 'agent/.lyrics-sources.json'), 'utf-8'));
+} catch {}
+
 // --- Fetch lyrics with title-match validation and fallback retries ---
 async function fetchLyrics(title, artist, slug) {
   const cachePath = `/tmp/lyrics-${slug}.txt`;
+
+  const override = lyricsSources[slug];
+  if (override?.urls?.length) {
+    try {
+      if (Date.now() - statSync(cachePath).mtimeMs < 2 * 60 * 60 * 1000) {
+        return readFileSync(cachePath, 'utf-8');
+      }
+    } catch {}
+    const extractLyrics = require(join(projectRoot, 'agent/node_modules/genius-lyrics-api/lib/utils/extractLyrics.js'));
+    const parts = [];
+    for (const url of override.urls) {
+      const p = await extractLyrics(url);
+      if (!p) throw new Error(`URL指定ソースの取得に失敗: ${url}`);
+      parts.push(p);
+    }
+    const combined = parts.join('\n\n');
+    writeFileSync(cachePath, combined);
+    return combined;
+  }
+
   try {
     const stat = statSync(cachePath);
     const ageMs = Date.now() - stat.mtimeMs;
@@ -118,6 +147,27 @@ async function run() {
       continue;
     }
     
+    // 引用0行（eng/usageスロットなし）のページは歌詞照合の対象がない
+    // （noindex/thin型など）。Geniusフェッチ自体を省き✅扱いにする。
+    const astroRaw = readFileSync(astroPath, 'utf-8');
+    if (!/<Fragment\s+slot="(eng|usage)">/.test(astroRaw)) {
+      console.log('  引用0行（eng/usageスロットなし）— 歌詞照合対象外 | ステータス: ✅ OK');
+      results.push({
+        ...song,
+        status: 'OK',
+        coveragePercent: 0,
+        coveredCount: 0,
+        totalCount: 0,
+        blocksCount: 0,
+        omissions: [],
+        hallucinations: [],
+        hasOmissionError: false,
+        hasHallucinationError: false,
+        rawOutput: '引用0行・照合対象外'
+      });
+      continue;
+    }
+
     // Geniusから歌詞をあらかじめ取得（キャッシュ確認用）
     try {
       await fetchLyrics(song.title, song.artist, song.slug);

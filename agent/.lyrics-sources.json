@@ -1,0 +1,9 @@
+{
+  "storm": {
+    "urls": [
+      "https://genius.com/Gener8ion-and-yung-lean-storm-i-lyrics",
+      "https://genius.com/Gener8ion-and-yung-lean-storm-ii-lyrics"
+    ],
+    "reason": "サイトでは1記事「STORM (I & II)」だがGenius側はSTORM I / STORM IIの2ページに分割されているため、両ページを結合してコーパスにする（タイトル検索では片方しか取れず不一致エラーになる）"
+  }
+}
