@@ -35,7 +35,8 @@ for (const line of lines) {
   if (!line.includes('slug:')) continue;
   // Extract slug, title, artists
   const slugMatch = line.match(/slug:\s*['"]\/songs\/([^'"]+)['"]/);
-  const titleMatch = line.match(/title:\s*"([^"]+)"/) || line.match(/title:\s*'([^']+)'/);
+  // (?<![a-zA-Z]) で subtitle: への誤マッチを防ぐ
+  const titleMatch = line.match(/(?<![a-zA-Z])title:\s*"([^"]+)"/) || line.match(/(?<![a-zA-Z])title:\s*'([^']+)'/);
   const artistsMatch = line.match(/artists:\s*['"]([^'"]+)['"]/);
   
   if (slugMatch && titleMatch && artistsMatch) {
@@ -50,13 +51,16 @@ for (const line of lines) {
 console.log(`songs.ts 内に ${songs.length} 曲が見つかりました。`);
 
 // --- Validate that fetched lyrics match expected title ---
-// Checks if key words of the expected title appear in the Genius preamble (first 500 chars)
+// Geniusページは必ず「<Title> Lyrics」をpreambleに含むため、正規化した
+// 「<title> lyrics」の完全連続一致を要求する。
+// 旧実装（タイトル語の50%がpreambleのどこかにあればOK）は、歌い出しに
+// タイトル語を含むだけの別曲（例: California Love → ノルウェー語の Cali Love）を
+// 通してしまい、誤コーパスで[B]が71行誤検出する事故を起こした。
 function titleMatches(lyrics, expectedTitle) {
-  const preamble = lyrics.slice(0, 500).toLowerCase().replace(/[^a-z0-9\s]/g, ' ').replace(/\s+/g, ' ');
-  const eWords = expectedTitle.toLowerCase().replace(/[^a-z0-9\s]/g, ' ').split(/\s+/).filter(w => w.length > 2);
-  if (eWords.length === 0) return true;
-  const matches = eWords.filter(w => preamble.includes(w));
-  return matches.length / eWords.length >= 0.5;
+  const norm = (s) => s.toLowerCase().replace(/[^a-z0-9\s]/g, ' ').replace(/\s+/g, ' ').trim();
+  const preamble = norm(lyrics.slice(0, 500));
+  const target = norm(expectedTitle) + ' lyrics';
+  return preamble.includes(target);
 }
 
 // --- Fetch lyrics with title-match validation and fallback retries ---
