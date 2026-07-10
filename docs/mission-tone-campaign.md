@@ -9,6 +9,11 @@
 node agent/src/tone-campaign.mjs status          # 監査・残数確認（review worktree基準）
 node agent/src/tone-campaign.mjs run --count 3   # 未更新の先頭3曲を順次修正（既定 Sonnet・full）
 ```
+Telegramからは（bot `index.mjs` が新コードで稼働していること）:
+- `トーン一斉` → 先頭3曲・sonnet・unit増強込み（＝`run --count 3`）
+- `トーン一斉 5 tone` → 5曲・unit増強なし ／ `トーン一斉 5 opus` → opusで5曲
+- `トーン一斉 状況` → 残数と次の1曲
+バッチ実行中の二重起動は拒否される。終了時に🏁サマリーが届き、`トーン一斉 <N>` を再送すれば続きから回る。
 `run` は既存の「修正依頼」ルーチン（`claude.mjs runToneFix`・三稿制・watcher委譲）で1曲ずつ回す。オプション:
 - `--count N` 1回に回す曲数（既定3。Telegramレビューの消化に合わせ3〜5推奨）
 - `--scope full|tone` full=実施内容1〜4（unit増強込み・既定）／tone=文体・改行・内部リンクのみ（unit増強スキップ）
