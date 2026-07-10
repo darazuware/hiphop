@@ -248,9 +248,16 @@ ${instruction}
  * 三稿制（初稿→疑う→仕上げ）・検証ゲート（check-tone-only→check-article全✅）・push・notify-review
  * を固定手順として渡す。品質をモデルでなくこの手順に持たせるため model=sonnet で回しトークンを節約する。
  * @param {string} query 曲名・アーティスト名・slugのいずれか（部分一致で特定させる）
+ * @param {string|null} resumeId
+ * @param {object} [opts] トーン一斉更新キャンペーン（tone-campaign.mjs / docs/mission-tone-campaign.md）用の
+ *   後方互換オプション。Telegramの「修正依頼」からの呼び出し（index.mjs）は従来どおり引数2つで挙動不変。
+ *   - model: 'sonnet'（既定）| 'opus' — triggerのmeta.modelに渡す
+ *   - scope: 'full'（既定・実施内容1〜4）| 'tone' — unit増強(実施内容4)をスキップし1〜3のみ
+ *   - reflowOnly: true なら改行整形(実施内容2)だけを行う（nas-is-like等、文言を変えたくない模範ページ用）
  * @returns {Promise<{ success: boolean, output: string, error: string|null }>}
  */
-export async function runToneFix(query, resumeId = null) {
+export async function runToneFix(query, resumeId = null, opts = {}) {
+  const { model = 'sonnet', scope = 'full', reflowOnly = false } = opts;
   const ts = Date.now();
   const promptFile = `/tmp/hiphop-prompt-${ts}.txt`;
   const triggerFile = `/tmp/hiphop-trigger-${ts}.txt`;
@@ -290,14 +297,30 @@ export async function runToneFix(query, resumeId = null) {
 - 歌詞本文などセンシティブな内容はレスポンスに出力しない。
 - 最後に必ず \`SUMMARY: <要約>\` を日本語で出力する。①特定した曲(slug)②unit数（何個→何個）と[D]引用率③check-tone-only/check-articleの結果（❌が何個から何個になったか）④push・notify-reviewの実行有無、を具体的に書く。「完了」「対応しました」等の中身の無い一言は禁止。`;
 
-  await writeFile(promptFile, prompt, 'utf-8');
+  // キャンペーン用の上書き（既定では空文字＝従来挙動）
+  let override = '';
+  if (reflowOnly) {
+    override = `
+
+## 【上書き・reflowOnlyモード（最優先で従う）】
+この曲は文体の完全模範ページなので、**実施内容のうち2（改行整形・1〜2文/p）だけを行う**。
+語句・文言・見出し・unit・eng/jpn・内部リンク・units.json は一文字も変更しない（実施内容1・3・4はスキップ）。
+第2稿の観点も「<p>が1〜2文ごとに割れているか」だけでよい。文を書き換えず、<p>の分割のみで違反を消す。`;
+  } else if (scope === 'tone') {
+    override = `
+
+## 【上書き・toneスコープ（最優先で従う）】
+今回は文体・改行・内部リンクの一斉更新キャンペーンなので、**実施内容4（unit増強）はスキップし、1〜3のみ行う**（learning型でもunitを追加しない。units.json・タイムスタンプ生成にも触らない）。SUMMARYのunit数は「変更なし」と書く。`;
+  }
+
+  await writeFile(promptFile, prompt + override, 'utf-8');
 
   // watcherが動いていなければTerminalで自動起動
   await ensureWatcher();
 
   // triggerにfreeformモードを指定（watcherが記事後処理をスキップし、上記手順にすべて任せる）
-  // 三稿制で品質をシステム側に持たせるため model=sonnet で回す（opex節約。CLAUDE.md記事作成フロー参照）。
-  await writeFile(triggerFile, JSON.stringify({ promptFile, mode: 'freeform', model: 'sonnet', resumeId }), 'utf-8');
+  // 三稿制で品質をシステム側に持たせるため既定 model=sonnet で回す（opex節約。CLAUDE.md記事作成フロー参照）。
+  await writeFile(triggerFile, JSON.stringify({ promptFile, mode: 'freeform', model, resumeId }), 'utf-8');
   console.log(`  [Claude] 修正依頼を watcher に委譲... (query: ${query})`);
 
   const result = await waitForDone(doneFile);
