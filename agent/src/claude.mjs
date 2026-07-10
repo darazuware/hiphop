@@ -12,11 +12,10 @@
 
 import { readFile, writeFile } from 'node:fs/promises';
 import { access } from 'node:fs/promises';
-import { execSync, spawn } from 'node:child_process';
+import { execSync } from 'node:child_process';
 
 // review運用（2026-07-02〜）: 実作業は常設worktree hiphop-review（reviewブランチ）で行う。
 const HIPHOP_CWD = '/Users/ktamatzmoto/Desktop/hiphop-review';
-const WATCHER_SCRIPT = '/Users/ktamatzmoto/Desktop/hiphop/agent/src/watcher.mjs';
 const TIMEOUT_MS = 45 * 60 * 1000; // 45分（3曲並列でもwatcher処理が終わるまで待てる）
 
 function isWatcherRunning() {
@@ -30,13 +29,25 @@ function isWatcherRunning() {
 
 async function ensureWatcher() {
   if (isWatcherRunning()) return;
-  console.log('  [Claude] watcherが停止中 → 直接起動中...');
-  const child = spawn('node', [WATCHER_SCRIPT], {
-    cwd: HIPHOP_CWD,
-    detached: true,
-    stdio: 'ignore',
-  });
-  child.unref();
+  // 【EPERM再発防止・2026-07-10】ここで node を直接 spawn しない。
+  // 呼び出し元がClaude Codeセッション内だと、カーネルsandbox（除去不能）を継承した
+  // watcherが常駐し、中の claude CLI が全件即EPERMで死ぬ事故が起きた。
+  // launchd（com.hiphop.watcher / KeepAlive）にクリーンな文脈で起動させるのが正。
+  console.log('  [Claude] watcherが停止中 → launchd(com.hiphop.watcher)経由で起動...');
+  const uid = process.getuid();
+  try {
+    execSync(`launchctl kickstart gui/${uid}/com.hiphop.watcher`, { stdio: 'pipe' });
+  } catch {
+    try {
+      execSync(
+        `launchctl bootstrap gui/${uid} ${process.env.HOME}/Library/LaunchAgents/com.hiphop.watcher.plist`,
+        { stdio: 'pipe' }
+      );
+    } catch (e) {
+      console.error(`  [Claude] launchd起動失敗: ${String(e.message).slice(0, 200)}`);
+      console.error('  [Claude] 手動起動: launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.hiphop.watcher.plist');
+    }
+  }
   // 起動確認（最大10秒ポーリング）
   for (let i = 0; i < 10; i++) {
     await sleep(1000);

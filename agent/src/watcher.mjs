@@ -2,14 +2,35 @@
 /**
  * HipHop Article Watcher
  *
- * Terminalで1回起動しておくスクリプト。
+ * launchd（~/Library/LaunchAgents/com.hiphop.watcher.plist / KeepAlive）で常駐させるスクリプト。
  * index.mjs が /tmp/hiphop-trigger-*.txt を書くと検知し、
  * Claude Code CLI で記事生成 → 歌詞チェック → ビルド → git push を実行する。
+ * ※Terminal手動起動やClaude Codeセッション内からのspawnで動かさない
+ *   （セッションのsandbox継承で claude CLI が全件EPERMになる。2026-07-10の事故）。
  */
 
 import { readFile, writeFile, unlink, readdir } from 'node:fs/promises';
 import { readFileSync } from 'node:fs';
 import { spawn } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
+import { dirname, join } from 'node:path';
+import dotenv from 'dotenv';
+
+// 起動元のシェル環境に依存せず agent/.env（CLAUDE_CODE_OAUTH_TOKEN 等）を必ず読む。
+// 既にexportされた値が優先（dotenvは既存process.envを上書きしない）。
+dotenv.config({ path: join(dirname(fileURLToPath(import.meta.url)), '..', '.env') });
+
+// 【EPERM再発防止・2026-07-10】Claude Codeセッション内から起動されたプロセスの環境を
+// 継承すると、CLIがホスト連携モード（SDK/desktop）と誤認して即死する。
+// サブスク認証に必要な CLAUDE_CODE_OAUTH_TOKEN だけ残し、セッション由来の変数を落とす。
+// ※カーネルsandboxは環境変数と違い除去不能なので、watcher自体の起動は
+//   LaunchAgent（com.hiphop.watcher）経由が正（claude.mjs ensureWatcher参照）。
+for (const key of Object.keys(process.env)) {
+  if (key === 'CLAUDE_CODE_OAUTH_TOKEN') continue;
+  if (/^(CLAUDECODE$|CLAUDE_CODE_|CLAUDE_AGENT_|CLAUDE_EFFORT$|AI_AGENT$|BAGGAGE$)/.test(key)) {
+    delete process.env[key];
+  }
+}
 
 const CLAUDE_BIN = '/Users/ktamatzmoto/.local/bin/claude';
 // モデルは trigger の meta.model で切り替える（既定 opus）。
