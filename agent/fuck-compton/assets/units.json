@@ -12,9 +12,63 @@
     "manualSec": null
   },
   {
+    "id": "suckers-riff",
+    "anchor": ["all", "you", "suckers", "that", "riff"],
+    "fallbackT": 23,
+    "manualSec": null
+  },
+  {
+    "id": "so-bad",
+    "anchor": ["im", "so", "bad", "ill", "whip"],
+    "fallbackT": 25,
+    "manualSec": null
+  },
+  {
     "id": "spray-raid",
     "anchor": ["spray", "your", "ass", "like", "a", "roach"],
     "fallbackT": 28,
+    "manualSec": null
+  },
+  {
+    "id": "hard-brother",
+    "anchor": ["hard", "brother", "that", "lives", "in", "new"],
+    "fallbackT": 35,
+    "manualSec": null
+  },
+  {
+    "id": "fuck-compton-hook",
+    "anchor": ["fuck", "compton"],
+    "fallbackT": 43,
+    "manualSec": null
+  },
+  {
+    "id": "ain't-shit",
+    "anchor": ["why", "you", "dissing", "eazy"],
+    "fallbackT": 52,
+    "manualSec": null
+  },
+  {
+    "id": "cool-with",
+    "anchor": ["ill", "crush", "ice", "cube"],
+    "fallbackT": 58,
+    "manualSec": null
+  },
+  {
+    "id": "dee-barnes",
+    "anchor": ["dre", "beatin", "on", "dee"],
+    "fallbackT": 62,
+    "manualSec": null
+  },
+  {
+    "id": "step-to",
+    "anchor": ["step", "to", "the", "dog"],
+    "fallbackT": 65,
+    "manualSec": null
+  },
+  {
+    "id": "michel-le",
+    "anchor": ["michel"],
+    "fallbackT": 67,
     "manualSec": null
   },
   {
@@ -30,9 +84,33 @@
     "manualSec": null
   },
   {
+    "id": "thinking-hard",
+    "anchor": ["you", "go", "on", "thinking", "youre", "hard"],
+    "fallbackT": 85,
+    "manualSec": null
+  },
+  {
     "id": "jheri-curl",
     "anchor": ["take", "your", "jheri", "curl"],
     "fallbackT": 95,
+    "manualSec": null
+  },
+  {
+    "id": "south-bronx",
+    "anchor": ["im", "from", "the", "south", "bronx"],
+    "fallbackT": 100,
+    "manualSec": null
+  },
+  {
+    "id": "eyes-on-prize",
+    "anchor": ["keep", "your", "eyes", "on", "the", "prize"],
+    "fallbackT": 122,
+    "manualSec": null
+  },
+  {
+    "id": "tec-nine",
+    "anchor": ["loaded", "tec"],
+    "fallbackT": 126,
     "manualSec": null
   },
   {
@@ -42,9 +120,45 @@
     "manualSec": null
   },
   {
+    "id": "so-large",
+    "anchor": ["im", "so", "large"],
+    "fallbackT": 138,
+    "manualSec": null
+  },
+  {
+    "id": "man-at-hand",
+    "anchor": ["man", "at", "hand", "to", "run", "the"],
+    "fallbackT": 148,
+    "manualSec": null
+  },
+  {
+    "id": "name-game",
+    "anchor": ["whats", "my", "motherfucking", "name"],
+    "fallbackT": 151,
+    "manualSec": null
+  },
+  {
+    "id": "myth",
+    "anchor": ["whether", "you", "think", "that", "im", "just"],
+    "fallbackT": 153,
+    "manualSec": null
+  },
+  {
     "id": "riff-spliff",
     "anchor": ["riff", "the", "lift", "the", "gift"],
     "fallbackT": 155,
+    "manualSec": null
+  },
+  {
+    "id": "fold-bold",
+    "anchor": ["fold", "to", "bold", "and", "make"],
+    "fallbackT": 160,
+    "manualSec": null
+  },
+  {
+    "id": "wack-ass",
+    "anchor": ["wack", "ass", "rappers", "from", "compton"],
+    "fallbackT": 172,
     "manualSec": null
   }
 ]
