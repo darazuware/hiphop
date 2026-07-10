@@ -15,7 +15,7 @@
  * - 実行履歴は agent/.tone-campaign-state.json（キュー自体は毎回監査から再計算＝自己修復）
  */
 import { execSync } from 'node:child_process';
-import { readFileSync, writeFileSync, existsSync, readdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, readdirSync, unlinkSync } from 'node:fs';
 import { join } from 'node:path';
 
 const MAIN_ROOT = new URL('../../', import.meta.url).pathname.replace(/\/$/, '');
@@ -60,6 +60,28 @@ function parseLimitWaitMs(error) {
     waitMs = target.getTime() - Date.now();
   }
   return Math.min(waitMs + 3 * 60 * 1000, LIMIT_WAIT_CAP_MS); // リセット直後の空振り防止に+3分
+}
+
+// プロセス間の二重起動ガード（index.mjsのフラグは自プロセス内のみで、対話セッション・
+// 手動実行と並走すると同じ曲を掴んで衝突するため、lockファイルで全入口を守る）。
+const LOCK_FILE = join(MAIN_ROOT, 'agent/.tone-campaign.lock');
+function acquireLock() {
+  try {
+    const pid = Number(readFileSync(LOCK_FILE, 'utf-8').trim());
+    if (pid) {
+      try {
+        process.kill(pid, 0); // 生存確認のみ
+        console.error(`❌ 別のトーン一斉バッチが実行中です (pid ${pid}) — 二重起動を中止します`);
+        process.exit(1);
+      } catch { /* 死んだpidの残骸lock → 奪ってよい */ }
+    }
+  } catch { /* lock無し */ }
+  writeFileSync(LOCK_FILE, String(process.pid), 'utf-8');
+  process.on('exit', () => {
+    try {
+      if (readFileSync(LOCK_FILE, 'utf-8').trim() === String(process.pid)) unlinkSync(LOCK_FILE);
+    } catch {}
+  });
 }
 
 /** Telegram通知（best-effort。トークン未設定・送信失敗でも本処理を止めない） */
@@ -151,6 +173,7 @@ async function run(args) {
     process.exit(1);
   }
 
+  acquireLock();
   const { pending } = audit();
   const batch = pending.slice(0, count);
   if (batch.length === 0) {
