@@ -29,6 +29,52 @@ if (!existsSync(SONGS_DIR)) {
   process.exit(1);
 }
 
+// 【中断根本対策・2026-07-10】Claudeサブスクの使用上限（"You've hit your session limit ·
+// resets 7:30pm" 等）は環境異常でなく時間で回復する定常イベント。失敗扱いで中断せず、
+// リセット時刻まで待機して同じ曲から自動再開する。
+const MAX_LIMIT_WAITS = 3;                      // 1回のrunで待機する上限（超えたら本当に異常）
+const LIMIT_WAIT_CAP_MS = 6 * 3600 * 1000;      // 待機の上限6時間
+const LIMIT_WAIT_DEFAULT_MS = 60 * 60 * 1000;   // リセット時刻が読めない時は60分
+
+function sleep(ms) {
+  return new Promise((r) => setTimeout(r, ms));
+}
+
+/** Claude CLIの使用上限エラーなら待機ミリ秒を返す（上限以外のエラーは null） */
+function parseLimitWaitMs(error) {
+  if (!error) return null;
+  const s = String(error);
+  if (!/(session|usage|rate)[\s_-]?limit|hit your .{0,20}limit|limit (?:will )?reset|limit reached/i.test(s)) return null;
+  // 例: "resets 7:30pm (Asia/Tokyo)" / "will reset at 7pm" — Macのローカル時刻（Asia/Tokyo）で解釈
+  const m = s.match(/reset[^0-9]{0,10}(\d{1,2})(?::(\d{2}))?\s*(am|pm)?/i);
+  let waitMs = LIMIT_WAIT_DEFAULT_MS;
+  if (m) {
+    let h = Number(m[1]);
+    const min = Number(m[2] || 0);
+    const ap = (m[3] || '').toLowerCase();
+    if (ap === 'pm' && h < 12) h += 12;
+    if (ap === 'am' && h === 12) h = 0;
+    const target = new Date();
+    target.setHours(h, min, 0, 0);
+    if (target.getTime() <= Date.now()) target.setTime(target.getTime() + 24 * 3600 * 1000);
+    waitMs = target.getTime() - Date.now();
+  }
+  return Math.min(waitMs + 3 * 60 * 1000, LIMIT_WAIT_CAP_MS); // リセット直後の空振り防止に+3分
+}
+
+/** Telegram通知（best-effort。トークン未設定・送信失敗でも本処理を止めない） */
+async function notifyTelegram(text) {
+  try {
+    if (!process.env.TELEGRAM_BOT_TOKEN) {
+      const { default: dotenv } = await import('dotenv');
+      dotenv.config({ path: join(MAIN_ROOT, 'agent/.env') });
+    }
+    if (!process.env.TELEGRAM_BOT_TOKEN || !process.env.TELEGRAM_CHAT_ID) return;
+    const { sendMessage } = await import('./telegram.mjs');
+    await sendMessage(text, null, { safe: true });
+  } catch {}
+}
+
 function loadState() {
   try {
     return JSON.parse(readFileSync(STATE_FILE, 'utf-8'));
@@ -121,22 +167,38 @@ async function run(args) {
   const { runToneFix } = await import('./claude.mjs');
   const state = loadState();
   let consecFail = 0;
+  let totalLimitWaits = 0;
   for (const r of batch) {
     const opts = { model, scope, reflowOnly: r.slug === 'nas-is-like' };
     console.log(`\n━━━ ${r.slug} を runToneFix で実行中（watcher委譲・最長45分） ━━━`);
     const startedAt = new Date().toISOString();
     let res;
-    try {
-      res = await runToneFix(r.slug, null, opts);
-    } catch (e) {
-      res = { success: false, output: '', error: String(e.message || e) };
+    let waits = 0;
+    for (;;) {
+      try {
+        res = await runToneFix(r.slug, null, opts);
+      } catch (e) {
+        res = { success: false, output: '', error: String(e.message || e) };
+      }
+      // 使用上限は失敗でなく「待って再開」。consecFail にも数えない。
+      const waitMs = res.success ? null : parseLimitWaitMs(res.error);
+      if (waitMs === null || totalLimitWaits >= MAX_LIMIT_WAITS) break;
+      totalLimitWaits++;
+      waits++;
+      const resumeAt = new Date(Date.now() + waitMs);
+      const hhmm = `${String(resumeAt.getHours()).padStart(2, '0')}:${String(resumeAt.getMinutes()).padStart(2, '0')}`;
+      console.log(`⏸ Claude使用上限を検知（${res.error}）`);
+      console.log(`⏸ ${hhmm} 頃まで待機し、${r.slug} から自動再開します（待機 ${totalLimitWaits}/${MAX_LIMIT_WAITS} 回目）`);
+      await notifyTelegram(`⏸ トーン一斉: Claude使用上限を検知。${hhmm}頃に ${r.slug} から自動再開します（バッチは中断していません）`);
+      await sleep(waitMs);
+      console.log(`▶ 待機終了 — ${r.slug} を再実行します`);
     }
     // 完了判定は本人申告でなく再監査（絶対基準）で行う
     const after = auditTone([r.slug]).get(r.slug);
     const ok = Boolean(res.success && after?.pass);
     state.history.push({
       slug: r.slug, startedAt, finishedAt: new Date().toISOString(), scope, model,
-      reflowOnly: opts.reflowOnly, ok,
+      reflowOnly: opts.reflowOnly, ok, limitWaits: waits,
       toneAfter: after?.detail ?? 'unknown',
       summary: (res.output || '').slice(0, 500), error: res.error || null,
     });

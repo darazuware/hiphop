@@ -99,6 +99,7 @@ function extractErrorReason(log) {
     /Credit balance is too low/i,
     /rate limit/i,
     /usage limit/i,
+    /session limit/i,
     /Invalid API key|authentication|OAuth|not logged in/i,
     /quota/i,
   ];

@@ -141,7 +141,8 @@ async function handleToneCampaignCommand(argText, chatId) {
   toneCampaignRunning = true;
   await sendMessage(
     `🏭 トーン一斉更新を開始: 未更新の先頭${count}曲（scope=${scope}, model=${model}）\n` +
-    `1曲ずつ修正依頼ルーチンで回します（各曲、review pushとプレビューURL通知が飛びます。1曲最長45分）`,
+    `1曲ずつ修正依頼ルーチンで回します（各曲、review pushとプレビューURL通知が飛びます。1曲最長45分）\n` +
+    `Claude使用上限に当たった場合は中断せず、リセット時刻まで自動待機して同じ曲から再開します（⏸通知が飛びます）`,
     chatId
   );
   const child = spawn('node', [script, 'run', '--count', count, '--scope', scope, '--model', model], { cwd: ROOT });
@@ -151,7 +152,7 @@ async function handleToneCampaignCommand(argText, chatId) {
   child.on('close', (code) => {
     toneCampaignRunning = false;
     const tail = buf.split('\n')
-      .filter((l) => /^(✅ [^ ]+: 完了|❌ [^ ]+: 未達|❌ 2曲連続|全\d+曲|次の1曲)/.test(l))
+      .filter((l) => /^(✅ [^ ]+: 完了|❌ [^ ]+: 未達|❌ 2曲連続|⏸ |▶ 待機終了|全\d+曲|次の1曲)/.test(l))
       .slice(-12).join('\n');
     sendMessage(
       `${code === 0 ? '🏁 トーン一斉バッチ終了' : '❌ トーン一斉バッチ中断'} (exit ${code})\n${tail}\n続き: \`トーン一斉 ${count}\``.slice(0, 3500),

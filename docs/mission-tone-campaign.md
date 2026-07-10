@@ -33,8 +33,9 @@ Telegramからは（bot `index.mjs` が新コードで稼働していること�
 3. 従来型（LyricsBlock）はアルファベット順（unit増強なし・文体/改行/リンクのみ）
 
 ## 運用メモ
-- 前提: watcher（Terminal）。停止していれば runToneFix が自動起動する。
-- 2曲連続で失敗したら環境異常とみなし自動中断（`agent/.tone-campaign-state.json` に履歴が残る）。
+- 前提: watcher（launchd `com.hiphop.watcher`）。停止していれば runToneFix が launchctl 経由で自動起動する。
+- **Claude使用上限（session/usage limit）は中断しない（2026-07-10）**: エラーメッセージからリセット時刻（例: `resets 7:30pm`）を読み取り、+3分バッファで待機して**同じ曲から自動再開**する（Telegramに⏸通知）。読めなければ60分待機。1回のrunで最大3回まで待機し、それでも上限なら通常の失敗として扱う。consecFail には数えない。
+- 2曲連続で失敗（上限以外の実失敗）したら環境異常とみなし自動中断（`agent/.tone-campaign-state.json` に履歴が残る）。
 - キューは毎回 review worktree の再監査から計算するので、Telegram の個別「修正依頼」や手動修正と並走しても二重修正にならない（✅になった曲は自動でキューから消える）。
 - 1曲あたり最長45分（claude.mjs のタイムアウト）。`--count 3` で最長2時間強を見込む。
 - 状態ファイル `agent/.tone-campaign-state.json` は生成物（コミット不要・削除しても監査から復元可能）。
