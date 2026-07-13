@@ -64,6 +64,30 @@ if (hasAsin) {
 // 2. YouTube
 step("[YT] YouTube埋め込み", `node agent/src/check-youtube.mjs ${slug}`);
 
+// 2.3 試聴プレビュー（トップ曲一覧の再生ボタン用 Deezer track ID。未解決なら自動生成）
+{
+  console.log("\n━━━ [PRV] 試聴プレビュー ━━━");
+  const previewsPath = join(projectRoot, "src/data/previews.json");
+  const readPreviews = () => (existsSync(previewsPath) ? JSON.parse(readFileSync(previewsPath, "utf-8")) : {});
+  let previews = readPreviews();
+  if (!(slug in previews)) {
+    try {
+      execSync(`node agent/src/gen-previews.mjs --slug ${slug}`, { stdio: "inherit", cwd: projectRoot });
+    } catch {}
+    previews = readPreviews();
+  }
+  if (!(slug in previews)) {
+    console.error(`❌ previews.json に ${slug} が未登録（node agent/src/gen-previews.mjs --slug ${slug} で解決を）`);
+    results.push({ label: "[PRV] 試聴プレビュー", ok: false });
+  } else if (previews[slug] === null) {
+    console.log("⏭️  Deezer未収録（null記録済み・再生ボタン非表示）。誤判定なら --set <slug>=<trackId> で手動設定");
+    results.push({ label: "[PRV] 試聴プレビュー", ok: true });
+  } else {
+    console.log(`✅ Deezer track id=${previews[slug].id}（${previews[slug].artist} / ${previews[slug].title}）`);
+    results.push({ label: "[PRV] 試聴プレビュー", ok: true });
+  }
+}
+
 // 2.5 プレーヤー整合（learning型は learningPage={true} 必須 — 無いと固定プレーヤーバーが描画されない）
 {
   console.log("\n━━━ [PLR] プレーヤー整合 ━━━");
