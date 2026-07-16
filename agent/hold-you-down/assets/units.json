@@ -1,50 +1,345 @@
 [
   {
     "id": "menace-o-dog",
-    "anchor": ["similar", "to", "a", "menace"],
-    "fallbackT": 20,
+    "anchor": [
+      "similar",
+      "to",
+      "a",
+      "menace"
+    ],
+    "fallbackT": 14,
+    "manualSec": null
+  },
+  {
+    "id": "wont-be-nobody",
+    "anchor": [
+      "wont",
+      "be",
+      "nobody",
+      "strong",
+      "enough"
+    ],
+    "fallbackT": 19,
     "manualSec": null
   },
   {
     "id": "sentenced-to-box",
-    "anchor": ["sentenced", "to", "life", "stressed"],
-    "fallbackT": 35,
+    "anchor": [
+      "sentenced",
+      "to",
+      "life",
+      "stressed"
+    ],
+    "fallbackT": 25,
+    "manualSec": null
+  },
+  {
+    "id": "nobody-but-me",
+    "anchor": [
+      "nobody",
+      "but",
+      "me",
+      "i",
+      "got",
+      "a",
+      "whole"
+    ],
+    "fallbackT": 31,
+    "manualSec": null
+  },
+  {
+    "id": "well-connected-beef",
+    "anchor": [
+      "well",
+      "connected",
+      "in",
+      "the",
+      "streets"
+    ],
+    "fallbackT": 40,
     "manualSec": null
   },
   {
     "id": "foreverly",
-    "anchor": ["foreverly", "hold", "you", "down"],
-    "fallbackT": 62,
+    "anchor": [
+      "foreverly",
+      "hold",
+      "you",
+      "down"
+    ],
+    "fallbackT": 43,
+    "manualSec": null
+  },
+  {
+    "id": "get-down",
+    "anchor": [
+      "we",
+      "get",
+      "down"
+    ],
+    "fallbackT": 46,
     "manualSec": null
   },
   {
     "id": "hold-you-down-hook",
-    "anchor": ["even", "when", "shit", "gets", "hard"],
-    "fallbackT": 82,
+    "anchor": [
+      "even",
+      "when",
+      "shit",
+      "gets",
+      "hard"
+    ],
+    "fallbackT": 57,
+    "manualSec": null
+  },
+  {
+    "id": "until-the-day-i-die",
+    "anchor": [
+      "until",
+      "the",
+      "day",
+      "i",
+      "die"
+    ],
+    "fallbackT": 62,
+    "manualSec": null
+  },
+  {
+    "id": "roll-with-me",
+    "anchor": [
+      "long",
+      "as",
+      "you",
+      "roll",
+      "with",
+      "me"
+    ],
+    "fallbackT": 66,
     "manualSec": null
   },
   {
     "id": "dying-first",
-    "anchor": ["never", "leave", "my", "fam", "in", "a", "jam"],
-    "fallbackT": 115,
+    "anchor": [
+      "never",
+      "leave",
+      "my",
+      "fam",
+      "in",
+      "a",
+      "jam"
+    ],
+    "fallbackT": 81,
+    "manualSec": null
+  },
+  {
+    "id": "grind-hustle",
+    "anchor": [
+      "grinding",
+      "first"
+    ],
+    "fallbackT": 84,
+    "manualSec": null
+  },
+  {
+    "id": "throw-it-all-away",
+    "anchor": [
+      "love",
+      "this",
+      "profession",
+      "throw",
+      "it",
+      "all",
+      "away"
+    ],
+    "fallbackT": 91,
     "manualSec": null
   },
   {
     "id": "cooks-the-pot",
-    "anchor": ["you", "know", "how", "we", "cooks", "the", "pot"],
-    "fallbackT": 142,
+    "anchor": [
+      "you",
+      "know",
+      "how",
+      "we",
+      "cooks",
+      "the",
+      "pot"
+    ],
+    "fallbackT": 99,
+    "manualSec": null
+  },
+  {
+    "id": "mold-the-sound",
+    "anchor": [
+      "watch",
+      "how",
+      "i",
+      "mold",
+      "the",
+      "sound"
+    ],
+    "fallbackT": 104,
+    "manualSec": null
+  },
+  {
+    "id": "imma-keep-my-pen",
+    "anchor": [
+      "keep",
+      "my",
+      "eyes",
+      "open",
+      "i",
+      "don't",
+      "even",
+      "blink"
+    ],
+    "fallbackT": 110,
+    "manualSec": null
+  },
+  {
+    "id": "war-for-4-4",
+    "anchor": [
+      "for",
+      "all",
+      "my",
+      "niggas",
+      "i",
+      "war",
+      "for"
+    ],
+    "fallbackT": 140,
+    "manualSec": null
+  },
+  {
+    "id": "back-to-back",
+    "anchor": [
+      "trapped",
+      "standing",
+      "back",
+      "to",
+      "back"
+    ],
+    "fallbackT": 145,
+    "manualSec": null
+  },
+  {
+    "id": "lay-a-nigga-down",
+    "anchor": [
+      "lay",
+      "a",
+      "nigga",
+      "down"
+    ],
+    "fallbackT": 148,
+    "manualSec": null
+  },
+  {
+    "id": "cock-my-shit",
+    "anchor": [
+      "cock",
+      "my",
+      "shit",
+      "and",
+      "hold",
+      "you",
+      "down"
+    ],
+    "fallbackT": 151,
+    "manualSec": null
+  },
+  {
+    "id": "mobb-thugs-paper",
+    "anchor": [
+      "mobb",
+      "thugs",
+      "drops",
+      "and",
+      "trucks"
+    ],
+    "fallbackT": 181,
     "manualSec": null
   },
   {
     "id": "finna-get-wigged",
-    "anchor": ["somebody", "finna", "get", "wigged"],
-    "fallbackT": 272,
+    "anchor": [
+      "somebody",
+      "finna",
+      "get",
+      "wigged"
+    ],
+    "fallbackT": 190,
+    "manualSec": null
+  },
+  {
+    "id": "quarter-mill-chain",
+    "anchor": [
+      "chain",
+      "cost",
+      "a",
+      "quarter",
+      "mill"
+    ],
+    "fallbackT": 195,
+    "manualSec": null
+  },
+  {
+    "id": "wilding-double-neg",
+    "anchor": [
+      "shots",
+      "won't",
+      "never",
+      "stop",
+      "wilding"
+    ],
+    "fallbackT": 200,
+    "manualSec": null
+  },
+  {
+    "id": "they-say-wilding",
+    "anchor": [
+      "they",
+      "say",
+      "that",
+      "we"
+    ],
+    "fallbackT": 201,
     "manualSec": null
   },
   {
     "id": "fullies-in-the-coupe",
-    "anchor": ["fullies", "in", "the", "coupe"],
-    "fallbackT": 295,
+    "anchor": [
+      "fullies",
+      "in",
+      "the",
+      "coupe"
+    ],
+    "fallbackT": 207,
+    "manualSec": null
+  },
+  {
+    "id": "take-bullets-die",
+    "anchor": [
+      "take",
+      "bullets",
+      "and",
+      "die",
+      "to",
+      "hold",
+      "you",
+      "down"
+    ],
+    "fallbackT": 211,
+    "manualSec": null
+  },
+  {
+    "id": "outro-snoop",
+    "anchor": [
+      "alchemist",
+      "been",
+      "my",
+      "nephew"
+    ],
+    "fallbackT": 238,
     "manualSec": null
   }
 ]
