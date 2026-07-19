@@ -3,6 +3,7 @@
     "id": "feds-floatin",
     "whisperSec": 77,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 28,
     "t": 28,
     "source": "fallback",
@@ -10,9 +11,32 @@
     "score": 0.5
   },
   {
+    "id": "them-those",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 58,
+    "t": 58,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "drop-clk",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 112,
+    "t": 112,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "trees-wet",
     "whisperSec": 111.3,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 132,
     "t": 132,
     "source": "fallback",
@@ -20,9 +44,21 @@
     "score": 1
   },
   {
+    "id": "stephanie-mills",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 140,
+    "t": 140,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "low-key-ot",
     "whisperSec": 122.3,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 155,
     "t": 155,
     "source": "fallback",
@@ -33,6 +69,7 @@
     "id": "static-thick",
     "whisperSec": 129.9,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 170,
     "t": 170,
     "source": "fallback",
@@ -43,6 +80,7 @@
     "id": "phone-tapped-hook",
     "whisperSec": 246.8,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 185,
     "t": 185,
     "source": "fallback",
@@ -50,9 +88,21 @@
     "score": 0.78
   },
   {
+    "id": "stick-like-glue",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 200,
+    "t": 200,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "lit-dutchie",
     "whisperSec": null,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 212,
     "t": 212,
     "source": "fallback",
@@ -60,19 +110,54 @@
     "score": 0.17
   },
   {
+    "id": "foul-cats",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 222,
+    "t": 222,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "spanish-harlem",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 230,
+    "t": 230,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "alone-with-gats",
     "whisperSec": null,
     "manualSec": null,
-    "fallbackT": 235,
-    "t": 235,
+    "captionSec": null,
+    "fallbackT": 238,
+    "t": 238,
     "source": "fallback",
     "approx": true,
     "score": 0.14
   },
   {
+    "id": "one-time",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 244,
+    "t": 244,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "dynasty-cold-war",
     "whisperSec": null,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 248,
     "t": 248,
     "source": "fallback",
@@ -80,9 +165,65 @@
     "score": 0.13
   },
   {
+    "id": "milked-cow",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 258,
+    "t": 258,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "decoy-pictures",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 280,
+    "t": 280,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "fuck-with-police",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 292,
+    "t": 292,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "clickin-over",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 300,
+    "t": 300,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "play-the-low",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 312,
+    "t": 312,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "fbis-most-wanted",
     "whisperSec": null,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 318,
     "t": 318,
     "source": "fallback",
