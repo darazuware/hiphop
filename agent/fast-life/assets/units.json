@@ -1,56 +1,29 @@
 [
-  {
-    "id": "fishscales-triple-beams",
-    "anchor": ["fishscales", "from", "triple", "beams"],
-    "fallbackT": 20,
-    "manualSec": null
-  },
-  {
-    "id": "life-of-riley",
-    "anchor": ["livin", "the", "life", "of", "riley"],
-    "fallbackT": 29,
-    "manualSec": null
-  },
-  {
-    "id": "payola-no-cola",
-    "anchor": ["slangin", "that", "coke", "without", "the", "cola"],
-    "fallbackT": 50,
-    "manualSec": null
-  },
-  {
-    "id": "american-dream-cream",
-    "anchor": ["american", "dream", "seven", "figure", "cream"],
-    "fallbackT": 68,
-    "manualSec": null
-  },
-  {
-    "id": "where-all-my-niggas-be",
-    "anchor": ["mid-state", "and", "green", "where", "all"],
-    "fallbackT": 96,
-    "manualSec": null
-  },
-  {
-    "id": "pour-my-beers",
-    "anchor": ["pour", "my", "beers", "for", "my", "peoples"],
-    "fallbackT": 118,
-    "manualSec": null
-  },
-  {
-    "id": "king-solomon-wise-guys",
-    "anchor": ["king", "solomon", "size", "ghetto", "wise", "guys"],
-    "fallbackT": 135,
-    "manualSec": null
-  },
-  {
-    "id": "luciano-siegel",
-    "anchor": ["luciano", "frankie", "yale", "bugsy", "siegel"],
-    "fallbackT": 142,
-    "manualSec": null
-  },
-  {
-    "id": "arm-hammer-scramblers",
-    "anchor": ["arm", "hammer", "supplyin", "scramblers"],
-    "fallbackT": 188,
-    "manualSec": null
-  }
+  { "id": "champagne-caviar", "anchor": ["champagne", "wishes", "and", "caviar", "dreams"], "fallbackT": 12, "manualSec": null },
+  { "id": "fishscales-triple-beams", "anchor": ["fishscales", "from", "triple", "beams"], "fallbackT": 20, "manualSec": null },
+  { "id": "life-of-riley", "anchor": ["livin", "the", "life", "of", "riley"], "fallbackT": 26, "manualSec": null },
+  { "id": "fifty-calis", "anchor": ["packin", "fifty", "calis"], "fallbackT": 28, "manualSec": null },
+  { "id": "reno-armani", "anchor": ["parlay", "in", "reno"], "fallbackT": 36, "manualSec": null },
+  { "id": "rocked-amadeus", "anchor": ["betray", "us", "on", "the", "block", "get", "rocked"], "fallbackT": 44, "manualSec": null },
+  { "id": "shells-adidas", "anchor": ["more", "shells", "in", "your", "top", "than", "adidas"], "fallbackT": 50, "manualSec": null },
+  { "id": "cee-lo-bolla", "anchor": ["cee-lo", "rollers", "money", "folders"], "fallbackT": 55, "manualSec": null },
+  { "id": "payola-no-cola", "anchor": ["slangin", "that", "coke", "without", "the", "cola"], "fallbackT": 58, "manualSec": null },
+  { "id": "american-dream-cream", "anchor": ["american", "dream", "seven", "figure", "cream"], "fallbackT": 68, "manualSec": null },
+  { "id": "smoke-trees", "anchor": ["guns", "from", "italy", "smoke", "trees"], "fallbackT": 86, "manualSec": null },
+  { "id": "where-all-my-niggas-be", "anchor": ["mid-state", "and", "green", "where", "all"], "fallbackT": 92, "manualSec": null },
+  { "id": "petro", "anchor": ["police", "searchin", "up", "my", "lexo"], "fallbackT": 100, "manualSec": null },
+  { "id": "pour-my-beers", "anchor": ["pour", "my", "beers", "for", "my", "peoples"], "fallbackT": 112, "manualSec": null },
+  { "id": "cristal", "anchor": ["poppin", "cristal", "like", "its", "my", "first"], "fallbackT": 118, "manualSec": null },
+  { "id": "lickin-shots-holliday", "anchor": ["lickin", "shots", "holliday", "style"], "fallbackT": 120, "manualSec": null },
+  { "id": "cabbage", "anchor": ["countin", "cabbage", "like", "the", "arabs"], "fallbackT": 126, "manualSec": null },
+  { "id": "king-solomon-wise-guys", "anchor": ["king", "solomon", "size", "ghetto", "wise", "guys"], "fallbackT": 135, "manualSec": null },
+  { "id": "luciano-siegel", "anchor": ["luciano", "frankie", "yale", "bugsy", "siegel"], "fallbackT": 142, "manualSec": null },
+  { "id": "yayo-blizzard", "anchor": ["lifestyles", "exquisite", "yayo", "like", "a", "blizzard"], "fallbackT": 160, "manualSec": null },
+  { "id": "sheisty", "anchor": ["gamblin", "grants", "handlin", "stamps", "moves", "are", "sheist"], "fallbackT": 170, "manualSec": null },
+  { "id": "arm-hammer-scramblers", "anchor": ["arm", "hammer", "supplyin", "scramblers"], "fallbackT": 180, "manualSec": null },
+  { "id": "veuve-dom", "anchor": ["servin", "us", "dom", "veuve", "clicquot"], "fallbackT": 190, "manualSec": null },
+  { "id": "perico", "anchor": ["puttin", "a", "cut", "inside", "perico"], "fallbackT": 194, "manualSec": null },
+  { "id": "block-to-boats", "anchor": ["standin", "on", "blocks", "without", "some", "socks"], "fallbackT": 200, "manualSec": null },
+  { "id": "blue-steel", "anchor": ["packin", "all", "the", "blue", "steel"], "fallbackT": 210, "manualSec": null },
+  { "id": "graveyards-kings", "anchor": ["graveyards", "is", "buried", "with", "kings"], "fallbackT": 216, "manualSec": null }
 ]
