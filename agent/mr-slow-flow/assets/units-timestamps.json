@@ -1,8 +1,42 @@
 [
   {
+    "id": "eighth-spliff",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 8,
+    "t": 8,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "problem-gift",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 12,
+    "t": 12,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "dutch-drift",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 17,
+    "t": 17,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "lost-angel",
     "whisperSec": null,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 20,
     "t": 20,
     "source": "fallback",
@@ -13,6 +47,7 @@
     "id": "four-oh-five",
     "whisperSec": null,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 34,
     "t": 34,
     "source": "fallback",
@@ -20,9 +55,43 @@
     "score": 0.17
   },
   {
+    "id": "unsigned-typewriters",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 44,
+    "t": 44,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "fake-it",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 55,
+    "t": 55,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "headliner-flyer",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 60,
+    "t": 60,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "four-oh-one-k",
     "whisperSec": null,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 65,
     "t": 65,
     "source": "fallback",
@@ -30,9 +99,21 @@
     "score": 0.11
   },
   {
+    "id": "chase-loops",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 72,
+    "t": 72,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "peace-not-word",
     "whisperSec": 60.6,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 83,
     "t": 83,
     "source": "fallback",
@@ -40,9 +121,43 @@
     "score": 0.83
   },
   {
+    "id": "slow-flows-death",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 95,
+    "t": 95,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "weak-cards",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 113,
+    "t": 113,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "seventh-inning",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 120,
+    "t": 120,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "vets-pet-doctors",
     "whisperSec": 96.2,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 128,
     "t": 128,
     "source": "fallback",
@@ -50,11 +165,56 @@
     "score": 0.75
   },
   {
+    "id": "sell-out-operas",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 136,
+    "t": 136,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "c-a-all-day",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 142,
+    "t": 142,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "party-excellent",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 146,
+    "t": 146,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "pc-ev",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 154,
+    "t": 154,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "j-o-payroll",
     "whisperSec": null,
     "manualSec": null,
-    "fallbackT": 152,
-    "t": 152,
+    "captionSec": null,
+    "fallbackT": 160,
+    "t": 160,
     "source": "fallback",
     "approx": true,
     "score": 0.44
@@ -63,6 +223,7 @@
     "id": "ice-t-reckless",
     "whisperSec": 155.2,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 183,
     "t": 183,
     "source": "fallback",
@@ -70,9 +231,21 @@
     "score": 0.71
   },
   {
+    "id": "dreamcatchers",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 192,
+    "t": 192,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "chess-checkers",
     "whisperSec": null,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 215,
     "t": 215,
     "source": "fallback",
@@ -80,9 +253,43 @@
     "score": 0.25
   },
   {
+    "id": "choke-checklist",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 222,
+    "t": 222,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "guestlist",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 230,
+    "t": 230,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "cats-dogs",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 237,
+    "t": 237,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "hail-reign-la",
     "whisperSec": 195.8,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 242,
     "t": 242,
     "source": "fallback",
@@ -93,6 +300,7 @@
     "id": "pmd-outro",
     "whisperSec": 224.7,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 264,
     "t": 264,
     "source": "fallback",

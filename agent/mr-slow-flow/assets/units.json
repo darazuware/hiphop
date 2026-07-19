@@ -1,5 +1,23 @@
 [
   {
+    "id": "eighth-spliff",
+    "anchor": ["i", "just", "smoked", "a", "whole", "eighth", "in", "a", "spliff"],
+    "fallbackT": 8,
+    "manualSec": null
+  },
+  {
+    "id": "problem-gift",
+    "anchor": ["some", "call", "that", "a", "problem", "but", "i", "call", "it", "a", "gift"],
+    "fallbackT": 12,
+    "manualSec": null
+  },
+  {
+    "id": "dutch-drift",
+    "anchor": ["turn", "it", "up", "light", "my", "dutch", "then", "start", "to", "drift"],
+    "fallbackT": 17,
+    "manualSec": null
+  },
+  {
     "id": "lost-angel",
     "anchor": ["lost", "angel", "westside", "rider"],
     "fallbackT": 20,
@@ -12,9 +30,33 @@
     "manualSec": null
   },
   {
+    "id": "unsigned-typewriters",
+    "anchor": ["unsigned", "death", "threats", "written", "in", "typewriters"],
+    "fallbackT": 44,
+    "manualSec": null
+  },
+  {
+    "id": "fake-it",
+    "anchor": ["fake", "it", "til", "you", "make", "it", "youre", "such", "a", "good", "liar"],
+    "fallbackT": 55,
+    "manualSec": null
+  },
+  {
+    "id": "headliner-flyer",
+    "anchor": ["headliners", "used", "to", "not", "make", "the", "flyer"],
+    "fallbackT": 60,
+    "manualSec": null
+  },
+  {
     "id": "four-oh-one-k",
     "anchor": ["four", "oh", "one", "k", "and", "i", "dont", "mean", "retire"],
     "fallbackT": 65,
+    "manualSec": null
+  },
+  {
+    "id": "chase-loops",
+    "anchor": ["chase", "loops", "still", "war", "all", "day", "im", "in", "denial"],
+    "fallbackT": 72,
     "manualSec": null
   },
   {
@@ -24,15 +66,57 @@
     "manualSec": null
   },
   {
+    "id": "slow-flows-death",
+    "anchor": ["i", "slow", "flows", "yall", "to", "death"],
+    "fallbackT": 95,
+    "manualSec": null
+  },
+  {
+    "id": "weak-cards",
+    "anchor": ["dont", "hold", "weak", "cards", "dont", "hold", "regrets"],
+    "fallbackT": 113,
+    "manualSec": null
+  },
+  {
+    "id": "seventh-inning",
+    "anchor": ["players", "dont", "change", "past", "the", "seventh", "inning", "stretch"],
+    "fallbackT": 120,
+    "manualSec": null
+  },
+  {
     "id": "vets-pet-doctors",
     "anchor": ["learned", "from", "vets", "and", "they", "aint", "pet", "doctors"],
     "fallbackT": 128,
     "manualSec": null
   },
   {
+    "id": "sell-out-operas",
+    "anchor": ["we", "sellin", "out", "these", "operas", "and", "dont", "mean", "sing"],
+    "fallbackT": 136,
+    "manualSec": null
+  },
+  {
+    "id": "c-a-all-day",
+    "anchor": ["c", "a", "all", "day", "reppin", "it"],
+    "fallbackT": 142,
+    "manualSec": null
+  },
+  {
+    "id": "party-excellent",
+    "anchor": ["reppin", "it", "party", "time", "excellent"],
+    "fallbackT": 146,
+    "manualSec": null
+  },
+  {
+    "id": "pc-ev",
+    "anchor": ["yeah", "that", "aint", "pc", "but", "sometimes", "that", "aint", "e", "v"],
+    "fallbackT": 154,
+    "manualSec": null
+  },
+  {
     "id": "j-o-payroll",
     "anchor": ["right", "now", "im", "on", "my", "j", "o", "issue", "payroll"],
-    "fallbackT": 152,
+    "fallbackT": 160,
     "manualSec": null
   },
   {
@@ -42,9 +126,33 @@
     "manualSec": null
   },
   {
+    "id": "dreamcatchers",
+    "anchor": ["nightmares", "tie", "in", "dreamcatchers"],
+    "fallbackT": 192,
+    "manualSec": null
+  },
+  {
     "id": "chess-checkers",
     "anchor": ["they", "win", "at", "chess", "still", "lose", "at", "checkers"],
     "fallbackT": 215,
+    "manualSec": null
+  },
+  {
+    "id": "choke-checklist",
+    "anchor": ["choke", "em", "out", "another", "off", "the", "checklist"],
+    "fallbackT": 222,
+    "manualSec": null
+  },
+  {
+    "id": "guestlist",
+    "anchor": ["and", "drove", "too", "far", "to", "hear", "they", "closed", "the", "guestlist"],
+    "fallbackT": 230,
+    "manualSec": null
+  },
+  {
+    "id": "cats-dogs",
+    "anchor": ["umbrellas", "up", "these", "cats", "are", "dogs"],
+    "fallbackT": 237,
     "manualSec": null
   },
   {
