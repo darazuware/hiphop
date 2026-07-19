@@ -3,6 +3,7 @@
     "id": "intro-jerusalem",
     "whisperSec": null,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 4,
     "t": 4,
     "source": "fallback",
@@ -10,9 +11,43 @@
     "score": 0.25
   },
   {
+    "id": "yall-hot",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 18,
+    "t": 18,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "g-dropping",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 24,
+    "t": 24,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "came-for",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 26,
+    "t": 26,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "throw-shots",
     "whisperSec": 36.2,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 28,
     "t": 28,
     "source": "fallback",
@@ -20,9 +55,21 @@
     "score": 0.75
   },
   {
+    "id": "meant-for",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 38,
+    "t": 38,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "make-it-look",
     "whisperSec": 46.6,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 42,
     "t": 42,
     "source": "fallback",
@@ -30,9 +77,32 @@
     "score": 1
   },
   {
+    "id": "drank-up",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 50,
+    "t": 50,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "talk-shit",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 56,
+    "t": 56,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "back-it-up",
     "whisperSec": 58.6,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 60,
     "t": 60,
     "source": "fallback",
@@ -43,6 +113,7 @@
     "id": "come-down-meta",
     "whisperSec": 62,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 66,
     "t": 66,
     "source": "fallback",
@@ -50,9 +121,32 @@
     "score": 1
   },
   {
+    "id": "double-neg",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 70,
+    "t": 70,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "get-down",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 74,
+    "t": 74,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "off-the-ground",
     "whisperSec": 84.6,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 82,
     "t": 82,
     "source": "fallback",
@@ -63,6 +157,7 @@
     "id": "stay-awhile",
     "whisperSec": 87,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 90,
     "t": 90,
     "source": "fallback",
@@ -73,6 +168,7 @@
     "id": "cant-beat-it",
     "whisperSec": 90.5,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 95,
     "t": 95,
     "source": "fallback",
@@ -80,13 +176,80 @@
     "score": 1
   },
   {
+    "id": "gucci-frames",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 98,
+    "t": 98,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "bitches-off",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 100,
+    "t": 100,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "full-scope",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 102,
+    "t": 102,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "cool-beans",
     "whisperSec": 104,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 104,
     "t": 104,
     "source": "fallback",
     "approx": true,
     "score": 1
+  },
+  {
+    "id": "reefer",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 108,
+    "t": 108,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "pre-roll",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 112,
+    "t": 112,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "malibu-skit",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 150,
+    "t": 150,
+    "source": "fallback",
+    "approx": true,
+    "score": null
   }
 ]

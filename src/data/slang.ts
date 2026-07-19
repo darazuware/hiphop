@@ -136,6 +136,11 @@ export const slang: SlangEntry[] = [
   { word: "break bread",           desc: "「一緒にパンを割る」が原義で、食事を共にする・親交を結ぶを表すイディオム（聖書の最後の晩餐に由来）。ヒップホップでは派生して「金・分け前を分ける」の意でも使われる" },
   { word: "fair one",              desc: "武器を使わない素手の一対一の喧嘩を指すスラング。fair（公平な）+ one（一対一）で、ナイフも銃も持ち出さない拳だけの決着のこと。squash the beef with a fair one のように使う" },
   { word: "Sprewells",             desc: "NBA選手 Latrell Sprewell の名を冠したスピナー型ホイール。車が停まってもホイールだけ回り続けて見える、2000年代に大流行したカスタムパーツ。人名がそのまま製品スラング化した例" },
+  { word: "throw shots",            desc: "文字どおりは「銃弾を撃つ」だが、イディオムとして「（言葉で）攻撃する・嫌味やジャブを飛ばす」。SNSで遠回しに悪口を言う行為にも使う。take shots at ~（〜を攻撃する）の形でも頻出" },
+  { word: "back it up",            desc: "句動詞 back up の一用法で「（自分の発言・主張を）裏付ける・行動で証明する」。talk（口で言う）に対して back it up（実行で示す）と対比して使う定番表現" },
+  { word: "come down",             desc: "基本は「高いところから降りる」。口語では「酔い・ハイ・興奮や成功の高揚から醒める（正気に戻る）」の意味でも日常的に使い、get high と対になる" },
+  { word: "cool beans",           desc: "cool（イケてる）のおどけた強調版で「いいね・最高・やったね」。語呂と脱力感で広まったアメリカの日常スラングで、レトロでお茶目な響きを持つ。フォーマルな場では使わない" },
+  { word: "reefer",               desc: "大麻（マリファナ）を指す古いスラング。1930〜40年代のジャズ／ハーレム文化に遡る語で、今の weed よりレトロな響きがある" },
 ];
 
 // Strip Japanese annotation '（…）'/'(...)' and trim → clean English keyword
