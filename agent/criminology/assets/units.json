@@ -1,102 +1,26 @@
 [
-  {
-    "id": "peep-son",
-    "anchor": [
-      "first",
-      "of",
-      "all",
-      "son",
-      "peep"
-    ],
-    "fallbackT": 22,
-    "manualSec": null
-  },
-  {
-    "id": "rza-bake",
-    "anchor": [
-      "rza",
-      "bake",
-      "the",
-      "track"
-    ],
-    "fallbackT": 38,
-    "manualSec": null
-  },
-  {
-    "id": "gods-cypher",
-    "anchor": [
-      "gods",
-      "work",
-      "like",
-      "appliances"
-    ],
-    "fallbackT": 44,
-    "manualSec": null
-  },
-  {
-    "id": "ninth-chamber",
-    "anchor": [
-      "chamber",
-      "leave",
-      "you",
-      "trapped"
-    ],
-    "fallbackT": 50,
-    "manualSec": null
-  },
-  {
-    "id": "murder-one",
-    "anchor": [
-      "this",
-      "murder",
-      "one",
-      "verse"
-    ],
-    "fallbackT": 66,
-    "manualSec": null
-  },
-  {
-    "id": "chain-reaction",
-    "anchor": [
-      "like",
-      "a",
-      "flashback",
-      "chain",
-      "reaction"
-    ],
-    "fallbackT": 72,
-    "manualSec": null
-  },
-  {
-    "id": "menace-society",
-    "anchor": [
-      "menace",
-      "for",
-      "society"
-    ],
-    "fallbackT": 89,
-    "manualSec": null
-  },
-  {
-    "id": "champagne-thoughts",
-    "anchor": [
-      "champagne",
-      "thoughts",
-      "with",
-      "ghost"
-    ],
-    "fallbackT": 98,
-    "manualSec": null
-  },
-  {
-    "id": "fly-ac",
-    "anchor": [
-      "floatin",
-      "in",
-      "the",
-      "flyest"
-    ],
-    "fallbackT": 130,
-    "manualSec": null
-  }
+  { "id": "cream-intro", "anchor": ["order", "to", "get", "that", "cream"], "fallbackT": 6, "manualSec": null },
+  { "id": "go-to-war", "anchor": ["you", "wanna", "go", "to", "war"], "fallbackT": 14, "manualSec": null },
+  { "id": "peep-son", "anchor": ["first", "of", "all", "son", "peep"], "fallbackT": 22, "manualSec": null },
+  { "id": "mad-light", "anchor": ["bustin", "mad", "light", "inside", "the", "dark"], "fallbackT": 27, "manualSec": null },
+  { "id": "dough-snatcher", "anchor": ["call", "me", "dough", "snatcher"], "fallbackT": 31, "manualSec": null },
+  { "id": "rza-bake", "anchor": ["rza", "bake", "the", "track"], "fallbackT": 38, "manualSec": null },
+  { "id": "gods-cypher", "anchor": ["gods", "work", "like", "appliances"], "fallbackT": 44, "manualSec": null },
+  { "id": "ninth-chamber", "anchor": ["chamber", "leave", "you", "trapped"], "fallbackT": 50, "manualSec": null },
+  { "id": "essence", "anchor": ["send", "your", "ass", "back", "right", "to", "the", "essence"], "fallbackT": 58, "manualSec": null },
+  { "id": "cash-rules", "anchor": ["everything", "around", "me", "black", "as", "you", "can", "see"], "fallbackT": 63, "manualSec": null },
+  { "id": "murder-one", "anchor": ["this", "murder", "one", "verse"], "fallbackT": 67, "manualSec": null },
+  { "id": "chain-reaction", "anchor": ["like", "a", "flashback", "chain", "reaction"], "fallbackT": 72, "manualSec": null },
+  { "id": "ak-macs", "anchor": ["aks", "black", "bust", "back", "like", "seventy", "macs"], "fallbackT": 80, "manualSec": null },
+  { "id": "steez", "anchor": ["street", "niggas", "knowin", "my", "steez"], "fallbackT": 85, "manualSec": null },
+  { "id": "menace-society", "anchor": ["menace", "for", "society"], "fallbackT": 89, "manualSec": null },
+  { "id": "champagne-thoughts", "anchor": ["champagne", "thoughts", "with", "ghost"], "fallbackT": 98, "manualSec": null },
+  { "id": "lo-tommy-knot", "anchor": ["tommy", "hil", "fly", "shit", "with", "a", "knot"], "fallbackT": 106, "manualSec": null },
+  { "id": "do-or-die", "anchor": ["do", "or", "die", "shit"], "fallbackT": 112, "manualSec": null },
+  { "id": "snitch", "anchor": ["the", "old", "lady", "snitched"], "fallbackT": 118, "manualSec": null },
+  { "id": "one-love-kid", "anchor": ["one", "love", "kid"], "fallbackT": 121, "manualSec": null },
+  { "id": "bid", "anchor": ["im", "not", "doin", "a", "bid"], "fallbackT": 123, "manualSec": null },
+  { "id": "stuck", "anchor": ["six", "niggas", "got", "stuck"], "fallbackT": 126, "manualSec": null },
+  { "id": "fly-ac", "anchor": ["floatin", "in", "the", "flyest"], "fallbackT": 130, "manualSec": null },
+  { "id": "ice-rockin", "anchor": ["ice", "rockin", "niggas"], "fallbackT": 140, "manualSec": null }
 ]
