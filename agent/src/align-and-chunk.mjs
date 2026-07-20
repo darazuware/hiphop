@@ -140,7 +140,7 @@ function safeBoundary(jpn, b) {
   if (isKatakana(p) && isKatakana(q)) return false;
   if (isLatin(p) && isLatin(q)) return false;
   if (isKanji(p) && isKanji(q)) return false;
-  if (isKanji(p) && /[぀-ゟ]/.test(q)) return false; // 送り仮名の途中
+  if (/[぀-ゟ]/.test(q)) return false; // 次がひらがな＝活用語尾/助詞の途中の可能性が高い（読点直後のみ許可）
   return true;
 }
 
