@@ -275,23 +275,43 @@ kbd{background:#232935;border:1px solid #39414f;border-radius:4px;padding:1px 5p
 .b.err{background:#4a2626;color:#ff9d9d}.b.wrn{background:#4a3d1f;color:#ffd24a}.b.inf{background:#1f3448;color:#8fc3ff}
 .histItem{display:flex;gap:10px;align-items:center;padding:8px 6px;border-bottom:1px solid #1e242f}
 #bar-m{display:none}
+.only-m{display:none}
 @media (max-width:820px){
-  header{padding:8px 8px}
-  button{padding:11px 14px;font-size:15px}
+  header{padding:6px 8px}
+  button{padding:9px 12px;font-size:14px}
+  .only-m{display:inline-flex}
   .mini{font-size:22px;padding:8px 10px}
   .hint{display:none}
-  #pv-en{font-size:20px}#pv-jp{font-size:15px}
+  #pv-en{font-size:18px}#pv-jp{font-size:14px}
   body{overflow-x:hidden;padding-bottom:96px}
+  /* 折りたたみ: 既定は最小構成（上段ボタン＋ズーム波形のみ） */
+  #topbar{gap:6px;flex-wrap:nowrap}
+  #topbar button{padding:8px 10px;font-size:14px;flex:none}
+  #topbar #t{font-size:13px;min-width:52px}
+  .lbl{display:none}
+  #tools{display:none;gap:6px;margin-top:6px;padding-top:6px;border-top:1px solid #232a36}
+  body.tools-on #tools{display:flex}
+  #wovr{display:none;height:26px;margin-top:6px}
+  #preview{display:none;padding:8px;margin-top:6px}
+  body.wave-on #wovr{display:block}
+  body.wave-on #preview{display:block}
+  #wzwrap{margin-top:6px}
+  #wzoom{height:64px}
+  #wzbtns button{padding:4px 10px}
+  #log{max-height:34px;margin-top:2px}
+  #log:empty{display:none}
+  #hdmenu.on,#hdwave.on{background:#3a4a63;border-color:#5b6f90}
   table,tbody,tr,td{display:block;width:auto}
-  tr{border:1px solid #232a36;border-radius:12px;margin:10px 8px;padding:8px;background:#141922}
+  tr{border:1px solid #232a36;border-radius:12px;margin:7px 8px;padding:6px;background:#141922}
   tr.on{background:#1d2634;border-color:#3a4a63}
   tr.sel{outline:2px solid #ffd24a}
-  td{border:0;padding:3px 4px}
-  td:first-child{color:#6b7a90;font-size:12px}
+  td{border:0;padding:2px 4px}
+  td:first-child{color:#6b7a90;font-size:11px;padding:0 4px}
   td.times{display:flex;gap:8px;width:auto}
-  td.acts{width:auto;display:flex;justify-content:space-between;padding-top:6px}
-  input.num{width:100%;font-size:16px;padding:9px}
-  input{font-size:16px;padding:9px}
+  td.acts{width:auto;display:flex;justify-content:space-between;padding-top:2px}
+  input.num{width:100%;font-size:16px;padding:6px 8px}
+  input{font-size:16px;padding:7px 8px}
+  .mini{font-size:20px;padding:4px 8px}
   input.flt{width:110px}
   #bar-m{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:15;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(14,17,23,.94);border-top:1px solid #2a3140;backdrop-filter:blur(10px)}
   #bar-m button{flex:1;padding:13px 0;font-size:15px}
@@ -299,20 +319,25 @@ kbd{background:#232935;border:1px solid #39414f;border-radius:4px;padding:1px 5p
 }
 </style></head><body>
 <header>
-  <div class="row">
-    <a class="home" href="../../">◀ 曲一覧</a>
+  <div class="row" id="topbar">
+    <a class="home" href="../../">◀<span class="lbl"> 曲一覧</span></a>
     <button class="p" id="play">▶ 再生</button>
     <span id="t">0.00s</span>
+    <button id="undo" title="元に戻す (⌘Z)">↩</button><button id="redo" title="やり直す (⌘⇧Z)">↪</button>
+    <button class="only-m" id="hdwave" title="全体波形とプレビュー">〜</button>
+    <button class="only-m" id="hdmenu" title="道具">≡</button>
+    <span style="flex:1"></span>
+    <button id="save" class="p">保存<span class="lbl"> (⌘S)</span></button>
+  </div>
+  <div class="row" id="tools">
     <button data-nudge="-5">◀5s</button><button data-nudge="5">5s▶</button>
     <select id="rate"><option value="1">1x</option><option value="0.75">0.75x</option><option value="0.5">0.5x</option></select>
-    <label class="hint" style="font-size:13px"><input type="checkbox" id="loop" style="width:auto"> 行ループ</label>
-    <button id="undo" title="元に戻す (⌘Z)">↩</button><button id="redo" title="やり直す (⌘⇧Z)">↪</button>
+    <label style="font-size:13px"><input type="checkbox" id="loop" style="width:auto"> 行ループ</label>
     <button id="lintBtn">✓ チェック</button>
     <button id="shiftBtn">⇧ ずらす</button>
     <button id="histBtn">履歴</button>
     <input class="flt" id="flt" placeholder="検索…">
     <span style="flex:1"></span>
-    <button id="save" class="p">保存 (⌘S)</button>
     <button id="srt">SRT</button>
     <button id="render">再生成＋レンダー</button>
     <button onclick="location.href='reel/'">縦型リール ▶</button>
@@ -796,7 +821,7 @@ function paint(){
       if(r.top<300||r.bottom>innerHeight-110) tr.scrollIntoView({block:'center'});
     }
   }
-  $('play').textContent = au.paused ? '▶ 再生' : '⏸ 停止';
+  $('play').textContent = isNarrow() ? (au.paused ? '▶' : '⏸') : (au.paused ? '▶ 再生' : '⏸ 停止');
   $('mb-play').textContent = au.paused ? '▶' : '⏸';
   drawOvr();
   if (!au.paused || zoomDirty || Math.abs(t - lastZoomT) > 0.001){ drawZoom(); zoomDirty = false; lastZoomT = t; }
@@ -818,6 +843,23 @@ function tapSync(){
 }
 $('mb-play').onclick=()=>{ au.paused?au.play():au.pause(); };
 $('mb-sync').onclick=tapSync;
+
+/* スマホ: ヘッダー折りたたみ（既定は最小・状態は保存） */
+const mqNarrow = matchMedia('(max-width:820px)');
+function isNarrow(){ return mqNarrow.matches; }
+function applyFold(){
+  const t = localStorage.getItem('cue-tools-${slug}') === '1';
+  const w = localStorage.getItem('cue-wave-${slug}') === '1';
+  document.body.classList.toggle('tools-on', t);
+  document.body.classList.toggle('wave-on', w);
+  $('hdmenu').classList.toggle('on', t);
+  $('hdwave').classList.toggle('on', w);
+  requestAnimationFrame(()=>{ buildOvr(); zoomDirty = true; });
+}
+$('hdmenu').onclick=()=>{ localStorage.setItem('cue-tools-${slug}', document.body.classList.contains('tools-on')?'0':'1'); applyFold(); };
+$('hdwave').onclick=()=>{ localStorage.setItem('cue-wave-${slug}', document.body.classList.contains('wave-on')?'0':'1'); applyFold(); };
+applyFold();
+addEventListener('resize', ()=>{ buildOvr(); zoomDirty = true; });
 $('mb-back').onclick=()=>{ pushHist('nud'+sel); setStart(sel, cues[sel].start-0.05); };
 $('mb-fwd').onclick=()=>{ pushHist('nud'+sel); setStart(sel, cues[sel].start+0.05); };
 addEventListener('keydown', e=>{
