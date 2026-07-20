@@ -11,6 +11,7 @@
 import fs from "fs";
 import path from "path";
 import http from "http";
+import os from "os";
 import { spawn } from "child_process";
 import { fileURLToPath } from "url";
 
@@ -68,10 +69,12 @@ function runRender() {
   })();
 }
 
-const HTML = `<!doctype html><html lang="ja"><head><meta charset="utf-8"><title>cue editor — ${slug}</title>
+const HTML = `<!doctype html><html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes"><title>cue editor — ${slug}</title>
 <style>
 :root{color-scheme:dark}
-*{box-sizing:border-box}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 body{margin:0;background:#0d0f13;color:#e8e8ea;font:14px/1.5 -apple-system,"Hiragino Sans",sans-serif}
 header{position:sticky;top:0;z-index:9;background:#12151b;border-bottom:1px solid #262b36;padding:12px 18px}
 .row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
@@ -88,6 +91,8 @@ tr.on{background:#1b2230}
 tr.sel td{background:#243049}
 input{background:#171b23;border:1px solid #2a3140;color:#e8e8ea;border-radius:6px;padding:5px 7px;width:100%;font:inherit}
 input.num{width:82px;font-variant-numeric:tabular-nums;text-align:right}
+td.times{display:flex;gap:6px;width:190px}
+td.acts{white-space:nowrap;width:170px}
 .en input{font-weight:600}
 .jp input{color:#ffd24a}
 .mini{background:none;border:none;color:#8fa3bd;padding:3px 5px;font-size:15px}
@@ -95,6 +100,45 @@ input.num{width:82px;font-variant-numeric:tabular-nums;text-align:right}
 #log{white-space:pre-wrap;color:#8fa3bd;font-size:12px;max-height:80px;overflow:auto}
 kbd{background:#232935;border:1px solid #39414f;border-radius:4px;padding:1px 5px;font-size:12px}
 .hint{color:#8fa3bd;font-size:12px}
+/* 分割モーダル */
+#mask{position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:20;display:none;align-items:center;justify-content:center;padding:16px}
+#mask.on{display:flex}
+#modal{background:#151a22;border:1px solid #2f3846;border-radius:14px;padding:18px;max-width:900px;width:100%;max-height:92vh;overflow:auto}
+#modal h3{margin:0 0 4px;font-size:15px}
+#modal .sub{color:#8fa3bd;font-size:12px;margin-bottom:12px}
+.chips{display:flex;flex-wrap:wrap;align-items:center;gap:0;background:#0e1219;border:1px solid #262d3a;border-radius:10px;padding:10px;margin-bottom:14px}
+.chip{padding:6px 3px;font-size:19px;white-space:pre}
+.chips.jp .chip{font-size:20px;color:#ffd24a}
+.cut{width:16px;height:34px;margin:0 -1px;border-radius:5px;cursor:pointer;position:relative;flex:none}
+.cut::after{content:"";position:absolute;left:50%;top:6px;bottom:6px;width:2px;transform:translateX(-50%);background:#39414f;border-radius:2px}
+.cut.ok::after{background:#4d6b8f}
+.cut:hover::after{background:#8fa3bd}
+.cut.on::after{background:#ffd24a;width:4px}
+.cut.ng::after{background:#3a2b2b}
+.pv{background:#000;border-radius:10px;padding:12px;margin-bottom:6px}
+.pv .l{display:flex;gap:10px;align-items:baseline;padding:5px 0;border-bottom:1px solid #1c222c}
+.pv .l:last-child{border:0}
+.pv .n{color:#6b7a90;font-size:12px;width:56px;font-variant-numeric:tabular-nums}
+.pv .e{color:#fff;font-weight:700}.pv .j{color:#ffd24a;font-size:13px}
+@media (max-width:820px){
+  header{padding:10px 10px}
+  button{padding:11px 14px;font-size:15px}
+  .mini{font-size:22px;padding:8px 10px}
+  .hint{display:none}
+  #pv-en{font-size:22px}#pv-jp{font-size:16px}
+  body{overflow-x:hidden}
+  table,tbody,tr,td{display:block;width:auto}
+  tr{border:1px solid #232a36;border-radius:12px;margin:10px 8px;padding:8px;background:#141922}
+  tr.on{background:#1d2634;border-color:#3a4a63}
+  tr.sel{outline:2px solid #ffd24a}
+  td{border:0;padding:3px 4px}
+  td:first-child{color:#6b7a90;font-size:12px}
+  td.times{display:flex;gap:8px;width:auto}
+  td.acts{width:auto}
+  input.num{width:100%;font-size:16px;padding:9px}
+  input{font-size:16px;padding:9px}
+  td.acts{display:flex;justify-content:space-between;padding-top:6px}
+}
 </style></head><body>
 <header>
   <div class="row">
@@ -116,6 +160,21 @@ kbd{background:#232935;border:1px solid #39414f;border-radius:4px;padding:1px 5p
 </header>
 <table id="tb"></table>
 <audio id="au" src="audio.mp3" preload="auto"></audio>
+<div id="mask"><div id="modal">
+  <h3>行の分割</h3>
+  <div class="sub">切りたい位置の｜をタップ（もう一度タップで解除）。青い｜＝語の切れ目として安全な位置。時間は文字数で自動配分し、あとから ◎ や ←→ で微調整できます。</div>
+  <div class="chips en" id="m-en"></div>
+  <div class="chips jp" id="m-jp"></div>
+  <div class="pv" id="m-pv"></div>
+  <div class="row" style="margin-top:12px">
+    <button id="m-auto2">おまかせ2分割</button>
+    <button id="m-auto3">おまかせ3分割</button>
+    <button id="m-clear">解除</button>
+    <span style="flex:1"></span>
+    <button id="m-cancel">やめる</button>
+    <button class="p" id="m-ok">分割する</button>
+  </div>
+</div></div>
 <script>
 const au = document.getElementById('au');
 let cues = [], sel = 0, dirty = false;
@@ -130,13 +189,14 @@ function draw(){
   cues.forEach((c,i)=>{
     const tr = document.createElement('tr'); tr.id='r'+i;
     tr.innerHTML = '<td style="color:#6b7a90;width:38px">'+(i+1)+'</td>'
-      + '<td style="width:96px"><input class="num" data-k="start" data-i="'+i+'" value="'+f2(c.start)+'"></td>'
-      + '<td style="width:96px"><input class="num" data-k="end" data-i="'+i+'" value="'+f2(c.end)+'"></td>'
+      + '<td class="times"><input class="num" data-k="start" data-i="'+i+'" value="'+f2(c.start)+'">'
+      + '<input class="num" data-k="end" data-i="'+i+'" value="'+f2(c.end)+'"></td>'
       + '<td class="en"><input data-k="eng" data-i="'+i+'"></td>'
       + '<td class="jp"><input data-k="jpn" data-i="'+i+'"></td>'
-      + '<td style="width:120px;white-space:nowrap">'
+      + '<td class="acts">'
       + '<button class="mini" data-act="play" data-i="'+i+'" title="この行から再生">▶</button>'
       + '<button class="mini" data-act="here" data-i="'+i+'" title="現在位置をstartに">◎</button>'
+      + '<button class="mini" data-act="split" data-i="'+i+'" title="この行を分割">✂</button>'
       + '<button class="mini" data-act="merge" data-i="'+i+'" title="次の行と結合">⤵</button>'
       + '<button class="mini" data-act="del" data-i="'+i+'" title="行を削除">✕</button></td>';
     tb.appendChild(tr);
@@ -162,7 +222,97 @@ document.getElementById('tb').addEventListener('click', e=>{
     cues.splice(i+1,1); dirty=true; draw();
   }
   if(a==='del'){ cues.splice(i,1); dirty=true; draw(); }
+  if(a==='split'){ openSplit(i); }
 });
+
+/* ---------- 行の分割 ---------- */
+const isKata=(c)=>/[゠-ヿ]/.test(c), isKanji=(c)=>/[一-鿿]/.test(c), isHira=(c)=>/[぀-ゟ]/.test(c), isLat=(c)=>/[A-Za-z0-9']/.test(c);
+const NG_PREV="のなにはがをでとへもっーゃゅょ、・「『（【“‘", NG_NEXT="、。ーっゃゅょ！？」』）】…・”’";
+function safeJp(s,b){
+  if(b<=0||b>=s.length) return false;
+  const p=s[b-1], q=s[b];
+  if(p==='、') return true;
+  if(NG_PREV.includes(p)||NG_NEXT.includes(q)) return false;
+  if(isKata(p)&&isKata(q)) return false;
+  if(isLat(p)&&isLat(q)) return false;
+  if(isKanji(p)&&isKanji(q)) return false;
+  if(isHira(q)) return false;
+  return true;
+}
+let M={i:-1, ew:[], jc:[], ecuts:new Set(), jcuts:new Set()};
+function openSplit(i){
+  const c=cues[i];
+  M={i, ew:c.eng.split(/\\s+/).filter(Boolean), jc:[...c.jpn], ecuts:new Set(), jcuts:new Set()};
+  renderSplit(); document.getElementById('mask').classList.add('on');
+}
+function renderSplit(){
+  const en=document.getElementById('m-en'), jp=document.getElementById('m-jp');
+  en.innerHTML=''; jp.innerHTML='';
+  M.ew.forEach((w,k)=>{
+    if(k>0){ const d=document.createElement('div'); d.className='cut ok'+(M.ecuts.has(k)?' on':''); d.dataset.e=k; en.appendChild(d); }
+    const s=document.createElement('div'); s.className='chip'; s.textContent=w; en.appendChild(s);
+  });
+  const js=M.jc.join('');
+  M.jc.forEach((ch,k)=>{
+    if(k>0){ const ok=safeJp(js,k); const d=document.createElement('div');
+      d.className='cut '+(ok?'ok':'ng')+(M.jcuts.has(k)?' on':''); d.dataset.j=k; jp.appendChild(d); }
+    const s=document.createElement('div'); s.className='chip'; s.textContent=ch; jp.appendChild(s);
+  });
+  const parts=buildParts();
+  document.getElementById('m-pv').innerHTML = parts.map((p,n)=>
+    '<div class="l"><div class="n">'+f2(p.start)+'s</div><div><div class="e"></div><div class="j"></div></div></div>').join('');
+  const ls=document.querySelectorAll('#m-pv .l');
+  parts.forEach((p,n)=>{ ls[n].querySelector('.e').textContent=p.eng; ls[n].querySelector('.j').textContent=p.jpn; });
+}
+function buildParts(){
+  const c=cues[M.i];
+  const eb=[0,...[...M.ecuts].sort((a,b)=>a-b),M.ew.length];
+  const jb=[0,...[...M.jcuts].sort((a,b)=>a-b),M.jc.length];
+  const K=Math.max(eb.length,jb.length)-1;
+  const eng=[],jpn=[];
+  for(let k=0;k<K;k++){
+    eng.push(eb[k]!==undefined&&eb[k+1]!==undefined?M.ew.slice(eb[k],eb[k+1]).join(' '):'');
+    jpn.push(jb[k]!==undefined&&jb[k+1]!==undefined?M.jc.slice(jb[k],jb[k+1]).join(''):'');
+  }
+  const tot=eng.reduce((a,x)=>a+x.length,0)||1;
+  const span=Math.max(0.8,c.end-c.start);
+  const out=[]; let acc=0;
+  for(let k=0;k<K;k++){
+    const st=c.start+span*acc/tot; acc+=eng[k].length;
+    out.push({eng:eng[k],jpn:jpn[k],start:f2(st),end:f2(c.start+span*acc/tot)});
+  }
+  if(out.length) out[out.length-1].end=f2(c.end);
+  return out;
+}
+function autoSplit(K){
+  M.ecuts=new Set(); M.jcuts=new Set();
+  const js=M.jc.join('');
+  for(let k=1;k<K;k++){
+    const ei=Math.round(M.ew.length*k/K); if(ei>0&&ei<M.ew.length) M.ecuts.add(ei);
+    const ideal=Math.round(M.jc.length*k/K);
+    let best=null;
+    for(let d=0;d<=Math.max(4,Math.round(M.jc.length*0.3));d++){
+      for(const q of (d===0?[ideal]:[ideal-d,ideal+d])) if(q>0&&q<M.jc.length&&safeJp(js,q)&&!M.jcuts.has(q)){ best=q; break; }
+      if(best!=null) break;
+    }
+    if(best!=null) M.jcuts.add(best);
+  }
+  renderSplit();
+}
+document.getElementById('m-en').addEventListener('click',e=>{ const d=e.target.closest('.cut'); if(!d)return;
+  const k=+d.dataset.e; M.ecuts.has(k)?M.ecuts.delete(k):M.ecuts.add(k); renderSplit(); });
+document.getElementById('m-jp').addEventListener('click',e=>{ const d=e.target.closest('.cut'); if(!d)return;
+  const k=+d.dataset.j; M.jcuts.has(k)?M.jcuts.delete(k):M.jcuts.add(k); renderSplit(); });
+document.getElementById('m-auto2').onclick=()=>autoSplit(2);
+document.getElementById('m-auto3').onclick=()=>autoSplit(3);
+document.getElementById('m-clear').onclick=()=>{ M.ecuts=new Set(); M.jcuts=new Set(); renderSplit(); };
+document.getElementById('m-cancel').onclick=()=>document.getElementById('mask').classList.remove('on');
+document.getElementById('m-ok').onclick=()=>{
+  const parts=buildParts();
+  if(parts.length<2){ alert('切る位置を1つ以上えらんでください'); return; }
+  cues.splice(M.i,1,...parts); dirty=true;
+  document.getElementById('mask').classList.remove('on'); draw(); log('未保存の変更あり');
+};
 function setStart(i,t){
   cues[i].start=f2(t);
   if(i>0 && document.getElementById('chain').checked) cues[i-1].end=f2(Math.max(cues[i-1].start+0.4, t-0.05));
@@ -268,4 +418,10 @@ const server = http.createServer((req, res) => {
   res.writeHead(404); res.end();
 });
 
-server.listen(PORT, () => console.log(`cue editor: http://localhost:${PORT}  (slug: ${slug})`));
+server.listen(PORT, "0.0.0.0", () => {
+  console.log(`cue editor (slug: ${slug})`);
+  console.log(`  PC:     http://localhost:${PORT}`);
+  for (const [, list] of Object.entries(os.networkInterfaces())) {
+    for (const ni of list || []) if (ni.family === "IPv4" && !ni.internal) console.log(`  スマホ: http://${ni.address}:${PORT}  (同じWi-Fiから)`);
+  }
+});
