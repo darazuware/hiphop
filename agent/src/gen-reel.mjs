@@ -75,6 +75,9 @@ if (!cues.length) { console.error("この区間にキューがありません");
 /* ---------- タイトル/アーティスト/コメント ---------- */
 let title = getArg("title"), artist = getArg("artist");
 const comment = getArg("comment", "");
+// 字幕の縦位置（映像帯の下端からの持ち上げpx）と文字サイズ倍率
+const subUp = Math.max(-400, Math.min(1400, parseInt(getArg("sub-up", "0"), 10) || 0));
+const subScale = Math.max(0.6, Math.min(1.8, parseFloat(getArg("sub-scale", "1")) || 1));
 if (!title || !artist) {
   const metaPath = path.join(assets, "meta.json");
   if (fs.existsSync(metaPath)) { try { const m = JSON.parse(fs.readFileSync(metaPath, "utf-8")); title = title || m.title; artist = artist || m.artist; } catch {} }
@@ -118,11 +121,11 @@ const html = `<!doctype html>
       #vfade { position: absolute; left: 0; top: ${VID_TOP}px; width: 1080px; height: ${VID_H}px; z-index: 2; pointer-events: none;
         background: linear-gradient(180deg, rgba(8,9,12,0.55) 0%, rgba(8,9,12,0) 16%, rgba(8,9,12,0) 34%, rgba(8,9,12,0.72) 88%, rgba(8,9,12,0.92) 100%); }
       /* 字幕はPVの上に重ねる */
-      #subs { position: absolute; left: 0; top: ${VID_TOP}px; width: 1080px; height: ${VID_H}px; z-index: 3; }
-      .line { position: absolute; left: 54px; right: 54px; bottom: 34px; text-align: center; opacity: 0; will-change: opacity, transform; }
-      .line .en { color: #fff; font-weight: 800; font-size: 52px; line-height: 1.12; letter-spacing: -0.5px;
+      #subs { position: absolute; left: 0; top: ${VID_TOP}px; width: 1080px; height: ${VID_H}px; z-index: 3; overflow: visible; }
+      .line { position: absolute; left: 54px; right: 54px; bottom: ${34 + subUp}px; text-align: center; opacity: 0; will-change: opacity, transform; }
+      .line .en { color: #fff; font-weight: 800; font-size: ${Math.round(52 * subScale)}px; line-height: 1.12; letter-spacing: -0.5px;
         text-shadow: 0 3px 18px rgba(0,0,0,0.92), 0 0 40px rgba(0,0,0,0.6); }
-      .line .jp { color: #ffd24a; font-family: "Noto Sans JP", sans-serif; font-weight: 700; font-size: 34px;
+      .line .jp { color: #ffd24a; font-family: "Noto Sans JP", sans-serif; font-weight: 700; font-size: ${Math.round(34 * subScale)}px;
         line-height: 1.35; margin-top: 14px; text-shadow: 0 3px 16px rgba(0,0,0,0.92); }
       /* 上帯: コメント */
       #top { position: absolute; left: 64px; right: 64px; top: ${Math.max(90, Math.round(VID_TOP * 0.3))}px; z-index: 4; text-align: center; }
@@ -199,7 +202,7 @@ const html = `<!doctype html>
 
 fs.writeFileSync(path.join(reelDir, "index.html"), html);
 console.log(`wrote ${path.join(reelDir, "index.html")}`);
-console.log(`区間 ${START}s–${END}s（${SPAN}s）/ ${cues.length}キュー / 1080x1920`);
+console.log(`区間 ${START}s–${END}s（${SPAN}s）/ ${cues.length}キュー / 1080x1920 / 字幕 上げ${subUp}px・倍率${subScale}`);
 
 if (has("render")) {
   fs.mkdirSync(path.join(reelDir, "renders"), { recursive: true });

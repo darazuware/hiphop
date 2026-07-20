@@ -969,6 +969,24 @@ button:disabled{opacity:.45;cursor:default}
       <label>アーティスト</label><input id="artist">
     </div>
     <div class="card">
+      <h2>字幕の見え方</h2>
+      <label>縦位置（右へ動かすほど上に上がる）</label>
+      <div class="row">
+        <input type="range" id="subup" min="-260" max="700" step="10" value="0" style="flex:1">
+        <span id="subupv" style="width:64px;text-align:right;color:#9fb0c8">0px</span>
+      </div>
+      <div class="row" style="margin-top:6px">
+        <button data-pos="0">映像の下端</button>
+        <button data-pos="mid">映像の中央</button>
+        <button data-pos="under">映像のすぐ下（黒帯）</button>
+      </div>
+      <label>文字サイズ</label>
+      <div class="row">
+        <input type="range" id="subscale" min="0.7" max="1.5" step="0.05" value="1" style="flex:1">
+        <span id="subscalev" style="width:64px;text-align:right;color:#9fb0c8">1.00x</span>
+      </div>
+    </div>
+    <div class="card">
       <div class="row">
         <button class="p" id="save">保存</button>
         <button class="p" id="render">書き出し（mp4）</button>
@@ -986,7 +1004,7 @@ button:disabled{opacity:.45;cursor:default}
 </div>
 <script>
 var $=function(id){return document.getElementById(id)};
-var pv=$('pv'), cues=[], cfg={start:0,end:0,comment:'',title:'',artist:''}, playing=false;
+var pv=$('pv'), cues=[], cfg={start:0,end:0,comment:'',title:'',artist:'',subUp:0,subScale:1}, playing=false;
 function f2(n){return Math.round(n*100)/100}
 
 function fitStage(){
@@ -1005,7 +1023,9 @@ function layout(){
   var H=Math.min(1280,Math.round(1080*vh/vw)), T=Math.round((1920-H)/2);
   pv.style.top=T+'px'; pv.style.height=H+'px';
   $('vfade').style.top=T+'px'; $('vfade').style.height=H+'px';
-  $('subs').style.top=(T+H-34)+'px'; $('subs').style.transform='translateY(-100%)';
+  $('subs').style.top=(T+H-34-(cfg.subUp||0))+'px'; $('subs').style.transform='translateY(-100%)';
+  $('s-en').style.fontSize=Math.round(52*(cfg.subScale||1))+'px';
+  $('s-jp').style.fontSize=Math.round(34*(cfg.subScale||1))+'px';
   $('top').style.top=Math.max(90,Math.round(T*0.3))+'px';
   $('bottom').style.bottom=Math.max(110,Math.round(T*0.26))+'px';
 }
@@ -1018,8 +1038,10 @@ Promise.all([fetch('../cues.json').then(function(r){return r.json()}), fetch('co
  .then(function(a){
    cues=a[0]; var c=a[1];
    cfg.start=c.start||0; cfg.end=c.end||0; cfg.comment=c.comment||''; cfg.title=c.title||''; cfg.artist=c.artist||'';
+   cfg.subUp=c.subUp||0; cfg.subScale=c.subScale||1;
    $('start').value=f2(cfg.start); $('end').value=f2(cfg.end);
    $('comment').value=cfg.comment; $('title').value=cfg.title; $('artist').value=cfg.artist;
+   $('subup').value=cfg.subUp; $('subscale').value=cfg.subScale;
    if(!c.hasPv) $('nopv').style.display='block';
    drawCueList(); upd();
  });
@@ -1038,16 +1060,36 @@ function drawCueList(){
 function upd(){
   cfg.start=parseFloat($('start').value)||0; cfg.end=parseFloat($('end').value)||0;
   cfg.comment=$('comment').value; cfg.title=$('title').value; cfg.artist=$('artist').value;
-  var span=Math.max(0,cfg.end-cfg.start);
-  $('dur').textContent=span.toFixed(1)+'s';
-  $('dur').className=(span>90||span<3)?'warn':'';
+  cfg.subUp=parseInt($('subup').value,10)||0; cfg.subScale=parseFloat($('subscale').value)||1;
+  $('subupv').textContent=cfg.subUp+'px'; $('subscalev').textContent=cfg.subScale.toFixed(2)+'x';
+  layout();
+  var span=cfg.end-cfg.start;
+  if(span<=0){ $('dur').textContent='終了が開始より前です'; $('dur').className='warn'; }
+  else { $('dur').textContent=span.toFixed(1)+'s'; $('dur').className=(span>90||span<3)?'warn':''; }
   $('topc').innerHTML='';
   cfg.comment.split('\\n').forEach(function(l){ if(!l)return; var d=document.createElement('div'); d.className='c'; d.textContent=l; $('topc').appendChild(d); });
   $('b-t').textContent=cfg.title; $('b-a').textContent=cfg.artist;
 }
-['start','end','comment','title','artist'].forEach(function(id){ $(id).addEventListener('input',upd); });
-$('setstart').onclick=function(){ $('start').value=f2(pv.currentTime); upd(); };
-$('setend').onclick=function(){ $('end').value=f2(pv.currentTime); upd(); };
+['start','end','comment','title','artist','subup','subscale'].forEach(function(id){ $(id).addEventListener('input',upd); });
+document.querySelectorAll('[data-pos]').forEach(function(b){ b.onclick=function(){
+  var vw=pv.videoWidth||1920, vh=pv.videoHeight||1080;
+  var H=Math.min(1280,Math.round(1080*vh/vw));
+  var p=b.dataset.pos;
+  $('subup').value = p==='mid' ? Math.round(H/2-60) : (p==='under' ? -170 : 0);
+  upd();
+}; });
+$('setstart').onclick=function(){
+  var t=f2(pv.currentTime);
+  if(cfg.end && t>=cfg.end){ $('end').value=f2(Math.min(pv.duration||t+45, t+45)); }
+  $('start').value=t; upd();
+};
+$('setend').onclick=function(){
+  var t=f2(pv.currentTime);
+  if(t<=cfg.start){ $('start').value=t; $('end').value=f2(Math.min(pv.duration||t+45, t+45));
+    $('msg').textContent='終了が開始より前だったので、ここを開始にしました'; }
+  else $('end').value=t;
+  upd();
+};
 document.querySelectorAll('[data-nudge-s]').forEach(function(b){ b.onclick=function(){ $('start').value=f2((parseFloat($('start').value)||0)+ +b.dataset.nudgeS); upd(); pv.currentTime=parseFloat($('start').value); }; });
 document.querySelectorAll('[data-nudge-e]').forEach(function(b){ b.onclick=function(){ $('end').value=f2((parseFloat($('end').value)||0)+ +b.dataset.nudgeE); upd(); }; });
 $('play').onclick=function(){
@@ -1062,7 +1104,9 @@ setInterval(function(){
   if(!pv.paused && cfg.end>cfg.start && t>cfg.end) pv.currentTime=cfg.start;
   var cur=null;
   for(var i=0;i<cues.length;i++) if(t>=cues[i].start&&t<cues[i].end) cur=cues[i];
-  var inRange=(t>=cfg.start-0.01&&t<=cfg.end+0.01);
+  // 区間が未設定/逆転しているときもプレビューは字幕を出す（位置合わせができなくなるため）
+  var validRange=(cfg.end>cfg.start);
+  var inRange=!validRange||(t>=cfg.start-0.01&&t<=cfg.end+0.01);
   $('s-en').textContent=(cur&&inRange)?cur.eng:'';
   $('s-jp').textContent=(cur&&inRange)?cur.jpn:'';
   var span=Math.max(0.1,cfg.end-cfg.start);
@@ -1107,7 +1151,7 @@ $('render').onclick=function(){
 const reelCfgPath = (slug) => path.join(assetsOf(slug), "reel-config.json");
 const pvPath = (slug) => path.join(AGENT, slug, "reel", "assets", "pv.mp4");
 const readReelCfg = (slug) => {
-  let c = { start: 0, end: 0, comment: "", title: "", artist: "" };
+  let c = { start: 0, end: 0, comment: "", title: "", artist: "", subUp: 0, subScale: 1 };
   if (fs.existsSync(reelCfgPath(slug))) { try { c = { ...c, ...JSON.parse(fs.readFileSync(reelCfgPath(slug), "utf-8")) }; } catch {} }
   if (!c.title || !c.artist) {
     const metaPath = path.join(assetsOf(slug), "meta.json");
@@ -1159,7 +1203,8 @@ function runReelRender(slug) {
   reelRenderStates.set(slug, st);
   const c = readReelCfg(slug);
   const a = [path.join(AGENT, "src", "gen-reel.mjs"), "--slug", slug, "--start", String(c.start), "--end", String(c.end),
-    "--comment", c.comment || "", "--title", c.title || "", "--artist", c.artist || "", "--render"];
+    "--comment", c.comment || "", "--title", c.title || "", "--artist", c.artist || "",
+    "--sub-up", String(c.subUp || 0), "--sub-scale", String(c.subScale || 1), "--render"];
   const p = spawn(process.execPath, a, { cwd: AGENT, env: process.env });
   const push = (d) => { st.log = (st.log + String(d).replace(/\r/g, "\n").split("\n").filter(Boolean).slice(-1).map(x => x.slice(0, 160) + "\n").join("")).slice(-2500); };
   p.stdout.on("data", push); p.stderr.on("data", push);
@@ -1295,12 +1340,18 @@ const server = http.createServer((req, res) => {
       req.on("end", () => {
         try {
           const c = JSON.parse(body);
+          let s = Math.max(0, Math.round((parseFloat(c.start) || 0) * 100) / 100);
+          let e = Math.max(0, Math.round((parseFloat(c.end) || 0) * 100) / 100);
+          if (e && e < s) { const t = s; s = e; e = t; }      // 逆転していたら入れ替える
+          if (!e || e - s < 1) e = Math.round((s + 45) * 100) / 100; // 未設定/短すぎは既定45秒
           const out = {
-            start: Math.max(0, Math.round((parseFloat(c.start) || 0) * 100) / 100),
-            end: Math.max(0, Math.round((parseFloat(c.end) || 0) * 100) / 100),
+            start: s,
+            end: e,
             comment: String(c.comment || "").slice(0, 400),
             title: String(c.title || "").slice(0, 120),
             artist: String(c.artist || "").slice(0, 120),
+            subUp: Math.max(-400, Math.min(1400, parseInt(c.subUp, 10) || 0)),
+            subScale: Math.max(0.6, Math.min(1.8, parseFloat(c.subScale) || 1)),
           };
           fs.writeFileSync(reelCfgPath(slug), JSON.stringify(out, null, 2));
           json({ ok: true });
