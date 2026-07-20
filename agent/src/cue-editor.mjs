@@ -425,8 +425,9 @@ function tailscaleUrl() {
     try {
       const j = JSON.parse(execFileSync(bin, ["status", "--json"], { encoding: "utf-8", timeout: 4000 }));
       if (j.BackendState !== "Running") return null;
-      const host = (j.Self?.DNSName || "").replace(/\.$/, "") || j.Self?.TailscaleIPs?.[0];
-      return host ? `http://${host}:${PORT}` : null;
+      const ip = (j.Self?.TailscaleIPs || []).find(a => a.includes("."));
+      const host = (j.Self?.DNSName || "").replace(/\.$/, "");
+      return ip ? { ip: `http://${ip}:${PORT}`, host: host ? `http://${host}:${PORT}` : null } : null;
     } catch { return null; }
   }
   return null;
@@ -444,7 +445,8 @@ server.listen(PORT, "0.0.0.0", () => {
   }
   const ts = tailscaleUrl();
   if (ts) {
-    console.log(`  外出先: ${ts}  (Tailscale ON なら4G/5G・別Wi-Fiでも可)`);
+    console.log(`  外出先: ${ts.ip}  ← まずこれ（Tailscale ONなら4G/5G・別Wi-Fiでも可）`);
+    if (ts.host) console.log(`          ${ts.host}  (MagicDNS名。Safariが検索に飛ぶ時は上のIPを使う)`);
     console.log(`  ※Macがスリープすると切れます。長く使うなら別ターミナルで: caffeinate -dis`);
   }
 });
