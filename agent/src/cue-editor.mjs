@@ -12,7 +12,7 @@ import fs from "fs";
 import path from "path";
 import http from "http";
 import os from "os";
-import { spawn } from "child_process";
+import { spawn, execFileSync } from "child_process";
 import { fileURLToPath } from "url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -418,10 +418,33 @@ const server = http.createServer((req, res) => {
   res.writeHead(404); res.end();
 });
 
+// Tailscale（入っていれば外出先・モバイル回線からでも同じURLで届く）
+function tailscaleUrl() {
+  for (const bin of ["/opt/homebrew/bin/tailscale", "/usr/local/bin/tailscale", "/Applications/Tailscale.app/Contents/MacOS/Tailscale"]) {
+    if (!fs.existsSync(bin)) continue;
+    try {
+      const j = JSON.parse(execFileSync(bin, ["status", "--json"], { encoding: "utf-8", timeout: 4000 }));
+      if (j.BackendState !== "Running") return null;
+      const host = (j.Self?.DNSName || "").replace(/\.$/, "") || j.Self?.TailscaleIPs?.[0];
+      return host ? `http://${host}:${PORT}` : null;
+    } catch { return null; }
+  }
+  return null;
+}
+
 server.listen(PORT, "0.0.0.0", () => {
   console.log(`cue editor (slug: ${slug})`);
   console.log(`  PC:     http://localhost:${PORT}`);
   for (const [, list] of Object.entries(os.networkInterfaces())) {
-    for (const ni of list || []) if (ni.family === "IPv4" && !ni.internal) console.log(`  スマホ: http://${ni.address}:${PORT}  (同じWi-Fiから)`);
+    for (const ni of list || []) {
+      if (ni.family !== "IPv4" || ni.internal) continue;
+      if (ni.address.startsWith("100.")) continue; // tailscale側は下でまとめて出す
+      console.log(`  スマホ: http://${ni.address}:${PORT}  (同じWi-Fi)`);
+    }
+  }
+  const ts = tailscaleUrl();
+  if (ts) {
+    console.log(`  外出先: ${ts}  (Tailscale ON なら4G/5G・別Wi-Fiでも可)`);
+    console.log(`  ※Macがスリープすると切れます。長く使うなら別ターミナルで: caffeinate -dis`);
   }
 });
