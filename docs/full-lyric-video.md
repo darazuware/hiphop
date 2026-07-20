@@ -47,6 +47,18 @@ node agent/src/check-full-video.mjs {slug} --require-render # 納品前（mp4の
 
 ❌=ブロッカー（型不正・重なり・逆行・音源外・尺乖離）、⚠=注意（長い行・日本語未入力・mp4が古い等）。歌詞テキストは出力しない。
 
+## 縦型リール（PV映像に字幕・Instagram用・2026-07-21）
+
+```
+node agent/src/gen-reel.mjs --slug {slug} --start 56 --end 104 \
+  --comment "上帯のコメント（改行可）" [--title ""] [--artist ""] [--yt <URL|ID>] [--render]
+```
+
+- 1080x1920。中央にPV映像（**実アスペクト比に合わせた帯**。4:3のMVも切らずに収める）、字幕は映像の上に重ねる。上帯＝コメント、下帯＝曲名/アーティスト/`対訳 waxthink.com`。
+- PV映像は `yt-dlp` で `agent/{slug}/reel/assets/pv.mp4` へ（記事の `youtubeId` か `--yt` から解決）。`full-cues.json` の指定区間だけを切り出し、時刻をシフトして流用するのでキュー調整はエディタと共通。
+- 映像の切り出しは `data-media-start`（ファイルは切らない）。音声は同じファイルから `<audio>` で鳴らす。
+- **著作権**: 公式MV映像の再利用は [`docs/shorts-strategy.md`](shorts-strategy.md) の方針（MV切り抜き禁止）の**例外**として、**YouTubeへは上げない**前提でのみ生成する。Instagram等へ投稿する場合も Meta Rights Manager による削除・アカウント警告のリスクは残る（2026-07-21 ユーザー判断）。`pv.mp4` と `reel/renders/` は `.gitignore` 済み。
+
 ## 注意
 - 作曲は `gen-full-composition.mjs`（title/artistは 引数 > `meta.json` > songs.ts）。**アセットは `full/` 内に置く**（CLIは `full/` をhttpルートに配信、`../assets` は404）。
 - 最初の歌詞まで4秒以上ある曲はイントロにタイトルカードを自動表示。
