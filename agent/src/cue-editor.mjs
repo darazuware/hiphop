@@ -876,7 +876,7 @@ button:disabled{opacity:.45;cursor:default}
 .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
 .row>input.num{width:104px;font-variant-numeric:tabular-nums;text-align:right}
 #stagewrap{width:342px;height:608px;border-radius:14px;overflow:hidden;position:relative;background:#000;flex:none;border:1px solid #262d3a}
-#stage{position:absolute;left:0;top:0;width:1080px;height:1920px;transform:scale(0.31667);transform-origin:top left;background:#08090c;font-family:"Inter",sans-serif}
+#stage{position:absolute;left:0;top:0;width:1080px;height:1920px;transform-origin:top left;background:#08090c;font-family:"Inter",sans-serif}
 #bgfill{position:absolute;inset:0;background:radial-gradient(120% 60% at 50% 34%,#161a22 0%,#08090c 70%)}
 #pv{position:absolute;left:0;width:1080px;object-fit:contain;background:#000}
 #vfade{position:absolute;left:0;width:1080px;pointer-events:none;
@@ -901,7 +901,21 @@ button:disabled{opacity:.45;cursor:default}
 .cl:hover{background:#1d2431}
 .cl .tm{color:#6b7a90;font-variant-numeric:tabular-nums;flex:none;width:52px}
 .cl .tx{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-@media (max-width:820px){ .wrap{flex-direction:column} #stagewrap{width:100%;max-width:342px;margin:0 auto} }
+#mbar{display:none}
+@media (max-width:820px){
+  .wrap{flex-direction:column;gap:12px}
+  body{padding:10px 10px 96px}
+  #stagewrap{margin:0 auto;position:sticky;top:8px;z-index:5}
+  .col{width:100%;min-width:0}
+  button{padding:12px 15px;font-size:15px}
+  input,textarea{font-size:16px;padding:12px}
+  .row>input.num{width:96px}
+  #mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:20;gap:8px;
+    padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(14,17,23,.95);
+    border-top:1px solid #2a3140;backdrop-filter:blur(10px)}
+  #mbar button{flex:1;padding:13px 0}
+  #mbar .p{flex:1.3}
+}
 </style></head><body>
 <div style="max-width:1000px;margin:0 auto"><a class="home" href="../">◀ 字幕エディタ</a><h1>${slug} — 縦型リール（PV映像に字幕）</h1></div>
 <div class="wrap">
@@ -964,10 +978,27 @@ button:disabled{opacity:.45;cursor:default}
     </div>
   </div>
 </div>
+<div id="mbar">
+  <button id="m-play" class="p">▶</button>
+  <button id="m-start">◎ 開始</button>
+  <button id="m-end">◎ 終了</button>
+  <button id="m-save">保存</button>
+</div>
 <script>
 var $=function(id){return document.getElementById(id)};
 var pv=$('pv'), cues=[], cfg={start:0,end:0,comment:'',title:'',artist:''}, playing=false;
 function f2(n){return Math.round(n*100)/100}
+
+function fitStage(){
+  var wrap=$('stagewrap');
+  var avail=Math.min(342, (document.body.clientWidth||360)-24);
+  var maxH=Math.round((window.innerHeight||800)*0.52);
+  var w=Math.min(avail, Math.round(maxH*1080/1920));
+  var s=w/1080;
+  wrap.style.width=w+'px'; wrap.style.height=Math.round(1920*s)+'px';
+  $('stage').style.transform='scale('+s+')';
+}
+addEventListener('resize',fitStage); addEventListener('orientationchange',function(){setTimeout(fitStage,250)});
 
 function layout(){
   var vw=pv.videoWidth||1920, vh=pv.videoHeight||1080;
@@ -980,8 +1011,8 @@ function layout(){
 }
 pv.addEventListener('loadedmetadata',function(){ layout(); if(!cfg.end){ cfg.end=Math.min(pv.duration,cfg.start+48); $('end').value=f2(cfg.end); } upd(); });
 pv.addEventListener('error',function(){ $('nopv').style.display='block'; });
-layout();
-setTimeout(layout, 400); setTimeout(layout, 1500);
+fitStage(); layout();
+setTimeout(function(){fitStage();layout()}, 400); setTimeout(function(){fitStage();layout()}, 1500);
 
 Promise.all([fetch('../cues.json').then(function(r){return r.json()}), fetch('config.json').then(function(r){return r.json()})])
  .then(function(a){
@@ -1027,6 +1058,7 @@ setInterval(function(){
   var t=pv.currentTime;
   $('tnow').textContent=t.toFixed(2)+'s';
   $('play').textContent=pv.paused?'▶ 再生':'⏸ 停止';
+  $('m-play').textContent=pv.paused?'▶':'⏸';
   if(!pv.paused && cfg.end>cfg.start && t>cfg.end) pv.currentTime=cfg.start;
   var cur=null;
   for(var i=0;i<cues.length;i++) if(t>=cues[i].start&&t<cues[i].end) cur=cues[i];
@@ -1052,6 +1084,10 @@ $('getpv').onclick=function(){
       if(j.ok){ $('nopv').style.display='none'; pv.src='pv.mp4?'+Date.now(); pv.load(); } }
   }); },2000);
 };
+$('m-play').onclick=function(){ $('play').click(); };
+$('m-start').onclick=function(){ $('setstart').click(); };
+$('m-end').onclick=function(){ $('setend').click(); };
+$('m-save').onclick=function(){ saveCfg(); };
 $('render').onclick=function(){
   var span=cfg.end-cfg.start;
   if(span<3){ alert('区間が短すぎます'); return; }
