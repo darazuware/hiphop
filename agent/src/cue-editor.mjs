@@ -901,6 +901,34 @@ button:disabled{opacity:.45;cursor:default}
 .cl:hover{background:#1d2431}
 .cl .tm{color:#6b7a90;font-variant-numeric:tabular-nums;flex:none;width:52px}
 .cl .tx{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* 区間内の字幕編集 */
+#ed{max-height:460px;overflow:auto;margin-top:6px}
+.er{border:1px solid #232a36;border-radius:10px;padding:8px;margin-bottom:8px;background:#171c25}
+.er.on{border-color:#3a4a63;background:#1d2634}
+.er.sel{outline:2px solid #ffd24a}
+.er .hd{display:flex;gap:6px;align-items:center;margin-bottom:6px}
+.er .hd input.num{width:88px;font-variant-numeric:tabular-nums;text-align:right;padding:7px}
+.er .hd .sp{flex:1}
+.er .mini{background:none;border:none;color:#8fa3bd;font-size:17px;padding:5px 7px;cursor:pointer;border-radius:6px}
+.er .mini:hover{color:#fff;background:#2a3140}
+.er input.tx{margin-bottom:5px;padding:8px}
+.er input.jp{color:#ffd24a}
+.chips{display:flex;flex-wrap:wrap;align-items:center;background:#0e1219;border:1px solid #262d3a;border-radius:10px;padding:10px;margin-bottom:12px}
+.chip{padding:6px 3px;font-size:19px;white-space:pre}
+.chips.jpc .chip{font-size:20px;color:#ffd24a}
+.cut{width:16px;height:34px;margin:0 -1px;border-radius:5px;cursor:pointer;position:relative;flex:none}
+.cut::after{content:"";position:absolute;left:50%;top:6px;bottom:6px;width:2px;transform:translateX(-50%);background:#39414f;border-radius:2px}
+.cut.ok::after{background:#4d6b8f}
+.cut.on::after{background:#ffd24a;width:4px}
+.cut.ng::after{background:#3a2b2b}
+.modalmask{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:30;display:none;align-items:center;justify-content:center;padding:14px}
+.modalmask.on{display:flex}
+.modalbox{background:#151a22;border:1px solid #2f3846;border-radius:14px;padding:16px;max-width:860px;width:100%;max-height:92vh;overflow:auto}
+.pvw{background:#000;border-radius:10px;padding:10px;margin-bottom:6px}
+.pvw .l{display:flex;gap:10px;align-items:baseline;padding:5px 0;border-bottom:1px solid #1c222c}
+.pvw .l:last-child{border:0}
+.pvw .n{color:#6b7a90;font-size:12px;width:52px}
+.pvw .e{color:#fff;font-weight:700;font-size:13px}.pvw .j{color:#ffd24a;font-size:12px}
 #mbar{display:none}
 @media (max-width:820px){
   .wrap{flex-direction:column;gap:12px}
@@ -987,6 +1015,15 @@ button:disabled{opacity:.45;cursor:default}
       </div>
     </div>
     <div class="card">
+      <h2>この区間の字幕</h2>
+      <div class="row">
+        <button id="cs-save" class="p">字幕を保存</button>
+        <span id="cs-msg" class="note" style="margin:0"></span>
+      </div>
+      <div class="note">◎＝再生位置をこの行の開始に（タップ同期）。✂＝分割、⤵＝次と結合、✕＝削除。字幕エディタと同じ full-cues.json を直接編集します。</div>
+      <div id="ed"></div>
+    </div>
+    <div class="card">
       <div class="row">
         <button class="p" id="save">保存</button>
         <button class="p" id="render">書き出し（mp4）</button>
@@ -1000,11 +1037,28 @@ button:disabled{opacity:.45;cursor:default}
   <button id="m-play" class="p">▶</button>
   <button id="m-start">◎ 開始</button>
   <button id="m-end">◎ 終了</button>
+  <button id="m-sync" class="p">◎ 字幕</button>
   <button id="m-save">保存</button>
 </div>
+<div id="splitM" class="modalmask"><div class="modalbox">
+  <h3 style="margin:0 0 4px;font-size:15px">行の分割</h3>
+  <div class="note" style="margin-bottom:10px">切りたい位置の｜をタップ。青い｜＝語の切れ目として安全な位置。時間は文字数で自動配分します。</div>
+  <div class="chips enc" id="sp-en"></div>
+  <div class="chips jpc" id="sp-jp"></div>
+  <div class="pvw" id="sp-pv"></div>
+  <div class="row" style="margin-top:10px">
+    <button id="sp-a2">おまかせ2分割</button>
+    <button id="sp-a3">おまかせ3分割</button>
+    <button id="sp-clear">解除</button>
+    <span style="flex:1"></span>
+    <button id="sp-cancel">やめる</button>
+    <button class="p" id="sp-ok">分割する</button>
+  </div>
+</div></div>
 <script>
 var $=function(id){return document.getElementById(id)};
 var pv=$('pv'), cues=[], cfg={start:0,end:0,comment:'',title:'',artist:'',subUp:0,subScale:1}, playing=false;
+var renderEditorPending=null;
 function f2(n){return Math.round(n*100)/100}
 
 function fitStage(){
@@ -1043,7 +1097,7 @@ Promise.all([fetch('../cues.json').then(function(r){return r.json()}), fetch('co
    $('comment').value=cfg.comment; $('title').value=cfg.title; $('artist').value=cfg.artist;
    $('subup').value=cfg.subUp; $('subscale').value=cfg.subScale;
    if(!c.hasPv) $('nopv').style.display='block';
-   drawCueList(); upd();
+   drawCueList(); upd(); renderEditor();
  });
 
 function drawCueList(){
@@ -1063,6 +1117,8 @@ function upd(){
   cfg.subUp=parseInt($('subup').value,10)||0; cfg.subScale=parseFloat($('subscale').value)||1;
   $('subupv').textContent=cfg.subUp+'px'; $('subscalev').textContent=cfg.subScale.toFixed(2)+'x';
   layout();
+  if(typeof renderEditorPending!=='undefined') clearTimeout(renderEditorPending);
+  renderEditorPending=setTimeout(function(){ if(typeof renderEditor==='function') renderEditor(); },250);
   var span=cfg.end-cfg.start;
   if(span<=0){ $('dur').textContent='終了が開始より前です'; $('dur').className='warn'; }
   else { $('dur').textContent=span.toFixed(1)+'s'; $('dur').className=(span>90||span<3)?'warn':''; }
@@ -1111,7 +1167,201 @@ setInterval(function(){
   $('s-jp').textContent=(cur&&inRange)?cur.jpn:'';
   var span=Math.max(0.1,cfg.end-cfg.start);
   $('bar').style.transform='scaleX('+Math.max(0,Math.min(1,(t-cfg.start)/span))+')';
+  paintRows();
 },80);
+
+/* ---------- 区間内の字幕編集（full-cues.json を直接いじる） ---------- */
+var selCue=-1, cuesDirty=false;
+function inRangeIdx(){
+  var out=[];
+  for(var i=0;i<cues.length;i++) if(cues[i].end>cfg.start+0.05 && cues[i].start<cfg.end-0.05) out.push(i);
+  return out;
+}
+function renderEditor(){
+  var host=$('ed'); host.innerHTML='';
+  var idx=inRangeIdx();
+  if(!idx.length){ host.innerHTML='<div class="note">この区間にキューがありません</div>'; return; }
+  if(selCue<0||idx.indexOf(selCue)<0) selCue=idx[0];
+  idx.forEach(function(i){
+    var c=cues[i];
+    var d=document.createElement('div'); d.className='er'; d.id='er'+i;
+    var hd=document.createElement('div'); hd.className='hd';
+    hd.innerHTML='<input class="num" data-k="start" value="'+f2(c.start)+'">'
+      +'<button class="mini" data-a="play" title="ここから再生">▶</button>'
+      +'<button class="mini" data-a="here" title="再生位置をこの行の開始に">◎</button>'
+      +'<button class="mini" data-a="m005" title="-0.05s">−</button>'
+      +'<button class="mini" data-a="p005" title="+0.05s">＋</button>'
+      +'<span class="sp"></span>'
+      +'<button class="mini" data-a="split" title="分割">✂</button>'
+      +'<button class="mini" data-a="merge" title="次と結合">⤵</button>'
+      +'<button class="mini" data-a="del" title="削除">✕</button>';
+    var en=document.createElement('input'); en.className='tx'; en.dataset.k='eng'; en.value=c.eng;
+    var jp=document.createElement('input'); jp.className='tx jp'; jp.dataset.k='jpn'; jp.value=c.jpn; jp.placeholder='日本語訳…';
+    d.appendChild(hd); d.appendChild(en); d.appendChild(jp);
+    d.addEventListener('pointerdown',function(){ selCue=i; paintRows(); });
+    d.addEventListener('input',function(e){
+      var k=e.target.dataset.k; if(!k) return;
+      cues[i][k]=(k==='start')?(parseFloat(e.target.value)||0):e.target.value;
+      cuesDirty=true; $('cs-msg').textContent='未保存';
+    });
+    hd.addEventListener('click',function(e){
+      var b=e.target.closest('button[data-a]'); if(!b) return;
+      var a=b.dataset.a;
+      if(a==='play'){ pv.currentTime=Math.max(0,cues[i].start-0.4); pv.play(); }
+      if(a==='here') setCueStart(i, pv.currentTime);
+      if(a==='m005') setCueStart(i, cues[i].start-0.05);
+      if(a==='p005') setCueStart(i, cues[i].start+0.05);
+      if(a==='merge'&&i<cues.length-1){
+        cues[i]={eng:(cues[i].eng+' '+cues[i+1].eng).trim(), jpn:(cues[i].jpn+cues[i+1].jpn).trim(), start:cues[i].start, end:cues[i+1].end};
+        cues.splice(i+1,1); cuesDirty=true; renderEditor(); drawCueList(); $('cs-msg').textContent='未保存';
+      }
+      if(a==='del'){ cues.splice(i,1); cuesDirty=true; renderEditor(); drawCueList(); $('cs-msg').textContent='未保存'; }
+      if(a==='split') openSplit(i);
+    });
+    host.appendChild(d);
+  });
+  paintRows();
+}
+function setCueStart(i,t){
+  t=Math.max(0,f2(t));
+  cues[i].start=t;
+  if(i>0 && cues[i-1].end>t-0.05) cues[i-1].end=f2(Math.max(cues[i-1].start+0.4,t-0.05));
+  if(cues[i].end<t+0.4) cues[i].end=f2(t+0.4);
+  cuesDirty=true; $('cs-msg').textContent='未保存';
+  var r=$('er'+i); if(r) r.querySelector('[data-k=start]').value=f2(t);
+  var p=$('er'+(i-1)); if(p&&cues[i-1]) p.querySelector('[data-k=start]').value=f2(cues[i-1].start);
+  drawCueList();
+}
+function paintRows(){
+  var t=pv.currentTime;
+  inRangeIdx().forEach(function(i){
+    var r=$('er'+i); if(!r) return;
+    var on=(t>=cues[i].start&&t<cues[i].end);
+    r.className='er'+(on?' on':'')+(i===selCue?' sel':'');
+  });
+}
+function tapSyncCue(){
+  if(selCue<0) return;
+  setCueStart(selCue, pv.currentTime);
+  var idx=inRangeIdx(), k=idx.indexOf(selCue);
+  if(k>=0&&k+1<idx.length) selCue=idx[k+1];
+  paintRows();
+  var r=$('er'+selCue); if(r) r.scrollIntoView({block:'center'});
+}
+function saveCues(){
+  return fetch('../cues.json',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(cues)})
+    .then(function(r){return r.json()}).then(function(j){
+      cuesDirty=false; $('cs-msg').textContent='保存しました（'+j.count+'キュー）';
+      return fetch('../cues.json').then(function(r){return r.json()}).then(function(c){ cues=c; renderEditor(); drawCueList(); });
+    });
+}
+$('cs-save').onclick=saveCues;
+$('m-sync').onclick=tapSyncCue;
+addEventListener('keydown',function(e){
+  if(e.target.tagName==='INPUT'||e.target.tagName==='TEXTAREA') return;
+  if(e.key==='s'||e.key==='S'){ e.preventDefault(); tapSyncCue(); }
+  else if(e.code==='Space'){ e.preventDefault(); $('play').click(); }
+});
+addEventListener('beforeunload',function(e){ if(cuesDirty){ e.preventDefault(); e.returnValue=''; } });
+
+/* 分割モーダル */
+var isKata=function(c){return /[゠-ヿ]/.test(c)}, isKanji=function(c){return /[一-鿿]/.test(c)},
+    isHira=function(c){return /[぀-ゟ]/.test(c)}, isLat=function(c){return /[A-Za-z0-9']/.test(c)};
+var NG_PREV="のなにはがをでとへもっーゃゅょ、・「『（【“‘", NG_NEXT="、。ーっゃゅょ！？」』）】…・”’";
+function safeJp(s,b){
+  if(b<=0||b>=s.length) return false;
+  var p=s[b-1], q=s[b];
+  if(p==='、') return true;
+  if(NG_PREV.indexOf(p)>=0||NG_NEXT.indexOf(q)>=0) return false;
+  if(isKata(p)&&isKata(q)) return false;
+  if(isLat(p)&&isLat(q)) return false;
+  if(isKanji(p)&&isKanji(q)) return false;
+  if(isHira(q)) return false;
+  return true;
+}
+var SM={i:-1,ew:[],jc:[],ec:{},jc2:{}};
+function openSplit(i){
+  SM={i:i, ew:cues[i].eng.split(/\\s+/).filter(Boolean), jc:cues[i].jpn.split(''), ec:{}, jc2:{}};
+  drawSplit(); $('splitM').classList.add('on');
+}
+function splitParts(){
+  var c=cues[SM.i];
+  var eb=[0], jb=[0], k;
+  for(k in SM.ec) if(SM.ec[k]) eb.push(+k);
+  for(k in SM.jc2) if(SM.jc2[k]) jb.push(+k);
+  eb.sort(function(a,b){return a-b}); jb.sort(function(a,b){return a-b});
+  eb.push(SM.ew.length); jb.push(SM.jc.length);
+  var K=Math.max(eb.length,jb.length)-1, eng=[], jpn=[];
+  for(var n=0;n<K;n++){
+    eng.push(eb[n]!==undefined&&eb[n+1]!==undefined?SM.ew.slice(eb[n],eb[n+1]).join(' '):'');
+    jpn.push(jb[n]!==undefined&&jb[n+1]!==undefined?SM.jc.slice(jb[n],jb[n+1]).join(''):'');
+  }
+  var tot=0; eng.forEach(function(x){tot+=x.length}); tot=tot||1;
+  var span=Math.max(0.8,c.end-c.start), out=[], acc=0;
+  for(var n2=0;n2<K;n2++){
+    var st=c.start+span*acc/tot; acc+=eng[n2].length;
+    out.push({eng:eng[n2],jpn:jpn[n2],start:f2(st),end:f2(c.start+span*acc/tot)});
+  }
+  if(out.length) out[out.length-1].end=f2(c.end);
+  return out;
+}
+function drawSplit(){
+  var en=$('sp-en'), jp=$('sp-jp'); en.innerHTML=''; jp.innerHTML='';
+  SM.ew.forEach(function(w,k){
+    if(k>0){ var d=document.createElement('div'); d.className='cut ok'+(SM.ec[k]?' on':''); d.dataset.e=k; en.appendChild(d); }
+    var s=document.createElement('div'); s.className='chip'; s.textContent=w; en.appendChild(s);
+  });
+  var js=SM.jc.join('');
+  SM.jc.forEach(function(ch,k){
+    if(k>0){ var ok=safeJp(js,k); var d=document.createElement('div');
+      d.className='cut '+(ok?'ok':'ng')+(SM.jc2[k]?' on':''); d.dataset.j=k; jp.appendChild(d); }
+    var s=document.createElement('div'); s.className='chip'; s.textContent=ch; jp.appendChild(s);
+  });
+  jp.style.display=SM.jc.length?'':'none';
+  var parts=splitParts();
+  $('sp-pv').innerHTML='';
+  parts.forEach(function(p){
+    var l=document.createElement('div'); l.className='l';
+    var n=document.createElement('div'); n.className='n'; n.textContent=f2(p.start)+'s';
+    var box=document.createElement('div');
+    var e=document.createElement('div'); e.className='e'; e.textContent=p.eng;
+    var j=document.createElement('div'); j.className='j'; j.textContent=p.jpn;
+    box.appendChild(e); box.appendChild(j); l.appendChild(n); l.appendChild(box);
+    $('sp-pv').appendChild(l);
+  });
+}
+$('sp-en').addEventListener('click',function(e){ var d=e.target.closest('.cut'); if(!d)return;
+  var k=d.dataset.e; SM.ec[k]=!SM.ec[k]; drawSplit(); });
+$('sp-jp').addEventListener('click',function(e){ var d=e.target.closest('.cut'); if(!d)return;
+  var k=d.dataset.j; SM.jc2[k]=!SM.jc2[k]; drawSplit(); });
+function autoSplit(K){
+  SM.ec={}; SM.jc2={};
+  var js=SM.jc.join('');
+  for(var k=1;k<K;k++){
+    var ei=Math.round(SM.ew.length*k/K); if(ei>0&&ei<SM.ew.length) SM.ec[ei]=true;
+    if(!SM.jc.length) continue;
+    var ideal=Math.round(SM.jc.length*k/K), best=null, lim=Math.max(4,Math.round(SM.jc.length*0.3));
+    for(var d=0;d<=lim&&best===null;d++){
+      var cand=d===0?[ideal]:[ideal-d,ideal+d];
+      for(var n=0;n<cand.length;n++){ var q=cand[n];
+        if(q>0&&q<SM.jc.length&&safeJp(js,q)&&!SM.jc2[q]){ best=q; break; } }
+    }
+    if(best!==null) SM.jc2[best]=true;
+  }
+  drawSplit();
+}
+$('sp-a2').onclick=function(){autoSplit(2)};
+$('sp-a3').onclick=function(){autoSplit(3)};
+$('sp-clear').onclick=function(){ SM.ec={}; SM.jc2={}; drawSplit(); };
+$('sp-cancel').onclick=function(){ $('splitM').classList.remove('on'); };
+$('sp-ok').onclick=function(){
+  var parts=splitParts();
+  if(parts.length<2){ alert('切る位置を1つ以上えらんでください'); return; }
+  var args=[SM.i,1].concat(parts);
+  Array.prototype.splice.apply(cues,args);
+  cuesDirty=true; $('splitM').classList.remove('on'); renderEditor(); drawCueList();
+  $('cs-msg').textContent='未保存';
+};
 
 function saveCfg(){
   upd();
