@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Lose Yourself — Lyric Video</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=Noto+Sans+JP:wght@500;700&display=block" rel="stylesheet" />
+    <style>
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      html, body { width: 1920px; height: 1080px; overflow: hidden; background: #000; font-family: "Inter", sans-serif; }
+      #root { position: relative; width: 1920px; height: 1080px; overflow: hidden; }
+      #bg { position: absolute; inset: -6%; z-index: 0;
+        background-image: url("assets/cover.jpg"); background-size: cover; background-position: center;
+        filter: blur(46px) brightness(0.34) saturate(1.1); transform: scale(1.12); will-change: transform; }
+      #tint { position: absolute; inset: 0; z-index: 1;
+        background: radial-gradient(120% 80% at 50% 40%, rgba(0,0,0,0.15), rgba(0,0,0,0.72) 78%); }
+      /* header lower-third */
+      #header { position: absolute; left: 72px; top: 60px; z-index: 5; display: flex; align-items: center; gap: 26px; }
+      #cover { width: 120px; height: 120px; border-radius: 12px; object-fit: cover;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.14); }
+      #meta { color: #fff; }
+      #meta .t { font-size: 40px; font-weight: 900; letter-spacing: -0.5px; line-height: 1.05; }
+      #meta .a { font-size: 26px; font-weight: 600; color: #ffd24a; margin-top: 6px; letter-spacing: 0.5px; }
+      /* lyric stage */
+      #stage { position: absolute; left: 0; right: 0; top: 0; bottom: 0; z-index: 4; }
+      .line { position: absolute; left: 50%; top: 50%; width: 1560px;
+        transform: translate(-50%, -50%); text-align: center; opacity: 0; will-change: opacity, transform; }
+      .line .en { color: #fff; font-weight: 800; font-size: 76px; line-height: 1.1; letter-spacing: -1px;
+        text-shadow: 0 4px 30px rgba(0,0,0,0.6); }
+      .line .jp { color: #ffd24a; font-family: "Noto Sans JP", sans-serif; font-weight: 700; font-size: 44px;
+        line-height: 1.3; margin-top: 26px; text-shadow: 0 4px 24px rgba(0,0,0,0.55); }
+      /* next-line preview */
+      #ondeck { position: absolute; left: 50%; bottom: 132px; transform: translateX(-50%); z-index: 4;
+        width: 1400px; text-align: center; opacity: 0; }
+      #ondeck .en { color: rgba(255,255,255,0.5); font-weight: 600; font-size: 34px; line-height: 1.15; }
+      /* progress + watermark */
+      #barwrap { position: absolute; left: 0; right: 0; bottom: 0; height: 6px; z-index: 6; background: rgba(255,255,255,0.12); }
+      #bar { position: absolute; left: 0; top: 0; bottom: 0; width: 100%; transform-origin: left center; transform: scaleX(0);
+        background: linear-gradient(90deg, #ffd24a, #ff8a3c); }
+      #wm { position: absolute; right: 44px; bottom: 34px; z-index: 6; color: rgba(255,255,255,0.66);
+        font-size: 24px; font-weight: 700; letter-spacing: 1px; }
+      /* intro title card (歌唱前のインストゥルメンタル区間を埋める) */
+      #intro { position: absolute; inset: 0; z-index: 7; display: flex; flex-direction: column;
+        align-items: center; justify-content: center; gap: 30px; opacity: 0; }
+      #intro img { width: 340px; height: 340px; border-radius: 20px; object-fit: cover;
+        box-shadow: 0 24px 80px rgba(0,0,0,0.7); border: 1px solid rgba(255,255,255,0.16); }
+      #intro .t { color: #fff; font-size: 84px; font-weight: 900; letter-spacing: -2px; }
+      #intro .a { color: #ffd24a; font-size: 38px; font-weight: 700; letter-spacing: 1px; margin-top: -14px; }
+      #intro .s { color: rgba(255,255,255,0.55); font-family: "Noto Sans JP", sans-serif;
+        font-size: 26px; font-weight: 500; letter-spacing: 4px; margin-top: 8px; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-width="1920" data-height="1080" data-duration="284.77">
+      <audio src="assets/audio-full.mp3" data-start="0" data-duration="284.77"></audio>
+      <section class="clip" data-start="0" data-duration="284.77" data-track-index="1" style="position:absolute;inset:0;">
+        <div id="bg"></div>
+        <div id="tint"></div>
+        <div id="header">
+          <img id="cover" src="assets/cover.jpg" alt="" />
+          <div id="meta"><div class="t">Lose Yourself</div><div class="a">Eminem</div></div>
+        </div>
+        <div id="stage"></div>
+        <div id="ondeck"><div class="en"></div></div>
+        <div id="barwrap"><div id="bar"></div></div>
+        <div id="wm">waxthink.com</div>
+        <div id="intro">
+          <img src="assets/cover.jpg" alt="" />
+          <div class="t">Lose Yourself</div>
+          <div class="a">Eminem</div>
+          <div class="s">LYRICS ＋ 日本語対訳</div>
+        </div>
+      </section>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const DUR = 284.77;
+      const CUES = [{"e":"Look, if you had one shot or one opportunity","j":"聞いてくれ、もし一回のチャンス、一つの機会があって","s":34.89,"d":43.32},{"e":"To seize everything you ever wanted in one moment","j":"欲しかったものすべてを一瞬でつかめるとしたら","s":43.35,"d":46.62},{"e":"Would you capture it or just let it slip?","j":"お前はそれをつかむか、それとも手放すか？","s":46.65,"d":49.91},{"e":"Yo","j":"Yo","s":49.94,"d":53.21},{"e":"His palms are sweaty, knees weak, arms are heavy","j":"手のひらは汗ばみ、膝が震え、腕が重い","s":53.24,"d":56.58},{"e":"There's vomit on his sweater already, mom's spaghetti","j":"もうセーターには吐しゃ物がついてる——ママのスパゲッティ","s":56.61,"d":59.2},{"e":"He's nervous, but on the surface,","j":"内心は緊張しているが、表面上は落ち着いて","s":59.23,"d":60.27},{"e":"he looks calm and ready","j":"準備ができているように見える","s":60.3,"d":61.83},{"e":"To drop bombs, but he keeps on forgetting","j":"爆弾を落とす準備ができているが、何度も忘れてしまう","s":61.86,"d":64.16},{"e":"What he wrote down, the whole crowd goes so loud","j":"書き留めたことが、観客全員が大声を上げる中で","s":64.19,"d":66.83},{"e":"He opens his mouth, but the words won't come out","j":"口を開くが、言葉が出てこない","s":66.86,"d":70.64},{"e":"He's chokin', how? Everybody's jokin' now","j":"なぜ詰まるんだ？みんなが笑ってる","s":70.67,"d":72.7},{"e":"The clock's run out, time's up, over, blaow","j":"時間切れ、終わった、バン","s":72.73,"d":75.67},{"e":"Snap back to reality, ope, there goes gravity","j":"現実に引き戻され、おっと、重力がやってきた","s":75.7,"d":78.83},{"e":"Ope, there goes Rabbit, he choked, he's so mad","j":"おっと、ラビットがいなくなった、しくじって、すごく怒っている","s":78.86,"d":81.42},{"e":"But he won't give up that easy,","j":"でも簡単には諦めない、","s":81.45,"d":83.2},{"e":"no, he won't have it","j":"彼はそんなことは受け入れない","s":83.23,"d":84.17},{"e":"He knows his whole back's to these ropes, it don't matter","j":"背水の陣だと分かっているが、それは関係ない","s":84.2,"d":87.49},{"e":"He's dope, he knows that,","j":"才能がある、それは分かってる、","s":87.52,"d":88.16},{"e":"but he's broke, he's so stagnant","j":"でも金がない、停滞してる","s":88.19,"d":90},{"e":"He knows when he goes back to this mobile home, that's when it's","j":"このモービルホーム（トレーラーハウス）に帰る時が分かってる","s":90.03,"d":92.81},{"e":"Back to the lab again, yo, this old rhapsody","j":"また最初からやり直しだ、この古いラプソディ","s":92.84,"d":95.31},{"e":"Better go capture this moment and hope it don't pass him","j":"この瞬間をつかんで、チャンスを逃さないようにした方がいい","s":95.34,"d":98.52},{"e":"You better lose yourself in the music","j":"音楽の中に自分を失ってしまえ","s":98.55,"d":100.24},{"e":"The moment, you own it,","j":"その瞬間を所有したら、","s":100.27,"d":101.46},{"e":"you better never let it go (Go)","j":"絶対に手放すな","s":101.49,"d":103.22},{"e":"You only get one shot,","j":"チャンスは一回だけだ、","s":103.25,"d":104.33},{"e":"do not miss your chance to blow","j":"爆発するチャンスを逃すな","s":104.36,"d":106.23},{"e":"This opportunity comes once in a lifetime, yo","j":"この機会は一生に一度しかない","s":106.26,"d":109.2},{"e":"You better lose yourself in the music","j":"音楽の中に自分を失ってしまえ","s":109.23,"d":111.24},{"e":"The moment, you own it,","j":"その瞬間を所有したら、","s":111.27,"d":112.46},{"e":"you better never let it go (Go)","j":"絶対に手放すな","s":112.49,"d":114.22},{"e":"You only get one shot,","j":"チャンスは一回だけだ、","s":114.25,"d":115.33},{"e":"do not miss your chance to blow","j":"爆発するチャンスを逃すな","s":115.36,"d":117.23},{"e":"This opportunity comes once in a lifetime, yo","j":"この機会は一生に一度しかない","s":117.26,"d":119.01},{"e":"You better","j":"さあ","s":119.04,"d":120.78},{"e":"His soul's escaping through this hole that is gaping","j":"魂が広がる穴から逃げていく","s":120.81,"d":123.24},{"e":"This world is mine for the taking, make me king","j":"この世界は俺のものにするためにある、俺を王にしろ","s":123.27,"d":126.3},{"e":"As we move toward a new world order","j":"新たな世界秩序へ進んでいく中で","s":126.33,"d":129.24},{"e":"A normal life is boring, but superstardom's","j":"普通の人生はつまらないが、スーパースターの地位は","s":129.27,"d":131.69},{"e":"Close to post-mortem, it only grows harder","j":"死後の世界に近い、ますます困難になっていくだけだ","s":131.72,"d":134.97},{"e":"Homie grows hotter, he blows, it's all over","j":"仲間は勢いを増し、爆発して、全て終わる","s":135,"d":137.42},{"e":"These hoes is all on him, coast-to-coast shows","j":"女たちが全員まとわりつき、全国ツアーで","s":137.45,"d":140.49},{"e":"He's known as the Globetrotter, lonely roads","j":"グローブトロッター（世界を旅する者）として知られる、孤独な道","s":140.52,"d":142.71},{"e":"God only knows he's grown farther from home, he's no father","j":"神だけが知っている、彼は家から遠ざかり、父親失格だ","s":142.74,"d":145.92},{"e":"He goes home and barely knows his own daughter","j":"家に帰っても自分の娘のことをほとんど知らない","s":145.95,"d":149.23},{"e":"But hold your nose 'cause here goes the cold water","j":"でも鼻をつまめ、冷水をかけるぞ","s":149.26,"d":152.15},{"e":"These hoes don't want him no mo', he's cold product","j":"女たちはもう彼を求めない、彼は売れない商品だ","s":152.18,"d":154.29},{"e":"They moved on to the next schmoe who flows","j":"次に流れるやつのところへ移ってしまった","s":154.32,"d":157.09},{"e":"He nose-dove and sold nada, and so the soap opera","j":"急降下して何も売れず、そしてソープオペラが","s":157.12,"d":160.78},{"e":"Is told, it unfolds, I suppose it's old, partner","j":"語られ、展開し、古い話だと思うかもしれないが","s":160.81,"d":163.21},{"e":"But the beat goes on, da-da-dom, da-dom, dah-dah-dah-dah","j":"でもビートは続く、ダダドム、ダドム","s":163.24,"d":165.26},{"e":"You better lose yourself in the music","j":"音楽の中に自分を失ってしまえ","s":165.29,"d":167.64},{"e":"The moment, you own it,","j":"その瞬間を所有したら、","s":167.67,"d":169.24},{"e":"you better never let it go (Go)","j":"絶対に手放すな","s":169.27,"d":170.72},{"e":"You only get one shot,","j":"チャンスは一回だけだ、","s":170.75,"d":172.21},{"e":"do not miss your chance to blow","j":"爆発するチャンスを逃すな","s":172.24,"d":173.75},{"e":"This opportunity comes once in a lifetime, yo","j":"この機会は一生に一度しかない","s":173.78,"d":176.26},{"e":"You better lose yourself in the music","j":"音楽の中に自分を失ってしまえ","s":176.29,"d":178.64},{"e":"The moment, you own it,","j":"その瞬間を所有したら、","s":178.67,"d":180.24},{"e":"you better never let it go (Go)","j":"絶対に手放すな","s":180.27,"d":181.72},{"e":"You only get one shot,","j":"チャンスは一回だけだ、","s":181.75,"d":183.21},{"e":"do not miss your chance to blow","j":"爆発するチャンスを逃すな","s":183.24,"d":184.75},{"e":"This opportunity comes once in a lifetime, yo","j":"この機会は一生に一度しかない","s":184.78,"d":186},{"e":"You better","j":"さあ","s":186.03,"d":187.24},{"e":"No more games, I'ma change what you call rage","j":"もうゲームはなし、お前らが怒りと呼ぶものを変えてやる","s":187.27,"d":190.5},{"e":"Tear this motherfuckin' roof off like two dogs caged","j":"檻に閉じ込められた二匹の犬みたいに、この屋根をぶっ剥がしてやる","s":190.53,"d":193.22},{"e":"I was playin' in the beginning, the mood all changed","j":"最初は遊んでいたが、雰囲気がすべて変わった","s":193.25,"d":196.47},{"e":"I've been chewed up and spit","j":"噛みつかれて吐き出され、","s":196.5,"d":197.61},{"e":"out and booed off stage","j":"ステージからブーイングを受けた","s":197.64,"d":199.23},{"e":"But I kept rhymin' and stepped","j":"でもライムを続けて","s":199.26,"d":200.55},{"e":"right in the next cypher","j":"次のサイファーに踏み込んだ","s":200.58,"d":202.24},{"e":"Best believe somebody's payin' the Pied Piper","j":"誰かが笛吹き男（ツケ）を払うことになる","s":202.27,"d":205.29},{"e":"All the pain inside amplified by the","j":"内側の痛みが増幅される","s":205.32,"d":207.78},{"e":"Fact that I can't get by with my nine-to-","j":"9時から5時の仕事では生活できないという事実に","s":207.81,"d":210.32},{"e":"Five and I can't provide the right type of life for my family","j":"家族に適切な生活を与えられない","s":210.35,"d":214.25},{"e":"'Cause, man, these goddamn food stamps don't buy diapers","j":"だって、このフードスタンプじゃオムツも買えない","s":214.28,"d":217.23},{"e":"And there's no movie, there's no Mekhi Phifer, this is my life","j":"映画はない、メキ・ファイファーもいない、これが俺の現実だ","s":217.26,"d":221.15},{"e":"And these times are so hard,","j":"時代は厳しく、ますます","s":221.18,"d":223.2},{"e":"and it's gettin' even harder","j":"厳しくなっていく","s":223.23,"d":224.88},{"e":"Tryna feed and water my seed, plus teeter-totter","j":"子供を養おうとしながら、テータートッター（シーソー）のように揺れて","s":224.91,"d":227.36},{"e":"Caught up between bein' a father and a prima donna","j":"父親であることとプリマドンナの間で板挟み","s":227.39,"d":230.21},{"e":"Baby-mama drama, screamin' on her,","j":"ベイビーママドラマ、彼女に怒鳴って、","s":230.24,"d":232.14},{"e":"too much for me to wanna","j":"もう続けたくない","s":232.17,"d":233.07},{"e":"Stay in one spot, another day of monotony's gotten me","j":"同じ場所にとどまり、単調な日々が俺を追い詰めて","s":233.1,"d":236.15},{"e":"To the point I'm like a snail, I've got","j":"まるでカタツムリのようになるまで","s":236.18,"d":238.65},{"e":"To formulate a plot or end up in jail or shot","j":"策を練るか、刑務所か銃弾か","s":238.68,"d":241.23},{"e":"Success is my only motherfuckin' option, failure's not","j":"成功だけが唯一の選択肢だ、失敗はあり得ねぇ","s":241.26,"d":244.64},{"e":"Mom, I love you, but this trailer's got","j":"ママ、愛してる、でもこのトレーラーハウスから","s":244.67,"d":246.58},{"e":"To go, I cannot grow old in Salem's Lot","j":"出なきゃいけない、セイレムの地で老いるわけにはいかない","s":246.61,"d":249.2},{"e":"So here I go, it's my shot, feet, fail me not","j":"だから行くぞ、俺のチャンスだ、足よ、裏切るな","s":249.23,"d":252.31},{"e":"This may be the only opportunity that I got","j":"これが俺に与えられた唯一のチャンスかもしれない","s":252.34,"d":255.21},{"e":"You better lose yourself in the music","j":"音楽の中に自分を失ってしまえ","s":255.24,"d":256.9},{"e":"The moment, you own it,","j":"その瞬間を所有したら、","s":256.93,"d":258.26},{"e":"you better never let it go (Go)","j":"絶対に手放すな","s":258.29,"d":260.22},{"e":"You only get one shot,","j":"チャンスは一回だけだ、","s":260.25,"d":261.33},{"e":"do not miss your chance to blow","j":"爆発するチャンスを逃すな","s":261.36,"d":263.65},{"e":"This opportunity comes once in a lifetime, yo","j":"この機会は一生に一度しかない","s":263.68,"d":266.26},{"e":"You better lose yourself in the music","j":"音楽の中に自分を失ってしまえ","s":266.29,"d":268.64},{"e":"The moment, you own it,","j":"その瞬間を所有したら、","s":268.67,"d":270.26},{"e":"you better never let it go (Go)","j":"絶対に手放すな","s":270.29,"d":272.22},{"e":"You only get one shot,","j":"チャンスは一回だけだ、","s":272.25,"d":273.33},{"e":"do not miss your chance to blow","j":"爆発するチャンスを逃すな","s":273.36,"d":275.45},{"e":"This opportunity comes once in a lifetime, yo","j":"この機会は一生に一度しかない","s":275.48,"d":277.44},{"e":"You better","j":"さあ","s":277.47,"d":279.24},{"e":"You can do anything you set your mind to, man","j":"決意さえすれば何でもできる","s":279.27,"d":283.27}];
+      const stage = document.getElementById("stage");
+      const ondeckEl = document.getElementById("ondeck");
+      const ondeckEn = ondeckEl.querySelector(".en");
+
+      // build line nodes
+      const nodes = CUES.map((c, i) => {
+        const el = document.createElement("div");
+        el.className = "line";
+        el.id = "ln" + i;
+        const en = document.createElement("div"); en.className = "en"; en.textContent = c.e;
+        const jp = document.createElement("div"); jp.className = "jp"; jp.textContent = c.j;
+        el.appendChild(en); el.appendChild(jp);
+        stage.appendChild(el);
+        return el;
+      });
+
+      const tl = gsap.timeline({ paused: true });
+      // background slow ken-burns across whole duration
+      tl.fromTo("#bg", { scale: 1.12 }, { scale: 1.26, ease: "none", duration: DUR }, 0);
+      // progress bar
+      tl.fromTo("#bar", { scaleX: 0 }, { scaleX: 1, ease: "none", duration: DUR }, 0);
+      // intro title card: 最初の歌詞が出るまでの無字幕区間を埋める（4秒以上あるときだけ）
+      const FIRST = CUES.length ? CUES[0].s : 0;
+      const introOut = Math.max(0, FIRST - 1.0);
+      if (FIRST >= 4) {
+        tl.fromTo("#intro", { opacity: 0, scale: 0.96 }, { opacity: 1, scale: 1, duration: 1.0, ease: "power2.out" }, 0.3);
+        tl.to("#intro", { opacity: 0, scale: 1.04, duration: 0.8, ease: "power2.in" }, introOut);
+      }
+      // header intro（タイトルカードが消えてから）
+      tl.fromTo("#header", { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" },
+        FIRST >= 4 ? introOut + 0.4 : 0.2);
+
+      // per-line kinetic show/hide (seek-safe absolute times)
+      CUES.forEach((c, i) => {
+        const el = nodes[i];
+        const inT = Math.max(0, c.s);
+        const outT = Math.max(inT + 0.5, c.d);
+        tl.fromTo(el, { opacity: 0, y: 42 }, { opacity: 1, y: 0, duration: 0.42, ease: "power3.out" }, inT);
+        tl.to(el, { opacity: 0, y: -30, duration: 0.32, ease: "power2.in" }, outT - 0.16);
+        // stagger eng then jpn for a "flowing" feel
+        tl.fromTo(el.querySelector(".jp"), { opacity: 0 }, { opacity: 1, duration: 0.34, ease: "power2.out" }, inT + 0.16);
+      });
+
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

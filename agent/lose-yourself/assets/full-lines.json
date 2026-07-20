@@ -1,0 +1,611 @@
+[
+  {
+    "i": 0,
+    "section": "Intro",
+    "eng": "Look, if you had one shot or one opportunity",
+    "jpn": "聞いてくれ、もし一回のチャンス、一つの機会があって",
+    "src": "article"
+  },
+  {
+    "i": 1,
+    "section": "Intro",
+    "eng": "To seize everything you ever wanted in one moment",
+    "jpn": "欲しかったものすべてを一瞬でつかめるとしたら",
+    "src": "article"
+  },
+  {
+    "i": 2,
+    "section": "Intro",
+    "eng": "Would you capture it or just let it slip?",
+    "jpn": "お前はそれをつかむか、それとも手放すか？",
+    "src": "article"
+  },
+  {
+    "i": 3,
+    "section": "Intro",
+    "eng": "Yo",
+    "jpn": "Yo",
+    "src": "claude"
+  },
+  {
+    "i": 4,
+    "section": "Verse 1",
+    "eng": "His palms are sweaty, knees weak, arms are heavy",
+    "jpn": "手のひらは汗ばみ、膝が震え、腕が重い",
+    "src": "article"
+  },
+  {
+    "i": 5,
+    "section": "Verse 1",
+    "eng": "There's vomit on his sweater already, mom's spaghetti",
+    "jpn": "もうセーターには吐しゃ物がついてる——ママのスパゲッティ",
+    "src": "article"
+  },
+  {
+    "i": 6,
+    "section": "Verse 1",
+    "eng": "He's nervous, but on the surface, he looks calm and ready",
+    "jpn": "内心は緊張しているが、表面上は落ち着いて準備ができているように見える",
+    "src": "article"
+  },
+  {
+    "i": 7,
+    "section": "Verse 1",
+    "eng": "To drop bombs, but he keeps on forgetting",
+    "jpn": "爆弾を落とす準備ができているが、何度も忘れてしまう",
+    "src": "article"
+  },
+  {
+    "i": 8,
+    "section": "Verse 1",
+    "eng": "What he wrote down, the whole crowd goes so loud",
+    "jpn": "書き留めたことが、観客全員が大声を上げる中で",
+    "src": "article"
+  },
+  {
+    "i": 9,
+    "section": "Verse 1",
+    "eng": "He opens his mouth, but the words won't come out",
+    "jpn": "口を開くが、言葉が出てこない",
+    "src": "article"
+  },
+  {
+    "i": 10,
+    "section": "Verse 1",
+    "eng": "He's chokin', how? Everybody's jokin' now",
+    "jpn": "なぜ詰まるんだ？みんなが笑ってる",
+    "src": "article"
+  },
+  {
+    "i": 11,
+    "section": "Verse 1",
+    "eng": "The clock's run out, time's up, over, blaow",
+    "jpn": "時間切れ、終わった、バン",
+    "src": "article"
+  },
+  {
+    "i": 12,
+    "section": "Verse 1",
+    "eng": "Snap back to reality, ope, there goes gravity",
+    "jpn": "現実に引き戻され、おっと、重力がやってきた",
+    "src": "article"
+  },
+  {
+    "i": 13,
+    "section": "Verse 1",
+    "eng": "Ope, there goes Rabbit, he choked, he's so mad",
+    "jpn": "おっと、ラビットがいなくなった、しくじって、すごく怒っている",
+    "src": "article"
+  },
+  {
+    "i": 14,
+    "section": "Verse 1",
+    "eng": "But he won't give up that easy, no, he won't have it",
+    "jpn": "でも簡単には諦めない、彼はそんなことは受け入れない",
+    "src": "article"
+  },
+  {
+    "i": 15,
+    "section": "Verse 1",
+    "eng": "He knows his whole back's to these ropes, it don't matter",
+    "jpn": "背水の陣だと分かっているが、それは関係ない",
+    "src": "article"
+  },
+  {
+    "i": 16,
+    "section": "Verse 1",
+    "eng": "He's dope, he knows that, but he's broke, he's so stagnant",
+    "jpn": "才能がある、それは分かってる、でも金がない、停滞してる",
+    "src": "article"
+  },
+  {
+    "i": 17,
+    "section": "Verse 1",
+    "eng": "He knows when he goes back to this mobile home, that's when it's",
+    "jpn": "このモービルホーム（トレーラーハウス）に帰る時が分かってる",
+    "src": "article"
+  },
+  {
+    "i": 18,
+    "section": "Verse 1",
+    "eng": "Back to the lab again, yo, this old rhapsody",
+    "jpn": "また最初からやり直しだ、この古いラプソディ",
+    "src": "article"
+  },
+  {
+    "i": 19,
+    "section": "Verse 1",
+    "eng": "Better go capture this moment and hope it don't pass him",
+    "jpn": "この瞬間をつかんで、チャンスを逃さないようにした方がいい",
+    "src": "article"
+  },
+  {
+    "i": 20,
+    "section": "Chorus",
+    "eng": "You better lose yourself in the music",
+    "jpn": "音楽の中に自分を失ってしまえ",
+    "src": "article"
+  },
+  {
+    "i": 21,
+    "section": "Chorus",
+    "eng": "The moment, you own it, you better never let it go (Go)",
+    "jpn": "その瞬間を所有したら、絶対に手放すな",
+    "src": "article"
+  },
+  {
+    "i": 22,
+    "section": "Chorus",
+    "eng": "You only get one shot, do not miss your chance to blow",
+    "jpn": "チャンスは一回だけだ、爆発するチャンスを逃すな",
+    "src": "article"
+  },
+  {
+    "i": 23,
+    "section": "Chorus",
+    "eng": "This opportunity comes once in a lifetime, yo",
+    "jpn": "この機会は一生に一度しかない",
+    "src": "article"
+  },
+  {
+    "i": 24,
+    "section": "Chorus",
+    "eng": "You better lose yourself in the music",
+    "jpn": "音楽の中に自分を失ってしまえ",
+    "src": "article"
+  },
+  {
+    "i": 25,
+    "section": "Chorus",
+    "eng": "The moment, you own it, you better never let it go (Go)",
+    "jpn": "その瞬間を所有したら、絶対に手放すな",
+    "src": "article"
+  },
+  {
+    "i": 26,
+    "section": "Chorus",
+    "eng": "You only get one shot, do not miss your chance to blow",
+    "jpn": "チャンスは一回だけだ、爆発するチャンスを逃すな",
+    "src": "article"
+  },
+  {
+    "i": 27,
+    "section": "Chorus",
+    "eng": "This opportunity comes once in a lifetime, yo",
+    "jpn": "この機会は一生に一度しかない",
+    "src": "article"
+  },
+  {
+    "i": 28,
+    "section": "Chorus",
+    "eng": "You better",
+    "jpn": "さあ",
+    "src": "claude"
+  },
+  {
+    "i": 29,
+    "section": "Verse 2",
+    "eng": "His soul's escaping through this hole that is gaping",
+    "jpn": "魂が広がる穴から逃げていく",
+    "src": "article"
+  },
+  {
+    "i": 30,
+    "section": "Verse 2",
+    "eng": "This world is mine for the taking, make me king",
+    "jpn": "この世界は俺のものにするためにある、俺を王にしろ",
+    "src": "article"
+  },
+  {
+    "i": 31,
+    "section": "Verse 2",
+    "eng": "As we move toward a new world order",
+    "jpn": "新たな世界秩序へ進んでいく中で",
+    "src": "claude"
+  },
+  {
+    "i": 32,
+    "section": "Verse 2",
+    "eng": "A normal life is boring, but superstardom's",
+    "jpn": "普通の人生はつまらないが、スーパースターの地位は",
+    "src": "article"
+  },
+  {
+    "i": 33,
+    "section": "Verse 2",
+    "eng": "Close to post-mortem, it only grows harder",
+    "jpn": "死後の世界に近い、ますます困難になっていくだけだ",
+    "src": "article"
+  },
+  {
+    "i": 34,
+    "section": "Verse 2",
+    "eng": "Homie grows hotter, he blows, it's all over",
+    "jpn": "仲間は勢いを増し、爆発して、全て終わる",
+    "src": "article"
+  },
+  {
+    "i": 35,
+    "section": "Verse 2",
+    "eng": "These hoes is all on him, coast-to-coast shows",
+    "jpn": "女たちが全員まとわりつき、全国ツアーで",
+    "src": "article"
+  },
+  {
+    "i": 36,
+    "section": "Verse 2",
+    "eng": "He's known as the Globetrotter, lonely roads",
+    "jpn": "グローブトロッター（世界を旅する者）として知られる、孤独な道",
+    "src": "article"
+  },
+  {
+    "i": 37,
+    "section": "Verse 2",
+    "eng": "God only knows he's grown farther from home, he's no father",
+    "jpn": "神だけが知っている、彼は家から遠ざかり、父親失格だ",
+    "src": "article"
+  },
+  {
+    "i": 38,
+    "section": "Verse 2",
+    "eng": "He goes home and barely knows his own daughter",
+    "jpn": "家に帰っても自分の娘のことをほとんど知らない",
+    "src": "article"
+  },
+  {
+    "i": 39,
+    "section": "Verse 2",
+    "eng": "But hold your nose 'cause here goes the cold water",
+    "jpn": "でも鼻をつまめ、冷水をかけるぞ",
+    "src": "article"
+  },
+  {
+    "i": 40,
+    "section": "Verse 2",
+    "eng": "These hoes don't want him no mo', he's cold product",
+    "jpn": "女たちはもう彼を求めない、彼は売れない商品だ",
+    "src": "article"
+  },
+  {
+    "i": 41,
+    "section": "Verse 2",
+    "eng": "They moved on to the next schmoe who flows",
+    "jpn": "次に流れるやつのところへ移ってしまった",
+    "src": "article"
+  },
+  {
+    "i": 42,
+    "section": "Verse 2",
+    "eng": "He nose-dove and sold nada, and so the soap opera",
+    "jpn": "急降下して何も売れず、そしてソープオペラが",
+    "src": "article"
+  },
+  {
+    "i": 43,
+    "section": "Verse 2",
+    "eng": "Is told, it unfolds, I suppose it's old, partner",
+    "jpn": "語られ、展開し、古い話だと思うかもしれないが",
+    "src": "article"
+  },
+  {
+    "i": 44,
+    "section": "Verse 2",
+    "eng": "But the beat goes on, da-da-dom, da-dom, dah-dah-dah-dah",
+    "jpn": "でもビートは続く、ダダドム、ダドム",
+    "src": "article"
+  },
+  {
+    "i": 45,
+    "section": "Chorus",
+    "eng": "You better lose yourself in the music",
+    "jpn": "音楽の中に自分を失ってしまえ",
+    "src": "article"
+  },
+  {
+    "i": 46,
+    "section": "Chorus",
+    "eng": "The moment, you own it, you better never let it go (Go)",
+    "jpn": "その瞬間を所有したら、絶対に手放すな",
+    "src": "article"
+  },
+  {
+    "i": 47,
+    "section": "Chorus",
+    "eng": "You only get one shot, do not miss your chance to blow",
+    "jpn": "チャンスは一回だけだ、爆発するチャンスを逃すな",
+    "src": "article"
+  },
+  {
+    "i": 48,
+    "section": "Chorus",
+    "eng": "This opportunity comes once in a lifetime, yo",
+    "jpn": "この機会は一生に一度しかない",
+    "src": "article"
+  },
+  {
+    "i": 49,
+    "section": "Chorus",
+    "eng": "You better lose yourself in the music",
+    "jpn": "音楽の中に自分を失ってしまえ",
+    "src": "article"
+  },
+  {
+    "i": 50,
+    "section": "Chorus",
+    "eng": "The moment, you own it, you better never let it go (Go)",
+    "jpn": "その瞬間を所有したら、絶対に手放すな",
+    "src": "article"
+  },
+  {
+    "i": 51,
+    "section": "Chorus",
+    "eng": "You only get one shot, do not miss your chance to blow",
+    "jpn": "チャンスは一回だけだ、爆発するチャンスを逃すな",
+    "src": "article"
+  },
+  {
+    "i": 52,
+    "section": "Chorus",
+    "eng": "This opportunity comes once in a lifetime, yo",
+    "jpn": "この機会は一生に一度しかない",
+    "src": "article"
+  },
+  {
+    "i": 53,
+    "section": "Chorus",
+    "eng": "You better",
+    "jpn": "さあ",
+    "src": "claude"
+  },
+  {
+    "i": 54,
+    "section": "Verse 3",
+    "eng": "No more games, I'ma change what you call rage",
+    "jpn": "もうゲームはなし、お前らが怒りと呼ぶものを変えてやる",
+    "src": "article"
+  },
+  {
+    "i": 55,
+    "section": "Verse 3",
+    "eng": "Tear this motherfuckin' roof off like two dogs caged",
+    "jpn": "檻に閉じ込められた二匹の犬みたいに、この屋根をぶっ剥がしてやる",
+    "src": "claude"
+  },
+  {
+    "i": 56,
+    "section": "Verse 3",
+    "eng": "I was playin' in the beginning, the mood all changed",
+    "jpn": "最初は遊んでいたが、雰囲気がすべて変わった",
+    "src": "article"
+  },
+  {
+    "i": 57,
+    "section": "Verse 3",
+    "eng": "I've been chewed up and spit out and booed off stage",
+    "jpn": "噛みつかれて吐き出され、ステージからブーイングを受けた",
+    "src": "article"
+  },
+  {
+    "i": 58,
+    "section": "Verse 3",
+    "eng": "But I kept rhymin' and stepped right in the next cypher",
+    "jpn": "でもライムを続けて次のサイファーに踏み込んだ",
+    "src": "article"
+  },
+  {
+    "i": 59,
+    "section": "Verse 3",
+    "eng": "Best believe somebody's payin' the Pied Piper",
+    "jpn": "誰かが笛吹き男（ツケ）を払うことになる",
+    "src": "article"
+  },
+  {
+    "i": 60,
+    "section": "Verse 3",
+    "eng": "All the pain inside amplified by the",
+    "jpn": "内側の痛みが増幅される",
+    "src": "article"
+  },
+  {
+    "i": 61,
+    "section": "Verse 3",
+    "eng": "Fact that I can't get by with my nine-to-",
+    "jpn": "9時から5時の仕事では生活できないという事実に",
+    "src": "article"
+  },
+  {
+    "i": 62,
+    "section": "Verse 3",
+    "eng": "Five and I can't provide the right type of life for my family",
+    "jpn": "家族に適切な生活を与えられない",
+    "src": "article"
+  },
+  {
+    "i": 63,
+    "section": "Verse 3",
+    "eng": "'Cause, man, these goddamn food stamps don't buy diapers",
+    "jpn": "だって、このフードスタンプじゃオムツも買えない",
+    "src": "article"
+  },
+  {
+    "i": 64,
+    "section": "Verse 3",
+    "eng": "And there's no movie, there's no Mekhi Phifer, this is my life",
+    "jpn": "映画はない、メキ・ファイファーもいない、これが俺の現実だ",
+    "src": "article"
+  },
+  {
+    "i": 65,
+    "section": "Verse 3",
+    "eng": "And these times are so hard, and it's gettin' even harder",
+    "jpn": "時代は厳しく、ますます厳しくなっていく",
+    "src": "article"
+  },
+  {
+    "i": 66,
+    "section": "Verse 3",
+    "eng": "Tryna feed and water my seed, plus teeter-totter",
+    "jpn": "子供を養おうとしながら、テータートッター（シーソー）のように揺れて",
+    "src": "article"
+  },
+  {
+    "i": 67,
+    "section": "Verse 3",
+    "eng": "Caught up between bein' a father and a prima donna",
+    "jpn": "父親であることとプリマドンナの間で板挟み",
+    "src": "article"
+  },
+  {
+    "i": 68,
+    "section": "Verse 3",
+    "eng": "Baby-mama drama, screamin' on her, too much for me to wanna",
+    "jpn": "ベイビーママドラマ、彼女に怒鳴って、もう続けたくない",
+    "src": "article"
+  },
+  {
+    "i": 69,
+    "section": "Verse 3",
+    "eng": "Stay in one spot, another day of monotony's gotten me",
+    "jpn": "同じ場所にとどまり、単調な日々が俺を追い詰めて",
+    "src": "article"
+  },
+  {
+    "i": 70,
+    "section": "Verse 3",
+    "eng": "To the point I'm like a snail, I've got",
+    "jpn": "まるでカタツムリのようになるまで",
+    "src": "article"
+  },
+  {
+    "i": 71,
+    "section": "Verse 3",
+    "eng": "To formulate a plot or end up in jail or shot",
+    "jpn": "策を練るか、刑務所か銃弾か",
+    "src": "article"
+  },
+  {
+    "i": 72,
+    "section": "Verse 3",
+    "eng": "Success is my only motherfuckin' option, failure's not",
+    "jpn": "成功だけが唯一の選択肢だ、失敗はあり得ねぇ",
+    "src": "claude"
+  },
+  {
+    "i": 73,
+    "section": "Verse 3",
+    "eng": "Mom, I love you, but this trailer's got",
+    "jpn": "ママ、愛してる、でもこのトレーラーハウスから",
+    "src": "article"
+  },
+  {
+    "i": 74,
+    "section": "Verse 3",
+    "eng": "To go, I cannot grow old in Salem's Lot",
+    "jpn": "出なきゃいけない、セイレムの地で老いるわけにはいかない",
+    "src": "article"
+  },
+  {
+    "i": 75,
+    "section": "Verse 3",
+    "eng": "So here I go, it's my shot, feet, fail me not",
+    "jpn": "だから行くぞ、俺のチャンスだ、足よ、裏切るな",
+    "src": "article"
+  },
+  {
+    "i": 76,
+    "section": "Verse 3",
+    "eng": "This may be the only opportunity that I got",
+    "jpn": "これが俺に与えられた唯一のチャンスかもしれない",
+    "src": "article"
+  },
+  {
+    "i": 77,
+    "section": "Chorus",
+    "eng": "You better lose yourself in the music",
+    "jpn": "音楽の中に自分を失ってしまえ",
+    "src": "article"
+  },
+  {
+    "i": 78,
+    "section": "Chorus",
+    "eng": "The moment, you own it, you better never let it go (Go)",
+    "jpn": "その瞬間を所有したら、絶対に手放すな",
+    "src": "article"
+  },
+  {
+    "i": 79,
+    "section": "Chorus",
+    "eng": "You only get one shot, do not miss your chance to blow",
+    "jpn": "チャンスは一回だけだ、爆発するチャンスを逃すな",
+    "src": "article"
+  },
+  {
+    "i": 80,
+    "section": "Chorus",
+    "eng": "This opportunity comes once in a lifetime, yo",
+    "jpn": "この機会は一生に一度しかない",
+    "src": "article"
+  },
+  {
+    "i": 81,
+    "section": "Chorus",
+    "eng": "You better lose yourself in the music",
+    "jpn": "音楽の中に自分を失ってしまえ",
+    "src": "article"
+  },
+  {
+    "i": 82,
+    "section": "Chorus",
+    "eng": "The moment, you own it, you better never let it go (Go)",
+    "jpn": "その瞬間を所有したら、絶対に手放すな",
+    "src": "article"
+  },
+  {
+    "i": 83,
+    "section": "Chorus",
+    "eng": "You only get one shot, do not miss your chance to blow",
+    "jpn": "チャンスは一回だけだ、爆発するチャンスを逃すな",
+    "src": "article"
+  },
+  {
+    "i": 84,
+    "section": "Chorus",
+    "eng": "This opportunity comes once in a lifetime, yo",
+    "jpn": "この機会は一生に一度しかない",
+    "src": "article"
+  },
+  {
+    "i": 85,
+    "section": "Chorus",
+    "eng": "You better",
+    "jpn": "さあ",
+    "src": "claude"
+  },
+  {
+    "i": 86,
+    "section": "Outro",
+    "eng": "You can do anything you set your mind to, man",
+    "jpn": "決意さえすれば何でもできる",
+    "src": "article"
+  }
+]
