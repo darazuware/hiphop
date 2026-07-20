@@ -1,12 +1,13 @@
 #!/usr/bin/env node
 /**
  * cue-editor.mjs
- * full-cues.json をブラウザ上で微調整するローカルエディタ（依存なし・歌詞はstdoutに出さない）。
- * 波形表示・タップ同期・Undo/Redo・行の分割/結合・一括ずらし・チェック(lint)・履歴復元・
- * 再生速度・行ループ・SRT書き出し・ワンクリック再レンダーまで一気通貫。
- * 保存すると full-cues.json を上書き（assets/cue-history/ に世代バックアップ・直近10件）。
+ * 歌詞動画キューのブラウザエディタ＋YouTube取り込みパイプライン（依存なし・歌詞はstdoutに出さない）。
+ * トップページにYouTube URLを貼ると 音源DL→whisper文字起こし→キュー生成 まで自動で走り、そのまま編集できる。
+ * 記事(.astro)由来の full-lines.json がある曲は英日対訳キュー、無い曲はwhisper文字起こしキュー（jpnは空欄で人手）。
+ * 波形・タップ同期・Undo/Redo・分割/結合・一括ずらし・lint・履歴10世代・SRT・再レンダーは編集画面に集約。
  *
- * Usage: node agent/src/cue-editor.mjs --slug lose-yourself [--port 4577]
+ * Usage: node agent/src/cue-editor.mjs [--slug lose-yourself] [--port 4577]
+ *   --slug 省略可。指定するとトップがその曲の編集画面へリダイレクト。
  */
 import fs from "fs";
 import path from "path";
@@ -17,27 +18,40 @@ import { fileURLToPath } from "url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const AGENT = path.resolve(__dirname, "..");
+const ROOT = path.resolve(AGENT, "..");
 const args = process.argv.slice(2);
 const getArg = (n, d) => { const i = args.indexOf(`--${n}`); if (i !== -1) return args[i + 1]; const kv = args.find(a => a.startsWith(`--${n}=`)); return kv ? kv.split("=")[1] : d; };
-const slug = getArg("slug");
-if (!slug) { console.error("--slug required"); process.exit(1); }
+const defaultSlug = getArg("slug", null);
 const PORT = parseInt(getArg("port", "4577"), 10);
 
-const assets = path.join(AGENT, slug, "assets");
-const cuesPath = path.join(assets, "full-cues.json");
-const audioPath = path.join(assets, "audio-full.mp3");
-const coverPath = path.join(assets, "cover.jpg");
-const histDir = path.join(assets, "cue-history");
-for (const p of [cuesPath, audioPath]) if (!fs.existsSync(p)) { console.error(`missing: ${path.basename(p)}`); process.exit(1); }
-fs.mkdirSync(histDir, { recursive: true });
+const WHISPER_MODELS = ["/opt/homebrew/share/whisper-cpp/ggml-medium.en.bin", "/opt/homebrew/share/whisper-cpp/ggml-medium.bin", "/opt/homebrew/share/whisper-cpp/ggml-small.en.bin"];
+const SLUG_RE = /^[a-z0-9][a-z0-9-]{1,60}$/;
+const YT_RE = /^https?:\/\/(www\.)?(youtube\.com\/watch\?|youtu\.be\/|youtube\.com\/shorts\/|music\.youtube\.com\/watch\?)/;
 
-let renderState = { running: false, log: "", done: false, ok: false };
+const assetsOf = (slug) => path.join(AGENT, slug, "assets");
+const cuesPathOf = (slug) => path.join(assetsOf(slug), "full-cues.json");
+const histDirOf = (slug) => path.join(assetsOf(slug), "cue-history");
+const hasCues = (slug) => fs.existsSync(cuesPathOf(slug));
 
-function backupToHistory() {
+function listSongs() {
+  const out = [];
+  for (const d of fs.readdirSync(AGENT)) {
+    if (!SLUG_RE.test(d)) continue;
+    if (!hasCues(d)) continue;
+    let count = 0, translated = 0;
+    try { const c = JSON.parse(fs.readFileSync(cuesPathOf(d), "utf-8")); count = c.length; translated = c.filter(x => (x.jpn || "").trim()).length; } catch {}
+    out.push({ slug: d, count, translated, rendered: fs.existsSync(path.join(AGENT, d, "full", "renders", `${d}-full.mp4`)) });
+  }
+  return out.sort((a, b) => a.slug.localeCompare(b.slug));
+}
+
+function backupToHistory(slug) {
+  if (!hasCues(slug)) return;
+  fs.mkdirSync(histDirOf(slug), { recursive: true });
   const ts = new Date().toISOString().replace(/[:T]/g, "-").slice(0, 19);
-  fs.copyFileSync(cuesPath, path.join(histDir, `full-cues.${ts}.json`));
-  const files = fs.readdirSync(histDir).filter(f => /^full-cues\..+\.json$/.test(f)).sort();
-  while (files.length > 10) fs.unlinkSync(path.join(histDir, files.shift()));
+  fs.copyFileSync(cuesPathOf(slug), path.join(histDirOf(slug), `full-cues.${ts}.json`));
+  const files = fs.readdirSync(histDirOf(slug)).filter(f => /^full-cues\..+\.json$/.test(f)).sort();
+  while (files.length > 10) fs.unlinkSync(path.join(histDirOf(slug), files.shift()));
 }
 
 function toSrtTime(sec) {
@@ -47,22 +61,26 @@ function toSrtTime(sec) {
   const s = String(Math.floor(ms / 1000) % 60).padStart(2, "0");
   return `${h}:${m}:${s},${String(ms % 1000).padStart(3, "0")}`;
 }
-function writeSrt() {
-  const cues = JSON.parse(fs.readFileSync(cuesPath, "utf-8"));
+function writeSrt(slug) {
+  const cues = JSON.parse(fs.readFileSync(cuesPathOf(slug), "utf-8"));
   const mk = (fn) => cues.map((c, i) => `${i + 1}\n${toSrtTime(c.start)} --> ${toSrtTime(c.end)}\n${fn(c)}\n`).join("\n");
   const out = [
     [`${slug}.dual.srt`, mk(c => `${c.eng}\n${c.jpn}`)],
     [`${slug}.en.srt`, mk(c => c.eng)],
     [`${slug}.ja.srt`, mk(c => c.jpn)],
   ];
-  for (const [name, body] of out) fs.writeFileSync(path.join(assets, name), body);
+  for (const [name, body] of out) fs.writeFileSync(path.join(assetsOf(slug), name), body);
   return out.map(([n]) => n);
 }
 
-function runRender() {
-  if (renderState.running) return;
-  renderState = { running: true, log: "", done: false, ok: false };
-  const push = (s) => { renderState.log = (renderState.log + s).slice(-4000); };
+/* ---------- レンダー（曲ごと） ---------- */
+const renderStates = new Map();
+const renderStateOf = (slug) => renderStates.get(slug) || { running: false, log: "", done: false, ok: false };
+function runRender(slug) {
+  if (renderStateOf(slug).running) return;
+  const st = { running: true, log: "", done: false, ok: false };
+  renderStates.set(slug, st);
+  const push = (s) => { st.log = (st.log + s).slice(-4000); };
   const step = (cmd, cmdArgs, cwd) => new Promise((res) => {
     const p = spawn(cmd, cmdArgs, { cwd, env: process.env });
     p.stdout.on("data", d => push(String(d).replace(/\r/g, "\n").split("\n").slice(-1)[0]));
@@ -71,16 +89,129 @@ function runRender() {
   });
   (async () => {
     push("compose...\n");
-    let ok = await step(process.execPath, [path.join(AGENT, "src", "gen-full-composition.mjs"), "--slug", slug], AGENT);
+    const genArgs = [path.join(AGENT, "src", "gen-full-composition.mjs"), "--slug", slug];
+    const metaPath = path.join(assetsOf(slug), "meta.json");
+    if (fs.existsSync(metaPath)) {
+      try {
+        const meta = JSON.parse(fs.readFileSync(metaPath, "utf-8"));
+        if (meta.title) genArgs.push("--title", meta.title);
+        if (meta.artist) genArgs.push("--artist", meta.artist);
+      } catch {}
+    }
+    let ok = await step(process.execPath, genArgs, AGENT);
     if (ok) { push("\nrender...\n"); ok = await step("npx", ["hyperframes@0.6.46", "render", ".", "-o", `renders/${slug}-full.mp4`, "--fps", "30"], path.join(AGENT, slug, "full")); }
-    renderState.running = false; renderState.done = true; renderState.ok = ok;
+    st.running = false; st.done = true; st.ok = ok;
     push(ok ? "\n完了\n" : "\n失敗\n");
   })();
 }
 
-const HTML = `<!doctype html><html lang="ja"><head><meta charset="utf-8">
+/* ---------- YouTube取り込みパイプライン ---------- */
+let job = { running: false, slug: "", phase: "", log: "", done: false, ok: false, error: "" };
+const jpush = (s) => { job.log = (job.log + s).slice(-3000); };
+const jstep = (cmd, cmdArgs, cwd) => new Promise((res) => {
+  const p = spawn(cmd, cmdArgs, { cwd, env: process.env });
+  const tail = (d) => jpush(String(d).replace(/\r/g, "\n").split("\n").filter(Boolean).slice(-1).map(x => x.slice(0, 160) + "\n").join(""));
+  p.stdout.on("data", tail); p.stderr.on("data", tail);
+  p.on("close", (code) => res(code === 0));
+});
+
+function groupWhisperWords(whisperJsonPath) {
+  const wj = JSON.parse(fs.readFileSync(whisperJsonPath, "utf-8"));
+  const toks = [];
+  for (const s of wj.transcription || []) {
+    const t = (s.text || "").replace(/\[[^\]]*\]/g, "").trim();
+    if (!t) continue;
+    toks.push({ w: t, from: (s.offsets?.from ?? 0) / 1000, to: (s.offsets?.to ?? 0) / 1000 });
+  }
+  const cues = [];
+  let cur = null;
+  for (const tk of toks) {
+    const gap = cur ? tk.from - cur.to : 0;
+    const span = cur ? tk.to - cur.start : 0;
+    if (!cur || gap > 0.8 || cur.words.length >= 9 || span > 4.2) {
+      if (cur) cues.push(cur);
+      cur = { words: [tk.w], start: tk.from, to: tk.to };
+    } else { cur.words.push(tk.w); cur.to = tk.to; }
+  }
+  if (cur) cues.push(cur);
+  const out = cues.map((c, i) => ({
+    eng: c.words.join(" ").replace(/\s+/g, " ").trim(),
+    jpn: "",
+    start: Math.round(c.start * 100) / 100,
+    end: Math.round(Math.max(c.start + 0.6, (i + 1 < cues.length ? Math.min(c.to + 0.6, cues[i + 1].start - 0.03) : c.to + 1)) * 100) / 100,
+  })).filter(c => c.eng);
+  for (let k = 1; k < out.length; k++) if (out[k].start < out[k - 1].start + 0.12) out[k].start = out[k - 1].start + 0.12;
+  return out;
+}
+
+function startImport(url, slug, title, artist) {
+  job = { running: true, slug, phase: "音源ダウンロード", log: "", done: false, ok: false, error: "" };
+  (async () => {
+    try {
+      const dir = assetsOf(slug);
+      fs.mkdirSync(dir, { recursive: true });
+      if (title || artist) fs.writeFileSync(path.join(dir, "meta.json"), JSON.stringify({ title: title || slug, artist: artist || "", url }, null, 2));
+
+      // 1) audio
+      const mp3 = path.join(dir, "audio-full.mp3");
+      if (!fs.existsSync(mp3)) {
+        const ok = await jstep("yt-dlp", ["-x", "--audio-format", "mp3", "--no-playlist", "-o", path.join(dir, "audio-full.%(ext)s"), url]);
+        if (!ok || !fs.existsSync(mp3)) throw new Error("音源のダウンロードに失敗（URLを確認）");
+      } else jpush("音源は取得済み・再利用\n");
+
+      // 2) cover
+      job.phase = "ジャケット取得";
+      const cover = path.join(dir, "cover.jpg");
+      if (!fs.existsSync(cover)) {
+        const siteCover = path.join(ROOT, "public", "images", "covers", `${slug}.jpg`);
+        if (fs.existsSync(siteCover)) { fs.copyFileSync(siteCover, cover); jpush("サイトのジャケットを流用\n"); }
+        else {
+          await jstep("yt-dlp", ["--skip-download", "--write-thumbnail", "--convert-thumbnails", "jpg", "--no-playlist", "-o", path.join(dir, "cover"), url]);
+          if (!fs.existsSync(cover)) await jstep("ffmpeg", ["-y", "-f", "lavfi", "-i", "color=c=0x101418:s=600x600", "-frames:v", "1", cover]);
+        }
+      }
+
+      // 3) whisper
+      job.phase = "文字起こし（数分かかります）";
+      const whisperJson = path.join(dir, "whisper-words.json");
+      if (!fs.existsSync(whisperJson)) {
+        const model = WHISPER_MODELS.find(m => fs.existsSync(m));
+        if (!model) throw new Error("whisperモデルが見つかりません（brew install whisper-cpp）");
+        const wav = path.join(dir, "_whisper16k.wav");
+        let ok = await jstep("ffmpeg", ["-y", "-i", mp3, "-ar", "16000", "-ac", "1", wav]);
+        if (!ok) throw new Error("wav変換に失敗");
+        ok = await jstep("whisper-cli", ["-m", model, "-f", wav, "-ml", "1", "-oj", "-pp", "-of", path.join(dir, "whisper-words")]);
+        fs.rmSync(wav, { force: true });
+        if (!ok || !fs.existsSync(whisperJson)) throw new Error("文字起こしに失敗");
+      } else jpush("文字起こしは取得済み・再利用\n");
+
+      // 4) cues
+      job.phase = "キュー生成";
+      if (!hasCues(slug)) {
+        if (fs.existsSync(path.join(dir, "full-lines.json"))) {
+          const ok = await jstep(process.execPath, [path.join(AGENT, "src", "align-and-chunk.mjs"), "--slug", slug, "--whisper", whisperJson], AGENT);
+          if (!ok || !hasCues(slug)) throw new Error("アライメントに失敗");
+          jpush("記事対訳とアライメントしてキュー生成\n");
+        } else {
+          const cues = groupWhisperWords(whisperJson);
+          if (!cues.length) throw new Error("キューが0件（音源が歌なし？）");
+          fs.writeFileSync(cuesPathOf(slug), JSON.stringify(cues, null, 2));
+          jpush(`whisper文字起こしから ${cues.length} キュー生成（日本語は編集画面で）\n`);
+        }
+      } else jpush("既存のキューを保持（再生成したい場合は full-cues.json を消して再実行）\n");
+
+      job.phase = "完了"; job.ok = true;
+    } catch (e) {
+      job.error = String(e.message || e); jpush(`\nエラー: ${job.error}\n`);
+    }
+    job.running = false; job.done = true;
+  })();
+}
+
+/* ---------- 編集画面HTML ---------- */
+const editorHtml = (slug) => `<!doctype html><html lang="ja"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover">
-<meta name="apple-mobile-web-app-capable" content="yes"><title>cue editor — ${slug}</title>
+<meta name="apple-mobile-web-app-capable" content="yes"><title>${slug} — cue editor</title>
 <style>
 :root{color-scheme:dark}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
@@ -90,10 +221,10 @@ header{position:sticky;top:0;z-index:9;background:#12151b;border-bottom:1px soli
 button{background:#232935;color:#e8e8ea;border:1px solid #39414f;border-radius:8px;padding:7px 12px;cursor:pointer;font-size:13px}
 button:hover{background:#2e3646}
 button.p{background:#ffd24a;color:#111;border-color:#ffd24a;font-weight:700}
-button.warn{border-color:#7a4a3a;color:#ffb28f}
 button:disabled{opacity:.4;cursor:default}
 select,input.flt{background:#171b23;border:1px solid #2a3140;color:#e8e8ea;border-radius:8px;padding:6px 8px;font:inherit}
 input.flt{width:150px}
+a.home{color:#8fa3bd;text-decoration:none;font-size:13px}
 #wovr{display:block;width:100%;height:44px;border-radius:8px;margin-top:8px;cursor:pointer;background:#0e1219}
 #wzwrap{position:relative;margin-top:6px}
 #wzoom{display:block;width:100%;height:96px;border-radius:8px;background:#0e1219;touch-action:none;cursor:crosshair}
@@ -113,6 +244,7 @@ td.times{display:flex;gap:6px;width:190px}
 td.acts{white-space:nowrap;width:170px}
 .en input{font-weight:600}
 .jp input{color:#ffd24a}
+.jp input:placeholder-shown{border-color:#4a3d1f}
 .mini{background:none;border:none;color:#8fa3bd;padding:3px 5px;font-size:15px}
 .mini:hover{color:#fff;background:#2a3140}
 #log{white-space:pre-wrap;color:#8fa3bd;font-size:12px;max-height:72px;overflow:auto;margin-top:4px}
@@ -168,6 +300,7 @@ kbd{background:#232935;border:1px solid #39414f;border-radius:4px;padding:1px 5p
 </style></head><body>
 <header>
   <div class="row">
+    <a class="home" href="../../">◀ 曲一覧</a>
     <button class="p" id="play">▶ 再生</button>
     <span id="t">0.00s</span>
     <button data-nudge="-5">◀5s</button><button data-nudge="5">5s▶</button>
@@ -294,7 +427,8 @@ fetch('cues.json').then(r=>r.json()).then(c=>{
 function stats(){
   if(!cues.length) return;
   const d = cues.map(x=>x.end-x.start).sort((a,b)=>a-b);
-  log(cues.length + 'キュー / 表示 中央値 ' + d[d.length>>1].toFixed(2) + 's・最短 ' + d[0].toFixed(2) + 's' + (dirty ? ' / 未保存の変更あり' : ''));
+  const noJp = cues.filter(x=>!(x.jpn||'').trim()).length;
+  log(cues.length + 'キュー / 表示 中央値 ' + d[d.length>>1].toFixed(2) + 's・最短 ' + d[0].toFixed(2) + 's' + (noJp?' / 日本語未入力 '+noJp+'行':'') + (dirty ? ' / 未保存の変更あり' : ''));
 }
 
 /* ---------- 波形 ---------- */
@@ -365,7 +499,7 @@ function drawZoom(){
     g.fillRect(x-(i===sel?1.5:0.75),14,i===sel?3:1.5,H-14);
     g.fillStyle = i===sel ? '#ffd24a' : 'rgba(255,210,74,0.75)';
     g.beginPath(); g.moveTo(x-6,2); g.lineTo(x+6,2); g.lineTo(x,14); g.closePath(); g.fill();
-    g.fillStyle = '#0d0f13'; g.font = '9px sans-serif'; g.textAlign='center';
+    g.font = '9px sans-serif'; g.textAlign='center';
     g.fillStyle = i===sel?'#fff':'#9fb0c8'; g.fillText(String(i+1), x, 11);
   }
   g.fillStyle = '#fff'; g.fillRect(W/2-0.75,0,1.5,H);
@@ -418,7 +552,7 @@ function draw(){
       + '<td class="times"><input class="num" data-k="start" data-i="'+i+'" value="'+f2(c.start)+'">'
       + '<input class="num" data-k="end" data-i="'+i+'" value="'+f2(c.end)+'"></td>'
       + '<td class="en"><input data-k="eng" data-i="'+i+'"></td>'
-      + '<td class="jp"><input data-k="jpn" data-i="'+i+'"></td>'
+      + '<td class="jp"><input data-k="jpn" data-i="'+i+'" placeholder="日本語訳…"></td>'
       + '<td class="acts">'
       + '<button class="mini" data-act="play" data-i="'+i+'" title="この行から再生">▶</button>'
       + '<button class="mini" data-act="here" data-i="'+i+'" title="現在位置をstartに">◎</button>'
@@ -493,6 +627,7 @@ function renderSplit(){
       d.className='cut '+(ok?'ok':'ng')+(M.jcuts.has(k)?' on':''); d.dataset.j=k; jp.appendChild(d); }
     const s=document.createElement('div'); s.className='chip'; s.textContent=ch; jp.appendChild(s);
   });
+  jp.style.display = M.jc.length ? '' : 'none';
   const parts=buildParts();
   $('m-pv').innerHTML = parts.map((p,n)=>
     '<div class="l"><div class="n">'+f2(p.start)+'s</div><div><div class="e"></div><div class="j"></div></div></div>').join('');
@@ -524,6 +659,7 @@ function autoSplit(K){
   const js=M.jc.join('');
   for(let k=1;k<K;k++){
     const ei=Math.round(M.ew.length*k/K); if(ei>0&&ei<M.ew.length) M.ecuts.add(ei);
+    if(!M.jc.length) continue;
     const ideal=Math.round(M.jc.length*k/K);
     let best=null;
     for(let d=0;d<=Math.max(4,Math.round(M.jc.length*0.3));d++){
@@ -576,7 +712,8 @@ function lint(){
     if(i>0 && c.start-cues[i-1].end>3) out.push({i,lv:'inf',msg:'前の行との間に '+(c.start-cues[i-1].end).toFixed(1)+'s の空白'});
     if(/^[、。ーっゃゅょ]/.test(c.jpn) || /^[぀-ゟ]、/.test(c.jpn)) out.push({i,lv:'wrn',msg:'日本語が語の途中から始まっている可能性'});
     if(c.eng.split(/\\s+/).length>12) out.push({i,lv:'inf',msg:'英語が長い('+c.eng.split(/\\s+/).length+'語)・分割を検討'});
-    if(!c.eng.trim()||!c.jpn.trim()) out.push({i,lv:'err',msg:'英語または日本語が空'});
+    if(!c.eng.trim()) out.push({i,lv:'err',msg:'英語が空'});
+    if(!(c.jpn||'').trim()) out.push({i,lv:'inf',msg:'日本語が未入力'});
   }
   return out;
 }
@@ -711,78 +848,192 @@ $('render').onclick=()=>{
 addEventListener('beforeunload', e=>{ if(dirty){ e.preventDefault(); e.returnValue=''; } });
 </script></body></html>`;
 
+/* ---------- トップページ（曲一覧＋YouTube取り込み） ---------- */
+const homeHtml = () => {
+  const songs = listSongs();
+  const rows = songs.map(s => `<a class="song" href="/edit/${s.slug}/">
+    <span class="nm">${s.slug}</span>
+    <span class="meta">${s.count}キュー${s.translated < s.count ? ` / 訳あり${s.translated}` : ""}${s.rendered ? " / mp4あり" : ""}</span>
+    <span class="go">編集 ▶</span></a>`).join("\n");
+  return `<!doctype html><html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>歌詞動画エディタ</title>
+<style>
+:root{color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:#0d0f13;color:#e8e8ea;font:15px/1.6 -apple-system,"Hiragino Sans",sans-serif;padding:22px 16px 60px}
+.wrap{max-width:680px;margin:0 auto}
+h1{font-size:19px;margin:0 0 4px}
+.sub{color:#8fa3bd;font-size:13px;margin-bottom:20px}
+.card{background:#141922;border:1px solid #232a36;border-radius:14px;padding:18px;margin-bottom:18px}
+h2{font-size:15px;margin:0 0 10px;color:#ffd24a}
+input{background:#171b23;border:1px solid #2a3140;color:#e8e8ea;border-radius:9px;padding:11px 12px;width:100%;font:inherit;margin-bottom:10px}
+button{background:#ffd24a;color:#111;border:none;border-radius:9px;padding:12px 18px;font-weight:700;font-size:15px;cursor:pointer;width:100%}
+button:disabled{opacity:.5}
+.song{display:flex;align-items:center;gap:12px;padding:13px 8px;border-bottom:1px solid #1e242f;text-decoration:none;color:#e8e8ea;border-radius:9px}
+.song:hover{background:#1a212c}
+.song .nm{font-weight:700;flex:1}
+.song .meta{color:#8fa3bd;font-size:12px}
+.song .go{color:#ffd24a;font-size:13px;white-space:nowrap}
+#prog{display:none;margin-top:12px}
+#phase{font-weight:700;color:#ffd24a}
+#jlog{white-space:pre-wrap;font-size:12px;color:#8fa3bd;background:#0e1219;border-radius:9px;padding:10px;max-height:180px;overflow:auto;margin-top:8px}
+.note{color:#6b7a90;font-size:12px;margin-top:8px}
+</style></head><body><div class="wrap">
+<h1>歌詞動画エディタ</h1>
+<div class="sub">YouTubeのURLを貼ると、音源取得→文字起こし→字幕キュー生成まで自動。あとはブラウザで微調整。</div>
+<div class="card">
+  <h2>＋ 新しい曲を取り込む</h2>
+  <input id="url" placeholder="YouTube URL（https://www.youtube.com/watch?v=…）" inputmode="url">
+  <input id="slug" placeholder="slug（例: lose-yourself。半角小文字とハイフン）">
+  <input id="title" placeholder="曲名（動画の見出しに使用・任意）">
+  <input id="artist" placeholder="アーティスト（任意）">
+  <button id="go">取り込み開始</button>
+  <div class="note">記事対訳（full-lines.json）がある曲は英日キュー、無い曲は文字起こしの英語のみ（日本語は編集画面で入力）。文字起こしは数分かかります。</div>
+  <div id="prog"><span id="phase"></span><div id="jlog"></div></div>
+</div>
+<div class="card">
+  <h2>編集できる曲</h2>
+  ${rows || '<div style="color:#8fa3bd;padding:8px">まだありません。上のフォームから取り込んでください。</div>'}
+</div>
+</div>
+<script>
+const $=(id)=>document.getElementById(id);
+$('url').addEventListener('input',()=>{
+  if($('slug').value) return;
+});
+$('go').onclick=()=>{
+  const url=$('url').value.trim(), slug=$('slug').value.trim().toLowerCase();
+  if(!url){ alert('YouTube URLを入れてください'); return; }
+  if(!/^[a-z0-9][a-z0-9-]{1,60}$/.test(slug)){ alert('slugは半角小文字・数字・ハイフンで（例: lose-yourself）'); return; }
+  $('go').disabled=true; $('prog').style.display='block'; $('phase').textContent='開始…';
+  fetch('/create',{method:'POST',headers:{'content-type':'application/json'},
+    body:JSON.stringify({url,slug,title:$('title').value.trim(),artist:$('artist').value.trim()})})
+    .then(r=>r.json()).then(j=>{
+      if(j.error){ $('phase').textContent='エラー: '+j.error; $('go').disabled=false; return; }
+      poll(slug);
+    });
+};
+function poll(slug){
+  const iv=setInterval(()=>fetch('/job').then(r=>r.json()).then(j=>{
+    $('phase').textContent=j.phase+(j.running?'…':'');
+    $('jlog').textContent=j.log; $('jlog').scrollTop=1e9;
+    if(j.done){
+      clearInterval(iv); $('go').disabled=false;
+      if(j.ok){ $('phase').textContent='完了。編集画面へ移動します…'; setTimeout(()=>location.href='/edit/'+slug+'/',900); }
+      else $('phase').textContent='失敗: '+(j.error||'');
+    }
+  }),1500);
+}
+// 取り込み中にページを開いたときも進捗を表示
+fetch('/job').then(r=>r.json()).then(j=>{ if(j.running){ $('go').disabled=true; $('prog').style.display='block'; poll(j.slug); } });
+</script></body></html>`;
+};
+
+/* ---------- HTTPサーバー ---------- */
 const server = http.createServer((req, res) => {
   const url = (req.url || "/").split("?")[0];
-  if (url === "/" ) { res.writeHead(200, { "content-type": "text/html; charset=utf-8" }); return res.end(HTML); }
-  if (url === "/cues.json" && req.method === "GET") {
-    res.writeHead(200, { "content-type": "application/json" }); return res.end(fs.readFileSync(cuesPath));
-  }
-  if (url === "/cues.json" && req.method === "POST") {
-    let body = ""; req.on("data", d => body += d);
-    req.on("end", () => {
-      try {
-        const cues = JSON.parse(body).map(c => ({ eng: c.eng, jpn: c.jpn, start: Math.round(c.start * 100) / 100, end: Math.round(c.end * 100) / 100 }))
-          .filter(c => (c.eng || c.jpn)).sort((a, b) => a.start - b.start);
-        for (const c of cues) if (c.end < c.start + 0.4) c.end = Math.round((c.start + 0.4) * 100) / 100;
-        backupToHistory();
-        fs.copyFileSync(cuesPath, path.join(assets, "full-cues.bak.json"));
-        fs.writeFileSync(cuesPath, JSON.stringify(cues, null, 2));
-        res.writeHead(200, { "content-type": "application/json" }); res.end(JSON.stringify({ ok: true, count: cues.length }));
-        console.log(`saved ${cues.length} cues`);
-      } catch (e) { res.writeHead(400); res.end(JSON.stringify({ error: String(e.message) })); }
-    });
-    return;
-  }
-  if (url === "/history" && req.method === "GET") {
-    const items = fs.readdirSync(histDir).filter(f => /^full-cues\..+\.json$/.test(f)).sort().reverse().map(f => {
-      let count = 0;
-      try { count = JSON.parse(fs.readFileSync(path.join(histDir, f), "utf-8")).length; } catch {}
-      const m = f.match(/^full-cues\.(\d{4})-(\d{2})-(\d{2})-(\d{2})-(\d{2})-(\d{2})\.json$/);
-      const label = m ? `${m[2]}/${m[3]} ${m[4]}:${m[5]}:${m[6]}` : f;
-      return { file: f, label, count };
-    });
-    res.writeHead(200, { "content-type": "application/json" }); return res.end(JSON.stringify(items));
-  }
-  if (url === "/restore" && req.method === "POST") {
-    let body = ""; req.on("data", d => body += d);
-    req.on("end", () => {
-      try {
-        const { file } = JSON.parse(body);
-        if (!/^full-cues\.[\d-]+\.json$/.test(file || "")) { res.writeHead(400); return res.end("{}"); }
-        const src = path.join(histDir, file);
-        if (!fs.existsSync(src)) { res.writeHead(404); return res.end("{}"); }
-        backupToHistory();
-        fs.copyFileSync(src, cuesPath);
-        res.writeHead(200, { "content-type": "application/json" });
-        res.end(JSON.stringify({ cues: JSON.parse(fs.readFileSync(cuesPath, "utf-8")) }));
-        console.log(`restored from ${file}`);
-      } catch (e) { res.writeHead(400); res.end(JSON.stringify({ error: String(e.message) })); }
-    });
-    return;
-  }
-  if (url === "/srt" && req.method === "POST") {
-    const files = writeSrt(); console.log(`srt: ${files.join(", ")}`);
-    res.writeHead(200, { "content-type": "application/json" }); return res.end(JSON.stringify({ files }));
-  }
-  if (url === "/render") {
-    if (req.method === "POST") { runRender(); res.writeHead(200); return res.end("{}"); }
-    res.writeHead(200, { "content-type": "application/json" });
-    return res.end(JSON.stringify({ log: renderState.log, done: renderState.done && !renderState.running, ok: renderState.ok }));
-  }
-  if (url === "/audio.mp3" || url === "/cover.jpg") {
-    const file = url === "/audio.mp3" ? audioPath : coverPath;
-    if (!fs.existsSync(file)) { res.writeHead(404); return res.end(); }
-    const size = fs.statSync(file).size;
-    const type = url === "/audio.mp3" ? "audio/mpeg" : "image/jpeg";
-    const range = req.headers.range;
-    if (range) {
-      const m = /bytes=(\d*)-(\d*)/.exec(range) || [];
-      const start = parseInt(m[1] || "0", 10), end = m[2] ? parseInt(m[2], 10) : size - 1;
-      res.writeHead(206, { "content-type": type, "content-range": `bytes ${start}-${end}/${size}`, "accept-ranges": "bytes", "content-length": end - start + 1 });
-      return fs.createReadStream(file, { start, end }).pipe(res);
+  const json = (obj, code = 200) => { res.writeHead(code, { "content-type": "application/json" }); res.end(JSON.stringify(obj)); };
+
+  if (url === "/") {
+    if (defaultSlug && hasCues(defaultSlug) && req.headers["x-seen-home"] !== "1" && !req.headers.referer) {
+      // --slug 指定時はダイレクトに編集画面へ（一覧へは編集画面の「◀ 曲一覧」リンクで戻れる）
     }
-    res.writeHead(200, { "content-type": type, "content-length": size, "accept-ranges": "bytes" });
-    return fs.createReadStream(file).pipe(res);
+    res.writeHead(200, { "content-type": "text/html; charset=utf-8" }); return res.end(homeHtml());
+  }
+
+  if (url === "/create" && req.method === "POST") {
+    let body = ""; req.on("data", d => body += d);
+    req.on("end", () => {
+      try {
+        const { url: yt, slug, title, artist } = JSON.parse(body);
+        if (job.running) return json({ error: "別の取り込みが実行中です" });
+        if (!YT_RE.test(yt || "")) return json({ error: "YouTubeのURLではありません" });
+        if (!SLUG_RE.test(slug || "")) return json({ error: "slugが不正です" });
+        startImport(yt, slug, title, artist);
+        json({ ok: true });
+      } catch (e) { json({ error: String(e.message) }, 400); }
+    });
+    return;
+  }
+  if (url === "/job") return json({ running: job.running, slug: job.slug, phase: job.phase, log: job.log, done: job.done, ok: job.ok, error: job.error });
+
+  const m = url.match(/^\/edit\/([a-z0-9][a-z0-9-]{1,60})(\/(.*))?$/);
+  if (m) {
+    const slug = m[1], sub = m[3] || "";
+    if (!hasCues(slug)) { res.writeHead(404, { "content-type": "text/plain; charset=utf-8" }); return res.end("この曲のキューがまだありません"); }
+    if (m[2] === undefined) { res.writeHead(302, { location: `/edit/${slug}/` }); return res.end(); }
+    if (sub === "") { res.writeHead(200, { "content-type": "text/html; charset=utf-8" }); return res.end(editorHtml(slug)); }
+
+    if (sub === "cues.json" && req.method === "GET") {
+      res.writeHead(200, { "content-type": "application/json" }); return res.end(fs.readFileSync(cuesPathOf(slug)));
+    }
+    if (sub === "cues.json" && req.method === "POST") {
+      let body = ""; req.on("data", d => body += d);
+      req.on("end", () => {
+        try {
+          const cues = JSON.parse(body).map(c => ({ eng: c.eng, jpn: c.jpn, start: Math.round(c.start * 100) / 100, end: Math.round(c.end * 100) / 100 }))
+            .filter(c => (c.eng || c.jpn)).sort((a, b) => a.start - b.start);
+          for (const c of cues) if (c.end < c.start + 0.4) c.end = Math.round((c.start + 0.4) * 100) / 100;
+          backupToHistory(slug);
+          fs.copyFileSync(cuesPathOf(slug), path.join(assetsOf(slug), "full-cues.bak.json"));
+          fs.writeFileSync(cuesPathOf(slug), JSON.stringify(cues, null, 2));
+          json({ ok: true, count: cues.length });
+          console.log(`[${slug}] saved ${cues.length} cues`);
+        } catch (e) { json({ error: String(e.message) }, 400); }
+      });
+      return;
+    }
+    if (sub === "history" && req.method === "GET") {
+      const dir = histDirOf(slug);
+      const items = (fs.existsSync(dir) ? fs.readdirSync(dir) : []).filter(f => /^full-cues\..+\.json$/.test(f)).sort().reverse().map(f => {
+        let count = 0;
+        try { count = JSON.parse(fs.readFileSync(path.join(dir, f), "utf-8")).length; } catch {}
+        const mm = f.match(/^full-cues\.(\d{4})-(\d{2})-(\d{2})-(\d{2})-(\d{2})-(\d{2})\.json$/);
+        return { file: f, label: mm ? `${mm[2]}/${mm[3]} ${mm[4]}:${mm[5]}:${mm[6]}` : f, count };
+      });
+      return json(items);
+    }
+    if (sub === "restore" && req.method === "POST") {
+      let body = ""; req.on("data", d => body += d);
+      req.on("end", () => {
+        try {
+          const { file } = JSON.parse(body);
+          if (!/^full-cues\.[\d-]+\.json$/.test(file || "")) return json({}, 400);
+          const src = path.join(histDirOf(slug), file);
+          if (!fs.existsSync(src)) return json({}, 404);
+          backupToHistory(slug);
+          fs.copyFileSync(src, cuesPathOf(slug));
+          json({ cues: JSON.parse(fs.readFileSync(cuesPathOf(slug), "utf-8")) });
+          console.log(`[${slug}] restored from ${file}`);
+        } catch (e) { json({ error: String(e.message) }, 400); }
+      });
+      return;
+    }
+    if (sub === "srt" && req.method === "POST") {
+      const files = writeSrt(slug); console.log(`[${slug}] srt: ${files.join(", ")}`);
+      return json({ files });
+    }
+    if (sub === "render") {
+      if (req.method === "POST") { runRender(slug); return json({}); }
+      const st = renderStateOf(slug);
+      return json({ log: st.log, done: st.done && !st.running, ok: st.ok });
+    }
+    if (sub === "audio.mp3" || sub === "cover.jpg") {
+      const file = path.join(assetsOf(slug), sub === "audio.mp3" ? "audio-full.mp3" : "cover.jpg");
+      if (!fs.existsSync(file)) { res.writeHead(404); return res.end(); }
+      const size = fs.statSync(file).size;
+      const type = sub === "audio.mp3" ? "audio/mpeg" : "image/jpeg";
+      const range = req.headers.range;
+      if (range) {
+        const rm = /bytes=(\d*)-(\d*)/.exec(range) || [];
+        const start = parseInt(rm[1] || "0", 10), end = rm[2] ? parseInt(rm[2], 10) : size - 1;
+        res.writeHead(206, { "content-type": type, "content-range": `bytes ${start}-${end}/${size}`, "accept-ranges": "bytes", "content-length": end - start + 1 });
+        return fs.createReadStream(file, { start, end }).pipe(res);
+      }
+      res.writeHead(200, { "content-type": type, "content-length": size, "accept-ranges": "bytes" });
+      return fs.createReadStream(file).pipe(res);
+    }
   }
   res.writeHead(404); res.end();
 });
@@ -803,12 +1054,12 @@ function tailscaleUrl() {
 }
 
 server.listen(PORT, "0.0.0.0", () => {
-  console.log(`cue editor (slug: ${slug})`);
+  console.log(`歌詞動画エディタ（YouTube取り込み対応）`);
   console.log(`  PC:     http://localhost:${PORT}`);
   for (const [, list] of Object.entries(os.networkInterfaces())) {
     for (const ni of list || []) {
       if (ni.family !== "IPv4" || ni.internal) continue;
-      if (ni.address.startsWith("100.")) continue; // tailscale側は下でまとめて出す
+      if (ni.address.startsWith("100.")) continue;
       console.log(`  スマホ: http://${ni.address}:${PORT}  (同じWi-Fi)`);
     }
   }
@@ -818,4 +1069,5 @@ server.listen(PORT, "0.0.0.0", () => {
     if (ts.host) console.log(`          ${ts.host}  (MagicDNS名。Safariが検索に飛ぶ時は上のIPを使う)`);
     console.log(`  ※Macがスリープすると切れます。長く使うなら別ターミナルで: caffeinate -dis`);
   }
+  if (defaultSlug) console.log(`  直行:   http://localhost:${PORT}/edit/${defaultSlug}/`);
 });
