@@ -315,6 +315,7 @@ kbd{background:#232935;border:1px solid #39414f;border-radius:4px;padding:1px 5p
     <button id="save" class="p">保存 (⌘S)</button>
     <button id="srt">SRT</button>
     <button id="render">再生成＋レンダー</button>
+    <button onclick="location.href='reel/'">縦型リール ▶</button>
   </div>
   <canvas id="wovr"></canvas>
   <div id="wzwrap">
@@ -850,6 +851,285 @@ $('render').onclick=()=>{
 addEventListener('beforeunload', e=>{ if(dirty){ e.preventDefault(); e.returnValue=''; } });
 </script></body></html>`;
 
+/* ---------- リール編集画面 ---------- */
+const reelHtml = (slug) => `<!doctype html><html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>${slug} — リール編集</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=Noto+Sans+JP:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:#0d0f13;color:#e8e8ea;font:14px/1.6 -apple-system,"Hiragino Sans",sans-serif;padding:14px 14px 40px}
+.wrap{max-width:1000px;margin:0 auto;display:flex;gap:22px;align-items:flex-start;flex-wrap:wrap}
+a.home{color:#8fa3bd;text-decoration:none;font-size:13px}
+h1{font-size:17px;margin:6px 0 14px}
+.col{flex:1;min-width:300px}
+.card{background:#141922;border:1px solid #232a36;border-radius:14px;padding:16px;margin-bottom:14px}
+h2{font-size:13px;margin:0 0 10px;color:#ffd24a;letter-spacing:1px}
+label{display:block;font-size:12px;color:#8fa3bd;margin:10px 0 4px}
+input,textarea{background:#171b23;border:1px solid #2a3140;color:#e8e8ea;border-radius:9px;padding:10px;width:100%;font:inherit}
+textarea{resize:vertical;min-height:76px;font-family:"Noto Sans JP",sans-serif}
+button{background:#232935;color:#e8e8ea;border:1px solid #39414f;border-radius:9px;padding:9px 14px;cursor:pointer;font-size:13px}
+button:hover{background:#2e3646}
+button.p{background:#ffd24a;color:#111;border-color:#ffd24a;font-weight:700}
+button:disabled{opacity:.45;cursor:default}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.row>input.num{width:104px;font-variant-numeric:tabular-nums;text-align:right}
+#stagewrap{width:342px;height:608px;border-radius:14px;overflow:hidden;position:relative;background:#000;flex:none;border:1px solid #262d3a}
+#stage{position:absolute;left:0;top:0;width:1080px;height:1920px;transform:scale(0.31667);transform-origin:top left;background:#08090c;font-family:"Inter",sans-serif}
+#bgfill{position:absolute;inset:0;background:radial-gradient(120% 60% at 50% 34%,#161a22 0%,#08090c 70%)}
+#pv{position:absolute;left:0;width:1080px;object-fit:contain;background:#000}
+#vfade{position:absolute;left:0;width:1080px;pointer-events:none;
+  background:linear-gradient(180deg,rgba(8,9,12,.55) 0%,rgba(8,9,12,0) 16%,rgba(8,9,12,0) 34%,rgba(8,9,12,.72) 88%,rgba(8,9,12,.92) 100%)}
+#subs{position:absolute;left:54px;right:54px;text-align:center}
+#s-en{color:#fff;font-weight:800;font-size:52px;line-height:1.12;text-shadow:0 3px 18px rgba(0,0,0,.92)}
+#s-jp{color:#ffd24a;font-family:"Noto Sans JP",sans-serif;font-weight:700;font-size:34px;line-height:1.35;margin-top:14px;text-shadow:0 3px 16px rgba(0,0,0,.92)}
+#top{position:absolute;left:64px;right:64px;text-align:center}
+#top .c{color:#fff;font-family:"Noto Sans JP",sans-serif;font-weight:900;font-size:54px;line-height:1.42}
+#top .rule{width:92px;height:5px;background:#ffd24a;border-radius:3px;margin:38px auto 0}
+#bottom{position:absolute;left:64px;right:64px;text-align:center}
+#bottom .t{color:#fff;font-size:62px;font-weight:900;line-height:1.08}
+#bottom .a{color:#ffd24a;font-size:38px;font-weight:700;margin-top:14px}
+#bottom .s{color:rgba(255,255,255,.42);font-family:"Noto Sans JP",sans-serif;font-size:27px;margin-top:26px;letter-spacing:3px}
+#barwrap{position:absolute;left:0;right:0;bottom:0;height:8px;background:rgba(255,255,255,.1)}
+#bar{position:absolute;left:0;top:0;bottom:0;transform-origin:left center;background:linear-gradient(90deg,#ffd24a,#ff8a3c);width:100%;transform:scaleX(0)}
+.note{color:#6b7a90;font-size:12px;margin-top:8px}
+.warn{color:#ffb28f}
+#rlog{white-space:pre-wrap;font-size:12px;color:#8fa3bd;background:#0e1219;border-radius:9px;padding:10px;max-height:150px;overflow:auto;margin-top:10px;display:none}
+#cuelist{max-height:200px;overflow:auto;margin-top:8px;font-size:12px}
+.cl{display:flex;gap:8px;padding:5px 6px;border-radius:6px;cursor:pointer;color:#9fb0c8}
+.cl:hover{background:#1d2431}
+.cl .tm{color:#6b7a90;font-variant-numeric:tabular-nums;flex:none;width:52px}
+.cl .tx{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+@media (max-width:820px){ .wrap{flex-direction:column} #stagewrap{width:100%;max-width:342px;margin:0 auto} }
+</style></head><body>
+<div style="max-width:1000px;margin:0 auto"><a class="home" href="../">◀ 字幕エディタ</a><h1>${slug} — 縦型リール（PV映像に字幕）</h1></div>
+<div class="wrap">
+  <div id="stagewrap">
+    <div id="stage">
+      <div id="bgfill"></div>
+      <video id="pv" src="pv.mp4" playsinline preload="auto"></video>
+      <div id="vfade"></div>
+      <div id="subs"><div id="s-en"></div><div id="s-jp"></div></div>
+      <div id="top"><div id="topc"></div><div class="rule"></div></div>
+      <div id="bottom"><div class="t" id="b-t"></div><div class="a" id="b-a"></div><div class="s">対訳 waxthink.com</div></div>
+      <div id="barwrap"><div id="bar"></div></div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card" id="nopv" style="display:none">
+      <h2>PV映像</h2>
+      <div style="color:#8fa3bd;font-size:13px">まだPV映像がありません。記事のyoutubeId、または下のURLから取得します。</div>
+      <input id="yt" placeholder="YouTube URL（省略時は記事のIDを使用）" style="margin-top:10px">
+      <button class="p" id="getpv" style="margin-top:8px;width:100%">PV映像を取得</button>
+      <div id="pvlog" class="note"></div>
+    </div>
+    <div class="card">
+      <h2>切り出す区間</h2>
+      <div class="row">
+        <button id="play" class="p">▶ 再生</button>
+        <span id="tnow" style="color:#9fb0c8;font-variant-numeric:tabular-nums">0.00s</span>
+        <span style="flex:1"></span>
+        <span id="dur" style="font-weight:700"></span>
+      </div>
+      <label>開始（秒）</label>
+      <div class="row">
+        <input class="num" id="start" value="0">
+        <button id="setstart">◎ 今ここ</button>
+        <button data-nudge-s="-1">−1</button><button data-nudge-s="1">＋1</button>
+      </div>
+      <label>終了（秒）</label>
+      <div class="row">
+        <input class="num" id="end" value="0">
+        <button id="setend">◎ 今ここ</button>
+        <button data-nudge-e="-1">−1</button><button data-nudge-e="1">＋1</button>
+      </div>
+      <div class="note">キューの頭をタップすると、そこを開始位置にできます（下の一覧）。</div>
+      <div id="cuelist"></div>
+    </div>
+    <div class="card">
+      <h2>文字</h2>
+      <label>上帯のコメント（改行で複数行）</label>
+      <textarea id="comment" placeholder="例: 1曲で人生を変えた男の&#10;最初の8小節"></textarea>
+      <label>曲名</label><input id="title">
+      <label>アーティスト</label><input id="artist">
+    </div>
+    <div class="card">
+      <div class="row">
+        <button class="p" id="save">保存</button>
+        <button class="p" id="render">書き出し（mp4）</button>
+        <span style="flex:1"></span><span id="msg" class="note"></span>
+      </div>
+      <div id="rlog"></div>
+    </div>
+  </div>
+</div>
+<script>
+var $=function(id){return document.getElementById(id)};
+var pv=$('pv'), cues=[], cfg={start:0,end:0,comment:'',title:'',artist:''}, playing=false;
+function f2(n){return Math.round(n*100)/100}
+
+function layout(){
+  var vw=pv.videoWidth||1920, vh=pv.videoHeight||1080;
+  var H=Math.min(1280,Math.round(1080*vh/vw)), T=Math.round((1920-H)/2);
+  pv.style.top=T+'px'; pv.style.height=H+'px';
+  $('vfade').style.top=T+'px'; $('vfade').style.height=H+'px';
+  $('subs').style.top=(T+H-34)+'px'; $('subs').style.transform='translateY(-100%)';
+  $('top').style.top=Math.max(90,Math.round(T*0.3))+'px';
+  $('bottom').style.bottom=Math.max(110,Math.round(T*0.26))+'px';
+}
+pv.addEventListener('loadedmetadata',function(){ layout(); if(!cfg.end){ cfg.end=Math.min(pv.duration,cfg.start+48); $('end').value=f2(cfg.end); } upd(); });
+pv.addEventListener('error',function(){ $('nopv').style.display='block'; });
+layout();
+setTimeout(layout, 400); setTimeout(layout, 1500);
+
+Promise.all([fetch('../cues.json').then(function(r){return r.json()}), fetch('config.json').then(function(r){return r.json()})])
+ .then(function(a){
+   cues=a[0]; var c=a[1];
+   cfg.start=c.start||0; cfg.end=c.end||0; cfg.comment=c.comment||''; cfg.title=c.title||''; cfg.artist=c.artist||'';
+   $('start').value=f2(cfg.start); $('end').value=f2(cfg.end);
+   $('comment').value=cfg.comment; $('title').value=cfg.title; $('artist').value=cfg.artist;
+   if(!c.hasPv) $('nopv').style.display='block';
+   drawCueList(); upd();
+ });
+
+function drawCueList(){
+  var el=$('cuelist'); el.innerHTML='';
+  cues.forEach(function(c,i){
+    var d=document.createElement('div'); d.className='cl';
+    var t=document.createElement('span'); t.className='tm'; t.textContent=f2(c.start)+'s';
+    var x=document.createElement('span'); x.className='tx'; x.textContent=c.eng;
+    d.appendChild(t); d.appendChild(x);
+    d.onclick=function(){ cfg.start=c.start; $('start').value=f2(c.start); pv.currentTime=c.start; upd(); };
+    el.appendChild(d);
+  });
+}
+function upd(){
+  cfg.start=parseFloat($('start').value)||0; cfg.end=parseFloat($('end').value)||0;
+  cfg.comment=$('comment').value; cfg.title=$('title').value; cfg.artist=$('artist').value;
+  var span=Math.max(0,cfg.end-cfg.start);
+  $('dur').textContent=span.toFixed(1)+'s';
+  $('dur').className=(span>90||span<3)?'warn':'';
+  $('topc').innerHTML='';
+  cfg.comment.split('\\n').forEach(function(l){ if(!l)return; var d=document.createElement('div'); d.className='c'; d.textContent=l; $('topc').appendChild(d); });
+  $('b-t').textContent=cfg.title; $('b-a').textContent=cfg.artist;
+}
+['start','end','comment','title','artist'].forEach(function(id){ $(id).addEventListener('input',upd); });
+$('setstart').onclick=function(){ $('start').value=f2(pv.currentTime); upd(); };
+$('setend').onclick=function(){ $('end').value=f2(pv.currentTime); upd(); };
+document.querySelectorAll('[data-nudge-s]').forEach(function(b){ b.onclick=function(){ $('start').value=f2((parseFloat($('start').value)||0)+ +b.dataset.nudgeS); upd(); pv.currentTime=parseFloat($('start').value); }; });
+document.querySelectorAll('[data-nudge-e]').forEach(function(b){ b.onclick=function(){ $('end').value=f2((parseFloat($('end').value)||0)+ +b.dataset.nudgeE); upd(); }; });
+$('play').onclick=function(){
+  if(pv.paused){ if(pv.currentTime<cfg.start||pv.currentTime>cfg.end) pv.currentTime=cfg.start; pv.play(); }
+  else pv.pause();
+};
+setInterval(function(){
+  var t=pv.currentTime;
+  $('tnow').textContent=t.toFixed(2)+'s';
+  $('play').textContent=pv.paused?'▶ 再生':'⏸ 停止';
+  if(!pv.paused && cfg.end>cfg.start && t>cfg.end) pv.currentTime=cfg.start;
+  var cur=null;
+  for(var i=0;i<cues.length;i++) if(t>=cues[i].start&&t<cues[i].end) cur=cues[i];
+  var inRange=(t>=cfg.start-0.01&&t<=cfg.end+0.01);
+  $('s-en').textContent=(cur&&inRange)?cur.eng:'';
+  $('s-jp').textContent=(cur&&inRange)?cur.jpn:'';
+  var span=Math.max(0.1,cfg.end-cfg.start);
+  $('bar').style.transform='scaleX('+Math.max(0,Math.min(1,(t-cfg.start)/span))+')';
+},80);
+
+function saveCfg(){
+  upd();
+  return fetch('config.json',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(cfg)})
+    .then(function(r){return r.json()}).then(function(){ $('msg').textContent='保存しました'; });
+}
+$('save').onclick=saveCfg;
+$('getpv').onclick=function(){
+  $('getpv').disabled=true; $('pvlog').textContent='取得中…（数分）';
+  fetch('fetch-pv',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({yt:$('yt').value.trim()})});
+  var iv=setInterval(function(){ fetch('pv-status').then(function(r){return r.json()}).then(function(j){
+    $('pvlog').textContent=j.phase;
+    if(j.done){ clearInterval(iv); $('getpv').disabled=false;
+      if(j.ok){ $('nopv').style.display='none'; pv.src='pv.mp4?'+Date.now(); pv.load(); } }
+  }); },2000);
+};
+$('render').onclick=function(){
+  var span=cfg.end-cfg.start;
+  if(span<3){ alert('区間が短すぎます'); return; }
+  if(span>90 && !confirm(span.toFixed(0)+'秒です。Reelsは90秒程度までが扱いやすいですが続けますか？')) return;
+  saveCfg().then(function(){
+    $('render').disabled=true; $('rlog').style.display='block'; $('rlog').textContent='書き出し中…';
+    fetch('render',{method:'POST'});
+    var iv=setInterval(function(){ fetch('render').then(function(r){return r.json()}).then(function(j){
+      $('rlog').textContent=j.log; $('rlog').scrollTop=1e9;
+      if(j.done){ clearInterval(iv); $('render').disabled=false; }
+    }); },1500);
+  });
+};
+</script></body></html>`;
+
+/* ---------- リール: 設定・PV取得・レンダー ---------- */
+const reelCfgPath = (slug) => path.join(assetsOf(slug), "reel-config.json");
+const pvPath = (slug) => path.join(AGENT, slug, "reel", "assets", "pv.mp4");
+const readReelCfg = (slug) => {
+  let c = { start: 0, end: 0, comment: "", title: "", artist: "" };
+  if (fs.existsSync(reelCfgPath(slug))) { try { c = { ...c, ...JSON.parse(fs.readFileSync(reelCfgPath(slug), "utf-8")) }; } catch {} }
+  if (!c.title || !c.artist) {
+    const metaPath = path.join(assetsOf(slug), "meta.json");
+    if (fs.existsSync(metaPath)) { try { const m = JSON.parse(fs.readFileSync(metaPath, "utf-8")); c.title = c.title || m.title || ""; c.artist = c.artist || m.artist || ""; } catch {} }
+  }
+  if (!c.title || !c.artist) {
+    try {
+      const st = fs.readFileSync(path.join(ROOT, "src/data/songs.ts"), "utf-8");
+      const line = st.split("\n").find(l => l.includes(`/songs/${slug}'`)) || "";
+      c.title = c.title || (line.match(/title:\s*"([^"]+)"/) || [])[1] || slug;
+      c.artist = c.artist || (line.match(/artists:\s*'([^']+)'/) || [])[1] || "";
+    } catch {}
+  }
+  return c;
+};
+
+let pvJob = { running: false, phase: "", done: false, ok: false };
+function fetchPv(slug, yt) {
+  if (pvJob.running) return;
+  pvJob = { running: true, phase: "URLを解決中", done: false, ok: false };
+  (async () => {
+    let url = yt;
+    if (!url) {
+      const metaPath = path.join(assetsOf(slug), "meta.json");
+      if (fs.existsSync(metaPath)) { try { url = JSON.parse(fs.readFileSync(metaPath, "utf-8")).url; } catch {} }
+    }
+    if (!url) {
+      const astro = path.join(ROOT, "src/pages/songs", `${slug}.astro`);
+      if (fs.existsSync(astro)) { const id = (fs.readFileSync(astro, "utf-8").match(/youtubeId="([\w-]{11})"/) || [])[1]; if (id) url = `https://www.youtube.com/watch?v=${id}`; }
+    }
+    if (!url) { pvJob = { running: false, phase: "YouTube URLが見つかりません", done: true, ok: false }; return; }
+    if (!/^https?:/.test(url)) url = `https://www.youtube.com/watch?v=${url}`;
+    pvJob.phase = "映像をダウンロード中…";
+    fs.mkdirSync(path.dirname(pvPath(slug)), { recursive: true });
+    const p = spawn("yt-dlp", ["-f", "bv*[height<=1080][ext=mp4]+ba[ext=m4a]/b[height<=1080]", "--merge-output-format", "mp4",
+      "--no-playlist", "-o", pvPath(slug), url], { env: process.env });
+    p.on("close", (code) => {
+      const ok = code === 0 && fs.existsSync(pvPath(slug));
+      pvJob = { running: false, phase: ok ? "完了" : "ダウンロードに失敗", done: true, ok };
+    });
+  })();
+}
+
+const reelRenderStates = new Map();
+function runReelRender(slug) {
+  const prev = reelRenderStates.get(slug);
+  if (prev && prev.running) return;
+  const st = { running: true, log: "", done: false, ok: false };
+  reelRenderStates.set(slug, st);
+  const c = readReelCfg(slug);
+  const a = [path.join(AGENT, "src", "gen-reel.mjs"), "--slug", slug, "--start", String(c.start), "--end", String(c.end),
+    "--comment", c.comment || "", "--title", c.title || "", "--artist", c.artist || "", "--render"];
+  const p = spawn(process.execPath, a, { cwd: AGENT, env: process.env });
+  const push = (d) => { st.log = (st.log + String(d).replace(/\r/g, "\n").split("\n").filter(Boolean).slice(-1).map(x => x.slice(0, 160) + "\n").join("")).slice(-2500); };
+  p.stdout.on("data", push); p.stderr.on("data", push);
+  p.on("close", (code) => { st.running = false; st.done = true; st.ok = code === 0; push(code === 0 ? "\n完了: reel/renders/" + slug + "-reel.mp4\n" : "\n失敗\n"); });
+}
+
 /* ---------- トップページ（曲一覧＋YouTube取り込み） ---------- */
 const homeHtml = () => {
   const songs = listSongs();
@@ -967,6 +1247,57 @@ const server = http.createServer((req, res) => {
     if (m[2] === undefined) { res.writeHead(302, { location: `/edit/${slug}/` }); return res.end(); }
     if (sub === "") { res.writeHead(200, { "content-type": "text/html; charset=utf-8" }); return res.end(editorHtml(slug)); }
 
+    if (sub === "reel" || sub === "reel/") {
+      if (sub === "reel") { res.writeHead(302, { location: `/edit/${slug}/reel/` }); return res.end(); }
+      res.writeHead(200, { "content-type": "text/html; charset=utf-8" }); return res.end(reelHtml(slug));
+    }
+    if (sub === "reel/config.json" && req.method === "GET") {
+      return json({ ...readReelCfg(slug), hasPv: fs.existsSync(pvPath(slug)) });
+    }
+    if (sub === "reel/config.json" && req.method === "POST") {
+      let body = ""; req.on("data", d => body += d);
+      req.on("end", () => {
+        try {
+          const c = JSON.parse(body);
+          const out = {
+            start: Math.max(0, Math.round((parseFloat(c.start) || 0) * 100) / 100),
+            end: Math.max(0, Math.round((parseFloat(c.end) || 0) * 100) / 100),
+            comment: String(c.comment || "").slice(0, 400),
+            title: String(c.title || "").slice(0, 120),
+            artist: String(c.artist || "").slice(0, 120),
+          };
+          fs.writeFileSync(reelCfgPath(slug), JSON.stringify(out, null, 2));
+          json({ ok: true });
+          console.log(`[${slug}] reel config saved (${out.start}–${out.end}s)`);
+        } catch (e) { json({ error: String(e.message) }, 400); }
+      });
+      return;
+    }
+    if (sub === "reel/fetch-pv" && req.method === "POST") {
+      let body = ""; req.on("data", d => body += d);
+      req.on("end", () => { let yt = ""; try { yt = JSON.parse(body).yt || ""; } catch {} fetchPv(slug, yt); json({ ok: true }); });
+      return;
+    }
+    if (sub === "reel/pv-status") return json(pvJob);
+    if (sub === "reel/render") {
+      if (req.method === "POST") { runReelRender(slug); return json({}); }
+      const st = reelRenderStates.get(slug) || { log: "", done: false, ok: false, running: false };
+      return json({ log: st.log, done: st.done && !st.running, ok: st.ok });
+    }
+    if (sub === "reel/pv.mp4") {
+      const file = pvPath(slug);
+      if (!fs.existsSync(file)) { res.writeHead(404); return res.end(); }
+      const size = fs.statSync(file).size;
+      const range = req.headers.range;
+      if (range) {
+        const rm = /bytes=(\d*)-(\d*)/.exec(range) || [];
+        const start = parseInt(rm[1] || "0", 10), end = rm[2] ? parseInt(rm[2], 10) : size - 1;
+        res.writeHead(206, { "content-type": "video/mp4", "content-range": `bytes ${start}-${end}/${size}`, "accept-ranges": "bytes", "content-length": end - start + 1 });
+        return fs.createReadStream(file, { start, end }).pipe(res);
+      }
+      res.writeHead(200, { "content-type": "video/mp4", "content-length": size, "accept-ranges": "bytes" });
+      return fs.createReadStream(file).pipe(res);
+    }
     if (sub === "cues.json" && req.method === "GET") {
       res.writeHead(200, { "content-type": "application/json" }); return res.end(fs.readFileSync(cuesPathOf(slug)));
     }
