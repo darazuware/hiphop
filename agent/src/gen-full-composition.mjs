@@ -26,8 +26,18 @@ const getArg = (n, d) => {
 const slug = getArg("slug");
 if (!slug) { console.error("--slug required"); process.exit(1); }
 
-// title/artist from songs.ts if not given
+// title/artist: 引数 > meta.json（YouTube取り込み曲） > songs.ts > slug
 let title = getArg("title"), artist = getArg("artist");
+if (!title || !artist) {
+  const metaPath = path.join(AGENT, slug, "assets", "meta.json");
+  if (fs.existsSync(metaPath)) {
+    try {
+      const meta = JSON.parse(fs.readFileSync(metaPath, "utf-8"));
+      title = title || meta.title;
+      artist = artist || meta.artist;
+    } catch {}
+  }
+}
 if (!title || !artist) {
   const st = fs.readFileSync(path.join(ROOT, "src/data/songs.ts"), "utf-8");
   const line = st.split("\n").find((l) => l.includes(`/songs/${slug}'`)) || "";

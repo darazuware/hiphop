@@ -2,7 +2,7 @@
 
 ## 任務遂行プロトコル（最重要・常駐・全モデル共通）
 - **どの任務も着手前に [`docs/mission-protocol.md`](docs/mission-protocol.md) に従う。** 要点: ①任務は「入口1コマンド＋機械検証のDoD＋review push出口」の3点セットを持つ（無ければ先に作る） ②文章は三稿制（初稿→check-tone-only＋他人の目で再読→仕上げ） ③内部リンクは手書きせず生成に任せる ④同種の失敗2回目は必ずルール追記かガード化までやる ⑤❌残しの完了報告禁止。
-- ショート動画関連は [`docs/shorts-strategy.md`](docs/shorts-strategy.md)（MV切り抜き禁止・既存パイプライン厳守）。SNS流入用のパンチライン切り抜き（無音・アプリ内サウンド戦略）は [`docs/punchline-shorts.md`](docs/punchline-shorts.md)（入口 `node agent/src/punchline-shorts.mjs init --slug {slug}`・サイト非掲載）。
+- ショート動画関連は [`docs/shorts-strategy.md`](docs/shorts-strategy.md)（MV切り抜き禁止・既存パイプライン厳守）。SNS流入用のパンチライン切り抜き（無音・アプリ内サウンド戦略）は [`docs/punchline-shorts.md`](docs/punchline-shorts.md)（入口 `node agent/src/punchline-shorts.mjs init --slug {slug}`・サイト非掲載）。横長フル歌詞動画（英日同期）は [`docs/full-lyric-video.md`](docs/full-lyric-video.md)（入口 `node agent/src/cue-editor.mjs`＝YouTube URL貼付・DoD `check-full-video.mjs {slug}`・サイト非掲載）。
 
 ## 事実チェック（最重要・常駐）
 - **サンプル系記事（曲ページ・コラム）を追加／編集するときは、作業前に必ず [`docs/fact-check-rules.md`](docs/fact-check-rules.md) を読み、本ルールに従う。**
@@ -61,16 +61,15 @@ public/images/   # アルバムアート
 - **頻出スラングのdesc集約（2026-07-03確定）**: 複数曲に出る語の「素の意味・語源」は `slang.ts` に1回だけ書き、ページ側の `desc` は「この曲での使われ方・ニュアンス」中心に書く。同一descの曲間コピペは定型句ガード（Item4）に当たるため禁止、毎回のゼロから書き直しも不要
 - 詳細リンク先 `/slang?q={英語語}` では、その語を使う全曲が「使用曲」として自動内部リンクされる（`word=`/`term=` 両prop・日本語注釈付き対応済み）
 
-## 既存曲の自動修正ルーティン（Telegram: `修正依頼 <曲名>`・2026-07-06確定）
+## 既存曲の自動修正ルーティン（Telegram: `修正依頼 <曲名>`・2026-07-11更新）
 - 入口は Telegram の **`修正依頼 <曲名>`**（例: `修正依頼 put it on`）。`index.mjs` → `claude.mjs` の `runToneFix` が固定手順を流す。実装を変える時は両者と本節を同期する。
-- **モデルは Sonnet 固定**（`trigger.meta.model='sonnet'`。watcherが受けて `--model sonnet` で実行）。**毎回Opusで文体修正するのはトークンの浪費**なので、品質はモデルでなく下記の三稿制＋機械検証に持たせる。
-- **必ず三稿制で回す（`docs/mission-protocol.md` §3）**: ①第1稿=作る ②第2稿=「外注ライターがAIで書いた文に見えないか」の一点で他人として疑い直す ③第3稿=`check-tone-only` を通して仕上げる。1パスで終わらせない。
+- **モデルは Opus デフォルト**（三稿制Sonnet は 4-5時間かかる非効率型のため廃止。Opus の高精度 1回で正解を狙う。tone-campaign.mjs で `--model sonnet` を指定すると Sonnet も使える）。**ただし reflowOnly（nas-is-like等・文言不変の<p>分割のみ）は指定に関わらず常に Sonnet へ自動降格する**（`runToneFix` 側で強制。文体を書く/書き直す仕事はOpus、構造をいじるだけの機械作業はSonnetで十分という判断・2026-07-13確定）。
 - **1回の修正依頼で必ず4点すべてやる**:
   1. 文体を **nas-is-like基調**へ（`docs/article-tone.md`。評論家ヅラ・AI臭・ダッシュ・読者命令形ゼロ、敬体率ガードに触れない）
   2. **1〜2文ごとの改行**（`<p>`に3文以上詰めない。全パート適用）
   3. **内部リンク修正**（重要スラングを `slang.ts` に登録／文中リンク先の実在確認。関連記事カードは手書き禁止＝SongLayout自動生成）
   4. **unitを上限ギリギリまで増強**（learning型のみ）: shook級25〜30unit・量MAXへ。硬い上限は [D] eng引用率<60% と [C] 独自解説JP>英語引用(≥1200字)の2ガードのみ、その内で最大化。unit追加時は `units.json` 追記＋`gen-fallback-timestamps.mjs` 再生成を必ずやる（怠るとimport不在でビルド落ち）。従来型はunit増強を飛ばし1〜3のみ。
-- 出口は共通: `check-article.mjs` 全✅ → `git push origin review` → `notify-review.mjs`（mainへは直pushしない）。
+- 出口は共通: `check-tone-only.mjs` 全✅ → `npm run build` 確認 → `git push origin review` → `notify-review.mjs`（mainへは直pushしない）。
 
 ## ページ種別（重要・新標準）
 曲ページには2種類ある。検証フックはページ種別で自動分岐する（`<LearningUnit>` の有無で判定）。
@@ -109,7 +108,7 @@ public/images/   # アルバムアート
    - 追加項目: slug, name, origin, active, genre, summary, japan
    - step2のリサーチ結果から自動生成
 7. Claudeが.astroページを生成（SongLayout使用）
-   - **【三稿制・必須】** 初稿を書き切る → `node agent/src/check-tone-only.mjs {slug}` を通す → 「外注ライターがAIで書いた文に見えないか」の一点で自分の文を他人として再読し直す → 仕上げて再チェック（[`docs/mission-protocol.md`](docs/mission-protocol.md) §3）
+   - **【品質管理】** 初稿を書き切る → `node agent/src/check-tone-only.mjs {slug}` で検証（❌が出たら修正して再実行）→ 最後に `npm run build` でビルド確認
    - **【関連記事カード手書き禁止】** 記事末の関連記事リンクはSongLayoutが songs.ts から自動生成する（同アーティスト→同プロデューサー→同じ元ネタ→同時代×同地域）。`.astro` 本文に手書きの関連記事セクションを新設しない（腐ってデッドリンク化した前例あり）
    - **【文体】生成する日本語文章は [`docs/article-tone.md`](docs/article-tone.md)（チェックリスト）に従い、模範＝nas-is-like.astroの文体・改行構造を踏襲する**（見出し文言は曲固有）。敬体基調＋常体スパイス・作品への熱・軽い口語の抜け・専門語の噛み砕き。ガチガチのライター調にしない。ただし事実は [`docs/fact-check-rules.md`](docs/fact-check-rules.md) で厳密に裏取りし、英語引用（eng）量は増やさない。
    - **Amazonアフィリエイトリンクは手書き不要**。SongLayoutが冒頭の**ジャケット画像をクリック型アフィリエイトリンク**として自動表示する:
@@ -159,7 +158,8 @@ public/images/   # アルバムアート
    - 2026年以降の新曲でGeniusデータ不完全な場合は[B]を手動確認
    - pre-pushフック（`agent/hooks/pre-push`）は `agent/src/pre-push-check.mjs` を呼ぶ。commit前にここで通しておく。**ガードを `--no-verify` でバイパスしない**（種別判定が正しく効く）。
    - **定型句ガード（pre-push-check.mjs / Item4）**: 全曲.astroを横断し、25文字以上の同一日本語解説文が複数曲で使い回されていないか検出する（eng歌詞断片は除外。出力は該当slugと重複箇所数のみ＝歌詞英語行を出さない）。許容済みの既存重複は `agent/.dup-baseline.json` にハッシュで記録（平文非保存）。baselineに無いnet-newの曲間重複はブロックする。意図的に許容する場合のみ `node agent/src/pre-push-check.mjs --update-dup-baseline` で焼き直す。**同一/酷似の解説文を曲間でコピペ再利用しない**（[`docs/article-tone.md`](docs/article-tone.md)）。
-   - **Genius短尺フェッチ対策（pre-push-check.mjs / Item6）**: キャッシュ2h超過時の再フェッチは、(a)取得歌詞が既存キャッシュより行数が少なければ不完全とみなしキャッシュを上書きしない（行数が同等以上の時のみ更新）、(b)不完全フェッチ時は[B]を失敗ブロックでなくスキップ＋警告（`SKIP_B=1`／要手動確認）にして誤検出で正しい記事を改変しない、(c)短尺が返ったら最大3回リトライし最長版を採用する。出力は行数・カウントのみ。
+   - **Genius短尺フェッチ対策（pre-push-check.mjs / Item6）**: キャッシュ2h超過時の再フェッチは、(a)取得歌詞が既存キャッシュより行数が少なければ不完全とみなしキャッシュを上書きしない（行数が同等以上の時のみ更新）、(b)不完全フェッチ時は[B]を`SKIP_B=1`でスキップして実行するが、**スキップされた事実自体はpushをブロックする**（`agent/.skip-b-pending.json`に記録・黙って通さない）。手動で歌詞行を確認したら `node agent/src/pre-push-check.mjs --confirm-manual-check {slug}` で解除し、その時点の`.astro`内容ハッシュを `agent/.skip-b-confirmed.json` に記録する（次回以降、同一内容なら再確認不要）。(c)短尺が返ったら最大3回リトライし最長版を採用する。出力は行数・カウントのみ。
+   - **Genius URL誤紐付け防止（pre-push-check.mjs / Item4b）**: `agent/.lyrics-sources.json`の明示URLソース（複数ページ分割曲）は、フェッチ前にページ`<title>`が期待する曲名/アーティスト名と一致するか機械検証し、不一致ならブロックする（誤ったページの歌詞と照合する事故を防ぐ）。
 12. 頭出しタイムスタンプ生成（learning型・**whisper/AI音源解析は使わない**・2026-07-03確定 / キャプション自動整合2026-07-08追加）:
    - `agent/{slug}/assets/units.json` を曲順に作成し、各unitに `anchor`（引用行の単語列）・`fallbackT`（Verse頭から1行≈2.5〜3秒の線形補間による概算秒）・`manualSec: null` を付ける
    - **`node agent/src/align-yt-captions.mjs --slug {slug}`** でYouTube公式キャプションとanchorを照合（dry-run・音源DLなし）→ NOT_FOUNDの原因判定（MV未収録パートは units.json に `"mvAbsent": true` を付け▶非表示に）→ `--apply` で `captionSec` を焼く（[`docs/timestamp-caption-alignment.md`](docs/timestamp-caption-alignment.md)）。字幕トラックが無い動画は従来どおり `node agent/src/gen-fallback-timestamps.mjs --slug {slug}` のfallbackTのみ
