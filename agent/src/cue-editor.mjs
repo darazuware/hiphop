@@ -782,9 +782,11 @@ function paint(){
   cues.forEach((c,i)=>{ if(t>=c.start && t<c.end) cur=i; });
   cues.forEach((c,i)=>{ const tr=$('r'+i); if(!tr)return;
     tr.className=(i===cur?'on ':'')+(i===sel?'sel':''); });
-  const c=cues[cur>=0?cur:sel]||{eng:'',jpn:''};
+  // 再生中の無字幕区間は動画と同じく空白にする（停止中のみ選択行を出して編集の目印に）
+  const c = cur>=0 ? cues[cur] : (au.paused ? (cues[sel]||{eng:'',jpn:''}) : {eng:'',jpn:''});
   $('pv-en').textContent=c.eng;
   $('pv-jp').textContent=c.jpn;
+  $('preview').style.opacity = (cur<0 && au.paused && c.eng) ? 0.45 : 1;
   if($('loop').checked && !au.paused && cues[sel] && t>cues[sel].end){ au.currentTime=Math.max(0,cues[sel].start-0.15); }
   if(cur>=0 && !au.paused && document.activeElement===document.body){
     const tr=$('r'+cur);
