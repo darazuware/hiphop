@@ -225,7 +225,7 @@ button:disabled{opacity:.4;cursor:default}
 select,input.flt{background:#171b23;border:1px solid #2a3140;color:#e8e8ea;border-radius:8px;padding:6px 8px;font:inherit}
 input.flt{width:150px}
 a.home{color:#8fa3bd;text-decoration:none;font-size:13px}
-#wovr{display:block;width:100%;height:44px;border-radius:8px;margin-top:8px;cursor:pointer;background:#0e1219}
+#wovr{display:block;width:100%;height:44px;border-radius:8px;margin-top:8px;cursor:pointer;background:#0e1219;touch-action:none}
 #wzwrap{position:relative;margin-top:6px}
 #wzoom{display:block;width:100%;height:96px;border-radius:8px;background:#0e1219;touch-action:none;cursor:crosshair}
 #wzbtns{position:absolute;right:6px;top:6px;display:flex;gap:6px}
@@ -296,7 +296,7 @@ kbd{background:#232935;border:1px solid #39414f;border-radius:4px;padding:1px 5p
   body.wave-on #wovr{display:block}
   body.wave-on #preview{display:block}
   #wzwrap{margin-top:6px}
-  #wzoom{height:64px}
+  #wzoom{height:104px}
   #wzbtns button{padding:4px 10px}
   #log{max-height:34px;margin-top:2px}
   #log:empty{display:none}
@@ -351,7 +351,7 @@ kbd{background:#232935;border:1px solid #39414f;border-radius:4px;padding:1px 5p
   <div class="row hint" style="margin-top:6px">
     <span><kbd>Space</kbd> 再生/停止</span><span><kbd>S</kbd> タップ同期（選択行のstart=現在位置→次行へ）</span>
     <span><kbd>↑↓</kbd> 行選択</span><span><kbd>←→</kbd> ±0.05s（Shiftで±0.2s）</span><span><kbd>Enter</kbd> 行頭から再生</span>
-    <span><kbd>⌘Z</kbd> 元に戻す</span><span>波形の旗をドラッグでも調整可</span>
+    <span><kbd>⌘Z</kbd> 元に戻す</span><span>波形: 旗をドラッグで微調整 / 空きを左右ドラッグで頭出し / ピンチで拡大</span>
     <label style="margin-left:auto"><input type="checkbox" id="chain" checked style="width:auto"> endを次のstartに自動追従</label>
   </div>
   <div id="log"></div>
@@ -474,6 +474,7 @@ au.addEventListener('loadedmetadata', ()=>{ dur = au.duration; });
   }).catch(e=>{ log('波形の読み込みに失敗（編集は可能）'); });
 })();
 const dpr = window.devicePixelRatio || 1;
+const COARSE = matchMedia('(pointer:coarse)').matches;
 function fitCanvas(cv){ const w = cv.clientWidth, h = cv.clientHeight; if(cv.width!==w*dpr||cv.height!==h*dpr){cv.width=w*dpr;cv.height=h*dpr;} return [w,h]; }
 function buildOvr(){
   const cv = $('wovr'); const [W,H] = fitCanvas(cv);
@@ -522,49 +523,81 @@ function drawZoom(){
     if (s<t0-0.2||s>t0+ZW+0.2) continue;
     const x = (s-t0)/ZW*W;
     g.fillStyle = i===sel ? '#ffd24a' : 'rgba(255,210,74,0.55)';
-    g.fillRect(x-(i===sel?1.5:0.75),14,i===sel?3:1.5,H-14);
+    const hw = COARSE ? 10 : 6, hh = COARSE ? 20 : 14;
+    g.fillRect(x-(i===sel?1.5:0.75),hh,i===sel?3:1.5,H-hh);
     g.fillStyle = i===sel ? '#ffd24a' : 'rgba(255,210,74,0.75)';
-    g.beginPath(); g.moveTo(x-6,2); g.lineTo(x+6,2); g.lineTo(x,14); g.closePath(); g.fill();
-    g.font = '9px sans-serif'; g.textAlign='center';
-    g.fillStyle = i===sel?'#fff':'#9fb0c8'; g.fillText(String(i+1), x, 11);
+    g.beginPath(); g.moveTo(x-hw,2); g.lineTo(x+hw,2); g.lineTo(x,hh); g.closePath(); g.fill();
+    g.font = (COARSE?'12px':'9px')+' sans-serif'; g.textAlign='center';
+    g.fillStyle = i===sel?'#111':'#0d0f13'; g.fillText(String(i+1), x, COARSE?15:11);
   }
   g.fillStyle = '#fff'; g.fillRect(W/2-0.75,0,1.5,H);
 }
 $('zin').onclick = ()=>{ ZW = Math.max(2, ZW/2); zoomDirty = true; };
 $('zout').onclick = ()=>{ ZW = Math.min(32, ZW*2); zoomDirty = true; };
-$('wovr').addEventListener('pointerdown', e=>{
+let ovrDrag = false;
+function ovrSeek(e){
   if (!dur) return;
-  const r = e.target.getBoundingClientRect();
-  au.currentTime = (e.clientX-r.left)/r.width*dur; zoomDirty = true;
-});
+  const r = $('wovr').getBoundingClientRect();
+  au.currentTime = Math.max(0, Math.min(dur, (e.clientX-r.left)/r.width*dur)); zoomDirty = true;
+}
+$('wovr').addEventListener('pointerdown', e=>{ ovrDrag = true; $('wovr').setPointerCapture(e.pointerId); ovrSeek(e); });
+$('wovr').addEventListener('pointermove', e=>{ if(ovrDrag) ovrSeek(e); });
+addEventListener('pointerup', ()=>{ ovrDrag = false; });
+
 let drag = null;
+const pinch = new Map();
+let pinchBase = null;
 $('wzoom').addEventListener('pointerdown', e=>{
   const cv = $('wzoom'); const r = cv.getBoundingClientRect();
   const W = r.width, x = e.clientX-r.left;
+  pinch.set(e.pointerId, x);
+  if (pinch.size === 2){
+    const v = [...pinch.values()];
+    pinchBase = { d: Math.max(12, Math.abs(v[0]-v[1])), ZW };
+    drag = null; return;
+  }
   const t0 = au.currentTime - ZW/2;
-  let best = -1, bd = 14;
+  const R = e.pointerType === 'mouse' ? 14 : 26;
+  let best = -1, bd = R;
   for (let i=0;i<cues.length;i++){
     const s = cues[i].start; if (s<t0||s>t0+ZW) continue;
     const px = (s-t0)/ZW*W, d = Math.abs(px-x);
     if (d<bd){ bd=d; best=i; }
   }
-  if (best>=0){ drag = { i:best, t0, W, moved:false }; sel = best; cv.setPointerCapture(e.pointerId); paint(); }
-  else drag = { seek:true, t0, W, x0:x, moved:false };
+  cv.setPointerCapture(e.pointerId);
+  if (best>=0){ drag = { i:best, t0, W, moved:false }; sel = best; paint(); if(navigator.vibrate) navigator.vibrate(8); }
+  else drag = { seek:true, t0, W, x0:x, lastX:x, moved:false };
 });
 $('wzoom').addEventListener('pointermove', e=>{
-  if (!drag || drag.seek) return;
   const r = $('wzoom').getBoundingClientRect();
   const x = e.clientX-r.left;
+  if (pinch.has(e.pointerId)) pinch.set(e.pointerId, x);
+  if (pinch.size === 2 && pinchBase){
+    const v = [...pinch.values()];
+    const d = Math.max(12, Math.abs(v[0]-v[1]));
+    ZW = Math.max(2, Math.min(32, pinchBase.ZW * pinchBase.d / d));
+    zoomDirty = true; return;
+  }
+  if (!drag) return;
+  if (drag.seek){
+    // フィルムを指で送る感覚: 左へドラッグ＝時間が進む
+    if (Math.abs(x-drag.x0) > 3) drag.moved = true;
+    au.currentTime = Math.max(0, Math.min(dur||1e9, au.currentTime - (x-drag.lastX)/drag.W*ZW));
+    drag.lastX = x; zoomDirty = true; return;
+  }
   if (!drag.moved){ pushHist('drag'+drag.i); drag.moved = true; }
   setStart(drag.i, Math.max(0, drag.t0 + x/drag.W*ZW));
   zoomDirty = true;
 });
 addEventListener('pointerup', e=>{
+  pinch.delete(e.pointerId);
+  if (pinch.size < 2) pinchBase = null;
   if (drag && drag.seek && !drag.moved){
     au.currentTime = Math.max(0, drag.t0 + drag.x0/drag.W*ZW); zoomDirty = true;
   }
   drag = null;
 });
+addEventListener('pointercancel', e=>{ pinch.delete(e.pointerId); pinchBase = null; drag = null; });
 
 /* ---------- テーブル ---------- */
 function draw(){
@@ -917,7 +950,13 @@ button.p{background:#ffd24a;color:#111;border-color:#ffd24a;font-weight:700}
 button:disabled{opacity:.45;cursor:default}
 .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
 .row>input.num{width:104px;font-variant-numeric:tabular-nums;text-align:right}
-#stagewrap{width:342px;height:608px;border-radius:14px;overflow:hidden;position:relative;background:#000;flex:none;border:1px solid #262d3a}
+#stagecol{flex:none}
+#stagewrap{width:342px;height:608px;border-radius:14px;overflow:hidden;position:relative;background:#000;flex:none;border:1px solid #262d3a;cursor:pointer}
+#tlwrap{position:relative;margin-top:8px}
+#tl{display:block;width:100%;height:88px;border-radius:10px;background:#0e1219;border:1px solid #262d3a;touch-action:none;cursor:ew-resize}
+#tlbtns{position:absolute;right:6px;top:6px;display:flex;gap:6px}
+#tlbtns button{padding:2px 9px;font-size:15px;background:rgba(20,25,34,.85)}
+#tlhint{color:#6b7a90;font-size:11px;margin-top:4px;text-align:center}
 #stage{position:absolute;left:0;top:0;width:1080px;height:1920px;transform-origin:top left;background:#08090c;font-family:"Inter",sans-serif}
 #bgfill{position:absolute;inset:0;background:radial-gradient(120% 60% at 50% 34%,#161a22 0%,#08090c 70%)}
 #pv{position:absolute;left:0;width:1080px;object-fit:contain;background:#000}
@@ -975,7 +1014,10 @@ button:disabled{opacity:.45;cursor:default}
 @media (max-width:820px){
   .wrap{flex-direction:column;gap:12px}
   body{padding:10px 10px 96px}
-  #stagewrap{margin:0 auto;position:sticky;top:8px;z-index:5}
+  #stagecol{width:100%;position:sticky;top:0;z-index:5;background:#0d0f13;padding:6px 0 8px}
+  #stagewrap{margin:0 auto}
+  #tl{height:104px}
+  #tlhint{display:none}
   .col{width:100%;min-width:0}
   button{padding:12px 15px;font-size:15px}
   input,textarea{font-size:16px;padding:12px}
@@ -989,6 +1031,7 @@ button:disabled{opacity:.45;cursor:default}
 </style></head><body>
 <div style="max-width:1000px;margin:0 auto"><a class="home" href="../">◀ 字幕エディタ</a><h1>${slug} — 縦型リール（PV映像に字幕）</h1></div>
 <div class="wrap">
+  <div id="stagecol">
   <div id="stagewrap">
     <div id="stage">
       <div id="bgfill"></div>
@@ -999,6 +1042,12 @@ button:disabled{opacity:.45;cursor:default}
       <div id="bottom"><div class="t" id="b-t"></div><div class="a" id="b-a"></div><div class="s">対訳 waxthink.com</div></div>
       <div id="barwrap"><div id="bar"></div></div>
     </div>
+  </div>
+  <div id="tlwrap">
+    <canvas id="tl"></canvas>
+    <div id="tlbtns"><button id="tlin">＋</button><button id="tlout">−</button></div>
+  </div>
+  <div id="tlhint">黄色の帯＝切り出す区間。両端の取っ手をドラッグで開始/終了、帯の外を左右ドラッグで頭出し。ピンチで拡大。映像タップで再生/停止。</div>
   </div>
   <div class="col">
     <div class="card" id="nopv" style="display:none">
@@ -1106,7 +1155,7 @@ function f2(n){return Math.round(n*100)/100}
 function fitStage(){
   var wrap=$('stagewrap');
   var avail=Math.min(342, (document.body.clientWidth||360)-24);
-  var maxH=Math.round((window.innerHeight||800)*0.52);
+  var maxH=Math.round((window.innerHeight||800)*(window.innerWidth<=820?0.40:0.52));
   var w=Math.min(avail, Math.round(maxH*1080/1920));
   var s=w/1080;
   wrap.style.width=w+'px'; wrap.style.height=Math.round(1920*s)+'px';
@@ -1176,6 +1225,99 @@ document.querySelectorAll('[data-pos]').forEach(function(b){ b.onclick=function(
   $('subup').value = p==='mid' ? Math.round(H/2-60) : (p==='under' ? -170 : 0);
   upd();
 }; });
+/* ---------- タイムライン（ドラッグで区間指定） ---------- */
+var DPR=window.devicePixelRatio||1, COARSE=matchMedia('(pointer:coarse)').matches;
+var TL={span:0,t0:0,drag:null,pinch:{},pbase:null};
+function vib(){ if(navigator.vibrate) navigator.vibrate(8); }
+function tlDur(){ return pv.duration||60 }
+function tlSpan(){ return Math.max(4, Math.min(TL.span||tlDur(), tlDur())) }
+function tlT0(){ return Math.max(0, Math.min(Math.max(0,tlDur()-tlSpan()), TL.t0)) }
+function fmtT(s){ var m=Math.floor(s/60), q=Math.floor(s%60); return m+':'+(q<10?'0':'')+q }
+function tlEl(){ return $('tl') }
+function tlW(){ return tlEl().clientWidth||1 }
+function tlX(e){ return e.clientX-tlEl().getBoundingClientRect().left }
+function drawTl(){
+  var cv=tlEl(), W=cv.clientWidth, H=cv.clientHeight; if(!W) return;
+  if(cv.width!==Math.round(W*DPR)||cv.height!==Math.round(H*DPR)){ cv.width=Math.round(W*DPR); cv.height=Math.round(H*DPR); }
+  var g=cv.getContext('2d'); g.setTransform(DPR,0,0,DPR,0,0);
+  var t0=tlT0(), sp=tlSpan(), BH=H-15;
+  var X=function(t){ return (t-t0)/sp*W };
+  g.fillStyle='#0e1219'; g.fillRect(0,0,W,H);
+  var step= sp>600?120:sp>300?60:sp>120?30:sp>60?10:sp>24?5:1;
+  g.font='10px sans-serif'; g.textAlign='left';
+  for(var t=Math.ceil(t0/step)*step;t<t0+sp;t+=step){
+    var px=X(t); g.fillStyle='#232a36'; g.fillRect(px,0,1,BH);
+    g.fillStyle='#5d6b80'; g.fillText(fmtT(t),px+3,H-4);
+  }
+  for(var i=0;i<cues.length;i++){
+    var c=cues[i]; if(c.end<t0||c.start>t0+sp) continue;
+    var a=X(c.start), b=Math.max(a+2,X(c.end));
+    var inr=(cfg.end>cfg.start&&c.end>cfg.start+0.05&&c.start<cfg.end-0.05);
+    g.fillStyle=inr?'#4d759e':'#2b3442';
+    g.fillRect(a,BH-30+(i%2)*13,Math.max(2,b-a-1),11);
+  }
+  if(cfg.end>cfg.start){
+    var xa=X(cfg.start), xb=X(cfg.end);
+    g.fillStyle='rgba(255,210,74,.13)'; g.fillRect(xa,0,xb-xa,BH);
+    g.fillStyle='#ffd24a'; g.fillRect(xa-2,0,4,BH); g.fillRect(xb-2,0,4,BH);
+    var gw=COARSE?15:11;
+    g.fillRect(xa-2,0,gw,26); g.fillRect(xb+2-gw,0,gw,26);
+    g.fillStyle='#111'; g.font='bold 11px sans-serif';
+    g.textAlign='center'; g.fillText('▶',xa-2+gw/2,17); g.fillText('◀',xb+2-gw/2,17);
+  }
+  var xp=X(pv.currentTime);
+  g.fillStyle='#fff'; g.fillRect(xp-1,0,2,BH);
+}
+function tlFollow(){
+  if(pv.paused||TL.drag) return;
+  var sp=tlSpan(), t0=tlT0(), t=pv.currentTime;
+  if(t<t0||t>t0+sp*0.97) TL.t0=Math.max(0,t-sp*0.15);
+}
+function tlSet(h,t){
+  t=Math.max(0,Math.min(tlDur(),f2(t)));
+  if(h==='a'){ if(cfg.end>0&&t>cfg.end-1) t=Math.max(0,cfg.end-1); $('start').value=f2(t); }
+  else { if(t<cfg.start+1) t=cfg.start+1; $('end').value=f2(t); }
+  upd();
+  return t;
+}
+tlEl().addEventListener('pointerdown',function(e){
+  TL.pinch[e.pointerId]=tlX(e);
+  var ids=Object.keys(TL.pinch);
+  if(ids.length>=2){
+    var d=Math.abs(TL.pinch[ids[0]]-TL.pinch[ids[1]]);
+    var mid=(TL.pinch[ids[0]]+TL.pinch[ids[1]])/2;
+    TL.pbase={d:Math.max(14,d),span:tlSpan(),ctr:tlT0()+mid/tlW()*tlSpan(),mid:mid};
+    TL.drag=null; return;
+  }
+  var W=tlW(), t0=tlT0(), sp=tlSpan(), x=tlX(e), R=COARSE?30:16;
+  var xa=(cfg.start-t0)/sp*W, xb=(cfg.end-t0)/sp*W;
+  tlEl().setPointerCapture(e.pointerId);
+  var da=Math.abs(x-xa), db=Math.abs(x-xb), has=(cfg.end>cfg.start);
+  if(has&&da<R&&da<=db){ TL.drag={h:'a',off:x-xa}; pv.pause(); vib(); }
+  else if(has&&db<R){ TL.drag={h:'b',off:x-xb}; pv.pause(); vib(); }
+  else { TL.drag={seek:true}; pv.currentTime=Math.max(0,Math.min(tlDur(),t0+x/W*sp)); }
+});
+tlEl().addEventListener('pointermove',function(e){
+  if(TL.pinch[e.pointerId]!==undefined) TL.pinch[e.pointerId]=tlX(e);
+  var ids=Object.keys(TL.pinch);
+  if(ids.length>=2&&TL.pbase){
+    var d=Math.max(14,Math.abs(TL.pinch[ids[0]]-TL.pinch[ids[1]]));
+    TL.span=Math.max(4,Math.min(tlDur(),TL.pbase.span*TL.pbase.d/d));
+    TL.t0=TL.pbase.ctr-TL.pbase.mid/tlW()*tlSpan();
+    return;
+  }
+  if(!TL.drag) return;
+  var W=tlW(), t0=tlT0(), sp=tlSpan(), x=tlX(e);
+  if(TL.drag.seek){ pv.currentTime=Math.max(0,Math.min(tlDur(),t0+x/W*sp)); return; }
+  var t=tlSet(TL.drag.h, t0+(x-TL.drag.off)/W*sp);
+  pv.currentTime=Math.max(0,Math.min(tlDur(),t));
+});
+addEventListener('pointerup',function(e){ delete TL.pinch[e.pointerId]; if(Object.keys(TL.pinch).length<2) TL.pbase=null; TL.drag=null; });
+addEventListener('pointercancel',function(e){ delete TL.pinch[e.pointerId]; TL.pbase=null; TL.drag=null; });
+$('tlin').onclick=function(){ var c=pv.currentTime, sp=Math.max(4,tlSpan()/2); TL.span=sp; TL.t0=c-sp/2; };
+$('tlout').onclick=function(){ var c=pv.currentTime, sp=Math.min(tlDur(),tlSpan()*2); TL.span=sp; TL.t0=c-sp/2; };
+$('stagewrap').addEventListener('click',function(){ $('play').click(); });
+
 $('setstart').onclick=function(){
   var t=f2(pv.currentTime);
   if(cfg.end && t>=cfg.end){ $('end').value=f2(Math.min(pv.duration||t+45, t+45)); }
@@ -1210,6 +1352,7 @@ setInterval(function(){
   var span=Math.max(0.1,cfg.end-cfg.start);
   $('bar').style.transform='scaleX('+Math.max(0,Math.min(1,(t-cfg.start)/span))+')';
   paintRows();
+  tlFollow(); drawTl();
 },80);
 
 /* ---------- 区間内の字幕編集（full-cues.json を直接いじる） ---------- */
