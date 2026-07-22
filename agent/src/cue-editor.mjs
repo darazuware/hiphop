@@ -351,7 +351,7 @@ kbd{background:#232935;border:1px solid #39414f;border-radius:4px;padding:1px 5p
   <div class="row hint" style="margin-top:6px">
     <span><kbd>Space</kbd> 再生/停止</span><span><kbd>S</kbd> タップ同期（選択行のstart=現在位置→次行へ）</span>
     <span><kbd>↑↓</kbd> 行選択</span><span><kbd>←→</kbd> ±0.05s（Shiftで±0.2s）</span><span><kbd>Enter</kbd> 行頭から再生</span>
-    <span><kbd>⌘Z</kbd> 元に戻す</span><span>波形: 旗をドラッグで微調整 / 空きを左右ドラッグで頭出し / ピンチで拡大</span>
+    <span><kbd>⌘Z</kbd> 元に戻す</span><span>波形: 選択中の行が見えていればどこをドラッグしてもその行が動く（旗も直接掴める）/ 選択行が見えない場所は左右ドラッグで頭出し・ピンチで拡大</span>
     <label style="margin-left:auto"><input type="checkbox" id="chain" checked style="width:auto"> endを次のstartに自動追従</label>
   </div>
   <div id="log"></div>
@@ -494,8 +494,9 @@ function buildOvr(){
 }
 function drawOvr(){
   const cv = $('wovr'); const [W,H] = fitCanvas(cv);
+  if (!W || !H) return;
   const g = cv.getContext('2d'); g.setTransform(dpr,0,0,dpr,0,0);
-  if (ovrCv) g.drawImage(ovrCv,0,0,W,H); else { g.fillStyle='#0e1219'; g.fillRect(0,0,W,H); }
+  if (ovrCv && ovrCv.width && ovrCv.height) g.drawImage(ovrCv,0,0,W,H); else { g.fillStyle='#0e1219'; g.fillRect(0,0,W,H); }
   if (!dur) return;
   const t = au.currentTime;
   const wx0 = Math.max(0,(t-ZW/2)/dur*W), wx1 = Math.min(W,(t+ZW/2)/dur*W);
@@ -546,6 +547,10 @@ $('wovr').addEventListener('pointerdown', e=>{ ovrDrag = true; $('wovr').setPoin
 $('wovr').addEventListener('pointermove', e=>{ if(ovrDrag) ovrSeek(e); });
 addEventListener('pointerup', ()=>{ ovrDrag = false; });
 
+function selectCue(i, opts){
+  sel = i; paint(); zoomDirty = true;
+  if (cues[i] && !(opts && opts.keepTime)) au.currentTime = cues[i].start;
+}
 let drag = null;
 const pinch = new Map();
 let pinchBase = null;
@@ -568,7 +573,12 @@ $('wzoom').addEventListener('pointerdown', e=>{
   }
   cv.setPointerCapture(e.pointerId);
   if (best>=0){ drag = { i:best, t0, W, moved:false }; sel = best; paint(); if(navigator.vibrate) navigator.vibrate(8); }
-  else drag = { seek:true, t0, W, x0:x, lastX:x, moved:false };
+  else {
+    // 旗を外した位置。選択中の行がこの表示範囲にあれば「掴んでぐりぐり動かす」対象にする。
+    // 動かさず離せば従来通りタップでシーク（judgeはpointermoveで初移動時に決定）。
+    const selVisible = sel>=0 && cues[sel] && cues[sel].start>=t0-0.05 && cues[sel].start<=t0+ZW+0.05;
+    drag = { ambiguous:true, selMode:selVisible, i:sel, t0, W, x0:x, lastX:x, moved:false, histPushed:false };
+  }
 });
 $('wzoom').addEventListener('pointermove', e=>{
   const r = $('wzoom').getBoundingClientRect();
@@ -581,11 +591,19 @@ $('wzoom').addEventListener('pointermove', e=>{
     zoomDirty = true; return;
   }
   if (!drag) return;
-  if (drag.seek){
-    // フィルムを指で送る感覚: 左へドラッグ＝時間が進む
-    if (Math.abs(x-drag.x0) > 3) drag.moved = true;
-    au.currentTime = Math.max(0, Math.min(dur||1e9, au.currentTime - (x-drag.lastX)/drag.W*ZW));
-    drag.lastX = x; zoomDirty = true; return;
+  if (drag.ambiguous){
+    if (!drag.moved && Math.abs(x-drag.x0) > 3) drag.moved = true;
+    if (drag.moved){
+      if (drag.selMode){
+        if (!drag.histPushed){ pushHist('drag'+drag.i); drag.histPushed = true; }
+        setStart(drag.i, Math.max(0, drag.t0 + x/drag.W*ZW));
+      } else {
+        // フィルムを指で送る感覚: 左へドラッグ＝時間が進む
+        au.currentTime = Math.max(0, Math.min(dur||1e9, au.currentTime - (x-drag.lastX)/drag.W*ZW));
+      }
+      zoomDirty = true;
+    }
+    drag.lastX = x; return;
   }
   if (!drag.moved){ pushHist('drag'+drag.i); drag.moved = true; }
   setStart(drag.i, Math.max(0, drag.t0 + x/drag.W*ZW));
@@ -594,7 +612,7 @@ $('wzoom').addEventListener('pointermove', e=>{
 addEventListener('pointerup', e=>{
   pinch.delete(e.pointerId);
   if (pinch.size < 2) pinchBase = null;
-  if (drag && drag.seek && !drag.moved){
+  if (drag && drag.ambiguous && !drag.moved){
     au.currentTime = Math.max(0, drag.t0 + drag.x0/drag.W*ZW); zoomDirty = true;
   }
   drag = null;
@@ -623,7 +641,7 @@ function draw(){
     tb.appendChild(tr);
     tr.querySelector('[data-k=eng]').value = c.eng;
     tr.querySelector('[data-k=jpn]').value = c.jpn;
-    tr.addEventListener('mousedown', ()=>{ sel=i; paint(); zoomDirty=true; });
+    tr.addEventListener('mousedown', ()=>{ selectCue(i); });
   });
   paint();
 }
@@ -789,7 +807,7 @@ $('lintBtn').onclick=()=>{
       const lb={err:'重大',wrn:'注意',inf:'情報'}[it.lv];
       d.innerHTML='<span class="b '+it.lv+'">'+lb+'</span><span style="color:#9fb0c8">行'+(it.i+1)+'</span><span></span>';
       d.lastElementChild.textContent=it.msg;
-      d.onclick=()=>{ sel=it.i; $('lintM').classList.remove('on'); paint(); zoomDirty=true;
+      d.onclick=()=>{ selectCue(it.i); $('lintM').classList.remove('on');
         const tr=$('r'+it.i); if(tr) tr.scrollIntoView({block:'center'}); };
       list.appendChild(d);
     });
@@ -904,8 +922,8 @@ addEventListener('keydown', e=>{
   if(typing) return;
   if(e.code==='Space'){ e.preventDefault(); au.paused?au.play():au.pause(); }
   else if(e.key==='s'||e.key==='S'){ e.preventDefault(); tapSync(); }
-  else if(e.key==='ArrowDown'){ e.preventDefault(); sel=Math.min(cues.length-1,sel+1); paint(); zoomDirty=true; }
-  else if(e.key==='ArrowUp'){ e.preventDefault(); sel=Math.max(0,sel-1); paint(); zoomDirty=true; }
+  else if(e.key==='ArrowDown'){ e.preventDefault(); selectCue(Math.min(cues.length-1,sel+1)); }
+  else if(e.key==='ArrowUp'){ e.preventDefault(); selectCue(Math.max(0,sel-1)); }
   else if(e.key==='ArrowRight'){ e.preventDefault(); pushHist('nud'+sel); setStart(sel, cues[sel].start+(e.shiftKey?0.2:0.05)); }
   else if(e.key==='ArrowLeft'){ e.preventDefault(); pushHist('nud'+sel); setStart(sel, cues[sel].start-(e.shiftKey?0.2:0.05)); }
   else if(e.key==='Enter'){ e.preventDefault(); au.currentTime=Math.max(0,cues[sel].start-0.4); au.play(); zoomDirty=true; }
