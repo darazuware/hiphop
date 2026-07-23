@@ -225,6 +225,7 @@ button:disabled{opacity:.4;cursor:default}
 select,input.flt{background:#171b23;border:1px solid #2a3140;color:#e8e8ea;border-radius:8px;padding:6px 8px;font:inherit}
 input.flt{width:150px}
 a.home{color:#8fa3bd;text-decoration:none;font-size:13px}
+#ver{font-size:10px;color:#7a8aa0;padding:2px 6px;border:1px solid #2a3140;border-radius:6px;font-variant-numeric:tabular-nums;white-space:nowrap}
 #wovr{display:block;width:100%;height:44px;border-radius:8px;margin-top:8px;cursor:pointer;background:#0e1219;touch-action:none}
 #wzwrap{position:relative;margin-top:6px}
 #wzoom{display:block;width:100%;height:96px;border-radius:8px;background:#0e1219;touch-action:none;cursor:crosshair}
@@ -323,6 +324,7 @@ kbd{background:#232935;border:1px solid #39414f;border-radius:4px;padding:1px 5p
 <header>
   <div class="row" id="topbar">
     <a class="home" href="../../">◀<span class="lbl"> 曲一覧</span></a>
+    <span id="ver" title="コードのバージョン">ver.260724-1</span>
     <button class="p" id="play">▶ 再生</button>
     <span id="t">0.00s</span>
     <button id="undo" title="元に戻す (⌘Z)">↩</button><button id="redo" title="やり直す (⌘⇧Z)">↪</button>
@@ -691,7 +693,10 @@ $('tb').addEventListener('input', e=>{
 $('tb').addEventListener('click', e=>{
   const b=e.target.closest('button[data-act]'); if(!b) return;
   const i=+b.dataset.i, a=b.dataset.act;
-  if(a==='play'){ sel=i; au.currentTime=Math.max(0,cues[i].start-0.4); au.play(); zoomDirty=true; }
+  if(a==='play'){
+    if(!au.paused && sel===i){ au.pause(); }                                   // 再生中の行を再タップ→一時停止
+    else { sel=i; au.currentTime=Math.max(0,cues[i].start-0.4); au.play(); zoomDirty=true; }
+  }
   if(a==='here'){ pushHist(); setStart(i, au.currentTime); }
   if(a==='merge' && i<cues.length-1){
     pushHist();
@@ -915,8 +920,11 @@ function paint(){
   $('t').textContent=t.toFixed(2)+'s';
   let cur=-1;
   cues.forEach((c,i)=>{ if(t>=c.start && t<c.end) cur=i; });
+  const playingRow = au.paused ? -1 : sel;
   cues.forEach((c,i)=>{ const tr=$('r'+i); if(!tr)return;
-    tr.className=(i===cur?'on ':'')+(i===sel?'sel':''); });
+    tr.className=(i===cur?'on ':'')+(i===sel?'sel':'');
+    const pb=tr.querySelector('[data-act=play]');
+    if(pb){ const ic=(i===playingRow)?'⏸':'▶'; if(pb.textContent!==ic) pb.textContent=ic; } });
   // 再生中の無字幕区間は動画と同じく空白にする（停止中のみ選択行を出して編集の目印に）
   const c = cur>=0 ? cues[cur] : (au.paused ? (cues[sel]||{eng:'',jpn:''}) : {eng:'',jpn:''});
   $('pv-en').textContent=c.eng;
@@ -1013,6 +1021,7 @@ const reelHtml = (slug) => `<!doctype html><html lang="ja"><head><meta charset="
 body{margin:0;background:#0d0f13;color:#e8e8ea;font:14px/1.6 -apple-system,"Hiragino Sans",sans-serif;padding:14px 14px 40px}
 .wrap{max-width:1000px;margin:0 auto;display:flex;gap:22px;align-items:flex-start;flex-wrap:wrap}
 a.home{color:#8fa3bd;text-decoration:none;font-size:13px}
+#ver{font-size:10px;color:#7a8aa0;padding:2px 6px;border:1px solid #2a3140;border-radius:6px;font-variant-numeric:tabular-nums;white-space:nowrap}
 h1{font-size:17px;margin:6px 0 14px}
 .col{flex:1;min-width:300px}
 .card{background:#141922;border:1px solid #232a36;border-radius:14px;padding:16px;margin-bottom:14px}
