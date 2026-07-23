@@ -264,6 +264,8 @@ kbd{background:#232935;border:1px solid #39414f;border-radius:4px;padding:1px 5p
 .cut:hover::after{background:#8fa3bd}
 .cut.on::after{background:#b9ff2e;width:4px}
 .cut.ng::after{background:#3a2b2b}
+.cut.gap::after{background:#e6a54d;width:3px;box-shadow:0 0 6px rgba(230,165,77,.7)}
+.cut.gap.on::after{background:#b9ff2e}
 .pv{background:#000;border-radius:10px;padding:12px;margin-bottom:6px}
 .pv .l{display:flex;gap:10px;align-items:baseline;padding:5px 0;border-bottom:1px solid #1c222c}
 .pv .l:last-child{border:0}
@@ -372,6 +374,7 @@ kbd{background:#232935;border:1px solid #39414f;border-radius:4px;padding:1px 5p
   <div class="chips jp" id="m-jp"></div>
   <div class="pv" id="m-pv"></div>
   <div class="row" style="margin-top:12px">
+    <button id="m-autogap" title="実際の発声の「間」で切る">◇ 間で分割</button>
     <button id="m-auto2">おまかせ2分割</button>
     <button id="m-auto3">おまかせ3分割</button>
     <button id="m-clear">解除</button>
@@ -450,6 +453,33 @@ fetch('cues.json').then(r=>r.json()).then(c=>{
   } catch(e){}
   draw(); stats(); updUndoBtns(); zoomDirty = true;
 });
+
+/* ---------- フォースドアライメント単語秒（gap分割の土台） ---------- */
+let FAW = null;           // 全単語を平坦化した [{w,s,e}]（絶対秒）
+const GAP_TH = 0.30;      // これ以上の語間無音を「間」とみなす
+fetch('fa-words.json').then(r=>r.json()).then(w=>{
+  if(!w) return;
+  FAW = [];
+  for(const line of w) for(const x of (line||[])) FAW.push(x);
+  log('単語アライメント読込（' + FAW.length + '語）: 分割は実発声タイミングで切れます');
+}).catch(()=>{});
+const normW = (s) => (s||'').toLowerCase().replace(/[^a-z0-9']/g,'').replace(/'/g,'');
+// cueの語列に一致するFAWの連続区間を、開始秒が c.start に最も近い箇所で返す（反復歌詞にも強い）
+function cueWordTimes(c){
+  if(!FAW) return null;
+  const want = (c.eng||'').toLowerCase().replace(/[^a-z0-9' ]/g,' ').split(/\\s+/).map(normW).filter(Boolean);
+  if(!want.length) return null;
+  const F = FAW, n = want.length;
+  let best=-1, bestD=1e9;
+  for(let i=0;i+n<=F.length;i++){
+    let ok=true;
+    for(let k=0;k<n;k++){ if(normW(F[i+k].w)!==want[k]){ ok=false; break; } }
+    if(ok){ const d=Math.abs(F[i].s-c.start); if(d<bestD){bestD=d;best=i;} }
+  }
+  if(best<0) return null;
+  return F.slice(best,best+n).map(x=>({s:x.s,e:x.e}));
+}
+
 function stats(){
   if(!cues.length) return;
   const d = cues.map(x=>x.end-x.start).sort((a,b)=>a-b);
@@ -688,16 +718,21 @@ function safeJp(s,b){
   return true;
 }
 let M={i:-1, ew:[], jc:[], ecuts:new Set(), jcuts:new Set()};
+const FUNC_W = new Set("a an the and or but of for to in on at with my your his her its it is i'm i'ma so no now yo".split(' '));
 function openSplit(i){
   const c=cues[i];
-  M={i, ew:c.eng.split(/\\s+/).filter(Boolean), jc:[...c.jpn], ecuts:new Set(), jcuts:new Set()};
+  const ew=c.eng.split(/\\s+/).filter(Boolean);
+  const wt=cueWordTimes(c);
+  M={i, ew, jc:[...c.jpn], ecuts:new Set(), jcuts:new Set(), wt:(wt&&wt.length===ew.length)?wt:null};
   renderSplit(); $('mask').classList.add('on');
 }
 function renderSplit(){
   const en=$('m-en'), jp=$('m-jp');
   en.innerHTML=''; jp.innerHTML='';
   M.ew.forEach((w,k)=>{
-    if(k>0){ const d=document.createElement('div'); d.className='cut ok'+(M.ecuts.has(k)?' on':''); d.dataset.e=k; en.appendChild(d); }
+    if(k>0){ const big = M.wt && (M.wt[k].s - M.wt[k-1].e) > GAP_TH;
+      const d=document.createElement('div'); d.className='cut ok'+(big?' gap':'')+(M.ecuts.has(k)?' on':''); d.dataset.e=k;
+      if(big) d.title=Math.round((M.wt[k].s-M.wt[k-1].e)*1000)+'msの間'; en.appendChild(d); }
     const s=document.createElement('div'); s.className='chip'; s.textContent=w; en.appendChild(s);
   });
   const js=M.jc.join('');
@@ -723,14 +758,24 @@ function buildParts(){
     eng.push(eb[k]!==undefined&&eb[k+1]!==undefined?M.ew.slice(eb[k],eb[k+1]).join(' '):'');
     jpn.push(jb[k]!==undefined&&jb[k+1]!==undefined?M.jc.slice(jb[k],jb[k+1]).join(''):'');
   }
-  const tot=eng.reduce((a,x)=>a+x.length,0)||1;
-  const span=Math.max(0.8,c.end-c.start);
-  const out=[]; let acc=0;
-  for(let k=0;k<K;k++){
-    const st=c.start+span*acc/tot; acc+=eng[k].length;
-    out.push({eng:eng[k],jpn:jpn[k],start:f2(st),end:f2(c.start+span*acc/tot)});
+  const out=[];
+  if(M.wt){
+    // 実単語秒でboundary時刻を決める（孤立先頭語は次語へ寄せる）
+    for(let k=0;k<K;k++){
+      let head=eb[k]??0; const stop=(eb[k+1]??M.ew.length)-1;
+      while(head<stop && M.wt[head+1] && (M.wt[head+1].s-M.wt[head].e)>GAP_TH) head++;
+      const st = k===0 ? c.start : f2(M.wt[head] ? M.wt[head].s : c.start);
+      out.push({eng:eng[k],jpn:jpn[k],start:st,end:0});
+    }
+    for(let k=0;k<out.length-1;k++) out[k].end=out[k+1].start;
+    out[out.length-1].end=f2(c.end);
+    for(let k=1;k<out.length;k++) if(out[k].start<=out[k-1].start) out[k].start=f2(out[k-1].start+0.2);
+  } else {
+    const tot=eng.reduce((a,x)=>a+x.length,0)||1;
+    const span=Math.max(0.8,c.end-c.start); let acc=0;
+    for(let k=0;k<K;k++){ const st=c.start+span*acc/tot; acc+=eng[k].length; out.push({eng:eng[k],jpn:jpn[k],start:f2(st),end:f2(c.start+span*acc/tot)}); }
+    if(out.length) out[out.length-1].end=f2(c.end);
   }
-  if(out.length) out[out.length-1].end=f2(c.end);
   return out;
 }
 function autoSplit(K){
@@ -753,6 +798,17 @@ $('m-en').addEventListener('click',e=>{ const d=e.target.closest('.cut'); if(!d)
   const k=+d.dataset.e; M.ecuts.has(k)?M.ecuts.delete(k):M.ecuts.add(k); renderSplit(); });
 $('m-jp').addEventListener('click',e=>{ const d=e.target.closest('.cut'); if(!d)return;
   const k=+d.dataset.j; M.jcuts.has(k)?M.jcuts.delete(k):M.jcuts.add(k); renderSplit(); });
+$('m-autogap').onclick=()=>{
+  if(!M.wt){ log('この行は単語アライメント未取得（間で分割は使えません）'); return; }
+  const cut=new Set();
+  for(let k=1;k<M.ew.length;k++) if(M.wt[k].s-M.wt[k-1].e>GAP_TH) cut.add(k);
+  for(const k of [...cut]) if(FUNC_W.has((M.ew[k-1]||'').toLowerCase().replace(/[^a-z']/g,'')) && k>1){ cut.delete(k); cut.add(k-1); }
+  M.ecuts=cut;
+  // 日本語も語数ぶんの位置へ概ね割る（安全境界へスナップ）
+  M.jcuts=new Set(); const js=M.jc.join('');
+  if(M.jc.length){ const K=cut.size+1; for(let n=1;n<K;n++){ const ideal=Math.round(M.jc.length*n/K); for(let d=0;d<=Math.max(4,Math.round(M.jc.length*0.3));d++){ let hit=null; for(const q of (d===0?[ideal]:[ideal-d,ideal+d])) if(q>0&&q<M.jc.length&&safeJp(js,q)&&!M.jcuts.has(q)){hit=q;break;} if(hit!=null){M.jcuts.add(hit);break;} } } }
+  renderSplit();
+};
 $('m-auto2').onclick=()=>autoSplit(2);
 $('m-auto3').onclick=()=>autoSplit(3);
 $('m-clear').onclick=()=>{ M.ecuts=new Set(); M.jcuts=new Set(); renderSplit(); };
@@ -1022,6 +1078,8 @@ button:disabled{opacity:.45;cursor:default}
 .cut.ok::after{background:#4d6b8f}
 .cut.on::after{background:#b9ff2e;width:4px}
 .cut.ng::after{background:#3a2b2b}
+.cut.gap::after{background:#e6a54d;width:3px;box-shadow:0 0 6px rgba(230,165,77,.7)}
+.cut.gap.on::after{background:#b9ff2e}
 .modalmask{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:30;display:none;align-items:center;justify-content:center;padding:14px}
 .modalmask.on{display:flex}
 .modalbox{background:#151a22;border:1px solid #2f3846;border-radius:14px;padding:16px;max-width:860px;width:100%;max-height:92vh;overflow:auto}
@@ -1845,12 +1903,22 @@ const server = http.createServer((req, res) => {
     if (sub === "cues.json" && req.method === "GET") {
       res.writeHead(200, { "content-type": "application/json" }); return res.end(fs.readFileSync(cuesPathOf(slug)));
     }
+    if (sub === "fa-words.json" && req.method === "GET") {
+      const p = path.join(assetsOf(slug), "fa_words.json");
+      res.writeHead(200, { "content-type": "application/json" });
+      return res.end(fs.existsSync(p) ? fs.readFileSync(p) : "null");
+    }
     if (sub === "cues.json" && req.method === "POST") {
       let body = ""; req.on("data", d => body += d);
       req.on("end", () => {
         try {
-          const cues = JSON.parse(body).map(c => ({ eng: c.eng, jpn: c.jpn, start: Math.round(c.start * 100) / 100, end: Math.round(c.end * 100) / 100 }))
-            .filter(c => (c.eng || c.jpn)).sort((a, b) => a.start - b.start);
+          const cues = JSON.parse(body).map(c => {
+            const o = { eng: c.eng, jpn: c.jpn, start: Math.round(c.start * 100) / 100, end: Math.round(c.end * 100) / 100 };
+            if (c.color) o.color = c.color;                       // EN文字色（パンチライン等）
+            if (c.jpColor) o.jpColor = c.jpColor;                 // JP文字色
+            if (typeof c.scale === "number" && c.scale !== 1) o.scale = c.scale; // 拡大倍率
+            return o;
+          }).filter(c => (c.eng || c.jpn)).sort((a, b) => a.start - b.start);
           for (const c of cues) if (c.end < c.start + 0.4) c.end = Math.round((c.start + 0.4) * 100) / 100;
           backupToHistory(slug);
           fs.copyFileSync(cuesPathOf(slug), path.join(assetsOf(slug), "full-cues.bak.json"));
