@@ -90,8 +90,15 @@ const payload = cues.map((c, i) => {
   const entry = { e: c.eng, j: c.jpn, s: c.start, d: c.end };
   const segs = buildSegments(c, faWords && faWords[i]);
   if (segs && segs.length > 1) entry.segs = segs;
+  if (typeof c.scale === "number" && c.scale !== 1) entry.sc = c.scale;   // 強調したい行の文字サイズ倍率
+  if (c.color) entry.co = c.color;
+  if (c.jpColor) entry.jco = c.jpColor;
   return entry;
 });
+
+// 日本語の出るタイミング。after-en＝英語が全部出てから（先に訳が見えるネタバレを防ぐ）
+const jpTiming = getArg("jp-timing", "after-en");
+const JP_DELAY = parseFloat(getArg("jp-delay", "0.16"));
 
 const html = `<!doctype html>
 <html lang="en">
@@ -174,6 +181,15 @@ const html = `<!doctype html>
       window.__timelines = window.__timelines || {};
       const DUR = ${DUR};
       const CUES = ${JSON.stringify(payload)};
+      const JP_TIMING = ${JSON.stringify(jpTiming)};
+      const JP_DELAY = ${JP_DELAY};
+      // 改行(\\n)は <br> にする。テキストはtextContent経由なのでHTMLは混入しない
+      function putText(host, s){
+        String(s == null ? "" : s).split("\\n").forEach((part, k) => {
+          if (k) host.appendChild(document.createElement("br"));
+          host.appendChild(document.createTextNode(part));
+        });
+      }
       const stage = document.getElementById("stage");
       const ondeckEl = document.getElementById("ondeck");
       const ondeckEn = ondeckEl.querySelector(".en");
@@ -186,14 +202,19 @@ const html = `<!doctype html>
         const en = document.createElement("div"); en.className = "en";
         if (c.segs && c.segs.length > 1) {
           c.segs.forEach((seg, si) => {
-            const sp = document.createElement("span"); sp.className = "seg"; sp.textContent = seg.text;
+            const sp = document.createElement("span"); sp.className = "seg";
+            putText(sp, seg.text);
             en.appendChild(sp);
             if (si < c.segs.length - 1) en.appendChild(document.createTextNode(" "));
           });
         } else {
-          en.textContent = c.e;
+          putText(en, c.e);
         }
-        const jp = document.createElement("div"); jp.className = "jp"; jp.textContent = c.j;
+        const jp = document.createElement("div"); jp.className = "jp";
+        putText(jp, c.j);
+        if (c.sc) { en.style.fontSize = (76 * c.sc) + "px"; jp.style.fontSize = (44 * c.sc) + "px"; }
+        if (c.co) en.style.color = c.co;
+        if (c.jco) jp.style.color = c.jco;
         el.appendChild(en); el.appendChild(jp);
         stage.appendChild(el);
         return el;
@@ -222,13 +243,12 @@ const html = `<!doctype html>
         const outT = Math.max(inT + 0.5, c.d);
         tl.fromTo(el, { opacity: 0, y: 42 }, { opacity: 1, y: 0, duration: 0.42, ease: "power3.out" }, inT);
         tl.to(el, { opacity: 0, y: -30, duration: 0.32, ease: "power2.in" }, outT - 0.16);
-        // stagger eng then jpn for a "flowing" feel
-        tl.fromTo(el.querySelector(".jp"), { opacity: 0 }, { opacity: 1, duration: 0.34, ease: "power2.out" }, inT + 0.16);
 
         // word-gap stagger: 行の後半語群を、実発声タイミングまで遅らせて表示（行は割らない）
+        const REVEAL_DUR = 0.24;
+        let lastReveal = inT;
         if (c.segs && c.segs.length > 1) {
           const segEls = el.querySelectorAll(".en .seg");
-          const REVEAL_DUR = 0.24;
           const FADE_LEAD = 0.16; // 行全体のfade-outが始まる outT からのリード
           const minRevealT = inT + 0.15;
           const maxRevealT = Math.max(minRevealT, outT - FADE_LEAD - REVEAL_DUR); // fade-outと重ならない上限
@@ -238,8 +258,15 @@ const html = `<!doctype html>
             tl.set(segEl, { opacity: 0 }, 0);
             const revealT = Math.min(Math.max(seg.revealT, minRevealT), maxRevealT);
             tl.to(segEl, { opacity: 1, duration: REVEAL_DUR, ease: "power2.out" }, revealT);
+            if (revealT > lastReveal) lastReveal = revealT;
           });
         }
+        // 日本語。英語が段階表示される行で訳を先に全部出すと落ちがバレるので、
+        // 既定(after-en)では最後の語群が出てから訳を出す。
+        const jpAt = (JP_TIMING === "after-en" && lastReveal > inT)
+          ? Math.min(lastReveal + REVEAL_DUR * 0.7, Math.max(inT, outT - 0.5))
+          : inT + JP_DELAY;
+        tl.fromTo(el.querySelector(".jp"), { opacity: 0 }, { opacity: 1, duration: 0.34, ease: "power2.out" }, jpAt);
       });
 
       window.__timelines["main"] = tl;

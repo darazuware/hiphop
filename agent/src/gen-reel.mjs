@@ -169,12 +169,19 @@ const html = `<!doctype html>
       window.__timelines = window.__timelines || {};
       const DUR = ${DUR};
       const CUES = ${JSON.stringify(payload)};
+      // 改行(\\n)は <br> として描く（textContent経由なのでHTMLは混入しない）
+      function putText(host, s){
+        String(s == null ? "" : s).split("\\n").forEach((part, k) => {
+          if (k) host.appendChild(document.createElement("br"));
+          host.appendChild(document.createTextNode(part));
+        });
+      }
       const subs = document.getElementById("subs");
       const nodes = CUES.map((c) => {
         const el = document.createElement("div");
         el.className = "line";
-        const en = document.createElement("div"); en.className = "en"; en.textContent = c.e;
-        const jp = document.createElement("div"); jp.className = "jp"; jp.textContent = c.j;
+        const en = document.createElement("div"); en.className = "en"; putText(en, c.e);
+        const jp = document.createElement("div"); jp.className = "jp"; putText(jp, c.j);
         el.appendChild(en); el.appendChild(jp);
         subs.appendChild(el);
         return el;

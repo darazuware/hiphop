@@ -239,13 +239,16 @@ table{border-collapse:collapse;width:100%}
 td{border-bottom:1px solid #1e222b;padding:4px 6px;vertical-align:middle}
 tr.on{background:#1b2230}
 tr.sel td{background:#243049}
-input{background:#171b23;border:1px solid #2a3140;color:#e8e8ea;border-radius:6px;padding:5px 7px;width:100%;font:inherit}
+input,textarea{background:#171b23;border:1px solid #2a3140;color:#e8e8ea;border-radius:6px;padding:5px 7px;width:100%;font:inherit}
+textarea{resize:none;white-space:pre;overflow-x:auto;overflow-y:hidden;line-height:1.35;display:block}
 input.num{width:82px;font-variant-numeric:tabular-nums;text-align:right}
 td.times{display:flex;gap:6px;width:190px}
-td.acts{white-space:nowrap;width:170px}
-.en input{font-weight:600}
-.jp input{color:#b9ff2e}
-.jp input:placeholder-shown{border-color:#2a3d14}
+td.acts{white-space:nowrap;width:196px}
+.en textarea{font-weight:600}
+.jp textarea{color:#b9ff2e}
+.jp textarea:placeholder-shown{border-color:#2a3d14}
+.mini.sc{font-size:12px;font-variant-numeric:tabular-nums;min-width:34px}
+.mini.sc.big{color:#b9ff2e;font-weight:700}
 .mini{background:none;border:none;color:#8fa3bd;padding:3px 5px;font-size:15px}
 .mini:hover{color:#fff;background:#2a3140}
 #log{white-space:pre-wrap;color:#8fa3bd;font-size:12px;max-height:72px;overflow:auto;margin-top:4px}
@@ -370,15 +373,19 @@ kbd{background:#232935;border:1px solid #39414f;border-radius:4px;padding:1px 5p
   <button id="mb-rate">1x</button>
 </div>
 <div id="mask" class="modalmask"><div class="modalbox">
-  <h3>行の分割</h3>
-  <div class="sub">切りたい位置の｜をタップ（もう一度タップで解除）。青い｜＝語の切れ目として安全な位置。時間は文字数で自動配分し、あとから ◎ や波形で微調整できます。</div>
+  <h3 id="m-title">行の分割</h3>
+  <div class="row" style="margin:0 0 8px">
+    <button id="m-mode-split" class="p">✂ 分割（別のキューに分ける）</button>
+    <button id="m-mode-br">⏎ 改行（同じキューの中で折り返す）</button>
+  </div>
+  <div class="sub" id="m-sub">切りたい位置の｜をタップ（もう一度タップで解除）。青い｜＝語の切れ目として安全な位置。時間は文字数で自動配分し、あとから ◎ や波形で微調整できます。</div>
   <div class="chips en" id="m-en"></div>
   <div class="chips jp" id="m-jp"></div>
   <div class="pv" id="m-pv"></div>
   <div class="row" style="margin-top:12px">
-    <button id="m-autogap" title="実際の発声の「間」で切る">◇ 間で分割</button>
-    <button id="m-auto2">おまかせ2分割</button>
-    <button id="m-auto3">おまかせ3分割</button>
+    <button id="m-autogap" title="実際の発声の「間」で切る">◇ 間で切る</button>
+    <button id="m-auto2">おまかせ2</button>
+    <button id="m-auto3">おまかせ3</button>
     <button id="m-clear">解除</button>
     <span style="flex:1"></span>
     <button id="m-cancel">やめる</button>
@@ -551,6 +558,22 @@ function drawZoom(){
       g.fillRect(x,y0,1,Math.max(1,y1-y0));
     }
   }
+  // 選択中の行だけ「開始〜終了」の帯と、終了のつまみ（下向き・オレンジ）を出す
+  if (sel>=0 && cues[sel]){
+    const sx=(cues[sel].start-t0)/ZW*W, ex=(cues[sel].end-t0)/ZW*W;
+    if (ex>0 && sx<W){
+      g.fillStyle='rgba(185,255,46,0.10)';
+      g.fillRect(Math.max(0,sx), 0, Math.min(W,ex)-Math.max(0,sx), H);
+      if (ex>=-20 && ex<=W+20){
+        const hw = COARSE ? 10 : 6, hh = COARSE ? 20 : 14;
+        g.fillStyle='#ff9b3d';
+        g.fillRect(ex-1.5, 0, 3, H-hh);
+        g.beginPath(); g.moveTo(ex-hw,H-2); g.lineTo(ex+hw,H-2); g.lineTo(ex,H-hh); g.closePath(); g.fill();
+        g.font=(COARSE?'12px':'9px')+' sans-serif'; g.textAlign='center'; g.fillStyle='#1a1004';
+        g.fillText('終', ex, H-(COARSE?5:4));
+      }
+    }
+  }
   for (let i=0;i<cues.length;i++){
     const s = cues[i].start;
     if (s<t0-0.2||s>t0+ZW+0.2) continue;
@@ -597,6 +620,17 @@ $('wzoom').addEventListener('pointerdown', e=>{
   }
   const t0 = au.currentTime - ZW/2;
   const R = e.pointerType === 'mouse' ? 14 : 26;
+  // 選択行の終了つまみを最優先で掴む（下半分にいるときだけ＝開始の旗と取り合わない）
+  if (sel>=0 && cues[sel]){
+    const ex = (cues[sel].end-t0)/ZW*W;
+    const y = e.clientY - r.top;
+    if (Math.abs(ex-x) < R && y > r.height*0.45){
+      cv.setPointerCapture(e.pointerId);
+      drag = { i:sel, t0, W, moved:false, endMode:true };
+      if(navigator.vibrate) navigator.vibrate(8);
+      return;
+    }
+  }
   let best = -1, bd = R;
   for (let i=0;i<cues.length;i++){
     const s = cues[i].start; if (s<t0||s>t0+ZW) continue;
@@ -638,7 +672,8 @@ $('wzoom').addEventListener('pointermove', e=>{
     drag.lastX = x; return;
   }
   if (!drag.moved){ pushHist('drag'+drag.i); drag.moved = true; }
-  setStart(drag.i, Math.max(0, drag.t0 + x/drag.W*ZW));
+  if (drag.endMode) setEnd(drag.i, drag.t0 + x/drag.W*ZW);
+  else setStart(drag.i, Math.max(0, drag.t0 + x/drag.W*ZW));
   zoomDirty = true;
 });
 addEventListener('pointerup', e=>{
@@ -660,24 +695,38 @@ function draw(){
     const tr = document.createElement('tr'); tr.id='r'+i;
     if (q && !((c.eng+' '+c.jpn).toLowerCase().includes(q))) tr.style.display='none';
     const warn = (typeof c.conf==='number' && c.conf<0.6);
+    const sc = (typeof c.scale==='number' && c.scale>0) ? c.scale : 1;
     tr.innerHTML = '<td style="color:'+(warn?'#ffb057':'#6b7a90')+';width:38px" title="'+(warn?('要確認 conf='+c.conf.toFixed(2)+(c.flags?' / '+c.flags.join(' '):'')):'')+'">'+(warn?'⚠':'')+(i+1)+'</td>'
       + '<td class="times"><input class="num" data-k="start" data-i="'+i+'" value="'+f2(c.start)+'">'
       + '<input class="num" data-k="end" data-i="'+i+'" value="'+f2(c.end)+'"></td>'
-      + '<td class="en"><input data-k="eng" data-i="'+i+'"></td>'
-      + '<td class="jp"><input data-k="jpn" data-i="'+i+'" placeholder="日本語訳…"></td>'
+      + '<td class="en"><textarea wrap="off" rows="1" data-k="eng" data-i="'+i+'"></textarea></td>'
+      + '<td class="jp"><textarea wrap="off" rows="1" data-k="jpn" data-i="'+i+'" placeholder="日本語訳…"></textarea></td>'
       + '<td class="acts">'
       + '<button class="mini" data-act="play" data-i="'+i+'" title="この行から再生">▶</button>'
       + '<button class="mini" data-act="here" data-i="'+i+'" title="現在位置をstartに">◎</button>'
-      + '<button class="mini" data-act="split" data-i="'+i+'" title="この行を分割">✂</button>'
+      + '<button class="mini sc'+(sc!==1?' big':'')+'" data-act="scale" data-i="'+i+'" title="文字サイズ（クリックで拡大→一周で等倍・⇧クリックで縮小）">'+sc.toFixed(2).replace(/0$/,'')+'x</button>'
+      + '<button class="mini" data-act="split" data-i="'+i+'" title="この行を分割／改行">✂</button>'
       + '<button class="mini" data-act="merge" data-i="'+i+'" title="次の行と結合">⤵</button>'
       + '<button class="mini" data-act="del" data-i="'+i+'" title="行を削除">✕</button></td>';
     tb.appendChild(tr);
-    tr.querySelector('[data-k=eng]').value = c.eng;
-    tr.querySelector('[data-k=jpn]').value = c.jpn;
-    tr.addEventListener('mousedown', ()=>{ selectCue(i); });
+    const ta = tr.querySelector('[data-k=eng]'), tj = tr.querySelector('[data-k=jpn]');
+    ta.value = c.eng; tj.value = c.jpn;
+    autoGrow(ta); autoGrow(tj);
+    tr.addEventListener('mousedown', e=>{ if(e.target.tagName!=='TEXTAREA') selectCue(i); });
   });
   paint();
 }
+// 改行の数だけ行を増やす（scrollHeight計測はテーブル内で暴発するので使わない）
+function autoGrow(el){ if(!el) return; el.rows = Math.min(6, (el.value.match(/\\n/g)||[]).length + 1); }
+// 改行を <br> として描く（textContent経由なのでHTMLは混入しない）
+function putTx(host, s){
+  host.innerHTML='';
+  String(s==null?'':s).split('\\n').forEach((part,k)=>{
+    if(k) host.appendChild(document.createElement('br'));
+    host.appendChild(document.createTextNode(part));
+  });
+}
+const SCALES = [1, 1.15, 1.3, 1.5, 1.8];
 $('flt').addEventListener('input', ()=>draw());
 let preEdit = null;
 $('tb').addEventListener('focusin', e=>{ if(e.target.dataset && e.target.dataset.k) preEdit = snap(); });
@@ -689,6 +738,7 @@ $('tb').addEventListener('change', e=>{
 $('tb').addEventListener('input', e=>{
   const i=+e.target.dataset.i, k=e.target.dataset.k; if(k===undefined) return;
   cues[i][k] = (k==='start'||k==='end') ? parseFloat(e.target.value)||0 : e.target.value;
+  if(e.target.tagName==='TEXTAREA') autoGrow(e.target);
   delete cues[i].conf; delete cues[i].flags;   // 人が触った行＝確認済み。⚠を落とす
   markDirty(); zoomDirty = true;
 });
@@ -708,6 +758,18 @@ $('tb').addEventListener('click', e=>{
   }
   if(a==='del'){ pushHist(); cues.splice(i,1); markDirty(); draw(); zoomDirty=true; }
   if(a==='split'){ openSplit(i); }
+  if(a==='scale'){
+    pushHist();
+    const cur = (typeof cues[i].scale==='number' && cues[i].scale>0) ? cues[i].scale : 1;
+    let k = SCALES.findIndex(v=>Math.abs(v-cur)<0.001);
+    if(k<0) k = 0;
+    k = e.shiftKey ? (k-1+SCALES.length)%SCALES.length : (k+1)%SCALES.length;
+    if(SCALES[k]===1) delete cues[i].scale; else cues[i].scale = SCALES[k];
+    // 全描画すると入力欄のフォーカスとスクロールが飛ぶので、このボタンだけ更新する
+    b.textContent = SCALES[k].toFixed(2).replace(/0$/,'')+'x';
+    b.className = 'mini sc'+(SCALES[k]!==1?' big':'');
+    markDirty(); paint();
+  }
 });
 
 /* ---------- 行の分割 ---------- */
@@ -728,11 +790,34 @@ let M={i:-1, ew:[], jc:[], ecuts:new Set(), jcuts:new Set()};
 const FUNC_W = new Set("a an the and or but of for to in on at with my your his her its it is i'm i'ma so no now yo".split(' '));
 function openSplit(i){
   const c=cues[i];
-  const ew=c.eng.split(/\\s+/).filter(Boolean);
+  // 既に入っている改行は「区切り位置の選択状態」として復元する（BRマーカーで一旦持ち上げる）
+  const BR='\\u0001';
+  const etok=c.eng.replace(/\\n/g,' '+BR+' ').split(/[ \\t]+/).filter(Boolean);
+  const ew=etok.filter(w=>w!==BR);
+  const jcAll=[...c.jpn];
+  const jc=jcAll.filter(ch=>ch!=='\\n');
   const wt=cueWordTimes(c);
-  M={i, ew, jc:[...c.jpn], ecuts:new Set(), jcuts:new Set(), wt:(wt&&wt.length===ew.length)?wt:null};
-  renderSplit(); $('mask').classList.add('on');
+  const hasBr=(c.eng+c.jpn).indexOf('\\n')>=0;
+  M={i, ew, jc, ecuts:new Set(), jcuts:new Set(), wt:(wt&&wt.length===ew.length)?wt:null, mode:hasBr?'br':'split'};
+  if(hasBr){
+    let k=0; for(const w of etok){ if(w===BR){ if(k>0&&k<ew.length) M.ecuts.add(k); } else k++; }
+    let j=0; for(const ch of jcAll){ if(ch==='\\n'){ if(j>0&&j<jc.length) M.jcuts.add(j); } else j++; }
+  }
+  setMode(M.mode); $('mask').classList.add('on');
 }
+function setMode(m){
+  M.mode=m;
+  $('m-mode-split').className = m==='split'?'p':'';
+  $('m-mode-br').className = m==='br'?'p':'';
+  $('m-title').textContent = m==='br'?'行の改行':'行の分割';
+  $('m-ok').textContent = m==='br'?'改行する':'分割する';
+  $('m-sub').textContent = m==='br'
+    ? '折り返したい位置の｜をタップ。キューは1つのまま、表示だけ2行以上に分かれます（時間は変わりません）。解除ですべての改行を消せます。'
+    : '切りたい位置の｜をタップ（もう一度タップで解除）。青い｜＝語の切れ目として安全な位置。時間は文字数で自動配分し、あとから ◎ や波形で微調整できます。';
+  renderSplit();
+}
+$('m-mode-split').onclick=()=>setMode('split');
+$('m-mode-br').onclick=()=>setMode('br');
 function renderSplit(){
   const en=$('m-en'), jp=$('m-jp');
   en.innerHTML=''; jp.innerHTML='';
@@ -749,11 +834,27 @@ function renderSplit(){
     const s=document.createElement('div'); s.className='chip'; s.textContent=ch; jp.appendChild(s);
   });
   jp.style.display = M.jc.length ? '' : 'none';
+  if(M.mode==='br'){
+    const c=cues[M.i], b=brText();
+    $('m-pv').innerHTML='<div class="l"><div class="n">'+f2(c.start)+'s</div><div><div class="e"></div><div class="j"></div></div></div>';
+    const l=$('m-pv').querySelector('.l');
+    putTx(l.querySelector('.e'), b.eng); putTx(l.querySelector('.j'), b.jpn);
+    return;
+  }
   const parts=buildParts();
   $('m-pv').innerHTML = parts.map((p,n)=>
     '<div class="l"><div class="n">'+f2(p.start)+'s</div><div><div class="e"></div><div class="j"></div></div></div>').join('');
   const ls=document.querySelectorAll('#m-pv .l');
   parts.forEach((p,n)=>{ ls[n].querySelector('.e').textContent=p.eng; ls[n].querySelector('.j').textContent=p.jpn; });
+}
+// 選んだ位置に改行を入れた1キュー分のテキスト
+function brText(){
+  const eb=[0,...[...M.ecuts].sort((a,b)=>a-b),M.ew.length];
+  const jb=[0,...[...M.jcuts].sort((a,b)=>a-b),M.jc.length];
+  const eng=[],jpn=[];
+  for(let k=0;k<eb.length-1;k++) eng.push(M.ew.slice(eb[k],eb[k+1]).join(' '));
+  for(let k=0;k<jb.length-1;k++) jpn.push(M.jc.slice(jb[k],jb[k+1]));
+  return { eng:eng.filter(Boolean).join('\\n'), jpn:jpn.map(a=>a.join('')).filter(Boolean).join('\\n') };
 }
 function buildParts(){
   const c=cues[M.i];
@@ -821,6 +922,14 @@ $('m-auto3').onclick=()=>autoSplit(3);
 $('m-clear').onclick=()=>{ M.ecuts=new Set(); M.jcuts=new Set(); renderSplit(); };
 $('m-cancel').onclick=()=>$('mask').classList.remove('on');
 $('m-ok').onclick=()=>{
+  if(M.mode==='br'){
+    const b=brText();
+    pushHist();
+    cues[M.i].eng=b.eng; cues[M.i].jpn=b.jpn; markDirty();
+    $('mask').classList.remove('on'); draw(); zoomDirty=true;
+    log(M.ecuts.size+M.jcuts.size ? '行'+(M.i+1)+'に改行を入れました' : '行'+(M.i+1)+'の改行を外しました');
+    return;
+  }
   const parts=buildParts();
   if(parts.length<2){ alert('切る位置を1つ以上えらんでください'); return; }
   pushHist();
@@ -914,6 +1023,14 @@ function setStart(i,t){
   if(cues[i].end < cues[i].start+0.4) cues[i].end=f2(cues[i].start+0.4);
   markDirty(); syncRow(i); zoomDirty=true;
 }
+// 終了だけを動かす（次の行に食い込まない・最短0.2s）
+function setEnd(i,t){
+  const next = (i+1<cues.length) ? cues[i+1].start - 0.03 : (dur||t+1);
+  const lo = cues[i].start + 0.2;
+  // 行の並びが崩れている時（前後が逆転）は next を優先して食い込みだけは防ぐ
+  cues[i].end = f2(Math.min(Math.max(Math.min(t, next), Math.min(lo, next)), next));
+  markDirty(); syncRow(i); zoomDirty=true;
+}
 function syncRow(i){
   const tr=$('r'+i); if(!tr) return;
   tr.querySelector('[data-k=start]').value=f2(cues[i].start);
@@ -932,8 +1049,9 @@ function paint(){
     if(pb){ const ic=(i===playingRow)?'⏸':'▶'; if(pb.textContent!==ic) pb.textContent=ic; } });
   // 再生中の無字幕区間は動画と同じく空白にする（停止中のみ選択行を出して編集の目印に）
   const c = cur>=0 ? cues[cur] : (au.paused ? (cues[sel]||{eng:'',jpn:''}) : {eng:'',jpn:''});
-  $('pv-en').textContent=c.eng;
-  $('pv-jp').textContent=c.jpn;
+  putTx($('pv-en'), c.eng); putTx($('pv-jp'), c.jpn);
+  const psc = (typeof c.scale==='number' && c.scale>0) ? c.scale : 1;
+  $('pv-en').style.transform = $('pv-jp').style.transform = psc===1 ? '' : 'scale('+psc+')';
   $('preview').style.opacity = (cur<0 && au.paused && c.eng) ? 0.45 : 1;
   if($('loop').checked && !au.paused && cues[sel] && t>cues[sel].end){ au.currentTime=Math.max(0,cues[sel].start-0.15); }
   if(cur>=0 && !au.paused && document.activeElement===document.body){
@@ -985,7 +1103,7 @@ addEventListener('resize', ()=>{ buildOvr(); zoomDirty = true; });
 $('mb-back').onclick=()=>{ pushHist('nud'+sel); setStart(sel, cues[sel].start-0.05); };
 $('mb-fwd').onclick=()=>{ pushHist('nud'+sel); setStart(sel, cues[sel].start+0.05); };
 addEventListener('keydown', e=>{
-  const typing = e.target.tagName==='INPUT'||e.target.tagName==='SELECT';
+  const typing = e.target.tagName==='INPUT'||e.target.tagName==='SELECT'||e.target.tagName==='TEXTAREA';
   if(e.metaKey && !e.shiftKey && (e.key==='s')){ e.preventDefault(); save(); return; }
   if(e.metaKey && (e.key==='z'||e.key==='Z')){ e.preventDefault(); e.shiftKey?redoF():undo(); return; }
   if(typing) return;
@@ -1082,7 +1200,7 @@ button:disabled{opacity:.45;cursor:default}
 .er .hd .sp{flex:1}
 .er .mini{background:none;border:none;color:#8fa3bd;font-size:17px;padding:5px 7px;cursor:pointer;border-radius:6px}
 .er .mini:hover{color:#fff;background:#2a3140}
-.er input.tx{margin-bottom:5px;padding:8px}
+.er textarea.tx{margin-bottom:5px;padding:8px;resize:none;white-space:pre;overflow-x:auto;overflow-y:hidden;display:block}
 .er input.jp{color:#b9ff2e}
 .chips{display:flex;flex-wrap:wrap;align-items:center;background:#0e1219;border:1px solid #262d3a;border-radius:10px;padding:10px;margin-bottom:12px}
 .chip{padding:6px 3px;font-size:19px;white-space:pre}
@@ -1441,8 +1559,8 @@ setInterval(function(){
   // 区間が未設定/逆転しているときもプレビューは字幕を出す（位置合わせができなくなるため）
   var validRange=(cfg.end>cfg.start);
   var inRange=!validRange||(t>=cfg.start-0.01&&t<=cfg.end+0.01);
-  $('s-en').textContent=(cur&&inRange)?cur.eng:'';
-  $('s-jp').textContent=(cur&&inRange)?cur.jpn:'';
+  putTxR($('s-en'),(cur&&inRange)?cur.eng:'');
+  putTxR($('s-jp'),(cur&&inRange)?cur.jpn:'');
   var span=Math.max(0.1,cfg.end-cfg.start);
   $('bar').style.transform='scaleX('+Math.max(0,Math.min(1,(t-cfg.start)/span))+')';
   paintRows();
@@ -1456,6 +1574,7 @@ function inRangeIdx(){
   for(var i=0;i<cues.length;i++) if(cues[i].end>cfg.start+0.05 && cues[i].start<cfg.end-0.05) out.push(i);
   return out;
 }
+function putTxR(host,s){ host.innerHTML=''; String(s==null?'':s).split(String.fromCharCode(10)).forEach(function(p,k){ if(k) host.appendChild(document.createElement('br')); host.appendChild(document.createTextNode(p)); }); }
 function renderEditor(){
   var host=$('ed'); host.innerHTML='';
   var idx=inRangeIdx();
@@ -1474,8 +1593,11 @@ function renderEditor(){
       +'<button class="mini" data-a="split" title="分割">✂</button>'
       +'<button class="mini" data-a="merge" title="次と結合">⤵</button>'
       +'<button class="mini" data-a="del" title="削除">✕</button>';
-    var en=document.createElement('input'); en.className='tx'; en.dataset.k='eng'; en.value=c.eng;
-    var jp=document.createElement('input'); jp.className='tx jp'; jp.dataset.k='jpn'; jp.value=c.jpn; jp.placeholder='日本語訳…';
+    // input だと改行が消えるので textarea（字幕エディタで入れた改行を壊さない）
+    var mk=function(k,ph){ var t=document.createElement('textarea'); t.className='tx'+(k==='jpn'?' jp':''); t.dataset.k=k;
+      t.setAttribute('wrap','off'); t.value=cues[i][k]||''; t.rows=Math.min(4,((t.value.match(/\\n/g)||[]).length+1));
+      if(ph) t.placeholder=ph; return t; };
+    var en=mk('eng'), jp=mk('jpn','日本語訳…');
     d.appendChild(hd); d.appendChild(en); d.appendChild(jp);
     d.addEventListener('pointerdown',function(){ selCue=i; paintRows(); });
     d.addEventListener('input',function(e){
