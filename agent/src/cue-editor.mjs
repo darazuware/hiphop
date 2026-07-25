@@ -439,6 +439,8 @@ const f2 = (n) => Math.round(n*100)/100;
 const log = (s) => $('log').textContent = s;
 const snap = () => JSON.parse(JSON.stringify(cues));
 const DRAFT_KEY = 'cue-draft-${slug}';
+// サーバー側 full-cues.json の更新時刻。これより古い下書きは復元させない
+const CUES_MTIME = ${(() => { try { return Math.round(fs.statSync(cuesPathOf(slug)).mtimeMs); } catch { return 0; } })()};
 
 function pushHist(tag){
   const now = Date.now();
@@ -464,10 +466,17 @@ fetch('cues.json').then(r=>r.json()).then(c=>{
   try {
     const d = JSON.parse(localStorage.getItem(DRAFT_KEY) || 'null');
     if (d && d.cues && JSON.stringify(d.cues) !== JSON.stringify(c)) {
-      const when = new Date(d.t);
-      if (confirm('未保存の下書きがあります（' + when.getHours() + ':' + String(when.getMinutes()).padStart(2,'0') + ' 時点・' + d.cues.length + 'キュー）。復元しますか？\\n「キャンセル」でサーバーの保存済み版を開きます。')) {
-        cues = d.cues; dirty = true;
-      } else localStorage.removeItem(DRAFT_KEY);
+      // キューを作り直した後に古い下書きを復元すると、作り直しが台無しになる。
+      // サーバー側のfull-cues.jsonの方が新しければ下書きは捨てる（聞かない）。
+      if (d.t < CUES_MTIME) {
+        localStorage.removeItem(DRAFT_KEY);
+        log('この端末に残っていた古い下書きは破棄しました（サーバー側でキューが作り直されています）');
+      } else {
+        const when = new Date(d.t);
+        if (confirm('未保存の下書きがあります（' + when.getHours() + ':' + String(when.getMinutes()).padStart(2,'0') + ' 時点・' + d.cues.length + 'キュー）。復元しますか？\\n「キャンセル」でサーバーの保存済み版を開きます。')) {
+          cues = d.cues; dirty = true;
+        } else localStorage.removeItem(DRAFT_KEY);
+      }
     }
   } catch(e){}
   draw(); stats(); updUndoBtns(); zoomDirty = true;
