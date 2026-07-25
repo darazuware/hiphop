@@ -288,6 +288,10 @@ kbd{background:#232935;border:1px solid #39414f;border-radius:4px;padding:1px 5p
 .pv .l:last-child{border:0}
 .pv .n{color:#6b7a90;font-size:12px;width:56px;font-variant-numeric:tabular-nums}
 .pv .e{color:#fff;font-weight:700}.pv .j{color:#b9ff2e;font-size:13px}
+.fxrow{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:7px 0;border-bottom:1px solid #1c222c}
+.fxrow:last-of-type{border:0}
+.fxg{color:#fff;font-weight:700;flex:1;min-width:120px}
+.fxt{color:#6b7a90;font-size:12px;font-variant-numeric:tabular-nums;white-space:nowrap}
 .lintItem{display:flex;gap:10px;align-items:center;padding:8px 6px;border-bottom:1px solid #1e242f;cursor:pointer;border-radius:8px}
 .lintItem:hover{background:#1d2431}
 .lintItem .b{font-size:11px;padding:2px 8px;border-radius:99px;flex:none}
@@ -856,6 +860,8 @@ function setMode(m){
     const c=cues[M.i];
     M.ecuts=new Set(Array.isArray(c.stagger) ? c.stagger : autoStaggerCuts());
     M.fxManual = Array.isArray(c.stagger);
+    // 語インデックス→実測秒（手動固定）。無指定の位置は自動判定(FA語頭秒)のまま
+    M.staggerT = (c.staggerT && typeof c.staggerT==='object' && !Array.isArray(c.staggerT)) ? {...c.staggerT} : {};
   }
   $('m-title').textContent = m==='br'?'行の改行':m==='fx'?'間で魅せる（時間差表示）':'行の分割';
   $('m-ok').textContent = m==='br'?'改行する':m==='fx'?'この位置で確定':'分割する';
@@ -878,6 +884,7 @@ $('m-mode-fx').onclick=()=>setMode('fx');
 $('m-fx-auto').onclick=()=>{
   pushHist();
   delete cues[M.i].stagger;
+  delete cues[M.i].staggerT;
   markDirty();
   $('mask').classList.remove('on'); draw(); zoomDirty=true;
   log('行'+(M.i+1)+'の時間差表示を自動判定に戻しました');
@@ -900,8 +907,33 @@ function renderSplit(){
     const state = M.ecuts.size===0 ? '（0箇所＝この行は一括表示）'
       : Array.isArray(c.stagger) ? '（手動固定 '+M.ecuts.size+'箇所）'
       : '（自動判定と同じ '+M.ecuts.size+'箇所・未確定）';
-    $('m-pv').innerHTML = '<div class="l"><div class="n">現在の設定</div><div><div class="e"></div></div></div>';
-    putTx($('m-pv').querySelector('.e'), groups.map((g,n)=>(n+1)+'. '+g).join('\\n') + '\\n' + state);
+    const host=$('m-pv'); host.innerHTML='';
+    const head=document.createElement('div'); head.className='l';
+    head.innerHTML='<div class="n">現在の設定</div>';
+    host.appendChild(head);
+    groups.forEach((g,n)=>{
+      const wIdx=bounds[n];
+      const row=document.createElement('div'); row.className='fxrow';
+      const gEl=document.createElement('span'); gEl.className='fxg'; gEl.textContent=(n+1)+'. '+g; row.appendChild(gEl);
+      const tEl=document.createElement('span'); tEl.className='fxt';
+      if(n===0){ tEl.textContent='（行の頭と同時）'; row.appendChild(tEl); }
+      else {
+        const auto=(M.wt && M.wt[wIdx]) ? M.wt[wIdx].s : null;
+        const manual=M.staggerT[wIdx];
+        const eff=(typeof manual==='number') ? manual : auto;
+        tEl.textContent = eff==null ? '（秒不明）' : f2(eff)+'s'+(typeof manual==='number'?' ・実測':' ・自動');
+        row.appendChild(tEl);
+        const mkBtn=(fx,label,title)=>{ const b=document.createElement('button'); b.className='mini'; b.dataset.fx=fx; b.dataset.w=wIdx; b.textContent=label; if(title)b.title=title; return b; };
+        row.appendChild(mkBtn('play','▶','この位置から試聴'));
+        row.appendChild(mkBtn('here','◎','今の再生位置に固定'));
+        row.appendChild(mkBtn('m01','−0.1'));
+        row.appendChild(mkBtn('p01','＋0.1'));
+        if(typeof manual==='number') row.appendChild(mkBtn('reset','自動に戻す','この位置だけ自動判定に戻す'));
+      }
+      host.appendChild(row);
+    });
+    const note=document.createElement('div'); note.className='note'; note.textContent=state;
+    host.appendChild(note);
     return;
   }
   const js=M.jc.join('');
@@ -983,6 +1015,18 @@ $('m-en').addEventListener('click',e=>{ const d=e.target.closest('.cut'); if(!d)
   const k=+d.dataset.e; M.ecuts.has(k)?M.ecuts.delete(k):M.ecuts.add(k); renderSplit(); });
 $('m-jp').addEventListener('click',e=>{ const d=e.target.closest('.cut'); if(!d)return;
   const k=+d.dataset.j; M.jcuts.has(k)?M.jcuts.delete(k):M.jcuts.add(k); renderSplit(); });
+// fx: 遅れて出る語群の実測秒を手動固定（自動判定のFA語頭秒がズレている時用）
+$('m-pv').addEventListener('click',e=>{
+  const b=e.target.closest('button[data-fx]'); if(!b) return;
+  const w=+b.dataset.w, a=b.dataset.fx;
+  const auto=(M.wt && M.wt[w]) ? M.wt[w].s : null;
+  const cur=(typeof M.staggerT[w]==='number') ? M.staggerT[w] : auto;
+  if(a==='play'){ if(cur!=null) seekPlay(au, Math.max(0,cur-0.4)); return; }
+  if(a==='here'){ M.staggerT[w]=f2(au.currentTime); renderSplit(); return; }
+  if(a==='m01'){ M.staggerT[w]=f2((cur!=null?cur:0)-0.1); renderSplit(); return; }
+  if(a==='p01'){ M.staggerT[w]=f2((cur!=null?cur:0)+0.1); renderSplit(); return; }
+  if(a==='reset'){ delete M.staggerT[w]; renderSplit(); return; }
+});
 $('m-autogap').onclick=()=>{
   if(!M.wt){ log('この行は単語アライメント未取得（間で分割は使えません）'); return; }
   if(M.mode==='fx'){ M.ecuts=new Set(autoStaggerCuts()); renderSplit(); return; }
@@ -1002,10 +1046,14 @@ $('m-cancel').onclick=()=>$('mask').classList.remove('on');
 $('m-ok').onclick=()=>{
   if(M.mode==='fx'){
     pushHist();
-    cues[M.i].stagger=[...M.ecuts].sort((a,b)=>a-b);   // []も明示的に保存＝この行は強制で一括表示
+    const cuts=[...M.ecuts].sort((a,b)=>a-b);
+    cues[M.i].stagger=cuts;   // []も明示的に保存＝この行は強制で一括表示
+    const keepT={}; let tCount=0;
+    for(const k of cuts) if(typeof M.staggerT[k]==='number'){ keepT[k]=M.staggerT[k]; tCount++; }
+    if(tCount) cues[M.i].staggerT=keepT; else delete cues[M.i].staggerT;
     markDirty();
     $('mask').classList.remove('on'); draw(); zoomDirty=true;
-    log(M.ecuts.size ? '行'+(M.i+1)+'の時間差表示を'+M.ecuts.size+'箇所に固定しました（再生成で反映）' : '行'+(M.i+1)+'は時間差表示なし（一括表示）に固定しました（再生成で反映）');
+    log(M.ecuts.size ? '行'+(M.i+1)+'の時間差表示を'+M.ecuts.size+'箇所に固定しました'+(tCount?'（うち実測'+tCount+'箇所）':'')+'（再生成で反映）' : '行'+(M.i+1)+'は時間差表示なし（一括表示）に固定しました（再生成で反映）');
     return;
   }
   if(M.mode==='br'){
@@ -1147,7 +1195,8 @@ function staggerSegs(c){
   const bounds=[0,...cuts,words.length], segs=[];
   for(let i=0;i<bounds.length-1;i++){
     const from=bounds[i], to=bounds[i+1];
-    segs.push({ text: words.slice(from,to).join(' '), revealT: wt[from].s });
+    const ov=(c.staggerT && typeof c.staggerT[from]==='number') ? c.staggerT[from] : null;
+    segs.push({ text: words.slice(from,to).join(' '), revealT: ov!=null?ov:wt[from].s });
   }
   return segs;
 }
@@ -2219,7 +2268,14 @@ const server = http.createServer((req, res) => {
             if (c.color) o.color = c.color;                       // EN文字色（パンチライン等）
             if (c.jpColor) o.jpColor = c.jpColor;                 // JP文字色
             if (typeof c.scale === "number" && c.scale !== 1) o.scale = c.scale; // 拡大倍率
-            if (Array.isArray(c.stagger)) o.stagger = c.stagger;    // 時間差表示の手動カット位置（[]=強制オフ）
+            if (Array.isArray(c.stagger)) {
+              o.stagger = c.stagger;    // 時間差表示の手動カット位置（[]=強制オフ）
+              if (c.staggerT && typeof c.staggerT === "object" && !Array.isArray(c.staggerT)) {
+                const t = {};
+                for (const k of Object.keys(c.staggerT)) { const n = Number(c.staggerT[k]); if (Number.isFinite(n)) t[k] = Math.round(n * 100) / 100; }
+                if (Object.keys(t).length) o.staggerT = t;   // 語インデックス→実測秒（自動判定のFA語頭秒を上書き）
+              }
+            }
             return o;
           }).filter(c => (c.eng || c.jpn)).sort((a, b) => a.start - b.start);
           for (const c of cues) if (c.end < c.start + 0.4) c.end = Math.round((c.start + 0.4) * 100) / 100;

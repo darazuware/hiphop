@@ -58,12 +58,13 @@ let faWords = null;
 if (fs.existsSync(faWordsPath)) {   // 語秒は訳の後出し判定にも使うので --no-stagger でも読む
   try { faWords = JSON.parse(fs.readFileSync(faWordsPath, "utf-8")); } catch {}
 }
-function segsFromCuts(cuts, words, faw) {
+function segsFromCuts(cuts, words, faw, overrides) {
   const bounds = [0, ...cuts, words.length];
   const segs = [];
   for (let i = 0; i < bounds.length - 1; i++) {
     const from = bounds[i], to = bounds[i + 1];
-    segs.push({ text: words.slice(from, to).join(" "), revealT: faw[from].s });
+    const ov = overrides && typeof overrides[from] === "number" ? overrides[from] : null;
+    segs.push({ text: words.slice(from, to).join(" "), revealT: ov != null ? ov : faw[from].s });
   }
   return segs;
 }
@@ -83,8 +84,9 @@ function buildSegments(cue, faw) {
 
   if (Array.isArray(cue.stagger)) {
     // エディタで手動固定済み。[]なら常に一括表示（自動判定もflowも無視）
+    // staggerT: 語インデックス→実測秒（自動判定のFA語頭秒がズレている時のエディタ側の手動上書き）
     const cuts = cue.stagger.filter((k) => k > 0 && k < words.length);
-    return cuts.length ? segsFromCuts(cuts, words, faw) : null;
+    return cuts.length ? segsFromCuts(cuts, words, faw, cue.staggerT) : null;
   }
 
   // 1) 実発声の「間」で切る（優先）
