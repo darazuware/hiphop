@@ -62,9 +62,17 @@ function buildSegments(cue, faw) {
   if (!faw || !Array.isArray(faw) || !faw.length) return null;
   const words = (cue.eng || "").trim().split(/\s+/).filter(Boolean);
   if (words.length !== faw.length) return null; // whisper再文字起こし等でズレていたら安全側でスキップ
-  const cuts = [];
-  for (let k = 1; k < faw.length; k++) if (faw[k].s - faw[k - 1].e > WORD_GAP_TH) cuts.push(k);
-  if (!cuts.length) return null;
+
+  let cuts;
+  if (Array.isArray(cue.stagger)) {
+    // エディタで手動固定済み。[]なら常に一括表示（自動閾値では判定しない）
+    cuts = cue.stagger.filter((k) => k > 0 && k < words.length);
+    if (!cuts.length) return null;
+  } else {
+    cuts = [];
+    for (let k = 1; k < faw.length; k++) if (faw[k].s - faw[k - 1].e > WORD_GAP_TH) cuts.push(k);
+    if (!cuts.length) return null;
+  }
   const bounds = [0, ...cuts, words.length];
   const segs = [];
   for (let i = 0; i < bounds.length - 1; i++) {

@@ -259,6 +259,7 @@ td.acts{white-space:nowrap;width:196px}
 .jp textarea:placeholder-shown{border-color:#2a3d14}
 .mini.sc{font-size:12px;font-variant-numeric:tabular-nums;min-width:34px}
 .mini.sc.big{color:#b9ff2e;font-weight:700}
+.mini.big{color:#ffd24a}
 .mini{background:none;border:none;color:#8fa3bd;padding:3px 5px;font-size:15px}
 .mini:hover{color:#fff;background:#2a3140}
 #log{white-space:pre-wrap;color:#8fa3bd;font-size:12px;max-height:72px;overflow:auto;margin-top:4px}
@@ -387,6 +388,7 @@ kbd{background:#232935;border:1px solid #39414f;border-radius:4px;padding:1px 5p
   <div class="row" style="margin:0 0 8px">
     <button id="m-mode-split" class="p">✂ 分割（別のキューに分ける）</button>
     <button id="m-mode-br">⏎ 改行（同じキューの中で折り返す）</button>
+    <button id="m-mode-fx">⏱ 間で魅せる（時間差表示）</button>
   </div>
   <div class="sub" id="m-sub">切りたい位置の｜をタップ（もう一度タップで解除）。青い｜＝語の切れ目として安全な位置。時間は文字数で自動配分し、あとから ◎ や波形で微調整できます。</div>
   <div class="chips en" id="m-en"></div>
@@ -397,6 +399,7 @@ kbd{background:#232935;border:1px solid #39414f;border-radius:4px;padding:1px 5p
     <button id="m-auto2">おまかせ2</button>
     <button id="m-auto3">おまかせ3</button>
     <button id="m-clear">解除</button>
+    <button id="m-fx-auto" style="display:none" title="この行の手動設定を消し、自動判定に戻す">自動に戻す</button>
     <span style="flex:1"></span>
     <button id="m-cancel">やめる</button>
     <button class="p" id="m-ok">分割する</button>
@@ -724,7 +727,7 @@ function draw(){
       + '<button class="mini" data-act="play" data-i="'+i+'" title="この行から再生">▶</button>'
       + '<button class="mini" data-act="here" data-i="'+i+'" title="現在位置をstartに">◎</button>'
       + '<button class="mini sc'+(sc!==1?' big':'')+'" data-act="scale" data-i="'+i+'" title="文字サイズ（クリックで拡大→一周で等倍・⇧クリックで縮小）">'+sc.toFixed(2).replace(/0$/,'')+'x</button>'
-      + '<button class="mini" data-act="split" data-i="'+i+'" title="この行を分割／改行">✂</button>'
+      + '<button class="mini'+(Array.isArray(c.stagger)?' big':'')+'" data-act="split" data-i="'+i+'" title="この行を分割／改行／時間差表示'+(Array.isArray(c.stagger)?'（時間差表示を手動固定済み）':'')+'">✂</button>'
       + '<button class="mini" data-act="merge" data-i="'+i+'" title="次の行と結合">⤵</button>'
       + '<button class="mini" data-act="del" data-i="'+i+'" title="行を削除">✕</button></td>';
     tb.appendChild(tr);
@@ -807,6 +810,7 @@ function safeJp(s,b){
 }
 let M={i:-1, ew:[], jc:[], ecuts:new Set(), jcuts:new Set()};
 const FUNC_W = new Set("a an the and or but of for to in on at with my your his her its it is i'm i'ma so no now yo".split(' '));
+const STAGGER_GAP_TH = 0.35; // gen-full-composition.mjs の既定閾値と揃える（自動判定のプレビュー用）
 function openSplit(i){
   const c=cues[i];
   // 既に入っている改行は「区切り位置の選択状態」として復元する（BRマーカーで一旦持ち上げる）
@@ -828,24 +832,65 @@ function setMode(m){
   M.mode=m;
   $('m-mode-split').className = m==='split'?'p':'';
   $('m-mode-br').className = m==='br'?'p':'';
-  $('m-title').textContent = m==='br'?'行の改行':'行の分割';
-  $('m-ok').textContent = m==='br'?'改行する':'分割する';
+  $('m-mode-fx').className = m==='fx'?'p':'';
+  $('m-fx-auto').style.display = m==='fx'?'':'none';
+  $('m-autogap').style.display = m==='br'?'none':'';
+  $('m-autogap').textContent = m==='fx' ? '◇ 間で選び直す（'+STAGGER_GAP_TH+'s基準）' : '◇ 間で切る';
+  $('m-auto2').style.display = $('m-auto3').style.display = m==='fx'?'none':'';
+  if(m==='fx'){
+    // fx専用: ecutsをこの行の「現在有効な」時間差カット位置で初期化する
+    // （手動設定済みならそれを、無ければ自動判定＝FA語間ギャップで再現）
+    const c=cues[M.i];
+    M.ecuts=new Set(Array.isArray(c.stagger) ? c.stagger : autoStaggerCuts());
+    M.fxManual = Array.isArray(c.stagger);
+  }
+  $('m-title').textContent = m==='br'?'行の改行':m==='fx'?'間で魅せる（時間差表示）':'行の分割';
+  $('m-ok').textContent = m==='br'?'改行する':m==='fx'?'この位置で確定':'分割する';
   $('m-sub').textContent = m==='br'
     ? '折り返したい位置の｜をタップ。キューは1つのまま、表示だけ2行以上に分かれます（時間は変わりません）。解除ですべての改行を消せます。'
+    : m==='fx'
+    ? '文字が遅れて現れる位置の｜をタップ。青い｜＝実際に間がある位置（'+STAGGER_GAP_TH+'s以上・未設定ならここが自動採用されます）。「この位置で確定」で固定、「自動に戻す」でこの行の手動設定を消す、｜を全部消して確定すると常に一括表示になります。'
     : '切りたい位置の｜をタップ（もう一度タップで解除）。青い｜＝語の切れ目として安全な位置。時間は文字数で自動配分し、あとから ◎ や波形で微調整できます。';
   renderSplit();
 }
+function autoStaggerCuts(){
+  if(!M.wt) return [];
+  const cut=[];
+  for(let k=1;k<M.wt.length;k++) if(M.wt[k].s-M.wt[k-1].e>STAGGER_GAP_TH) cut.push(k);
+  return cut;
+}
 $('m-mode-split').onclick=()=>setMode('split');
 $('m-mode-br').onclick=()=>setMode('br');
+$('m-mode-fx').onclick=()=>setMode('fx');
+$('m-fx-auto').onclick=()=>{
+  pushHist();
+  delete cues[M.i].stagger;
+  markDirty();
+  $('mask').classList.remove('on'); draw(); zoomDirty=true;
+  log('行'+(M.i+1)+'の時間差表示を自動判定に戻しました');
+};
 function renderSplit(){
   const en=$('m-en'), jp=$('m-jp');
+  const gapTh = M.mode==='fx' ? STAGGER_GAP_TH : GAP_TH;
   en.innerHTML=''; jp.innerHTML='';
   M.ew.forEach((w,k)=>{
-    if(k>0){ const big = M.wt && (M.wt[k].s - M.wt[k-1].e) > GAP_TH;
-      const d=document.createElement('div'); d.className='cut ok'+(big?' gap':'')+(M.ecuts.has(k)?' on':''); d.dataset.e=k;
-      if(big) d.title=Math.round((M.wt[k].s-M.wt[k-1].e)*1000)+'msの間'; en.appendChild(d); }
+    if(k>0){ const big = M.wt && (M.wt[k].s - M.wt[k-1].e) > gapTh;
+      const d=document.createElement('div'); d.className='cut '+(M.mode==='fx'?(big?'ok gap':'ng'):'ok'+(big?' gap':''))+(M.ecuts.has(k)?' on':''); d.dataset.e=k;
+      if(M.wt) d.title=Math.round((M.wt[k].s-M.wt[k-1].e)*1000)+'msの間'; en.appendChild(d); }
     const s=document.createElement('div'); s.className='chip'; s.textContent=w; en.appendChild(s);
   });
+  if(M.mode==='fx'){
+    jp.style.display='none';
+    const c=cues[M.i];
+    const bounds=[0,...[...M.ecuts].sort((a,b)=>a-b),M.ew.length];
+    const groups=[]; for(let k=0;k<bounds.length-1;k++) groups.push(M.ew.slice(bounds[k],bounds[k+1]).join(' '));
+    const state = M.ecuts.size===0 ? '（0箇所＝この行は一括表示）'
+      : Array.isArray(c.stagger) ? '（手動固定 '+M.ecuts.size+'箇所）'
+      : '（自動判定と同じ '+M.ecuts.size+'箇所・未確定）';
+    $('m-pv').innerHTML = '<div class="l"><div class="n">現在の設定</div><div><div class="e"></div></div></div>';
+    putTx($('m-pv').querySelector('.e'), groups.map((g,n)=>(n+1)+'. '+g).join('\\n') + '\\n' + state);
+    return;
+  }
   const js=M.jc.join('');
   M.jc.forEach((ch,k)=>{
     if(k>0){ const ok=safeJp(js,k); const d=document.createElement('div');
@@ -927,6 +972,7 @@ $('m-jp').addEventListener('click',e=>{ const d=e.target.closest('.cut'); if(!d)
   const k=+d.dataset.j; M.jcuts.has(k)?M.jcuts.delete(k):M.jcuts.add(k); renderSplit(); });
 $('m-autogap').onclick=()=>{
   if(!M.wt){ log('この行は単語アライメント未取得（間で分割は使えません）'); return; }
+  if(M.mode==='fx'){ M.ecuts=new Set(autoStaggerCuts()); renderSplit(); return; }
   const cut=new Set();
   for(let k=1;k<M.ew.length;k++) if(M.wt[k].s-M.wt[k-1].e>GAP_TH) cut.add(k);
   for(const k of [...cut]) if(FUNC_W.has((M.ew[k-1]||'').toLowerCase().replace(/[^a-z']/g,'')) && k>1){ cut.delete(k); cut.add(k-1); }
@@ -941,6 +987,14 @@ $('m-auto3').onclick=()=>autoSplit(3);
 $('m-clear').onclick=()=>{ M.ecuts=new Set(); M.jcuts=new Set(); renderSplit(); };
 $('m-cancel').onclick=()=>$('mask').classList.remove('on');
 $('m-ok').onclick=()=>{
+  if(M.mode==='fx'){
+    pushHist();
+    cues[M.i].stagger=[...M.ecuts].sort((a,b)=>a-b);   // []も明示的に保存＝この行は強制で一括表示
+    markDirty();
+    $('mask').classList.remove('on'); draw(); zoomDirty=true;
+    log(M.ecuts.size ? '行'+(M.i+1)+'の時間差表示を'+M.ecuts.size+'箇所に固定しました（再生成で反映）' : '行'+(M.i+1)+'は時間差表示なし（一括表示）に固定しました（再生成で反映）');
+    return;
+  }
   if(M.mode==='br'){
     const b=brText();
     pushHist();
@@ -2085,6 +2139,7 @@ const server = http.createServer((req, res) => {
             if (c.color) o.color = c.color;                       // EN文字色（パンチライン等）
             if (c.jpColor) o.jpColor = c.jpColor;                 // JP文字色
             if (typeof c.scale === "number" && c.scale !== 1) o.scale = c.scale; // 拡大倍率
+            if (Array.isArray(c.stagger)) o.stagger = c.stagger;    // 時間差表示の手動カット位置（[]=強制オフ）
             return o;
           }).filter(c => (c.eng || c.jpn)).sort((a, b) => a.start - b.start);
           for (const c of cues) if (c.end < c.start + 0.4) c.end = Math.round((c.start + 0.4) * 100) / 100;
