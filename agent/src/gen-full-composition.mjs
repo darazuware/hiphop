@@ -55,7 +55,7 @@ const noStagger = args.includes("--no-stagger");
 const WORD_GAP_TH = parseFloat(getArg("word-gap", "0.35"));
 const faWordsPath = path.join(AGENT, slug, "assets", "fa_words.json");
 let faWords = null;
-if (!noStagger && fs.existsSync(faWordsPath)) {
+if (fs.existsSync(faWordsPath)) {   // 語秒は訳の後出し判定にも使うので --no-stagger でも読む
   try { faWords = JSON.parse(fs.readFileSync(faWordsPath, "utf-8")); } catch {}
 }
 function buildSegments(cue, faw) {
@@ -88,17 +88,26 @@ const esc = (s) => (s || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replac
 // data payload (eng/jpn stay in the file only, never printed)
 const payload = cues.map((c, i) => {
   const entry = { e: c.eng, j: c.jpn, s: c.start, d: c.end };
-  const segs = buildSegments(c, faWords && faWords[i]);
+  const segs = noStagger ? null : buildSegments(c, faWords && faWords[i]);
   if (segs && segs.length > 1) entry.segs = segs;
   if (typeof c.scale === "number" && c.scale !== 1) entry.sc = c.scale;   // 強調したい行の文字サイズ倍率
   if (c.color) entry.co = c.color;
   if (c.jpColor) entry.jco = c.jpColor;
+  // 最後の語が歌われ始める時刻（＝落ちが着地する瞬間）。訳はここまで伏せる
+  const faw = faWords && faWords[i];
+  const wn = (c.eng || "").trim().split(/\s+/).filter(Boolean).length;
+  if (faw && faw.length && faw.length === wn) entry.lw = Math.round(faw[faw.length - 1].s * 100) / 100;
   return entry;
 });
 
-// 日本語の出るタイミング。after-en＝英語が全部出てから（先に訳が見えるネタバレを防ぐ）
+// 日本語の出るタイミング。after-en＝英語が出そろってから（先に訳が見えるネタバレを防ぐ）
 const jpTiming = getArg("jp-timing", "after-en");
-const JP_DELAY = parseFloat(getArg("jp-delay", "0.16"));
+const JP_DELAY = parseFloat(getArg("jp-delay", "0.16"));        // sync時の遅延
+// 訳を遅らせるほどネタバレは減るが、訳を読む時間も減る。キュー尺が2秒前後のラップでは
+// 1.2秒遅らせると読字速度が14字/秒（字幕の目安は4〜8字/秒）になり実質読めない。既定は控えめ。
+const JP_MIN_SHOW = parseFloat(getArg("jp-min-show", "1.0"));   // 訳が出てから消えるまで最低これだけ確保
+const JP_MAX_DELAY = parseFloat(getArg("jp-max-delay", "0.7")); // 訳を遅らせる上限
+const JP_FRAC = parseFloat(getArg("jp-frac", "0.35"));          // 語秒が無い行は尺のこの割合だけ遅らせる
 
 const html = `<!doctype html>
 <html lang="en">
@@ -183,6 +192,7 @@ const html = `<!doctype html>
       const CUES = ${JSON.stringify(payload)};
       const JP_TIMING = ${JSON.stringify(jpTiming)};
       const JP_DELAY = ${JP_DELAY};
+      const JP_MIN_SHOW = ${JP_MIN_SHOW}, JP_MAX_DELAY = ${JP_MAX_DELAY}, JP_FRAC = ${JP_FRAC};
       // 改行(\\n)は <br> にする。テキストはtextContent経由なのでHTMLは混入しない
       function putText(host, s){
         String(s == null ? "" : s).split("\\n").forEach((part, k) => {
@@ -261,11 +271,17 @@ const html = `<!doctype html>
             if (revealT > lastReveal) lastReveal = revealT;
           });
         }
-        // 日本語。英語が段階表示される行で訳を先に全部出すと落ちがバレるので、
-        // 既定(after-en)では最後の語群が出てから訳を出す。
-        const jpAt = (JP_TIMING === "after-en" && lastReveal > inT)
-          ? Math.min(lastReveal + REVEAL_DUR * 0.7, Math.max(inT, outT - 0.5))
-          : inT + JP_DELAY;
+        // 日本語。訳を英語と同時に全部出すと落ちが先に割れるので、既定(after-en)では
+        // 全行で「英語が出そろう／最後の語が歌われ始める」まで訳を伏せる。
+        // ただし訳を読む時間 JP_MIN_SHOW は必ず残す（間に合わない行は前倒しする）。
+        let jpAt = inT + JP_DELAY;
+        if (JP_TIMING === "after-en") {
+          let want = lastReveal > inT ? lastReveal + REVEAL_DUR * 0.7   // 段階表示の行は最後の語群が出てから
+                   : (c.lw != null ? c.lw                              // 語秒がある行は最後の語が歌われ始める瞬間
+                   : inT + (outT - inT) * JP_FRAC);                    // どちらも無い行は尺の割合で
+          want = Math.min(want, inT + JP_MAX_DELAY);
+          jpAt = Math.max(inT + 0.2, Math.min(want, outT - JP_MIN_SHOW));
+        }
         tl.fromTo(el.querySelector(".jp"), { opacity: 0 }, { opacity: 1, duration: 0.34, ease: "power2.out" }, jpAt);
       });
 
