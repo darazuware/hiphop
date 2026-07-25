@@ -24,6 +24,16 @@ const getArg = (n, d) => { const i = args.indexOf(`--${n}`); if (i !== -1) retur
 const defaultSlug = getArg("slug", null);
 const PORT = parseInt(getArg("port", "4577"), 10);
 
+// 画面のコードは起動時に組み立てて配る＝サーバーを再起動しないと反映されない。
+// 手書きのバージョンは更新を忘れて嘘をつくので、ソースの更新時刻から必ず自動生成する。
+const VER = (() => {
+  try {
+    const m = fs.statSync(fileURLToPath(import.meta.url)).mtime;
+    const p = (n) => String(n).padStart(2, "0");
+    return `ver.${String(m.getFullYear()).slice(2)}${p(m.getMonth() + 1)}${p(m.getDate())}-${p(m.getHours())}${p(m.getMinutes())}`;
+  } catch { return "ver.?"; }
+})();
+
 const WHISPER_MODELS = ["/opt/homebrew/share/whisper-cpp/ggml-medium.en.bin", "/opt/homebrew/share/whisper-cpp/ggml-medium.bin", "/opt/homebrew/share/whisper-cpp/ggml-small.en.bin"];
 const SLUG_RE = /^[a-z0-9][a-z0-9-]{1,60}$/;
 const YT_RE = /^https?:\/\/(www\.)?(youtube\.com\/watch\?|youtu\.be\/|youtube\.com\/shorts\/|music\.youtube\.com\/watch\?)/;
@@ -327,7 +337,7 @@ kbd{background:#232935;border:1px solid #39414f;border-radius:4px;padding:1px 5p
 <header>
   <div class="row" id="topbar">
     <a class="home" href="../../">◀<span class="lbl"> 曲一覧</span></a>
-    <span id="ver" title="コードのバージョン">ver.260724-1</span>
+    <span id="ver" title="配信中の画面コードの更新時刻。サーバー再起動まで古いまま">${VER}</span>
     <button class="p" id="play">▶ 再生</button>
     <span id="t">0.00s</span>
     <button id="undo" title="元に戻す (⌘Z)">↩</button><button id="redo" title="やり直す (⌘⇧Z)">↪</button>
@@ -1115,6 +1125,16 @@ addEventListener('keydown', e=>{
   else if(e.key==='ArrowLeft'){ e.preventDefault(); pushHist('nud'+sel); setStart(sel, cues[sel].start-(e.shiftKey?0.2:0.05)); }
   else if(e.key==='Enter'){ e.preventDefault(); au.currentTime=Math.max(0,cues[sel].start-0.4); au.play(); zoomDirty=true; }
 });
+/* サーバーを再起動したのに画面が古いまま、を検知して知らせる（iPad Safariは特に残る） */
+setInterval(function(){
+  fetch('/__ver',{cache:'no-store'}).then(function(r){return r.text()}).then(function(v){
+    if(!v || v===$('ver').textContent) return;
+    var b=$('ver');
+    b.textContent=v+' ← 再読み込み';
+    b.style.cssText='background:#ff9b3d;color:#111;font-weight:800;border-radius:6px;padding:2px 6px;cursor:pointer';
+    b.onclick=function(){ location.reload(true); };
+  }).catch(function(){});
+}, 20000);
 function save(){
   fetch('cues.json',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(cues)})
     .then(r=>r.json()).then(j=>{
@@ -1971,6 +1991,7 @@ const server = http.createServer((req, res) => {
     return;
   }
   if (url === "/job") return json({ running: job.running, slug: job.slug, phase: job.phase, log: job.log, done: job.done, ok: job.ok, error: job.error });
+  if (url === "/__ver") { res.writeHead(200, { "content-type": "text/plain", "cache-control": "no-store" }); return res.end(VER); }
 
   const m = url.match(/^\/edit\/([a-z0-9][a-z0-9-]{1,60})(\/(.*))?$/);
   if (m) {
@@ -2137,7 +2158,8 @@ function tailscaleUrl() {
 }
 
 server.listen(PORT, "0.0.0.0", () => {
-  console.log(`歌詞動画エディタ（YouTube取り込み対応）`);
+  console.log(`歌詞動画エディタ（YouTube取り込み対応） ${VER}`);
+  console.log(`  ※画面のコードは起動時に固定されます。cue-editor.mjs を直したら必ず再起動してください`);
   console.log(`  PC:     http://localhost:${PORT}`);
   for (const [, list] of Object.entries(os.networkInterfaces())) {
     for (const ni of list || []) {
