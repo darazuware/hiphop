@@ -292,6 +292,9 @@ kbd{background:#232935;border:1px solid #39414f;border-radius:4px;padding:1px 5p
 .fxrow:last-of-type{border:0}
 .fxg{color:#fff;font-weight:700;flex:1;min-width:120px}
 .fxt{color:#6b7a90;font-size:12px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.fxctr{display:flex;gap:4px;flex-wrap:wrap;width:100%;margin-top:2px}
+.tap{cursor:pointer}
+.tap:active{opacity:.6}
 .lintItem{display:flex;gap:10px;align-items:center;padding:8px 6px;border-bottom:1px solid #1e242f;cursor:pointer;border-radius:8px}
 .lintItem:hover{background:#1d2431}
 .lintItem .b{font-size:11px;padding:2px 8px;border-radius:99px;flex:none}
@@ -838,7 +841,7 @@ function openSplit(i){
   const jc=jcAll.filter(ch=>ch!=='\\n');
   const wt=cueWordTimes(c);
   const hasBr=(c.eng+c.jpn).indexOf('\\n')>=0;
-  M={i, ew, jc, ecuts:new Set(), jcuts:new Set(), wt:(wt&&wt.length===ew.length)?wt:null, mode:hasBr?'br':'split'};
+  M={i, ew, jc, ecuts:new Set(), jcuts:new Set(), wt:(wt&&wt.length===ew.length)?wt:null, mode:hasBr?'br':'split', partT:{}};
   if(hasBr){
     let k=0; for(const w of etok){ if(w===BR){ if(k>0&&k<ew.length) M.ecuts.add(k); } else k++; }
     let j=0; for(const ch of jcAll){ if(ch==='\\n'){ if(j>0&&j<jc.length) M.jcuts.add(j); } else j++; }
@@ -889,6 +892,25 @@ $('m-fx-auto').onclick=()=>{
   $('mask').classList.remove('on'); draw(); zoomDirty=true;
   log('行'+(M.i+1)+'の時間差表示を自動判定に戻しました');
 };
+// fx/split共通: 「▶試聴→耳で聴きながらここ！で固定」用のミニボタン列
+// wIdx=上書きの保存キー（語インデックス）、baseT=今表示されている実効秒（自動 or 既存の手動値）
+function mkTimeBtn(fx,label,wIdx,baseT,title){
+  const b=document.createElement('button'); b.className='mini'; b.dataset.fx=fx; b.dataset.w=wIdx;
+  if(baseT!=null) b.dataset.base=baseT;
+  b.textContent=label; if(title) b.title=title; return b;
+}
+function buildTimeCtr(wIdx,baseT,manual){
+  const ctr=document.createElement('span'); ctr.className='fxctr';
+  ctr.appendChild(mkTimeBtn('play','▶',wIdx,baseT,'少し手前から試聴'));
+  ctr.appendChild(mkTimeBtn('stop','⏸',wIdx,baseT,'停止'));
+  ctr.appendChild(mkTimeBtn('here','ここ!',wIdx,baseT,'今の再生位置をここに固定'));
+  ctr.appendChild(mkTimeBtn('m1','−1',wIdx,baseT));
+  ctr.appendChild(mkTimeBtn('m01','−0.1',wIdx,baseT));
+  ctr.appendChild(mkTimeBtn('p01','＋0.1',wIdx,baseT));
+  ctr.appendChild(mkTimeBtn('p1','＋1',wIdx,baseT));
+  if(typeof manual==='number') ctr.appendChild(mkTimeBtn('reset','自動に戻す',wIdx,baseT,'この位置だけ自動判定に戻す'));
+  return ctr;
+}
 function renderSplit(){
   const en=$('m-en'), jp=$('m-jp');
   const gapTh = M.mode==='fx' ? STAGGER_GAP_TH : GAP_TH;
@@ -923,12 +945,9 @@ function renderSplit(){
         const eff=(typeof manual==='number') ? manual : auto;
         tEl.textContent = eff==null ? '（秒不明）' : f2(eff)+'s'+(typeof manual==='number'?' ・実測':' ・自動');
         row.appendChild(tEl);
-        const mkBtn=(fx,label,title)=>{ const b=document.createElement('button'); b.className='mini'; b.dataset.fx=fx; b.dataset.w=wIdx; b.textContent=label; if(title)b.title=title; return b; };
-        row.appendChild(mkBtn('play','▶','この位置から試聴'));
-        row.appendChild(mkBtn('here','◎','今の再生位置に固定'));
-        row.appendChild(mkBtn('m01','−0.1'));
-        row.appendChild(mkBtn('p01','＋0.1'));
-        if(typeof manual==='number') row.appendChild(mkBtn('reset','自動に戻す','この位置だけ自動判定に戻す'));
+        row.appendChild(buildTimeCtr(wIdx, eff, manual));
+        // 文字（グループ）自体をタップしても手前から試聴できる（小さいボタンを狙わなくていい）
+        if(eff!=null){ gEl.classList.add('tap'); gEl.addEventListener('click', ()=>seekPlay(au, Math.max(0,eff-0.4))); }
       }
       host.appendChild(row);
     });
@@ -951,10 +970,24 @@ function renderSplit(){
     return;
   }
   const parts=buildParts();
-  $('m-pv').innerHTML = parts.map((p,n)=>
-    '<div class="l"><div class="n">'+f2(p.start)+'s</div><div><div class="e"></div><div class="j"></div></div></div>').join('');
-  const ls=document.querySelectorAll('#m-pv .l');
-  parts.forEach((p,n)=>{ ls[n].querySelector('.e').textContent=p.eng; ls[n].querySelector('.j').textContent=p.jpn; });
+  const eb=[0,...[...M.ecuts].sort((a,b)=>a-b),M.ew.length];
+  const host=$('m-pv'); host.innerHTML='';
+  parts.forEach((p,n)=>{
+    const wIdx=eb[n];
+    const manual = n>0 ? M.partT[wIdx] : undefined;
+    const row=document.createElement('div'); row.className='l';
+    const nEl=document.createElement('div'); nEl.className='n';
+    nEl.textContent=f2(p.start)+'s'+(typeof manual==='number'?' ・実測':(n>0?' ・自動':''));
+    row.appendChild(nEl);
+    const body=document.createElement('div');
+    const eDiv=document.createElement('div'); eDiv.className='e'; eDiv.textContent=p.eng; body.appendChild(eDiv);
+    const jDiv=document.createElement('div'); jDiv.className='j'; putTx(jDiv,p.jpn); body.appendChild(jDiv);
+    if(n>0) body.appendChild(buildTimeCtr(wIdx, p.start, manual));
+    row.appendChild(body);
+    // 行（テキスト部分）自体をタップしても手前から試聴できる（ボタンを狙わなくていい）
+    if(n>0){ body.classList.add('tap'); body.addEventListener('click', e=>{ if(e.target.closest('button'))return; seekPlay(au, Math.max(0,p.start-0.4)); }); }
+    host.appendChild(row);
+  });
 }
 // 選んだ位置に改行を入れた1キュー分のテキスト
 function brText(){
@@ -981,7 +1014,8 @@ function buildParts(){
     for(let k=0;k<K;k++){
       let head=eb[k]??0; const stop=(eb[k+1]??M.ew.length)-1;
       while(head<stop && M.wt[head+1] && (M.wt[head+1].s-M.wt[head].e)>GAP_TH) head++;
-      const st = k===0 ? c.start : f2(M.wt[head] ? M.wt[head].s : c.start);
+      const ov = (k>0 && M.partT && typeof M.partT[eb[k]]==='number') ? M.partT[eb[k]] : null;
+      const st = k===0 ? c.start : (ov!=null ? ov : f2(M.wt[head] ? M.wt[head].s : c.start));
       out.push({eng:eng[k],jpn:jpn[k],start:st,end:0});
     }
     for(let k=0;k<out.length-1;k++) out[k].end=out[k+1].start;
@@ -990,7 +1024,12 @@ function buildParts(){
   } else {
     const tot=eng.reduce((a,x)=>a+x.length,0)||1;
     const span=Math.max(0.8,c.end-c.start); let acc=0;
-    for(let k=0;k<K;k++){ const st=c.start+span*acc/tot; acc+=eng[k].length; out.push({eng:eng[k],jpn:jpn[k],start:f2(st),end:f2(c.start+span*acc/tot)}); }
+    for(let k=0;k<K;k++){
+      const stAuto=c.start+span*acc/tot; acc+=eng[k].length;
+      const ov = (k>0 && M.partT && typeof M.partT[eb[k]]==='number') ? M.partT[eb[k]] : null;
+      const st = k===0 ? f2(stAuto) : (ov!=null ? ov : f2(stAuto));
+      out.push({eng:eng[k],jpn:jpn[k],start:st,end:f2(c.start+span*acc/tot)});
+    }
     if(out.length) out[out.length-1].end=f2(c.end);
   }
   return out;
@@ -1019,13 +1058,17 @@ $('m-jp').addEventListener('click',e=>{ const d=e.target.closest('.cut'); if(!d)
 $('m-pv').addEventListener('click',e=>{
   const b=e.target.closest('button[data-fx]'); if(!b) return;
   const w=+b.dataset.w, a=b.dataset.fx;
-  const auto=(M.wt && M.wt[w]) ? M.wt[w].s : null;
-  const cur=(typeof M.staggerT[w]==='number') ? M.staggerT[w] : auto;
-  if(a==='play'){ if(cur!=null) seekPlay(au, Math.max(0,cur-0.4)); return; }
-  if(a==='here'){ M.staggerT[w]=f2(au.currentTime); renderSplit(); return; }
-  if(a==='m01'){ M.staggerT[w]=f2((cur!=null?cur:0)-0.1); renderSplit(); return; }
-  if(a==='p01'){ M.staggerT[w]=f2((cur!=null?cur:0)+0.1); renderSplit(); return; }
-  if(a==='reset'){ delete M.staggerT[w]; renderSplit(); return; }
+  const base=b.dataset.base!==undefined && b.dataset.base!=='' ? +b.dataset.base : null;
+  const store = M.mode==='fx' ? M.staggerT : M.partT;
+  if(!store) return;
+  if(a==='play'){ if(base!=null) seekPlay(au, Math.max(0,base-0.4)); return; }
+  if(a==='stop'){ au.pause(); return; }
+  if(a==='here'){ store[w]=f2(au.currentTime); renderSplit(); return; }
+  if(a==='m1'){ store[w]=f2((base!=null?base:0)-1); renderSplit(); return; }
+  if(a==='p1'){ store[w]=f2((base!=null?base:0)+1); renderSplit(); return; }
+  if(a==='m01'){ store[w]=f2((base!=null?base:0)-0.1); renderSplit(); return; }
+  if(a==='p01'){ store[w]=f2((base!=null?base:0)+0.1); renderSplit(); return; }
+  if(a==='reset'){ delete store[w]; renderSplit(); return; }
 });
 $('m-autogap').onclick=()=>{
   if(!M.wt){ log('この行は単語アライメント未取得（間で分割は使えません）'); return; }
