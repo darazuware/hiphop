@@ -126,10 +126,22 @@ function callModel(promptText) {
 }
 
 function runModel() {
-  const uniq = prepare();
+  let uniq = prepare();
+  // 既存の seg-out.jsonl は残す（人が直した行・前回成功分を捨てない）。--redo で作り直し。
+  const outLines = [];
+  if (fs.existsSync(p("seg-out.jsonl")) && !has("redo")) {
+    const done = new Set();
+    for (const l of fs.readFileSync(p("seg-out.jsonl"), "utf8").split("\n")) {
+      if (!l.trim().startsWith("{")) continue;
+      try { done.add(JSON.parse(l).i); outLines.push(l.trim()); } catch {}
+    }
+    const before = uniq.length;
+    uniq = uniq.filter((j) => !done.has(j.i));
+    if (before !== uniq.length) console.log(`[semantic-chunk] 既存 seg-out.jsonl の ${before - uniq.length}行を再利用（作り直すなら --redo）`);
+  }
+  if (!uniq.length) { console.log("[semantic-chunk] モデルへ投げる行なし（全て既存分で足りている）"); return; }
   const batches = [];
   for (let i = 0; i < uniq.length; i += BATCH) batches.push(uniq.slice(i, i + BATCH));
-  const outLines = [];
   for (let b = 0; b < batches.length; b++) {
     process.stdout.write(`[semantic-chunk] batch ${b + 1}/${batches.length} (${batches[b].length}行) ... `);
     const r = callModel(buildPrompt(batches[b]));
