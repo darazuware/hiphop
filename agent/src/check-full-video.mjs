@@ -82,6 +82,34 @@ else {
   else wn(`日本語 入力率 ${rate}%（未入力 ${cues.length - jpnFilled}行）`);
 }
 
+console.log("[FA] 強制アライメント整合");
+{
+  const fw = path.join(assets, "fa_words.json");
+  if (!fs.existsSync(fw)) wn("fa_words.json 未生成（node agent/src/fa-align.mjs --slug " + slug + "）— 時刻が推定値のままの可能性");
+  else {
+    let W = null;
+    try { W = JSON.parse(fs.readFileSync(fw, "utf-8")); } catch { ng("fa_words.json がJSONとして壊れている"); }
+    if (W) {
+      if (W.length !== cues.length) wn(`fa_words(${W.length}) と cues(${cues.length}) の件数不一致 → fa-align.mjs を再実行`);
+      else {
+        const tok = (s) => (s || "").toLowerCase().replace(/[’]/g, "'").replace(/[^a-z' ]/g, " ").split(/\s+/).filter((w) => /[a-z]/.test(w));
+        let miss = 0, off = 0, worst = 0;
+        for (let i = 0; i < cues.length; i++) {
+          const wl = W[i], n = tok(cues[i].eng).length;
+          if (!wl || wl.length !== n) { if (n) miss++; continue; }
+          const d = Math.abs(cues[i].start - wl[0].s);
+          if (d > 0.35) off++;
+          worst = Math.max(worst, d);
+        }
+        miss ? wn(`FA語数がキュー本文と不一致 ${miss}件（分割後に fa-align 再実行を）`) : ok("全キューでFA語数一致");
+        off ? wn(`startが実発声から0.35s以上ズレ ${off}件（最大${worst.toFixed(2)}s）→ fa-retime.mjs --apply`) : ok(`startは実発声に整合（最大ズレ ${worst.toFixed(2)}s）`);
+      }
+    }
+  }
+  const low = cues.filter((c) => typeof c.conf === "number" && c.conf < 0.6).length;
+  if (low) wn(`要確認(conf<0.6) ${low}件 — エディタの✓lintで一覧・触れば消える`);
+}
+
 console.log("[COMP] 作曲");
 const idx = path.join(fullDir, "index.html");
 if (!fs.existsSync(idx)) wn("full/index.html 未生成（エディタの「再生成＋レンダー」または gen-full-composition.mjs で生成）");

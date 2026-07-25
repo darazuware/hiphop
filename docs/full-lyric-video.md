@@ -28,7 +28,50 @@ node agent/src/cue-editor.mjs [--slug {slug}] [--port 4577]
 波形（全体+ズーム・旗ドラッグで秒調整）/ タップ同期（S・●SYNC）/ 行の分割✂（日本語は安全境界のみ・語中は暗赤）/ 結合⤵ / Undo・Redo(⌘Z) / 一括ずらし / ✓lint / 保存履歴10世代 / 再生速度0.5–1x / 行ループ / SRT書き出し（dual/en/ja）/ 再生成＋レンダー。
 保存で `full-cues.json` 上書き（`cue-history/` に世代バックアップ）。
 
-## 記事対訳ルート（従来型記事がある曲を高品質でやる場合）
+## 高精度ルート（記事対訳がある曲・2026-07-25標準）
+
+**時刻＝強制アライメントの実測 / 分割＝意味 / 日本語＝訳し下し** の3層に分けたルート。
+whisper＋NW補間の推定秒とカンマ機械分割・日本語の文字数比分割（＝旧 `align-and-chunk.mjs`）を置き換える。
+
+```
+node agent/src/build-full-lines.mjs --slug {slug}              # .astro対訳 → full-lines.json
+node agent/src/fa-align.mjs --slug {slug} --source lines       # Demucs分離+MMS_FA → fa_words_lines.json
+node agent/src/semantic-chunk.mjs run --slug {slug} --apply    # 意味分割＋訳し下し → full-cues.json
+node agent/src/check-full-video.mjs {slug}                     # DoD（[FA]整合が✅になること）
+```
+
+- **時刻に補間を使わない**。キューの `start` は先頭語の実発声（-0.06s）、`end` は次キュー直前まで（末尾語+1.2sを上限）。旧ルートは実発声から中央値0.4s・最大4.3sズレていた（lose-yourself実測）。
+- **分割はモデルが意味で決める**。切れ目候補として実発声の「間」（`gaps`）を渡すが、句をまたぐなら使わない。
+- **日本語は比率分割しない**。英語断片の出る順に情報が出る訳へ組み替える（同時通訳の訳し下し）。ここが従来との最大の差。
+- **モデル出力は機械ガードを通す**。落ちた行は分割せず1キューに戻すだけなので、品質が下がる方向には壊れない:
+
+  | ガード | 内容 |
+  |---|---|
+  | en不一致 | 英語断片の連結が原文の語列と完全一致しない＝ハルシネーション/欠落 |
+  | 断片数過多 | `--max-segs`（既定3）超え |
+  | ja空 / ja分量逸脱 | 訳が空、または元訳の0.5〜2.2倍の外＝要約や膨張 |
+  | 短すぎ | 表示が `--min-show`（既定0.5s）未満になる断片は隣と併合し直す |
+
+- 同一原文行（コーラス等）はモデルへ1回だけ投げ、同じ分割・同じ訳を全出現に適用する（表示ゆれ防止）。
+- `--apply` を付けなければ `full-cues.new.json` に出るだけ。付けると `full-cues.json` を上書きし、`cue-history/` へ世代バックアップ＋新しい区切りに合わせて `fa_words.json` も再生成する（`fa-align` の再実行は不要）。
+- **`run` は `claude` CLI を呼ぶ。Claude Codeセッション内から実行するとsandboxでEPERM/401になる**ので、ユーザー自身のターミナルで回すか、2段階ルート（`prepare` → `seg-prompt.txt` をモデルに渡す → 結果を `seg-out.jsonl` に保存 → `apply`）を使う。
+
+### 分割せず時刻だけ直す場合
+
+既存キューの文言・区切りはそのままで、ズレだけ実測に合わせる:
+
+```
+node agent/src/fa-align.mjs --slug {slug}                 # fa_words.json（キュー単位）
+node agent/src/fa-retime.mjs --slug {slug}                # ドライラン（ズレ分布と何行動くか）
+node agent/src/fa-retime.mjs --slug {slug} --apply --conf # 反映（履歴バックアップ付き）
+```
+
+### 要確認フラグ（人が触る行を絞る）
+
+キューに `conf`（0〜1）と `flags` が焼かれる。`conf<0.6` の行はエディタで **行番号に⚠** が付き、**✓lint に日本語の理由付きで一覧**される。クリックでその行へジャンプ、**その行を編集すると⚠は自動で消える**（＝確認済み）。
+主な `flags`: `word-too-short`/`word-too-long`（整列が怪しい）・`inner-gap-*`（行内に長い無音）・`span-*`（1行が長すぎ）・`model-unsure`（モデルが自信なしと申告）・`remerged`（短すぎて併合し直した）・`no-fa`（強制アライメント無し＝推定秒）。
+
+## 旧ルート（whisper＋NW大域アライメント・参考）
 
 1. 歌詞抽出: .astroのLyricsBlockから `lyrics-map.json`（既存スクリプト）
 2. `build-full-lines.mjs --slug {slug}` → `full-lines.json`
@@ -38,6 +81,8 @@ node agent/src/cue-editor.mjs [--slug {slug}] [--port 4577]
    - 分割方針: 11語未満の行は割らない / 1チャンク5語以上 / 日本語は語中で切らない（カタカナ連続・漢字連続・次がひらがな＝禁止、読点直後のみ例外）。安全に割れなければ行ごと1キュー
 5. エディタで微調整 → 再生成＋レンダー
 
+※ 記事対訳がある曲は上の高精度ルートを使う。このルートは字幕トラックも記事対訳も無い曲の初期キュー生成用に残している。
+
 ## DoD検証
 
 ```
@@ -46,6 +91,8 @@ node agent/src/check-full-video.mjs {slug} --require-render # 納品前（mp4の
 ```
 
 ❌=ブロッカー（型不正・重なり・逆行・音源外・尺乖離）、⚠=注意（長い行・日本語未入力・mp4が古い等）。歌詞テキストは出力しない。
+
+**[FA]強制アライメント整合**（2026-07-25追加）: `fa_words.json` があれば、全キューの `start` が実発声から0.35s以内かを検証する。ズレが残っていれば件数と最大ズレを出して `fa-retime.mjs --apply` を促す。`conf<0.6` の要確認件数もここに出る。
 
 ## 縦型リール（PV映像に字幕・Instagram用・2026-07-21）
 

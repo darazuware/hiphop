@@ -4,17 +4,19 @@
 # Outputs per-word start/end seconds so the cue-editor can split at real pauses
 # and place fragment start times precisely. Does NOT transcribe (lyrics are known).
 #
-# Usage: fa-align.py <assetsDir>
-#   reads   <assetsDir>/full-cues.json  (array of {eng,jpn,start,end})
+# Usage: fa-align.py <assetsDir> [srcJson=full-cues.json] [outJson=fa_words.json]
+#   reads   <assetsDir>/<srcJson>       (array of {eng,...} — cues でも lines でも可)
 #   reads   <assetsDir>/audio-full.mp3  (or audio.mp3)
-#   writes  <assetsDir>/fa_words.json   (array-per-cue of {w,s,e})
+#   writes  <assetsDir>/<outJson>       (array-per-entry of {w,s,e})
 #   caches  <assetsDir>/.stems/vocals.wav
 import json, re, sys, os, subprocess
 import torch, torchaudio
 import soundfile as sf
 
 assets = sys.argv[1]
-cues = json.load(open(os.path.join(assets, "full-cues.json")))
+src_json = sys.argv[2] if len(sys.argv) > 2 else "full-cues.json"
+out_json = sys.argv[3] if len(sys.argv) > 3 else "fa_words.json"
+cues = json.load(open(os.path.join(assets, src_json)))
 audio = next((os.path.join(assets, n) for n in ("audio-full.mp3", "audio.mp3", "audio-full.wav")
              if os.path.exists(os.path.join(assets, n))), None)
 if not audio:
@@ -63,5 +65,5 @@ for i, c in enumerate(cues):
     out.append([{"w": wl[k], "s": round(se[idx+k][0], 3), "e": round(se[idx+k][1], 3)} for k in range(n)])
     idx += n
 
-json.dump(out, open(os.path.join(assets, "fa_words.json"), "w"))
-print(f"[done] wrote fa_words.json ({len(out)} cues)")
+json.dump(out, open(os.path.join(assets, out_json), "w"))
+print(f"[done] wrote {out_json} ({len(out)} entries)")

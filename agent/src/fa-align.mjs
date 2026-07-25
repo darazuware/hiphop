@@ -7,7 +7,12 @@
  * 出力: agent/{slug}/assets/fa_words.json  … cueごとの [{w,s,e}]
  * 依存: agent/.fa-venv（無ければ自動作成し torch/torchaudio/demucs/soundfile を入れる）
  *
- * Usage: node agent/src/fa-align.mjs --slug <slug>
+ * Usage:
+ *   node agent/src/fa-align.mjs --slug <slug>                 # full-cues.json  → fa_words.json
+ *   node agent/src/fa-align.mjs --slug <slug> --source lines  # full-lines.json → fa_words_lines.json
+ *
+ * --source lines は「キューを作る前の生の歌詞行」に整列する。意味分割(semantic-chunk.mjs)は
+ * この行単位の語秒を土台にするので、既存キューの切れ目に縛られない。
  */
 import fs from "fs";
 import path from "path";
@@ -25,8 +30,12 @@ const getArg = (n, d = null) => { const i = process.argv.indexOf(`--${n}`); retu
 const slug = getArg("slug");
 if (!slug) { console.error("Usage: node agent/src/fa-align.mjs --slug <slug>"); process.exit(1); }
 
+const source = getArg("source", "cues");
+const SRC = source === "lines" ? "full-lines.json" : "full-cues.json";
+const OUT = source === "lines" ? "fa_words_lines.json" : "fa_words.json";
+
 const assets = path.join(AGENT, slug, "assets");
-if (!fs.existsSync(path.join(assets, "full-cues.json"))) { console.error(`[fa-align] ${assets}/full-cues.json が無い`); process.exit(2); }
+if (!fs.existsSync(path.join(assets, SRC))) { console.error(`[fa-align] ${assets}/${SRC} が無い`); process.exit(2); }
 
 function run(cmd, cmdArgs, opts = {}) {
   const r = spawnSync(cmd, cmdArgs, { stdio: "inherit", ...opts });
@@ -41,5 +50,5 @@ if (!fs.existsSync(PY)) {
   run(PY, ["-m", "pip", "install", "torch", "torchaudio", "demucs", "soundfile"]);
 }
 
-run(PY, [path.join(AGENT, "src", "fa-align.py"), assets], { cwd: REPO });
-console.log(`[fa-align] OK -> agent/${slug}/assets/fa_words.json`);
+run(PY, [path.join(AGENT, "src", "fa-align.py"), assets, SRC, OUT], { cwd: REPO });
+console.log(`[fa-align] OK -> agent/${slug}/assets/${OUT}`);

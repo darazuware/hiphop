@@ -659,7 +659,8 @@ function draw(){
   cues.forEach((c,i)=>{
     const tr = document.createElement('tr'); tr.id='r'+i;
     if (q && !((c.eng+' '+c.jpn).toLowerCase().includes(q))) tr.style.display='none';
-    tr.innerHTML = '<td style="color:#6b7a90;width:38px">'+(i+1)+'</td>'
+    const warn = (typeof c.conf==='number' && c.conf<0.6);
+    tr.innerHTML = '<td style="color:'+(warn?'#ffb057':'#6b7a90')+';width:38px" title="'+(warn?('要確認 conf='+c.conf.toFixed(2)+(c.flags?' / '+c.flags.join(' '):'')):'')+'">'+(warn?'⚠':'')+(i+1)+'</td>'
       + '<td class="times"><input class="num" data-k="start" data-i="'+i+'" value="'+f2(c.start)+'">'
       + '<input class="num" data-k="end" data-i="'+i+'" value="'+f2(c.end)+'"></td>'
       + '<td class="en"><input data-k="eng" data-i="'+i+'"></td>'
@@ -688,6 +689,7 @@ $('tb').addEventListener('change', e=>{
 $('tb').addEventListener('input', e=>{
   const i=+e.target.dataset.i, k=e.target.dataset.k; if(k===undefined) return;
   cues[i][k] = (k==='start'||k==='end') ? parseFloat(e.target.value)||0 : e.target.value;
+  delete cues[i].conf; delete cues[i].flags;   // 人が触った行＝確認済み。⚠を落とす
   markDirty(); zoomDirty = true;
 });
 $('tb').addEventListener('click', e=>{
@@ -843,10 +845,13 @@ $('sh-ok').onclick=()=>{
 };
 
 /* ---------- チェック(lint) ---------- */
+const FLAGJP={'no-fa':'強制アライメント無し(推定秒)','word-too-short':'語が短すぎ＝整列が怪しい','word-too-long':'語が長すぎ＝整列が怪しい','zero-dur':'語の長さが0','single-word':'1語だけ','model-unsure':'分割/訳にモデルが自信なし'};
+function flagLabel(f){ return FLAGJP[f] || (/^inner-gap-/.test(f) ? '行内に長い無音('+f.slice(10)+')' : /^span-/.test(f) ? '1行が長すぎる('+f.slice(5)+')' : f); }
 function lint(){
   const out=[];
   for(let i=0;i<cues.length;i++){
     const c=cues[i], d=c.end-c.start;
+    if(typeof c.conf==='number' && c.conf<0.6) out.push({i,lv:'wrn',msg:'要確認 conf='+c.conf.toFixed(2)+(c.flags&&c.flags.length?'（'+c.flags.map(flagLabel).join('・')+'）':'')});
     if(i>0 && c.start < cues[i-1].end-0.01) out.push({i,lv:'err',msg:'前の行と時間が重なっている'});
     if(d<0.6) out.push({i,lv:'wrn',msg:'表示が短い('+d.toFixed(2)+'s)'});
     if(i>0 && c.start-cues[i-1].end>3) out.push({i,lv:'inf',msg:'前の行との間に '+(c.start-cues[i-1].end).toFixed(1)+'s の空白'});
@@ -1923,6 +1928,8 @@ const server = http.createServer((req, res) => {
         try {
           const cues = JSON.parse(body).map(c => {
             const o = { eng: c.eng, jpn: c.jpn, start: Math.round(c.start * 100) / 100, end: Math.round(c.end * 100) / 100 };
+            if (typeof c.conf === "number") o.conf = c.conf;      // 自動生成の信頼度（要確認マーク用）
+            if (Array.isArray(c.flags) && c.flags.length) o.flags = c.flags;
             if (c.color) o.color = c.color;                       // EN文字色（パンチライン等）
             if (c.jpColor) o.jpColor = c.jpColor;                 // JP文字色
             if (typeof c.scale === "number" && c.scale !== 1) o.scale = c.scale; // 拡大倍率
