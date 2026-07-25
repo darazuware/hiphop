@@ -439,6 +439,17 @@ const $ = (id) => document.getElementById(id);
 let cues = [], sel = 0, dirty = false;
 let hist = [], redoS = [], lastPush = { tag: '', t: 0 };
 const f2 = (n) => Math.round(n*100)/100;
+// currentTime設定直後にplay()すると、シーク先が未バッファ（回線が遅い/Tailscale経由等）の時に
+// 古い位置から再生が始まって字幕表示とズレる。seekedを待ってから再生する。
+let seekToken = 0;
+function seekPlay(el, t){
+  const target = Math.max(0, t), myToken = ++seekToken;
+  const start = () => { if (myToken === seekToken) el.play(); };
+  if (el.readyState >= 2 && Math.abs(el.currentTime - target) < 0.05) { start(); return; }
+  const onSeeked = () => { el.removeEventListener('seeked', onSeeked); start(); };
+  el.addEventListener('seeked', onSeeked);
+  el.currentTime = target;
+}
 const log = (s) => $('log').textContent = s;
 const snap = () => JSON.parse(JSON.stringify(cues));
 const DRAFT_KEY = 'cue-draft-${slug}';
@@ -769,7 +780,7 @@ $('tb').addEventListener('click', e=>{
   const i=+b.dataset.i, a=b.dataset.act;
   if(a==='play'){
     if(!au.paused && sel===i){ au.pause(); }                                   // 再生中の行を再タップ→一時停止
-    else { sel=i; au.currentTime=Math.max(0,cues[i].start-0.4); au.play(); zoomDirty=true; }
+    else { sel=i; seekPlay(au, cues[i].start-0.4); zoomDirty=true; }
   }
   if(a==='here'){ pushHist(); setStart(i, au.currentTime); }
   if(a==='merge' && i<cues.length-1){
@@ -1186,7 +1197,7 @@ addEventListener('keydown', e=>{
   else if(e.key==='ArrowUp'){ e.preventDefault(); selectCue(Math.max(0,sel-1)); }
   else if(e.key==='ArrowRight'){ e.preventDefault(); pushHist('nud'+sel); setStart(sel, cues[sel].start+(e.shiftKey?0.2:0.05)); }
   else if(e.key==='ArrowLeft'){ e.preventDefault(); pushHist('nud'+sel); setStart(sel, cues[sel].start-(e.shiftKey?0.2:0.05)); }
-  else if(e.key==='Enter'){ e.preventDefault(); au.currentTime=Math.max(0,cues[sel].start-0.4); au.play(); zoomDirty=true; }
+  else if(e.key==='Enter'){ e.preventDefault(); seekPlay(au, cues[sel].start-0.4); zoomDirty=true; }
 });
 /* サーバーを再起動したのに画面が古いまま、を検知して知らせる（iPad Safariは特に残る） */
 setInterval(function(){
@@ -1444,6 +1455,17 @@ var $=function(id){return document.getElementById(id)};
 var pv=$('pv'), cues=[], cfg={start:0,end:0,comment:'',title:'',artist:'',subUp:0,subScale:1}, playing=false;
 var renderEditorPending=null;
 function f2(n){return Math.round(n*100)/100}
+// currentTime設定直後にplay()すると、シーク先が未バッファ（回線が遅い/Tailscale経由等）の時に
+// 古い位置から再生が始まって字幕表示とズレる。seekedを待ってから再生する。
+var seekToken=0;
+function seekPlay(el,t){
+  var target=Math.max(0,t), myToken=++seekToken;
+  var start=function(){ if(myToken===seekToken) el.play(); };
+  if(el.readyState>=2 && Math.abs(el.currentTime-target)<0.05){ start(); return; }
+  var onSeeked=function(){ el.removeEventListener('seeked', onSeeked); start(); };
+  el.addEventListener('seeked', onSeeked);
+  el.currentTime=target;
+}
 
 function fitStage(){
   var wrap=$('stagewrap');
@@ -1628,7 +1650,7 @@ $('setend').onclick=function(){
 document.querySelectorAll('[data-nudge-s]').forEach(function(b){ b.onclick=function(){ $('start').value=f2((parseFloat($('start').value)||0)+ +b.dataset.nudgeS); upd(); pv.currentTime=parseFloat($('start').value); }; });
 document.querySelectorAll('[data-nudge-e]').forEach(function(b){ b.onclick=function(){ $('end').value=f2((parseFloat($('end').value)||0)+ +b.dataset.nudgeE); upd(); }; });
 $('play').onclick=function(){
-  if(pv.paused){ if(pv.currentTime<cfg.start||pv.currentTime>cfg.end) pv.currentTime=cfg.start; pv.play(); }
+  if(pv.paused){ if(pv.currentTime<cfg.start||pv.currentTime>cfg.end) seekPlay(pv, cfg.start); else pv.play(); }
   else pv.pause();
 };
 setInterval(function(){
@@ -1691,7 +1713,7 @@ function renderEditor(){
     hd.addEventListener('click',function(e){
       var b=e.target.closest('button[data-a]'); if(!b) return;
       var a=b.dataset.a;
-      if(a==='play'){ pv.currentTime=Math.max(0,cues[i].start-0.4); pv.play(); }
+      if(a==='play'){ seekPlay(pv, cues[i].start-0.4); }
       if(a==='here') setCueStart(i, pv.currentTime);
       if(a==='m005') setCueStart(i, cues[i].start-0.05);
       if(a==='p005') setCueStart(i, cues[i].start+0.05);
