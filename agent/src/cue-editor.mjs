@@ -243,6 +243,8 @@ a.home{color:#8fa3bd;text-decoration:none;font-size:13px}
 #wzbtns button{padding:2px 9px;font-size:15px;background:rgba(20,25,34,.85)}
 #preview{background:linear-gradient(rgba(0,0,0,.74),rgba(0,0,0,.74)),url("cover.jpg") center/cover;border-radius:12px;padding:16px;text-align:center;margin:8px 0 0}
 #pv-en{font-size:26px;font-weight:800;color:#fff;min-height:34px;text-shadow:0 2px 12px rgba(0,0,0,.7)}
+#pv-en .seg{opacity:0;transition:opacity .24s ease-out}
+#pv-en .seg.on{opacity:1}
 #pv-jp{font-size:17px;color:#b9ff2e;margin-top:6px;min-height:24px;text-shadow:0 2px 10px rgba(0,0,0,.7)}
 #t{font-variant-numeric:tabular-nums;font-size:16px;color:#9fb0c8;min-width:64px}
 table{border-collapse:collapse;width:100%}
@@ -1121,6 +1123,62 @@ function syncRow(i){
   tr.querySelector('[data-k=end]').value=f2(cues[i].end);
   if(i>0){ const p=$('r'+(i-1)); if(p) p.querySelector('[data-k=end]').value=f2(cues[i-1].end); }
 }
+/* ---------- ライブプレビュー: 「間で魅せる（時間差表示）」の実演出を再現 ---------- */
+// gen-full-composition.mjs の buildSegments と同じ規則（手動stagger優先→実発声の間→密な行はflow分割）
+const FLOW_GROUP = 3, FLOW_MIN_WORDS = 6, FLOW_MIN_SPAN = 2.0;
+function staggerSegs(c){
+  const words = (c.eng||'').trim().split(/\\s+/).filter(Boolean);
+  if(!words.length) return null;
+  const wt = cueWordTimes(c);
+  if(!wt || wt.length!==words.length) return null;
+  let cuts;
+  if(Array.isArray(c.stagger)){
+    cuts = c.stagger.filter(k=>k>0&&k<words.length);
+    if(!cuts.length) return null;   // 手動で「一括表示」に固定済み
+  } else {
+    cuts = [];
+    for(let k=1;k<wt.length;k++) if(wt[k].s-wt[k-1].e>STAGGER_GAP_TH) cuts.push(k);
+    if(!cuts.length && words.length>=FLOW_MIN_WORDS){
+      const span = wt[wt.length-1].e - wt[0].s;
+      if(span>=FLOW_MIN_SPAN) for(let k=FLOW_GROUP;k<words.length;k+=FLOW_GROUP) cuts.push(k);
+    }
+    if(!cuts.length) return null;
+  }
+  const bounds=[0,...cuts,words.length], segs=[];
+  for(let i=0;i<bounds.length-1;i++){
+    const from=bounds[i], to=bounds[i+1];
+    segs.push({ text: words.slice(from,to).join(' '), revealT: wt[from].s });
+  }
+  return segs;
+}
+let pvSegKey = null;
+function renderPreview(c, cur, t){
+  const segs = (cur>=0 && !au.paused) ? staggerSegs(c) : null;
+  if(segs && segs.length>1){
+    const key = cur+':'+segs.length;
+    if(pvSegKey!==key){
+      pvSegKey = key;
+      const host=$('pv-en'); host.innerHTML='';
+      segs.forEach((s,si)=>{
+        if(si>0) host.appendChild(document.createTextNode(' '));
+        const sp=document.createElement('span'); sp.className='seg'+(si===0?' on':''); sp.textContent=s.text;
+        host.appendChild(sp);
+      });
+    }
+    const spans=$('pv-en').querySelectorAll('.seg');
+    // gen-full-composition.mjs の FADE_LEAD(0.16)+REVEAL_DUR(0.24) と揃える：行の終わりに食い込ませない
+    const minRevealT=c.start+0.15, maxRevealT=Math.max(minRevealT, c.end-0.4);
+    for(let si=1;si<segs.length;si++){
+      const revealT=Math.min(Math.max(segs[si].revealT, minRevealT), maxRevealT);
+      spans[si].classList.toggle('on', t>=revealT);
+    }
+    const lastSegRevealT=Math.min(Math.max(segs[segs.length-1].revealT, minRevealT), maxRevealT);
+    putTx($('pv-jp'), t>=lastSegRevealT+0.17 ? c.jpn : '');
+  } else {
+    pvSegKey = null;
+    putTx($('pv-en'), c.eng); putTx($('pv-jp'), c.jpn);
+  }
+}
 function paint(){
   const t=au.currentTime;
   $('t').textContent=t.toFixed(2)+'s';
@@ -1133,7 +1191,7 @@ function paint(){
     if(pb){ const ic=(i===playingRow)?'⏸':'▶'; if(pb.textContent!==ic) pb.textContent=ic; } });
   // 再生中の無字幕区間は動画と同じく空白にする（停止中のみ選択行を出して編集の目印に）
   const c = cur>=0 ? cues[cur] : (au.paused ? (cues[sel]||{eng:'',jpn:''}) : {eng:'',jpn:''});
-  putTx($('pv-en'), c.eng); putTx($('pv-jp'), c.jpn);
+  renderPreview(c, cur, t);
   const psc = (typeof c.scale==='number' && c.scale>0) ? c.scale : 1;
   $('pv-en').style.transform = $('pv-jp').style.transform = psc===1 ? '' : 'scale('+psc+')';
   $('preview').style.opacity = (cur<0 && au.paused && c.eng) ? 0.45 : 1;
