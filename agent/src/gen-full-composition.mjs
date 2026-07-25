@@ -58,21 +58,7 @@ let faWords = null;
 if (fs.existsSync(faWordsPath)) {   // 語秒は訳の後出し判定にも使うので --no-stagger でも読む
   try { faWords = JSON.parse(fs.readFileSync(faWordsPath, "utf-8")); } catch {}
 }
-function buildSegments(cue, faw) {
-  if (!faw || !Array.isArray(faw) || !faw.length) return null;
-  const words = (cue.eng || "").trim().split(/\s+/).filter(Boolean);
-  if (words.length !== faw.length) return null; // whisper再文字起こし等でズレていたら安全側でスキップ
-
-  let cuts;
-  if (Array.isArray(cue.stagger)) {
-    // エディタで手動固定済み。[]なら常に一括表示（自動閾値では判定しない）
-    cuts = cue.stagger.filter((k) => k > 0 && k < words.length);
-    if (!cuts.length) return null;
-  } else {
-    cuts = [];
-    for (let k = 1; k < faw.length; k++) if (faw[k].s - faw[k - 1].e > WORD_GAP_TH) cuts.push(k);
-    if (!cuts.length) return null;
-  }
+function segsFromCuts(cuts, words, faw) {
   const bounds = [0, ...cuts, words.length];
   const segs = [];
   for (let i = 0; i < bounds.length - 1; i++) {
@@ -80,6 +66,42 @@ function buildSegments(cue, faw) {
     segs.push({ text: words.slice(from, to).join(" "), revealT: faw[from].s });
   }
   return segs;
+}
+
+// 間の無い密なラップ行（歌唱の「間」を検出できない）はガード[D]対象外の一括分割方式では拾えないため、
+// 実発声の語秒に沿って一定語数ごとに区切って"流す"（typewriter的に音に追従させる）。
+// 意味の切れ目ではなく機械的な語数割りだが、静止したブロックが4秒近く動かないよりは声に同期して見える。
+const FLOW_GROUP = parseInt(getArg("flow-group", "3"), 10);       // 何語ごとに区切るか
+const FLOW_MIN_WORDS = parseInt(getArg("flow-min-words", "6"), 10); // これ未満は対象外（既に短い）
+const FLOW_MIN_SPAN = parseFloat(getArg("flow-min-span", "2.0"));   // 発声span がこれ未満なら対象外（短い行はflowの割に訳の表示時間が削れるので割に合わない）
+const noFlow = args.includes("--no-flow");
+
+function buildSegments(cue, faw) {
+  if (!faw || !Array.isArray(faw) || !faw.length) return null;
+  const words = (cue.eng || "").trim().split(/\s+/).filter(Boolean);
+  if (words.length !== faw.length) return null; // whisper再文字起こし等でズレていたら安全側でスキップ
+
+  if (Array.isArray(cue.stagger)) {
+    // エディタで手動固定済み。[]なら常に一括表示（自動判定もflowも無視）
+    const cuts = cue.stagger.filter((k) => k > 0 && k < words.length);
+    return cuts.length ? segsFromCuts(cuts, words, faw) : null;
+  }
+
+  // 1) 実発声の「間」で切る（優先）
+  const gapCuts = [];
+  for (let k = 1; k < faw.length; k++) if (faw[k].s - faw[k - 1].e > WORD_GAP_TH) gapCuts.push(k);
+  if (gapCuts.length) return segsFromCuts(gapCuts, words, faw);
+
+  // 2) 間が無い密なラップ行は、一定語数ごとに実発声タイミングで区切って流す
+  if (!noFlow && words.length >= FLOW_MIN_WORDS) {
+    const span = faw[faw.length - 1].e - faw[0].s;
+    if (span >= FLOW_MIN_SPAN) {
+      const flowCuts = [];
+      for (let k = FLOW_GROUP; k < words.length; k += FLOW_GROUP) flowCuts.push(k);
+      if (flowCuts.length) return segsFromCuts(flowCuts, words, faw);
+    }
+  }
+  return null;
 }
 
 // dedicated render project dir: agent/{slug}/full/index.html
@@ -113,9 +135,11 @@ const jpTiming = getArg("jp-timing", "after-en");
 const JP_DELAY = parseFloat(getArg("jp-delay", "0.16"));        // sync時の遅延
 // 訳を遅らせるほどネタバレは減るが、訳を読む時間も減る。キュー尺が2秒前後のラップでは
 // 1.2秒遅らせると読字速度が14字/秒（字幕の目安は4〜8字/秒）になり実質読めない。既定は控えめ。
-const JP_MIN_SHOW = parseFloat(getArg("jp-min-show", "1.0"));   // 訳が出てから消えるまで最低これだけ確保
-const JP_MAX_DELAY = parseFloat(getArg("jp-max-delay", "0.7")); // 訳を遅らせる上限
-const JP_FRAC = parseFloat(getArg("jp-frac", "0.35"));          // 語秒が無い行は尺のこの割合だけ遅らせる
+// JP_MIN_SHOWは「表示時間の確保」であって「英語より前に出す理由」にしてはいけない
+// （segsがある行でこれを大きくすると、最後の語群が出る前に訳が見えるスポイラーになる。実測で修正済み）。
+const JP_MIN_SHOW = parseFloat(getArg("jp-min-show", "0.3"));   // どうしても収まらない時だけ前倒しする最終フロア
+const JP_MAX_DELAY = parseFloat(getArg("jp-max-delay", "0.7")); // segsが無い行にだけ効く遅延上限
+const JP_FRAC = parseFloat(getArg("jp-frac", "0.35"));          // 語秒もsegsも無い行は尺のこの割合だけ遅らせる
 
 const html = `<!doctype html>
 <html lang="en">
@@ -280,15 +304,19 @@ const html = `<!doctype html>
           });
         }
         // 日本語。訳を英語と同時に全部出すと落ちが先に割れるので、既定(after-en)では
-        // 全行で「英語が出そろう／最後の語が歌われ始める」まで訳を伏せる。
-        // ただし訳を読む時間 JP_MIN_SHOW は必ず残す（間に合わない行は前倒しする）。
+        // 全行で「英語が出そろう／最後の語が歌われ始める」まで訳を伏せる（アンチスポイラーが最優先）。
+        // JP_MIN_SHOW は「表示時間を確保したい」という願望に過ぎず、これを理由に英語より前へ
+        // 訳を出してはいけない（segsが複数あるのにJP_MAX_DELAYで打ち切ると、最後の語群が出る前に
+        // 訳が先に見えてしまう＝旧バグ）。segsがある行はlastRevealへの追従を最優先し、
+        // JP_MAX_DELAYはsegsが無い行（c.lw頼み・尺割合頼み）にだけ効かせる。
         let jpAt = inT + JP_DELAY;
         if (JP_TIMING === "after-en") {
-          let want = lastReveal > inT ? lastReveal + REVEAL_DUR * 0.7   // 段階表示の行は最後の語群が出てから
-                   : (c.lw != null ? c.lw                              // 語秒がある行は最後の語が歌われ始める瞬間
-                   : inT + (outT - inT) * JP_FRAC);                    // どちらも無い行は尺の割合で
-          want = Math.min(want, inT + JP_MAX_DELAY);
-          jpAt = Math.max(inT + 0.2, Math.min(want, outT - JP_MIN_SHOW));
+          let base;
+          if (lastReveal > inT) base = lastReveal + REVEAL_DUR * 0.7;
+          else if (c.lw != null) base = Math.min(c.lw, inT + JP_MAX_DELAY);
+          else base = Math.min(inT + (outT - inT) * JP_FRAC, inT + JP_MAX_DELAY);
+          base = Math.max(inT + 0.2, base);
+          jpAt = Math.min(base, outT - JP_MIN_SHOW); // 収まらない時だけ表示時間を削って間に合わせる（baseより前には出さない）
         }
         tl.fromTo(el.querySelector(".jp"), { opacity: 0 }, { opacity: 1, duration: 0.34, ease: "power2.out" }, jpAt);
       });
