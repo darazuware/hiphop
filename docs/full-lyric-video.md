@@ -59,6 +59,10 @@ node agent/src/gen-reel.mjs --slug {slug} --start 56 --end 104 \
 - 映像の切り出しは `data-media-start`（ファイルは切らない）。音声は同じファイルから `<audio>` で鳴らす。
 - **著作権**: 公式MV映像の再利用は [`docs/shorts-strategy.md`](shorts-strategy.md) の方針（MV切り抜き禁止）の**例外**として、**YouTubeへは上げない**前提でのみ生成する。Instagram等へ投稿する場合も Meta Rights Manager による削除・アカウント警告のリスクは残る（2026-07-21 ユーザー判断）。`pv.mp4` と `reel/renders/` は `.gitignore` 済み。
 
+## 語間ギャップの時間差表示（2026-07-25）
+- `gen-full-composition.mjs` は `fa_words.json`（`fa-align.mjs`で生成済みなら）を読み、キュー内の語間ポーズ（既定0.35秒超、`--word-gap`で変更・`--no-stagger`で無効化）を検出して**行は割らずに**後半の語群を実発声タイミングまで遅らせてフェードイン表示する（例: "if you had, **one shot**" の間で"one shot"だけ後から出る）。fa_words未生成の曲や語数不一致時は従来通り一括表示にフォールバック（回帰なし）。
+- 既存キューの `end` が実際の発声より早めに切られている行（チャンク分割の推定誤差）では、フェードアウト開始時刻に間に合うようreveal時刻を前倒しでクランプする＝実際の間より早く出ることがある。ズレが気になる行はエディタで波形を見ながら旗を実際のポーズ後ろへ広げると改善する。
+
 ## 注意
 - 作曲は `gen-full-composition.mjs`（title/artistは 引数 > `meta.json` > songs.ts）。**アセットは `full/` 内に置く**（CLIは `full/` をhttpルートに配信、`../assets` は404）。
 - 最初の歌詞まで4秒以上ある曲はイントロにタイトルカードを自動表示。

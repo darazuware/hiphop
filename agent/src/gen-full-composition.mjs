@@ -50,6 +50,30 @@ const cues = JSON.parse(fs.readFileSync(cuesPath, "utf-8"));
 const audioDur = Math.max(...cues.map((c) => c.end)) + 1.5;
 const DUR = Math.round(audioDur * 100) / 100;
 
+// word-gap stagger: 行を割らずに、実発声の「間」で後半の語群を遅らせて表示する
+const noStagger = args.includes("--no-stagger");
+const WORD_GAP_TH = parseFloat(getArg("word-gap", "0.35"));
+const faWordsPath = path.join(AGENT, slug, "assets", "fa_words.json");
+let faWords = null;
+if (!noStagger && fs.existsSync(faWordsPath)) {
+  try { faWords = JSON.parse(fs.readFileSync(faWordsPath, "utf-8")); } catch {}
+}
+function buildSegments(cue, faw) {
+  if (!faw || !Array.isArray(faw) || !faw.length) return null;
+  const words = (cue.eng || "").trim().split(/\s+/).filter(Boolean);
+  if (words.length !== faw.length) return null; // whisper再文字起こし等でズレていたら安全側でスキップ
+  const cuts = [];
+  for (let k = 1; k < faw.length; k++) if (faw[k].s - faw[k - 1].e > WORD_GAP_TH) cuts.push(k);
+  if (!cuts.length) return null;
+  const bounds = [0, ...cuts, words.length];
+  const segs = [];
+  for (let i = 0; i < bounds.length - 1; i++) {
+    const from = bounds[i], to = bounds[i + 1];
+    segs.push({ text: words.slice(from, to).join(" "), revealT: faw[from].s });
+  }
+  return segs;
+}
+
 // dedicated render project dir: agent/{slug}/full/index.html
 // assets must live INSIDE the served project dir (CLI serves full/ over http; ../ escapes root → 404)
 const outDir = path.join(AGENT, slug, "full");
@@ -62,7 +86,12 @@ const outPath = path.join(outDir, "index.html");
 
 const esc = (s) => (s || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 // data payload (eng/jpn stay in the file only, never printed)
-const payload = cues.map((c) => ({ e: c.eng, j: c.jpn, s: c.start, d: c.end }));
+const payload = cues.map((c, i) => {
+  const entry = { e: c.eng, j: c.jpn, s: c.start, d: c.end };
+  const segs = buildSegments(c, faWords && faWords[i]);
+  if (segs && segs.length > 1) entry.segs = segs;
+  return entry;
+});
 
 const html = `<!doctype html>
 <html lang="en">
@@ -154,7 +183,16 @@ const html = `<!doctype html>
         const el = document.createElement("div");
         el.className = "line";
         el.id = "ln" + i;
-        const en = document.createElement("div"); en.className = "en"; en.textContent = c.e;
+        const en = document.createElement("div"); en.className = "en";
+        if (c.segs && c.segs.length > 1) {
+          c.segs.forEach((seg, si) => {
+            const sp = document.createElement("span"); sp.className = "seg"; sp.textContent = seg.text;
+            en.appendChild(sp);
+            if (si < c.segs.length - 1) en.appendChild(document.createTextNode(" "));
+          });
+        } else {
+          en.textContent = c.e;
+        }
         const jp = document.createElement("div"); jp.className = "jp"; jp.textContent = c.j;
         el.appendChild(en); el.appendChild(jp);
         stage.appendChild(el);
@@ -186,6 +224,22 @@ const html = `<!doctype html>
         tl.to(el, { opacity: 0, y: -30, duration: 0.32, ease: "power2.in" }, outT - 0.16);
         // stagger eng then jpn for a "flowing" feel
         tl.fromTo(el.querySelector(".jp"), { opacity: 0 }, { opacity: 1, duration: 0.34, ease: "power2.out" }, inT + 0.16);
+
+        // word-gap stagger: 行の後半語群を、実発声タイミングまで遅らせて表示（行は割らない）
+        if (c.segs && c.segs.length > 1) {
+          const segEls = el.querySelectorAll(".en .seg");
+          const REVEAL_DUR = 0.24;
+          const FADE_LEAD = 0.16; // 行全体のfade-outが始まる outT からのリード
+          const minRevealT = inT + 0.15;
+          const maxRevealT = Math.max(minRevealT, outT - FADE_LEAD - REVEAL_DUR); // fade-outと重ならない上限
+          c.segs.forEach((seg, si) => {
+            if (si === 0) return; // 先頭語群は行本体のfromToに乗る
+            const segEl = segEls[si];
+            tl.set(segEl, { opacity: 0 }, 0);
+            const revealT = Math.min(Math.max(seg.revealT, minRevealT), maxRevealT);
+            tl.to(segEl, { opacity: 1, duration: REVEAL_DUR, ease: "power2.out" }, revealT);
+          });
+        }
       });
 
       window.__timelines["main"] = tl;
