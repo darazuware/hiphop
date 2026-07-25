@@ -129,6 +129,7 @@ const payload = cues.map((c, i) => {
   const faw = faWords && faWords[i];
   const wn = (c.eng || "").trim().split(/\s+/).filter(Boolean).length;
   if (faw && faw.length && faw.length === wn) entry.lw = Math.round(faw[faw.length - 1].s * 100) / 100;
+  if (typeof c.jpT === "number") entry.jt = c.jpT; // 訳の出現秒（エディタで実測固定・絶対秒）
   return entry;
 });
 
@@ -312,7 +313,9 @@ const html = `<!doctype html>
         // 訳が先に見えてしまう＝旧バグ）。segsがある行はlastRevealへの追従を最優先し、
         // JP_MAX_DELAYはsegsが無い行（c.lw頼み・尺割合頼み）にだけ効かせる。
         let jpAt = inT + JP_DELAY;
-        if (JP_TIMING === "after-en") {
+        if (typeof c.jt === "number") {
+          jpAt = c.jt; // エディタで実測固定済み。自動判定(after-en等)より優先
+        } else if (JP_TIMING === "after-en") {
           let base;
           if (lastReveal > inT) base = lastReveal + REVEAL_DUR * 0.7;
           else if (c.lw != null) base = Math.min(c.lw, inT + JP_MAX_DELAY);

@@ -865,6 +865,8 @@ function setMode(m){
     M.fxManual = Array.isArray(c.stagger);
     // 語インデックス→実測秒（手動固定）。無指定の位置は自動判定(FA語頭秒)のまま
     M.staggerT = (c.staggerT && typeof c.staggerT==='object' && !Array.isArray(c.staggerT)) ? {...c.staggerT} : {};
+    // 日本語訳が出る秒（絶対秒・手動固定）。キー'jp'固定の1要素オブジェクトでbuildTimeCtrを使い回す
+    M.jpT = (typeof c.jpT==='number') ? {jp:c.jpT} : {};
   }
   $('m-title').textContent = m==='br'?'行の改行':m==='fx'?'間で魅せる（時間差表示）':'行の分割';
   $('m-ok').textContent = m==='br'?'改行する':m==='fx'?'この位置で確定':'分割する';
@@ -881,6 +883,20 @@ function autoStaggerCuts(){
   for(let k=1;k<M.wt.length;k++) if(M.wt[k].s-M.wt[k-1].e>STAGGER_GAP_TH) cut.push(k);
   return cut;
 }
+// 日本語訳が出る秒の自動判定（gen-full-composition.mjsのafter-en相当をJS側で近似）。
+// 実際のレンダーの最終判定はgen-full-composition.mjs側。ここは編集画面での目安表示・ナッジ起点用
+function jpAutoTime(c){
+  const REVEAL_DUR=0.24, minT=c.start+0.2, maxT=Math.max(minT, c.end-0.3);
+  const segs=staggerSegs(c);
+  let base;
+  if(segs && segs.length>1) base=segs[segs.length-1].revealT+REVEAL_DUR*0.7;
+  else {
+    const wt=cueWordTimes(c);
+    base = (wt && wt.length) ? wt[wt.length-1].s : c.start+(c.end-c.start)*0.35;
+    base = Math.min(base, c.start+0.7);
+  }
+  return Math.min(Math.max(base,minT), maxT);
+}
 $('m-mode-split').onclick=()=>setMode('split');
 $('m-mode-br').onclick=()=>setMode('br');
 $('m-mode-fx').onclick=()=>setMode('fx');
@@ -892,23 +908,23 @@ $('m-fx-auto').onclick=()=>{
   $('mask').classList.remove('on'); draw(); zoomDirty=true;
   log('行'+(M.i+1)+'の時間差表示を自動判定に戻しました');
 };
-// fx/split共通: 「▶試聴→耳で聴きながらここ！で固定」用のミニボタン列
-// wIdx=上書きの保存キー（語インデックス）、baseT=今表示されている実効秒（自動 or 既存の手動値）
-function mkTimeBtn(fx,label,wIdx,baseT,title){
-  const b=document.createElement('button'); b.className='mini'; b.dataset.fx=fx; b.dataset.w=wIdx;
+// fx/split/jp共通: 「▶試聴→耳で聴きながらここ！で固定」用のミニボタン列
+// store=保存先('en'=M.staggerT/'part'=M.partT/'jp'=M.jpT), wIdx=保存キー, baseT=今表示されている実効秒
+function mkTimeBtn(fx,label,store,wIdx,baseT,title){
+  const b=document.createElement('button'); b.className='mini'; b.dataset.fx=fx; b.dataset.store=store; b.dataset.w=wIdx;
   if(baseT!=null) b.dataset.base=baseT;
   b.textContent=label; if(title) b.title=title; return b;
 }
-function buildTimeCtr(wIdx,baseT,manual){
+function buildTimeCtr(store,wIdx,baseT,manual){
   const ctr=document.createElement('span'); ctr.className='fxctr';
-  ctr.appendChild(mkTimeBtn('play','▶',wIdx,baseT,'少し手前から試聴'));
-  ctr.appendChild(mkTimeBtn('stop','⏸',wIdx,baseT,'停止'));
-  ctr.appendChild(mkTimeBtn('here','ここ!',wIdx,baseT,'今の再生位置をここに固定'));
-  ctr.appendChild(mkTimeBtn('m1','−1',wIdx,baseT));
-  ctr.appendChild(mkTimeBtn('m01','−0.1',wIdx,baseT));
-  ctr.appendChild(mkTimeBtn('p01','＋0.1',wIdx,baseT));
-  ctr.appendChild(mkTimeBtn('p1','＋1',wIdx,baseT));
-  if(typeof manual==='number') ctr.appendChild(mkTimeBtn('reset','自動に戻す',wIdx,baseT,'この位置だけ自動判定に戻す'));
+  ctr.appendChild(mkTimeBtn('play','▶',store,wIdx,baseT,'少し手前から試聴'));
+  ctr.appendChild(mkTimeBtn('stop','⏸',store,wIdx,baseT,'停止'));
+  ctr.appendChild(mkTimeBtn('here','ここ!',store,wIdx,baseT,'今の再生位置をここに固定'));
+  ctr.appendChild(mkTimeBtn('m1','−1',store,wIdx,baseT));
+  ctr.appendChild(mkTimeBtn('m01','−0.1',store,wIdx,baseT));
+  ctr.appendChild(mkTimeBtn('p01','＋0.1',store,wIdx,baseT));
+  ctr.appendChild(mkTimeBtn('p1','＋1',store,wIdx,baseT));
+  if(typeof manual==='number') ctr.appendChild(mkTimeBtn('reset','自動に戻す',store,wIdx,baseT,'この位置だけ自動判定に戻す'));
   return ctr;
 }
 function renderSplit(){
@@ -945,7 +961,7 @@ function renderSplit(){
         const eff=(typeof manual==='number') ? manual : auto;
         tEl.textContent = eff==null ? '（秒不明）' : f2(eff)+'s'+(typeof manual==='number'?' ・実測':' ・自動');
         row.appendChild(tEl);
-        row.appendChild(buildTimeCtr(wIdx, eff, manual));
+        row.appendChild(buildTimeCtr('en', wIdx, eff, manual));
         // 文字（グループ）自体をタップしても手前から試聴できる（小さいボタンを狙わなくていい）
         if(eff!=null){ gEl.classList.add('tap'); gEl.addEventListener('click', ()=>seekPlay(au, Math.max(0,eff-0.4))); }
       }
@@ -953,6 +969,19 @@ function renderSplit(){
     });
     const note=document.createElement('div'); note.className='note'; note.textContent=state;
     host.appendChild(note);
+    // 日本語訳の出現タイミング（英語の時間差表示とは独立に固定できる）
+    const jpManual=M.jpT.jp;
+    const jpAuto=jpAutoTime(c);
+    const jpEff=(typeof jpManual==='number') ? jpManual : jpAuto;
+    const jrow=document.createElement('div');
+    jrow.className='fxrow';
+    const jgEl=document.createElement('span'); jgEl.className='fxg tap'; jgEl.textContent='日本語訳';
+    jgEl.addEventListener('click', ()=>seekPlay(au, Math.max(0,jpEff-0.4)));
+    const jtEl=document.createElement('span'); jtEl.className='fxt';
+    jtEl.textContent=f2(jpEff)+'s'+(typeof jpManual==='number'?' ・実測':' ・自動');
+    jrow.appendChild(jgEl); jrow.appendChild(jtEl);
+    jrow.appendChild(buildTimeCtr('jp', 'jp', jpEff, jpManual));
+    host.appendChild(jrow);
     return;
   }
   const js=M.jc.join('');
@@ -982,7 +1011,7 @@ function renderSplit(){
     const body=document.createElement('div');
     const eDiv=document.createElement('div'); eDiv.className='e'; eDiv.textContent=p.eng; body.appendChild(eDiv);
     const jDiv=document.createElement('div'); jDiv.className='j'; putTx(jDiv,p.jpn); body.appendChild(jDiv);
-    if(n>0) body.appendChild(buildTimeCtr(wIdx, p.start, manual));
+    if(n>0) body.appendChild(buildTimeCtr('part', wIdx, p.start, manual));
     row.appendChild(body);
     // 行（テキスト部分）自体をタップしても手前から試聴できる（ボタンを狙わなくていい）
     if(n>0){ body.classList.add('tap'); body.addEventListener('click', e=>{ if(e.target.closest('button'))return; seekPlay(au, Math.max(0,p.start-0.4)); }); }
@@ -1057,9 +1086,9 @@ $('m-jp').addEventListener('click',e=>{ const d=e.target.closest('.cut'); if(!d)
 // fx: 遅れて出る語群の実測秒を手動固定（自動判定のFA語頭秒がズレている時用）
 $('m-pv').addEventListener('click',e=>{
   const b=e.target.closest('button[data-fx]'); if(!b) return;
-  const w=+b.dataset.w, a=b.dataset.fx;
+  const w=b.dataset.w, a=b.dataset.fx, sel=b.dataset.store;
   const base=b.dataset.base!==undefined && b.dataset.base!=='' ? +b.dataset.base : null;
-  const store = M.mode==='fx' ? M.staggerT : M.partT;
+  const store = sel==='jp' ? M.jpT : sel==='part' ? M.partT : M.staggerT;
   if(!store) return;
   if(a==='play'){ if(base!=null) seekPlay(au, Math.max(0,base-0.4)); return; }
   if(a==='stop'){ au.pause(); return; }
@@ -1094,9 +1123,10 @@ $('m-ok').onclick=()=>{
     const keepT={}; let tCount=0;
     for(const k of cuts) if(typeof M.staggerT[k]==='number'){ keepT[k]=M.staggerT[k]; tCount++; }
     if(tCount) cues[M.i].staggerT=keepT; else delete cues[M.i].staggerT;
+    if(typeof M.jpT.jp==='number') cues[M.i].jpT=M.jpT.jp; else delete cues[M.i].jpT;
     markDirty();
     $('mask').classList.remove('on'); draw(); zoomDirty=true;
-    log(M.ecuts.size ? '行'+(M.i+1)+'の時間差表示を'+M.ecuts.size+'箇所に固定しました'+(tCount?'（うち実測'+tCount+'箇所）':'')+'（再生成で反映）' : '行'+(M.i+1)+'は時間差表示なし（一括表示）に固定しました（再生成で反映）');
+    log(M.ecuts.size ? '行'+(M.i+1)+'の時間差表示を'+M.ecuts.size+'箇所に固定しました'+(tCount?'（うち実測'+tCount+'箇所）':'')+(typeof M.jpT.jp==='number'?' / 訳の表示秒も固定':'')+'（再生成で反映）' : '行'+(M.i+1)+'は時間差表示なし（一括表示）に固定しました（再生成で反映）');
     return;
   }
   if(M.mode==='br'){
@@ -1265,10 +1295,13 @@ function renderPreview(c, cur, t){
       spans[si].classList.toggle('on', t>=revealT);
     }
     const lastSegRevealT=Math.min(Math.max(segs[segs.length-1].revealT, minRevealT), maxRevealT);
-    putTx($('pv-jp'), t>=lastSegRevealT+0.17 ? c.jpn : '');
+    const jpAt=(typeof c.jpT==='number') ? c.jpT : lastSegRevealT+0.17;
+    putTx($('pv-jp'), t>=jpAt ? c.jpn : '');
   } else {
     pvSegKey = null;
-    putTx($('pv-en'), c.eng); putTx($('pv-jp'), c.jpn);
+    putTx($('pv-en'), c.eng);
+    if(cur>=0 && !au.paused && typeof c.jpT==='number') putTx($('pv-jp'), t>=c.jpT ? c.jpn : '');
+    else putTx($('pv-jp'), c.jpn);
   }
 }
 function paint(){
@@ -2319,6 +2352,7 @@ const server = http.createServer((req, res) => {
                 if (Object.keys(t).length) o.staggerT = t;   // 語インデックス→実測秒（自動判定のFA語頭秒を上書き）
               }
             }
+            if (typeof c.jpT === "number") o.jpT = Math.round(c.jpT * 100) / 100;   // 訳が出る秒（絶対秒・手動固定）
             return o;
           }).filter(c => (c.eng || c.jpn)).sort((a, b) => a.start - b.start);
           for (const c of cues) if (c.end < c.start + 0.4) c.end = Math.round((c.start + 0.4) * 100) / 100;
