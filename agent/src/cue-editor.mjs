@@ -348,7 +348,7 @@ kbd{background:#232935;border:1px solid #39414f;border-radius:4px;padding:1px 5p
   <div class="row" id="topbar">
     <a class="home" href="../../">◀<span class="lbl"> 曲一覧</span></a>
     <span id="ver" title="配信中の画面コードの更新時刻。サーバー再起動まで古いまま">${VER}</span>
-    <button class="p" id="play">▶ 再生</button>
+    <button class="p" id="play">再生</button>
     <span id="t">0.00s</span>
     <button id="undo" title="元に戻す (⌘Z)">↩</button><button id="redo" title="やり直す (⌘⇧Z)">↪</button>
     <button class="only-m" id="hdwave" title="全体波形とプレビュー">〜</button>
@@ -360,7 +360,7 @@ kbd{background:#232935;border:1px solid #39414f;border-radius:4px;padding:1px 5p
     <button data-nudge="-5">◀5s</button><button data-nudge="5">5s▶</button>
     <select id="rate"><option value="1">1x</option><option value="0.75">0.75x</option><option value="0.5">0.5x</option></select>
     <label style="font-size:13px"><input type="checkbox" id="loop" style="width:auto"> 行ループ</label>
-    <button id="lintBtn">✓ チェック</button>
+    <button id="lintBtn">チェック</button>
     <button id="shiftBtn">⇧ ずらす</button>
     <button id="histBtn">履歴</button>
     <input class="flt" id="flt" placeholder="検索…">
@@ -386,7 +386,7 @@ kbd{background:#232935;border:1px solid #39414f;border-radius:4px;padding:1px 5p
 <table id="tb"></table>
 <audio id="au" src="audio.mp3" preload="auto"></audio>
 <div id="bar-m">
-  <button id="mb-play">▶</button>
+  <button id="mb-play">再生</button>
   <button id="mb-back">−0.05</button>
   <button id="mb-sync">● SYNC</button>
   <button id="mb-fwd">＋0.05</button>
@@ -395,7 +395,7 @@ kbd{background:#232935;border:1px solid #39414f;border-radius:4px;padding:1px 5p
 <div id="mask" class="modalmask"><div class="modalbox">
   <h3 id="m-title">行の分割</h3>
   <div class="row" style="margin:0 0 8px">
-    <button id="m-mode-split" class="p">✂ 分割（別のキューに分ける）</button>
+    <button id="m-mode-split" class="p">分割（別のキューに分ける）</button>
     <button id="m-mode-br">⏎ 改行（同じキューの中で折り返す）</button>
     <button id="m-mode-fx">⏱ 間で魅せる（時間差表示）</button>
   </div>
@@ -673,6 +673,17 @@ $('wzoom').addEventListener('pointerdown', e=>{
       return;
     }
   }
+  // 選択行の開始の旗も同様に最優先で掴む（上半分にいるときだけ＝隣の行の旗を取り違えない）
+  if (sel>=0 && cues[sel]){
+    const sx = (cues[sel].start-t0)/ZW*W;
+    const y = e.clientY - r.top;
+    if (Math.abs(sx-x) < R && y <= r.height*0.45){
+      cv.setPointerCapture(e.pointerId);
+      drag = { i:sel, t0, W, moved:false };
+      if(navigator.vibrate) navigator.vibrate(8);
+      return;
+    }
+  }
   let best = -1, bd = R;
   for (let i=0;i<cues.length;i++){
     const s = cues[i].start; if (s<t0||s>t0+ZW) continue;
@@ -744,10 +755,10 @@ function draw(){
       + '<td class="en"><textarea wrap="off" rows="1" data-k="eng" data-i="'+i+'"></textarea></td>'
       + '<td class="jp"><textarea wrap="off" rows="1" data-k="jpn" data-i="'+i+'" placeholder="日本語訳…"></textarea></td>'
       + '<td class="acts">'
-      + '<button class="mini" data-act="play" data-i="'+i+'" title="この行から再生">▶</button>'
+      + '<button class="mini" data-act="play" data-i="'+i+'" title="この行から再生">再生</button>'
       + '<button class="mini" data-act="here" data-i="'+i+'" title="現在位置をstartに">◎</button>'
       + '<button class="mini sc'+(sc!==1?' big':'')+'" data-act="scale" data-i="'+i+'" title="文字サイズ（クリックで拡大→一周で等倍・⇧クリックで縮小）">'+sc.toFixed(2).replace(/0$/,'')+'x</button>'
-      + '<button class="mini'+(Array.isArray(c.stagger)?' big':'')+'" data-act="split" data-i="'+i+'" title="この行を分割／改行／時間差表示'+(Array.isArray(c.stagger)?'（時間差表示を手動固定済み）':'')+'">✂</button>'
+      + '<button class="mini'+(Array.isArray(c.stagger)?' big':'')+'" data-act="split" data-i="'+i+'" title="この行を分割／改行／時間差表示'+(Array.isArray(c.stagger)?'（時間差表示を手動固定済み）':'')+'">分割</button>'
       + '<button class="mini" data-act="merge" data-i="'+i+'" title="次の行と結合">⤵</button>'
       + '<button class="mini" data-act="del" data-i="'+i+'" title="行を削除">✕</button></td>';
     tb.appendChild(tr);
@@ -908,7 +919,7 @@ $('m-fx-auto').onclick=()=>{
   $('mask').classList.remove('on'); draw(); zoomDirty=true;
   log('行'+(M.i+1)+'の時間差表示を自動判定に戻しました');
 };
-// fx/split/jp共通: 「▶試聴→耳で聴きながらここ！で固定」用のミニボタン列
+// fx/split/jp共通: 「試聴→耳で聴きながらここ！で固定」用のミニボタン列
 // store=保存先('en'=M.staggerT/'part'=M.partT/'jp'=M.jpT), wIdx=保存キー, baseT=今表示されている実効秒
 function mkTimeBtn(fx,label,store,wIdx,baseT,title){
   const b=document.createElement('button'); b.className='mini'; b.dataset.fx=fx; b.dataset.store=store; b.dataset.w=wIdx;
@@ -917,8 +928,8 @@ function mkTimeBtn(fx,label,store,wIdx,baseT,title){
 }
 function buildTimeCtr(store,wIdx,baseT,manual){
   const ctr=document.createElement('span'); ctr.className='fxctr';
-  ctr.appendChild(mkTimeBtn('play','▶',store,wIdx,baseT,'少し手前から試聴'));
-  ctr.appendChild(mkTimeBtn('stop','⏸',store,wIdx,baseT,'停止'));
+  ctr.appendChild(mkTimeBtn('play','再生',store,wIdx,baseT,'少し手前から試聴'));
+  ctr.appendChild(mkTimeBtn('stop','停止',store,wIdx,baseT,'停止'));
   ctr.appendChild(mkTimeBtn('here','ここ!',store,wIdx,baseT,'今の再生位置をここに固定'));
   ctr.appendChild(mkTimeBtn('m1','−1',store,wIdx,baseT));
   ctr.appendChild(mkTimeBtn('m01','−0.1',store,wIdx,baseT));
@@ -1181,7 +1192,7 @@ function lint(){
 $('lintBtn').onclick=()=>{
   const issues=lint();
   const list=$('lintList');
-  if(!issues.length){ list.innerHTML='<div style="padding:14px;color:#7fd98f">問題なし ✓</div>'; }
+  if(!issues.length){ list.innerHTML='<div style="padding:14px;color:#7fd98f">問題なし</div>'; }
   else {
     list.innerHTML='';
     issues.forEach(it=>{
@@ -1313,7 +1324,7 @@ function paint(){
   cues.forEach((c,i)=>{ const tr=$('r'+i); if(!tr)return;
     tr.className=(i===cur?'on ':'')+(i===sel?'sel':'');
     const pb=tr.querySelector('[data-act=play]');
-    if(pb){ const ic=(i===playingRow)?'⏸':'▶'; if(pb.textContent!==ic) pb.textContent=ic; } });
+    if(pb){ const ic=(i===playingRow)?'停止':'再生'; if(pb.textContent!==ic) pb.textContent=ic; } });
   // 再生中の無字幕区間は動画と同じく空白にする（停止中のみ選択行を出して編集の目印に）
   const c = cur>=0 ? cues[cur] : (au.paused ? (cues[sel]||{eng:'',jpn:''}) : {eng:'',jpn:''});
   renderPreview(c, cur, t);
@@ -1328,8 +1339,8 @@ function paint(){
       if(r.top<300||r.bottom>innerHeight-110) tr.scrollIntoView({block:'center'});
     }
   }
-  $('play').textContent = isNarrow() ? (au.paused ? '▶' : '⏸') : (au.paused ? '▶ 再生' : '⏸ 停止');
-  $('mb-play').textContent = au.paused ? '▶' : '⏸';
+  $('play').textContent = au.paused ? '再生' : '停止';
+  $('mb-play').textContent = au.paused ? '再生' : '停止';
   drawOvr();
   if (!au.paused || zoomDirty || Math.abs(t - lastZoomT) > 0.001){ drawZoom(); zoomDirty = false; lastZoomT = t; }
 }
@@ -1547,7 +1558,7 @@ button:disabled{opacity:.45;cursor:default}
     <div class="card">
       <h2>切り出す区間</h2>
       <div class="row">
-        <button id="play" class="p">▶ 再生</button>
+        <button id="play" class="p">再生</button>
         <span id="tnow" style="color:#9fb0c8;font-variant-numeric:tabular-nums">0.00s</span>
         <span style="flex:1"></span>
         <span id="dur" style="font-weight:700"></span>
@@ -1598,7 +1609,7 @@ button:disabled{opacity:.45;cursor:default}
         <button id="cs-save" class="p">字幕を保存</button>
         <span id="cs-msg" class="note" style="margin:0"></span>
       </div>
-      <div class="note">◎＝再生位置をこの行の開始に（タップ同期）。✂＝分割、⤵＝次と結合、✕＝削除。字幕エディタと同じ full-cues.json を直接編集します。</div>
+      <div class="note">◎＝再生位置をこの行の開始に（タップ同期）。分割ボタンで別キューに分ける、⤵＝次と結合、✕＝削除。字幕エディタと同じ full-cues.json を直接編集します。</div>
       <div id="ed"></div>
     </div>
     <div class="card">
@@ -1612,7 +1623,7 @@ button:disabled{opacity:.45;cursor:default}
   </div>
 </div>
 <div id="mbar">
-  <button id="m-play" class="p">▶</button>
+  <button id="m-play" class="p">再生</button>
   <button id="m-start">◎ 開始</button>
   <button id="m-end">◎ 終了</button>
   <button id="m-sync" class="p">◎ 字幕</button>
@@ -1839,8 +1850,8 @@ $('play').onclick=function(){
 setInterval(function(){
   var t=pv.currentTime;
   $('tnow').textContent=t.toFixed(2)+'s';
-  $('play').textContent=pv.paused?'▶ 再生':'⏸ 停止';
-  $('m-play').textContent=pv.paused?'▶':'⏸';
+  $('play').textContent=pv.paused?'再生':'停止';
+  $('m-play').textContent=pv.paused?'再生':'停止';
   if(!pv.paused && cfg.end>cfg.start && t>cfg.end) pv.currentTime=cfg.start;
   var cur=null;
   for(var i=0;i<cues.length;i++) if(t>=cues[i].start&&t<cues[i].end) cur=cues[i];
@@ -1873,12 +1884,12 @@ function renderEditor(){
     var d=document.createElement('div'); d.className='er'; d.id='er'+i;
     var hd=document.createElement('div'); hd.className='hd';
     hd.innerHTML='<input class="num" data-k="start" value="'+f2(c.start)+'">'
-      +'<button class="mini" data-a="play" title="ここから再生">▶</button>'
+      +'<button class="mini" data-a="play" title="ここから再生">再生</button>'
       +'<button class="mini" data-a="here" title="再生位置をこの行の開始に">◎</button>'
       +'<button class="mini" data-a="m005" title="-0.05s">−</button>'
       +'<button class="mini" data-a="p005" title="+0.05s">＋</button>'
       +'<span class="sp"></span>'
-      +'<button class="mini" data-a="split" title="分割">✂</button>'
+      +'<button class="mini" data-a="split" title="分割">分割</button>'
       +'<button class="mini" data-a="merge" title="次と結合">⤵</button>'
       +'<button class="mini" data-a="del" title="削除">✕</button>';
     // input だと改行が消えるので textarea（字幕エディタで入れた改行を壊さない）
