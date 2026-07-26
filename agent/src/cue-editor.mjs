@@ -2001,6 +2001,7 @@ function renderEditor(){
     host.appendChild(d);
   });
   paintRows();
+  layout();
 }
 function setCueStart(i,t){
   t=Math.max(0,f2(t));
