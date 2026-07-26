@@ -1942,6 +1942,7 @@ setInterval(function(){
 
 /* ---------- 区間内の字幕編集（full-cues.json を直接いじる） ---------- */
 var selCue=-1, cuesDirty=false;
+var playCue=-1; // 行の再生ボタンで最後に対象にしたキュー。同じ行のボタンを押す限りは頭出しに戻さず今の位置で再生/一時停止をトグルする
 function inRangeIdx(){
   var out=[];
   for(var i=0;i<cues.length;i++) if(cues[i].end>cfg.start+0.05 && cues[i].start<cfg.end-0.05) out.push(i);
@@ -1981,7 +1982,12 @@ function renderEditor(){
     hd.addEventListener('click',function(e){
       var b=e.target.closest('button[data-a]'); if(!b) return;
       var a=b.dataset.a;
-      if(a==='play'){ seekPlay(pv, cues[i].start-0.4); }
+      if(a==='play'){
+        // 同じ行のボタンを続けて押している限りは頭出し(start-0.4)に戻さず、今の位置で再生/一時停止をトグルする
+        if(playCue===i){ selCue=i; if(pv.paused) pv.play(); else pv.pause(); }
+        else { playCue=i; selCue=i; seekPlay(pv, cues[i].start-0.4); }
+        paintRows();
+      }
       if(a==='here') setCueStart(i, pv.currentTime);
       if(a==='m005') setCueStart(i, cues[i].start-0.05);
       if(a==='p005') setCueStart(i, cues[i].start+0.05);
@@ -2008,10 +2014,13 @@ function setCueStart(i,t){
 }
 function paintRows(){
   var t=pv.currentTime;
+  var playingRow = pv.paused ? -1 : playCue;
   inRangeIdx().forEach(function(i){
     var r=$('er'+i); if(!r) return;
     var on=(t>=cues[i].start&&t<cues[i].end);
     r.className='er'+(on?' on':'')+(i===selCue?' sel':'');
+    var pb=r.querySelector('[data-a=play]');
+    if(pb){ var ic=(i===playingRow)?'停止':'再生'; if(pb.textContent!==ic) pb.textContent=ic; }
   });
 }
 function tapSyncCue(){
