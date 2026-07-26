@@ -854,6 +854,7 @@ function openSplit(i){
   const wt=cueWordTimes(c);
   const hasBr=(c.eng+c.jpn).indexOf('\\n')>=0;
   M={i, ew, jc, ecuts:new Set(), jcuts:new Set(), wt:(wt&&wt.length===ew.length)?wt:null, mode:hasBr?'br':'split', partT:{}};
+  M.hasAutoGap = autoStaggerCuts().length>0;
   if(hasBr){
     let k=0; for(const w of etok){ if(w===BR){ if(k>0&&k<ew.length) M.ecuts.add(k); } else k++; }
     let j=0; for(const ch of jcAll){ if(ch==='\\n'){ if(j>0&&j<jc.length) M.jcuts.add(j); } else j++; }
