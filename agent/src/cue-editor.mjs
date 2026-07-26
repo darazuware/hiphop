@@ -515,6 +515,7 @@ function rowColor(i){ return ZEBRA[i%2]; }
   };
 })();
 let cues = [], sel = 0, dirty = false;
+let playRow = -1; // 行の再生ボタンで最後に対象にした行。波形タップ等でselだけ変わっても、同じ行のボタンを押す限りは頭に戻さず今の位置でトグルする
 let hist = [], redoS = [], lastPush = { tag: '', t: 0 };
 const f2 = (n) => Math.round(n*100)/100;
 // currentTime設定直後にplay()すると、シーク先が未バッファ（回線が遅い/Tailscale経由等）の時に
@@ -862,9 +863,9 @@ $('tb').addEventListener('click', e=>{
   const b=e.target.closest('button[data-act]'); if(!b) return;
   const i=+b.dataset.i, a=b.dataset.act;
   if(a==='play'){
-    if(!au.paused && sel===i){ au.pause(); }                                   // 再生中の行を再タップ→一時停止（その場で止まる）
-    else if(sel===i){ au.play(); }                                             // 同じ行を再タップ→止めた位置から再開（頭に戻らない）
-    else { sel=i; seekPlay(au, cues[i].start-0.4); zoomDirty=true; }           // 別の行→頭から
+    // 「同じ行のボタンを続けて押しているか」で判定（波形タップ等でselだけ変わっても頭に戻らないように、selではなくplayRowを使う）
+    if(playRow===i){ sel=i; if(au.paused) au.play(); else au.pause(); zoomDirty=true; } // 同じ行→頭に戻さず今の位置で再生/一時停止をトグル
+    else { playRow=i; sel=i; seekPlay(au, cues[i].start-0.4); zoomDirty=true; }         // 別の行→頭から
   }
   if(a==='here'){ pushHist(); setStart(i, au.currentTime); }
   if(a==='merge' && i<cues.length-1){
@@ -1393,7 +1394,7 @@ function paint(){
   $('t').textContent=t.toFixed(2)+'s';
   let cur=-1;
   cues.forEach((c,i)=>{ if(t>=c.start && t<c.end) cur=i; });
-  const playingRow = au.paused ? -1 : sel;
+  const playingRow = au.paused ? -1 : playRow;
   cues.forEach((c,i)=>{ const tr=$('r'+i); if(!tr)return;
     tr.className=(i===cur?'on ':'')+(i===sel?'sel':(i===cur?'':'rc'+(i%2)));
     const pb=tr.querySelector('[data-act=play]');
@@ -1464,7 +1465,7 @@ addEventListener('keydown', e=>{
   else if(e.key==='ArrowUp'){ e.preventDefault(); selectCue(Math.max(0,sel-1)); }
   else if(e.key==='ArrowRight'){ e.preventDefault(); pushHist('nud'+sel); setStart(sel, cues[sel].start+(e.shiftKey?0.2:0.05)); }
   else if(e.key==='ArrowLeft'){ e.preventDefault(); pushHist('nud'+sel); setStart(sel, cues[sel].start-(e.shiftKey?0.2:0.05)); }
-  else if(e.key==='Enter'){ e.preventDefault(); seekPlay(au, cues[sel].start-0.4); zoomDirty=true; }
+  else if(e.key==='Enter'){ e.preventDefault(); playRow=sel; seekPlay(au, cues[sel].start-0.4); zoomDirty=true; }
 });
 /* サーバーを再起動したのに画面が古いまま、を検知して知らせる（iPad Safariは特に残る） */
 setInterval(function(){
