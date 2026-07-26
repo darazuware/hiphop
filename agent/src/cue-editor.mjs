@@ -409,6 +409,7 @@ kbd{background:#232935;border:1px solid #39414f;border-radius:4px;padding:1px 5p
     <button id="m-auto3">おまかせ3</button>
     <button id="m-clear">解除</button>
     <button id="m-fx-auto" style="display:none" title="この行の手動設定を消し、自動判定に戻す">自動に戻す</button>
+    <button id="m-ignore-gap" style="display:none" title="この行の自動ギャップを無視して一括表示にする">ギャップ無視</button>
     <span style="flex:1"></span>
     <button id="m-cancel">やめる</button>
     <button class="p" id="m-ok">分割する</button>
@@ -865,6 +866,7 @@ function setMode(m){
   $('m-mode-br').className = m==='br'?'p':'';
   $('m-mode-fx').className = m==='fx'?'p':'';
   $('m-fx-auto').style.display = m==='fx'?'':'none';
+  $('m-ignore-gap').style.display = (m==='split'&&M.hasAutoGap)?'':'none';
   $('m-autogap').style.display = m==='br'?'none':'';
   $('m-autogap').textContent = m==='fx' ? '◇ 間で選び直す（'+STAGGER_GAP_TH+'s基準）' : '◇ 間で切る';
   $('m-auto2').style.display = $('m-auto3').style.display = m==='fx'?'none':'';
@@ -1125,6 +1127,13 @@ $('m-autogap').onclick=()=>{
 $('m-auto2').onclick=()=>autoSplit(2);
 $('m-auto3').onclick=()=>autoSplit(3);
 $('m-clear').onclick=()=>{ M.ecuts=new Set(); M.jcuts=new Set(); renderSplit(); };
+$('m-ignore-gap').onclick=()=>{
+  pushHist();
+  cues[M.i].stagger=[];
+  markDirty();
+  $('mask').classList.remove('on'); draw(); zoomDirty=true;
+  log('行'+(M.i+1)+'の自動ギャップを無視しました。この行は常に一括表示になります（再生成で反映）');
+};
 $('m-cancel').onclick=()=>$('mask').classList.remove('on');
 $('m-ok').onclick=()=>{
   if(M.mode==='fx'){
