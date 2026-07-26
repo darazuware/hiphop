@@ -2470,7 +2470,7 @@ const server = http.createServer((req, res) => {
             }
             if (typeof c.jpT === "number") o.jpT = Math.round(c.jpT * 100) / 100;   // 訳が出る秒（絶対秒・手動固定）
             return o;
-          }).filter(c => (c.eng || c.jpn)).sort((a, b) => a.start - b.start);
+          }).filter(c => (c.eng || c.jpn));
           for (const c of cues) if (c.end < c.start + 0.4) c.end = Math.round((c.start + 0.4) * 100) / 100;
           backupToHistory(slug);
           fs.copyFileSync(cuesPathOf(slug), path.join(assetsOf(slug), "full-cues.bak.json"));
