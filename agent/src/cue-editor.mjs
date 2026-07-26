@@ -862,8 +862,9 @@ $('tb').addEventListener('click', e=>{
   const b=e.target.closest('button[data-act]'); if(!b) return;
   const i=+b.dataset.i, a=b.dataset.act;
   if(a==='play'){
-    if(!au.paused && sel===i){ au.pause(); }                                   // 再生中の行を再タップ→一時停止
-    else { sel=i; seekPlay(au, cues[i].start-0.4); zoomDirty=true; }
+    if(!au.paused && sel===i){ au.pause(); }                                   // 再生中の行を再タップ→一時停止（その場で止まる）
+    else if(sel===i){ au.play(); }                                             // 同じ行を再タップ→止めた位置から再開（頭に戻らない）
+    else { sel=i; seekPlay(au, cues[i].start-0.4); zoomDirty=true; }           // 別の行→頭から
   }
   if(a==='here'){ pushHist(); setStart(i, au.currentTime); }
   if(a==='merge' && i<cues.length-1){
