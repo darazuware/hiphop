@@ -259,6 +259,8 @@ table{border-collapse:collapse;width:100%}
 td{border-bottom:1px solid #1e222b;padding:4px 6px;vertical-align:middle}
 tr.on{background:#1b2230}
 tr.sel td{background:#243049}
+tr.rc0{background:rgba(94,200,255,.10)}
+tr.rc1{background:rgba(224,123,224,.10)}
 input,textarea{background:#171b23;border:1px solid #2a3140;color:#e8e8ea;border-radius:6px;padding:5px 7px;width:100%;font:inherit}
 textarea{resize:none;white-space:pre;overflow-x:auto;overflow-y:hidden;line-height:1.35;display:block}
 input.num{width:82px;font-variant-numeric:tabular-nums;text-align:right}
@@ -471,6 +473,10 @@ const $ = (id) => document.getElementById(id);
 function hexToRgb(h){ h=(h||'#b9ff2e').replace('#',''); if(h.length===3) h=h.split('').map(c=>c+c).join(''); const n=parseInt(h,16); return [n>>16&255,n>>8&255,n&255]; }
 function curAccent(){ return getComputedStyle(document.documentElement).getPropertyValue('--ui-accent').trim() || '#b9ff2e'; }
 function accentRgba(a){ const [r,g,b]=hexToRgb(curAccent()); return 'rgba('+r+','+g+','+b+','+a+')'; }
+function hexToRgba(h,a){ const [r,g,b]=hexToRgb(h); return 'rgba('+r+','+g+','+b+','+a+')'; }
+// 行ごとの色（波形のバーとテーブルの行を同じ色でシンクロ＝エクセルのシマシマと同じ発想）
+const ZEBRA = ['#5ec8ff','#e07be0'];
+function rowColor(i){ return ZEBRA[i%2]; }
 (function initTheme(){
   const root = document.documentElement.style;
   const bgIn = $('th-bg'), accIn = $('th-accent');
@@ -663,35 +669,44 @@ function drawZoom(){
       g.fillRect(x,y0,1,Math.max(1,y1-y0));
     }
   }
-  // 選択中の行だけ「開始〜終了」の帯と、終了のつまみ（下向き・オレンジ）を出す
-  if (sel>=0 && cues[sel]){
-    const sx=(cues[sel].start-t0)/ZW*W, ex=(cues[sel].end-t0)/ZW*W;
-    if (ex>0 && sx<W){
-      g.fillStyle=accentRgba(0.10);
-      g.fillRect(Math.max(0,sx), 0, Math.min(W,ex)-Math.max(0,sx), H);
-      if (ex>=-20 && ex<=W+20){
-        const hw = COARSE ? 10 : 6, hh = COARSE ? 20 : 14;
-        g.fillStyle='#ff9b3d';
-        g.fillRect(ex-1.5, 0, 3, H-hh);
-        g.beginPath(); g.moveTo(ex-hw,H-2); g.lineTo(ex+hw,H-2); g.lineTo(ex,H-hh); g.closePath(); g.fill();
-        g.font=(COARSE?'12px':'9px')+' sans-serif'; g.textAlign='center'; g.fillStyle='#1a1004';
-        g.fillText('終', ex, H-(COARSE?5:4));
-      }
-    }
+  const hw = COARSE ? 12 : 8, hh = COARSE ? 22 : 16;
+  // 全行の帯（行ごとの色）: 隣の行と見分けがつき、直前の行の終了位置も波形上に残るように
+  for (let i=0;i<cues.length;i++){
+    const c = cues[i];
+    const sx=(c.start-t0)/ZW*W, ex=(c.end-t0)/ZW*W;
+    if (ex<0 || sx>W) continue;
+    g.fillStyle = i===sel ? accentRgba(0.16) : hexToRgba(rowColor(i), 0.11);
+    g.fillRect(Math.max(0,sx), 0, Math.min(W,ex)-Math.max(0,sx), H);
   }
   for (let i=0;i<cues.length;i++){
-    const s = cues[i].start;
-    if (s<t0-0.2||s>t0+ZW+0.2) continue;
-    const x = (s-t0)/ZW*W;
-    g.shadowColor = accentRgba(.9); g.shadowBlur = i===sel ? 10 : 0;
-    g.fillStyle = i===sel ? curAccent() : accentRgba(0.55);
-    const hw = COARSE ? 10 : 6, hh = COARSE ? 20 : 14;
-    g.fillRect(x-(i===sel?1.5:0.75),hh,i===sel?3:1.5,H-hh);
-    g.fillStyle = i===sel ? curAccent() : accentRgba(0.75);
-    g.beginPath(); g.moveTo(x-hw,2); g.lineTo(x+hw,2); g.lineTo(x,hh); g.closePath(); g.fill();
-    g.shadowBlur = 0;
-    g.font = (COARSE?'12px':'9px')+' sans-serif'; g.textAlign='center';
-    g.fillStyle = i===sel?'#111':'#0d0f13'; g.fillText(String(i+1), x, COARSE?15:11);
+    const c = cues[i], isSel = i===sel, col = isSel ? curAccent() : rowColor(i);
+    // 開始（上向き旗）: 行ごとの色。選択行だけアクセント色＋光彩で強調
+    const s = c.start;
+    if (s>=t0-0.2 && s<=t0+ZW+0.2){
+      const x = (s-t0)/ZW*W;
+      g.shadowColor = accentRgba(.9); g.shadowBlur = isSel ? 10 : 0;
+      g.fillStyle = col;
+      g.fillRect(x-(isSel?1.5:1),hh,isSel?3:2,H-hh);
+      g.beginPath(); g.moveTo(x-hw,2); g.lineTo(x+hw,2); g.lineTo(x,hh); g.closePath(); g.fill();
+      g.shadowBlur = 0;
+      g.font = 'bold '+(COARSE?'15px':'12px')+' sans-serif'; g.textAlign='center';
+      g.fillStyle = '#0d0f13'; g.fillText(String(i+1), x, hh-(COARSE?5:3));
+    }
+    // 終了（下向き旗）: 全行ぶん常に表示＝直前の行の終わりも見える。選択行はオレンジ＋光彩
+    const e = c.end;
+    if (e>=t0-0.2 && e<=t0+ZW+0.2){
+      const x = (e-t0)/ZW*W;
+      const ecol = isSel ? '#ff9b3d' : col;
+      g.shadowColor = 'rgba(255,155,61,.9)'; g.shadowBlur = isSel ? 10 : 0;
+      g.fillStyle = ecol;
+      g.fillRect(x-(isSel?1.5:1), 0, isSel?3:2, H-hh);
+      g.beginPath(); g.moveTo(x-hw,H-2); g.lineTo(x+hw,H-2); g.lineTo(x,H-hh); g.closePath(); g.fill();
+      g.shadowBlur = 0;
+      if (isSel){
+        g.font = 'bold '+(COARSE?'12px':'9px')+' sans-serif'; g.textAlign='center'; g.fillStyle='#1a1004';
+        g.fillText('終', x, H-(COARSE?5:4));
+      }
+    }
   }
   g.shadowBlur = 0; g.fillStyle = '#fff'; g.fillRect(W/2-0.75,0,1.5,H);
 }
@@ -724,43 +739,28 @@ $('wzoom').addEventListener('pointerdown', e=>{
     drag = null; return;
   }
   const t0 = au.currentTime - ZW/2;
-  const R = e.pointerType === 'mouse' ? 14 : 26;
-  // 選択行の終了つまみを最優先で掴む（下半分にいるときだけ＝開始の旗と取り合わない）
-  if (sel>=0 && cues[sel]){
-    const ex = (cues[sel].end-t0)/ZW*W;
-    const y = e.clientY - r.top;
-    if (Math.abs(ex-x) < R && y > r.height*0.45){
-      cv.setPointerCapture(e.pointerId);
-      drag = { i:sel, t0, W, moved:false, endMode:true };
-      if(navigator.vibrate) navigator.vibrate(8);
-      return;
-    }
-  }
-  // 選択行の開始の旗も同様に最優先で掴む（上半分にいるときだけ＝隣の行の旗を取り違えない）
-  if (sel>=0 && cues[sel]){
-    const sx = (cues[sel].start-t0)/ZW*W;
-    const y = e.clientY - r.top;
-    if (Math.abs(sx-x) < R && y <= r.height*0.45){
-      cv.setPointerCapture(e.pointerId);
-      drag = { i:sel, t0, W, moved:false };
-      if(navigator.vibrate) navigator.vibrate(8);
-      return;
-    }
-  }
+  const R = e.pointerType === 'mouse' ? 16 : 28;
+  const y = e.clientY - r.top;
+  const upper = y <= r.height*0.45;
+  // 上半分＝開始の旗、下半分＝終了の旗を探す。どの行も直接つかめる（行ごとに色が違うので隣の旗と混同しない）
   let best = -1, bd = R;
   for (let i=0;i<cues.length;i++){
-    const s = cues[i].start; if (s<t0||s>t0+ZW) continue;
-    const px = (s-t0)/ZW*W, d = Math.abs(px-x);
+    const t = upper ? cues[i].start : cues[i].end;
+    if (t<t0-0.2||t>t0+ZW+0.2) continue;
+    const px = (t-t0)/ZW*W, d = Math.abs(px-x);
     if (d<bd){ bd=d; best=i; }
   }
   cv.setPointerCapture(e.pointerId);
-  if (best>=0){ drag = { i:best, t0, W, moved:false }; sel = best; paint(); if(navigator.vibrate) navigator.vibrate(8); }
-  else {
-    // 旗を外した位置。選択中の行がこの表示範囲にあれば「掴んでぐりぐり動かす」対象にする。
-    // 動かさず離せば従来通りタップでシーク（judgeはpointermoveで初移動時に決定）。
-    const selVisible = sel>=0 && cues[sel] && cues[sel].start>=t0-0.05 && cues[sel].start<=t0+ZW+0.05;
-    drag = { ambiguous:true, selMode:selVisible, i:sel, t0, W, x0:x, lastX:x, moved:false, histPushed:false };
+  if (best>=0){
+    sel = best; paint(); zoomDirty = true;
+    drag = { i:best, t0, W, moved:false, endMode: !upper };
+    if(navigator.vibrate) navigator.vibrate(8);
+    return;
   }
+  // 旗を外した位置。選択中の行がこの表示範囲にあれば「掴んでぐりぐり動かす」対象にする。
+  // 動かさず離せば従来通りタップでシーク（judgeはpointermoveで初移動時に決定）。
+  const selVisible = sel>=0 && cues[sel] && cues[sel].start>=t0-0.05 && cues[sel].start<=t0+ZW+0.05;
+  drag = { ambiguous:true, selMode:selVisible, i:sel, t0, W, x0:x, lastX:x, moved:false, histPushed:false };
 });
 $('wzoom').addEventListener('pointermove', e=>{
   const r = $('wzoom').getBoundingClientRect();
@@ -1394,7 +1394,7 @@ function paint(){
   cues.forEach((c,i)=>{ if(t>=c.start && t<c.end) cur=i; });
   const playingRow = au.paused ? -1 : sel;
   cues.forEach((c,i)=>{ const tr=$('r'+i); if(!tr)return;
-    tr.className=(i===cur?'on ':'')+(i===sel?'sel':'');
+    tr.className=(i===cur?'on ':'')+(i===sel?'sel':(i===cur?'':'rc'+(i%2)));
     const pb=tr.querySelector('[data-act=play]');
     if(pb){ const ic=(i===playingRow)?'停止':'再生'; if(pb.textContent!==ic) pb.textContent=ic; } });
   // 再生中の無字幕区間は動画と同じく空白にする（停止中のみ選択行を出して編集の目印に）
