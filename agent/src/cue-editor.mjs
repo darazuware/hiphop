@@ -1601,7 +1601,7 @@ button:disabled{opacity:.45;cursor:default}
   #mbar .p{flex:1.3}
 }
 </style></head><body>
-<div style="max-width:1000px;margin:0 auto"><a class="home" href="../">◀ 字幕エディタ</a><h1>${slug} — 縦型リール（PV映像に字幕）</h1></div>
+<div style="max-width:1000px;margin:0 auto"><a class="home" href="../">◀ 字幕エディタ</a> <span id="ver" title="配信中の画面コードの更新時刻。サーバー再起動まで古いまま">${VER}</span><h1>${slug} — 縦型リール（PV映像に字幕）</h1></div>
 <div class="wrap">
   <div id="stagecol">
   <div id="stagewrap">
@@ -2046,6 +2046,17 @@ addEventListener('keydown',function(e){
   else if(e.code==='Space'){ e.preventDefault(); $('play').click(); }
 });
 addEventListener('beforeunload',function(e){ if(cuesDirty){ e.preventDefault(); e.returnValue=''; } });
+
+/* サーバーを再起動したのに画面が古いまま、を検知して知らせる（iPad Safariは特に残る） */
+setInterval(function(){
+  fetch('/__ver',{cache:'no-store'}).then(function(r){return r.text()}).then(function(v){
+    if(!v || v===$('ver').textContent) return;
+    var b=$('ver');
+    b.textContent=v+' ← 再読み込み';
+    b.style.cssText='background:#ff9b3d;color:#111;font-weight:800;border-radius:6px;padding:2px 6px;cursor:pointer';
+    b.onclick=function(){ location.reload(true); };
+  }).catch(function(){});
+}, 20000);
 
 /* 分割モーダル */
 var isKata=function(c){return /[゠-ヿ]/.test(c)}, isKanji=function(c){return /[一-鿿]/.test(c)},
