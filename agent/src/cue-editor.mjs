@@ -829,7 +829,7 @@ function draw(){
     const ta = tr.querySelector('[data-k=eng]'), tj = tr.querySelector('[data-k=jpn]');
     ta.value = c.eng; tj.value = c.jpn;
     autoGrow(ta); autoGrow(tj);
-    tr.addEventListener('mousedown', e=>{ if(e.target.tagName!=='TEXTAREA') selectCue(i); });
+    tr.addEventListener('mousedown', e=>{ if(!e.target.closest('button,textarea,input')) selectCue(i); });
   });
   paint();
 }
