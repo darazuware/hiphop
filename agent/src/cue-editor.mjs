@@ -223,14 +223,18 @@ const editorHtml = (slug) => `<!doctype html><html lang="ja"><head><meta charset
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes"><title>${slug} — cue editor</title>
 <style>
-:root{color-scheme:dark}
+:root{color-scheme:dark;--ui-bg:#0d0f13;--ui-accent:#b9ff2e}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-body{margin:0;background:radial-gradient(120% 60% at 50% -10%,#111c10 0%,#0d0f13 45%) fixed;color:#e8e8ea;font:14px/1.5 -apple-system,"Hiragino Sans",sans-serif}
+body{margin:0;background:radial-gradient(120% 60% at 50% -10%,color-mix(in srgb,var(--ui-bg) 78%,#ffffff 16%) 0%,var(--ui-bg) 45%) fixed;color:#e8e8ea;font:14px/1.5 -apple-system,"Hiragino Sans",sans-serif}
 header{position:sticky;top:0;z-index:9;background:#12151b;border-bottom:1px solid #262b36;padding:10px 16px}
 .row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
 button{background:#232935;color:#e8e8ea;border:1px solid #39414f;border-radius:8px;padding:7px 12px;cursor:pointer;font-size:13px}
 button:hover{background:#2e3646}
-button.p{background:#b9ff2e;color:#111;border-color:#b9ff2e;font-weight:700;box-shadow:0 0 14px rgba(185,255,46,.4)}
+button.p{background:var(--ui-accent);color:#111;border-color:var(--ui-accent);font-weight:700;box-shadow:0 0 14px color-mix(in srgb,var(--ui-accent) 40%,transparent)}
+#theme-pop{position:absolute;right:16px;top:44px;z-index:30;background:#151a22;border:1px solid #2f3846;border-radius:12px;padding:14px;display:none;gap:10px;flex-direction:column;box-shadow:0 8px 30px rgba(0,0,0,.5)}
+#theme-pop.on{display:flex}
+#theme-pop label{font-size:12px;color:#9fb0c8;display:flex;justify-content:space-between;align-items:center;gap:10px}
+#theme-pop input[type=color]{width:44px;height:30px;padding:0;border:1px solid #39414f;border-radius:6px;background:none;cursor:pointer}
 button:disabled{opacity:.4;cursor:default}
 select,input.flt{background:#171b23;border:1px solid #2a3140;color:#e8e8ea;border-radius:8px;padding:6px 8px;font:inherit}
 input.flt{width:150px}
@@ -245,7 +249,7 @@ a.home{color:#8fa3bd;text-decoration:none;font-size:13px}
 #pv-en{font-size:26px;font-weight:800;color:#fff;min-height:34px;text-shadow:0 2px 12px rgba(0,0,0,.7)}
 #pv-en .seg{opacity:0;transition:opacity .24s ease-out}
 #pv-en .seg.on{opacity:1}
-#pv-jp{font-size:17px;color:#b9ff2e;margin-top:6px;min-height:24px;text-shadow:0 2px 10px rgba(0,0,0,.7)}
+#pv-jp{font-size:17px;color:var(--ui-accent);margin-top:6px;min-height:24px;text-shadow:0 2px 10px rgba(0,0,0,.7)}
 #t{font-variant-numeric:tabular-nums;font-size:16px;color:#9fb0c8;min-width:64px}
 table{border-collapse:collapse;width:100%}
 td{border-bottom:1px solid #1e222b;padding:4px 6px;vertical-align:middle}
@@ -257,10 +261,10 @@ input.num{width:82px;font-variant-numeric:tabular-nums;text-align:right}
 td.times{display:flex;gap:6px;width:190px}
 td.acts{white-space:nowrap;width:196px}
 .en textarea{font-weight:600}
-.jp textarea{color:#b9ff2e}
+.jp textarea{color:var(--ui-accent)}
 .jp textarea:placeholder-shown{border-color:#2a3d14}
 .mini.sc{font-size:12px;font-variant-numeric:tabular-nums;min-width:34px}
-.mini.sc.big{color:#b9ff2e;font-weight:700}
+.mini.sc.big{color:var(--ui-accent);font-weight:700}
 .mini.big{color:#ffd24a}
 .mini{background:none;border:none;color:#8fa3bd;padding:3px 5px;font-size:15px}
 .mini:hover{color:#fff;background:#2a3140}
@@ -274,20 +278,20 @@ kbd{background:#232935;border:1px solid #39414f;border-radius:4px;padding:1px 5p
 .modalbox .sub{color:#8fa3bd;font-size:12px;margin-bottom:12px}
 .chips{display:flex;flex-wrap:wrap;align-items:center;gap:0;background:#0e1219;border:1px solid #262d3a;border-radius:10px;padding:10px;margin-bottom:14px}
 .chip{padding:6px 3px;font-size:19px;white-space:pre}
-.chips.jp .chip{font-size:20px;color:#b9ff2e}
+.chips.jp .chip{font-size:20px;color:var(--ui-accent)}
 .cut{width:16px;height:34px;margin:0 -1px;border-radius:5px;cursor:pointer;position:relative;flex:none}
 .cut::after{content:"";position:absolute;left:50%;top:6px;bottom:6px;width:2px;transform:translateX(-50%);background:#39414f;border-radius:2px}
 .cut.ok::after{background:#4d6b8f}
 .cut:hover::after{background:#8fa3bd}
-.cut.on::after{background:#b9ff2e;width:4px}
+.cut.on::after{background:var(--ui-accent);width:4px}
 .cut.ng::after{background:#3a2b2b}
 .cut.gap::after{background:#e6a54d;width:3px;box-shadow:0 0 6px rgba(230,165,77,.7)}
-.cut.gap.on::after{background:#b9ff2e}
+.cut.gap.on::after{background:var(--ui-accent)}
 .pv{background:#000;border-radius:10px;padding:12px;margin-bottom:6px}
 .pv .l{display:flex;gap:10px;align-items:baseline;padding:5px 0;border-bottom:1px solid #1c222c}
 .pv .l:last-child{border:0}
 .pv .n{color:#6b7a90;font-size:12px;width:56px;font-variant-numeric:tabular-nums}
-.pv .e{color:#fff;font-weight:700}.pv .j{color:#b9ff2e;font-size:13px}
+.pv .e{color:#fff;font-weight:700}.pv .j{color:var(--ui-accent);font-size:13px}
 .fxrow{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:7px 0;border-bottom:1px solid #1c222c}
 .fxrow:last-of-type{border:0}
 .fxg{color:#fff;font-weight:700;flex:1;min-width:120px}
@@ -298,7 +302,7 @@ kbd{background:#232935;border:1px solid #39414f;border-radius:4px;padding:1px 5p
 .lintItem{display:flex;gap:10px;align-items:center;padding:8px 6px;border-bottom:1px solid #1e242f;cursor:pointer;border-radius:8px}
 .lintItem:hover{background:#1d2431}
 .lintItem .b{font-size:11px;padding:2px 8px;border-radius:99px;flex:none}
-.b.err{background:#4a2626;color:#ff9d9d}.b.wrn{background:#2a3d14;color:#b9ff2e}.b.inf{background:#1f3448;color:#8fc3ff}
+.b.err{background:#4a2626;color:#ff9d9d}.b.wrn{background:#2a3d14;color:var(--ui-accent)}.b.inf{background:#1f3448;color:#8fc3ff}
 .histItem{display:flex;gap:10px;align-items:center;padding:8px 6px;border-bottom:1px solid #1e242f}
 #bar-m{display:none}
 .only-m{display:none}
@@ -330,7 +334,7 @@ kbd{background:#232935;border:1px solid #39414f;border-radius:4px;padding:1px 5p
   table,tbody,tr,td{display:block;width:auto}
   tr{border:1px solid #232a36;border-radius:12px;margin:7px 8px;padding:6px;background:#141922}
   tr.on{background:#1d2634;border-color:#3a4a63}
-  tr.sel{outline:2px solid #b9ff2e;box-shadow:0 0 12px rgba(185,255,46,.3)}
+  tr.sel{outline:2px solid var(--ui-accent);box-shadow:0 0 12px color-mix(in srgb,var(--ui-accent) 30%,transparent)}
   td{border:0;padding:2px 4px}
   td:first-child{color:#6b7a90;font-size:11px;padding:0 4px}
   td.times{display:flex;gap:8px;width:auto}
@@ -341,9 +345,11 @@ kbd{background:#232935;border:1px solid #39414f;border-radius:4px;padding:1px 5p
   input.flt{width:110px}
   #bar-m{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:15;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(14,17,23,.94);border-top:1px solid #2a3140;backdrop-filter:blur(10px)}
   #bar-m button{flex:1;padding:13px 0;font-size:15px}
-  #mb-sync{flex:1.6;background:#b9ff2e;color:#111;font-weight:800;border-color:#b9ff2e;box-shadow:0 0 14px rgba(185,255,46,.4)}
+  #mb-sync{flex:1.6;background:var(--ui-accent);color:#111;font-weight:800;border-color:var(--ui-accent);box-shadow:0 0 14px color-mix(in srgb,var(--ui-accent) 40%,transparent)}
 }
-</style></head><body>
+</style>
+<script>(function(){try{var b=localStorage.getItem('ce-bg'),a=localStorage.getItem('ce-accent'),r=document.documentElement.style;if(b)r.setProperty('--ui-bg',b);if(a)r.setProperty('--ui-accent',a);}catch(e){}})();</script>
+</head><body>
 <header>
   <div class="row" id="topbar">
     <a class="home" href="../../">◀<span class="lbl"> 曲一覧</span></a>
@@ -354,7 +360,13 @@ kbd{background:#232935;border:1px solid #39414f;border-radius:4px;padding:1px 5p
     <button class="only-m" id="hdwave" title="全体波形とプレビュー">〜</button>
     <button class="only-m" id="hdmenu" title="道具">≡</button>
     <span style="flex:1"></span>
+    <button id="themeBtn" title="背景色・アクセント色を変える">🎨</button>
     <button id="save" class="p">保存<span class="lbl"> (⌘S)</span></button>
+  </div>
+  <div id="theme-pop">
+    <label>背景 <input type="color" id="th-bg"></label>
+    <label>アクセント <input type="color" id="th-accent"></label>
+    <button id="th-reset">リセット</button>
   </div>
   <div class="row" id="tools">
     <button data-nudge="-5">◀5s</button><button data-nudge="5">5s▶</button>
@@ -446,6 +458,24 @@ kbd{background:#232935;border:1px solid #39414f;border-radius:4px;padding:1px 5p
 <script>
 const au = document.getElementById('au');
 const $ = (id) => document.getElementById(id);
+function hexToRgb(h){ h=(h||'#b9ff2e').replace('#',''); if(h.length===3) h=h.split('').map(c=>c+c).join(''); const n=parseInt(h,16); return [n>>16&255,n>>8&255,n&255]; }
+function curAccent(){ return getComputedStyle(document.documentElement).getPropertyValue('--ui-accent').trim() || '#b9ff2e'; }
+function accentRgba(a){ const [r,g,b]=hexToRgb(curAccent()); return 'rgba('+r+','+g+','+b+','+a+')'; }
+(function initTheme(){
+  const root = document.documentElement.style;
+  const bgIn = $('th-bg'), accIn = $('th-accent');
+  const applied = { bg: localStorage.getItem('ce-bg') || '#0d0f13', accent: localStorage.getItem('ce-accent') || '#b9ff2e' };
+  bgIn.value = applied.bg; accIn.value = applied.accent;
+  $('themeBtn').onclick = (e) => { e.stopPropagation(); $('theme-pop').classList.toggle('on'); };
+  document.addEventListener('click', (e) => { if (!$('theme-pop').contains(e.target) && e.target!==$('themeBtn')) $('theme-pop').classList.remove('on'); });
+  bgIn.oninput = () => { root.setProperty('--ui-bg', bgIn.value); localStorage.setItem('ce-bg', bgIn.value); };
+  accIn.oninput = () => { root.setProperty('--ui-accent', accIn.value); localStorage.setItem('ce-accent', accIn.value); zoomDirty = true; };
+  $('th-reset').onclick = () => {
+    root.removeProperty('--ui-bg'); root.removeProperty('--ui-accent');
+    localStorage.removeItem('ce-bg'); localStorage.removeItem('ce-accent');
+    bgIn.value = '#0d0f13'; accIn.value = '#b9ff2e'; zoomDirty = true;
+  };
+})();
 let cues = [], sel = 0, dirty = false;
 let hist = [], redoS = [], lastPush = { tag: '', t: 0 };
 const f2 = (n) => Math.round(n*100)/100;
@@ -582,7 +612,7 @@ function drawOvr(){
   if (!dur) return;
   const t = au.currentTime;
   const wx0 = Math.max(0,(t-ZW/2)/dur*W), wx1 = Math.min(W,(t+ZW/2)/dur*W);
-  g.fillStyle = 'rgba(185,255,46,0.12)'; g.fillRect(wx0,0,wx1-wx0,H);
+  g.fillStyle = accentRgba(0.12); g.fillRect(wx0,0,wx1-wx0,H);
   g.fillStyle = '#fff'; g.fillRect(t/dur*W-0.5,0,1.5,H);
 }
 function drawZoom(){
@@ -605,7 +635,7 @@ function drawZoom(){
   if (sel>=0 && cues[sel]){
     const sx=(cues[sel].start-t0)/ZW*W, ex=(cues[sel].end-t0)/ZW*W;
     if (ex>0 && sx<W){
-      g.fillStyle='rgba(185,255,46,0.10)';
+      g.fillStyle=accentRgba(0.10);
       g.fillRect(Math.max(0,sx), 0, Math.min(W,ex)-Math.max(0,sx), H);
       if (ex>=-20 && ex<=W+20){
         const hw = COARSE ? 10 : 6, hh = COARSE ? 20 : 14;
@@ -621,11 +651,11 @@ function drawZoom(){
     const s = cues[i].start;
     if (s<t0-0.2||s>t0+ZW+0.2) continue;
     const x = (s-t0)/ZW*W;
-    g.shadowColor = 'rgba(185,255,46,.9)'; g.shadowBlur = i===sel ? 10 : 0;
-    g.fillStyle = i===sel ? '#b9ff2e' : 'rgba(185,255,46,0.55)';
+    g.shadowColor = accentRgba(.9); g.shadowBlur = i===sel ? 10 : 0;
+    g.fillStyle = i===sel ? curAccent() : accentRgba(0.55);
     const hw = COARSE ? 10 : 6, hh = COARSE ? 20 : 14;
     g.fillRect(x-(i===sel?1.5:0.75),hh,i===sel?3:1.5,H-hh);
-    g.fillStyle = i===sel ? '#b9ff2e' : 'rgba(185,255,46,0.75)';
+    g.fillStyle = i===sel ? curAccent() : accentRgba(0.75);
     g.beginPath(); g.moveTo(x-hw,2); g.lineTo(x+hw,2); g.lineTo(x,hh); g.closePath(); g.fill();
     g.shadowBlur = 0;
     g.font = (COARSE?'12px':'9px')+' sans-serif'; g.textAlign='center';
