@@ -10,10 +10,12 @@
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
+import { readProdColors } from "./prod-colors.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const AGENT = path.resolve(__dirname, "..");
 const ROOT = path.resolve(AGENT, "..");
+const PC = readProdColors(AGENT);
 
 const args = process.argv.slice(2);
 const getArg = (n, d) => {
@@ -167,16 +169,16 @@ const html = `<!doctype html>
       #header { position: absolute; left: 72px; top: 60px; z-index: 5; display: flex; align-items: center; gap: 26px; }
       #cover { width: 120px; height: 120px; border-radius: 12px; object-fit: cover;
         box-shadow: 0 10px 40px rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.14); }
-      #meta { color: #fff; }
+      #meta { color: ${PC.en}; }
       #meta .t { font-size: 40px; font-weight: 900; letter-spacing: -0.5px; line-height: 1.05; }
-      #meta .a { font-size: 26px; font-weight: 600; color: #ffd24a; margin-top: 6px; letter-spacing: 0.5px; }
+      #meta .a { font-size: 26px; font-weight: 600; color: ${PC.jp}; margin-top: 6px; letter-spacing: 0.5px; }
       /* lyric stage */
       #stage { position: absolute; left: 0; right: 0; top: 0; bottom: 0; z-index: 4; }
       .line { position: absolute; left: 50%; top: 50%; width: 1560px;
         transform: translate(-50%, -50%); text-align: center; opacity: 0; will-change: opacity, transform; }
-      .line .en { color: #fff; font-weight: 800; font-size: 76px; line-height: 1.1; letter-spacing: -1px;
+      .line .en { color: ${PC.en}; font-weight: 800; font-size: 76px; line-height: 1.1; letter-spacing: -1px;
         text-shadow: 0 4px 30px rgba(0,0,0,0.6); }
-      .line .jp { color: #ffd24a; font-family: "Noto Sans JP", sans-serif; font-weight: 700; font-size: 44px;
+      .line .jp { color: ${PC.jp}; font-family: "Noto Sans JP", sans-serif; font-weight: 700; font-size: 44px;
         line-height: 1.3; margin-top: 26px; text-shadow: 0 4px 24px rgba(0,0,0,0.55); }
       /* next-line preview */
       #ondeck { position: absolute; left: 50%; bottom: 132px; transform: translateX(-50%); z-index: 4;
@@ -193,8 +195,8 @@ const html = `<!doctype html>
         align-items: center; justify-content: center; gap: 30px; opacity: 0; }
       #intro img { width: 340px; height: 340px; border-radius: 20px; object-fit: cover;
         box-shadow: 0 24px 80px rgba(0,0,0,0.7); border: 1px solid rgba(255,255,255,0.16); }
-      #intro .t { color: #fff; font-size: 84px; font-weight: 900; letter-spacing: -2px; }
-      #intro .a { color: #ffd24a; font-size: 38px; font-weight: 700; letter-spacing: 1px; margin-top: -14px; }
+      #intro .t { color: ${PC.en}; font-size: 84px; font-weight: 900; letter-spacing: -2px; }
+      #intro .a { color: ${PC.jp}; font-size: 38px; font-weight: 700; letter-spacing: 1px; margin-top: -14px; }
       #intro .s { color: rgba(255,255,255,0.55); font-family: "Noto Sans JP", sans-serif;
         font-size: 26px; font-weight: 500; letter-spacing: 4px; margin-top: 8px; }
     </style>

@@ -15,6 +15,7 @@ import http from "http";
 import os from "os";
 import { spawn, execFileSync } from "child_process";
 import { fileURLToPath } from "url";
+import { readProdColors, writeProdColors } from "./prod-colors.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const AGENT = path.resolve(__dirname, "..");
@@ -219,11 +220,11 @@ function startImport(url, slug, title, artist) {
 }
 
 /* ---------- 編集画面HTML ---------- */
-const editorHtml = (slug) => `<!doctype html><html lang="ja"><head><meta charset="utf-8">
+const editorHtml = (slug) => { const PC = readProdColors(AGENT); return `<!doctype html><html lang="ja"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes"><title>${slug} — cue editor</title>
 <style>
-:root{color-scheme:dark;--ui-bg:#0d0f13;--ui-accent:#b9ff2e}
+:root{color-scheme:dark;--ui-bg:#0d0f13;--ui-accent:#b9ff2e;--prod-en:${PC.en};--prod-jp:${PC.jp}}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 body{margin:0;background:radial-gradient(120% 60% at 50% -10%,color-mix(in srgb,var(--ui-bg) 78%,#ffffff 16%) 0%,var(--ui-bg) 45%) fixed;color:#e8e8ea;font:14px/1.5 -apple-system,"Hiragino Sans",sans-serif}
 header{position:sticky;top:0;z-index:9;background:#12151b;border-bottom:1px solid #262b36;padding:10px 16px}
@@ -231,10 +232,13 @@ header{position:sticky;top:0;z-index:9;background:#12151b;border-bottom:1px soli
 button{background:#232935;color:#e8e8ea;border:1px solid #39414f;border-radius:8px;padding:7px 12px;cursor:pointer;font-size:13px}
 button:hover{background:#2e3646}
 button.p{background:var(--ui-accent);color:#111;border-color:var(--ui-accent);font-weight:700;box-shadow:0 0 14px color-mix(in srgb,var(--ui-accent) 40%,transparent)}
-#theme-pop{position:absolute;right:16px;top:44px;z-index:30;background:#151a22;border:1px solid #2f3846;border-radius:12px;padding:14px;display:none;gap:10px;flex-direction:column;box-shadow:0 8px 30px rgba(0,0,0,.5)}
+#theme-pop{position:absolute;right:16px;top:44px;z-index:30;background:#151a22;border:1px solid #2f3846;border-radius:12px;padding:14px;display:none;gap:10px;flex-direction:column;box-shadow:0 8px 30px rgba(0,0,0,.5);width:220px}
 #theme-pop.on{display:flex}
 #theme-pop label{font-size:12px;color:#9fb0c8;display:flex;justify-content:space-between;align-items:center;gap:10px}
 #theme-pop input[type=color]{width:44px;height:30px;padding:0;border:1px solid #39414f;border-radius:6px;background:none;cursor:pointer}
+.th-grp-title{font-size:10px;color:#6b7a90;letter-spacing:.5px;margin-top:4px;padding-top:8px;border-top:1px solid #232a36}
+.th-grp-title:first-child{margin-top:0;padding-top:0;border-top:none}
+.th-status{font-size:11px;color:#8fc3ff;min-height:14px}
 button:disabled{opacity:.4;cursor:default}
 select,input.flt{background:#171b23;border:1px solid #2a3140;color:#e8e8ea;border-radius:8px;padding:6px 8px;font:inherit}
 input.flt{width:150px}
@@ -246,10 +250,10 @@ a.home{color:#8fa3bd;text-decoration:none;font-size:13px}
 #wzbtns{position:absolute;right:6px;top:6px;display:flex;gap:6px}
 #wzbtns button{padding:2px 9px;font-size:15px;background:rgba(20,25,34,.85)}
 #preview{background:linear-gradient(rgba(0,0,0,.74),rgba(0,0,0,.74)),url("cover.jpg") center/cover;border-radius:12px;padding:16px;text-align:center;margin:8px 0 0}
-#pv-en{font-size:26px;font-weight:800;color:#fff;min-height:34px;text-shadow:0 2px 12px rgba(0,0,0,.7)}
+#pv-en{font-size:26px;font-weight:800;color:var(--prod-en);min-height:34px;text-shadow:0 2px 12px rgba(0,0,0,.7)}
 #pv-en .seg{opacity:0;transition:opacity .24s ease-out}
 #pv-en .seg.on{opacity:1}
-#pv-jp{font-size:17px;color:var(--ui-accent);margin-top:6px;min-height:24px;text-shadow:0 2px 10px rgba(0,0,0,.7)}
+#pv-jp{font-size:17px;color:var(--prod-jp);margin-top:6px;min-height:24px;text-shadow:0 2px 10px rgba(0,0,0,.7)}
 #t{font-variant-numeric:tabular-nums;font-size:16px;color:#9fb0c8;min-width:64px}
 table{border-collapse:collapse;width:100%}
 td{border-bottom:1px solid #1e222b;padding:4px 6px;vertical-align:middle}
@@ -291,7 +295,7 @@ kbd{background:#232935;border:1px solid #39414f;border-radius:4px;padding:1px 5p
 .pv .l{display:flex;gap:10px;align-items:baseline;padding:5px 0;border-bottom:1px solid #1c222c}
 .pv .l:last-child{border:0}
 .pv .n{color:#6b7a90;font-size:12px;width:56px;font-variant-numeric:tabular-nums}
-.pv .e{color:#fff;font-weight:700}.pv .j{color:var(--ui-accent);font-size:13px}
+.pv .e{color:var(--prod-en);font-weight:700}.pv .j{color:var(--prod-jp);font-size:13px}
 .fxrow{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:7px 0;border-bottom:1px solid #1c222c}
 .fxrow:last-of-type{border:0}
 .fxg{color:#fff;font-weight:700;flex:1;min-width:120px}
@@ -360,13 +364,19 @@ kbd{background:#232935;border:1px solid #39414f;border-radius:4px;padding:1px 5p
     <button class="only-m" id="hdwave" title="全体波形とプレビュー">〜</button>
     <button class="only-m" id="hdmenu" title="道具">≡</button>
     <span style="flex:1"></span>
-    <button id="themeBtn" title="背景色・アクセント色を変える">🎨</button>
+    <button id="themeBtn" title="背景色・アクセント色・本番字幕色を変える">🎨</button>
     <button id="save" class="p">保存<span class="lbl"> (⌘S)</span></button>
   </div>
   <div id="theme-pop">
+    <div class="th-grp-title">エディタ画面（この端末だけ）</div>
     <label>背景 <input type="color" id="th-bg"></label>
     <label>アクセント <input type="color" id="th-accent"></label>
     <button id="th-reset">リセット</button>
+    <div class="th-grp-title">本番の字幕色（全曲共通・次回レンダーから反映）</div>
+    <label>英語字幕 <input type="color" id="th-prod-en"></label>
+    <label>日本語字幕 <input type="color" id="th-prod-jp"></label>
+    <button id="th-prod-reset">本番色をリセット</button>
+    <div class="th-status" id="th-prod-status"></div>
   </div>
   <div class="row" id="tools">
     <button data-nudge="-5">◀5s</button><button data-nudge="5">5s▶</button>
@@ -474,6 +484,28 @@ function accentRgba(a){ const [r,g,b]=hexToRgb(curAccent()); return 'rgba('+r+',
     root.removeProperty('--ui-bg'); root.removeProperty('--ui-accent');
     localStorage.removeItem('ce-bg'); localStorage.removeItem('ce-accent');
     bgIn.value = '#0d0f13'; accIn.value = '#b9ff2e'; zoomDirty = true;
+  };
+  // 本番の字幕色（サーバー保存・全曲共通。次回のレンダーから反映）
+  const prodEnIn = $('th-prod-en'), prodJpIn = $('th-prod-jp'), prodStatus = $('th-prod-status');
+  const cs = getComputedStyle(document.documentElement);
+  prodEnIn.value = cs.getPropertyValue('--prod-en').trim() || '#ffffff';
+  prodJpIn.value = cs.getPropertyValue('--prod-jp').trim() || '#ffd24a';
+  let prodSaveT = null;
+  function prodPreview(){ root.setProperty('--prod-en', prodEnIn.value); root.setProperty('--prod-jp', prodJpIn.value); }
+  function prodSave(){
+    clearTimeout(prodSaveT);
+    prodSaveT = setTimeout(() => {
+      prodStatus.textContent = '保存中…';
+      fetch('/theme', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ en: prodEnIn.value, jp: prodJpIn.value }) })
+        .then(r => r.json()).then(() => { prodStatus.textContent = '保存しました（次回レンダーから反映）'; setTimeout(() => prodStatus.textContent = '', 2500); })
+        .catch(() => { prodStatus.textContent = '保存に失敗しました'; });
+    }, 400);
+  }
+  prodEnIn.oninput = () => { prodPreview(); prodSave(); };
+  prodJpIn.oninput = () => { prodPreview(); prodSave(); };
+  $('th-prod-reset').onclick = () => {
+    fetch('/theme', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ en: '#ffffff', jp: '#ffd24a' }) })
+      .then(r => r.json()).then(j => { prodEnIn.value = j.en; prodJpIn.value = j.jp; prodPreview(); prodStatus.textContent = '保存しました（次回レンダーから反映）'; setTimeout(() => prodStatus.textContent = '', 2500); });
   };
 })();
 let cues = [], sel = 0, dirty = false;
@@ -1459,15 +1491,15 @@ $('render').onclick=()=>{
   const iv=setInterval(()=>fetch('render').then(r=>r.json()).then(j=>{ log(j.log); if(j.done){clearInterval(iv);} }),1500);
 };
 addEventListener('beforeunload', e=>{ if(dirty){ e.preventDefault(); e.returnValue=''; } });
-</script></body></html>`;
+</script></body></html>`; };
 
 /* ---------- リール編集画面 ---------- */
-const reelHtml = (slug) => `<!doctype html><html lang="ja"><head><meta charset="utf-8">
+const reelHtml = (slug) => { const PC = readProdColors(AGENT); return `<!doctype html><html lang="ja"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>${slug} — リール編集</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=Noto+Sans+JP:wght@500;700;900&display=swap" rel="stylesheet">
 <style>
-:root{color-scheme:dark}
+:root{color-scheme:dark;--prod-en:${PC.en};--prod-jp:${PC.jp}}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 body{margin:0;background:#0d0f13;color:#e8e8ea;font:14px/1.6 -apple-system,"Hiragino Sans",sans-serif;padding:14px 14px 40px}
 .wrap{max-width:1000px;margin:0 auto;display:flex;gap:22px;align-items:flex-start;flex-wrap:wrap}
@@ -1499,14 +1531,14 @@ button:disabled{opacity:.45;cursor:default}
 #vfade{position:absolute;left:0;width:1080px;pointer-events:none;
   background:linear-gradient(180deg,rgba(8,9,12,.55) 0%,rgba(8,9,12,0) 16%,rgba(8,9,12,0) 34%,rgba(8,9,12,.72) 88%,rgba(8,9,12,.92) 100%)}
 #subs{position:absolute;left:54px;right:54px;text-align:center}
-#s-en{color:#fff;font-weight:800;font-size:52px;line-height:1.12;text-shadow:0 3px 18px rgba(0,0,0,.92)}
-#s-jp{color:#b9ff2e;font-family:"Noto Sans JP",sans-serif;font-weight:700;font-size:34px;line-height:1.35;margin-top:14px;text-shadow:0 3px 16px rgba(0,0,0,.92)}
+#s-en{color:var(--prod-en);font-weight:800;font-size:52px;line-height:1.12;text-shadow:0 3px 18px rgba(0,0,0,.92)}
+#s-jp{color:var(--prod-jp);font-family:"Noto Sans JP",sans-serif;font-weight:700;font-size:34px;line-height:1.35;margin-top:14px;text-shadow:0 3px 16px rgba(0,0,0,.92)}
 #top{position:absolute;left:64px;right:64px;text-align:center}
-#top .c{color:#fff;font-family:"Noto Sans JP",sans-serif;font-weight:900;font-size:54px;line-height:1.42}
+#top .c{color:var(--prod-en);font-family:"Noto Sans JP",sans-serif;font-weight:900;font-size:54px;line-height:1.42}
 #top .rule{width:92px;height:5px;background:#b9ff2e;border-radius:3px;margin:38px auto 0}
 #bottom{position:absolute;left:64px;right:64px;text-align:center}
-#bottom .t{color:#fff;font-size:62px;font-weight:900;line-height:1.08}
-#bottom .a{color:#b9ff2e;font-size:38px;font-weight:700;margin-top:14px}
+#bottom .t{color:var(--prod-en);font-size:62px;font-weight:900;line-height:1.08}
+#bottom .a{color:var(--prod-jp);font-size:38px;font-weight:700;margin-top:14px}
 #bottom .s{color:rgba(255,255,255,.42);font-family:"Noto Sans JP",sans-serif;font-size:27px;margin-top:26px;letter-spacing:3px}
 #barwrap{position:absolute;left:0;right:0;bottom:0;height:8px;background:rgba(255,255,255,.1)}
 #bar{position:absolute;left:0;top:0;bottom:0;transform-origin:left center;background:linear-gradient(90deg,#b9ff2e,#00e5a0);width:100%;transform:scaleX(0);box-shadow:0 0 8px rgba(185,255,46,.6)}
@@ -2135,7 +2167,7 @@ $('render').onclick=function(){
     }); },1500);
   });
 };
-</script></body></html>`;
+</script></body></html>`; };
 
 /* ---------- リール: 設定・PV取得・レンダー ---------- */
 const reelCfgPath = (slug) => path.join(assetsOf(slug), "reel-config.json");
@@ -2293,6 +2325,16 @@ const server = http.createServer((req, res) => {
       // --slug 指定時はダイレクトに編集画面へ（一覧へは編集画面の「◀ 曲一覧」リンクで戻れる）
     }
     res.writeHead(200, { "content-type": "text/html; charset=utf-8" }); return res.end(homeHtml());
+  }
+
+  if (url === "/theme" && req.method === "GET") return json(readProdColors(AGENT));
+  if (url === "/theme" && req.method === "POST") {
+    let body = ""; req.on("data", d => body += d);
+    req.on("end", () => {
+      try { json(writeProdColors(AGENT, JSON.parse(body))); }
+      catch (e) { json({ error: String(e.message) }, 400); }
+    });
+    return;
   }
 
   if (url === "/create" && req.method === "POST") {

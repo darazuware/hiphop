@@ -16,10 +16,12 @@ import fs from "fs";
 import path from "path";
 import { execFileSync, spawnSync } from "child_process";
 import { fileURLToPath } from "url";
+import { readProdColors } from "./prod-colors.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const AGENT = path.resolve(__dirname, "..");
 const ROOT = path.resolve(AGENT, "..");
+const PC = readProdColors(AGENT);
 
 const args = process.argv.slice(2);
 const getArg = (n, d) => { const i = args.indexOf(`--${n}`); if (i !== -1) return args[i + 1]; const kv = args.find(a => a.startsWith(`--${n}=`)); return kv ? kv.split("=")[1] : d; };
@@ -123,19 +125,19 @@ const html = `<!doctype html>
       /* 字幕はPVの上に重ねる */
       #subs { position: absolute; left: 0; top: ${VID_TOP}px; width: 1080px; height: ${VID_H}px; z-index: 3; overflow: visible; }
       .line { position: absolute; left: 54px; right: 54px; bottom: ${34 + subUp}px; text-align: center; opacity: 0; will-change: opacity, transform; }
-      .line .en { color: #fff; font-weight: 800; font-size: ${Math.round(52 * subScale)}px; line-height: 1.12; letter-spacing: -0.5px;
+      .line .en { color: ${PC.en}; font-weight: 800; font-size: ${Math.round(52 * subScale)}px; line-height: 1.12; letter-spacing: -0.5px;
         text-shadow: 0 3px 18px rgba(0,0,0,0.92), 0 0 40px rgba(0,0,0,0.6); }
-      .line .jp { color: #ffd24a; font-family: "Noto Sans JP", sans-serif; font-weight: 700; font-size: ${Math.round(34 * subScale)}px;
+      .line .jp { color: ${PC.jp}; font-family: "Noto Sans JP", sans-serif; font-weight: 700; font-size: ${Math.round(34 * subScale)}px;
         line-height: 1.35; margin-top: 14px; text-shadow: 0 3px 16px rgba(0,0,0,0.92); }
       /* 上帯: コメント */
       #top { position: absolute; left: 64px; right: 64px; top: ${Math.max(90, Math.round(VID_TOP * 0.3))}px; z-index: 4; text-align: center; }
-      #top .c { color: #fff; font-family: "Noto Sans JP", sans-serif; font-weight: 900; font-size: 54px; line-height: 1.42;
+      #top .c { color: ${PC.en}; font-family: "Noto Sans JP", sans-serif; font-weight: 900; font-size: 54px; line-height: 1.42;
         letter-spacing: -0.5px; }
-      #top .rule { width: 92px; height: 5px; background: #ffd24a; border-radius: 3px; margin: 38px auto 0; }
+      #top .rule { width: 92px; height: 5px; background: ${PC.jp}; border-radius: 3px; margin: 38px auto 0; }
       /* 下帯: 曲情報 */
       #bottom { position: absolute; left: 64px; right: 64px; bottom: ${Math.max(110, Math.round(VID_TOP * 0.26))}px; z-index: 4; text-align: center; }
-      #bottom .t { color: #fff; font-size: 62px; font-weight: 900; letter-spacing: -1px; line-height: 1.08; }
-      #bottom .a { color: #ffd24a; font-size: 38px; font-weight: 700; margin-top: 14px; letter-spacing: 1px; }
+      #bottom .t { color: ${PC.en}; font-size: 62px; font-weight: 900; letter-spacing: -1px; line-height: 1.08; }
+      #bottom .a { color: ${PC.jp}; font-size: 38px; font-weight: 700; margin-top: 14px; letter-spacing: 1px; }
       #bottom .s { color: rgba(255,255,255,0.42); font-family: "Noto Sans JP", sans-serif; font-size: 27px;
         font-weight: 500; letter-spacing: 3px; margin-top: 26px; }
       #barwrap { position: absolute; left: 0; right: 0; bottom: 0; height: 8px; z-index: 6; background: rgba(255,255,255,0.1); }
