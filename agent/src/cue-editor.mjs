@@ -44,6 +44,29 @@ const cuesPathOf = (slug) => path.join(assetsOf(slug), "full-cues.json");
 const histDirOf = (slug) => path.join(assetsOf(slug), "cue-history");
 const hasCues = (slug) => fs.existsSync(cuesPathOf(slug));
 
+// 頭出しがズレる真因への対処。
+// yt-dlp由来の音源は激しいVBR（128〜320kbps混在）。ブラウザはバッファ外へシークする時、
+// Xing TOCを使わずCBR線形推定でバイト位置を決めることがあり、lose-yourselfでは
+// 34.28s を要求すると 36.79s（+2.51s）に着地する＝次の行の音が鳴る。
+// 表示秒・字幕・波形はどれも正しいまま「鳴っている音だけ先に進む」のはこのため
+// （波形はフルデコード由来なので影響を受けない）。
+// CBRに変換しておけば線形推定＝正解になり、どのブラウザ・どの経路でも頭出しが一致する。
+const seekAudioOf = (slug) => path.join(assetsOf(slug), "audio-seek.mp3");
+function ensureSeekableAudio(slug) {
+  const src = path.join(assetsOf(slug), "audio-full.mp3");
+  if (!fs.existsSync(src)) return null;
+  const dst = seekAudioOf(slug);
+  try {
+    if (fs.existsSync(dst) && fs.statSync(dst).mtimeMs >= fs.statSync(src).mtimeMs) return dst;
+    console.log(`[${slug}] 頭出し用にCBR変換中…（初回のみ）`);
+    execFileSync("ffmpeg", ["-y", "-i", src, "-c:a", "libmp3lame", "-b:a", "192k", "-map_metadata", "-1", dst],
+      { stdio: "ignore", timeout: 300000 });
+    if (!fs.existsSync(dst)) return src;
+    console.log(`[${slug}] CBR変換完了`);
+    return dst;
+  } catch { return src; }
+}
+
 function listSongs() {
   const out = [];
   for (const d of fs.readdirSync(AGENT)) {
@@ -169,6 +192,7 @@ function startImport(url, slug, title, artist) {
         const ok = await jstep("yt-dlp", ["-x", "--audio-format", "mp3", "--no-playlist", "-o", path.join(dir, "audio-full.%(ext)s"), url]);
         if (!ok || !fs.existsSync(mp3)) throw new Error("音源のダウンロードに失敗（URLを確認）");
       } else jpush("音源は取得済み・再利用\n");
+      ensureSeekableAudio(slug);   // 頭出しがズレないCBR版を先に作っておく
 
       // 2) cover
       job.phase = "ジャケット取得";
@@ -610,6 +634,10 @@ function stats(){
 
 /* ---------- 波形 ---------- */
 let pcm = null, psr = 8000, ovrCv = null, ZW = 8, zoomDirty = true, lastZoomT = -1;
+// drawZoom()と同じ基準（現在の再生位置を中心にZW秒幅）。ドラッグ中も再生が進み続けるので、
+// pointerdown時点のt0を使い回すと「見た目の旗の位置」と「実際に書き込まれる秒」がズレていく。
+// 毎回これで引き直すことで、指の下に見えている位置＝実際に保存される秒、を保証する。
+function liveT0(){ return au.currentTime - ZW/2; }
 let dur = 0;
 au.addEventListener('loadedmetadata', ()=>{ dur = au.duration; });
 (function loadWave(){
@@ -779,7 +807,7 @@ $('wzoom').addEventListener('pointermove', e=>{
     if (drag.moved){
       if (drag.selMode){
         if (!drag.histPushed){ pushHist('drag'+drag.i); drag.histPushed = true; }
-        setStart(drag.i, Math.max(0, drag.t0 + x/drag.W*ZW));
+        setStart(drag.i, Math.max(0, liveT0() + x/drag.W*ZW));
       } else {
         // フィルムを指で送る感覚: 左へドラッグ＝時間が進む
         au.currentTime = Math.max(0, Math.min(dur||1e9, au.currentTime - (x-drag.lastX)/drag.W*ZW));
@@ -789,15 +817,15 @@ $('wzoom').addEventListener('pointermove', e=>{
     drag.lastX = x; return;
   }
   if (!drag.moved){ pushHist('drag'+drag.i); drag.moved = true; }
-  if (drag.endMode) setEnd(drag.i, drag.t0 + x/drag.W*ZW);
-  else setStart(drag.i, Math.max(0, drag.t0 + x/drag.W*ZW));
+  if (drag.endMode) setEnd(drag.i, liveT0() + x/drag.W*ZW);
+  else setStart(drag.i, Math.max(0, liveT0() + x/drag.W*ZW));
   zoomDirty = true;
 });
 addEventListener('pointerup', e=>{
   pinch.delete(e.pointerId);
   if (pinch.size < 2) pinchBase = null;
   if (drag && drag.ambiguous && !drag.moved){
-    au.currentTime = Math.max(0, drag.t0 + drag.x0/drag.W*ZW); zoomDirty = true;
+    au.currentTime = Math.max(0, liveT0() + drag.x0/drag.W*ZW); zoomDirty = true;
   }
   drag = null;
 });
@@ -1405,7 +1433,7 @@ function paint(){
   const psc = (typeof c.scale==='number' && c.scale>0) ? c.scale : 1;
   $('pv-en').style.transform = $('pv-jp').style.transform = psc===1 ? '' : 'scale('+psc+')';
   $('preview').style.opacity = (cur<0 && au.paused && c.eng) ? 0.45 : 1;
-  if($('loop').checked && !au.paused && cues[sel] && t>cues[sel].end){ au.currentTime=Math.max(0,cues[sel].start-0.15); }
+  if($('loop').checked && !au.paused && !au.seeking && cues[sel] && t>cues[sel].end){ seekPlay(au, cues[sel].start-0.15); }
   if(cur>=0 && !au.paused && document.activeElement===document.body){
     const tr=$('r'+cur);
     if(tr && tr.style.display!=='none'){
@@ -1478,9 +1506,20 @@ setInterval(function(){
   }).catch(function(){});
 }, 20000);
 function save(){
+  const selStart = cues[sel] ? cues[sel].start : null;
   fetch('cues.json',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(cues)})
     .then(r=>r.json()).then(j=>{
       dirty=false; localStorage.removeItem(DRAFT_KEY);
+      // サーバーは開始秒で並べ替えて保存する。画面側も同じ順序に揃えないと行番号がずれる
+      if(Array.isArray(j.cues)){
+        cues=j.cues;
+        if(selStart!==null){
+          let bi=0,bd=1e9;
+          cues.forEach((c,k)=>{ const d=Math.abs(c.start-selStart); if(d<bd){bd=d;bi=k;} });
+          sel=bi;
+        }
+        draw(); zoomDirty=true;
+      }
       const issues=lint().filter(x=>x.lv!=='inf');
       log('保存しました（'+j.count+'キュー）'+(issues.length?' / ⚠ チェックで'+issues.length+'件の指摘あり':''));
     });
@@ -2001,7 +2040,6 @@ function renderEditor(){
     host.appendChild(d);
   });
   paintRows();
-  layout();
 }
 function setCueStart(i,t){
   t=Math.max(0,f2(t));
@@ -2470,12 +2508,14 @@ const server = http.createServer((req, res) => {
             }
             if (typeof c.jpT === "number") o.jpT = Math.round(c.jpT * 100) / 100;   // 訳が出る秒（絶対秒・手動固定）
             return o;
-          }).filter(c => (c.eng || c.jpn));
+          }).filter(c => (c.eng || c.jpn)).sort((a, b) => a.start - b.start);
           for (const c of cues) if (c.end < c.start + 0.4) c.end = Math.round((c.start + 0.4) * 100) / 100;
           backupToHistory(slug);
           fs.copyFileSync(cuesPathOf(slug), path.join(assetsOf(slug), "full-cues.bak.json"));
           fs.writeFileSync(cuesPathOf(slug), JSON.stringify(cues, null, 2));
-          json({ ok: true, count: cues.length });
+          // 保存時に開始秒で並べ替えるので、画面側の配列が古い順序のままだと行番号と中身がずれる。
+          // 正順をそのまま返して画面に取り込ませる。
+          json({ ok: true, count: cues.length, cues });
           console.log(`[${slug}] saved ${cues.length} cues`);
         } catch (e) { json({ error: String(e.message) }, 400); }
       });
@@ -2517,14 +2557,20 @@ const server = http.createServer((req, res) => {
       return json({ log: st.log, done: st.done && !st.running, ok: st.ok });
     }
     if (sub === "audio.mp3" || sub === "cover.jpg") {
-      const file = path.join(assetsOf(slug), sub === "audio.mp3" ? "audio-full.mp3" : "cover.jpg");
-      if (!fs.existsSync(file)) { res.writeHead(404); return res.end(); }
+      const file = sub === "audio.mp3" ? ensureSeekableAudio(slug) : path.join(assetsOf(slug), "cover.jpg");
+      if (!file || !fs.existsSync(file)) { res.writeHead(404); return res.end(); }
       const size = fs.statSync(file).size;
       const type = sub === "audio.mp3" ? "audio/mpeg" : "image/jpeg";
       const range = req.headers.range;
       if (range) {
         const rm = /bytes=(\d*)-(\d*)/.exec(range) || [];
-        const start = parseInt(rm[1] || "0", 10), end = rm[2] ? parseInt(rm[2], 10) : size - 1;
+        // bytes=-N（末尾N byte）を 0..N と取り違えると、シーク先と違う場所を返して頭出しがズレる
+        let start, end;
+        if (rm[1] === "" && rm[2]) { start = Math.max(0, size - parseInt(rm[2], 10)); end = size - 1; }
+        else { start = parseInt(rm[1] || "0", 10); end = rm[2] ? parseInt(rm[2], 10) : size - 1; }
+        if (!Number.isFinite(start) || start < 0) start = 0;
+        if (!Number.isFinite(end) || end >= size) end = size - 1;
+        if (start > end) { res.writeHead(416, { "content-range": `bytes */${size}` }); return res.end(); }
         res.writeHead(206, { "content-type": type, "content-range": `bytes ${start}-${end}/${size}`, "accept-ranges": "bytes", "content-length": end - start + 1 });
         return fs.createReadStream(file, { start, end }).pipe(res);
       }
