@@ -542,16 +542,15 @@ let cues = [], sel = 0, dirty = false;
 let playRow = -1; // 行の再生ボタンで最後に対象にした行。波形タップ等でselだけ変わっても、同じ行のボタンを押す限りは頭に戻さず今の位置でトグルする
 let hist = [], redoS = [], lastPush = { tag: '', t: 0 };
 const f2 = (n) => Math.round(n*100)/100;
-// currentTime設定直後にplay()すると、シーク先が未バッファ（回線が遅い/Tailscale経由等）の時に
-// 古い位置から再生が始まって字幕表示とズレる。seekedを待ってから再生する。
-let seekToken = 0;
+// play()はタップ（ユーザー操作）から同期的に呼ばないとiOS Safariが無音で拒否する。
+// 以前はseekedイベントを待ってからplay()していたが、そのコールバックはタップから見て
+// 非同期＝ユーザー操作の連鎖が切れており、iPhoneでボタンを押しても再生されない不具合の原因だった。
+// currentTime設定とplay()を同じ同期実行内で呼ぶ（音源はCBR化済みでシークはほぼ瞬時のため待つ必要がない）。
 function seekPlay(el, t){
-  const target = Math.max(0, t), myToken = ++seekToken;
-  const start = () => { if (myToken === seekToken) el.play(); };
-  if (el.readyState >= 2 && Math.abs(el.currentTime - target) < 0.05) { start(); return; }
-  const onSeeked = () => { el.removeEventListener('seeked', onSeeked); start(); };
-  el.addEventListener('seeked', onSeeked);
+  const target = Math.max(0, t);
   el.currentTime = target;
+  const p = el.play();
+  if (p && typeof p.catch === 'function') p.catch(()=>{});
 }
 const log = (s) => $('log').textContent = s;
 const snap = () => JSON.parse(JSON.stringify(cues));
@@ -1762,16 +1761,14 @@ var $=function(id){return document.getElementById(id)};
 var pv=$('pv'), cues=[], cfg={start:0,end:0,comment:'',title:'',artist:'',subUp:0,subScale:1}, playing=false;
 var renderEditorPending=null;
 function f2(n){return Math.round(n*100)/100}
-// currentTime設定直後にplay()すると、シーク先が未バッファ（回線が遅い/Tailscale経由等）の時に
-// 古い位置から再生が始まって字幕表示とズレる。seekedを待ってから再生する。
-var seekToken=0;
+// play()はタップから同期的に呼ばないとiOS Safariが無音で拒否する。
+// seekedイベント待ちのコールバックは非同期＝ユーザー操作の連鎖が切れるため、
+// currentTime設定とplay()を同じ同期実行内で呼ぶ。
 function seekPlay(el,t){
-  var target=Math.max(0,t), myToken=++seekToken;
-  var start=function(){ if(myToken===seekToken) el.play(); };
-  if(el.readyState>=2 && Math.abs(el.currentTime-target)<0.05){ start(); return; }
-  var onSeeked=function(){ el.removeEventListener('seeked', onSeeked); start(); };
-  el.addEventListener('seeked', onSeeked);
+  var target=Math.max(0,t);
   el.currentTime=target;
+  var p=el.play();
+  if(p && typeof p.catch==='function') p.catch(function(){});
 }
 
 function fitStage(){
