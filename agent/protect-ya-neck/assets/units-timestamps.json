@@ -3,6 +3,7 @@
     "id": "protect-neck",
     "whisperSec": null,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 28,
     "t": 28,
     "source": "fallback",
@@ -10,9 +11,32 @@
     "score": 0
   },
   {
+    "id": "deck-kick",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 34,
+    "t": 34,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "deck-rough",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 36,
+    "t": 36,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "deck-frazier",
     "whisperSec": null,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 37,
     "t": 37,
     "source": "fallback",
@@ -23,6 +47,7 @@
     "id": "deck-pakistan-spiderman",
     "whisperSec": null,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 44,
     "t": 44,
     "source": "fallback",
@@ -33,6 +58,7 @@
     "id": "rae-schwarzenegger",
     "whisperSec": null,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 85,
     "t": 85,
     "source": "fallback",
@@ -40,9 +66,32 @@
     "score": 0
   },
   {
+    "id": "rae-clip",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 100,
+    "t": 100,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "meth-gat",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 118,
+    "t": 118,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "meth-flow-hudson",
     "whisperSec": null,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 125,
     "t": 125,
     "source": "fallback",
@@ -50,9 +99,21 @@
     "score": 0
   },
   {
+    "id": "meth-pcp",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 132,
+    "t": 132,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "ugod-shaolin",
     "whisperSec": null,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 138,
     "t": 138,
     "source": "fallback",
@@ -60,9 +121,43 @@
     "score": 0
   },
   {
+    "id": "odb-firstthings",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 152,
+    "t": 152,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "odb-nurse-pins",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 154,
+    "t": 154,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "odb-cash",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 160,
+    "t": 160,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "odb-brooklyn-zoo",
     "whisperSec": null,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 165,
     "t": 165,
     "source": "fallback",
@@ -70,9 +165,32 @@
     "score": 0
   },
   {
+    "id": "ghost-book",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 199,
+    "t": 199,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "ghost-props",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 203,
+    "t": 203,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "ghost-escobar",
     "whisperSec": null,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 205,
     "t": 205,
     "source": "fallback",
@@ -80,9 +198,21 @@
     "score": 0
   },
   {
+    "id": "rza-ill",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 216,
+    "t": 216,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "rza-mad-speaks",
     "whisperSec": null,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 222,
     "t": 222,
     "source": "fallback",
@@ -90,9 +220,21 @@
     "score": 0
   },
   {
+    "id": "rza-ruckus",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 235,
+    "t": 235,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "gza-labels",
     "whisperSec": null,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 252,
     "t": 252,
     "source": "fallback",
@@ -100,13 +242,36 @@
     "score": 0
   },
   {
+    "id": "gza-rock",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 260,
+    "t": 260,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "gza-anr",
     "whisperSec": null,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 270,
     "t": 270,
     "source": "fallback",
     "approx": true,
     "score": 0
+  },
+  {
+    "id": "gza-dope-suit",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 276,
+    "t": 276,
+    "source": "fallback",
+    "approx": true,
+    "score": null
   }
 ]

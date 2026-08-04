@@ -160,6 +160,14 @@ export const slang: SlangEntry[] = [
   { word: "come down",             desc: "基本は「高いところから降りる」。口語では「酔い・ハイ・興奮や成功の高揚から醒める（正気に戻る）」の意味でも日常的に使い、get high と対になる" },
   { word: "cool beans",           desc: "cool（イケてる）のおどけた強調版で「いいね・最高・やったね」。語呂と脱力感で広まったアメリカの日常スラングで、レトロでお茶目な響きを持つ。フォーマルな場では使わない" },
   { word: "reefer",               desc: "大麻（マリファナ）を指す古いスラング。1930〜40年代のジャズ／ハーレム文化に遡る語で、今の weed よりレトロな響きがある" },
+  { word: "jam",                   desc: "音楽の演奏・セッションを指す語から派生し、ヒップホップでは「その場・現場・イベント」を広く指す。rock the jam（現場を沸かせる）のように使う。動詞では即興演奏する（jam session）の意味も残る" },
+  { word: "rugged",               desc: "本来は「岩肌のようにゴツゴツした・武骨な」。ハードコア・ヒップホップでは荒削りでタフな質感を褒める最上級の語で、洗練（smooth）の対極にある美学を指す。声・韻・ビートの手触りに使う" },
+  { word: "flow",                  desc: "ラップのリズム・節回し・言葉の乗せ方を指す最重要語。MCの技量はまず flow で測られる。動詞 flow（流れる）が原義なので、川・水のイメージに掛けた言葉遊びに頻繁に使われる" },
+  { word: "labels",               desc: "record labels＝レコード会社のこと。とくにメジャー資本のレーベルを指す。sign to a label（契約する）、beef with the label（会社ともめる）など、音楽ビジネス批評の基本語彙" },
+  { word: "slammin'",             desc: "slam（強く叩きつける）から派生した「最高にイカしてる・素晴らしい」のスラング。料理・音楽・服・見た目など幅広く使える褒め言葉。That's slammin'（それイケてる）" },
+  { word: "A&R",                   desc: "Artists and Repertoire の略。レコード会社でアーティストの発掘・契約・作品の方向性を統括する部門／担当者。get signed by an A&R（A&Rに見出されて契約する）のように使う音楽業界の必須用語" },
+  { word: "assassinator",         desc: "assassin（暗殺者）を大げさに名詞化した造語。ラップでは「相手を仕留める達人」の自称に使われ、ここでは Schwarzenegger と -ator/-egger の韻を作るために選ばれている" },
+  { word: "gospel",               desc: "本来はキリスト教の福音・福音書。転じて「絶対の真実・動かぬ事実」の意でも使う（take it as gospel＝鵜呑みにする）。ラップでは説教・宗教のイメージを引き込む語としても頻出" },
 ];
 
 // Strip Japanese annotation '（…）'/'(...)' and trim → clean English keyword
