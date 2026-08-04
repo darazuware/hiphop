@@ -39,3 +39,9 @@ agent/*/reel/assets/pv.mp4
 agent/*/reel/renders/
 agent/.fa-venv/
 agent/*/assets/.stems/
+
+# トーン一斉更新キャンペーンのランタイム状態（実行のたびに生成・ローカル限定）
+agent/.tone-campaign-state.json
+agent/.tone-campaign.lock
+agent/.skip-b-pending.json
+agent/.skip-b-confirmed.json

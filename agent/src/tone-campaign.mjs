@@ -2,16 +2,18 @@
 /**
  * トーン一斉更新キャンペーンの司令塔（docs/mission-tone-campaign.md）。
  * 全曲を nas-is-like 基調＝ check-tone-only の絶対基準✅ へ揃えるバッチを、
- * 既存の「修正依頼」ルーチン（claude.mjs runToneFix・Sonnet三稿制）で1曲ずつ回す。
+ * 既存の「修正依頼」ルーチン（claude.mjs runToneFix・Opus 1回+post-check）で1曲ずつ回す。
  *
  * Usage:
  *   node agent/src/tone-campaign.mjs status                # 監査（review worktree基準）→ pending一覧
  *   node agent/src/tone-campaign.mjs next                  # 次に回す1曲を表示
- *   node agent/src/tone-campaign.mjs run [--count N] [--scope full|tone] [--model sonnet|opus] [--dry-run]
+ *   node agent/src/tone-campaign.mjs run [--count N] [--scope full|tone] [--model opus|sonnet] [--dry-run]
  *
  * - 監査・修正の対象は常に review worktree（fixは review ブランチに積まれ /publish で本番反映）
  * - 完了判定は review側 check-tone-only の絶対基準✅（pre-pushのベースライン比較ではない）
- * - nas-is-like のみ reflowOnly（改行整形だけ・文言不変）で回す
+ * - 既定モデルはopus（文体を書く/書き直す仕事の精度優先）。--model sonnetで一括指定も可能。
+ * - nas-is-like のみ reflowOnly（改行整形だけ・文言不変）で回り、その曲だけは指定に関わらず
+ *   runToneFix側で自動的にsonnetへ降格する（構造をいじるだけの機械作業にOpusは不要なため）
  * - 実行履歴は agent/.tone-campaign-state.json（キュー自体は毎回監査から再計算＝自己修復）
  */
 import { execSync } from 'node:child_process';
@@ -166,10 +168,11 @@ function printStatus({ rows, pending }) {
 async function run(args) {
   const count = Number(args.find((a, i) => args[i - 1] === '--count') ?? 3);
   const scope = args.find((a, i) => args[i - 1] === '--scope') ?? 'full';
-  const model = args.find((a, i) => args[i - 1] === '--model') ?? 'sonnet';
+  // 既定はopus（文体書き直しの精度優先）。reflowOnly対象曲はrunToneFix側で自動的にsonnetへ降格する。
+  const model = args.find((a, i) => args[i - 1] === '--model') ?? 'opus';
   const dryRun = args.includes('--dry-run');
   if (!['full', 'tone'].includes(scope) || !['sonnet', 'opus'].includes(model) || !Number.isInteger(count) || count < 1) {
-    console.error('Usage: run [--count N] [--scope full|tone] [--model sonnet|opus] [--dry-run]');
+    console.error('Usage: run [--count N] [--scope full|tone] [--model opus|sonnet] [--dry-run]');
     process.exit(1);
   }
 
@@ -220,7 +223,8 @@ async function run(args) {
     const after = auditTone([r.slug]).get(r.slug);
     const ok = Boolean(res.success && after?.pass);
     state.history.push({
-      slug: r.slug, startedAt, finishedAt: new Date().toISOString(), scope, model,
+      slug: r.slug, startedAt, finishedAt: new Date().toISOString(), scope,
+      model: res.modelUsed || model,
       reflowOnly: opts.reflowOnly, ok, limitWaits: waits,
       toneAfter: after?.detail ?? 'unknown',
       summary: (res.output || '').slice(0, 500), error: res.error || null,

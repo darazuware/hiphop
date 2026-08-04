@@ -39,7 +39,7 @@ const MENU_TEXT =
   `📋 *コマンド一覧*\n\n` +
   `🎵 \`/song Artist - Song [Year]\` → 曲記事を自動生成\n` +
   `📝 \`修正依頼 <曲名>\` / \`記事修正 <曲名>\` → 既存曲を三稿制で自動仕上げ: nas-is-like基調の文体・1〜2文改行・内部リンク・unit上限まで増強（例: \`修正依頼 put it on\`）\n` +
-  `🏭 \`トーン一斉 [曲数] [tone] [opus]\` → 未更新曲を先頭から順次一斉修正（既定3曲・sonnet・unit増強込み。\`tone\`=文体/改行/リンクのみ）。残数確認は \`トーン一斉 状況\`\n` +
+  `🏭 \`トーン一斉 [曲数] [tone] [sonnet]\` → 未更新曲を先頭から順次一斉修正（既定3曲・opus・unit増強込み。\`tone\`=文体/改行/リンクのみ・\`sonnet\`=構造整形のみで十分な時の高速版）。残数確認は \`トーン一斉 状況\`\n` +
   `🛠️ 任意のテキスト → 任意のタスクを実行（例: \`put-it-onのジャケットを直して\`）\n` +
   `   ↳ 続けて送ると前回の文脈を引き継ぎます。\`/new\` で新しいスレッド\n` +
   `🎬 \`/short <slug>\` → ショート動画を生成\n` +
@@ -137,7 +137,7 @@ async function handleToneCampaignCommand(argText, chatId) {
   }
   const count = parts.find((p) => /^\d+$/.test(p)) || '3';
   const scope = parts.includes('tone') ? 'tone' : 'full';
-  const model = parts.includes('opus') ? 'opus' : 'sonnet';
+  const model = parts.includes('sonnet') ? 'sonnet' : 'opus';
   toneCampaignRunning = true;
   await sendMessage(
     `🏭 トーン一斉更新を開始: 未更新の先頭${count}曲（scope=${scope}, model=${model}）\n` +
