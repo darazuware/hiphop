@@ -17,6 +17,7 @@ import { execSync } from 'node:child_process';
 // review運用（2026-07-02〜）: 実作業は常設worktree hiphop-review（reviewブランチ）で行う。
 const HIPHOP_CWD = '/Users/ktamatzmoto/Desktop/hiphop-review';
 const TIMEOUT_MS = 45 * 60 * 1000; // 45分（3曲並列でもwatcher処理が終わるまで待てる）
+const CONVERT_TIMEOUT_MS = 120 * 60 * 1000; // convertスコープ（従来型→learning型全面書き直し）は新規記事執筆に近いため2時間
 
 function isWatcherRunning() {
   try {
@@ -186,9 +187,9 @@ ${jsonPath}
  * @param {string} doneFile
  * @returns {Promise<{ exitCode: number, error: string|null, summary?: string }>}
  */
-async function waitForDone(doneFile) {
+async function waitForDone(doneFile, timeoutMs = TIMEOUT_MS) {
   const start = Date.now();
-  while (Date.now() - start < TIMEOUT_MS) {
+  while (Date.now() - start < timeoutMs) {
     await sleep(5000);
     try {
       await access(doneFile);
@@ -198,7 +199,7 @@ async function waitForDone(doneFile) {
       // まだ存在しない
     }
   }
-  return { exitCode: 1, error: 'タイムアウト（45分）' };
+  return { exitCode: 1, error: `タイムアウト（${Math.round(timeoutMs / 60000)}分）` };
 }
 
 /**
@@ -263,7 +264,7 @@ ${instruction}
  *   - model: 'opus'（既定）| 'sonnet' — triggerのmeta.modelに渡す。ただし reflowOnly=true の場合は
  *     文言を書き換えない機械的な<p>分割作業のみのため、指定に関わらず常に 'sonnet' へ自動降格する
  *     （文体を書く/書き直す仕事はOpus、構造をいじるだけの仕事はSonnetで十分・2026-07-13確定）。
- *   - scope: 'full'（既定・実施内容1〜4）| 'tone' — unit増強(実施内容4)をスキップし1〜3のみ
+ *   - scope: 'full'（既定・実施内容1〜4）| 'tone'（unit増強をスキップし1〜3のみ）| 'convert'（従来型→learning型の全面書き直し。AdSense薄いコンテンツ対策）
  *   - reflowOnly: true なら改行整形(実施内容2)だけを行う（nas-is-like等、文言を変えたくない模範ページ用）
  * @returns {Promise<{ success: boolean, output: string, error: string|null, modelUsed: string }>}
  */
@@ -326,6 +327,31 @@ check-tone-only で「<p>が1〜2文ごとに割れているか」のみチェ�
 
 ## 【上書き・toneスコープ（最優先で従う）】
 今回は文体・改行・内部リンクの一斉更新キャンペーンなので、**実施内容4（unit増強）はスキップし、1〜3のみ行う**（learning型でもunitを追加しない。units.json・タイムスタンプ生成にも触らない）。SUMMARYのunit数は「変更なし」と書く。`;
+  } else if (scope === 'convert') {
+    override = `
+
+## 【上書き・convertスコープ（最優先で従う・実施内容1〜4は無視）】
+この曲は**従来型（LyricsBlockによる歌詞対訳ページ）**で、AdSenseから「低品質・内容が薄いコンテンツ」の指摘を受けている。文体修正では不十分。**ページ本文を丸ごとlearning型（<LearningUnit>方式）へ全面書き直しする**（新規記事の執筆に近い作業）。
+
+### 着手前に必ず追加でReadする
+- src/pages/songs/shook-ones-pt-ii.astro（分量参照・shook級=25〜30unit・[D]<60%がほぼ天井の実例）
+- docs/fact-check-rules.md
+- 変換対象の現行 .astro（既存の事実主張・songs.tsのメタ情報を把握するため）
+
+### 変換手順
+1. **歌詞を再取得**: Geniusから歌詞を直接fetchし直す（既存ページの引用に誤記がないか要確認。記憶ベースで「この行はない」と断定しない）。
+2. **事実は変更しない**: songs.ts の年・アルバム・客演・サンプル・チャート等は既に裏取り済みとして扱う。歌詞そのものの語法・文化的背景の解説を追加する場合のみ新規事実に触れてよいが、曖昧なら書かない。
+3. **本文を全面リライト**: 既存のLyricsBlockベースの構造を除去し、nas-is-like.astro の文体・改行構造（見出し文言は曲固有）＋shook-ones-pt-ii.astro の分量方針（shook級25〜30unit・量MAX）で書き直す。docs/article-tone.md の「learning型 共通構成ルール」（導入見出しのテンプレ化禁止・unitは曲の時系列順・専門語へQuickSlang・「地元」固有名詞化）に従う。感想オチ（鳥肌／唸る等の情緒的しめ）は曲全体で最重要2〜3unitまで。
+4. **unit追加のたび**: ①各LearningUnitに\`t={TS["<id>"].t}\`のidを付与、②\`agent/<slug>/assets/units.json\`に曲順でエントリ（id・anchor・fallbackT概算秒・manualSec:null）を追記、③\`node agent/src/gen-fallback-timestamps.mjs --slug <slug>\`を実行（怠るとimport不在でビルドが落ちる）。
+5. **記事末の関連記事**は手書きせずSongLayoutの自動生成に任せる。Amazonジャケットリンクも既存のAmazonAlbumCta経由のまま変更しない。
+
+### 検証（この順で必ず全部通す）
+1. \`node agent/src/check-lyrics-coverage.mjs <slug>\`（<LearningUnit>導入で自動的にlearning型判定に切り替わる） — [B]ハルシネーション必須＋[C]独自解説JP>英語引用(≥1200字)＋[D]eng引用率<60%。❌が出たら直して再実行。
+2. \`node agent/src/check-tone-only.mjs <slug>\` — 全✅まで。
+3. \`node agent/src/check-article.mjs <slug>\` — IMG/YT/歌詞/トーン/定型句/ビルド/内部リンク/SEO全て✅になるまで修正して再実行。❌を残したままcommitしない。
+
+### 上のSUMMARY指示を以下で上書き
+最後の\`SUMMARY:\`には①slug②変換前後の構造（従来型→learning型、unit数0→いくつ）③[D]引用率④check-article最終結果（全✅の事実）⑤push・notify-reviewの実行有無、を具体的に書く。`;
   }
 
   await writeFile(promptFile, prompt + override, 'utf-8');
@@ -335,9 +361,9 @@ check-tone-only で「<p>が1〜2文ごとに割れているか」のみチェ�
 
   // triggerにfreeformモードを指定（watcherが記事後処理をスキップし、上記手順にすべて任せる）
   await writeFile(triggerFile, JSON.stringify({ promptFile, mode: 'freeform', model, resumeId }), 'utf-8');
-  console.log(`  [Claude] 修正依頼を watcher に委譲... (query: ${query}, model: ${model})`);
+  console.log(`  [Claude] 修正依頼を watcher に委譲... (query: ${query}, model: ${model}, scope: ${scope})`);
 
-  const result = await waitForDone(doneFile);
+  const result = await waitForDone(doneFile, scope === 'convert' ? CONVERT_TIMEOUT_MS : TIMEOUT_MS);
   return {
     success: result.exitCode === 0,
     output: result.summary || '',

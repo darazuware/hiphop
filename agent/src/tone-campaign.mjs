@@ -14,6 +14,9 @@
  * - 既定モデルはopus（文体を書く/書き直す仕事の精度優先）。--model sonnetで一括指定も可能。
  * - nas-is-like のみ reflowOnly（改行整形だけ・文言不変）で回り、その曲だけは指定に関わらず
  *   runToneFix側で自動的にsonnetへ降格する（構造をいじるだけの機械作業にOpusは不要なため）
+ * - 【2026-08-04】従来型（legacy）曲は scope=full でも自動的に scope=convert へ昇格する
+ *   （AdSense「低品質・薄いコンテンツ」却下対策。文体修正だけでなくlearning型へ全面書き直しする。
+ *   --scope tone を明示指定した時だけ変換をスキップして軽量パスのまま回る）
  * - 実行履歴は agent/.tone-campaign-state.json（キュー自体は毎回監査から再計算＝自己修復）
  */
 import { execSync } from 'node:child_process';
@@ -155,7 +158,7 @@ function printStatus({ rows, pending }) {
   console.log(`\n=== トーン一斉更新キャンペーン status（基準: review worktree・check-tone-only絶対✅） ===`);
   console.log(`全${rows.length}曲 / ✅完了 ${done.length} / ❌未更新 ${pending.length}\n`);
   for (const r of pending) {
-    const mode = r.slug === 'nas-is-like' ? ' [reflowOnly]' : '';
+    const mode = r.slug === 'nas-is-like' ? ' [reflowOnly]' : r.type === 'legacy' ? ' [convert対象]' : '';
     const u = r.type === 'learning' ? ` units=${r.units}${r.units < SHOOK_UNITS ? `(<${SHOOK_UNITS}・増補対象)` : ''}` : '';
     console.log(`❌ ${r.slug} (${r.type}${u})${mode}`);
     console.log(`   ${r.detail}`);
@@ -175,6 +178,10 @@ async function run(args) {
     console.error('Usage: run [--count N] [--scope full|tone] [--model opus|sonnet] [--dry-run]');
     process.exit(1);
   }
+  // 【2026-08-04・AdSense「低品質・薄いコンテンツ」対策】従来型（legacy）はscope=fullでも
+  // 文体/改行/リンクの表面修正だけでは不十分なので、convertへ自動昇格して全面learning型化する。
+  // --scope tone（軽量パスの明示指定）の時だけ従来どおりスキップする。
+  const scopeFor = (type) => (scope === 'full' && type === 'legacy' ? 'convert' : scope);
 
   acquireLock();
   const { pending } = audit();
@@ -184,7 +191,10 @@ async function run(args) {
     return;
   }
   console.log(`今回のバッチ（${batch.length}曲 / 残り全${pending.length}曲, scope=${scope}, model=${model}）:`);
-  for (const r of batch) console.log(`  - ${r.slug}${r.slug === 'nas-is-like' ? ' [reflowOnly]' : ''}`);
+  for (const r of batch) {
+    const tag = r.slug === 'nas-is-like' ? ' [reflowOnly]' : scopeFor(r.type) === 'convert' ? ' [convert=legacy→learning]' : '';
+    console.log(`  - ${r.slug}${tag}`);
+  }
   if (dryRun) {
     console.log('\n--dry-run のため実行しません');
     return;
@@ -195,8 +205,10 @@ async function run(args) {
   let consecFail = 0;
   let totalLimitWaits = 0;
   for (const r of batch) {
-    const opts = { model, scope, reflowOnly: r.slug === 'nas-is-like' };
-    console.log(`\n━━━ ${r.slug} を runToneFix で実行中（watcher委譲・最長45分） ━━━`);
+    const effScope = scopeFor(r.type);
+    const opts = { model, scope: effScope, reflowOnly: r.slug === 'nas-is-like' };
+    const timeLabel = effScope === 'convert' ? '最長2時間' : '最長45分';
+    console.log(`\n━━━ ${r.slug} を runToneFix で実行中（watcher委譲・${timeLabel}・scope=${effScope}） ━━━`);
     const startedAt = new Date().toISOString();
     let res;
     let waits = 0;
@@ -223,7 +235,7 @@ async function run(args) {
     const after = auditTone([r.slug]).get(r.slug);
     const ok = Boolean(res.success && after?.pass);
     state.history.push({
-      slug: r.slug, startedAt, finishedAt: new Date().toISOString(), scope,
+      slug: r.slug, startedAt, finishedAt: new Date().toISOString(), scope: effScope,
       model: res.modelUsed || model,
       reflowOnly: opts.reflowOnly, ok, limitWaits: waits,
       toneAfter: after?.detail ?? 'unknown',
