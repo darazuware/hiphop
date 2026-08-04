@@ -5,6 +5,10 @@ export interface SlangEntry {
 }
 
 export const slang: SlangEntry[] = [
+  { word: "kick it",                desc: "本来は「蹴る」だが、口語では「くつろぐ・のんびり過ごす・一緒に時間を過ごす」。kick it to 誰々 の形になると「その人に（考えや言葉を）伝える・話しかける」の意味にもなる、使用頻度の高いイディオム" },
+  { word: "the game",               desc: "ボードゲームの意味ではなく「ラップ稼業・音楽業界」あるいは「ストリートの経済そのもの」を指す定番スラング。rap game / dope game のように業界名と組み、in the game で「現役で身を置いて」、out the game で「足を洗って」" },
+  { word: "work the angles",        desc: "angle（角度）は比喩で「切り口・攻め口・狙い」。work the angles / work every angle で「あらゆる角度・手段を使って抜け目なく有利に運ぶ」。ビジネスでも He worked every angle（あらゆる手を尽くした）のように使う実用イディオム" },
+  { word: "in the zone",            desc: "「ゾーンに入る」＝完全に集中して調子が乗り切っている状態。スポーツやパフォーマンスで、周りが気にならないほど没入して結果が出せているときに使う定番の言い回し" },
   { word: "C.R.E.A.M.",            desc: "Cash Rules Everything Around Me（現金が俺の周りのすべてを支配する）の頭字語。Wu-Tang Clanの1993年の同名曲で広まった、金が全てを動かす街の現実を一語に畳んだ標語。cream単体で「金・現金」を指す動詞・名詞にもなった" },
   { word: "steez",                 desc: "style（スタイル）＋ease（余裕）が混ざってできたとされるスラング。「その人固有の流儀・立ち居振る舞い・カッコよさ」を指す。My steez は「俺のやり方・俺の色」" },
   { word: "bid",                   desc: "服役期間・刑期を指すスラング。do a bid で「務所暮らしをする・ムショに入る」。入札の bid とは別で、刑務所文脈の隠語" },

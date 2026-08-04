@@ -1,106 +1,27 @@
 [
-  {
-    "id": "work-angles-chorus",
-    "anchor": [
-      "work",
-      "the",
-      "angles",
-      "sharp",
-      "and"
-    ],
-    "fallbackT": 14,
-    "manualSec": null
-  },
-  {
-    "id": "one-set-prints",
-    "anchor": [
-      "leave",
-      "one",
-      "set",
-      "of",
-      "prints"
-    ],
-    "fallbackT": 38,
-    "manualSec": null
-  },
-  {
-    "id": "communication-ego",
-    "anchor": [
-      "about",
-      "communication",
-      "not",
-      "a",
-      "rapper"
-    ],
-    "fallbackT": 68,
-    "manualSec": null
-  },
-  {
-    "id": "dead-wrong",
-    "anchor": [
-      "takin",
-      "me",
-      "head",
-      "on",
-      "are"
-    ],
-    "fallbackT": 88,
-    "manualSec": null
-  },
-  {
-    "id": "let-go-aikido",
-    "anchor": [
-      "master",
-      "of",
-      "aikido"
-    ],
-    "fallbackT": 118,
-    "manualSec": null
-  },
-  {
-    "id": "swing-bat-baseball",
-    "anchor": [
-      "swing",
-      "my",
-      "bat",
-      "i",
-      "don't"
-    ],
-    "fallbackT": 138,
-    "manualSec": null
-  },
-  {
-    "id": "mayday-feds",
-    "anchor": [
-      "everyday",
-      "is",
-      "mayday",
-      "and"
-    ],
-    "fallbackT": 150,
-    "manualSec": null
-  },
-  {
-    "id": "evidence-on-trial",
-    "anchor": [
-      "it's",
-      "for",
-      "evidence",
-      "on",
-      "trial"
-    ],
-    "fallbackT": 162,
-    "manualSec": null
-  },
-  {
-    "id": "two-to-tango",
-    "anchor": [
-      "take",
-      "two",
-      "to",
-      "tango"
-    ],
-    "fallbackT": 166,
-    "manualSec": null
-  }
+  { "id": "work-angles-chorus", "anchor": ["work", "the", "angles", "sharp", "and"], "fallbackT": 14, "manualSec": null },
+  { "id": "act-like-you-know", "anchor": ["act", "like", "you", "know", "not"], "fallbackT": 20, "manualSec": null },
+  { "id": "one-set-prints", "anchor": ["leave", "one", "set", "of", "prints"], "fallbackT": 38, "manualSec": null },
+  { "id": "understanding-underhanded", "anchor": ["caught", "the", "understanding", "and", "the"], "fallbackT": 46, "manualSec": null },
+  { "id": "man-it-verb", "anchor": ["build", "my", "ship", "and", "man"], "fallbackT": 50, "manualSec": null },
+  { "id": "surveillance-agents", "anchor": ["under", "heavy", "surveillance", "many", "different"], "fallbackT": 54, "manualSec": null },
+  { "id": "moves-ahead", "anchor": ["many", "moves", "ahead", "the", "thoughts"], "fallbackT": 60, "manualSec": null },
+  { "id": "time-squared", "anchor": ["time", "times", "time", "is", "time"], "fallbackT": 63, "manualSec": null },
+  { "id": "kick-it", "anchor": ["they", "kick", "it", "to", "my"], "fallbackT": 66, "manualSec": null },
+  { "id": "communication-ego", "anchor": ["about", "communication", "not", "a", "rapper"], "fallbackT": 68, "manualSec": null },
+  { "id": "it-clicks", "anchor": ["one", "day", "it", "clicks", "it's"], "fallbackT": 78, "manualSec": null },
+  { "id": "dead-wrong", "anchor": ["takin", "me", "head", "on", "are"], "fallbackT": 88, "manualSec": null },
+  { "id": "let-go-aikido", "anchor": ["master", "of", "aikido"], "fallbackT": 118, "manualSec": null },
+  { "id": "rough-edge", "anchor": ["smooth", "but", "got", "a", "rough"], "fallbackT": 124, "manualSec": null },
+  { "id": "mucho-attack", "anchor": ["display", "mucho", "attack", "receive", "payments"], "fallbackT": 127, "manualSec": null },
+  { "id": "dotted-line", "anchor": ["agents", "on", "the", "dotted", "line"], "fallbackT": 131, "manualSec": null },
+  { "id": "whole-nines", "anchor": ["gold", "mines", "and", "whole", "nines"], "fallbackT": 134, "manualSec": null },
+  { "id": "swing-bat-baseball", "anchor": ["swing", "my", "bat", "i", "don't"], "fallbackT": 138, "manualSec": null },
+  { "id": "hung-jury", "anchor": ["the", "jury's", "hung", "from", "verdict"], "fallbackT": 142, "manualSec": null },
+  { "id": "aged-wine", "anchor": ["the", "aged", "wine", "is", "my"], "fallbackT": 146, "manualSec": null },
+  { "id": "mayday-feds", "anchor": ["everyday", "is", "mayday", "and"], "fallbackT": 150, "manualSec": null },
+  { "id": "in-the-zone", "anchor": ["strategic", "and", "in", "a", "zone"], "fallbackT": 156, "manualSec": null },
+  { "id": "anonymity-survival", "anchor": ["anonymity", "that's", "my", "key", "to"], "fallbackT": 159, "manualSec": null },
+  { "id": "evidence-on-trial", "anchor": ["ev", "is", "not", "for", "evid"], "fallbackT": 162, "manualSec": null },
+  { "id": "two-to-tango", "anchor": ["this", "game", "it", "take", "two"], "fallbackT": 166, "manualSec": null }
 ]
