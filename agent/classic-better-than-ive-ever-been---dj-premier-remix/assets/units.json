@@ -1,24 +1,296 @@
 [
-  { "id": "classic-hook", "anchor": ["classic", "timeless", "better", "than"], "fallbackT": 15, "manualSec": null },
-  { "id": "another-drought", "anchor": ["everybodys", "a", "killer", "buggin", "out"], "fallbackT": 28, "manualSec": null },
-  { "id": "since-86", "anchor": ["since", "86", "showin", "the", "crowd"], "fallbackT": 42, "manualSec": null },
-  { "id": "fountain-of-youth", "anchor": ["flow", "stay", "submerged", "fountain", "youth"], "fallbackT": 58, "manualSec": null },
-  { "id": "off-meters-cosign", "anchor": ["everybody", "cosignin", "even", "non", "believers"], "fallbackT": 64, "manualSec": null },
-  { "id": "uptowns-uppies", "anchor": ["uptowns", "we", "call", "em", "uppies"], "fallbackT": 73, "manualSec": null },
-  { "id": "made-you-look", "anchor": ["nas", "made", "you", "look", "heaters"], "fallbackT": 82, "manualSec": null },
-  { "id": "walked-with-jesus", "anchor": ["kan", "had", "em", "walked", "jesus"], "fallbackT": 88, "manualSec": null },
-  { "id": "superfly-ness", "anchor": ["you", "cant", "buy", "this", "superfly"], "fallbackT": 115, "manualSec": null },
-  { "id": "novice-polished", "anchor": ["thats", "so", "novice", "im", "polished"], "fallbackT": 122, "manualSec": null },
-  { "id": "rob-base-two", "anchor": ["semesters", "it", "took", "two", "rob"], "fallbackT": 130, "manualSec": null },
-  { "id": "habitual-be", "anchor": ["i", "be", "killing", "shit", "thats"], "fallbackT": 138, "manualSec": null },
-  { "id": "amateur-night", "anchor": ["amateur", "night", "its", "showtime"], "fallbackT": 190, "manualSec": null },
-  { "id": "chips-aint-right", "anchor": ["whip", "you", "like", "chips", "aint"], "fallbackT": 200, "manualSec": null },
-  { "id": "its-just-iron", "anchor": ["in", "the", "streets", "im", "in"], "fallbackT": 210, "manualSec": null },
-  { "id": "wall-toast", "anchor": ["wall", "that", "they", "toast", "up"], "fallbackT": 225, "manualSec": null },
-  { "id": "hustlers-shoe", "anchor": ["classic", "like", "the", "air", "ones"], "fallbackT": 235, "manualSec": null },
-  { "id": "criminal-minded", "anchor": ["no", "jewels", "on", "my", "neck"], "fallbackT": 252, "manualSec": null },
-  { "id": "wes-a-nation", "anchor": ["this", "hiphop", "and", "wes", "nation"], "fallbackT": 257, "manualSec": null },
-  { "id": "smoke-them-trees", "anchor": ["broadcastin", "how", "we", "smoke", "trees"], "fallbackT": 260, "manualSec": null },
-  { "id": "emceein-vs-rap", "anchor": ["difference", "between", "emceein", "and", "rap"], "fallbackT": 262, "manualSec": null },
-  { "id": "peace-love-unity", "anchor": ["peace", "love", "unity", "havin", "fun"], "fallbackT": 275, "manualSec": null }
+  {
+    "id": "classic-hook",
+    "anchor": [
+      "classic",
+      "timeless",
+      "better",
+      "than"
+    ],
+    "fallbackT": 15,
+    "manualSec": null
+  },
+  {
+    "id": "another-drought",
+    "anchor": [
+      "everybodys",
+      "a",
+      "killer",
+      "buggin",
+      "out"
+    ],
+    "fallbackT": 28,
+    "manualSec": null
+  },
+  {
+    "id": "since-86",
+    "anchor": [
+      "since",
+      "86",
+      "showin",
+      "the",
+      "crowd"
+    ],
+    "fallbackT": 42,
+    "manualSec": null
+  },
+  {
+    "id": "fountain-of-youth",
+    "anchor": [
+      "flow",
+      "stay",
+      "submerged",
+      "fountain",
+      "youth"
+    ],
+    "fallbackT": 58,
+    "manualSec": null
+  },
+  {
+    "id": "off-meters-cosign",
+    "anchor": [
+      "everybody",
+      "cosignin",
+      "even",
+      "non",
+      "believers"
+    ],
+    "fallbackT": 64,
+    "manualSec": null
+  },
+  {
+    "id": "uptowns-uppies",
+    "anchor": [
+      "uptowns",
+      "we",
+      "call",
+      "em",
+      "uppies"
+    ],
+    "fallbackT": 73,
+    "manualSec": null
+  },
+  {
+    "id": "made-you-look",
+    "anchor": [
+      "nas",
+      "made",
+      "you",
+      "look",
+      "heaters"
+    ],
+    "fallbackT": 82,
+    "manualSec": null
+  },
+  {
+    "id": "walked-with-jesus",
+    "anchor": [
+      "kan",
+      "had",
+      "em",
+      "walked",
+      "jesus"
+    ],
+    "fallbackT": 88,
+    "manualSec": null
+  },
+  {
+    "id": "superfly-ness",
+    "anchor": [
+      "you",
+      "cant",
+      "buy",
+      "this",
+      "superfly"
+    ],
+    "fallbackT": 115,
+    "manualSec": null
+  },
+  {
+    "id": "novice-polished",
+    "anchor": [
+      "thats",
+      "so",
+      "novice",
+      "im",
+      "polished"
+    ],
+    "fallbackT": 122,
+    "manualSec": null
+  },
+  {
+    "id": "rob-base-two",
+    "anchor": [
+      "semesters",
+      "it",
+      "took",
+      "two",
+      "rob"
+    ],
+    "fallbackT": 130,
+    "manualSec": null
+  },
+  {
+    "id": "habitual-be",
+    "anchor": [
+      "i",
+      "be",
+      "killing",
+      "shit",
+      "thats"
+    ],
+    "fallbackT": 138,
+    "manualSec": null
+  },
+  {
+    "id": "go-platinum",
+    "anchor": [
+      "platinum",
+      "do",
+      "it",
+      "times"
+    ],
+    "fallbackT": 178,
+    "manualSec": null
+  },
+  {
+    "id": "amateur-night",
+    "anchor": [
+      "amateur",
+      "night",
+      "its",
+      "showtime"
+    ],
+    "fallbackT": 190,
+    "manualSec": null
+  },
+  {
+    "id": "chips-aint-right",
+    "anchor": [
+      "whip",
+      "you",
+      "like",
+      "chips",
+      "aint"
+    ],
+    "fallbackT": 200,
+    "manualSec": null
+  },
+  {
+    "id": "its-just-iron",
+    "anchor": [
+      "in",
+      "the",
+      "streets",
+      "im",
+      "in"
+    ],
+    "fallbackT": 210,
+    "manualSec": null
+  },
+  {
+    "id": "wall-toast",
+    "anchor": [
+      "wall",
+      "that",
+      "they",
+      "toast",
+      "up"
+    ],
+    "fallbackT": 225,
+    "manualSec": null
+  },
+  {
+    "id": "hustlers-shoe",
+    "anchor": [
+      "classic",
+      "like",
+      "the",
+      "air",
+      "ones"
+    ],
+    "fallbackT": 235,
+    "manualSec": null
+  },
+  {
+    "id": "criminal-minded",
+    "anchor": [
+      "no",
+      "jewels",
+      "on",
+      "my",
+      "neck"
+    ],
+    "fallbackT": 252,
+    "manualSec": null
+  },
+  {
+    "id": "blastmaster-bdp",
+    "anchor": [
+      "blastmaster",
+      "krs",
+      "one"
+    ],
+    "fallbackT": 254,
+    "manualSec": null
+  },
+  {
+    "id": "wes-a-nation",
+    "anchor": [
+      "this",
+      "hiphop",
+      "and",
+      "wes",
+      "nation"
+    ],
+    "fallbackT": 257,
+    "manualSec": null
+  },
+  {
+    "id": "smoke-them-trees",
+    "anchor": [
+      "broadcastin",
+      "how",
+      "we",
+      "smoke",
+      "trees"
+    ],
+    "fallbackT": 260,
+    "manualSec": null
+  },
+  {
+    "id": "emceein-vs-rap",
+    "anchor": [
+      "difference",
+      "between",
+      "emceein",
+      "and",
+      "rap"
+    ],
+    "fallbackT": 262,
+    "manualSec": null
+  },
+  {
+    "id": "jmj-scott-tribute",
+    "anchor": [
+      "jmj",
+      "scott",
+      "la",
+      "rock"
+    ],
+    "fallbackT": 268,
+    "manualSec": null
+  },
+  {
+    "id": "peace-love-unity",
+    "anchor": [
+      "peace",
+      "love",
+      "unity",
+      "havin",
+      "fun"
+    ],
+    "fallbackT": 275,
+    "manualSec": null
+  }
 ]

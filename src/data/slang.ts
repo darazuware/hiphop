@@ -168,6 +168,8 @@ export const slang: SlangEntry[] = [
   { word: "A&R",                   desc: "Artists and Repertoire の略。レコード会社でアーティストの発掘・契約・作品の方向性を統括する部門／担当者。get signed by an A&R（A&Rに見出されて契約する）のように使う音楽業界の必須用語" },
   { word: "assassinator",         desc: "assassin（暗殺者）を大げさに名詞化した造語。ラップでは「相手を仕留める達人」の自称に使われ、ここでは Schwarzenegger と -ator/-egger の韻を作るために選ばれている" },
   { word: "gospel",               desc: "本来はキリスト教の福音・福音書。転じて「絶対の真実・動かぬ事実」の意でも使う（take it as gospel＝鵜呑みにする）。ラップでは説教・宗教のイメージを引き込む語としても頻出" },
+  { word: "platinum",             desc: "アメリカレコード協会（RIAA）が出荷100万枚のアルバムに与える認定。go platinum で「プラチナ認定に届く＝商業的な成功の一区切り」を表す業界語。倍数で2x/3x platinum、その上に diamond（1000万枚）がある" },
+  { word: "Blastmaster",          desc: "KRS-Oneの通称。1980年代のBoogie Down Productions（BDP）期からの呼び名で「爆音の達人・場を制圧するMC」といったニュアンス。KRSはKnowledge Reigns Supreme Everlasting（叡智が永遠に最上位で君臨する）の略でもある自己命名" },
 ];
 
 // Strip Japanese annotation '（…）'/'(...)' and trim → clean English keyword
