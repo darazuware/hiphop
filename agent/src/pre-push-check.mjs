@@ -13,9 +13,17 @@
  *
  * Item 6: Genius 短尺フェッチ対策。
  *   (a) 取得歌詞が既存キャッシュより短い場合はキャッシュを上書きしない（不完全フェッチ）。
- *   (b) 不完全フェッチ時は [B]（ハルシネーション）を失敗ブロックせずスキップ＋警告（要手動確認）。
+ *   (b) 不完全フェッチで [B] の機械検証が信頼できない場合、黙ってスキップせず push を
+ *       ブロックする。人間が歌詞を手動確認した後に
+ *       `node agent/src/pre-push-check.mjs --confirm-manual-check {slug}` を実行して
+ *       解除する（agent/.skip-b-pending.json / .skip-b-confirmed.json で状態管理）。
  *   (c) 短尺が返ったら数回リトライし最長版を採用。
  *   出力は行数・カウントのみ。
+ *
+ * Item 4b: Genius URL誤紐付け防止。
+ *   agent/.lyrics-sources.json の明示URLソースは、取得前にページ<title>が
+ *   期待する曲名/アーティスト名と一致するか機械検証する。不一致ならブロックする
+ *   （複数ページ分割曲で誤ったページと照合してしまう事故を防ぐ）。
  */
 
 import { readFileSync, writeFileSync, statSync, readdirSync, existsSync } from 'node:fs';
@@ -237,6 +245,49 @@ function checkCriticTone(paths) {
   return failed;
 }
 
+// ============================================================================
+// Item 4b: Genius URL誤紐付け防止（明示URLソースのページ<title>照合）
+// ============================================================================
+function normForMatch(s) {
+  return s.toLowerCase().replace(/[^\p{L}\p{N}]+/gu, '');
+}
+
+async function verifyUrlMatchesSong(url, title, artist) {
+  try {
+    const res = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0' } });
+    const html = await res.text();
+    const m = html.match(/<title>([^<]+)<\/title>/i);
+    if (!m) return { ok: true, reason: 'no-title-tag(skip)' }; // 取得不能時は誤検出回避で通す
+    const normPage = normForMatch(m[1]);
+    const normTitle = normForMatch(title).slice(0, 12); // 記号差異吸収のため先頭一部で照合
+    const normArtist = normForMatch(artist.split(/\s*(?:feat\.?|ft\.?|featuring)\s+/i)[0]);
+    const titleOk = normTitle.length === 0 || normPage.includes(normTitle);
+    const artistOk = normArtist.length === 0 || normPage.includes(normArtist);
+    return { ok: titleOk && artistOk, pageTitle: m[1] };
+  } catch (e) {
+    return { ok: true, reason: `fetch-error:${e.message}(skip)` };
+  }
+}
+
+// ============================================================================
+// Item 6b: SKIP_B pending管理（不完全フェッチによる[B]スキップの明示解除フロー）
+// ============================================================================
+const SKIP_B_PENDING = join(projectRoot, 'agent/.skip-b-pending.json');
+const SKIP_B_CONFIRMED = join(projectRoot, 'agent/.skip-b-confirmed.json');
+
+function loadJsonSafe(path) {
+  try { return JSON.parse(readFileSync(path, 'utf-8')); } catch { return {}; }
+}
+function saveJson(path, obj) {
+  writeFileSync(path, JSON.stringify(obj, null, 2) + '\n');
+}
+function astroContentHash(slug) {
+  try {
+    const raw = readFileSync(join(songsDir, `${slug}.astro`), 'utf-8');
+    return createHash('sha1').update(raw).digest('hex').slice(0, 16);
+  } catch { return null; }
+}
+
 // --- Item 6: Fetch lyrics (短尺フェッチ対策つき) ---
 // ソース上書き（agent/.lyrics-sources.json）: 1曲がGenius側で複数ページに
 // 分割されている等の曲はURL明示で結合コーパスを作る（check-all-lyrics.mjsと共通仕様）。
@@ -270,6 +321,8 @@ async function fetchLyrics(title, artist, slug) {
       const extractLyrics = require(join(projectRoot, 'agent/node_modules/genius-lyrics-api/lib/utils/extractLyrics.js'));
       const parts = [];
       for (const url of override.urls) {
+        const v = await verifyUrlMatchesSong(url, title, artist);
+        if (!v.ok) throw new Error(`URL不一致疑い（曲名/アーティスト名がページ<title>に見当たらない）: ${url}`);
         const p = await extractLyrics(url);
         if (!p) throw new Error(`empty: ${url}`);
         parts.push(p);
@@ -352,6 +405,21 @@ if (argv.includes('--update-dup-baseline')) {
   process.exit(0);
 }
 
+const confirmIdx = argv.indexOf('--confirm-manual-check');
+if (confirmIdx !== -1) {
+  const slug = argv[confirmIdx + 1];
+  if (!slug) { console.error('使い方: --confirm-manual-check {slug}'); process.exit(1); }
+  const pending = loadJsonSafe(SKIP_B_PENDING);
+  const confirmed = loadJsonSafe(SKIP_B_CONFIRMED);
+  const hash = astroContentHash(slug);
+  confirmed[slug] = { hash, confirmedAt: new Date().toISOString() };
+  delete pending[slug];
+  saveJson(SKIP_B_CONFIRMED, confirmed);
+  saveJson(SKIP_B_PENDING, pending);
+  console.log(`[SKIP_B] ${slug} を手動確認済みとして記録（hash=${hash}）。pendingから解除しました。`);
+  process.exit(0);
+}
+
 let anyFailed = false;
 
 // Item 4: 定型句ガードは曲ファイル変更の有無に関わらず常に走らせる
@@ -399,13 +467,29 @@ for (const filePath of changedPaths) {
   }
 
   try {
-    // (b) 不完全フェッチ時は [B] をスキップ＋警告（誤検出で正しい記事を改変しない）
+    // (b) 不完全フェッチ時は [B] をスキップして実行（誤検出で正しい記事を改変しない）が、
+    // その "スキップされた事実" 自体は下でブロック判定する（黙って通さない）
     execSync(
       `/usr/local/bin/node ${join(projectRoot, 'agent/src/check-lyrics-coverage.mjs')} ${slug}`,
       { stdio: 'inherit', cwd: projectRoot, env: { ...process.env, SKIP_B: incomplete ? '1' : '' } }
     );
   } catch {
     anyFailed = true;
+  }
+
+  if (incomplete) {
+    const confirmed = loadJsonSafe(SKIP_B_CONFIRMED);
+    const currentHash = astroContentHash(slug);
+    if (confirmed[slug] && confirmed[slug].hash === currentHash) {
+      console.log(`  ✅ [B] 不完全フェッチだが手動確認済み（内容変更なし）: ${slug}`);
+    } else {
+      const pending = loadJsonSafe(SKIP_B_PENDING);
+      pending[slug] = { addedAt: new Date().toISOString(), reason: 'incomplete Genius fetch' };
+      saveJson(SKIP_B_PENDING, pending);
+      console.log(`  ❌ [B] 不完全フェッチのため機械検証スキップ＝未確認。push不可。`);
+      console.log(`     手動で歌詞行の実在を確認後: node agent/src/pre-push-check.mjs --confirm-manual-check ${slug}`);
+      anyFailed = true;
+    }
   }
 }
 

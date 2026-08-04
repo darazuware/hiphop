@@ -33,3 +33,15 @@ pnpm-debug.log*
 # パンチラインショート出力（SNS手動アップロード用・サイト非掲載）
 agent/shorts-out/
 agent/audio/*.whisper.json
+
+# リール用PV映像・書き出し（権利物の映像。リポジトリに入れない・YouTubeへは上げない）
+agent/*/reel/assets/pv.mp4
+agent/*/reel/renders/
+agent/.fa-venv/
+agent/*/assets/.stems/
+
+# トーン一斉更新キャンペーンのランタイム状態（実行のたびに生成・ローカル限定）
+agent/.tone-campaign-state.json
+agent/.tone-campaign.lock
+agent/.skip-b-pending.json
+agent/.skip-b-confirmed.json

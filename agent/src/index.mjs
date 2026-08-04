@@ -25,7 +25,7 @@ import { mkdir, writeFile, readFile, unlink } from 'node:fs/promises';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { execSync } from 'node:child_process';
+import { execSync, spawn } from 'node:child_process';
 import { getUpdates, sendMessage, parseMessage } from './telegram.mjs';
 import { fetchLyrics } from './genius.mjs';
 import { processAndDeploy } from './processor.mjs';
@@ -39,6 +39,7 @@ const MENU_TEXT =
   `📋 *コマンド一覧*\n\n` +
   `🎵 \`/song Artist - Song [Year]\` → 曲記事を自動生成\n` +
   `📝 \`修正依頼 <曲名>\` / \`記事修正 <曲名>\` → 既存曲を三稿制で自動仕上げ: nas-is-like基調の文体・1〜2文改行・内部リンク・unit上限まで増強（例: \`修正依頼 put it on\`）\n` +
+  `🏭 \`トーン一斉 [曲数] [tone] [sonnet]\` → 未更新曲を先頭から順次一斉修正（既定3曲・opus・unit増強込み。\`tone\`=文体/改行/リンクのみ・\`sonnet\`=構造整形のみで十分な時の高速版）。残数確認は \`トーン一斉 状況\`\n` +
   `🛠️ 任意のテキスト → 任意のタスクを実行（例: \`put-it-onのジャケットを直して\`）\n` +
   `   ↳ 続けて送ると前回の文脈を引き継ぎます。\`/new\` で新しいスレッド\n` +
   `🎬 \`/short <slug>\` → ショート動画を生成\n` +
@@ -107,6 +108,61 @@ async function handleToneFixCommand(query, chatId) {
   } catch (e) {
     await sendMessage(`❌ エラー: ${String(e.message).slice(0, 200)}`, chatId, { safe: true });
   }
+}
+
+/**
+ * 「トーン一斉 [曲数] [tone] [opus]」→ 全曲トーン一斉更新キャンペーン（docs/mission-tone-campaign.md）。
+ * tone-campaign.mjs を子プロセスで回す（runToneFix経由で1曲ずつ・review push・notify-reviewまで自動）。
+ * 二重起動はキューが同じ曲を掴んで衝突するためフラグで拒否する。
+ */
+let toneCampaignRunning = false;
+async function handleToneCampaignCommand(argText, chatId) {
+  const parts = argText.split(/[\s　]+/).filter(Boolean);
+  const script = join(__dirname, 'tone-campaign.mjs');
+  if (parts.includes('状況') || parts.includes('status')) {
+    try {
+      const out = execSync(`node "${script}" status`, { encoding: 'utf-8', timeout: 120_000, cwd: ROOT });
+      const lines = out.split('\n').filter(Boolean);
+      const head = lines.find((l) => l.startsWith('全')) || '';
+      const next = lines.find((l) => l.startsWith('次の1曲')) || '';
+      await sendMessage(`📊 トーン一斉更新キャンペーン\n${head}\n${next}${toneCampaignRunning ? '\n（バッチ実行中）' : ''}`, chatId, { safe: true });
+    } catch (e) {
+      await sendMessage(`❌ status失敗: ${String(e.message).slice(0, 200)}`, chatId, { safe: true });
+    }
+    return;
+  }
+  if (toneCampaignRunning) {
+    await sendMessage('⏳ トーン一斉バッチが実行中です。終了通知を待ってから再実行してください（残数: `トーン一斉 状況`）', chatId);
+    return;
+  }
+  const count = parts.find((p) => /^\d+$/.test(p)) || '3';
+  const scope = parts.includes('tone') ? 'tone' : 'full';
+  const model = parts.includes('sonnet') ? 'sonnet' : 'opus';
+  toneCampaignRunning = true;
+  await sendMessage(
+    `🏭 トーン一斉更新を開始: 未更新の先頭${count}曲（scope=${scope}, model=${model}）\n` +
+    `1曲ずつ修正依頼ルーチンで回します（各曲、review pushとプレビューURL通知が飛びます。1曲最長45分）\n` +
+    `Claude使用上限に当たった場合は中断せず、リセット時刻まで自動待機して同じ曲から再開します（⏸通知が飛びます）`,
+    chatId
+  );
+  const child = spawn('node', [script, 'run', '--count', count, '--scope', scope, '--model', model], { cwd: ROOT });
+  let buf = '';
+  child.stdout.on('data', (d) => { buf += d; });
+  child.stderr.on('data', (d) => { buf += d; });
+  child.on('close', (code) => {
+    toneCampaignRunning = false;
+    const tail = buf.split('\n')
+      .filter((l) => /^(✅ [^ ]+: 完了|❌ [^ ]+: 未達|❌ 2曲連続|⏸ |▶ 待機終了|全\d+曲|次の1曲)/.test(l))
+      .slice(-12).join('\n');
+    sendMessage(
+      `${code === 0 ? '🏁 トーン一斉バッチ終了' : '❌ トーン一斉バッチ中断'} (exit ${code})\n${tail}\n続き: \`トーン一斉 ${count}\``.slice(0, 3500),
+      chatId, { safe: true }
+    ).catch(() => {});
+  });
+  child.on('error', (e) => {
+    toneCampaignRunning = false;
+    sendMessage(`❌ トーン一斉起動失敗: ${String(e.message).slice(0, 200)}`, chatId, { safe: true }).catch(() => {});
+  });
 }
 
 /** YouTube URL → 動画記事生成 → キューに追加 */
@@ -460,6 +516,16 @@ async function main() {
           } else {
             sendMessage('❌ 曲名を指定してください（例: `修正依頼 put it on`）', chatId).catch(() => {});
           }
+          continue;
+        }
+
+        // トーン一斉 [曲数] [tone] [opus] / トーン一斉 状況 → 全曲トーン一斉更新キャンペーン
+        if (/^(トーン一斉|\/tonecampaign)/.test(text.trim())) {
+          const argText = text.trim().replace(/^(トーン一斉|\/tonecampaign)[\s　]*/, '');
+          handleToneCampaignCommand(argText, chatId).catch((error) => {
+            console.error(`トーン一斉エラー: ${error.message}`);
+            sendMessage(`❌ トーン一斉エラー: ${String(error.message).slice(0, 200)}`, chatId, { safe: true }).catch(() => {});
+          });
           continue;
         }
 
