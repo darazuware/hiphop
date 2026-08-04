@@ -1,8 +1,20 @@
 [
   {
+    "id": "crews-be-lost",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 5,
+    "t": 5,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "intro-sleep",
     "whisperSec": 12.7,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 9,
     "t": 9,
     "source": "fallback",
@@ -13,6 +25,7 @@
     "id": "smash-fine-bits",
     "whisperSec": null,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 27,
     "t": 27,
     "source": "fallback",
@@ -23,6 +36,7 @@
     "id": "just-deserts",
     "whisperSec": 32.7,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 33,
     "t": 33,
     "source": "fallback",
@@ -30,9 +44,65 @@
     "score": 0.5
   },
   {
+    "id": "crafted-tools",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 45,
+    "t": 45,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "nut-and-bolt",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 58,
+    "t": 58,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "high-beams",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 64,
+    "t": 64,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "dissin",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 68,
+    "t": 68,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "cataclysm-schism",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 71,
+    "t": 71,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "hollow-tips",
     "whisperSec": null,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 78,
     "t": 78,
     "source": "fallback",
@@ -40,9 +110,32 @@
     "score": 0.25
   },
   {
+    "id": "rippin-mics",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 84,
+    "t": 84,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "tax-men",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 87,
+    "t": 87,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "step-to",
     "whisperSec": 94.6,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 92,
     "t": 92,
     "source": "fallback",
@@ -50,9 +143,21 @@
     "score": 0.75
   },
   {
+    "id": "sweat",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 102,
+    "t": 102,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "illin",
     "whisperSec": 108.7,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 110,
     "t": 110,
     "source": "fallback",
@@ -60,9 +165,43 @@
     "score": 0.75
   },
   {
+    "id": "the-g",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 115,
+    "t": 115,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "fly",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 118,
+    "t": 118,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "crib",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 122,
+    "t": 122,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "west-coast",
     "whisperSec": null,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 130,
     "t": 130,
     "source": "fallback",
@@ -70,9 +209,54 @@
     "score": 0.25
   },
   {
+    "id": "wack",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 140,
+    "t": 140,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "smack-tricks",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 158,
+    "t": 158,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "crack-bricks",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 162,
+    "t": 162,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "cardiac-arrest",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 168,
+    "t": 168,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "wake-up-words",
     "whisperSec": 158,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 175,
     "t": 175,
     "source": "fallback",
@@ -80,11 +264,23 @@
     "score": 0.67
   },
   {
+    "id": "losin-outro",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 185,
+    "t": 185,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "hiero-crew",
     "whisperSec": null,
     "manualSec": null,
-    "fallbackT": 185,
-    "t": 185,
+    "captionSec": null,
+    "fallbackT": 195,
+    "t": 195,
     "source": "fallback",
     "approx": true,
     "score": 0.33
