@@ -1,6 +1,7 @@
 ---
 import Layout from './Layout.astro';
 import ExplanationToggle from '../components/ExplanationToggle.astro';
+import EditOverlay from '../components/EditOverlay.astro';
 import MercariCta from '../components/MercariCta.astro';
 import { songs } from '../data/songs';
 import { artists } from '../data/artists';
@@ -350,7 +351,10 @@ const waveformPeaks = waveformModules[`../data/waveforms/${slug}.json`]?.default
 
       <!-- Main content slot -->
       <ExplanationToggle />
-      <slot />
+      <div id="edit-scope">
+        <slot />
+      </div>
+      <EditOverlay />
 
       <!-- Artist link (mobile only) -->
       {artist && (

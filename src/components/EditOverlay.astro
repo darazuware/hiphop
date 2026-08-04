@@ -1,0 +1,135 @@
+---
+/**
+ * review プレビュー限定の文言編集オーバーレイ。
+ * URLに ?edit=1 を付けた時だけ起動する。#edit-scope 内の p/li/h2〜h4 をクリックで
+ * contenteditable化し、変更を /api/edit-save へPOSTしてreviewブランチへ直接コミットする。
+ * 歌詞引用（blockquote内のeng/jpn）は編集対象から除外（著作権・事実正確性のガード）。
+ * 本番(waxthink.com)ではホスト名チェックで常に無効。
+ */
+---
+
+<script>
+  (function () {
+    const params = new URLSearchParams(location.search);
+    if (params.get('edit') !== '1') return;
+    if (location.hostname === 'waxthink.com') return;
+
+    const slugMatch = location.pathname.match(/\/songs\/([^/]+)/);
+    if (!slugMatch) return;
+    const slug = slugMatch[1];
+
+    const scope = document.getElementById('edit-scope');
+    if (!scope) return;
+
+    const originals = new WeakMap<Element, string>();
+    const pending = new Map<Element, { oldText: string; newText: string }>();
+
+    const banner = document.createElement('div');
+    banner.textContent = '編集モード ON — 文章をタップして編集（歌詞引用部分は編集対象外）';
+    banner.style.cssText = 'position:fixed;top:0;left:0;right:0;z-index:100;background:#c0392b;color:#fff;font-size:12px;text-align:center;padding:6px 10px;font-weight:700;letter-spacing:.02em';
+    document.body.appendChild(banner);
+
+    const panel = document.createElement('div');
+    panel.style.cssText = 'position:fixed;left:12px;bottom:12px;z-index:100;background:#111;color:#fff;border:1px solid #c0392b;border-radius:10px;padding:10px 14px;font-size:12px;display:none;box-shadow:0 8px 24px rgba(0,0,0,.5);min-width:200px';
+    const panelCount = document.createElement('div');
+    panelCount.style.cssText = 'margin-bottom:8px;font-weight:700';
+    const saveAllBtn = document.createElement('button');
+    saveAllBtn.textContent = 'すべて保存';
+    saveAllBtn.style.cssText = 'background:#c0392b;color:#fff;border:none;border-radius:6px;padding:6px 12px;font-size:12px;font-weight:700;cursor:pointer;width:100%';
+    const statusLine = document.createElement('div');
+    statusLine.style.cssText = 'margin-top:8px;font-size:11px;color:#aaa;white-space:pre-wrap;max-width:280px';
+    panel.appendChild(panelCount);
+    panel.appendChild(saveAllBtn);
+    panel.appendChild(statusLine);
+    document.body.appendChild(panel);
+
+    function refreshPanel() {
+      const n = pending.size;
+      panelCount.textContent = `変更 ${n}件`;
+      panel.style.display = n > 0 ? 'block' : 'none';
+    }
+
+    async function save(entries: Array<[Element, { oldText: string; newText: string }]>) {
+      saveAllBtn.setAttribute('disabled', 'true');
+      statusLine.textContent = '保存中…';
+      try {
+        const res = await fetch('/api/edit-save', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            slug,
+            changes: entries.map(([, v]) => ({ oldText: v.oldText, newText: v.newText })),
+          }),
+        });
+        const data = await res.json();
+        if (!res.ok || !data.ok) {
+          statusLine.textContent = '❌ ' + (data.error || `失敗 (${res.status})`);
+          return;
+        }
+        for (const [el] of entries) {
+          pending.delete(el);
+          (el as HTMLElement).style.outline = '2px solid #2ecc71';
+          setTimeout(() => { (el as HTMLElement).style.outline = ''; }, 1500);
+        }
+        statusLine.textContent = '✓ 保存しました（Vercel再ビルドで1〜2分後に反映）';
+        refreshPanel();
+      } catch {
+        statusLine.textContent = '❌ 通信エラー';
+      } finally {
+        saveAllBtn.removeAttribute('disabled');
+      }
+    }
+
+    saveAllBtn.addEventListener('click', () => {
+      save(Array.from(pending.entries()));
+    });
+
+    function makeEditable(el: HTMLElement) {
+      if (el.dataset.editBound) return;
+      el.dataset.editBound = '1';
+      el.style.cursor = 'text';
+
+      el.addEventListener('mouseenter', () => {
+        if (el.getAttribute('contenteditable') === 'true') return;
+        el.style.outline = '1px dashed #c0392b';
+        el.style.outlineOffset = '2px';
+      });
+      el.addEventListener('mouseleave', () => {
+        if (el.getAttribute('contenteditable') === 'true') return;
+        if (!pending.has(el)) el.style.outline = '';
+      });
+      el.addEventListener('click', () => {
+        if (el.getAttribute('contenteditable') === 'true') return;
+        if (!originals.has(el)) originals.set(el, el.innerHTML);
+        el.setAttribute('contenteditable', 'true');
+        el.style.outline = '2px solid #f39c12';
+        el.focus();
+      });
+      el.addEventListener('keydown', (e: KeyboardEvent) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          el.blur();
+        }
+      });
+      el.addEventListener('blur', () => {
+        el.removeAttribute('contenteditable');
+        const original = originals.get(el);
+        const now = el.innerHTML;
+        if (original !== undefined && now !== original) {
+          pending.set(el, { oldText: original, newText: now });
+          el.style.outline = '2px solid #3498db';
+        } else {
+          pending.delete(el);
+          el.style.outline = '';
+        }
+        refreshPanel();
+      });
+    }
+
+    scope.querySelectorAll('p, li, h2, h3, h4').forEach((el) => {
+      if (el.closest('blockquote')) return; // 歌詞引用(eng/jpn)は編集対象外
+      if ((el.textContent || '').trim().length <= 1) return;
+      makeEditable(el as HTMLElement);
+    });
+  })();
+</script>
