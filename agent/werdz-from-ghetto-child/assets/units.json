@@ -1,0 +1,14 @@
+[
+  { "id": "preem", "anchor": "Preem what up", "fallbackT": 6, "manualSec": null },
+  { "id": "og", "anchor": "gangsta gangsta O.G. is what you call me", "fallbackT": 28, "manualSec": null },
+  { "id": "gangsta-double", "anchor": "Yo gangsta gangsta", "fallbackT": 29, "manualSec": null },
+  { "id": "drug-story", "anchor": "my life is like a never-endin drug story", "fallbackT": 31, "manualSec": null },
+  { "id": "rises-grams", "anchor": "Death percentages rises in the hood like grams", "fallbackT": 36, "manualSec": null },
+  { "id": "build-cream", "anchor": "As I build my cream with self esteem", "fallbackT": 44, "manualSec": null },
+  { "id": "gangsta-lean", "anchor": "drink the water from the streams of gangsta lean", "fallbackT": 48, "manualSec": null },
+  { "id": "food-plate", "anchor": "To keep food on my plate stick a MAC to your face", "fallbackT": 51, "manualSec": null },
+  { "id": "mac", "anchor": "stick a MAC to your face", "fallbackT": 52, "manualSec": null },
+  { "id": "underrate", "anchor": "So I never have to fall off so you can never underrate", "fallbackT": 54, "manualSec": null },
+  { "id": "slam-doors", "anchor": "So when you slam the doors we still get in", "fallbackT": 59, "manualSec": null },
+  { "id": "bite-dust", "anchor": "You either bite the dust or just dodge that bullet", "fallbackT": 65, "manualSec": null }
+]
