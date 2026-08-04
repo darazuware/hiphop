@@ -3,6 +3,7 @@
     "id": "chorus-diggedy",
     "whisperSec": null,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 5,
     "t": 5,
     "source": "fallback",
@@ -10,9 +11,21 @@
     "score": 0.6
   },
   {
+    "id": "on-your-mark",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 22,
+    "t": 22,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "fat-like-joe",
     "whisperSec": null,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 26,
     "t": 26,
     "source": "fallback",
@@ -23,6 +36,7 @@
     "id": "pac-man",
     "whisperSec": null,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 33,
     "t": 33,
     "source": "fallback",
@@ -30,9 +44,32 @@
     "score": 0.4
   },
   {
+    "id": "lou-piniella",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 40,
+    "t": 40,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "bring-ruckus",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 52,
+    "t": 52,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "cutlass-supreme",
     "whisperSec": null,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 58,
     "t": 58,
     "source": "fallback",
@@ -40,9 +77,54 @@
     "score": 0.4
   },
   {
+    "id": "boo-ks-spell",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 64,
+    "t": 64,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "metallica",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 70,
+    "t": 70,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "snake-fake",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 74,
+    "t": 74,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "miracles-smokey",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 96,
+    "t": 96,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "dangerfield",
     "whisperSec": null,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 102,
     "t": 102,
     "source": "fallback",
@@ -53,6 +135,7 @@
     "id": "true-to-streets",
     "whisperSec": 112.3,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 108,
     "t": 108,
     "source": "fallback",
@@ -60,9 +143,32 @@
     "score": 1
   },
   {
+    "id": "to-a-tee",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 112,
+    "t": 112,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "bring-up-rear",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 126,
+    "t": 126,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "hold-it-down",
     "whisperSec": 117.2,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 130,
     "t": 130,
     "source": "fallback",
@@ -70,9 +176,32 @@
     "score": 1
   },
   {
+    "id": "kick-feet-up",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 136,
+    "t": 136,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "carl-lewis",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 145,
+    "t": 145,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "webster-defined",
     "whisperSec": null,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 158,
     "t": 158,
     "source": "fallback",
@@ -80,13 +209,102 @@
     "score": 0.25
   },
   {
+    "id": "raw-jaw",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 162,
+    "t": 162,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "sharon-sliver",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 166,
+    "t": 166,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "lego-eggo",
     "whisperSec": 170.2,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 185,
     "t": 185,
     "source": "fallback",
     "approx": true,
     "score": 1
+  },
+  {
+    "id": "waco-maaco",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 190,
+    "t": 190,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "uhaul",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 194,
+    "t": 194,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "rupaul-school",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 198,
+    "t": 198,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "jack-dempsey",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 204,
+    "t": 204,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "sensi-guinness",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 208,
+    "t": 208,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "illest-hook",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 212,
+    "t": 212,
+    "source": "fallback",
+    "approx": true,
+    "score": null
   }
 ]
