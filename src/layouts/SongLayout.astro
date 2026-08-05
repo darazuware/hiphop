@@ -1318,5 +1318,18 @@ const waveformPeaks = waveformModules[`../data/waveforms/${slug}.json`]?.default
 
     // Add bottom padding so content isn't hidden behind bar
     document.body.style.paddingBottom = '72px';
+
+    // 編集オーバーレイ(EditOverlay.astro)向けの最小プレーヤーAPI。既存ロジックは変更せず読み書き口だけ公開する。
+    (window as any).__waxPlayer = {
+      getTime: () => (ytReady && ytPlayer?.getCurrentTime ? ytPlayer.getCurrentTime() : elapsed),
+      seekTo: (s: number) => {
+        elapsed = Math.min(s, DURATION);
+        hasSeekedToStart = true;
+        if (ytReady && ytPlayer?.seekTo) ytPlayer.seekTo(s, true);
+        render(elapsed, true);
+      },
+      play: () => { if (ytReady && ytPlayer?.playVideo) ytPlayer.playVideo(); },
+      pause: () => { if (ytReady && ytPlayer?.pauseVideo) ytPlayer.pauseVideo(); },
+    };
   })();
 </script>
