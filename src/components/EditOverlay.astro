@@ -145,6 +145,27 @@
     const waxPlayer = () => (window as any).__waxPlayer as
       { getTime: () => number; seekTo: (s: number) => void; play: () => void; pause: () => void } | undefined;
 
+    // 波形クリックでの直感操作: 開いているパネルがあれば、波形上の相対位置を秒に変換してセットする
+    // （既存のクリック→シーク挙動はそのまま。追加リスナーとして「音を聴きながらその場で拾う」を足すだけ）
+    let activeSetter: ((t: number) => void) | null = null;
+    let activeClose: (() => void) | null = null;
+    function getDuration(): number {
+      const barEl = document.getElementById('learning-player-bar');
+      const durAttr = parseFloat((barEl as HTMLElement | null)?.dataset.duration ?? '');
+      if (!isNaN(durAttr) && durAttr > 0) return durAttr;
+      const durText = document.getElementById('player-duration')?.textContent ?? '';
+      const m = durText.match(/(\d+):(\d+)/);
+      if (m) return parseInt(m[1], 10) * 60 + parseInt(m[2], 10);
+      return 300;
+    }
+    const seekwaveEl = document.getElementById('player-seekwave');
+    seekwaveEl?.addEventListener('click', (e: MouseEvent) => {
+      if (!activeSetter) return;
+      const rect = seekwaveEl.getBoundingClientRect();
+      const frac = Math.min(1, Math.max(0, (e.clientX - rect.left) / rect.width));
+      activeSetter(Math.round(frac * getDuration() * 100) / 100);
+    });
+
     const learningUnits = Array.from(scope.querySelectorAll<HTMLElement>('.learning-unit'));
     learningUnits.forEach((unitEl, index) => {
       const seekLink = unitEl.querySelector<HTMLElement>('[data-seek]');
@@ -186,7 +207,7 @@
       panel.appendChild(timeLabel);
 
       const nudges = nudgeRow();
-      [-0.2, -0.1, -0.05, 0.05, 0.1, 0.2].forEach((delta) => {
+      [-1, -0.5, -0.1, -0.05, 0.05, 0.1, 0.5, 1].forEach((delta) => {
         nudges.appendChild(mkBtn(`${delta > 0 ? '+' : ''}${delta}s`, () => {
           pendingT = Math.max(0, Math.round((pendingT + delta) * 100) / 100);
           renderTime();
@@ -241,9 +262,25 @@
       status.style.cssText = 'margin-top:4px;color:#aaa;font-size:10px';
       panel.appendChild(status);
 
+      function setFromWaveform(t: number) {
+        pendingT = Math.max(0, Math.round(t * 100) / 100);
+        renderTime();
+        status.textContent = `波形から設定: ${fmtT(pendingT)}`;
+      }
+
+      function closeThis() {
+        open = false;
+        panel.style.display = 'none';
+        if (activeSetter === setFromWaveform) { activeSetter = null; activeClose = null; }
+      }
+
       toggleBtn.addEventListener('click', () => {
-        open = !open;
-        panel.style.display = open ? 'block' : 'none';
+        if (open) { closeThis(); return; }
+        if (activeClose) activeClose(); // 他に開いているパネルがあれば先に閉じる（波形連動は常に1件のみ）
+        open = true;
+        panel.style.display = 'block';
+        activeSetter = setFromWaveform;
+        activeClose = closeThis;
       });
     });
   })();
