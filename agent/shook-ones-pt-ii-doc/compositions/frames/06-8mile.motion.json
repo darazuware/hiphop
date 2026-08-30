@@ -1,0 +1,7 @@
+{
+  "scene": "06-8mile",
+  "duration_s": 38.4,
+  "rules": ["coordinate-target-zoom", "motion-blur-streak", "waterfall-entry"],
+  "exit": { "vector": "static, camera settled at 1.35x scale since t=~11.6s", "still_moving": false },
+  "entry": { "vector": "scale push-settle 1.4x to 1.0x over 0.45s (~-0.9x/s)", "from_rest": false }
+}

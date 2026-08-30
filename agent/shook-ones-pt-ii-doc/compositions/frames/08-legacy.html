@@ -1,0 +1,261 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      background: #111111;
+      overflow: hidden;
+      font-family: "Noto Sans JP", sans-serif;
+      color: #EEEEEE;
+    }
+
+    .f08-legacy-scene {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      background: #111111;
+    }
+
+    .f08-legacy-camera {
+      position: absolute;
+      inset: 0;
+      transform-origin: 50% 50%;
+      will-change: transform;
+    }
+
+    .f08-legacy-camera img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .f08-legacy-scrim {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to top, rgba(17, 17, 17, 0.88) 0%, rgba(17, 17, 17, 0.30) 42%, rgba(17, 17, 17, 0.55) 100%);
+      pointer-events: none;
+    }
+
+    .f08-legacy-cutaway {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      opacity: 0;
+    }
+
+    .f08-legacy-cutaway video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .f08-legacy-cutaway-scrim {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to top, rgba(17, 17, 17, 0.88) 0%, rgba(17, 17, 17, 0.30) 42%, rgba(17, 17, 17, 0.55) 100%);
+      pointer-events: none;
+    }
+
+    .f08-legacy-glow {
+      position: absolute;
+      left: 50%;
+      top: 44%;
+      width: 900px;
+      height: 900px;
+      margin-left: -450px;
+      margin-top: -450px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(212, 175, 55, 0.55), transparent 70%);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .f08-legacy-kicker-wrap {
+      position: absolute;
+      top: 88px;
+      left: 0;
+      width: 100%;
+      text-align: center;
+    }
+
+    .f08-legacy-kicker {
+      display: inline-block;
+      opacity: 0;
+      font-family: "Inter", sans-serif;
+      font-weight: 800;
+      font-size: 28px;
+      letter-spacing: 0.14em;
+      color: #eeeeee;
+      background: rgba(17, 17, 17, 0.72);
+      padding: 6px 18px;
+      border-radius: 4px;
+    }
+
+    .f08-legacy-caption-panel {
+      position: absolute;
+      left: 140px;
+      bottom: 68px;
+      width: 1640px;
+      height: 340px;
+    }
+
+    .f08-legacy-chunk {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+    }
+
+    .f08-legacy-chunk .wf {
+      display: inline-block;
+      opacity: 0;
+      font-family: "Noto Sans JP", sans-serif;
+      font-weight: 700;
+      font-size: 50px;
+      line-height: 1.55;
+      color: #EEEEEE;
+    }
+  </style>
+
+  <div data-hf-id="hf-0ifl" id="root" data-composition-id="08-legacy" data-width="1920" data-height="1080" data-duration="42.8">
+    <div data-hf-id="hf-4ppt" class="clip f08-legacy-scene" data-start="0" data-duration="42.8" data-track-index="0">
+      <div data-hf-id="hf-j0y2" class="f08-legacy-camera" id="f08-legacy-camera">
+        <img data-hf-id="hf-qss0" src="assets/images/prodigy-mural-qb.webp" alt="Prodigy memorial mural, Queensbridge">
+      </div>
+      <div data-hf-id="hf-j6d3" class="f08-legacy-scrim"></div>
+      <div data-hf-id="hf-g6sy" class="f08-legacy-glow" id="f08-legacy-glow"></div>
+    </div>
+
+    <div data-hf-id="hf-hbqy" class="f08-legacy-cutaway" id="f08-legacy-cutaway">
+      <video data-hf-id="hf-oag3" id="f08-legacy-nas-video" class="clip" src="assets/clips/08b-nas-tribute.mp4" data-start="25.0" data-duration="4.0" data-track-index="1" muted playsinline></video>
+      <div data-hf-id="hf-28y6" class="f08-legacy-cutaway-scrim"></div>
+    </div>
+
+    <div data-hf-id="hf-tdv1" class="f08-legacy-kicker-wrap">
+      <span data-hf-id="hf-kcyn" class="f08-legacy-kicker" id="f08-legacy-kicker">この曲が残したもの</span>
+    </div>
+
+    <div data-hf-id="hf-x31y" class="f08-legacy-caption-panel">
+      <div data-hf-id="hf-sccn" class="f08-legacy-chunk" id="f08-legacy-c1">
+        <span data-hf-id="hf-6ckr" class="wf" id="f08-legacy-c1-w0">30年近く経った今も、</span><span data-hf-id="hf-y1i3" class="wf" id="f08-legacy-c1-w1">このビートは</span><span data-hf-id="hf-kzmc" class="wf" id="f08-legacy-c1-w2">フリースタイルバトルの</span><span data-hf-id="hf-xuch" class="wf" id="f08-legacy-c1-w3">定番として使われ続けています。</span>
+      </div>
+      <div data-hf-id="hf-jogs" class="f08-legacy-chunk" id="f08-legacy-c2">
+        <span data-hf-id="hf-llpx" class="wf" id="f08-legacy-c2-w0">そして2017年6月、</span><span data-hf-id="hf-eei1" class="wf" id="f08-legacy-c2-w1">Prodigyが42歳で</span><span data-hf-id="hf-z3ic" class="wf" id="f08-legacy-c2-w2">亡くなりました。</span>
+      </div>
+      <div data-hf-id="hf-i9di" class="f08-legacy-chunk" id="f08-legacy-c3a">
+        <span data-hf-id="hf-yz6h" class="wf" id="f08-legacy-c3a-w0">ラスベガスでのライブ後、</span><span data-hf-id="hf-p4a6" class="wf" id="f08-legacy-c3a-w1">鎌状赤血球症の発作で</span><span data-hf-id="hf-bctz" class="wf" id="f08-legacy-c3a-w2">倒れて入院しましたが、</span>
+      </div>
+      <div data-hf-id="hf-c3np" class="f08-legacy-chunk" id="f08-legacy-c3b">
+        <span data-hf-id="hf-v3ks" class="wf" id="f08-legacy-c3b-w0">検視の結果、</span><span data-hf-id="hf-sqfv" class="wf" id="f08-legacy-c3b-w1">直接の死因は</span><span data-hf-id="hf-edhi" class="wf" id="f08-legacy-c3b-w2">入院中の誤嚥による</span><span data-hf-id="hf-v9hn" class="wf" id="f08-legacy-c3b-w3">事故死だったと発表されています。</span>
+      </div>
+      <div data-hf-id="hf-108i" class="f08-legacy-chunk" id="f08-legacy-c4">
+        <span data-hf-id="hf-rqs5" class="wf" id="f08-legacy-c4-w0">その11日後、</span><span data-hf-id="hf-n6zq" class="wf" id="f08-legacy-c4-w1">Nasはオランダで開催された</span><span data-hf-id="hf-e1on" class="wf" id="f08-legacy-c4-w2">Woo Hah! Festivalの</span><span data-hf-id="hf-qgj7" class="wf" id="f08-legacy-c4-w3">ステージでこの曲を演奏し、</span><span data-hf-id="hf-9sj1" class="wf" id="f08-legacy-c4-w4">「RIP Prodigy」と客席に呼びかけました。</span>
+      </div>
+      <div data-hf-id="hf-75yb" class="f08-legacy-chunk" id="f08-legacy-c5">
+        <span data-hf-id="hf-phrs" class="wf" id="f08-legacy-c5-w0">クイーンズブリッジの街には、</span><span data-hf-id="hf-4mlq" class="wf" id="f08-legacy-c5-w1">今もProdigyを描いた</span><span data-hf-id="hf-zwfl" class="wf" id="f08-legacy-c5-w2">追悼の壁画が残っています。</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    window.__timelines = window.__timelines || {};
+    const tl = gsap.timeline({ paused: true });
+
+    function cascadeIn(ids, t0) {
+      var F = 1 / 60;
+      var offsets = [72, 50, 46, 40, 36];
+      var durs = [0.19, 0.16, 0.15, 0.14, 0.13];
+      var t = t0;
+      var land = t0;
+      ids.forEach(function (id, i) {
+        var idx = Math.min(i, offsets.length - 1);
+        tl.set(id, { opacity: 1, y: offsets[idx] }, t);
+        tl.to(id, { y: 0, duration: durs[idx], ease: "power4.out" }, t);
+        land = t + durs[idx];
+        t = t + durs[idx] - F;
+      });
+      return land;
+    }
+
+    function retireOut(id, t0) {
+      tl.to(id, { opacity: 0, y: -14, duration: 0.22, ease: "power2.in" }, t0);
+    }
+
+    // Kicker — the hero label, lands before t = 0.5s. The photo itself is visible from t = 0.
+    tl.fromTo("#f08-legacy-kicker", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 0.1);
+
+    // Caption chunks, paced slower than the other frames — the death / cause-of-death
+    // sentence (c3a/c3b) is deliberately split into two beats and given generous holds.
+    cascadeIn(["#f08-legacy-c1-w0", "#f08-legacy-c1-w1", "#f08-legacy-c1-w2", "#f08-legacy-c1-w3"], 0.3);
+    retireOut("#f08-legacy-c1", 5.5);
+
+    cascadeIn(["#f08-legacy-c2-w0", "#f08-legacy-c2-w1", "#f08-legacy-c2-w2"], 5.8);
+    retireOut("#f08-legacy-c2", 9.5);
+
+    cascadeIn(["#f08-legacy-c3a-w0", "#f08-legacy-c3a-w1", "#f08-legacy-c3a-w2"], 9.8);
+    retireOut("#f08-legacy-c3a", 15.5);
+
+    cascadeIn(["#f08-legacy-c3b-w0", "#f08-legacy-c3b-w1", "#f08-legacy-c3b-w2", "#f08-legacy-c3b-w3"], 15.8);
+    retireOut("#f08-legacy-c3b", 22.7);
+
+    cascadeIn(["#f08-legacy-c4-w0", "#f08-legacy-c4-w1", "#f08-legacy-c4-w2", "#f08-legacy-c4-w3", "#f08-legacy-c4-w4"], 23.3);
+    retireOut("#f08-legacy-c4", 34.3);
+
+    // Nas Woo Hah! tribute cutaway — a 4s beat inside the c4 hold, after the caption has
+    // fully landed and before it retires, then fades back to the mural for the closing line.
+    tl.fromTo("#f08-legacy-cutaway", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power1.out" }, 25.0);
+    tl.to("#f08-legacy-cutaway", { opacity: 0, duration: 0.3, ease: "power1.in" }, 28.7);
+
+    cascadeIn(["#f08-legacy-c5-w0", "#f08-legacy-c5-w1", "#f08-legacy-c5-w2"], 34.8);
+    // c5 holds through the end of the scene — no exit tween (non-final frame, root handles the cut).
+
+    // Multi-phase camera — slow, respectful push-in on the mural. Phase 2 is a quiet
+    // settle that lands together with the glow bloom right after the death is announced;
+    // the real push (phase 3) only begins once the cause of death has been spoken in full,
+    // carrying through the Nas tribute and landing on the closing mural line.
+    var camera = document.getElementById("f08-legacy-camera");
+    var phase = { scale: 0.90 };
+    tl.to(phase, { scale: 0.97, duration: 2.0, ease: "power2.out" }, 9.6);
+    tl.to(phase, { scale: 1.08, duration: 14.0, ease: "power2.inOut" }, 22.8);
+
+    var drift = { p: 0 };
+    tl.to(drift, {
+      p: Math.PI * 2 * 2,
+      duration: 42.8,
+      ease: "none",
+      onUpdate: function () {
+        var dx = Math.sin(drift.p) * 5;
+        var dy = Math.sin(drift.p * 1.3) * 3;
+        camera.style.transform = "scale(" + phase.scale + ") translate(" + dx + "px, " + dy + "px)";
+      }
+    }, 0);
+
+    // Ambient glow bloom — subdued warm presence, not celebratory. Blooms in as one
+    // beat with the phase-2 camera settle, then holds a slow, bounded breathe.
+    tl.fromTo("#f08-legacy-glow", { opacity: 0, scale: 0.85 }, { opacity: 0.20, scale: 1, duration: 1.2, ease: "power2.out" }, 10.4);
+    (function () {
+      var glow = document.getElementById("f08-legacy-glow");
+      var breathe = { p: 0 };
+      tl.to(breathe, {
+        p: Math.PI * 2 * 9,
+        duration: 31.2,
+        ease: "none",
+        onUpdate: function () {
+          var s = Math.sin(breathe.p);
+          glow.style.opacity = String(0.20 + s * 0.03);
+          glow.style.transform = "scale(" + (1 + s * 0.02) + ")";
+        }
+      }, 11.6);
+    })();
+
+    window.__timelines["08-legacy"] = tl;
+  </script>
+</template>

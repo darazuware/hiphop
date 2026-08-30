@@ -1,0 +1,296 @@
+<template>
+<style>
+  #root {
+    position: absolute;
+    inset: 0;
+    background: #111111;
+    overflow: hidden;
+    font-family: "Noto Sans JP", sans-serif;
+    color: #EEEEEE;
+  }
+
+  /* ---- background video layers ---- */
+  .h1-bgvideo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  .h1-scrim {
+    background: linear-gradient(
+      180deg,
+      rgba(17, 17, 17, 0.72) 0%,
+      rgba(17, 17, 17, 0.32) 30%,
+      rgba(17, 17, 17, 0.5) 62%,
+      rgba(17, 17, 17, 0.88) 100%
+    );
+  }
+
+  /* ---- zoom rig (coordinate-target-zoom) ---- */
+  .h1-zoom-outer {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    transform-origin: 50% 50%;
+    will-change: transform;
+    overflow: hidden;
+  }
+  .h1-zoom-inner {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    will-change: transform;
+  }
+
+  /* ---- headline ---- */
+  .h1-headline-wrap {
+    position: absolute;
+    top: 96px;
+    left: 120px;
+    right: 120px;
+    z-index: 5;
+  }
+  .h1-headline {
+    font-weight: 700;
+    font-size: 92px;
+    line-height: 1.28;
+    letter-spacing: -0.01em;
+    text-shadow: 0 6px 28px rgba(0, 0, 0, 0.65);
+  }
+  .h1-hl-phrase {
+    display: inline-block;
+    opacity: 0;
+  }
+  .h1-latin {
+    font-family: "Inter", sans-serif;
+    font-weight: 900;
+    color: #F0CD6A;
+  }
+
+  /* css-marker-patterns: highlight mode under "8 Mile" */
+  .h1-mark-wrap {
+    position: relative;
+    display: inline-block;
+  }
+  .h1-mark-bar {
+    position: absolute;
+    inset: 6px -10px 2px -10px;
+    background: #F0CD6A;
+    opacity: 0.32;
+    transform: scaleX(0);
+    transform-origin: left center;
+    border-radius: 4px;
+    z-index: 0;
+  }
+  .h1-mark-text {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ---- caption zone ---- */
+  .h1-caption-zone {
+    position: absolute;
+    left: 130px;
+    right: 130px;
+    bottom: 92px;
+    z-index: 6;
+  }
+  .h1-cap {
+    position: relative;
+    display: inline-block;
+    padding: 30px 40px;
+    border-radius: 14px;
+    background: rgba(10, 10, 10, 0.58);
+    box-shadow: 0 18px 46px rgba(0, 0, 0, 0.4);
+  }
+  .h1-cap-text {
+    font-weight: 700;
+    font-size: 58px;
+    line-height: 1.42;
+    color: #EEEEEE;
+  }
+  .h1-phrase {
+    display: inline-block;
+    opacity: 0;
+  }
+
+  .h1-clip-full {
+    position: absolute;
+    inset: 0;
+  }
+</style>
+
+<div data-hf-id="hf-lutg" id="root" data-composition-id="01-hook" data-width="1920" data-height="1080">
+
+  <!-- ============ BACKGROUND TRACK (track 1) ============ -->
+  <div data-hf-id="hf-4ku5" class="h1-clip-full" id="h1-zoom-outer">
+    <div data-hf-id="hf-hb3m" class="h1-zoom-inner" id="h1-zoom-inner">
+
+      <!-- MV cold open, 0-4.0s -->
+      <video data-hf-id="hf-y9mk" id="h1-mv-a" class="clip h1-bgvideo" src="assets/clips/01-hook-mv.mp4" data-start="0" data-duration="4.0" data-track-index="1" muted playsinline preload="auto" style="position:absolute; inset:0;"></video>
+
+      <!-- 8 Mile opening (bathroom mirror scene), synced to cap-1's "あのオープニング" line, 4.0-8.4s -->
+      <video data-hf-id="hf-xa9o" id="h1-8mile-opening" class="clip h1-bgvideo" src="assets/clips/06a-8mile-opening.mp4" data-start="4.0" data-duration="4.4" data-track-index="1" muted playsinline preload="auto" style="position:absolute; inset:0; opacity:0;"></video>
+
+      <!-- 8 Mile climax (final battle mic-up), synced to cap-2's "最後のバトル" line, 8.4-10.73s -->
+      <video data-hf-id="hf-rsa5" id="h1-8mile-climax" class="clip h1-bgvideo" src="assets/clips/06b-8mile-climax.mp4" data-start="8.4" data-duration="2.33" data-track-index="1" muted playsinline preload="auto" style="position:absolute; inset:0; opacity:0;"></video>
+
+      <!-- MV resumes as the "still frame" the camera pushes into, 10.73-26s (source holds on its last frame) -->
+      <video data-hf-id="hf-dn07" id="h1-mv-b" class="clip h1-bgvideo" src="assets/clips/01-hook-mv.mp4" data-start="10.73" data-duration="15.27" data-track-index="1" muted playsinline preload="auto" style="position:absolute; inset:0; opacity:0;"></video>
+
+    </div>
+  </div>
+
+  <!-- dark scrim for caption/headline legibility -->
+  <div data-hf-id="hf-b1a6" class="h1-clip-full h1-scrim clip" data-start="0" data-duration="26" data-track-index="2"></div>
+
+  <!-- ============ HEADLINE (track 3) ============ -->
+  <div data-hf-id="hf-k08x" class="clip" data-start="0" data-duration="26" data-track-index="3">
+    <div data-hf-id="hf-kno3" class="h1-headline-wrap">
+      <div data-hf-id="hf-pvxu" class="h1-headline" id="h1-headline">
+        <span data-hf-id="hf-hsxw" class="h1-hl-phrase" id="h1-hl-1">あの緊張感、</span><br data-hf-id="hf-x5px">
+        <span data-hf-id="hf-60ui" class="h1-hl-phrase" id="h1-hl-2">
+          <span data-hf-id="hf-uzbf" class="h1-mark-wrap">
+            <span data-hf-id="hf-jxyx" class="h1-mark-bar" id="h1-mark-bar"></span>
+            <span data-hf-id="hf-vpli" class="h1-mark-text"><span data-hf-id="hf-xi1k" class="h1-latin">8 Mile</span>で聴いたことがある</span>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ CAPTIONS (track 4) ============ -->
+  <div data-hf-id="hf-94ra" class="clip" data-start="0" data-duration="26" data-track-index="4">
+    <div data-hf-id="hf-pvwz" class="h1-caption-zone">
+
+      <div data-hf-id="hf-g6z5" class="h1-cap" id="h1-cap-0">
+        <div data-hf-id="hf-rbwa" class="h1-cap-text">
+          <span data-hf-id="hf-xxj6" class="h1-phrase" id="h1-cap-0-p0"><span data-hf-id="hf-ymi5" class="h1-latin">2002</span>年公開の映画</span>
+          <span data-hf-id="hf-o0bq" class="h1-phrase" id="h1-cap-0-p1">『<span data-hf-id="hf-zunk" class="h1-latin">8 Mile</span>』。</span>
+        </div>
+      </div>
+
+      <div data-hf-id="hf-52qh" class="h1-cap" id="h1-cap-1" style="display:none;">
+        <div data-hf-id="hf-j5pa" class="h1-cap-text">
+          <span data-hf-id="hf-gphl" class="h1-phrase" id="h1-cap-1-p0"><span data-hf-id="hf-a9oy" class="h1-latin">Eminem</span>演じる<span data-hf-id="hf-7s2g" class="h1-latin">B-Rabbit</span>が、</span>
+          <span data-hf-id="hf-aut1" class="h1-phrase" id="h1-cap-1-p1">汚れたトイレの鏡の前で自分を落ち着かせる</span>
+          <span data-hf-id="hf-f03i" class="h1-phrase" id="h1-cap-1-p2">あのオープニング。</span>
+        </div>
+      </div>
+
+      <div data-hf-id="hf-cxk2" class="h1-cap" id="h1-cap-2" style="display:none;">
+        <div data-hf-id="hf-jk0b" class="h1-cap-text">
+          <span data-hf-id="hf-58lt" class="h1-phrase" id="h1-cap-2-p0">そして映画のクライマックス、</span>
+          <span data-hf-id="hf-pfl8" class="h1-phrase" id="h1-cap-2-p1">最後のバトル。</span>
+        </div>
+      </div>
+
+      <div data-hf-id="hf-5jqf" class="h1-cap" id="h1-cap-3" style="display:none;">
+        <div data-hf-id="hf-jybc" class="h1-cap-text">
+          <span data-hf-id="hf-0xue" class="h1-phrase" id="h1-cap-3-p0">両方で流れていたビート、</span>
+          <span data-hf-id="hf-uthq" class="h1-phrase" id="h1-cap-3-p1">覚えていますか。</span>
+        </div>
+      </div>
+
+      <!-- 2.6s silent hold here (13.0 - 15.6s): no caption, MV plays under quiet narration gap -->
+
+      <div data-hf-id="hf-7phk" class="h1-cap" id="h1-cap-4" style="display:none;">
+        <div data-hf-id="hf-h665" class="h1-cap-text">
+          <span data-hf-id="hf-fpcm" class="h1-phrase" id="h1-cap-4-p0"><span data-hf-id="hf-2ich" class="h1-latin">Mobb Deep</span></span>
+          <span data-hf-id="hf-5e22" class="h1-phrase" id="h1-cap-4-p1">『<span data-hf-id="hf-tuje" class="h1-latin">Shook Ones, Pt. II</span>』。</span>
+        </div>
+      </div>
+
+      <div data-hf-id="hf-iqut" class="h1-cap" id="h1-cap-5" style="display:none;">
+        <div data-hf-id="hf-hkh6" class="h1-cap-text">
+          <span data-hf-id="hf-2fyj" class="h1-phrase" id="h1-cap-5-p0"><span data-hf-id="hf-hfud" class="h1-latin">1995</span>年の曲です。</span>
+        </div>
+      </div>
+
+      <div data-hf-id="hf-2sqm" class="h1-cap" id="h1-cap-6" style="display:none;">
+        <div data-hf-id="hf-hys7" class="h1-cap-text">
+          <span data-hf-id="hf-yh03" class="h1-phrase" id="h1-cap-6-p0">その中身を今日は</span>
+          <span data-hf-id="hf-qmkp" class="h1-phrase" id="h1-cap-6-p1">深掘りしていきます。</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<script>
+  (function () {
+    var F = 1 / 60;
+
+    function wf(tl, phraseEls, t0, opts) {
+      // waterfall-entry: anchor (first) travels further/longer, rest snap in tighter
+      opts = opts || {};
+      var yAnchor = opts.yAnchor || 64;
+      var yNormal = opts.yNormal || 42;
+      var t = t0;
+      phraseEls.forEach(function (el, i) {
+        var isAnchor = i === 0;
+        var y = isAnchor ? yAnchor : yNormal;
+        var dur = isAnchor ? 0.18 : 0.14;
+        tl.set(el, { opacity: 1, y: y }, t);
+        tl.to(el, { y: 0, duration: dur, ease: "power4.out" }, t);
+        t = t + dur - (isAnchor ? F : 2 * F);
+      });
+      return t;
+    }
+
+    function showCaption(tl, id, phraseIds, enterAt, exitAt) {
+      // exitAt === null holds the caption to the end of the scene (used for
+      // the final chunk so nothing fades to blank right before the cut).
+      var wrap = document.getElementById(id);
+      var phrases = phraseIds.map(function (pid) { return document.getElementById(pid); });
+      tl.set(wrap, { display: "inline-block", autoAlpha: 1 }, enterAt - F);
+      wf(tl, phrases, enterAt);
+      if (exitAt !== null) {
+        tl.to(wrap, { autoAlpha: 0, duration: 0.28, ease: "power2.in" }, exitAt);
+      }
+    }
+
+    window.__timelines = window.__timelines || {};
+    var tl = gsap.timeline({ paused: true });
+
+    // ---------- background video sequencing ----------
+    tl.set("#h1-mv-a", { opacity: 1 }, 0);
+    tl.to("#h1-mv-a", { opacity: 0, duration: 0.35, ease: "power1.inOut" }, 4.0);
+    tl.to("#h1-8mile-opening", { opacity: 1, duration: 0.35, ease: "power1.inOut" }, 4.0);
+    tl.to("#h1-8mile-opening", { opacity: 0, duration: 0.35, ease: "power1.inOut" }, 8.4);
+    tl.to("#h1-8mile-climax", { opacity: 1, duration: 0.35, ease: "power1.inOut" }, 8.4);
+    tl.to("#h1-8mile-climax", { opacity: 0, duration: 0.35, ease: "power1.inOut" }, 10.73);
+    tl.to("#h1-mv-b", { opacity: 1, duration: 0.35, ease: "power1.inOut" }, 10.73);
+
+    // slow push-in on the MV "still frame" for the remainder of the scene
+    // (coordinate-target-zoom: outer scales, inner counter-translates toward
+    //  a modest off-center point of interest so the push reads as a directed
+    //  camera move rather than a plain centered zoom)
+    tl.to("#h1-zoom-outer", { scale: 1.22, duration: 15.27, ease: "none" }, 11.03);
+    tl.to("#h1-zoom-inner", { x: -46, y: 24, duration: 15.27, ease: "none" }, 11.03);
+
+    // ---------- headline waterfall + marker sweep ----------
+    tl.set("#h1-hl-1", { opacity: 1, y: 70 }, 0.15);
+    tl.to("#h1-hl-1", { y: 0, duration: 0.2, ease: "power4.out" }, 0.15);
+    tl.set("#h1-hl-2", { opacity: 1, y: 60 }, 0.32);
+    tl.to("#h1-hl-2", { y: 0, duration: 0.22, ease: "power4.out" }, 0.32);
+    tl.to("#h1-mark-bar", { scaleX: 1, duration: 0.5, ease: "power2.out" }, 0.75);
+
+    // ---------- captions paced to the voiceover ----------
+    showCaption(tl, "h1-cap-0", ["h1-cap-0-p0", "h1-cap-0-p1"], 1.6, 3.5);
+    showCaption(tl, "h1-cap-1", ["h1-cap-1-p0", "h1-cap-1-p1", "h1-cap-1-p2"], 3.9, 8.1);
+    showCaption(tl, "h1-cap-2", ["h1-cap-2-p0", "h1-cap-2-p1"], 8.4, 10.6);
+    showCaption(tl, "h1-cap-3", ["h1-cap-3-p0", "h1-cap-3-p1"], 10.9, 13.0);
+    // quiet 2.6s gap: no caption on screen 13.0 - 15.6 (MV audio plays under this pause)
+    showCaption(tl, "h1-cap-4", ["h1-cap-4-p0", "h1-cap-4-p1"], 15.9, 18.0);
+    showCaption(tl, "h1-cap-5", ["h1-cap-5-p0"], 18.3, 20.1);
+    showCaption(tl, "h1-cap-6", ["h1-cap-6-p0", "h1-cap-6-p1"], 20.4, null);
+
+    window.__timelines["01-hook"] = tl;
+  })();
+</script>
+</template>

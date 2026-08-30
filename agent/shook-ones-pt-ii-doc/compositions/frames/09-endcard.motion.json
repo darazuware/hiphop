@@ -1,0 +1,7 @@
+{
+  "scene": "09-endcard",
+  "duration_s": 11.6,
+  "rules": ["titlecard-reveal"],
+  "exit": { "vector": "none, final frame settles and holds static at 0px/s from ~8.3s to end", "still_moving": false },
+  "entry": { "vector": "statement card fades in with scale 0.95 to 1.0 in place, no directional travel", "from_rest": true }
+}

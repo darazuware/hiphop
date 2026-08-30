@@ -1,0 +1,13 @@
+{
+  "scene": "03-beat-making",
+  "duration_s": 66.4,
+  "rules": ["spring-pop-entrance", "gsap-effects", "gradient-text-sweep", "waterfall-entry"],
+  "exit": {
+    "vector": "final caption holds static (no active tween); waveform stack sits at rest opacity 0.55; nothing in motion at the cut",
+    "still_moving": false
+  },
+  "entry": {
+    "vector": "headline phrases whip up from below at t=0.15s (power4.out) while the scene is otherwise at rest; jacket spring-pops begin at t=1.0s",
+    "from_rest": true
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "scene": "02-background",
+  "duration_s": 29.2,
+  "rules": ["depth-of-field-blur", "waterfall-entry"],
+  "exit": {
+    "vector": "photo-c Ken Burns push continues at a slow constant creep (~0.001 scale/frame) into the cut; no rack-focus event active at the boundary",
+    "still_moving": true
+  },
+  "entry": {
+    "vector": "eyebrow label rises 20px from rest at t=0.2s; photo-a Ken Burns push begins immediately at t=0 from a static frame",
+    "from_rest": true
+  }
+}

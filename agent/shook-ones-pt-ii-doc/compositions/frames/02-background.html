@@ -1,0 +1,251 @@
+<template>
+<style>
+  #root {
+    position: absolute;
+    inset: 0;
+    background: #111111;
+    overflow: hidden;
+    font-family: "Noto Sans JP", sans-serif;
+    color: #EEEEEE;
+  }
+
+  .h2-photo-world {
+    position: absolute;
+    inset: 0;
+    transform-origin: 50% 50%;
+    will-change: transform;
+    overflow: hidden;
+  }
+  .h2-photo {
+    position: absolute;
+    inset: -4%; /* headroom so the Ken Burns zoom never exposes an edge */
+    background-size: cover;
+    background-position: center;
+    --dof: 0px;
+    filter: blur(var(--dof));
+    will-change: filter, opacity;
+  }
+  #h2-photo-a { background-image: url("assets/images/queensbridge-street.jpg"); }
+  #h2-photo-b { background-image: url("assets/images/jacket-juvenile-hell.jpeg"); background-size: contain; background-color: #111111; }
+  #h2-photo-c { background-image: url("assets/images/teen-photo-crouch.jpeg"); }
+  #h2-photo-d { background-image: url("assets/images/jacket-the-infamous.jpeg"); background-size: contain; background-color: #111111; }
+  #h2-photo-e { background-image: url("assets/images/havoc-with-prodigy.jpg"); }
+
+  .h2-scrim {
+    background: linear-gradient(
+      180deg,
+      rgba(17, 17, 17, 0.55) 0%,
+      rgba(17, 17, 17, 0.12) 26%,
+      rgba(17, 17, 17, 0.34) 58%,
+      rgba(17, 17, 17, 0.92) 100%
+    );
+  }
+
+  .h2-clip-full {
+    position: absolute;
+    inset: 0;
+  }
+
+  /* ---- caption zone ---- */
+  .h2-caption-zone {
+    position: absolute;
+    left: 130px;
+    right: 130px;
+    bottom: 92px;
+    z-index: 6;
+  }
+  .h2-cap {
+    position: relative;
+    display: inline-block;
+    padding: 30px 40px;
+    border-radius: 14px;
+    background: rgba(10, 10, 10, 0.58);
+    box-shadow: 0 18px 46px rgba(0, 0, 0, 0.4);
+  }
+  .h2-cap-text {
+    font-weight: 700;
+    font-size: 58px;
+    line-height: 1.42;
+    color: #EEEEEE;
+  }
+  .h2-phrase {
+    display: inline-block;
+    opacity: 0;
+  }
+  .h2-latin {
+    font-family: "Inter", sans-serif;
+    font-weight: 800;
+    color: #F0CD6A;
+  }
+
+  /* eyebrow location label, top-left */
+  .h2-eyebrow {
+    position: absolute;
+    top: 88px;
+    left: 130px;
+    font-family: "Inter", sans-serif;
+    font-weight: 800;
+    font-size: 30px;
+    letter-spacing: 0.14em;
+    color: #F0CD6A;
+    opacity: 0;
+    text-transform: uppercase;
+    z-index: 5;
+  }
+</style>
+
+<div data-hf-id="hf-a86w" id="root" data-composition-id="02-background" data-width="1920" data-height="1080">
+
+  <!-- ============ PHOTO STACK (track 1) — depth-of-field rack focus + Ken Burns ============ -->
+  <div data-hf-id="hf-21yl" class="h2-clip-full clip" data-start="0" data-duration="29.2" data-track-index="1">
+    <div data-hf-id="hf-fzg0" class="h2-photo-world" id="h2-world-a" style="z-index:1;">
+      <div data-hf-id="hf-py3k" class="h2-photo" id="h2-photo-a"></div>
+    </div>
+    <div data-hf-id="hf-k84g" class="h2-photo-world" id="h2-world-b" style="z-index:2;">
+      <div data-hf-id="hf-eyrp" class="h2-photo" id="h2-photo-b" style="opacity:0;"></div>
+    </div>
+    <div data-hf-id="hf-2dbo" class="h2-photo-world" id="h2-world-c" style="z-index:3;">
+      <div data-hf-id="hf-t542" class="h2-photo" id="h2-photo-c" style="opacity:0;"></div>
+    </div>
+    <div data-hf-id="hf-vrck" class="h2-photo-world" id="h2-world-d" style="z-index:4;">
+      <div data-hf-id="hf-3ld3" class="h2-photo" id="h2-photo-d" style="opacity:0;"></div>
+    </div>
+    <div data-hf-id="hf-5jso" class="h2-photo-world" id="h2-world-e" style="z-index:5;">
+      <div data-hf-id="hf-httg" class="h2-photo" id="h2-photo-e" style="opacity:0;"></div>
+    </div>
+  </div>
+
+  <div data-hf-id="hf-ef8f" class="h2-clip-full h2-scrim clip" data-start="0" data-duration="29.2" data-track-index="2"></div>
+
+  <!-- ============ EYEBROW LABEL (track 3) ============ -->
+  <div data-hf-id="hf-fqoq" class="clip" data-start="0" data-duration="29.2" data-track-index="3">
+    <div data-hf-id="hf-z1id" class="h2-eyebrow" id="h2-eyebrow">Queensbridge, NY</div>
+  </div>
+
+  <!-- ============ CAPTIONS (track 4) ============ -->
+  <div data-hf-id="hf-wyz1" class="clip" data-start="0" data-duration="29.2" data-track-index="4">
+    <div data-hf-id="hf-a97q" class="h2-caption-zone">
+
+      <div data-hf-id="hf-9vrd" class="h2-cap" id="h2-cap-0">
+        <div data-hf-id="hf-3onz" class="h2-cap-text">
+          <span data-hf-id="hf-tgqh" class="h2-phrase" id="h2-cap-0-p0">舞台はニューヨーク、</span>
+          <span data-hf-id="hf-37f7" class="h2-phrase" id="h2-cap-0-p1">クイーンズブリッジ団地。</span>
+        </div>
+      </div>
+
+      <div data-hf-id="hf-isz5" class="h2-cap" id="h2-cap-1" style="display:none;">
+        <div data-hf-id="hf-7xgf" class="h2-cap-text">
+          <span data-hf-id="hf-7acl" class="h2-phrase" id="h2-cap-1-p0"><span data-hf-id="hf-pbpb" class="h2-latin">Havoc</span>と<span data-hf-id="hf-m0g6" class="h2-latin">Prodigy</span>は同じ高校で出会い、</span>
+          <span data-hf-id="hf-g413" class="h2-phrase" id="h2-cap-1-p1"><span data-hf-id="hf-to1c" class="h2-latin">Mobb Deep</span>を結成しました。</span>
+        </div>
+      </div>
+
+      <div data-hf-id="hf-hwu2" class="h2-cap" id="h2-cap-2" style="display:none;">
+        <div data-hf-id="hf-7j5e" class="h2-cap-text">
+          <span data-hf-id="hf-la5p" class="h2-phrase" id="h2-cap-2-p0">デビューアルバム『<span data-hf-id="hf-xla7" class="h2-latin">Juvenile Hell</span>』は、</span>
+          <span data-hf-id="hf-g5jq" class="h2-phrase" id="h2-cap-2-p1">正直そこまで話題になりませんでした。</span>
+        </div>
+      </div>
+
+      <div data-hf-id="hf-vy9r" class="h2-cap" id="h2-cap-3" style="display:none;">
+        <div data-hf-id="hf-32v9" class="h2-cap-text">
+          <span data-hf-id="hf-34p7" class="h2-phrase" id="h2-cap-3-p0">二人はまだ<span data-hf-id="hf-1bs7" class="h2-latin">10</span>代。</span>
+        </div>
+      </div>
+
+      <div data-hf-id="hf-d4xs" class="h2-cap" id="h2-cap-4" style="display:none;">
+        <div data-hf-id="hf-9wzk" class="h2-cap-text">
+          <span data-hf-id="hf-weq8" class="h2-phrase" id="h2-cap-4-p0">次のアルバムで結果を出せなければ終わる、</span>
+          <span data-hf-id="hf-d3kp" class="h2-phrase" id="h2-cap-4-p1">という空気があったそうです。</span>
+        </div>
+      </div>
+
+      <div data-hf-id="hf-ahu5" class="h2-cap" id="h2-cap-5" style="display:none;">
+        <div data-hf-id="hf-9ioj" class="h2-cap-text">
+          <span data-hf-id="hf-fh3g" class="h2-phrase" id="h2-cap-5-p0">その不安の中で作られたのが</span>
+          <span data-hf-id="hf-49y5" class="h2-phrase" id="h2-cap-5-p1">『<span data-hf-id="hf-r115" class="h2-latin">The Infamous</span>』。</span>
+        </div>
+      </div>
+
+      <div data-hf-id="hf-l0k6" class="h2-cap" id="h2-cap-6" style="display:none;">
+        <div data-hf-id="hf-94di" class="h2-cap-text">
+          <span data-hf-id="hf-598d" class="h2-phrase" id="h2-cap-6-p0">この曲はそのアルバムを代表する</span>
+          <span data-hf-id="hf-gv8v" class="h2-phrase" id="h2-cap-6-p1">1曲になりました。</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<script>
+  (function () {
+    var F = 1 / 60;
+
+    function wf(tl, phraseEls, t0) {
+      var t = t0;
+      phraseEls.forEach(function (el, i) {
+        var isAnchor = i === 0;
+        var y = isAnchor ? 64 : 42;
+        var dur = isAnchor ? 0.18 : 0.14;
+        tl.set(el, { opacity: 1, y: y }, t);
+        tl.to(el, { y: 0, duration: dur, ease: "power4.out" }, t);
+        t = t + dur - (isAnchor ? F : 2 * F);
+      });
+    }
+
+    function showCaption(tl, id, phraseIds, enterAt, exitAt) {
+      // exitAt === null holds the caption to the end of the scene.
+      var wrap = document.getElementById(id);
+      var phrases = phraseIds.map(function (pid) { return document.getElementById(pid); });
+      tl.set(wrap, { display: "inline-block", autoAlpha: 1 }, enterAt - F);
+      wf(tl, phrases, enterAt);
+      if (exitAt !== null) {
+        tl.to(wrap, { autoAlpha: 0, duration: 0.28, ease: "power2.in" }, exitAt);
+      }
+    }
+
+    window.__timelines = window.__timelines || {};
+    var tl = gsap.timeline({ paused: true });
+
+    // ---------- eyebrow label ----------
+    tl.fromTo("#h2-eyebrow", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, 0.2);
+
+    // ---------- Ken Burns push on each photo's own reign ----------
+    // a: QB street (cap-0/cap-1) / b: Juvenile Hell jacket (cap-2) / c: teen photo (cap-3/cap-4)
+    // d: The Infamous jacket (cap-5) / e: Havoc & Prodigy (cap-6, closing beat)
+    tl.to("#h2-world-a", { scale: 1.07, duration: 9.7, ease: "none" }, 0);
+    tl.to("#h2-world-b", { scale: 1.05, duration: 4.2, ease: "none" }, 9.7);
+    tl.to("#h2-world-c", { scale: 1.06, duration: 6.0, ease: "none" }, 13.9);
+    tl.to("#h2-world-d", { scale: 1.05, duration: 3.4, ease: "none" }, 19.9);
+    tl.to("#h2-world-e", { scale: 1.07, duration: 5.9, ease: "none" }, 23.3);
+
+    // ---------- depth-of-field rack focus, one crossfade at each caption boundary ----------
+    function rackFocus(fromId, toId, t) {
+      tl.to(fromId, { "--dof": "14px", opacity: 0.55, duration: 1.0, ease: "power2.inOut" }, t);
+      tl.fromTo(
+        toId,
+        { opacity: 0, "--dof": "14px" },
+        { opacity: 1, "--dof": "0px", duration: 1.0, ease: "power2.inOut" },
+        t
+      );
+    }
+    rackFocus("#h2-photo-a", "#h2-photo-b", 9.7);
+    rackFocus("#h2-photo-b", "#h2-photo-c", 13.9);
+    rackFocus("#h2-photo-c", "#h2-photo-d", 19.9);
+    rackFocus("#h2-photo-d", "#h2-photo-e", 23.3);
+
+    // ---------- captions paced to the voiceover ----------
+    showCaption(tl, "h2-cap-0", ["h2-cap-0-p0", "h2-cap-0-p1"], 1.0, 4.2);
+    showCaption(tl, "h2-cap-1", ["h2-cap-1-p0", "h2-cap-1-p1"], 4.5, 9.0);
+    showCaption(tl, "h2-cap-2", ["h2-cap-2-p0", "h2-cap-2-p1"], 9.3, 13.6);
+    showCaption(tl, "h2-cap-3", ["h2-cap-3-p0"], 13.9, 15.3);
+    showCaption(tl, "h2-cap-4", ["h2-cap-4-p0", "h2-cap-4-p1"], 15.6, 19.6);
+    showCaption(tl, "h2-cap-5", ["h2-cap-5-p0", "h2-cap-5-p1"], 19.9, 23.0);
+    showCaption(tl, "h2-cap-6", ["h2-cap-6-p0", "h2-cap-6-p1"], 23.3, null);
+
+    window.__timelines["02-background"] = tl;
+  })();
+</script>
+</template>

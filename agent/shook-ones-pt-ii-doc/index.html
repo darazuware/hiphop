@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, height=1080">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #111111;
+      }
+      body {
+        font-family: "Noto Sans JP", "Inter", sans-serif;
+      }
+
+      /* ---------- persistent WAX&THINK watermark, top-right (hold-you-down recipe) ---------- */
+      #video-watermark {
+        position: absolute;
+        top: 40px;
+        right: 48px;
+        z-index: 20;
+        opacity: 0;
+      }
+      #video-watermark .logo-mark {
+        font-family: "Inter", sans-serif;
+        font-weight: 900;
+        font-size: 40px;
+        letter-spacing: -0.055em;
+        color: #F7F5EF;
+        opacity: 0.55;
+        -webkit-text-stroke: 1px #F7F5EF;
+      }
+      #video-watermark .amp {
+        color: #F7F5EF;
+      }
+    </style>
+  </head>
+  <body>
+    <div data-hf-id="hf-ju62" id="root" data-composition-id="main" data-start="0" data-duration="430.7" data-width="1920" data-height="1080">
+      <div data-hf-id="hf-6khk" id="bg" class="clip" data-start="0" data-duration="430.7" data-track-index="0" style="position:absolute;inset:0;background:#111111;"></div>
+
+      <div data-hf-id="hf-cb09" id="scene-01" data-composition-id="01-hook" data-composition-src="compositions/frames/01-hook.html" data-start="0" data-duration="26.0" data-track-index="1" data-width="1920" data-height="1080"></div>
+
+      <div data-hf-id="hf-cgah" id="scene-02" data-composition-id="02-background" data-composition-src="compositions/frames/02-background.html" data-start="26.0" data-duration="29.2" data-track-index="1" data-width="1920" data-height="1080"></div>
+
+      <div data-hf-id="hf-ie9c" id="scene-03" data-composition-id="03-beat-making" data-composition-src="compositions/frames/03-beat-making.html" data-start="55.2" data-duration="125.9" data-track-index="1" data-width="1920" data-height="1080"></div>
+
+      <div data-hf-id="hf-5dey" id="scene-04" data-composition-id="04-lyrics" data-composition-src="compositions/frames/04-lyrics.html" data-start="181.1" data-duration="57.5" data-track-index="1" data-width="1920" data-height="1080"></div>
+
+      <div data-hf-id="hf-kend" id="scene-05" data-composition-id="05-part1-to-part2" data-composition-src="compositions/frames/05-part1-to-part2.html" data-start="238.6" data-duration="30.8" data-track-index="1" data-width="1920" data-height="1080"></div>
+
+      <div data-hf-id="hf-himk" id="scene-06" data-composition-id="06-8mile" data-composition-src="compositions/frames/06-8mile.html" data-start="269.4" data-duration="60.1" data-track-index="1" data-width="1920" data-height="1080"></div>
+
+      <div data-hf-id="hf-lx9e" id="scene-07" data-composition-id="07-acclaim" data-composition-src="compositions/frames/07-acclaim.html" data-start="329.5" data-duration="42.4" data-track-index="1" data-width="1920" data-height="1080"></div>
+
+      <div data-hf-id="hf-qfeg" id="scene-08" data-composition-id="08-legacy" data-composition-src="compositions/frames/08-legacy.html" data-start="371.9" data-duration="42.8" data-track-index="1" data-width="1920" data-height="1080"></div>
+
+      <div data-hf-id="hf-nzxu" id="scene-09" data-composition-id="09-endcard" data-composition-src="compositions/frames/09-endcard.html" data-start="414.7" data-duration="16.0" data-track-index="1" data-width="1920" data-height="1080"></div>
+
+      <div data-hf-id="hf-kbtx" id="video-watermark" class="clip" data-start="0" data-duration="414.7" data-track-index="5">
+        <span data-hf-id="hf-1qpa" class="logo-mark">WAX<span data-hf-id="hf-qyt5" class="amp">&amp;</span>THINK</span>
+      </div>
+
+      <!-- Narration (Ethan / Fish Audio, verified via whisper transcription) -->
+      <audio data-hf-id="hf-alju" id="narration-01" src="assets/narration/part1-hook.mp3" data-start="0" data-duration="26.0" data-track-index="10" data-volume="1"></audio>
+      <audio data-hf-id="hf-drfz" id="narration-02" src="assets/narration/part2-background.mp3" data-start="26.0" data-duration="29.2" data-track-index="11" data-volume="1"></audio>
+      <audio data-hf-id="hf-rqbw" id="narration-03" src="assets/narration/part3-beat.mp3" data-start="55.2" data-duration="125.9" data-track-index="12" data-volume="1"></audio>
+      <audio data-hf-id="hf-wfbu" id="narration-04" src="assets/narration/part4-lyrics.mp3" data-start="181.1" data-duration="57.5" data-track-index="13" data-volume="1"></audio>
+      <audio data-hf-id="hf-0b9b" id="narration-05" src="assets/narration/part5-parts.mp3" data-start="238.6" data-duration="30.8" data-track-index="14" data-volume="1"></audio>
+      <audio data-hf-id="hf-by1x" id="narration-06" src="assets/narration/part6-8mile.mp3" data-start="269.4" data-duration="60.1" data-track-index="15" data-volume="1"></audio>
+      <audio data-hf-id="hf-iv1w" id="narration-07" src="assets/narration/part7-acclaim.mp3" data-start="329.5" data-duration="42.4" data-track-index="16" data-volume="1"></audio>
+      <audio data-hf-id="hf-uayp" id="narration-08" src="assets/narration/part8-legacy.mp3" data-start="371.9" data-duration="42.8" data-track-index="17" data-volume="1"></audio>
+      <audio data-hf-id="hf-y962" id="narration-09" src="assets/narration/part9-outro.mp3" data-start="414.7" data-duration="11.6" data-track-index="18" data-volume="1"></audio>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#video-watermark", { opacity: 0 }, { opacity: 1, duration: 0.6, ease: "power1.out" }, 0.5);
+      tl.to("#video-watermark", { opacity: 0, duration: 0.4, ease: "power1.in" }, 413.9);
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

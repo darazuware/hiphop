@@ -1,0 +1,7 @@
+{
+  "scene": "08-legacy",
+  "duration_s": 42.8,
+  "rules": ["multi-phase-camera", "ambient-glow-bloom", "waterfall-entry"],
+  "exit": { "vector": "none, static hold on closing caption at camera scale 1.08 with slow sine drift only", "still_moving": true },
+  "entry": { "vector": "kicker rising from y=+16px to 0; camera starts at rest scale 0.90", "from_rest": true }
+}

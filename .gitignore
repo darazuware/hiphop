@@ -45,3 +45,14 @@ agent/.tone-campaign-state.json
 agent/.tone-campaign.lock
 agent/.skip-b-pending.json
 agent/.skip-b-confirmed.json
+
+# shook-ones-pt-ii-doc（HyperFrames動画プロジェクト）: 大容量バイナリ・再生成可能な出力物・ツールキャッシュはリポジトリに入れない
+agent/shook-ones-pt-ii-doc/assets/videos_source/
+agent/shook-ones-pt-ii-doc/assets/clips_provided/
+agent/shook-ones-pt-ii-doc/renders/
+agent/shook-ones-pt-ii-doc/.scratch/
+agent/shook-ones-pt-ii-doc/.thumbnails/
+agent/shook-ones-pt-ii-doc/.hyperframes/
+agent/shook-ones-pt-ii-doc/.media/
+agent/shook-ones-pt-ii-doc/snapshots/
+agent/shook-ones-pt-ii-doc/全体について.pages

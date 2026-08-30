@@ -1,0 +1,13 @@
+{
+  "scene": "01-hook",
+  "duration_s": 26.0,
+  "rules": ["waterfall-entry", "css-marker-patterns", "coordinate-target-zoom"],
+  "exit": {
+    "vector": "push-in zoom eases to a stop ~0.3s before the cut (scale settles at 1.22, no residual velocity); last caption chunk is mid-hold, not animating",
+    "still_moving": false
+  },
+  "entry": {
+    "vector": "headline phrases whip up from below at ~350px/s (power4.out) starting t=0.15s while the MV background begins playback at rest",
+    "from_rest": true
+  }
+}

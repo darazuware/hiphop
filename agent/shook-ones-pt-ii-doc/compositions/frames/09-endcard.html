@@ -1,0 +1,173 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      background: #111111;
+      overflow: hidden;
+      font-family: "Noto Sans JP", sans-serif;
+      color: #EEEEEE;
+    }
+
+    .f09-endcard-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 1300px 900px at 50% 50%, rgba(212, 175, 55, 0.10), transparent 65%),
+        #111111;
+    }
+
+    .f09-endcard-video-panel {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+
+    .f09-endcard-video-panel video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .f09-endcard-video-scrim {
+      position: absolute;
+      inset: 0;
+      background: rgba(17, 17, 17, 0.55);
+    }
+
+    .f09-endcard-video-fade {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 460px;
+      background: linear-gradient(to top, #111111 0%, rgba(17, 17, 17, 0) 100%);
+    }
+
+    .f09-endcard-card {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 220px;
+      text-align: center;
+      opacity: 0;
+    }
+
+    .f09-endcard-line {
+      font-family: "Noto Sans JP", sans-serif;
+      font-weight: 700;
+      font-size: 58px;
+      line-height: 1.55;
+      color: #EEEEEE;
+      text-shadow: 0 4px 18px rgba(0, 0, 0, 0.55);
+    }
+
+    .f09-endcard-line .hl {
+      color: #F0CD6A;
+    }
+
+    .f09-endcard-brand {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 26px;
+      opacity: 0;
+    }
+
+    .f09-endcard-kicker {
+      opacity: 0;
+      font-family: "Inter", sans-serif;
+      font-weight: 800;
+      font-size: 26px;
+      letter-spacing: 0.14em;
+      color: #999999;
+    }
+
+    .f09-endcard-logo {
+      opacity: 0;
+      font-family: "Inter", sans-serif;
+      font-weight: 900;
+      font-size: 92px;
+      letter-spacing: 0.02em;
+      color: #EEEEEE;
+    }
+
+    .f09-endcard-logo .amp {
+      color: #D4AF37;
+      font-weight: 400;
+      margin: 0 8px;
+    }
+
+    .f09-endcard-sub {
+      opacity: 0;
+      font-family: "Inter", sans-serif;
+      font-weight: 800;
+      font-size: 24px;
+      letter-spacing: 0.05em;
+      color: #999999;
+    }
+  </style>
+
+  <div data-hf-id="hf-mz65" id="root" data-composition-id="09-endcard" data-width="1920" data-height="1080" data-duration="16.0">
+    <div data-hf-id="hf-r9wk" class="clip f09-endcard-bg" data-start="0" data-duration="16.0" data-track-index="0"></div>
+
+    <div data-hf-id="hf-1u5e" class="f09-endcard-video-panel" id="f09-endcard-video-panel">
+      <video data-hf-id="hf-fm4g" id="f09-endcard-video" class="clip" src="assets/clips/08-qb-legacy.mp4" data-start="0" data-duration="5.0" data-track-index="1" muted playsinline></video>
+      <div data-hf-id="hf-twze" class="f09-endcard-video-scrim"></div>
+      <div data-hf-id="hf-6596" class="f09-endcard-video-fade"></div>
+    </div>
+
+    <div data-hf-id="hf-9wlh" class="f09-endcard-card" id="f09-endcard-line1" data-layout-allow-overlap="">
+      <div data-hf-id="hf-mf9f" class="f09-endcard-line">消されかけた1本のビートが、映画のクライマックスを支え、<span data-hf-id="hf-f3yq" class="hl">専門誌が認める伝説になった。</span></div>
+    </div>
+
+    <div data-hf-id="hf-dupi" class="f09-endcard-card" id="f09-endcard-line2" data-layout-allow-overlap="">
+      <div data-hf-id="hf-qbof" class="f09-endcard-line">それが<span data-hf-id="hf-1k8v" class="hl">『Shook Ones, Pt. II』</span>という曲です。</div>
+    </div>
+
+    <div data-hf-id="hf-46vc" class="f09-endcard-brand" id="f09-endcard-brand">
+      <div data-hf-id="hf-k2s1" class="f09-endcard-kicker" id="f09-endcard-kicker">日本語で読み解くヒップホップ</div>
+      <div data-hf-id="hf-k8we" class="f09-endcard-logo" id="f09-endcard-logo">WAX<span data-hf-id="hf-qyt5" class="amp">&amp;</span>THINK</div>
+      <div data-hf-id="hf-nahl" class="f09-endcard-sub" id="f09-endcard-sub">waxthink.com</div>
+    </div>
+  </div>
+
+  <script>
+    window.__timelines = window.__timelines || {};
+    const tl = gsap.timeline({ paused: true });
+
+    // Closing shot: real Queensbridge street footage (hold-you-down method) under the
+    // statement line, Ken Burns push-in, then a crossfade down to the plain gradient
+    // card for the rest of the line and the naming beat.
+    var video = document.getElementById("f09-endcard-video");
+    tl.fromTo(video, { scale: 1.06 }, { scale: 1.0, duration: 4.6, ease: "none" }, 0);
+    tl.to("#f09-endcard-video-panel", { opacity: 0, duration: 0.5, ease: "power1.in" }, 4.6);
+
+    // Caption timing verified against the narration audio (assets/narration/part9-outro.mp3)
+    // via whisper.cpp word-level alignment: "...伝説になった" runs 0.2-8.08s, "それが...という
+    // 曲です" runs 8.08-11.68s (clip ends ~11.6s). Previous cut at 4.0/6.6s predated this check
+    // and was badly desynced (E7).
+    tl.fromTo("#f09-endcard-line1", { opacity: 0, scale: 0.95 }, { opacity: 1, scale: 1, duration: 0.6, ease: "power3.out" }, 0.2);
+    tl.to("#f09-endcard-line1", { opacity: 0, y: -30, duration: 0.5, ease: "power2.in" }, 7.7);
+    tl.fromTo("#f09-endcard-line2", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 8.15);
+    tl.to("#f09-endcard-line2", { opacity: 0, duration: 0.4, ease: "power1.in" }, 11.4);
+
+    // WAX&THINK brand end-card — held silent (no narration) after the spoken line ends,
+    // same tail-hold shape as hold-you-down's own-show-card -> network-card handoff.
+    tl.fromTo("#f09-endcard-brand", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.out" }, 11.9);
+    tl.fromTo("#f09-endcard-kicker", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 12.1);
+    tl.fromTo("#f09-endcard-logo", { opacity: 0, scale: 0.92 }, { opacity: 1, scale: 1, duration: 0.5, ease: "power3.out" }, 12.3);
+    tl.fromTo("#f09-endcard-sub", { opacity: 0 }, { opacity: 1, duration: 0.4, ease: "power2.out" }, 12.8);
+    // Holds static from ~13.2s to the end (16.0s).
+
+    window.__timelines["09-endcard"] = tl;
+  </script>
+</template>

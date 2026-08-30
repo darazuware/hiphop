@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <style>
+        #root {
+          position: absolute;
+          inset: 0;
+          width: 1920px;
+          height: 1080px;
+          overflow: hidden;
+          background: radial-gradient(ellipse 1400px 900px at 50% 46%, #1a1a1a 0%, #111111 70%);
+          font-family: "Noto Sans JP", sans-serif;
+          --f-gold: #d4af37;
+          --f-gold-light: #f0cd6a;
+          --f-orange: #e8700a;
+          --f-text: #eeeeee;
+          --f-muted: #999999;
+        }
+
+        .f05-headline-wrap {
+          position: absolute;
+          top: 80px;
+          left: 120px;
+          width: 1400px;
+          z-index: 4;
+        }
+        .f05-kicker {
+          font-family: "Inter", sans-serif;
+          font-weight: 800;
+          font-size: 26px;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+          color: var(--f-gold-light);
+          margin: 0 0 18px 0;
+        }
+        .f05-headline {
+          font-family: "Inter", sans-serif;
+          font-weight: 900;
+          font-size: 92px;
+          line-height: 1.08;
+          color: var(--f-text);
+          margin: 0;
+        }
+
+        .f05-stage {
+          position: absolute;
+          top: 300px;
+          left: 0;
+          width: 1920px;
+          height: 420px;
+          display: grid;
+          place-items: center;
+          z-index: 2;
+        }
+        .f05-pt-group {
+          grid-area: 1 / 1;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        .f05-pt-text {
+          font-family: "Inter", sans-serif;
+          font-weight: 900;
+          font-size: 240px;
+          line-height: 1;
+          margin: 0;
+          background-size: 320% 100%;
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
+        }
+        #f05-pt1-text {
+          background-image: linear-gradient(
+            90deg,
+            #aaaaaa 0%,
+            #ffffff 25%,
+            #cfcfcf 50%,
+            #ffffff 75%,
+            #aaaaaa 100%
+          );
+          background-position: 100% 50%;
+        }
+        .f05-pt-arrow {
+          grid-area: 1 / 1;
+          font-family: "Inter", sans-serif;
+          font-weight: 900;
+          font-size: 130px;
+          line-height: 1;
+          color: var(--f-gold-light);
+          text-shadow: 0 6px 26px rgba(0, 0, 0, 0.5);
+          opacity: 0;
+        }
+        #f05-pt2-text {
+          background-image: linear-gradient(
+            90deg,
+            #8a6a1f 0%,
+            var(--f-gold-light) 25%,
+            var(--f-gold) 50%,
+            var(--f-gold-light) 75%,
+            #8a6a1f 100%
+          );
+          background-position: 100% 50%;
+        }
+        .f05-pt-sub {
+          font-family: "Inter", sans-serif;
+          font-weight: 800;
+          font-size: 28px;
+          letter-spacing: 0.1em;
+          margin: 18px 0 0 0;
+        }
+        #f05-pt1-sub {
+          color: var(--f-muted);
+        }
+        #f05-pt2-sub {
+          color: var(--f-gold-light);
+        }
+        #f05-pt2-group {
+          opacity: 0;
+          transform: translateX(480px);
+        }
+
+        .f05-caption-box {
+          position: absolute;
+          left: 120px;
+          right: 95px;
+          bottom: 90px;
+          min-height: 190px;
+          z-index: 5;
+          padding: 34px 44px;
+          border-left: 6px solid var(--f-gold);
+          background: rgba(0, 0, 0, 0.55);
+          border-radius: 4px;
+        }
+        .f05-chunk {
+          position: absolute;
+          left: 44px;
+          right: 44px;
+          top: 34px;
+          font-family: "Noto Sans JP", sans-serif;
+          font-weight: 700;
+          font-size: 52px;
+          line-height: 1.5;
+          color: var(--f-text);
+        }
+        .f05-frag {
+          display: inline-block;
+          opacity: 0;
+          will-change: transform, opacity;
+        }
+      </style>
+
+      <div data-hf-id="hf-k4sk" id="root" data-composition-id="05-part1-to-part2" data-width="1920" data-height="1080" data-duration="30.8">
+        <div data-hf-id="hf-4kkp" class="f05-headline-wrap">
+          <p data-hf-id="hf-9i2m" class="f05-kicker">PART 05 — THE REMAKE</p>
+          <h1 data-hf-id="hf-xd1y" class="f05-headline">
+            生まれ変わった、あの一曲。
+          </h1>
+        </div>
+
+        <div data-hf-id="hf-edj2" class="f05-stage" data-layout-allow-occlusion="true">
+          <div data-hf-id="hf-4a2f" class="f05-pt-group" id="f05-pt1-group">
+            <h2 data-hf-id="hf-hlx9" class="f05-pt-text" id="f05-pt1-text">Pt. I</h2>
+            <p data-hf-id="hf-r8ns" class="f05-pt-sub" id="f05-pt1-sub">PROMO TAPE — 1994</p>
+          </div>
+          <div data-hf-id="hf-52o0" class="f05-pt-group" id="f05-pt2-group">
+            <h2 data-hf-id="hf-3xg9" class="f05-pt-text" id="f05-pt2-text">Pt. II</h2>
+            <p data-hf-id="hf-jkwm" class="f05-pt-sub" id="f05-pt2-sub">OFFICIAL RELEASE — 1995.02.07</p>
+          </div>
+          <div data-hf-id="hf-arrw" class="f05-pt-arrow" id="f05-arrow">&#8594;</div>
+        </div>
+
+        <div data-hf-id="hf-6rxu" class="f05-caption-box">
+          <div data-hf-id="hf-vynj" class="f05-chunk" id="f05-chunk-0">
+            <span data-hf-id="hf-ivlv" class="f05-frag">実はこの曲、</span><span data-hf-id="hf-tm9p" class="f05-frag">いきなり今の形で生まれたわけではありません。</span>
+          </div>
+          <div data-hf-id="hf-psxq" class="f05-chunk" id="f05-chunk-1">
+            <span data-hf-id="hf-7n0w" class="f05-frag">前作「Juvenile Hell」が不発に終わった不安を引きずる中、</span><span data-hf-id="hf-i0bx" class="f05-frag">Mobb Deepはまず1994年に「Shook Ones」を一度プロモ盤としてリリースしました。</span>
+          </div>
+          <div data-hf-id="hf-lutp" class="f05-chunk" id="f05-chunk-2">
+            <span data-hf-id="hf-6wzn" class="f05-frag">でも二人はその出来に納得できなかった。</span>
+          </div>
+          <div data-hf-id="hf-l35w" class="f05-chunk" id="f05-chunk-3">
+            <span data-hf-id="hf-tykb" class="f05-frag">作り直して、</span><span data-hf-id="hf-0s8f" class="f05-frag">より研ぎ澄まされた形にしたのが、</span><span data-hf-id="hf-53pv" class="f05-frag">1995年2月7日にリリースされた「Shook Ones, Pt. II」。</span>
+          </div>
+          <div data-hf-id="hf-8knf" class="f05-chunk" id="f05-chunk-4">
+            <span data-hf-id="hf-helt" class="f05-frag">「The Infamous」のリード曲になりました。</span>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        (function () {
+          window.__timelines = window.__timelines || {};
+          var tl = gsap.timeline({ paused: true });
+
+          // ---- headline settles in ----
+          tl.fromTo(
+            ".f05-headline-wrap",
+            { opacity: 0, y: 26 },
+            { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" },
+            0.1,
+          );
+
+          // ---- Pt. I typography pops up and starts its continuous gradient sweep ----
+          tl.fromTo(
+            "#f05-pt1-group",
+            { opacity: 0, scale: 0.9 },
+            { opacity: 1, scale: 1, duration: 0.5, ease: "power3.out" },
+            0.25,
+          );
+          tl.fromTo(
+            "#f05-pt1-text",
+            { backgroundPosition: "100% 50%" },
+            { backgroundPosition: "0% 50%", duration: 30, ease: "none" },
+            0.25,
+          );
+
+          // ---- captions: waterfall-entry cascade, timed proportionally to text length ----
+          var F = 1 / 60;
+          function waterfallReveal(container, startTime) {
+            var frags = container.querySelectorAll(".f05-frag");
+            var t = startTime;
+            for (var i = 0; i < frags.length; i++) {
+              var isFirst = i === 0;
+              var Y = isFirst ? 46 : 40;
+              var dur = isFirst ? 0.16 : 0.13;
+              var overlapFrames = isFirst ? 1 : 2;
+              tl.set(frags[i], { opacity: 1, y: Y }, t);
+              tl.to(frags[i], { y: 0, duration: dur, ease: "power4.out" }, t);
+              t += dur - overlapFrames * F;
+            }
+          }
+
+          var chunkEls = Array.prototype.slice.call(document.querySelectorAll(".f05-chunk"));
+          var weights = chunkEls.map(function (el) {
+            return el.textContent.length;
+          });
+          var totalWeight = weights.reduce(function (a, b) {
+            return a + b;
+          }, 0);
+
+          var CAPTION_START = 1.0;
+          var CAPTION_END = 28.0;
+          var spanT = CAPTION_END - CAPTION_START;
+          var starts = [];
+          var acc = CAPTION_START;
+          for (var w = 0; w < weights.length; w++) {
+            starts.push(acc);
+            acc += spanT * (weights[w] / totalWeight);
+          }
+
+          chunkEls.forEach(function (el, i) {
+            if (i > 0) {
+              tl.to(
+                chunkEls[i - 1],
+                { opacity: 0, duration: 0.25, ease: "power2.in" },
+                starts[i] - 0.25,
+              );
+            }
+            waterfallReveal(el, starts[i]);
+          });
+
+          // ---- the remake: Pt. I slides left to make room, Pt. II appears on the right, an arrow draws in between ----
+          var REMAKE_START = starts[3];
+          var REMAKE_DUR = 0.7;
+          tl.to(
+            "#f05-pt1-group",
+            { x: -480, duration: REMAKE_DUR, ease: "power2.inOut" },
+            REMAKE_START,
+          );
+          tl.to(
+            "#f05-pt2-group",
+            { opacity: 1, duration: REMAKE_DUR, ease: "power2.inOut" },
+            REMAKE_START,
+          );
+          tl.fromTo(
+            "#f05-arrow",
+            { opacity: 0, scaleX: 0, transformOrigin: "0% 50%" },
+            { opacity: 1, scaleX: 1, duration: REMAKE_DUR, ease: "power2.out" },
+            REMAKE_START + 0.1,
+          );
+          tl.fromTo(
+            "#f05-pt2-text",
+            { backgroundPosition: "100% 50%" },
+            { backgroundPosition: "0% 50%", duration: 30.8 - REMAKE_START, ease: "none" },
+            REMAKE_START,
+          );
+
+          window.__timelines["05-part1-to-part2"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

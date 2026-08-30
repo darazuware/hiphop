@@ -1,0 +1,294 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      background: #111111;
+      overflow: hidden;
+      font-family: "Noto Sans JP", sans-serif;
+      color: #EEEEEE;
+    }
+
+    .f07-acclaim-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 1200px 700px at 50% -8%, rgba(212, 175, 55, 0.12), transparent 62%),
+        radial-gradient(ellipse 1500px 800px at 50% 108%, rgba(212, 175, 55, 0.07), transparent 60%),
+        #111111;
+    }
+
+    .f07-acclaim-headline-wrap {
+      position: absolute;
+      top: 84px;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      padding: 0 160px;
+    }
+
+    .f07-acclaim-headline-part {
+      display: inline-block;
+      opacity: 0;
+      font-family: "Inter", sans-serif;
+      font-weight: 900;
+      font-size: 60px;
+      letter-spacing: 0.01em;
+      color: #F0CD6A;
+    }
+
+    .f07-acclaim-press-stage {
+      position: absolute;
+      top: 248px;
+      left: 230px;
+      width: 1460px;
+      height: 370px;
+    }
+
+    .f07-acclaim-press-card {
+      position: absolute;
+      top: 0;
+      width: 460px;
+      opacity: 0;
+      transform-origin: 50% 50%;
+    }
+
+    .f07-acclaim-press-card.-rs { left: 0px; }
+    .f07-acclaim-press-card.-pf { left: 500px; }
+    .f07-acclaim-press-card.-cx { left: 1000px; }
+
+    .f07-acclaim-emphasis-glow {
+      position: absolute;
+      inset: -90px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(212, 175, 55, 0.35), transparent 65%);
+      opacity: 0;
+    }
+
+    .f07-acclaim-press-photo {
+      position: relative;
+      display: flex;
+      width: 100%;
+      height: 230px;
+      border-radius: 6px;
+      overflow: hidden;
+      border: 2px solid rgba(212, 175, 55, 0.35);
+      background: #f5f0e4;
+    }
+
+    .f07-acclaim-press-photo img {
+      width: 76%;
+      height: 76%;
+      object-fit: contain;
+      display: block;
+      margin: auto;
+    }
+
+    .f07-acclaim-press-label {
+      position: relative;
+      margin-top: 14px;
+      font-family: "Inter", sans-serif;
+      font-weight: 800;
+      font-size: 21px;
+      letter-spacing: 0.05em;
+      color: #999999;
+    }
+
+    .f07-acclaim-rank-wrap {
+      position: relative;
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      margin-top: 6px;
+      width: 220px;
+    }
+
+    .f07-acclaim-rank-no {
+      font-family: "Inter", sans-serif;
+      font-weight: 800;
+      font-size: 26px;
+      color: #D4AF37;
+    }
+
+    .f07-acclaim-rank-num {
+      font-family: "Inter", sans-serif;
+      font-weight: 900;
+      font-size: 64px;
+      font-variant-numeric: tabular-nums;
+      display: inline-block;
+      color: #F0CD6A;
+      transform-origin: left center;
+    }
+
+    .f07-acclaim-press-card.-cx .f07-acclaim-rank-num {
+      font-size: 100px;
+      color: #F0CD6A;
+    }
+
+    .f07-acclaim-press-card.-cx .f07-acclaim-rank-no {
+      font-size: 30px;
+    }
+
+    .f07-acclaim-aside {
+      position: relative;
+      margin-top: 10px;
+      opacity: 0;
+      font-family: "Noto Sans JP", sans-serif;
+      font-weight: 400;
+      font-size: 19px;
+      line-height: 1.4;
+      color: #999999;
+      width: 90%;
+    }
+
+    .f07-acclaim-caption-panel {
+      position: absolute;
+      left: 140px;
+      bottom: 68px;
+      width: 1640px;
+      height: 320px;
+    }
+
+    .f07-acclaim-chunk {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+    }
+
+    .f07-acclaim-chunk .wf {
+      display: inline-block;
+      opacity: 0;
+      font-family: "Noto Sans JP", sans-serif;
+      font-weight: 700;
+      font-size: 50px;
+      line-height: 1.55;
+      color: #EEEEEE;
+    }
+  </style>
+
+  <div data-hf-id="hf-pidv" id="root" data-composition-id="07-acclaim" data-width="1920" data-height="1080" data-duration="42.4">
+    <div data-hf-id="hf-8exk" class="clip f07-acclaim-bg" data-start="0" data-duration="42.4" data-track-index="0"></div>
+
+    <div data-hf-id="hf-hni0" class="f07-acclaim-headline-wrap">
+      <span data-hf-id="hf-0023" class="f07-acclaim-headline-part" id="f07-acclaim-h-w0">評価は、</span><span data-hf-id="hf-3c73" class="f07-acclaim-headline-part" id="f07-acclaim-h-w1">時代を追うごとに高まっていく</span>
+    </div>
+
+    <div data-hf-id="hf-8zx9" class="f07-acclaim-press-stage">
+      <div data-hf-id="hf-ubas" class="f07-acclaim-press-card -rs" id="f07-acclaim-card-rs">
+        <div data-hf-id="hf-x11j" class="f07-acclaim-press-photo"><img data-hf-id="hf-x2qy" src="assets/images/logo-rollingstone.png" alt="Rolling Stone"></div>
+        <div data-hf-id="hf-jq4j" class="f07-acclaim-press-label">ROLLING STONE / 2012</div>
+        <div data-hf-id="hf-vwqm" class="f07-acclaim-rank-wrap">
+          <span data-hf-id="hf-zsaf" class="f07-acclaim-rank-no">No.</span><span data-hf-id="hf-03mi" class="f07-acclaim-rank-num" id="f07-acclaim-num-rs">0</span>
+        </div>
+      </div>
+
+      <div data-hf-id="hf-rz6e" class="f07-acclaim-press-card -pf" id="f07-acclaim-card-pf">
+        <div data-hf-id="hf-kn8n" class="f07-acclaim-press-photo"><img data-hf-id="hf-0npi" src="assets/images/logo-pitchfork.png" alt="Pitchfork"></div>
+        <div data-hf-id="hf-cmhj" class="f07-acclaim-press-label">PITCHFORK / 2010</div>
+        <div data-hf-id="hf-965e" class="f07-acclaim-rank-wrap">
+          <span data-hf-id="hf-03xz" class="f07-acclaim-rank-no">No.</span><span data-hf-id="hf-7b5f" class="f07-acclaim-rank-num" id="f07-acclaim-num-pf">0</span>
+        </div>
+      </div>
+
+      <div data-hf-id="hf-au4k" class="f07-acclaim-press-card -cx" id="f07-acclaim-card-cx">
+        <div data-hf-id="hf-nxt1" class="f07-acclaim-emphasis-glow" id="f07-acclaim-glow-cx"></div>
+        <div data-hf-id="hf-k8xm" class="f07-acclaim-press-photo"><img data-hf-id="hf-auof" src="assets/images/logo-complex.jpeg" alt="Complex"></div>
+        <div data-hf-id="hf-o549" class="f07-acclaim-press-label">COMPLEX / 読者投票</div>
+        <div data-hf-id="hf-9kgf" class="f07-acclaim-rank-wrap">
+          <span data-hf-id="hf-zpmy" class="f07-acclaim-rank-no">No.</span><span data-hf-id="hf-6zb2" class="f07-acclaim-rank-num" id="f07-acclaim-num-cx">0</span>
+        </div>
+      </div>
+    </div>
+
+    <div data-hf-id="hf-jnje" class="f07-acclaim-caption-panel">
+      <div data-hf-id="hf-sdvj" class="f07-acclaim-chunk" id="f07-acclaim-c1">
+        <span data-hf-id="hf-0mqu" class="wf" id="f07-acclaim-c1-w0">この曲の評価は、</span><span data-hf-id="hf-oze1" class="wf" id="f07-acclaim-c1-w1">時間が経つほど</span><span data-hf-id="hf-us79" class="wf" id="f07-acclaim-c1-w2">上がっています。</span>
+      </div>
+      <div data-hf-id="hf-jpzo" class="f07-acclaim-chunk" id="f07-acclaim-c2">
+        <span data-hf-id="hf-505v" class="wf" id="f07-acclaim-c2-w0">Rolling Stone誌は2012年、</span><span data-hf-id="hf-f5va" class="wf" id="f07-acclaim-c2-w1">33人のアーティストや批評家に投票を依頼した</span><span data-hf-id="hf-m3r6" class="wf" id="f07-acclaim-c2-w2">「史上最高のヒップホップ曲50選」で</span><span data-hf-id="hf-k3oq" class="wf" id="f07-acclaim-c2-w3">この曲を35位に選出。</span>
+      </div>
+      <div data-hf-id="hf-39d6" class="f07-acclaim-chunk" id="f07-acclaim-c4">
+        <span data-hf-id="hf-qtis" class="wf" id="f07-acclaim-c4-w0">Pitchforkは2010年の</span><span data-hf-id="hf-1x8q" class="wf" id="f07-acclaim-c4-w1">「90年代ベストトラック200」で</span><span data-hf-id="hf-5cde" class="wf" id="f07-acclaim-c4-w2">25位。</span>
+      </div>
+      <div data-hf-id="hf-77h7" class="f07-acclaim-chunk" id="f07-acclaim-c5">
+        <span data-hf-id="hf-r2ub" class="wf" id="f07-acclaim-c5-w0">そしてComplex誌が読者投票を実施したところ、</span><span data-hf-id="hf-ensy" class="wf" id="f07-acclaim-c5-w1">この曲のビートが</span><span data-hf-id="hf-9881" class="wf" id="f07-acclaim-c5-w2">史上最高のラップビート</span><span data-hf-id="hf-vq7h" class="wf" id="f07-acclaim-c5-w3">第1位に選ばれました。</span>
+      </div>
+      <div data-hf-id="hf-wbzk" class="f07-acclaim-chunk" id="f07-acclaim-c6">
+        <span data-hf-id="hf-krmo" class="wf" id="f07-acclaim-c6-w0">Havoc本人はこの結果について</span><span data-hf-id="hf-wi2p" class="wf" id="f07-acclaim-c6-w1">「グラミー賞よりも</span><span data-hf-id="hf-oq6j" class="wf" id="f07-acclaim-c6-w2">価値がある」と</span><span data-hf-id="hf-lds4" class="wf" id="f07-acclaim-c6-w3">コメントしています。</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    window.__timelines = window.__timelines || {};
+    const tl = gsap.timeline({ paused: true });
+
+    function cascadeIn(ids, t0) {
+      var F = 1 / 60;
+      var offsets = [72, 50, 46, 40, 36];
+      var durs = [0.19, 0.16, 0.15, 0.14, 0.13];
+      var t = t0;
+      var land = t0;
+      ids.forEach(function (id, i) {
+        var idx = Math.min(i, offsets.length - 1);
+        tl.set(id, { opacity: 1, y: offsets[idx] }, t);
+        tl.to(id, { y: 0, duration: durs[idx], ease: "power4.out" }, t);
+        land = t + durs[idx];
+        t = t + durs[idx] - F;
+      });
+      return land;
+    }
+
+    function retireOut(id, t0) {
+      tl.to(id, { opacity: 0, y: -14, duration: 0.22, ease: "power2.in" }, t0);
+    }
+
+    function countUp(numEl, targetVal, startScale, t0, dur) {
+      var state = { value: 0 };
+      tl.to(state, {
+        value: targetVal,
+        duration: dur,
+        ease: "power3.out",
+        onUpdate: function () {
+          numEl.textContent = Math.round(state.value).toLocaleString();
+        }
+      }, t0);
+      tl.fromTo(numEl, { scale: startScale }, { scale: 1, duration: dur, ease: "power3.out" }, t0);
+    }
+
+    // Headline — the hero, lands well before t = 0.5s.
+    cascadeIn(["#f07-acclaim-h-w0", "#f07-acclaim-h-w1"], 0.05);
+
+    // Caption chunks, paced to the voiceover, one on screen at a time.
+    cascadeIn(["#f07-acclaim-c1-w0", "#f07-acclaim-c1-w1", "#f07-acclaim-c1-w2"], 0.35);
+    retireOut("#f07-acclaim-c1", 4.3);
+
+    cascadeIn(["#f07-acclaim-c2-w0", "#f07-acclaim-c2-w1", "#f07-acclaim-c2-w2", "#f07-acclaim-c2-w3"], 4.5);
+    retireOut("#f07-acclaim-c2", 18.0);
+
+    cascadeIn(["#f07-acclaim-c4-w0", "#f07-acclaim-c4-w1", "#f07-acclaim-c4-w2"], 23.7);
+    retireOut("#f07-acclaim-c4", 28.5);
+
+    cascadeIn(["#f07-acclaim-c5-w0", "#f07-acclaim-c5-w1", "#f07-acclaim-c5-w2", "#f07-acclaim-c5-w3"], 28.7);
+    retireOut("#f07-acclaim-c5", 38.1);
+
+    cascadeIn(["#f07-acclaim-c6-w0", "#f07-acclaim-c6-w1", "#f07-acclaim-c6-w2", "#f07-acclaim-c6-w3"], 38.3);
+    // c6 holds through the end of the scene — no exit tween (non-final frame, root handles the cut).
+
+    // Press card 1 — Rolling Stone, No.35
+    tl.fromTo("#f07-acclaim-card-rs", { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.55, ease: "power3.out" }, 5.15);
+    countUp(document.getElementById("f07-acclaim-num-rs"), 35, 0.45, 5.15, 1.4);
+
+    // Press card 2 — Pitchfork, No.25
+    tl.fromTo("#f07-acclaim-card-pf", { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.55, ease: "power3.out" }, 24.2);
+    countUp(document.getElementById("f07-acclaim-num-pf"), 25, 0.45, 24.2, 1.4);
+
+    // Press card 3 — Complex, No.1 — the climax, extra emphasis (bigger scale + glow).
+    tl.fromTo("#f07-acclaim-card-cx", { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.6, ease: "power3.out" }, 29.35);
+    tl.fromTo("#f07-acclaim-glow-cx", { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.8, ease: "power2.out" }, 29.35);
+    countUp(document.getElementById("f07-acclaim-num-cx"), 1, 0.4, 29.35, 1.6);
+
+    window.__timelines["07-acclaim"] = tl;
+  </script>
+</template>

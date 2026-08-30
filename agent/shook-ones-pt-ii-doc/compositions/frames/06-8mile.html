@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <style>
+        #root {
+          position: absolute;
+          inset: 0;
+          width: 1920px;
+          height: 1080px;
+          overflow: hidden;
+          background: #111111;
+          font-family: "Noto Sans JP", sans-serif;
+          --f-gold: #d4af37;
+          --f-gold-light: #f0cd6a;
+          --f-orange: #e8700a;
+          --f-text: #eeeeee;
+          --f-muted: #999999;
+        }
+
+        .f06-cam {
+          position: absolute;
+          inset: 0;
+          transform-origin: 50% 50%;
+          overflow: hidden;
+          will-change: transform, filter;
+        }
+        #f06-video {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        .f06-scrim {
+          position: absolute;
+          inset: 0;
+          z-index: 3;
+          pointer-events: none;
+          background: linear-gradient(
+            180deg,
+            rgba(17, 17, 17, 0.74) 0%,
+            rgba(17, 17, 17, 0.3) 26%,
+            rgba(17, 17, 17, 0.32) 58%,
+            rgba(17, 17, 17, 0.94) 100%
+          );
+        }
+
+        .f06-headline-wrap {
+          position: absolute;
+          top: 80px;
+          left: 120px;
+          width: 1400px;
+          z-index: 4;
+        }
+        .f06-kicker {
+          font-family: "Inter", sans-serif;
+          font-weight: 800;
+          font-size: 26px;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+          color: var(--f-gold-light);
+          margin: 0 0 18px 0;
+          text-shadow: 0 2px 16px rgba(0, 0, 0, 0.85);
+        }
+        .f06-headline {
+          font-family: "Inter", sans-serif;
+          font-weight: 900;
+          font-size: 88px;
+          line-height: 1.1;
+          color: var(--f-text);
+          margin: 0;
+          text-shadow: 0 4px 30px rgba(0, 0, 0, 0.85);
+        }
+
+        .f06-caption-box {
+          position: absolute;
+          left: 120px;
+          right: 95px;
+          bottom: 90px;
+          min-height: 190px;
+          z-index: 5;
+          padding: 34px 44px;
+          border-left: 6px solid var(--f-gold);
+          background: rgba(0, 0, 0, 0.55);
+          border-radius: 4px;
+        }
+        .f06-chunk {
+          position: absolute;
+          left: 44px;
+          right: 44px;
+          top: 34px;
+          font-family: "Noto Sans JP", sans-serif;
+          font-weight: 700;
+          font-size: 52px;
+          line-height: 1.5;
+          color: var(--f-text);
+        }
+        .f06-frag {
+          display: inline-block;
+          opacity: 0;
+          will-change: transform, opacity;
+        }
+      </style>
+
+      <div data-hf-id="hf-ei98" id="root" data-composition-id="06-8mile" data-width="1920" data-height="1080" data-duration="38.4">
+        <svg data-hf-id="hf-p3r6" width="0" height="0" aria-hidden="true" style="position: absolute">
+          <filter data-hf-id="hf-aad9" id="f06-streak" x="-50%" y="-50%" width="200%" height="200%">
+            <fegaussianblur data-hf-id="hf-ktis" id="f06-streak-blur" in="SourceGraphic" stdDeviation="0 0" />
+          </filter>
+        </svg>
+
+        <div data-hf-id="hf-tvri" class="f06-cam" id="f06-cam" style="filter: url(#f06-streak)">
+          <video data-hf-id="hf-82qj" id="f06-video" class="clip" src="assets/clips/06-8mile-trailer.mp4" data-start="0" data-duration="38.4" data-track-index="0" data-media-start="0" muted playsinline></video>
+        </div>
+
+        <div data-hf-id="hf-auy9" class="f06-scrim"></div>
+
+        <div data-hf-id="hf-d3u6" class="f06-headline-wrap">
+          <p data-hf-id="hf-c9h7" class="f06-kicker">PART 06 — 8 MILE</p>
+          <h1 data-hf-id="hf-aa0p" class="f06-headline">
+            「エイト・マイル」を支えたビート
+          </h1>
+        </div>
+
+        <div data-hf-id="hf-zxzd" class="f06-caption-box">
+          <div data-hf-id="hf-tt59" class="f06-chunk" id="f06-chunk-0">
+            <span data-hf-id="hf-4gu7" class="f06-frag">冒頭で触れた「8 Mile」での使用。</span>
+          </div>
+          <div data-hf-id="hf-t1hg" class="f06-chunk" id="f06-chunk-1">
+            <span data-hf-id="hf-0ali" class="f06-frag">オープニングの楽屋シーンと、</span><span data-hf-id="hf-2sd4" class="f06-frag">ラストのバトルシーン、2箇所で流れています。</span>
+          </div>
+          <div data-hf-id="hf-3wz3" class="f06-chunk" id="f06-chunk-2">
+            <span data-hf-id="hf-dixo" class="f06-frag">Havoc本人は当時、</span><span data-hf-id="hf-mjws" class="f06-frag">EminemがMobb Deepのファンだったとは知らず、</span><span data-hf-id="hf-v9da" class="f06-frag">心底驚いたそうです。</span>
+          </div>
+          <div data-hf-id="hf-xr9a" class="f06-chunk" id="f06-chunk-3">
+            <span data-hf-id="hf-0qlx" class="f06-frag">そして使用料が入ってくると分かった瞬間は「頭の中でレジの音が鸣った」と振り返り、</span><span data-hf-id="hf-3e8t" class="f06-frag">そのお金でFendiのセーターを買った、</span><span data-hf-id="hf-iwk9" class="f06-frag">と後のインタビューで笑いながら語っています。</span>
+          </div>
+          <div data-hf-id="hf-8mqx" class="f06-chunk" id="f06-chunk-4">
+            <span data-hf-id="hf-me0z" class="f06-frag">QBの地下室で生まれたビートが、</span><span data-hf-id="hf-qqsb" class="f06-frag">ハリウッド映画のクライマックスを支える。</span>
+          </div>
+          <div data-hf-id="hf-7v34" class="f06-chunk" id="f06-chunk-5">
+            <span data-hf-id="hf-01y8" class="f06-frag">誰も予想していなかった展開でした。</span>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        (function () {
+          window.__timelines = window.__timelines || {};
+          var tl = gsap.timeline({ paused: true });
+
+          // ---- captions: compute chunk start times from static text length first ----
+          var F = 1 / 60;
+          function waterfallReveal(container, startTime) {
+            var frags = container.querySelectorAll(".f06-frag");
+            var t = startTime;
+            for (var i = 0; i < frags.length; i++) {
+              var isFirst = i === 0;
+              var Y = isFirst ? 46 : 40;
+              var dur = isFirst ? 0.16 : 0.13;
+              var overlapFrames = isFirst ? 1 : 2;
+              tl.set(frags[i], { opacity: 1, y: Y }, t);
+              tl.to(frags[i], { y: 0, duration: dur, ease: "power4.out" }, t);
+              t += dur - overlapFrames * F;
+            }
+          }
+
+          var chunkEls = Array.prototype.slice.call(document.querySelectorAll(".f06-chunk"));
+          var weights = chunkEls.map(function (el) {
+            return el.textContent.length;
+          });
+          var totalWeight = weights.reduce(function (a, b) {
+            return a + b;
+          }, 0);
+
+          var CAPTION_START = 2.8;
+          var CAPTION_END = 35.5;
+          var spanT = CAPTION_END - CAPTION_START;
+          var starts = [];
+          var acc = CAPTION_START;
+          for (var w = 0; w < weights.length; w++) {
+            starts.push(acc);
+            acc += spanT * (weights[w] / totalWeight);
+          }
+
+          // ---- entrance: video pushes out of soft focus and settles sharp by t<=0.5s ----
+          var blurNode = document.getElementById("f06-streak-blur");
+          var blurProxy = { v: 20 };
+          var writeBlur = function () {
+            blurNode.setAttribute("stdDeviation", blurProxy.v + " " + blurProxy.v);
+          };
+          writeBlur();
+          tl.fromTo(
+            "#f06-cam",
+            { scale: 1.4 },
+            { scale: 1, duration: 0.45, ease: "power3.out" },
+            0,
+          );
+          tl.to(blurProxy, { v: 0, duration: 0.45, ease: "power3.out", onUpdate: writeBlur }, 0);
+
+          // ---- headline settles in right after the entrance ----
+          tl.fromTo(
+            ".f06-headline-wrap",
+            { opacity: 0, y: 26 },
+            { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" },
+            0.5,
+          );
+
+          // ---- dwell zoom into the frozen trailer frame, synced to the Havoc reaction line ----
+          var ZOOM_AT = starts[2];
+          var ZOOM_DUR = 1.6;
+          tl.to("#f06-cam", { scale: 1.35, duration: ZOOM_DUR, ease: "power3.inOut" }, ZOOM_AT);
+
+          chunkEls.forEach(function (el, i) {
+            if (i > 0) {
+              tl.to(
+                chunkEls[i - 1],
+                { opacity: 0, duration: 0.25, ease: "power2.in" },
+                starts[i] - 0.25,
+              );
+            }
+            waterfallReveal(el, starts[i]);
+          });
+
+          window.__timelines["06-8mile"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>
