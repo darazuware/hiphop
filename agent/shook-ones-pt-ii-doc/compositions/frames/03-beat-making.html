@@ -108,29 +108,64 @@
   }
 
   /* ---- waveform stack ---- */
+  /* Idle/spotlight recipe: each row rests as a thin labeled bar in its own
+     slot (top:0/26/52, all three visible at once, like 3 records lined up).
+     When that sample's turn comes it jumps to a shared, much taller slot
+     (top:0, height:150) in sync with its own jacket zoom (below) and its own
+     <audio> element, rendering above its still-thin siblings, then drops
+     back. This replaces an earlier fixed-3-simultaneous-rows layout that
+     could only fit ~32px-tall waveforms before running into the caption box
+     (bottom:86px, top edge ~861px even for a single caption line). */
   .h3-wave-stack {
     position: absolute;
     top: 705px;
     left: 50%;
     transform: translateX(-50%);
     width: 1600px;
+    height: 156px;
     z-index: 3;
   }
   .h3-wave-row {
-    position: relative;
+    position: absolute;
+    left: 0;
     width: 1600px;
-    height: 110px;
-    margin-bottom: 14px;
+    height: 18px;
     opacity: 0;
+    z-index: 1;
   }
-  .h3-wave-row:last-child { margin-bottom: 0; }
+  #h3-wave-jessica { top: 0px; }
+  #h3-wave-kitty { top: 26px; }
+  #h3-wave-dirtyfeet { top: 52px; }
+  /* Sample-breakdown recipe ported from back-to-the-melody/hold-you-down: the
+     highlight box is fixed to the actual PLAYED span of the 8s file (its
+     data-duration — 7.0s/6.5s/6.5s of 8.0s — verified via ffmpeg silencedetect
+     to land right before a real silence gap in each clip), not the full row.
+     No translucent tint on top (that made it hard to tell what was colored
+     vs not) — legibility comes purely from the white/dim base image vs the
+     bright recolored reveal image showing through, same as hold-you-down.
+     Width(reveal)/height(base+reveal, via `100%` so it tracks the row's own
+     animated height) + overflow:hidden is the technique hold-you-down
+     confirmed animates correctly under HyperFrames' deterministic render —
+     percentage widths and clip-path did not. */
   .h3-wave-base {
     position: absolute;
     inset: 0;
     background-repeat: no-repeat;
-    background-size: 1600px 110px;
-    opacity: 0.28;
+    background-size: 1600px 100%;
+    opacity: 0.4;
+    border-radius: 4px;
   }
+  .h3-wave-highlight {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  #h3-wave-jessica .h3-wave-highlight { width: 1400px; }
+  #h3-wave-kitty .h3-wave-highlight { width: 1300px; }
+  #h3-wave-dirtyfeet .h3-wave-highlight { width: 1300px; }
   .h3-wave-reveal {
     position: absolute;
     inset: 0;
@@ -142,15 +177,15 @@
     left: 0;
     top: 0;
     width: 1600px;
-    height: 110px;
+    height: 100%;
     background-repeat: no-repeat;
-    background-size: 1600px 110px;
+    background-size: 1600px 100%;
   }
   .h3-wave-playhead {
     position: absolute;
     top: 0;
     right: 0;
-    width: 5px;
+    width: 4px;
     height: 100%;
     background: #FFFFFF;
   }
@@ -160,24 +195,39 @@
   #h3-wave-kitty .h3-wave-reveal-img { background-image: url("assets/waveform/wave-kitty.png"); }
   #h3-wave-dirtyfeet .h3-wave-base { background-image: url("assets/waveform/wave-dirtyfeet-white.png"); }
   #h3-wave-dirtyfeet .h3-wave-reveal-img { background-image: url("assets/waveform/wave-dirtyfeet.png"); }
-  #h3-wave-jessica .h3-wave-playhead { box-shadow: 0 0 22px 5px rgba(240, 205, 106, 0.85); }
-  #h3-wave-kitty .h3-wave-playhead { box-shadow: 0 0 22px 5px rgba(79, 209, 197, 0.85); }
-  #h3-wave-dirtyfeet .h3-wave-playhead { box-shadow: 0 0 22px 5px rgba(232, 112, 10, 0.85); }
-  .h3-wave-label {
+  #h3-wave-jessica .h3-wave-playhead { box-shadow: 0 0 18px 4px rgba(240, 205, 106, 0.85); }
+  #h3-wave-kitty .h3-wave-playhead { box-shadow: 0 0 18px 4px rgba(79, 209, 197, 0.85); }
+  #h3-wave-dirtyfeet .h3-wave-playhead { box-shadow: 0 0 18px 4px rgba(232, 112, 10, 0.85); }
+  /* metadata, Tracklib-style: track name + year, one compact line in the row's
+     left margin (kept clear of the row's own 1600px box so it can't collide
+     with the caption text, which only ever renders inside that box) */
+  .h3-wave-meta {
     position: absolute;
-    left: -18px;
+    left: -16px;
     top: 50%;
     transform: translate(-100%, -50%);
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
     font-family: "Inter", sans-serif;
-    font-weight: 800;
-    font-size: 24px;
-    letter-spacing: 0.04em;
     white-space: nowrap;
+  }
+  .h3-wave-meta-title {
+    font-weight: 800;
+    font-size: 16px;
+    letter-spacing: 0.02em;
     text-shadow: 0 0 6px rgba(0, 0, 0, 0.9), 0 0 3px rgba(0, 0, 0, 0.9);
   }
-  #h3-wave-jessica .h3-wave-label { color: #F0CD6A; }
-  #h3-wave-kitty .h3-wave-label { color: #4FD1C5; }
-  #h3-wave-dirtyfeet .h3-wave-label { color: #E8700A; }
+  .h3-wave-meta-sub {
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.02em;
+    color: #8A8A8A;
+    text-shadow: 0 0 6px rgba(0, 0, 0, 0.9);
+  }
+  #h3-wave-jessica .h3-wave-meta-title { color: #F0CD6A; }
+  #h3-wave-kitty .h3-wave-meta-title { color: #4FD1C5; }
+  #h3-wave-dirtyfeet .h3-wave-meta-title { color: #E8700A; }
 
   /* ---- kitchen-stove MV insert (phase 3, stove myth) ---- */
   .h3-kitchen-card {
@@ -287,36 +337,51 @@
     <div data-hf-id="hf-xey2" class="h3-wave-stack" id="h3-wave-stack">
 
       <div data-hf-id="hf-b74c" class="h3-wave-row" id="h3-wave-jessica">
-        <span data-hf-id="hf-2745" class="h3-wave-label">Jessica</span>
+        <div data-hf-id="hf-2745" class="h3-wave-meta">
+          <div data-hf-id="hf-2746" class="h3-wave-meta-title">Jessica</div>
+          <div data-hf-id="hf-2747" class="h3-wave-meta-sub">1969</div>
+        </div>
         <div data-hf-id="hf-ezcn" class="h3-wave-base"></div>
-        <div data-hf-id="hf-nx2x" class="h3-wave-reveal" id="h3-wave-jessica-reveal">
-          <div data-hf-id="hf-8g6l" class="h3-wave-reveal-img"></div>
-          <div data-hf-id="hf-df18" class="h3-wave-playhead"></div>
+        <div data-hf-id="hf-ctx1" class="h3-wave-highlight">
+          <div data-hf-id="hf-nx2x" class="h3-wave-reveal" id="h3-wave-jessica-reveal">
+            <div data-hf-id="hf-8g6l" class="h3-wave-reveal-img" data-layout-allow-overflow="true"></div>
+            <div data-hf-id="hf-df18" class="h3-wave-playhead"></div>
+          </div>
         </div>
       </div>
 
       <div data-hf-id="hf-nu27" class="h3-wave-row" id="h3-wave-kitty">
-        <span data-hf-id="hf-tkz0" class="h3-wave-label">Kitty</span>
+        <div data-hf-id="hf-tkz0" class="h3-wave-meta">
+          <div data-hf-id="hf-tkz1" class="h3-wave-meta-title">Kitty</div>
+          <div data-hf-id="hf-tkz2" class="h3-wave-meta-sub">1971</div>
+        </div>
         <div data-hf-id="hf-knlj" class="h3-wave-base"></div>
-        <div data-hf-id="hf-qljs" class="h3-wave-reveal" id="h3-wave-kitty-reveal">
-          <div data-hf-id="hf-3b1d" class="h3-wave-reveal-img"></div>
-          <div data-hf-id="hf-0r4k" class="h3-wave-playhead"></div>
+        <div data-hf-id="hf-ctx2" class="h3-wave-highlight">
+          <div data-hf-id="hf-qljs" class="h3-wave-reveal" id="h3-wave-kitty-reveal">
+            <div data-hf-id="hf-3b1d" class="h3-wave-reveal-img" data-layout-allow-overflow="true"></div>
+            <div data-hf-id="hf-0r4k" class="h3-wave-playhead"></div>
+          </div>
         </div>
       </div>
 
       <div data-hf-id="hf-9vli" class="h3-wave-row" id="h3-wave-dirtyfeet">
-        <span data-hf-id="hf-kg91" class="h3-wave-label">Dirty Feet</span>
+        <div data-hf-id="hf-kg91" class="h3-wave-meta">
+          <div data-hf-id="hf-kg92" class="h3-wave-meta-title">Dirty Feet</div>
+          <div data-hf-id="hf-kg93" class="h3-wave-meta-sub">1975</div>
+        </div>
         <div data-hf-id="hf-k9ai" class="h3-wave-base"></div>
-        <div data-hf-id="hf-hq3j" class="h3-wave-reveal" id="h3-wave-dirtyfeet-reveal">
-          <div data-hf-id="hf-4hyg" class="h3-wave-reveal-img"></div>
-          <div data-hf-id="hf-zk7h" class="h3-wave-playhead"></div>
+        <div data-hf-id="hf-ctx3" class="h3-wave-highlight">
+          <div data-hf-id="hf-hq3j" class="h3-wave-reveal" id="h3-wave-dirtyfeet-reveal">
+            <div data-hf-id="hf-4hyg" class="h3-wave-reveal-img" data-layout-allow-overflow="true"></div>
+            <div data-hf-id="hf-zk7h" class="h3-wave-playhead"></div>
+          </div>
         </div>
       </div>
 
     </div>
   </div>
 
-  <!-- ============ SAMPLE AUDIO (white waveform = surrounding audio from 2s before the sampled hit; reveal-colored portion = the actual sampled moment, same continuous take) ============ -->
+  <!-- ============ SAMPLE AUDIO (the 8s clip is the isolated/looped sample itself; the tinted band marks it, the colored reveal scrub-plays it) ============ -->
   <audio data-hf-id="hf-wa-jes" id="h3-wave-jessica-audio" src="assets/waveform/sample-jessica-8s.wav" data-start="5.5" data-duration="7.0" data-track-index="10" data-volume="0.85"></audio>
   <audio data-hf-id="hf-wa-kit" id="h3-wave-kitty-audio" src="assets/waveform/sample-kitty-8s.wav" data-start="10.9" data-duration="6.5" data-track-index="11" data-volume="0.85"></audio>
   <audio data-hf-id="hf-wa-dfe" id="h3-wave-dirtyfeet-audio" src="assets/waveform/sample-dirtyfeet-8s.wav" data-start="15.9" data-duration="6.5" data-track-index="12" data-volume="0.85"></audio>
@@ -351,7 +416,7 @@
       <div data-hf-id="hf-vrwm" class="h3-cap" id="h3-cap-2" style="display:none;">
         <div data-hf-id="hf-bkfh" class="h3-cap-text">
           <span data-hf-id="hf-w2fy" class="h3-phrase" id="h3-cap-2-p0"><span data-hf-id="hf-bqn9" class="h3-latin">Quincy Jones</span>の</span>
-          <span data-hf-id="hf-7hpw" class="h3-phrase" id="h3-cap-2-p1">「<span data-hf-id="hf-dkyd" class="h3-latin">Kitty With the Bent Frame</span>」からハイハット、</span>
+          <span data-hf-id="hf-7hpw" class="h3-phrase" id="h3-cap-2-p1">「<span data-hf-id="hf-dkyd" class="h3-latin">Kitty With the Bent Frame</span>」からストリングス、</span>
         </div>
       </div>
 
@@ -364,7 +429,7 @@
 
       <div data-hf-id="hf-gap0" class="h3-cap" id="h3-cap-4" style="display:none;">
         <div data-hf-id="hf-dy9n" class="h3-cap-text">
-          <span data-hf-id="hf-8kf9" class="h3-phrase" id="h3-cap-4-p0">この3つを重ねて、</span>
+          <span data-hf-id="hf-8kf9" class="h3-phrase" id="h3-cap-4-p0">この3つに、<span data-hf-id="hf-8kfa" class="h3-latin">Havoc</span>自身のハイハットを重ねて、</span>
           <span data-hf-id="hf-sy4y" class="h3-phrase" id="h3-cap-4-p1">あの不穏な質感を作り上げました。</span>
         </div>
       </div>
@@ -480,29 +545,92 @@
     tl.to("#h3-jacket-jones .h3-jacket-tag, #h3-jacket-daly .h3-jacket-tag, #h3-jacket-hancock .h3-jacket-tag",
       { opacity: 1, duration: 0.4, ease: "power2.out", stagger: 0.15 }, 2.6);
 
-    // ================= JACKET RINGS: highlight the jacket currently being explained =================
+    // settle to a smaller resting size once introduced, leaving them lined up
+    // (per operator direction) but freeing visual weight for the zoom-in below
+    tl.to("#h3-jacket-hancock, #h3-jacket-jones, #h3-jacket-daly",
+      { scale: 0.62, duration: 0.5, ease: "power2.inOut" }, 3.2);
+
+    // ================= JACKET RINGS + ZOOM: the jacket currently being explained
+    // pops back up to full size (in place — the tag scales up with it) exactly
+    // while its own waveform is in the spotlight slot below =================
     tl.fromTo("#h3-ring-hancock", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out" }, 7.0);
+    tl.to("#h3-jacket-hancock", { scale: 1, duration: 0.35, ease: "power2.out" }, 7.0);
     tl.to("#h3-ring-hancock", { opacity: 0, duration: 0.3, ease: "power2.in" }, 12.3);
+    tl.to("#h3-jacket-hancock", { scale: 0.62, duration: 0.35, ease: "power2.in" }, 12.3);
     tl.fromTo("#h3-ring-jones", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out" }, 12.9);
+    tl.to("#h3-jacket-jones", { scale: 1, duration: 0.35, ease: "power2.out" }, 12.9);
     tl.to("#h3-ring-jones", { opacity: 0, duration: 0.3, ease: "power2.in" }, 17.3);
+    tl.to("#h3-jacket-jones", { scale: 0.62, duration: 0.35, ease: "power2.in" }, 17.3);
     tl.fromTo("#h3-ring-daly", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out" }, 17.9);
+    tl.to("#h3-jacket-daly", { scale: 1, duration: 0.35, ease: "power2.out" }, 17.9);
     tl.to("#h3-ring-daly", { opacity: 0, duration: 0.3, ease: "power2.in" }, 22.3);
+    tl.to("#h3-jacket-daly", { scale: 0.62, duration: 0.35, ease: "power2.in" }, 22.3);
 
     // jackets recede into the background once the sample breakdown is told,
     // making room for the anecdote captions (phase 1 -> phase 2 handoff)
     tl.to("#h3-jacket-cluster", { scale: 0.8, y: -60, opacity: 0.28, duration: 1.0, ease: "power2.inOut" }, 26.5);
 
     // ================= WAVEFORM STACK =================
-    // waterfall-entry: three rows rise/fade in, tight stagger
-    tl.fromTo("#h3-wave-jessica", { opacity: 0, y: 36 }, { opacity: 1, y: 0, duration: 0.5, ease: "power4.out" }, 6.9);
-    tl.fromTo("#h3-wave-kitty", { opacity: 0, y: 36 }, { opacity: 1, y: 0, duration: 0.5, ease: "power4.out" }, 7.05);
-    tl.fromTo("#h3-wave-dirtyfeet", { opacity: 0, y: 36 }, { opacity: 1, y: 0, duration: 0.5, ease: "power4.out" }, 7.2);
+    // waterfall-entry: three rows rise/fade in, tight stagger, each settling
+    // into its own thin idle slot
+    tl.fromTo("#h3-wave-jessica", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, ease: "power4.out" }, 6.9);
+    tl.fromTo("#h3-wave-kitty", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, ease: "power4.out" }, 7.05);
+    tl.fromTo("#h3-wave-dirtyfeet", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, ease: "power4.out" }, 7.2);
+
+    // spotlight: whichever sample is currently being explained jumps from its
+    // thin idle slot to a shared, much taller slot (effective top:0,
+    // height:150) and renders above its still-thin siblings, exactly in sync
+    // with its own jacket zoom above and its own <audio> window — then drops
+    // back. Repositioning uses `y` (transform), not `top` — a lint rule here
+    // flags `top`-based motion because it snaps to integer device pixels
+    // under HyperFrames' seek-by-frame capture and can stutter; each row's
+    // CSS `top` stays fixed at its idle slot and `y` shifts it the rest of
+    // the way (kitty/dirtyfeet's idle top is already 26px/52px, so y:-26/-52
+    // brings them level with jessica's slot at effective 0).
+    // meta labels live outside each row's own graphic (left margin), so they
+    // aren't covered by the spotlight row's z-index the way the graphic
+    // covers its neighbors — dim the other two labels while one is spotlit
+    // so they don't visually collide with the enlarged one's relocated label
+    tl.set("#h3-wave-jessica", { zIndex: 5 }, 6.95);
+    tl.to("#h3-wave-jessica", { height: 150, duration: 0.35, ease: "power2.out" }, 7.0);
+    tl.to("#h3-wave-kitty .h3-wave-meta, #h3-wave-dirtyfeet .h3-wave-meta", { opacity: 0, duration: 0.25 }, 7.0);
+    tl.to("#h3-wave-jessica", { height: 18, duration: 0.35, ease: "power2.in" }, 12.3);
+    tl.to("#h3-wave-kitty .h3-wave-meta, #h3-wave-dirtyfeet .h3-wave-meta", { opacity: 1, duration: 0.25 }, 12.3);
+    tl.set("#h3-wave-jessica", { zIndex: 1 }, 12.7);
+
+    tl.set("#h3-wave-kitty", { zIndex: 5 }, 12.85);
+    tl.to("#h3-wave-kitty", { y: -26, height: 150, duration: 0.35, ease: "power2.out" }, 12.9);
+    tl.to("#h3-wave-jessica .h3-wave-meta, #h3-wave-dirtyfeet .h3-wave-meta", { opacity: 0, duration: 0.25 }, 12.9);
+    tl.to("#h3-wave-kitty", { y: 0, height: 18, duration: 0.35, ease: "power2.in" }, 17.3);
+    tl.to("#h3-wave-jessica .h3-wave-meta, #h3-wave-dirtyfeet .h3-wave-meta", { opacity: 1, duration: 0.25 }, 17.3);
+    tl.set("#h3-wave-kitty", { zIndex: 1 }, 17.7);
+
+    tl.set("#h3-wave-dirtyfeet", { zIndex: 5 }, 17.85);
+    tl.to("#h3-wave-dirtyfeet", { y: -52, height: 150, duration: 0.35, ease: "power2.out" }, 17.9);
+    tl.to("#h3-wave-jessica .h3-wave-meta, #h3-wave-kitty .h3-wave-meta", { opacity: 0, duration: 0.25 }, 17.9);
+    tl.to("#h3-wave-dirtyfeet", { y: 0, height: 18, duration: 0.35, ease: "power2.in" }, 22.3);
+    tl.to("#h3-wave-jessica .h3-wave-meta, #h3-wave-kitty .h3-wave-meta", { opacity: 1, duration: 0.25 }, 22.3);
+    tl.set("#h3-wave-dirtyfeet", { zIndex: 1 }, 22.7);
 
     // gsap-effects audio-visualizer: scrub playback highlight sweeps each row
     // left-to-right in narration order (Jessica piano -> Kitty hats -> Dirty Feet drums)
-    tl.fromTo("#h3-wave-jessica-reveal", { width: "0%" }, { width: "100%", duration: 5.0, ease: "power1.inOut" }, 7.5);
-    tl.fromTo("#h3-wave-kitty-reveal", { width: "0%" }, { width: "100%", duration: 4.5, ease: "power1.inOut" }, 12.9);
-    tl.fromTo("#h3-wave-dirtyfeet-reveal", { width: "0%" }, { width: "100%", duration: 4.5, ease: "power1.inOut" }, 17.9);
+    /* pixel-width tweens, not percentage — matches the back-to-the-melody/
+       hold-you-down recipe. A percentage width tween on this reveal box
+       rendered as already-complete on every captured frame under
+       HyperFrames' deterministic renderer (verified by sampling render
+       output frames a second apart and finding them byte-identical); plain
+       pixel widths animate correctly. Each end value is that sample's
+       .h3-wave-highlight box width (1400/1300/1300px), which is exactly
+       200px/s (1600px over the 8.0s file) times that sample's own audio
+       data-duration — so the tween's start time/duration are pinned to
+       match the <audio> element's own data-start/data-duration exactly,
+       with ease:"none" (linear, like hold-you-down) so the playhead moves
+       at constant real-time speed instead of easing ahead of/behind the
+       actual sound. Previously this started 2s after its audio and ran on
+       an eased, shorter duration — the bar moved but never matched the ear. */
+    tl.fromTo("#h3-wave-jessica-reveal", { width: 4 }, { width: 1400, duration: 7.0, ease: "none", immediateRender: false }, 5.5);
+    tl.fromTo("#h3-wave-kitty-reveal", { width: 4 }, { width: 1300, duration: 6.5, ease: "none", immediateRender: false }, 10.9);
+    tl.fromTo("#h3-wave-dirtyfeet-reveal", { width: 4 }, { width: 1300, duration: 6.5, ease: "none", immediateRender: false }, 15.9);
 
     // once all three have played, the stack dims to ambient texture behind
     // the anecdote (phase 2) — never fully hidden, keeps the beat "alive"
