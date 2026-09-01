@@ -204,7 +204,6 @@
   .h3-wave-meta {
     position: absolute;
     left: -16px;
-    top: 50%;
     transform: translate(-100%, -50%);
     display: flex;
     align-items: baseline;
@@ -212,6 +211,9 @@
     font-family: "Inter", sans-serif;
     white-space: nowrap;
   }
+  #h3-wave-jessica-meta { top: 9px; }
+  #h3-wave-kitty-meta { top: 35px; }
+  #h3-wave-dirtyfeet-meta { top: 61px; }
   .h3-wave-meta-title {
     font-weight: 800;
     font-size: 16px;
@@ -225,9 +227,9 @@
     color: #8A8A8A;
     text-shadow: 0 0 6px rgba(0, 0, 0, 0.9);
   }
-  #h3-wave-jessica .h3-wave-meta-title { color: #F0CD6A; }
-  #h3-wave-kitty .h3-wave-meta-title { color: #4FD1C5; }
-  #h3-wave-dirtyfeet .h3-wave-meta-title { color: #E8700A; }
+  #h3-wave-jessica-meta .h3-wave-meta-title { color: #F0CD6A; }
+  #h3-wave-kitty-meta .h3-wave-meta-title { color: #4FD1C5; }
+  #h3-wave-dirtyfeet-meta .h3-wave-meta-title { color: #E8700A; }
 
   /* ---- kitchen-stove MV insert (phase 3, stove myth) ---- */
   .h3-kitchen-card {
@@ -337,10 +339,6 @@
     <div data-hf-id="hf-xey2" class="h3-wave-stack" id="h3-wave-stack">
 
       <div data-hf-id="hf-b74c" class="h3-wave-row" id="h3-wave-jessica">
-        <div data-hf-id="hf-2745" class="h3-wave-meta">
-          <div data-hf-id="hf-2746" class="h3-wave-meta-title">Jessica</div>
-          <div data-hf-id="hf-2747" class="h3-wave-meta-sub">1969</div>
-        </div>
         <div data-hf-id="hf-ezcn" class="h3-wave-base"></div>
         <div data-hf-id="hf-ctx1" class="h3-wave-highlight">
           <div data-hf-id="hf-nx2x" class="h3-wave-reveal" id="h3-wave-jessica-reveal">
@@ -351,10 +349,6 @@
       </div>
 
       <div data-hf-id="hf-nu27" class="h3-wave-row" id="h3-wave-kitty">
-        <div data-hf-id="hf-tkz0" class="h3-wave-meta">
-          <div data-hf-id="hf-tkz1" class="h3-wave-meta-title">Kitty</div>
-          <div data-hf-id="hf-tkz2" class="h3-wave-meta-sub">1971</div>
-        </div>
         <div data-hf-id="hf-knlj" class="h3-wave-base"></div>
         <div data-hf-id="hf-ctx2" class="h3-wave-highlight">
           <div data-hf-id="hf-qljs" class="h3-wave-reveal" id="h3-wave-kitty-reveal">
@@ -365,10 +359,6 @@
       </div>
 
       <div data-hf-id="hf-9vli" class="h3-wave-row" id="h3-wave-dirtyfeet">
-        <div data-hf-id="hf-kg91" class="h3-wave-meta">
-          <div data-hf-id="hf-kg92" class="h3-wave-meta-title">Dirty Feet</div>
-          <div data-hf-id="hf-kg93" class="h3-wave-meta-sub">1975</div>
-        </div>
         <div data-hf-id="hf-k9ai" class="h3-wave-base"></div>
         <div data-hf-id="hf-ctx3" class="h3-wave-highlight">
           <div data-hf-id="hf-hq3j" class="h3-wave-reveal" id="h3-wave-dirtyfeet-reveal">
@@ -376,6 +366,26 @@
             <div data-hf-id="hf-zk7h" class="h3-wave-playhead"></div>
           </div>
         </div>
+      </div>
+
+      <!-- meta labels are siblings of the rows, not children — each row's
+           `y`/`height` spotlight tween must never carry its own label along
+           with it (a nested label inherits the parent's transform, so a
+           moving row would drag its label into whichever other row's label
+           sits at that shared destination and the two would visually
+           collide/swap — this happened in practice and is why these live
+           here, fixed to each row's own idle slot, instead). -->
+      <div data-hf-id="hf-2745" class="h3-wave-meta" id="h3-wave-jessica-meta">
+        <div data-hf-id="hf-2746" class="h3-wave-meta-title">Jessica</div>
+        <div data-hf-id="hf-2747" class="h3-wave-meta-sub">1969</div>
+      </div>
+      <div data-hf-id="hf-tkz0" class="h3-wave-meta" id="h3-wave-kitty-meta">
+        <div data-hf-id="hf-tkz1" class="h3-wave-meta-title">Kitty</div>
+        <div data-hf-id="hf-tkz2" class="h3-wave-meta-sub">1971</div>
+      </div>
+      <div data-hf-id="hf-kg91" class="h3-wave-meta" id="h3-wave-dirtyfeet-meta">
+        <div data-hf-id="hf-kg92" class="h3-wave-meta-title">Dirty Feet</div>
+        <div data-hf-id="hf-kg93" class="h3-wave-meta-sub">1975</div>
       </div>
 
     </div>
@@ -593,23 +603,23 @@
     // so they don't visually collide with the enlarged one's relocated label
     tl.set("#h3-wave-jessica", { zIndex: 5 }, 6.95);
     tl.to("#h3-wave-jessica", { height: 150, duration: 0.35, ease: "power2.out" }, 7.0);
-    tl.to("#h3-wave-kitty .h3-wave-meta, #h3-wave-dirtyfeet .h3-wave-meta", { opacity: 0, duration: 0.25 }, 7.0);
+    tl.to("#h3-wave-kitty-meta, #h3-wave-dirtyfeet-meta", { opacity: 0, duration: 0.25 }, 7.0);
     tl.to("#h3-wave-jessica", { height: 18, duration: 0.35, ease: "power2.in" }, 12.3);
-    tl.to("#h3-wave-kitty .h3-wave-meta, #h3-wave-dirtyfeet .h3-wave-meta", { opacity: 1, duration: 0.25 }, 12.3);
+    tl.to("#h3-wave-kitty-meta, #h3-wave-dirtyfeet-meta", { opacity: 1, duration: 0.25 }, 12.3);
     tl.set("#h3-wave-jessica", { zIndex: 1 }, 12.7);
 
     tl.set("#h3-wave-kitty", { zIndex: 5 }, 12.85);
     tl.to("#h3-wave-kitty", { y: -26, height: 150, duration: 0.35, ease: "power2.out" }, 12.9);
-    tl.to("#h3-wave-jessica .h3-wave-meta, #h3-wave-dirtyfeet .h3-wave-meta", { opacity: 0, duration: 0.25 }, 12.9);
+    tl.to("#h3-wave-jessica-meta, #h3-wave-dirtyfeet-meta", { opacity: 0, duration: 0.25 }, 12.9);
     tl.to("#h3-wave-kitty", { y: 0, height: 18, duration: 0.35, ease: "power2.in" }, 17.3);
-    tl.to("#h3-wave-jessica .h3-wave-meta, #h3-wave-dirtyfeet .h3-wave-meta", { opacity: 1, duration: 0.25 }, 17.3);
+    tl.to("#h3-wave-jessica-meta, #h3-wave-dirtyfeet-meta", { opacity: 1, duration: 0.25 }, 17.3);
     tl.set("#h3-wave-kitty", { zIndex: 1 }, 17.7);
 
     tl.set("#h3-wave-dirtyfeet", { zIndex: 5 }, 17.85);
     tl.to("#h3-wave-dirtyfeet", { y: -52, height: 150, duration: 0.35, ease: "power2.out" }, 17.9);
-    tl.to("#h3-wave-jessica .h3-wave-meta, #h3-wave-kitty .h3-wave-meta", { opacity: 0, duration: 0.25 }, 17.9);
+    tl.to("#h3-wave-jessica-meta, #h3-wave-kitty-meta", { opacity: 0, duration: 0.25 }, 17.9);
     tl.to("#h3-wave-dirtyfeet", { y: 0, height: 18, duration: 0.35, ease: "power2.in" }, 22.3);
-    tl.to("#h3-wave-jessica .h3-wave-meta, #h3-wave-kitty .h3-wave-meta", { opacity: 1, duration: 0.25 }, 22.3);
+    tl.to("#h3-wave-jessica-meta, #h3-wave-kitty-meta", { opacity: 1, duration: 0.25 }, 22.3);
     tl.set("#h3-wave-dirtyfeet", { zIndex: 1 }, 22.7);
 
     // gsap-effects audio-visualizer: scrub playback highlight sweeps each row
