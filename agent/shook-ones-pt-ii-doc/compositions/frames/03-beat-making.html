@@ -51,9 +51,16 @@
   }
 
   /* ---- jackets ---- */
+  /* Raised from 300px to free the bottom band for the waveform stack. The
+     frame's lower half was over-committed: a 2-line caption (cap-0, cap-2)
+     reaches up to y=785 (bottom:86 + 28px padding + 2 x 54px/1.42 lines + 28),
+     and the zoomed 2-line Jones tag reached y=693, leaving the stack only
+     ~92px between them — which is why the spotlit wave and the caption box
+     kept colliding no matter how the rows themselves were arranged. At 208px
+     the tags bottom out at ~601 and the stack gets a real 156px lane. */
   .h3-jacket-cluster {
     position: absolute;
-    top: 300px;
+    top: 208px;
     left: 0;
     right: 0;
     height: 260px;
@@ -108,17 +115,34 @@
   }
 
   /* ---- waveform stack ---- */
-  /* Idle/spotlight recipe: each row rests as a thin labeled bar in its own
-     slot (top:0/26/52, all three visible at once, like 3 records lined up).
-     When that sample's turn comes it jumps to a shared, much taller slot
-     (top:0, height:150) in sync with its own jacket zoom (below) and its own
-     <audio> element, rendering above its still-thin siblings, then drops
-     back. This replaces an earlier fixed-3-simultaneous-rows layout that
-     could only fit ~32px-tall waveforms before running into the caption box
-     (bottom:86px, top edge ~861px even for a single caption line). */
+  /* Non-overlapping spotlight recipe. Each row rests as a thin labeled bar in
+     its own slot (top 0/26/52, height 18 — three records lined up). When a
+     sample's turn comes its row grows DOWNWARD to height 104 and every row
+     BELOW it slides down by the same 86px, so the three rows keep their order
+     and a constant 8px gap at every instant of every transition.
+
+     Why it has to work this way: the previous version parked all three rows
+     at a shared spotlight slot (top:0, height:150) and grew the active one in
+     place. Because a row's waveform is drawn centered in its own box
+     (background-size: ... 100% on an inset:0 layer), animating that box's
+     height swept the wave's centre line from y=9 down to y=75 — straight
+     through the idle rows' centre lines at y=35 and y=61. On screen the gold
+     Jessica wave slid down onto the teal Kitty wave and back up again on the
+     way out, which read exactly as the reported "Jessica の上に Kitty が来
+     る / 入れ替わる". z-index hid none of it: both lines were lit. Growing
+     downward and pushing the rows below keeps bottom(row_i) and top(row_i+1)
+     carrying the identical +86p term, so the gap is 8px for every p — the
+     crossing is structurally impossible now, not merely hidden.
+
+     Vertical budget: 156px = 104 + 8 + 18 + 8 + 18, running 616->772. The
+     jacket cluster above was raised to 208px so the zoomed 2-line tag bottoms
+     out at ~601, and the tallest caption shown during this stretch (cap-2, two
+     lines) starts at ~785 — so the lane has ~15px clearance top and ~13px
+     bottom. Both numbers matter: at the old 705px the stack ran to 861 and a
+     2-line caption sat on top of the bottom two rows. */
   .h3-wave-stack {
     position: absolute;
-    top: 705px;
+    top: 616px;
     left: 50%;
     transform: translateX(-50%);
     width: 1600px;
@@ -136,10 +160,15 @@
   #h3-wave-jessica { top: 0px; }
   #h3-wave-kitty { top: 26px; }
   #h3-wave-dirtyfeet { top: 52px; }
-  /* Sample-breakdown recipe ported from back-to-the-melody/hold-you-down: the
-     highlight box is fixed to the actual PLAYED span of the 8s file (its
-     data-duration — 7.0s/6.5s/6.5s of 8.0s — verified via ffmpeg silencedetect
-     to land right before a real silence gap in each clip), not the full row.
+  /* Sample-breakdown recipe ported from back-to-the-melody/hold-you-down.
+     The *-cut.wav clips are trimmed to exactly the window their own narration
+     line occupies (5.5s / 4.5s / 4.5s, 0.4s fade-out) and each wave-*-cut.png
+     is rendered from that trimmed clip, so the full 1600px width IS the full
+     played span: the playhead sweeps the whole bar and finishes with the line.
+     The earlier 8s clips started 1.5-2s before their own caption, so the next
+     sample's playhead was already sweeping a thin row while the previous
+     sample still held the spotlight — a second, compounding source of the
+     "waves swapping" read.
      No translucent tint on top (that made it hard to tell what was colored
      vs not) — legibility comes purely from the white/dim base image vs the
      bright recolored reveal image showing through, same as hold-you-down.
@@ -163,9 +192,7 @@
     border-radius: 4px;
     overflow: hidden;
   }
-  #h3-wave-jessica .h3-wave-highlight { width: 1400px; }
-  #h3-wave-kitty .h3-wave-highlight { width: 1300px; }
-  #h3-wave-dirtyfeet .h3-wave-highlight { width: 1300px; }
+  .h3-wave-highlight { width: 1600px; }
   .h3-wave-reveal {
     position: absolute;
     inset: 0;
@@ -189,18 +216,24 @@
     height: 100%;
     background: #FFFFFF;
   }
-  #h3-wave-jessica .h3-wave-base { background-image: url("assets/waveform/wave-jessica-white.png"); }
-  #h3-wave-jessica .h3-wave-reveal-img { background-image: url("assets/waveform/wave-jessica.png"); }
-  #h3-wave-kitty .h3-wave-base { background-image: url("assets/waveform/wave-kitty-white.png"); }
-  #h3-wave-kitty .h3-wave-reveal-img { background-image: url("assets/waveform/wave-kitty.png"); }
-  #h3-wave-dirtyfeet .h3-wave-base { background-image: url("assets/waveform/wave-dirtyfeet-white.png"); }
-  #h3-wave-dirtyfeet .h3-wave-reveal-img { background-image: url("assets/waveform/wave-dirtyfeet.png"); }
+  #h3-wave-jessica .h3-wave-base { background-image: url("assets/waveform/wave-jessica-cut-white.png"); }
+  #h3-wave-jessica .h3-wave-reveal-img { background-image: url("assets/waveform/wave-jessica-cut.png"); }
+  #h3-wave-kitty .h3-wave-base { background-image: url("assets/waveform/wave-kitty-cut-white.png"); }
+  #h3-wave-kitty .h3-wave-reveal-img { background-image: url("assets/waveform/wave-kitty-cut.png"); }
+  #h3-wave-dirtyfeet .h3-wave-base { background-image: url("assets/waveform/wave-dirtyfeet-cut-white.png"); }
+  #h3-wave-dirtyfeet .h3-wave-reveal-img { background-image: url("assets/waveform/wave-dirtyfeet-cut.png"); }
   #h3-wave-jessica .h3-wave-playhead { box-shadow: 0 0 18px 4px rgba(240, 205, 106, 0.85); }
   #h3-wave-kitty .h3-wave-playhead { box-shadow: 0 0 18px 4px rgba(79, 209, 197, 0.85); }
   #h3-wave-dirtyfeet .h3-wave-playhead { box-shadow: 0 0 18px 4px rgba(232, 112, 10, 0.85); }
   /* metadata, Tracklib-style: track name + year, one compact line in the row's
      left margin (kept clear of the row's own 1600px box so it can't collide
-     with the caption text, which only ever renders inside that box) */
+     with the caption text, which only ever renders inside that box).
+     These are siblings of the rows, not children: a nested label inherits its
+     row's y/height animation, so the spotlight tween used to drag the active
+     row's label down onto its neighbours' fixed labels. They now carry their
+     own y tween that mirrors their row's slot (+43 when that row is the tall
+     one, +86 when it sits below the tall one), which keeps every pair at
+     least 26px apart at all times. */
   .h3-wave-meta {
     position: absolute;
     left: -16px;
@@ -391,10 +424,15 @@
     </div>
   </div>
 
-  <!-- ============ SAMPLE AUDIO (the 8s clip is the isolated/looped sample itself; the tinted band marks it, the colored reveal scrub-plays it) ============ -->
-  <audio data-hf-id="hf-wa-jes" id="h3-wave-jessica-audio" src="assets/waveform/sample-jessica-8s.wav" data-start="5.5" data-duration="7.0" data-track-index="10" data-volume="0.85"></audio>
-  <audio data-hf-id="hf-wa-kit" id="h3-wave-kitty-audio" src="assets/waveform/sample-kitty-8s.wav" data-start="10.9" data-duration="6.5" data-track-index="11" data-volume="0.85"></audio>
-  <audio data-hf-id="hf-wa-dfe" id="h3-wave-dirtyfeet-audio" src="assets/waveform/sample-dirtyfeet-8s.wav" data-start="15.9" data-duration="6.5" data-track-index="12" data-volume="0.85"></audio>
+  <!-- ============ SAMPLE AUDIO ============ -->
+  <!-- Each clip is trimmed to its own narration window and starts exactly when
+       that sample's caption enters (cap-1 7.0 / cap-2 12.9 / cap-3 17.9), so
+       the sample you hear is always the one whose row is in the spotlight and
+       whose playhead is moving. The old 8s clips began 1.5-2s early, which put
+       the next sample's sweep on a thin row under the current tall one. -->
+  <audio data-hf-id="hf-wa-jes" id="h3-wave-jessica-audio" src="assets/waveform/sample-jessica-cut.wav" data-start="7.0" data-duration="5.5" data-track-index="10" data-volume="0.85"></audio>
+  <audio data-hf-id="hf-wa-kit" id="h3-wave-kitty-audio" src="assets/waveform/sample-kitty-cut.wav" data-start="12.9" data-duration="4.5" data-track-index="11" data-volume="0.85"></audio>
+  <audio data-hf-id="hf-wa-dfe" id="h3-wave-dirtyfeet-audio" src="assets/waveform/sample-dirtyfeet-cut.wav" data-start="17.9" data-duration="4.5" data-track-index="12" data-volume="0.85"></audio>
   <!-- the three samples layered together, right as cap-4 says so -->
   <audio data-hf-id="hf-wa-beat" id="h3-beat-audio" src="assets/waveform/beat-sample-8s.wav" data-start="22.9" data-duration="4.0" data-track-index="13" data-volume="0.9"></audio>
 
@@ -563,18 +601,20 @@
     // ================= JACKET RINGS + ZOOM: the jacket currently being explained
     // pops back up to full size (in place — the tag scales up with it) exactly
     // while its own waveform is in the spotlight slot below =================
-    tl.fromTo("#h3-ring-hancock", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out" }, 7.0);
-    tl.to("#h3-jacket-hancock", { scale: 1, duration: 0.35, ease: "power2.out" }, 7.0);
-    tl.to("#h3-ring-hancock", { opacity: 0, duration: 0.3, ease: "power2.in" }, 12.3);
-    tl.to("#h3-jacket-hancock", { scale: 0.62, duration: 0.35, ease: "power2.in" }, 12.3);
-    tl.fromTo("#h3-ring-jones", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out" }, 12.9);
-    tl.to("#h3-jacket-jones", { scale: 1, duration: 0.35, ease: "power2.out" }, 12.9);
-    tl.to("#h3-ring-jones", { opacity: 0, duration: 0.3, ease: "power2.in" }, 17.3);
-    tl.to("#h3-jacket-jones", { scale: 0.62, duration: 0.35, ease: "power2.in" }, 17.3);
-    tl.fromTo("#h3-ring-daly", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out" }, 17.9);
-    tl.to("#h3-jacket-daly", { scale: 1, duration: 0.35, ease: "power2.out" }, 17.9);
-    tl.to("#h3-ring-daly", { opacity: 0, duration: 0.3, ease: "power2.in" }, 22.3);
-    tl.to("#h3-jacket-daly", { scale: 0.62, duration: 0.35, ease: "power2.in" }, 22.3);
+    // pinned to the same handoff instants as the waveform spotlight below
+    // (6.95 / 12.5 / 17.5 / 22.5) so jacket, wave and sound move as one beat
+    tl.fromTo("#h3-ring-hancock", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out" }, 6.95);
+    tl.to("#h3-jacket-hancock", { scale: 1, duration: 0.4, ease: "power3.out" }, 6.95);
+    tl.to("#h3-ring-hancock", { opacity: 0, duration: 0.3, ease: "power2.in" }, 12.5);
+    tl.to("#h3-jacket-hancock", { scale: 0.62, duration: 0.4, ease: "power3.inOut" }, 12.5);
+    tl.fromTo("#h3-ring-jones", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out" }, 12.5);
+    tl.to("#h3-jacket-jones", { scale: 1, duration: 0.4, ease: "power3.inOut" }, 12.5);
+    tl.to("#h3-ring-jones", { opacity: 0, duration: 0.3, ease: "power2.in" }, 17.5);
+    tl.to("#h3-jacket-jones", { scale: 0.62, duration: 0.4, ease: "power3.inOut" }, 17.5);
+    tl.fromTo("#h3-ring-daly", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out" }, 17.5);
+    tl.to("#h3-jacket-daly", { scale: 1, duration: 0.4, ease: "power3.inOut" }, 17.5);
+    tl.to("#h3-ring-daly", { opacity: 0, duration: 0.3, ease: "power2.in" }, 22.5);
+    tl.to("#h3-jacket-daly", { scale: 0.62, duration: 0.4, ease: "power3.inOut" }, 22.5);
 
     // jackets recede into the background once the sample breakdown is told,
     // making room for the anecdote captions (phase 1 -> phase 2 handoff)
@@ -583,44 +623,66 @@
     // ================= WAVEFORM STACK =================
     // waterfall-entry: three rows rise/fade in, tight stagger, each settling
     // into its own thin idle slot
-    tl.fromTo("#h3-wave-jessica", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, ease: "power4.out" }, 6.9);
-    tl.fromTo("#h3-wave-kitty", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, ease: "power4.out" }, 7.05);
-    tl.fromTo("#h3-wave-dirtyfeet", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, ease: "power4.out" }, 7.2);
+    // enter while cap-0 is still saying "3枚を重ねて作られています" so the three
+    // lined-up bars land on that line, settled well before the first spotlight
+    tl.fromTo("#h3-wave-jessica", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, ease: "power4.out" }, 5.6);
+    tl.fromTo("#h3-wave-kitty", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, ease: "power4.out" }, 5.75);
+    tl.fromTo("#h3-wave-dirtyfeet", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, ease: "power4.out" }, 5.9);
+    tl.fromTo("#h3-wave-jessica-meta, #h3-wave-kitty-meta, #h3-wave-dirtyfeet-meta",
+      { opacity: 0 }, { opacity: 1, duration: 0.4, stagger: 0.15, ease: "power2.out" }, 5.6);
 
-    // spotlight: whichever sample is currently being explained jumps from its
-    // thin idle slot to a shared, much taller slot (effective top:0,
-    // height:150) and renders above its still-thin siblings, exactly in sync
-    // with its own jacket zoom above and its own <audio> window — then drops
-    // back. Repositioning uses `y` (transform), not `top` — a lint rule here
-    // flags `top`-based motion because it snaps to integer device pixels
-    // under HyperFrames' seek-by-frame capture and can stutter; each row's
-    // CSS `top` stays fixed at its idle slot and `y` shifts it the rest of
-    // the way (kitty/dirtyfeet's idle top is already 26px/52px, so y:-26/-52
-    // brings them level with jessica's slot at effective 0).
-    // meta labels live outside each row's own graphic (left margin), so they
-    // aren't covered by the spotlight row's z-index the way the graphic
-    // covers its neighbors — dim the other two labels while one is spotlit
-    // so they don't visually collide with the enlarged one's relocated label
-    tl.set("#h3-wave-jessica", { zIndex: 5 }, 6.95);
-    tl.to("#h3-wave-jessica", { height: 150, duration: 0.35, ease: "power2.out" }, 7.0);
-    tl.to("#h3-wave-kitty-meta, #h3-wave-dirtyfeet-meta", { opacity: 0, duration: 0.25 }, 7.0);
-    tl.to("#h3-wave-jessica", { height: 18, duration: 0.35, ease: "power2.in" }, 12.3);
-    tl.to("#h3-wave-kitty-meta, #h3-wave-dirtyfeet-meta", { opacity: 1, duration: 0.25 }, 12.3);
-    tl.set("#h3-wave-jessica", { zIndex: 1 }, 12.7);
+    // ---- spotlight: grow the active row DOWNWARD, push the rows below it ----
+    // Slots (CSS top): jessica 0, kitty 26, dirtyfeet 52; idle height 18.
+    // The tall row is 104px and every row under it takes y:+86, so the layout
+    // is one of four states and the 8px gaps never close:
+    //   idle    J 0-18    K 26-44    D 52-70
+    //   J tall  J 0-104   K 112-130  D 138-156
+    //   K tall  J 0-18    K 26-130   D 138-156
+    //   D tall  J 0-18    K 26-44    D 52-156
+    // Because bottom(row_i) and top(row_i+1) both carry the same +86p term
+    // during a tween, the gap holds at 8px for every intermediate frame too —
+    // this is what makes the old "wave slides over its neighbour" impossible
+    // rather than merely unlikely. Motion is `y` (transform) only: a lint rule
+    // here rejects `top`-based motion because it snaps to integer device
+    // pixels under seek-by-frame capture and stutters.
+    // Each label mirrors its own row (+43 when tall, +86 when pushed down) and
+    // stays >=26px clear of the others; nothing needs dimming to hide a clash,
+    // so all three names stay readable the whole way through.
+    var GROW = { duration: 0.4, ease: "power3.out" };
+    var SHRINK = { duration: 0.4, ease: "power3.inOut" };
 
-    tl.set("#h3-wave-kitty", { zIndex: 5 }, 12.85);
-    tl.to("#h3-wave-kitty", { y: -26, height: 150, duration: 0.35, ease: "power2.out" }, 12.9);
-    tl.to("#h3-wave-jessica-meta, #h3-wave-dirtyfeet-meta", { opacity: 0, duration: 0.25 }, 12.9);
-    tl.to("#h3-wave-kitty", { y: 0, height: 18, duration: 0.35, ease: "power2.in" }, 17.3);
-    tl.to("#h3-wave-jessica-meta, #h3-wave-dirtyfeet-meta", { opacity: 1, duration: 0.25 }, 17.3);
-    tl.set("#h3-wave-kitty", { zIndex: 1 }, 17.7);
+    // Jessica takes the spotlight (cap-1 / its audio, 7.0)
+    tl.to("#h3-wave-jessica", Object.assign({ height: 104 }, GROW), 6.95);
+    tl.to("#h3-wave-jessica-meta", Object.assign({ y: 43 }, GROW), 6.95);
+    tl.to("#h3-wave-kitty, #h3-wave-dirtyfeet", Object.assign({ y: 86 }, GROW), 6.95);
+    tl.to("#h3-wave-kitty-meta, #h3-wave-dirtyfeet-meta", Object.assign({ y: 86 }, GROW), 6.95);
+    tl.to("#h3-wave-kitty, #h3-wave-dirtyfeet, #h3-wave-kitty-meta, #h3-wave-dirtyfeet-meta",
+      { opacity: 0.5, duration: 0.4 }, 6.95);
 
-    tl.set("#h3-wave-dirtyfeet", { zIndex: 5 }, 17.85);
-    tl.to("#h3-wave-dirtyfeet", { y: -52, height: 150, duration: 0.35, ease: "power2.out" }, 17.9);
-    tl.to("#h3-wave-jessica-meta, #h3-wave-kitty-meta", { opacity: 0, duration: 0.25 }, 17.9);
-    tl.to("#h3-wave-dirtyfeet", { y: 0, height: 18, duration: 0.35, ease: "power2.in" }, 22.3);
-    tl.to("#h3-wave-jessica-meta, #h3-wave-kitty-meta", { opacity: 1, duration: 0.25 }, 22.3);
-    tl.set("#h3-wave-dirtyfeet", { zIndex: 1 }, 22.7);
+    // hand off to Kitty (cap-2 / its audio, 12.9): Jessica shrinks back to its
+    // own slot while Kitty rises into the space and grows — same tween window,
+    // so the two never occupy the same band
+    tl.to("#h3-wave-jessica", Object.assign({ height: 18 }, SHRINK), 12.5);
+    tl.to("#h3-wave-jessica-meta", Object.assign({ y: 0 }, SHRINK), 12.5);
+    tl.to("#h3-wave-kitty", Object.assign({ y: 0, height: 104 }, SHRINK), 12.5);
+    tl.to("#h3-wave-kitty-meta", Object.assign({ y: 43 }, SHRINK), 12.5);
+    tl.to("#h3-wave-kitty, #h3-wave-kitty-meta", { opacity: 1, duration: 0.4 }, 12.5);
+    tl.to("#h3-wave-jessica, #h3-wave-jessica-meta", { opacity: 0.5, duration: 0.4 }, 12.5);
+
+    // hand off to Dirty Feet (cap-3 / its audio, 17.9)
+    tl.to("#h3-wave-kitty", Object.assign({ height: 18 }, SHRINK), 17.5);
+    tl.to("#h3-wave-kitty-meta", Object.assign({ y: 0 }, SHRINK), 17.5);
+    tl.to("#h3-wave-dirtyfeet", Object.assign({ y: 0, height: 104 }, SHRINK), 17.5);
+    tl.to("#h3-wave-dirtyfeet-meta", Object.assign({ y: 43 }, SHRINK), 17.5);
+    tl.to("#h3-wave-dirtyfeet, #h3-wave-dirtyfeet-meta", { opacity: 1, duration: 0.4 }, 17.5);
+    tl.to("#h3-wave-kitty, #h3-wave-kitty-meta", { opacity: 0.5, duration: 0.4 }, 17.5);
+
+    // all three back to the lined-up idle state for cap-4 ("この3つに、Havoc
+    // 自身のハイハットを重ねて") — the three records read as a set again
+    tl.to("#h3-wave-dirtyfeet", Object.assign({ height: 18 }, SHRINK), 22.5);
+    tl.to("#h3-wave-dirtyfeet-meta", Object.assign({ y: 0 }, SHRINK), 22.5);
+    tl.to("#h3-wave-jessica, #h3-wave-kitty, #h3-wave-dirtyfeet, #h3-wave-jessica-meta, #h3-wave-kitty-meta, #h3-wave-dirtyfeet-meta",
+      { opacity: 1, duration: 0.4 }, 22.5);
 
     // gsap-effects audio-visualizer: scrub playback highlight sweeps each row
     // left-to-right in narration order (Jessica piano -> Kitty hats -> Dirty Feet drums)
@@ -629,18 +691,16 @@
        rendered as already-complete on every captured frame under
        HyperFrames' deterministic renderer (verified by sampling render
        output frames a second apart and finding them byte-identical); plain
-       pixel widths animate correctly. Each end value is that sample's
-       .h3-wave-highlight box width (1400/1300/1300px), which is exactly
-       200px/s (1600px over the 8.0s file) times that sample's own audio
-       data-duration — so the tween's start time/duration are pinned to
-       match the <audio> element's own data-start/data-duration exactly,
-       with ease:"none" (linear, like hold-you-down) so the playhead moves
-       at constant real-time speed instead of easing ahead of/behind the
-       actual sound. Previously this started 2s after its audio and ran on
-       an eased, shorter duration — the bar moved but never matched the ear. */
-    tl.fromTo("#h3-wave-jessica-reveal", { width: 4 }, { width: 1400, duration: 7.0, ease: "none", immediateRender: false }, 5.5);
-    tl.fromTo("#h3-wave-kitty-reveal", { width: 4 }, { width: 1300, duration: 6.5, ease: "none", immediateRender: false }, 10.9);
-    tl.fromTo("#h3-wave-dirtyfeet-reveal", { width: 4 }, { width: 1300, duration: 6.5, ease: "none", immediateRender: false }, 15.9);
+       pixel widths animate correctly. Each PNG is now rendered from the very
+       clip that plays under it, so the end value is the full 1600px bar and
+       the start/duration are the <audio> element's own data-start and
+       data-duration — the sweep begins with the first sample of sound,
+       finishes with the last, and covers the whole waveform with no dead
+       tail. ease:"none" (linear, like hold-you-down) keeps the playhead at
+       constant real-time speed instead of easing ahead of/behind the ear. */
+    tl.fromTo("#h3-wave-jessica-reveal", { width: 4 }, { width: 1600, duration: 5.5, ease: "none", immediateRender: false }, 7.0);
+    tl.fromTo("#h3-wave-kitty-reveal", { width: 4 }, { width: 1600, duration: 4.5, ease: "none", immediateRender: false }, 12.9);
+    tl.fromTo("#h3-wave-dirtyfeet-reveal", { width: 4 }, { width: 1600, duration: 4.5, ease: "none", immediateRender: false }, 17.9);
 
     // once all three have played, the stack dims to ambient texture behind
     // the anecdote (phase 2) — never fully hidden, keeps the beat "alive"
