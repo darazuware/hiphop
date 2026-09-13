@@ -254,7 +254,15 @@ const waveformPeaks = waveformModules[`../data/waveforms/${slug}.json`]?.default
       <!-- Album cover + purchase links -->
       {song?.asin ? (
         <div class="mb-6">
-          <a href={`https://www.amazon.co.jp/dp/${song.asin}/?tag=wax1124-22`} target="_blank" rel="noopener" class="inline-block group">
+          <a
+            href={`https://www.amazon.co.jp/dp/${song.asin}/?tag=wax1124-22`}
+            target="_blank"
+            rel="noopener sponsored nofollow"
+            data-affiliate-merchant="amazon"
+            data-affiliate-item={song.album}
+            data-affiliate-position="song-cover"
+            class="inline-block group"
+          >
             <img
               src={`/images/covers/${slug}.jpg`}
               alt={song.album}
@@ -276,7 +284,15 @@ const waveformPeaks = waveformModules[`../data/waveforms/${slug}.json`]?.default
         </div>
       ) : song ? (
         <div class="mb-6">
-          <a href={`https://www.amazon.co.jp/s?k=${encodeURIComponent(song.artists + ' ' + song.album)}&i=music&tag=wax1124-22`} target="_blank" rel="noopener" class="inline-block group">
+          <a
+            href={`https://www.amazon.co.jp/s?k=${encodeURIComponent(song.artists + ' ' + song.album)}&i=music&tag=wax1124-22`}
+            target="_blank"
+            rel="noopener sponsored nofollow"
+            data-affiliate-merchant="amazon"
+            data-affiliate-item={song.album}
+            data-affiliate-position="song-cover"
+            class="inline-block group"
+          >
             <img
               src={`/images/covers/${slug}.jpg`}
               alt={song.album}
@@ -291,6 +307,7 @@ const waveformPeaks = waveformModules[`../data/waveforms/${slug}.json`]?.default
 
       {song && (
         <MercariCta
+          position="song-top"
           items={[
             { query: `${song.artists} ${song.album}`, label: `${song.album}をメルカリで探す` },
             { query: `${song.artists} ${song.title}`, label: `${song.title}をメルカリで探す` },
@@ -401,6 +418,7 @@ const waveformPeaks = waveformModules[`../data/waveforms/${slug}.json`]?.default
       {song && (
         <MercariCta
           heading="この曲の中古盤・グッズをメルカリで探す"
+          position="song-bottom"
           items={[
             { query: `${song.artists} ${song.album}`, label: `${song.album}をメルカリで探す` },
             { query: `${song.artists} ${song.title}`, label: `${song.title}をメルカリで探す` },

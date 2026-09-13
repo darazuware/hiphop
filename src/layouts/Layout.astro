@@ -126,6 +126,39 @@ const resolvedSchema = schema ?? defaultSchema;
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-EN2N33B7PB"></script>
   <script is:inline>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-EN2N33B7PB');</script>
+  <script is:inline>
+    document.addEventListener('click', function(event) {
+      var origin = event.target;
+      if (!(origin instanceof Element)) return;
+      var link = origin.closest('a[data-affiliate-merchant]');
+      if (!link) return;
+
+      var destinationHost = '';
+      try { destinationHost = new URL(link.href).hostname; } catch {}
+      var payload = {
+        merchant: link.dataset.affiliateMerchant || 'unknown',
+        content_type: location.pathname.startsWith('/songs/')
+          ? 'song'
+          : location.pathname.startsWith('/columns/')
+            ? 'column'
+            : location.pathname.startsWith('/artists/')
+              ? 'artist'
+              : 'site',
+        slug: location.pathname.split('/').filter(Boolean).pop() || 'home',
+        item: link.dataset.affiliateItem || '',
+        position: link.dataset.affiliatePosition || 'unknown',
+        destination_host: destinationHost,
+        transport_type: 'beacon',
+      };
+
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'affiliate_click', payload);
+      } else {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: 'affiliate_click', ...payload });
+      }
+    });
+  </script>
 
   <!-- Theme flash prevention -->
   <script is:inline>!function(){var t=localStorage.getItem('hh-theme')||'auto';document.documentElement.setAttribute('data-theme',t);var e=localStorage.getItem('hh-explanation')||'tap';document.documentElement.setAttribute('data-explanation',e)}()</script>
@@ -198,9 +231,9 @@ const resolvedSchema = schema ?? defaultSchema;
       var h3 = document.getElementById('ham-3');
       if (!btn || !menu) return;
       btn.addEventListener('click', function() {
-        var open = menu.classList.toggle('hidden');
-        btn.setAttribute('aria-expanded', !open ? 'false' : 'true');
-        if (!open) {
+        var isOpen = !menu.classList.toggle('hidden');
+        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        if (isOpen) {
           h1.style.transform = 'translateY(5.5px) rotate(45deg)';
           h3.style.transform = 'translateY(-5.5px) rotate(-45deg)';
           document.getElementById('ham-2').style.opacity = '0';

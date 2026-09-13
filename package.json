@@ -8,6 +8,8 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "check:publish-safety": "astro build && node agent/src/check-publish-safety.mjs && node agent/src/check-internal-links.mjs && node agent/src/check-seo.mjs",
+    "check:publish-safety:self-test": "node agent/src/check-publish-safety.mjs --self-test",
     "preview": "astro preview",
     "astro": "astro"
   },

@@ -11,8 +11,9 @@ interface Item {
 interface Props {
   items: Item[];
   heading?: string;
+  position?: string;
 }
-const { items, heading = "メルカリで探す" } = Astro.props as Props;
+const { items, heading = "メルカリで探す", position = "article-commerce" } = Astro.props as Props;
 const AFID = "3150124771";
 const hrefFor = (q: string) => `https://jp.mercari.com/search?keyword=${encodeURIComponent(q)}&afid=${AFID}`;
 ---
@@ -27,6 +28,9 @@ const hrefFor = (q: string) => `https://jp.mercari.com/search?keyword=${encodeUR
         href={hrefFor(item.query)}
         target="_blank"
         rel="noopener sponsored nofollow"
+        data-affiliate-merchant="mercari"
+        data-affiliate-item={item.query}
+        data-affiliate-position={position}
         class="inline-flex items-center gap-1.5 border border-[var(--c-gold)]/60 text-[var(--c-gold)] text-sm font-semibold px-4 py-2.5 rounded-lg hover:bg-[var(--c-gold)] hover:text-black transition-colors"
       >
         {item.label} →

@@ -8,8 +8,9 @@ interface Props {
   title: string;  // 表示タイトル（例: "99 Problems / The Black Album"）
   artist: string; // アーティスト名
   label?: string; // 小見出し（既定: "Amazon で見る"）
+  position?: string;
 }
-const { query, asin, cover, title, artist, label = "Amazon で見る" } = Astro.props as Props;
+const { query, asin, cover, title, artist, label = "Amazon で見る", position = "article-inline" } = Astro.props as Props;
 const TAG = "wax1124-22";
 const href = asin
   ? `https://www.amazon.co.jp/dp/${asin}?tag=${TAG}`
@@ -17,7 +18,15 @@ const href = asin
 ---
 
 <section class="mb-12">
-  <a href={href} target="_blank" rel="noopener sponsored nofollow" class="inline-block group">
+  <a
+    href={href}
+    target="_blank"
+    rel="noopener sponsored nofollow"
+    data-affiliate-merchant="amazon"
+    data-affiliate-item={title}
+    data-affiliate-position={position}
+    class="inline-block group"
+  >
     <div class="flex items-center gap-3 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg hover:border-[var(--c-gold)] transition-colors">
       <img src={cover} alt={`${artist} - ${title}`} class="w-24 h-24 object-cover rounded" loading="lazy" />
       <div>
