@@ -1,6 +1,6 @@
 ---
 import ColumnLayout from '../../layouts/ColumnLayout.astro';
-import VodCta from '../../components/VodCta.astro';
+import ColumnAlbums from '../../components/ColumnAlbums.astro';
 ---
 
 <ColumnLayout
@@ -34,7 +34,7 @@ import VodCta from '../../components/VodCta.astro';
     最大の見どころは、Method ManとRedmanという実在のヒップホップ・デュオがそのままのキャラクター性で主演している点だ。2人の掛け合いのテンポ、アドリブ的な間合いは、彼らのライブやアルバムでのコンビネーションを知るファンにとって楽しめる要素になっている。
   </p>
   <p>
-    共演にはMike Eppsらコメディアンが名を連ねる。[要確認: その他の共演者・各キャラクター名の正確な対応]
+    共演にはコメディアンのMike Epps（Baby Powder役）、Obba Babatunde（学部長役）らが名を連ねる。
   </p>
 
   <h2>ヒップホップ文化的な文脈</h2>
@@ -49,7 +49,7 @@ import VodCta from '../../components/VodCta.astro';
   <h2>サウンドトラック</h2>
 
   <p>
-    『How High』のサウンドトラックは、主演2人を含むヒップホップ系アーティストの楽曲で構成された。リードシングルはMethod Man & Redmanによる「Part II」。[要確認: サウンドトラックの全収録曲・参加アーティスト・リリースレーベルの詳細]
+    『How High』のサウンドトラックは、2001年12月にDef Jam Recordingsから発売された。主演2人を含むヒップホップ系アーティストの楽曲で構成され、リードシングルはMethod Man & Redmanによる「Part II」。
   </p>
   <p>
     映画とサウンドトラックがセットで展開される作りは、当時のヒップホップ系映画に共通する商業フォーマットでもあった。楽曲が映画を、映画が楽曲を相互に宣伝する構造だ。
@@ -70,27 +70,6 @@ import VodCta from '../../components/VodCta.astro';
     『How High 2』が2019年にMTVのテレビ映画として制作された。ただしこの続編にMethod ManとRedmanは主演しておらず、Lil YachtyとDC Young Flyが主演を務めた。オリジナル版とは座組が異なる作品である。
   </p>
 
-  <h2>配信で観る</h2>
-
-  <p>
-    『How High』（2001）を日本国内のVODサービスで視聴できる場合があります。配信状況は時期により変動するため、最新の取り扱いは各サービスでご確認ください。
-  </p>
-
-  <VodCta service="u-next" url="#" title="How High" />
-
-  <p>
-    映画と合わせて、サウンドトラック（Method Man &amp; Redmanほか収録）もチェックしたい。
-  </p>
-
-  <VodCta
-    service="amazon"
-    url="#"
-    title="How High (Original Soundtrack)"
-    label="Amazonで探す"
-    variant="secondary"
-    showDisclosure={false}
-  />
-
   <h2>まとめ</h2>
 
   <p>
@@ -99,5 +78,9 @@ import VodCta from '../../components/VodCta.astro';
   <p>
     まずはMethod Manの<a href="/songs/say">「Say」</a>から、彼の声とリリックに触れてみてほしい。
   </p>
+
+  <ColumnAlbums albums={[
+    { label: "How High (Original Motion Picture Soundtrack)", query: "How High Soundtrack Method Man Redman" },
+  ]} />
 
 </ColumnLayout>

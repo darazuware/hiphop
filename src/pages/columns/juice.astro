@@ -1,6 +1,6 @@
 ---
 import ColumnLayout from '../../layouts/ColumnLayout.astro';
-import VodCta from '../../components/VodCta.astro';
+import ColumnAlbums from '../../components/ColumnAlbums.astro';
 ---
 
 <ColumnLayout
@@ -25,7 +25,7 @@ import VodCta from '../../components/VodCta.astro';
     舞台はニューヨーク・ハーレム。仲のよい4人の黒人の若者が、退屈な日常と先の見えない将来のなかで日々をやり過ごしている。彼らはやがて、自分たちの「juice」——ストリートでの力、敬意、存在感——を求めて、強盗に手を染めようとする。
   </p>
   <p>
-    だが計画は最悪の形で破綻し、4人の関係は暴力と裏切りによって崩れていく。とりわけBishop（ビショップ）の暴走が物語を悲劇へと突き動かしていく。[要確認: 各登場人物の結末の細部]
+    だが計画は最悪の形で破綻し、4人の関係は暴力と裏切りによって崩れていく。とりわけBishop（ビショップ）の暴走が物語を悲劇へと突き動かし、最終的にBishopは仲間のQ（キュー）との屋上での揉み合いの末に転落死する。
   </p>
 
   <h2>Tupac Shakurの俳優デビュー</h2>
@@ -37,7 +37,7 @@ import VodCta from '../../components/VodCta.astro';
     Bishopという、力に取り憑かれ自滅していくキャラクターの強烈な存在感は、後のTupacのイメージとも重なり、本作を象徴する役柄となった。Tupacの音楽については、当サイトの<a href="/artists/2pac">2Pacのアーティストページ</a>もあわせて読んでほしい。
   </p>
   <p>
-    共演にはOmar Eppsらが名を連ねる。[要確認: その他の主要キャストと各キャラクター名の正確な対応]
+    共演にはQ役のOmar Epps、Raheem役のKhalil Kain、Steel役のJermaine Hopkinsが名を連ねる。
   </p>
 
   <h2>「Juice (Know the Ledge)」が果たした役割</h2>
@@ -61,32 +61,11 @@ import VodCta from '../../components/VodCta.astro';
   <h2>評価と影響</h2>
 
   <p>
-    『Juice』は、Tupacの演技と、ストリート・ライフをめぐる緊張感のある描写によって、後年も繰り返し言及される作品となった。Ernest Dickersonにとっては監督としての出発点となり、彼はその後も映画・テレビの分野で演出を続けていく。[要確認: 受賞・ノミネートの正確な内容と年]
+    『Juice』は、Tupacの演技と、ストリート・ライフをめぐる緊張感のある描写によって、後年も繰り返し言及される作品となった。Ernest Dickersonにとっては監督としての出発点となり、彼はその後も映画・テレビの分野で演出を続けていく。
   </p>
   <p>
     若者が「力」や「敬意」を求めて道を踏み外していくという本作のテーマは、ヒップホップの歌詞が繰り返し描いてきた主題とも重なっている。
   </p>
-
-  <h2>配信で観る</h2>
-
-  <p>
-    『Juice』（1992）を日本国内のVODサービスで視聴できる場合があります。配信状況は時期により変動するため、最新の取り扱いは各サービスでご確認ください。
-  </p>
-
-  <VodCta service="u-next" url="#" title="Juice" />
-
-  <p>
-    映画と合わせて、サウンドトラックや「Juice (Know the Ledge)」を収録したEric B. & Rakimの作品もチェックしたい。
-  </p>
-
-  <VodCta
-    service="amazon"
-    url="#"
-    title="Juice (Know the Ledge) / Eric B. & Rakim"
-    label="Amazonで探す"
-    variant="secondary"
-    showDisclosure={false}
-  />
 
   <h2>まとめ</h2>
 
@@ -96,5 +75,9 @@ import VodCta from '../../components/VodCta.astro';
   <p>
     映画を入り口に楽曲へ、あるいは楽曲を入り口に映画へ。まずは<a href="/songs/juice-know-the-ledge">「Juice (Know the Ledge)」</a>の和訳から、この作品が描いた緊張感に触れてみてほしい。
   </p>
+
+  <ColumnAlbums albums={[
+    { label: "Juice (Original Motion Picture Soundtrack)", query: "Juice Original Motion Picture Soundtrack" },
+  ]} />
 
 </ColumnLayout>

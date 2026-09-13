@@ -1,6 +1,6 @@
 ---
 import ColumnLayout from '../../layouts/ColumnLayout.astro';
-import VodCta from '../../components/VodCta.astro';
+import ColumnAlbums from '../../components/ColumnAlbums.astro';
 ---
 
 <ColumnLayout
@@ -25,7 +25,7 @@ import VodCta from '../../components/VodCta.astro';
     舞台は記録的な熱波に見舞われたブルックリンの一角。イタリア系アメリカ人のSal（サル）が経営するピザ店「Sal's Famous Pizzeria」を中心に、黒人住民、イタリア系、韓国系、ヒスパニック系といった多様な人々の日常が交差する。
   </p>
   <p>
-    店内の壁に飾られた写真をめぐる小さな諍いが、暑さと積み重なった人種的緊張のなかで次第にエスカレートしていく。そして一日の終わり、事態は取り返しのつかない悲劇と暴動へと発展する——という構成になっている。[要確認: 各登場人物の結末の細部]
+    店内の壁に飾られた写真をめぐる小さな諍いが、暑さと積み重なった人種的緊張のなかで次第にエスカレートしていく。最終的に警官がRadio Raheemを取り押さえる際に窒息死させ、その死に怒った群衆がSal's Famous Pizzeriaを焼き討ちする暴動へと発展する。
   </p>
 
   <h2>テーマ——「正しいことをする」とは何か</h2>
@@ -61,32 +61,11 @@ import VodCta from '../../components/VodCta.astro';
   <h2>評価と影響</h2>
 
   <p>
-    『Do the Right Thing』は公開当時から高い評価を受け、後年アメリカ国立フィルム登録簿（National Film Registry）に保存対象として選定されている。[要確認: 受賞・ノミネートの正確な内容と年]
+    『Do the Right Thing』は公開当時から高い評価を受け、1999年にはアメリカ議会図書館によってアメリカ国立フィルム登録簿（National Film Registry）の保存対象に選定された。公開年のアカデミー賞では脚本賞（Spike Lee）と助演男優賞（Sal役のDanny Aiello）にノミネートされている。
   </p>
   <p>
     人種問題、警察と地域社会の関係、コミュニティ内の経済構造——本作が描いたテーマは、公開から数十年を経た現在も繰り返し参照され続けている。
   </p>
-
-  <h2>配信で観る</h2>
-
-  <p>
-    『Do the Right Thing』（1989）を日本国内のVODサービスで視聴できる場合があります。配信状況は時期により変動するため、最新の取り扱いは各サービスでご確認ください。
-  </p>
-
-  <VodCta service="u-next" url="#" title="Do the Right Thing" />
-
-  <p>
-    映画と合わせて、サウンドトラックや「Fight the Power」を収録したPublic Enemyの作品もチェックしたい。
-  </p>
-
-  <VodCta
-    service="amazon"
-    url="#"
-    title="Fight the Power / Public Enemy"
-    label="Amazonで探す"
-    variant="secondary"
-    showDisclosure={false}
-  />
 
   <h2>まとめ</h2>
 
@@ -96,5 +75,9 @@ import VodCta from '../../components/VodCta.astro';
   <p>
     映画を入り口に楽曲へ、あるいは楽曲を入り口に映画へ。まずは<a href="/songs/fight-the-power">「Fight the Power」</a>の和訳から、この作品が放った熱に触れてみてほしい。
   </p>
+
+  <ColumnAlbums albums={[
+    { label: "Public Enemy「Fear of a Black Planet」（Fight the Power収録）", query: "Public Enemy Fear of a Black Planet" },
+  ]} />
 
 </ColumnLayout>
