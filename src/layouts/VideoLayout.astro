@@ -1,9 +1,12 @@
 ---
 import Layout from './Layout.astro';
 import ExplanationToggle from '../components/ExplanationToggle.astro';
+import KaraokeCaptions from '../components/KaraokeCaptions.astro';
 import { videos } from '../data/videos';
 import { artists } from '../data/artists';
 import { songs } from '../data/songs';
+
+const captionModules = import.meta.glob('../data/video-captions/*.json', { eager: true }) as Record<string, { default: { youtubeId: string; cues: any[] } }>;
 
 interface Props {
   title: string;
@@ -15,6 +18,8 @@ interface Props {
 const { title, description, slug, highlights } = Astro.props;
 
 const video = videos.find(v => v.slug === slug);
+const captionsEntry = Object.entries(captionModules).find(([path]) => path.endsWith(`/${slug}.json`));
+const captionsData = captionsEntry?.[1]?.default;
 const artist = video ? artists.find(a => a.slug === video.artistSlug) : null;
 const relatedSongs = video
   ? songs.filter(s => s.artistSlug === video.artistSlug).slice(0, 3)
@@ -98,7 +103,11 @@ const typeLabel: Record<string, string> = {
         </section>
       )}
 
-      {video && (
+      {video && captionsData && (
+        <KaraokeCaptions youtubeId={captionsData.youtubeId} title={title} cues={captionsData.cues} />
+      )}
+
+      {video && !captionsData && (
         <div class="mb-8 aspect-video w-full rounded-lg overflow-hidden">
           <iframe
             loading="lazy"
