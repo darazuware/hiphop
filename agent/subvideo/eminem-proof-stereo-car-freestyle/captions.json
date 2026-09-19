@@ -3,7 +3,7 @@
   "cues": [
     {
       "eng": "Yo yo, I started off —",
-      "jpn": "ヨー、ヨー、始めるぜ —",
+      "jpn": "",
       "start": 1560,
       "segments": [
         {
@@ -51,7 +51,7 @@
     },
     {
       "eng": "yo yo, my name is Shady",
-      "jpn": "ヨー、ヨー、俺の名前はシェイディ",
+      "jpn": "俺の名前はシェイディ",
       "start": 4980,
       "segments": [
         {
@@ -1125,7 +1125,7 @@
     },
     {
       "eng": "\"Yo, what up Em, how you doing?\"",
-      "jpn": "「よお、Em、調子どうだ？」",
+      "jpn": "「Em、調子どうだ？」",
       "start": 41382,
       "segments": [
         {
@@ -1192,7 +1192,7 @@
     },
     {
       "eng": "I used to be like \"Yeah man, it's good to see you, dog\"",
-      "jpn": "俺は「おう、会えて嬉しいぜ、相棒」って返してた",
+      "jpn": "俺は「会えて嬉しいぜ、相棒」って返してた",
       "start": 43463,
       "segments": [
         {
@@ -1543,7 +1543,7 @@
     },
     {
       "eng": "So then Proof said \"What up Em\"",
-      "jpn": "そこでプルーフが「よお、Em」と言って",
+      "jpn": "そこでプルーフが「Em、調子どうだ」と言って",
       "start": 53303,
       "segments": [
         {
@@ -1729,8 +1729,8 @@
       "end": 60689
     },
     {
-      "eng": "Tango and Cash, can mango and blast together",
-      "jpn": "タンゴ＆キャッシュ、一緒にぶっ放す",
+      "eng": "Tango and Cash,",
+      "jpn": "タンゴ＆キャッシュ",
       "start": 61291,
       "segments": [
         {
@@ -1752,50 +1752,13 @@
         {
           "text": "Cash",
           "s": 61992,
-          "e": 62472
+          "e": 62392
         },
         {
-          "text": ", "
-        },
-        {
-          "text": "can",
-          "s": 62472,
-          "e": 62853
-        },
-        {
-          "text": " "
-        },
-        {
-          "text": "mango",
-          "s": 62853,
-          "e": 63233
-        },
-        {
-          "text": " "
-        },
-        {
-          "text": "and",
-          "s": 63233,
-          "e": 63374
-        },
-        {
-          "text": " "
-        },
-        {
-          "text": "blast",
-          "s": 63374,
-          "e": 63874
-        },
-        {
-          "text": " "
-        },
-        {
-          "text": "together",
-          "s": 63874,
-          "e": 64635
+          "text": ","
         }
       ],
-      "end": 64876
+      "end": 63092
     },
     {
       "eng": "Tougher than Alcatraz prison bars",
@@ -3265,7 +3228,7 @@
     },
     {
       "eng": "Hey yo, we all up in your sack like cataracts",
-      "jpn": "よお、俺たちは白内障みたいにお前の視界にまとわりつく",
+      "jpn": "俺たちは白内障みたいにお前の視界にまとわりつく",
       "start": 126327,
       "segments": [
         {
@@ -4468,7 +4431,7 @@
     },
     {
       "eng": "Yo, Dead Presidents is what I'm resurrecting",
-      "jpn": "よお、Dead Presidentsを俺は蘇らせてる",
+      "jpn": "Dead Presidentsを俺は蘇らせてる",
       "start": 182271,
       "segments": [
         {
@@ -4779,7 +4742,7 @@
     },
     {
       "eng": "Yeah, we're doing an interview in a minute or two",
-      "jpn": "そう、あと1、2分でインタビューだ",
+      "jpn": "あと1、2分でインタビューだ",
       "start": 200892,
       "segments": [
         {
@@ -4957,7 +4920,7 @@
     },
     {
       "eng": "Don't mean to be rude but yo, what's up dude",
-      "jpn": "失礼なつもりはないが、よお、調子どうだ、兄弟",
+      "jpn": "失礼なつもりはないが、調子どうだ、兄弟",
       "start": 208692,
       "segments": [
         {
@@ -5380,7 +5343,7 @@
     },
     {
       "eng": "Hey yo, and all this we just done is freestyle",
-      "jpn": "よお、俺たちが今やったのは全部フリースタイルだ",
+      "jpn": "俺たちが今やったのは全部フリースタイルだ",
       "start": 223133,
       "segments": [
         {
@@ -5465,7 +5428,7 @@
     },
     {
       "eng": "Yeah, hold it right there",
-      "jpn": "おう、そこで止まれ",
+      "jpn": "そこで止まれ",
       "start": 230374,
       "segments": [
         {

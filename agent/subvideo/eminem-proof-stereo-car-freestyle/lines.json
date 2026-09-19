@@ -1,11 +1,11 @@
 [
  [
   "Yo yo, I started off —",
-  "ヨー、ヨー、始めるぜ —"
+  ""
  ],
  [
   "yo yo, my name is Shady",
-  "ヨー、ヨー、俺の名前はシェイディ"
+  "俺の名前はシェイディ"
  ],
  [
   "His name is Proof, yo, we used to have a roof up on my house",
@@ -53,11 +53,11 @@
  ],
  [
   "\"Yo, what up Em, how you doing?\"",
-  "「よお、Em、調子どうだ？」"
+  "「Em、調子どうだ？」"
  ],
  [
   "I used to be like \"Yeah man, it's good to see you, dog\"",
-  "俺は「おう、会えて嬉しいぜ、相棒」って返してた"
+  "俺は「会えて嬉しいぜ、相棒」って返してた"
  ],
  [
   "But my life's ruined 'cause my mom just left",
@@ -73,7 +73,7 @@
  ],
  [
   "So then Proof said \"What up Em\"",
-  "そこでプルーフが「よお、Em」と言って"
+  "そこでプルーフが「Em、調子どうだ」と言って"
  ],
  [
   "Yo so I said \"Proof, won't you come in?\"",
@@ -88,8 +88,12 @@
   null
  ],
  [
-  "Tango and Cash, can mango and blast together",
-  "タンゴ＆キャッシュ、一緒にぶっ放す"
+  "Tango and Cash,",
+  "タンゴ＆キャッシュ"
+ ],
+ [
+  "can mango and blast together",
+  null
  ],
  [
   "Tougher than Alcatraz prison bars",
@@ -173,7 +177,7 @@
  ],
  [
   "Hey yo, we all up in your sack like cataracts",
-  "よお、俺たちは白内障みたいにお前の視界にまとわりつく"
+  "俺たちは白内障みたいにお前の視界にまとわりつく"
  ],
  [
   "Me and Em tag team, beat any y'all on some battle rap",
@@ -241,7 +245,7 @@
  ],
  [
   "Yo, Dead Presidents is what I'm resurrecting",
-  "よお、Dead Presidentsを俺は蘇らせてる"
+  "Dead Presidentsを俺は蘇らせてる"
  ],
  [
   "Got to say what's up to Desmond and J.O.",
@@ -261,7 +265,7 @@
  ],
  [
   "Yeah, we're doing an interview in a minute or two",
-  "そう、あと1、2分でインタビューだ"
+  "あと1、2分でインタビューだ"
  ],
  [
   "We go and enter you in the nude when we intrude",
@@ -269,7 +273,7 @@
  ],
  [
   "Don't mean to be rude but yo, what's up dude",
-  "失礼なつもりはないが、よお、調子どうだ、兄弟"
+  "失礼なつもりはないが、調子どうだ、兄弟"
  ],
  [
   "How you doing MTV? How you doing Kurt? How you doing everybody else in the world?",
@@ -285,7 +289,7 @@
  ],
  [
   "Hey yo, and all this we just done is freestyle",
-  "よお、俺たちが今やったのは全部フリースタイルだ"
+  "俺たちが今やったのは全部フリースタイルだ"
  ],
  [
   "I don't touch that",
@@ -293,7 +297,7 @@
  ],
  [
   "Yeah, hold it right there",
-  "おう、そこで止まれ"
+  "そこで止まれ"
  ],
  [
   "I'm your worst nightmare",
