@@ -1124,8 +1124,8 @@
       "end": 41382
     },
     {
-      "eng": "\"Yo, what up M, how you doing?\"",
-      "jpn": "「よお、M、調子どうだ？」",
+      "eng": "\"Yo, what up Em, how you doing?\"",
+      "jpn": "「よお、Em、調子どうだ？」",
       "start": 41382,
       "segments": [
         {
@@ -1156,7 +1156,7 @@
           "text": " "
         },
         {
-          "text": "M",
+          "text": "Em",
           "s": 42222,
           "e": 42242
         },
@@ -1542,8 +1542,8 @@
       "end": 53303
     },
     {
-      "eng": "So then Proof said \"What up M\"",
-      "jpn": "そこでプルーフが「よお、M」と言って",
+      "eng": "So then Proof said \"What up Em\"",
+      "jpn": "そこでプルーフが「よお、Em」と言って",
       "start": 53303,
       "segments": [
         {
@@ -1595,7 +1595,7 @@
           "text": " "
         },
         {
-          "text": "M",
+          "text": "Em",
           "s": 55163,
           "e": 55183
         },
@@ -5950,8 +5950,8 @@
       "end": 253395
     },
     {
-      "eng": "Your guts is hollow, back up, Proof and M",
-      "jpn": "お前の腹はスカスカだ、下がれ、プルーフとMのお通りだ",
+      "eng": "Your guts is hollow, back up, Proof and Em",
+      "jpn": "お前の腹はスカスカだ、下がれ、プルーフとEmのお通りだ",
       "start": 254735,
       "segments": [
         {
@@ -6019,7 +6019,7 @@
           "text": " "
         },
         {
-          "text": "M",
+          "text": "Em",
           "s": 257395,
           "e": 257415
         }
