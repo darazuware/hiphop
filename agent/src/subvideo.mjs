@@ -94,7 +94,7 @@ function build() {
   if (L.length !== F.length) { console.error("lines.json と fa.json の行数が不一致（align を再実行）"); process.exit(2); }
   const cues = [];
   L.forEach(([eng, jpn], i) => {
-    if (!jpn) return;
+    if (jpn === null || jpn === undefined) return;
     const ws = F[i]; const toks = [...eng.matchAll(/([A-Za-z’']+)|([^A-Za-z’']+)/g)];
     if (toks.filter(t => t[1]).length !== ws.length) throw new Error(`行${i}: 語数不一致`);
     let k = 0; const segs = [];
@@ -128,7 +128,7 @@ function geometry(mode) {
   if (mode === "reels") {
     const VW = 1080, VH = ev(VW / dar), VY = Math.max(230, Math.round(410 - (VH - 608) * 0.6));
     const engY = VY + VH + 27;
-    return { W: 1080, H: 1920, VY, VW, VH, eng: 54, jpn: 42, gl: 32, engY, jpnY: engY + 220, glY: engY + 375, marg: 60, jpMax: 22, glMax: 27, footY: 1600 };
+    return { W: 1080, H: 1920, VY, VW, VH, eng: 54, jpn: 42, gl: 36, engY, jpnY: engY + 165, glY: engY + 305, marg: 60, jpMax: 22, glMax: 27, footY: 1600 };
   }
   const VW = 1280, VH = ev(VW / dar);
   return { W: 1280, H: VH + 280, VY: 0, VW, VH, eng: 40, jpn: 34, gl: 26, engY: VH + 15, jpnY: VH + 115, glY: VH + 195, marg: 50, jpMax: 33, glMax: 44, footY: 0 };
@@ -154,6 +154,10 @@ Style: Part,Hiragino Sans,36,&H00CCCCCC,&H00CCCCCC,&H00000000,&H00000000,-1,0,0,
 Style: Foot,Hiragino Sans,28,&H00888888,&H00888888,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,2,0,8,50,50,${L.footY},1
 Style: Eng,Inter,${L.eng},${GOLD},&H80FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,3,0,8,${L.marg},${L.marg},${L.engY},1
 Style: Jpn,Hiragino Sans,${L.jpn},&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,3,0,8,${L.marg},${L.marg},${L.jpnY},1
+Style: Card,Inter,20,&H00F6F6F6,&H00F6F6F6,&H00F6F6F6,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1
+Style: Tag,Inter,25,&H00000000,&H00000000,&H00FFFFFF,&H00000000,-1,0,0,0,100,100,1,0,3,8,0,7,${L.marg + 36},${L.marg},${L.glY},1
+Style: GTerm,Hiragino Sans,${L.gl + 2},&H00111111,&H00111111,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,0,0,7,${L.marg + 36},${L.marg},${L.glY + 58},1
+Style: GMemo,Hiragino Sans,${L.gl - 4},&H00444444,&H00444444,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,${L.marg + 36},${L.marg},${L.glY + 58},1
 Style: Gloss,Hiragino Sans,${L.gl},&H00DDDDDD,&H00DDDDDD,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,2,0,8,${L.marg},${L.marg},${L.glY},1
 
 [Events]\nFormat: Layer,Start,End,Style,Name,MarginL,MarginR,MarginV,Effect,Text\n`;
@@ -162,8 +166,24 @@ function events(L, sel, t0, dur, gloss) {
   const rel = ms => ms / 1000 - t0; let ev = "";
   const gk = c => Object.keys(gloss).find(k => c.eng.startsWith(k));
   const gl = sel.map(c => ({ c, g: gk(c) ? gloss[gk(c)] : null })).filter(x => x.g);
+  const TAGC = { AAVE: "&H003D8AFF&", Slang: "&H00E0C539&", "慣用句": "&H0068D05F&", Memo: "&H00FA8BA7&" };
   gl.forEach((x, k) => {
-    const s = Math.max(0, rel(x.c.start)); let e = Math.max(rel(x.c.end), s + 4.2); if (gl[k + 1]) e = Math.min(e, rel(gl[k + 1].c.start)); e = Math.min(e, dur);
+    const card = x.g[0][2];
+    const s = Math.max(0, rel(x.c.start)); let e = Math.max(rel(x.c.end), s + (card ? 5.5 : 4.2)); if (gl[k + 1]) e = Math.min(e, rel(gl[k + 1].c.start)); e = Math.min(e, dur);
+    if (card) {
+      const [tm, d, tag, memo] = x.g[0]; const fd = "{\\fad(80,120)}";
+      const mainW = Math.floor((L.W - 2 * L.marg - 72) / (L.gl + 2) / 0.98);
+      const main = wrapJa(`${tm}　${d}`, Math.min(L.glMax, mainW), [...tm].length + 1); const mainLines = main.split(BR).length;
+      const memoT = memo ? wrapJa(memo, Math.min(L.glMax + 3, Math.floor((L.W - 2 * L.marg - 72) / (L.gl - 4) / 0.98))) : ""; const memoLines = memo ? memoT.split(BR).length : 0;
+      const mainH = mainLines * (L.gl + 14), memoY = L.glY + 58 + mainH + 6, cardTop = L.glY - 20, cardBot = memo ? memoY + memoLines * (L.gl + 6) + 20 : L.glY + 58 + mainH + 14;
+      const cw = L.W - 2 * L.marg, ch = cardBot - cardTop, r = 26;
+      const shape = `m ${r} 0 l ${cw - r} 0 b ${cw} 0 ${cw} 0 ${cw} ${r} l ${cw} ${ch - r} b ${cw} ${ch} ${cw} ${ch} ${cw - r} ${ch} l ${r} ${ch} b 0 ${ch} 0 ${ch} 0 ${ch - r} l 0 ${r} b 0 0 0 0 ${r} 0`;
+      ev += `Dialogue: 1,${ts(s)},${ts(e)},Card,,0,0,0,,${fd}{\\an7\\pos(${L.marg},${cardTop})\\p1}${shape}{\\p0}\n`;
+      ev += `Dialogue: 3,${ts(s)},${ts(e)},Tag,,0,0,0,,${fd}{\\3c${TAGC[tag] || "&H00999999&"}}${esc(tag)}\n`;
+      ev += `Dialogue: 3,${ts(s)},${ts(e)},GTerm,,0,0,0,,${fd}{\\b1}${esc(tm)}{\\b0\\c&H333333&}` + esc(main.slice(tm.length)).replaceAll(BR, NL) + "\n";
+      if (memo) ev += `Dialogue: 3,${ts(s)},${ts(e)},GMemo,,0,0,${memoY},,${fd}${esc(memoT).replaceAll(BR, NL)}\n`;
+      return;
+    }
     const body = x.g.map(([tm, d]) => { const w = wrapJa(`${tm}　${d}`, L.glMax, [...tm].length + 1); return `{\\c${GOLD}&}${esc(tm)}{\\c&HDDDDDD&}` + esc(w.slice(tm.length)).replaceAll(BR, NL); }).join(NL);
     ev += `Dialogue: 2,${ts(s)},${ts(e)},Gloss,,0,0,0,,{\\fad(80,120)}${body}\n`;
   });
@@ -171,14 +191,22 @@ function events(L, sel, t0, dur, gloss) {
     let ptr = c.start, eng = "";
     for (const sg of c.segments) { if (sg.s == null) { eng += esc(sg.text); continue; } eng += `{\\k${Math.round(Math.max(0, sg.s - ptr) / 10)}}{\\kf${Math.max(1, Math.round((sg.e - sg.s) / 10))}}${esc(sg.text)}`; ptr = sg.e; }
     ev += `Dialogue: 0,${ts(rel(c.start))},${ts(rel(c.end))},Eng,,0,0,0,,{\\fad(60,100)}${eng}\n`;
-    ev += `Dialogue: 1,${ts(rel(c.start))},${ts(rel(c.end))},Jpn,,0,0,0,,{\\fad(60,100)}${esc(wrapJa(c.jpn, L.jpMax)).replaceAll(BR, NL)}\n`;
+    if (c.jpn) ev += `Dialogue: 1,${ts(rel(c.start))},${ts(rel(c.end))},Jpn,,0,0,0,,{\\fad(60,100)}${esc(wrapJa(c.jpn, L.jpMax)).replaceAll(BR, NL)}\n`;
   }
   return ev;
 }
-function ffrender(L, base, ass, ss) {
+const LOGO = path.resolve(AGENT, "assets/brand/wax-think-logo.png");
+function ffrender(L, base, ass, ss, dur) {
   fs.writeFileSync(base + ".ass", ass);
-  const vf = `scale=${L.VW}:${L.VH},setsar=1,pad=${L.W}:${L.H}:0:${L.VY}:black,ass=${base}.ass:fontsdir=${FONTS},setsar=1`;
-  sh("ffmpeg", ["-y", "-loglevel", "error", ...ss, "-i", P("src.mp4"), "-vf", vf, "-c:v", "libx264", "-crf", "21", "-preset", "medium", "-pix_fmt", "yuv420p", "-r", "30", "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", base + ".mp4"]);
+  const OUT = 2.8, fO = 0.5, wmW = L.W === 1080 ? 210 : 170, endW = L.W === 1080 ? 560 : 520, total = dur + OUT;
+  const wx = L.W - wmW - (L.W === 1080 ? 28 : 20), wy = L.VY + (L.W === 1080 ? 22 : 18);
+  const fc = `[0:v]scale=${L.VW}:${L.VH},setsar=1,pad=${L.W}:${L.H}:0:${L.VY}:black,ass=${base}.ass:fontsdir=${FONTS},setsar=1[base];`
+    + `[1:v]format=rgba,split=2[a][b];[a]scale=${wmW}:-1,colorchannelmixer=aa=0.85[wm];[base][wm]overlay=${wx}:${wy}[v1];`
+    + `[v1]fade=t=out:st=${(dur - fO).toFixed(2)}:d=${fO},tpad=stop_mode=add:stop_duration=${OUT}:color=black[v2];`
+    + `[b]scale=${endW}:-1,fade=t=in:st=0:d=0.6:alpha=1,fade=t=out:st=1.5:d=0.6:alpha=1,setpts=PTS+${(dur + 0.3).toFixed(2)}/TB[lg];`
+    + `[v2][lg]overlay=(W-w)/2:(H-h)/2:eof_action=pass[v];`
+    + `[0:a]afade=t=out:st=${(dur - 0.6).toFixed(2)}:d=0.6,apad=whole_dur=${total.toFixed(2)}[aud]`;
+  sh("ffmpeg", ["-y", "-loglevel", "error", ...ss, "-i", P("src.mp4"), "-loop", "1", "-framerate", "30", "-t", total.toFixed(2), "-i", LOGO, "-filter_complex", fc, "-map", "[v]", "-map", "[aud]", "-t", total.toFixed(2), "-c:v", "libx264", "-crf", "21", "-preset", "medium", "-pix_fmt", "yuv420p", "-r", "30", "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", base + ".mp4"]);
 }
 function render() {
   const mode = arg("mode", "all"); const { cues } = rj("captions.json"); const meta = rj("meta.json");
@@ -186,7 +214,7 @@ function render() {
   const parts = rj("parts.json"); fs.mkdirSync(P("renders/reels"), { recursive: true });
   if (mode === "full" || mode === "all") {
     const L = geometry("full"); const dur = meta.duration || 600;
-    ffrender(L, P(`renders/${slug}_subs`), styles(L) + events(L, cues, 0, dur, gloss), []);
+    ffrender(L, P(`renders/${slug}_subs`), styles(L) + events(L, cues, 0, dur, gloss), [], dur);
     console.log("[subvideo] full 完了");
   }
   if (mode === "reels" || mode === "all") {
@@ -199,8 +227,8 @@ function render() {
       let ev = `Dialogue: 0,${ts(0)},${ts(dur)},Brand,,0,0,0,,${esc(meta.brand)}\n`;
       if (meta.sub) ev += `Dialogue: 0,${ts(0)},${ts(dur)},Sub,,0,0,0,,${esc(meta.sub)}\n`;
       ev += `Dialogue: 0,${ts(0)},${ts(dur)},Part,,0,0,0,,Part ${n + 1}/${parts.length}　${esc(p.label)}\n`;
-      ev += `Dialogue: 0,${ts(0)},${ts(dur)},Foot,,0,0,0,,${esc(meta.footer)}\n`;
-      ffrender(L, P(`renders/reels/part${n + 1}`), styles(L) + ev + events(L, sel, t0, dur, gloss), ["-ss", String(t0), "-t", String(dur)]);
+      if (meta.footer) ev += `Dialogue: 0,${ts(0)},${ts(dur)},Foot,,0,0,0,,${esc(meta.footer)}\n`;
+      ffrender(L, P(`renders/reels/part${n + 1}`), styles(L) + ev + events(L, sel, t0, dur, gloss), ["-ss", String(t0), "-t", String(dur)], dur);
       console.log(`[subvideo] part${n + 1}: ${t0.toFixed(1)}s +${dur.toFixed(1)}s`);
     });
   }
