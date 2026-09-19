@@ -155,7 +155,7 @@ Style: Foot,Hiragino Sans,28,&H00888888,&H00888888,&H00000000,&H00000000,-1,0,0,
 Style: Eng,Inter,${L.eng},${GOLD},&H80FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,3,0,8,${L.marg},${L.marg},${L.engY},1
 Style: Jpn,Hiragino Sans,${L.jpn},&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,3,0,8,${L.marg},${L.marg},${L.jpnY},1
 Style: Card,Inter,20,&H00F6F6F6,&H00F6F6F6,&H00F6F6F6,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1
-Style: Tag,Inter,25,&H00000000,&H00000000,&H00FFFFFF,&H00000000,-1,0,0,0,100,100,1,0,3,8,0,7,${L.marg + 36},${L.marg},${L.glY},1
+Style: Tag,Inter,25,&H00FFFFFF,&H00FFFFFF,&H00FFFFFF,&H00000000,-1,0,0,0,100,100,1,0,3,8,0,7,${L.marg + 36},${L.marg},${L.glY},1
 Style: GTerm,Hiragino Sans,${L.gl + 2},&H00111111,&H00111111,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,0,0,7,${L.marg + 36},${L.marg},${L.glY + 58},1
 Style: GMemo,Hiragino Sans,${L.gl - 4},&H00444444,&H00444444,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,${L.marg + 36},${L.marg},${L.glY + 58},1
 Style: Gloss,Hiragino Sans,${L.gl},&H00DDDDDD,&H00DDDDDD,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,2,0,8,${L.marg},${L.marg},${L.glY},1
@@ -166,7 +166,7 @@ function events(L, sel, t0, dur, gloss) {
   const rel = ms => ms / 1000 - t0; let ev = "";
   const gk = c => Object.keys(gloss).find(k => c.eng.startsWith(k));
   const gl = sel.map(c => ({ c, g: gk(c) ? gloss[gk(c)] : null })).filter(x => x.g);
-  const TAGC = { AAVE: "&H003D8AFF&", Slang: "&H00E0C539&", "慣用句": "&H0068D05F&", Memo: "&H00FA8BA7&" };
+  const TAGC = { AAVE: "&H00A4007B&", Slang: "&H00A4007B&", "慣用句": "&H0000AB03&", Memo: "&H0000AB03&" };
   gl.forEach((x, k) => {
     const card = x.g[0][2];
     const s = Math.max(0, rel(x.c.start)); let e = Math.max(rel(x.c.end), s + (card ? 5.5 : 4.2)); if (gl[k + 1]) e = Math.min(e, rel(gl[k + 1].c.start)); e = Math.min(e, dur);
@@ -220,13 +220,13 @@ function render() {
   if (mode === "reels" || mode === "all") {
     const L = geometry("reels");
     parts.forEach((p, n) => {
-      const a = cues.findIndex(c => c.eng.startsWith(p.from)), b = cues.findIndex((c, i) => i >= a && c.eng.startsWith(p.to));
+      const a = p.fromIdx ?? cues.findIndex(c => c.eng.startsWith(p.from)), b = p.toIdx ?? cues.findIndex((c, i) => i >= a && c.eng.startsWith(p.to));
       if (a < 0 || b < 0) throw new Error(`parts.json の範囲が見つからない: Part ${n + 1}`);
       const sel = cues.slice(a, b + 1); const t0 = Math.max((a > 0 ? cues[a - 1].end : 0) / 1000, sel[0].start / 1000 - 0.4, 0);
       const dur = sel.at(-1).end / 1000 + 0.6 - t0;
       let ev = `Dialogue: 0,${ts(0)},${ts(dur)},Brand,,0,0,0,,${esc(meta.brand)}\n`;
       if (meta.sub) ev += `Dialogue: 0,${ts(0)},${ts(dur)},Sub,,0,0,0,,${esc(meta.sub)}\n`;
-      ev += `Dialogue: 0,${ts(0)},${ts(dur)},Part,,0,0,0,,Part ${n + 1}/${parts.length}　${esc(p.label)}\n`;
+      if (p.label) ev += `Dialogue: 0,${ts(0)},${ts(dur)},Part,,0,0,0,,${esc(p.label)}\n`;
       if (meta.footer) ev += `Dialogue: 0,${ts(0)},${ts(dur)},Foot,,0,0,0,,${esc(meta.footer)}\n`;
       ffrender(L, P(`renders/reels/part${n + 1}`), styles(L) + ev + events(L, sel, t0, dur, gloss), ["-ss", String(t0), "-t", String(dur)], dur);
       console.log(`[subvideo] part${n + 1}: ${t0.toFixed(1)}s +${dur.toFixed(1)}s`);
