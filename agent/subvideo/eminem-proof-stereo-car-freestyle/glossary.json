@@ -1,34 +1,258 @@
 {
-"yo yo, my name is Shady": [["Shady","Slim Shady。Eminemのラップ上の別人格","Memo","1999年のアルバム『The Slim Shady LP』で前面に出た、毒舌で危うい別人格。"]],
-"His name is Proof": [["Proof","D12のメンバー。Eminemの長年の親友","Memo","2006年に亡くなった。デトロイトのラップシーンからの付き合いで、Eminemを早くから支えた存在。"]],
-"Didn't want to admit": [["on welfare","生活保護（福祉給付）を受けている","慣用句","貧しかった幼少期の話。Eminemは他の曲でも同じ生い立ちを語っている。"]],
-"\"Goodbye, goodbye Marshall": [["Marshall","Eminemの本名（Marshall Mathers）","Memo","Eminemという名前は、M&M＝Marshall Mathersの頭文字から。"]],
-"And right now I'm going to mingle": [["mingle","人の輪に混ざって交流する","Memo","single / mingle / bingo と韻を連ねている。"]],
-"Yeah, \"see you later, alligators\"": [["see you later, alligator","「じゃあね」の定番の別れの言い回し","慣用句","later と alligator で韻を踏む遊び。返しは in a while, crocodile。"]],
-"'Cause it was cold inside": [["never had no heat","二重否定で「暖房が全くなかった」と強調","AAVE","否定を重ねて強めるのは口語・AAVEの典型。間違いではなく文法ルール。"]],
-"\"Yo, what up Em": [["what up","What's up の省略。「調子どうだ」の挨拶","Slang","仲間内の挨拶。ProofはEminemのことを Em と呼んでいる。"]],
-"I used to be like \"Yeah man": [["dog","仲間・相棒への呼びかけ","Slang","ヒップホップでは親しい相手を dog と呼ぶことが多い。"]],
-"Tango and Cash,": [["Tango & Cash","1989年の映画。スタローンとカート・ラッセルの刑事バディもの","Memo","白人のEminemと黒人のProofを、凸凹コンビの刑事になぞらえた比喩と読める。"]],
-"Tougher than Alcatraz": [["Alcatraz","サンフランシスコ湾の島にあった連邦刑務所","Memo","脱出が難しいことで有名。「鉄格子より頑丈」＝二人の絆が固いという比喩。"]],
-"Ivory and black ebony": [["ivory / ebony","象牙色と黒檀の黒","Memo","白人のEminemと黒人のProofのコンビの比喩と読める。Paul McCartneyとStevie Wonderの『Ebony and Ivory』(1982)も連想させる。"]],
-"They can't step to me": [["step to ～","～に挑む、絡む","Slang","勝負や喧嘩を売る時の言い回し。"]],
-"Y'all don't want to see me": [["ill","スラングで「ヤバいほど上手い」","Slang","もとは「病気」の意味。ヒップホップでは褒め言葉に反転して使う。"]],
-"And I'm real and I always keep it real": [["keep it real","飾らず本音のまま、自分に嘘をつかない","慣用句","ヒップホップの根っこにある価値観。"]],
-"But it was really hectic growing up": [["blow up","急に売れる、ブレイクする","Slang","貧しかった過去との対比になっている。"]],
-"To the club drunk": [["drunk as what?","放送禁止語を伏せた言い回し","Memo","伏せた語は言わず、次の行で「MTVでは言えない」と自分で突っ込んでいる。"]],
-"But remember little old wimpy me": [["wimpy","ひ弱な、弱っちい","Slang","little old ～ は「昔の小さな～な俺」という親しみの言い回し。"]],
-"Hey wait a minute": [["flatline","心電図が平らになる＝心停止","Slang","息の根を止めるほどのラップ、という比喩と読める。"]],
-"Pass the mic back to Proof": [["get loose","はしゃぐ、羽目を外す","Slang","ここからProofのバースに入る。"]],
-"We drink gin and juice": [["gin and juice","ジンのジュース割り","Memo","Snoop Doggの同名曲でも知られる、ヒップホップ定番の飲み物。"]],
-"Hey yo, we all up in your sack": [["all up in ～","～にべったり入り込む、絡みつく","Slang","近づいて離れない、という圧を表す。"]],
-"Me and Em tag team": [["tag team","二人で組んで戦う","Memo","プロレスのタッグ戦から。EminemとProofの二人組で勝負するという宣言。"]],
-"'Cause they don't understand": [["I be spitting","習慣を表す be。spit＝ラップする","AAVE","「いつもやっている」を be で表すのはAAVE特有の使い方。"]],
-"It's never written": [["never written","書き溜めずその場で吐く＝即興","Memo","フリースタイルの定義そのもの。"]],
-"We make your neck crack": [["snare pop","スネアドラムの「パン」という音","Memo","首がへし折れるほど重い一発、というラップの比喩。"]],
-"You're whack": [["whack","ダサい、ショボい","Slang","バトルで相手を貶す定番の言葉。"]],
-"Yo, Dead Presidents": [["Dead Presidents","紙幣のスラング","Slang","札に歴代大統領の肖像があることから。"]],
-"We go and enter you in the nude": [["nude / intrude / rude / dude","-ude の韻を4連発","Memo","即興でも韻を落とさないのがフリースタイルの見せ場。"]],
-"Don't mean to be rude": [["dude","兄弟、お前。男への砕けた呼びかけ","Slang","前の行の rude と韻を踏んでいる。"]],
-"You're getting hurt by this freestyle": [["freestyle","台本も書き溜めもなく、その場で即興でラップすること","Memo","この動画そのものがフリースタイル。"]],
-"Skinny little white boy": [["spike","飲み物にこっそり酒を混ぜる","Slang","spike punch＝パンチ（ポンチ）に酒を仕込む。"]]
+ "yo yo, my name is Shady": [
+  [
+   "Shady",
+   "Slim Shady。Eminemのラップ上の別人格",
+   "Memo",
+   "1999年のアルバム『The Slim Shady LP』で前面に出た、毒舌で危うい別人格。"
+  ]
+ ],
+ "His name is Proof": [
+  [
+   "Proof",
+   "D12のメンバー。Eminemの長年の親友",
+   "Memo",
+   "2006年に亡くなった。デトロイトのラップシーンからの付き合いで、Eminemを早くから支えた存在。"
+  ]
+ ],
+ "Didn't want to admit": [
+  [
+   "on welfare",
+   "生活保護（福祉給付）を受けている",
+   "Memo",
+   "貧しかった幼少期の話。Eminemは他の曲でも同じ生い立ちを語っている。"
+  ]
+ ],
+ "\"Goodbye, goodbye Marshall": [
+  [
+   "Marshall",
+   "Eminemの本名（Marshall Mathers）",
+   "Memo",
+   "Eminemという名前は、M&M＝Marshall Mathersの頭文字から。"
+  ]
+ ],
+ "And right now I'm going to mingle": [
+  [
+   "mingle",
+   "人の輪に混ざって交流する",
+   "Memo",
+   "single / mingle / bingo と韻を連ねている。"
+  ]
+ ],
+ "Yeah, \"see you later, alligators\"": [
+  [
+   "see you later, alligator",
+   "「じゃあね」の定番の別れの言い回し",
+   "慣用句",
+   "later と alligator で韻を踏む遊び。返しは in a while, crocodile。"
+  ]
+ ],
+ "'Cause it was cold inside": [
+  [
+   "never had no heat",
+   "二重否定で「暖房が全くなかった」と強調",
+   "AAVE",
+   "否定を重ねて強めるのは口語・AAVEの典型。間違いではなく文法ルール。"
+  ]
+ ],
+ "\"Yo, what up Em": [
+  [
+   "what up",
+   "What's up の省略。「調子どうだ」の挨拶",
+   "Slang",
+   "仲間内の挨拶。ProofはEminemのことを Em と呼んでいる。"
+  ]
+ ],
+ "I used to be like \"Yeah man": [
+  [
+   "dog",
+   "仲間・相棒への呼びかけ",
+   "Slang",
+   "ヒップホップでは親しい相手を dog と呼ぶことが多い。"
+  ]
+ ],
+ "Tango and Cash,": [
+  [
+   "Tango & Cash",
+   "1989年の映画。スタローンとカート・ラッセルの刑事バディもの",
+   "Memo",
+   "白人のEminemと黒人のProofを、凸凹コンビの刑事になぞらえた比喩と読める。"
+  ]
+ ],
+ "Tougher than Alcatraz": [
+  [
+   "Alcatraz",
+   "サンフランシスコ湾の島にあった連邦刑務所",
+   "Memo",
+   "脱出が難しいことで有名。「鉄格子より頑丈」＝二人の絆が固いという比喩。"
+  ]
+ ],
+ "Ivory and black ebony": [
+  [
+   "ivory / ebony",
+   "象牙色と黒檀の黒",
+   "Memo",
+   "白人のEminemと黒人のProofのコンビの比喩と読める。Paul McCartneyとStevie Wonderの『Ebony and Ivory』(1982)も連想させる。"
+  ]
+ ],
+ "They can't step to me": [
+  [
+   "step to ～",
+   "～に挑む、絡む",
+   "Slang",
+   "勝負や喧嘩を売る時の言い回し。"
+  ]
+ ],
+ "Y'all don't want to see me": [
+  [
+   "ill",
+   "スラングで「ヤバいほど上手い」",
+   "Slang",
+   "もとは「病気」の意味。ヒップホップでは褒め言葉に反転して使う。"
+  ]
+ ],
+ "And I'm real and I always keep it real": [
+  [
+   "keep it real",
+   "飾らず本音のまま、自分に嘘をつかない",
+   "慣用句",
+   "ヒップホップの根っこにある価値観。"
+  ]
+ ],
+ "But it was really hectic growing up": [
+  [
+   "blow up",
+   "急に売れる、ブレイクする",
+   "Slang",
+   "貧しかった過去との対比になっている。"
+  ]
+ ],
+ "To the club drunk": [
+  [
+   "drunk as what?",
+   "放送禁止語を伏せた言い回し",
+   "Memo",
+   "伏せた語は言わず、次の行で「MTVでは言えない」と自分で突っ込んでいる。"
+  ]
+ ],
+ "But remember little old wimpy me": [
+  [
+   "wimpy",
+   "ひ弱な、弱っちい",
+   "Memo",
+   "little old ～ は「昔の小さな～な俺」という親しみの言い回し。"
+  ]
+ ],
+ "Hey wait a minute": [
+  [
+   "flatline",
+   "心電図が平らになる＝心停止",
+   "Memo",
+   "息の根を止めるほどのラップ、という比喩と読める。"
+  ]
+ ],
+ "Pass the mic back to Proof": [
+  [
+   "get loose",
+   "はしゃぐ、羽目を外す",
+   "Slang",
+   "ここからProofのバースに入る。"
+  ]
+ ],
+ "We drink gin and juice": [
+  [
+   "gin and juice",
+   "ジンのジュース割り",
+   "Memo",
+   "Snoop Doggの同名曲でも知られる、ヒップホップ定番の飲み物。"
+  ]
+ ],
+ "Hey yo, we all up in your sack": [
+  [
+   "all up in ～",
+   "～にべったり入り込む、絡みつく",
+   "Slang",
+   "近づいて離れない、という圧を表す。"
+  ]
+ ],
+ "Me and Em tag team": [
+  [
+   "tag team",
+   "二人で組んで戦う",
+   "Memo",
+   "プロレスのタッグ戦から。EminemとProofの二人組で勝負するという宣言。"
+  ]
+ ],
+ "'Cause they don't understand": [
+  [
+   "I be spitting",
+   "習慣を表す be。spit＝ラップする",
+   "AAVE",
+   "「いつもやっている」を be で表すのはAAVE特有の使い方。"
+  ]
+ ],
+ "It's never written": [
+  [
+   "never written",
+   "書き溜めずその場で吐く＝即興",
+   "Memo",
+   "フリースタイルの定義そのもの。"
+  ]
+ ],
+ "We make your neck crack": [
+  [
+   "snare pop",
+   "スネアドラムの「パン」という音",
+   "Memo",
+   "首がへし折れるほど重い一発、というラップの比喩。"
+  ]
+ ],
+ "You're whack": [
+  [
+   "whack",
+   "ダサい、ショボい",
+   "Slang",
+   "バトルで相手を貶す定番の言葉。"
+  ]
+ ],
+ "Yo, Dead Presidents": [
+  [
+   "Dead Presidents",
+   "紙幣のスラング",
+   "Slang",
+   "札に歴代大統領の肖像があることから。"
+  ]
+ ],
+ "We go and enter you in the nude": [
+  [
+   "nude / intrude / rude / dude",
+   "-ude の韻を4連発",
+   "Memo",
+   "即興でも韻を落とさないのがフリースタイルの見せ場。"
+  ]
+ ],
+ "Don't mean to be rude": [
+  [
+   "dude",
+   "兄弟、お前。男への砕けた呼びかけ",
+   "Slang",
+   "前の行の rude と韻を踏んでいる。"
+  ]
+ ],
+ "You're getting hurt by this freestyle": [
+  [
+   "freestyle",
+   "台本も書き溜めもなく、その場で即興でラップすること",
+   "Memo",
+   "この動画そのものがフリースタイル。"
+  ]
+ ],
+ "Skinny little white boy": [
+  [
+   "spike",
+   "飲み物にこっそり酒を混ぜる",
+   "Memo",
+   "spike punch＝パンチ（ポンチ）に酒を仕込む。"
+  ]
+ ]
 }
