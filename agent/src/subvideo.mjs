@@ -140,12 +140,13 @@ function geometry(mode) {
   const lbSrc = cd ? +cd.at(-1).split(":")[3] : 0;
   const lb = Math.round(lbSrc * (mode === "reels" ? 1080 : 1280) / w);
   if (mode === "reels") {
-    const VW = 1080, VH = ev(VW / dar), VY = Math.max(230, Math.round(410 - (VH - 608) * 0.6));
-    const engY = VY + VH + 27;
-    return { lb, W: 1080, H: 1920, VY, VW, VH, eng: 54, jpn: 42, gl: 36, engY, jpnY: engY + 165, glY: engY + 305, marg: 60, jpMax: 22, glMax: 27, footY: 1600 };
+    // Instagram安全域: 上300px(ヘッダー/プロフィール3:4切抜き) 下〜1540(キャプション) 右190px(いいね等のアイコン列)・左右100px(端末による左右切れ)
+    const VW = 1080, VH = ev(VW / dar), VY = 425;
+    const engY = VY + VH + 12;
+    return { lb, W: 1080, H: 1920, VY, VW, VH, eng: 44, jpn: 36, gl: 28, engY, jpnY: engY + 175, glY: engY + 320, marg: 60, mL: 100, mR: 190, dynCard: true, jpMax: 21, glMax: 26, footY: 1600, brandY: 300, brandSz: 54, subY: 368, subSz: 32, cardTopMax: 1540 };
   }
   const VW = 1280, VH = ev(VW / dar);
-  return { lb, W: 1280, H: VH + 280, VY: 0, VW, VH, eng: 40, jpn: 34, gl: 26, engY: VH + 15, jpnY: VH + 115, glY: VH + 195, marg: 50, jpMax: 33, glMax: 44, footY: 0 };
+  return { lb, mL: 50, mR: 50, brandY: 190, brandSz: 68, subY: 275, subSz: 42, W: 1280, H: VH + 280, VY: 0, VW, VH, eng: 40, jpn: 34, gl: 26, engY: VH + 15, jpnY: VH + 115, glY: VH + 195, marg: 50, jpMax: 33, glMax: 44, footY: 0 };
 }
 const GOLD = "&H0000D7FF";
 const wd = s => [...s].reduce((a, ch) => a + (/[\x00-\x7f]/.test(ch) ? 0.55 : 1), 0);
@@ -162,17 +163,17 @@ const ts = s => { const cs = Math.round(s * 100); return `${Math.floor(cs / 3600
 function styles(L) {
   return `[Script Info]\nScriptType: v4.00+\nPlayResX: ${L.W}\nPlayResY: ${L.H}\nWrapStyle: 0\nScaledBorderAndShadow: yes\n\n[V4+ Styles]
 Format: Name,Fontname,Fontsize,PrimaryColour,SecondaryColour,OutlineColour,BackColour,Bold,Italic,Underline,StrikeOut,ScaleX,ScaleY,Spacing,Angle,BorderStyle,Outline,Shadow,Alignment,MarginL,MarginR,MarginV,Encoding
-Style: Brand,Inter,68,${GOLD},${GOLD},&H00000000,&H00000000,-1,0,0,0,100,100,1,0,1,2,0,8,50,50,190,1
-Style: Sub,Inter,42,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,2,0,8,50,50,275,1
+Style: Brand,Inter,${L.brandSz},${GOLD},${GOLD},&H00000000,&H00000000,-1,0,0,0,100,100,1,0,1,2,0,8,50,50,${L.brandY},1
+Style: Sub,Hiragino Sans,${L.subSz},&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,2,0,8,50,50,${L.subY},1
 Style: Part,Hiragino Sans,36,&H00CCCCCC,&H00CCCCCC,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,2,0,8,50,50,335,1
 Style: Foot,Hiragino Sans,28,&H00888888,&H00888888,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,2,0,8,50,50,${L.footY},1
-Style: Eng,Inter,${L.eng},${GOLD},&H80FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,3,0,8,${L.marg},${L.marg},${L.engY},1
-Style: Jpn,Hiragino Sans,${L.jpn},&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,3,0,8,${L.marg},${L.marg},${L.jpnY},1
+Style: Eng,Inter,${L.eng},${GOLD},&H80FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,3,0,8,${L.mL},${L.mR},${L.engY},1
+Style: Jpn,Hiragino Sans,${L.jpn},&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,3,0,8,${L.mL},${L.mR},${L.jpnY},1
 Style: Card,Inter,20,&H00F6F6F6,&H00F6F6F6,&H00F6F6F6,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1
-Style: Tag,Inter,25,&H00FFFFFF,&H00FFFFFF,&H00FFFFFF,&H00000000,-1,0,0,0,100,100,1,0,3,8,0,7,${L.marg + 36},${L.marg},${L.glY},1
-Style: GTerm,Hiragino Sans,${L.gl + 2},&H00111111,&H00111111,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,0,0,7,${L.marg + 36},${L.marg},${L.glY + 58},1
-Style: GMemo,Hiragino Sans,${L.gl - 4},&H00444444,&H00444444,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,${L.marg + 36},${L.marg},${L.glY + 58},1
-Style: Gloss,Hiragino Sans,${L.gl},&H00DDDDDD,&H00DDDDDD,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,2,0,8,${L.marg},${L.marg},${L.glY},1
+Style: Tag,Inter,25,&H00FFFFFF,&H00FFFFFF,&H00FFFFFF,&H00000000,-1,0,0,0,100,100,1,0,3,8,0,7,${L.mL + 36},${L.mR},${L.glY},1
+Style: GTerm,Hiragino Sans,${L.gl + 2},&H00111111,&H00111111,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,0,0,7,${L.mL + 36},${L.mR},${L.glY + 58},1
+Style: GMemo,Hiragino Sans,${L.gl - 4},&H00444444,&H00444444,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,${L.mL + 36},${L.mR},${L.glY + 58},1
+Style: Gloss,Hiragino Sans,${L.gl},&H00DDDDDD,&H00DDDDDD,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,2,0,8,${L.mL},${L.mR},${L.glY},1
 
 [Events]\nFormat: Layer,Start,End,Style,Name,MarginL,MarginR,MarginV,Effect,Text\n`;
 }
@@ -180,21 +181,29 @@ function events(L, sel, t0, dur, gloss) {
   const rel = ms => ms / 1000 - t0; let ev = "";
   const gk = c => Object.keys(gloss).find(k => c.eng.startsWith(k));
   const gl = sel.map(c => ({ c, g: gk(c) ? gloss[gk(c)] : null })).filter(x => x.g);
+  // 縦型は英語の行数(推定)に合わせて日本語・カードの縦位置を詰める（Instagram安全域に収めるため）
+  const cpl = Math.floor((L.W - L.mL - L.mR) / (L.eng * 0.6));
+  const engLines = c => Math.max(1, Math.ceil(c.eng.length * 1.06 / cpl));
+  const jpnMV = c => L.dynCard ? Math.round(L.engY + engLines(c) * L.eng * 1.22 + 14) : 0;
+  const jpnLines = c => c.jpn ? wrapJa(c.jpn, L.jpMax).split(BR).length : 0;
+  const cueBottom = c => jpnMV(c) + (c.jpn ? jpnLines(c) * L.jpn * 1.28 : 0);
   const TAGC = { AAVE: "&H00A4007B&", Slang: "&H000054A8&", "慣用句": "&H00A87E00&", Memo: "&H0000AB03&" };
   gl.forEach((x, k) => {
     const card = x.g[0][2];
-    const s = Math.max(0, rel(x.c.start)); let e = Math.max(rel(x.c.end), s + (card ? 5.5 : 4.2)); if (gl[k + 1]) e = Math.min(e, rel(gl[k + 1].c.start)); e = Math.min(e, dur);
+    const s = Math.max(0, rel(x.c.start)); let e = Math.max(rel(x.c.end), s + (card ? 4.8 : 4.2)); if (gl[k + 1]) e = Math.min(e, rel(gl[k + 1].c.start)); e = Math.min(e, dur);
     if (card) {
       const [tm, d, tag, memo] = x.g[0]; const fd = "{\\fad(80,120)}";
-      const mainW = Math.floor((L.W - 2 * L.marg - 72) / (L.gl + 2) / 0.98);
+      const gy = L.dynCard ? Math.round(Math.max(...sel.filter(c => rel(c.start) < e && rel(c.end) > s).map(cueBottom), L.engY + 130) + 38) : L.glY;
+      const mainW = Math.floor((L.W - L.mL - L.mR - 72) / (L.gl + 2) / 0.9);
       const main = wrapJa(`${tm}　${d}`, Math.min(L.glMax, mainW), [...tm].length + 1); const mainLines = main.split(BR).length;
-      const memoT = memo ? wrapJa(memo, Math.min(L.glMax + 3, Math.floor((L.W - 2 * L.marg - 72) / (L.gl - 4) / 0.98))) : ""; const memoLines = memo ? memoT.split(BR).length : 0;
-      const mainH = mainLines * (L.gl + 14), memoY = L.glY + 58 + mainH + 6, cardTop = L.glY - 20, cardBot = memo ? memoY + memoLines * (L.gl + 6) + 20 : L.glY + 58 + mainH + 14;
-      const cw = L.W - 2 * L.marg, ch = cardBot - cardTop, r = 26;
+      const memoT = memo ? wrapJa(memo, Math.min(L.glMax + 3, Math.floor((L.W - L.mL - L.mR - 72) / (L.gl - 4) / 0.9))) : ""; const memoLines = memo ? memoT.split(BR).length : 0;
+      const mainH = mainLines * (L.gl + 14), memoY = gy + 58 + mainH + 6, cardTop = gy - 20, cardBot = memo ? memoY + memoLines * (L.gl + 6) + 20 : gy + 58 + mainH + 14;
+      const cw = L.W - L.mL - L.mR, ch = cardBot - cardTop, r = 26;
+      if (L.cardTopMax && cardBot > L.cardTopMax) console.warn(`⚠️  注記カード下端 ${cardBot}px > 安全域 ${L.cardTopMax}px（${tm}）: 一口メモを短くする`);
       const shape = `m ${r} 0 l ${cw - r} 0 b ${cw} 0 ${cw} 0 ${cw} ${r} l ${cw} ${ch - r} b ${cw} ${ch} ${cw} ${ch} ${cw - r} ${ch} l ${r} ${ch} b 0 ${ch} 0 ${ch} 0 ${ch - r} l 0 ${r} b 0 0 0 0 ${r} 0`;
-      ev += `Dialogue: 1,${ts(s)},${ts(e)},Card,,0,0,0,,${fd}{\\an7\\pos(${L.marg},${cardTop})\\p1}${shape}{\\p0}\n`;
-      ev += `Dialogue: 3,${ts(s)},${ts(e)},Tag,,0,0,0,,${fd}{\\3c${TAGC[tag] || "&H00999999&"}}${esc(tag)}\n`;
-      ev += `Dialogue: 3,${ts(s)},${ts(e)},GTerm,,0,0,0,,${fd}{\\b1}${esc(tm)}{\\b0\\c&H333333&}` + esc(main.slice(tm.length)).replaceAll(BR, NL) + "\n";
+      ev += `Dialogue: 1,${ts(s)},${ts(e)},Card,,0,0,0,,${fd}{\\an7\\pos(${L.mL},${cardTop})\\p1}${shape}{\\p0}\n`;
+      ev += `Dialogue: 3,${ts(s)},${ts(e)},Tag,,0,0,${gy},,${fd}{\\3c${TAGC[tag] || "&H00999999&"}}${esc(tag)}\n`;
+      ev += `Dialogue: 3,${ts(s)},${ts(e)},GTerm,,0,0,${gy + 58},,${fd}{\\b1}${esc(tm)}{\\b0\\c&H333333&}` + esc(main.slice(tm.length)).replaceAll(BR, NL) + "\n";
       if (memo) ev += `Dialogue: 3,${ts(s)},${ts(e)},GMemo,,0,0,${memoY},,${fd}${esc(memoT).replaceAll(BR, NL)}\n`;
       return;
     }
@@ -205,7 +214,7 @@ function events(L, sel, t0, dur, gloss) {
     let ptr = c.start, eng = "";
     for (const sg of c.segments) { if (sg.s == null) { eng += esc(sg.text); continue; } eng += `{\\k${Math.round(Math.max(0, sg.s - ptr) / 10)}}{\\kf${Math.max(1, Math.round((sg.e - sg.s) / 10))}}${esc(sg.text)}`; ptr = sg.e; }
     ev += `Dialogue: 0,${ts(rel(c.start))},${ts(rel(c.end))},Eng,,0,0,0,,{\\fad(60,100)}${eng}\n`;
-    if (c.jpn) ev += `Dialogue: 1,${ts(rel(c.start))},${ts(rel(c.end))},Jpn,,0,0,0,,{\\fad(60,100)}${esc(wrapJa(c.jpn, L.jpMax)).replaceAll(BR, NL)}\n`;
+    if (c.jpn) ev += `Dialogue: 1,${ts(rel(c.start))},${ts(rel(c.end))},Jpn,,0,0,${jpnMV(c)},,{\\fad(60,100)}${esc(wrapJa(c.jpn, L.jpMax)).replaceAll(BR, NL)}\n`;
   }
   return ev;
 }
@@ -213,7 +222,7 @@ const LOGO = path.resolve(AGENT, "assets/brand/wax-think-logo.png");
 function ffrender(L, base, ass, ss, dur) {
   fs.writeFileSync(base + ".ass", ass);
   const OUT = 2.8, fO = 0.5, wmW = L.W === 1080 ? 210 : 170, endW = L.W === 1080 ? 560 : 520, total = dur + OUT;
-  const wx = L.W - wmW - (L.W === 1080 ? 28 : 20), wy = L.VY + L.lb + (L.W === 1080 ? 22 : 18);
+  const wx = L.W - wmW - (L.W === 1080 ? 130 : 20), wy = L.VY + L.lb + (L.W === 1080 ? 22 : 18);
   const fc = `[0:v]scale=${L.VW}:${L.VH},setsar=1,pad=${L.W}:${L.H}:0:${L.VY}:black,ass=${base}.ass:fontsdir=${FONTS},setsar=1[base];`
     + `[1:v]format=rgba,split=2[a][b];[a]scale=${wmW}:-1,colorchannelmixer=aa=0.4[wm];[base][wm]overlay=${wx}:${wy}[v1];`
     + `[v1]fade=t=out:st=${(dur - fO).toFixed(2)}:d=${fO},tpad=stop_mode=add:stop_duration=${OUT}:color=black[v2];`
@@ -239,8 +248,8 @@ function render() {
       const sel = cues.slice(a, b + 1); const t0 = Math.max((a > 0 ? cues[a - 1].end : 0) / 1000, sel[0].start / 1000 - 0.4, 0);
       const dur = sel.at(-1).end / 1000 + 0.6 - t0;
       let ev = `Dialogue: 0,${ts(0)},${ts(dur)},Brand,,0,0,0,,${esc(meta.brand)}\n`;
-      if (meta.sub) ev += `Dialogue: 0,${ts(0)},${ts(dur)},Sub,,0,0,0,,${esc(meta.sub)}\n`;
-      if (p.label) ev += `Dialogue: 0,${ts(0)},${ts(dur)},Part,,0,0,0,,${esc(p.label)}\n`;
+      const subLine = [meta.sub, p.label].filter(Boolean).join("　｜　");
+      if (subLine) ev += `Dialogue: 0,${ts(0)},${ts(dur)},Sub,,0,0,0,,${esc(subLine)}\n`;
       if (meta.footer) ev += `Dialogue: 0,${ts(0)},${ts(dur)},Foot,,0,0,0,,${esc(meta.footer)}\n`;
       ffrender(L, P(`renders/reels/part${n + 1}`), styles(L) + ev + events(L, sel, t0, dur, gloss), ["-ss", String(t0), "-t", String(dur)], dur);
       console.log(`[subvideo] part${n + 1}: ${t0.toFixed(1)}s +${dur.toFixed(1)}s`);
