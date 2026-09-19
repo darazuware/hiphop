@@ -89,8 +89,19 @@ function align() {
 }
 
 // ---------------- build ----------------
+const HOOK_TPL = [["ooh", 0, 0.17], ["la", 0.2, 0.32], ["la", 0.58, 0.72], ["ah", 1.02, 1.36], ["oui", 1.4, 1.8], ["oui", 2.4, 2.83]];
+function applyHookGrids(F, meta) {
+  for (const g of meta.hookGrids || []) {
+    for (let i = g.from; i <= g.to; i++) {
+      const n = F[i].length, t = g.t0 + g.d * (i - g.from);
+      if (n !== 6 && n !== 3) throw new Error(`hookGrids: 行${i}の語数が${n}（6か3のみ）`);
+      F[i] = HOOK_TPL.slice(0, n).map(([w, a, b]) => ({ w, s: +(t + a).toFixed(3), e: +(t + b).toFixed(3) }));
+    }
+  }
+}
 function build() {
   const L = rj("lines.json"), F = rj("fa.json"), meta = rj("meta.json");
+  applyHookGrids(F, meta);
   if (L.length !== F.length) { console.error("lines.json と fa.json の行数が不一致（align を再実行）"); process.exit(2); }
   const cues = [];
   L.forEach(([eng, jpn], i) => {
@@ -125,13 +136,16 @@ function geometry(mode) {
   const [w, h] = [+pr[0], +pr[1]]; const [sn, sd] = (pr[2] || "1:1").split(":").map(Number);
   const dar = (w * (sn && sd ? sn / sd : 1)) / h;
   const ev = x => Math.round(x / 2) * 2;
+  const cd = spawnSync("ffmpeg", ["-ss", String(Math.round((rj("meta.json").duration || 60) * 0.4)), "-i", P("src.mp4"), "-t", "3", "-vf", "cropdetect=24:2:0", "-f", "null", "-"], { encoding: "utf8" }).stderr.match(/crop=(\d+):(\d+):(\d+):(\d+)/g);
+  const lbSrc = cd ? +cd.at(-1).split(":")[3] : 0;
+  const lb = Math.round(lbSrc * (mode === "reels" ? 1080 : 1280) / w);
   if (mode === "reels") {
     const VW = 1080, VH = ev(VW / dar), VY = Math.max(230, Math.round(410 - (VH - 608) * 0.6));
     const engY = VY + VH + 27;
-    return { W: 1080, H: 1920, VY, VW, VH, eng: 54, jpn: 42, gl: 36, engY, jpnY: engY + 165, glY: engY + 305, marg: 60, jpMax: 22, glMax: 27, footY: 1600 };
+    return { lb, W: 1080, H: 1920, VY, VW, VH, eng: 54, jpn: 42, gl: 36, engY, jpnY: engY + 165, glY: engY + 305, marg: 60, jpMax: 22, glMax: 27, footY: 1600 };
   }
   const VW = 1280, VH = ev(VW / dar);
-  return { W: 1280, H: VH + 280, VY: 0, VW, VH, eng: 40, jpn: 34, gl: 26, engY: VH + 15, jpnY: VH + 115, glY: VH + 195, marg: 50, jpMax: 33, glMax: 44, footY: 0 };
+  return { lb, W: 1280, H: VH + 280, VY: 0, VW, VH, eng: 40, jpn: 34, gl: 26, engY: VH + 15, jpnY: VH + 115, glY: VH + 195, marg: 50, jpMax: 33, glMax: 44, footY: 0 };
 }
 const GOLD = "&H0000D7FF";
 const wd = s => [...s].reduce((a, ch) => a + (/[\x00-\x7f]/.test(ch) ? 0.55 : 1), 0);
@@ -199,9 +213,9 @@ const LOGO = path.resolve(AGENT, "assets/brand/wax-think-logo.png");
 function ffrender(L, base, ass, ss, dur) {
   fs.writeFileSync(base + ".ass", ass);
   const OUT = 2.8, fO = 0.5, wmW = L.W === 1080 ? 210 : 170, endW = L.W === 1080 ? 560 : 520, total = dur + OUT;
-  const wx = L.W - wmW - (L.W === 1080 ? 28 : 20), wy = L.VY + (L.W === 1080 ? 22 : 18);
+  const wx = L.W - wmW - (L.W === 1080 ? 28 : 20), wy = L.VY + L.lb + (L.W === 1080 ? 22 : 18);
   const fc = `[0:v]scale=${L.VW}:${L.VH},setsar=1,pad=${L.W}:${L.H}:0:${L.VY}:black,ass=${base}.ass:fontsdir=${FONTS},setsar=1[base];`
-    + `[1:v]format=rgba,split=2[a][b];[a]scale=${wmW}:-1,colorchannelmixer=aa=0.85[wm];[base][wm]overlay=${wx}:${wy}[v1];`
+    + `[1:v]format=rgba,split=2[a][b];[a]scale=${wmW}:-1,colorchannelmixer=aa=0.4[wm];[base][wm]overlay=${wx}:${wy}[v1];`
     + `[v1]fade=t=out:st=${(dur - fO).toFixed(2)}:d=${fO},tpad=stop_mode=add:stop_duration=${OUT}:color=black[v2];`
     + `[b]scale=${endW}:-1,fade=t=in:st=0:d=0.6:alpha=1,fade=t=out:st=1.5:d=0.6:alpha=1,setpts=PTS+${(dur + 0.3).toFixed(2)}/TB[lg];`
     + `[v2][lg]overlay=(W-w)/2:(H-h)/2:eof_action=pass[v];`
