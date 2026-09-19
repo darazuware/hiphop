@@ -166,7 +166,7 @@ function events(L, sel, t0, dur, gloss) {
   const rel = ms => ms / 1000 - t0; let ev = "";
   const gk = c => Object.keys(gloss).find(k => c.eng.startsWith(k));
   const gl = sel.map(c => ({ c, g: gk(c) ? gloss[gk(c)] : null })).filter(x => x.g);
-  const TAGC = { AAVE: "&H00A4007B&", Slang: "&H00A4007B&", "慣用句": "&H0000AB03&", Memo: "&H0000AB03&" };
+  const TAGC = { AAVE: "&H00A4007B&", Slang: "&H000054A8&", "慣用句": "&H00A87E00&", Memo: "&H0000AB03&" };
   gl.forEach((x, k) => {
     const card = x.g[0][2];
     const s = Math.max(0, rel(x.c.start)); let e = Math.max(rel(x.c.end), s + (card ? 5.5 : 4.2)); if (gl[k + 1]) e = Math.min(e, rel(gl[k + 1].c.start)); e = Math.min(e, dur);
