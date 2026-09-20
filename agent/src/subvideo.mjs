@@ -139,6 +139,11 @@ function geometry(mode) {
   const cd = spawnSync("ffmpeg", ["-ss", String(Math.round((rj("meta.json").duration || 60) * 0.4)), "-i", P("src.mp4"), "-t", "3", "-vf", "cropdetect=24:2:0", "-f", "null", "-"], { encoding: "utf8" }).stderr.match(/crop=(\d+):(\d+):(\d+):(\d+)/g);
   const lbSrc = cd ? +cd.at(-1).split(":")[3] : 0;
   const lb = Math.round(lbSrc * (mode === "reels" ? 1080 : 1280) / w);
+  if (mode === "tiktok") {
+    // TikTok版: 透かし/末尾ロゴなし。映像を暗くし、下半分に字幕を重ねる。下の空きは注記カードに使う。UI: 右140px・下1450px以降を避ける
+    const VW = 1080, VH = ev(VW / dar), VY = 330;
+    return { tt: true, lb, W: 1080, H: 1920, VY, VW, VH, al: 2, eng: 54, jpn: 48, gl: 54, tagSz: 40, marg: 60, mL: 60, mR: 140, jpMax: 18, glMax: 24, footY: 1600, brandY: 130, brandSz: 40, subY: 225, subSz: 36, dynCard: false, cardTop: VY + VH + 26, cardTopMax: 1450, glY: VY + VH + 46 };
+  }
   if (mode === "reels") {
     // Instagram安全域: 上300px(ヘッダー/プロフィール3:4切抜き) 下〜1540(キャプション) 右190px(いいね等のアイコン列)・左右100px(端末による左右切れ)
     const VW = 1080, VH = ev(VW / dar), VY = 425;
@@ -167,10 +172,10 @@ Style: Brand,Inter,${L.brandSz},${GOLD},${GOLD},&H00000000,&H00000000,-1,0,0,0,1
 Style: Sub,Hiragino Sans,${L.subSz},&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,2,0,8,50,50,${L.subY},1
 Style: Part,Hiragino Sans,36,&H00CCCCCC,&H00CCCCCC,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,2,0,8,50,50,335,1
 Style: Foot,Hiragino Sans,28,&H00888888,&H00888888,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,2,0,8,50,50,${L.footY},1
-Style: Eng,Inter,${L.eng},${GOLD},&H80FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,3,0,8,${L.mL},${L.mR},${L.engY},1
-Style: Jpn,Hiragino Sans,${L.jpn},&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,3,0,8,${L.mL},${L.mR},${L.jpnY},1
+Style: Eng,Inter,${L.eng},${GOLD},&H80FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,3,0,${L.al || 8},${L.mL},${L.mR},${L.engY || 0},1
+Style: Jpn,Hiragino Sans,${L.jpn},&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,3,0,${L.al || 8},${L.mL},${L.mR},${L.jpnY || 0},1
 Style: Card,Inter,20,&H00F6F6F6,&H00F6F6F6,&H00F6F6F6,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1
-Style: Tag,Inter,25,&H00FFFFFF,&H00FFFFFF,&H00FFFFFF,&H00000000,-1,0,0,0,100,100,1,0,3,8,0,7,${L.mL + 36},${L.mR},${L.glY},1
+Style: Tag,Inter,${L.tagSz || 25},&H00FFFFFF,&H00FFFFFF,&H00FFFFFF,&H00000000,-1,0,0,0,100,100,1,0,3,8,0,7,${L.mL + 36},${L.mR},${L.glY},1
 Style: GTerm,Hiragino Sans,${L.gl + 2},&H00111111,&H00111111,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,0,0,7,${L.mL + 36},${L.mR},${L.glY + 58},1
 Style: GMemo,Hiragino Sans,${L.gl - 4},&H00444444,&H00444444,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,${L.mL + 36},${L.mR},${L.glY + 58},1
 Style: Gloss,Hiragino Sans,${L.gl},&H00DDDDDD,&H00DDDDDD,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,2,0,8,${L.mL},${L.mR},${L.glY},1
@@ -186,6 +191,9 @@ function events(L, sel, t0, dur, gloss) {
   const engLines = c => Math.max(1, Math.ceil(c.eng.length * 1.06 / cpl));
   const jpnMV = c => L.dynCard ? Math.round(L.engY + engLines(c) * L.eng * 1.22 + 14) : 0;
   const jpnLines = c => c.jpn ? wrapJa(c.jpn, L.jpMax).split(BR).length : 0;
+  const ttBottom = L.tt ? L.VY + L.VH - 30 : 0;
+  const ttJpnMV = c => L.H - ttBottom;
+  const ttEngMV = c => L.H - (ttBottom - (c.jpn ? jpnLines(c) * L.jpn * 1.3 + 12 : 0));
   const cueBottom = c => jpnMV(c) + (c.jpn ? jpnLines(c) * L.jpn * 1.28 : 0);
   const TAGC = { AAVE: "&H00A4007B&", Slang: "&H000054A8&", "慣用句": "&H00A87E00&", Memo: "&H0000AB03&" };
   gl.forEach((x, k) => {
@@ -193,7 +201,7 @@ function events(L, sel, t0, dur, gloss) {
     const s = Math.max(0, rel(x.c.start)); let e = Math.max(rel(x.c.end), s + (card ? 4.8 : 4.2)); if (gl[k + 1]) e = Math.min(e, rel(gl[k + 1].c.start)); e = Math.min(e, dur);
     if (card) {
       const [tm, d, tag, memo] = x.g[0]; const fd = "{\\fad(80,120)}";
-      const gy = L.dynCard ? Math.round(Math.max(...sel.filter(c => rel(c.start) < e && rel(c.end) > s).map(cueBottom), L.engY + 130) + 38) : L.glY;
+      const gy = L.tt ? L.glY : L.dynCard ? Math.round(Math.max(...sel.filter(c => rel(c.start) < e && rel(c.end) > s).map(cueBottom), L.engY + 130) + 38) : L.glY;
       const mainW = Math.floor((L.W - L.mL - L.mR - 72) / (L.gl + 2) / 0.9);
       const main = wrapJa(`${tm}　${d}`, Math.min(L.glMax, mainW), [...tm].length + 1); const mainLines = main.split(BR).length;
       const memoT = memo ? wrapJa(memo, Math.min(L.glMax + 3, Math.floor((L.W - L.mL - L.mR - 72) / (L.gl - 4) / 0.9))) : ""; const memoLines = memo ? memoT.split(BR).length : 0;
@@ -213,13 +221,26 @@ function events(L, sel, t0, dur, gloss) {
   for (const c of sel) {
     let ptr = c.start, eng = "";
     for (const sg of c.segments) { if (sg.s == null) { eng += esc(sg.text); continue; } eng += `{\\k${Math.round(Math.max(0, sg.s - ptr) / 10)}}{\\kf${Math.max(1, Math.round((sg.e - sg.s) / 10))}}${esc(sg.text)}`; ptr = sg.e; }
-    ev += `Dialogue: 0,${ts(rel(c.start))},${ts(rel(c.end))},Eng,,0,0,0,,{\\fad(60,100)}${eng}\n`;
-    if (c.jpn) ev += `Dialogue: 1,${ts(rel(c.start))},${ts(rel(c.end))},Jpn,,0,0,${jpnMV(c)},,{\\fad(60,100)}${esc(wrapJa(c.jpn, L.jpMax)).replaceAll(BR, NL)}\n`;
+    ev += `Dialogue: 0,${ts(rel(c.start))},${ts(rel(c.end))},Eng,,0,0,${L.tt ? ttEngMV(c) : 0},,{\\fad(60,100)}${eng}\n`;
+    if (c.jpn) ev += `Dialogue: 1,${ts(rel(c.start))},${ts(rel(c.end))},Jpn,,0,0,${L.tt ? ttJpnMV(c) : jpnMV(c)},,{\\fad(60,100)}${esc(wrapJa(c.jpn, L.jpMax)).replaceAll(BR, NL)}\n`;
   }
   return ev;
 }
 const LOGO = path.resolve(AGENT, "assets/brand/wax-think-logo.png");
+function ffrenderTT(L, base, ass, ss, dur) {
+  fs.writeFileSync(base + ".ass", ass);
+  const OUT = 2.8, fO = 0.5, endW = 560, total = dur + OUT;
+  const gr = P(".tt-gradient.png");
+  if (!fs.existsSync(gr)) sh("ffmpeg", ["-y", "-loglevel", "error", "-f", "lavfi", "-i", `color=c=black:s=${L.VW}x${L.VH},format=rgba,geq=r=0:g=0:b=0:a='255*(0.30+0.60*clip((Y/H-0.25)/0.75,0,1))'`, "-frames:v", "1", gr]);
+  const fc = `[0:v]scale=${L.VW}:${L.VH},setsar=1[v0];[v0][1:v]overlay=0:0[v1];[v1]pad=${L.W}:${L.H}:0:${L.VY}:black,ass=${base}.ass:fontsdir=${FONTS},setsar=1[base];`
+    + `[base]fade=t=out:st=${(dur - fO).toFixed(2)}:d=${fO},tpad=stop_mode=add:stop_duration=${OUT}:color=black[v2];`
+    + `[2:v]format=rgba,scale=${endW}:-1,fade=t=in:st=0:d=0.6:alpha=1,fade=t=out:st=1.5:d=0.6:alpha=1,setpts=PTS+${(dur + 0.3).toFixed(2)}/TB[lg];`
+    + `[v2][lg]overlay=(W-w)/2:(H-h)/2:eof_action=pass[v];`
+    + `[0:a]afade=t=out:st=${(dur - 0.6).toFixed(2)}:d=0.6,apad=whole_dur=${total.toFixed(2)}[aud]`;
+  sh("ffmpeg", ["-y", "-loglevel", "error", ...ss, "-i", P("src.mp4"), "-loop", "1", "-framerate", "30", "-t", dur.toFixed(2), "-i", gr, "-loop", "1", "-framerate", "30", "-t", total.toFixed(2), "-i", LOGO, "-filter_complex", fc, "-map", "[v]", "-map", "[aud]", "-t", total.toFixed(2), "-c:v", "libx264", "-crf", "21", "-preset", "medium", "-pix_fmt", "yuv420p", "-r", "30", "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", base + ".mp4"]);
+}
 function ffrender(L, base, ass, ss, dur) {
+  if (L.tt) return ffrenderTT(L, base, ass, ss, dur);
   fs.writeFileSync(base + ".ass", ass);
   const OUT = 2.8, fO = 0.5, wmW = L.W === 1080 ? 210 : 170, endW = L.W === 1080 ? 560 : 520, total = dur + OUT;
   const wx = L.W - wmW - (L.W === 1080 ? 130 : 20), wy = L.VY + L.lb + (L.W === 1080 ? 22 : 18);
@@ -240,18 +261,19 @@ function render() {
     ffrender(L, P(`renders/${slug}_subs`), styles(L) + events(L, cues, 0, dur, gloss), [], dur);
     console.log("[subvideo] full 完了");
   }
+  const tt = arg("platform") === "tiktok";
   if (mode === "reels" || mode === "all") {
-    const L = geometry("reels");
+    const L = geometry(tt ? "tiktok" : "reels"); if (tt) fs.mkdirSync(P("renders/tiktok"), { recursive: true });
     parts.forEach((p, n) => {
       const a = p.fromIdx ?? cues.findIndex(c => c.eng.startsWith(p.from)), b = p.toIdx ?? cues.findIndex((c, i) => i >= a && c.eng.startsWith(p.to));
       if (a < 0 || b < 0) throw new Error(`parts.json の範囲が見つからない: Part ${n + 1}`);
       const sel = cues.slice(a, b + 1); const t0 = Math.max((a > 0 ? cues[a - 1].end : 0) / 1000, sel[0].start / 1000 - 0.4, 0);
       const dur = sel.at(-1).end / 1000 + 0.6 - t0;
-      let ev = `Dialogue: 0,${ts(0)},${ts(dur)},Brand,,0,0,0,,${esc(meta.brand)}\n`;
-      const subLine = [meta.sub, p.label].filter(Boolean).join("　｜　");
+      let ev = tt ? "" : `Dialogue: 0,${ts(0)},${ts(dur)},Brand,,0,0,0,,${esc(meta.brand)}\n`;
+      const subLine = (tt ? [meta.brand, p.label] : [meta.sub, p.label]).filter(Boolean).join("　｜　");
       if (subLine) ev += `Dialogue: 0,${ts(0)},${ts(dur)},Sub,,0,0,0,,${esc(subLine)}\n`;
       if (meta.footer) ev += `Dialogue: 0,${ts(0)},${ts(dur)},Foot,,0,0,0,,${esc(meta.footer)}\n`;
-      ffrender(L, P(`renders/reels/part${n + 1}`), styles(L) + ev + events(L, sel, t0, dur, gloss), ["-ss", String(t0), "-t", String(dur)], dur);
+      ffrender(L, P(`renders/${tt ? "tiktok" : "reels"}/part${n + 1}`), styles(L) + ev + events(L, sel, t0, dur, gloss), ["-ss", String(t0), "-t", String(dur)], dur);
       console.log(`[subvideo] part${n + 1}: ${t0.toFixed(1)}s +${dur.toFixed(1)}s`);
     });
   }
