@@ -12,16 +12,16 @@
  {
   "label": "Proofのバース",
   "fromIdx": 36,
-  "toIdx": 49
+  "toIdx": 53
  },
  {
   "label": "MTVへの挨拶とフリースタイル",
-  "fromIdx": 50,
-  "toIdx": 65
+  "fromIdx": 54,
+  "toIdx": 69
  },
  {
   "label": "Andrewへの捨て台詞、バイバイ",
-  "fromIdx": 66,
-  "toIdx": 75
+  "fromIdx": 70,
+  "toIdx": 79
  }
 ]
