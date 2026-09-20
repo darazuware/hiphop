@@ -3227,8 +3227,8 @@
       "end": 126327
     },
     {
-      "eng": "Hey yo, we all up in your sack like cataracts",
-      "jpn": "俺たちは白内障みたいにお前の視界にまとわりつく",
+      "eng": "Hey yo, we all up in your sight like cataracts",
+      "jpn": "俺たちが白内障みたいに、お前の視界を覆う",
       "start": 126327,
       "segments": [
         {
@@ -3288,7 +3288,7 @@
           "text": " "
         },
         {
-          "text": "sack",
+          "text": "sight",
           "s": 127928,
           "e": 128388
         },
@@ -3738,7 +3738,7 @@
     },
     {
       "eng": "'Cause my Cadillac's what I be driving when I be high, vibing",
-      "jpn": "キャデラックを転がすのは、ハイでノッてる時だからな",
+      "jpn": "ハイでノってる時に転がすのが、俺のキャデラックだ",
       "start": 142788,
       "segments": [
         {
@@ -4288,7 +4288,7 @@
     },
     {
       "eng": "We make your neck crack like a snare pop",
-      "jpn": "お前の首をスネアのポップみたいにへし折る",
+      "jpn": "首をスネアみたいにバキッと鳴らす",
       "start": 160609,
       "segments": [
         {
