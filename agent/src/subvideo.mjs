@@ -24,7 +24,7 @@ const WHISPER_MODEL = "/opt/homebrew/share/whisper-cpp/ggml-medium.en.bin";
 const cmd = process.argv[2];
 const arg = (n, d = null) => { const i = process.argv.indexOf(`--${n}`); return i >= 0 && process.argv[i + 1] ? process.argv[i + 1] : d; };
 const slug = arg("slug");
-if (!cmd || !slug) { console.error("Usage: node agent/src/subvideo.mjs <init|align|build|render|check|run> --slug <slug> [...]"); process.exit(1); }
+if (!cmd || !slug) { console.error("Usage: node agent/src/subvideo.mjs <init|align|build|plan|render|check|run> --slug <slug> [...]"); process.exit(1); }
 const DIR = path.join(AGENT, "subvideo", slug);
 const P = f => path.join(DIR, f);
 const rj = f => JSON.parse(fs.readFileSync(P(f), "utf8"));
@@ -130,7 +130,30 @@ function build() {
     }
     cues.push({ eng, jpn, start: Math.max(0, Math.round((ws[0].s - 0.08) * 1000)), _last: ws.at(-1).e, segments: segs });
   });
-  cues.forEach((c, i) => { const nx = cues[i + 1]; const cap = Math.round((c._last + 0.7) * 1000); c.end = nx ? Math.min(cap, nx.start) : cap; if (c.end <= c.start) c.end = c.start + 500; delete c._last; });
+  // 通常のend算出（fa.json自身の語末タイムに基づく）。同時に語単位ペース(rate)を記録し、
+  // 後段でFAの語頭タイムそのものが不自然に早い(圧縮された)一続きの区間を検出・再配置する。
+  cues.forEach((c, i) => { const nx = cues[i + 1]; const words = c.segments.filter(s => s.s != null).length; const floorEnd = c.start + Math.max(500, words * 150); const lastWordEnd = Math.max(Math.round(c._last * 1000) + 120, floorEnd); const cap = Math.round((c._last + 0.7) * 1000); c.end = nx ? Math.max(lastWordEnd, Math.min(cap, nx.start)) : cap; if (c.end <= c.start) c.end = c.start + 500; c._words = words; c._rate = (Math.round(c._last * 1000) - c.start) / words; });
+  // 圧縮区間の再配置: FAの語頭タイム(start)自体が誤って早いため、endだけ伸ばしても
+  // キュー切替のタイミング(=start)がずれたまま。信頼できる前後キューの境界の間を、
+  // 圧縮区間内の語数比で按分してstart/endを引き直す(FAの内部タイムは使わない)。
+  for (let i = 0; i < cues.length; i++) {
+    if (cues[i]._rate >= 150) continue;
+    let j = i; while (j + 1 < cues.length && cues[j + 1]._rate < 150) j++;
+    const prevEnd = i > 0 ? cues[i - 1].end : cues[i].start;
+    const nextStart = j + 1 < cues.length ? cues[j + 1].start : cues[j].end;
+    const totalWords = cues.slice(i, j + 1).reduce((a, c) => a + c._words, 0);
+    const avail = Math.max(0, nextStart - prevEnd);
+    let cur = prevEnd;
+    for (let k = i; k <= j; k++) { const share = Math.round(avail * cues[k]._words / totalWords); cues[k].start = cur; cues[k].end = cur + share; cur += share; }
+    i = j;
+  }
+  cues.forEach(c => { delete c._last; delete c._rate; delete c._words; });
+  // 手動補正: manual.jsonがあれば {idx, start?, end?} をcues配列(jpn非null・0始まり)に上書き適用する。
+  // fa.jsonの語末タイムが実測とずれている場合の最終手段(実際の再生で計測した秒を焼く)。
+  if (fs.existsSync(P("manual.json"))) {
+    rj("manual.json").forEach(o => { const c = cues[o.idx]; if (!c) return; if (o.start != null) c.start = o.start; if (o.end != null) c.end = o.end; });
+  }
+  for (let i = 0; i < cues.length - 1; i++) { if (cues[i].end > cues[i + 1].start) cues[i + 1].start = cues[i].end; }
   wj("captions.json", { youtubeId: meta.youtubeId, cues });
   if (!fs.existsSync(P("parts.json"))) { wj("parts.json", autoParts(cues)); console.log("[subvideo] parts.json を自動生成（labelを編集する）"); }
   console.log(`[subvideo] captions.json ${cues.length}キュー`);
@@ -144,6 +167,37 @@ function autoParts(cues) {
     if (!nx || dur >= 50 || (dur >= 36 && gap >= 0.8)) { parts.push({ label: `Part ${parts.length + 1}`, fromIdx: start, toIdx: i }); start = i + 1; }
   }
   return parts;
+}
+
+// ---------------- plan (数値のみのdry-runサニティチェック。ffmpegを叩かない) ----------------
+// parts.json + captions.json だけから各パートの fromIdx/toIdx・dur・OUT(outSec)・fO(fadeSec)・total・
+// ロゴ表示秒(OUT-0.3)・59秒上限を計算して報告する。render()冒頭から自動で呼ばれ、❌があれば
+// エンコード前に中断する。単独でも `node agent/src/subvideo.mjs plan --slug <slug>` で呼べる。
+function sanityCheck() {
+  const { cues } = rj("captions.json");
+  const parts = rj("parts.json");
+  let bad = 0;
+  console.log(`[subvideo] plan: ${slug}（cues=${cues.length}）`);
+  parts.forEach((p, n) => {
+    const label = p.label || `Part ${n + 1}`;
+    const a = p.fromIdx ?? cues.findIndex(c => c.eng.startsWith(p.from));
+    const b = p.toIdx ?? cues.findIndex((c, i) => i >= a && c.eng.startsWith(p.to));
+    if (a < 0 || b < 0) { console.log(`❌ ${label}: fromIdx/toIdx が見つからない (a=${a}, b=${b})`); bad++; return; }
+    if (b > cues.length - 1) { console.log(`❌ ${label}: toIdx=${b} が captions.json のcues範囲(0〜${cues.length - 1})を超えている`); bad++; return; }
+    const sel = cues.slice(a, b + 1);
+    const t0 = p.t0 != null ? p.t0 : Math.max((a > 0 ? cues[a - 1].end : 0) / 1000, sel[0].start / 1000 - 0.4, 0);
+    const dur = sel.at(-1).end / 1000 + 0.6 - t0 + (p.tailSec || 0);
+    const OUT = p.outSec ?? 2.8;
+    const fO = p.fadeSec ?? (p.outSec != null ? Math.min(0.5, p.outSec) : 0.5);
+    const total = dur + OUT;
+    const logoVisible = OUT - 0.3;
+    console.log(`  ${label}: idx ${a}-${b}/${cues.length - 1} t0=${t0.toFixed(2)}s dur=${dur.toFixed(2)}s OUT=${OUT} fO=${fO} total=${total.toFixed(2)}s ロゴ表示=${logoVisible.toFixed(2)}s`);
+    if (logoVisible <= 0) { console.log(`  ❌ ロゴ非表示（OUT=${OUT} は0.3以下）`); bad++; }
+    else if (logoVisible < 0.3) { console.log(`  ⚠️  ロゴほぼ見えない（表示 ${logoVisible.toFixed(2)}s）`); }
+    if (total > 59) { console.log(`  ❌ total=${total.toFixed(2)}s が59秒を超えている（TikTok楽曲使用上限）`); bad++; }
+  });
+  console.log(bad ? `\n❌ plan NG: ${bad}件` : "\n✅ plan OK");
+  return bad;
 }
 
 // ---------------- render ----------------
@@ -171,7 +225,7 @@ function geometry(mode) {
   return { lb, mL: 50, mR: 50, brandY: 190, brandSz: 68, subY: 275, subSz: 42, W: 1280, H: VH + 280, VY: 0, VW, VH, eng: 40, jpn: 34, gl: 26, engY: VH + 15, jpnY: VH + 115, glY: VH + 195, marg: 50, jpMax: 33, glMax: 44, footY: 0 };
 }
 const GOLD = "&H0000D7FF";
-const PALETTE = { red: "&H000000FF", yellow: "&H0000FFFF", orange: "&H00007AFF", purple: "&H00A4007B", blue: "&H00FF8C00", green: "&H0000D704", green2: "&H003ADB2E" };
+const PALETTE = { red: "&H000000FF", yellow: "&H0000FFFF", orange: "&H00007AFF", purple: "&H00A4007B", blue: "&H00FF8C00", green: "&H0000D704", green2: "&H003ADB2E", white: "&H00FFFFFF" };
 function titleColors() {
   const meta = rj("meta.json");
   if (meta.titleColors && PALETTE[meta.titleColors[0]] && PALETTE[meta.titleColors[1]]) return meta.titleColors.map(k => PALETTE[k]);
@@ -281,19 +335,20 @@ function events(L, sel, t0, dur, gloss, meta = {}) {
   return ev;
 }
 const LOGO = path.resolve(AGENT, "assets/brand/wax-think-logo.png");
-function ffrender(L, base, ass, ss, dur) {
+function ffrender(L, base, ass, ss, dur, outOverride) {
   fs.writeFileSync(base + ".ass", ass);
-  const OUT = 2.8, fO = 0.5, wmW = L.W === 1080 ? 210 : 170, endW = L.W === 1080 ? 560 : 520, total = dur + OUT;
+  const OUT = outOverride?.OUT ?? 2.8, fO = outOverride?.fO ?? 0.5, wmW = L.W === 1080 ? 210 : 170, endW = L.W === 1080 ? 560 : 520, total = dur + OUT;
   const wx = L.W - wmW - (L.W === 1080 ? 130 : 20), wy = L.VY + L.lb + (L.W === 1080 ? 22 : 18);
   const fc = `[0:v]scale=${L.VW}:${L.VH},setsar=1,pad=${L.W}:${L.H}:0:${L.VY}:black,ass=${base}.ass:fontsdir=${FONTS},setsar=1[base];`
     + `[1:v]format=rgba,split=2[a][b];[a]scale=${wmW}:-1,colorchannelmixer=aa=0.4[wm];[base][wm]overlay=${wx}:${wy}[v1];`
     + `[v1]fade=t=out:st=${(dur - fO).toFixed(2)}:d=${fO},tpad=stop_mode=add:stop_duration=${OUT}:color=black[v2];`
-    + `[b]scale=${endW}:-1,fade=t=in:st=0:d=0.6:alpha=1,fade=t=out:st=1.5:d=0.6:alpha=1,setpts=PTS+${(dur + 0.3).toFixed(2)}/TB[lg];`
+    + `[b]scale=${endW}:-1,fade=t=in:st=0:d=0.6:alpha=1,setpts=PTS+${(dur + 0.3).toFixed(2)}/TB[lg];`
     + `[v2][lg]overlay=(W-w)/2:(H-h)/2:eof_action=pass[v];`
     + `[0:a]afade=t=out:st=${(dur - 0.6).toFixed(2)}:d=0.6,apad=whole_dur=${total.toFixed(2)}[aud]`;
   sh("ffmpeg", ["-y", "-loglevel", "error", ...ss, "-i", P("src.mp4"), "-loop", "1", "-framerate", "30", "-t", total.toFixed(2), "-i", LOGO, "-filter_complex", fc, "-map", "[v]", "-map", "[aud]", "-t", total.toFixed(2), "-c:v", "libx264", "-crf", "21", "-preset", "medium", "-pix_fmt", "yuv420p", "-r", "30", "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", base + ".mp4"]);
 }
 function render() {
+  if (sanityCheck() > 0) { console.error("[subvideo] plan チェックで❌が出たためrenderを中止（ffmpegは実行していない）"); process.exit(1); }
   const mode = arg("mode", "all"); const { cues } = rj("captions.json"); const meta = rj("meta.json");
   const gloss = fs.existsSync(P("glossary.json")) ? rj("glossary.json") : {};
   const parts = rj("parts.json"); fs.mkdirSync(P("renders/reels"), { recursive: true });
@@ -309,13 +364,18 @@ function render() {
     parts.forEach((p, n) => {
       const a = p.fromIdx ?? cues.findIndex(c => c.eng.startsWith(p.from)), b = p.toIdx ?? cues.findIndex((c, i) => i >= a && c.eng.startsWith(p.to));
       if (a < 0 || b < 0) throw new Error(`parts.json の範囲が見つからない: Part ${n + 1}`);
-      const sel = cues.slice(a, b + 1); const t0 = Math.max((a > 0 ? cues[a - 1].end : 0) / 1000, sel[0].start / 1000 - 0.4, 0);
+      // 恒久ルール20: fromIdx/toIdxはcaptions.json cues配列（jpn非nullのみ・0始まり）の添字。lines.jsonの行番号と混同すると
+      // 範囲外がslice()で黙って切り詰められ、意図と違う区間が無音で出力される(2026-09-28実際に発生)。範囲外は必ずエラーにする。
+      if (b > cues.length - 1) throw new Error(`parts.json Part ${n + 1}: toIdx=${b} が captions.json のcues範囲(0〜${cues.length - 1})を超えている。fromIdx/toIdxはlines.jsonの行番号ではなくcaptions.json.cuesの添字（jpn未設定行は除外済み）`);
+      const sel = cues.slice(a, b + 1);
+      const t0 = p.t0 != null ? p.t0 : Math.max((a > 0 ? cues[a - 1].end : 0) / 1000, sel[0].start / 1000 - 0.4, 0);
       const dur = sel.at(-1).end / 1000 + 0.6 - t0 + (p.tailSec || 0);
       let ev = `Dialogue: 0,${ts(0)},${ts(dur)},Brand,,0,0,0,,${esc(meta.brand)}\n`;
       // 恒久ルール13/15: ヘッダーは曲名・アーティスト名・Verse/Partラベルを出さない。meta.sub のキャッチフレーズのみ。
       if (meta.sub) ev += `Dialogue: 0,${ts(0)},${ts(dur)},Sub,,0,0,0,,${esc(meta.sub)}\n`;
       if (meta.footer) ev += `Dialogue: 0,${ts(0)},${ts(dur)},Foot,,0,0,0,,${esc(meta.footer)}\n`;
-      ffrender(L, P(`renders/reels/part${n + 1}`), styles(L) + ev + events(L, sel, t0, dur, gloss, meta), ["-ss", String(t0), "-t", String(dur)], dur);
+      const outOverride = p.outSec != null ? { OUT: p.outSec, fO: p.fadeSec ?? Math.min(0.5, p.outSec) } : null;
+      ffrender(L, P(`renders/reels/part${n + 1}`), styles(L) + ev + events(L, sel, t0, dur, gloss, meta), ["-ss", String(t0), "-t", String(dur)], dur, outOverride);
       console.log(`[subvideo] part${n + 1}: ${t0.toFixed(1)}s +${dur.toFixed(1)}s`);
     });
   }
@@ -372,4 +432,4 @@ function check() {
   console.log(bad ? `\n❌ ${bad}件` : "\n✅ DoD OK"); process.exit(bad ? 1 : 0);
 }
 
-({ init, align, build, render, check, run: () => { align(); build(); render(); check(); } }[cmd] || (() => { console.error("unknown cmd"); process.exit(1); }))();
+({ init, align, build, render, check, plan: () => process.exit(sanityCheck() > 0 ? 1 : 0), run: () => { align(); build(); render(); check(); } }[cmd] || (() => { console.error("unknown cmd"); process.exit(1); }))();
