@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.96.0",
+    "@google-analytics/data": "^7.2.1",
     "@google/genai": "^1.0.0",
     "budoux": "^0.8.4",
     "compromise": "^14.15.0",
