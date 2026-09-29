@@ -5,6 +5,7 @@ export interface SlangEntry {
 }
 
 export const slang: SlangEntry[] = [
+  { word: "hold you down",         desc: "文字通りは「押さえ続ける」だが、日常では「支え続ける・見捨てずに味方でい続ける」の意味。恋愛だけでなく、ストリートの人間関係や友情での忠誠・信頼を表すときにも広く使われる" },
   { word: "kick it",                desc: "本来は「蹴る」だが、口語では「くつろぐ・のんびり過ごす・一緒に時間を過ごす」。kick it to 誰々 の形になると「その人に（考えや言葉を）伝える・話しかける」の意味にもなる、使用頻度の高いイディオム" },
   { word: "the game",               desc: "ボードゲームの意味ではなく「ラップ稼業・音楽業界」あるいは「ストリートの経済そのもの」を指す定番スラング。rap game / dope game のように業界名と組み、in the game で「現役で身を置いて」、out the game で「足を洗って」" },
   { word: "work the angles",        desc: "angle（角度）は比喩で「切り口・攻め口・狙い」。work the angles / work every angle で「あらゆる角度・手段を使って抜け目なく有利に運ぶ」。ビジネスでも He worked every angle（あらゆる手を尽くした）のように使う実用イディオム" },
