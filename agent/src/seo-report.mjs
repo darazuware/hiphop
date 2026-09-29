@@ -125,11 +125,48 @@ async function fetchGSC() {
     },
   });
 
+  // 伸びしろ: 11-20位クエリ（あと一押しでページ1圏内）
+  const allQueryRes = await searchconsole.searchanalytics.query({
+    siteUrl: GSC_SITE_URL,
+    requestBody: {
+      startDate: fmtDate(start),
+      endDate: fmtDate(end),
+      dimensions: ['query'],
+      rowLimit: 500,
+    },
+  });
+  const opportunityQueries = (allQueryRes.data.rows ?? [])
+    .filter((r) => r.position >= 11 && r.position <= 20)
+    .sort((a, b) => b.impressions - a.impressions)
+    .slice(0, 10)
+    .map((r) => ({ query: r.keys[0], impressions: r.impressions, clicks: r.clicks, position: r.position }));
+
+  // コンテンツギャップ: 表示は多いがクリック0のクエリ（新記事/リライトのネタ）
+  const gapQueries = (allQueryRes.data.rows ?? [])
+    .filter((r) => r.clicks === 0 && r.impressions >= 20)
+    .sort((a, b) => b.impressions - a.impressions)
+    .slice(0, 10)
+    .map((r) => ({ query: r.keys[0], impressions: r.impressions, position: r.position }));
+
+  // 前期間比較（同じ日数だけ遡った直前期間）
+  const prevEnd = new Date(start);
+  prevEnd.setDate(prevEnd.getDate() - 1);
+  const prevStart = new Date(prevEnd);
+  prevStart.setDate(prevStart.getDate() - DAYS);
+  const prevTotalsRes = await searchconsole.searchanalytics.query({
+    siteUrl: GSC_SITE_URL,
+    requestBody: { startDate: fmtDate(prevStart), endDate: fmtDate(prevEnd) },
+  });
+  const pt = prevTotalsRes.data.rows?.[0] ?? {};
+
   return {
     clicks: t.clicks ?? 0,
     impressions: t.impressions ?? 0,
     ctr: t.ctr ?? 0,
     position: t.position ?? 0,
+    prevClicks: pt.clicks ?? 0,
+    prevImpressions: pt.impressions ?? 0,
+    prevPosition: pt.position ?? 0,
     topQueries: (queryRes.data.rows ?? []).map((r) => ({
       query: r.keys[0],
       clicks: r.clicks,
@@ -142,6 +179,8 @@ async function fetchGSC() {
       impressions: r.impressions,
       position: r.position,
     })),
+    opportunityQueries,
+    gapQueries,
   };
 }
 
@@ -157,7 +196,11 @@ function buildReportText(ga4, gsc) {
   });
   lines.push('');
   lines.push('■ サーチコンソール');
+  const clickDiff = gsc.clicks - gsc.prevClicks;
+  const clickPct = gsc.prevClicks ? ((clickDiff / gsc.prevClicks) * 100).toFixed(0) : 'N/A';
+  const posDiff = (gsc.prevPosition - gsc.position).toFixed(1); // 正=改善
   lines.push(`クリック: ${gsc.clicks} / 表示回数: ${gsc.impressions} / CTR: ${(gsc.ctr * 100).toFixed(1)}% / 平均順位: ${gsc.position.toFixed(1)}`);
+  lines.push(`前期間比: クリック ${clickDiff >= 0 ? '+' : ''}${clickDiff}（${clickPct === 'N/A' ? 'N/A' : (clickPct >= 0 ? '+' : '') + clickPct + '%'}） / 順位 ${posDiff >= 0 ? '改善' : '悪化'}${Math.abs(posDiff)}`);
   lines.push('検索クエリ TOP5:');
   gsc.topQueries.slice(0, 5).forEach((q, i) => {
     lines.push(`  ${i + 1}. ${q.query} — ${q.clicks}クリック / 順位${q.position.toFixed(1)}`);
@@ -166,6 +209,20 @@ function buildReportText(ga4, gsc) {
   gsc.topPages.slice(0, 5).forEach((p, i) => {
     lines.push(`  ${i + 1}. ${p.page.replace(/^https?:\/\/[^/]+/, '')} — ${p.clicks}クリック`);
   });
+  if (gsc.opportunityQueries.length) {
+    lines.push('');
+    lines.push('■ 伸びしろクエリ（11-20位・あと一押し）');
+    gsc.opportunityQueries.forEach((q, i) => {
+      lines.push(`  ${i + 1}. ${q.query} — 順位${q.position.toFixed(1)} / 表示${q.impressions}`);
+    });
+  }
+  if (gsc.gapQueries.length) {
+    lines.push('');
+    lines.push('■ コンテンツギャップ（表示多いがクリック0）');
+    gsc.gapQueries.forEach((q, i) => {
+      lines.push(`  ${i + 1}. ${q.query} — 表示${q.impressions} / 順位${q.position.toFixed(1)}`);
+    });
+  }
   return lines.join('\n');
 }
 
