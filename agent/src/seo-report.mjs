@@ -20,7 +20,7 @@ net.setDefaultAutoSelectFamily?.(false);
 
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
-import { existsSync } from 'node:fs';
+import { existsSync, readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import dotenv from 'dotenv';
 import { google } from 'googleapis';
 import { BetaAnalyticsDataClient } from '@google-analytics/data';
@@ -31,6 +31,24 @@ dotenv.config({ path: join(AGENT_ROOT, '.env') });
 const KEY_PATH = process.env.GOOGLE_SERVICE_ACCOUNT_KEY_PATH;
 const GA4_PROPERTY_ID = process.env.GA4_PROPERTY_ID;
 const GSC_SITE_URL = process.env.GSC_SITE_URL;
+
+const HISTORY_PATH = join(AGENT_ROOT, 'data', 'seo-history.json');
+
+function appendHistory(ga4, gsc) {
+  mkdirSync(dirname(HISTORY_PATH), { recursive: true });
+  let history = [];
+  if (existsSync(HISTORY_PATH)) {
+    try { history = JSON.parse(readFileSync(HISTORY_PATH, 'utf-8')); } catch { history = []; }
+  }
+  history.push({
+    date: fmtDate(new Date()),
+    days: DAYS,
+    ga4: { pageViews: ga4.totalPageViews, users: ga4.totalUsers, sessions: ga4.totalSessions },
+    gsc: { clicks: gsc.clicks, impressions: gsc.impressions, ctr: gsc.ctr, position: gsc.position },
+  });
+  if (history.length > 200) history = history.slice(-200);
+  writeFileSync(HISTORY_PATH, JSON.stringify(history, null, 2));
+}
 
 const args = process.argv.slice(2);
 const daysIdx = args.indexOf('--days');
@@ -244,6 +262,7 @@ async function sendTelegram(text) {
 }
 
 const [ga4, gsc] = await Promise.all([fetchGA4(), fetchGSC()]);
+appendHistory(ga4, gsc);
 const text = buildReportText(ga4, gsc);
 console.log(text);
 
