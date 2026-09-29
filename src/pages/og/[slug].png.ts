@@ -28,7 +28,8 @@ const fontData: ArrayBuffer = (() => {
   const fontPath = fileURLToPath(
     new URL('../../../node_modules/@fontsource/inter/files/inter-latin-700-normal.woff', import.meta.url)
   );
-  return readFileSync(fontPath).buffer as ArrayBuffer;
+  const b = readFileSync(fontPath);
+  return b.buffer.slice(b.byteOffset, b.byteOffset + b.byteLength) as ArrayBuffer;
 })();
 
 export function getStaticPaths() {
