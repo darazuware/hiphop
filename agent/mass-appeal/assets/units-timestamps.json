@@ -1,0 +1,156 @@
+[
+  {
+    "id": "money-growin-like-grass",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 5,
+    "fallbackT": 17,
+    "t": 5,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "never-make-it-break-it",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 25,
+    "fallbackT": 27,
+    "t": 25,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "one-time-wonders",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 33,
+    "fallbackT": 38,
+    "t": 33,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "sell-your-soul",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 53,
+    "fallbackT": 63,
+    "t": 53,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "breeze-room-please",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 70,
+    "fallbackT": 90,
+    "t": 70,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "trump-cards",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 76,
+    "fallbackT": 99,
+    "t": 76,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "props-like-a-slogan",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 86,
+    "fallbackT": 113,
+    "t": 86,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "def-mic-wreckin",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 90,
+    "fallbackT": 119,
+    "t": 90,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "greenbacks-setbacks",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 130,
+    "fallbackT": 150,
+    "t": 130,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "calm-but-wild-monotone",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 141,
+    "fallbackT": 168,
+    "t": 141,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "gimmicks-all-in",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 146,
+    "fallbackT": 176,
+    "t": 146,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "word-is-bond",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 150,
+    "fallbackT": 182,
+    "t": 150,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "end-this-lecture",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 156,
+    "fallbackT": 190,
+    "t": 156,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "keepin-it-real",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 161,
+    "fallbackT": 202,
+    "t": 161,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  }
+]

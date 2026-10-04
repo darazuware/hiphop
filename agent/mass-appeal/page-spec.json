@@ -1,0 +1,383 @@
+{
+  "title": "Mass Appeal 和訳・意味・スラング解説 | Gang Starr",
+  "description": "Gang Starr「Mass Appeal」を英語学習とヒップホップ理解の教材として精読。sell your soul、trump card、props、one-time wonder、word is bondなど、売れ線ラップを批判する言葉と口語表現をPV頭出し付きで解説。",
+  "duration": 226,
+  "youtubeId": "y9lNbNGbo24",
+  "highlights": [
+    "「売れること（mass appeal）」を追うラッパーへの批判を、本人が淡々と語る曲",
+    "sell your soul、trump card、one-time wonder。批評や自慢に使える慣用句が並ぶ",
+    "Guruの抑揚の少ない語り口（モノトーン）と、DJ Premierのビートの組み合わせ"
+  ],
+  "intro": [
+    {
+      "h2": "■この曲で何を学べるか",
+      "paras": [
+        "「Money's growin' like grass with the mass appeal」。大衆受けを狙うほど、お金は草のように育つ、という一行のフックが、曲の主題を示しています。Gang Starrが1994年に出した、アルバム『Hard to Earn』からのシングルです。",
+        "Guruは、売れ線を追うラッパーを、静かな語り口で批判します。大声で怒るのではなく、冷静に切り捨てる口調が、この曲の個性だと思っています。",
+        "英語学習としては、批評や自己主張に使える慣用句、そして、ヒップホップ特有の短い言い切りの表現が、まとめて学べます。"
+      ]
+    },
+    {
+      "h2": "■「mass appeal」という言葉の意味",
+      "paras": [
+        "<em>mass appeal</em> は、「大衆受け、幅広い層への魅力」という意味の言葉です。商品や音楽が、広く売れることを言うときに使います。",
+        "歌詞の中では、この言葉が、少し皮肉を込めて使われます。売れるために、自分を曲げる人たちを、遠回しに批判する言葉になっています。",
+        "その使い方を、1行ずつ追っていきます。"
+      ]
+    }
+  ],
+  "storyLead": "曲は、3つのバースと短いコーラスで進みます。バースごとの主張を先に押さえます。",
+  "story": [
+    "<strong class='text-[var(--c-text)]'>Verse 1</strong>は、中身のないラッパーへの批判です。実力のない相手には、道を譲らないという宣言と、「売れるためなら魂を売る」人たちへの皮肉が語られます。",
+    "<strong class='text-[var(--c-text)]'>Verse 2</strong>は、自分の実力の誇示です。相手を切り崩す技術と、周りの仲間への感謝が語られます。",
+    "<strong class='text-[var(--c-text)]'>Verse 3</strong>は、自分のスタイルの説明です。落ち着いているが、芯が強い、という自己紹介が続きます。",
+    "合間のコーラスでは、「Money's growin' like grass」というフックが繰り返されます。"
+  ],
+  "unitsLead": [
+    "ここでは、歌詞の中の表現を1つずつ取り上げます。上に短い用例、下に意味と使い方を置いています。",
+    "暴力的な比喩や、強い言葉の行は、引用せず、背景だけにとどめています。▶を押すと、PVの該当箇所から再生できます。"
+  ],
+  "units": [
+    {
+      "id": "money-growin-like-grass",
+      "heading": "Money's growin' like grass with the mass appeal",
+      "label": "★ フック／直喩",
+      "mc": "Guru（Hook）",
+      "anchor": ["money's", "growin'", "like", "grass", "with", "the", "mass", "appeal"],
+      "t": 17,
+      "eng": "Money's growin' like grass with the mass appeal",
+      "jpn": "大衆受けすれば、金は草のように育つ",
+      "note": "曲のタイトルが出てくる、フックの一行です。",
+      "body": [
+        "<strong class='text-[var(--c-text)]'>grow like grass</strong> は、「草のように育つ」。<em>grow like weeds</em>（雑草のように育つ）という、勢いよく増えることを言う表現に近い、言い方です。",
+        "<strong class='text-[var(--c-text)]'>mass appeal</strong> は、「大衆受け、広い層への魅力」。<code>with the mass appeal</code> は、「大衆受けを手にして」と、条件を示す形です。",
+        "<code>Money's growin'</code> の <em>'s</em> は、<em>is</em> の短縮形です。<code>-in'</code> は、<em>-ing</em> の語尾の g が落ちた、会話の発音です。",
+        "売れる、とは何かを、短い一行で言い切るフックです。この主題が、次の行以降、いろいろな角度から批判されていきます。"
+      ],
+      "usage": [
+        "<strong class='text-[var(--c-text)]'>grow like weeds</strong>: <em>Prices are growing like weeds.</em>（物価が際限なく上がっている）。勢いのある増加を言うときに使います。",
+        "<em>appeal</em> は、「魅力、訴える力」。<em>sex appeal</em>（性的魅力）、<em>mass appeal</em>（大衆受け）のように、名詞とセットで使います。"
+      ]
+    },
+    {
+      "id": "never-make-it-break-it",
+      "heading": "No way, you'll never make it / Come with the weak shit, I'll break it",
+      "label": "★ 韻／構文",
+      "mc": "Guru（Verse 1）",
+      "anchor": ["no", "way", "you'll", "never", "make", "it"],
+      "t": 27,
+      "eng": "No way, you'll never make it<br />Come with the weak shit, I'll break it",
+      "jpn": "無理だ、おまえは絶対に成功しない。弱い曲を持ってくるなら、俺がたたき壊す",
+      "note": "Verse 1の頭。短い言い切りで、韻を踏んでいます。",
+      "body": [
+        "<strong class='text-[var(--c-text)]'>make it</strong> は、「成功する」。前に見た、いくつかの曲でも出てきた、基本の句です。ここでは、否定形で、<em>never make it</em> となっています。",
+        "<strong class='text-[var(--c-text)]'>Come with 〜</strong> は、「〜を持ってくる、〜で挑んでくる」。<em>come with the weak shit</em> で、「弱いものを持って挑む」という意味です。",
+        "<code>make it</code> と <code>break it</code> が、行末で韻を踏んでいます。ほとんど同じ綴りの語で、成功と破壊という、反対の意味を並べています。",
+        "<code>No way</code> は、「ありえない、無理だ」という、短い否定の口語です。会話でも、そのまま使えます。"
+      ],
+      "usage": [
+        "<strong class='text-[var(--c-text)]'>No way!</strong>: 「まさか、ありえない」。驚きや拒否のどちらにも使えます。",
+        "<em>come with 〜</em>: <em>Don't come with that attitude.</em>（そんな態度で来るな）。相手の振る舞いを咎めるときに使います。"
+      ]
+    },
+    {
+      "id": "one-time-wonders",
+      "heading": "A lot of rappers be like one-time wonders",
+      "label": "★ 慣用句／AAVE",
+      "mc": "Guru（Verse 1）",
+      "anchor": ["a", "lot", "of", "rappers", "be", "like", "one-time", "wonders"],
+      "t": 38,
+      "eng": "A lot of rappers be like one-time wonders",
+      "jpn": "多くのラッパーは、一発屋みたいなものだ",
+      "note": "売れ線を追う人への、批判の入り口です。",
+      "body": [
+        "<strong class='text-[var(--c-text)]'>one-time wonder</strong> は、<em>one-hit wonder</em>（一発屋）を言い換えた、言い方です。ヒット曲を1つだけ出して、消えていく人たちのことです。",
+        "<code>be like 〜</code> の <em>be</em> は、習慣のbeです。「いつも〜のような状態だ」という、繰り返される様子を表すAAVEの用法です。",
+        "<strong class='text-[var(--c-text)]'>A lot of 〜</strong> は、「たくさんの〜」。<em>many</em> より口語的な言い方で、日常でも、よく使います。",
+        "一発屋という言葉は、否定的な響きを持ちます。ここでは、売れるために、独自性を捨てる人たちを、冷ややかに見る視線が出ています。"
+      ],
+      "usage": [
+        "<strong class='text-[var(--c-text)]'>one-hit wonder</strong>: <em>That band was a one-hit wonder.</em>（そのバンドは一発屋だった）。音楽の世界の、定番の言い方です。",
+        "<em>a lot of 〜</em> は、肯定文で使い、疑問文や否定文では <em>much / many</em> が好まれる、という使い分けがあります。"
+      ]
+    },
+    {
+      "id": "sell-your-soul",
+      "heading": "Maybe your soul you'd sell to have mass appeal 倒置と慣用句",
+      "label": "★ 慣用句／倒置",
+      "mc": "Guru（Verse 1）",
+      "anchor": ["maybe", "your", "soul", "you'd", "sell"],
+      "t": 63,
+      "eng": "And you'd be happy as hell to get a record deal<br />Maybe your soul you'd sell to have mass appeal",
+      "jpn": "レコード契約が取れたら、めちゃくちゃ喜ぶんだろう。大衆受けのためなら、魂まで売るかもしれない",
+      "note": "Verse 1の結び。曲の主張が、いちばんはっきり出る2行です。",
+      "body": [
+        "<strong class='text-[var(--c-text)]'>sell one's soul</strong> は、「魂を売る」。目的のために、信念や誠実さを捨てる、という意味の慣用句です。悪魔に魂を売る、という伝説から来ています。",
+        "この行は、語順が普通と違います。<em>Maybe you'd sell your soul</em> のはずが、<code>Maybe your soul you'd sell</code> と、<strong class='text-[var(--c-text)]'>目的語を前に出して</strong>います。強調するために、倒置した形です。",
+        "<code>happy as hell</code> は、<em>as hell</em> で、「めちゃくちゃ、すごく」と強調する口語の言い方です。<em>mad as hell</em>（激怒している）のように使います。",
+        "<code>deal</code> と <code>appeal</code> が、行末で韻になっています。前の行から続く、契約への期待と、魂を売る皮肉が、ひとつの流れになっています。"
+      ],
+      "usage": [
+        "<strong class='text-[var(--c-text)]'>sell one's soul (to 〜)</strong>: <em>He sold his soul for fame.</em>（彼は名声のために魂を売った）。ビジネスや芸能の話でも使います。",
+        "<strong class='text-[var(--c-text)]'>〜 as hell</strong>: <em>tired as hell</em>（めちゃくちゃ疲れた）。くだけた強調で、使う場面には注意が必要です。"
+      ]
+    },
+    {
+      "id": "breeze-room-please",
+      "heading": "I'm greater than all MC's when I breeze / Give me room, please",
+      "label": "★ 口語／韻",
+      "mc": "Guru（Verse 2）",
+      "anchor": ["oh", "yes", "i'm", "greater", "than", "all", "mc's"],
+      "t": 90,
+      "eng": "Oh yes, I'm greater than all MC's when I breeze<br />Give me room, please",
+      "jpn": "そう、俺は、気楽に流しているときでも、どのMCよりも上だ。場所を空けてくれ",
+      "note": "Verse 2の頭。自信の宣言と、行末の韻に注目です。",
+      "body": [
+        "<strong class='text-[var(--c-text)]'>greater than all MC's</strong> は、比較級の <em>greater</em> と <em>than</em> で、「どのMCよりも上だ」と言う形です。<em>all</em> が付いて、全員を相手にした宣言になります。",
+        "<strong class='text-[var(--c-text)]'>breeze</strong> は、名詞では、そよ風。動詞では、「楽々と進む、軽く流す」という意味です。<em>breeze through 〜</em>（〜を楽々こなす）の形でもよく使います。",
+        "<code>breeze</code> と <code>please</code> が、行末で韻を踏んでいます。「流しても強い」と、「場所を空けろ」という、2つの宣言が、同じ音で並んでいます。",
+        "<code>Give me room</code> は、「場所を空けて、道を譲って」。人混みや、会話の中でも使える表現です。"
+      ],
+      "usage": [
+        "<strong class='text-[var(--c-text)]'>breeze through 〜</strong>: <em>She breezed through the exam.</em>（彼女は試験を楽々突破した）。",
+        "<em>Give me some room.</em>: 「少し距離を空けて」。窮屈な場面で、そのまま使える表現です。"
+      ]
+    },
+    {
+      "id": "trump-cards",
+      "heading": "Cuttin' off wack kids, pullin' their trump cards 切り札の比喩",
+      "label": "★ 慣用句／語彙",
+      "mc": "Guru（Verse 2）",
+      "anchor": ["cuttin'", "off", "wack", "kids", "pullin'", "their", "trump", "cards"],
+      "t": 99,
+      "eng": "Cuttin' off wack kids, pullin' their trump cards",
+      "jpn": "ダサいやつらの話をさえぎって、切り札を奪い取る",
+      "note": "カードゲームの比喩が使われた行です。",
+      "body": [
+        "<strong class='text-[var(--c-text)]'>trump card</strong> は、カードゲームで、他の札に勝てる切り札のこと。<em>play one's trump card</em> は、「最後の切り札を出す」という慣用句です。",
+        "<strong class='text-[var(--c-text)]'>cut off</strong> は、「さえぎる、断ち切る」。話を途中で遮る、相手の力を削ぐ、といった意味で使われます。",
+        "<code>wack kids</code> の <em>wack</em> は、「ダサい、質の低い」。<em>kid</em> は、ここでは、子ども扱いして見下す、呼び方です。",
+        "ここでは、相手の切り札を、先に奪ってしまう、というイメージです。実力の違いを、カードゲームの絵で伝えています。"
+      ],
+      "usage": [
+        "<strong class='text-[var(--c-text)]'>trump card</strong>: <em>Experience was her trump card.</em>（経験が、彼女の切り札だった）。交渉や議論でよく使います。",
+        "<em>cut someone off</em> は、「話をさえぎる」のほか、車の運転で、「前に割り込む」の意味にもなります。"
+      ]
+    },
+    {
+      "id": "props-like-a-slogan",
+      "heading": "But I get props like a slogan / I kicks my jam",
+      "label": "★ スラング／AAVE",
+      "mc": "Guru（Verse 2）",
+      "anchor": ["but", "i", "get", "props", "like", "a", "slogan"],
+      "t": 113,
+      "eng": "But I get props like a slogan<br />And no man could ever try to diss when I kicks my jam",
+      "jpn": "俺はスローガンのように称賛される。俺が曲を出すとき、誰も侮辱なんてできない",
+      "note": "称賛を表すスラングと、一人称の -s が出てくる場面です。",
+      "body": [
+        "<strong class='text-[var(--c-text)]'>props</strong> は、<em>proper respect</em> の略で、「称賛、敬意」。<em>get props</em> は、「称賛される」。ヒップホップから広まった、日常でも使える語です。",
+        "<strong class='text-[var(--c-text)]'>diss</strong> は、<em>disrespect</em> の短縮形。<code>no man could ever try to diss</code> で、「誰も、侮辱しようなんて思えない」です。",
+        "<code>I kicks my jam</code> は、一人称なのに、動詞に <em>-s</em> が付いています。<em>jam</em> は、曲のこと。<em>kick</em> は、ラップや曲を繰り出す、動詞です。",
+        "<code>like a slogan</code> は、スローガンのように、広く繰り返される、という意味合いです。名前が、そのまま広まっていく感じを、短い比喩で示しています。"
+      ],
+      "usage": [
+        "<strong class='text-[var(--c-text)]'>give someone props</strong>: <em>Props to the team!</em>（チームに称賛を！）。SNSでも、よく見かける言い方です。",
+        "<em>jam</em> は、「ぎゅうぎゅうに詰め込む」のほか、音楽では、「ノリのいい曲」の意味でも使います。"
+      ]
+    },
+    {
+      "id": "def-mic-wreckin",
+      "heading": "Lyrically def and connectin', complete mic-wreckin'",
+      "label": "★ スラング／複合語",
+      "mc": "Guru（Verse 2）",
+      "anchor": ["lyrically", "def", "and", "connectin'"],
+      "t": 119,
+      "eng": "Lyrically def and connectin', complete mic-wreckin'",
+      "jpn": "歌詞の腕は一流で、伝わる力もあって、マイクを壊すほどの完成度だ",
+      "note": "褒め言葉が、短い語で連なる行です。",
+      "body": [
+        "<strong class='text-[var(--c-text)]'>def</strong> は、スラングで、「最高の、かっこいい」。<em>definitive</em>（決定的な）などの語が、短縮されたものだと言われています。1980年代のヒップホップで広まった語です。",
+        "<strong class='text-[var(--c-text)]'>lyrically</strong> は、「歌詞の面で」という副詞。<em>lyrically def</em> で、「リリックの腕が、最高だ」という意味です。",
+        "<strong class='text-[var(--c-text)]'>mic-wreckin'</strong> は、「マイクを壊す」という意味の、複合形容詞です。パフォーマンスが、あまりに強烈で、マイクが壊れるほどだ、という比喩です。",
+        "短い語を重ねて、一息で自分の強みを言い切る、ラップらしい行です。"
+      ],
+      "usage": [
+        "<strong class='text-[var(--c-text)]'>名詞 + -ing の複合形容詞</strong>: <em>record-breaking</em>（記録を破る）、<em>mind-blowing</em>（衝撃的な）。ラップに限らず、広く使われます。",
+        "<em>def</em> は、<em>Def Jam</em>（有名なレコードレーベル名）にも、使われています。"
+      ]
+    },
+    {
+      "id": "greenbacks-setbacks",
+      "heading": "I've suffered setbacks, but now I'm makin' greenbacks",
+      "label": "★ 韻／語彙",
+      "mc": "Guru（Verse 3）",
+      "anchor": ["i", "know", "i'm", "dope", "but", "don't", "wet", "that"],
+      "t": 150,
+      "eng": "I've suffered setbacks, but now I'm makin' greenbacks",
+      "jpn": "挫折も味わったけれど、今は稼いでいる",
+      "note": "Verse 3の頭。過去と現在を、韻でつなぐ行です。",
+      "body": [
+        "<strong class='text-[var(--c-text)]'>setback</strong> は、「挫折、後退」。<strong class='text-[var(--c-text)]'>greenback</strong> は、「ドル紙幣」。紙幣の裏が緑色であることから付いた、アメリカ英語の呼び名です。",
+        "<code>setbacks</code> と <code>greenbacks</code> が、同じ <em>-backs</em> で終わり、韻になっています。「後退」と「紙幣」という、意味の違う語が、同じ音で並びます。",
+        "文法の面では、<code>I've suffered</code>（現在完了）と <code>now I'm makin'</code>（現在進行）が、<em>but now</em> で対比されています。過去から現在への流れが、時制で表現されています。",
+        "挫折と成功を、1行にまとめる書き方は、この曲のこの部分の、聴きどころです。"
+      ],
+      "usage": [
+        "<strong class='text-[var(--c-text)]'>suffer a setback</strong>: <em>The project suffered a setback.</em>（プロジェクトは頓挫した）。ビジネスの文脈でも、よく使います。",
+        "<em>greenback</em> は、<em>buck</em>（ドル）と同じ、くだけたお金の呼び方です。"
+      ]
+    },
+    {
+      "id": "calm-but-wild-monotone",
+      "heading": "I'm calm but wild / With my monotone style",
+      "label": "★ 直喩／語彙",
+      "mc": "Guru（Verse 3）",
+      "anchor": ["just", "like", "the", "seashore"],
+      "t": 168,
+      "eng": "Just like the seashore, I'm calm but wild<br />With my monotone style",
+      "jpn": "海岸のように、穏やかだけど荒々しい。抑揚の少ない、俺のスタイルで",
+      "note": "自分の語り口を、自分で説明する場面です。",
+      "body": [
+        "<strong class='text-[var(--c-text)]'>calm but wild</strong> は、「穏やかなのに、荒々しい」という、対立する形容詞を並べた表現です。海岸が、静かな波と、荒い波の両方を持つことを、比喩にしています。",
+        "<strong class='text-[var(--c-text)]'>monotone</strong> は、「単調な、抑揚の少ない」。Guruの語り口は、感情を抑えた、落ち着いたトーンが特徴として知られています。",
+        "<code>Just like 〜</code> は、「まさに〜のように」という、強調された直喩の形です。",
+        "自分の特徴を、短くて分かりやすい比喩で言い表す、無駄のない書き方です。"
+      ],
+      "usage": [
+        "<strong class='text-[var(--c-text)]'>in a monotone</strong>: <em>He spoke in a monotone.</em>（彼は抑揚のない声で話した）。声や話し方の描写です。",
+        "<em>A but B</em> の形容詞の対比: <em>quiet but firm</em>（静かだが、毅然とした）のように、人柄の説明に使えます。"
+      ]
+    },
+    {
+      "id": "gimmicks-all-in",
+      "heading": "I don't need gimmicks / Give me a fly beat and I'm all in it",
+      "label": "★ 語彙／スラング",
+      "mc": "Guru（Verse 3）",
+      "anchor": ["because", "i", "don't", "need", "gimmicks"],
+      "t": 176,
+      "eng": "Because I don't need gimmicks<br />Give me a fly beat and I'm all in it",
+      "jpn": "小細工はいらない。いいビートをくれ、そうすれば本気でやる",
+      "note": "売れ線を追わない、という姿勢の説明です。",
+      "body": [
+        "<strong class='text-[var(--c-text)]'>gimmick</strong> は、「人目を引くための小細工、仕掛け」。商品やパフォーマンスの、本質とは別の部分で、注目を集める工夫を指します。",
+        "<strong class='text-[var(--c-text)]'>fly</strong> は、ここでは、「かっこいい、最高の」という、スラングの形容詞です。<em>fly beat</em> で、「いいビート」です。",
+        "<strong class='text-[var(--c-text)]'>be all in</strong> は、「全力で関わる、のめり込む」という意味です。ポーカーで、全財産を賭けることを <em>all in</em> と言うことから来ています。",
+        "小細工は使わない、ビートさえあれば全力を出す。ここで、曲のテーマである、「売れ線に頼らない」という姿勢が、はっきりと言葉になっています。"
+      ],
+      "usage": [
+        "<strong class='text-[var(--c-text)]'>I'm all in.</strong>: 「俺は本気だ、乗った」。計画や賭けに、全力で参加するときの言い方です。",
+        "<em>gimmick</em>: <em>It's just a marketing gimmick.</em>（ただの宣伝用の仕掛けだ）。商品の批評で、よく使います。"
+      ]
+    },
+    {
+      "id": "word-is-bond",
+      "heading": "Word is bond, I go on and on 誓いの言葉",
+      "label": "★ スラング／口語",
+      "mc": "Guru（Verse 3）",
+      "anchor": ["word", "is", "bond", "i", "go", "on", "and", "on"],
+      "t": 182,
+      "eng": "Word is bond, I go on and on<br />For you, it's tragic, I got magic like wands",
+      "jpn": "誓って言う、俺は続いていく。おまえには悲劇だが、俺は魔法の杖みたいな力を持っている",
+      "note": "ニューヨーク特有の、誓いの言葉が出てきます。",
+      "body": [
+        "<strong class='text-[var(--c-text)]'>Word is bond</strong> は、「約束する、誓って本当だ」という意味の、ニューヨークのスラングです。<em>bond</em> は、「約束、絆」という意味で、言葉が、約束と同じ重さを持つ、というニュアンスです。",
+        "<strong class='text-[var(--c-text)]'>go on and on</strong> は、「延々と続く」。<em>go on</em> を重ねて、終わりなく続く、という意味を強めています。",
+        "続く行の <code>tragic</code> と <code>magic</code> は、行末で韻を踏んでいます。相手にとっての悲劇と、自分にとっての魔法という、対照的な言葉が、同じ音で並びます。",
+        "<code>magic like wands</code> は、<em>wands</em>（魔法の杖）の複数形を使った、直喩です。魔法のような力があると、言っています。"
+      ],
+      "usage": [
+        "<strong class='text-[var(--c-text)]'>Word.</strong>: 「本当だ、確かに、その通り」。短く、同意や誓いを表すスラングです。<em>Word is bond</em> は、その強調形です。",
+        "<em>go on and on</em>: <em>He went on and on about it.</em>（彼はその話を延々とした）。長話に、少し皮肉を込めて使います。"
+      ]
+    },
+    {
+      "id": "end-this-lecture",
+      "heading": "I'ma end this lecture / in due time, I'm gonna get ya",
+      "label": "★ 慣用句／口語",
+      "mc": "Guru（Verse 3）",
+      "anchor": ["so", "i'ma", "end", "this", "lecture"],
+      "t": 190,
+      "eng": "So I'ma end this lecture and I bet ya<br />Those who kick dirt, in due time, I'm gonna get ya",
+      "jpn": "それじゃ、この講義はここまで。賭けてもいい、悪口を言うやつは、いずれ必ず仕返しを受ける",
+      "note": "Verse 3の締め。講義という言葉で、全体をまとめています。",
+      "body": [
+        "<strong class='text-[var(--c-text)]'>this lecture</strong> は、ここでは、自分のバース全体を、「講義」にたとえた言い方です。<em>end this lecture</em> で、「この説教は、これで終わり」という意味です。",
+        "<strong class='text-[var(--c-text)]'>in due time</strong> は、「やがて、時期が来たら」という慣用句です。<em>in due course</em> と、ほぼ同じ意味の、やや硬い言い方です。",
+        "<strong class='text-[var(--c-text)]'>kick dirt</strong> は、「悪口を言う、噂を広める」というスラングです。<em>dig up dirt</em> と同じように、<em>dirt</em> が、相手の悪い情報を指します。",
+        "<code>I bet ya</code> は、<em>I bet you</em> の短縮形で、「間違いなく、賭けてもいい」という、軽い念押しです。<em>ya</em> は、<em>you</em> の口語の発音です。"
+      ],
+      "usage": [
+        "<strong class='text-[var(--c-text)]'>in due time</strong>: <em>You'll see the results in due time.</em>（いずれ結果が分かる）。ビジネスや、励ましの場面で使います。",
+        "<em>I bet 〜</em>: <em>I bet you're hungry.</em>（きっとお腹が空いているでしょう）。推測を、軽く言うときの定番です。"
+      ]
+    },
+    {
+      "id": "keepin-it-real",
+      "heading": "I be kickin' the real / losin' the race, tryin' to chase mass appeal",
+      "label": "★ 慣用句／結び",
+      "mc": "Guru（Verse 3）",
+      "anchor": ["'cause", "i", "be", "kickin'", "the", "real"],
+      "t": 202,
+      "eng": "'Cause I be kickin' the real<br />While they be losin' the race, tryin' to chase mass appeal",
+      "jpn": "俺は本物を貫いている。連中は、大衆受けを追いかけて、レースに負けていく",
+      "note": "最後のバースの締め。曲の主題に戻る2行です。",
+      "body": [
+        "<strong class='text-[var(--c-text)]'>kick the real</strong> は、「本物を語る、嘘のないことを言う」という意味で、<em>keep it real</em>（本物でいる、偽らない）と近い言い方です。",
+        "<strong class='text-[var(--c-text)]'>lose the race</strong> は、「競争に負ける」。<strong class='text-[var(--c-text)]'>chase</strong> は、「追いかける」。売れ線を追いかけるほど、競争に負ける、という皮肉な逆説です。",
+        "<code>I be</code> と <code>they be</code> の対比にも、注目です。習慣のbeを、両方の主語に使って、「いつも本物の俺」と「いつも負けている連中」を並べています。",
+        "最後の <code>mass appeal</code> で、曲のタイトルとフックに戻る、きれいな締め方です。"
+      ],
+      "usage": [
+        "<strong class='text-[var(--c-text)]'>keep it real</strong>: <em>Just keep it real.</em>（正直でいろ、飾るな）。ヒップホップから広まった、定番の言い回しです。",
+        "<em>chase</em> は、「追いかける」。<em>chase a dream</em>（夢を追う）、<em>chase the money</em>（金を追う）のように使います。"
+      ]
+    }
+  ],
+  "background": [
+    {
+      "kicker": "Gang Starr とは",
+      "h3": "GuruとDJ Premierの、2人組",
+      "paras": [
+        "Gang Starrは、ラッパーのGuruと、DJでプロデューサーのDJ Premierによる、2人組のグループです。「Mass Appeal」は、アルバム『Hard to Earn』（1994年3月8日発売）に収められています。",
+        "シングルとしては、同年2月8日に先行して出ました。この曲は、Gang Starrにとって、Billboard Hot 100に入った、最初のシングルとして紹介されています。"
+      ]
+    },
+    {
+      "kicker": "曲の主題",
+      "h3": "売れることと、自分を保つことの距離",
+      "paras": [
+        "歌詞のテーマは、売れるために、自分のスタイルを曲げることへの批判です。1990年代前半は、ヒップホップが、より広い聴衆に届き始めた時期でもありました。",
+        "ただし、この曲自身が、チャートに入るほど聴かれた、という点には、少し皮肉な面もあります。その矛盾を含めて聴くと、曲の語り口が、より味わい深くなります。"
+      ]
+    }
+  ],
+  "keywords": [
+    ["mass appeal", "大衆受け、広い層への魅力"],
+    ["one-hit (one-time) wonder", "一発屋"],
+    ["sell one's soul", "魂を売る。目的のために信念を捨てる"],
+    ["trump card", "切り札"],
+    ["props", "称賛、敬意（proper respect の略）"],
+    ["def", "最高の、かっこいい"],
+    ["gimmick", "人目を引くための小細工"],
+    ["word is bond", "誓って本当だ（NYのスラング）"],
+    ["in due time", "やがて、時期が来たら"],
+    ["keep (kick) it real", "本物でいる、偽らない"]
+  ],
+  "behind": [
+    "プロデュースは、DJ Premierです。サンプル元としては、Vic Jurisの「Horizon Drive」（1980年）が挙げられています。",
+    "ループの短いフレーズを、ひたすら繰り返す、DJ Premierのスタイルは、Gang Starrの特徴として語られます。Guruの落ち着いた語りと、組み合わさることで、曲全体の落ち着いたトーンを支えています。",
+    "アルバム『Hard to Earn』は、1992年から1994年にかけて、ニューヨークのD&D Studiosで録音されたと伝えられています。",
+    "ここでは、制作の経緯を、広く確認できる範囲にとどめています。"
+  ],
+  "legacy": [
+    "「Mass Appeal」は、アルバム『Hard to Earn』の2枚目のシングルとして、1994年2月に発売されました。",
+    "Gang Starrの代表曲のひとつとして、今でも聴かれています。"
+  ],
+  "summary": [
+    "「Mass Appeal」は、売れ線を追うことを、冷静な語り口で批判する、Gang Starrの代表曲のひとつです。",
+    "one-time wonder、sell one's soul、trump card、in due time、keep it real と、批評や自己主張に使える慣用句が、まとめて学べます。",
+    "props、def、diss、word is bond、flyなど、ヒップホップから広まったスラングが、具体的な行で出てきます。",
+    "I be、they be、I kicks、ya、'cause など、口語や方言の文法が、自然な形で入っています。",
+    "Maybe your soul you'd sell のような倒置は、強調のために語順を変える、英語の技法の例です。"
+  ]
+}

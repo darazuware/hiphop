@@ -1,0 +1,203 @@
+[
+  {
+    "id": "money-growin-like-grass",
+    "anchor": [
+      "money's",
+      "growin'",
+      "like",
+      "grass",
+      "with",
+      "the",
+      "mass",
+      "appeal"
+    ],
+    "fallbackT": 17,
+    "manualSec": null,
+    "captionSec": 5
+  },
+  {
+    "id": "never-make-it-break-it",
+    "anchor": [
+      "no",
+      "way",
+      "you'll",
+      "never",
+      "make",
+      "it"
+    ],
+    "fallbackT": 27,
+    "manualSec": null,
+    "captionSec": 25
+  },
+  {
+    "id": "one-time-wonders",
+    "anchor": [
+      "a",
+      "lot",
+      "of",
+      "rappers",
+      "be",
+      "like",
+      "one-time",
+      "wonders"
+    ],
+    "fallbackT": 38,
+    "manualSec": null,
+    "captionSec": 33
+  },
+  {
+    "id": "sell-your-soul",
+    "anchor": [
+      "maybe",
+      "your",
+      "soul",
+      "you'd",
+      "sell"
+    ],
+    "fallbackT": 63,
+    "manualSec": null,
+    "captionSec": 53
+  },
+  {
+    "id": "breeze-room-please",
+    "anchor": [
+      "oh",
+      "yes",
+      "i'm",
+      "greater",
+      "than",
+      "all",
+      "mc's"
+    ],
+    "fallbackT": 90,
+    "manualSec": null,
+    "captionSec": 70
+  },
+  {
+    "id": "trump-cards",
+    "anchor": [
+      "cuttin'",
+      "off",
+      "wack",
+      "kids",
+      "pullin'",
+      "their",
+      "trump",
+      "cards"
+    ],
+    "fallbackT": 99,
+    "manualSec": null,
+    "captionSec": 76
+  },
+  {
+    "id": "props-like-a-slogan",
+    "anchor": [
+      "but",
+      "i",
+      "get",
+      "props",
+      "like",
+      "a",
+      "slogan"
+    ],
+    "fallbackT": 113,
+    "manualSec": null,
+    "captionSec": 86
+  },
+  {
+    "id": "def-mic-wreckin",
+    "anchor": [
+      "lyrically",
+      "def",
+      "and",
+      "connectin'"
+    ],
+    "fallbackT": 119,
+    "manualSec": null,
+    "captionSec": 90
+  },
+  {
+    "id": "greenbacks-setbacks",
+    "anchor": [
+      "i",
+      "know",
+      "i'm",
+      "dope",
+      "but",
+      "don't",
+      "wet",
+      "that"
+    ],
+    "fallbackT": 150,
+    "manualSec": null,
+    "captionSec": 130
+  },
+  {
+    "id": "calm-but-wild-monotone",
+    "anchor": [
+      "just",
+      "like",
+      "the",
+      "seashore"
+    ],
+    "fallbackT": 168,
+    "manualSec": null,
+    "captionSec": 141
+  },
+  {
+    "id": "gimmicks-all-in",
+    "anchor": [
+      "because",
+      "i",
+      "don't",
+      "need",
+      "gimmicks"
+    ],
+    "fallbackT": 176,
+    "manualSec": null,
+    "captionSec": 146
+  },
+  {
+    "id": "word-is-bond",
+    "anchor": [
+      "word",
+      "is",
+      "bond",
+      "i",
+      "go",
+      "on",
+      "and",
+      "on"
+    ],
+    "fallbackT": 182,
+    "manualSec": null,
+    "captionSec": 150
+  },
+  {
+    "id": "end-this-lecture",
+    "anchor": [
+      "so",
+      "i'ma",
+      "end",
+      "this",
+      "lecture"
+    ],
+    "fallbackT": 190,
+    "manualSec": null,
+    "captionSec": 156
+  },
+  {
+    "id": "keepin-it-real",
+    "anchor": [
+      "'cause",
+      "i",
+      "be",
+      "kickin'",
+      "the",
+      "real"
+    ],
+    "fallbackT": 202,
+    "manualSec": null,
+    "captionSec": 161
+  }
+]
