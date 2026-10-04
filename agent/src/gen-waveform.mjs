@@ -60,13 +60,14 @@ function peaksFromMp3(mp3) {
   return { v: 2, ...out };
 }
 
-const only = process.argv[2]; // 任意: 特定slugだけ
+const only = process.argv[2]; // 任意: 特定slugだけ（AUDIO_DIR={dir} で {slug}.mp3 置き場を追加指定可）
 let done = 0;
 for (const dir of readdirSync(AGENT, { withFileTypes: true })) {
   if (!dir.isDirectory()) continue;
   const slug = dir.name;
   if (only && slug !== only) continue;
-  const mp3 = join(AGENT, slug, "assets", "audio.mp3");
+  let mp3 = join(AGENT, slug, "assets", "audio.mp3");
+  if (!existsSync(mp3) && process.env.AUDIO_DIR) mp3 = join(process.env.AUDIO_DIR, `${slug}.mp3`);
   if (!existsSync(mp3)) continue;
   try {
     const peaks = peaksFromMp3(mp3);
