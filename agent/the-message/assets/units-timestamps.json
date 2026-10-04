@@ -1,0 +1,200 @@
+[
+  {
+    "id": "jungle-going-under",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 24,
+    "fallbackT": 16,
+    "t": 24,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "cant-take-no-choice",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 48,
+    "fallbackT": 31,
+    "t": 48,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "rats-roaches-junkies",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 53,
+    "fallbackT": 38,
+    "t": 53,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "repossessed",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 59,
+    "fallbackT": 53,
+    "t": 59,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "close-to-the-edge",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 63,
+    "fallbackT": 54,
+    "t": 63,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "front-stoop",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 76,
+    "fallbackT": 74,
+    "t": 76,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "all-my-children-dallas",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 121,
+    "fallbackT": 99,
+    "t": 121,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "bill-collectors",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 129,
+    "fallbackT": 121,
+    "t": 129,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "bum-education-inflation",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 133,
+    "fallbackT": 114,
+    "t": 133,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "sacroiliac-neon",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 139,
+    "fallbackT": 123,
+    "t": 139,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "teacher-jerk-reported",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 167,
+    "fallbackT": 141,
+    "t": 167,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "land-of-milk-and-honey",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 181,
+    "fallbackT": 150,
+    "t": 181,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "glass-jaw-see-saw",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 201,
+    "fallbackT": 168,
+    "t": 201,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "state-of-mind",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 224,
+    "fallbackT": 205,
+    "t": 224,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "wind-up-dropping-out",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 258,
+    "fallbackT": 232,
+    "t": 258,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "null-and-void-pretty-boy-floyd",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 262,
+    "fallbackT": 238,
+    "t": 262,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "stick-up-kid-eight-year-bid",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 267,
+    "fallbackT": 246,
+    "t": 267,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "outro-skit-push-me",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 312,
+    "fallbackT": 292,
+    "t": 312,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  }
+]

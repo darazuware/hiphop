@@ -530,6 +530,15 @@ export const artists = [
     summary: "ヴァッカ（Alessandro Vacca、1979年サルデーニャ島カリャリ生まれ、ミラノ育ち）とジョヴァーネ・フェッディーニ（ヴェネツィア拠点）によるイタリアン・アンダーグラウンド・ラップのコラボユニット。ヴァッカは2000年代初頭からミラノのHIPHOPシーンで活動し、レゲエ・ダンスホール要素とハードコアラップを融合させてきたベテラン。2024年のジョイントアルバム「GRAVEYARD DUPPIES」でコラボレーションし、イタリア語のリリシズムとスロウフロウにこだわったスタイルで注目を集めた。Armani Doc・DJ Skizo・DJ Brontほか多数のアーティストとのネットワークを持つイタリアン・インディーズの重要人物。",
     japan: "イタリアHIPHOPは日本でまだニッチなジャンルだが、アンダーグラウンドHHを掘るリスナーの間でVaccaの名前は知られている。「GRAVEYARD DUPPIES」はSpotifyほか各ストリーミングサービスで聴けるため、日本語圏のリスナーにも届きやすくなった。",
   },
+  {
+    slug: 'grandmaster-flash',
+    name: 'Grandmaster Flash & The Furious Five',
+    origin: 'The Bronx, New York',
+    active: '1976–1983',
+    genre: 'Old School Hip-Hop',
+    summary: 'ニューヨーク・サウスブロンクスで活動したヒップホップの草創期のグループ。DJのGrandmaster Flashと、Melle Mel、Cowboy、Kidd Creole、Rahiem、Scorpioらで構成された。1982年のシングル「The Message」は、生活の苦しさを正面から描いた曲として知られ、2002年に米国議会図書館のナショナル・レコーディング・レジストリに、ヒップホップの録音として初めて選ばれた。2007年にはヒップホップのグループとして初めてロックの殿堂入りを果たしている。',
+    japan: '日本語で読める資料はまだ多くありませんが、代表曲「The Message」の歌詞は、このサイトで1行ずつ解説しています。',
+  },
 ] as const;
 
 export type Artist = typeof artists[number];
