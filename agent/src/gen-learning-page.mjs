@@ -191,12 +191,16 @@ ${spec.summary.map((s) => `        <li>${s}</li>`).join("\n")}
 
 fs.writeFileSync(`src/pages/songs/${slug}.astro`, out);
 
+const prevPath = `agent/${slug}/assets/units.json`;
+const prev = fs.existsSync(prevPath) ? Object.fromEntries(JSON.parse(fs.readFileSync(prevPath, "utf8")).map((x) => [x.id, x])) : {};
 const unitsJson = spec.units.map((u) => ({
   id: u.id,
   anchor: u.anchor,
   fallbackT: u.t,
   manualSec: null,
   ...(spec.tSource === "caption" ? { captionSec: u.t } : {}),
+  ...(prev[u.id]?.manualSec != null ? { manualSec: prev[u.id].manualSec } : {}),
+  ...(spec.tSource !== "caption" && prev[u.id]?.captionSec != null ? { captionSec: prev[u.id].captionSec } : {}),
 }));
 fs.mkdirSync(`agent/${slug}/assets`, { recursive: true });
 fs.writeFileSync(`agent/${slug}/assets/units.json`, JSON.stringify(unitsJson, null, 2) + "\n");
