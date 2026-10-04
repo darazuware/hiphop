@@ -40,13 +40,18 @@ h1, h2, h3 {
   --c-card-border: #000;
   --c-card-bg: #161616;
 
-  /* Section colors (暖色＋無彩色：intro/outro=グレー, verse=オレンジ濃淡, hook=ゴールド) */
-  --c-section-verse1: #ea7317;
-  --c-section-verse2: #c2410c;
-  --c-section-hook: #f5c518;
-  --c-section-bridge: #92400e;
-  --c-section-intro: #6b6b6b;
-  --c-section-outro: #8a8a8a;
+  /* Section colors（青の濃淡＋無彩色：intro/outro=グレー, verse=青の濃淡, hook=プレイヤー色） */
+  --c-section-verse1: #0b8bd0;
+  --c-section-verse2: #0a5f94;
+  --c-section-hook: #00abff;
+  --c-section-bridge: #3b6e8f;
+  --c-section-intro: #4b5563;
+  --c-section-outro: #6b7280;
+
+  /* プレイヤー系アクセント（単色：#00ABFF） */
+  --c-player: #00abff;
+  --c-player-hi: #5cc8ff;
+  --c-player-glow: rgba(0, 171, 255, 0.5);
 }
 
 html[data-theme="light"] {
@@ -163,7 +168,7 @@ html[data-theme="light"] {
 .player-time-led {
   font-size: 15px;
   letter-spacing: 0.06em;
-  color: var(--c-gold-light);
+  color: var(--c-player);
 }
 .player-time-total {
   font-size: 15px;
