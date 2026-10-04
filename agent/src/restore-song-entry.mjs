@@ -21,7 +21,7 @@ let entry = line
   .replace(/tier: ['"]thin['"]/, `tier: "core"`)
   .replace(/era: ['"]([^'"]+)['"]/, (m, e) => `era: '${eraMap[e] ?? e}'`);
 if (opt("--bpm")) entry = entry.replace(/bpm: \d+/, `bpm: ${opt("--bpm")}`);
-if (opt("--sample")) entry = entry.replace(/sample: (?:"[^"]*"|'[^']*'|null)/, `sample: ${JSON.stringify(opt("--sample"))}`);
+if (opt("--sample")) entry = entry.replace(/sample: (?:"(?:[^"\\]|\\.)*"|'(?:[^'\\]|\\.)*'|null)/, `sample: ${JSON.stringify(opt("--sample"))}`);
 const marker = songs.lastIndexOf("\n];");
 const idx = songs.search(/\n\];\s*\n/);
 if (idx < 0) { console.error("array end not found"); process.exit(1); }

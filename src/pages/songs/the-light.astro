@@ -1,0 +1,542 @@
+---
+import LearningUnit from '../../components/LearningUnit.astro';
+import QuickSlang from '../../components/QuickSlang.astro';
+import SongLayout from '../../layouts/SongLayout.astro';
+
+import tsData from '../../../agent/the-light/assets/units-timestamps.json';
+const YT = "OjHX7jf-znA";
+const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.approx }]));
+---
+
+<SongLayout
+  title="The Light 和訳・意味・スラング解説 | Common"
+  description="Common「The Light」を英語学習とヒップホップ理解の教材として精読。in a minute、signed, sealed, delivered、What's in a nameの引用、tune the fate、If Heaven had a heightなど、ラブソングの語彙と比喩をPV頭出し付きで解説。"
+  slug="the-light"
+  learningPage={true}
+  songDuration={256}
+  highlights={[
+    'ラップで書かれたラブレター。丁寧な語彙と比喩で、愛情を語るスタイルが学べる',
+    'Signed, sealed, delivered、What\'s in a name。有名な曲名や台詞を、さりげなく引用している',
+    'If Heaven had a height のような仮定法と、tune the fate のような音楽の比喩',
+  ]}
+  youtubeId="OjHX7jf-znA"
+>
+
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■この曲で何を学べるか</h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          「I never knew a luh-luh-luh, a love like this」。言葉に詰まるところから始まる、Commonのラブソングです。
+        </p>
+        <p>
+          2000年のアルバム『Like Water for Chocolate』の2枚目のシングルとして、7月に出ました。
+        </p>
+        <p>
+          J Dillaが作った、ゆったりしたトラックの上で、Commonは、恋人に宛てた手紙のように語ります。強がりや自慢の少ないラップで、丁寧な言葉づかいが目立つ曲です。
+        </p>
+        <p>
+          英語学習としては、愛情を語る表現、音楽や自然を使った比喩、そして有名な曲名や台詞の引用を、落ち着いて読める素材になっています。
+        </p>
+      </div>
+    </section>
+
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■「手紙」として読むと、構造が見えてくる</h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          Verse 1の中に、「この手紙を書いて、ようやく送る決心をした」という行が出てきます。曲そのものが、その手紙になっている、という入れ子の構造です。
+        </p>
+        <p>
+          手紙の書き出し、近況、気持ち、約束、そして別れの挨拶。曲の流れも、そのまま手紙の流れと重なっています。
+        </p>
+        <p>
+          そのつもりで読むと、1行ずつの言葉が、誰に向けて、何のために書かれているのかが、分かりやすくなります。
+        </p>
+      </div>
+    </section>
+
+    <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
+      <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
+        <li><a href="#story" class="hover:text-[var(--c-gold)] transition-colors">01 ストーリーの流れ（まず曲全体をつかむ）</a></li>
+        <li><a href="#units" class="hover:text-[var(--c-gold)] transition-colors">02 学ぶ表現（スラング・韻・言葉遊び・AAVE）</a></li>
+        <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">03 文化的背景</a></li>
+        <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">04 制作の裏側</a></li>
+        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">05 評価とその後</a></li>
+      </ol>
+    </nav>
+
+    <section id="story" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        ストーリーの流れ（まず曲全体をつかむ）
+      </h2>
+      <p class="text-xs text-[var(--c-dim)] mb-5">
+        3つのバースが、恋人への手紙のように、気持ちを順番に伝えていきます。バースごとの役割を先に押さえます。
+      </p>
+      <div class="space-y-4 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          <strong class='text-[var(--c-text)]'>Verse 1</strong>は、久しぶりに会えない相手へ宛てた、手紙の冒頭です。これまでの出会いの話と、これからの約束が語られます。
+        </p>
+        <p>
+          <strong class='text-[var(--c-text)]'>Chorus</strong>は、Bobby Caldwellの声で歌われる、「いつでもそばにいる」という言葉です。サンプリングされた旋律に、Commonの声が重なります。
+        </p>
+        <p>
+          <strong class='text-[var(--c-text)]'>Verse 2</strong>は、二人の関係をどう育てるか、という話です。話し合いの大切さと、相手を呼ぶ言葉の選び方が語られます。
+        </p>
+        <p>
+          <strong class='text-[var(--c-text)]'>Verse 3</strong>は、相手のいいところを数える場面です。趣味の広さ、そばにいてくれることへの感謝が語られます。
+        </p>
+        <p>
+          最後は、Chorusが繰り返され、静かに終わります。
+        </p>
+        <p class="text-xs text-[var(--c-dim)]">
+          ※本ページは批評・教育目的で、解説に必要な範囲の断片のみを引用しています。全歌詞の対訳は掲載していません。
+        </p>
+      </div>
+    </section>
+
+    <div id="units"></div>
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        学ぶ表現（スラング・韻・言葉遊び・AAVE）
+      </h2>
+      <div class="space-y-3 text-xs text-[var(--c-dim)] mb-6">
+        <p>ここでは、歌詞の中の表現を1つずつ取り上げます。上に短い用例、下に意味と使い方を置いています。</p>
+        <p>引用を省いて、背景だけを説明するunitもあります。▶を押すと、PVの該当箇所から再生できます。</p>
+      </div>
+
+      <LearningUnit
+        heading="I never knew a luh-luh-luh, a love like this 言い淀みの効果"
+        label="★ 口語／過去形"
+        mc="Common（Verse 1）"
+        t={TS["never-knew-a-love"].t} tApprox={TS["never-knew-a-love"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">I never knew a luh-luh-luh, a love like this</Fragment>
+        <Fragment slot="jpn">こんな愛があるなんて、知らなかった</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 曲の最初の1行。言葉に詰まる、書き方の工夫です。</p>
+        <p><strong class='text-[var(--c-text)]'>luh-luh-luh</strong> は、<em>love</em> と言いかけて、言葉に詰まる様子を、そのまま書いたものです。気持ちが大きすぎて、うまく言えない、という場面の再現です。</p>
+        <p><strong class='text-[var(--c-text)]'>I never knew 〜</strong> は、「〜を知らなかった」。過去形の <em>knew</em> と <em>never</em> で、これまでの人生に、そうした経験がなかったことを言っています。</p>
+        <p><code>a love like this</code> の <em>like this</em> は、「こんな」と、目の前のものを指す言い方です。<em>a love</em> と不定冠詞が付いているのも、愛の種類のひとつ、という見方です。</p>
+        <p>言い淀みも、そのまま歌詞に含めることで、曲の入り口から、飾らない人柄が出ています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>I never knew + 名詞/節</strong>: <em>I never knew you could sing.</em>（君が歌えるなんて知らなかった）。意外な発見を言う定番の型です。</p>
+          <p><em>like this</em>、<em>like that</em> は、「こんな、あんな」と、様子を指す口語の言い方です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Queen, I ain't seen you in a minute 呼びかけと「しばらく」"
+        label="★ スラング／現在完了"
+        mc="Common（Verse 1）"
+        t={TS["in-a-minute"].t} tApprox={TS["in-a-minute"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Queen, I ain't seen you in a minute<br />Wrote this letter and finally decide to send it</Fragment>
+        <Fragment slot="jpn">クイーン、しばらく会ってないね。この手紙を書いて、ようやく送る決心をした</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 手紙の書き出し。「しばらく」を言う口語表現です。</p>
+        <p><strong class='text-[var(--c-text)]'>Queen</strong> は、相手への呼びかけです。ヒップホップでは、敬意と愛情を込めて、パートナーの女性をこう呼ぶことがあります。</p>
+        <p><strong class='text-[var(--c-text)]'>in a minute</strong> は、ここでは、「1分」ではなく、「しばらくの間」という意味です。<em>I haven't seen you in a minute.</em> は、会うのが久しぶりのときの、くだけた言い方です。</p>
+        <p><code>I ain't seen</code> は、<em>I haven't seen</em> の口語形。<em>ain't</em> が、<em>haven't</em> の代わりに使われています。</p>
+        <p>次の行の <code>Wrote this letter and finally decide to send it</code> は、時制が、<em>wrote</em>（過去）から <em>decide</em>（現在）へ移っています。ここも、場面を目の前に見せる、歴史的現在の例です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>in a minute</strong>: <em>Long time no see. I haven't seen you in a minute.</em>（久しぶり）。ほかに、<em>in a minute</em> は、「すぐに」の意味でも使います。</p>
+          <p><em>ain't</em> は、<em>haven't / hasn't</em> の代わりにもなる、万能の否定形です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Signed, sealed, delivered 曲名の引用"
+        label="★ 引用／手紙"
+        mc="Common（Verse 1）"
+        t={TS["signed-sealed-delivered"].t} tApprox={TS["signed-sealed-delivered"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Signed, sealed, delivered, for us to grow together</Fragment>
+        <Fragment slot="jpn">署名して、封をして、届ける。二人で一緒に成長するために</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 手紙に関する決まり文句が、曲名の引用にもなっています。</p>
+        <p><strong class='text-[var(--c-text)]'>signed, sealed, delivered</strong> は、「署名し、封をして、配達された」という、手紙や書類の決まり文句です。<em>sign</em>、<em>seal</em>、<em>deliver</em> という、3つの動詞を並べています。</p>
+        <p>同時に、これは、Stevie Wonderの有名な曲名「Signed, Sealed, Delivered I'm Yours」を、さりげなく引用した行でもあります。曲を知っている人には、愛の誓いの響きも伝わります。</p>
+        <p><code>for us to grow together</code> は、<em>for + 人 + to 不定詞</em> の形です。「私たちが一緒に成長するために」と、目的を述べています。</p>
+        <p>手紙の工程を言いながら、有名な曲名にも掛けている。ひとつの言葉で、二重の意味を持たせる、うまい引用です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>sign, seal and deliver</strong>: <em>The documents were signed, sealed and delivered.</em>（書類は署名・封印のうえ、配達された）。手続きが完了したことを言うときの決まり文句です。</p>
+          <p><em>for + 人 + to 不定詞</em>: <em>It's time for us to go.</em>（私たちが行く時間だ）。主語を明示した不定詞の型です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="your heart is weathered by what studs did to you"
+        label="★ 比喩／語彙"
+        mc="Common（Verse 1）"
+        t={TS["weathered-heart"].t} tApprox={TS["weathered-heart"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">I know your heart is weathered by what studs did to you</Fragment>
+        <Fragment slot="jpn">あなたの心は、これまで出会った男たちのせいで、傷つき疲れていると知っている</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 相手の過去に触れる、慎重な一行です。</p>
+        <p><strong class='text-[var(--c-text)]'>weathered</strong> は、本来は、風雨にさらされて古びた様子を指す形容詞です。<em>a weathered face</em>（風雪を経た顔）のように使います。</p>
+        <p>ここでは、心が、傷ついて、たくましくなった、という意味です。</p>
+        <p><strong class='text-[var(--c-text)]'>studs</strong> は、ここでは、「男たち」を指すスラングです。もともとは、種馬を指す語で、男らしさを示す言い方として使われます。</p>
+        <p><code>be + 過去分詞 + by 〜</code> の受け身の形が使われています。「〜によって、傷ついている」という、原因を示す形です。</p>
+        <p>相手の過去の傷に、「知っているよ」と寄り添う一行です。このあとの行で、自分自身も、同じことをしたかもしれない、と続きます。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>be weathered by 〜</strong>: <em>He was weathered by years at sea.</em>（彼は、海での年月に鍛えられた）。苦労を重ねた人を描く表現です。</p>
+          <p><em>what + 主語 + 動詞</em>（what studs did to you）は、「〜が君にしたこと」という名詞節です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="recognize the light, but they can't handle the glare 光と、まぶしさ"
+        label="★ 比喩／対比"
+        mc="Common（Verse 1）"
+        t={TS["light-and-glare"].t} tApprox={TS["light-and-glare"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p>この行は、引用を省いて、比喩の面だけを説明します（▶で飛べます）。</p>
+        <p><strong class='text-[var(--c-text)]'>the light</strong> は、曲のタイトルでもあり、この曲では、良いもの、導きになるもの、という意味で使われます。<strong class='text-[var(--c-text)]'>the glare</strong> は、「まぶしすぎる光、ぎらつき」です。</p>
+        <p>「光を見分けることはできても、そのまぶしさには、耐えられない」。大事な人の良さに気づきながら、そのまっすぐさに、向き合いきれない人がいる、という意味に読めます。</p>
+        <p><code>recognize</code> と <code>handle</code> の2つの動詞で、「気づくこと」と「受け止めること」の違いを、きれいに分けています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>can't handle 〜</strong>: <em>I can't handle the pressure.</em>（そのプレッシャーには耐えられない）。耐えること、対処することの両方に使います。</p>
+          <p><em>glare</em> には、「ぎらつく光」のほかに、「にらむ、にらみつけること」という意味もあります。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="ain't the type to walk around with matchin' shirts / I will match your work"
+        label="★ 言葉遊び／語法"
+        mc="Common（Verse 1）"
+        t={TS["match-your-work"].t} tApprox={TS["match-your-work"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">You know I ain't the type to walk around with matchin' shirts<br />A relationship is effort, I will match your work</Fragment>
+        <Fragment slot="jpn">おそろいのシャツで歩き回るタイプじゃない。恋愛は努力だ、君の頑張りに、こっちも合わせる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 同じ動詞が、2つの意味で使われる2行です。</p>
+        <p><strong class='text-[var(--c-text)]'>matchin' shirts</strong> は、おそろいのシャツ。<em>match</em> は、形容詞では「合った、そろいの」。</p>
+        <p>恋人同士が、おそろいの服で歩くという、見せびらかしの比喩です。</p>
+        <p>ところが、次の行の <strong class='text-[var(--c-text)]'>match your work</strong> では、<em>match</em> が、動詞で、「〜に見合うようにする」という意味になっています。見た目のおそろいと、努力のおそろいを、同じ語で対比させています。</p>
+        <p><strong class='text-[var(--c-text)]'>ain't the type to 〜</strong> は、「〜するタイプじゃない」。<em>I'm not the type to complain.</em>（文句を言うタイプではない）のように使います。</p>
+        <p>見せかけではなく、努力で釣り合う。ここに、この曲が言いたい、関係の考え方が出ています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>be the type to + 動詞</strong>: <em>He's not the type to give up.</em>（彼は、諦めるタイプじゃない）。性格を言うときの定番です。</p>
+          <p><em>match</em> は、動詞なら「合わせる、釣り合う」。<em>match your effort</em> のように使います。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="There is a light that shines / Special for you and me"
+        label="★ コーラス／構文"
+        mc="Bobby Caldwell（Chorus）"
+        t={TS["there-is-a-light"].t} tApprox={TS["there-is-a-light"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">There is a light that shines<br />Special for you and me</Fragment>
+        <Fragment slot="jpn">輝く光がある。あなたと私のための、特別な光</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ サビの中心。サンプルされた旋律に、短い言葉が乗ります。</p>
+        <p><strong class='text-[var(--c-text)]'>There is a light that shines</strong> は、存在を示す <em>there is</em> と、関係代名詞 <em>that</em> の組み合わせです。「輝く光がある」という、シンプルな文です。</p>
+        <p><code>Special for you and me</code> は、主語や動詞が省略された、短い補足です。<em>It is special for you and me</em> の、<em>It is</em> が落ちた形で、歌詞ではよく見られます。</p>
+        <p>ここで歌っているのは、Bobby Caldwellです。もとの曲「Open Your Eyes」の旋律と声が、そのまま使われています。</p>
+        <p>Commonのバースが、具体的な言葉で語るのに対して、このコーラスは、広く、静かな言葉で締めます。語りと歌のコントラストが、この曲の聴きどころです。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>There is + 名詞 + that + 動詞</strong>: <em>There is a store that sells it.</em>（それを売っている店がある）。存在を言う基本の文型です。</p>
+          <p><em>special for 〜</em> は、「〜のための特別な」。<em>special to 〜</em>（〜にとって特別な）と、少し意味が違います。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="tune the fate of this union to the right pitch 音楽の比喩"
+        label="★ 比喩／語彙"
+        mc="Common（Verse 2）"
+        t={TS["tune-the-fate"].t} tApprox={TS["tune-the-fate"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">It's important we communicate<br />And tune the fate of this union to the right pitch</Fragment>
+        <Fragment slot="jpn">話し合うことが大事だ。この関係の行方を、ちょうどいい音程に合わせていくために</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 音楽の用語で、関係づくりを語る2行です。</p>
+        <p><strong class='text-[var(--c-text)]'>tune 〜 to the right pitch</strong> は、「〜を正しい音程に調律する」。楽器の調律の言い方を、二人の関係に当てはめています。</p>
+        <p><strong class='text-[var(--c-text)]'>the fate of this union</strong> は、「この結びつきの運命、行方」。<em>union</em> は、結婚や、ふたりの結びつきを指す、少し硬い語です。</p>
+        <p><code>It's important we communicate</code> は、<em>It's important that we communicate</em> の、<em>that</em> が省略された形です。「私たちが話し合うことが大事だ」と言っています。</p>
+        <p>音楽の語彙で、関係づくりを語る。ラッパーの視点らしい、自然な比喩です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>It's important (that) + 主語 + 動詞</strong>: <em>It's important we stay calm.</em>（落ち着いていることが大事だ）。<em>that</em> は省略できます。</p>
+          <p><em>tune</em> は、「（楽器を）調律する」のほか、<em>tune in</em>（番組に合わせる）、<em>stay tuned</em>（そのままお待ちください）でも使います。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="There's so much in a name and so much more in you シェイクスピアの引用"
+        label="★ 引用／構文"
+        mc="Common（Verse 2）"
+        t={TS["whats-in-a-name"].t} tApprox={TS["whats-in-a-name"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">There's so much in a name and so much more in you</Fragment>
+        <Fragment slot="jpn">名前には、たくさんのものが込められている。でも、あなたには、それ以上のものがある</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 呼び方の話をしている前の行と、セットで読む一行です。</p>
+        <p>この行は、前の行で、相手を乱暴な呼び方で呼ばないと言ったことを受けています。「名前（呼び方）には意味がある」という、考え方の表明です。</p>
+        <p><strong class='text-[var(--c-text)]'>What's in a name?</strong>（名前に何があるというの？）は、シェイクスピアの『ロミオとジュリエット』の有名な台詞です。ここでは、それを裏返して、「名前には、たくさんのものがある」と言っています。</p>
+        <p><strong class='text-[var(--c-text)]'>so much more in you</strong> の <em>more</em> は、<em>so much</em> を強めています。相手には、名前では言い切れないほどの価値がある、という褒め言葉です。</p>
+        <p><code>There's so much in 〜</code> は、「〜には、たくさんのものがある」という言い方です。<em>in</em> で、対象の内側にある中身を指しています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>There's so much 〜 in 〜</strong>: <em>There's so much history in this city.</em>（この街には、たくさんの歴史がある）。</p>
+          <p><em>What's in a name?</em> は、会話や文章で、「名前なんて関係ない」と言うときに引用されます。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="in these cold Chi nights, moon, you my light 地名と省略"
+        label="★ 地名／コピュラ省略"
+        mc="Common（Verse 2）"
+        t={TS["chi-nights-moon"].t} tApprox={TS["chi-nights-moon"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">For in these cold Chi nights, moon, you my light</Fragment>
+        <Fragment slot="jpn">というのも、この寒いシカゴの夜には、ムーン、君が俺の光だから</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 出身地と、恋人への呼びかけが重なる一行です。</p>
+        <p><strong class='text-[var(--c-text)]'>Chi</strong> は、シカゴ（Chicago）の略称です。Commonの出身地で、冬の寒さが厳しい街として知られています。</p>
+        <p><strong class='text-[var(--c-text)]'>For</strong> は、ここでは前置詞ではなく、接続詞で、「というのも〜だから」という意味です。やや古風な言い方で、理由を付け足すときに使われます。</p>
+        <p><code>you my light</code> は、<em>you are my light</em> から、be動詞が落ちた形です。AAVEで見られる、コピュラ省略の例で、リズムを優先した、短い言い方です。</p>
+        <p>寒い夜と、月と、光。冷たい風景のなかに、温かさを持ち込む比喩で、曲のタイトルとも、つながっています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>for（接続詞）</strong>: <em>He left early, for he was tired.</em>（彼は早く帰った、疲れていたのだ）。文語的な、理由の接続詞です。</p>
+          <p><em>You my 〜</em> のように、be動詞を省くのは、くだけた会話や歌詞でよく見られます。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="If Heaven had a height, you would be that tall 仮定法の誇張"
+        label="★ 仮定法／誇張"
+        mc="Common（Verse 2）"
+        t={TS["heaven-had-a-height"].t} tApprox={TS["heaven-had-a-height"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">If Heaven had a height, you would be that tall</Fragment>
+        <Fragment slot="jpn">もし天国に高さがあるなら、あなたはそれほど高いだろう</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 仮定法を使った、スケールの大きなほめ言葉です。</p>
+        <p><strong class='text-[var(--c-text)]'>If + 過去形, would + 動詞</strong> は、仮定法過去です。「もし〜なら、〜だろう」と、現実にはない状況を想像する言い方です。</p>
+        <p>天国には、高さがない。つまり、この仮定は、現実にはありえないものです。</p>
+        <p>そのありえない高さを、相手の大きさに当てはめることで、最大級の賛辞にしています。</p>
+        <p><strong class='text-[var(--c-text)]'>that tall</strong> の <em>that</em> は、「それほど」という程度を表す副詞です。前の節で出した、<em>Heaven's height</em> を、そのまま指しています。</p>
+        <p>シンプルな文法の形で、スケールの大きな誇張を作る。英語のほめ言葉の、よい見本になっている一行です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>If I were/had 〜, I would 〜</strong>: <em>If I had wings, I would fly to you.</em>（翼があれば、君のところへ飛んでいくのに）。恋の歌でよく使われる型です。</p>
+          <p><em>that + 形容詞</em>: <em>It wasn't that hard.</em>（それほど難しくなかった）。程度を表す、口語の言い方です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Ghetto to coffee shop, through you, I see that all 対比の幅"
+        label="★ 対比／語順"
+        mc="Common（Verse 2）"
+        t={TS["ghetto-to-coffee-shop"].t} tApprox={TS["ghetto-to-coffee-shop"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Ghetto to coffee shop, through you, I see that all</Fragment>
+        <Fragment slot="jpn">ゲットーからコーヒーショップまで、君を通して、そのすべてが見える</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 対極にある場所を並べて、視野の広がりを示す一行です。</p>
+        <p><strong class='text-[var(--c-text)]'>Ghetto to coffee shop</strong> は、貧しい地区と、おしゃれなコーヒーショップという、対極の場所を、<em>A to B</em> で並べています。「端から端まで」という意味です。</p>
+        <p><strong class='text-[var(--c-text)]'>through you</strong> は、「あなたを通して」。相手の存在が、世界を見るレンズになっている、ということです。</p>
+        <p><code>I see that all</code> は、<em>I see it all</em> の語順を、少し崩した形です。<em>all</em> を後ろに置いて、「すべて」を強調しています。</p>
+        <p>地名や場所を並べるだけで、視野の広がりを描く。ヒップホップらしい、簡潔な書き方です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>from A to B</strong>: <em>from morning to night</em>（朝から晩まで）。ここでは、<em>from</em> が省略された、短い形です。</p>
+          <p><em>see through 〜</em> は、「〜を通して見る」のほか、「〜を見抜く」の意味にもなります。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Anything worth havin', you work at annually / It don't take a whole day"
+        label="★ 構文／AAVE"
+        mc="Common（Verse 2）"
+        t={TS["worth-havin-annually"].t} tApprox={TS["worth-havin-annually"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Anything worth havin', you work at annually<br />It don't take a whole day to recognize sunshine</Fragment>
+        <Fragment slot="jpn">手に入れる価値のあるものは、毎年努力して手に入れる。太陽の光に気づくのに、丸一日はかからない</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 努力と直感の、2つの考え方が並ぶ2行です。</p>
+        <p><strong class='text-[var(--c-text)]'>worth + 動詞ing</strong> は、「〜する価値がある」。<em>worth having</em> で、「持つ価値がある」。</p>
+        <p><em>anything worth having</em> は、名言によく使われる型です。</p>
+        <p><strong class='text-[var(--c-text)]'>work at 〜</strong> は、「〜に取り組む、努力する」。<em>work on 〜</em> と近い意味ですが、継続的な努力のニュアンスが強い言い方です。</p>
+        <p><code>It don't take 〜</code> の <em>don't</em> は、三人称単数なのに使われる、AAVEの特徴です。<em>It doesn't take a whole day</em> のことです。</p>
+        <p><code>recognize sunshine</code> は、「光だと一目で分かる」という比喩です。努力は必要だが、価値そのものの発見は、すぐにできる、という二面を描いています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>worth + 動詞ing</strong>: <em>It's worth trying.</em>（試す価値がある）。<em>worth it</em> も、よく使います。</p>
+          <p><em>It takes + 時間 + to 不定詞</em>: <em>It takes time to learn.</em>（学ぶには時間がかかる）。所要時間を言う基本の型です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="I can catch you in the mix from beauty to thrift shop"
+        label="★ スラング／語法"
+        mc="Common（Verse 3）"
+        t={TS["in-the-mix-thrift-shop"].t} tApprox={TS["in-the-mix-thrift-shop"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">It's kinda fresh you listen to more than hip-hop<br />And I can catch you in the mix from beauty to thrift shop</Fragment>
+        <Fragment slot="jpn">君が、ヒップホップ以外も聴くのは、なかなかいい。美容院から古着屋まで、どこでも見つかる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 相手のいいところを、数えていく場面です。</p>
+        <p><strong class='text-[var(--c-text)]'>fresh</strong> は、ここでは、「いい、かっこいい」という、スラングの形容詞です。<strong class='text-[var(--c-text)]'>kinda</strong> は、<em>kind of</em> の短縮形で、程度を和らげています。</p>
+        <p><strong class='text-[var(--c-text)]'>catch you in the mix</strong> は、「いろいろな場所に、君がいるのが見つかる」。<em>the mix</em> は、人や場所が入り混じる、日常の流れを指しています。</p>
+        <p><code>from beauty to thrift shop</code> は、美容院（beauty shop）から古着屋まで、という、対極の場所を並べた言い方です。相手の趣味の幅広さを、場所で表しています。</p>
+        <p>相手を、「ヒップホップだけでなく、幅広く楽しむ人」と、素直にほめています。自慢ではなく、相手の良さを数えるバースです。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>It's kinda + 形容詞 + (that) 〜</strong>: <em>It's kinda cool you came.</em>（来てくれたのは、ちょっと嬉しい）。感想を軽く言うときの型です。</p>
+          <p><em>in the mix</em> は、「渦中に、その中に紛れて」。<em>in the mix</em> で、競争や話題に加わっていることも言います。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="My heart's dictionary defines you 辞書の比喩"
+        label="★ 比喩／語彙"
+        mc="Common（Verse 3）"
+        t={TS["heart-dictionary"].t} tApprox={TS["heart-dictionary"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">My heart's dictionary defines you, it's love and happiness</Fragment>
+        <Fragment slot="jpn">俺の心の辞書は、君を、愛と幸せと定義している</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 辞書の用語で、相手の存在を言い表す一行です。</p>
+        <p><strong class='text-[var(--c-text)]'>My heart's dictionary</strong> は、「心の辞書」。<em>heart's</em> の <em>'s</em> は、所有を示す形で、「心が持つ辞書」という意味です。</p>
+        <p><strong class='text-[var(--c-text)]'>define</strong> は、「定義する」。辞書の語釈（意味の説明）が、そのまま相手の人柄を言い表している、という比喩です。</p>
+        <p>辞書を引いて、<em>love</em> や <em>happiness</em> を探すと、そこに相手が載っている、という絵が浮かびます。言葉を扱う仕事の人の、素直なほめ方です。</p>
+        <p><code>it's love and happiness</code> の <em>it</em> は、辞書の記述（定義）を指しています。<em>it</em> が、直前の名詞（you）ではなく、文脈の内容を指す例です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>define A as B</strong>: <em>The dictionary defines it as 〜.</em>（辞書では、それを〜と定義している）。説明文で頻出の型です。</p>
+          <p><em>dictionary</em> のように、身近な道具を比喩にすると、抽象的な気持ちが、具体的な絵になります。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="As my reflection, in light, I'ma lead you / whatever's right, I'ma feed you"
+        label="★ 韻／約束"
+        mc="Common（Verse 3）"
+        t={TS["reflection-lead-feed"].t} tApprox={TS["reflection-lead-feed"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">As my reflection, in light, I'ma lead you<br />And whatever's right, I'ma feed you</Fragment>
+        <Fragment slot="jpn">俺の映し鏡として、光のなかで君を導く。正しいことなら何でも、君に与える</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ バースの締め。約束を、短い言葉で言い切る2行です。</p>
+        <p><strong class='text-[var(--c-text)]'>I'ma</strong> は、<em>I'm going to</em> の短縮形で、「俺はこれから〜する」と、決意を言うときの形です。以前に見た曲でも、同じ形が出てきました。</p>
+        <p><strong class='text-[var(--c-text)]'>lead you</strong> と <strong class='text-[var(--c-text)]'>feed you</strong> は、行末で韻を踏んでいます。「導く」と「養う」を、同じ音で並べて、約束のリズムを作っています。</p>
+        <p><strong class='text-[var(--c-text)]'>As my reflection</strong> は、「俺の映し鏡として」。相手を、自分の鏡のような存在、つまり対等なパートナーとして扱う、という意味です。</p>
+        <p><code>whatever's right</code> は、「正しいことなら何でも」。<em>whatever</em> が、条件の幅を広げて、約束の範囲を示しています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>whatever + 主語 + 動詞/is 形容詞</strong>: <em>Do whatever is necessary.</em>（必要なことは何でもやれ）。自由度の高い条件を言う型です。</p>
+          <p><em>reflection</em> は、鏡に映る姿のほか、「内省、熟考」という意味もあります。</p>
+        </Fragment>
+      </LearningUnit>
+    </section>
+
+    <section id="background" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        文化的背景
+      </h2>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">『Like Water for Chocolate』</p>
+        <h3 class="font-semibold text-base mb-3">2000年のアルバムと、J Dillaのトラック</h3>
+        <div class="space-y-3 text-[var(--c-muted)] text-sm leading-relaxed">
+          <p>
+            「The Light」は、2000年のアルバム『Like Water for Chocolate』の2枚目のシングルで、同年7月18日に出ています。
+          </p>
+          <p>
+            プロデュースは、Jay Dee（J Dilla）。柔らかく、揺れるようなドラムの上に、Commonの落ち着いた声が乗っています。
+          </p>
+          <p>
+            Commonは、シカゴ出身のラッパーです。歌詞の中の「Chi」も、その地元を指しています。
+          </p>
+        </div>
+      </div>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">ラブソングの書き方</p>
+        <h3 class="font-semibold text-base mb-3">強がらず、丁寧に気持ちを言葉にする</h3>
+        <div class="space-y-3 text-[var(--c-muted)] text-sm leading-relaxed">
+          <p>
+            ラップのラブソングは、自慢や、駆け引きの話になりがちです。この曲では、相手の過去に寄り添い、対等な関係を目指すという、誠実な書き方が選ばれています。
+          </p>
+          <p>
+            曲の中に、手紙の形式、音楽の比喩、辞書の比喩と、いくつもの工夫が入っているのも、聴きどころです。
+          </p>
+        </div>
+      </div>
+
+      <div class="p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">キーワード早見表</p>
+        <h3 class="font-semibold text-base mb-3">この曲で学んだ表現の整理</h3>
+        <div class="space-y-3 mt-3">
+          {[
+            ['I never knew 〜', '〜を知らなかった。意外な発見を言う型'],
+            ['in a minute', 'しばらくの間。久しぶり、の言い方'],
+            ['signed, sealed, delivered', '署名・封印・配達。Stevie Wonderの曲名の引用にもなっている'],
+            ['ain\'t the type to 〜', '〜するタイプじゃない'],
+            ['tune 〜 to the right pitch', '〜を正しい音程に合わせる。調律の比喩'],
+            ['What\'s in a name?', 'シェイクスピア『ロミオとジュリエット』の台詞。名前に何があるのか'],
+            ['If + 過去形, would 〜', '仮定法過去。ありえない仮定で、強い賛辞を作る'],
+            ['worth + 動詞ing', '〜する価値がある'],
+            ['define A as B', 'AをBと定義する'],
+            ['I\'ma 〜', 'I\'m going to 〜 の短縮形。決意の言い方'],
+          ].map(([w, d]) => (
+            <div class="text-sm">
+              <span class="font-semibold text-[var(--c-text)]">{w}</span>
+              <span class="text-[var(--c-muted)]"> {d}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="behind" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        制作の裏側
+      </h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          プロデュースは、Jay Dee（J Dilla）です。曲の土台には、Bobby Caldwellの「Open Your Eyes」（1980年）が、サンプルとして使われています。
+        </p>
+        <p>
+          ドラムは、Detroit Emeraldsの「You're Gettin' a Little Too Smart」から取られていると伝えられています。
+        </p>
+        <p>
+          コーラスで聴こえる声は、Bobby Caldwell本人のものです。Commonは、この曲のサンプルについて、Caldwellに、楽曲の権利をすべて渡した（100%の出版権を支払った）と語っている、という報道があります。
+        </p>
+        <p>
+          ゆったりとしたテンポと、柔らかい質感のビートが、手紙のような語りを、そのまま支えています。
+        </p>
+        <p>
+          制作の細かい経緯は、確認できた範囲にとどめています。
+        </p>
+      </div>
+    </section>
+
+    <section id="legacy" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        評価とその後
+      </h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          「The Light」は、Commonにとって、Billboard Hot 100に入った最初のシングルで、最高44位を記録しました。
+        </p>
+        <p>
+          Commonの代表曲のひとつとして、今でも聴かれています。
+        </p>
+        <p>
+          別のアーティストの曲に、この曲がサンプルとして使われている例も、確認されています。
+        </p>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        まとめ
+      </h2>
+      <ul class="space-y-2 text-sm text-[var(--c-muted)] list-disc list-inside leading-relaxed">
+        <li>「The Light」は、手紙の形をとった、ラップのラブソングです。強がりの少ない、丁寧な言葉づかいで、愛情を語ります。</li>
+        <li>in a minute、ain't the type to、I'ma、kindaなど、会話にそのまま使える口語が出てきます。</li>
+        <li>Signed, sealed, delivered、What's in a nameなど、有名な曲名や台詞を、さりげなく引用している点にも注目です。</li>
+        <li>If Heaven had a height のような仮定法と、tune the fate、heart's dictionary のような比喩で、愛情の大きさを表しています。</li>
+        <li>It don't take、you my light のように、AAVEの文法も、自然な形で入っています。</li>
+      </ul>
+    </section>
+
+</SongLayout>
