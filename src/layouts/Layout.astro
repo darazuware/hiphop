@@ -24,7 +24,7 @@ if (!isHome) {
   breadcrumbItems.push({ label: 'ホーム', href: '/' });
   if (isSongPage) {
     breadcrumbItems.push({ label: '曲一覧', href: '/' });
-    breadcrumbItems.push({ label: title.split(' 和訳')[0].split(' |')[0] });
+    breadcrumbItems.push({ label: title.split(/ (?:英語・スラング解説|和訳)/)[0].split(' |')[0] });
   } else {
     const pageLabels: Record<string, string> = {
       '/about': 'About',

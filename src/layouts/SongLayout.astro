@@ -27,7 +27,7 @@ const { title, description, slug, highlights, youtubeId, sampleYoutubeId, sample
 const song = songs.find(s => s.slug === `/songs/${slug}`);
 const artist = song ? artists.find(a => a.slug === song.artistSlug) : null;
 // H1 is the human-readable article heading, decoupled from the SEO <title> prop
-const h1 = song ? `${song.title} — ${song.artists} 和訳・スラング解説` : title;
+const h1 = song ? `${song.title} — ${song.artists} スラング・英語解説` : title;
 // 更新日メカニズム: データに updatedDate があれば表示（遡及入力は不要・任意）
 const updatedDate = (song as { updatedDate?: string } | undefined)?.updatedDate ?? null;
 const releaseYear = song?.subtitle.match(/·\s*(\d{4})/)?.[1] ?? null;
@@ -332,14 +332,14 @@ const waveformPeaks = waveformModules[`../data/waveforms/${slug}.json`]?.default
 
       {youtubeShortId && (
         <div class="mb-8">
-          <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">和訳ショート動画</p>
+          <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">解説ショート動画</p>
           <div class="flex justify-center">
             <div class="w-[315px] aspect-[9/16] rounded-lg overflow-hidden">
               <iframe
                 loading="lazy"
                 class="w-full h-full"
                 src={`https://www.youtube.com/embed/${youtubeShortId}`}
-                title={`${title} 和訳 Shorts`}
+                title={`${title} Shorts`}
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen
@@ -404,7 +404,7 @@ const waveformPeaks = waveformModules[`../data/waveforms/${slug}.json`]?.default
                 <a href={s.slug} class="flex items-center justify-between p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg hover:border-[var(--c-gold)] transition-colors">
                   <div>
                     <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-0.5">{s.subtitle}</p>
-                    <p class="font-semibold">{s.title} 和訳・意味解説</p>
+                    <p class="font-semibold">{s.title} スラング・英語解説</p>
                     <p class="text-[var(--c-dim)] text-xs mt-0.5">{s.artists}・{s.reason}</p>
                   </div>
                   <span class="text-[var(--c-very-dim)] text-lg">→</span>
