@@ -46,10 +46,10 @@ const ghostWord = heading.split(/[—\s]/)[0].slice(0, 6).toUpperCase();
 <style>
   .learning-unit.playing {
     box-shadow:
-      0 0 0 2px var(--c-green),
-      0 0 30px 10px var(--c-green-glow),
-      0 0 60px 20px rgba(0, 255, 100, 0.3),
-      0 0 100px 40px rgba(0, 255, 100, 0.15);
+      0 0 0 2px var(--c-player),
+      0 0 30px 10px var(--c-player-glow),
+      0 0 60px 20px rgba(0, 171, 255, 0.28),
+      0 0 100px 40px rgba(0, 171, 255, 0.14);
   }
 </style>
 
@@ -68,7 +68,7 @@ const ghostWord = heading.split(/[—\s]/)[0].slice(0, 6).toUpperCase();
 
   <!-- Key badge (top-right corner) -->
   {isKey && (
-    <div class="absolute top-0 right-0 z-20 flex items-center gap-1 bg-[#FF4D00] px-2 py-0.5 text-black text-[10px] font-bold uppercase tracking-widest leading-none" style="border-radius:0 0 0 4px">
+    <div class="absolute top-0 right-0 z-20 flex items-center gap-1 bg-[var(--c-player)] px-2 py-0.5 text-black text-[10px] font-bold uppercase tracking-widest leading-none" style="border-radius:0 0 0 4px">
       ★ 聴きどころ
     </div>
   )}
@@ -104,7 +104,7 @@ const ghostWord = heading.split(/[—\s]/)[0].slice(0, 6).toUpperCase();
               data-seek={t != null ? Math.floor(t) : undefined}
               target="_blank"
               rel="noopener"
-              class="inline-flex items-center gap-2 font-mono text-black bg-[#FF4D00] hover:bg-[var(--c-green)] transition-colors px-3 py-1.5 text-sm font-black tracking-wide"
+              class="inline-flex items-center gap-2 font-mono text-black bg-[var(--c-player)] hover:bg-[var(--c-player-hi)] transition-colors px-3 py-1.5 text-sm font-black tracking-wide"
               style="border-radius:3px"
             >
               <svg width="12" height="12" viewBox="0 0 8 8" fill="currentColor" aria-hidden="true"><polygon points="1,0 8,4 1,8"/></svg>
