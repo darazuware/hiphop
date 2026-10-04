@@ -108,6 +108,7 @@ public/images/   # アルバムアート
    - 追加項目: slug, name, origin, active, genre, summary, japan
    - step2のリサーチ結果から自動生成
 7. Claudeが.astroページを生成（SongLayout使用）
+   - **【量産手順・2026-10-05〜】** learning型は `.astro` を手書きせず、`agent/{slug}/page-spec.json` に文章だけを書き `node agent/src/gen-learning-page.mjs --slug {slug}` で生成する（units.json・1〜2文/pの分割も自動）。続けて `align-yt-captions.mjs --apply`（字幕あり動画のみ）→ `gen-fallback-timestamps.mjs` → `check-article.mjs`。archiveから復活する曲は `restore-song-entry.mjs`。詳細は memory の project-adsense-cleanup 参照。unitsLead・behind末尾などの定型文は曲ごとに変える（DUPガード）。
    - **【品質管理】** 初稿を書き切る → `node agent/src/check-tone-only.mjs {slug}` で検証（❌が出たら修正して再実行）→ 最後に `npm run build` でビルド確認
    - **【関連記事カード手書き禁止】** 記事末の関連記事リンクはSongLayoutが songs.ts から自動生成する（同アーティスト→同プロデューサー→同じ元ネタ→同時代×同地域）。`.astro` 本文に手書きの関連記事セクションを新設しない（腐ってデッドリンク化した前例あり）
    - **【文体】生成する日本語文章は [`docs/article-tone.md`](docs/article-tone.md)（チェックリスト）に従い、模範＝nas-is-like.astroの文体・改行構造を踏襲する**（見出し文言は曲固有）。敬体基調＋常体スパイス・作品への熱・軽い口語の抜け・専門語の噛み砕き。ガチガチのライター調にしない。ただし事実は [`docs/fact-check-rules.md`](docs/fact-check-rules.md) で厳密に裏取りし、英語引用（eng）量は増やさない。
