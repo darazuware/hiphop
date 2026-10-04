@@ -21,6 +21,7 @@ export default defineConfig({
     sitemap({
       filter: (page) => {
         if (thinUrls.has(page)) return false;
+        if (/\/shorts(\/|$)/.test(new URL(page).pathname)) return false;
         const artistMatch = page.match(/\/artists\/([^/]+)\/?$/);
         if (artistMatch) return coreArtistSlugs.has(artistMatch[1]);
         return true;
