@@ -1,0 +1,259 @@
+[
+  {
+    "id": "linden-boulevard-routines",
+    "anchor": [
+      "back",
+      "in",
+      "the",
+      "days",
+      "on",
+      "the",
+      "boulevard"
+    ],
+    "fallbackT": 14,
+    "manualSec": null,
+    "captionSec": 28
+  },
+  {
+    "id": "abstract-five-footer",
+    "anchor": [
+      "it",
+      "was",
+      "i",
+      "the",
+      "abstract"
+    ],
+    "fallbackT": 19,
+    "manualSec": null,
+    "captionSec": 31
+  },
+  {
+    "id": "mad-style-frankfurter",
+    "anchor": [
+      "i",
+      "kicks",
+      "the",
+      "mad",
+      "style"
+    ],
+    "fallbackT": 22,
+    "manualSec": null,
+    "captionSec": 31
+  },
+  {
+    "id": "spiffy-mr-clean",
+    "anchor": [
+      "that",
+      "we",
+      "used",
+      "to",
+      "make",
+      "spiffy"
+    ],
+    "fallbackT": 27,
+    "manualSec": null,
+    "captionSec": 38
+  },
+  {
+    "id": "you-on-point",
+    "anchor": [
+      "you",
+      "on",
+      "point",
+      "phife"
+    ],
+    "fallbackT": 38,
+    "manualSec": null,
+    "captionSec": 46
+  },
+  {
+    "id": "let-your-words-rip",
+    "anchor": [
+      "well",
+      "then",
+      "grab",
+      "the",
+      "microphone"
+    ],
+    "fallbackT": 46,
+    "manualSec": null,
+    "captionSec": 55
+  },
+  {
+    "id": "telegram-energizer",
+    "anchor": [
+      "tell",
+      "your",
+      "mother",
+      "tell",
+      "your",
+      "father"
+    ],
+    "fallbackT": 55,
+    "manualSec": null,
+    "captionSec": 55
+  },
+  {
+    "id": "never-ever-wack",
+    "anchor": [
+      "now",
+      "if",
+      "you",
+      "say",
+      "my",
+      "style",
+      "is",
+      "wack"
+    ],
+    "fallbackT": 66,
+    "manualSec": null,
+    "captionSec": 68
+  },
+  {
+    "id": "you-know-that-you-know",
+    "anchor": [
+      "you'd",
+      "be",
+      "a",
+      "fool",
+      "to",
+      "reply"
+    ],
+    "fallbackT": 72,
+    "manualSec": null,
+    "captionSec": 73
+  },
+  {
+    "id": "vexed-cant-none",
+    "anchor": [
+      "they",
+      "get",
+      "vexed",
+      "i",
+      "roll",
+      "next"
+    ],
+    "fallbackT": 85,
+    "manualSec": null,
+    "captionSec": 85
+  },
+  {
+    "id": "five-foot-three-no-home-training",
+    "anchor": [
+      "i'm",
+      "just",
+      "a",
+      "fly",
+      "mc",
+      "who's",
+      "five",
+      "foot",
+      "three"
+    ],
+    "fallbackT": 91,
+    "manualSec": null,
+    "captionSec": 88
+  },
+  {
+    "id": "come-correct",
+    "anchor": [
+      "i",
+      "come",
+      "correct",
+      "in",
+      "full",
+      "effect"
+    ],
+    "fallbackT": 98,
+    "manualSec": null,
+    "captionSec": 93
+  },
+  {
+    "id": "aura-positive-punk",
+    "anchor": [
+      "you",
+      "see",
+      "my",
+      "aura's",
+      "positive"
+    ],
+    "fallbackT": 106,
+    "manualSec": null,
+    "captionSec": 98
+  },
+  {
+    "id": "knowledge-key-lock",
+    "anchor": [
+      "okay",
+      "if",
+      "knowledge",
+      "is",
+      "the",
+      "key"
+    ],
+    "fallbackT": 138,
+    "manualSec": null,
+    "captionSec": 158
+  },
+  {
+    "id": "lou-brock",
+    "anchor": [
+      "got",
+      "the",
+      "scrawny",
+      "legs"
+    ],
+    "fallbackT": 143,
+    "manualSec": null,
+    "captionSec": 158
+  },
+  {
+    "id": "optic-retina",
+    "anchor": [
+      "my",
+      "optic",
+      "presentation",
+      "sizzles"
+    ],
+    "fallbackT": 150,
+    "manualSec": null,
+    "captionSec": 168
+  },
+  {
+    "id": "industry-rule-shady",
+    "anchor": [
+      "industry",
+      "rule",
+      "number"
+    ],
+    "fallbackT": 163,
+    "manualSec": null,
+    "captionSec": 178
+  },
+  {
+    "id": "rap-is-not-pop",
+    "anchor": [
+      "rap",
+      "is",
+      "not",
+      "pop"
+    ],
+    "fallbackT": 190,
+    "manualSec": null,
+    "captionSec": 196
+  },
+  {
+    "id": "outro-nc-sc-london",
+    "anchor": [
+      "nc",
+      "y'all",
+      "check",
+      "the",
+      "rhyme",
+      "y'all"
+    ],
+    "fallbackT": 203,
+    "manualSec": null,
+    "captionSec": 208
+  }
+]

@@ -1,0 +1,211 @@
+[
+  {
+    "id": "gotta-thank-god",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 33,
+    "fallbackT": 12,
+    "t": 33,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "no-smog-no-hog",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 39,
+    "fallbackT": 18,
+    "t": 39,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "grub-pig-out",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 45,
+    "fallbackT": 24,
+    "t": 45,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "hit-the-door",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 50,
+    "fallbackT": 31,
+    "t": 50,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "drop-top",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 56,
+    "fallbackT": 38,
+    "t": 56,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "jacker-in-sight",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 65,
+    "fallbackT": 46,
+    "t": 65,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "homies-y-all",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 74,
+    "fallbackT": 56,
+    "t": 74,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "police-rolled-past",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 104,
+    "fallbackT": 91,
+    "t": 104,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "yo-mtv-raps-haps",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 120,
+    "fallbackT": 99,
+    "t": 120,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "seven-eleven-dice",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 131,
+    "fallbackT": 106,
+    "t": 131,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "played-bones-domino",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 140,
+    "fallbackT": 119,
+    "t": 140,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "nobody-got-killed",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 144,
+    "fallbackT": 126,
+    "t": 144,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "brew-chronic-lakers",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 167,
+    "fallbackT": 143,
+    "t": 167,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "pad-coastin",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 184,
+    "fallbackT": 175,
+    "t": 184,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "fly-dreams-berry",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 196,
+    "fallbackT": 202,
+    "t": 196,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "fatburger-goodyear",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 211,
+    "fallbackT": 211,
+    "t": 211,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "pager-blowin-up",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 222,
+    "fallbackT": 221,
+    "t": 222,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "didnt-have-to-use-ak",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 225,
+    "fallbackT": 227,
+    "t": 225,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "outro-wait-a-minute",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 232,
+    "t": 232,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  }
+]

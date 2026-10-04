@@ -1,0 +1,790 @@
+---
+import LearningUnit from '../../components/LearningUnit.astro';
+import QuickSlang from '../../components/QuickSlang.astro';
+import SongLayout from '../../layouts/SongLayout.astro';
+
+import tsData from '../../../agent/lose-yourself/assets/units-timestamps.json';
+const YT = "xFYQQPAOz7Y";
+const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.approx }]));
+---
+
+<SongLayout
+  title="Lose Yourself 和訳・意味・スラング解説 | Eminem"
+  description="Eminem「Lose Yourself」を英語学習とヒップホップ理解の教材として精読。mom's spaghettiの内韻、choke・blow・pay the piperなどの慣用句、Verse 3で主語がheからIに変わる仕掛けまで、PV頭出し付きで解説。"
+  slug="lose-yourself"
+  learningPage={true}
+  songDuration={328}
+  highlights={[
+    'Verse 1と2は「he」の物語、Verse 3で突然「I」になる語りの切り替え',
+    'palms are sweaty / spaghetti / ready と続く内韻の作り方',
+    'choke、blow、pay the piperなど、そのまま使える慣用句の宝庫',
+  ]}
+  youtubeId="xFYQQPAOz7Y"
+>
+
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■この曲で何を学べるか</h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          「一瞬のチャンスを逃すな」という、いちばん単純なメッセージを、いちばん具体的な言葉で書いた曲だと思っています。2002年公開の映画『8 Mile』の主題歌で、Eminem自身がJeff Bass、Luis Restoと共同で作りました。
+        </p>
+        <p>
+          歌詞に出てくるのは、汗ばんだ手のひら、セーターについた吐瀉物、フードスタンプで買えない紙おむつ。抽象的な励ましではなく、生活の細部で押してきます。
+        </p>
+        <p>
+          英語学習の素材として見ると、慣用句、内韻、行をまたぐ文、主語の切り替えがひと通り入っています。この曲のどこを見ればいいかを、unitごとに位置を指しながら整理します。
+        </p>
+      </div>
+    </section>
+
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■聴きどころは「he」と「I」の切り替え</h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          Verse 1と2は、ステージで固まるラッパーを「he」で語る三人称の物語です。映画の主人公Rabbitのことだと読めます。
+        </p>
+        <p>
+          ところがVerse 3に入ると、語り手が突然「I」になります。「there's no movie（映画なんかじゃない）」という一言で、物語の外側に出てくる構造です。
+        </p>
+        <p>
+          この切り替えを知っておくと、同じ曲が二度おいしくなります。
+        </p>
+      </div>
+    </section>
+
+    <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
+      <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
+        <li><a href="#story" class="hover:text-[var(--c-gold)] transition-colors">01 ストーリーの流れ（まず曲全体をつかむ）</a></li>
+        <li><a href="#units" class="hover:text-[var(--c-gold)] transition-colors">02 学ぶ表現（スラング・韻・言葉遊び・AAVE）</a></li>
+        <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">03 文化的背景</a></li>
+        <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">04 制作の裏側</a></li>
+        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">05 評価とその後</a></li>
+      </ol>
+    </nav>
+
+    <section id="story" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        ストーリーの流れ（まず曲全体をつかむ）
+      </h2>
+      <p class="text-xs text-[var(--c-dim)] mb-5">
+        この曲は三部構成の物語です。バースごとに誰の視点か、何が起きているかを先に押さえると、次章の解説が追いやすくなります。
+      </p>
+      <div class="space-y-4 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          <strong class='text-[var(--c-text)]'>Intro</strong>。「もし一度きりのチャンスがあったら、つかむか、逃すか」と、聞き手に仮定で問いかけます。
+        </p>
+        <p>
+          ここで曲全体のテーマが示されます。
+        </p>
+        <p>
+          <strong class='text-[var(--c-text)]'>Verse 1</strong>は、本番のステージに立つ若いラッパーの描写です。手は汗ばみ、膝は震え、頭は真っ白。
+        </p>
+        <p>
+          観客の前で言葉が出てこなくなり、時間切れ。そこで「Snap back to reality」と現実に引き戻されます。
+        </p>
+        <p>
+          <strong class='text-[var(--c-text)]'>Hook</strong>は「You better lose yourself in the music」。音楽に没頭しろ、このチャンスは一生に一度だと、同じ四行を繰り返して刻み込みます。
+        </p>
+        <p>
+          <strong class='text-[var(--c-text)]'>Verse 2</strong>は、成功した後の転落までを一気に描きます。ツアーで稼ぎ、家に帰れば娘の顔も知らない。
+        </p>
+        <p>
+          人気が落ちれば、女性たちも次の相手へ移っていく。成功と喪失が同じ速度で進みます。
+        </p>
+        <p>
+          <strong class='text-[var(--c-text)]'>Verse 3</strong>では視点が「I」に変わり、トレーラーハウスでの生活、フードスタンプ、子どもを抱えた焦りが、そのまま自分の話として語られます。
+        </p>
+        <p>
+          最後は「今回が唯一のチャンスかもしれない」と締めて、スポークンワードの一言で終わります。
+        </p>
+        <p class="text-xs text-[var(--c-dim)]">
+          ※本ページは批評・教育目的で、解説に必要な範囲の断片のみを引用しています。全歌詞の対訳は掲載していません。
+        </p>
+      </div>
+    </section>
+
+    <div id="units"></div>
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        学ぶ表現（スラング・韻・言葉遊び・AAVE）
+      </h2>
+      <div class="space-y-3 text-xs text-[var(--c-dim)] mb-6">
+        <p>各見出しは、この曲から学べる英語表現です。多くのunitは、上に英語の用例（1〜2行）を置いています。</p>
+        <p>先に英語を音で追い、行のどこが学習対象かを確かめてから、下の日本語解説に進む使い方を想定しています。▶を押すと、PVの該当箇所へ飛べます。</p>
+        <p>PV頭出しの秒数は、字幕データから割り出した概算です。多少ずれる場合があります。</p>
+      </div>
+
+      <LearningUnit
+        heading="if you had one shot... Would you capture it? 仮定法で問いかける"
+        label="★ 文法／導入"
+        mc="Eminem（Intro）"
+        t={TS["one-shot"].t} tApprox={TS["one-shot"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">if you had one shot or one opportunity<br />Would you capture it or just let it slip?</Fragment>
+        <Fragment slot="jpn">もし一回のチャンスがあったら、つかむか、それとも逃すか</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 曲の最初の3行。ここで条件と結論の型が示されます。</p>
+        <p>最初の行頭の <strong class='text-[var(--c-text)]'>if you had</strong> に注目です。ifの後ろが過去形（had）で、主節に <code>would</code> が来ています。</p>
+        <p>これは<strong class='text-[var(--c-text)]'>仮定法過去</strong>（現実とは違う仮定を述べる型）。「もし〜だったら、〜するだろう」と、実際にはまだ起きていないことを想像させる形です。</p>
+        <p>行末の <strong class='text-[var(--c-text)]'>seize</strong> は「ぐっとつかむ」という意味の動詞。<code>capture</code>（捕らえる）と並べて、チャンスを獲物のように扱っています。</p>
+        <p>対になる <strong class='text-[var(--c-text)]'>let it slip</strong> は、手から滑り落ちるのを放っておくこと。つかむか、逃すか、二択で聞き手に迫る問いです。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>If + 過去形, would + 動詞</strong> は仮定法過去の基本形。<em>If I had a million dollars, I would buy a house.</em> のように使います。</p>
+          <p><em>let 〜 slip</em> は「〜を逃す、うっかり手放す」。チャンスや秘密に対してよく使う動詞句です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="palms are sweaty, knees weak, arms are heavy 体の症状を並べる"
+        label="★ 描写／省略"
+        mc="Eminem（Verse 1）"
+        t={TS["palms-sweaty"].t} tApprox={TS["palms-sweaty"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">His palms are sweaty, knees weak, arms are heavy</Fragment>
+        <Fragment slot="jpn">手のひらは汗ばみ、膝は弱り、腕は重い</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の1行目。緊張した体を、動詞なしで並べています。</p>
+        <p>行の頭 <strong class='text-[var(--c-text)]'>His palms are sweaty</strong> のあとは、<code>knees weak</code> で動詞（are）が消えています。</p>
+        <p>英語は、同じ構造が続くとき、後ろの動詞を省略するのが自然です。「手は汗ばみ、膝は（弱く）、腕は重い」と、症状をテンポよく連打できる理由はここにあります。</p>
+        <p>もうひとつは、状態を表す形容詞で組み立てていること。<code>sweaty</code>、<code>weak</code>、<code>heavy</code> と、体の感覚だけで緊張を描きます。</p>
+        <p>「緊張している」と一言で言わず、体の部位を並べる書き方は、のちの行（ゲロ、スパゲッティ）につながっていきます。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>人の様子を並べる</strong>ときは、<em>His hands were shaking, his voice cracked.</em> のように、名詞＋状態の連続が便利です。</p>
+          <p><code>palms</code> は手のひら、<code>knees</code> は膝。体の部位の名前は、英語の描写で頻出です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="vomit on his sweater already, mom's spaghetti 内韻とミームの一行"
+        label="★ 韻／ミーム"
+        mc="Eminem（Verse 1）"
+        t={TS["moms-spaghetti"].t} tApprox={TS["moms-spaghetti"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">There's vomit on his sweater already, mom's spaghetti</Fragment>
+        <Fragment slot="jpn">もうセーターには吐いたものがついてる、ママのスパゲッティだ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ この曲でいちばん有名な行。韻の仕掛けに注目です。</p>
+        <p>この曲を知らない人でも、<strong class='text-[var(--c-text)]'>mom's spaghetti</strong> だけは知っている、というくらいミームになった行です。</p>
+        <p>ただ、学ぶ価値があるのは笑える部分より、<strong class='text-[var(--c-text)]'>韻の組み方</strong>。前の行の <code>heavy</code>、この行の <code>already</code>、<code>spaghetti</code>、次の行の <code>ready</code>。</p>
+        <p>語尾の「エディ」の響きがずっと続いています。</p>
+        <p>しかも、行の途中で韻を踏む<strong class='text-[var(--c-text)]'>内韻</strong>（internal rhyme）も入っています。行末だけでなく、行の内側でも音を重ねているわけです。</p>
+        <p>「ゲロ」「ママの料理」という生活感のある単語を使いながら、音は整っている。このギャップが、この曲の語りの核になっています。</p>
+        <Fragment slot="usage">
+          <p><code>already</code> はここでは「もう、すでに」。まだ本番前なのに、という皮肉も含みます。</p>
+          <p><code>vomit</code> は「吐いたもの」。口語では <em>puke</em> や <em>throw up</em> がよく使われます。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="drop bombs と、行をまたぐ文（enjambment）"
+        label="★ スラング／構文"
+        mc="Eminem（Verse 1）"
+        t={TS["drop-bombs"].t} tApprox={TS["drop-bombs"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">To drop bombs, but he keeps on forgetting</Fragment>
+        <Fragment slot="jpn">爆弾を落とすつもりが、忘れ続けてしまう</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 2行にまたがる一文。行の切れ目が文の切れ目ではありません。</p>
+        <p>ここで学べるのは、まず <strong class='text-[var(--c-text)]'>drop bombs</strong>。「爆弾を落とす」と言いつつ、ラップの世界では強烈なバースを繰り出す、という意味で使います。</p>
+        <p>もうひとつは<strong class='text-[var(--c-text)]'>行をまたぐ文</strong>です。1行目が <code>ready</code> で終わり、2行目の <code>To drop bombs</code> に続く。</p>
+        <p>文の途中で改行しています。</p>
+        <p>この書き方を<strong class='text-[var(--c-text)]'>enjambment</strong>（行またぎ）といいます。行末で韻を踏みながら、文は次の行へ流れていくので、聴いていて止まる場所が減ります。</p>
+        <p><code>keeps on forgetting</code> は「忘れ続ける」。<code>keep on 〜ing</code> は、同じ動作を続ける言い方です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>keep on + 動詞ing</strong> は「〜し続ける」。<em>She keeps on calling me.</em> のように、少しうんざりした気持ちも込められます。</p>
+          <p>ラップの文脈の <em>drop</em> は、曲や言葉を出すこと。<em>drop an album</em>（アルバムを出す）も同じ使い方です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="chokin'、jokin'、そして blaow 動詞と擬音の韻"
+        label="★ 慣用句／韻"
+        mc="Eminem（Verse 1）"
+        t={TS["choke-joke"].t} tApprox={TS["choke-joke"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">He's chokin', how? Everybody's jokin' now</Fragment>
+        <Fragment slot="jpn">固まってる、どうして？ みんなもう笑ってる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ ステージ上で言葉が出てこなくなる場面。</p>
+        <p><strong class='text-[var(--c-text)]'>choke</strong> は、本来は「息を詰まらせる」ですが、スポーツや本番で緊張のあまり実力を出せなくなることにも使います。</p>
+        <p>「choke on stage」「choke under pressure」のように、プレッシャーで固まる場面の定番動詞です。次の行に出てくる <code>he choked</code> も同じ使い方です。</p>
+        <p>音の面では、<code>chokin'</code> と <code>jokin'</code> が内韻になっています。固まった本人と、笑う観客の対比を、音でそろえているところに注目です。</p>
+        <p>最後の <strong class='text-[var(--c-text)]'>blaow</strong> は擬音。爆発や衝撃を表す音で、ここでは「ジ・エンド」の合図として置かれています。</p>
+        <p>辞書にない音の遊びも、ラップではよく使います。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>choke</strong> は、試合や面接で「あがって失敗する」ときの動詞。<em>He choked in the final.</em> のように使います。</p>
+          <p><em>The clock's run out</em> は、<em>The clock has run out</em> の短縮形。<code>'s</code> が <em>has</em> のこともある例として、文法の確認にも向きます。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Snap back to reality, ope, there goes gravity 間投詞と there goes"
+        label="★ 慣用句／間投詞"
+        mc="Eminem（Verse 1）"
+        t={TS["snap-back"].t} tApprox={TS["snap-back"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Snap back to reality, ope, there goes gravity</Fragment>
+        <Fragment slot="jpn">現実に引き戻される、おっと、重力が消えていった</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の中盤。妄想から現実に戻る転換点です。</p>
+        <p><strong class='text-[var(--c-text)]'>Snap back to reality</strong> は、空想や夢の状態から一気に現実に戻る、という意味です。<code>snap</code> は「ぱちんと」切り替わる感じの動詞。</p>
+        <p>行の途中にある <strong class='text-[var(--c-text)]'>ope</strong> は、何かにぶつかったり、うっかりしたときに出る軽い間投詞。アメリカ中西部で特によく聞く言い方です。</p>
+        <p>「おっと」くらいの軽さと考えると近いです。</p>
+        <p><strong class='text-[var(--c-text)]'>there goes 〜</strong> は、「ほら、〜が行ってしまった」と、目の前で何かが失われる様子を指す言い方です。ここでは gravity、つまり地に足がついている感覚が消えていきます。</p>
+        <p>同じ型は次の行で <code>there goes Rabbit</code> と再登場します。同じ表現を2行続けて使うのも、フロウを作る手口のひとつです。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>There goes + 名詞</strong>: <em>There goes my chance.</em>（ああ、チャンスが行っちゃった）。残念な気持ちを込めて、失われたものを指すときに使います。</p>
+          <p><em>snap out of it</em>（我に返る）も同じ <code>snap</code> を使う定番の表現です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="there goes Rabbit と、won't have it の言い回し"
+        label="★ 固有名詞／語法"
+        mc="Eminem（Verse 1）"
+        t={TS["rabbit-choked"].t} tApprox={TS["rabbit-choked"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Ope, there goes Rabbit, he choked, he's so mad</Fragment>
+        <Fragment slot="jpn">おっと、ラビットが固まった、ひどく怒ってる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ ここで初めて主人公の名前が出てきます。</p>
+        <p><strong class='text-[var(--c-text)]'>Rabbit</strong> は、映画『8 Mile』の主人公ジミー・スミス・ジュニアのあだ名、B-Rabbitです。この曲の「he」は、その人物のことだと読めます。</p>
+        <p>映画では、Eminem本人が演じています。実在の自分に近い青年を、三人称の「彼」に置き換えて語っているわけです。</p>
+        <p>学習ポイントは、行末の <strong class='text-[var(--c-text)]'>he won't have it</strong>。<code>won't have it</code> は「それを受け入れない、認めない」という意味の言い回しです。</p>
+        <p><code>give up that easy</code> は <em>give up that easily</em> の口語形。副詞ではなく形容詞の形で使うのは、くだけた会話でよく見られます。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>won't have it</strong> は、<em>I won't have it!</em>（そんなの認めない）のように、強い拒否を表します。</p>
+          <p><strong class='text-[var(--c-text)]'>that + 形容詞</strong>（that easy、that bad）は、「そんなに〜」と程度を示す口語表現です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="back's to these ropes、dope、broke 追い詰められる語彙"
+        label="★ 慣用句／スラング"
+        mc="Eminem（Verse 1）"
+        t={TS["back-to-ropes"].t} tApprox={TS["back-to-ropes"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">He knows his whole back's to these ropes, it don't matter</Fragment>
+        <Fragment slot="jpn">背中はロープに押しつけられてる、でも関係ない</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ ボクシングの比喩から、貧しさの描写へ。</p>
+        <p><strong class='text-[var(--c-text)]'>back's to these ropes</strong> は、ボクシングの用語です。ロープを背にして追い詰められた状態を指します。</p>
+        <p>英語では <em>have one's back against the wall</em>（壁を背にしている）という言い方で、追い詰められた状況を表すのが一般的です。ここはリングの比喩に置き換えています。</p>
+        <p><strong class='text-[var(--c-text)]'>dope</strong> と <strong class='text-[var(--c-text)]'>broke</strong> は、音が近い2語を意味で対比させた並びです。dope はスラングで「最高にかっこいい、すごい」、broke は「一文無し」。</p>
+        <p><code>it don't matter</code> の <code>don't</code> は、<code>doesn't</code> の代わり。AAVE（アフリカ系アメリカ人英語）でよく見られる三人称単数の用法です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>dope</strong> は、もともとは麻薬の意味ですが、スラングでは「最高」の褒め言葉。文脈で意味が変わる語です。</p>
+          <p><strong class='text-[var(--c-text)]'>stagnant</strong>（停滞した）は、水が淀んでいる様子に使う語。ここでは人生が進まない感覚に転用されています。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Back to the lab、this old rhapsody 音楽の場所を指す言葉"
+        label="★ スラング"
+        mc="Eminem（Verse 1）"
+        t={TS["lab-rhapsody"].t} tApprox={TS["lab-rhapsody"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Back to the lab again, yo, this old rhapsody</Fragment>
+        <Fragment slot="jpn">また研究室に戻る、この古い狂詩曲</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の締め。Hook直前の2行です。</p>
+        <p><strong class='text-[var(--c-text)]'>the lab</strong> は、直訳すると研究室ですが、ラッパーや音楽制作の世界では、曲を書いたり録音したりする場所（スタジオ、自室）を指して使います。</p>
+        <p>実験を重ねて作品を作る感覚が、ラボという言葉に込められています。<code>rhapsody</code> は、本来クラシック音楽の形式（狂詩曲）で、自由な構成の楽曲を指します。</p>
+        <p>ここでは、毎日書いては捨てるような、自分の曲の繰り返しを、古い狂詩曲と呼んでいます。語彙が一段格上のところが、ヒップホップの遊びです。</p>
+        <p>最後の行の <code>hope it don't pass him</code> は、<em>hope it doesn't pass him</em> のくだけた形。ここも <code>don't</code> が三人称で使われています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>Better + 動詞</strong> は <em>had better</em> の短縮で、「〜したほうがいい」。命令に近い強い助言です。</p>
+          <p><em>pass someone by</em> は「人のそばを通り過ぎる」。チャンスが通り過ぎる、という言い方にも広がります。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="lose yourself in the music と、had better の強さ"
+        label="★ フック／語法"
+        mc="Eminem（Hook）"
+        t={TS["lose-yourself-hook"].t} tApprox={TS["lose-yourself-hook"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">You better lose yourself in the music</Fragment>
+        <Fragment slot="jpn">音楽に没頭しろ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Hookの最初の2行。曲のタイトルが出てきます。</p>
+        <p>タイトルの <strong class='text-[var(--c-text)]'>lose yourself in 〜</strong> は、「〜に没頭して我を忘れる」という意味の成句です。<em>lose oneself in a book</em>（本に没頭する）のように使います。</p>
+        <p>音楽の中で我を忘れろ、という励ましです。悪い意味の「自分を見失う」ではなく、ここでは没頭の肯定として使われています。</p>
+        <p>もうひとつは頭の <strong class='text-[var(--c-text)]'>You better</strong>。<code>had better</code> から had が落ちた口語形で、「〜したほうがいい」と言いながら、実際は「やらないと困ったことになる」という警告のトーンです。</p>
+        <p><code>you own it</code> は「それを所有している」。瞬間が自分のものだと言い切る言い方で、チャンスを自分の支配下に置く感覚です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>You better + 動詞</strong>: <em>You better be on time.</em>（遅れないほうがいいぞ）。親しい相手への、少し圧のある助言として使います。</p>
+          <p><strong class='text-[var(--c-text)]'>own the moment</strong> のように、<em>own</em> を抽象名詞と使うと、「その場を支配する」という意味になります。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="do not miss your chance to blow 多義語 blow"
+        label="★ 多義語"
+        mc="Eminem（Hook）"
+        t={TS["chance-to-blow"].t} tApprox={TS["chance-to-blow"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">You only get one shot, do not miss your chance to blow</Fragment>
+        <Fragment slot="jpn">チャンスは一度きり、ブレイクする機会を逃すな</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Hookの後半2行。blowの意味に注目です。</p>
+        <p>行末の <strong class='text-[var(--c-text)]'>blow</strong> は、この曲の最大の学習ポイントです。<code>blow</code> は「吹く」が基本ですが、ここでは「ブレイクする、一気に有名になる」の意味。</p>
+        <p><em>blow up</em> の短縮形として使われています。</p>
+        <p>同じ曲の別の場所では、<code>he blows, it's all over</code>（Verse 2）のように、「売れる」の意味でも出てきます。</p>
+        <p>もうひとつは、<strong class='text-[var(--c-text)]'>once in a lifetime</strong>（一生に一度の）。形容詞のように名詞の前後に置いて、「めったにない」を強調します。</p>
+        <p><code>one shot</code> も、<code>shoot</code>（撃つ）と同じ語源の<em>shot</em>で、一発勝負の意味。チャンスを弾丸に例える感覚が、ここにあります。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>blow</strong> は多義語で、<em>blow a chance</em>（チャンスを台無しにする）という使い方もあります。「ブレイクする」と逆の意味になるので、文脈の確認が必要です。</p>
+          <p><strong class='text-[var(--c-text)]'>once in a lifetime</strong> は <em>a once-in-a-lifetime opportunity</em> のようにハイフンで形容詞にもできます。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="gaping hole、make me king、new world order 野心の語彙"
+        label="★ 韻／語彙"
+        mc="Eminem（Verse 2）"
+        t={TS["soul-gaping"].t} tApprox={TS["soul-gaping"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">His soul's escaping through this hole that is gaping</Fragment>
+        <Fragment slot="jpn">魂はぽっかり空いた穴から抜けていく</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の冒頭。成功を求める野心の描写です。</p>
+        <p><strong class='text-[var(--c-text)]'>escaping</strong> と <strong class='text-[var(--c-text)]'>gaping</strong> で韻を踏んでいます。<code>gaping hole</code> は、大きく口を開けた穴のこと。</p>
+        <p>魂が抜けていくほどの穴、という誇張した絵です。Verse 1の「緊張」から、Verse 2では「欲望」へ主題が移ります。</p>
+        <p><strong class='text-[var(--c-text)]'>mine for the taking</strong> は、「取ろうと思えば取れる状態にある」という決まり文句です。チャンスが目の前に転がっている、と言っています。</p>
+        <p>このあと続く <code>new world order</code>（新世界秩序）は、政治用語としても知られる言葉。自分が頂点に立つ新しい秩序、という大きな言い方に使っています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>for the taking</strong>: <em>The prize is yours for the taking.</em>（賞は取ったもの勝ちだ）。誰でも手を出せる状態を指します。</p>
+          <p><code>make me king</code> のような短い命令文は、ラップでよく出る誇張表現です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="superstardom's close to post-mortem 長い語で韻を踏む"
+        label="★ 韻／語彙"
+        mc="Eminem（Verse 2）"
+        t={TS["post-mortem"].t} tApprox={TS["post-mortem"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">A normal life is boring, but superstardom's<br />Close to post-mortem, it only grows harder</Fragment>
+        <Fragment slot="jpn">普通の暮らしは退屈、でも超スターの座は死後に近い、ますます厳しくなるだけ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 韻の作り方と、行の切り方に注目です。</p>
+        <p><strong class='text-[var(--c-text)]'>boring</strong>、<strong class='text-[var(--c-text)]'>superstardom's</strong>、<strong class='text-[var(--c-text)]'>post-mortem</strong>、<strong class='text-[var(--c-text)]'>harder</strong>。この4語は、母音の並びがそろっています。</p>
+        <p>ここで効いているのは、<code>post-mortem</code>（死後の、検死）という硬い語を、ラップの韻に入れ込んでいるところです。ラテン語由来の語を平然と使うことで、言葉遊びの幅が出ます。</p>
+        <p>意味は、「普通の暮らしは退屈だが、スターの座に近づくほど、破滅（死）にも近づく」という皮肉。成功の影の部分を語っています。</p>
+        <p>行末の <code>superstardom's</code> は、短縮形の <code>'s</code>（is）で終わり、次の行へまたがります。ここでも、行またぎの技法が使われています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>-dom</strong> は「状態、領域」を表す接尾語。<em>stardom</em>（スターの地位）、<em>freedom</em>（自由）などがあります。</p>
+          <p><em>grow + 比較級</em>（grows harder）は、「だんだん〜になる」という変化の言い方です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="farther from home, he's no father 音が近い2語の対比"
+        label="★ 言葉遊び"
+        mc="Eminem（Verse 2）"
+        t={TS["father-farther"].t} tApprox={TS["father-farther"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">God only knows he's grown farther from home, he's no father</Fragment>
+        <Fragment slot="jpn">家からどんどん遠ざかって、父親ですらない</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 音の似た farther と father の遊びです。</p>
+        <p><strong class='text-[var(--c-text)]'>farther</strong>（より遠くへ）と <strong class='text-[var(--c-text)]'>father</strong>（父親）は、母音が似た2語。距離の遠さと、父親になれていない状態を、音でつなげています。</p>
+        <p>ツアーに出るほど、家からも家族からも離れていく、という内容を、同じ響きの2語に重ねています。</p>
+        <p><code>God only knows</code> は「神のみぞ知る」。誰にも分からない、という意味の決まり文句です。</p>
+        <p>後半の <code>barely knows</code>（ほとんど知らない）との対比も効いています。</p>
+        <p><code>no father</code> は「父親ではない」という強い否定。<code>no 〜</code> で名詞を否定すると、「〜と呼べるものではない」という意味合いになります。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>farther</strong> は距離（物理的に遠く）、<strong class='text-[var(--c-text)]'>further</strong> は程度（さらに）と使い分けますが、実際の会話では混在しています。</p>
+          <p><em>God only knows</em> は、ビーチ・ボーイズの曲名としても有名な言い回しです。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="hold your nose、cold water、schmoe、nose-dove 比喩の連打"
+        label="★ 慣用句／スラング"
+        mc="Eminem（Verse 2）"
+        t={TS["cold-water"].t} tApprox={TS["cold-water"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">But hold your nose 'cause here goes the cold water</Fragment>
+        <Fragment slot="jpn">鼻をつまめ、冷たい水がくるぞ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 人気が落ちる場面。比喩が畳みかけられます。</p>
+        <p><strong class='text-[var(--c-text)]'>hold your nose</strong> は、悪臭を我慢するために鼻をつまむ動作。ここでは、嫌なことを覚悟して飲み込め、という意味の比喩です。</p>
+        <p>次の <strong class='text-[var(--c-text)]'>cold water</strong> は、冷や水。<em>throw cold water on</em>（水を差す）という表現の連想で、熱狂が冷める瞬間を表します。</p>
+        <p><strong class='text-[var(--c-text)]'>schmoe</strong> は、イディッシュ語由来のスラングで「間抜け、凡人」。ここでは、自分の代わりに人気者になる、次の誰かを雑に呼んでいます。</p>
+        <p>同じ段落に出てくる <strong class='text-[var(--c-text)]'>nose-dove</strong> は <em>nosedive</em>（急降下）、<code>sold nada</code> の <code>nada</code> はスペイン語で「何もない」。一文に複数の言語と比喩が混ざっています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>nosedive</strong> は、飛行機の急降下から、人気や株価の急落にも使います。<em>His career took a nosedive.</em> のように使います。</p>
+          <p><em>move on to</em> は「次へ移る」。恋愛でも仕事でも使える定番の句動詞です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="But the beat goes on 定番の慣用句"
+        label="★ 慣用句"
+        mc="Eminem（Verse 2）"
+        t={TS["beat-goes-on"].t} tApprox={TS["beat-goes-on"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">But the beat goes on, da-da-dom, da-dom, dah-dah-dah-dah</Fragment>
+        <Fragment slot="jpn">それでもビートは続いていく、ダ・ダ・ドン</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の締め。曲の骨組みになっているリズムを口で再現します。</p>
+        <p><strong class='text-[var(--c-text)]'>the beat goes on</strong> は、「何があっても物事は続いていく」という意味の慣用句です。直訳すれば「ビートは続く」。</p>
+        <p>音楽用語がそのまま人生訓になっています。</p>
+        <p>ここでは、成功も転落も、人生は止まらないというニュアンス。ビート自体が話題の中心の曲でもあるので、言葉通りの意味にも重なります。</p>
+        <p>続く <code>da-da-dom</code> は、ギターのリフをそのまま口で再現した、オノマトペです。曲を象徴するリフが、歌詞の一部として書き込まれています。</p>
+        <p>このリフは、ギターとキーボードが作った緊張感のあるフレーズ。制作面の話は後ろの章で触れます。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>go on</strong> は「続く」。<em>Life goes on.</em>（人生は続く）という言い方もよく使います。</p>
+          <p><em>The beat goes on.</em> は、同名の1960年代のポップス曲でも知られる言い回しです。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="No more games, I'ma change what you call rage 語り手が I に変わる"
+        label="★ 視点転換／縮約"
+        mc="Eminem（Verse 3）"
+        t={TS["no-more-games"].t} tApprox={TS["no-more-games"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">No more games, I'ma change what you call rage</Fragment>
+        <Fragment slot="jpn">もう遊びは終わりだ、お前らが怒りと呼ぶものを俺が変える</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3の冒頭。ここから語り手が三人称から一人称に変わります。</p>
+        <p>Verse 3の最大の変化は、主語です。Verse 1と2は「he」で、Rabbitという他人の話でした。</p>
+        <p>ここから、「I」、つまりEminem自身の話になります。</p>
+        <p><strong class='text-[var(--c-text)]'>I'ma</strong> は <em>I'm going to</em> の口語短縮で、<code>I'm gonna</code> よりさらに縮めた形。「俺はこれから〜する」と、宣言を力強く言う形です。</p>
+        <p><strong class='text-[var(--c-text)]'>tear the roof off</strong> は、「会場を揺るがす、大盛り上がりにする」という意味の表現です。ここでは、檻に閉じ込められた2匹の犬が暴れる様子に例えています。</p>
+        <p><code>rage</code> と <code>caged</code>、そのあとの <code>changed</code>、<code>stage</code> まで、/eɪdʒ/ の音が畳みかけられています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>tear the roof off</strong>: <em>The crowd tore the roof off.</em> のように、会場が沸く様子に使います。</p>
+          <p><strong class='text-[var(--c-text)]'>what you call 〜</strong> は「お前らが〜と呼ぶもの」。相手の見方を持ち出して、反論する言い方です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="chewed up and spit out、cypher、pay the Pied Piper"
+        label="★ 慣用句／文化"
+        mc="Eminem（Verse 3）"
+        t={TS["chewed-up-pied-piper"].t} tApprox={TS["chewed-up-pied-piper"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">I've been chewed up and spit out and booed off stage</Fragment>
+        <Fragment slot="jpn">噛まれて吐き出されて、ステージから野次り倒された</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 過去の屈辱から、反撃の予告へ。</p>
+        <p><strong class='text-[var(--c-text)]'>chewed up and spit out</strong> は、使い古されてポイ捨てされた、という慣用句。<code>booed off stage</code> は、観客のブーイングでステージを追われた状態です。</p>
+        <p>3つ並んでいる過去分詞（chewed、spit、booed）は、受け身（have been + 過去分詞）で、「自分は何かをされた側だった」という立場をはっきりさせています。</p>
+        <p><strong class='text-[var(--c-text)]'>cypher</strong>（サイファー）は、ラッパーが輪になって順番にラップする場のこと。そこに「すぐ次に乗り込んだ」という行です。</p>
+        <p><strong class='text-[var(--c-text)]'>Pied Piper</strong> は、ハーメルンの笛吹き男。<em>pay the piper</em>（笛吹きに払う）という慣用句は、「行いの報いを受ける」の意味。</p>
+        <p>報酬を払わなかった町が、子どもたちを連れ去られる物語がもとになっています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>pay the piper</strong>: <em>Sooner or later, you'll have to pay the piper.</em>（遅かれ早かれ、ツケは払うことになる）。</p>
+          <p><em>Best believe</em> は <em>You'd better believe it</em> の縮約で、「間違いなくそうなる」と念を押す言い方です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="nine-to- / Five 行をまたいで切る単語"
+        label="★ 韻／構文"
+        mc="Eminem（Verse 3）"
+        t={TS["nine-to-five"].t} tApprox={TS["nine-to-five"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Fact that I can't get by with my nine-to-<br />Five and I can't provide the right type of life for my family</Fragment>
+        <Fragment slot="jpn">9時から5時の仕事でやっていけないこと、家族に満足な生活を与えてやれないこと</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ ハイフンでつながった語を、行の途中で切っています。</p>
+        <p><strong class='text-[var(--c-text)]'>nine-to-five</strong> は、定時の事務仕事、普通の勤め人の仕事を指す名詞です。9時から5時の勤務、という意味から来ています。</p>
+        <p>この曲では、その語を行末の <code>nine-to-</code> と、次の行頭の <code>Five</code> の間で、わざと切っています。語の途中での行またぎです。</p>
+        <p>ふつう、文は行の切れ目で一区切りしますが、ここでは語がちぎれるくらい勢いを優先しています。聴く側は、息継ぎなしで流れる感覚になります。</p>
+        <p><code>get by</code> は「なんとかやっていく」。<code>get by with 〜</code> で、「〜でしのぐ」。</p>
+        <p>お金が足りない状況を示す、実用的な句動詞です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>get by</strong>: <em>I can barely get by on this salary.</em>（この給料ではなんとかしのぐのがやっとだ）。</p>
+          <p><strong class='text-[var(--c-text)]'>nine-to-five job</strong> は、安定した勤め人の仕事の代名詞としても使われます。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="food stamps don't buy diapers 生活の細部を名詞で並べる"
+        label="★ 文化／語彙"
+        mc="Eminem（Verse 3）"
+        t={TS["food-stamps-diapers"].t} tApprox={TS["food-stamps-diapers"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">'Cause, man, these goddamn food stamps don't buy diapers</Fragment>
+        <Fragment slot="jpn">だってこのクソったれなフードスタンプじゃ、紙おむつは買えない</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 貧困の具体的な一行。アメリカの福祉制度の語彙です。</p>
+        <p><strong class='text-[var(--c-text)]'>food stamps</strong> は、アメリカの低所得者向けの食料購入補助です。紙の券から、現在はカード形式のSNAPに置き換わっています。</p>
+        <p>ここで重要なのは、<code>diapers</code>（紙おむつ）。食料の補助では、おむつは買えない。</p>
+        <p>補助制度の穴を、一つの名詞で突いています。</p>
+        <p><strong class='text-[var(--c-text)]'>goddamn</strong> は、強い不満を込める強調語。<em>these goddamn food stamps</em> と、this ではなく <code>these</code> を使うことで、苛立ちが乗った言い方になります。</p>
+        <p><code>don't buy</code> は、物が主語でも動詞が主語の働きをする言い方です。「このスタンプは〜を買わない」と、物を擬人化した言い回しになっています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>diapers</strong> はアメリカ英語、イギリスでは <em>nappies</em>。同じ物でも国で語が違う例です。</p>
+          <p><em>these + 名詞</em> は、近い物を指す以外に、苛立ちや軽蔑を込める口語表現としても使います。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="there's no movie, there's no Mekhi Phifer 映画の外に出る"
+        label="★ 固有名詞／メタ"
+        mc="Eminem（Verse 3）"
+        t={TS["mekhi-phifer"].t} tApprox={TS["mekhi-phifer"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">And there's no movie, there's no Mekhi Phifer, this is my life</Fragment>
+        <Fragment slot="jpn">映画なんかない、メキー・ファイファーもいない、これは俺の人生だ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 曲全体のメタ的な転換点。映画の外へ出ていきます。</p>
+        <p><strong class='text-[var(--c-text)]'>Mekhi Phifer</strong> は、映画『8 Mile』でRabbitの友人Future（デヴィッド・ポーター）を演じた俳優です。</p>
+        <p>この一行は、ここまでの物語が映画『8 Mile』の話だったことを、わざと崩します。「これは映画じゃない、俺の人生だ」と、フィクションの枠を壊す仕掛けです。</p>
+        <p>Verse 1と2は、Rabbitの物語として読める。でもVerse 3は、映画の役者や筋書きを持ち出して、それを否定する。</p>
+        <p>聴いている側は、そこで初めて、語り手が変わったことに気づきます。</p>
+        <p>映画の主題歌でありながら、映画の外側を語る。この構造が、曲を単なる劇中歌以上のものにしています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>there's no 〜</strong> を並べると、「〜は存在しない」と畳みかける強い否定になります。</p>
+          <p><em>This is my life.</em> のように、短く言い切る文は、ラップでも日常会話でも、説得力を出す形です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="seed、teeter-totter、prima donna、baby-mama drama"
+        label="★ スラング／語彙"
+        mc="Eminem（Verse 3）"
+        t={TS["prima-donna"].t} tApprox={TS["prima-donna"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Caught up between bein' a father and a prima donna</Fragment>
+        <Fragment slot="jpn">父親と、わがままなスターの間で板挟みだ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 家族と成功のあいだで揺れる気持ちの描写。</p>
+        <p><strong class='text-[var(--c-text)]'>seed</strong> は、ここでは「子ども」の意味。種をまいた子孫、という比喩です。</p>
+        <p><code>feed and water</code>（食べ物と水をやる）は、植物を育てる動詞をそのまま育児に当てています。</p>
+        <p><strong class='text-[var(--c-text)]'>teeter-totter</strong> はシーソー（アメリカ英語）。右に左に傾く状態を、遊具の名前で比喩にしています。</p>
+        <p><strong class='text-[var(--c-text)]'>prima donna</strong> は、イタリア語で「第一の女性」、オペラの主役女性歌手のこと。転じて「わがままで気難しいスター」を指します。</p>
+        <p><strong class='text-[var(--c-text)]'>baby-mama drama</strong> は、子どもの母親との揉め事のこと。韻を踏んでいるので、スラングとして定着している言い回しです。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>caught up between A and B</strong> は、AとBの間で板挟みになる言い方です。<em>I'm caught up between work and family.</em> のように使います。</p>
+          <p><em>Tryna</em> は <em>trying to</em> の口語短縮形です。<em>gonna</em> と同じ系統の発音通りの表記です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="like a snail、plot、jail or shot 同じ音の畳みかけ"
+        label="★ 韻／比喩"
+        mc="Eminem（Verse 3）"
+        t={TS["snail-plot-jail"].t} tApprox={TS["snail-plot-jail"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">To formulate a plot or end up in jail or shot</Fragment>
+        <Fragment slot="jpn">計画を立てないと、刑務所行きか撃たれるかだ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3の後半。選択肢の絞り込みです。</p>
+        <p><strong class='text-[var(--c-text)]'>snail</strong>、<strong class='text-[var(--c-text)]'>plot</strong>、<strong class='text-[var(--c-text)]'>jail</strong>、<strong class='text-[var(--c-text)]'>shot</strong>。母音と子音の組み合わせが近い4語が、2行に詰め込まれています。</p>
+        <p>ここで押さえたいのは、<code>I've got / To formulate a plot</code> が、<em>I've got to</em>（〜しなければならない）を2行に分割していること。行またぎの技法がここでも使われています。</p>
+        <p><strong class='text-[var(--c-text)]'>formulate a plot</strong> は、計画を練ること。<code>formulate</code> は硬い語で、ラップにはめずらしい響きです。</p>
+        <p><strong class='text-[var(--c-text)]'>end up in jail or shot</strong> は、結局は刑務所か銃撃のどちらかに行き着く、という二択です。ストリートの現実を、短い選択肢として並べています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>end up + 場所/形容詞</strong> は、「結局〜になる」。<em>You'll end up broke.</em> のように、望ましくない結果に使うことが多い句です。</p>
+          <p><em>I've got to</em> は <em>I have to</em> とほぼ同じで、口語では <em>gotta</em> になります。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Success is my only option, failure's not 省略と対句"
+        label="★ 省略／名言"
+        mc="Eminem（Verse 3）"
+        t={TS["failure-not-option"].t} tApprox={TS["failure-not-option"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Success is my only motherfuckin' option, failure's not</Fragment>
+        <Fragment slot="jpn">成功が俺の唯一の選択肢、失敗は違う</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 短く言い切る一行。省略の使い方です。</p>
+        <p><strong class='text-[var(--c-text)]'>failure's not</strong> は、<em>failure is not (my option)</em> の省略です。同じ名詞（option）を繰り返さず、否定だけを残しています。</p>
+        <p>元になっているのは、<em>Failure is not an option</em>（失敗という選択肢はない）という、よく知られた決まり文句。肯定と否定の2文を対にして、強調しています。</p>
+        <p><code>motherfuckin'</code> は、意味のない強調として入っています。<em>only</em> と <em>option</em> の間に挟んで、語気を強めているだけです。</p>
+        <p>このあたりから、曲は物語から決意表明に変わります。次の行の「ママ、愛してる、でもこのトレーラーは」へと続きます。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>A is X, B's not</strong>: 肯定と否定を対にして短く切る書き方は、スピーチやコピーでもよく使われます。</p>
+          <p><em>option</em> は「選択肢」。<em>You have no other option.</em>（他に選択肢はない）と、追い詰められた状況の言い方に使えます。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="this trailer's got to go、cannot grow old in Salem's Lot"
+        label="★ 文化／言葉遊び"
+        mc="Eminem（Verse 3）"
+        t={TS["trailer-salems-lot"].t} tApprox={TS["trailer-salems-lot"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Mom, I love you, but this trailer's got<br />To go, I cannot grow old in Salem's Lot</Fragment>
+        <Fragment slot="jpn">ママ、愛してる、でもこのトレーラーは出ていくしかない。セイラムズ・ロットで年を取るわけにはいかない</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3の終盤。母に語りかける行です。</p>
+        <p><strong class='text-[var(--c-text)]'>trailer</strong> は、トレーラーハウス（移動式住宅）。アメリカでは低所得層の住まいとして知られ、<em>trailer park</em>（トレーラーパーク）はそうした住宅が集まる区画を指します。</p>
+        <p><strong class='text-[var(--c-text)]'>Salem's Lot</strong> は、スティーヴン・キングの小説『呪われた町』の原題と同じ名前です。ここでは、<code>lot</code>（区画）と掛けた言葉遊びとして読めます。</p>
+        <p>もうひとつは、<code>this trailer's got / To go</code> の行またぎ。<code>has got to go</code>（出ていかなくてはならない）が、行の切れ目で分かれています。</p>
+        <p><code>cannot grow old</code> は、「この場所で年を取りたくない」という意味。住み慣れた場所を、愛しながら出ていく宣言です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>has got to 〜</strong> は <em>has to</em> と同じ意味の口語形。<em>She's got to go.</em>（彼女は行かなくてはならない）。</p>
+          <p><em>lot</em> には「たくさん」以外に、「区画、駐車場」の意味もあります。<em>parking lot</em> は駐車場です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="feet, fail me not 古風な倒置と、that I got"
+        label="★ 倒置／語法"
+        mc="Eminem（Verse 3）"
+        t={TS["feet-fail-me-not"].t} tApprox={TS["feet-fail-me-not"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">So here I go, it's my shot, feet, fail me not</Fragment>
+        <Fragment slot="jpn">さあ行くぞ、俺の番だ、足よ、俺を裏切るな</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 曲の最後のバース、締めの2行です。</p>
+        <p><strong class='text-[var(--c-text)]'>feet, fail me not</strong> は、足に呼びかける、古風な言い回しです。通常は <em>don't fail me</em> と言うところを、<code>fail me not</code> と、動詞を先に出した倒置にしています。</p>
+        <p>聖書や古い詩でよく見られる語順で、現代のラップに混ぜると、ここだけ格調が高くなります。同じ話題でも、語順を変えただけで調子が変わります。</p>
+        <p><strong class='text-[var(--c-text)]'>so here I go</strong> は、「さあ、いくぞ」と覚悟を決める定番の言い方。<code>here I go</code> は、行動を起こす直前の合図として使います。</p>
+        <p>最後の <code>the only opportunity that I got</code> は、標準では <em>that I've got</em> または <em>that I have</em>。<code>got</code> だけで所有を表す口語の形で、「これが俺の持っている唯一のチャンスだ」と、曲のテーマに戻って終わります。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>Here I go (again)</strong>: これから何かを始める、または、いつもの癖が出る、のどちらにも使えます。</p>
+          <p><em>fail me not</em> のような<em>目的語＋否定</em>の倒置は、<em>fear not</em>（恐れるな）などの古い表現に残っています。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="You can do anything you set your mind to 最後の一言"
+        label="★ 慣用句"
+        mc="Eminem（Outro）"
+        t={TS["outro-set-mind"].t} tApprox={TS["outro-set-mind"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">You can do anything you set your mind to, man</Fragment>
+        <Fragment slot="jpn">心に決めたことなら、なんでもできる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 曲の最後に、ラップではなく語りで入る一言です。</p>
+        <p>最後は、ラップではなく、語りかけるような一言です。<strong class='text-[var(--c-text)]'>set your mind to 〜</strong> は、「〜に気持ちを集中させる、決意する」という意味の成句です。</p>
+        <p>文の頭の <code>You can do anything</code> と、後ろの <code>you set your mind to</code> の関係は、<em>anything (that) you set your mind to</em>。関係代名詞が省略されている形です。</p>
+        <p>英語では、目的語になる関係代名詞はよく省略されます。<em>the book I read</em>、<em>the person I met</em> と同じ仕組みです。</p>
+        <p>語尾の <code>man</code> は、親しい相手への呼びかけ。この一言で、曲の厳しさが少し和らぎ、励ましのトーンに戻ります。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>set your mind to 〜</strong>: <em>If you set your mind to it, you can pass.</em>（本気でやれば受かる）。</p>
+          <p><em>You can do anything</em> と<em>anything</em> を使う励ましの言い方は、スピーチでも定番です。</p>
+        </Fragment>
+      </LearningUnit>
+    </section>
+
+    <section id="background" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        文化的背景
+      </h2>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">8 Mile と主題歌</p>
+        <h3 class="font-semibold text-base mb-3">映画の中のRabbitと、実在のEminem</h3>
+        <div class="space-y-3 text-[var(--c-muted)] text-sm leading-relaxed">
+          <p>
+            「Lose Yourself」は、2002年公開の映画『8 Mile』の主題歌です。映画では、Eminemが主人公ジミー・スミス・ジュニア（通称B-Rabbit）を演じています。
+          </p>
+          <p>
+            舞台は、デトロイトの境界線として知られる8 Mile Road付近。トレーラーで暮らし、工場で働きながら、ラップバトルで名を上げようとする青年の物語です。
+          </p>
+          <p>
+            歌詞の「he」がRabbitで、「I」がEminem自身。この二重構造は、映画の主役が演じる本人に近い、という点から生まれています。
+          </p>
+        </div>
+      </div>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">アメリカの貧困語彙</p>
+        <h3 class="font-semibold text-base mb-3">food stamps、trailer、nine-to-five が示す生活</h3>
+        <div class="space-y-3 text-[var(--c-muted)] text-sm leading-relaxed">
+          <p>
+            歌詞に出てくるフードスタンプ、トレーラー、定時の仕事は、どれもアメリカの低所得層の暮らしを示す言葉です。
+          </p>
+          <p>
+            日本語の「貧乏」より、制度や住宅の名前で具体的に書くのが、この曲のやり方です。ラップの歌詞を読むときは、固有名詞を拾うだけで、その人がどんな環境にいるのかが見えてきます。
+          </p>
+        </div>
+      </div>
+
+      <div class="p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">キーワード早見表</p>
+        <h3 class="font-semibold text-base mb-3">この曲で学んだ表現の整理</h3>
+        <div class="space-y-3 mt-3">
+          {[
+            ['lose yourself in 〜', '「〜に没頭して我を忘れる」。タイトルの成句'],
+            ['You better 〜 (had better)', '「〜したほうがいい」。実質は強い警告'],
+            ['blow (up)', 'ブレイクする。chance to blow＝売れるチャンス。blow a chance は逆の意味'],
+            ['choke', '本番で固まって実力が出せなくなる'],
+            ['snap back to reality', '空想から一気に現実に引き戻される'],
+            ['there goes 〜', '「ほら〜が行ってしまった」。失われるものを指す'],
+            ['pay the Pied Piper', 'ツケを払う、報いを受ける。ハーメルンの笛吹き男が語源'],
+            ['I\'ma / tryna', 'I\'m gonna / trying to の口語短縮形'],
+            ['it don\'t matter / hope it don\'t pass him', '三人称単数で don\'t を使うAAVEの用法'],
+            ['food stamps', 'アメリカの低所得者向けの食料購入補助'],
+          ].map(([w, d]) => (
+            <div class="text-sm">
+              <span class="font-semibold text-[var(--c-text)]">{w}</span>
+              <span class="text-[var(--c-muted)]"> {d}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="behind" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        制作の裏側
+      </h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          トラックは、Eminem、Jeff Bass、Luis Restoの3人が作りました。曲づくりは、Bassが弾いたギターのコード進行から始まったと伝えられています。
+        </p>
+        <p>
+          そのリフをもとに、Eminemがドラムのビートを組み立てました。
+        </p>
+        <p>
+          Luis Restoは、ギターの要素の一部をキーボードに置き換えて、ロック色を薄めつつ、ヒップホップの質感を残したとされています。曲が完成するまでに、1年半ほどかかったという話も残っています。
+        </p>
+        <p>
+          歌詞は、映画の台本を受け取ってから書き上げたものです。以前に録ったデモがあり、それを『8 Mile』の撮影が進むデトロイトで書き直しました。
+        </p>
+        <p>
+          本ページでは、ここに書いた制作の経緯を、公開されているインタビューや解説記事で確認できる範囲にとどめています。
+        </p>
+      </div>
+    </section>
+
+    <section id="legacy" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        評価とその後
+      </h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          2002年10月28日にサウンドトラックのリードシングルとして発売され、EminemにとってBillboard Hot 100で初の1位になりました。1位は12週にわたって続いています。
+        </p>
+        <p>
+          2003年3月23日のアカデミー賞では、歌曲賞を受賞しました。ヒップホップの曲がこの賞を取ったのは、これが初めてです。
+        </p>
+        <p>
+          Eminemは授賞式に出席せず、受賞の場にはいませんでした。
+        </p>
+        <p>
+          2004年のグラミー賞では、最優秀ラップ・ソングと最優秀男性ラップ・ソロ・パフォーマンスを受賞しています。最優秀ラップ・ソングという部門が設けられて最初の受賞曲にもなりました。
+        </p>
+        <p>
+          2020年のアカデミー賞では、Eminemがこの曲を生演奏で披露しました。受賞から17年後の舞台だったこともあり、話題になりました。
+        </p>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        まとめ
+      </h2>
+      <ul class="space-y-2 text-sm text-[var(--c-muted)] list-disc list-inside leading-relaxed">
+        <li>「Lose Yourself」は、Verse 1と2が「he」、Verse 3が「I」と、語り手が切り替わる構造の曲。there's no movie の一行が、その切り替えの合図です。</li>
+        <li>choke、blow、snap back to reality、pay the piperなど、日常英語でそのまま使える慣用句が多く含まれています。</li>
+        <li>palms are sweaty から spaghetti、ready と続く内韻、nine-to-/Five のような語をまたぐ行の切り方は、韻の作り方を学ぶ素材としても向いています。</li>
+        <li>food stamps、trailer、nine-to-five など、アメリカの貧困を示す固有名詞や制度の語彙が、具体的に並んでいます。</li>
+        <li>音の似た語（farther と father）や、古風な倒置（feet, fail me not）、スペイン語の nada など、言葉遊びの手口が一曲に集まっています。</li>
+      </ul>
+    </section>
+
+</SongLayout>

@@ -1,0 +1,347 @@
+[
+  {
+    "id": "one-shot",
+    "anchor": [
+      "if",
+      "you",
+      "had",
+      "one",
+      "shot"
+    ],
+    "fallbackT": 37,
+    "manualSec": null,
+    "captionSec": 37
+  },
+  {
+    "id": "palms-sweaty",
+    "anchor": [
+      "his",
+      "palms",
+      "are",
+      "sweaty"
+    ],
+    "fallbackT": 54,
+    "manualSec": null,
+    "captionSec": 54
+  },
+  {
+    "id": "moms-spaghetti",
+    "anchor": [
+      "there's",
+      "vomit",
+      "on",
+      "his",
+      "sweater"
+    ],
+    "fallbackT": 56,
+    "manualSec": null,
+    "captionSec": 56
+  },
+  {
+    "id": "drop-bombs",
+    "anchor": [
+      "to",
+      "drop",
+      "bombs"
+    ],
+    "fallbackT": 60,
+    "manualSec": null,
+    "captionSec": 60
+  },
+  {
+    "id": "choke-joke",
+    "anchor": [
+      "he's",
+      "chokin'",
+      "how"
+    ],
+    "fallbackT": 71,
+    "manualSec": null,
+    "captionSec": 71
+  },
+  {
+    "id": "snap-back",
+    "anchor": [
+      "snap",
+      "back",
+      "to",
+      "reality"
+    ],
+    "fallbackT": 76,
+    "manualSec": null,
+    "captionSec": 76
+  },
+  {
+    "id": "rabbit-choked",
+    "anchor": [
+      "there",
+      "goes",
+      "rabbit"
+    ],
+    "fallbackT": 79,
+    "manualSec": null,
+    "captionSec": 79
+  },
+  {
+    "id": "back-to-ropes",
+    "anchor": [
+      "he",
+      "knows",
+      "his",
+      "whole",
+      "back's"
+    ],
+    "fallbackT": 85,
+    "manualSec": null,
+    "captionSec": 85
+  },
+  {
+    "id": "lab-rhapsody",
+    "anchor": [
+      "back",
+      "to",
+      "the",
+      "lab",
+      "again"
+    ],
+    "fallbackT": 93,
+    "manualSec": null,
+    "captionSec": 93
+  },
+  {
+    "id": "lose-yourself-hook",
+    "anchor": [
+      "you",
+      "better",
+      "lose",
+      "yourself"
+    ],
+    "fallbackT": 98,
+    "manualSec": null,
+    "captionSec": 98
+  },
+  {
+    "id": "chance-to-blow",
+    "anchor": [
+      "you",
+      "only",
+      "get",
+      "one",
+      "shot"
+    ],
+    "fallbackT": 105,
+    "manualSec": null,
+    "captionSec": 105
+  },
+  {
+    "id": "soul-gaping",
+    "anchor": [
+      "his",
+      "soul's",
+      "escaping"
+    ],
+    "fallbackT": 121,
+    "manualSec": null,
+    "captionSec": 121
+  },
+  {
+    "id": "post-mortem",
+    "anchor": [
+      "a",
+      "normal",
+      "life",
+      "is",
+      "boring"
+    ],
+    "fallbackT": 128,
+    "manualSec": null,
+    "captionSec": 128
+  },
+  {
+    "id": "father-farther",
+    "anchor": [
+      "god",
+      "only",
+      "knows",
+      "he's",
+      "grown",
+      "farther"
+    ],
+    "fallbackT": 143,
+    "manualSec": null,
+    "captionSec": 143
+  },
+  {
+    "id": "cold-water",
+    "anchor": [
+      "but",
+      "hold",
+      "your",
+      "nose"
+    ],
+    "fallbackT": 149,
+    "manualSec": null,
+    "captionSec": 149
+  },
+  {
+    "id": "beat-goes-on",
+    "anchor": [
+      "but",
+      "the",
+      "beat",
+      "goes",
+      "on"
+    ],
+    "fallbackT": 163,
+    "manualSec": null,
+    "captionSec": 163
+  },
+  {
+    "id": "no-more-games",
+    "anchor": [
+      "no",
+      "more",
+      "games"
+    ],
+    "fallbackT": 188,
+    "manualSec": null,
+    "captionSec": 188
+  },
+  {
+    "id": "chewed-up-pied-piper",
+    "anchor": [
+      "i've",
+      "been",
+      "chewed",
+      "up"
+    ],
+    "fallbackT": 197,
+    "manualSec": null,
+    "captionSec": 197
+  },
+  {
+    "id": "nine-to-five",
+    "anchor": [
+      "fact",
+      "that",
+      "i",
+      "can't",
+      "get",
+      "by"
+    ],
+    "fallbackT": 208,
+    "manualSec": null,
+    "captionSec": 208
+  },
+  {
+    "id": "food-stamps-diapers",
+    "anchor": [
+      "'cause",
+      "man",
+      "these",
+      "goddamn",
+      "food",
+      "stamps"
+    ],
+    "fallbackT": 215,
+    "manualSec": null,
+    "captionSec": 215
+  },
+  {
+    "id": "mekhi-phifer",
+    "anchor": [
+      "and",
+      "there's",
+      "no",
+      "movie"
+    ],
+    "fallbackT": 218,
+    "manualSec": null,
+    "captionSec": 218
+  },
+  {
+    "id": "prima-donna",
+    "anchor": [
+      "tryna",
+      "feed",
+      "and",
+      "water",
+      "my",
+      "seed"
+    ],
+    "fallbackT": 225,
+    "manualSec": null,
+    "captionSec": 225
+  },
+  {
+    "id": "snail-plot-jail",
+    "anchor": [
+      "to",
+      "the",
+      "point",
+      "i'm",
+      "like",
+      "a",
+      "snail"
+    ],
+    "fallbackT": 237,
+    "manualSec": null,
+    "captionSec": 237
+  },
+  {
+    "id": "failure-not-option",
+    "anchor": [
+      "success",
+      "is",
+      "my",
+      "only"
+    ],
+    "fallbackT": 241,
+    "manualSec": null,
+    "captionSec": 241
+  },
+  {
+    "id": "trailer-salems-lot",
+    "anchor": [
+      "mom",
+      "i",
+      "love",
+      "you",
+      "but",
+      "this",
+      "trailer's"
+    ],
+    "fallbackT": 245,
+    "manualSec": null,
+    "captionSec": 245
+  },
+  {
+    "id": "feet-fail-me-not",
+    "anchor": [
+      "so",
+      "here",
+      "i",
+      "go",
+      "it's",
+      "my",
+      "shot"
+    ],
+    "fallbackT": 250,
+    "manualSec": null,
+    "captionSec": 250
+  },
+  {
+    "id": "outro-set-mind",
+    "anchor": [
+      "you",
+      "can",
+      "do",
+      "anything",
+      "you",
+      "set"
+    ],
+    "fallbackT": 280,
+    "manualSec": null,
+    "captionSec": 280
+  }
+]

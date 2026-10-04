@@ -530,6 +530,33 @@ export const artists = [
     summary: "ヴァッカ（Alessandro Vacca、1979年サルデーニャ島カリャリ生まれ、ミラノ育ち）とジョヴァーネ・フェッディーニ（ヴェネツィア拠点）によるイタリアン・アンダーグラウンド・ラップのコラボユニット。ヴァッカは2000年代初頭からミラノのHIPHOPシーンで活動し、レゲエ・ダンスホール要素とハードコアラップを融合させてきたベテラン。2024年のジョイントアルバム「GRAVEYARD DUPPIES」でコラボレーションし、イタリア語のリリシズムとスロウフロウにこだわったスタイルで注目を集めた。Armani Doc・DJ Skizo・DJ Brontほか多数のアーティストとのネットワークを持つイタリアン・インディーズの重要人物。",
     japan: "イタリアHIPHOPは日本でまだニッチなジャンルだが、アンダーグラウンドHHを掘るリスナーの間でVaccaの名前は知られている。「GRAVEYARD DUPPIES」はSpotifyほか各ストリーミングサービスで聴けるため、日本語圏のリスナーにも届きやすくなった。",
   },
+  {
+    slug: 'grandmaster-flash',
+    name: 'Grandmaster Flash & The Furious Five',
+    origin: 'The Bronx, New York',
+    active: '1976–1983',
+    genre: 'Old School Hip-Hop',
+    summary: 'ニューヨーク・サウスブロンクスで活動したヒップホップの草創期のグループ。DJのGrandmaster Flashと、Melle Mel、Cowboy、Kidd Creole、Rahiem、Scorpioらで構成された。1982年のシングル「The Message」は、生活の苦しさを正面から描いた曲として知られ、2002年に米国議会図書館のナショナル・レコーディング・レジストリに、ヒップホップの録音として初めて選ばれた。2007年にはヒップホップのグループとして初めてロックの殿堂入りを果たしている。',
+    japan: '日本語で読める資料はまだ多くありませんが、代表曲「The Message」の歌詞は、このサイトで1行ずつ解説しています。',
+  },
+  {
+    slug: 'coolio',
+    name: 'Coolio',
+    origin: 'Compton, California',
+    active: '1987–2022',
+    genre: 'West Coast Hip-Hop',
+    summary: 'カリフォルニア州コンプトン出身のラッパー（本名Artis Leon Ivey Jr.）。1990年代前半にグループWC and the Maad Circleに参加したのち、1994年にソロでデビュー。1995年の「Gangsta\'s Paradise」（L.V.をフィーチャー）は映画『Dangerous Minds』の主題歌として世界的なヒットとなり、グラミー賞の最優秀ラップ・ソロ・パフォーマンスを受賞した。2022年に亡くなった。',
+    japan: '日本語で読める資料はまだ多くありませんが、代表曲「Gangsta\'s Paradise」の歌詞は、このサイトで1行ずつ解説しています。',
+  },
+  {
+    slug: 'the-pharcyde',
+    name: 'The Pharcyde',
+    origin: 'Los Angeles, California',
+    active: '1991–2000, 2004–',
+    genre: 'West Coast Alternative Hip-Hop',
+    summary: 'ロサンゼルス出身のヒップホップグループ。Imani、Slimkid3、Bootie Brown、Fatlipの4人のMCと、プロデューサーのJ-Swiftで結成された。1992年のデビューアルバム『Bizarre Ride II the Pharcyde』は、ユーモアのある語り口とサンプリングを生かしたトラックで知られ、1993年のシングル「Passin\' Me By」は代表曲として聴かれ続けている。',
+    japan: '日本語で読める資料はまだ多くありませんが、代表曲「Passin\' Me By」の歌詞は、このサイトで1行ずつ解説しています。',
+  },
 ] as const;
 
 export type Artist = typeof artists[number];

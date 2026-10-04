@@ -61,7 +61,7 @@ const latestSongs = [...coreSongs]
   .slice(0, 5);
 
 const producers = [...new Set(coreSongs.map(s => s.producer))].sort((a, b) => a.localeCompare(b, 'ja'));
-const eras = ['90s前半', '90s後半', '00s以降'] as const;
+const eras = ['80s', '90s前半', '90s後半', '00s以降'] as const;
 const regions = [
   { value: 'NY', label: 'New York' },
   { value: 'Philly', label: 'Philly' },
@@ -648,7 +648,7 @@ const regions = [
   setupProducerSelect('producer-select');
   setupProducerSelect('producer-select-mobile');
 
-  const eraOrder: Record<string, number> = { '90s前半': 0, '90s後半': 1, '00s以降': 2 };
+  const eraOrder: Record<string, number> = { '80s': -1, '90s前半': 0, '90s後半': 1, '00s以降': 2 };
 
   function doSort(value: string) {
     if (!songList) return;

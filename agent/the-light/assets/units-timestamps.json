@@ -1,0 +1,178 @@
+[
+  {
+    "id": "never-knew-a-love",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 36,
+    "fallbackT": 12,
+    "t": 36,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "in-a-minute",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 42,
+    "fallbackT": 18,
+    "t": 42,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "signed-sealed-delivered",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 47,
+    "fallbackT": 27,
+    "t": 47,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "weathered-heart",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 52,
+    "fallbackT": 39,
+    "t": 52,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "light-and-glare",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 60,
+    "fallbackT": 46,
+    "t": 60,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "match-your-work",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 63,
+    "fallbackT": 55,
+    "t": 63,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "there-is-a-light",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 88,
+    "fallbackT": 74,
+    "t": 88,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "tune-the-fate",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 96,
+    "fallbackT": 90,
+    "t": 96,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "whats-in-a-name",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 104,
+    "fallbackT": 99,
+    "t": 104,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "chi-nights-moon",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 111,
+    "fallbackT": 112,
+    "t": 111,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "heaven-had-a-height",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 116,
+    "fallbackT": 117,
+    "t": 116,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "ghetto-to-coffee-shop",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 119,
+    "fallbackT": 125,
+    "t": 119,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "worth-havin-annually",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 133,
+    "fallbackT": 146,
+    "t": 133,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "in-the-mix-thrift-shop",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 163,
+    "fallbackT": 169,
+    "t": 163,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "heart-dictionary",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 175,
+    "fallbackT": 187,
+    "t": 175,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "reflection-lead-feed",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 190,
+    "fallbackT": 213,
+    "t": 190,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  }
+]

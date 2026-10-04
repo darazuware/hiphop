@@ -1,0 +1,576 @@
+---
+import LearningUnit from '../../components/LearningUnit.astro';
+import QuickSlang from '../../components/QuickSlang.astro';
+import SongLayout from '../../layouts/SongLayout.astro';
+
+import tsData from '../../../agent/empire-state-of-mind/assets/units-timestamps.json';
+const YT = "vk6014HuxcE";
+const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.approx }]));
+---
+
+<SongLayout
+  title="Empire State of Mind 和訳・意味・スラング解説 | JAY-Z feat. Alicia Keys"
+  description="JAY-Z「Empire State of Mind」を英語学習とヒップホップ理解の教材として精読。make it anywhere、concrete jungle、let's hear it for、the city never sleepsなど、ニューヨークを語る表現と固有名詞をPV頭出し付きで解説。"
+  slug="empire-state-of-mind"
+  learningPage={true}
+  songDuration={282}
+  highlights={[
+    'ニューヨークの地名、球場、タクシー、パレードを、固有名詞で並べる都市の歌',
+    'make it anywhere、concrete jungle、the city never sleeps。街を語る定番の言い回しがそろっている',
+    'Let\'s hear it for、brand-new、step out of bounds。日常でそのまま使える表現も多い',
+  ]}
+  youtubeId="vk6014HuxcE"
+>
+
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■この曲で何を学べるか</h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          ニューヨークという街を、そのまま歌詞にした曲だと思っています。JAY-Zのバースと、Alicia Keysのコーラスで、2009年に発売されました。
+        </p>
+        <p>
+          アルバム『The Blueprint 3』に収められています。
+        </p>
+        <p>
+          地名、球団、タクシーの種類、パレードの名前。ブルックリンからマンハッタンまで、固有名詞だけで街の地図が描けるくらい、細かい言葉が並んでいます。
+        </p>
+        <p>
+          英語学習としては、「街について語る英語」の定番表現が、ひと通り出てくる曲です。観光ガイドにも、ニュースにも、会話にも使えます。
+        </p>
+      </div>
+    </section>
+
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■「ここで成功できたなら、どこでもできる」</h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          最初のバースで出てくる一行は、フランク・シナトラの有名な曲に重ねた言い方です。「ここでやっていけたなら、どこでもやっていける」という、ニューヨークの合言葉のような表現です。
+        </p>
+        <p>
+          この一言を知っていると、曲全体が、「街への賛歌」であると同時に、「自分への自信」の歌でもあることが分かります。
+        </p>
+        <p>
+          そのあたりを、行ごとに追っていきます。
+        </p>
+      </div>
+    </section>
+
+    <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
+      <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
+        <li><a href="#story" class="hover:text-[var(--c-gold)] transition-colors">01 ストーリーの流れ（まず曲全体をつかむ）</a></li>
+        <li><a href="#units" class="hover:text-[var(--c-gold)] transition-colors">02 学ぶ表現（スラング・韻・言葉遊び・AAVE）</a></li>
+        <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">03 文化的背景</a></li>
+        <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">04 制作の裏側</a></li>
+        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">05 評価とその後</a></li>
+      </ol>
+    </nav>
+
+    <section id="story" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        ストーリーの流れ（まず曲全体をつかむ）
+      </h2>
+      <p class="text-xs text-[var(--c-dim)] mb-5">
+        曲は、3つのバースとサビの繰り返しで、街のいろいろな面を見せていきます。バースごとの視点を先に押さえます。
+      </p>
+      <div class="space-y-4 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          <strong class='text-[var(--c-text)]'>Verse 1</strong>は、ブルックリンから、マンハッタンのトライベッカへ移った自分の歩みです。出身地への誇りと、今の暮らしを、対比させます。
+        </p>
+        <p>
+          <strong class='text-[var(--c-text)]'>Hook</strong>は、Alicia Keysの担当です。「ここは夢がかなう場所だ」と、街の魅力を、短い言葉で歌い上げます。
+        </p>
+        <p>
+          <strong class='text-[var(--c-text)]'>Verse 2</strong>は、街の風景のカタログです。ヤンキースの試合、タクシー、街の遊び、パレード。
+        </p>
+        <p>
+          固有名詞が続きます。
+        </p>
+        <p>
+          <strong class='text-[var(--c-text)]'>Verse 3</strong>は、街の光と影です。華やかな生活に引き込まれる人たちを、少し皮肉も込めて描きます。
+        </p>
+        <p>
+          最後は、Bridgeで、観客と一緒に歌う場面になります。
+        </p>
+        <p class="text-xs text-[var(--c-dim)]">
+          ※本ページは批評・教育目的で、解説に必要な範囲の断片のみを引用しています。全歌詞の対訳は掲載していません。
+        </p>
+      </div>
+    </section>
+
+    <div id="units"></div>
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        学ぶ表現（スラング・韻・言葉遊び・AAVE）
+      </h2>
+      <div class="space-y-3 text-xs text-[var(--c-dim)] mb-6">
+        <p>ここでは、歌詞の中の表現を1つずつ取り上げます。上に短い用例、下に意味と使い方を置いています。</p>
+        <p>固有名詞だけの行や、扱いが難しい行は、引用を省いて背景だけを説明しています。▶を押すと、PVの該当箇所から再生できます。</p>
+      </div>
+
+      <LearningUnit
+        heading="I'm out that Brooklyn, now I'm down in Tribeca 前置詞の使い方"
+        label="★ 口語／地名"
+        mc="JAY-Z（Verse 1）"
+        t={TS["out-that-brooklyn-tribeca"].t} tApprox={TS["out-that-brooklyn-tribeca"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Yeah, I'm out that Brooklyn, now I'm down in Tribeca</Fragment>
+        <Fragment slot="jpn">ああ、俺はブルックリン出身で、今はトライベッカにいる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の1行目。出身と現在地を、一行で言い分けています。</p>
+        <p><strong class='text-[var(--c-text)]'>I'm out that Brooklyn</strong> は、「ブルックリン出身だ」という言い方です。<code>out of</code> の <em>of</em> が落ちて、<em>that</em> が付いた形で、地元を示す口語です。</p>
+        <p><strong class='text-[var(--c-text)]'>down in Tribeca</strong> の <code>down</code> は、地図の上で、「南の方」を指しています。トライベッカは、マンハッタンの南部にあるエリアです。</p>
+        <p><code>now</code> で、前半の「出身」と、後半の「今」を切り替えています。1行の中で、過去と現在を対比させる作りです。</p>
+        <p>地名を並べるだけで、出身と現在の距離を示せるのが、この行の強みです。説明は一切ありませんが、聞き手には、街の地図が浮かびます。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>out of 〜 / out that 〜</strong>: 「〜の出身」。<em>I'm out of Detroit.</em> のように、ラップでは出身地を言うときに使います。</p>
+          <p><em>down in 〜</em> は、アメリカ英語で、南の方の場所を言うときの定番の言い方です。<em>down in Texas</em>（南のテキサスで）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Right next to De Niro, but I'll be hood forever"
+        label="★ 対比／スラング"
+        mc="JAY-Z（Verse 1）"
+        t={TS["hood-forever"].t} tApprox={TS["hood-forever"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Right next to De Niro, but I'll be hood forever</Fragment>
+        <Fragment slot="jpn">デ・ニーロの隣に住んでるけど、俺は一生ストリートの人間だ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 豪華な隣人と、変わらない自己認識を、but でつなぐ行です。</p>
+        <p><strong class='text-[var(--c-text)]'>De Niro</strong> は、俳優のロバート・デ・ニーロです。トライベッカに縁のある人物として知られ、高級住宅地の象徴として名前が出てきます。</p>
+        <p>ここで効いているのは、<strong class='text-[var(--c-text)]'>but</strong>。「豪華な隣人」と「ずっとストリート育ち」を、逆接でつないで、成功しても変わらない、と宣言しています。</p>
+        <p><strong class='text-[var(--c-text)]'>hood</strong> は、<em>neighborhood</em> の略で、「地元、ストリートの出身」。ここでは、<em>I'll be hood</em> と、形容詞のように使っています。</p>
+        <p><code>forever</code> で締めることで、住む場所が変わっても、中身は変わらない、という決意になっています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>right next to 〜</strong>: <em>I live right next to the station.</em>（駅のすぐ隣に住んでいる）。<em>right</em> は、位置を強める副詞です。</p>
+          <p><em>hood</em> は、名詞（地元）でも、形容詞（ストリートっぽい）でも使われる、便利な語です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="I'm the new Sinatra / I can make it anywhere シナトラの言い回し"
+        label="★ 引用／成句"
+        mc="JAY-Z（Verse 1）"
+        t={TS["new-sinatra-make-it-anywhere"].t} tApprox={TS["new-sinatra-make-it-anywhere"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">I'm the new Sinatra, and since I made it here<br />I can make it anywhere, yeah, they love me everywhere</Fragment>
+        <Fragment slot="jpn">俺は新しいシナトラだ。ここでやり遂げたから、どこでもやっていける。どこでも愛されてる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 有名な曲の言い回しを、自分のことに置き換えた2行です。</p>
+        <p><strong class='text-[var(--c-text)]'>the new Sinatra</strong> は、歌手フランク・シナトラになぞらえた表現です。<em>the new 〜</em> は、「次世代の〜」と、先人と並べて言う型です。</p>
+        <p><strong class='text-[var(--c-text)]'>make it</strong> は、「成功する、やり遂げる」という句です。シナトラが歌った、「ここでやっていけたなら、どこでもやっていける」という有名な一節を、ほぼそのまま借りています。</p>
+        <p><code>since I made it here</code> の <em>since</em> は、「〜なので」という理由。時間ではなく、理由を表す用法です。</p>
+        <p>有名な言葉を引用して、自分の状況に当てはめる。意味が通じる聞き手には、一気に伝わる、ヒップホップの引用の技です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>make it (in 〜)</strong>: <em>She made it in Hollywood.</em>（彼女はハリウッドで成功した）。成功の定番の句です。</p>
+          <p><em>since</em> は、時間（〜以来）と理由（〜なので）の2つの使い方があります。文脈で判断します。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="I'm out that Bed-Stuy, home of that boy Biggie"
+        label="★ 地名／文化"
+        mc="JAY-Z（Verse 1）"
+        t={TS["bed-stuy-biggie"].t} tApprox={TS["bed-stuy-biggie"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Me? I'm out that Bed-Stuy, home of that boy Biggie</Fragment>
+        <Fragment slot="jpn">俺か？ ベッドスタイの出身、あのBiggieの地元だ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 地名と先人への敬意を、一行で言い表す場面です。</p>
+        <p><strong class='text-[var(--c-text)]'>Bed-Stuy</strong> は、ブルックリンの地区、ベッドフォード・スタイベサントの略称です。The Notorious B.I.G.の出身地としても知られています。</p>
+        <p><code>home of 〜</code> は、「〜の地元、〜の故郷」という言い方。地名を紹介するときの、定番の型です。</p>
+        <p><strong class='text-[var(--c-text)]'>that boy Biggie</strong> の <em>that boy</em> は、親しみと敬意を込めた呼び方です。<em>that</em> は、「あの」と、共有された存在を指す指示語です。</p>
+        <p><code>Me?</code> と自分に問い返す形で、会話のリズムを作っています。自己紹介のような、軽い言い方です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>home of 〜</strong>: <em>Detroit is the home of Motown.</em>（デトロイトはモータウンの本拠地だ）。地名と代表物をつなぐ表現です。</p>
+          <p><em>Bed-Stuy</em> のように、地区名を略して呼ぶのは、ニューヨークの地元の人の話し方です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Now I live on Billboard and I brought my boys with me"
+        label="★ 比喩／語法"
+        mc="JAY-Z（Verse 1）"
+        t={TS["live-on-billboard"].t} tApprox={TS["live-on-billboard"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Now I live on Billboard and I brought my boys with me</Fragment>
+        <Fragment slot="jpn">今はBillboardの上に住んでる。仲間も一緒に連れてきた</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 音楽チャートの名前を、住所のように使った行です。</p>
+        <p><strong class='text-[var(--c-text)]'>live on Billboard</strong> は、住所に使う前置詞 <em>on</em> を、音楽チャートに当てはめた言い方です。「チャートに住んでいる」と言って、チャート常連であることを示しています。</p>
+        <p><strong class='text-[var(--c-text)]'>Billboard</strong> は、アメリカの音楽チャートの名前です。曲の売れ行きを測る基準なので、成功の象徴として、よく歌詞に出てきます。</p>
+        <p><code>I brought my boys with me</code> は、「仲間も連れてきた」。<em>boys</em> は、親しい仲間のこと。</p>
+        <p>成功を、一人で味わうのではなく、仲間を引き上げた、という語りです。</p>
+        <p>時制は、<code>live</code>（現在）と <code>brought</code>（過去）が並んでいます。「今は成功していて、過去に仲間を連れてきた」という時間の流れが、一行に入っています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>bring + 人 + with + 人</strong>: <em>I brought my friend with me.</em>（友達を連れてきた）。<em>bring</em> は、持ってくる、連れてくる、の両方に使います。</p>
+          <p><em>live on 〜</em> は、「〜で暮らす」のほか、「〜を食べて生きる」（<em>live on rice</em>）にも使えます。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Concrete jungle where dreams are made of 街を言う成句"
+        label="★ フック／成句"
+        mc="Alicia Keys（Hook）"
+        t={TS["concrete-jungle"].t} tApprox={TS["concrete-jungle"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Concrete jungle where dreams are made of<br />There's nothin' you can't do</Fragment>
+        <Fragment slot="jpn">夢が生まれるコンクリートのジャングル。できないことなんて、何もない</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ サビの2行。街を言い表す、定番の表現が出てきます。</p>
+        <p><strong class='text-[var(--c-text)]'>concrete jungle</strong> は、コンクリートのビルが立ち並ぶ都会を、ジャングルに例えた表現です。<em>jungle</em> が、競争が激しい場所という含みを持ちます。</p>
+        <p><code>where dreams are made of</code> は、前置詞の <em>of</em> が、文の最後に残る形です。<em>made of</em> の目的語が、関係副詞 <em>where</em> に置き換わった形で、口語やポップスでよく見かける言い方です。</p>
+        <p><code>There's nothin' you can't do</code> は、否定が2つ入っていて、結果として「何でもできる」という意味。<em>nothing</em> と <em>can't</em> で、二重否定のような形になっていますが、意味は肯定です。</p>
+        <p>ここで、<em>nothing you can't do</em> は、関係代名詞が省略された形です。<em>nothing (that) you can't do</em> と同じです。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>There's nothing you can't do.</strong>: 「何でもできる」という励ましの定番です。<em>nothing</em> + <em>can't</em> で、強い肯定になります。</p>
+          <p><em>concrete jungle</em> は、ニューヨークなどの大都市を指す、決まり文句としてよく使われます。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="These streets will make you feel brand-new / Big lights will inspire you"
+        label="★ 構文／語彙"
+        mc="Alicia Keys（Hook）"
+        t={TS["brand-new-inspire"].t} tApprox={TS["brand-new-inspire"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">These streets will make you feel brand-new<br />Big lights will inspire you</Fragment>
+        <Fragment slot="jpn">この街の通りは、あなたを新しい自分に感じさせる。大きな明かりは、あなたを奮い立たせる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ サビの後半。無生物が主語になる、英語らしい文です。</p>
+        <p><strong class='text-[var(--c-text)]'>These streets will make you feel brand-new</strong> は、無生物（街の通り）が主語になっています。日本語なら、「街を歩くと、新しい気分になる」のように、人を主語にして言うところです。</p>
+        <p><strong class='text-[var(--c-text)]'>make you feel 〜</strong> は、「あなたに〜を感じさせる」。<code>make + 人 + 動詞の原形</code> の使役の形です。</p>
+        <p><strong class='text-[var(--c-text)]'>brand-new</strong> は、「真新しい」。新品の商品にも、新しい自分にも使える形容詞です。</p>
+        <p><code>Big lights will inspire you</code> も、同じ型です。<em>inspire</em> は、「ひらめきや意欲を与える」。</p>
+        <p>街の明かりが、主語になっています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>make + 人 + feel + 形容詞</strong>: <em>This music makes me feel alive.</em>（この音楽を聴くと、生きている気がする）。</p>
+          <p><em>brand-new</em> は、<em>brand new car</em>（新品の車）のように、物にも使います。ハイフンの有無は、書き手によって揺れます。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Let's hear it for New York 称える決まり文句"
+        label="★ 慣用句"
+        mc="Alicia Keys（Hook）"
+        t={TS["lets-hear-it"].t} tApprox={TS["lets-hear-it"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Let's hear it for New York</Fragment>
+        <Fragment slot="jpn">ニューヨークに、拍手を</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ サビの締めの一行。拍手や歓声を促す決まり文句です。</p>
+        <p><strong class='text-[var(--c-text)]'>Let's hear it for 〜</strong> は、「〜に拍手を、〜を称えよう」と、観客に呼びかける決まり文句です。司会者が、出演者を紹介するときによく使います。</p>
+        <p><code>hear it</code> の <em>it</em> は、拍手や歓声のことです。直訳は、「それ（拍手の音）を聞かせよう」です。</p>
+        <p>ここでは、人ではなく、街（New York）を主語にして、称えています。街を、人のように扱う語りです。</p>
+        <p>ライブで客席を巻き込む決まり文句を、そのまま曲の中に入れている点もポイントです。聴いていても、一緒に声を出したくなる構造です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>Let's hear it for 〜!</strong>: <em>Let's hear it for the band!</em>（バンドに拍手を！）。イベントの司会で、定番の言い方です。</p>
+          <p><em>give 〜 a hand</em> も、「拍手を送る」という、同じ意味の表現です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Catch me at the X with OG at a Yankee game"
+        label="★ 地名／口語"
+        mc="JAY-Z（Verse 2）"
+        t={TS["the-x-yankee-game"].t} tApprox={TS["the-x-yankee-game"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Catch me at the X with OG at a Yankee game</Fragment>
+        <Fragment slot="jpn">ヤンキースの試合なら、OGと一緒にブロンクスで会える</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の1行目。ブロンクスの略称が出てきます。</p>
+        <p><strong class='text-[var(--c-text)]'>Catch me at 〜</strong> は、「〜に行けば会える」という言い方です。<em>catch</em> は、人をつかまえる、というより、会いに来い、という誘いの形です。</p>
+        <p><strong class='text-[var(--c-text)]'>the X</strong> は、ブロンクス（the Bronx）を指す略称です。ヤンキースの本拠地が、ブロンクスにあるため、球場のある地区を指しています。</p>
+        <p><strong class='text-[var(--c-text)]'>OG</strong> は、<em>original gangster</em> の略で、「古株、長老格、頼れる先輩」。ここでは、親しい年上の人を、敬意を込めて呼ぶ言い方です。</p>
+        <p>地名を略称で呼ぶのは、地元の人の話し方です。観光客ではなく、住民として語っている、という立場を示しています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>Catch me at 〜</strong>: <em>Catch me at the gym after work.</em>（仕事のあとは、ジムで会えるよ）。<em>catch up</em> は「追いつく」で、別の意味です。</p>
+          <p><em>OG</em> は、今では、「本家の、オリジナルの」という意味でも使われます。<em>the OG version</em>（元のバージョン）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="I made the Yankee hat more famous than a Yankee can"
+        label="★ 比較／省略"
+        mc="JAY-Z（Verse 2）"
+        t={TS["yankee-hat-famous"].t} tApprox={TS["yankee-hat-famous"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">I made the Yankee hat more famous than a Yankee can</Fragment>
+        <Fragment slot="jpn">俺は、ヤンキースの選手本人より、ヤンキースの帽子を有名にした</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 比較の文で、後半の動詞が省略されています。</p>
+        <p><strong class='text-[var(--c-text)]'>more famous than a Yankee can</strong> は、比較の文です。<em>than</em> の後ろが、<em>a Yankee can (make it famous)</em> の動詞句が省略された形になっています。</p>
+        <p><code>Yankee</code> は、ここでは、球団の選手の意味です。「帽子をどんな選手より有名にした」という、大胆な自慢です。</p>
+        <p>ヤンキースの帽子（ニューヨーク・ヤンキースのロゴ入りキャップ）は、JAY-Zがかぶったことで、スポーツファン以外にも広まったと言われます。</p>
+        <p><code>made the hat famous</code> の <em>make + 目的語 + 形容詞</em> は、結果の状態を作る形です。ここでも、自分が主語になっています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>more A than B can</strong>: <em>He runs faster than a car can.</em>（車より速く走る）。比較の後半で、動詞を省略するのは、英語の自然な書き方です。</p>
+          <p><em>make + 名詞 + 形容詞</em>: <em>make it simple</em>（簡単にする）、<em>make her happy</em>（彼女を幸せにする）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Afrika Bambaataa shit, home of the hip-hop 発祥の地を示す"
+        label="★ 文化／固有名詞"
+        mc="JAY-Z（Verse 2）"
+        t={TS["home-of-hip-hop"].t} tApprox={TS["home-of-hip-hop"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Afrika Bambaataa shit, home of the hip-hop</Fragment>
+        <Fragment slot="jpn">アフリカ・バンバータの流儀、ヒップホップの故郷だ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ ヒップホップの起源に触れる、短い一行です。</p>
+        <p><strong class='text-[var(--c-text)]'>Afrika Bambaataa</strong> は、ニューヨーク・ブロンクスで、ヒップホップの文化を作り上げた人物のひとりとして知られています。ヒップホップの初期を語るとき、よく名前が出てきます。</p>
+        <p><strong class='text-[var(--c-text)]'>home of the hip-hop</strong> は、「ヒップホップの故郷」という意味です。ニューヨークを、ヒップホップが生まれた場所として、誇っています。</p>
+        <p><code>〜 shit</code> は、ここでは、「〜のやり方、〜ならではのもの」という意味の、くだけた言い方です。ののしりではなく、文化を指す軽い表現です。</p>
+        <p>ここは、人名ひとつで、ヒップホップの歴史を呼び出す、引用の一行です。街の歌が、同時に、ジャンルへの感謝にもなっています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>〜 shit</strong>: 「〜のやり方、〜らしいもの」。<em>That's classic New York shit.</em> のように、くだけて使います。</p>
+          <p>ののしりと区別するのは文脈です。</p>
+          <p><em>home of 〜</em> は、物事の発祥地や、本拠地を言うときの定番の型です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Yellow cab, gypsy cab, dollar cab, holla back タクシーの種類"
+        label="★ 文化／語彙"
+        mc="JAY-Z（Verse 2）"
+        t={TS["yellow-gypsy-dollar-cab"].t} tApprox={TS["yellow-gypsy-dollar-cab"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Yellow cab, gypsy cab, dollar cab, holla back</Fragment>
+        <Fragment slot="jpn">イエローキャブ、ジプシーキャブ、ダラーキャブ、呼び返せ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ ニューヨークの交通手段を、並べていく一行です。</p>
+        <p><strong class='text-[var(--c-text)]'>yellow cab</strong> は、ニューヨークの定番の黄色いタクシーです。<strong class='text-[var(--c-text)]'>gypsy cab</strong> は、無許可または、ほかの形態の営業をする車で、地域によっては、そう呼ばれてきました。</p>
+        <p><strong class='text-[var(--c-text)]'>dollar cab</strong> は、安い運賃で乗り合いをする車を指す言い方です。街ごとに違う、暮らしの中の交通手段が、短い言葉で並んでいます。</p>
+        <p><strong class='text-[var(--c-text)]'>holla back</strong> は、「呼び返せ、連絡して」という意味のスラングです。同じ音の語を並べて、リズムを作っています。</p>
+        <p><code>cab</code> が3回続く、リズムの面白さにも注目です。意味が分からなくても、音だけで、街の風景が流れていく感覚があります。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>cab</strong> は、<em>taxi</em> のくだけた言い方で、アメリカ英語でよく使います。<em>call a cab</em>（タクシーを呼ぶ）。</p>
+          <p><em>holla</em> は、<em>holler</em>（叫ぶ）が変化した語で、「声をかける、連絡する」という意味でも使います。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Eight million stories out there in the naked / City 行をまたぐ成句"
+        label="★ 引用／韻"
+        mc="JAY-Z（Verse 2）"
+        t={TS["eight-million-stories"].t} tApprox={TS["eight-million-stories"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Eight million stories out there in the naked<br />City, it's a pity half of y'all won't make it</Fragment>
+        <Fragment slot="jpn">裸の街には800万の物語がある。残念だけど、君らの半分はやり遂げられない</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 成句を行の途中で切って、韻につなげる2行です。</p>
+        <p><strong class='text-[var(--c-text)]'>Eight million stories in the naked city</strong> は、ニューヨークを語るときの、よく知られた決まり文句です。昔のテレビドラマ『Naked City』の語りに由来する、という説明がよくされます。</p>
+        <p>ここでは、その成句を、<code>naked</code> と <code>City</code> の間で、行を切って使っています。<strong class='text-[var(--c-text)]'>行またぎ</strong>で、次の行頭の <em>City</em> が、次の韻につながります。</p>
+        <p><code>City</code> と <code>pity</code> が、韻を踏んでいます。街の物語の多さと、それをやり遂げられない人の多さを、一息でつなげている、構造のきれいな2行です。</p>
+        <p><code>won't make it</code> の <em>make it</em> は、前の unit で見た、「成功する」の意味です。曲全体を通して、<em>make it</em> が、キーワードになっています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>it's a pity (that) 〜</strong>: 「〜なのは残念だ」。<em>It's a pity you can't come.</em>（来られないのは残念だ）。</p>
+          <p><em>naked</em> は、「裸の」ですが、<em>the naked truth</em>（赤裸々な真実）のように、飾らない、という意味にも使えます。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Three dice, Cee-lo, Three Card Monte 路上の遊び"
+        label="★ 文化／語彙"
+        mc="JAY-Z（Verse 2）"
+        t={TS["three-dice-cee-lo"].t} tApprox={TS["three-dice-cee-lo"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p>この行は、固有名詞とゲーム名だけで書かれているので、引用を省いて、背景を説明します（▶で飛べます）。</p>
+        <p><strong class='text-[var(--c-text)]'>Cee-lo</strong> は、3つのサイコロを使う、路上の賭けゲームです。<strong class='text-[var(--c-text)]'>Three Card Monte</strong> は、3枚のカードを使い、当たりを当てさせる、路上の賭けごとです。</p>
+        <p>どちらも、ニューヨークの路上で、昔から見られた遊びとして知られます。観光客が巻き込まれやすい、街の風物詩のような存在でもあります。</p>
+        <p>名詞を並べただけの行ですが、街の雑踏や、路上の人だかりが、そのまま浮かぶように作られています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>dice</strong> は、複数形で、サイコロ（単数は <em>die</em>）。日常では、単数でも <em>dice</em> と言うことが多いです。</p>
+          <p><em>Monte</em> は、スペイン語由来で、もともとは、山札を意味します。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Labor Day Parade, rest in peace, Bob Marley"
+        label="★ 文化／固有名詞"
+        mc="JAY-Z（Verse 2）"
+        t={TS["labor-day-parade"].t} tApprox={TS["labor-day-parade"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p>この行も、固有名詞が中心なので、引用を省いて、背景だけを説明します。</p>
+        <p><strong class='text-[var(--c-text)]'>Labor Day Parade</strong> は、ブルックリンで、レイバー・デー（9月第1月曜日）に行われる、カリブ系の人たちの大きなパレードを指しています。</p>
+        <p><strong class='text-[var(--c-text)]'>rest in peace</strong> は、亡くなった人に送る決まり文句。<em>RIP</em> と略します。</p>
+        <p>ここでは、ボブ・マーリーへの追悼を、パレードの文脈に重ねています。</p>
+        <p>ニューヨークは、カリブ海出身の人たちの文化も、深く根づいた街です。この一行は、その多様さを短い言葉で示しています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>Rest in peace.</strong>: 追悼の決まり文句。SNSの投稿などでは <em>RIP</em> と書きます。</p>
+          <p><em>parade</em> は、行進のこと。<em>Thanksgiving parade</em> のように、祭日の行事とセットで使われます。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Lights is blinding, girls need blinders / step out of bounds"
+        label="★ 言葉遊び／比喩"
+        mc="JAY-Z（Verse 3）"
+        t={TS["blinding-blinders"].t} tApprox={TS["blinding-blinders"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Lights is blinding, girls need blinders<br />Or they could step out of bounds quick, the side lines is</Fragment>
+        <Fragment slot="jpn">明かりがまぶしすぎて、目隠しが必要だ。でないと、すぐに境界線の外へ出てしまう</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3の頭。街の光と、その危うさを描きます。</p>
+        <p><strong class='text-[var(--c-text)]'>blinding</strong>（まぶしい）と <strong class='text-[var(--c-text)]'>blinders</strong>（馬の目隠し）は、同じ語根を使った言葉遊びです。<em>blinders</em> は、視界を狭くして、周りに気を取られないようにする道具です。</p>
+        <p><strong class='text-[var(--c-text)]'>step out of bounds</strong> は、スポーツで、境界線の外へ出ること。転じて、「限度を超える、逸脱する」という意味にもなります。</p>
+        <p>文法の面では、<code>Lights is blinding</code> が、複数なのに <em>is</em> を使っています。AAVEでよく見られる、be動詞の一致の特徴です。</p>
+        <p>次の行の <code>the side lines is / Lined with casualties</code> も、ここで見た、行またぎの技法の例です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>out of bounds</strong>: <em>That comment was out of bounds.</em>（その発言は一線を越えていた）。スポーツ以外でも、使います。</p>
+          <p><em>blinders</em> は、<em>wear blinders</em> で、「視野が狭い、他が見えていない」という比喩にもなります。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="The city never sleeps / Came here for school, graduated to the high life"
+        label="★ 慣用句／比喩"
+        mc="JAY-Z（Verse 3）"
+        t={TS["city-never-sleeps"].t} tApprox={TS["city-never-sleeps"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Came here for school, graduated to the high life</Fragment>
+        <Fragment slot="jpn">学校に通いに来て、そのうち華やかな暮らしへ卒業した</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 「街が眠らない」という成句と、卒業の比喩が出てきます。</p>
+        <p><strong class='text-[var(--c-text)]'>graduate to 〜</strong> は、「〜の段階へ進む、昇格する」という意味です。ここでは、学校を卒業するのではなく、華やかな生活に「卒業」した、という皮肉な使い方です。</p>
+        <p><strong class='text-[var(--c-text)]'>the high life</strong> は、「ぜいたくな暮らし、華やかな生活」。<em>live the high life</em> のように使います。</p>
+        <p>このバースの終わりには、<strong class='text-[var(--c-text)]'>The city never sleeps</strong> という成句が出てきます。ニューヨークは、夜中も明るく、動き続ける街、という意味で、よく使われる形容です。</p>
+        <p>街の魅力を語りながら、その光に引き込まれる若者を、少し冷ややかに見る。バース全体が、そうした目線で書かれています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>The city that never sleeps</strong>: ニューヨークの愛称として、ニュースや観光案内でよく使われます。<em>Tokyo never sleeps</em> のように、ほかの街にも応用できます。</p>
+          <p><em>graduate to 〜</em>: <em>He graduated from small clubs to big stadiums.</em>（小さなクラブから大きなスタジアムへ進んだ）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="One hand in the air / Put your lighters in the air"
+        label="★ 文化／ライブ"
+        mc="Alicia Keys（Bridge）"
+        t={TS["lighters-in-the-air"].t} tApprox={TS["lighters-in-the-air"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">One hand in the air for the big city<br />Put your lighters in the air, everybody say</Fragment>
+        <Fragment slot="jpn">大都会のために、片手を空に。ライターを高く掲げて、みんなで言おう</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Bridgeの頭。ライブで、観客を巻き込む決まり文句が並びます。</p>
+        <p><strong class='text-[var(--c-text)]'>One hand in the air</strong> は、ライブで、観客に手を上げさせる決まり文句です。<em>hands in the air</em> は、ヒップホップのライブでも、定番の掛け声です。</p>
+        <p><strong class='text-[var(--c-text)]'>Put your lighters in the air</strong> は、バラードのライブで、観客がライターに火を灯して掲げる、という習慣を指します。今ではスマートフォンのライトに変わりつつあります。</p>
+        <p><code>for the big city</code> の <em>for</em> は、「〜のために、〜に向けて」。街に捧げる動作として、手を上げさせています。</p>
+        <p><code>everybody say</code> は、観客に合唱を促す言い方です。ライブ会場の風景が、そのまま歌詞に書き込まれています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>Put your hands up!</strong>: 「手を上げろ」。ライブでの掛け声として、命令形がそのまま使われます。</p>
+          <p><em>everybody</em> は、単数扱いですが、<em>their</em> で受けることが多い語です。</p>
+        </Fragment>
+      </LearningUnit>
+    </section>
+
+    <section id="background" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        文化的背景
+      </h2>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">曲の成り立ち</p>
+        <h3 class="font-semibold text-base mb-3">街への思いから生まれた、共作のアンセム</h3>
+        <div class="space-y-3 text-[var(--c-muted)] text-sm leading-relaxed">
+          <p>
+            「Empire State of Mind」は、JAY-Zの11作目のアルバム『The Blueprint 3』（2009年）に収められた曲です。2009年10月20日に、シングルとして出ました。
+          </p>
+          <p>
+            ニューヨーク出身のAngela HunteとJanet Sewell-Ulepicが、故郷への思いを込めて書いた曲が、もとになっていると伝えられています。
+          </p>
+          <p>
+            Alicia Keysは、ニューヨーク出身のシンガーで、コーラスを担当しています。曲の中で歌われる、「ここは夢がかなう場所だ」という言葉が、そのまま、地元への思いと重なっています。
+          </p>
+        </div>
+      </div>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">地名の読み方</p>
+        <h3 class="font-semibold text-base mb-3">Brooklyn、Tribeca、the X。地区名で、街を地図にする</h3>
+        <div class="space-y-3 text-[var(--c-muted)] text-sm leading-relaxed">
+          <p>
+            歌詞に出てくる、ブルックリン、トライベッカ、ブロンクス、ハーレムは、すべてニューヨークの地区名です。どこの出身で、今どこにいるのかを、地名だけで語っています。
+          </p>
+          <p>
+            ニューヨークの地図を横に置いて読むと、歌詞の位置関係が分かって、面白く読めます。
+          </p>
+        </div>
+      </div>
+
+      <div class="p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">キーワード早見表</p>
+        <h3 class="font-semibold text-base mb-3">この曲で学んだ表現の整理</h3>
+        <div class="space-y-3 mt-3">
+          {[
+            ['out that 〜 / out of 〜', '「〜出身だ」。出身地を示すラップの定番'],
+            ['make it', '成功する、やり遂げる。曲全体のキーワード'],
+            ['hood / OG', '地元・ストリート出身／古株、頼れる先輩'],
+            ['Let\'s hear it for 〜', '〜に拍手を、〜を称えよう'],
+            ['make + 人 + feel 〜', '人に〜と感じさせる。無生物主語でよく使う型'],
+            ['brand-new', '真新しい'],
+            ['out of bounds', '境界線の外、限度を超えた'],
+            ['graduate to 〜', '〜の段階へ進む、昇格する'],
+            ['The city never sleeps', '眠らない街。ニューヨークの愛称'],
+            ['〜 is（複数主語）', 'lights is のように、複数主語に is を使うAAVEの特徴'],
+          ].map(([w, d]) => (
+            <div class="text-sm">
+              <span class="font-semibold text-[var(--c-text)]">{w}</span>
+              <span class="text-[var(--c-muted)]"> {d}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="behind" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        制作の裏側
+      </h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          プロデュースは、Al Shuxです。曲の土台には、The Momentsの「Love on a Two-Way Street」（1968年）が、サンプルとして使われています。
+        </p>
+        <p>
+          ピアノの旋律と、ゆったりしたドラムの上に、JAY-ZのバースとAlicia Keysのコーラスが乗る構成です。
+        </p>
+        <p>
+          作者のクレジットには、JAY-Z（Shawn Carter）、Alexander Shuckburgh、Angela Hunte、Alicia Keys、Sylvia Robinson、Bert Keyes、Janet Sewell-Ulepicらが並んでいます。サンプル元の曲の作者も、含まれています。
+        </p>
+        <p>
+          サンプル元の曲は、本ページでは取り上げていませんが、聴き比べると、メロディの雰囲気の違いが分かって面白いです。
+        </p>
+      </div>
+    </section>
+
+    <section id="legacy" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        評価とその後
+      </h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          「Empire State of Mind」は、Billboard Hot 100で、5週連続の1位を記録しました。JAY-Zにとっても、この曲は大きなヒットになりました。
+        </p>
+        <p>
+          のちに、ダイヤモンド認定（1000万枚相当）を受けたことも、報じられています。
+        </p>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        まとめ
+      </h2>
+      <ul class="space-y-2 text-sm text-[var(--c-muted)] list-disc list-inside leading-relaxed">
+        <li>「Empire State of Mind」は、ニューヨークの地名・球場・交通・パレードを、固有名詞で並べた、都市の歌です。</li>
+        <li>make it、concrete jungle、let's hear it for、the city never sleepsなど、街や成功を語る英語の定番表現が学べます。</li>
+        <li>make you feel brand-newのような、無生物主語の文は、日本語にはない英語らしい発想の例です。</li>
+        <li>out that Brooklyn、the X、OG、holla backなど、地元の人の話し方が、そのまま歌詞に入っています。</li>
+        <li>行またぎ（naked / City）、言葉遊び（blinding / blinders）など、韻と構造の技法も、多く使われています。</li>
+      </ul>
+    </section>
+
+</SongLayout>

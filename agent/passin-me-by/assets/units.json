@@ -1,0 +1,201 @@
+[
+  {
+    "id": "younger-days-sport-shag",
+    "anchor": [
+      "now",
+      "in",
+      "my",
+      "younger",
+      "days"
+    ],
+    "fallbackT": 7,
+    "manualSec": null,
+    "captionSec": 24
+  },
+  {
+    "id": "apple-for-teacher",
+    "anchor": [
+      "with",
+      "a",
+      "apple",
+      "for",
+      "my",
+      "teacher"
+    ],
+    "fallbackT": 14,
+    "manualSec": null,
+    "captionSec": 30
+  },
+  {
+    "id": "sneak-a-touch",
+    "anchor": [
+      "just",
+      "a",
+      "trick",
+      "to",
+      "smell",
+      "her",
+      "scent"
+    ],
+    "fallbackT": 24,
+    "manualSec": null,
+    "captionSec": 43
+  },
+  {
+    "id": "on-her-jock",
+    "anchor": [
+      "i",
+      "was",
+      "on",
+      "her",
+      "jock"
+    ],
+    "fallbackT": 38,
+    "manualSec": null,
+    "captionSec": 51
+  },
+  {
+    "id": "let-her-pass",
+    "anchor": [
+      "i",
+      "seen",
+      "her",
+      "yesterday"
+    ],
+    "fallbackT": 53,
+    "manualSec": null,
+    "captionSec": 65
+  },
+  {
+    "id": "keeps-on-passin",
+    "anchor": [
+      "she",
+      "keeps",
+      "on",
+      "passin'",
+      "me",
+      "by"
+    ],
+    "fallbackT": 59,
+    "manualSec": null,
+    "captionSec": 72
+  },
+  {
+    "id": "go-getter",
+    "anchor": [
+      "that",
+      "i",
+      "should",
+      "quit",
+      "chasin'"
+    ],
+    "fallbackT": 80,
+    "manualSec": null,
+    "captionSec": 97
+  },
+  {
+    "id": "play-by-ear-get-the-picture",
+    "anchor": [
+      "i",
+      "just",
+      "play",
+      "love",
+      "by",
+      "the",
+      "ear"
+    ],
+    "fallbackT": 90,
+    "manualSec": null,
+    "captionSec": 104
+  },
+  {
+    "id": "edu-ma-cated",
+    "anchor": [
+      "now",
+      "she's",
+      "more",
+      "sophisticated"
+    ],
+    "fallbackT": 107,
+    "manualSec": null,
+    "captionSec": 118
+  },
+  {
+    "id": "twinkle-in-her-eye",
+    "anchor": [
+      "i",
+      "guess",
+      "a",
+      "twinkle",
+      "in",
+      "her",
+      "eye"
+    ],
+    "fallbackT": 117,
+    "manualSec": null,
+    "captionSec": 126
+  },
+  {
+    "id": "sprung-chasing-tail",
+    "anchor": [
+      "sprung",
+      "like",
+      "a",
+      "chicken"
+    ],
+    "fallbackT": 138,
+    "manualSec": null,
+    "captionSec": 138
+  },
+  {
+    "id": "fly-the-coop",
+    "anchor": [
+      "he",
+      "was",
+      "a",
+      "rooty-toot"
+    ],
+    "fallbackT": 149,
+    "manualSec": null,
+    "captionSec": 145
+  },
+  {
+    "id": "apple-of-my-eye",
+    "anchor": [
+      "ever",
+      "she",
+      "happens",
+      "to",
+      "walk",
+      "by"
+    ],
+    "fallbackT": 179,
+    "manualSec": null,
+    "captionSec": 189
+  },
+  {
+    "id": "low-key-unaware",
+    "anchor": [
+      "and",
+      "i",
+      "was",
+      "so",
+      "low-key"
+    ],
+    "fallbackT": 192,
+    "manualSec": null,
+    "captionSec": 204
+  },
+  {
+    "id": "love-me-tender-return-to-sender",
+    "anchor": [
+      "p.s.",
+      "love",
+      "me",
+      "tender"
+    ],
+    "fallbackT": 218,
+    "manualSec": null,
+    "captionSec": 228
+  }
+]

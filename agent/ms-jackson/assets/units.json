@@ -1,0 +1,342 @@
+[
+  {
+    "id": "babys-mamas-mamas",
+    "anchor": [
+      "goes",
+      "out",
+      "to",
+      "all",
+      "the",
+      "baby's",
+      "mamas'",
+      "mamas"
+    ],
+    "fallbackT": 4,
+    "manualSec": null,
+    "captionSec": 14
+  },
+  {
+    "id": "sorry-ms-jackson",
+    "anchor": [
+      "i'm",
+      "sorry",
+      "ms.",
+      "jackson",
+      "i",
+      "am",
+      "for",
+      "real"
+    ],
+    "fallbackT": 14,
+    "manualSec": null,
+    "captionSec": 31
+  },
+  {
+    "id": "trillion-times",
+    "anchor": [
+      "i",
+      "apologized",
+      "a",
+      "trillion",
+      "times"
+    ],
+    "fallbackT": 19,
+    "manualSec": null,
+    "captionSec": 38
+  },
+  {
+    "id": "drama-mama",
+    "anchor": [
+      "my",
+      "baby",
+      "a",
+      "drama",
+      "mama",
+      "don't",
+      "like",
+      "me"
+    ],
+    "fallbackT": 31,
+    "manualSec": null,
+    "captionSec": 51
+  },
+  {
+    "id": "she-be-doin",
+    "anchor": [
+      "she",
+      "be",
+      "doin'",
+      "things",
+      "like",
+      "havin'",
+      "them",
+      "boys"
+    ],
+    "fallbackT": 36,
+    "manualSec": null,
+    "captionSec": 53
+  },
+  {
+    "id": "american-pie",
+    "anchor": [
+      "she",
+      "need",
+      "to",
+      "get",
+      "a",
+      "piece",
+      "of",
+      "the",
+      "american",
+      "pie"
+    ],
+    "fallbackT": 43,
+    "manualSec": null,
+    "captionSec": 56
+  },
+  {
+    "id": "not-a-pay-check",
+    "anchor": [
+      "let",
+      "her",
+      "know",
+      "her",
+      "grandchild",
+      "is",
+      "a",
+      "baby"
+    ],
+    "fallbackT": 55,
+    "manualSec": null,
+    "captionSec": 58
+  },
+  {
+    "id": "custody-war",
+    "anchor": [
+      "she",
+      "wanna",
+      "rib",
+      "you",
+      "up",
+      "to",
+      "start",
+      "a",
+      "custody",
+      "war"
+    ],
+    "fallbackT": 65,
+    "manualSec": null,
+    "captionSec": 68
+  },
+  {
+    "id": "fish-fries-cookouts",
+    "anchor": [
+      "she",
+      "had",
+      "fish",
+      "fries",
+      "and",
+      "cookouts"
+    ],
+    "fallbackT": 74,
+    "manualSec": null,
+    "captionSec": 74
+  },
+  {
+    "id": "fall-through",
+    "anchor": [
+      "despite",
+      "it",
+      "i",
+      "show",
+      "her",
+      "the",
+      "utmost",
+      "respect"
+    ],
+    "fallbackT": 82,
+    "manualSec": null,
+    "captionSec": 76
+  },
+  {
+    "id": "special-thang",
+    "anchor": [
+      "me",
+      "and",
+      "your",
+      "daughter",
+      "got",
+      "a",
+      "special",
+      "thang"
+    ],
+    "fallbackT": 117,
+    "manualSec": null,
+    "captionSec": 125
+  },
+  {
+    "id": "puppy-love",
+    "anchor": [
+      "you",
+      "say",
+      "it's",
+      "puppy",
+      "love"
+    ],
+    "fallbackT": 123,
+    "manualSec": null,
+    "captionSec": 130
+  },
+  {
+    "id": "picnic-weather",
+    "anchor": [
+      "you",
+      "can",
+      "plan",
+      "a",
+      "pretty",
+      "picnic"
+    ],
+    "fallbackT": 134,
+    "manualSec": null,
+    "captionSec": 130
+  },
+  {
+    "id": "ten-times-out-of-nine",
+    "anchor": [
+      "ten",
+      "times",
+      "out",
+      "of",
+      "nine"
+    ],
+    "fallbackT": 145,
+    "manualSec": null,
+    "captionSec": 146
+  },
+  {
+    "id": "goodyear-swing",
+    "anchor": [
+      "together",
+      "dream",
+      "'bout",
+      "that",
+      "crib"
+    ],
+    "fallbackT": 154,
+    "manualSec": null,
+    "captionSec": 153
+  },
+  {
+    "id": "forever-never",
+    "anchor": [
+      "forever",
+      "never",
+      "seems",
+      "that",
+      "long",
+      "until",
+      "you're",
+      "grown"
+    ],
+    "fallbackT": 165,
+    "manualSec": null,
+    "captionSec": 155
+  },
+  {
+    "id": "abracadabra",
+    "anchor": [
+      "become",
+      "a",
+      "magician",
+      "to",
+      "abracadabra"
+    ],
+    "fallbackT": 177,
+    "manualSec": null,
+    "captionSec": 167
+  },
+  {
+    "id": "knee-pads",
+    "anchor": [
+      "i",
+      "pray",
+      "so",
+      "much",
+      "about",
+      "it"
+    ],
+    "fallbackT": 189,
+    "manualSec": null,
+    "captionSec": 177
+  },
+  {
+    "id": "one-cant-be-mad",
+    "anchor": [
+      "it",
+      "happened",
+      "for",
+      "a",
+      "reason",
+      "one",
+      "can't",
+      "be",
+      "mad"
+    ],
+    "fallbackT": 195,
+    "manualSec": null,
+    "captionSec": 177
+  },
+  {
+    "id": "first-day-of-school",
+    "anchor": [
+      "and",
+      "yes",
+      "i",
+      "will",
+      "be",
+      "present"
+    ],
+    "fallbackT": 202,
+    "manualSec": null,
+    "captionSec": 183
+  },
+  {
+    "id": "up-the-creek",
+    "anchor": [
+      "your",
+      "little",
+      "nosy-ass",
+      "homegirls",
+      "done",
+      "got"
+    ],
+    "fallbackT": 223,
+    "manualSec": null,
+    "captionSec": 210
+  },
+  {
+    "id": "year-2g",
+    "anchor": [
+      "jealousy",
+      "infidelity",
+      "envy",
+      "cheating"
+    ],
+    "fallbackT": 242,
+    "manualSec": null,
+    "captionSec": 223
+  },
+  {
+    "id": "bygones",
+    "anchor": [
+      "let",
+      "bygones",
+      "be",
+      "bygones"
+    ],
+    "fallbackT": 260,
+    "manualSec": null,
+    "captionSec": 224
+  }
+]

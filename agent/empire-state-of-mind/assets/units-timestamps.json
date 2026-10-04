@@ -1,0 +1,200 @@
+[
+  {
+    "id": "out-that-brooklyn-tribeca",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 10,
+    "fallbackT": 17,
+    "t": 10,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "hood-forever",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 13,
+    "fallbackT": 21,
+    "t": 13,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "new-sinatra-make-it-anywhere",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 13,
+    "fallbackT": 24,
+    "t": 13,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "bed-stuy-biggie",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 38,
+    "fallbackT": 40,
+    "t": 38,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "live-on-billboard",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 41,
+    "fallbackT": 44,
+    "t": 41,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "concrete-jungle",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 58,
+    "fallbackT": 55,
+    "t": 58,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "brand-new-inspire",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 69,
+    "fallbackT": 62,
+    "t": 69,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "lets-hear-it",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 76,
+    "fallbackT": 69,
+    "t": 76,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "the-x-yankee-game",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 82,
+    "fallbackT": 85,
+    "t": 82,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "yankee-hat-famous",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 85,
+    "fallbackT": 90,
+    "t": 85,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "home-of-hip-hop",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 96,
+    "fallbackT": 99,
+    "t": 96,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "yellow-gypsy-dollar-cab",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 99,
+    "fallbackT": 105,
+    "t": 99,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "eight-million-stories",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 104,
+    "fallbackT": 114,
+    "t": 104,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "three-dice-cee-lo",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 115,
+    "fallbackT": 130,
+    "t": 115,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "labor-day-parade",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 118,
+    "fallbackT": 134,
+    "t": 118,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "blinding-blinders",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 145,
+    "fallbackT": 149,
+    "t": 145,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "city-never-sleeps",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 188,
+    "fallbackT": 195,
+    "t": 188,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "lighters-in-the-air",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 227,
+    "fallbackT": 218,
+    "t": 227,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  }
+]

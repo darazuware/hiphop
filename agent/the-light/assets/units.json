@@ -1,0 +1,229 @@
+[
+  {
+    "id": "never-knew-a-love",
+    "anchor": [
+      "i",
+      "never",
+      "knew",
+      "a",
+      "luh-luh-luh"
+    ],
+    "fallbackT": 12,
+    "manualSec": null,
+    "captionSec": 36
+  },
+  {
+    "id": "in-a-minute",
+    "anchor": [
+      "queen",
+      "i",
+      "ain't",
+      "seen",
+      "you",
+      "in",
+      "a",
+      "minute"
+    ],
+    "fallbackT": 18,
+    "manualSec": null,
+    "captionSec": 42
+  },
+  {
+    "id": "signed-sealed-delivered",
+    "anchor": [
+      "signed",
+      "sealed",
+      "delivered",
+      "for",
+      "us",
+      "to",
+      "grow",
+      "together"
+    ],
+    "fallbackT": 27,
+    "manualSec": null,
+    "captionSec": 47
+  },
+  {
+    "id": "weathered-heart",
+    "anchor": [
+      "i",
+      "know",
+      "your",
+      "heart",
+      "is",
+      "weathered"
+    ],
+    "fallbackT": 39,
+    "manualSec": null,
+    "captionSec": 52
+  },
+  {
+    "id": "light-and-glare",
+    "anchor": [
+      "some",
+      "niggas",
+      "recognize",
+      "the",
+      "light"
+    ],
+    "fallbackT": 46,
+    "manualSec": null,
+    "captionSec": 60
+  },
+  {
+    "id": "match-your-work",
+    "anchor": [
+      "you",
+      "know",
+      "i",
+      "ain't",
+      "the",
+      "type",
+      "to",
+      "walk",
+      "around"
+    ],
+    "fallbackT": 55,
+    "manualSec": null,
+    "captionSec": 63
+  },
+  {
+    "id": "there-is-a-light",
+    "anchor": [
+      "there",
+      "is",
+      "a",
+      "light",
+      "that",
+      "shines"
+    ],
+    "fallbackT": 74,
+    "manualSec": null,
+    "captionSec": 88
+  },
+  {
+    "id": "tune-the-fate",
+    "anchor": [
+      "it's",
+      "important",
+      "we",
+      "communicate"
+    ],
+    "fallbackT": 90,
+    "manualSec": null,
+    "captionSec": 96
+  },
+  {
+    "id": "whats-in-a-name",
+    "anchor": [
+      "there's",
+      "so",
+      "much",
+      "in",
+      "a",
+      "name"
+    ],
+    "fallbackT": 99,
+    "manualSec": null,
+    "captionSec": 104
+  },
+  {
+    "id": "chi-nights-moon",
+    "anchor": [
+      "for",
+      "in",
+      "these",
+      "cold",
+      "chi",
+      "nights"
+    ],
+    "fallbackT": 112,
+    "manualSec": null,
+    "captionSec": 111
+  },
+  {
+    "id": "heaven-had-a-height",
+    "anchor": [
+      "if",
+      "heaven",
+      "had",
+      "a",
+      "height"
+    ],
+    "fallbackT": 117,
+    "manualSec": null,
+    "captionSec": 116
+  },
+  {
+    "id": "ghetto-to-coffee-shop",
+    "anchor": [
+      "ghetto",
+      "to",
+      "coffee",
+      "shop",
+      "through",
+      "you"
+    ],
+    "fallbackT": 125,
+    "manualSec": null,
+    "captionSec": 119
+  },
+  {
+    "id": "worth-havin-annually",
+    "anchor": [
+      "anything",
+      "worth",
+      "havin'"
+    ],
+    "fallbackT": 146,
+    "manualSec": null,
+    "captionSec": 133
+  },
+  {
+    "id": "in-the-mix-thrift-shop",
+    "anchor": [
+      "it's",
+      "kinda",
+      "fresh",
+      "you",
+      "listen",
+      "to",
+      "more",
+      "than",
+      "hip-hop"
+    ],
+    "fallbackT": 169,
+    "manualSec": null,
+    "captionSec": 163
+  },
+  {
+    "id": "heart-dictionary",
+    "anchor": [
+      "my",
+      "heart's",
+      "dictionary",
+      "defines",
+      "you"
+    ],
+    "fallbackT": 187,
+    "manualSec": null,
+    "captionSec": 175
+  },
+  {
+    "id": "reflection-lead-feed",
+    "anchor": [
+      "as",
+      "my",
+      "reflection",
+      "in",
+      "light",
+      "i'ma",
+      "lead",
+      "you"
+    ],
+    "fallbackT": 213,
+    "manualSec": null,
+    "captionSec": 190
+  }
+]

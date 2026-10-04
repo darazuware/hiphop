@@ -1,0 +1,611 @@
+---
+import LearningUnit from '../../components/LearningUnit.astro';
+import QuickSlang from '../../components/QuickSlang.astro';
+import SongLayout from '../../layouts/SongLayout.astro';
+
+import tsData from '../../../agent/it-was-a-good-day/assets/units-timestamps.json';
+const YT = "h4UqMyldS7Q";
+const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.approx }]));
+---
+
+<SongLayout
+  title="It Was a Good Day 和訳・意味・スラング解説 | Ice Cube"
+  description="Ice Cube「It Was a Good Day」を英語学習とヒップホップ理解の教材として精読。gotta・kinda・y'allなどの口語、drop-top・jacker・bones・Fatburgerなど90年代LAの固有名詞とスラングを、PV頭出し付きで解説。"
+  slug="it-was-a-good-day"
+  learningPage={true}
+  songDuration={306}
+  highlights={[
+    '「何も悪いことが起きなかった」だけで最高の一日になる、という発想の曲',
+    'gotta、kinda、y\'all、they was など、くだけた口語の使い方がそのまま学べる',
+    'drop-top、jacker、bones、Fatburger、Goodyear Blimp。90年代前半のロサンゼルスの固有名詞が多い',
+  ]}
+  youtubeId="h4UqMyldS7Q"
+  sampleYoutubeId="WRWtvbyprgo"
+  sampleTitle="The Isley Brothers - Footsteps in the Dark, Pts. 1 & 2"
+>
+
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■この曲で何を学べるか</h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          「今日は何も悪いことが起きなかった」。ただそれだけで、人生最高の一日になる。
+        </p>
+        <p>
+          その逆説がこの曲の核だと思っています。
+        </p>
+        <p>
+          1992年のアルバム『The Predator』に収められ、1993年2月にシングルとして出ました。Isley Brothersの甘いスロージャムを下敷きに、Ice Cubeが一日の流れを、時系列で淡々と語ります。
+        </p>
+        <p>
+          英語学習の面では、動詞の短縮形、くだけた文法、そして固有名詞の宝庫です。朝起きるところから、深夜のハンバーガーまで、LAの一日がそのまま会話の語彙になっています。
+        </p>
+      </div>
+    </section>
+
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■「普通の日」が、実は普通ではない</h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          犬が吠えない、パトカーが素通りする、誰も銃を撃たない。聴き手にとってはごく当たり前のことが、この曲では「奇跡のような一日」として語られます。
+        </p>
+        <p>
+          つまり、普段はそうではない、ということです。曲の底には、当時のサウス・セントラルの現実がずっと流れています。
+        </p>
+        <p>
+          その対比を知ってから聴くと、軽いはずの語りが、少し違って聴こえてくるはずです。
+        </p>
+      </div>
+    </section>
+
+    <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
+      <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
+        <li><a href="#story" class="hover:text-[var(--c-gold)] transition-colors">01 ストーリーの流れ（まず曲全体をつかむ）</a></li>
+        <li><a href="#units" class="hover:text-[var(--c-gold)] transition-colors">02 学ぶ表現（スラング・韻・言葉遊び・AAVE）</a></li>
+        <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">03 文化的背景</a></li>
+        <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">04 制作の裏側</a></li>
+        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">05 評価とその後</a></li>
+      </ol>
+    </nav>
+
+    <section id="story" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        ストーリーの流れ（まず曲全体をつかむ）
+      </h2>
+      <p class="text-xs text-[var(--c-dim)] mb-5">
+        曲は、朝から深夜までの一日を、時間順に追っていきます。バースごとの舞台を先に押さえておくと、解説が追いやすくなります。
+      </p>
+      <div class="space-y-4 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          <strong class='text-[var(--c-text)]'>Verse 1</strong>は、朝の目覚めからバスケットボールのコートまで。神に感謝し、朝食を食べ、車に乗り込み、仲間とコートに向かう場面です。
+        </p>
+        <p>
+          <strong class='text-[var(--c-text)]'>Verse 2</strong>は、午後の場面です。シャワーを浴び、警察に絡まれずに通り過ぎ、友人の家でサイコロ遊びとドミノを楽しみます。
+        </p>
+        <p>
+          ここで曲のいちばん大事な一行が出てきます。「知り合いの誰も、サウス・セントラルで殺されなかった」。
+        </p>
+        <p>
+          <strong class='text-[var(--c-text)]'>Verse 3</strong>は、夜から深夜です。デートの流れから、夜中のドライブ、ファストフード、ページャーの鳴る音まで。
+        </p>
+        <p>
+          最後に「銃を使わずに済んだ」と語って終わりますが、アウトロで、急に語りが止まります。
+        </p>
+        <p class="text-xs text-[var(--c-dim)]">
+          ※本ページは批評・教育目的で、解説に必要な範囲の断片のみを引用しています。全歌詞の対訳は掲載していません。
+        </p>
+      </div>
+    </section>
+
+    <div id="units"></div>
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        学ぶ表現（スラング・韻・言葉遊び・AAVE）
+      </h2>
+      <div class="space-y-3 text-xs text-[var(--c-dim)] mb-6">
+        <p>ここは、歌詞の中の表現を一つずつ取り上げる章です。性的・暴力的な行は取り上げず、日常の語彙や慣用句を中心に解説します。</p>
+        <p>固有名詞やスラングのunitは、行を引かずに背景だけを書いています。▶を押すと、PVの該当箇所から再生できます。</p>
+      </div>
+
+      <LearningUnit
+        heading="gotta thank God / kinda odd 短縮形と話し言葉"
+        label="★ 口語／短縮形"
+        mc="Ice Cube（Verse 1）"
+        t={TS["gotta-thank-god"].t} tApprox={TS["gotta-thank-god"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Just wakin' up in the mornin', gotta thank God<br />I don't know, but today seems kinda odd</Fragment>
+        <Fragment slot="jpn">朝起きたら、まず神様に感謝しないと。うまく言えないけど、今日はなんだか変だ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 曲の最初の2行。くだけた短縮形がまとまって出てきます。</p>
+        <p><strong class='text-[var(--c-text)]'>gotta</strong> は、<em>have got to</em> が縮まった形で、「〜しなければ」。ここでは主語の <em>I</em> も落ちています。</p>
+        <p><strong class='text-[var(--c-text)]'>kinda</strong> は、<em>kind of</em> の短縮形で、「ちょっと、なんだか」とぼかす言い方です。<em>kinda odd</em> は「ちょっと変だ」。</p>
+        <p><code>wakin'</code> と <code>mornin'</code> の <code>-in'</code> は、<em>-ing</em> の語尾の g が落ちた形。会話ではほぼこの発音になります。</p>
+        <p>ひとつの文の中に、短縮が3つも入っている。この曲の語りの軽さが、冒頭からよく出ています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>gotta / kinda / wanna</strong> は、会話でそのまま使われる短縮形です。書き言葉では避けるのが基本です。</p>
+          <p><em>seem</em> は、「〜に思える」。<em>It seems kinda weird.</em> のように、ぼかして言うときに便利な動詞です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="No barkin' from the dog, no smog / no hog 否定の名詞を並べる"
+        label="★ 韻／構文"
+        mc="Ice Cube（Verse 1）"
+        t={TS["no-smog-no-hog"].t} tApprox={TS["no-smog-no-hog"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">No barkin' from the dog, no smog<br />And mama cooked the breakfast with no hog</Fragment>
+        <Fragment slot="jpn">犬は吠えない、スモッグもない。母さんの朝食に豚肉も入ってない</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 「ない」を並べて、いつもと違う朝を描いています。</p>
+        <p><strong class='text-[var(--c-text)]'>no 〜</strong> を、名詞の前に並べていく書き方に注目です。<code>No barkin'</code>、<code>no smog</code>、<code>with no hog</code>。</p>
+        <p>動詞を使わず、「ない」で朝を描いています。</p>
+        <p><code>dog</code>、<code>smog</code>、<code>hog</code> は、同じ響きの3語。頭の音を変えるだけで、同じ韻を3回続けられます。</p>
+        <p><strong class='text-[var(--c-text)]'>hog</strong> は、豚のこと。ここでは、豚肉の食品（ベーコンなど）を指していると読めます。</p>
+        <p><code>smog</code> は <em>smoke + fog</em> の合成語。ロサンゼルスの大気汚染を指す言葉として、有名な単語です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>with no + 名詞</strong>: <em>He left with no warning.</em>（予告なしに出ていった）。<em>without</em> と同じ意味で使えます。</p>
+          <p><em>smog</em> は、<em>smoke</em> と <em>fog</em> を合わせた混成語（blend word）の代表例です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="got my grub on, but didn't pig out 食べ物のスラング"
+        label="★ スラング／慣用句"
+        mc="Ice Cube（Verse 1）"
+        t={TS["grub-pig-out"].t} tApprox={TS["grub-pig-out"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">I got my grub on, but didn't pig out</Fragment>
+        <Fragment slot="jpn">しっかり食べたけど、食べすぎはしなかった</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 動物の名前を使った、食べ物の表現が並ぶ行です。</p>
+        <p><strong class='text-[var(--c-text)]'>grub</strong> は、食べ物のスラングです。<em>Grub's up!</em>（ごはんだよ）のように、家庭の食事にも使われます。</p>
+        <p><strong class='text-[var(--c-text)]'>get my 〜 on</strong> は、「〜を始める、思い切りやる」という言い回しです。<em>get my groove on</em> のように、いろいろな名詞に使えます。</p>
+        <p><strong class='text-[var(--c-text)]'>pig out</strong> は、「豚のようにがっつり食べる」という句動詞。<code>didn't pig out</code> で、「食べすぎはしなかった」となります。</p>
+        <p>前の行に <code>hog</code> が出てきているので、豚つながりで、動物の語彙が連続しています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>pig out (on 〜)</strong>: <em>We pigged out on pizza.</em>（ピザを食べまくった）。食べすぎを笑って言うときに使います。</p>
+          <p><em>get one's 〜 on</em> は、<em>get your party on</em>（盛り上がる）のように、後ろの語を変えて応用できます。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Hooked it up for later / hit the door / another twenty-four"
+        label="★ 句動詞／口語"
+        mc="Ice Cube（Verse 1）"
+        t={TS["hit-the-door"].t} tApprox={TS["hit-the-door"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Hooked it up for later as I hit the door<br />Thinkin', "Will I live another twenty-four?"</Fragment>
+        <Fragment slot="jpn">あとで会う約束を取りつけて、ドアを出る。もう24時間、生きられるだろうか、と思いながら</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 出かける場面。句動詞が連続する2行です。</p>
+        <p><strong class='text-[var(--c-text)]'>hook it up</strong> は、「手配する、うまく話をつける」という句動詞です。ここでは、あとで会う約束を、うまくまとめたという意味です。</p>
+        <p><strong class='text-[var(--c-text)]'>hit the door</strong> は、「ドアに向かう、出かける」。<code>hit</code> は、<em>hit the road</em>（出発する）のように、場所を表す名詞と組み合わせて使えます。</p>
+        <p>後半の <code>Will I live another twenty-four?</code> は、「あと24時間生きていられるか」。さらっと言っていますが、街の危険が、この一言で顔を出します。</p>
+        <p>ここで、曲の裏にある緊張感が、最初に姿を見せます。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>hit + the + 名詞</strong>: <em>hit the road</em>（出発する）、<em>hit the books</em>（勉強を始める）、<em>hit the gym</em>（ジムに行く）。</p>
+          <p><em>hook up</em> は、文脈によって意味が変わります。「手配する」のほか、「機器をつなぐ」「会う」などの意味があります。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="I got me a drop-top 再帰的な me の使い方"
+        label="★ 口語／車"
+        mc="Ice Cube（Verse 1）"
+        t={TS["drop-top"].t} tApprox={TS["drop-top"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">I gotta go 'cause I got me a drop-top</Fragment>
+        <Fragment slot="jpn">行かなきゃ、だってオープンカーを手に入れたから</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 車の語彙と、口語の me の使い方に注目です。</p>
+        <p><strong class='text-[var(--c-text)]'>drop-top</strong> は、屋根が開く車、つまりコンバーチブルのスラングです。<em>convertible</em> の俗な言い方で、ヒップホップによく出てきます。</p>
+        <p>ここでの注目は、<strong class='text-[var(--c-text)]'>got me a 〜</strong>。<code>me</code> は、動詞の目的語のようで、実は意味を足さない形です。</p>
+        <p>「自分のために一台手に入れた」というニュアンスを足しています。</p>
+        <p>この <em>me</em> は、<strong class='text-[var(--c-text)]'>与格の代名詞</strong>（dative）と呼ばれる用法で、アメリカ南部や黒人英語で特によく聞きます。</p>
+        <p>標準英語に直すと <em>I got a drop-top</em> ですが、<em>me</em> を入れるだけで、「ご機嫌でやってのけた」という口調が出ます。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>get me a 〜</strong>: <em>I got me a new pair of shoes.</em>（新しい靴を手に入れた）。口語では、自分のために買った、という気持ちが入ります。</p>
+          <p><em>top</em> は、屋根のこと。<em>hardtop</em>（固定屋根）と<em>softtop</em>（幌）という使い分けもあります。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="not a jacker in sight 「〜は見当たらない」の型"
+        label="★ スラング／構文"
+        mc="Ice Cube（Verse 1）"
+        t={TS["jacker-in-sight"].t} tApprox={TS["jacker-in-sight"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Lookin' in my mirror, not a jacker in sight</Fragment>
+        <Fragment slot="jpn">ミラーを見ても、車を狙うやつは一人も見えない</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 赤信号で止まっている場面です。</p>
+        <p><strong class='text-[var(--c-text)]'>jacker</strong> は、<em>carjacker</em>（車を奪う者）の短縮形です。信号待ちの車が狙われる、という警戒が、背景にあると読めます。</p>
+        <p><strong class='text-[var(--c-text)]'>not a 〜 in sight</strong> は、「〜は一人も見当たらない」という型です。<em>not a cloud in the sky</em>（空に雲ひとつない）と同じ形です。</p>
+        <p><code>Lookin' in my mirror</code> の部分は、主語の <em>I'm</em> が落ちた形で、「ミラーを見ながら」という意味になっています。</p>
+        <p>ここでも、危険がないことが「うれしい」という、曲の逆説が出ています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>not a + 名詞 + in sight</strong>: <em>There was not a soul in sight.</em>（人っ子ひとり見えなかった）。映画や小説でよく使う言い方です。</p>
+          <p><em>carjack</em> は、<em>car</em> と <em>hijack</em> の合成語。車を力ずくで奪うことです。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Called up the homies and I'm askin' y'all 呼びかけの語彙"
+        label="★ スラング／代名詞"
+        mc="Ice Cube（Verse 1）"
+        t={TS["homies-y-all"].t} tApprox={TS["homies-y-all"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Called up the homies and I'm askin' y'all<br />"Which park are y'all playin' basketball?"</Fragment>
+        <Fragment slot="jpn">仲間に電話して聞く。「どこの公園でバスケやってる？」</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 友達に電話をかける場面。二人称複数の言い方に注目です。</p>
+        <p><strong class='text-[var(--c-text)]'>homies</strong> は、<em>homeboy</em>（地元の友達）の複数形で、仲間や友人を指します。</p>
+        <p><strong class='text-[var(--c-text)]'>y'all</strong> は、<em>you all</em> の短縮形で、「あなたたち」。アメリカ南部、黒人英語でよく使われる、二人称複数の代名詞です。</p>
+        <p>標準英語には、<em>you</em> の単数と複数を区別する言葉がありません。<em>y'all</em> は、その不便を埋める形として、広く使われるようになりました。</p>
+        <p><code>Called up</code> は、<em>call up</em>（電話をかける）の過去形。主語の <em>I</em> が落ちた形です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>y'all</strong>: <em>Y'all coming tonight?</em>（みんな今夜来る？）。親しい複数の相手への呼びかけです。</p>
+          <p><em>call up</em> は、<em>phone</em> よりくだけた、電話をかける動詞です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="the police rolled right past me 警察に絡まれない日"
+        label="★ 句動詞／文化"
+        mc="Ice Cube（Verse 2）"
+        t={TS["police-rolled-past"].t} tApprox={TS["police-rolled-past"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Saw the police and they rolled right past me</Fragment>
+        <Fragment slot="jpn">警察を見かけたけど、そのまま素通りしていった</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の中盤。何も起きないことが、ここでも幸運として語られます。</p>
+        <p><strong class='text-[var(--c-text)]'>roll past</strong> は、「ゆっくり通り過ぎる」。車が進む様子に <em>roll</em> を使うのは、口語でよくある言い方です。</p>
+        <p><code>right past me</code> の <em>right</em> は、「ちょうど、まっすぐ」という強調の副詞です。すぐそばを通り過ぎた、という意味になります。</p>
+        <p>ここで描かれているのは、警察と接触しないという、それだけの出来事です。当時のこの地域の若者にとって、それが一日の幸運に数えられた、と読めます。</p>
+        <p>他の行と同じく、ここでも「何も起きなかった」ことを、そのまま喜びとして語っています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>right + 前置詞</strong>: <em>right here</em>、<em>right behind you</em>。位置や時間を、はっきり示す強調です。</p>
+          <p><em>roll</em> は、車やバスなどが進む動詞としても使えます。<em>The bus rolled into the station.</em> のように使います。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Yo! MTV Raps、What's the haps on the craps?"
+        label="★ 文化／韻"
+        mc="Ice Cube（Verse 2）"
+        t={TS["yo-mtv-raps-haps"].t} tApprox={TS["yo-mtv-raps-haps"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">What's the haps on the craps?</Fragment>
+        <Fragment slot="jpn">サイコロ賭博の様子はどうだ？</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ テレビ番組の名前と、短い韻の1行です。</p>
+        <p>この直前に、<strong class='text-[var(--c-text)]'>Yo! MTV Raps</strong> が出てきます。これは、MTVで放送されていたヒップホップ専門の番組で、当時のラッパーが、映像で広く知られるきっかけになりました。</p>
+        <p>友人の家で、その番組が流れている、という描写です。テレビの前に集まって、新しい曲を見る習慣が、固有名詞ひとつで伝わります。</p>
+        <p><strong class='text-[var(--c-text)]'>the haps</strong> は、<em>happenings</em>（出来事、状況）の短縮形です。<code>What's the haps?</code> は、「最近どう？」くらいの挨拶になります。</p>
+        <p><code>haps</code> と <code>craps</code> は、同じ音の語尾で終わっています。サイコロ賭博の名前（craps）に韻を合わせた、短い言葉遊びです。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>What's the haps?</strong>: 古めのスラングで、<em>What's up?</em> と同じ意味。<em>happenings</em> を縮めた語です。</p>
+          <p><em>craps</em> は、2つのサイコロを使う賭けごと。ラップの歌詞で、よく取り上げられます。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="break 'em with the seven, seven-eleven サイコロ遊びの語彙"
+        label="★ スラング／ゲーム"
+        mc="Ice Cube（Verse 2）"
+        t={TS["seven-eleven-dice"].t} tApprox={TS["seven-eleven-dice"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">And watch me break 'em with the seven, seven-eleven, seven-eleven</Fragment>
+        <Fragment slot="jpn">見てろ、7と、7か11で全部かっさらってやる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ サイコロ賭博（craps）の専門語彙が並ぶ行です。</p>
+        <p>この行は、サイコロ賭博の <strong class='text-[var(--c-text)]'>craps</strong> の用語を、リズムに乗せたものです。<code>seven</code> と <code>eleven</code> は、最初に出ると勝ちになる目です。</p>
+        <p><code>break 'em</code> は、相手の持ち金を「崩す、巻き上げる」という意味の言い方。<em>'em</em> は、<em>them</em> の短縮形です。</p>
+        <p>続く行に出てくる <strong class='text-[var(--c-text)]'>back door Little Joe</strong> も、サイコロの目を指す隠語です。ゲームの語彙を知っていると、歌詞の面白さが段違いに分かります。</p>
+        <p><code>seven</code> を繰り返して、リズムを作っているところにも注目です。意味より、音のほうを優先した、ラップならではの行です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>'em</strong>: <em>them</em> の短縮形で、口語でよく使われます。<em>Let 'em go.</em>（行かせてやれ）。</p>
+          <p><em>break</em> は、お金に関して「崩す」「破産させる」の意味でも使います。<em>The casino broke him.</em> のように使います。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="we played bones, and I'm yellin', &quot;Domino&quot;"
+        label="★ スラング／ゲーム"
+        mc="Ice Cube（Verse 2）"
+        t={TS["played-bones-domino"].t} tApprox={TS["played-bones-domino"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Then we played bones, and I'm yellin', "Domino"</Fragment>
+        <Fragment slot="jpn">それからボーンズをやって、俺が「ドミノ」と叫ぶ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ サイコロの次は、ドミノ。ゲームの名前が続きます。</p>
+        <p><strong class='text-[var(--c-text)]'>bones</strong> は、ここではドミノ牌を指すスラングです。サイコロにも使いますが、この文脈では、ドミノだと読めます。</p>
+        <p><code>I'm yellin', "Domino"</code> は、ドミノで勝ったときに叫ぶ決まり文句を、ここで再現しています。</p>
+        <p>アメリカの黒人コミュニティでは、ドミノは、ごく日常的な遊びです。屋外のテーブルで、牌を叩きつけて遊ぶ光景を、思い浮かべるとよいです。</p>
+        <p>ここは、<code>I'm yellin'</code> と現在形になっています。過去の話を語っているのに、現在形に切り替えるのは、場面を目の前に見せる、語りの技法です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>歴史的現在</strong>（historical present）: 過去の話を、あえて現在形で語ると、臨場感が出ます。友人に昔話をするとき、英語でも日本語でも自然に使います。</p>
+          <p><em>yell</em> は、「叫ぶ、大声で言う」。<em>shout</em> とほぼ同じです。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="nobody I know got killed in South Central L.A."
+        label="★ 核心の一行／関係代名詞"
+        mc="Ice Cube（Verse 2）"
+        t={TS["nobody-got-killed"].t} tApprox={TS["nobody-got-killed"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Plus nobody I know got killed in South Central L.A.</Fragment>
+        <Fragment slot="jpn">それに、知り合いの誰も、サウス・セントラルで殺されなかった</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ この曲でいちばん大事な一行です。</p>
+        <p>ここまでの「いい日」の理由が、この一行で、はっきり言葉にされます。<strong class='text-[var(--c-text)]'>誰も殺されなかった</strong>、それだけで、特別な日になっています。</p>
+        <p>文法の面では、<code>nobody I know</code> が、<em>nobody (that) I know</em> の関係代名詞の省略です。「私の知っている誰も」という意味になります。</p>
+        <p><code>got killed</code> は、<em>get + 過去分詞</em> の受け身。<em>be killed</em> よりも、「事故や出来事として起きた」ニュアンスが強い形です。</p>
+        <p><strong class='text-[var(--c-text)]'>South Central</strong> は、ロサンゼルス南部の地域の名前です。この曲の録音は1992年の5月で、同じ年の春には、市内で大きな暴動が起きていました。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>get + 過去分詞</strong>: <em>He got arrested.</em>（逮捕された）。<em>be + 過去分詞</em> より、出来事として起きた感じが出ます。</p>
+          <p><strong class='text-[var(--c-text)]'>目的格の関係代名詞の省略</strong>: <em>the man I met</em>（私が会った男）。会話では、むしろ省略するのが普通です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="I had the brew, she had the chronic / Lakers beat the Supersonics"
+        label="★ スラング／固有名詞"
+        mc="Ice Cube（Verse 3）"
+        t={TS["brew-chronic-lakers"].t} tApprox={TS["brew-chronic-lakers"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">It's ironic, I had the brew, she had the chronic<br />The Lakers beat the Supersonics</Fragment>
+        <Fragment slot="jpn">皮肉なことに、俺はビール、彼女はマリファナを持ってた。レイカーズがソニックスに勝った</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3の冒頭。スラングと、バスケットボールのチーム名が出てきます。</p>
+        <p><strong class='text-[var(--c-text)]'>brew</strong> は、ビールのスラングです。<strong class='text-[var(--c-text)]'>chronic</strong> は、マリファナの、特に品質の高いものを指します。</p>
+        <p><code>ironic</code> と <code>chronic</code> で、行の中で韻を踏んでいます。「ironic」と言いながら、その中身は、何が皮肉なのか、それとなくぼかしています。</p>
+        <p><strong class='text-[var(--c-text)]'>the Lakers</strong> は、ロサンゼルスのNBAチームです。<strong class='text-[var(--c-text)]'>the Supersonics</strong> は、当時シアトルにあったチームで、のちに本拠地を移して名前も変わりました。</p>
+        <p>地元のチームが勝った、というだけで、一日の幸運が一つ増えます。大きな出来事ではなく、小さな良いことの積み重ねで語る曲の作りです。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>beat</strong> は、勝つときに使う動詞で、過去形も同じ <em>beat</em> です。<em>The Lakers beat the Celtics.</em>（レイカーズがセルティックスに勝った）。</p>
+          <p><em>ironic</em> は、「皮肉な」。予想と反対のことが起きたときに使います。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Drove her to the pad and I'm coastin' 運転の語彙"
+        label="★ スラング／運転"
+        mc="Ice Cube（Verse 3）"
+        t={TS["pad-coastin"].t} tApprox={TS["pad-coastin"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Drove her to the pad and I'm coastin'</Fragment>
+        <Fragment slot="jpn">彼女を家まで送って、のんびり流してる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ ドライブの場面。家と、走り方のスラングです。</p>
+        <p><strong class='text-[var(--c-text)]'>pad</strong> は、家、部屋のスラングです。<em>crib</em> と同じ系統で、くだけた「住まい」の言い方になります。</p>
+        <p><strong class='text-[var(--c-text)]'>coast</strong> は、エンジンを使わず惰性で進む、という意味の動詞です。そこから、力まず、のんびり流して走る、という意味にも使われます。</p>
+        <p><code>Drove her to the pad</code> は、<em>I</em> が落ちています。<code>I'm coastin'</code> は、前後で時制が、過去から現在に切り替わっています。</p>
+        <p>ここも、前の unit で触れた歴史的現在の例です。場面が目の前で動いているように聞こえます。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>coast</strong>: <em>We coasted down the hill.</em>（坂を惰性で下った）。<em>coast through 〜</em> は、「楽にやり過ごす」の意味でも使います。</p>
+          <p><em>pad</em> は、ほかに「パッド、詰め物」の意味もあります。文脈で判断する語です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="like one of those fly dreams / a berry flashin' those high beams"
+        label="★ スラング／警察"
+        mc="Ice Cube（Verse 3）"
+        t={TS["fly-dreams-berry"].t} tApprox={TS["fly-dreams-berry"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Today was like one of those fly dreams<br />Didn't even see a berry flashin' those high beams</Fragment>
+        <Fragment slot="jpn">今日はまるで、いい夢みたいな一日だった。パトカーが、ハイビームを光らせているのも見なかった</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 夢にたとえて、一日を振り返る場面です。</p>
+        <p><strong class='text-[var(--c-text)]'>fly</strong> は、スラングで「かっこいい、最高の」という形容詞です。<em>fly dreams</em> は、「最高の夢」。</p>
+        <p>一日を、夢にたとえています。</p>
+        <p><strong class='text-[var(--c-text)]'>berry</strong> は、パトカーを指すスラングとされます。屋根のライトが赤い果実のように見えることから、<em>cherry</em> や <em>berry</em> と呼ばれた、と説明されています。</p>
+        <p><code>those high beams</code> の <em>those</em> は、「例の」という指示語。ハイビームとパトカーのライトが重なる、お馴染みの光景を指しています。</p>
+        <p>夢のようだ、という比喩は、この曲の終わりにある、あるできごとの伏線にもなります。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>like one of those 〜</strong>: <em>It was like one of those movies.</em>（まるで映画みたいだった）。出来事を、よくある型にたとえる言い方です。</p>
+          <p><em>fly</em> は、飛ぶという意味のほかに、1990年代の若者のスラングで「かっこいい」の意味がありました。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Two in the mornin', got the Fatburger / Goodyear Blimp"
+        label="★ 固有名詞／文化"
+        mc="Ice Cube（Verse 3）"
+        t={TS["fatburger-goodyear"].t} tApprox={TS["fatburger-goodyear"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Even saw the lights of the Goodyear Blimp<br />And it read, "Ice Cube's a Pimp"</Fragment>
+        <Fragment slot="jpn">グッドイヤー飛行船のライトまで見えた。そこには「Ice Cubeは最高」と書いてあった</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 深夜の場面。ロサンゼルスの固有名詞が続きます。</p>
+        <p><strong class='text-[var(--c-text)]'>Fatburger</strong> は、ロサンゼルスで生まれたハンバーガーのチェーンです。深夜2時にそこでハンバーガーを買う、という描写が、地元の暮らしのリアルを伝えます。</p>
+        <p><strong class='text-[var(--c-text)]'>the Goodyear Blimp</strong> は、タイヤメーカーの飛行船で、スポーツ中継などで空を飛びます。電光掲示のように、メッセージを流すことがあります。</p>
+        <p>それに「Ice Cubeは最高」と書いてあった、というのは、もちろん夢のような想像です。一日の幸運の締めくくりとして、空まで祝福した、という大きなオチです。</p>
+        <p>ここでの <strong class='text-[var(--c-text)]'>pimp</strong> は、「洒落た、かっこいい」という誉め言葉の意味で使われています。「ウラのある職業」のほうの意味ではありません。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>a blimp</strong> は、飛行船の一種。<em>blimp</em> という語は、アメリカで、スポーツの中継とセットでよく聞く語です。</p>
+          <p><em>it read 〜</em> は、「そこには〜と書いてあった」。掲示や看板について使う動詞 <em>read</em> の用法です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="my pager still blowin' up ポケベルの時代"
+        label="★ スラング／時代"
+        mc="Ice Cube（Verse 3）"
+        t={TS["pager-blowin-up"].t} tApprox={TS["pager-blowin-up"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Halfway home and my pager still blowin' up</Fragment>
+        <Fragment slot="jpn">家までの半分まで来たのに、ポケベルが鳴りっぱなしだ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 1990年代前半の、通信手段の話です。</p>
+        <p><strong class='text-[var(--c-text)]'>pager</strong> は、ポケットベル。電話番号などのメッセージが表示される小さな端末で、携帯電話が普及する前の連絡手段でした。</p>
+        <p><strong class='text-[var(--c-text)]'>blow up</strong> は、「爆発する」ですが、ここでは「通知が殺到して鳴りやまない」という意味です。前に見た、「ブレイクする」の意味とは、また別の使い方です。</p>
+        <p><code>Halfway home</code> は、「帰宅の途中」。<em>halfway</em> は、「中間で、半分まで」という副詞や形容詞です。</p>
+        <p>メッセージが鳴り続けるほど、自分は人気者だ、という含みもあります。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>blow up</strong>: 「爆発する」「ブレイクする」「通知が殺到する」。<em>My phone is blowing up.</em>（携帯が鳴りっぱなしだ）は、今でもよく使います。</p>
+          <p><em>halfway through 〜</em> は、「〜の途中で」。<em>halfway through the movie</em> のように使います。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="I didn't even have to use my AK / I gotta say"
+        label="★ 構文／結び"
+        mc="Ice Cube（Verse 3）"
+        t={TS["didnt-have-to-use-ak"].t} tApprox={TS["didnt-have-to-use-ak"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Today I didn't even have to use my AK<br />I gotta say, it was a good day</Fragment>
+        <Fragment slot="jpn">今日は、AKを使う必要すらなかった。言わせてもらうと、いい日だった</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 曲の最後のバースの締めの2行です。</p>
+        <p><strong class='text-[var(--c-text)]'>AK</strong> は、AK-47という自動小銃の略です。この行では、銃が出てきますが、「使わずに済んだ」という形で出てきます。</p>
+        <p>それも、「使わなくて済んだ」という形で出てきます。<code>didn't even have to 〜</code> は、「〜する必要すらなかった」。</p>
+        <p><em>even</em> が入ることで、普段は必要になる、というニュアンスが出ます。</p>
+        <p>最後の <strong class='text-[var(--c-text)]'>I gotta say</strong> は、「言わせてもらうよ」という前置きです。ここで、ようやくタイトルの <em>it was a good day</em> が登場します。</p>
+        <p>曲のタイトルを、最後に回して、結論として置いている構造です。ここまでの一日を、「だから、いい日だったんだ」と、一言でまとめています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>don't even have to 〜</strong>: <em>I didn't even have to ask.</em>（頼む必要すらなかった）。意外なほど楽だった、という気持ちを込めます。</p>
+          <p><strong class='text-[var(--c-text)]'>I gotta say</strong>: <em>I gotta say, that was impressive.</em>（正直、あれはすごかった）。意見を述べる前置きとして、よく使います。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="wait a minute, Pooh, stop this shit アウトロの急停止"
+        label="★ 構成／口語"
+        mc="Ice Cube（Outro）"
+        t={TS["outro-wait-a-minute"].t} tApprox={TS["outro-wait-a-minute"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Ayy, wait, wait a minute, Pooh, stop this shit</Fragment>
+        <Fragment slot="jpn">ちょっと待て、プー、これを止めてくれ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 曲の最後。トラックが止まる場面です。</p>
+        <p>最後の数行で、曲のトーンが急に変わります。<strong class='text-[var(--c-text)]'>Pooh</strong> は、このトラックを作ったDJ Poohのことで、Ice Cubeが、ビートを止めるように頼んでいます。</p>
+        <p>ここまでの、「いい一日」の語りが、突然ここで止まります。聴いている側は、夢から醒めたような感覚を覚えます。</p>
+        <p><code>wait a minute</code> は、「ちょっと待って」。同じ語を繰り返す <em>wait, wait</em> は、慌てた感じを出します。</p>
+        <p>この終わり方は、「本当に起きたことなのか」とも、「いい日が本当は珍しい、現実に引き戻された」とも、読めるようになっています。ここは、聴き手に任された解釈です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>Wait a minute.</strong>: 「ちょっと待って」。気づきや疑いの合図にも使います。</p>
+          <p><em>Wait a minute, that's not right.</em>（待てよ、それは違う）。</p>
+          <p><em>stop this</em> のように、<em>this</em> で目の前のものを指して止める言い方は、会話で頻繁に使います。</p>
+        </Fragment>
+      </LearningUnit>
+    </section>
+
+    <section id="background" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        文化的背景
+      </h2>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">1992年のロサンゼルス</p>
+        <h3 class="font-semibold text-base mb-3">「何も起きない日」が、特別になる街</h3>
+        <div class="space-y-3 text-[var(--c-muted)] text-sm leading-relaxed">
+          <p>
+            曲を録音したのは、1992年の5月だとされています。同じ年の春に、ロサンゼルスでは、大きな暴動が起きていました。
+          </p>
+          <p>
+            そうした時期に、「誰も撃たなかった」「警察に止められなかった」ことを、一日の幸運として語る。この曲の軽さは、重い現実の裏返しとして読めます。
+          </p>
+          <p>
+            ただし、この曲自身は、政治や事件を直接は語りません。ただ、いい日の細部を、並べているだけです。
+          </p>
+          <p>
+            そのぶん、背景を知って聴くと、各行の重さが変わります。
+          </p>
+        </div>
+      </div>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">ロサンゼルスの固有名詞</p>
+        <h3 class="font-semibold text-base mb-3">Fatburger、Lakers、Goodyear Blimp が作る地図</h3>
+        <div class="space-y-3 text-[var(--c-muted)] text-sm leading-relaxed">
+          <p>
+            この曲に出てくる固有名詞は、どれもロサンゼルスの日常にあるものです。ハンバーガーのチェーン、バスケットボールのチーム、上空を飛ぶ飛行船。
+          </p>
+          <p>
+            地図を広げなくても、固有名詞をたどるだけで、一日の動線が見えてきます。ヒップホップの歌詞を、地域のガイドブックとして読む、という楽しみ方もあります。
+          </p>
+        </div>
+      </div>
+
+      <div class="p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">キーワード早見表</p>
+        <h3 class="font-semibold text-base mb-3">この曲で学んだ表現の整理</h3>
+        <div class="space-y-3 mt-3">
+          {[
+            ['gotta / kinda / y\'all', 'have got to / kind of / you all の短縮形。会話でそのまま使う'],
+            ['drop-top', '屋根が開く車（コンバーチブル）のスラング'],
+            ['got me a 〜', '「自分のために〜を手に入れた」。与格の me'],
+            ['not a 〜 in sight', '「〜は一人も見当たらない」'],
+            ['jacker', 'carjacker の短縮形。車を奪う者'],
+            ['the haps', 'happenings の短縮。近況、出来事'],
+            ['bones', 'ドミノ牌（サイコロの意味にもなる）'],
+            ['pad / crib', '家、部屋のスラング'],
+            ['blow up', '爆発する／ブレイクする／通知が殺到する'],
+            ['fly', 'かっこいい、最高の（1990年代のスラング）'],
+          ].map(([w, d]) => (
+            <div class="text-sm">
+              <span class="font-semibold text-[var(--c-text)]">{w}</span>
+              <span class="text-[var(--c-muted)]"> {d}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="behind" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        制作の裏側
+      </h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          プロデュースは、DJ Poohです。サンプルの中心は、Isley Brothersの「Footsteps in the Dark」。
+        </p>
+        <p>
+          70年代のソウルのスロージャムを、そのまま使っています。
+        </p>
+        <p>
+          ほかにも、The Momentsの「Sexy Mama」の一部が、サンプルとして使われています。同じ時代の、柔らかいソウルの素材が、土台になっています。
+        </p>
+        <p>
+          曲を録音したのは1992年5月で、アルバム『The Predator』は同年に出ています。曲はその後、1993年2月23日に、2枚目のシングルとして出ました。
+        </p>
+        <p>
+          サンプル元の「Footsteps in the Dark」は、このページの上部の埋め込みで聴けます。聴き比べると、元の曲の落ち着いた雰囲気が、そのまま引き継がれていることが分かります。
+        </p>
+      </div>
+    </section>
+
+    <section id="legacy" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        評価とその後
+      </h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          Billboard Hot 100では最高15位を記録しました。当時、Ice Cubeのシングルとして、最も高い順位でした。
+        </p>
+        <p>
+          R&B/Hip-Hopのチャートでは7位、英国のチャートでは27位を記録しています。
+        </p>
+        <p>
+          アルバム『The Predator』は、この曲を含めて、200万枚を超えて売れたとされています。
+        </p>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        まとめ
+      </h2>
+      <ul class="space-y-2 text-sm text-[var(--c-muted)] list-disc list-inside leading-relaxed">
+        <li>「It Was a Good Day」は、「悪いことが起きなかった」ことを、最高の一日として語る逆説の曲です。</li>
+        <li>gotta、kinda、y'all、got me a 〜など、くだけた口語の使い方が、一日の時間順に学べます。</li>
+        <li>drop-top、jacker、bones、pad、pager、flyなど、1990年代のスラングが、日常の場面と結びついて出てきます。</li>
+        <li>Yo! MTV Raps、Lakers、Fatburger、Goodyear Blimpなど、ロサンゼルスの固有名詞が、一日の地図を作っています。</li>
+        <li>最後のアウトロで、語りが急に止まる構成は、曲の逆説を深める仕掛けになっています。</li>
+      </ul>
+    </section>
+
+</SongLayout>

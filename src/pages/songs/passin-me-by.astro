@@ -1,0 +1,531 @@
+---
+import LearningUnit from '../../components/LearningUnit.astro';
+import QuickSlang from '../../components/QuickSlang.astro';
+import SongLayout from '../../layouts/SongLayout.astro';
+
+import tsData from '../../../agent/passin-me-by/assets/units-timestamps.json';
+const YT = "a-mAK3uB2_0";
+const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.approx }]));
+---
+
+<SongLayout
+  title="Passin' Me By 和訳・意味・スラング解説 | The Pharcyde"
+  description="The Pharcyde「Passin' Me By」を英語学習とヒップホップ理解の教材として精読。used to、on her jock、play it by ear、apple of my eye、fly the coopなど、片思いの物語に出てくる口語と慣用句を、PV頭出し付きで解説。"
+  slug="passin-me-by"
+  learningPage={true}
+  songDuration={280}
+  highlights={[
+    '4人のMCが、それぞれの片思いを順番に語る、ユーモアのある恋愛ラップ',
+    'play it by ear、get the picture、apple of my eye、fly the coop。日常で使える慣用句がいくつも出てくる',
+    'Love Me Tender と Return to Sender。エルヴィスの曲名を使った手紙のオチ',
+  ]}
+  youtubeId="a-mAK3uB2_0"
+>
+
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■この曲で何を学べるか</h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          「She keeps on passin' me by」。何度も繰り返されるこの一行が、タイトルにもなっている、片思いの歌です。
+        </p>
+        <p>
+          ロサンゼルスのグループThe Pharcydeが、1992年のデビュー作『Bizarre Ride II the Pharcyde』に収めました。
+        </p>
+        <p>
+          4人のメンバーが、それぞれの片思いのエピソードを順番に語ります。小学校の先生、幼なじみ、スターのような存在、手紙を送った相手。
+        </p>
+        <p>
+          恋の悩みを、笑いを交えながら話すスタイルが、この曲の魅力だと思っています。
+        </p>
+        <p>
+          英語学習として見ると、恋愛まわりの慣用句と、昔話を語るときの時制が、ひと通り学べます。難しい単語は少なく、会話にそのまま使える表現が多い曲です。
+        </p>
+      </div>
+    </section>
+
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■「passing me by」の二つの意味</h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          <em>pass someone by</em> は、「通り過ぎる」という意味です。ここでは、恋の相手が、自分のことを意識せずに、通り過ぎてしまうことを表します。
+        </p>
+        <p>
+          もうひとつ、<em>let her pass</em>（彼女を通す）という言い方も、バースの最後に出てきます。こちらは、自分が、あえて声をかけずに見送るという意味です。
+        </p>
+        <p>
+          同じ動詞でも、相手が通り過ぎる場合と、自分が見送る場合の、両方が語られています。この二重の意味が、曲のせつなさを作っています。
+        </p>
+      </div>
+    </section>
+
+    <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
+      <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
+        <li><a href="#story" class="hover:text-[var(--c-gold)] transition-colors">01 ストーリーの流れ（まず曲全体をつかむ）</a></li>
+        <li><a href="#units" class="hover:text-[var(--c-gold)] transition-colors">02 学ぶ表現（スラング・韻・言葉遊び・AAVE）</a></li>
+        <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">03 文化的背景</a></li>
+        <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">04 制作の裏側</a></li>
+        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">05 評価とその後</a></li>
+      </ol>
+    </nav>
+
+    <section id="story" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        ストーリーの流れ（まず曲全体をつかむ）
+      </h2>
+      <p class="text-xs text-[var(--c-dim)] mb-5">
+        4つのバースは、それぞれ別のメンバーが、別の片思いを語ります。誰がどんな話をしているかを先に押さえます。
+      </p>
+      <div class="space-y-4 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          <strong class='text-[var(--c-text)]'>Verse 1</strong>はBootie Brown。子どもの頃、年上の先生に憧れた思い出です。
+        </p>
+        <p>
+          リンゴを持っていき、質問ばかりして、先生の気を引こうとします。
+        </p>
+        <p>
+          <strong class='text-[var(--c-text)]'>Verse 2</strong>はSlimkid3。昔から知っている幼なじみのShellyに、うまく気持ちを伝えられない話です。
+        </p>
+        <p>
+          <strong class='text-[var(--c-text)]'>Verse 3</strong>はImani。スターのような存在の女性に憧れましたが、すでに恋人がいました。
+        </p>
+        <p>
+          自分の振る舞いを、少しおかしく語ります。
+        </p>
+        <p>
+          <strong class='text-[var(--c-text)]'>Verse 4</strong>はFatlip。遠くから想い続けて、ついに手紙を書きます。
+        </p>
+        <p>
+          ところが、その手紙は、返送されてきます。
+        </p>
+        <p>
+          合間に入るコーラスでは、「何度でも言うけど、彼女は通り過ぎていく」と、同じ一行が繰り返されます。
+        </p>
+        <p class="text-xs text-[var(--c-dim)]">
+          ※本ページは批評・教育目的で、解説に必要な範囲の断片のみを引用しています。全歌詞の対訳は掲載していません。
+        </p>
+      </div>
+    </section>
+
+    <div id="units"></div>
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        学ぶ表現（スラング・韻・言葉遊び・AAVE）
+      </h2>
+      <div class="space-y-3 text-xs text-[var(--c-dim)] mb-6">
+        <p>ここでは、歌詞の中の表現を1つずつ取り上げます。上に短い用例、下に意味と使い方を置いています。</p>
+        <p>固有名詞や、背景の説明が中心のところは、引用を省いています。▶を押すと、PVの該当箇所から再生できます。</p>
+      </div>
+
+      <LearningUnit
+        heading="in my younger days, I used to sport a shag 昔語りの型"
+        label="★ 時制／語彙"
+        mc="Bootie Brown（Verse 1）"
+        t={TS["younger-days-sport-shag"].t} tApprox={TS["younger-days-sport-shag"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Now, in my younger days, I used to sport a shag</Fragment>
+        <Fragment slot="jpn">さて、若い頃の俺は、シャグカットの髪型をしていた</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の1行目。昔の話を始める型が出てきます。</p>
+        <p><strong class='text-[var(--c-text)]'>in my younger days</strong> は、「若い頃は」という、昔語りの定番の入り口です。<em>in my day</em> という形もあります。</p>
+        <p><strong class='text-[var(--c-text)]'>used to + 動詞</strong> は、「かつては〜していた」。今は違う、という含みを持つ表現です。</p>
+        <p>この曲では、昔話の間ずっと、この形が使われます。</p>
+        <p><strong class='text-[var(--c-text)]'>sport</strong> は、ここでは「身につける、見せびらかす」という動詞です。<em>sport a beard</em>（ひげを生やしている）のように、外見の話でよく使います。</p>
+        <p><strong class='text-[var(--c-text)]'>shag</strong> は、段を付けた、ざっくりした髪型のこと。当時の流行りを、さらっと名詞で出しています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>in my younger days / back in the day</strong>: 昔を振り返る決まり文句。<em>In my younger days, I loved to travel.</em></p>
+          <p><em>sport</em> は、<em>She was sporting a new haircut.</em>（彼女は新しい髪型をしていた）のように、見た目を話すときの動詞です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="an apple for my teacher / in session 学校の語彙"
+        label="★ 慣用句／語彙"
+        mc="Bootie Brown（Verse 1）"
+        t={TS["apple-for-teacher"].t} tApprox={TS["apple-for-teacher"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">With a apple for my teacher 'cause I knew I'd get a kiss<br />But when it was in session, I always had a question</Fragment>
+        <Fragment slot="jpn">先生にリンゴを持っていく、キスがもらえると思ったから。授業中は、いつも質問があった</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 年上の先生への片思い。学校の言い回しが並びます。</p>
+        <p><strong class='text-[var(--c-text)]'>an apple for the teacher</strong> は、アメリカで、生徒が先生にリンゴを贈る習慣から来た決まり文句です。先生の機嫌を取るための贈り物、という意味でも使います。</p>
+        <p><strong class='text-[var(--c-text)]'>in session</strong> は、「授業中、開会中」。前の行の <em>class was dismissed</em>（授業が終わった）と対になっています。</p>
+        <p><code>knew I'd get a kiss</code> の <em>I'd</em> は、<em>I would</em>。過去のことを語るなかで、「そのときの未来」を表す、時制の一致の形です。</p>
+        <p><code>session</code> と <code>question</code> が、行末で韻を踏んでいます。学校の語彙に、きれいな音をそろえた2行です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>in session / out of session</strong>: <em>The court is in session.</em>（法廷は開廷中だ）。学校、議会、裁判で使います。</p>
+          <p><em>I knew I would 〜</em> のように、過去の時点での未来を、<em>would</em> で表します。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Just a trick to smell her scent and try to sneak a touch"
+        label="★ 句動詞／語法"
+        mc="Bootie Brown（Verse 1）"
+        t={TS["sneak-a-touch"].t} tApprox={TS["sneak-a-touch"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">I would raise my hand, to make her stand, come to my desk, and<br />Help me with my problem, it was never much</Fragment>
+        <Fragment slot="jpn">手を挙げて、先生を立たせて、俺の机まで来させて、問題を手伝ってもらう。大した問題じゃなかった</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 質問の理由は、本当は別にあった、という場面です。</p>
+        <p><strong class='text-[var(--c-text)]'>I would raise my hand</strong> の <em>would</em> は、「（よく）〜したものだ」という、過去の習慣を表す用法です。<em>used to</em> と似ていますが、動作の繰り返しに使います。</p>
+        <p><strong class='text-[var(--c-text)]'>make her stand</strong> は、使役の形。<em>make + 人 + 動詞の原形</em> で、「人に〜させる」です。</p>
+        <p><strong class='text-[var(--c-text)]'>it was never much</strong> は、「大したことはなかった」。<em>much</em> を名詞のように使って、問題の大きさを打ち消しています。</p>
+        <p>次の行の <strong class='text-[var(--c-text)]'>sneak a touch</strong> は、「こっそり触れる」。<em>sneak a look</em>（こっそり見る）と同じ型です。</p>
+        <p>ここでは、先生に、こっそり近づく言い訳として、質問をしていた、という笑いです。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>sneak a + 名詞</strong>: <em>sneak a peek</em>（ちらっとのぞく）、<em>sneak a bite</em>（こっそり一口食べる）。</p>
+          <p><em>would</em> の習慣用法: <em>Every summer, we would go to the beach.</em>（毎年夏には、海に行ったものだ）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="I was on her jock, yes, indeedy スラング"
+        label="★ スラング／口語"
+        mc="Bootie Brown（Verse 1）"
+        t={TS["on-her-jock"].t} tApprox={TS["on-her-jock"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">I was on her jock, yes, indeedy, I wrote graffiti on the bus</Fragment>
+        <Fragment slot="jpn">俺は彼女に夢中だった、そう、まさにね。バスに落書きまで書いた</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の後半。ラップらしいスラングが出てきます。</p>
+        <p><strong class='text-[var(--c-text)]'>on someone's jock</strong> は、スラングで、「誰かを熱心に追いかける、まとわりつく」という意味です。もともとは、スポーツ選手のファンに使われた言い方と説明されます。</p>
+        <p><strong class='text-[var(--c-text)]'>yes, indeedy</strong> は、<em>yes, indeed</em> を、ふざけて崩した言い方です。語尾を伸ばして、軽い冗談の調子を出しています。</p>
+        <p><strong class='text-[var(--c-text)]'>graffiti on the bus</strong> は、バスに落書きをすること。恋心を、落書きという行動に変えるのが、この年頃の少年らしい描写です。</p>
+        <p>続く行の <code>write her name, then carve a plus</code> と合わせて、名前の落書きの描写に入っていきます。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>on someone's jock</strong>: 近い意味で、<em>ride someone's coattails</em>（人の威光に乗る）という言い方もあります。ここでは、好意でまとわりつく意味です。</p>
+          <p><em>indeed</em> は、<em>Yes, indeed.</em>（まったくその通り）の形で、強い同意を表します。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="I seen her yesterday, but still, I had to let her pass 二重の意味"
+        label="★ AAVE／言葉遊び"
+        mc="Bootie Brown（Verse 1）"
+        t={TS["let-her-pass"].t} tApprox={TS["let-her-pass"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">I seen her yesterday, but still, I had to let her pass</Fragment>
+        <Fragment slot="jpn">昨日、彼女を見かけた。それでも、通り過ぎるのを見送るしかなかった</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の締め。タイトルとつながる一行です。</p>
+        <p><strong class='text-[var(--c-text)]'>I seen her</strong> の <em>seen</em> は、標準では <em>saw</em>（過去形）ですが、AAVEや口語では、過去分詞の形がそのまま過去を表すことがあります。</p>
+        <p><strong class='text-[var(--c-text)]'>let her pass</strong> は、「通るのを許す、見送る」。ここでは、声をかけずに、そのまま行かせてしまったという意味です。</p>
+        <p>タイトルの <em>passin' me by</em> は、「相手が自分を通り過ぎる」でした。ここでは、<em>let her pass</em> と、自分が見送る側として、同じ動詞を使っています。</p>
+        <p><code>but still</code> は、「それでも」。思い切ってしまいたい気持ちを、ここで打ち消して、結局何もできなかった、という流れを作っています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>I seen it</strong> のように、過去を <em>seen</em> で表すのは、AAVEや南部の英語でよく見られる特徴です。</p>
+          <p><em>let + 人 + 動詞の原形</em>: <em>Let him go.</em>（行かせてやれ）。許可や、あえて見送る場面に使います。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="She keeps on passin' me by! 繰り返しの表現"
+        label="★ フック／構文"
+        mc="Fatlip & Slimkid3（Chorus）"
+        t={TS["keeps-on-passin"].t} tApprox={TS["keeps-on-passin"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">She keeps on passin' me by!</Fragment>
+        <Fragment slot="jpn">彼女は、何度も俺を通り過ぎていく</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 曲の中心になるフック。動詞の使い方に注目です。</p>
+        <p><strong class='text-[var(--c-text)]'>keep on + 動詞ing</strong> は、「〜し続ける」。同じ動作が、止まらずに繰り返される様子を表します。</p>
+        <p><strong class='text-[var(--c-text)]'>pass 〜 by</strong> は、「〜の横を通り過ぎる」。人にも、チャンスにも、<em>pass by</em> を使って、「気づかれずに通り過ぎる」という意味になります。</p>
+        <p>コーラスの終わりで、<em>She keeps on pass...</em> と、あえて文を途切れさせて、続けて別の声が入ります。途切れる形そのものが、「通り過ぎていく」感じを作っています。</p>
+        <p>合いの手の <em>But nevertheless, I'll say it again</em> は、「それでも、何度でも言う」という意味です。諦めきれない、という気持ちが、そのまま言葉になっています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>keep on + 動詞ing</strong>: <em>She kept on talking.</em>（彼女は話し続けた）。<em>keep + 動詞ing</em> より、強調の響きがあります。</p>
+          <p><em>nevertheless</em> は、「それにもかかわらず」。やや硬い語ですが、冗談の調子でも使えます。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="quit chasin' / makes me a go-getter 動名詞と複合語"
+        label="★ 語法／慣用句"
+        mc="Slimkid3（Verse 2）"
+        t={TS["go-getter"].t} tApprox={TS["go-getter"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">That I should quit chasin' and look for something better<br />But the smile that she shows makes me a go-getter</Fragment>
+        <Fragment slot="jpn">追いかけるのはやめて、もっといい人を探せと言われる。でも、彼女の笑顔を見ると、やる気が出てくる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 周りの助言と、本人の気持ちのギャップを描く2行です。</p>
+        <p><strong class='text-[var(--c-text)]'>quit + 動詞ing</strong> は、「〜するのをやめる」。<em>stop + 動詞ing</em> と、ほぼ同じ意味ですが、より口語的な言い方です。</p>
+        <p><strong class='text-[var(--c-text)]'>look for something better</strong> は、「もっといいものを探す」。<em>something + 形容詞</em> の語順に注目です。</p>
+        <p><em>something better</em> のように、形容詞が後ろに付きます。</p>
+        <p><strong class='text-[var(--c-text)]'>go-getter</strong> は、「やり手、積極的な人」。<em>go</em> と <em>get</em> をつなげた、複合語です。</p>
+        <p>人を元気づけるような、ほめ言葉として使われます。</p>
+        <p><code>makes me a go-getter</code> は、<em>make + 人 + 名詞</em> で、「人を〜にする」。笑顔が、自分を積極的にさせるという、素直な気持ちが出ています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>something / anything + 形容詞</strong>: <em>something new</em>、<em>anything interesting</em>。形容詞を後ろに置く、英語の決まりです。</p>
+          <p><em>go-getter</em>: <em>She's a real go-getter.</em>（彼女は、本当にやり手だ）。仕事や就職の場面で、よく使います。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="play love by the ear and hope she gets the picture"
+        label="★ 慣用句"
+        mc="Slimkid3（Verse 2）"
+        t={TS["play-by-ear-get-the-picture"].t} tApprox={TS["play-by-ear-get-the-picture"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">I just play love by the ear and hope she gets the picture</Fragment>
+        <Fragment slot="jpn">俺はただ、成り行きで恋をして、彼女が気づいてくれるのを願っている</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 音楽の言い回しと、「分かる」の言い回しが、一行に入っています。</p>
+        <p><strong class='text-[var(--c-text)]'>play it by ear</strong> は、もともとは楽譜を見ずに、耳で聴いたまま演奏することです。そこから、「臨機応変に、成り行きに任せてやる」という意味になりました。</p>
+        <p>ここでは、<em>play love by the ear</em> と、<em>it</em> の代わりに、<em>love</em> を入れています。恋愛を、計画せずに、その場の流れでやっていく、という意味です。</p>
+        <p><strong class='text-[var(--c-text)]'>get the picture</strong> は、「状況を理解する、察する」という、定番の言い回しです。<em>Do you get the picture?</em>（分かった？）のように使います。</p>
+        <p>音楽の比喩（play by ear）と、視覚の比喩（get the picture）が、同じ行の中に並んでいる、感覚の組み合わせも面白いところです。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>play it by ear</strong>: <em>Let's play it by ear.</em>（その場の様子を見て決めよう）。計画を立てないときの定番です。</p>
+          <p><strong class='text-[var(--c-text)]'>get the picture</strong>: <em>I get the picture.</em>（状況は分かった）。<em>get the message</em> も、似た意味です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="highly edu-ma-cated / Not at all overrated 音節を伸ばす韻"
+        label="★ 韻／語彙"
+        mc="Slimkid3（Verse 2）"
+        t={TS["edu-ma-cated"].t} tApprox={TS["edu-ma-cated"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Now she's more sophisticated, highly edu-ma-cated<br />Not at all overrated, I think I need a prayer</Fragment>
+        <Fragment slot="jpn">今の彼女は、もっと洗練されて、高い教養がある。決して買いかぶりじゃない。祈りが必要そうだ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 韻のために、語を伸ばして発音する場面です。</p>
+        <p><strong class='text-[var(--c-text)]'>edu-ma-cated</strong> は、<em>educated</em> を、音節の間に <em>ma</em> を入れて伸ばした言い方です。<em>sophisticated</em>、<em>overrated</em> と、<em>-ated</em> の韻をそろえるための工夫です。</p>
+        <p><strong class='text-[var(--c-text)]'>sophisticated</strong> は、「洗練された、教養のある」。<strong class='text-[var(--c-text)]'>overrated</strong> は、「過大評価されている」。</p>
+        <p><em>not at all overrated</em> で、「過大評価ではない、本当にすごい」となります。</p>
+        <p><code>highly</code> は、<em>highly educated</em>（高い教育を受けた）のように、教育や評価の高さを強調する副詞です。</p>
+        <p>最後の <code>I think I need a prayer</code> は、「祈りが必要だ」。幼なじみが立派になりすぎて、自分には手が届かない、という気持ちを、冗談まじりに語っています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>highly + 過去分詞</strong>: <em>highly educated</em>、<em>highly recommended</em>（強く勧められた）。評価を強める組み合わせです。</p>
+          <p><em>overrated</em> と <em>underrated</em>（過小評価されている）は、音楽や映画の評判で、よく使う対義語です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="a twinkle in her eye is just a twinkle in her eye 同語反復の皮肉"
+        label="★ 修辞／皮肉"
+        mc="Slimkid3（Verse 2）"
+        t={TS["twinkle-in-her-eye"].t} tApprox={TS["twinkle-in-her-eye"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">I guess a twinkle in her eye is just a twinkle in her eye</Fragment>
+        <Fragment slot="jpn">彼女の目の輝きは、ただの目の輝きなんだろう</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 同じ言葉を繰り返して、あきらめを表す一行です。</p>
+        <p><strong class='text-[var(--c-text)]'>a twinkle in her eye</strong> は、「目の輝き」。普通は、愛情や、いたずら心のサインとして使われる言い方です。</p>
+        <p>この行は、同じ句を、<em>A is just A</em> の形で繰り返しています。これは、<strong class='text-[var(--c-text)]'>同語反復</strong>（tautology）です。</p>
+        <p>「特別な意味はない、ただそれだけだ」という、冷めた言い方になります。</p>
+        <p><code>I guess</code> が付くことで、力のない、あきらめた調子になっています。期待していた気持ちが、しぼんでいく感じです。</p>
+        <p>短くて、シンプルな文ですが、このバースで、いちばん切ない一行です。笑いのなかに、ふっと本音が混ざります。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>A is just A</strong>: <em>A cigar is just a cigar.</em>（葉巻はただの葉巻だ）。深読みしすぎるな、という意味の決まり文句です。</p>
+          <p><em>twinkle</em> は、星や目がきらきら光る様子。<em>Twinkle, twinkle, little star</em>（きらきら星）でも有名です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Sprung like a chicken, chasing my tail like a doggie"
+        label="★ スラング／直喩"
+        mc="Imani（Verse 3）"
+        t={TS["sprung-chasing-tail"].t} tApprox={TS["sprung-chasing-tail"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Sprung like a chicken, chasing my tail like a doggie</Fragment>
+        <Fragment slot="jpn">完全にのぼせ上がって、犬みたいに自分の尻尾を追いかけ回している</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Imaniのバース。直喩がたたみかけられます。</p>
+        <p><strong class='text-[var(--c-text)]'>sprung</strong> は、スラングで、「相手に夢中になって、のぼせ上がっている」という意味です。<em>He's sprung on her.</em> のように使います。</p>
+        <p><strong class='text-[var(--c-text)]'>chase one's tail</strong> は、犬が自分の尻尾を追いかけてぐるぐる回る様子から、「空回りする、無駄に動き回る」という意味の慣用句です。</p>
+        <p>どちらも、<code>like a 〜</code> の直喩で、動物にたとえています。恋に夢中になった自分を、かわいらしく、少し情けなく描いています。</p>
+        <p><code>chicken</code> と <code>doggie</code> の2つの動物が並ぶ点にも注目です。意味よりも、語感の面白さで選んでいる印象があります。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>chase one's tail</strong>: <em>We've been chasing our tails all day.</em>（一日中、空回りしていた）。仕事の場面でも使えます。</p>
+          <p><em>sprung</em> は、スラングで、「夢中になった」という意味の形容詞です。人にも、物にも使えます。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="a nincompoop / your little birdie's gonna fly the coop"
+        label="★ 慣用句／韻"
+        mc="Imani（Verse 3）"
+        t={TS["fly-the-coop"].t} tApprox={TS["fly-the-coop"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">He was a rooty-toot, a nincompoop<br />She told me "Soon your little birdie's gonna fly the coop"</Fragment>
+        <Fragment slot="jpn">あいつはおバカさんで、間抜けだった。「あなたの小鳥も、もうすぐ巣から飛び立つよ」と彼女は言った</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 古風な悪口と、鳥の比喩が並ぶ2行です。</p>
+        <p><strong class='text-[var(--c-text)]'>nincompoop</strong> は、「間抜け、ばか」という意味の、古風でユーモラスな悪口です。<em>rooty-toot</em> も、同じ系統の、語感で遊んだ言い方です。</p>
+        <p><strong class='text-[var(--c-text)]'>fly the coop</strong> は、「逃げ出す、巣立つ」という慣用句です。<em>coop</em> は、鶏小屋のこと。</p>
+        <p>囲いの中の鳥が、飛び出していく様子から来ています。</p>
+        <p><code>rooty-toot</code>、<code>nincompoop</code>、<code>coop</code> と、同じ響きが、行をまたいで続いています。悪口なのに、楽しい響きになるのが、この言葉遊びの効果です。</p>
+        <p><code>your little birdie</code> は、ここでは、語り手自身を、小鳥に例えた言い方です。恋人が、遠くへ行ってしまう、という皮肉を、鳥の比喩で包んでいます。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>fly the coop</strong>: <em>All the kids have flown the coop.</em>（子どもたちはみんな巣立った）。実家を出る場面にも使います。</p>
+          <p><em>nincompoop</em> のような、今は古風な悪口は、アニメや児童書で、ユーモアとして使われます。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="the apple of my eye / no matter how much I try"
+        label="★ 慣用句／語法"
+        mc="Fatlip（Verse 4）"
+        t={TS["apple-of-my-eye"].t} tApprox={TS["apple-of-my-eye"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Ever she happens to walk by, why does the apple of my eye<br />Overlook and disregard my feelings no matter how much I try?</Fragment>
+        <Fragment slot="jpn">彼女が通りかかるたびに、俺の大切な人は、なぜ俺の気持ちを見過ごして、無視するのか。どれだけ頑張っても</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Fatlipのバース。慣用句と、譲歩の表現が出てきます。</p>
+        <p><strong class='text-[var(--c-text)]'>the apple of my eye</strong> は、「目に入れても痛くないほど大事な人」という慣用句です。聖書の「瞳」を意味する古い言葉に由来すると言われます。</p>
+        <p><strong class='text-[var(--c-text)]'>overlook</strong> と <strong class='text-[var(--c-text)]'>disregard</strong> は、どちらも「見過ごす、無視する」。似た意味の動詞を並べて、「気づかれていない」ことを強調しています。</p>
+        <p><strong class='text-[var(--c-text)]'>no matter how much 〜</strong> は、「どれだけ〜しても」という、譲歩の言い方です。<em>no matter what / who / how</em> で、さまざまな疑問詞とセットになります。</p>
+        <p>この曲の最初のバースにも、リンゴ（an apple for my teacher）が出てきました。ここでも、<em>apple</em> が出てくるのは、偶然でなく、意図した繰り返しかもしれません。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>the apple of one's eye</strong>: <em>She is the apple of her father's eye.</em>（彼女は父親の目の中に入れても痛くない娘だ）。</p>
+          <p><strong class='text-[var(--c-text)]'>no matter how + 形容詞/副詞</strong>: <em>No matter how hard I try, I can't.</em>（どれだけ頑張っても、できない）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="I was so low-key that she was unaware of my existence"
+        label="★ スラング／構文"
+        mc="Fatlip（Verse 4）"
+        t={TS["low-key-unaware"].t} tApprox={TS["low-key-unaware"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">And I was so low-key that she was unaware of my existence</Fragment>
+        <Fragment slot="jpn">俺は目立たなさすぎて、彼女は俺の存在にすら気づいていなかった</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 「so 〜 that」の構文と、low-keyの意味に注目です。</p>
+        <p><strong class='text-[var(--c-text)]'>low-key</strong> は、「控えめな、目立たない」。今では、<em>low-key</em> を副詞のように、「なんとなく、ちょっと」という意味で使う若者言葉もありますが、ここは本来の意味です。</p>
+        <p><strong class='text-[var(--c-text)]'>so 〜 that ...</strong> は、「あまりに〜なので、...だ」という、結果を表す構文です。<code>so low-key that she was unaware</code> で、控えめすぎた結果、気づかれなかった、となります。</p>
+        <p><strong class='text-[var(--c-text)]'>be unaware of 〜</strong> は、「〜に気づいていない」。<em>unaware</em> は、<em>aware</em> の否定形で、<em>of</em> を取ります。</p>
+        <p>ここでは、<em>my existence</em>（自分の存在）という、少し大きな言葉を使って、自分が、相手の世界に入っていなかったことを、冗談まじりに語っています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>be aware of 〜 / be unaware of 〜</strong>: <em>I wasn't aware of the problem.</em>（その問題に気づいていなかった）。</p>
+          <p><em>low-key</em> は、<em>a low-key party</em>（控えめな集まり）のように、イベントや雰囲気にも使います。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="P.S. Love Me Tender / Return to Sender エルヴィスの曲名"
+        label="★ 文化／言葉遊び"
+        mc="Fatlip（Verse 4）"
+        t={TS["love-me-tender-return-to-sender"].t} tApprox={TS["love-me-tender-return-to-sender"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">P.S. Love Me Tender<br />But the letter came back three days later: "Return to Sender"</Fragment>
+        <Fragment slot="jpn">追伸、優しく愛して。でも手紙は3日後に戻ってきた、「差出人に返送」と</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 手紙のオチ。2つの曲名が使われています。</p>
+        <p><strong class='text-[var(--c-text)]'>Love Me Tender</strong> と <strong class='text-[var(--c-text)]'>Return to Sender</strong> は、どちらもエルヴィス・プレスリーの曲名です。手紙の追伸にも、返送のスタンプにも、曲名が使われています。</p>
+        <p><strong class='text-[var(--c-text)]'>P.S.</strong> は、<em>postscript</em>（追伸）の略。手紙の最後に、付け足しを書くときの記号です。</p>
+        <p><strong class='text-[var(--c-text)]'>Return to Sender</strong> は、郵便物に押される、「差出人に返送」の意味のスタンプ。送った手紙が、受取人に届かずに戻ってきた、という結末です。</p>
+        <p>古い歌の曲名を、手紙の言い回しに仕込む遊びです。曲を知っている人には、二度おいしい、小さなオチになっています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>P.S. （追伸）</strong>: 手紙やメールの最後に、付け足しを書くときに使います。<em>P.P.S.</em> は、さらにその追伸です。</p>
+          <p><em>return to sender</em> は、郵便の実務で使う表記です。宛先不明の郵便物に、貼られることがあります。</p>
+        </Fragment>
+      </LearningUnit>
+    </section>
+
+    <section id="background" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        文化的背景
+      </h2>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">The Pharcyde とは</p>
+        <h3 class="font-semibold text-base mb-3">ロサンゼルス出身、4人のMCと1人のプロデューサー</h3>
+        <div class="space-y-3 text-[var(--c-muted)] text-sm leading-relaxed">
+          <p>
+            The Pharcydeは、ロサンゼルスで結成された、4人組のヒップホップグループです。Imani、Slimkid3、Bootie Brown、Fatlipの4人がMCを務め、J-Swiftがプロデュースを担当しました。
+          </p>
+          <p>
+            デビューアルバム『Bizarre Ride II the Pharcyde』は1992年に出ました。ユーモアのある語り口と、サンプリングを生かしたトラックが、この作品の特徴です。
+          </p>
+        </div>
+      </div>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">曲の位置づけ</p>
+        <h3 class="font-semibold text-base mb-3">アルバムの2枚目のシングルとして発売</h3>
+        <div class="space-y-3 text-[var(--c-muted)] text-sm leading-relaxed">
+          <p>
+            「Passin' Me By」は、1993年3月18日に、アルバムの2枚目のシングルとして発売されました。
+          </p>
+          <p>
+            録音は1991年に、ハリウッドのスタジオで行われています。
+          </p>
+        </div>
+      </div>
+
+      <div class="p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">キーワード早見表</p>
+        <h3 class="font-semibold text-base mb-3">この曲で学んだ表現の整理</h3>
+        <div class="space-y-3 mt-3">
+          {[
+            ['used to / would（昔の習慣）', 'かつては〜した。用法が少し違う'],
+            ['in session', '授業中、開会中'],
+            ['on someone\'s jock', '（スラング）夢中でまとわりつく'],
+            ['keep on 〜ing', '〜し続ける'],
+            ['go-getter', 'やり手、積極的な人'],
+            ['play it by ear / get the picture', '成り行きでやる／状況を理解する'],
+            ['sprung', '（スラング）夢中になってのぼせ上がった'],
+            ['fly the coop', '巣立つ、逃げ出す'],
+            ['the apple of one\'s eye', '目に入れても痛くない人'],
+            ['so 〜 that ...', 'あまりに〜なので...だ'],
+          ].map(([w, d]) => (
+            <div class="text-sm">
+              <span class="font-semibold text-[var(--c-text)]">{w}</span>
+              <span class="text-[var(--c-muted)]"> {d}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="behind" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        制作の裏側
+      </h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          プロデュースは、グループのJ-Swiftです。曲の土台には、Quincy Jonesの「Summer in the City」、Weather Reportの「125th Street Congress」、Jimi Hendrix Experienceの「Are You Experienced?」の3曲が、サンプルとして使われています。
+        </p>
+        <p>
+          複数の曲から、短い断片を拾って重ねるという手法は、ヒップホップのトラックメイクの基本です。ジャズ、フュージョン、ロックと、ジャンルをまたいで素材が選ばれているところが、この曲の特徴です。
+        </p>
+        <p>
+          曲は、1991年にハリウッドのスタジオで録音されました。デビュー前に、すでに完成していたことになります。
+        </p>
+        <p>
+          ここで挙げた情報は、広く公開されている資料で確認できる範囲にとどめています。
+        </p>
+      </div>
+    </section>
+
+    <section id="legacy" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        評価とその後
+      </h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          「Passin' Me By」は、The Pharcydeの代表曲として、今でも聴かれ続けています。
+        </p>
+        <p>
+          収録アルバム『Bizarre Ride II the Pharcyde』は1992年に出ています。この曲は、そのアルバムの2枚目のシングルです。
+        </p>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        まとめ
+      </h2>
+      <ul class="space-y-2 text-sm text-[var(--c-muted)] list-disc list-inside leading-relaxed">
+        <li>「Passin' Me By」は、4人のMCが、それぞれの片思いを語る、ユーモアとせつなさの曲です。</li>
+        <li>used to や would、keep on 〜ing、so 〜 that など、昔話を語るときの基本の型が、たくさん出てきます。</li>
+        <li>play it by ear、get the picture、apple of my eye、fly the coop、chase one's tail と、日常で使える慣用句がそろっています。</li>
+        <li>I seen や was の使い方など、AAVEや口語の文法が、自然な形で入っています。</li>
+        <li>Love Me Tender と Return to Sender のオチは、固有名詞の言葉遊びを学ぶ、よい例です。</li>
+      </ul>
+    </section>
+
+</SongLayout>

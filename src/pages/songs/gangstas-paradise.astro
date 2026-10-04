@@ -1,0 +1,575 @@
+---
+import LearningUnit from '../../components/LearningUnit.astro';
+import QuickSlang from '../../components/QuickSlang.astro';
+import SongLayout from '../../layouts/SongLayout.astro';
+
+import tsData from '../../../agent/gangstas-paradise/assets/units-timestamps.json';
+const YT = "fPO76Jlnz6c";
+const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.approx }]));
+---
+
+<SongLayout
+  title="Gangsta's Paradise 和訳・意味・スラング解説 | Coolio feat. L.V."
+  description="Coolio「Gangsta's Paradise」を英語学習とヒップホップ理解の教材として精読。詩篇23篇の引用、ain't never、Me be treated、what's cookin'などの口語と慣用句を、PV頭出し付きで解説。"
+  slug="gangstas-paradise"
+  learningPage={true}
+  songDuration={257}
+  highlights={[
+    '冒頭の一行は旧約聖書の詩篇23篇の引用。聖書の言葉が、ストリートの語りに入ってくる',
+    'ain\'t never、Me be treated、got me chasin\'。教科書にない、口語の文法がそのまま学べる',
+    'twenty-four、what\'s cookin\'、reach me。短い言葉に、生き方への迷いが込められている',
+  ]}
+  youtubeId="fPO76Jlnz6c"
+>
+
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■この曲で何を学べるか</h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          「As I walk through the valley of the shadow of death」。この有名な一行から始まる「Gangsta's Paradise」は、1995年の映画『Dangerous Minds』の主題歌として出た曲です。
+        </p>
+        <p>
+          Coolioがバースを、L.V.がコーラスを歌っています。
+        </p>
+        <p>
+          言葉の使い方は、粗削りですが、内容はとても内省的です。暴力の中で育った若者が、自分の人生を、冷静に振り返っている曲として読めます。
+        </p>
+        <p>
+          英語学習としては、聖書の引用、口語の文法、そして短い言葉で重たい内容を言い切る書き方が、ひと通り入っています。
+        </p>
+      </div>
+    </section>
+
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■「天国」という言葉が、反語になっている</h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          タイトルの <em>paradise</em>（楽園）は、本来は、穏やかな理想の場所を指します。ところが歌詞で語られるのは、「ここで一生を過ごしている」と皮肉まじりに語られる、ストリートの現実です。
+        </p>
+        <p>
+          この反語の使い方が、曲全体のトーンを決めています。聞き手は、タイトルの時点で、ただの武勇伝ではないことを察します。
+        </p>
+        <p>
+          ここからは、行ごとに言葉を拾って、その仕掛けを見ていきます。
+        </p>
+      </div>
+    </section>
+
+    <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
+      <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
+        <li><a href="#story" class="hover:text-[var(--c-gold)] transition-colors">01 ストーリーの流れ（まず曲全体をつかむ）</a></li>
+        <li><a href="#units" class="hover:text-[var(--c-gold)] transition-colors">02 学ぶ表現（スラング・韻・言葉遊び・AAVE）</a></li>
+        <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">03 文化的背景</a></li>
+        <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">04 制作の裏側</a></li>
+        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">05 評価とその後</a></li>
+      </ol>
+    </nav>
+
+    <section id="story" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        ストーリーの流れ（まず曲全体をつかむ）
+      </h2>
+      <p class="text-xs text-[var(--c-dim)] mb-5">
+        曲は、2つのバースと、コーラスの繰り返しで、ひとつの生き方を描きます。バースごとの役割を先に押さえます。
+      </p>
+      <div class="space-y-4 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          <strong class='text-[var(--c-text)]'>Verse 1</strong>は、自分の人生を振り返る場面です。聖書の引用で始まり、強がりと、祈りが、交互に出てきます。
+        </p>
+        <p>
+          <strong class='text-[var(--c-text)]'>Chorus</strong>は、L.V.が歌います。「私たちは人生の大半を、ギャングの楽園で過ごしている」と、同じ4行を繰り返します。
+        </p>
+        <p>
+          <strong class='text-[var(--c-text)]'>Verse 2</strong>は、そうなった理由の説明です。自分が育った環境と、その中でしか生きられなかった事情が語られます。
+        </p>
+        <p>
+          <strong class='text-[var(--c-text)]'>Bridge</strong>は、L.V.による問いかけです。「なぜ私たちは、こんなに目が見えないのか」。
+        </p>
+        <p>
+          <strong class='text-[var(--c-text)]'>Verse 3</strong>は、周りの大人たちへの不満と、自分が手にしていない助けについて語ります。
+        </p>
+        <p class="text-xs text-[var(--c-dim)]">
+          ※本ページは批評・教育目的で、解説に必要な範囲の断片のみを引用しています。全歌詞の対訳は掲載していません。
+        </p>
+      </div>
+    </section>
+
+    <div id="units"></div>
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        学ぶ表現（スラング・韻・言葉遊び・AAVE）
+      </h2>
+      <div class="space-y-3 text-xs text-[var(--c-dim)] mb-6">
+        <p>ここからは、歌詞の中の表現を、1つずつ取り上げます。上に短い用例、下に意味と使い方を置いています。</p>
+        <p>暴力的な描写は、引用せず、背景だけにとどめています。▶を押すと、PVの該当箇所から再生できます。</p>
+      </div>
+
+      <LearningUnit
+        heading="As I walk through the valley of the shadow of death 聖書の引用"
+        label="★ 引用／聖書"
+        mc="Coolio（Verse 1）"
+        t={TS["valley-shadow-death"].t} tApprox={TS["valley-shadow-death"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">As I walk through the valley of the shadow of death</Fragment>
+        <Fragment slot="jpn">死の影の谷を歩むとき</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 曲の最初の一行。旧約聖書の有名な一節です。</p>
+        <p><strong class='text-[var(--c-text)]'>the valley of the shadow of death</strong> は、旧約聖書の詩篇23篇に出てくる一節です。「たとえ死の影の谷を歩むとも」という、よく知られた言い回しです。</p>
+        <p>聖書の中では、神が共にいるから恐れない、という文脈で使われます。この曲では、その言葉を、危険と隣り合わせの暮らしに重ねています。</p>
+        <p><code>As I walk through 〜</code> の <em>as</em> は、「〜するとき、〜しながら」という時間の接続詞です。同時に進む動作や状況を示します。</p>
+        <p>聖書の一節から始めることで、これから語られるのは、暴力の自慢ではなく、生き方への問いだと、聞き手に伝えています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>as + 主語 + 動詞</strong>: <em>As I walked home, it started to rain.</em>（歩いて帰るうちに、雨が降り出した）。同時進行を表します。</p>
+          <p><em>the valley of the shadow of death</em> は、文章やスピーチでも、「極めて危険な状況」を指す引用として使われます。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="I take a look at my life and realize there's nothin' left"
+        label="★ 構文／口語"
+        mc="Coolio（Verse 1）"
+        t={TS["nothin-left"].t} tApprox={TS["nothin-left"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 引用は省き、語の使い方を中心に解説します。</p>
+        <p><strong class='text-[var(--c-text)]'>take a look at 〜</strong> は、「〜をよく見る」という言い方で、<em>look at</em> より、少し意識して見る感じが出ます。</p>
+        <p><code>realize there's nothin' left</code> の <em>realize</em> は、「はっきり気づく」。<em>there's nothin' left</em> は、「何も残っていない」という意味で、<em>left</em> は、「残された」の過去分詞です。</p>
+        <p><code>take a look</code> と <code>realize</code> が、同じ主語 <em>I</em> でつながっています。語りの視点が、行動から気づきへ、動いています。</p>
+        <p>この行から、バース全体が、外の出来事ではなく、内側の気持ちへ向かっていきます。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>take a look at 〜</strong>: <em>Take a look at this.</em>（これを見てみて）。会話で頻繁に使います。</p>
+          <p><em>nothing left</em> は、<em>I have nothing left to lose.</em>（失うものは何もない）のように、定番の型にもなります。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="I've been blastin' and laughin' so long that / my mind is gone"
+        label="★ 現在完了進行／構文"
+        mc="Coolio（Verse 1）"
+        t={TS["blastin-laughin"].t} tApprox={TS["blastin-laughin"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Even my mama thinks that my mind is gone</Fragment>
+        <Fragment slot="jpn">母さんでさえ、俺の頭がおかしくなったと思ってる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 前の行から続く、長い一文の結びです。</p>
+        <p>前の行の <strong class='text-[var(--c-text)]'>I've been 〜ing so long that 〜</strong> は、「〜し続けて、もう〜なほどだ」という構文です。ここでは、続けてきた生き方の結果として、周りの反応を述べています。</p>
+        <p><code>I've been 〜ing</code> は、現在完了進行形で、「ずっと〜し続けている」という意味。過去から今まで、同じ状態が続いていることを表します。</p>
+        <p>この行の <strong class='text-[var(--c-text)]'>my mind is gone</strong> は、「正気を失った」という意味の慣用句です。<em>lose one's mind</em> と同じ系統の言い方です。</p>
+        <p><code>Even my mama</code> の <em>even</em> は、「〜でさえ」。最も味方であるはずの母親でさえ、そう思う、という落差を作る強調語です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>so + 形容詞/副詞 + that 〜</strong>: <em>He ran so fast that nobody could catch him.</em>（あまりに速く走ったので、誰も追いつけなかった）。</p>
+          <p><em>have been + 動詞ing</em>: <em>I've been waiting for an hour.</em>（1時間ずっと待っている）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="I ain't never crossed a man that didn't deserve it"
+        label="★ AAVE／二重否定"
+        mc="Coolio（Verse 1）"
+        t={TS["aint-never-crossed"].t} tApprox={TS["aint-never-crossed"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">But I ain't never crossed a man that didn't deserve it</Fragment>
+        <Fragment slot="jpn">でも、それに値しない相手に手を出したことは一度もない</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 強がりの宣言。否定が重なった、口語の文です。</p>
+        <p><code>ain't never</code> は、否定語が2つ並んだ形です。標準的には <em>I have never</em> と言うところですが、口語やAAVEでは、否定を重ねることで、「一度もない」という強調になります。</p>
+        <p><strong class='text-[var(--c-text)]'>cross a man</strong> は、「相手を怒らせる、相手に害を加える」という意味です。<em>cross</em> には、「（人の）意に反する」という意味があります。</p>
+        <p>後半の <code>a man that didn't deserve it</code> は、「それに値しない人」。<em>deserve</em> は、「〜に値する、〜を受けて当然だ」という動詞です。</p>
+        <p>ここでも、否定が重なっていますが、<em>didn't deserve it</em> は、通常の否定で、意味は「値しなかった」です。肯定の裏返しとして、「手を出した相手はみな、それに値した」と言っていることになります。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>ain't never</strong>: <em>I ain't never seen that.</em>（それは一度も見たことがない）。強調の二重否定です。</p>
+          <p><em>deserve</em>: <em>You deserve a break.</em>（あなたは休みを取って当然だ）。ポジティブにも使います。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Me be treated like a punk? You know that's unheard of"
+        label="★ 構文／反語"
+        mc="Coolio（Verse 1）"
+        t={TS["me-be-treated"].t} tApprox={TS["me-be-treated"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Me be treated like a punk? You know that's unheard of</Fragment>
+        <Fragment slot="jpn">俺が弱虫扱いされる？ そんなことはありえない</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 主語が me になっている、特殊な形の反語です。</p>
+        <p><strong class='text-[var(--c-text)]'>Me be treated like a punk?</strong> は、<em>Me, be treated like a punk?</em> と、主語が <em>me</em> で、動詞が原形です。「俺が？そんな扱いを？」という、信じがたい気持ちを込めた反語の形です。</p>
+        <p>文法の上では不完全ですが、口語では、驚きや、あり得ない、という気持ちを示すために、この形がよく使われます。</p>
+        <p><strong class='text-[var(--c-text)]'>punk</strong> は、ここでは「弱虫、なめられる人」。<em>Check the Rhime</em> など、ほかの曲でも出てくる語で、強がりの場面でよく使われます。</p>
+        <p><strong class='text-[var(--c-text)]'>unheard of</strong> は、「前代未聞の、ありえない」という意味の形容詞です。<em>an unheard-of price</em> のように、名詞の前でも使います。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>Me, do that?</strong>: 「私が、そんなことを？」と、驚きや反発を示す言い方。<em>Him, lie to me?</em> のように応用できます。</p>
+          <p><em>unheard of</em>: <em>It's unheard of for a rookie to win.</em>（新人が優勝するなんて前代未聞だ）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="You better watch how you're talkin' and where you're walkin'"
+        label="★ 助言／内韻"
+        mc="Coolio（Verse 1）"
+        t={TS["watch-how-talkin"].t} tApprox={TS["watch-how-talkin"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">You better watch how you're talkin' and where you're walkin'</Fragment>
+        <Fragment slot="jpn">口のきき方と、歩く場所には気をつけたほうがいい</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 警告の一行。次の行の暗示とセットで読みます。</p>
+        <p><strong class='text-[var(--c-text)]'>You better 〜</strong> は、<em>had better</em> の短縮形で、「〜したほうがいい」という、強い助言です。前に見た曲のサビにも、同じ形が出てきました。</p>
+        <p><strong class='text-[var(--c-text)]'>watch how 〜</strong> は、「〜の仕方に気をつけろ」。<em>watch</em> は、見るだけでなく、「注意する」という意味でも使います。</p>
+        <p><code>talkin'</code> と <code>walkin'</code> が、行の中で音を合わせています。内韻と呼ばれる技法で、警告の言葉にも、リズムを乗せています。</p>
+        <p>このあとの行は、警告に従わなかった結果を、暗示しています。そこはここでは引用せず、読み手に任せます。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>watch your mouth / watch how you talk</strong>: 「口のきき方に気をつけろ」。たしなめるときの定番の言い方です。</p>
+          <p><em>You better 〜</em> の <em>better</em> の前に、<em>'d</em>（had）が省略されている点にも注目です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="I'm the kinda G the little homies wanna be like"
+        label="★ スラング／短縮形"
+        mc="Coolio（Verse 1）"
+        t={TS["kinda-g-little-homies"].t} tApprox={TS["kinda-g-little-homies"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">I'm the kinda G the little homies wanna be like</Fragment>
+        <Fragment slot="jpn">俺は、年下の連中が憧れるタイプのGだ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 自分が、若者の手本になっている、という自覚の行です。</p>
+        <p><strong class='text-[var(--c-text)]'>G</strong> は、<em>gangster</em> の略で、「ギャングスタ、一人前の男」。ヒップホップでは、敬意を込めて呼ぶ言い方にもなります。</p>
+        <p><strong class='text-[var(--c-text)]'>the little homies</strong> は、「年下の仲間たち」。<em>homies</em> は、地元の友達のことで、<em>little</em> が付くと、年下の子たちを指します。</p>
+        <p><code>kinda G the little homies wanna be like</code> は、関係代名詞が省略されています。<em>the kind of G (that) the little homies want to be like</em> です。</p>
+        <p>この行は、自分が、若者にとって悪い手本になっていることを、どこか誇りと苦さを混ぜて語る場面です。次の行で、祈りの場面が出てくることで、その複雑さがはっきりします。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>the kind of 〜 (that) 〜</strong>: <em>He's the kind of guy people trust.</em>（彼は、人が信頼するタイプの男だ）。<em>kinda</em> は、<em>kind of</em> の短縮形です。</p>
+          <p><em>wanna be like 〜</em> は、「〜のようになりたい」。<em>wannabe</em> という名詞（憧れ屋）にもなります。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="On my knees in the night sayin' prayers in the streetlight"
+        label="★ 対比／描写"
+        mc="Coolio（Verse 1）"
+        t={TS["on-my-knees"].t} tApprox={TS["on-my-knees"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">On my knees in the night sayin' prayers in the streetlight</Fragment>
+        <Fragment slot="jpn">夜、街灯の下で、膝をついて祈りの言葉を唱える</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の締め。強がりから、祈りに切り替わる一行です。</p>
+        <p><strong class='text-[var(--c-text)]'>on my knees</strong> は、「膝をついて」。祈るときの姿勢で、<em>on one's knees</em> は、懇願や降参を表す表現でもあります。</p>
+        <p><strong class='text-[var(--c-text)]'>say prayers</strong> は、「祈りを捧げる」。<em>say</em> を使うのが、祈りの定番の言い方です。</p>
+        <p><code>in the night</code> と <code>in the streetlight</code> は、前置詞の同じ形で、内韻のように並んでいます。夜の街灯の下、という一枚の絵が、すぐ浮かびます。</p>
+        <p>ここまで強がっていた語り手が、最後には、一人で祈っている。この対比が、曲の一番の聴きどころだと思っています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>on one's knees</strong>: <em>He went down on his knees and begged.</em>（膝をついて懇願した）。</p>
+          <p><em>say a prayer</em> は、<em>pray</em> より、日常的で、具体的に唱える感じがあります。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="They've been spendin' most their lives livin' in the gangsta's paradise"
+        label="★ コーラス／構文"
+        mc="L.V.（Chorus）"
+        t={TS["spendin-most-their-lives"].t} tApprox={TS["spendin-most-their-lives"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">They've been spendin' most their lives livin' in the gangsta's paradise</Fragment>
+        <Fragment slot="jpn">彼らは、人生の大半を、ギャングの楽園の中で過ごしてきた</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 曲のタイトルが出てくるコーラス。主語が少しずつ変わります。</p>
+        <p><strong class='text-[var(--c-text)]'>spend + 時間 + 〜ing</strong> は、「〜して時間を過ごす」という型です。ここでは、<em>spending most their lives living in 〜</em> と、<em>-ing</em> が続いています。</p>
+        <p><strong class='text-[var(--c-text)]'>most their lives</strong> は、<em>most of their lives</em> の <em>of</em> が落ちた形。口語では、<em>of</em> を省いて、短くすることがよくあります。</p>
+        <p>タイトルの <strong class='text-[var(--c-text)]'>gangsta's paradise</strong> は、「ギャングの楽園」。皮肉を込めて、楽園という言葉を使っています。</p>
+        <p>コーラスの2回目からは、主語が <em>They</em> から <em>We</em> に変わります。他人事ではなく、自分たちのこととして、語りが近づいてくる仕掛けです。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>spend + 時間 + 〜ing</strong>: <em>I spent the weekend cleaning.</em>（週末を掃除に費やした）。時間の使い方を言う、基本の型です。</p>
+          <p><em>most of 〜</em> の <em>of</em> を省く言い方は、<em>most people</em>（ほとんどの人）のように、名詞が直後に来るときに使われます。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="I can't live a normal life, I was raised by the street"
+        label="★ 受け身／文化"
+        mc="Coolio（Verse 2）"
+        t={TS["raised-by-the-street"].t} tApprox={TS["raised-by-the-street"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">I can't live a normal life, I was raised by the street</Fragment>
+        <Fragment slot="jpn">普通の暮らしはできない。俺は路上に育てられたんだ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の2行目。環境が人を作る、という語りです。</p>
+        <p><strong class='text-[var(--c-text)]'>was raised by 〜</strong> は、「〜に育てられた」という受け身です。普通は、<em>by my parents</em> のように、人が入る場所に、<em>the street</em> が入っています。</p>
+        <p><code>the street</code> は、単数の名詞で、「路上、ストリートという環境」。親ではなく、環境に育てられた、という強い言い方です。</p>
+        <p><strong class='text-[var(--c-text)]'>live a normal life</strong> は、「普通の生活を送る」。<em>live</em> に目的語を取る形で、「どんな暮らしを送るか」を言う型です。</p>
+        <p><code>can't live</code> と <code>was raised</code> で、現在の限界と、過去の原因を、続けて言っています。因果関係を、一行で説明する書き方です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>be raised by 〜</strong>: <em>I was raised by my grandmother.</em>（祖母に育てられた）。生い立ちを話すときの定番です。</p>
+          <p><em>live a 〜 life</em>: <em>live a happy life</em>（幸せな人生を送る）のように、形容詞を挟めます。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Too much television watchin' got me chasin' dreams"
+        label="★ 無生物主語／口語"
+        mc="Coolio（Verse 2）"
+        t={TS["got-me-chasin"].t} tApprox={TS["got-me-chasin"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 引用は省き、語の使い方を中心に解説します。</p>
+        <p><strong class='text-[var(--c-text)]'>Too much television watchin'</strong> は、動名詞を含む名詞句が、主語になっています。「テレビの見すぎ」が、原因を担う主語になる、英語に多い言い方です。</p>
+        <p><strong class='text-[var(--c-text)]'>got me chasin' dreams</strong> は、<em>got me + 〜ing</em> の形で、「〜させる、〜するはめになる」。<em>got</em> は、<em>made</em> に近い意味です。</p>
+        <p><strong class='text-[var(--c-text)]'>chase dreams</strong> は、夢を追いかける。<em>chase</em> は、追いかけるという意味の動詞です。</p>
+        <p>テレビの中の成功像を、現実に求めた結果、今に至った、という流れを、一行で語っています。理由と結果が、無生物主語で、きれいにつながっています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>get + 人 + 〜ing</strong>: <em>That song got me thinking.</em>（あの曲で考え込んだ）。<em>get</em> は、「〜させる」という意味でも使えます。</p>
+          <p><em>Too much 〜 can 〜</em> の形は、「〜すぎると〜になる」という、因果の一般論でも使えます。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="I'm a educated fool with money on my mind 矛盾した語の組み合わせ"
+        label="★ 撞着語法／口語"
+        mc="Coolio（Verse 2）"
+        t={TS["educated-fool"].t} tApprox={TS["educated-fool"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">I'm a educated fool with money on my mind</Fragment>
+        <Fragment slot="jpn">俺は、教育を受けたバカ者で、頭の中は金のことでいっぱいだ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 対立する言葉を並べた、短い自己紹介です。</p>
+        <p><strong class='text-[var(--c-text)]'>educated fool</strong> は、「教養のあるバカ」という、矛盾する語を組み合わせた表現です。修辞学では、<strong class='text-[var(--c-text)]'>撞着語法</strong>（オクシモロン）と呼びます。</p>
+        <p>「楽園」と「ギャング」を組み合わせたタイトルと、同じ仕掛けです。曲全体に、対立する語を並べて、矛盾を描く姿勢があります。</p>
+        <p><code>a educated</code> の <em>a</em> は、母音で始まる語の前では <em>an</em> が標準ですが、口語では、そのまま <em>a</em> と言うことがよくあります。</p>
+        <p><strong class='text-[var(--c-text)]'>money on my mind</strong> は、「頭の中にお金のことがある」。<em>on one's mind</em> は、気にかかっている、という意味の決まり文句です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>on one's mind</strong>: <em>What's on your mind?</em>（何を考えているの？）。気がかりを聞く、定番の言い方です。</p>
+          <p><em>oxymoron</em> の例: <em>deafening silence</em>（耳をつんざく沈黙）、<em>jumbo shrimp</em>（巨大なエビ）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Death ain't nothin' but a heartbeat away"
+        label="★ 距離の表現／AAVE"
+        mc="Coolio（Verse 2）"
+        t={TS["heartbeat-away"].t} tApprox={TS["heartbeat-away"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Death ain't nothin' but a heartbeat away</Fragment>
+        <Fragment slot="jpn">死は、心臓ひと打ちの距離にすぎない</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 短く、重い一行。距離の言い方に注目です。</p>
+        <p><strong class='text-[var(--c-text)]'>a heartbeat away</strong> は、「心臓がひと打つほどの距離」という比喩です。<em>X away</em> で、「Xの距離にある」という言い方ができます。</p>
+        <p><code>ain't nothin' but 〜</code> は、「〜にすぎない」という、口語の言い回し。<em>nothing but 〜</em> は、「〜だけ」。</p>
+        <p><em>ain't</em> が付くと、より口語的になります。</p>
+        <p>ここでの二重否定のような形は、実は、<em>ain't nothing but</em> で、ひとつのまとまりです。意味は、肯定の「〜だけだ」になります。</p>
+        <p>死が、遠い出来事ではなく、すぐ隣にあるという感覚を、短い言葉で言い切っています。この曲の、もっとも静かな箇所のひとつです。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>X away</strong>: <em>The station is five minutes away.</em>（駅は5分の距離だ）。<em>a heartbeat away</em> のように、比喩にも広がります。</p>
+          <p><em>nothing but 〜</em>: <em>He did nothing but complain.</em>（文句ばかり言っていた）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="I'm twenty-three now, but will I live to see twenty-four?"
+        label="★ 構文／文脈"
+        mc="Coolio（Verse 2）"
+        t={TS["live-to-see-twenty-four"].t} tApprox={TS["live-to-see-twenty-four"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">I'm twenty-three now, but will I live to see twenty-four?</Fragment>
+        <Fragment slot="jpn">今は23歳だが、24歳まで生きて見られるだろうか</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 年齢を使った、直接的な問いです。</p>
+        <p><strong class='text-[var(--c-text)]'>live to see 〜</strong> は、「〜まで生きて、それを見る」という言い方です。<em>live to see the day</em> のように、長生きして何かを見届ける、という意味で使います。</p>
+        <p><code>but</code> で、現在の年齢と、未来への不安を対比させています。<code>will I 〜?</code> と、自分への問いの形にしているのも、効果的です。</p>
+        <p>この行は、このサイトで取り上げている「It Was a Good Day」にも、似た問いかけがあります。<em>Will I live another twenty-four?</em>（あと24時間、生きられるか）。</p>
+        <p>同じ時代のラップの、共通の不安として読めます。</p>
+        <p>年齢の言い方は、<em>twenty-three</em> と、数字を英語で言い切っています。年を数えることが、生き延びた時間を数えることになっています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>live to see 〜</strong>: <em>I hope to live to see my grandchildren.</em>（孫を見るまで生きたい）。</p>
+          <p><em>I'm twenty-three.</em> のように、年齢を言うときは、<em>years old</em> を省略するのが普通です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="why are we so blind to see / the ones we hurt are you and me"
+        label="★ 呼びかけ／構文"
+        mc="L.V.（Bridge）"
+        t={TS["blind-to-see"].t} tApprox={TS["blind-to-see"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Tell me, why are we so blind to see<br />That the ones we hurt are you and me?</Fragment>
+        <Fragment slot="jpn">教えて、どうして私たちはこんなにも見えていないのか。傷つけているのは、あなたと私なのに</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ ブリッジとアウトロで歌われる、曲のもうひとつの核です。</p>
+        <p><strong class='text-[var(--c-text)]'>so blind to see</strong> は、「見ることに対して、盲目である」という、不思議な言い方です。標準では、<em>so blind that we can't see</em> と言いますが、ここでは、短く圧縮されています。</p>
+        <p><strong class='text-[var(--c-text)]'>the ones we hurt</strong> は、「私たちが傷つけている人たち」。<em>the ones</em> は、<em>the people</em> の代わりで、関係代名詞の <em>that</em> が省略されています。</p>
+        <p><code>are you and me</code> という結びで、傷つけているのは、他人ではなく、まさに自分たち自身だ、という気づきが示されます。</p>
+        <p>ここで主語が <em>we</em> と <em>you and me</em> になっているのが大事です。それまでの <em>I</em> と <em>they</em> の語りから、共有された責任の語りへ、切り替わっています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>the ones + 関係節</strong>: <em>the ones I love</em>（私が愛している人たち）。<em>the people</em> と同じ意味で、関係代名詞を省略できます。</p>
+          <p><em>blind to 〜</em> は、「〜に気づかない」。このサイトの「The Message」の解説にも、同じ表現が出てきます。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Power and the money, money and the power 並べ替えの技法"
+        label="★ 修辞／反復"
+        mc="Coolio（Verse 3）"
+        t={TS["power-money-chiasmus"].t} tApprox={TS["power-money-chiasmus"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Power and the money, money and the power<br />Minute after minute, hour after hour</Fragment>
+        <Fragment slot="jpn">権力と金、金と権力。一分また一分、一時間また一時間</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3の頭。繰り返しと並べ替えで、勢いを作る2行です。</p>
+        <p><strong class='text-[var(--c-text)]'>Power and the money, money and the power</strong> は、2語を入れ替えて繰り返す、<strong class='text-[var(--c-text)]'>交差配列</strong>（キアスムス）という修辞の形です。権力と金が、互いを呼ぶ、という循環を、語順で見せています。</p>
+        <p><strong class='text-[var(--c-text)]'>X after X</strong> は、「X、またX」と、同じ語を繰り返して、時間の積み重なりを言う型です。<em>day after day</em>（毎日毎日）、<em>one after another</em>（次々と）などがあります。</p>
+        <p>聞こえとしては、同じ言葉の繰り返しですが、意味としては、止まらない追求を描いています。心理的な追い立てられ感を、語順の工夫で表現しています。</p>
+        <p>この2行は、Verse 3の入り口として、語り手の目が、個人から社会へ移ることを、示しています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>X after X</strong>: <em>step after step</em>、<em>year after year</em>。同じ名詞を繰り返して、連続を言う定番の型です。</p>
+          <p><em>chiasmus</em> の例: <em>Ask not what your country can do for you, ask what you can do for your country.</em> は、有名な例です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="It's goin' on in the kitchen, but I don't know what's cookin'"
+        label="★ 慣用句／比喩"
+        mc="Coolio（Verse 3）"
+        t={TS["whats-cookin"].t} tApprox={TS["whats-cookin"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 引用は省き、語の使い方を中心に解説します。</p>
+        <p><strong class='text-[var(--c-text)]'>What's cookin'?</strong> は、「何が起きているの？」という口語の慣用句です。もとは、「何を料理しているの？」という意味から来ています。</p>
+        <p>ここでは、その慣用句を、文字通りの台所の場面に重ねています。<em>in the kitchen</em> と <em>what's cookin'</em> で、比喩と字義が、同時に成立しています。</p>
+        <p><code>It's goin' on</code> は、<em>It's going on</em>（進行中だ）。何かが起きているのに、自分には何も分からない、という疎外感が、短い言葉で伝わります。</p>
+        <p>このあたりのバースは、周りの大人たちが、自分に何も教えてくれない、という不満へつながっていきます。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>What's cookin'?</strong>: <em>Hey, what's cookin'?</em>（やあ、何してるの？）。くだけた挨拶としても使われます。</p>
+          <p><em>go on</em> は、「起きる、続く」。<em>What's going on?</em>（何が起きているの？）は、頻出の表現です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="nobody's here to teach me / how can they reach me?"
+        label="★ 韻／比喩"
+        mc="Coolio（Verse 3）"
+        t={TS["teach-reach"].t} tApprox={TS["teach-reach"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">They say I got to learn, but nobody's here to teach me<br />If they can't understand it, how can they reach me?</Fragment>
+        <Fragment slot="jpn">学べと言われるが、教えてくれる人はここにいない。分かってもくれないなら、どうやって俺に届くというのか</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 周りの大人への不満が、一番はっきり出る2行です。</p>
+        <p><strong class='text-[var(--c-text)]'>teach</strong> と <strong class='text-[var(--c-text)]'>reach</strong> が、行末で韻を踏んでいます。意味は、教えることと、届くこと。</p>
+        <p>ふたつを並べて、「教える人がいなければ、届かない」という筋を作っています。</p>
+        <p><strong class='text-[var(--c-text)]'>reach me</strong> は、「私に届く、私の心に響く」。<em>reach</em> は、手を伸ばして届く、という意味から、人の心に届く、という意味にも広がります。</p>
+        <p><code>They say I got to learn</code> は、<em>they say (that) I have to learn</em>。<em>got to</em> が、<em>have to</em> と同じ意味で使われています。</p>
+        <p><code>how can they reach me?</code> は、反語の疑問文です。答えを求めているのではなく、「届くはずがない」と言っている形です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>reach + 人</strong>: <em>The message didn't reach him.</em>（メッセージは彼に届かなかった）。連絡や、心に届くことにも使います。</p>
+          <p><em>how can 〜?</em> の反語: <em>How can you say that?</em>（よくもそんなことが言えるな）。非難を含む使い方です。</p>
+        </Fragment>
+      </LearningUnit>
+    </section>
+
+    <section id="background" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        文化的背景
+      </h2>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">『Dangerous Minds』</p>
+        <h3 class="font-semibold text-base mb-3">映画の主題歌として生まれた曲</h3>
+        <div class="space-y-3 text-[var(--c-muted)] text-sm leading-relaxed">
+          <p>
+            「Gangsta's Paradise」は、1995年の映画『Dangerous Minds』のサウンドトラックのために作られた曲です。同年8月1日に、シングルとして発売されました。
+          </p>
+          <p>
+            映画は、荒れた地区の学校で、教師が生徒たちと向き合う物語です。曲の内容が、映画の舞台と重なる形で選ばれています。
+          </p>
+          <p>
+            ミュージックビデオは、アントワーン・フークワが監督し、映画の主演のミシェル・ファイファーも出演しています。
+          </p>
+        </div>
+      </div>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">聖書の言葉</p>
+        <h3 class="font-semibold text-base mb-3">詩篇23篇と、ストリートの語り</h3>
+        <div class="space-y-3 text-[var(--c-muted)] text-sm leading-relaxed">
+          <p>
+            最初の一行は、旧約聖書の詩篇23篇から取られています。聖書の言葉が、ストリートの暮らしを語る曲の入り口になっていることは、アメリカの黒人音楽の伝統とも結びついています。
+          </p>
+          <p>
+            ゴスペルやブルースの時代から、聖書の言葉は、苦しい生活の中で、生き方を語る言葉として歌われてきました。
+          </p>
+        </div>
+      </div>
+
+      <div class="p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">キーワード早見表</p>
+        <h3 class="font-semibold text-base mb-3">この曲で学んだ表現の整理</h3>
+        <div class="space-y-3 mt-3">
+          {[
+            ['the valley of the shadow of death', '詩篇23篇の一節。極めて危険な状況'],
+            ['ain\'t never', '一度もない。二重否定による強調'],
+            ['Me be treated 〜?', '主語 me の反語。「俺が？そんな扱いを？」'],
+            ['You better 〜', 'had better の短縮。強い助言・警告'],
+            ['spend + 時間 + 〜ing', '〜して時間を過ごす'],
+            ['got me + 〜ing', '〜するはめになる、〜させられる'],
+            ['educated fool', '矛盾する語を組み合わせた撞着語法'],
+            ['a heartbeat away', 'ほんのすぐそこにある'],
+            ['What\'s cookin\'?', '何が起きてる？ 台所の比喩の慣用句'],
+            ['the ones we hurt', '私たちが傷つけている人たち'],
+          ].map(([w, d]) => (
+            <div class="text-sm">
+              <span class="font-semibold text-[var(--c-text)]">{w}</span>
+              <span class="text-[var(--c-muted)]"> {d}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="behind" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        制作の裏側
+      </h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          「Gangsta's Paradise」は、Coolioと、プロデューサーのDoug Rasheedらが作った曲です。Stevie Wonderの1976年の曲「Pastime Paradise」の旋律を、組み替えて使っています。
+        </p>
+        <p>
+          Coolioのバースの語りと、L.V.のコーラスが、元の曲の旋律の上に重なる構成です。
+        </p>
+        <p>
+          元の曲「Pastime Paradise」も、タイトルに「楽園」を含む曲です。聴き比べると、同じ言葉が、まったく違う文脈で使われていることが分かります。
+        </p>
+        <p>
+          なお、この曲をもとにしたパロディ曲として、Weird Al Yankovicの「Amish Paradise」がよく知られています。
+        </p>
+      </div>
+    </section>
+
+    <section id="legacy" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        評価とその後
+      </h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          1995年8月に発売され、Billboard Hot 100で3週にわたって1位を記録しました。同年の年間で最も売れたシングルになったと報じられています。
+        </p>
+        <p>
+          英国のチャートでは、ラップのシングルとして、初登場で1位になったと伝えられています。
+        </p>
+        <p>
+          グラミー賞では、最優秀ラップ・ソロ・パフォーマンスを受賞しました。ミュージックビデオのYouTubeの再生回数は、20億回を超えたと報じられています。
+        </p>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        まとめ
+      </h2>
+      <ul class="space-y-2 text-sm text-[var(--c-muted)] list-disc list-inside leading-relaxed">
+        <li>「Gangsta's Paradise」は、聖書の引用で始まり、内省で終わる、静かな告白のような曲です。</li>
+        <li>ain't never、Me be treated、got me chasin'、a educatedなど、口語やAAVEの文法が、具体的な行で学べます。</li>
+        <li>educated fool、gangsta's paradiseのように、矛盾する語を組み合わせた撞着語法が、曲全体の語り口になっています。</li>
+        <li>power and the money, money and the powerは、語順を入れ替える交差配列。修辞の技法を学ぶ素材にもなります。</li>
+        <li>「Tell me, why are we so blind to see」の問いかけは、主語が I から we に変わる、曲の最後の仕掛けです。</li>
+      </ul>
+    </section>
+
+</SongLayout>

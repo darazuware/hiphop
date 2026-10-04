@@ -1,0 +1,268 @@
+[
+  {
+    "id": "out-that-brooklyn-tribeca",
+    "anchor": [
+      "i'm",
+      "out",
+      "that",
+      "brooklyn",
+      "now",
+      "i'm",
+      "down",
+      "in",
+      "tribeca"
+    ],
+    "fallbackT": 17,
+    "manualSec": null,
+    "captionSec": 10
+  },
+  {
+    "id": "hood-forever",
+    "anchor": [
+      "right",
+      "next",
+      "to",
+      "de",
+      "niro"
+    ],
+    "fallbackT": 21,
+    "manualSec": null,
+    "captionSec": 13
+  },
+  {
+    "id": "new-sinatra-make-it-anywhere",
+    "anchor": [
+      "i'm",
+      "the",
+      "new",
+      "sinatra"
+    ],
+    "fallbackT": 24,
+    "manualSec": null,
+    "captionSec": 13
+  },
+  {
+    "id": "bed-stuy-biggie",
+    "anchor": [
+      "me",
+      "i'm",
+      "out",
+      "that",
+      "bed-stuy"
+    ],
+    "fallbackT": 40,
+    "manualSec": null,
+    "captionSec": 38
+  },
+  {
+    "id": "live-on-billboard",
+    "anchor": [
+      "now",
+      "i",
+      "live",
+      "on",
+      "billboard"
+    ],
+    "fallbackT": 44,
+    "manualSec": null,
+    "captionSec": 41
+  },
+  {
+    "id": "concrete-jungle",
+    "anchor": [
+      "concrete",
+      "jungle",
+      "where",
+      "dreams",
+      "are",
+      "made",
+      "of"
+    ],
+    "fallbackT": 55,
+    "manualSec": null,
+    "captionSec": 58
+  },
+  {
+    "id": "brand-new-inspire",
+    "anchor": [
+      "these",
+      "streets",
+      "will",
+      "make",
+      "you",
+      "feel",
+      "brand-new"
+    ],
+    "fallbackT": 62,
+    "manualSec": null,
+    "captionSec": 69
+  },
+  {
+    "id": "lets-hear-it",
+    "anchor": [
+      "let's",
+      "hear",
+      "it",
+      "for",
+      "new",
+      "york"
+    ],
+    "fallbackT": 69,
+    "manualSec": null,
+    "captionSec": 76
+  },
+  {
+    "id": "the-x-yankee-game",
+    "anchor": [
+      "catch",
+      "me",
+      "at",
+      "the",
+      "x",
+      "with",
+      "og"
+    ],
+    "fallbackT": 85,
+    "manualSec": null,
+    "captionSec": 82
+  },
+  {
+    "id": "yankee-hat-famous",
+    "anchor": [
+      "shit",
+      "i",
+      "made",
+      "the",
+      "yankee",
+      "hat"
+    ],
+    "fallbackT": 90,
+    "manualSec": null,
+    "captionSec": 85
+  },
+  {
+    "id": "home-of-hip-hop",
+    "anchor": [
+      "afrika",
+      "bambaataa",
+      "shit",
+      "home",
+      "of",
+      "the",
+      "hip-hop"
+    ],
+    "fallbackT": 99,
+    "manualSec": null,
+    "captionSec": 96
+  },
+  {
+    "id": "yellow-gypsy-dollar-cab",
+    "anchor": [
+      "yellow",
+      "cab",
+      "gypsy",
+      "cab",
+      "dollar",
+      "cab",
+      "holla",
+      "back"
+    ],
+    "fallbackT": 105,
+    "manualSec": null,
+    "captionSec": 99
+  },
+  {
+    "id": "eight-million-stories",
+    "anchor": [
+      "eight",
+      "million",
+      "stories",
+      "out",
+      "there",
+      "in",
+      "the",
+      "naked"
+    ],
+    "fallbackT": 114,
+    "manualSec": null,
+    "captionSec": 104
+  },
+  {
+    "id": "three-dice-cee-lo",
+    "anchor": [
+      "three",
+      "dice",
+      "cee-lo",
+      "three",
+      "card",
+      "monte"
+    ],
+    "fallbackT": 130,
+    "manualSec": null,
+    "captionSec": 115
+  },
+  {
+    "id": "labor-day-parade",
+    "anchor": [
+      "labor",
+      "day",
+      "parade",
+      "rest",
+      "in",
+      "peace",
+      "bob",
+      "marley"
+    ],
+    "fallbackT": 134,
+    "manualSec": null,
+    "captionSec": 118
+  },
+  {
+    "id": "blinding-blinders",
+    "anchor": [
+      "lights",
+      "is",
+      "blinding",
+      "girls",
+      "need",
+      "blinders"
+    ],
+    "fallbackT": 149,
+    "manualSec": null,
+    "captionSec": 145
+  },
+  {
+    "id": "city-never-sleeps",
+    "anchor": [
+      "came",
+      "here",
+      "for",
+      "school",
+      "graduated",
+      "to",
+      "the",
+      "high",
+      "life"
+    ],
+    "fallbackT": 195,
+    "manualSec": null,
+    "captionSec": 188
+  },
+  {
+    "id": "lighters-in-the-air",
+    "anchor": [
+      "one",
+      "hand",
+      "in",
+      "the",
+      "air",
+      "for",
+      "the",
+      "big",
+      "city"
+    ],
+    "fallbackT": 218,
+    "manualSec": null,
+    "captionSec": 227
+  }
+]

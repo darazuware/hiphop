@@ -1,0 +1,671 @@
+---
+import LearningUnit from '../../components/LearningUnit.astro';
+import QuickSlang from '../../components/QuickSlang.astro';
+import SongLayout from '../../layouts/SongLayout.astro';
+
+import tsData from '../../../agent/juicy/assets/units-timestamps.json';
+const YT = "_JZom_gVfuw";
+const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.approx }]));
+---
+
+<SongLayout
+  title="Juicy 和訳・意味・スラング解説 | The Notorious B.I.G."
+  description="The Notorious B.I.G.「Juicy」を英語学習とヒップホップ理解の教材として精読。double negative、dis、blow up、indoなどのスラングと、80年代NYの固有名詞（Word Up!、Rap Attack、Robin Leach）をPV頭出し付きで解説。"
+  slug="juicy"
+  learningPage={true}
+  songDuration={253}
+  highlights={[
+    '貧しかった頃と成功後を、固有名詞と生活の細部で対比させる構成',
+    'never amount to nothin\'（二重否定）、dissed、play me close など、教科書に出ない口語の宝庫',
+    'Word Up!、Rap Attack、Robin Leach、The Source。80年代NYの文化を知る手がかりになる固有名詞',
+  ]}
+  youtubeId="_JZom_gVfuw"
+  sampleYoutubeId="EYE5QEBOMA8"
+  sampleTitle="Mtume - Juicy Fruit"
+>
+
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■この曲で何を学べるか</h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          「It was all a dream」。夢みたいだった、という一行から始まる、ラップ史上いちばん有名な成り上がりの曲だと思っています。
+        </p>
+        <p>
+          1994年8月にシングルが出て、翌月のデビューアルバム『Ready to Die』に収められました。
+        </p>
+        <p>
+          Biggieが語るのは、金持ちになった自慢だけではありません。雑誌を切り抜いて壁に貼っていた少年時代、いわゆる「何もなかった頃」と、今の暮らしを、同じ強さで並べます。
+        </p>
+        <p>
+          英語の教材として見ると、固有名詞（雑誌、ラジオ番組、ブランド）、スラング、そして教科書では減点される二重否定のような口語文法が、きれいに入っています。
+        </p>
+      </div>
+    </section>
+
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■この曲の英語は「過去と今」の対比でできている</h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          Verse 1は「昔、夢見ていたこと」、Verse 2は「今のぜいたくな生活」、Verse 3は「家族が貧しかった頃と、今の暮らしの落差」と、時間軸で整理できます。
+        </p>
+        <p>
+          used to と now、was と 'm の使い分けを追うだけで、時制の勉強にもなります。
+        </p>
+        <p>
+          しかも、ひとつひとつの行が短くて、固有名詞が多い。ひとつずつ拾っていくと、1990年代のニューヨークの景色が、文字通り見えてきます。
+        </p>
+      </div>
+    </section>
+
+    <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
+      <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
+        <li><a href="#story" class="hover:text-[var(--c-gold)] transition-colors">01 ストーリーの流れ（まず曲全体をつかむ）</a></li>
+        <li><a href="#units" class="hover:text-[var(--c-gold)] transition-colors">02 学ぶ表現（スラング・韻・言葉遊び・AAVE）</a></li>
+        <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">03 文化的背景</a></li>
+        <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">04 制作の裏側</a></li>
+        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">05 評価とその後</a></li>
+      </ol>
+    </nav>
+
+    <section id="story" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        ストーリーの流れ（まず曲全体をつかむ）
+      </h2>
+      <p class="text-xs text-[var(--c-dim)] mb-5">
+        曲は、過去から今へ、時間が進む構成です。バースごとに、何を見せたいのかを先に押さえます。
+      </p>
+      <div class="space-y-4 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          <strong class='text-[var(--c-text)]'>Intro</strong>は、先生や近所の人たちへの献辞です。「おまえは何者にもなれない」と言われた過去を、先に出して、曲の主題を置きます。
+        </p>
+        <p>
+          <strong class='text-[var(--c-text)]'>Verse 1</strong>は、少年時代の話です。雑誌を読み、ラジオに耳をすませ、カセットが擦り切れるまで聴いていた頃のこと。
+        </p>
+        <p>
+          そこから「今はスポットライトの下にいる」と現在に切り替わります。
+        </p>
+        <p>
+          <strong class='text-[var(--c-text)]'>Hook</strong>は、Totalのコーラスが歌う「Reach for the stars」の4行。曲の核になるメッセージを、シンプルな言葉で繰り返します。
+        </p>
+        <p>
+          <strong class='text-[var(--c-text)]'>Verse 2</strong>は、成功後の生活です。有名人の番組に出るような世界に上がり、女性たちの態度が変わり、寝る場所も、食事も変わる。
+        </p>
+        <p>
+          <strong class='text-[var(--c-text)]'>Verse 3</strong>は、家族の話に降りてきます。暖房のない家、誕生日がつらかった日々。
+        </p>
+        <p>
+          そのうえで、今の母親の暮らしを見せて、「ネガティブからポジティブへ」と締めます。
+        </p>
+        <p>
+          最後はポストコーラスで、ブルックリンとBad Boyの仲間たちの名前を呼び、アウトロへ。
+        </p>
+        <p class="text-xs text-[var(--c-dim)]">
+          ※本ページは批評・教育目的で、解説に必要な範囲の断片のみを引用しています。全歌詞の対訳は掲載していません。
+        </p>
+      </div>
+    </section>
+
+    <div id="units"></div>
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        学ぶ表現（スラング・韻・言葉遊び・AAVE）
+      </h2>
+      <div class="space-y-3 text-xs text-[var(--c-dim)] mb-6">
+        <p>ここから先は、1行ずつ拾っていく章です。上に短い用例を置き、その下で意味と使い方を日本語で説明します。</p>
+        <p>固有名詞やブランド名のunitは、行を引かずに背景だけを書いています。▶を押すと、PVの該当箇所から再生できます。</p>
+      </div>
+
+      <LearningUnit
+        heading="never amount to nothin' 二重否定は、強調として働く"
+        label="★ AAVE／口語文法"
+        mc="Biggie（Intro）"
+        t={TS["never-amount-nothin"].t} tApprox={TS["never-amount-nothin"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">To all the teachers that told me I'd never amount to nothin'</Fragment>
+        <Fragment slot="jpn">おまえは何者にもなれないと言った先生たちへ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ アルバム冒頭の献辞。二重否定の定番例です。</p>
+        <p>行末の <strong class='text-[var(--c-text)]'>never amount to nothin'</strong> に注目です。<code>never</code> と <code>nothin'</code> で、否定語が2つ入っています。</p>
+        <p>学校英語では、否定を2つ重ねると肯定になる、と習います。ただ、口語やAAVE（アフリカ系アメリカ人英語）では、重ねた否定は「強く否定する」という強調として働きます。</p>
+        <p><strong class='text-[var(--c-text)]'>amount to 〜</strong> は、「結果として〜になる、〜に相当する」という意味の句動詞。<em>amount to nothing</em> で「何者にもならない、無に帰する」です。</p>
+        <p>教師への献辞として読むと、「何者でもない」と言った人たちに、結果を見せるという意味が、この一行に詰まっています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>double negative</strong>: <em>I ain't got no money.</em> は、「お金が全くない」という強調。二重否定は誤りではなく、方言の規則的な文法です。</p>
+          <p><em>amount to</em> は、<em>His efforts didn't amount to much.</em>（努力はあまり実らなかった）のように、結果を表すときに使います。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="It was all a dream、used to read Word Up! 少年時代の語り"
+        label="★ 構文／固有名詞"
+        mc="Biggie（Verse 1）"
+        t={TS["all-a-dream"].t} tApprox={TS["all-a-dream"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">It was all a dream, I used to read Word Up! magazine</Fragment>
+        <Fragment slot="jpn">全部夢だった、俺はWord Up!誌を読んでたんだ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の1行目。曲全体の語り口を決める一行です。</p>
+        <p>出だしの <strong class='text-[var(--c-text)]'>It was all a dream</strong> は、過去形で「全部、夢のようだった」と語り始める一行です。</p>
+        <p>次にある <strong class='text-[var(--c-text)]'>used to 〜</strong> は、「かつては〜していた」。今は違う、という含みがあります。</p>
+        <p>この曲では、used to が、過去と現在の対比のスイッチになっています。</p>
+        <p><strong class='text-[var(--c-text)]'>Word Up!</strong> は、ヒップホップやR&Bのスターを載せていたアメリカのティーン向け雑誌です。ポスターを切り取って壁に貼る、そんな読み方をされていました。</p>
+        <p>固有名詞の雑誌を出すことで、聞き手は、少年が部屋の壁を見ている画を思い浮かべます。細部を一つ出すだけで、場面が立ち上がる例です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>used to + 動詞</strong>: <em>I used to live in Brooklyn.</em>（昔はブルックリンに住んでいた）。今は違う、という含みを持ちます。</p>
+          <p><em>It was all a dream.</em> は、実際の出来事を「夢のようだ」と振り返る定番の言い方です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Rap Attack、Mr. Magic、Marley Marl、tape popped"
+        label="★ 文化／固有名詞"
+        mc="Biggie（Verse 1）"
+        t={TS["rap-attack"].t} tApprox={TS["rap-attack"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Every Saturday Rap Attack, Mr. Magic, Marley Marl</Fragment>
+        <Fragment slot="jpn">毎週土曜のRap Attack、Mr. Magic、Marley Marl</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ ラジオ番組と出演者の名前。引用を1行にとどめ、背景を中心に解説します。</p>
+        <p><strong class='text-[var(--c-text)]'>Rap Attack</strong> は、ニューヨークのラジオで放送されていたヒップホップ番組です。Mr. MagicとMarley Marlが担当していて、当時の若者が新曲を聴く場所のひとつでした。</p>
+        <p>この行に出てくる3つの固有名詞は、どれも当時のラジオ文化を指します。説明は付いていませんが、同じ世代なら、その名前だけで場面が伝わります。</p>
+        <p>続く行の <strong class='text-[var(--c-text)]'>tape popped</strong> は、カセットテープが切れる、もしくは擦り切れること。録音した曲を何度も再生して、テープが傷むまで聴き込んだ、という描写です。</p>
+        <p>ラジオから録音して、何度も巻き戻す。サブスクとは違う聴き方の時代の話です。</p>
+        <Fragment slot="usage">
+          <p><em>rock</em> には「揺らす」のほか、「音楽を鳴らす、再生する」という使い方があります。<em>let my tape rock</em> は、テープを鳴らし続ける、の意味。</p>
+          <p><em>pop</em> は「ぷつんと切れる」。<em>The string popped.</em>（弦が切れた）のように使います。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Bambú、Private Stock 固有名詞が生活を描く"
+        label="★ 固有名詞"
+        mc="Biggie（Verse 1）"
+        t={TS["bambu-brands"].t} tApprox={TS["bambu-brands"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p>この行は、引用を省いて、語の背景だけで解説します（▶で該当箇所に飛べます）。</p>
+        <p><strong class='text-[var(--c-text)]'>Bambú</strong> は、マリファナを巻くための巻き紙のブランド名です。商品名がそのまま、当時のストリートの習慣を指しています。</p>
+        <p><strong class='text-[var(--c-text)]'>Private Stock</strong> は、酒の銘柄の名前として出てきます。ブランド名を並べると、聞き手は、その人の生活圏が見えてきます。</p>
+        <p>ヒップホップは、固有名詞を説明しないまま並べる文化です。読み解く側は、一つずつ調べることで、歌詞の背景を学べます。</p>
+        <Fragment slot="usage">
+          <p><em>smoke weed</em> は、マリファナを吸うこと。<em>sip on 〜</em> は「〜をちびちび飲む」。</p>
+          <p>ゆったりした描写にぴったりの動詞です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="in the limelight 'cause I rhyme tight 慣用句と韻"
+        label="★ 慣用句／韻"
+        mc="Biggie（Verse 1）"
+        t={TS["limelight-tight"].t} tApprox={TS["limelight-tight"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Now I'm in the limelight 'cause I rhyme tight</Fragment>
+        <Fragment slot="jpn">今はスポットライトの中にいる、ライムがタイトだから</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 少年時代の語りから、現在に切り替わる転換点です。</p>
+        <p><strong class='text-[var(--c-text)]'>in the limelight</strong> は、「脚光を浴びて、注目の的になって」という意味の慣用句です。もとは舞台照明（ライムライト）の名前から来ています。</p>
+        <p><strong class='text-[var(--c-text)]'>rhyme tight</strong> は、韻を締めて、きれいに踏むという意味。<code>tight</code> は、ここでは「引き締まっている、完成度が高い」と褒める言い方です。</p>
+        <p><code>limelight</code> と <code>tight</code> で、内側の音も整えています。語りの切り替わりで、ラップ自体の技を見せる行です。</p>
+        <p>この行を境に、動詞が <em>used to</em> から現在形に変わります。時制の使い分けを追うと、構造がよく見えます。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>in the limelight</strong>: <em>She loves being in the limelight.</em>（彼女は注目されるのが好きだ）。反対は <em>out of the limelight</em>。</p>
+          <p><em>tight</em> は、ラップでは「無駄がなくて巧い」の意味でよく使われます。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Born sinner、opposite of a winner、sardines for dinner"
+        label="★ 韻／対比"
+        mc="Biggie（Verse 1）"
+        t={TS["sardines-dinner"].t} tApprox={TS["sardines-dinner"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Born sinner, the opposite of a winner<br />Remember when I used to eat sardines for dinner</Fragment>
+        <Fragment slot="jpn">生まれながらの罪人、勝者の正反対。夕食にイワシの缶詰を食べてた頃を覚えてるか</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 対比と韻の組み立てが読みやすい2行です。</p>
+        <p><strong class='text-[var(--c-text)]'>sinner</strong>、<strong class='text-[var(--c-text)]'>winner</strong>、<strong class='text-[var(--c-text)]'>dinner</strong>。3つの語が、同じ響きで並んでいます。</p>
+        <p>意味の面では、<code>sinner</code> と <code>winner</code> が正反対の語として並べられています。罪人であることと、勝者であることを、同じ人の中に置いています。</p>
+        <p><strong class='text-[var(--c-text)]'>sardines for dinner</strong> は、イワシの缶詰を夕食にしていた、という貧しさの描写です。缶詰は、安くて日持ちする食べ物の象徴として出てきます。</p>
+        <p><code>Remember when 〜</code> は、「〜のときを覚えてるか」と聞き手に語りかける形です。過去の貧しさを、聞き手と共有する言い方になっています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>Remember when + 過去の文</strong>: <em>Remember when we met?</em>（出会った頃を覚えてる？）。懐かしさを共有する定番の言い方です。</p>
+          <p><em>the opposite of 〜</em> は「〜の正反対」。<em>He's the opposite of his brother.</em> のように使います。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Peace to Ron G, Brucie B, Kid Capri… DJへのシャウトアウト"
+        label="★ 文化／シャウトアウト"
+        mc="Biggie（Verse 1）"
+        t={TS["dj-shoutouts"].t} tApprox={TS["dj-shoutouts"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Peace to Ron G, Brucie B, Kid Capri<br />Funkmaster Flex, Lovebug Starski</Fragment>
+        <Fragment slot="jpn">Ron G、Brucie B、Kid Capri、Funkmaster Flex、Lovebug Starskiに平和を</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ ニューヨークのDJの名前が並ぶ2行。</p>
+        <p>この2行は、ニューヨークのDJたちの名前を呼ぶ、<strong class='text-[var(--c-text)]'>シャウトアウト</strong>（感謝や敬意を名前で示すこと）です。</p>
+        <p><code>Peace to 〜</code> は、「〜によろしく、〜に敬意を」くらいの挨拶。ヒップホップでは、地元のDJやラジオを担う人たちに、曲の中で名前を出して敬意を示す文化があります。</p>
+        <p>ここに並んでいるのは、ミックステープを作る人、ラジオの司会、クラブのDJといった、ヒップホップを広めた現場の人たちです。</p>
+        <p>ラッパーが成功するには、まず現場のDJに曲を回してもらう必要がありました。この2行は、その事実を、感謝の形で書き込んでいます。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>Peace to 〜</strong> は、手紙やラジオ放送の挨拶の延長のような、気軽な呼びかけです。</p>
+          <p><em>shout-out</em> は、名前を呼んで感謝や紹介をすること。SNSの投稿でも普通に使われています。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="same number, same hood, it's all good 近況の言い方"
+        label="★ スラング／口語"
+        mc="Biggie（Verse 1）"
+        t={TS["same-hood-all-good"].t} tApprox={TS["same-hood-all-good"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Call the crib, same number, same hood, it's all good</Fragment>
+        <Fragment slot="jpn">家に電話しろよ、番号は同じ、地元も同じ、問題ない</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 成功しても、地元は変わらないという宣言です。</p>
+        <p><strong class='text-[var(--c-text)]'>crib</strong> は、家、住まいのスラングです。もとは赤ちゃん用のベッドのことで、ヒップホップでは「自分の寝床、自分の家」という意味で使われています。</p>
+        <p><strong class='text-[var(--c-text)]'>hood</strong> は、<em>neighborhood</em> の短縮で、「地元、住んでいる地域」。<code>same hood</code> は、成功しても引っ越していない、という意味合いです。</p>
+        <p>そして、曲の合言葉になる <strong class='text-[var(--c-text)]'>it's all good</strong>。直訳は「全部いい」ですが、「問題ない、うまくいっている」の意味で、この曲の合言葉として繰り返され、日常会話でもよく使う言い回しです。</p>
+        <p>電話番号が同じで、住む場所も同じ。成功を自慢するより、変わらない部分を見せているのが、この行の語りです。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>It's all good.</strong>: 「大丈夫、気にしないで」。謝られたときの返事としても、日常会話で頻繁に使います。</p>
+          <p><em>crib</em> は、<em>MTV Cribs</em> という番組名でも有名になった語です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Don't let 'em hold you down / Reach for the stars フックの語法"
+        label="★ フック／語法"
+        mc="Total（Hook）"
+        t={TS["reach-for-stars"].t} tApprox={TS["reach-for-stars"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Don't let 'em hold you down<br />Reach for the stars</Fragment>
+        <Fragment slot="jpn">あいつらに足を引っ張らせるな、星に手を伸ばせ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Totalが歌うフック。励ましの命令形の型です。</p>
+        <p><strong class='text-[var(--c-text)]'>Don't let 'em hold you down</strong> の <code>'em</code> は、<em>them</em> の口語短縮形。<code>let 〜 + 動詞</code> で、「〜に（動詞）させる」という使役の形です。</p>
+        <p><strong class='text-[var(--c-text)]'>hold 〜 down</strong> は、「抑えつける、足を引っ張る」という意味の句動詞。<em>hold down</em> は、仕事や地位を維持するという意味でも使われる、意味の広い句動詞です。</p>
+        <p><strong class='text-[var(--c-text)]'>Reach for the stars</strong> は、「高い目標を持て」という定番の励ましです。<em>reach for 〜</em> は、物理的に手を伸ばす動作から来た表現です。</p>
+        <p>ラップのバースでは、具体的な固有名詞が続きます。ここだけ、誰にでも通じる短い命令文になるのが、フックの役割です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>Don't let + 目的語 + 動詞</strong>: <em>Don't let them stop you.</em>（邪魔をさせるな）。励ましの定番の型です。</p>
+          <p><em>Reach for the stars.</em> は、卒業式のスピーチやポスターにも出てくる、定番のフレーズです。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="common thief、up close and personal with Robin Leach"
+        label="★ 慣用句／固有名詞"
+        mc="Biggie（Verse 2）"
+        t={TS["robin-leach"].t} tApprox={TS["robin-leach"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">I made the change from a common thief<br />To up close and personal with Robin Leach</Fragment>
+        <Fragment slot="jpn">ただのコソ泥から、ロビン・リーチと直接会えるところまで来た</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の1行目。成功の落差の語りです。</p>
+        <p><strong class='text-[var(--c-text)]'>Robin Leach</strong> は、アメリカのテレビ番組『Lifestyles of the Rich and Famous』（金持ちと有名人のライフスタイル）の司会者でした。</p>
+        <p>大金持ちの豪邸や生活を見せる番組なので、<code>up close and personal with Robin Leach</code> は、ぜいたくな世界に足を踏み入れたことを意味します。</p>
+        <p><strong class='text-[var(--c-text)]'>up close and personal</strong> は、本来は「近くで、個人的に」という意味の慣用句です。有名人にインタビューするときの、決まり文句としても使われます。</p>
+        <p><code>common thief</code> は、ありふれた泥棒。ここでの <code>common</code> は「普通の、平凡な」で、成功前の自分を、普通の人間として書いています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>make the change from A to B</strong> は、「AからBへ移る」。<em>I made the change from city life to country life.</em> のように使います。</p>
+          <p><em>up close and personal</em> は、テレビのインタビュー番組の副題でもよく見かけます。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="skunk、peeps、spread love, it's the Brooklyn way"
+        label="★ スラング"
+        mc="Biggie（Verse 2）"
+        t={TS["skunk-peeps"].t} tApprox={TS["skunk-peeps"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">I smoke skunk with my peeps all day<br />Spread love, it's the Brooklyn way</Fragment>
+        <Fragment slot="jpn">仲間と一日中スカンクをふかす。愛を広めるのがブルックリン流だ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ ブルックリンという地元への誇りの行です。</p>
+        <p><strong class='text-[var(--c-text)]'>skunk</strong> は、ここでは強いにおいがする質の良いマリファナの種類のことです。スカンクのような臭いが語源です。</p>
+        <p><strong class='text-[var(--c-text)]'>peeps</strong> は、<em>people</em> の短縮で、「仲間、友達」。<em>my peeps</em> は、友達や身内をまとめて呼ぶ言い方になります。</p>
+        <p><strong class='text-[var(--c-text)]'>Spread love, it's the Brooklyn way</strong> は、ブルックリンの流儀として、愛を広めると言っています。物騒なイメージのある地元を、温かいものとして語り直している一行です。</p>
+        <p><code>the Brooklyn way</code> のように、<code>the + 地名 + way</code> で「その土地流のやり方」を言い表せます。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>the 〇〇 way</strong>: <em>That's the New York way.</em>（それがニューヨーク流だ）。土地や人のやり方を示す言い方です。</p>
+          <p><em>spread love</em> は、<em>spread the word</em>（広める）と同じ型の、動詞＋名詞の組み合わせです。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="girls used to diss me / they write letters 'cause they miss me"
+        label="★ スラング／韻"
+        mc="Biggie（Verse 2）"
+        t={TS["diss-miss"].t} tApprox={TS["diss-miss"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Girls used to diss me<br />Now they write letters 'cause they miss me</Fragment>
+        <Fragment slot="jpn">前は女の子にバカにされてた、今は会いたくて手紙を書いてくる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ ここでも used to と now の対比が使われています。</p>
+        <p><strong class='text-[var(--c-text)]'>diss</strong> は、<em>disrespect</em>（無礼にふるまう、見下す）の短縮形。ヒップホップから広まって、一般の英語にも定着した語です。</p>
+        <p><code>diss</code> と <code>miss</code> が行末で韻を踏んでいます。意味も、見下されていた過去と、恋しがられる現在の対比になっています。</p>
+        <p>ここでも <em>used to 〜</em> と <em>now</em> が対で使われています。この曲は、used to と now の対比がずっと貫かれています。</p>
+        <p><code>write letters</code> という行動が、また時代を感じさせます。今ならメッセージを送る場面ですが、1994年なら、手紙でした。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>diss</strong>: <em>Don't diss my friends.</em>（友達をバカにするな）。名詞では <em>diss track</em>（相手を攻撃する曲）にも使います。</p>
+          <p><em>miss</em> には、「会えなくて寂しい」と「逃す」の2つの意味があります。ここでは前者です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="packing gats and stuff、be used to 〜ing"
+        label="★ スラング／語法"
+        mc="Biggie（Verse 2）"
+        t={TS["packing-gats"].t} tApprox={TS["packing-gats"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">I was too used to packing gats and stuff</Fragment>
+        <Fragment slot="jpn">銃を持ち歩くのに慣れすぎてたんだ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 過去の危険な生活を、軽い口調で語る行です。</p>
+        <p><strong class='text-[var(--c-text)]'>pack</strong> は、銃などを携帯するという意味のスラング。<strong class='text-[var(--c-text)]'>gat</strong> は銃のことで、ガトリング銃（Gatling gun）の短縮が語源といわれます。</p>
+        <p>ここで押さえたいのは、<strong class='text-[var(--c-text)]'>be used to 〜ing</strong>。「〜することに慣れている」。</p>
+        <p>前に見た <em>used to + 動詞</em>（昔は〜した）とは、形が似ていて意味が違います。</p>
+        <p><code>too used to</code> と、<code>too</code> を付けて、慣れすぎていた、という自嘲を込めています。</p>
+        <p><code>and stuff</code> は、「〜とか」という口語のぼかしです。重い内容を、軽い口調で言い切る話し方が、Biggieのフロウの特徴です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>be used to + 動詞ing</strong>: <em>I'm used to waking up early.</em>（早起きに慣れている）。<em>used to + 動詞</em> と混同しやすいので注意が必要です。</p>
+          <p><em>and stuff</em> は、<em>and things like that</em> と同じ意味で、文末に置いて語尾をぼかします。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="honeys play me close like butter play toast 直喩とAAVE文法"
+        label="★ 直喩／AAVE"
+        mc="Biggie（Verse 2）"
+        t={TS["butter-toast"].t} tApprox={TS["butter-toast"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Now honeys play me close like butter play toast</Fragment>
+        <Fragment slot="jpn">今じゃ女の子たちは、バターがトーストに寄り添うみたいに近づいてくる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 直喩の比較対象と、三人称の動詞に注目です。</p>
+        <p><strong class='text-[var(--c-text)]'>honeys</strong> は、女性を指す口語。ここでは、魅力的な女性たちの意味です。</p>
+        <p><strong class='text-[var(--c-text)]'>play me close</strong> は、そばについて離れない、ぴったり寄り添う、という動詞句です。</p>
+        <p>比較の <strong class='text-[var(--c-text)]'>like butter play toast</strong> は、バターがトーストに染みこむように、という直喩です。生活の小道具で例えるところが、Biggieらしい語りです。</p>
+        <p>文法の面では、<code>butter play toast</code> の動詞が、<em>plays</em> ではなく <em>play</em> のままになっています。AAVEでは、三人称単数の -s が付かない用法がよく見られます。</p>
+        <p>標準英語に直せば <em>like butter plays toast</em> ですが、リズムの上で <code>play</code> が2回続くほうが、音として気持ちよくなっています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>like A does B</strong>: 直喩で、「AがBをするように」。<em>He runs like the wind.</em> のような型です。</p>
+          <p>AAVEの <strong class='text-[var(--c-text)]'>三人称単数の -s 脱落</strong> は、誤りではなく、方言の規則的な特徴です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Condos in Queens, indo for weeks 名詞だけで並べる豊かさ"
+        label="★ スラング／語彙"
+        mc="Biggie（Verse 2）"
+        t={TS["condos-indo"].t} tApprox={TS["condos-indo"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Condos in Queens, indo for weeks</Fragment>
+        <Fragment slot="jpn">クイーンズにコンドミニアム、何週間分あるかわからないインドゥ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 動詞なしで並べるタイプの行です。</p>
+        <p>この行は、動詞がありません。<strong class='text-[var(--c-text)]'>名詞を並べるだけ</strong>で、持ち物の豊かさを見せています。</p>
+        <p><strong class='text-[var(--c-text)]'>condos</strong> は、分譲マンション（condominium）。<strong class='text-[var(--c-text)]'>indo</strong> は、室内栽培（indoor）で育てられた、質の高いマリファナを指すスラングです。</p>
+        <p><code>for weeks</code> は、何週間分もある、の意味。物の量を、時間の長さで言い表す言い方です。</p>
+        <p><code>Queens</code> は、ニューヨークの地区名です。Biggie自身はブルックリンの人なので、ほかの地区に物件を持っている、という点も、成功の描写に含まれています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>for + 期間</strong> は、「〜の間」という基本の前置詞ですが、<em>enough for weeks</em>（何週間分もある）のように、量の表現にも使えます。</p>
+          <p><em>indo</em> は、<em>indoor</em> が縮まった言葉。栽培環境から来た名前です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Considered a fool 'cause I dropped out of high school"
+        label="★ 句動詞／社会"
+        mc="Biggie（Verse 2）"
+        t={TS["dropped-out"].t} tApprox={TS["dropped-out"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Considered a fool 'cause I dropped out of high school<br />Stereotypes of a black male misunderstood</Fragment>
+        <Fragment slot="jpn">高校を中退したから、バカだと思われてる。誤解された黒人男性のステレオタイプだ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 成功の自慢から、社会のまなざしに話が切り替わる2行です。</p>
+        <p><strong class='text-[var(--c-text)]'>dropped out of 〜</strong> は、「〜を中退する」という句動詞です。<em>drop out</em> は、学校だけでなく、レースや計画から降りる意味でも使えます。</p>
+        <p><code>Considered a fool</code> は、<em>I am considered a fool</em> の主語と be動詞が省略された形。<code>be considered 〜</code> で、「〜だと見なされる」という受け身の表現です。</p>
+        <p>次の行の <strong class='text-[var(--c-text)]'>stereotypes</strong> は、固定観念。ここでは、黒人男性に対して世の中が持つ、一方的な見方を指しています。</p>
+        <p>自慢話の途中で、突然、社会のまなざしの話が挟まる。この曲が、ただの成金ソングで終わらない理由のひとつです。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>be considered + 名詞/形容詞</strong>: <em>He is considered a genius.</em>（彼は天才だとみなされている）。</p>
+          <p><em>drop out</em> は、<em>dropout</em> と名詞にもなります。中退者、という意味です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Super Nintendo, Sega Genesis / dead broke 時代を示す固有名詞"
+        label="★ スラング／固有名詞"
+        mc="Biggie（Verse 3）"
+        t={TS["dead-broke"].t} tApprox={TS["dead-broke"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">When I was dead broke, man, I couldn't picture this</Fragment>
+        <Fragment slot="jpn">完全に金がなかった頃は、こんな暮らしは想像もできなかった</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 行の最初は固有名詞のゲーム機。引用するのは2行目です。</p>
+        <p>Verse 3の頭で、<strong class='text-[var(--c-text)]'>Super Nintendo</strong> と <strong class='text-[var(--c-text)]'>Sega Genesis</strong> という、1990年代前半の家庭用ゲーム機の名前が出てきます。</p>
+        <p>ぜいたくな持ち物の例として、当時の最新ゲーム機が挙げられています。時代の空気が、固有名詞で伝わってきます。</p>
+        <p><strong class='text-[var(--c-text)]'>dead broke</strong> は、一文無しの強調形。<code>dead</code> は、ここでは「完全に」という強調の副詞です。</p>
+        <p><code>couldn't picture this</code> は、「この状況を想像できなかった」。<em>picture</em> は、名詞だけでなく、「思い描く」という動詞としても使えます。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>dead + 形容詞</strong>: <em>dead tired</em>（疲れ果てた）、<em>dead serious</em>（本気だ）。強調として使えます。</p>
+          <p><em>I can't picture him as a teacher.</em> のように、「〜を想像できない」と言うときに、<em>picture</em> が使えます。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="two G's flat、my accountant handles that 金額の言い方"
+        label="★ スラング／数字"
+        mc="Biggie（Verse 3）"
+        t={TS["two-gs-flat"].t} tApprox={TS["two-gs-flat"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Phone bill about two G's flat<br />No need to worry, my accountant handles that</Fragment>
+        <Fragment slot="jpn">電話代はざっと2千ドルきっかり。心配ない、会計士が処理してくれる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ お金の言い方と、「ぜいたくの描き方」が分かる2行です。</p>
+        <p><strong class='text-[var(--c-text)]'>G's</strong> は、<em>grand</em>（1,000ドル）の略です。<code>two G's</code> は2,000ドル。</p>
+        <p>お金の単位を、スラングの言い換えで言うのは、よくある書き方です。</p>
+        <p><strong class='text-[var(--c-text)]'>flat</strong> は、「ちょうど、きっかり」という副詞の用法。<em>two thousand dollars flat</em> のように、金額を言い切るときに使います。</p>
+        <p>電話代が2,000ドル、という描写は、1994年のぜいたくの形として語られています。携帯が一般的ではない時代の、ポケベルや車載電話を想像させます。</p>
+        <p><code>my accountant handles that</code> は、会計士に任せている、という表現。自分で払わない、というところに、成功した自分の暮らしぶりが出ています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>handle</strong> は、「処理する、対処する」。<em>I'll handle it.</em>（俺に任せろ）は、日常で頻出の言い回しです。</p>
+          <p><em>no need to 〜</em> は、「〜する必要はない」。<em>No need to worry.</em> は、安心させる定番の言い方です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="my mom pimps an Ac' with minks、The Source 母の暮らし"
+        label="★ スラング／文化"
+        mc="Biggie（Verse 3）"
+        t={TS["mom-pimps-source"].t} tApprox={TS["mom-pimps-source"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Now my mom pimps an Ac' with minks on her back</Fragment>
+        <Fragment slot="jpn">今じゃ母さんは、ミンクを背負ってAcを乗り回してる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 家族の話に降りてくる転換点。pimpの用法に注目です。</p>
+        <p><strong class='text-[var(--c-text)]'>pimp</strong> は、本来は売春の斡旋者を指す語です。スラングでは、動詞として「豪華に、見せびらかして乗り回す、着こなす」という意味でも使われます。</p>
+        <p>ここでは、母親が、毛皮（minks）をまといながら、車を堂々と乗り回す様子です。母親への誇りを、スラングの言い回しで語っています。</p>
+        <p>続く行に出てくる <strong class='text-[var(--c-text)]'>The Source</strong> は、ヒップホップ専門の雑誌。そこに息子の顔が載ることを、母親が喜ぶ、という描写です。</p>
+        <p>Verse 1で少年が読んでいた <em>Word Up!</em> と対になっていて、「雑誌を読む側」から「雑誌に載る側」への変化が、ここで完結します。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>pimp</strong> の動詞用法は、ラップでは「派手に決める」の意味。<em>pimp my ride</em>（車を派手に改造する）は、同名のテレビ番組でも有名です。</p>
+          <p><em>mink</em> は、ミンクの毛皮のコート。成功の象徴として、ラップによく出てくる語彙です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="no heat, wonder why Christmas missed us / Birthdays was the worst days"
+        label="★ 描写／AAVE"
+        mc="Biggie（Verse 3）"
+        t={TS["landlord-christmas"].t} tApprox={TS["landlord-christmas"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">No heat, wonder why Christmas missed us<br />Birthdays was the worst days</Fragment>
+        <Fragment slot="jpn">暖房もなくて、なぜクリスマスが俺たちを素通りしたのか不思議だった。誕生日が最悪の日だった</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ この曲でいちばん静かで、いちばん重い2行です。</p>
+        <p><strong class='text-[var(--c-text)]'>Christmas missed us</strong> は、クリスマスが自分たちの家を素通りした、という擬人化の表現です。プレゼントも暖房もなかった、という事実を、柔らかい言い方で伝えています。</p>
+        <p>前の行では、<strong class='text-[var(--c-text)]'>fuss</strong>（言い争う）と <strong class='text-[var(--c-text)]'>dissed</strong> が登場。家賃を払えず、大家と揉めていた記憶が、短い一文に畳まれています。</p>
+        <p>文法の面では、<code>Birthdays was the worst days</code> に注目です。複数形の主語に、<em>was</em> を使っています。</p>
+        <p>AAVEで見られる、be動詞の一致の特徴です。</p>
+        <p>成功した今を語る曲のなかで、この2行だけは、自慢ではなく記憶です。ここがあるから、曲全体の説得力が増していると思います。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>wonder why 〜</strong> は、「なぜだろう、と思う」。<em>I wonder why he left.</em> のように使います。</p>
+          <p>AAVEの <strong class='text-[var(--c-text)]'>was の一般化</strong>（<em>they was</em> など）は、規則的な方言の特徴で、誤用ではありません。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="I went from negative to positive and it's all good"
+        label="★ 対比／結び"
+        mc="Biggie（Verse 3）"
+        t={TS["negative-to-positive"].t} tApprox={TS["negative-to-positive"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">'Cause I went from negative to positive and it's all good</Fragment>
+        <Fragment slot="jpn">だって俺はネガティブからポジティブへ移ったんだ、全部いい</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3の締め。曲全体の結論になる一行です。</p>
+        <p><strong class='text-[var(--c-text)]'>from negative to positive</strong> は、マイナスからプラスへ、という対比の表現です。ここは、貧しさから豊かさへの移動を、一言にまとめています。</p>
+        <p>この一行で、Verse 1から3までの時間の移動が、ひとつの文の形に収まります。<code>from A to B</code> で、変化の始点と終点を並べる形です。</p>
+        <p>行末で、<strong class='text-[var(--c-text)]'>it's all good</strong> が戻ってきます。曲の冒頭で現状報告として使われたこの言葉は、ここでは、変化の結論として機能します。</p>
+        <p>ここまで読むと、「全部いい」という口癖が、何もないところから出発した人の言葉だと分かって、意味が重くなってきます。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>go from A to B</strong>: <em>He went from rags to riches.</em>（無一文から大金持ちになった）。変化の定番の型です。</p>
+          <p><em>negative</em> と <em>positive</em> は、性格や状況の見方としても使います。<em>stay positive</em>（前向きでいる）は、日常でもよく聞く言い方です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Representin' B-Town、mad flavor 仲間への呼びかけ"
+        label="★ スラング／地名"
+        mc="Biggie（Post-Chorus）"
+        t={TS["b-town-mad-flavor"].t} tApprox={TS["b-town-mad-flavor"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Representin' B-Town in the house<br />Junior Mafia, mad flavor</Fragment>
+        <Fragment slot="jpn">ビー・タウンの代表がここにいる。ジュニア・マフィア、めちゃくちゃセンスがいい</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 曲の終わり近く。地元と仲間の名前を呼ぶ場面です。</p>
+        <p><strong class='text-[var(--c-text)]'>represent</strong> は、「（地元や集団を）代表して示す」という意味。ヒップホップでは、自分の街や仲間を背負う、という姿勢を指します。</p>
+        <p><strong class='text-[var(--c-text)]'>B-Town</strong> は、ブルックリンを指す愛称。<strong class='text-[var(--c-text)]'>Junior Mafia</strong> は、Biggieの仲間のグループ名です。</p>
+        <p><strong class='text-[var(--c-text)]'>mad</strong> は、ニューヨークのスラングで「とても、すごく」の強調。<em>mad flavor</em> は、「ものすごくセンスがいい」という意味合いです。</p>
+        <p><code>in the house</code> は、「この場にいる」という呼びかけ。ライブやパーティーで、名前を呼ぶときの決まった言い方になっています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>mad + 形容詞/名詞</strong>: <em>mad love</em>（ものすごい愛）、<em>mad cool</em>（とてもかっこいい）。ニューヨーク周辺でよく聞く強調です。</p>
+          <p><em>flavor</em> は、本来は味のことですが、ヒップホップでは「個性、センス、持ち味」を意味します。</p>
+        </Fragment>
+      </LearningUnit>
+    </section>
+
+    <section id="background" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        文化的背景
+      </h2>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">Ready to Die と Biggie</p>
+        <h3 class="font-semibold text-base mb-3">ブルックリン出身の新人が、最初に出したシングル</h3>
+        <div class="space-y-3 text-[var(--c-muted)] text-sm leading-relaxed">
+          <p>
+            The Notorious B.I.G.（本名Christopher Wallace、愛称Biggie）は、ニューヨーク・ブルックリン出身のラッパーです。デビューアルバム『Ready to Die』は、1994年9月13日にBad Boy Recordsから発売されました。
+          </p>
+          <p>
+            「Juicy」は、そのアルバムの先行シングルとして1994年8月9日に出ています。Billboard Hot 100では、最高27位を記録しました。
+          </p>
+          <p>
+            Bad Boy Recordsは、Sean Combs（Puff Daddy）が率いるレーベルです。この曲では、Puff Daddyが制作とアドリブで関わり、ポストコーラスやアウトロで声が聴こえます。
+          </p>
+        </div>
+      </div>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">80年代の固有名詞</p>
+        <h3 class="font-semibold text-base mb-3">Word Up!、Rap Attack、The Source を拾うと、何が見えるか</h3>
+        <div class="space-y-3 text-[var(--c-muted)] text-sm leading-relaxed">
+          <p>
+            この曲は、雑誌、ラジオ番組、DJの名前が、細かく出てくる曲です。Verse 1の固有名詞は、1980年代にヒップホップを聴いていた若者の、日常の風景です。
+          </p>
+          <p>
+            Verse 1で読む側だった雑誌が、Verse 3では、自分が載る側になる。この変化を知っておくと、曲の物語が立体的に読めます。
+          </p>
+        </div>
+      </div>
+
+      <div class="p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">キーワード早見表</p>
+        <h3 class="font-semibold text-base mb-3">この曲で学んだ表現の整理</h3>
+        <div class="space-y-3 mt-3">
+          {[
+            ['double negative', '二重否定は強調。never amount to nothin\' ＝まったく何者にもならない'],
+            ['used to + 動詞 / be used to 〜ing', '「かつては〜した」と「〜に慣れている」。形は似ていて意味が違う'],
+            ['diss', 'disrespect の短縮。見下す、バカにする'],
+            ['crib / hood', '家／地元。ラップの頻出語'],
+            ['it\'s all good', '問題ない。曲の合言葉'],
+            ['blow up', 'ブレイクする。Lose Yourself の blow と同じ'],
+            ['pack / gat', '銃を携帯する／銃のこと'],
+            ['indo', '室内栽培のマリファナ（indoor の短縮）'],
+            ['pimp（動詞）', '派手に決める、見せびらかす'],
+            ['mad + 名詞', 'ものすごい。ニューヨーク周辺の強調語'],
+          ].map(([w, d]) => (
+            <div class="text-sm">
+              <span class="font-semibold text-[var(--c-text)]">{w}</span>
+              <span class="text-[var(--c-muted)]"> {d}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="behind" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        制作の裏側
+      </h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          プロデューサーは、Trackmastersの一員Pokeと、Sean Combs（Puff Daddy）です。ビートの土台は、Mtumeの1983年の曲「Juicy Fruit」から取られています。
+        </p>
+        <p>
+          具体的には、「Juicy Fruit」の「Fruity Instrumental」という別ミックスが、そのままサンプルされています。曲名の「Juicy」も、このサンプル元の曲名から来ています。
+        </p>
+        <p>
+          元の曲はR&Bのスロージャムで、そこにBiggieの低く落ち着いた声が乗ります。ラップの背景に甘いグルーヴを置くことで、成功を語る歌詞に、親しみやすさが生まれています。
+        </p>
+        <p>
+          サンプル元の「Juicy Fruit」は、本ページの上部のプレーヤーの下にある埋め込みで聴けます。
+        </p>
+      </div>
+    </section>
+
+    <section id="legacy" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        評価とその後
+      </h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          「Juicy」は、1994年のシングルとして、Billboard Hot 100で最高27位を記録しました。順位としては大ヒットとは言えませんが、時間をかけて評価が高まっていった曲です。
+        </p>
+        <p>
+          「It's all good」は、この曲のコーラスやアウトロで繰り返される合言葉です。今も日常会話で使われる言い回しです。
+        </p>
+        <p>
+          Biggieは、1997年3月、24歳で亡くなりました。この曲は、デビュー作の語りとして、今も聴かれ続けています。
+        </p>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        まとめ
+      </h2>
+      <ul class="space-y-2 text-sm text-[var(--c-muted)] list-disc list-inside leading-relaxed">
+        <li>「Juicy」は、used to と now の対比で組まれた成り上がりの物語。時制の使い分けを追うと、構造が読めます。</li>
+        <li>never amount to nothin' の二重否定、butter play toast の三人称の -s 脱落、Birthdays was の be動詞の一致など、AAVEの文法がそのまま出てきます。</li>
+        <li>diss、crib、hood、indo、pack、pimp、mad など、ヒップホップ由来のスラングが、日常の英語にもつながっています。</li>
+        <li>Word Up!、Rap Attack、Robin Leach、The Source、Super Nintendo。固有名詞を拾うと、1990年代前半のニューヨークの景色が見えてきます。</li>
+        <li>Mtumeの「Juicy Fruit」を土台にしたビートは、サンプルの元曲と聴き比べると、さらに面白くなります。</li>
+      </ul>
+    </section>
+
+</SongLayout>
