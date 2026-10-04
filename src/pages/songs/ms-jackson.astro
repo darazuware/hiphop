@@ -1,0 +1,683 @@
+---
+import LearningUnit from '../../components/LearningUnit.astro';
+import QuickSlang from '../../components/QuickSlang.astro';
+import SongLayout from '../../layouts/SongLayout.astro';
+
+import tsData from '../../../agent/ms-jackson/assets/units-timestamps.json';
+const YT = "MYxAiK6VnXw";
+const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.approx }]));
+---
+
+<SongLayout
+  title="Ms. Jackson 和訳・意味・スラング解説 | OutKast"
+  description="OutKast「Ms. Jackson」を英語学習とヒップホップ理解の教材として精読。habitual be、them boys、ain't、puppy love、let bygones be bygonesなど、謝罪の歌に詰まった口語表現と慣用句をPV頭出し付きで解説。"
+  slug="ms-jackson"
+  learningPage={true}
+  songDuration={298}
+  highlights={[
+    '謝罪ソングの定型表現（I\'m sorry、never meant to、for real）がそのまま学べる',
+    'She be doin\'、them boys、done got、ain\'t invited など、AAVEの文法が具体例で並ぶ',
+    'puppy love、up the creek、let bygones be bygones と、日常で使える慣用句も多い',
+  ]}
+  youtubeId="MYxAiK6VnXw"
+>
+
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■この曲で何を学べるか</h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          タイトルの「Ms. Jackson」は、恋人の母親のことです。OutKastのAndré 3000が、その人に向けて「ごめんなさい」と何度も繰り返す、世界でいちばん有名な謝罪の歌かもしれません。
+        </p>
+        <p>
+          2000年に出たアルバム『Stankonia』からのシングルで、グループにとって初めてBillboard Hot 100で1位になった曲です。
+        </p>
+        <p>
+          勢いのあるサウンドのうえで歌われるのは、わりと切実な話です。親の立場、子どもの養育、すれ違い。
+        </p>
+        <p>
+          その言い回しが、英語学習の素材としてとても素直に使えます。
+        </p>
+      </div>
+    </section>
+
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■二人のラッパーが、それぞれの立場で語る</h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          サビを歌うのはAndré 3000。バースは、Big BoiとAndré 3000が分担しています。
+        </p>
+        <p>
+          Big Boiのバースは、子どもの母親との行き違いを、少し強い口調で語ります。André 3000のバースは、恋人の母親に向けて、丁寧に気持ちを伝えます。
+        </p>
+        <p>
+          同じ話題を、トーンの違う二人の語りで聴ける。この構造も、曲の聴きどころだと思っています。
+        </p>
+      </div>
+    </section>
+
+    <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
+      <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
+        <li><a href="#story" class="hover:text-[var(--c-gold)] transition-colors">01 ストーリーの流れ（まず曲全体をつかむ）</a></li>
+        <li><a href="#units" class="hover:text-[var(--c-gold)] transition-colors">02 学ぶ表現（スラング・韻・言葉遊び・AAVE）</a></li>
+        <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">03 文化的背景</a></li>
+        <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">04 制作の裏側</a></li>
+        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">05 評価とその後</a></li>
+      </ol>
+    </nav>
+
+    <section id="story" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        ストーリーの流れ（まず曲全体をつかむ）
+      </h2>
+      <p class="text-xs text-[var(--c-dim)] mb-5">
+        この曲には、時間が進む物語はありません。かわりに、「謝る人」と「怒っている人」の両方の言い分が、順番に出てきます。
+      </p>
+      <div class="space-y-4 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          <strong class='text-[var(--c-text)]'>Intro</strong>は、「baby's mamas' mamas（子どもの母親たちの母親たち）」への呼びかけで始まります。聞き手が誰に向けた曲なのかを、最初に決めてしまう入り方です。
+        </p>
+        <p>
+          <strong class='text-[var(--c-text)]'>Chorus</strong>は、André 3000が歌う謝罪の言葉。「ごめんなさい、Ms. Jackson」を繰り返すだけで、曲の主題がすぐに分かります。
+        </p>
+        <p>
+          <strong class='text-[var(--c-text)]'>Verse 1</strong>はBig Boi。子どもの母親との行き違い、養育費の話、パーティーに呼ばれなかったことへの不満が出てきます。
+        </p>
+        <p>
+          <strong class='text-[var(--c-text)]'>Bridge</strong>は、André 3000が、二人の関係は子どもの恋ではなく、本気だと伝える場面です。
+        </p>
+        <p>
+          <strong class='text-[var(--c-text)]'>Verse 2</strong>は、André 3000が、恋人の母親に向けて、意図は悪くなかったと説明し、これからのことを約束します。
+        </p>
+        <p>
+          <strong class='text-[var(--c-text)]'>Verse 3</strong>は、再びBig Boiが語ります。嫉妬、裏切り、噂話といった問題を並べて、「過去のことは水に流そう」と締めます。
+        </p>
+        <p class="text-xs text-[var(--c-dim)]">
+          ※本ページは批評・教育目的で、解説に必要な範囲の断片のみを引用しています。全歌詞の対訳は掲載していません。
+        </p>
+      </div>
+    </section>
+
+    <div id="units"></div>
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        学ぶ表現（スラング・韻・言葉遊び・AAVE）
+      </h2>
+      <div class="space-y-3 text-xs text-[var(--c-dim)] mb-6">
+        <p>ここからは、歌詞の中の表現を1つずつ取り上げる章です。短い用例を上に置き、下で意味と使い方を説明します。</p>
+        <p>行を引かずに背景だけを説明するunitもあります。▶を押すと、PVの該当箇所から再生できます。</p>
+      </div>
+
+      <LearningUnit
+        heading="baby's mamas' mamas 所有格が連なる呼びかけ"
+        label="★ 文法／スラング"
+        mc="André 3000（Intro）"
+        t={TS["babys-mamas-mamas"].t} tApprox={TS["babys-mamas-mamas"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">this one right here goes out to all the baby's mamas' mamas</Fragment>
+        <Fragment slot="jpn">この曲は、子どもの母親たちの母親たちみんなに捧げる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 曲の最初。所有格のアポストロフィが続く珍しい形です。</p>
+        <p><strong class='text-[var(--c-text)]'>baby's mamas' mamas</strong> は、所有格が重なった形です。<code>baby's</code> が「赤ちゃんの」、<code>mamas'</code> が「母親たちの」。</p>
+        <p><strong class='text-[var(--c-text)]'>baby mama</strong> は、子どもの母親を指す口語です。結婚していない相手や、関係が終わった相手を指すときに多く使われます。</p>
+        <p>その母親の「母親」に曲を捧げる、というのが冒頭の挨拶です。つまり、Ms. Jackson本人に向けた曲だ、と最初に予告しています。</p>
+        <p>もうひとつは <strong class='text-[var(--c-text)]'>goes out to 〜</strong>。ラジオの定番で、「この曲は〜に捧げます」という決まり文句です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>This one goes out to 〜</strong>: <em>This one goes out to everyone who stayed.</em>（この曲は残ってくれた全員に捧げる）。ラジオやライブでの定番です。</p>
+          <p><em>mama</em> は、くだけた言い方です。<em>baby mama</em> は、日常会話でも使われるようになりました。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="I'm sorry, Ms. Jackson / never meant to 謝罪の型"
+        label="★ サビ／語法"
+        mc="André 3000（Chorus）"
+        t={TS["sorry-ms-jackson"].t} tApprox={TS["sorry-ms-jackson"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">I'm sorry, Ms. Jackson, ooh, I am for real</Fragment>
+        <Fragment slot="jpn">ごめんなさい、Ms. Jackson、本気です</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 曲の中心になるサビ。謝罪の言い回しがそのまま入っています。</p>
+        <p><strong class='text-[var(--c-text)]'>I'm sorry</strong> に続いて、<strong class='text-[var(--c-text)]'>I am for real</strong> と入ります。<code>for real</code> は、「本気で、本当に」という口語です。</p>
+        <p>ただ謝るだけでなく、「本気で謝っている」と添える。この一言で、謝罪の軽さを打ち消しています。</p>
+        <p>もうひとつは <strong class='text-[var(--c-text)]'>Never meant to 〜</strong>。<code>mean to 〜</code> は、「〜するつもりだ」。</p>
+        <p>過去の否定形にして、「〜するつもりはなかった」という弁明になります。</p>
+        <p>ここでは主語の <em>I</em> が落ちています。話し言葉では、主語を省略することがよくあります。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>I never meant to + 動詞</strong>: <em>I never meant to hurt you.</em>（傷つけるつもりはなかった）。謝罪で頻出の形です。</p>
+          <p><strong class='text-[var(--c-text)]'>for real</strong>: <em>Are you for real?</em>（本気？）。疑う場面でも、確かめる場面でも使えます。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="I apologized a trillion times 誇張の数字"
+        label="★ 誇張／語彙"
+        mc="André 3000（Chorus）"
+        t={TS["trillion-times"].t} tApprox={TS["trillion-times"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ サビの3行目。引用は省き、語の使い方だけを解説します。</p>
+        <p><strong class='text-[var(--c-text)]'>a trillion times</strong> は、「何兆回も」という意味です。もちろん実際には、数えた回数ではありません。</p>
+        <p>英語では、<code>a million times</code>、<code>a thousand times</code> のように、数字を大きくして「何度も何度も」と言うことが多くあります。</p>
+        <p><strong class='text-[var(--c-text)]'>apologize</strong> は、「謝る」という意味の動詞です。<em>apologize to 人 for 理由</em> の形で使います。</p>
+        <p>ここでは、謝った相手と理由を省略して、回数だけを言い切っています。聞き手に、「それでも許してもらえない」という状況を想像させる書き方です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>I've told you a million times.</strong>（何度も言っただろう）。数字の誇張は、苛立ちを表すときの定番です。</p>
+          <p><em>apologize</em> は、<em>I apologize.</em> と単独でも使えます。ビジネスの場では、<em>I apologize for the inconvenience.</em> が決まり文句です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="My baby a drama mama don't like me コピュラ省略と don't"
+        label="★ AAVE文法"
+        mc="Big Boi（Verse 1）"
+        t={TS["drama-mama"].t} tApprox={TS["drama-mama"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">My baby a drama mama don't like me</Fragment>
+        <Fragment slot="jpn">ドラマを起こしてばかりのあの母親は、俺のことが気に入らない</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の1行目。動詞が2か所、標準英語と違っています。</p>
+        <p>この行は、動詞が2か所、標準英語と違っています。ひとつは <code>My baby a drama mama</code>。</p>
+        <p>be動詞（is）が抜けています（<em>my baby('s) mama is a drama mama</em> の省略とも読めます）。</p>
+        <p>もうひとつは、<code>don't like me</code> の部分で、三人称単数なのに <em>doesn't</em> ではなく <em>don't</em> が使われています。</p>
+        <p><strong class='text-[var(--c-text)]'>be動詞の省略（コピュラ省略）</strong>と <strong class='text-[var(--c-text)]'>三人称単数の don't</strong> は、AAVE（アフリカ系アメリカ人英語）の規則的な特徴です。</p>
+        <p><strong class='text-[var(--c-text)]'>drama mama</strong> は、ゴタゴタを持ち込む母親のことです。<code>drama</code> と <code>mama</code> で、韻も踏んでいます。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>She don't like me.</strong>: AAVEでは、三人称単数でも <em>don't</em> を使います。方言の規則で、誤用ではありません。</p>
+          <p><em>drama</em> は、「演劇」以外に、「もめごと、大げさな騒ぎ」の意味でも日常的に使います。<em>I don't need the drama.</em>（面倒なのはごめんだ）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="She be doin' things / them boys 習慣のbeと、them の指示用法"
+        label="★ AAVE文法"
+        mc="Big Boi（Verse 1）"
+        t={TS["she-be-doin"].t} tApprox={TS["she-be-doin"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">She be doin' things like havin' them boys</Fragment>
+        <Fragment slot="jpn">彼女はよく、あの連中を連れてきたりする</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ AAVEの代表的な文法が1行に2つ入っています。</p>
+        <p><strong class='text-[var(--c-text)]'>She be doin' things</strong> の <code>be</code> は、<strong class='text-[var(--c-text)]'>習慣のbe</strong>（habitual be）と呼ばれる用法です。「いつも〜している、よく〜する」という、繰り返される行為を表します。</p>
+        <p>標準英語には、これに当たる動詞の形がありません。そのため、AAVEは、習慣と一時的な状態を、はっきり使い分けられる体系だと言えます。</p>
+        <p>もうひとつは <strong class='text-[var(--c-text)]'>them boys</strong>。<code>them</code> が、<em>those</em> の代わりに使われています。</p>
+        <p>「あの男たち」という意味です。</p>
+        <p>最後の <strong class='text-[var(--c-text)]'>tryna</strong> は、<em>trying to</em> の口語短縮形。<em>fight me</em> が続いて、「俺とケンカしようとしている」となります。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>He be late.</strong>: 「彼はいつも遅刻する」。<em>He is late.</em>（今、遅れている）との違いが、habitual be の特徴です。</p>
+          <p><em>them + 名詞</em> は、<em>those</em> の代わりに使われます。<em>Look at them shoes.</em>（あの靴を見ろよ）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="a piece of the American pie / take her bite out"
+        label="★ 慣用句／比喩"
+        mc="Big Boi（Verse 1）"
+        t={TS["american-pie"].t} tApprox={TS["american-pie"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">She need to get a piece of the American pie and take her bite out</Fragment>
+        <Fragment slot="jpn">彼女はアメリカのパイをひと切れもらって、自分の分をかじればいい</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 「アメリカン・パイ」の比喩を使った行です。</p>
+        <p><strong class='text-[var(--c-text)]'>a piece of the pie</strong> は、「分け前、利益の取り分」という意味の慣用句です。ここでは、<em>American</em> が付いて、アメリカの豊かさの分け前、つまりアメリカン・ドリームの取り分、というニュアンスです。</p>
+        <p><code>take her bite out</code> は、パイを食べる動作を続けた比喩です。自分で稼いで、自分で食べろ、と言いたいのでしょう。</p>
+        <p>文法の面では、<code>She need to</code> が、<em>needs</em> ではなく <em>need</em> になっています。ここでも、三人称単数の -s が落ちています。</p>
+        <p>比喩を選ぶとき、パイという食べ物の話に統一することで、行の中で一貫した絵になっています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>a piece of the pie</strong>: <em>Everyone wants a piece of the pie.</em>（誰もが分け前を欲しがる）。ビジネスでも使える表現です。</p>
+          <p><em>take a bite</em> は「ひとくちかじる」。そこから、<em>take a bite out of 〜</em>（〜を削る）という言い方にも広がります。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="a baby and not a pay check 金づるではなく子ども"
+        label="★ 語彙／語法"
+        mc="Big Boi（Verse 1）"
+        t={TS["not-a-pay-check"].t} tApprox={TS["not-a-pay-check"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">And let her know her grandchild is a baby and not a pay check</Fragment>
+        <Fragment slot="jpn">孫は赤ちゃんであって、給料袋じゃないと伝えておけ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の中盤。養育費をめぐる言い分です。</p>
+        <p><strong class='text-[var(--c-text)]'>a pay check</strong> は、給料のこと。「子どもは金づるではない」という意味で、<em>a baby and not a pay check</em> と、対比の形で言い切っています。</p>
+        <p>続く行の <strong class='text-[var(--c-text)]'>I pay that</strong> に注目です。<code>that</code> が、前に並べた項目（学費、保育、医療費）をまとめて指しています。</p>
+        <p><code>X and not Y</code> は、「YではなくX」という対比の言い方です。ここでは、基本の接続を使って、わかりやすく主張しています。</p>
+        <p>養育費について、感情を抑えて、事実を並べている行です。この曲の中でも、いちばん生活の細部が見える部分です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>X and not Y</strong>: <em>I'm a friend, and not a customer.</em>（客ではなく友人だ）。対比を明確にする言い方です。</p>
+          <p><em>pay check</em> は、<em>paycheck</em> とつなげて書くこともあります。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="rib you up、custody war、my lawyers stay down"
+        label="★ スラング／法律語"
+        mc="Big Boi（Verse 1）"
+        t={TS["custody-war"].t} tApprox={TS["custody-war"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">She wanna rib you up to start a custody war, my lawyers stay down</Fragment>
+        <Fragment slot="jpn">彼女はお前をそそのかして、親権争いを始めさせたがる。こっちの弁護士はいつでも準備できてる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 法律の語彙が出てくる行です。</p>
+        <p><strong class='text-[var(--c-text)]'>rib 〜 up</strong> は、「〜をけしかける、焚きつける」という意味のスラングです。ここでは、子どもの母親の母親が、娘をそそのかしている、と言っています。</p>
+        <p><strong class='text-[var(--c-text)]'>custody war</strong> は、親権争いのこと。<code>custody</code> は、「親権、保護」を表す法律用語です。</p>
+        <p><strong class='text-[var(--c-text)]'>stay down</strong> は、「待機している、準備ができている、味方でい続ける」というスラングの用法です。ここでは、弁護士が控えている、という意味合いです。</p>
+        <p><code>wanna</code> は <em>wants to</em> の短縮形。三人称なのに <em>wanna</em> で、ここでも -s は使われていません。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>child custody</strong> は、子どもの親権。<em>She won custody of the kids.</em>（彼女が子どもの親権を得た）。</p>
+          <p>ニュースや映画で頻出です。</p>
+          <p><em>stay down</em> は、<em>down</em>（味方、乗り気）の延長で、<em>I'm down.</em>（俺はやる）という言い方もあります。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="fish fries and cookouts、I ain't invited 黒人コミュニティの集まり"
+        label="★ 文化／AAVE"
+        mc="Big Boi（Verse 1）"
+        t={TS["fish-fries-cookouts"].t} tApprox={TS["fish-fries-cookouts"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">She had fish fries and cookouts for my child's birthday, I ain't invited</Fragment>
+        <Fragment slot="jpn">俺の子の誕生日に、フィッシュフライもクックアウトもやったのに、俺は呼ばれてない</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ アメリカの食文化と、ain'tの使い方が分かる行です。</p>
+        <p><strong class='text-[var(--c-text)]'>fish fry</strong> は、魚のフライを揚げて、みんなで食べる集まりです。<strong class='text-[var(--c-text)]'>cookout</strong> は、屋外でバーベキューをするパーティー。</p>
+        <p>どちらも、アメリカ南部やアフリカ系アメリカ人のコミュニティで、定番の集まりです。</p>
+        <p>誕生日にこれだけ集まりを開いているのに、自分は呼ばれていない、という不満が、食べ物の名前を並べるだけで伝わります。</p>
+        <p><strong class='text-[var(--c-text)]'>I ain't invited</strong> の <code>ain't</code> は、<em>am not</em>、<em>isn't</em>、<em>aren't</em> などを全部まかなえる万能の否定形です。ここでは、<em>I'm not invited</em> の意味です。</p>
+        <p><code>invited</code> は受け身の過去分詞。<em>I ain't invited</em> は、受け身で、「招かれていない」という状態を表しています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>ain't</strong>: <em>I ain't got time.</em>（時間がない）。口語やAAVEで頻出で、標準英語では避けられる形です。</p>
+          <p><em>cookout</em> は、アメリカの夏の風物詩。<em>barbecue</em> と近い意味ですが、より気軽な集まりを指します。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="utmost respect when I fall through 立ち寄る、のスラング"
+        label="★ 句動詞"
+        mc="Big Boi（Verse 1）"
+        t={TS["fall-through"].t} tApprox={TS["fall-through"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Despite it I show her the utmost respect when I fall through</Fragment>
+        <Fragment slot="jpn">それでも、俺が顔を出すときには、彼女に最大限の敬意を払ってる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の終わり近く。硬い語と口語が混ざる行です。</p>
+        <p><strong class='text-[var(--c-text)]'>the utmost respect</strong> は、「最大限の敬意」という、かなり硬い言い方です。<code>utmost</code> は、「最高の、極限の」という意味の形容詞です。</p>
+        <p>それなのに、後半は、<strong class='text-[var(--c-text)]'>fall through</strong>。この <em>fall through</em> は、口語では「ひょっこり立ち寄る」という意味でも使われます。</p>
+        <p>硬い語と、くだけた句動詞が、1行の中で隣り合っています。ラップの語りが、あらたまった口調と、日常の口調を行き来する例です。</p>
+        <p><code>Despite it</code> は、「それにもかかわらず」。前の行で並べた不満を受けて、それでも礼儀を守っていると、立場をはっきりさせています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>fall through</strong>（立ち寄る）: <em>I'll fall through later.</em>（あとで顔を出すよ）。ただし、<em>The plan fell through.</em>（計画が流れた）は、全く別の意味です。</p>
+          <p><em>show someone respect</em> は、「敬意を示す」。<em>show</em> と <em>respect</em> の組み合わせで、よく使われます。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Me and your daughter got a special thang goin' on"
+        label="★ 口語／発音"
+        mc="André 3000（Bridge）"
+        t={TS["special-thang"].t} tApprox={TS["special-thang"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Me and your daughter got a special thang goin' on</Fragment>
+        <Fragment slot="jpn">俺とあなたの娘のあいだには、特別なものが進行中なんです</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Bridgeの1行目。主語の形と、thangの綴りに注目です。</p>
+        <p>主語が <strong class='text-[var(--c-text)]'>Me and your daughter</strong> になっています。標準の文法では <em>My daughter and I</em> のように <em>I</em> を使いますが、口語では <em>Me and 〜</em> で始まる文がごく普通に使われます。</p>
+        <p><strong class='text-[var(--c-text)]'>thang</strong> は、<em>thing</em> を、南部の発音に寄せた綴りです。OutKastはアトランタ出身で、南部の発音を、あえて綴りに残して出しています。</p>
+        <p><code>got</code> は、<em>have got</em> の <em>have</em> が落ちたもの。ここでは、「持っている」という意味で使われています。</p>
+        <p><code>goin' on</code> は、「進行中の、起きている」。<em>Something is going on.</em> と同じ形が、動詞の -ing だけになっています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>Me and my friend 〜</strong> は、口語でごく普通に使われます。ただし、書き言葉や面接では、<em>My friend and I</em> が好まれます。</p>
+          <p><em>special thang</em> は、ヒップホップやソウルで、「大切な関係」を指す言い方として、よく使われます。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="You say it's puppy love, we say it's full-grown"
+        label="★ 慣用句／対比"
+        mc="André 3000（Bridge）"
+        t={TS["puppy-love"].t} tApprox={TS["puppy-love"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">You say it's puppy love, we say it's full-grown</Fragment>
+        <Fragment slot="jpn">あなたは子犬の恋だと言う、俺たちは大人の恋だと言う</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 対比で、二人の関係の捉え方を言い表した行です。</p>
+        <p><strong class='text-[var(--c-text)]'>puppy love</strong> は、若い頃の、一時的な恋のこと。子犬のように、すぐに熱くなって、すぐ冷める、というニュアンスを含みます。</p>
+        <p>それに対して <strong class='text-[var(--c-text)]'>full-grown</strong> は、「成熟した、一人前の」。puppy（子犬）と対比させる語として選ばれています。</p>
+        <p><code>You say 〜, we say 〜</code> という、<strong class='text-[var(--c-text)]'>見解の対比</strong>の形は、立場の違う二人の言い分を、整理して並べるのに便利です。</p>
+        <p><code>puppy love</code> のような、動物のたとえを使った慣用句は、英語に多くあります。<em>puppy dog eyes</em>（すがるような目）なども、同じ系統の表現です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>puppy love</strong>: <em>It was just puppy love.</em>（ただの幼い恋だった）。大人が昔の恋を振り返るときによく使います。</p>
+          <p><strong class='text-[var(--c-text)]'>You say X, I say Y</strong> は、意見が分かれる状況の言い方。<em>You say tomato, I say tomahto.</em> という有名な歌詞も、同じ型です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="plan a pretty picnic but you can't predict the weather"
+        label="★ 格言／頭韻"
+        mc="André 3000（Bridge）"
+        t={TS["picnic-weather"].t} tApprox={TS["picnic-weather"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">You can plan a pretty picnic but you can't predict the weather</Fragment>
+        <Fragment slot="jpn">きれいなピクニックの計画は立てられても、天気は予測できない</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 格言のように聞こえる、この曲屈指の1行です。</p>
+        <p>この1行は、<strong class='text-[var(--c-text)]'>頭韻</strong>（alliteration）の見本です。<code>plan</code>、<code>pretty</code>、<code>picnic</code>、<code>predict</code> と、p音で始まる語が4つ並んでいます。</p>
+        <p>意味は、「計画を立てることはできても、結果を完全に決めることはできない」という格言のような内容です。ここでは、二人の関係の先行きを、天気にたとえています。</p>
+        <p><strong class='text-[var(--c-text)]'>You can 〜 but you can't 〜</strong> は、前半で可能なことを認め、後半で限界を示す対比の形です。</p>
+        <p>歌詞の中で、いちばん引用されやすい行のひとつです。音の気持ちよさと、意味の分かりやすさが両立しています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>You can X, but you can't Y</strong>: <em>You can ask, but you can't expect an answer.</em>（聞くのは自由だが、答えは期待できない）。</p>
+          <p><em>predict the weather</em> は、天気予報の定番の言い方。<em>forecast</em> も同じ意味で使えます。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Ten times out of nine、muzzle、decline 誇張と皮肉"
+        label="★ 誇張／語彙"
+        mc="André 3000（Verse 2）"
+        t={TS["ten-times-out-of-nine"].t} tApprox={TS["ten-times-out-of-nine"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Ten times out of nine, now if I'm lyin', find</Fragment>
+        <Fragment slot="jpn">10回中9回、もし嘘をついてたら</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の冒頭。数字の言い間違いに見える言い方です。</p>
+        <p><strong class='text-[var(--c-text)]'>Ten times out of nine</strong> は、数として成り立たない言い方です。9回中10回、つまり100%を超えています。</p>
+        <p>「絶対に」を、あえて計算を狂わせて誇張した遊びです。</p>
+        <p><strong class='text-[var(--c-text)]'>muzzle</strong> は、犬などの口にはめる口輪。自分が嘘をついているなら、口を封じてくれていい、という誇張です。</p>
+        <p><strong class='text-[var(--c-text)]'>decline</strong> は、「断る、辞退する」。ここでは、そのときは弁解しない、という意味です。</p>
+        <p><code>if I'm lyin', find</code> と、<code>lyin'</code> と <code>find</code> で、音も合わせています。ここでも、内韻の遊びが入っています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>Ten times out of ten</strong> は、「100%、間違いなく」の定番の言い方です。ここは、それを崩した遊びです。</p>
+          <p><em>decline</em> は、招待や申し出を断るときの丁寧な動詞。<em>I must decline.</em>（辞退せざるを得ません）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="crib with the Goodyear swing 固有名詞で作る夢の風景"
+        label="★ 固有名詞／風景"
+        mc="André 3000（Verse 2）"
+        t={TS["goodyear-swing"].t} tApprox={TS["goodyear-swing"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Together dream 'bout that crib with the Goodyear swing</Fragment>
+        <Fragment slot="jpn">二人でグッドイヤーのタイヤのブランコがある家を夢見る</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 二人が思い描く未来の絵です。</p>
+        <p><strong class='text-[var(--c-text)]'>Goodyear</strong> は、アメリカのタイヤメーカーです。<code>Goodyear swing</code> は、古いタイヤを、木から吊るして作るブランコのこと。</p>
+        <p>ブランド名ひとつで、アメリカの田舎の庭にある、素朴な風景が浮かびます。高級品ではなく、手作りのブランコで、「ささやかな幸せ」を描いているのがポイントです。</p>
+        <p><strong class='text-[var(--c-text)]'>crib</strong> は、「家」のスラング。<code>dream 'bout</code> の <code>'bout</code> は、<em>about</em> の頭が落ちた形です。</p>
+        <p><code>I hope we feel like this forever</code> と、<em>forever</em> が、次の行で繰り返される、言葉遊びへとつながっていきます。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>dream about 〜</strong>: <em>I dream about a quiet house.</em>（静かな家を夢見ている）。<em>dream of</em> とも言います。</p>
+          <p><em>tire swing</em> は、アメリカ英語での、タイヤのブランコの呼び名です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Forever never seems that long until you're grown 時間の感覚"
+        label="★ 反復／語彙"
+        mc="André 3000（Verse 2）"
+        t={TS["forever-never"].t} tApprox={TS["forever-never"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Forever never seems that long until you're grown</Fragment>
+        <Fragment slot="jpn">大人になるまで、「永遠」はそんなに長く感じない</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 「永遠」の意味を逆から語る、不思議な行です。</p>
+        <p><strong class='text-[var(--c-text)]'>Forever never seems that long</strong> は、「永遠は、それほど長く感じられない」。一見矛盾している、<em>forever</em> と <em>long</em> の組み合わせです。</p>
+        <p>前の行では、<code>Forever, forever ever? Forever ever?</code> と、同じ語を何度も言い直しています。永遠を言うほど、実感がなくなっていく、という感覚の表現です。</p>
+        <p><strong class='text-[var(--c-text)]'>until you're grown</strong> は、「大人になるまで」。若いうちは、永遠が遠く感じられず、「ずっと続く」と簡単に口にできる、という意味合いです。</p>
+        <p><code>that long</code> の <em>that</em> は、「それほど」という程度の副詞。<em>It's not that bad.</em>（そんなに悪くない）のような使い方と同じです。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>not that + 形容詞</strong>: <em>It's not that expensive.</em>（そんなに高くない）。程度を弱めて言う口語の定番です。</p>
+          <p><em>grown</em> は、<em>grow</em> の過去分詞ですが、<em>grown man</em>、<em>grown-up</em> のように、「大人の」という形容詞にもなります。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Become a magician to abracadabra all the sadder thoughts"
+        label="★ 言葉遊び／語法"
+        mc="André 3000（Verse 2）"
+        t={TS["abracadabra"].t} tApprox={TS["abracadabra"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Become a magician to abracadabra all the sadder</Fragment>
+        <Fragment slot="jpn">魔法使いになって、悲しい考えをアブラカダブラで消せたらいいのに</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 名詞を動詞に変えた、遊びの1行です。</p>
+        <p><strong class='text-[var(--c-text)]'>abracadabra</strong> は、魔法の呪文です。本来は名詞や間投詞ですが、ここでは <em>to abracadabra</em> と、動詞として使われています。</p>
+        <p>「魔法で消す」という意味を、動詞1語に圧縮した言い方です。名詞を動詞にする使い方は、英語ではよくある変化で、ラップでもしばしば使われます。</p>
+        <p>後半の <code>thoughts of me, thoughts of she, thoughts of he</code> は、<em>she</em> と <em>he</em> が、前置詞の後ろで主格のまま使われています。標準では <em>her</em>、<em>him</em> ですが、韻と語感を優先した形です。</p>
+        <p>魔法の呪文という、少し子どもっぽい語彙と、複雑な人間関係という内容の取り合わせが、この曲らしいところです。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>名詞の動詞化</strong>: <em>Google it.</em>（ググれ）、<em>Let's coffee sometime.</em>（今度お茶しよう）。名詞が動詞として使われる例は、日常でも多くあります。</p>
+          <p><em>thoughts of 〜</em> は、「〜についての考え」。<em>thoughts about 〜</em> とほぼ同じ意味です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="I pray so much about it, need some knee pads"
+        label="★ ユーモア／語彙"
+        mc="André 3000（Verse 2）"
+        t={TS["knee-pads"].t} tApprox={TS["knee-pads"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 引用は省き、語の使い方だけを解説します。</p>
+        <p><strong class='text-[var(--c-text)]'>knee pads</strong> は、膝を保護するパッド。スポーツや作業で使います。</p>
+        <p>祈るときに膝をつくので、「祈りすぎて膝あてが必要だ」という冗談になっています。</p>
+        <p>ここでの <code>pray</code> は、誰かの許しを願う気持ちの表れです。真剣な気持ちを、軽い言い回しで包む語り方が、André 3000の特徴です。</p>
+        <p><code>need some knee pads</code> は、主語と <em>I</em> が落ちています。口語では、主語を省略して、短く言い切ることがよくあります。</p>
+        <p><code>so much</code> は、「そんなに、とても」。<em>pray so much</em> で、頻度の多さを強調しています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>pray about 〜</strong>: <em>I pray about it every night.</em>（毎晩そのことを祈る）。<em>pray for 〜</em> は「〜を願って祈る」。</p>
+          <p><em>so much</em> は、<em>I like it so much.</em>（とても気に入っている）のように、程度を強める定番の言い方です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="It happened for a reason, one can't be mad 総称のone"
+        label="★ 文法／語法"
+        mc="André 3000（Verse 2）"
+        t={TS["one-cant-be-mad"].t} tApprox={TS["one-cant-be-mad"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">It happened for a reason, one can't be mad</Fragment>
+        <Fragment slot="jpn">それには理由があって起きたことだ、怒るわけにはいかない</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 硬めの総称主語が、口語の中に混ざる行です。</p>
+        <p><strong class='text-[var(--c-text)]'>one can't be mad</strong> の <code>one</code> は、「人は、誰でも」という意味の総称的な主語です。<em>you</em> よりも、改まった響きになります。</p>
+        <p>口語中心のラップの中に、この硬めの <em>one</em> が混ざることで、悟ったような、落ち着いた口調になっています。</p>
+        <p><strong class='text-[var(--c-text)]'>for a reason</strong> は、「理由があって」という言い方で、<em>Everything happens for a reason.</em>（すべてのことには理由がある）という決まり文句でも有名です。</p>
+        <p><code>be mad</code> は、アメリカ英語で「怒っている」の意味。<em>be angry</em> よりも、日常的でくだけた言い方です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>One should 〜</strong>: <em>One should always be polite.</em>（人は常に礼儀正しくあるべきだ）。書き言葉やスピーチで使われる、総称の主語です。</p>
+          <p><em>be mad at 人</em>: <em>Are you mad at me?</em>（怒ってる？）。アメリカでは、<em>angry</em> よりよく使われます。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="I will be present on the first day of school and graduation"
+        label="★ 約束／語法"
+        mc="André 3000（Verse 2）"
+        t={TS["first-day-of-school"].t} tApprox={TS["first-day-of-school"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">And yes, I will be present on the first day of school and graduation</Fragment>
+        <Fragment slot="jpn">そう、学校の初日にも、卒業式にも、俺はちゃんと出席する</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 謝罪のあとに、具体的な約束が出てくる行です。</p>
+        <p><strong class='text-[var(--c-text)]'>be present</strong> は、「出席している、その場にいる」という意味です。<em>present</em> の発音は、形容詞のときはアクセントが前、動詞のときは後ろにあります。</p>
+        <p>ここでは、父親としての約束が、具体的な場面とセットで語られています。学校の初日と、卒業式。</p>
+        <p>人生の節目の、2つの場面だけを選んでいます。</p>
+        <p><code>yes</code> と、わざわざ付け加えているのは、前の行で並べた言い訳や理屈を、いったん打ち切るための合図です。ここから先は、決意の言葉になります。</p>
+        <p>抽象的な愛情の話から、予定表に書ける約束へ。この具体性が、曲全体の信頼感につながっています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>be present at 〜</strong>: <em>All members must be present at the meeting.</em>（全員が会議に出席しなければならない）。フォーマルな言い方です。</p>
+          <p><em>graduation</em> は、卒業のこと。卒業式そのものを指すときにも使われます。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="sent up the creek / without a paddle 窮地の慣用句"
+        label="★ 慣用句／AAVE"
+        mc="Big Boi（Verse 3）"
+        t={TS["up-the-creek"].t} tApprox={TS["up-the-creek"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">your little nosy-ass homegirls done got your ass sent up the creek, G</Fragment>
+        <Fragment slot="jpn">おせっかいな女友達のせいで、あんたは窮地に立たされた</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3の頭。慣用句と、AAVEの完了の done に注目です。</p>
+        <p><strong class='text-[var(--c-text)]'>up the creek (without a paddle)</strong> は、「窮地に陥って、どうしようもない」という慣用句です。パドルなしで、川をさかのぼる、という光景から来ています。</p>
+        <p><strong class='text-[var(--c-text)]'>done got</strong> は、AAVEの完了を表す <code>done</code> の用法。<em>have gotten</em> の意味ですが、「もうすでに起こって、取り返しがつかない」という強調を含みます。</p>
+        <p><strong class='text-[var(--c-text)]'>nosy-ass</strong> は、<code>-ass</code> を形容詞に付けて強めるスラングです。ここでは、「ひどくおせっかいな」という意味になります。</p>
+        <p>最後の <code>ride this thing on out</code> は、「最後まで乗りきる」。<em>on out</em> のように、副詞を重ねて、終わりまでやり遂げる感じを強めています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>up the creek</strong>: <em>If the car breaks down, we're up the creek.</em>（車が壊れたら、お手上げだ）。日常でよく使う慣用句です。</p>
+          <p><strong class='text-[var(--c-text)]'>done + 過去分詞</strong>: <em>He done told you.</em>（もう言っただろう）。AAVEの完了標識で、いらだちや断定を強めます。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="in the year 2G、they be the same thing 数字遊びと習慣のbe"
+        label="★ 言葉遊び／AAVE"
+        mc="Big Boi（Verse 3）"
+        t={TS["year-2g"].t} tApprox={TS["year-2g"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">in the year 2G, they be the same thing</Fragment>
+        <Fragment slot="jpn">2Gの年（2000年）には、どれも同じことになる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 言葉遊びと、習慣のbeがもう一度出てくる場面です。</p>
+        <p><strong class='text-[var(--c-text)]'>the year 2G</strong> は、数字遊びです。<code>G</code> は、<em>grand</em>（1,000）の略。</p>
+        <p><em>2G</em> で2,000、つまり「2000年」を指しています。</p>
+        <p>この曲が出たのが2000年なので、「今年」という意味でもあります。お金の単位として覚えた <em>G</em> を、年の表記に転用したわけです。</p>
+        <p><strong class='text-[var(--c-text)]'>they be the same thing</strong> は、<code>be</code> が習慣を表す用法。ここでは、「嫉妬も浮気も裏切りも、結局いつも同じものになる」という意味合いです。</p>
+        <p>その前の <em>jealousy, infidelity, envy, cheating</em> は、名詞を4つ並べた、列挙です。<code>infidelity</code>（不貞）という、硬い語彙が混ざっているところにも注目です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>G</strong>: <em>It cost me five Gs.</em>（5,000ドルかかった）。<em>grand</em> の略として、ラップでも日常会話でもよく使います。</p>
+          <p><em>infidelity</em>（不貞）は、新聞やドラマで使われる硬い語。<em>cheating</em>（浮気）が、口語です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Let bygones be bygones 水に流す、の決まり文句"
+        label="★ 慣用句／結び"
+        mc="Big Boi（Verse 3）"
+        t={TS["bygones"].t} tApprox={TS["bygones"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Let bygones be bygones and you can go on and get the hell on</Fragment>
+        <Fragment slot="jpn">過去は水に流して、さあ先に進めばいい</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3の締めの1行。曲を終わらせる決まり文句です。</p>
+        <p><strong class='text-[var(--c-text)]'>Let bygones be bygones</strong> は、「過ぎたことは水に流そう」という慣用句です。<code>bygones</code> は、「過ぎ去ったこと」を意味する名詞で、この慣用句の中でしか、ほとんど使われません。</p>
+        <p><code>let 〜 be 〜</code> は、「〜を〜のままにしておく」という形。<em>Let it be.</em> と同じ構造で、過去を過去のままにしておく、という意味になります。</p>
+        <p>後半の <strong class='text-[var(--c-text)]'>get the hell on</strong> は、「さっさと先へ進め、とっとと行け」という、強い言い回しです。<code>the hell</code> は、強調として動詞の間に挟まれています。</p>
+        <p>一行の前半で穏やかな慣用句、後半で荒っぽい言い回し。Big Boiのバースが、そのまま曲の最後の言い分になっています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>Let bygones be bygones.</strong>: 仲直りの場面で使う、少し古風な決まり文句です。</p>
+          <p><em>get the hell out</em>（さっさと出ていけ）のように、<em>the hell</em> を挟むと、苛立ちが強調されます。</p>
+        </Fragment>
+      </LearningUnit>
+    </section>
+
+    <section id="background" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        文化的背景
+      </h2>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">曲の背景</p>
+        <h3 class="font-semibold text-base mb-3">恋人の母親へ向けた、実在の謝罪</h3>
+        <div class="space-y-3 text-[var(--c-muted)] text-sm leading-relaxed">
+          <p>
+            「Ms. Jackson」は、André 3000が、シンガーのErykah Baduと、その母親に向けて書いた曲だとされています。二人の間には子どもがいます。
+          </p>
+          <p>
+            Baduの母親にあたる「Ms. Jackson」は、この曲をポジティブに受け取り、その名前のナンバープレートを買ったと伝えられています。
+          </p>
+          <p>
+            個人的な話でありながら、誰でも身に覚えのある「家族への謝罪」に広がっているのが、この曲が長く愛されている理由のひとつです。
+          </p>
+        </div>
+      </div>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">アトランタという土地</p>
+        <h3 class="font-semibold text-base mb-3">南部の発音と語彙が、そのまま歌詞に残っている</h3>
+        <div class="space-y-3 text-[var(--c-muted)] text-sm leading-relaxed">
+          <p>
+            OutKastは、アメリカ南部のアトランタ出身のデュオです。歌詞には、thang、'bout、cookout、fish fryなど、南部の発音と文化がそのまま残っています。
+          </p>
+          <p>
+            ニューヨークやロサンゼルスのラップとは、言葉の雰囲気がだいぶ違います。聴き比べてみると、同じ英語でも、地域でこんなに違うのかと感じられます。
+          </p>
+        </div>
+      </div>
+
+      <div class="p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">キーワード早見表</p>
+        <h3 class="font-semibold text-base mb-3">この曲で学んだ表現の整理</h3>
+        <div class="space-y-3 mt-3">
+          {[
+            ['I\'m sorry / never meant to', '謝罪の定型。meant to＝〜するつもりだった'],
+            ['for real', '本気で、本当に'],
+            ['habitual be', '「いつも〜している」を表すAAVEの be（She be doin\' 〜）'],
+            ['don\'t / ain\'t の用法', '三人称の don\'t、am/is/are not をまとめて表す ain\'t'],
+            ['them + 名詞', 'those の代わり（them boys）'],
+            ['done + 過去分詞', 'AAVEの完了標識。取り返しがつかない強調'],
+            ['puppy love', '若い頃の一時的な恋、幼い恋'],
+            ['up the creek', '窮地に陥って、どうしようもない'],
+            ['let bygones be bygones', '過去は水に流す'],
+            ['G (grand)', '1,000ドルの略。2G＝2,000ドル、年号の言葉遊びにも使われた'],
+          ].map(([w, d]) => (
+            <div class="text-sm">
+              <span class="font-semibold text-[var(--c-text)]">{w}</span>
+              <span class="text-[var(--c-muted)]"> {d}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="behind" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        制作の裏側
+      </h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          「Ms. Jackson」は、2000年10月24日に、アルバム『Stankonia』の2枚目のシングルとして発売されました。
+        </p>
+        <p>
+          制作は、OutKast自身のプロダクションチームのEarthtone IIIとして知られています。
+        </p>
+        <p>
+          サビをAndré 3000が歌い、バースをBig BoiとAndré 3000が分担するという、デュオならではの分け方です。
+        </p>
+        <p>
+          本ページでは、制作の細かい経緯は、確認できた範囲にとどめています。
+        </p>
+      </div>
+    </section>
+
+    <section id="legacy" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        評価とその後
+      </h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          「Ms. Jackson」は、OutKastにとって初めてのBillboard Hot 100の1位になった曲です。英国のシングルチャートでも、2位に入っています。
+        </p>
+        <p>
+          第44回グラミー賞（2002年）で、最優秀ラップ・パフォーマンス（デュオ／グループ）を受賞しました。
+        </p>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        まとめ
+      </h2>
+      <ul class="space-y-2 text-sm text-[var(--c-muted)] list-disc list-inside leading-relaxed">
+        <li>「Ms. Jackson」は、謝罪の英語（I'm sorry、never meant to、for real、apologize）が、そのまま学べる曲です。</li>
+        <li>She be doin'（習慣のbe）、them boys、done got、ain'tなど、AAVEの規則的な文法が、短い行の中に具体的に出てきます。</li>
+        <li>puppy love、up the creek、let bygones be bygonesなど、日常でも使える慣用句がたくさん登場します。</li>
+        <li>fish fry、cookout、Goodyear swingなど、アメリカ南部の生活の風景が、固有名詞で描かれています。</li>
+        <li>thang、'bout、tryna、wannaなど、発音をそのまま綴りにした形が、会話のリズムを作っています。</li>
+      </ul>
+    </section>
+
+</SongLayout>
