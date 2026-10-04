@@ -124,7 +124,7 @@ export const slang: SlangEntry[] = [
   { word: "Summer Jam",            desc: "ニューヨークのHot 97が主催する世界最大級のヒップホップ・フェスティバル。1999年大会は東海岸HIPHOPの文化的るつぼ" },
   { word: "Superfly-ness",         desc: "最高にクールであること（映画Super Flyに由来）" },
   { word: "TEC-9 / TECs / Mac-10s", desc: "スウェーデン設計・米国製造の9ミリ口径半自動拳銃。安価で装弾数が多く1980〜90年代のストリート・ギャングに広く普及したギャングスタ・ラップの代名詞的銃器" },
-  { word: "Teflon",                desc: "摩擦係数が低い素材。ストリート用語では「防弾チョッキ」や「警察から逃れる者（Teflon Don）」の象徴", songs: [ "/songs/how-about-some-hardcore"] },
+  { word: "Teflon",                desc: "摩擦係数が低い素材。ストリート用語では「防弾チョッキ」や「警察から逃れる者（Teflon Don）」の象徴", songs: [] },
   { word: "thug poet",             desc: "ストリートの悪党（Thug）と文学的詩人（Poet）という二面性を統合したNas最大の自己定義" },
   { word: "thugs",                 desc: "ストリートで違法なビジネスに関わる者たち" },
   { word: "touch",                 desc: "RZAのディレイエフェクトのミスで音源から消えた「空白」。その絶望感と奇跡的にリンクし、ヒップホップ史上最も美しい空白として語り継がれている" },
