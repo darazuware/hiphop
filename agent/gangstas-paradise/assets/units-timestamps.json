@@ -1,0 +1,200 @@
+[
+  {
+    "id": "valley-shadow-death",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 26,
+    "fallbackT": 18,
+    "t": 26,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "nothin-left",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 28,
+    "fallbackT": 22,
+    "t": 28,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "blastin-laughin",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 32,
+    "fallbackT": 26,
+    "t": 32,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "aint-never-crossed",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 37,
+    "fallbackT": 31,
+    "t": 37,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "me-be-treated",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 41,
+    "fallbackT": 35,
+    "t": 41,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "watch-how-talkin",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 41,
+    "fallbackT": 39,
+    "t": 41,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "kinda-g-little-homies",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 53,
+    "fallbackT": 47,
+    "t": 53,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "on-my-knees",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 59,
+    "fallbackT": 53,
+    "t": 59,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "spendin-most-their-lives",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 62,
+    "fallbackT": 58,
+    "t": 62,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "raised-by-the-street",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 80,
+    "fallbackT": 85,
+    "t": 80,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "got-me-chasin",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 94,
+    "fallbackT": 92,
+    "t": 94,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "educated-fool",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 98,
+    "fallbackT": 98,
+    "t": 98,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "heartbeat-away",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 109,
+    "fallbackT": 111,
+    "t": 109,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "live-to-see-twenty-four",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 116,
+    "fallbackT": 119,
+    "t": 116,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "blind-to-see",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 122,
+    "fallbackT": 122,
+    "t": 122,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "power-money-chiasmus",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 158,
+    "fallbackT": 150,
+    "t": 158,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "whats-cookin",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 167,
+    "fallbackT": 163,
+    "t": 167,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "teach-reach",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 170,
+    "fallbackT": 168,
+    "t": 170,
+    "source": "caption",
+    "approx": false,
+    "score": null
+  }
+]
