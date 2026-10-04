@@ -1,8 +1,31 @@
 [
   {
+    "id": "cream-intro",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 6,
+    "t": 6,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "go-to-war",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 14,
+    "t": 14,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "peep-son",
     "whisperSec": null,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 22,
     "t": 22,
     "source": "fallback",
@@ -10,9 +33,32 @@
     "score": 0.2
   },
   {
+    "id": "mad-light",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 27,
+    "t": 27,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "dough-snatcher",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 31,
+    "t": 31,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "rza-bake",
     "whisperSec": 42.4,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 38,
     "t": 38,
     "source": "fallback",
@@ -23,6 +69,7 @@
     "id": "gods-cypher",
     "whisperSec": 47.8,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 44,
     "t": 44,
     "source": "fallback",
@@ -33,6 +80,7 @@
     "id": "ninth-chamber",
     "whisperSec": 52.2,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 50,
     "t": 50,
     "source": "fallback",
@@ -40,11 +88,34 @@
     "score": 0.5
   },
   {
+    "id": "essence",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 58,
+    "t": 58,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "cash-rules",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 63,
+    "t": 63,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "murder-one",
     "whisperSec": 69.4,
     "manualSec": null,
-    "fallbackT": 66,
-    "t": 66,
+    "captionSec": null,
+    "fallbackT": 67,
+    "t": 67,
     "source": "fallback",
     "approx": true,
     "score": 1
@@ -53,6 +124,7 @@
     "id": "chain-reaction",
     "whisperSec": 74.6,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 72,
     "t": 72,
     "source": "fallback",
@@ -60,9 +132,32 @@
     "score": 1
   },
   {
+    "id": "ak-macs",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 80,
+    "t": 80,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "steez",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 85,
+    "t": 85,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "menace-society",
     "whisperSec": null,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 89,
     "t": 89,
     "source": "fallback",
@@ -73,6 +168,7 @@
     "id": "champagne-thoughts",
     "whisperSec": 92.5,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 98,
     "t": 98,
     "source": "fallback",
@@ -80,13 +176,91 @@
     "score": 0.75
   },
   {
+    "id": "lo-tommy-knot",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 106,
+    "t": 106,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "do-or-die",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 112,
+    "t": 112,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "snitch",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 118,
+    "t": 118,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "one-love-kid",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 121,
+    "t": 121,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "bid",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 123,
+    "t": 123,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "stuck",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 126,
+    "t": 126,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "fly-ac",
     "whisperSec": 118.4,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 130,
     "t": 130,
     "source": "fallback",
     "approx": true,
     "score": 0.5
+  },
+  {
+    "id": "ice-rockin",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 140,
+    "t": 140,
+    "source": "fallback",
+    "approx": true,
+    "score": null
   }
 ]

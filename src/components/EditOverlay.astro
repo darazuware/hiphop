@@ -1,0 +1,287 @@
+---
+/**
+ * review プレビュー限定の文言編集オーバーレイ。
+ * URLに ?edit=1 を付けた時だけ起動する。#edit-scope 内の p/li/h2〜h4 をクリックで
+ * contenteditable化し、変更を /api/edit-save へPOSTしてreviewブランチへ直接コミットする。
+ * 歌詞引用（blockquote内のeng/jpn）は編集対象から除外（著作権・事実正確性のガード）。
+ * 本番(waxthink.com)ではホスト名チェックで常に無効。
+ */
+---
+
+<script>
+  (function () {
+    const params = new URLSearchParams(location.search);
+    if (params.get('edit') !== '1') return;
+    if (location.hostname === 'waxthink.com') return;
+
+    const slugMatch = location.pathname.match(/\/songs\/([^/]+)/);
+    if (!slugMatch) return;
+    const slug = slugMatch[1];
+
+    const scope = document.getElementById('edit-scope');
+    if (!scope) return;
+
+    const originals = new WeakMap<Element, string>();
+    const pending = new Map<Element, { oldText: string; newText: string }>();
+
+    const banner = document.createElement('div');
+    banner.textContent = '編集モード ON — 文章をタップして編集（歌詞引用部分は編集対象外）';
+    banner.style.cssText = 'position:fixed;top:0;left:0;right:0;z-index:100;background:#c0392b;color:#fff;font-size:12px;text-align:center;padding:6px 10px;font-weight:700;letter-spacing:.02em';
+    document.body.appendChild(banner);
+
+    const panel = document.createElement('div');
+    panel.style.cssText = 'position:fixed;left:12px;bottom:12px;z-index:100;background:#111;color:#fff;border:1px solid #c0392b;border-radius:10px;padding:10px 14px;font-size:12px;display:none;box-shadow:0 8px 24px rgba(0,0,0,.5);min-width:200px';
+    const panelCount = document.createElement('div');
+    panelCount.style.cssText = 'margin-bottom:8px;font-weight:700';
+    const saveAllBtn = document.createElement('button');
+    saveAllBtn.textContent = 'すべて保存';
+    saveAllBtn.style.cssText = 'background:#c0392b;color:#fff;border:none;border-radius:6px;padding:6px 12px;font-size:12px;font-weight:700;cursor:pointer;width:100%';
+    const statusLine = document.createElement('div');
+    statusLine.style.cssText = 'margin-top:8px;font-size:11px;color:#aaa;white-space:pre-wrap;max-width:280px';
+    panel.appendChild(panelCount);
+    panel.appendChild(saveAllBtn);
+    panel.appendChild(statusLine);
+    document.body.appendChild(panel);
+
+    function refreshPanel() {
+      const n = pending.size;
+      panelCount.textContent = `変更 ${n}件`;
+      panel.style.display = n > 0 ? 'block' : 'none';
+    }
+
+    async function save(entries: Array<[Element, { oldText: string; newText: string }]>) {
+      saveAllBtn.setAttribute('disabled', 'true');
+      statusLine.textContent = '保存中…';
+      try {
+        const res = await fetch('/api/edit-save', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            slug,
+            changes: entries.map(([, v]) => ({ oldText: v.oldText, newText: v.newText })),
+          }),
+        });
+        const data = await res.json();
+        if (!res.ok || !data.ok) {
+          statusLine.textContent = '❌ ' + (data.error || `失敗 (${res.status})`);
+          return;
+        }
+        for (const [el] of entries) {
+          pending.delete(el);
+          (el as HTMLElement).style.outline = '2px solid #2ecc71';
+          setTimeout(() => { (el as HTMLElement).style.outline = ''; }, 1500);
+        }
+        statusLine.textContent = '✓ 保存しました（Vercel再ビルドで1〜2分後に反映）';
+        refreshPanel();
+      } catch {
+        statusLine.textContent = '❌ 通信エラー';
+      } finally {
+        saveAllBtn.removeAttribute('disabled');
+      }
+    }
+
+    saveAllBtn.addEventListener('click', () => {
+      save(Array.from(pending.entries()));
+    });
+
+    function makeEditable(el: HTMLElement) {
+      if (el.dataset.editBound) return;
+      el.dataset.editBound = '1';
+      el.style.cursor = 'text';
+
+      el.addEventListener('mouseenter', () => {
+        if (el.getAttribute('contenteditable') === 'true') return;
+        el.style.outline = '1px dashed #c0392b';
+        el.style.outlineOffset = '2px';
+      });
+      el.addEventListener('mouseleave', () => {
+        if (el.getAttribute('contenteditable') === 'true') return;
+        if (!pending.has(el)) el.style.outline = '';
+      });
+      el.addEventListener('click', () => {
+        if (el.getAttribute('contenteditable') === 'true') return;
+        if (!originals.has(el)) originals.set(el, el.innerHTML);
+        el.setAttribute('contenteditable', 'true');
+        el.style.outline = '2px solid #f39c12';
+        el.focus();
+      });
+      el.addEventListener('keydown', (e: KeyboardEvent) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          el.blur();
+        }
+      });
+      el.addEventListener('blur', () => {
+        el.removeAttribute('contenteditable');
+        const original = originals.get(el);
+        const now = el.innerHTML;
+        if (original !== undefined && now !== original) {
+          pending.set(el, { oldText: original, newText: now });
+          el.style.outline = '2px solid #3498db';
+        } else {
+          pending.delete(el);
+          el.style.outline = '';
+        }
+        refreshPanel();
+      });
+    }
+
+    scope.querySelectorAll('p, li, h2, h3, h4').forEach((el) => {
+      if (el.closest('blockquote')) return; // 歌詞引用(eng/jpn)は編集対象外
+      if ((el.textContent || '').trim().length <= 1) return;
+      makeEditable(el as HTMLElement);
+    });
+
+    // ── 頭出しタイムスタンプ編集 ──────────────────────────────────────
+    // unit は #edit-scope 内の .learning-unit 出現順indexで特定する（idはDOM非露出のため）。
+    // サーバー側で units.json / units-timestamps.json の該当indexのidが一致するか、
+    // かつ「編集前に表示されていた秒」が現在値と一致するかを検証してから書き込む。
+    function fmtT(s: number) {
+      const m = Math.floor(s / 60);
+      const sec = (s % 60).toFixed(2).padStart(5, '0');
+      return `${m}:${sec}`;
+    }
+
+    const waxPlayer = () => (window as any).__waxPlayer as
+      { getTime: () => number; seekTo: (s: number) => void; play: () => void; pause: () => void } | undefined;
+
+    // 波形クリックでの直感操作: 開いているパネルがあれば、波形上の相対位置を秒に変換してセットする
+    // （既存のクリック→シーク挙動はそのまま。追加リスナーとして「音を聴きながらその場で拾う」を足すだけ）
+    let activeSetter: ((t: number) => void) | null = null;
+    let activeClose: (() => void) | null = null;
+    function getDuration(): number {
+      const barEl = document.getElementById('learning-player-bar');
+      const durAttr = parseFloat((barEl as HTMLElement | null)?.dataset.duration ?? '');
+      if (!isNaN(durAttr) && durAttr > 0) return durAttr;
+      const durText = document.getElementById('player-duration')?.textContent ?? '';
+      const m = durText.match(/(\d+):(\d+)/);
+      if (m) return parseInt(m[1], 10) * 60 + parseInt(m[2], 10);
+      return 300;
+    }
+    const seekwaveEl = document.getElementById('player-seekwave');
+    seekwaveEl?.addEventListener('click', (e: MouseEvent) => {
+      if (!activeSetter) return;
+      const rect = seekwaveEl.getBoundingClientRect();
+      const frac = Math.min(1, Math.max(0, (e.clientX - rect.left) / rect.width));
+      activeSetter(Math.round(frac * getDuration() * 100) / 100);
+    });
+
+    const learningUnits = Array.from(scope.querySelectorAll<HTMLElement>('.learning-unit'));
+    learningUnits.forEach((unitEl, index) => {
+      const seekLink = unitEl.querySelector<HTMLElement>('[data-seek]');
+      if (!seekLink) return; // t=null（mvAbsent等）は非対象
+      const originalT = parseFloat(unitEl.dataset.t ?? '');
+      if (isNaN(originalT)) return;
+
+      let pendingT = originalT;
+      let open = false;
+
+      const toggleBtn = document.createElement('button');
+      toggleBtn.type = 'button';
+      toggleBtn.textContent = '⏱編集';
+      toggleBtn.style.cssText = 'margin-left:8px;font-size:10px;font-weight:700;border:1px solid #c0392b;color:#c0392b;background:transparent;border-radius:4px;padding:2px 6px;cursor:pointer;vertical-align:middle';
+      seekLink.insertAdjacentElement('afterend', toggleBtn);
+
+      const panel = document.createElement('div');
+      panel.style.cssText = 'display:none;margin-top:8px;padding:8px 10px;border:1px dashed #c0392b;border-radius:6px;font-size:11px;background:rgba(192,57,43,0.06)';
+      toggleBtn.insertAdjacentElement('afterend', panel);
+
+      function nudgeRow() {
+        const row = document.createElement('div');
+        row.style.cssText = 'display:flex;gap:4px;flex-wrap:wrap;align-items:center;margin-top:6px';
+        return row;
+      }
+      function mkBtn(label: string, onClick: () => void) {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.textContent = label;
+        b.style.cssText = 'border:1px solid var(--c-border,#333);background:#111;color:#fff;border-radius:4px;padding:3px 7px;font-size:10px;font-weight:700;cursor:pointer;font-variant-numeric:tabular-nums';
+        b.addEventListener('click', onClick);
+        return b;
+      }
+
+      const timeLabel = document.createElement('div');
+      timeLabel.style.cssText = 'font-weight:700;font-variant-numeric:tabular-nums;margin-bottom:2px';
+      function renderTime() { timeLabel.textContent = `編集中: ${fmtT(pendingT)}`; }
+      renderTime();
+      panel.appendChild(timeLabel);
+
+      const nudges = nudgeRow();
+      [-1, -0.5, -0.1, -0.05, 0.05, 0.1, 0.5, 1].forEach((delta) => {
+        nudges.appendChild(mkBtn(`${delta > 0 ? '+' : ''}${delta}s`, () => {
+          pendingT = Math.max(0, Math.round((pendingT + delta) * 100) / 100);
+          renderTime();
+        }));
+      });
+      panel.appendChild(nudges);
+
+      const actions = nudgeRow();
+      const previewBtn = mkBtn('▶ 試聴', () => {
+        const wp = waxPlayer();
+        if (!wp) return;
+        wp.seekTo(pendingT);
+        wp.play();
+      });
+      const captureBtn = mkBtn('現在位置をセット', () => {
+        const wp = waxPlayer();
+        if (!wp) return;
+        pendingT = Math.round(wp.getTime() * 100) / 100;
+        renderTime();
+      });
+      const saveBtn = mkBtn('保存', async () => {
+        saveBtn.setAttribute('disabled', 'true');
+        status.textContent = '保存中…';
+        try {
+          const r = await fetch('/api/edit-timestamp', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ slug, changes: [{ index, expectedT: originalT, newSec: pendingT }] }),
+          });
+          const data = await r.json();
+          if (!r.ok || !data.ok) {
+            status.textContent = '❌ ' + (data.error || `失敗 (${r.status})`);
+            return;
+          }
+          unitEl.dataset.t = String(pendingT);
+          seekLink.setAttribute('data-seek', String(Math.floor(pendingT)));
+          status.textContent = '✓ 保存しました（反映まで1〜2分）';
+        } catch {
+          status.textContent = '❌ 通信エラー';
+        } finally {
+          saveBtn.removeAttribute('disabled');
+        }
+      });
+      saveBtn.style.background = '#c0392b';
+      saveBtn.style.borderColor = '#c0392b';
+      actions.appendChild(previewBtn);
+      actions.appendChild(captureBtn);
+      actions.appendChild(saveBtn);
+      panel.appendChild(actions);
+
+      const status = document.createElement('div');
+      status.style.cssText = 'margin-top:4px;color:#aaa;font-size:10px';
+      panel.appendChild(status);
+
+      function setFromWaveform(t: number) {
+        pendingT = Math.max(0, Math.round(t * 100) / 100);
+        renderTime();
+        status.textContent = `波形から設定: ${fmtT(pendingT)}`;
+      }
+
+      function closeThis() {
+        open = false;
+        panel.style.display = 'none';
+        if (activeSetter === setFromWaveform) { activeSetter = null; activeClose = null; }
+      }
+
+      toggleBtn.addEventListener('click', () => {
+        if (open) { closeThis(); return; }
+        if (activeClose) activeClose(); // 他に開いているパネルがあれば先に閉じる（波形連動は常に1件のみ）
+        open = true;
+        panel.style.display = 'block';
+        activeSetter = setFromWaveform;
+        activeClose = closeThis;
+      });
+    });
+  })();
+</script>

@@ -3,6 +3,7 @@
     "id": "ican-chorus",
     "whisperSec": null,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 5,
     "t": 5,
     "source": "fallback",
@@ -13,6 +14,7 @@
     "id": "bboys-listen",
     "whisperSec": null,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 26,
     "t": 26,
     "source": "fallback",
@@ -23,6 +25,7 @@
     "id": "in-god-we-trust",
     "whisperSec": null,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 36,
     "t": 36,
     "source": "fallback",
@@ -30,9 +33,65 @@
     "score": 0.25
   },
   {
+    "id": "nothing-comes-easy",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 44,
+    "t": 44,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "in-awe",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 48,
+    "t": 48,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "lena-horne",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 50,
+    "t": 50,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "strung-out",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 52,
+    "t": 52,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "hold-they-breath",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 60,
+    "t": 60,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "company-you-keep",
     "whisperSec": null,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 66,
     "t": 66,
     "source": "fallback",
@@ -40,9 +99,43 @@
     "score": 0.2
   },
   {
+    "id": "take-the-vow",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 72,
+    "t": 72,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "grown-looking",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 100,
+    "t": 100,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "fake-id",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 104,
+    "t": 104,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "oprah",
     "whisperSec": 111.7,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 108,
     "t": 108,
     "source": "fallback",
@@ -53,6 +146,7 @@
     "id": "act-your-age",
     "whisperSec": 116.8,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 114,
     "t": 114,
     "source": "fallback",
@@ -60,9 +154,43 @@
     "score": 0.8
   },
   {
+    "id": "you-thinking",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 120,
+    "t": 120,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "read-and-write",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 128,
+    "t": 128,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "believe-achieve",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 135,
+    "t": 135,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "kings-queens",
     "whisperSec": 161.4,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 165,
     "t": 165,
     "source": "fallback",
@@ -70,9 +198,54 @@
     "score": 1
   },
   {
+    "id": "porch-monkeys",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 167,
+    "t": 167,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "kush-timbuktu",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 172,
+    "t": 172,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "robbed-naked",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 188,
+    "t": 188,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "truth-youth",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 200,
+    "t": 200,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "read-more",
     "whisperSec": 207,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 205,
     "t": 205,
     "source": "fallback",
@@ -80,13 +253,36 @@
     "score": 1
   },
   {
+    "id": "do-your-thing",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 208,
+    "t": 208,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "youre-a-king",
     "whisperSec": 212.2,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 212,
     "t": 212,
     "source": "fallback",
     "approx": true,
     "score": 1
+  },
+  {
+    "id": "save-the-music",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 230,
+    "t": 230,
+    "source": "fallback",
+    "approx": true,
+    "score": null
   }
 ]

@@ -4,13 +4,16 @@ import QuickSlang from '../../components/QuickSlang.astro';
 import SongLayout from '../../layouts/SongLayout.astro';
 import DiveCards from '../../components/DiveCards.astro';
 
+import tsData from '../../../agent/we-dat-nice/assets/units-timestamps.json';
 const YT = "T8pDh5e6XLg";
+const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.approx }]));
 ---
 
 <SongLayout
   title="We Dat Nice 和訳・意味・スラング解説 | Poor Righteous Teachers"
   description="Poor Righteous TeachersのWe Dat Niceを英語学習＋ヒップホップ理解の教材として精読。Five Percent Nationの語彙・Supreme Mathematics・God Hopの思想をスラングと韻から解説。"
   slug="we-dat-nice"
+  songDuration={277}
   highlights={[
     '"G is for God, where did gangsta come from?"——神性とストリートの矛盾を問う究極の一行',
     'Five Percent Nationの語彙（cave dwellers / elevation / Supreme Mathematics）を徹底解説',
@@ -27,13 +30,22 @@ const YT = "T8pDh5e6XLg";
       <h2 class="text-base font-semibold mb-2">■この曲で何を学べるか</h2>
       <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
         <p>
-          「俺たちはナイスだ（We Dat Nice）」。一見シンプルな自己宣言に見えて、そこには<strong class="text-[var(--c-text)]">Nation of Gods and Earths（Five Percent Nation）</strong>の神学・数秘術・人種批判が重層的に詰め込まれている。ニュージャージー州トレントン出身のコンシャスHHトリオ、Poor Righteous Teachersが1996年にリリースした最後の傑作。
+          「俺たちはナイスだ（We Dat Nice）」。一見シンプルな自己宣言に見えます。
         </p>
         <p>
-          この記事は、この曲のリリックに埋め込まれたスラング・造語・文化用語を「学ぶ表現」単位で取り出し、Five Percent Nationの思想背景とともに解説する教材として作りました。
+          でもそこには<strong class="text-[var(--c-text)]">Nation of Gods and Earths（Five Percent Nation）</strong>の神学、数秘術、人種批判が重層的に詰め込まれているんです。ニュージャージー州トレントン出身のコンシャスなHHトリオ、Poor Righteous Teachersが1996年に残した最後の傑作です。
         </p>
         <p>
-          核心となるMCは<strong class="text-[var(--c-text)]">Wise Intelligent</strong>。そしてDJ兼メンバーの<strong class="text-[var(--c-text)]">Father Shaheed</strong>が自らプロデュースし、Mobb Deepの「Shook Ones Pt. II」をサンプリング元として選んだ。ハードコア・ギャングスタラップの象徴的音源の上に、精神的覚醒と黒人の神格化を説く歌詞を乗せるという、音楽的転倒の妙もこの曲の聴きどころです。
+          この記事は、この曲のリリックに埋め込まれたスラング・造語・文化用語を「学ぶ表現」単位で取り出して、Five Percent Nationの思想背景とあわせて解説する教材として作りました。
+        </p>
+        <p>
+          マイクを握るのは<strong class="text-[var(--c-text)]">Wise Intelligent</strong>。DJ兼メンバーの<strong class="text-[var(--c-text)]">Father Shaheed</strong>が自らプロデュースしています。
+        </p>
+        <p>
+          サンプリング元に選ばれたのがMobb Deepの「Shook Ones Pt. II」。ハードコア・ギャングスタラップの象徴みたいな音源の上に、精神的な覚醒と黒人の神格化を説く歌詞を乗せる。
+        </p>
+        <p>
+          その音楽的な転倒の妙も、この曲の聴きどころだと思います。
         </p>
       </div>
     </section>
@@ -42,13 +54,25 @@ const YT = "T8pDh5e6XLg";
       <h2 class="text-base font-semibold mb-2">■なぜWe Dat Niceが教材として優れるか</h2>
       <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
         <p>
-          1996年10月15日リリース。PRTの4枚目にして最後のスタジオアルバム『The New World Order』（Profile Records）収録13曲目。プロデュースはFather Shaheed。Tony Dが不在の本作でグループの自律性を証明した。Mobb Deep「Shook Ones Pt. II」（1995）とBig Daddy Kane「Just Rhymin' With Biz」（1988）をサンプリング。
+          1996年10月15日リリース。PRTの4枚目にして最後のスタジオアルバム『The New World Order』（Profile Records）の13曲目に入っています。
         </p>
         <p>
-          アルバムへはFugees（Wyclef Jean、Lauryn Hill、Pras）、KRS-One、Nine、Brother J（X-Clan）、Junior Reidがゲスト参加。Billboard 200にはランクインしなかったが、Top R&B/Hip-Hop Albumsで57位を記録した。
+          プロデュースはFather Shaheed。プロデューサーのTony Dが不在だった本作で、グループが自分たちの力だけで作品を成立させてみせた一枚でもあります。
         </p>
         <p>
-          この曲を理解するには、<strong class="text-[var(--c-text)]">Five Percent Nationの専門用語</strong>を知る必要がある。cave dwellers、elevation、Supreme Mathematics、Ten Percenters、普通の英和辞典には載っていない用語が、ほぼ全バースに埋め込まれている。逆に言えば、それらを一つひとつ解読していく過程そのものが、1990年代コンシャスHHの思想と文化を丸ごと学ぶことになる。
+          サンプリングはMobb Deep「Shook Ones Pt. II」（1995）とBig Daddy Kane「Just Rhymin' With Biz」（1988）。アルバムにはFugees（Wyclef Jean、Lauryn Hill、Pras）、KRS-One、Nine、Brother J（X-Clan）、Junior Reidがゲスト参加しています。
+        </p>
+        <p>
+          Billboard 200にはランクインしませんでしたが、Top R&B/Hip-Hop Albumsで57位を記録しました。
+        </p>
+        <p>
+          この曲を読むには、<strong class="text-[var(--c-text)]">Five Percent Nationの専門用語</strong>を知る必要があります。cave dwellers、elevation、Supreme Mathematics、Ten Percenters。
+        </p>
+        <p>
+          普通の英和辞典には載っていない用語が、ほぼ全バースに埋め込まれているんです。
+        </p>
+        <p>
+          逆に言えば、それらを一つひとつ解読していく過程そのものが、1990年代コンシャスHHの思想と文化を丸ごと学ぶことになります。
         </p>
       </div>
     </section>
@@ -73,23 +97,41 @@ const YT = "T8pDh5e6XLg";
         ストーリーの流れ — まず曲全体をつかむ
       </h2>
       <p class="text-xs text-[var(--c-dim)] mb-5">
-        We Dat Niceは表面上はシンプルな自己宣言だが、バースごとに異なる神学的・政治的テーマが積み上がる構造を持つ。Five Percent Nationの専門用語が頻出するため、先に曲全体の流れをつかんでおくと、次章の各表現解説で「今バースのどこにいるか」が立体的に見えてくる。
+        We Dat Niceは表面上はシンプルな自己宣言ですが、バースごとに違う神学的・政治的テーマが積み上がっていく構造を持っています。専門用語が頻出するので、先に曲全体の流れをつかんでおくと、次章の各解説で「今バースのどこにいるか」が見えやすくなります。
       </p>
       <div class="space-y-4 text-sm text-[var(--c-muted)] leading-relaxed">
         <p>
-          <strong class="text-[var(--c-text)]">Verse 1（Wise Intelligent）</strong>は、支配層・権力者・社会の抑圧者を次々と列挙するカタログから始まる。cave dwellers（洞窟住民＝Five Percentの白人への呼称）から始まり、New World Order（秘密結社的な陰謀論的世界秩序）、エイズ陰謀論まで、1990年代コンシャスラップのレパートリーを一気に並べていく。そして後半、「俺たちはただのラッパーじゃない、黒人の状況を変えているんだ」という宣言でバースを閉じる。
+          <strong class="text-[var(--c-text)]">Verse 1（Wise Intelligent）</strong>は、支配層・権力者・社会の抑圧者を次々に並べていくカタログから始まります。
         </p>
         <p>
-          <strong class="text-[var(--c-text)]">Chorus / Hook</strong>は曲のタイトルをそのまま音にしています。「知識の光を輝かせる」という比喩から、「どんなMCも凍らせる、それくらいナイスだ」というバトルラップの自己評価まで。Five PercentでいうGod（神）としての自己認識と、MCとしての技量の自信が重なる。
+          cave dwellers（洞窟住民＝Five Percentの白人への呼称）に始まり、New World Order（陰謀論的な世界秩序）、エイズ陰謀論まで。1990年代コンシャスラップのレパートリーを一気に並べていきます。
         </p>
         <p>
-          <strong class="text-[var(--c-text)]">Verse 2（Wise Intelligent）</strong>は神学的なバースで、自身を「all eye seeing（全てを見る目）」＝神として語り、イエス・キリストが黒人だったという黒人解放神学的テーゼをヨハネの黙示録の引用で展開する。crackatalism（造語）や politricks（造語）、Ten Percentersという教義用語が登場する濃密な2分間。
+          そして後半、「俺たちはただのラッパーじゃない、黒人の状況を変えているんだ」という宣言でバースを閉じます。
         </p>
         <p>
-          <strong class="text-[var(--c-text)]">Verse 3（Wise Intelligent）</strong>に、この曲で最も知られる一行がある。「G is for God, where did gangsta come from?」。Gというアルファベットがギャングスタラップに横取りされたことへの問いかけ。科学的数値（地球の質量 = six sextillion tons）をリリックに織り込むSupreme Mathematics実践の場でもある。最後は「この情報を家に持ち帰ってプラスの教訓にしろ」というPRT一流の教育的締めくくり。
+          <strong class="text-[var(--c-text)]">Chorus / Hook</strong>は、曲のタイトルをそのまま音にした部分です。
+        </p>
+        <p>
+          「知識の光を輝かせる」という比喩から、「どんなMCも凍らせる、それくらいナイスだ」というバトルラップの自己評価まで。Five PercentでいうGod（神）としての自己認識と、MCとしての技量の自信が、ここで重なります。
+        </p>
+        <p>
+          <strong class="text-[var(--c-text)]">Verse 2（Wise Intelligent）</strong>は神学的なバースです。
+        </p>
+        <p>
+          自身を「all eye seeing（全てを見る目）」＝神として語り、イエス・キリストが黒人だったという黒人解放神学的なテーゼを、ヨハネの黙示録の引用で展開します。crackatalism（造語）やpolitricks（造語）、Ten Percentersという教義用語が登場する、濃密な2分間です。
+        </p>
+        <p>
+          <strong class="text-[var(--c-text)]">Verse 3（Wise Intelligent）</strong>に、この曲で最も知られる一行があります。「G is for God, where did gangsta come from?」。
+        </p>
+        <p>
+          Gというアルファベットがギャングスタラップに横取りされたことへの問いかけです。
+        </p>
+        <p>
+          地球の質量（six sextillion tons）といった科学的な数値をリリックに織り込むSupreme Mathematics実践の場でもあります。最後は「この情報を家に持ち帰って、プラスの教訓にしろ」というPRT一流の教育的な締めくくりで終わります。
         </p>
         <p class="text-xs text-[var(--c-dim)]">
-          ※批評・教育目的での引用。全歌詞対訳は掲載せず、解説に必要な断片のみを使用しています。
+          ※批評・教育目的での引用です。全歌詞対訳は掲載せず、解説に必要な断片のみを使っています。
         </p>
       </div>
     </section>
@@ -103,176 +145,610 @@ const YT = "T8pDh5e6XLg";
         学ぶ表現 — スラング・造語・Five Percent語彙・韻
       </h2>
       <p class="text-xs text-[var(--c-dim)] mb-6">
-        各見出しは「この曲から学べる英語表現」。マイクはその表現が出てくるセクション。引用は解説に必要な最小限の断片のみです。Five Percent Nationの専門用語を多く含むため、辞書を引いても意味が取れない語を重点的に解説します。
-      </p>
+          各見出しは「この曲から学べる英語表現」です。マイクの欄はその表現が出てくるセクション。
+        </p>
+        <p class="text-xs text-[var(--c-dim)] mb-6">
+          引用は解説に必要な最小限の断片だけにしています。辞書を引いても意味が取れないFive Percent Nationの専門用語を、重点的に解説します。
+        </p>
 
       <!-- ① cave dwellers -->
       <LearningUnit
         heading="cave dwellers — Five Percent Nationの人種語彙"
         label="★ 思想語彙"
         mc="Wise Intelligent（Verse 1）"
-        youtubeId={YT}
+        t={TS["cave-dwellers"].t} tApprox={TS["cave-dwellers"].approx} youtubeId={YT}
         embed=""
       >
         <Fragment slot="eng">Something for cave dwellers</Fragment>
         <Fragment slot="jpn">洞窟住民へ贈る言葉</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の冒頭一行目。列挙の起点となる語。</p>
-        <p>この曲の最初の言葉が「<strong class="text-[var(--c-text)]">cave dwellers</strong>」（洞窟に住む者）。これはFive Percent Nationの教義に由来する白人への呼称です。その背景にあるのは、「黒人（オリジナル・ピープル）がアフリカで文明を築いていた頃、白人は寒冷なヨーロッパの洞窟で生き延びるために皮膚の色素を失った」という擬似歴史観。差別語としての側面を持ちつつ、Wise Intelligentはここを起点に「権力構造への挑戦状」として曲全体を展開させる。</p>
-        <p>注目は「Something <strong class="text-[var(--c-text)]">for</strong> cave dwellers」という構文。通常なら「〜への/〜向けの」と訳すが、これは「洞窟住民に届けるメッセージ」なのか「洞窟住民への批判」なのか、意図的に曖昧にしてある。冒頭の一語でリスナーを思想的な緊張の中に引き込む書き出し。</p>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の一行目。列挙の起点になる語です。</p>
+        <p>この曲の最初の言葉が「<strong class="text-[var(--c-text)]">cave dwellers</strong>」（洞窟に住む者）です。これはFive Percent Nationの教義に由来する白人への呼称になります。</p>
+        <p>背景にあるのは、「黒人（オリジナル・ピープル）がアフリカで文明を築いていた頃、白人は寒冷なヨーロッパの洞窟で生き延びるために皮膚の色素を失った」という擬似歴史観です。差別語としての側面を持ちつつ、Wise Intelligentはここを起点に、曲全体を権力構造への挑戦状として展開させていきます。</p>
+        <p>
+          注目したいのが「Something <strong class="text-[var(--c-text)]">for</strong> cave dwellers」という構文。通常なら「〜への／〜向けの」と訳すところですが、「洞窟住民に届けるメッセージ」なのか「洞窟住民への批判」なのか、意図的に曖昧にしてあります。
+        </p>
+        <p>
+          冒頭の一語でリスナーを思想的な緊張に引き込む書き出しです。
+        </p>
         <Fragment slot="usage">
-          <p><strong class="text-[var(--c-text)]">dweller</strong> は「住む人・居住者」を意味する名詞（動詞 dwell の派生）。cave dweller（洞窟住民）、city dweller（都市生活者）のように <code>場所 + dweller</code> の形で使う。日常英語では古風・書き言葉的で、会話よりも文学・学術文脈に出やすい。この曲では専門術語として機能している。</p>
+          <p>
+          <strong class="text-[var(--c-text)]">dweller</strong> は「住む人・居住者」を意味する名詞です（動詞 dwell の派生）。cave dweller（洞窟住民）、city dweller（都市生活者）のように <code>場所 + dweller</code> の形で使います。
+        </p>
+        <p>
+          日常英語では古風・書き言葉的で、会話よりも文学・学術文脈に出やすい語ですが、この曲では専門術語として機能しています。
+        </p>
         </Fragment>
       </LearningUnit>
 
-      <!-- ② crackatalism / politricks -->
+      <!-- ② カタログ韻 -->
       <LearningUnit
-        heading="crackatalism / politricks — 造語に二重批判を込める"
-        label="★ 造語"
-        mc="Wise Intelligent（Verse 2）"
-        youtubeId={YT}
+        heading="mailers / sellers / tellers — 韻で敵を数え上げるカタログ"
+        label="★ 韻／構成"
+        mc="Wise Intelligent（Verse 1）"
+        t={TS["catalog-rhyme"].t} tApprox={TS["catalog-rhyme"].approx} youtubeId={YT}
         embed=""
       >
-        <Fragment slot="eng">This vi-olent envi-ronment / Full of crackatalism and politricks and Ten Percenters</Fragment>
-        <Fragment slot="jpn">この暴力的な環境 / 白人資本主義と政治的欺瞞、そしてテン・パーセンターに満ちている</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2中盤、三つの標的を一行に圧縮する件。</p>
-        <p>この一行に造語が二つ仕込まれている。まず <strong class="text-[var(--c-text)]">crackatalism</strong>。「cracker」（白人への蔑称）＋「capitalism」（資本主義）の合成語で、白人が支配する資本主義体制を批判するFive Percent特有の語彙です。次に <strong class="text-[var(--c-text)]">politricks</strong>。「politics」（政治）＋「tricks」（詐欺・欺き）のブレンド語。政治が本質的に民衆を欺くシステムだという批判が一語に圧縮されている。</p>
-        <p>さらに韻も仕込まれている。「envi-<strong class="text-[var(--c-text)]">ronment</strong>」のシラブルの切り方が変則的なのに気づいただろうか。「vi-olent」「envi-ronment」と、Wise Intelligentは意図的にリズムを崩してから「crackatalism」で引き戻す。この変則的な切り方こそ、このバースが教材として面白い理由の一つです。</p>
-        <Fragment slot="usage">
-          <p>「<strong class="text-[var(--c-text)]">-ism</strong>」を接尾辞として既存語に付けて新しい概念語を作るのは英語の造語の定番手法（socialism / capitalism / racism…）。ヒップホップでは既存の -ism に別の語幹を合成することで、既存の政治概念を批判的に読み替える造語が頻出する。<em>crackatalism</em> はその典型例。意味を2語から一気に圧縮する経済的な手法でもある。</p>
-        </Fragment>
+        <Fragment slot="eng">Bomb mailers and gun sellers</Fragment>
+        <Fragment slot="jpn">爆弾を送りつける者、銃を売りさばく者</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1序盤、cave dwellersの直後から続く列挙。</p>
+        <p>cave dwellersのあと、Wise Intelligentは「悪をなす者」を延々と並べていきます。ここで効いているのが韻の作り方です。</p>
+        <p>行末が <strong class="text-[var(--c-text)]">-ellers</strong>（mailers / sellers / tellers）でしばらく揃い、続いて <strong class="text-[var(--c-text)]">-ackers</strong> の響きに乗り換えていく。同じ響きを積み重ねることで、列挙そのものにリズムと勢いが生まれます。</p>
+        <p>意味を追う前に、まず音のかたまりとして聴いてみると、韻がこのカタログの接着剤になっているのが分かると思います。内容の重さと、音の軽快さのギャップも面白いところです。</p>
       </LearningUnit>
 
-      <!-- ③ Ten Percenters -->
+      <!-- ③ New World Order -->
       <LearningUnit
-        heading="Ten Percenters — Five Percentの3階層モデル"
+        heading="New World Order — アルバム名にもなった陰謀論の語彙"
         label="★ 思想語彙"
-        mc="Wise Intelligent（Verse 2）"
-        youtubeId={YT}
+        mc="Wise Intelligent（Verse 1）"
+        t={TS["new-world-order"].t} tApprox={TS["new-world-order"].approx} youtubeId={YT}
         embed=""
       >
-        <Fragment slot="eng">Who know the truth but hold it back from the youth</Fragment>
-        <Fragment slot="jpn">真実を知りながら若者から隠している者たち</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2、Ten Percentersの定義を直後の行で示す件。</p>
-        <p>Five Percent Nationは人類を三層に分類する。①<strong class="text-[var(--c-text)]">Five Percent（5%）</strong>、真実を知り実践する者（Gods and Earths、PRTがここに属する）。②<strong class="text-[var(--c-text)]">Ten Percenters（10%）</strong>、真実を知りながら民衆から隠す者（聖職者・政治家・メディアなど支配的知識階層）。③残りの<strong class="text-[var(--c-text)]">85%</strong>、盲目で知識を持たない大衆（Blind, Deaf and Dumb）。</p>
-        <p>「Poor Righteous Teachers（貧しくも正義なる教師たち）」というグループ名そのものが、この5%の定義を言葉にしたものなんです。Ten Percentersへの批判がサビの一歩手前で来ることで、曲全体のテーゼ、「俺たちはただのラッパーじゃない、教師だ」が明確になる。知っていて隠す者への怒りと、85%に届けようとする使命感が、このグループの核心にある。</p>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1中盤、敵のカタログのなかに置かれる語。語彙ものなので行は引きません。</p>
+        <p>敵の列挙のなかに <strong class="text-[var(--c-text)]">New World Order</strong>（新世界秩序）という語が差し込まれます。これはアルバムのタイトルそのものでもあります。</p>
+        <p><QuickSlang word="New World Order" desc="少数のエリートが世界を秘密裏に一元支配するとされる陰謀論の用語。1990年代のコンシャスラップで権力批判の記号として頻出した" /> は、少数のエリートが世界を秘密裏に支配しようとしているという、陰謀論的な世界観を指す言葉です。1990年代のコンシャスラップでは、こうした語彙が権力批判の記号として繰り返し使われました。</p>
+        <p>グループはこの語を批判の対象として置きながら、同時にアルバムの旗印にも掲げている。敵の言葉を奪い取って自分たちの看板にする、その姿勢がここに出ていると思います。</p>
       </LearningUnit>
 
-      <!-- ④ elevation -->
+      <!-- ④ AIDS creators -->
+      <LearningUnit
+        heading="disease makers / AIDS creators — エイズ陰謀論という時代の声"
+        label="★ 時代背景"
+        mc="Wise Intelligent（Verse 1）"
+        t={TS["aids-creators"].t} tApprox={TS["aids-creators"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1、敵のカタログのなかの一節。テーマものなので行は引きません。</p>
+        <p>列挙のなかに「病を作る者、すなわちエイズを生み出した者」という一節があります。エイズが人為的に作られたウイルスだ、という<strong class="text-[var(--c-text)]">エイズ陰謀論</strong>を踏まえた表現です。</p>
+        <p>いま読むと極端に響くかもしれませんが、1980〜90年代のアメリカで、黒人コミュニティにエイズが不均衡に広がっていったことへの不信感が背景にあります。政府や医療への根深い不信が、コンシャスラップにこうした主張を生みました。</p>
+        <p>ここで大事なのは、事実として正しいかどうかよりも、「なぜこの声が生まれたのか」を歴史の文脈で読むことだと思います。抑圧された側の恐怖と怒りが、こういう形で言葉になっている一節です。</p>
+      </LearningUnit>
+
+      <!-- ⑤ mathematics / knowledge / understanding -->
+      <LearningUnit
+        heading="mathematics, knowledge and understanding — Supreme Mathematicsの度数"
+        label="★ 思想語彙"
+        mc="Wise Intelligent（Verse 1）"
+        t={TS["mathematics-degrees"].t} tApprox={TS["mathematics-degrees"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1中盤、黒人が文明を築いたと語る件。思想語彙なので行は引きません。</p>
+        <p>「同じ黒人たちが、mathematics（数学）、pure knowledge（純粋な知識）、understanding（理解）でこの惑星を築いた」という趣旨の件があります。</p>
+        <p>ここに並ぶ <strong class="text-[var(--c-text)]">knowledge（知識）</strong>、<strong class="text-[var(--c-text)]">wisdom（知恵）</strong>、<strong class="text-[var(--c-text)]">understanding（理解）</strong>は、Five Percent Nationの<strong class="text-[var(--c-text)]">Supreme Mathematics</strong>で数字の1・2・3に対応する基本の度数（degree）です。ただの一般名詞ではなく、教義の用語として置かれています。</p>
+        <p>MCの名前 Wise Intelligent の「Wise（知恵ある）」も、この語彙圏から来ているんですよね。名前・数字・世界観がひとつの体系でつながっている、その入口になる一節です。</p>
+      </LearningUnit>
+
+      <!-- ⑥ we ain't just rappers -->
+      <LearningUnit
+        heading="We ain't just rappers — 「ただのラッパーじゃない」という宣言"
+        label="★ テーマ／AAVE"
+        mc="Wise Intelligent（Verse 1）"
+        t={TS["not-just-rappers"].t} tApprox={TS["not-just-rappers"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1後半、敵の列挙から自分たちの使命へ切り替わる件。</p>
+        <p>敵を延々と数え上げたあと、Wise Intelligentは「俺たちはただのラッパーじゃない、黒人の状況を変えているんだ」と切り返します。この曲全体のテーゼが、ここで一度地面に置かれます。</p>
+        <p>文法で注目したいのが <strong class="text-[var(--c-text)]">ain't</strong> と、進行形の <strong class="text-[var(--c-text)]">we changing</strong>。ain't は「am not / is not / are not」をまとめて担うAAVE（アフリカ系アメリカ人英語）の否定形です。</p>
+        <p>
+          そして be動詞が落ちた we changing（＝we are changing）も、AAVEでよく見られる形になります。崩れた英語ではなく、規則的な特徴です。
+        </p>
+        <p>
+          前の章で並べた「敵」に対して、自分たちを「教える者」として立てる転換点になっています。
+        </p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">ain't</strong> は否定を一語で担う口語・AAVEの定番で、be動詞にも have にも使えます（<em>I ain't got it</em>＝I haven't got it）。進行形で be動詞が落ちる <em>we changing</em>（＝we are changing）とセットで覚えておくと、ラップのリスニングがぐっと楽になります。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑦ elevation -->
       <LearningUnit
         heading="elevation — Five Percentのキーワード語彙"
         label="★ 思想語彙"
         mc="Wise Intelligent（Verse 1）"
-        youtubeId={YT}
+        t={TS["elevation"].t} tApprox={TS["elevation"].approx} youtubeId={YT}
         embed=""
       >
         <Fragment slot="eng">My occupation's to stimulate your elevation / To motivate and navigate through revelation</Fragment>
         <Fragment slot="jpn">俺の使命はお前の高みを刺激すること / 啓示を通じて動機づけ、道を示すこと</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1終盤、PRTの使命宣言の核心。</p>
-        <p><strong class="text-[var(--c-text)]">elevation</strong>。物理的には「上昇・高さ」を意味するが、Five Percent Nationの文脈では「精神的・知的向上」を指す専門語として機能する。同義語として <em>uplift</em> も頻出する（後のJ. Coleらが引き継ぐ語でもある）。この曲のコーラス「elevate to great heights」もこの二重の意味が走っている。マイクで精神的に上昇するという、文字通りの意味と比喩的な意味の重なりだ。</p>
-        <p>さらに行の韻を見てほしい。occupation → stimulate → <strong class="text-[var(--c-text)]">elevation</strong> → motivate → navigate → <strong class="text-[var(--c-text)]">revelation</strong>。「-ation」で揃えながら、動詞 stimulate / motivate / navigate が挟まる構造で、教育的使命感をリズムそのもので体現している。言葉の意味と音が一体化した好例だと思います。</p>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1終盤、PRTの使命宣言の核心です。</p>
+        <p><strong class="text-[var(--c-text)]">elevation</strong>。物理的には「上昇・高さ」を意味しますが、Five Percent Nationの文脈では「精神的・知的な向上」を指す専門語として機能します。</p>
+        <p>コーラスの「elevate to great heights」でも、この二重の意味が走っています。マイクで精神的に上昇していく、という文字通りの意味と比喩的な意味の重なりです。</p>
+        <p>
+          行の韻も見どころだと思います。occupation → stimulate → <strong class="text-[var(--c-text)]">elevation</strong> → motivate → navigate → <strong class="text-[var(--c-text)]">revelation</strong>。
+        </p>
+        <p>
+          「-ation」で揃えながら、動詞 stimulate / motivate / navigate が挟まる構造で、教育的な使命感をリズムそのもので出しています。言葉の意味と音が一体化した好例です。
+        </p>
         <Fragment slot="usage">
-          <p><strong class="text-[var(--c-text)]">elevation</strong> は「上昇・標高・高揚」を意味する名詞。ヒップホップ・コンシャスラップでは特に「精神的・知識的な向上」の意味で使われ、「higher consciousness（より高い意識）」と意味的に重なる。<em>seek elevation</em>（向上を求める）、<em>community elevation</em>（コミュニティの向上）のように使う。後の時代にはKendrick LamarやJ. Coleの楽曲にも引き継がれる語彙。</p>
+          <p>
+          <strong class="text-[var(--c-text)]">elevation</strong> は「上昇・標高・高揚」を意味する名詞です。コンシャスラップでは特に「精神的・知識的な向上」の意味で使われ、「higher consciousness（より高い意識）」と意味的に重なります。
+        </p>
+        <p>
+          <em>seek elevation</em>（向上を求める）のように使い、後の時代のKendrick LamarやJ. Coleの楽曲にも引き継がれていく語彙です。
+        </p>
         </Fragment>
       </LearningUnit>
 
-      <!-- ⑤ G is for God -->
+      <!-- ⑧ shine the light -->
       <LearningUnit
-        heading="G is for God — この曲の最重要ライン"
-        label="★ 最重要（言葉遊び・思想）"
-        mc="Wise Intelligent（Verse 3）"
-        youtubeId={YT}
+        heading="I shine the light that knowledge ignites — 知識を「光」で語る"
+        label="★ 比喩／コーラス"
+        mc="Wise Intelligent（Chorus）"
+        t={TS["shine-light-knowledge"].t} tApprox={TS["shine-light-knowledge"].approx} youtubeId={YT}
         embed=""
       >
-        <Fragment slot="eng">G is for God, where did "gangsta" come from?</Fragment>
-        <Fragment slot="jpn">GはGodのG——「ギャングスタ」はどこから来たんだ？</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3の冒頭。この曲で最も引用される一行。</p>
-        <p>この一行が、この曲の核心にして1990年代のコンシャスラップとギャングスタラップの哲学的対立がぎゅっと詰まった表現です。Five Percent NationではSupreme Alphabet（至高のアルファベット）において、Gは「<strong class="text-[var(--c-text)]">God</strong>」を表す。黒人男性は神（God）であり、Gという文字はその神聖さの象徴だった。しかし1990年代、<strong class="text-[var(--c-text)]">gangsta</strong>（ギャングスタ）ラップの台頭でGという字が「ギャングスタ」の略号として席巻した。</p>
-        <p>Wise Intelligentの問いは「そのGはどこから来たんだ?」。答えは言っていない。リスナーに問う形で、ギャングスタラップがFive Percentの聖なる文字を商業的・暴力的な文脈に横取りしたという告発を含んでいる。問いの形を取ることで説教にならず、リリックとして成立させている運びがうまい。この一行を知っておかないと、PRTのスタンスは半分も理解できない。</p>
+        <Fragment slot="eng">I shine the light that knowledge ignites</Fragment>
+        <Fragment slot="jpn">俺は知識が灯す光を輝かせる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ コーラスの一行目。曲のトーンを決める比喩です。</p>
+        <p>コーラスは「俺は知識が灯す光を輝かせる」で始まります。<strong class="text-[var(--c-text)]">knowledge（知識）＝light（光）</strong>という比喩は、Five Percent Nationの世界観と相性がいいんです。</p>
+        <p>
+          教義では、真実を知る5%が、盲目の85%に「光を当てる」という構図があります。知らない状態は「暗闇」、知ることは「光」。
+        </p>
+        <p>
+          だから knowledge と light が自然につながります。
+        </p>
+        <p>
+          音も細かく作ってあります。<strong class="text-[var(--c-text)]">light / ignites / write</strong> と <code>-ight / -ite</code> の響きが返ってきて、次の行の「things that I write」まで韻でつながっていく。
+        </p>
+        <p>
+          知識を届けることと、それを書く（ラップする）ことが、音のうえでも一続きになっています。
+        </p>
       </LearningUnit>
 
-      <!-- ⑥ Supreme Mathematics（six sextillion tons） -->
+      <!-- ⑨ make ice / nice -->
       <LearningUnit
-        heading="six sextillion tons Earth — 科学をリリックに織り込む"
-        label="★ Supreme Mathematics"
-        mc="Wise Intelligent（Verse 3）"
-        youtubeId={YT}
+        heading="make ice of any emcees / we dat nice — 「ナイス」の多義"
+        label="★ ヒップホップ語彙"
+        mc="Wise Intelligent（Chorus）"
+        t={TS["make-ice-nice"].t} tApprox={TS["make-ice-nice"].approx} youtubeId={YT}
         embed=""
       >
-        <Fragment slot="eng">The Wise one ain't done, six sextillion tons Earth</Fragment>
-        <Fragment slot="jpn">賢者はまだ終わっていない、6×10の21乗トンの地球</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3中盤、神（Wise Intelligent自身）が宇宙を保持するという宣言の直前。</p>
-        <p><strong class="text-[var(--c-text)]">six sextillion tons</strong>（約6×10²¹トン）。これは地球の実際の質量です。Five Percent Nationには「Supreme Mathematics」という独自の数秘術体系があり、科学的知識・数字・宇宙論を「真実の体系」として日常的に扱う文化がある。ただ「大きい」「すごい」という誇張ではなく、実際の科学的数値を歌詞に織り込む、これがSupreme Mathematicsの実践的な形だ。</p>
-        <p>リリック上の機能も考えると面白い。「six sextillion tons」という非日常的な数字をぶつけることで、リスナーは「あれ、合ってる?」と一瞬止まる。その一瞬の驚きが、次の「I levitate, hold the universe in place（俺は浮遊し、宇宙を定位置に保つ）」という神的な自己宣言への転換を際立たせる。知識と誇示を同時に達成する一行です。</p>
+        <Fragment slot="eng">Take flight, make ice of any emcees you like, I'm that nice</Fragment>
+        <Fragment slot="jpn">飛び立って、どんなMCも凍らせる——それくらいナイスだ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ コーラスの締めくくり。曲タイトルに直結する一行です。</p>
+        <p>日常英語の <em>nice</em>（いい、親切な）と、ヒップホップ文脈の <strong class="text-[var(--c-text)]">nice</strong> は意味が全然違います。バトルラップの文脈では「<strong class="text-[var(--c-text)]">MCとしての技量が異常に高い</strong>」という、最高の賛辞になります。</p>
+        <p>「I'm nice on the mic」＝「俺はマイクの前で別格だ」。曲タイトル「We Dat Nice」の「dat」は「that」のAAVE的な発音転写で、「俺たちこそそのナイスだ」という強調を含みます。</p>
+        <p>直前の「make ice of any emcees you like」も面白いところです。<strong class="text-[var(--c-text)]">make ice of</strong>（氷にする＝完全に打ち負かす）という言い回しで、知識と神の力を持つ自分の前では、どんなMCも凍りついてしまう、という誇示になります。</p>
+        <p>神性とMCとしての技量を重ねて「nice」の一語に着地させる。この一行だけでコーラス全体が立っていると思います。</p>
         <Fragment slot="usage">
-          <p><strong class="text-[var(--c-text)]">sextillion</strong> は10の21乗（1,000,000,000,000,000,000,000）。英語の数字スケール: million（10⁶）→ billion（10⁹）→ trillion（10¹²）→ quadrillion（10¹⁵）→ quintillion（10¹⁸）→ <strong class="text-[var(--c-text)]">sextillion（10²¹）</strong>。日常英語ではほとんど使わない単語だが、ヒップホップでは知識の誇示（flexing knowledge）として大きな数字・科学用語を使う表現文化がある。</p>
+          <p>
+          ヒップホップの <strong class="text-[var(--c-text)]">nice</strong>（形容詞的用法）は「MCスキルが高い・技量が別格」の意味です。<em>He's nice</em> や <em>She's nice with the bars</em> のように使い、対義語は <em>weak</em>（ヘタクソ）。
+        </p>
+        <p>
+          日常英語の「親切」「感じがいい」とは別の語として捉えておくとリスニングが楽になります。
+        </p>
+          <p><strong class="text-[var(--c-text)]">dat</strong> は <em>that</em> のAAVE的な発音を表記したものです。<em>dat girl</em>（あの女）、<em>we dat nice</em>（俺たちこそそれだ）のように指示詞として使い、歌詞・会話・SNSで頻出します。</p>
         </Fragment>
       </LearningUnit>
 
-      <!-- ⑦ all eye seeing -->
+      <!-- ⑩ elevate to great heights / this mic like my life -->
+      <LearningUnit
+        heading="This mic like my life, I elevate to great heights — フックの直喩"
+        label="★ 構文／フック"
+        mc="Wise Intelligent（Hook）"
+        t={TS["elevate-great-heights"].t} tApprox={TS["elevate-great-heights"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">This mic like my life I elevate to great heights, we that nice</Fragment>
+        <Fragment slot="jpn">このマイクは俺の人生のようだ、俺は高みへと昇っていく、俺たちはナイスだ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ フックの中心となる一行。曲名がここで音になります。</p>
+        <p>フックの核が「This mic like my life」です。<strong class="text-[var(--c-text)]">A is like B</strong>（AはBのようだ）という中学英語の直喩そのもので、マイクと自分の人生を重ねています。</p>
+        <p>続く <strong class="text-[var(--c-text)]">elevate to great heights</strong> は、ユニット⑦で見た elevation の動詞形です。マイクで昇っていく（ラップで高みに達する）と、精神的に向上する、その二つの意味がここでも同時に走ります。</p>
+        <p>
+          そして「we that nice」で曲名に着地する。直喩・思想語彙・タイトルが、たった一行に畳み込まれています。
+        </p>
+        <p>
+          フックが単なる合いの手ではなく、曲のテーゼの圧縮になっているのが分かる箇所です。
+        </p>
+      </LearningUnit>
+
+      <!-- ⑪ N.I.C.E spelled -->
+      <LearningUnit
+        heading="N.I.C.E / Take these words home — スペリングと教育的な締め"
+        label="★ 構成"
+        mc="DJ Father Shah scratches"
+        t={TS["nice-spelled"].t} tApprox={TS["nice-spelled"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">N.I.C.E / Take these words home and think it through</Fragment>
+        <Fragment slot="jpn">N・I・C・E／この言葉を持ち帰って、じっくり考えてみろ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ フックのあと、Father Shaheedのスクラッチが入るブリッジ部分。</p>
+        <p>フックのあと、DJのFather Shaheedがスクラッチで「N・I・C・E」と一文字ずつ綴ります。曲名を音の断片としてバラして、リズムの素材にしているわけです。</p>
+        <p>続くのが「Take these words home and think it through」（この言葉を持ち帰って、じっくり考えろ）。<strong class="text-[var(--c-text)]">think 〜 through</strong> は「最後まで筋道立てて考え抜く」という句動詞で、日常会話でも使える表現です。</p>
+        <p>
+          ここにPRTの姿勢がよく出ていると思います。ただ自慢して終わりではなく、「持ち帰って考えろ」と教育的に締める。
+        </p>
+        <p>
+          「教師（Teachers）」を名乗るグループらしい一節で、最後の「damn I'm good!」という軽口とのギャップも効いています。
+        </p>
+      </LearningUnit>
+
+      <!-- ⑫ Frighty Whitey -->
+      <LearningUnit
+        heading="Frighty Whitey — 韻で転がす白人批判"
+        label="★ スラング／韻"
+        mc="Wise Intelligent（Verse 2）"
+        t={TS["frighty-whitey"].t} tApprox={TS["frighty-whitey"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の入り、「人生は自分次第」の直後。スラングものなので行は引きません。</p>
+        <p>Verse 2は「life is what you make it（人生は自分次第）」で始まり、すぐに <strong class="text-[var(--c-text)]"><QuickSlang word="whitey" desc="白人を指すくだけた俗語。侮蔑的なニュアンスを含むが、ここでは韻と語呂で転がす軽さがある" /></strong>（白人を指す俗語）が出てきます。</p>
+        <p>面白いのが <strong class="text-[var(--c-text)]">Frighty Whitey</strong> という韻の作り方です。Frighty（＝frightened、怯えた／おびえさせる）と Whitey を韻で並べて、「怯えた白人は俺を好きになれない」という趣旨を、ほとんど童謡みたいな語呂で転がします。</p>
+        <p>重いテーマを軽い韻で運ぶ、この緩急がWise Intelligentのうまさです。前のバースの深刻なカタログとは対照的に、Verse 2は言葉遊びの密度が一気に上がっていきます。</p>
+      </LearningUnit>
+
+      <!-- ⑬ all eye seeing -->
       <LearningUnit
         heading="all eye seeing — 神の全知とFive Percentの自己神格化"
         label="★ 思想語彙"
         mc="Wise Intelligent（Verse 2）"
-        youtubeId={YT}
+        t={TS["all-eye-seeing"].t} tApprox={TS["all-eye-seeing"].approx} youtubeId={YT}
         embed=""
       >
         <Fragment slot="eng">My state of being as the all eye seeing</Fragment>
         <Fragment slot="jpn">「全てを見る目」として存在する俺</Fragment>
         <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2、自身を神として語り始める件。</p>
-        <p><strong class="text-[var(--c-text)]">all eye seeing</strong>（全てを見る目）は、神の全知・全能を表す表現。フリーメイソンのシンボル「プロビデンスの目（Eye of Providence）」とも意味的に重なり、1ドル札の裏のピラミッドの頂点にある「目」を連想させる。Five Percent Nationでは「黒人男性が神（God）である」という教義の核心があり、Wise Intelligentは自身を「全てを見る神」として語ることで、この教義を一人称で体現している。</p>
-        <p>興味深いのは、「all-seeing eye」（全知の目）という既存の表現を「all <strong class="text-[var(--c-text)]">eye</strong>（単数）seeing」と変形させている点です。文法的には「all-eyes-seeing」が標準的ですが、ここを単数形にすることで、プロビデンスの目というシンボルを直接指示しながら、音のリズムも整えている。細かい変形に意図が宿るWise Intelligentのリリックの特徴です。</p>
+        <p><strong class="text-[var(--c-text)]">all eye seeing</strong>（全てを見る目）は、神の全知・全能を表す表現です。フリーメイソンのシンボル「プロビデンスの目（Eye of Providence）」とも意味的に重なり、1ドル札の裏のピラミッドの頂点にある「目」を連想させます。</p>
+        <p>Five Percent Nationには「黒人男性が神（God）である」という教義の核心があり、Wise Intelligentは自身を「全てを見る神」として語ることで、この教義をそのまま一人称で名乗っています。</p>
+        <p>
+          興味深いのが、「all-seeing eye」（全知の目）という既存の表現を「all <strong class="text-[var(--c-text)]">eye</strong>（単数）seeing」と変形させている点です。文法的には「all-eyes-seeing」が標準的ですが、単数形にすることでプロビデンスの目を直接指しながら、音のリズムも整えている。
+        </p>
+        <p>
+          細かい変形に意図が宿るリリックの特徴だと思います。
+        </p>
       </LearningUnit>
 
-      <!-- ⑧ Revelations / woolly hair / bronze skin -->
+      <!-- ⑭ water to wine / X and Y -->
+      <LearningUnit
+        heading="turn the water to wine / Combine X and Y — 奇跡と科学で神を名乗る"
+        label="★ 言葉遊び／思想"
+        mc="Wise Intelligent（Verse 2）"
+        t={TS["water-to-wine"].t} tApprox={TS["water-to-wine"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2中盤、自身を神として語る件。イメージものなので行は引きません。</p>
+        <p>ここでWise Intelligentは「俺は水をワインに変える」と語ります。ヨハネの福音書でイエスが起こした最初の奇跡（水をワインに変えた話）を、自分に重ねる言い回しです。</p>
+        <p>すぐ続いて「Combine X and Y, created physical Gods（XとYを結びつけ、肉体を持つ神々を創った）」と展開します。<strong class="text-[var(--c-text)]">X and Y</strong> は、性染色体のXとYを指しています。</p>
+        <p>
+          宗教的な奇跡と、生物学の用語。その二つを並べて「黒人男性は神である」という教義を語るところに、この曲の手つきが出ています。
+        </p>
+        <p>
+          聖書の言葉と科学の言葉を同じ地平で扱う。Supreme Mathematicsの発想が、リリックの比喩として立ち上がってくる一節です。
+        </p>
+      </LearningUnit>
+
+      <!-- ⑮ crackatalism / politricks -->
+      <LearningUnit
+        heading="crackatalism / politricks — 造語に二重批判を込める"
+        label="★ 造語"
+        mc="Wise Intelligent（Verse 2）"
+        t={TS["crackatalism"].t} tApprox={TS["crackatalism"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">This vi-olent envi-ronment / Full of crackatalism and politricks and Ten Percenters</Fragment>
+        <Fragment slot="jpn">この暴力的な環境 / 白人資本主義と政治的欺瞞、そしてテン・パーセンターに満ちている</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2中盤、三つの標的を一行に圧縮する件。</p>
+        <p>
+          この一行に造語が二つ仕込まれています。まず <strong class="text-[var(--c-text)]">crackatalism</strong>。
+        </p>
+        <p>
+          「cracker」（白人への蔑称）＋「capitalism」（資本主義）の合成語で、白人が支配する資本主義体制を批判するFive Percent特有の語彙です。
+        </p>
+        <p>次に <strong class="text-[var(--c-text)]">politricks</strong>。「politics」（政治）＋「tricks」（詐欺・欺き）のブレンド語で、政治が本質的に民衆を欺くシステムだという批判が一語に圧縮されています。</p>
+        <p>
+          韻も仕込まれています。「envi-<strong class="text-[var(--c-text)]">ronment</strong>」のシラブルの切り方が変則的なのに気づくと思います。
+        </p>
+        <p>
+          「vi-olent」「envi-ronment」と意図的にリズムを崩してから「crackatalism」で引き戻す。この変則的な切り方が、このバースの面白さのひとつです。
+        </p>
+        <Fragment slot="usage">
+          <p>
+          「<strong class="text-[var(--c-text)]">-ism</strong>」を接尾辞として既存語に付けて新しい概念語を作るのは、英語の造語の定番手法です（socialism / capitalism / racism…）。ヒップホップでは既存の -ism に別の語幹を合成して、政治概念を批判的に読み替える造語がよく出てきます。
+        </p>
+        <p>
+          <em>crackatalism</em> はその典型で、意味を2語から一気に圧縮する経済的な手法でもあります。
+        </p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑯ Ten Percenters -->
+      <LearningUnit
+        heading="Ten Percenters — Five Percentの3階層モデル"
+        label="★ 思想語彙"
+        mc="Wise Intelligent（Verse 2）"
+        t={TS["ten-percenters"].t} tApprox={TS["ten-percenters"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Who know the truth but hold it back from the youth</Fragment>
+        <Fragment slot="jpn">真実を知りながら若者から隠している者たち</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2、Ten Percentersの定義を直後の行で示す件。</p>
+        <p>
+          Five Percent Nationは人類を三層に分類します。①<strong class="text-[var(--c-text)]">Five Percent（5%）</strong>、真実を知り実践する者（Gods and Earths、PRTがここに属します）。
+        </p>
+        <p>
+          ②<strong class="text-[var(--c-text)]">Ten Percenters（10%）</strong>、真実を知りながら民衆から隠す者（聖職者・政治家・メディアなど）。③残りの<strong class="text-[var(--c-text)]">85%</strong>、盲目で知識を持たない大衆（Blind, Deaf and Dumb）。
+        </p>
+        <p>「Poor Righteous Teachers（貧しくも正義なる教師たち）」というグループ名そのものが、この5%の定義を言葉にしたものなんです。</p>
+        <p>Ten Percentersへの批判がサビの一歩手前で来ることで、曲全体のテーゼ「俺たちはただのラッパーじゃない、教師だ」が明確になります。知っていて隠す者への怒りと、85%に届けようとする使命感が、このグループの核心にあります。</p>
+      </LearningUnit>
+
+      <!-- ⑰ spook -->
+      <LearningUnit
+        heading="a so called spook — 「幽霊」と侮蔑語の二重の意味"
+        label="★ 言葉遊び／スラング"
+        mc="Wise Intelligent（Verse 2）"
+        t={TS["spook"].t} tApprox={TS["spook"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2、黒人イエスのテーゼへ入る直前の件。語の含みものなので行は引きません。</p>
+        <p>「イエス・キリストは、いわゆる <strong class="text-[var(--c-text)]"><QuickSlang word="spook" desc="本来は幽霊・亡霊。20世紀のアメリカでは黒人を指す侮蔑語としても使われた語で、ここでは二重の意味が掛けられている" /></strong> だった」という件があります。ここで spook が二重に効いています。</p>
+        <p>spook はもともと「幽霊・亡霊」を意味する語です。同時に、20世紀のアメリカでは黒人を指す侮蔑語としても使われてきました。</p>
+        <p>
+          「so called（いわゆる）」を付けることで、その侮蔑語をあえて引き受けながら、「イエスは黒人だった」という次のテーゼへ橋渡しします。幽霊のように扱われ、蔑まれてきた存在としてのイエス。
+        </p>
+        <p>
+          侮蔑語を逆手に取って論を進める、鋭い一手です。
+        </p>
+      </LearningUnit>
+
+      <!-- ⑱ Revelations / wool hair -->
       <LearningUnit
         heading="Wool hair, bronze skin — 聖書引用でテーゼを立てる"
         label="★ 引用・論証構造"
         mc="Wise Intelligent（Verse 2）"
-        youtubeId={YT}
+        t={TS["revelations-wool"].t} tApprox={TS["revelations-wool"].approx} youtubeId={YT}
         embed=""
       >
         <Fragment slot="eng">Revelations Chapter One 13 and 16:<br />"Wool hair", "bronze skin", Jesus was blacker than me</Fragment>
         <Fragment slot="jpn">ヨハネの黙示録1章13節と16節：<br />「羊毛のような髪」「青銅のような肌」——イエスは俺より黒かった</Fragment>
         <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2後半、イエスが黒人だったというテーゼを聖書で論証する件。</p>
-        <p>「イエスは黒人だった」はFive Percent Nationと黒人解放神学の核心テーゼの一つ。Wise Intelligentはそれをただ言い放つのではなく、<strong class="text-[var(--c-text)]">章・節を明示して聖書を引用する</strong>という論証の形を取る。ヨハネの黙示録1章13-16節には「頭の毛は白い羊毛のよう」「足は炉で精錬された真鍮のよう」という記述が実在し、黒人解放神学ではこれをイエスがアフリカ系の外見を持つ証拠として解釈する。</p>
-        <p>ここで効いているのが<strong class="text-[var(--c-text)]">論証の形式</strong>なんです。「Revelations Chapter One 13 and 16」とキッパリ典拠を明示し、引用をダブルクオートで括って、最後に結論「Jesus was blacker than me」を置く。演説・論文の構造をそのままバースに持ち込んでいる。PRTが「教師」を自称する所以がここに出ていて、思想をエンターテインメントとして届けながら、論証の形を崩さない。</p>
+        <p>「イエスは黒人だった」は、Five Percent Nationと黒人解放神学の核心テーゼのひとつです。Wise Intelligentはそれをただ言い放つのではなく、<strong class="text-[var(--c-text)]">章・節を明示して聖書を引用する</strong>という論証の形を取ります。</p>
+        <p>ヨハネの黙示録1章13-16節には「頭の毛は白い羊毛のよう」「足は炉で精錬された真鍮のよう」という記述が実際にあり、黒人解放神学ではこれをイエスがアフリカ系の外見を持つ証拠として解釈します。</p>
+        <p>ここで効いているのが<strong class="text-[var(--c-text)]">論証の形式</strong>です。「Revelations Chapter One 13 and 16」ときっぱり典拠を示し、引用をダブルクオートで括って、最後に結論「Jesus was blacker than me」を置く。</p>
+        <p>
+          演説や論文の構造を、そのままバースに持ち込んでいます。PRTが「教師」を自称する所以がここに出ていて、思想をエンターテインメントとして届けながら、論証の形は崩さない。
+        </p>
+        <p>
+          そのバランスが見事だと思います。
+        </p>
       </LearningUnit>
 
-      <!-- ⑨ nice（バトルラップ文脈） -->
+      <!-- ⑲ Colin Ferguson / hollow points -->
       <LearningUnit
-        heading="I'm that nice / we dat nice — 「ナイス」の多義"
-        label="★ ヒップホップ語彙"
-        mc="Wise Intelligent（Hook / Chorus）"
-        youtubeId={YT}
+        heading="Colin Ferguson / hollow points — 現実の事件を引く重さ"
+        label="★ 時代背景／スラング"
+        mc="Wise Intelligent（Verse 2）"
+        t={TS["colin-ferguson"].t} tApprox={TS["colin-ferguson"].approx} youtubeId={YT}
         embed=""
       >
-        <Fragment slot="eng">Take flight, make ice of any emcees you like, I'm that nice</Fragment>
-        <Fragment slot="jpn">飛び立って、どんなMCも凍らせる——それくらいナイスだ</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Chorus、コーラスの締めくくり。曲タイトルに直結する一行。</p>
-        <p>日常英語の <em>nice</em>（いい、親切な、感じのいい）と、ヒップホップ文脈の <strong class="text-[var(--c-text)]">nice</strong> は意味が全然違う。バトルラップの文脈では「<strong class="text-[var(--c-text)]">MCとしての技量・スキルが異常に高い</strong>」という意味で使われる最高の賛辞です。「I'm nice on the mic」＝「俺はマイクの前で別格だ」。曲タイトル「We Dat Nice」の「dat」は「that」のAAVE的発音転写で、「俺たちこそそのナイスだ」という強調を含む。</p>
-        <p>直前の「make ice of any emcees you like」も面白い。<strong class="text-[var(--c-text)]">make ice of</strong>（氷にする＝完全に打ち負かす）という言い回しで、知識と神の力を持つ自分の前では、どんなMCも凍りついてしまうという誇示。神性とMCとしての技量を重ねて「nice」の一語に着地させる構造が鮮やか。この一行だけでコーラス全体が立っている。</p>
+        <p class="text-xs text-[var(--c-dim)] mb-1">
+          ▶ Verse 2の締め近く。実在の事件への言及です。
+        </p>
+        <p class="text-xs text-[var(--c-dim)] mb-1">
+          語彙ものなので行は引きません。
+        </p>
+        <p>バースの終盤に <strong class="text-[var(--c-text)]">Colin Ferguson</strong> の名前が出てきます。1993年、ニューヨーク近郊のロングアイランド鉄道の車内で乗客を銃撃した黒人男性の名前です。</p>
+        <p>並んで出てくる <strong class="text-[var(--c-text)]"><QuickSlang word="hollow points" desc="着弾すると先端が潰れて広がるように作られた弾（ホローポイント弾）。殺傷力の高い実弾を指す" /></strong> は、着弾すると先端が広がるように作られた実弾を指します。</p>
+        <p>
+          直前まで人種と抑圧を語ってきた流れで、実在の凄惨な事件を名指しする。ここは称賛でも扇動でもなく、抑圧が生んだ暴力の噴出を「現実として置く」ような一節です。
+        </p>
+        <p>
+          思想の言葉が続いたあとに、生々しい固有名詞が刺さることで、Verse 2が地に足のついた重さで閉じられます。
+        </p>
+      </LearningUnit>
+
+      <!-- ⑳ tongues to the dumb -->
+      <LearningUnit
+        heading="giving tongues to the dumb — 声なき者に言葉を与える"
+        label="★ 比喩／聖書引用"
+        mc="Wise Intelligent（Verse 3）"
+        t={TS["tongues-to-dumb"].t} tApprox={TS["tongues-to-dumb"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3の入り、自己定義が始まる件。比喩ものなので行は引きません。</p>
+        <p>Verse 3は「perfection（完璧）」「forever living（永遠に生きる）」といった語から始まり、「giving tongues to the dumb（口のきけない者に言葉を与える）」と続きます。</p>
+        <p>これは聖書で、救世主が奇跡によって唖の人に言葉を取り戻させる、というイメージを踏まえた表現です。<strong class="text-[var(--c-text)]">dumb</strong> はここでは「バカ」ではなく、本来の「口のきけない」という意味で使われています。</p>
+        <p>
+          Wise Intelligentは、声を奪われた者たちに言葉を与える存在として自分を語ります。「教える者」というグループの自負が、宗教的な奇跡のイメージに乗って立ち上がってくる。
+        </p>
+        <p>
+          Verse 3全体が、この自己神話化のトーンで進んでいきます。
+        </p>
+      </LearningUnit>
+
+      <!-- ㉑ G is for God -->
+      <LearningUnit
+        heading="G is for God — この曲の最重要ライン"
+        label="★ 最重要（言葉遊び・思想）"
+        mc="Wise Intelligent（Verse 3）"
+        t={TS["g-is-for-god"].t} tApprox={TS["g-is-for-god"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">G is for God, where did "gangsta" come from?</Fragment>
+        <Fragment slot="jpn">GはGodのG——「ギャングスタ」はどこから来たんだ？</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3序盤。この曲で最も引用される一行です。</p>
+        <p>この一行に、1990年代のコンシャスラップとギャングスタラップの哲学的な対立がぎゅっと詰まっています。Five Percent NationのSupreme Alphabet（至高のアルファベット）では、Gは「<strong class="text-[var(--c-text)]">God</strong>」を表します。</p>
+        <p>黒人男性は神（God）であり、Gという文字はその神聖さの象徴でした。ところが1990年代、<strong class="text-[var(--c-text)]">gangsta</strong>（ギャングスタ）ラップの台頭で、Gという字が「ギャングスタ」の略号として席巻していきます。</p>
+        <p>
+          Wise Intelligentの問いは「そのGはどこから来たんだ?」。答えは言っていません。
+        </p>
+        <p>
+          リスナーに問う形で、ギャングスタラップがFive Percentの聖なる文字を商業的・暴力的な文脈に横取りした、という告発を含んでいます。
+        </p>
+        <p>問いの形を取ることで説教にならず、リリックとして成立させている運びがうまいと思います。この一行を知っておかないと、PRTのスタンスは半分も見えてきません。</p>
+      </LearningUnit>
+
+      <!-- ㉒ Wisdom words actions -->
+      <LearningUnit
+        heading="Wisdom, words and actions — Supreme AlphabetとMCの名前"
+        label="★ 思想語彙"
+        mc="Wise Intelligent（Verse 3）"
+        t={TS["wisdom-words-actions"].t} tApprox={TS["wisdom-words-actions"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Wisdom, words and actions making knowledge for real</Fragment>
+        <Fragment slot="jpn">知恵、言葉、行動が、本物の知識を作る</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3、「G is for God」の直後に続く件。</p>
+        <p>「G is for God」に続くのが、この行です。<strong class="text-[var(--c-text)]">Wisdom（知恵）</strong>と <strong class="text-[var(--c-text)]">knowledge（知識）</strong>が並びます。</p>
+        <p>Five Percent NationのSupreme Alphabetでは、W＝Wisdom、K＝Knowledge というように、各文字が概念に対応します。ここでは「知恵と言葉と行動が、本物の知識を作る」と、その概念を実践的に言い直しています。</p>
+        <p>
+          そして思い出したいのが、このMCの名前が <strong class="text-[var(--c-text)]">Wise Intelligent</strong> であること。Wisdom（知恵）を名前に持つ者が、Wisdom について語っている。
+        </p>
+        <p>
+          名前・教義・リリックがひとつの体系で結ばれている、Five Percent的な作りが、ここにぎゅっと詰まっています。
+        </p>
         <Fragment slot="usage">
-          <p>ヒップホップの <strong class="text-[var(--c-text)]">nice</strong>（名詞的用法・形容詞）は「MCスキルが高い・技量が別格」。<em>He's nice</em> や <em>She's nice with the bars</em> のように使う。対義語は <em>weak</em>（ヘタクソ）や <em>garbage</em>（ゴミ）。日常英語の「親切」「感じがいい」とは完全に別の語として捉えておくとリスニングが楽になる。</p>
-          <p><strong class="text-[var(--c-text)]">dat</strong> は <em>that</em> のAAVE的な発音を表記したもの。<em>dat girl</em>（あの女）、<em>we dat nice</em>（俺たちこそそれだ）のように指示詞として使う。書き言葉・標準英語では使わないが、ヒップホップの歌詞・会話・SNSでは頻出する表記。</p>
+          <p>
+          <strong class="text-[var(--c-text)]">knowledge</strong> と <strong class="text-[var(--c-text)]">wisdom</strong> は日常英語でも区別されます。knowledge は「知っている情報・知識」、wisdom は「それを使いこなす判断力・知恵」。
+        </p>
+        <p>
+          <em>Knowledge is knowing; wisdom is applying</em>（知識は知ること、知恵は使うこと）という言い回しもあり、Five Percentの用法もこの区別の延長にあります。
+        </p>
         </Fragment>
       </LearningUnit>
 
-      <!-- ⑩ son（呼びかけ） -->
+      <!-- ㉓ Ra East / son -->
       <LearningUnit
-        heading="son — 5パーセント式の呼びかけ語"
+        heading="Ra East the God seed... son — 5パーセント式の呼びかけ語"
         label="★ ヒップホップ語彙"
         mc="Wise Intelligent（Verse 3）"
-        youtubeId={YT}
+        t={TS["ra-east-son"].t} tApprox={TS["ra-east-son"].approx} youtubeId={YT}
         embed=""
       >
         <Fragment slot="eng">Ra East the God seed, keep perfecting it, son</Fragment>
         <Fragment slot="jpn">ラ・イースト、神の種——完璧を追い求め続けろ、son</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3、精神的師匠Ra Eastへの呼びかけ。</p>
-        <p><strong class="text-[var(--c-text)]">son</strong>。文字通りには「息子」だが、NYヒップホップとFive Percent Nationでは<strong class="text-[var(--c-text)]">仲間・弟分・親しい者への呼びかけ</strong>として広く使われる。「son」は「sun（太陽）」とも掛けており、Five Percentの教義では黒人男性が神（God）＝太陽（sun）であることを含意させる。ここで呼びかけられているRa Eastは、PRTの精神的師匠とされる5パーセント・ネイションのエルダー（長老）で、Ra（古代エジプトの太陽神）の名も持つ。</p>
-        <p>「son」はWu-Tang ClanやNasの楽曲でも多用され、1990年代NYヒップホップの呼びかけ語として定番化した。現代では地域を問わず使われるが、語源的にはFive Percent Nationのコミュニティから広まった語です。この一語を知っておくと、当時のNYヒップホップを聴く際のリスニングが格段に楽になります。</p>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3、仲間への呼びかけ。</p>
+        <p><strong class="text-[var(--c-text)]">son</strong>。文字通りには「息子」ですが、NYヒップホップとFive Percent Nationでは<strong class="text-[var(--c-text)]">仲間・弟分・親しい者への呼びかけ</strong>として広く使われます。</p>
+        <p>「son」は「sun（太陽）」とも掛けられていて、Five Percentの教義では黒人男性が神（God）＝太陽（sun）であることを含意させます。ここで呼びかけられているRa Eastは、Ra（古代エジプトの太陽神）の名を持つ人物で、太陽のモチーフとも響き合います。</p>
+        <p>「son」はWu-Tang ClanやNasの楽曲でも多用され、1990年代NYヒップホップの呼びかけ語として定番になりました。現代では地域を問わず使われますが、語源的にはFive Percent Nationのコミュニティから広まった語です。</p>
         <Fragment slot="usage">
-          <p><strong class="text-[var(--c-text)]">son</strong>（呼びかけ語）は文の末尾や独立した感嘆詞として使う。<em>What's good, son?</em>（どうよ？）、<em>I'm telling you, son…</em>（聞いてくれ、）のように。書き言葉でも歌詞でも機能する。同義の呼びかけ語として <em>god</em>（Five Percent直接）、<em>B</em>（= Brotherの略）、<em>duke</em>、<em>fam</em> なども同じ系統。</p>
+          <p>
+          <strong class="text-[var(--c-text)]">son</strong>（呼びかけ語）は文の末尾や独立した感嘆詞として使います。<em>What's good, son?</em>（どうよ？）、<em>I'm telling you, son…</em>（聞いてくれ、）のように。
+        </p>
+        <p>
+          同じ系統の呼びかけ語に <em>god</em>（Five Percent直接）、<em>B</em>（＝Brotherの略）、<em>fam</em> などがあります。
+        </p>
         </Fragment>
+      </LearningUnit>
+
+      <!-- ㉔ six sextillion tons -->
+      <LearningUnit
+        heading="six sextillion tons Earth — 科学をリリックに織り込む"
+        label="★ Supreme Mathematics"
+        mc="Wise Intelligent（Verse 3）"
+        t={TS["six-sextillion"].t} tApprox={TS["six-sextillion"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">The Wise one ain't done, six sextillion tons Earth</Fragment>
+        <Fragment slot="jpn">賢者はまだ終わっていない、6×10の21乗トンの地球</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3中盤、神として宇宙を保持すると語る直前。</p>
+        <p><strong class="text-[var(--c-text)]">six sextillion tons</strong>（約6×10²¹トン）。これは地球の実際の質量です。</p>
+        <p>
+          Five Percent Nationには「Supreme Mathematics」という独自の数秘術体系があり、科学的な知識・数字・宇宙論を「真実の体系」として日常的に扱う文化があります。ただ「大きい」「すごい」という誇張ではなく、実際の科学的数値を歌詞に織り込む。
+        </p>
+        <p>
+          これがSupreme Mathematicsの実践的な形です。
+        </p>
+        <p>リリック上の機能も面白いところです。「six sextillion tons」という非日常的な数字をぶつけることで、リスナーは「あれ、合ってる?」と一瞬止まります。</p>
+        <p>その一瞬の驚きが、次の「I levitate, hold the universe in place（俺は浮遊し、宇宙を定位置に保つ）」という神的な自己宣言への転換を際立たせます。知識と誇示を同時に達成する一行です。</p>
+        <Fragment slot="usage">
+          <p>
+          <strong class="text-[var(--c-text)]">sextillion</strong> は10の21乗です。英語の数字スケールは、million（10⁶）→ billion（10⁹）→ trillion（10¹²）→ quadrillion（10¹⁵）→ quintillion（10¹⁸）→ <strong class="text-[var(--c-text)]">sextillion（10²¹）</strong>と続きます。
+        </p>
+        <p>
+          日常英語ではほとんど使わない単語ですが、ヒップホップでは知識の誇示（flexing knowledge）として大きな数字・科学用語を使う表現文化があります。
+        </p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ㉕ I levitate -->
+      <LearningUnit
+        heading="I levitate, hold the universe in place — 神としての自己宣言"
+        label="★ 思想／誇示"
+        mc="Wise Intelligent（Verse 3）"
+        t={TS["levitate-universe"].t} tApprox={TS["levitate-universe"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3中盤、地球の質量を出した直後。誇示の言葉なので行は引きません。</p>
+        <p>地球の質量を口にした直後、Wise Intelligentは「俺は浮遊し、宇宙を定位置に保つ」と続けます。<strong class="text-[var(--c-text)]">levitate</strong> は「宙に浮く・浮遊する」を意味する動詞です。</p>
+        <p>
+          「黒人男性が神である」という教義を、ここでは比喩ではなく、そのまま一人称の力として言い切ります。宇宙を手で支える神としての自分。
+        </p>
+        <p>
+          誇張の極みですが、Five Percentの世界観では、これは神格化の当然の帰結でもあります。
+        </p>
+        <p>
+          直後に「come look God in the face（神の顔を見に来い）」と続けて、リスナーに向かって「その神とは俺のことだ」と迫ります。科学的な数字から一気に神話のスケールへ跳ぶ。
+        </p>
+        <p>
+          この落差の付け方が、Verse 3をいちばん熱くしている箇所だと思います。
+        </p>
+        <Fragment slot="usage">
+          <p>
+          <strong class="text-[var(--c-text)]">levitate</strong> は「（超自然的に）宙に浮く」を表す動詞です。日常会話ではあまり使いませんが、マジックやオカルト、比喩表現でよく登場します。
+        </p>
+        <p>
+          名詞形は levitation。ラップでは「常人を超えた存在」を示す誇示の語彙として使われます。
+        </p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ㉖ speed 1120 -->
+      <LearningUnit
+        heading="the speed of 1-1-2-0 feet per second — 数字に意味を重ねる"
+        label="★ Supreme Mathematics"
+        mc="Wise Intelligent（Verse 3）"
+        t={TS["speed-1120"].t} tApprox={TS["speed-1120"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Erase your earthly ass at the speed of 1-1-2-0 / Feet per second</Fragment>
+        <Fragment slot="jpn">お前の地上の身体を消す、毎秒1120フィートの速さで</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3後半、相手を圧倒すると語る件。</p>
+        <p>「毎秒1120フィートの速さで、お前の地上の身体を消す」という件です。ここで出てくる <strong class="text-[var(--c-text)]">1-1-2-0</strong> という数字に、Five Percentらしい仕掛けがあります。</p>
+        <p>毎秒約1120フィートは、空気中の音の速さにおよそ近い数字です。速さのイメージとして自然に効いています。</p>
+        <p>
+          同時に、この「120」という数字は、Five Percent Nationが学ぶ教えのセット「120 lessons（120の度数）」とも響き合います。数字をただの数量としてではなく、教義の記号として二重に読ませる。
+        </p>
+        <p>
+          Supreme Mathematicsの発想が、こんな細部にも顔を出しているように思います。
+        </p>
+      </LearningUnit>
+
+      <!-- ㉗ plus lesson -->
+      <LearningUnit
+        heading="make a plus lesson — 情報を「プラスの教え」に変える締め"
+        label="★ 思想語彙"
+        mc="Wise Intelligent（Verse 3）"
+        t={TS["plus-lesson"].t} tApprox={TS["plus-lesson"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">This information take it home and make a plus lesson</Fragment>
+        <Fragment slot="jpn">この情報を持ち帰って、プラスの教えに変えろ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3の最後の一行。曲全体の締めくくりです。</p>
+        <p>曲を閉じるのが「この情報を持ち帰って、<strong class="text-[var(--c-text)]">plus lesson</strong> に変えろ」という一行です。</p>
+        <p><strong class="text-[var(--c-text)]">plus lesson（プラス・レッスン）</strong> は、Five Percent Nationで「得た知識を自分の血肉にして、さらに前へ進めること」を指す言い回しです。ただ聞いて終わりではなく、受け取ったものを積み増していく、というニュアンスがあります。</p>
+        <p>ここでフックの「Take these words home and think it through（持ち帰って考え抜け）」と、きれいに呼応します。敵を数え上げ、神を名乗り、科学と聖書を織り込んできた曲が、最後は「学びに変えろ」という教育的な言葉で閉じられる。</p>
+        <p>「教師」を名乗るグループの本領が、この最後の一語に出ていると思います。</p>
       </LearningUnit>
     </section>
 
@@ -289,20 +765,37 @@ const YT = "T8pDh5e6XLg";
         <h3 class="font-semibold text-base mb-3">1964年ハーレム発——「俺たちが神だ」という思想</h3>
         <div class="space-y-3 text-[var(--c-muted)] text-sm leading-relaxed">
           <p>
-            1964年、Clarence 13Xがハーレムで創設した運動が<strong class="text-[var(--c-text)]">Nation of Gods and Earths（NGE）</strong>、通称Five Percent Nation。Nation of Islamから分派した彼は、「黒人男性こそが神（Allah）であり、黒人女性は地球（Earth）だ」という教義を説いた。人類を5%（Gods and Earths）・10%（Ten Percenters）・85%（The Masses）に分類し、5%の使命は85%に真実を教えることだとした。
+            1964年、Clarence 13Xがハーレムで創設した運動が<strong class="text-[var(--c-text)]">Nation of Gods and Earths（NGE）</strong>、通称Five Percent Nationです。
           </p>
           <p>
-            Poor Righteous Teachersのグループ名「貧しくも正義なる教師たち」は、この5%の定義そのものを名前にしたものなんですよね。Supreme Mathematics（数字に神聖な意味を与える体系）とSupreme Alphabet（アルファベット各文字に概念を対応させる体系）は、この運動独自の「暗号言語」として機能する。G=God、B=Be/Born、K=Knowledgeといった対応関係が、リリックの随所に埋め込まれている。知っているかどうかで、リリックの意味が文字通り変わってしまう。
+            Nation of Islamから分派した彼は、「黒人男性こそが神（Allah）であり、黒人女性は地球（Earth）だ」という教義を説きました。人類を5%（Gods and Earths）・10%（Ten Percenters）・85%（The Masses）に分類し、5%の使命は85%に真実を教えることだとしています。
           </p>
+          <p>
+            Poor Righteous Teachersのグループ名「貧しくも正義なる教師たち」は、この5%の定義そのものを名前にしたものなんですよね。
+          </p>
+          <p>
+          Supreme Mathematics（数字に神聖な意味を与える体系）とSupreme Alphabet（アルファベット各文字に概念を対応させる体系）は、この運動独自の「暗号言語」として機能します。G=God、B=Be/Born、K=Knowledgeといった対応関係が、リリックの随所に埋め込まれている。
+        </p>
+        <p>
+          知っているかどうかで、リリックの意味が文字通り変わってしまいます。
+        </p>
         </div>
       </div>
 
       <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
         <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">God Hop</p>
         <h3 class="font-semibold text-base mb-3">Rakim、Wu-Tang、Brand Nubian——Five Percentとヒップホップの接続</h3>
-        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
-          Five Percent Nationの思想はRakim（Eric B. & Rakim）、Wu-Tang Clan、Brand Nubian、Nasなど1990年代NYヒップホップの中核アーティストに浸透し、<strong class="text-[var(--c-text)]">God Hop</strong>とも呼ばれるサブジャンルを形成した。Rakimが「I Know You Got Soul」や「Paid in Full」で自身をGod（神）として語り始めたのが1987年。Wu-Tang Clanは教義をグループ名・メンバー名・言語全体に組み込んだ。PRTはその中でも最もストレートに思想を説教した。「教える」ことを使命とするグループだからだ。
-        </p>
+        <div class="space-y-3 text-[var(--c-muted)] text-sm leading-relaxed">
+          <p>
+            Five Percent Nationの思想はRakim（Eric B. & Rakim）、Wu-Tang Clan、Brand Nubian、Nasなど1990年代NYヒップホップの中核アーティストに浸透し、<strong class="text-[var(--c-text)]">God Hop</strong>とも呼ばれるサブジャンルを形づくりました。
+          </p>
+          <p>
+            Rakimが「I Know You Got Soul」や「Paid in Full」で自身をGod（神）として語り始めたのが1987年。Wu-Tang Clanは教義をグループ名・メンバー名・言語全体に組み込みました。
+          </p>
+          <p>
+            PRTはそのなかでも、最もストレートに思想を説いたグループだと思います。「教える」ことを使命とするグループだからこそ、リリックが講義のように組み立てられています。
+          </p>
+        </div>
       </div>
 
       <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
@@ -313,9 +806,11 @@ const YT = "T8pDh5e6XLg";
             ['cave dwellers', 'Five Percent教義による白人への呼称。色素喪失の擬似歴史観から'],
             ['elevation', '精神的・知的向上を意味するFive Percentのキーワード。上昇・高揚'],
             ['Supreme Mathematics', '数字に神聖な意味を与えるFive Percent独自の体系。科学的数値を教義と結ぶ'],
+            ['Supreme Alphabet', 'アルファベット各文字に概念を対応させる体系。G=God、K=Knowledge'],
             ['Ten Percenters', '真実を知りながら民衆から隠す者（聖職者・政治家など）。人口の10%'],
             ['all eye seeing', '神の全知を表す表現。プロビデンスの目と意味的に重なる'],
             ['son / sun', '仲間・弟分への呼びかけ。太陽（sun）=神（God）という掛け詞'],
+            ['plus lesson', '得た知識を血肉にして前へ進めること。曲の締めに置かれる教義語'],
             ['God Hop', 'Five Percent思想を組み込んだヒップホップのサブジャンル。PRTはその筆頭'],
           ].map(([term, desc]) => (
             <div class="flex gap-3 text-sm">
@@ -339,13 +834,22 @@ const YT = "T8pDh5e6XLg";
         <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">Mobb Deep「Shook Ones Pt. II」を選んだ意味</p>
         <h3 class="font-semibold text-base mb-3">ハードコアの音源を解放の乗り物に変える</h3>
         <p class="text-[var(--c-muted)] text-sm leading-relaxed">
-          Father Shaheedがサンプリング元として選んだのは、Mobb Deepの「Shook Ones Pt. II」（1995）。クイーンズブリッジ発のハードコア・ギャングスタラップを象徴する一枚です。「ain't no such things as halfway crooks（半端な悪党なんていない）」で知られるあのビート。
+          Father Shaheedがサンプリング元に選んだのが、Mobb Deepの「Shook Ones Pt. II」（1995）です。クイーンズブリッジ発のハードコア・ギャングスタラップを象徴する一枚。
+        </p>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          「ain't no such things as halfway crooks（半端な悪党なんていない）」で知られる、あのビートです。
         </p>
         <p class="text-[var(--c-muted)] text-sm leading-relaxed mt-2">
-          その選択は意図的な転倒だと思う。ストリートの恐怖と暴力を音楽化した音源の上に、精神的覚醒と黒人の神格化を説く歌詞を乗せる。<strong class="text-[var(--c-text)]">音素材を文脈ごと書き換えてしまう</strong>行為だ。ハードコアの音を「解放の乗り物」に変換するこの手法は、ヒップホップにおけるサブヴァージョン（文脈の転換）の最高峰の一つだと感じます。Mobb Deepのプロデュースチームへのリスペクトでもあり、同時に「俺たちはその音で別の何かを語る」という宣言でもある。
+          この選択は、意図的な転倒だと思います。ストリートの恐怖と暴力を音楽化した音源の上に、精神的な覚醒と黒人の神格化を説く歌詞を乗せる。
         </p>
         <p class="text-[var(--c-muted)] text-sm leading-relaxed mt-2">
-          もう一つのサンプル、Big Daddy Kane「Just Rhymin' With Biz」（1988）は、Biz Markieとのコラボ曲でゴールデンエイジ・ヒップホップの名盤『Long Live the Kane』収録。こちらは技量自慢（flexing）の古典として、We Dat Niceの「我々はナイスだ」という自己評価の文脈に自然に接続する。
+          <strong class="text-[var(--c-text)]">音素材を文脈ごと書き換えてしまう</strong>行為です。
+        </p>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed mt-2">
+          ハードコアの音を「解放の乗り物」に変換するこの手法は、ヒップホップにおける文脈の転換のなかでも、特に鮮やかな例だと感じます。Mobb Deepのプロデュースへのリスペクトでもあり、同時に「俺たちはその音で別の何かを語る」という宣言でもあります。
+        </p>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed mt-2">
+          もう一つのサンプル、Big Daddy Kane「Just Rhymin' With Biz」（1988）は、Biz Markieとのコラボ曲で、ゴールデンエイジ・ヒップホップの名盤『Long Live the Kane』に収録されています。こちらは技量自慢（flexing）の古典として、We Dat Niceの「我々はナイスだ」という自己評価の文脈に自然につながります。
         </p>
       </div>
     </section>
@@ -360,13 +864,22 @@ const YT = "T8pDh5e6XLg";
 
       <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
         <p class="text-[var(--c-muted)] text-sm leading-relaxed">
-          『The New World Order』はBillboard 200にランクインしなかったが、Top R&B/Hip-Hop Albumsで57位を記録。Fugees（Wyclef Jean、Lauryn Hill、Pras）、KRS-One、Nine、Brother J（X-Clan）、Junior Reidら当時のコンシャスHH界の重鎮が集結した批評的傑作として後世に残った。「We Dat Nice」はその中でも、PRTの世界観を最も凝縮した一曲として再評価される。
+          『The New World Order』はBillboard 200にはランクインしませんでしたが、Top R&B/Hip-Hop Albumsで57位を記録しました。
         </p>
         <p class="text-[var(--c-muted)] text-sm leading-relaxed mt-2">
-          「G is for God, where did gangsta come from?」。この一行が象徴するように、PRTは1990年代中期にコンシャスラップとギャングスタラップが並立する中で、妥協を一切拒んだ。商業的成功よりも精神的覚醒を優先したその姿勢は、後のKendrick LamarやJ. Coleがコンシャスラップを復権させる際に参照した文脈の一部でもある。
+          Fugees（Wyclef Jean、Lauryn Hill、Pras）、KRS-One、Nine、Brother J（X-Clan）、Junior Reidら、当時のコンシャスHH界の重鎮が集結した一枚として後世に残りました。「We Dat Nice」はそのなかでも、PRTの世界観を最も濃く煮詰めた一曲として振り返られることが多い曲です。
         </p>
         <p class="text-[var(--c-muted)] text-sm leading-relaxed mt-2">
-          日本では1990年代後半〜2000年代にかけて、コンシャスHHの愛好家やレコードコレクターを中心にPRTが発見された。「神学×ラップ×ブームバップ」という組み合わせは、Brand NubianやX-Clanと並んで語られることが多く、アンダーグラウンドHHリスナーに根強い支持を持つ。Five Percent Nationの教義を知らずに聴いても「なんか熱い曲」で終わってしまう。そこで今回のような解説記事に意味があると思っています。
+          「G is for God, where did gangsta come from?」。この一行が象徴するように、PRTは1990年代中期、コンシャスラップとギャングスタラップが並立するなかで、妥協を一切拒みました。
+        </p>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed mt-2">
+          商業的な成功よりも精神的な覚醒を優先したその姿勢は、後のKendrick LamarやJ. Coleがコンシャスラップを立て直していくときに参照した文脈の一部でもあると思います。
+        </p>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed mt-2">
+          日本では1990年代後半から2000年代にかけて、コンシャスHHの愛好家やレコードコレクターを中心にPRTが発見されていきました。「神学×ラップ×ブームバップ」という組み合わせは、Brand NubianやX-Clanと並べて語られることが多く、アンダーグラウンドHHのリスナーに根強い支持があります。
+        </p>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed mt-2">
+          Five Percent Nationの教義を知らずに聴くと「なんか熱い曲」で終わってしまう。だからこそ、今回のような解説記事に意味があると思っています。
         </p>
       </div>
     </section>

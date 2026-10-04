@@ -1,8 +1,20 @@
 [
   {
+    "id": "out-the-box",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 30,
+    "t": 30,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "politic-ditto",
     "whisperSec": null,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 42,
     "t": 42,
     "source": "fallback",
@@ -10,9 +22,54 @@
     "score": 0
   },
   {
+    "id": "lifted-staircases",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 48,
+    "t": 48,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "green-land",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 62,
+    "t": 62,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "blow-a-fuse",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 66,
+    "t": 66,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "fronting",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 70,
+    "t": 70,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "scholars-word-life",
     "whisperSec": null,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 78,
     "t": 78,
     "source": "fallback",
@@ -23,6 +80,7 @@
     "id": "black-trump",
     "whisperSec": null,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 92,
     "t": 92,
     "source": "fallback",
@@ -30,9 +88,65 @@
     "score": 0
   },
   {
+    "id": "lick-shots",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 100,
+    "t": 100,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "marble-remarkable",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 118,
+    "t": 118,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "moet-throwup",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 128,
+    "t": 128,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "whips",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 132,
+    "t": 132,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "timbs-mac10",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 138,
+    "t": 138,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "sons-who",
     "whisperSec": null,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 148,
     "t": 148,
     "source": "fallback",
@@ -40,9 +154,43 @@
     "score": 0
   },
   {
+    "id": "caesars-salads",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 160,
+    "t": 160,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "retail",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 168,
+    "t": 168,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "staircase-stage",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 172,
+    "t": 172,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "wallabees",
     "whisperSec": null,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 175,
     "t": 175,
     "source": "fallback",
@@ -53,6 +201,7 @@
     "id": "speak-italian",
     "whisperSec": null,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 183,
     "t": 183,
     "source": "fallback",
@@ -60,9 +209,43 @@
     "score": 0
   },
   {
+    "id": "mad-police",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 195,
+    "t": 195,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "skating-projects",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 212,
+    "t": 212,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "chameleon",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 216,
+    "t": 216,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "ferrigno-coke",
     "whisperSec": null,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 222,
     "t": 222,
     "source": "fallback",
@@ -70,9 +253,32 @@
     "score": 0
   },
   {
+    "id": "kahlua-rocks",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 232,
+    "t": 232,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "knots",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 238,
+    "t": 238,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "zenith-believe",
     "whisperSec": null,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 248,
     "t": 248,
     "source": "fallback",

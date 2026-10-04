@@ -21,6 +21,9 @@ const href = (a: Album) =>
           href={href(a)}
           target="_blank"
           rel="noopener sponsored nofollow"
+          data-affiliate-merchant="amazon"
+          data-affiliate-item={a.label}
+          data-affiliate-position="column-related-albums"
           style="display:flex;align-items:center;justify-content:space-between;gap:0.5rem;padding:0.75rem;background:var(--c-surface);border:1px solid var(--c-border);border-radius:0.5rem;text-decoration:none;color:var(--c-fg)"
         >
           <span style="font-size:0.85rem;line-height:1.4">{a.label}</span>

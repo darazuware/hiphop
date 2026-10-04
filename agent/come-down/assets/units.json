@@ -1,11 +1,25 @@
 [
   { "id": "intro-jerusalem", "anchor": ["when", "you", "see", "jerusalem"], "fallbackT": 4, "manualSec": null },
+  { "id": "yall-hot", "anchor": ["y'all", "got", "me", "hot"], "fallbackT": 18, "manualSec": null },
+  { "id": "g-dropping", "anchor": ["throwin", "shots", "from", "afar"], "fallbackT": 24, "manualSec": null },
+  { "id": "came-for", "anchor": ["exactly", "what", "a", "came", "for"], "fallbackT": 26, "manualSec": null },
   { "id": "throw-shots", "anchor": ["throwin", "shots", "from", "afar"], "fallbackT": 28, "manualSec": null },
+  { "id": "meant-for", "anchor": ["what", "you're", "really", "meant", "for"], "fallbackT": 38, "manualSec": null },
   { "id": "make-it-look", "anchor": ["make", "it", "look", "easy"], "fallbackT": 42, "manualSec": null },
+  { "id": "drank-up", "anchor": ["drank", "up", "all", "my", "liquor"], "fallbackT": 50, "manualSec": null },
+  { "id": "talk-shit", "anchor": ["talkin", "all", "that", "shit"], "fallbackT": 56, "manualSec": null },
   { "id": "back-it-up", "anchor": ["have", "to", "back", "it", "up"], "fallbackT": 60, "manualSec": null },
   { "id": "come-down-meta", "anchor": ["i", "might", "never", "come", "down"], "fallbackT": 66, "manualSec": null },
+  { "id": "double-neg", "anchor": ["might", "not", "ever", "come", "down"], "fallbackT": 70, "manualSec": null },
+  { "id": "get-down", "anchor": ["let", "me", "get", "down"], "fallbackT": 74, "manualSec": null },
   { "id": "off-the-ground", "anchor": ["this", "high", "off", "the", "ground"], "fallbackT": 82, "manualSec": null },
   { "id": "stay-awhile", "anchor": ["don't", "run", "just", "stay"], "fallbackT": 90, "manualSec": null },
   { "id": "cant-beat-it", "anchor": ["can't", "beat", "it", "can't", "beat"], "fallbackT": 95, "manualSec": null },
-  { "id": "cool-beans", "anchor": ["cool", "beans", "cool", "beans"], "fallbackT": 104, "manualSec": null }
+  { "id": "gucci-frames", "anchor": ["pitch", "black", "gucci", "frames"], "fallbackT": 98, "manualSec": null },
+  { "id": "bitches-off", "anchor": ["let", "me", "take", "these", "off"], "fallbackT": 100, "manualSec": null },
+  { "id": "full-scope", "anchor": ["let", "me", "get", "the", "full", "scope"], "fallbackT": 102, "manualSec": null },
+  { "id": "cool-beans", "anchor": ["cool", "beans", "cool", "beans"], "fallbackT": 104, "manualSec": null },
+  { "id": "reefer", "anchor": ["that's", "a", "whole", "lot", "of", "reefer"], "fallbackT": 108, "manualSec": null },
+  { "id": "pre-roll", "anchor": ["help", "you", "with", "the", "pre-roll"], "fallbackT": 112, "manualSec": null },
+  { "id": "malibu-skit", "anchor": ["the", "center", "of", "the", "surfing", "world"], "fallbackT": 150, "manualSec": null }
 ]

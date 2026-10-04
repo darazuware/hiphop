@@ -1,0 +1,192 @@
+---
+// 試聴プレビューの共有プレーヤー。ページに1回だけ配置する。
+// previews.json の Deezer track ID から再生時に JSONP で新鮮なプレビューURLを取得する
+// （プレビューURLは有効期限付きトークンのためビルド時に焼き込めない）。
+---
+
+<script>
+  const audio = new Audio();
+  audio.preload = "none";
+  let activeBtn: HTMLButtonElement | null = null;
+  let cbSeq = 0;
+  const urlCache = new Map<string, { url: string; at: number }>();
+  const URL_TTL = 10 * 60 * 1000;
+  // iOS Safariのジェスチャー制約解除用の無音WAV（JSONP解決後のplay()を許可させる）
+  const SILENCE =
+    "data:audio/wav;base64,UklGRnQAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YVAAAACAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgA==";
+
+  function setState(btn: HTMLButtonElement | null, state: "" | "loading" | "playing") {
+    if (!btn) return;
+    btn.classList.toggle("is-loading", state === "loading");
+    btn.classList.toggle("is-playing", state === "playing");
+    btn.setAttribute("aria-pressed", state === "playing" ? "true" : "false");
+    if (state === "") btn.style.removeProperty("--pv-p");
+  }
+
+  function stop() {
+    audio.pause();
+    setState(activeBtn, "");
+    activeBtn = null;
+  }
+
+  function fetchPreviewUrl(id: string): Promise<string> {
+    const hit = urlCache.get(id);
+    if (hit && Date.now() - hit.at < URL_TTL) return Promise.resolve(hit.url);
+    return new Promise((resolve, reject) => {
+      const cb = `__dzPreviewCb${cbSeq++}`;
+      const s = document.createElement("script");
+      const cleanup = () => {
+        delete (window as any)[cb];
+        s.remove();
+      };
+      const timer = setTimeout(() => {
+        cleanup();
+        reject(new Error("timeout"));
+      }, 8000);
+      (window as any)[cb] = (data: any) => {
+        clearTimeout(timer);
+        cleanup();
+        if (data && data.preview) {
+          urlCache.set(id, { url: data.preview, at: Date.now() });
+          resolve(data.preview);
+        } else {
+          reject(new Error("no preview"));
+        }
+      };
+      s.onerror = () => {
+        clearTimeout(timer);
+        cleanup();
+        reject(new Error("jsonp error"));
+      };
+      s.src = `https://api.deezer.com/track/${encodeURIComponent(id)}?output=jsonp&callback=${cb}`;
+      document.head.appendChild(s);
+    });
+  }
+
+  async function toggle(btn: HTMLButtonElement) {
+    if (btn === activeBtn) {
+      stop();
+      return;
+    }
+    if (activeBtn) stop();
+    const id = btn.dataset.previewId;
+    if (!id) return;
+    activeBtn = btn;
+    setState(btn, "loading");
+    // ユーザージェスチャー内で同期的に再生を開始してiOSのautoplay制約を解除
+    audio.src = SILENCE;
+    audio.play().catch(() => {});
+    try {
+      const url = await fetchPreviewUrl(id);
+      if (activeBtn !== btn) return;
+      audio.src = url;
+      await audio.play();
+      if (activeBtn !== btn) return;
+      setState(btn, "playing");
+    } catch {
+      if (activeBtn === btn) {
+        setState(btn, "");
+        activeBtn = null;
+        btn.classList.add("is-error");
+        btn.title = "試聴を取得できませんでした";
+        setTimeout(() => btn.classList.remove("is-error"), 1500);
+      }
+    }
+  }
+
+  document.addEventListener(
+    "click",
+    (e) => {
+      const btn = (e.target as Element).closest<HTMLButtonElement>(".preview-btn");
+      if (!btn) return;
+      e.preventDefault();
+      e.stopPropagation();
+      toggle(btn);
+    },
+    true
+  );
+
+  audio.addEventListener("timeupdate", () => {
+    if (!activeBtn || !audio.duration) return;
+    activeBtn.style.setProperty("--pv-p", String((audio.currentTime / audio.duration) * 100));
+  });
+  audio.addEventListener("ended", () => {
+    // 無音アンロック音源のendedでロード中状態を壊さない（本編再生時のみ停止処理）
+    if (activeBtn && activeBtn.classList.contains("is-playing")) stop();
+  });
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden && activeBtn) stop();
+  });
+</script>
+
+<style is:global>
+  .preview-btn {
+    position: absolute;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    cursor: pointer;
+    transition: transform 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  }
+  .preview-btn:hover {
+    color: var(--c-gold);
+    border-color: var(--c-gold);
+    transform: scale(1.08);
+  }
+  .preview-btn .pv-play {
+    margin-left: 1px;
+  }
+  .preview-btn .pv-pause {
+    display: none;
+  }
+  .preview-btn.is-playing .pv-play {
+    display: none;
+  }
+  .preview-btn.is-playing .pv-pause {
+    display: block;
+  }
+  .preview-btn.is-playing {
+    color: var(--c-gold);
+    border-color: transparent;
+  }
+  /* 再生進捗リング */
+  .preview-btn.is-playing::after {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: 9999px;
+    background: conic-gradient(var(--c-gold) calc(var(--pv-p, 0) * 1%), rgba(255, 255, 255, 0.25) 0);
+    -webkit-mask: radial-gradient(closest-side, transparent calc(100% - 2.5px), #000 calc(100% - 2px));
+    mask: radial-gradient(closest-side, transparent calc(100% - 2.5px), #000 calc(100% - 2px));
+    pointer-events: none;
+  }
+  .preview-btn.is-loading svg {
+    opacity: 0;
+  }
+  .preview-btn.is-loading::before {
+    content: "";
+    position: absolute;
+    width: 55%;
+    height: 55%;
+    border-radius: 9999px;
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    border-top-color: var(--c-gold);
+    animation: pv-spin 0.7s linear infinite;
+  }
+  .preview-btn.is-error {
+    border-color: #b91c1c;
+    color: #f87171;
+  }
+  @keyframes pv-spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+</style>

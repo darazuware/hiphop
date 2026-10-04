@@ -117,8 +117,29 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         学ぶ表現 — スラング・韻・言葉遊び・AAVE
       </h2>
       <p class="text-xs text-[var(--c-dim)] mb-6">
-        各見出しは「この曲から学べる英語表現」。各ユニットはまず上に英語の用例（1〜2行）を置いてあります。<strong class="text-[var(--c-text)]">先に英語を音で追い、行のどこが学習対象かを確かめてから</strong>下の日本語解説に進むと、英語が苦手でも置いていかれません。
+        各見出しは「この曲から学べる英語表現」。各ユニットはまず上に英語の用例（1〜2行）を置いてあります。</p>
+      <p class="text-xs text-[var(--c-dim)] mb-6"><strong class="text-[var(--c-text)]">先に英語を音で追い、行のどこが学習対象かを確かめてから</strong>下の日本語解説に進むと、英語が苦手でも置いていかれません。
       </p>
+
+      <!-- head-flown -->
+      <LearningUnit
+        heading="you better flee — 曲の口火を切る脅し文句"
+        label="★ 構文／誇張"
+        mc="Big L（Verse 1）"
+        t={TS["head-flown"].t} tApprox={TS["head-flown"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">You better <QuickSlang word="flee" desc="flee＝一目散に逃げる。堅めの動詞だがラップでは音のキレを買って使われる" /> hops, or get your head flown three blocks</Fragment>
+        <Fragment slot="jpn">さっさと逃げたほうがいい。でなきゃ頭を三ブロック先まで吹き飛ばされるぞ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の一行目、曲がいきなり脅し文句で始まる場所。</p>
+        <p>学習ポイントは行末の「get your head <strong class="text-[var(--c-text)]">flown</strong> three blocks」です。<em>flown</em> は <em>fly</em> の過去分詞で、<em>get + 目的語 + 過去分詞</em> の形で「頭を飛ばされる」という受け身の被害を表しています。</p>
+        <p>「三ブロック先まで」という距離が、頭を吹き飛ばされる誇張（ハイパーボール）にリアリティの代わりの勢いを与えています。</p>
+        <p>行頭の <strong class="text-[var(--c-text)]">you better</strong> は <em>you had better</em> の <em>had</em> が落ちた口語で、「〜したほうが身のためだ」という警告の定番。曲の最初の一行からこの温度で入ってくるのが、バトル気質のハーレムらしいと思います。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">get + 目的語 + 過去分詞</strong> は「（目的語）を〜される／してもらう」を表す使役・受動の構文。<em>get your hair cut</em>（髪を切ってもらう）、<em>get your head flown</em>（頭を飛ばされる）のように、良い意味でも被害でも使える。</p>
+          <p><em>you better</em>（→ you'd better）は口語で <em>had</em> を省くのが普通。後ろは動詞の原形を続けて「〜しろ、さもないと」という含みを持つ。</p>
+        </Fragment>
+      </LearningUnit>
 
       <!-- ① pumpin' like Reeboks -->
       <LearningUnit
@@ -131,13 +152,129 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <Fragment slot="eng">L keep rappers' hearts <QuickSlang word="pumpin'" desc="①心臓がドキドキ鼓動する ②Reebok Pumpというエアポンプ式スニーカーを膨らませる動作、のダブルミーニング" /> like Reeboks</Fragment>
         <Fragment slot="jpn">LはラッパーたちをReebokみたいにドキドキさせ続ける（Reebok Pumpを膨らませ続ける）</Fragment>
         <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の2行目、Big Lが自己紹介の口火を切る一発目のパンチライン。</p>
-        <p>学習ポイントは行の後半、「…hearts <strong class="text-[var(--c-text)]">pumpin' like Reeboks</strong>」です。ここに2つの意味が同時に走っています。①<em>pump</em>＝心臓が激しく鼓動する（ビビって心臓が飛び出そうになる）、②当時爆発的に流行していた<strong class="text-[var(--c-text)]">Reebok Pump</strong>（かかと部分のポンプで内側の空気圧を調整できるスニーカー）を「pumpin'（膨らませる）」という動作で表現しています。</p>
+        <p>学習ポイントは行の後半、「…hearts <strong class="text-[var(--c-text)]">pumpin' like Reeboks</strong>」です。ここに2つの意味が同時に走っています。</p>
+        <p>①<em>pump</em>＝心臓が激しく鼓動する（ビビって心臓が飛び出そうになる）、②当時爆発的に流行していた<strong class="text-[var(--c-text)]">Reebok Pump</strong>（かかと部分のポンプで内側の空気圧を調整できるスニーカー）を「pumpin'（膨らませる）」という動作で表現しています。</p>
         <p>「Big Lの前に立つとラッパーたちの心臓はReebokみたいにドクドクする」と読めますし、「Reebokのエアポンプを膨らませるみたいにずっとラッパーたちを不安にさせ続ける」とも読めます。</p>
         <p>固有名詞（ブランド名）を動詞・形容詞的に使いきってパンチラインに仕立てるのはヒップホップ特有のレトリックで、90年代NYには特に多い手法。こういう二重読みが1行に当然のように入ってくるのがBig Lのスタイルです。</p>
         <Fragment slot="usage">
           <p><strong class="text-[var(--c-text)]">like</strong> を使った比喩（直喩）は英語で最も基本的な比喩の形。<code>A keeps B pumpin' like C</code> の構造で「CのようにBをpumpin'させ続ける」という因果関係を簡潔に表現する。</p>
           <p>ラップでは音節数を合わせながら情報量を詰めるために、<em>like + 固有名詞</em> の形が多用されます。Reebok Pumpのような時代のアイコンを差し込むことで、当時のリスナーは瞬時にビジュアルを思い浮かべられました。</p>
         </Fragment>
+      </LearningUnit>
+
+      <!-- clout-sprouts -->
+      <LearningUnit
+        heading="gain clout / name sprouts — 名声が「芽を出す」比喩"
+        label="★ 語法／韻"
+        mc="Big L（Verse 1）"
+        t={TS["clout-sprouts"].t} tApprox={TS["clout-sprouts"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">And every year I gain <QuickSlang word="clout" desc="影響力・発言力・名声。ここでは地元やシーンでの「顔の効き具合」を指す" />, and my name <QuickSlang word="sprouts" desc="sprout＝植物が芽を出す。名前が芽吹くように広まっていく、という比喩" /></Fragment>
+        <Fragment slot="jpn">年を追うごとに influence（影響力）が増して、俺の名前は芽吹くみたいに広がっていく</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の序盤、自分の勢いを説明する件。</p>
+        <p>注目したいのは行末の <strong class="text-[var(--c-text)]">clout</strong> と <strong class="text-[var(--c-text)]">sprouts</strong> の韻です。「クラウト／スプラウツ」で母音と語尾の子音がきれいに揃っています。</p>
+        <p><strong class="text-[var(--c-text)]">clout</strong> は「影響力・名声」。今はSNSの文脈で使われることが多い語ですが、もともとはこうしたストリートやシーンでの「顔の効き具合」を指してきました。</p>
+        <p>そこに <strong class="text-[var(--c-text)]">sprouts</strong>（芽を出す）という植物の比喩を重ねて、名前が自然に広がっていく様子を描いています。抽象的な「有名になる」を具体的な映像に置き換えるのがうまいと思います。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">clout</strong> は不可算名詞で「影響力・コネ・発言力」。<em>have clout</em>（影響力がある）、<em>clout chasing</em>（売名行為）のように使う。</p>
+          <p><strong class="text-[var(--c-text)]">sprout</strong> は自動詞で「芽が出る・生え出る」。<em>my name sprouts</em> のように無生物を主語にすると、抽象的なものが自然に育っていくニュアンスが出る。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- crack-virgins -->
+      <LearningUnit
+        heading="if crack never came out — クラック時代を映すブラックジョーク"
+        label="★ パンチライン／文化背景"
+        mc="Big L（Verse 1）"
+        t={TS["crack-virgins"].t} tApprox={TS["crack-virgins"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Some brothers'd still be virgins if <QuickSlang word="crack" desc="1980年代後半にNYの貧困地区を襲った安価なクラック・コカイン。売買が街の経済と暴力を一変させた" /> never came out</Fragment>
+        <Fragment slot="jpn">もしクラックが出回ってなかったら、いまだに童貞のままの奴らもいる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の序盤、自慢話にまぎれて時代の影が差す一行。</p>
+        <p>これは字面だけ追うと下ネタのパンチラインですが、背景を知ると少し重く響きます。<strong class="text-[var(--c-text)]">crack</strong>（クラック・コカイン）が出回ったことで金回りが変わり、それまでモテなかった男たちも急に女性にちやほやされるようになった、という皮肉です。</p>
+        <p>「crackを売って稼いだ金が人を変えた」という、80〜90年代のNYストリートの現実がジョークの土台になっています。</p>
+        <p><strong class="text-[var(--c-text)]">brothers'd</strong> は <em>brothers would</em> の短縮で、<em>brothers</em> はAAVEで「黒人の男たち・仲間」を指す呼び方。仮定法 <em>would ... if never came out</em> が「もし〜がなかったら」という反実仮想を作っています。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">would + if 節（過去形）</strong> は「もし〜だったら…だろう」という仮定法過去。<em>Some brothers'd still be virgins if crack never came out</em> は「crackが出てこなかったら、いまだに童貞のままの奴もいる」という現実とは違う仮定を語っている。</p>
+          <p><strong class="text-[var(--c-text)]">come out</strong> はここでは「（商品・薬物が）市場に出回る」の意。<em>brothers</em>（＝黒人男性の仲間内の呼称）は文脈で「連中・奴ら」と訳し分ける。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- wild-foul -->
+      <LearningUnit
+        heading="wild style / foul child — 母音で踏む自己規定"
+        label="★ 内部韻"
+        mc="Big L（Verse 1）"
+        t={TS["wild-foul"].t} tApprox={TS["wild-foul"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">I got the wild <QuickSlang word="style" desc="ここでは「流儀・やり口」。wild style で「手のつけられない荒っぽいスタイル」" />, always been a <QuickSlang word="foul child" desc="foul＝反則・汚い。foul child で「タチの悪いガキ・素行の悪い子」" /></Fragment>
+        <Fragment slot="jpn">俺のスタイルは手がつけられない。昔からタチの悪いガキだった</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の中盤、自分の素性を一行で言い切る件。</p>
+        <p>ここは音の作りに注目したいところで、<strong class="text-[var(--c-text)]">wild</strong> と <strong class="text-[var(--c-text)]">child</strong> が「ワイルド／チャイルド」で韻を踏んでいます。行の途中と行末に散らした内部韻です。</p>
+        <p><strong class="text-[var(--c-text)]">foul</strong> はスポーツの「反則」から転じて「汚い・タチの悪い」。<em>foul child</em> で「素行の悪いガキ」という自己規定になります。</p>
+        <p>不良性を悪びれずに言い切るこの態度が、Big Lの語り口の芯にあります。悪ぶるのではなく、事実として素性を差し出す感じが効いていると思います。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">foul</strong> は「反則の」「汚い・不快な」の形容詞。<em>foul play</em>（不正・犯行）、<em>foul mouth</em>（口が悪い）のように使う。</p>
+          <p><em>always been</em> は <em>I've always been</em> の <em>I've</em> が落ちた口語で、「昔からずっと〜だった」という継続を表す。ラップでは頭の主語や助動詞をよく省略する。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- boom-pow -->
+      <LearningUnit
+        heading="boom-boom / pow-pow — 銃声を写すオノマトペ"
+        label="★ 擬音語（オノマトペ）"
+        mc="Big L（Verse 1）"
+        t={TS["boom-pow"].t} tApprox={TS["boom-pow"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">My guns go "boom-boom" and your guns go "pow-pow"</Fragment>
+        <Fragment slot="jpn">俺の銃は「ドドン」と鳴る、お前の銃は「パンパン」だ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の中盤、銃の格の違いを音で見せる件。</p>
+        <p>ここは英語の擬音語（オノマトペ）の勉強になります。<strong class="text-[var(--c-text)]">boom-boom</strong> は低くて重い音、<strong class="text-[var(--c-text)]">pow-pow</strong> は軽くて乾いた音を表します。</p>
+        <p>自分の銃は「ドドン」と腹に響く大口径、相手の銃は「パンパン」の安物、という格付けを、説明ではなく音そのものでやってのけています。</p>
+        <p>日本語の「ドドン／パンパン」と同じで、音の質感がそのまま威嚇の道具になっています。理屈で勝ち負けを語らず、音で決着をつけるのが小気味いいところです。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">boom</strong> は大砲・爆発・重い衝撃の低音、<strong class="text-[var(--c-text)]">pow</strong> はパンチや銃の軽い破裂音を表す英語の代表的な擬音語。<em>go boom</em>（ドカンと鳴る）のように <em>go + 擬音</em> で「〜という音がする」を表す。</p>
+          <p>漫画やアクション表現でおなじみの語で、繰り返して <em>boom-boom / pow-pow</em> とするとリズムと連射感が出る。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- hottie-open -->
+      <LearningUnit
+        heading="have a hottie open — 「open」が表す骨抜き状態"
+        label="★ スラング（AAVE）"
+        mc="Big L（Verse 1）"
+        t={TS["hottie-open"].t} tApprox={TS["hottie-open"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">I'm known to have a hottie <QuickSlang word="open" desc="AAVEで「相手にすっかり夢中・骨抜きにされている」。have someone open＝誰かを夢中にさせる" />, I keep the shotty smokin'</Fragment>
+        <Fragment slot="jpn">女を骨抜きにするのは得意だし、銃はいつでも火を噴かせておく</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の中盤、女性関係と物騒さを一行に同居させる件。</p>
+        <p>学習ポイントは <strong class="text-[var(--c-text)]">have a hottie open</strong> の <strong class="text-[var(--c-text)]">open</strong> です。「開いている」が字義ですが、AAVEでは「相手にすっかり夢中・骨抜きにされている」という状態を指します。</p>
+        <p><em>have someone open</em> で「誰かを夢中にさせる」、<em>I'm open</em> なら「首ったけだ」。心を開かせるイメージから来た用法です。</p>
+        <p>後半 <strong class="text-[var(--c-text)]">open / smokin'</strong> も「オープン／スモーキン」でゆるく韻を踏んでいます。柔らかい話題と物騒な話題を一行に並べて音で繋ぐのは、この曲で何度も出てくる型です。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">open</strong>（AAVEの形容詞用法）は「感情的に無防備・夢中」の意。<em>She got me open</em>（彼女に首ったけだ）のように、<em>get/have + 人 + open</em> の形で使う。</p>
+          <p><em>keep the shotty smokin'</em> の <em>keep + O + 現在分詞</em> は「（目的語）を〜し続けさせる」。<em>smokin'</em>（煙を上げている）は撃った直後の銃身のイメージで、常時臨戦態勢という誇示になる。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- toni-braxton (引用不要方式) -->
+      <LearningUnit
+        heading="Toni Braxton look like Whoopi — 実名で殴る対比パンチライン"
+        label="★ パンチライン／固有名詞"
+        mc="Big L（Verse 1）"
+        t={TS["toni-braxton"].t} tApprox={TS["toni-braxton"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の後半、自分の連れている女性の美しさを誇張で誇る件。</p>
+        <p>ここでは実名の対比でパンチラインを組んでいます。片方に置かれるのは、当時R&Bのアイコンだった美人歌手 <strong class="text-[var(--c-text)]">Toni Braxton</strong>。</p>
+        <p>もう片方に、コメディアン・女優の <strong class="text-[var(--c-text)]">Whoopi Goldberg</strong> を置きます。「俺の連れている女たちの前では、あのToni BraxtonでさえWhoopiに見える」という誇張で、自分の女性の美しさを吊り上げるわけです。</p>
+        <p>当時のリスナーが両者の顔を即座に思い浮かべられることが前提のジョークで、固有名詞を二つ並べるだけで映像と序列が立ち上がります。今の目で見ると容姿いじりの毒はありますが、90年代のバトル的パンチラインの手つきがよく分かる一行です。</p>
+        <p>実在の有名人を物差しに使って自分を持ち上げるのは、Big Lが得意にしていた手法のひとつです。</p>
       </LearningUnit>
 
       <!-- ② thirty-five bodies -->
@@ -151,12 +288,14 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <Fragment slot="eng">Got thirty-five <QuickSlang word="bodies" desc="ストリートスラングで「殺した人数」を指す。警察用語のhomicide（殺人件数）をインフォーマルに言い換えたもの" />, buddy, don't make it thirty-six</Fragment>
         <Fragment slot="jpn">もう35人の（殺しの）実績がある。相棒、36人目にさせるなよ</Fragment>
         <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の終盤近く、Big Lがストリートでの凄みを語る件。</p>
-        <p>一行まるごとが学習ポイントです。「Got thirty-five <strong class="text-[var(--c-text)]">bodies</strong>」。この <strong class="text-[var(--c-text)]">bodies</strong> は「死体の数」、つまりストリートスラングで「殺した件数」を指します。</p>
+        <p>一行まるごとが学習ポイントです。「Got thirty-five <strong class="text-[var(--c-text)]">bodies</strong>」。</p>
+        <p>この <strong class="text-[var(--c-text)]">bodies</strong> は「死体の数」、つまりストリートスラングで「殺した件数」を指します。</p>
         <p>警察の捜査用語 <em>body count</em>（死者数）から派生して、ヒップホップ・ストリート文化に転用された語です。</p>
         <p>で、ここが面白いところで、これをそのまま「35人殺した」と字義通りに受け取るのか、誇張（ハイパーボール）のパンチラインとして「それほど手強い」という自己主張として受け取るのかは、リスナーに委ねられています。</p>
         <p>Big Lのリリックはこの種の「事実か誇張か」の境界線上で凄む表現が多い。後半「don't make it thirty-six」は相手に向けた警告で、<em>buddy</em>（相棒）という皮肉な呼びかけが不気味さを増幅させます。</p>
         <Fragment slot="usage">
-          <p><strong class="text-[var(--c-text)]">bodies</strong> の用法はヒップホップ文脈では複数の使い方がある。① <em>got bodies</em>＝殺しの実績がある、② <em>body someone</em>（動詞）＝殺す、③ <em>body a track</em>（動詞）＝曲を圧倒的に制する。この曲では①の用法。</p>
+          <p><strong class="text-[var(--c-text)]">bodies</strong> の用法はヒップホップ文脈では複数の使い方がある。① <em>got bodies</em>＝殺しの実績がある、② <em>body someone</em>（動詞）＝殺す、③ <em>body a track</em>（動詞）＝曲を圧倒的に制する。</p>
+          <p>この曲では①の用法。</p>
           <p>同じ語が「死体・実績・支配」と文脈次第で意味を変えるので、どの用法かは前後の文脈で判断する。<em>buddy</em> は通常「友達・相棒」だが、警告や脅しの文脈ではむしろ皮肉的なニュアンスになる点も押さえておきたい。</p>
         </Fragment>
       </LearningUnit>
@@ -172,13 +311,52 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <Fragment slot="eng">Word is born, I leave mics torn when I <QuickSlang word="put it on" desc="①スキルを全開にする・最高のパフォーマンスを見せる ②代表する・地元を背負う ③やり遂げる、のニュアンスを持つイディオム" /></Fragment>
         <Fragment slot="jpn">本当のことを言う——マイクを引き裂くほどの勢いでやって見せる</Fragment>
         <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の最後の行、曲タイトルが初めて登場する場所。</p>
-        <p>上の行の末尾、「…when I <strong class="text-[var(--c-text)]">put it on</strong>」。これが曲タイトルの正体です。<strong class="text-[var(--c-text)]">put it on</strong> は辞書的には「着る・のせる」ですが、ここでは全然違う。①自分のスキルをフルに発揮する、②地元（ハーレム）を代表する・背負う、③ステージや曲でやり遂げる、この3つが重なっているイディオムです。</p>
+        <p>上の行の末尾、「…when I <strong class="text-[var(--c-text)]">put it on</strong>」。これが曲タイトルの正体です。</p>
+        <p><strong class="text-[var(--c-text)]">put it on</strong> は辞書的には「着る・のせる」ですが、ここでは全然違う。</p>
+        <p>①自分のスキルをフルに発揮する、②地元（ハーレム）を代表する・背負う、③ステージや曲でやり遂げる、この3つが重なっているイディオムです。</p>
         <p>「Word is born」は「Word is bond（言葉は絆・本当のことだ）」の変形で、「これは本当の話」という宣誓の間投詞です。「I leave mics torn」は「マイクをボロボロにするほど激しくラップする」というラップ文化特有のハイパーボール。</p>
         <p>パフォーマーとしての自信を、「マイクを引き裂く」という暴力的なイメージで表現するのはNYハードコアヒップホップらしい語法です。</p>
         <Fragment slot="usage">
           <p><strong class="text-[var(--c-text)]">put it on</strong>（イディオム）は文脈によって大きく意味が変わる句動詞。一般的には「着る（put on a coat）」「上演する（put on a show）」だが、ヒップホップでは「全力でやる・代表する」の意で使われる。</p>
           <p><em>put it on for my city</em>（地元のために全力を尽くす）のように、<em>for + 場所/人</em> を続けることが多い。<em>Word is bond</em>（→ <em>Word is born</em>）は「本当に・誓う」という強調の間投詞で、会話やラップで発言の正直さを保証するために添える。</p>
         </Fragment>
+      </LearningUnit>
+
+      <!-- loss-chief -->
+      <LearningUnit
+        heading="take nothin' from Big L but a loss — 二重否定と「loss」の含み"
+        label="★ 語法／ワードプレイ"
+        mc="Big L（Verse 2）"
+        t={TS["loss-chief"].t} tApprox={TS["loss-chief"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Nobody can take nothin' from Big L but a loss, chief</Fragment>
+        <Fragment slot="jpn">誰も俺からは何も奪えない、奪えるのは「敗北」だけだ、兄弟</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の一行目、口火を切る自己主張。</p>
+        <p>ここは <strong class="text-[var(--c-text)]">nobody ... nothin'</strong> という二重否定に注目です。標準英語なら「誰も何も奪えない」は <em>Nobody can take anything</em> ですが、AAVEでは否定語を重ねて否定を強めます。</p>
+        <p>その上で <strong class="text-[var(--c-text)]">but a loss</strong>（敗北を除いては）と続けるのがワードプレイの肝で、「俺から奪えるものは何もない、あるとすれば俺との勝負でお前が持ち帰る"敗北"だけだ」という捻りになります。</p>
+        <p>行末の <strong class="text-[var(--c-text)]">chief</strong> は男性への軽い呼びかけで、「兄弟・おい」くらいのニュアンス。上から目線の余裕を添える一語です。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">二重否定（negative concord）</strong>はAAVEの基本文法。<em>can't get no</em>、<em>don't know nothin'</em> のように否定語を重ねて否定を強調する（標準英語では肯定に反転するが、AAVEでは否定のまま）。</p>
+          <p><em>nothing but ~</em> は「〜以外の何ものでもない・〜だけ」。<em>take nothing but a loss</em> で「敗北だけを持ち帰る」の意になる。</p>
+          <p><em>chief</em> は親しみと軽い見下しが同居する呼びかけ。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- gotti (引用不要方式) -->
+      <LearningUnit
+        heading="more cash than Gotti — マフィアの首領を金の物差しに"
+        label="★ 固有名詞／文化背景"
+        mc="Big L（Verse 2）"
+        t={TS["gotti"].t} tApprox={TS["gotti"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の序盤、金回りの良さを誇る件。</p>
+        <p>「Gottiより金を持ってる」と言うときの <strong class="text-[var(--c-text)]">Gotti</strong> は、ニューヨークのガンビーノ一家を率いたマフィアのボス、John Gotti（ジョン・ゴッティ）を指します。</p>
+        <p>派手な身なりとメディア露出から「Dapper Don（伊達男のドン）」と呼ばれた、90年代前半に誰もが名前を知っていた人物です。</p>
+        <p>そのGottiを金持ちの物差しに使うことで、自分の稼ぎとストリートでの格を一気に引き上げています。イタリア系マフィアの権勢を、ハーレムのラッパーが自己誇示の比較対象に持ってくる。</p>
+        <p>ここにも、時代の空気と地元の力関係が透けて見えます。</p>
+        <p>実在の権力者を引き合いに出して自分を大きく見せるのは、この曲の全体を貫く手つきのひとつです。</p>
       </LearningUnit>
 
       <!-- ④ gas a hottie / blast a shotty -->
@@ -192,12 +370,57 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <Fragment slot="eng">I'm known to <QuickSlang word="gas" desc="お世辞・甘い言葉で丸め込む、持ち上げる。「ガスをかける（煽てる）」から転じた" /> a <QuickSlang word="hottie" desc="魅力的な女性を指すスラング" /> and <QuickSlang word="blast a shotty" desc="ショットガン（shotgun）を撃つ。「shotty」はshotgunの短縮形" /></Fragment>
         <Fragment slot="jpn">可愛い女を口説くのも得意だし、ショットガンを撃つのも辞さない</Fragment>
         <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の序盤、Big Lが自分のキャラクターの二面性を一行で提示する件。</p>
-        <p>まず音に注目してほしいのが<strong class="text-[var(--c-text)]">gas a hottie / blast a shotty</strong>。<em>hottie</em> と <em>shotty</em> が行の中で韻を踏んでいます。これが<strong class="text-[var(--c-text)]">内部韻（internal rhyme）</strong>と呼ばれる技法で、行末だけでなく行の途中でも韻を仕込むことで、1行が2倍のリズムを持ちます。</p>
+        <p>まず音に注目してほしいのが<strong class="text-[var(--c-text)]">gas a hottie / blast a shotty</strong>。<em>hottie</em> と <em>shotty</em> が行の中で韻を踏んでいます。</p>
+        <p>これが<strong class="text-[var(--c-text)]">内部韻（internal rhyme）</strong>と呼ばれる技法で、行末だけでなく行の途中でも韻を仕込むことで、1行が2倍のリズムを持ちます。</p>
         <p>意味的にも面白い対比になっていて、<strong class="text-[var(--c-text)]">gas</strong>（甘い言葉で口説く・持ち上げる）というソフトな行為と、<strong class="text-[var(--c-text)]">blast a shotty</strong>（ショットガンを撃つ）という暴力的な行為が、同じ一行に並びます。</p>
         <p>女性には優しく、敵には容赦ないというBig Lのキャラクターの両面を、音の心地よさに乗せて提示するわけです。対比する2つの要素を内部韻で繋ぐのはBig Lが得意とする技法で、この曲全体に散らばっています。</p>
         <Fragment slot="usage">
-          <p><strong class="text-[var(--c-text)]">gas</strong> は動詞で「お世辞を言う・持ち上げる・おだてる」。<em>stop gassing me up</em>（おだてるのをやめろ）のように使う。名詞では <em>that's gas</em>（最高だ）とポジティブな評価でも使われる（英国・ニュージーランド系スラングと別系統）。</p>
-          <p><strong class="text-[var(--c-text)]">shotty</strong> は <em>shotgun</em> の短縮形。<em>call shotty</em>（助手席を呼ぶ）という全く別の使い方もあるので文脈を要確認。<em>blast</em> は「撃つ・爆発させる・大音量で鳴らす」の多義語で、<em>blast someone</em>＝撃つ、<em>blast music</em>＝爆音で流す。</p>
+          <p><strong class="text-[var(--c-text)]">gas</strong> は動詞で「お世辞を言う・持ち上げる・おだてる」。<em>stop gassing me up</em>（おだてるのをやめろ）のように使う。</p>
+          <p>名詞では <em>that's gas</em>（最高だ）とポジティブな評価でも使われる（英国・ニュージーランド系スラングと別系統）。</p>
+          <p><strong class="text-[var(--c-text)]">shotty</strong> は <em>shotgun</em> の短縮形。<em>call shotty</em>（助手席を呼ぶ）という全く別の使い方もあるので文脈を要確認。</p>
+          <p><em>blast</em> は「撃つ・爆発させる・大音量で鳴らす」の多義語で、<em>blast someone</em>＝撃つ、<em>blast music</em>＝爆音で流す。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- baby-mother -->
+      <LearningUnit
+        heading="run up in your baby mother — 「baby mother」というAAVEの呼び方"
+        label="★ スラング（AAVE）"
+        mc="Big L（Verse 2）"
+        t={TS["baby-mother"].t} tApprox={TS["baby-mother"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">A smooth kid that'll run up in your <QuickSlang word="baby mother" desc="自分の子どもを産んだ相手の女性を指すAAVE／カリブ系英語の言い方。標準英語の the mother of one's child に当たる" /></Fragment>
+        <Fragment slot="jpn">お前の子の母親にまで手を出しかねない、口の巧いガキだ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の中盤、挑発の一環として放たれる件。</p>
+        <p>学習ポイントは <strong class="text-[var(--c-text)]">baby mother</strong> という言い方です。「自分の子どもを産んだ相手の女性」を指すAAVE・カリブ系英語の表現で、標準英語の <em>the mother of one's child</em> に当たります。</p>
+        <p>結婚しているかどうかに関係なく子を介した関係を指す語で、<em>baby mama</em>（女性側）／<em>baby father・baby daddy</em>（男性側）と対になります。</p>
+        <p>ここでは「お前の子の母親にまで手を出す」という、相手の家庭に踏み込む挑発として使われています。<strong class="text-[var(--c-text)]">run up in</strong> は「押し入る・突っ込む」の句動詞で、文脈で色々な含みを持ちます。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">baby mother / baby mama</strong> は「（自分または相手の）子を産んだ女性」を指す。英国・カリブ系では <em>baby mother</em>、米国では <em>baby mama</em> が優勢。</p>
+          <p><em>baby daddy</em> は男性側。</p>
+          <p><strong class="text-[var(--c-text)]">run up in</strong> は「（場所・人のところに）勢いよく踏み込む」。文脈により「殴り込む」「押し入る」の意になる多義の句動詞で、前後で判断する。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- hit-skins -->
+      <LearningUnit
+        heading="hit skins / get ends / commit sins / sick friends — 韻の連鎖"
+        label="★ 多音節韻／スラング"
+        mc="Big L（Verse 2）"
+        t={TS["hit-skins"].t} tApprox={TS["hit-skins"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">I push a slick Benz, I'm known to <QuickSlang word="hit skins" desc="skins は肉体・女性を指す俗語で、hit skins＝性的な関係を持つ" /> / And get <QuickSlang word="ends" desc="ends＝金・稼ぎ。make ends meet（やりくりする）の ends から" />, commit sins with sick friends</Fragment>
+        <Fragment slot="jpn">洒落たベンツを転がして、女とヤって / 金を稼いで、ヤバい仲間と罪を重ねる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の中盤、生活の断面を韻で畳みかける件。</p>
+        <p>ここは韻の密度がすごいところで、<strong class="text-[var(--c-text)]">skins / ends / sins / friends</strong> が「スキンズ／エンズ／シンズ／フレンズ」と連続して踏まれています。母音と語尾の <em>-ns</em> を揃えた連鎖です。</p>
+        <p>意味の面でも、<strong class="text-[var(--c-text)]">hit skins</strong>（女性と関係を持つ）、<strong class="text-[var(--c-text)]">get ends</strong>（金を稼ぐ）、<strong class="text-[var(--c-text)]">commit sins</strong>（罪を犯す）と、生活の断面を三つ並べて畳みかけます。</p>
+        <p><strong class="text-[var(--c-text)]">ends</strong> は「金・稼ぎ」のスラングで、<em>make ends meet</em>（収支を合わせる）の <em>ends</em> から来ています。音の一致と話題の並列が同時に走る、Big Lらしい設計です。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">ends</strong> は「金・収入」を指すスラング。<em>get that ends</em>（金を稼ぐ）のように使う。</p>
+          <p>語源の <em>make ends meet</em> は「なんとか生活費をやりくりする」という定番イディオム。</p>
+          <p>四つの名詞をすべて <em>-ins / -ends</em> の音で締めるのは、単音節の韻を連続させて疾走感を出す手法。ラップでは韻の「連鎖」がフロウの推進力になる。</p>
         </Fragment>
       </LearningUnit>
 
@@ -212,13 +435,15 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <Fragment slot="eng">'Cause I'm a <QuickSlang word="money getter" desc="金を稼ぐ者。ストリートやビジネスで利益を上げる人を指すフレーズ" />, also a <QuickSlang word="honey hitter" desc="魅力的な女性（honey）に対してアプローチする者。「hitter」は積極的に動く人" /></Fragment>
         <Fragment slot="jpn">なぜなら俺は稼ぐ男でもあり、女の落とし方も知っている</Fragment>
         <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2中盤、Big Lが自分の二面性を多音節韻で畳みかける件。</p>
-        <p>この一行はBig Lの韻の構築を理解するのに最適な例です。「<strong class="text-[var(--c-text)]">money getter</strong>」と「<strong class="text-[var(--c-text)]">honey hitter</strong>」。発音を並べると <em>mún-ee-gét-er</em> / <em>hún-ee-hít-er</em>。</p>
+        <p>この一行はBig Lの韻の構築を理解するのに最適な例です。「<strong class="text-[var(--c-text)]">money getter</strong>」と「<strong class="text-[var(--c-text)]">honey hitter</strong>」。</p>
+        <p>発音を並べると <em>mún-ee-gét-er</em> / <em>hún-ee-hít-er</em>。</p>
         <p>最初の音節 <strong class="text-[var(--c-text)]">money/honey</strong> が「マネー/ハネー」で韻を踏み、さらに <strong class="text-[var(--c-text)]">getter/hitter</strong> も「ゲター/ヒター」で踏みます。これが<strong class="text-[var(--c-text)]">マルチシラブル・ライム（多音節韻）</strong>の典型例で、単語単体ではなく複数音節にまたがって韻を組む技法です。</p>
         <p>意味の対応も綺麗で、<em>money</em>（金）と <em>honey</em>（女性への愛称）が対になり、<em>getter</em>（稼ぐ者）と <em>hitter</em>（アプローチする者）が対応します。音と意味の両方が整合している、だから気持ちがいいんです。</p>
         <p>Big Lはこういう「音の一致と意味の対応が同時に成立する」ライムをどこかで必ず仕込んできます。この曲を繰り返し聴くと、その感覚が耳に染み込んできます。</p>
         <Fragment slot="usage">
           <p><strong class="text-[var(--c-text)]">多音節韻（multisyllabic rhyme）</strong>とは、2音節以上の対応を使って韻を踏む技法。単音節の <em>cat / bat</em> よりも複雑で、ラッパーの語彙力と音の設計力が問われる。</p>
-          <p><em>money getter / honey hitter</em> はパーフェクトライム（完全韻）と呼ばれる類で、アクセントのある音節から後の音がすべて一致している。90年代NYのラッパー（Big L、Nas、Big Pun等）はこの技法を競うように使い込んでいた。<em>honey</em> は「甘い・愛しい」から転じて魅力的な女性を指す愛称。</p>
+          <p><em>money getter / honey hitter</em> はパーフェクトライム（完全韻）と呼ばれる類で、アクセントのある音節から後の音がすべて一致している。90年代NYのラッパー（Big L、Nas、Big Pun等）はこの技法を競うように使い込んでいた。</p>
+          <p><em>honey</em> は「甘い・愛しい」から転じて魅力的な女性を指す愛称。</p>
         </Fragment>
       </LearningUnit>
 
@@ -233,13 +458,16 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <Fragment slot="eng">I'm <QuickSlang word="catchin' wreck" desc="ラップのステージや曲で圧倒的なパフォーマンスを見せる。「残骸を積み上げる」から転じて「場を制圧する」の意" /> to the break of dawn</Fragment>
         <Fragment slot="jpn">夜明けまでぶっ続けで暴れ続ける（圧倒的なパフォーマンスを見せ続ける）</Fragment>
         <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の最後の前の行、Verse 2の締めに向けて畳みかける場面。</p>
-        <p>行の冒頭近く、「I'm <strong class="text-[var(--c-text)]">catchin' wreck</strong> to the break of dawn」。この <strong class="text-[var(--c-text)]">catchin' wreck</strong> が学習ポイント。<em>wreck</em> は「残骸・破壊」ですが、ここでは「ラップで圧倒的なパフォーマンスを繰り広げ、場を完全に制圧すること」を指すヒップホップ固有のイディオムです。</p>
-        <p>「to the break of dawn」は「夜明けまで」。徹夜で続けるというニュアンスの決まり文句です。元はパーティカルチャー（夜明けまで踊り続ける）の語彙がラップに取り込まれた表現で、大げさにやり続けるという誇示を込めています。</p>
+        <p>行の冒頭近く、「I'm <strong class="text-[var(--c-text)]">catchin' wreck</strong> to the break of dawn」。この <strong class="text-[var(--c-text)]">catchin' wreck</strong> が学習ポイント。</p>
+        <p><em>wreck</em> は「残骸・破壊」ですが、ここでは「ラップで圧倒的なパフォーマンスを繰り広げ、場を完全に制圧すること」を指すヒップホップ固有のイディオムです。</p>
+        <p>「to the break of dawn」は「夜明けまで」。徹夜で続けるというニュアンスの決まり文句です。</p>
+        <p>元はパーティカルチャー（夜明けまで踊り続ける）の語彙がラップに取り込まれた表現で、大げさにやり続けるという誇示を込めています。</p>
         <p>全体で「夜が明けるまでずっと場を制圧し続ける」という意味になり、これでVerse 2を締めて次はコーラスへ入る流れです。</p>
         <p>Verse 2全体のテンポと密度を考えると、この一行がクールダウンを拒否する勢いで機能していてかっこいいんです。</p>
         <Fragment slot="usage">
           <p><strong class="text-[var(--c-text)]">catch wreck</strong>（イディオム）は「ラップで暴れる・圧倒的な力を見せる」。<em>wreck</em>（残骸・廃墟）を「引き起こす」ことから「場を荒らすほどの勢いでパフォーマンスする」に転じた。</p>
-          <p><em>catch</em> は句動詞的に使われており、<em>catch wreck</em> で一つのイディオムとして機能する。<em>to the break of dawn</em>（夜明けまで）は度量の大きさ・しぶとさを表す慣用句。パーティ文化由来で「夜明けまで続ける」から「徹底的に・とことん」の意に広がった。</p>
+          <p><em>catch</em> は句動詞的に使われており、<em>catch wreck</em> で一つのイディオムとして機能する。<em>to the break of dawn</em>（夜明けまで）は度量の大きさ・しぶとさを表す慣用句。</p>
+          <p>パーティ文化由来で「夜明けまで続ける」から「徹底的に・とことん」の意に広がった。</p>
         </Fragment>
       </LearningUnit>
 
@@ -254,14 +482,67 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <Fragment slot="eng">Boy, you <QuickSlang word="gwan" desc="ジャマイカ・パトワ語で「going to（〜するつもりだ）」の短縮形。標準英語のyou're going to に相当" /> dead before you see me gun smoke</Fragment>
         <Fragment slot="jpn">お前は俺の銃口の煙を見る前に死ぬことになるぞ</Fragment>
         <p class="text-xs text-[var(--c-dim)] mb-1">▶ コーラスとVerse 3のあいだ、Major ChubbyがBridgeで登場する場面。</p>
-        <p>Bridgeを担当するMajor Chubbyの言葉を聴くと、Big Lのリリックとは明らかに語法が違うことに気づく。「<strong class="text-[var(--c-text)]">gwan</strong> dead」「<strong class="text-[var(--c-text)]">fi</strong> joke」「<strong class="text-[var(--c-text)]">provoke</strong>」。これはジャマイカの<strong class="text-[var(--c-text)]">パトワ語（Patois）</strong>、つまりジャマイカ・クレオール語です。</p>
+        <p>Bridgeを担当するMajor Chubbyの言葉を聴くと、Big Lのリリックとは明らかに語法が違うことに気づく。「<strong class="text-[var(--c-text)]">gwan</strong> dead」「<strong class="text-[var(--c-text)]">fi</strong> joke」「<strong class="text-[var(--c-text)]">provoke</strong>」。</p>
+        <p>これはジャマイカの<strong class="text-[var(--c-text)]">パトワ語（Patois）</strong>、つまりジャマイカ・クレオール語です。</p>
         <p><strong class="text-[var(--c-text)]">gwan</strong> は <em>going to</em> の短縮形。「you gwan dead」＝「you're going to die（死ぬことになる）」という意味です。</p>
         <p><strong class="text-[var(--c-text)]">fi</strong>（目的語を導く前置詞・「〜のために・〜として」）は英語の <em>for / to</em> に近い機能語。「take me fi joke」＝「俺を冗談だと思っている」という意味になります。</p>
         <p>ニューヨークのヒップホップにカリブ系移民のリリシストが参加してくるのは珍しくなく、それぞれの言語背景がそのまま作品に出ます。異なる英語変種（AAVE・パトワ語）が一曲の中に共存しているのは、NYという多文化都市の縮図でもあります。</p>
         <p>このBridgeがあることで、Big Lのバースの英語がより「標準的」に聞こえるという逆説的な効果もあります。</p>
         <Fragment slot="usage">
           <p>ジャマイカ・<strong class="text-[var(--c-text)]">パトワ語</strong>は英語を基盤に西アフリカ語・スペイン語・ポルトガル語が混ざったクレオール語。<em>gwan</em>（going to）、<em>fi</em>（for/to）、<em>mi</em>（I/me）、<em>ting</em>（thing）などが代表的な語彙。</p>
-          <p>1990年代のNYには多くのジャマイカ系住民がいて、パトワ語の語彙はAAVEと相互に影響を与えてきた。<em>batty</em>（臀部）、<em>irie</em>（いい感じ）などはパトワ語由来でAAVEにも定着した語の例。クレオール語とは、異なる言語集団が接触した際に生まれた混成言語のこと。</p>
+          <p>1990年代のNYには多くのジャマイカ系住民がいて、パトワ語の語彙はAAVEと相互に影響を与えてきた。<em>batty</em>（臀部）、<em>irie</em>（いい感じ）などはパトワ語由来でAAVEにも定着した語の例。</p>
+          <p>クレオール語とは、異なる言語集団が接触した際に生まれた混成言語のこと。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- moet-becks (引用不要方式) -->
+      <LearningUnit
+        heading="Moët, not Beck's — 銘柄で格差を見せる"
+        label="★ 固有名詞／文化背景"
+        mc="Big L（Verse 3）"
+        t={TS["moet-becks"].t} tApprox={TS["moet-becks"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3の一行目、生活水準を銘柄で示す件。</p>
+        <p>Verse 3は銘柄の対比で幕を開けます。<strong class="text-[var(--c-text)]">Moët</strong> はフランスの高級シャンパン、Moët &amp; Chandon（モエ・エ・シャンドン）。</p>
+        <p>ヒップホップで富を示す定番のアイコンです。</p>
+        <p>対する <strong class="text-[var(--c-text)]">Beck's</strong> はドイツの大衆的なビール。「俺が飲むのはモエであって、Beck'sなんかじゃない」と並べることで、金の格差を一行で見せています。</p>
+        <p>高いものと安いものを実名で並べるだけで序列が立ち上がるのは、Toni Braxtonの一行と同じ発想です。銘柄が持つイメージをそのまま説得力に変換しています。</p>
+        <p>90年代のNYヒップホップでは、シャンパンの銘柄が成功のわかりやすい記号として繰り返し歌詞に登場しました。</p>
+      </LearningUnit>
+
+      <!-- gat-arm-reach (引用不要方式) -->
+      <LearningUnit
+        heading="keep a gat in my arm reach — 「gat」という古い拳銃スラング"
+        label="★ スラング"
+        mc="Big L（Verse 3）"
+        t={TS["gat-arm-reach"].t} tApprox={TS["gat-arm-reach"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3の序盤、常に武装している凄みを語る件。</p>
+        <p>「keep a <QuickSlang word="gat" desc="拳銃を指すスラング。1920年代のギャング御用達 Gatling gun（ガトリング砲）を縮めた古い隠語" /> in my arm reach」の <strong class="text-[var(--c-text)]">gat</strong> は拳銃を指すスラングです。</p>
+        <p>語源は1920年代のギャングが使った機関銃 <strong class="text-[var(--c-text)]">Gatling gun</strong>（ガトリング砲）で、それを縮めた古い隠語がハンドガン全般を指す言葉として残りました。</p>
+        <p><strong class="text-[var(--c-text)]">arm reach</strong> は「腕を伸ばせば届く範囲」。「銃を常に手の届くところに置いている」という日常的な臨戦態勢を、淡々と事実として述べる語り口が不気味さを生んでいます。</p>
+        <p>凄んで見せるのではなく「it's a fact（これは事実だ）」と前置きして言うところに、この曲のストリート描写の温度が出ています。</p>
+      </LearningUnit>
+
+      <!-- charm-geeks -->
+      <LearningUnit
+        heading="charm freaks and bomb geeks — freaks / geeks の韻と対比"
+        label="★ 韻／スラング"
+        mc="Big L（Verse 3）"
+        t={TS["charm-geeks"].t} tApprox={TS["charm-geeks"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">I charm <QuickSlang word="freaks" desc="freak は「性に奔放な相手・イケてる女性」を指す俗語。ここでは口説く対象の女性" /> and bomb <QuickSlang word="geeks" desc="ここでは「格下・冴えない奴ら」。bomb geeks で「そういう連中を叩きのめす」" /> from here to Palm Beach</Fragment>
+        <Fragment slot="jpn">女を口説き、格下は叩きのめす、ここからパームビーチまで</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3の序盤、二つの行為を韻でつなぐ件。</p>
+        <p>ここも <strong class="text-[var(--c-text)]">freaks</strong> と <strong class="text-[var(--c-text)]">geeks</strong> が「フリークス／ギークス」で韻を踏みます。この曲で繰り返し出てくる「柔らかい話題と物騒な話題を同じ音で繋ぐ」型の変奏です。</p>
+        <p><strong class="text-[var(--c-text)]">charm freaks</strong>（女性を口説く）という色恋の話題と、<strong class="text-[var(--c-text)]">bomb geeks</strong>（格下を叩きのめす）という暴力の話題を、一行に並べています。</p>
+        <p>締めの <strong class="text-[var(--c-text)]">from here to Palm Beach</strong>（ここからフロリダのパームビーチまで）は「どこまでも・広範囲に」を表す距離の誇張。行動範囲の広さで自分の存在を大きく見せています。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">from here to ~</strong> は「ここから〜まで」で、遠い地名を置くと「どこまでも・全域で」という誇張表現になる。<em>from here to Palm Beach</em>（NYから遠く離れたフロリダの高級リゾートまで）で射程の広さを示す。</p>
+          <p><strong class="text-[var(--c-text)]">freak</strong> は文脈で「変わり者」「性に奔放な人」「熱狂的なファン（movie freak など）」と意味が動く多義語。ここでは口説く対象の女性を指す。</p>
         </Fragment>
       </LearningUnit>
 
@@ -276,13 +557,16 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <Fragment slot="eng">I smash mics like <QuickSlang word="cornbread" desc="コーンミール（とうもろこし粉）で作るアメリカ南部のパン。ぼろぼろに崩れやすい食感が「smash（粉砕する）」の直喩として機能している" />, you can't kill me, I was <QuickSlang word="born dead" desc="「生まれながらに死んでいた＝死を恐れない」というオキシモロン（矛盾語法）のパンチライン。無敵性の誇示" /></Fragment>
         <Fragment slot="jpn">コーンブレッドを砕くようにマイクを砕く、お前には俺を殺せない——俺は生まれながらに死んでいたんだから</Fragment>
         <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3中盤、バトルへの挑発が最高潮に達する一行。</p>
-        <p>この一行を聴くと少し止まって考えてしまう。「I smash mics like <strong class="text-[var(--c-text)]">cornbread</strong>」。コーンブレッドは崩れやすいパンなので「マイクをコーンブレッドを砕くように叩き壊す」という直喩（ライムを踏むために選ばれた比喩）。そして「you can't kill me, I was <strong class="text-[var(--c-text)]">born dead</strong>」、これが本命のパンチラインです。</p>
+        <p>この一行を聴くと少し止まって考えてしまう。</p>
+        <p>「I smash mics like <strong class="text-[var(--c-text)]">cornbread</strong>」。コーンブレッドは崩れやすいパンなので「マイクをコーンブレッドを砕くように叩き壊す」という直喩（ライムを踏むために選ばれた比喩）。</p>
+        <p>そして「you can't kill me, I was <strong class="text-[var(--c-text)]">born dead</strong>」、これが本命のパンチラインです。</p>
         <p>「生まれながらに死んでいた」という矛盾した表現は<strong class="text-[var(--c-text)]">オキシモロン（撞着語法）</strong>と呼ばれる修辞技法で、「死を恐れない・無敵だ」という意味を逆説で表現しています。</p>
         <p>「お前は俺を殺せない、なぜなら俺はもう死んでいるから」。殺人の脅しに対して論理的に反論を封じてしまうパンチラインです。</p>
         <p><em>cornbread</em> と <em>born dead</em> の韻もよく効いていて、「コーンブレッド / ボーン・デッド」の音の近さが、行全体に心地よいリズムを与えています。</p>
         <Fragment slot="usage">
           <p><strong class="text-[var(--c-text)]">オキシモロン（oxymoron）</strong>は相矛盾する概念を組み合わせた修辞技法。<em>living dead（生ける屍）</em>、<em>deafening silence（沈黙の轟音）</em>、<em>bitter sweet（苦くて甘い）</em>などが英語の典型例。</p>
-          <p>ラップでは「論理的には不可能なことを主張する」ことで不死身・無敵の誇示に使われることが多い。<em>I was born dead</em> のパターンは後続のラッパーにも引用・変形された。<em>smash mics</em> はラップのパフォーマンスを「マイクを砕く」という暴力的イメージで表現する定型フレーズで、Big Lに限らず90年代NYのラッパーが多用した。</p>
+          <p>ラップでは「論理的には不可能なことを主張する」ことで不死身・無敵の誇示に使われることが多い。<em>I was born dead</em> のパターンは後続のラッパーにも引用・変形された。</p>
+          <p><em>smash mics</em> はラップのパフォーマンスを「マイクを砕く」という暴力的イメージで表現する定型フレーズで、Big Lに限らず90年代NYのラッパーが多用した。</p>
         </Fragment>
       </LearningUnit>
 
@@ -297,14 +581,46 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <Fragment slot="eng">I run with <QuickSlang word="ill" desc="①ヒップホップでは「スキルが高い・やばい（ポジティブ）」②「危険・凶暴」の両義で使われる。文脈で判断" /> kids and real nigs who <QuickSlang word="peel wigs" desc="頭を撃ち抜く（かつらを剥がす）というヴィジュアルメタファー。「kill」の婉曲表現" /></Fragment>
         <Fragment slot="jpn">俺がつるんでいるのは、ヤバいやつらと、かつらを剥がすような（頭を吹っ飛ばす）本物たち</Fragment>
         <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3後半、Big Lがクルーの凄みを語る件。</p>
-        <p>行末、「…real nigs who <strong class="text-[var(--c-text)]">peel wigs</strong>」の <strong class="text-[var(--c-text)]">peel wigs</strong> が学習ポイント。<em>peel</em> は「皮を剥く」、<em>wig</em> は「かつら（頭部）」。合わせると「かつらを剥がす＝頭を撃ち抜く・殺す」というヴィジュアルメタファーです。</p>
+        <p>行末、「…real nigs who <strong class="text-[var(--c-text)]">peel wigs</strong>」の <strong class="text-[var(--c-text)]">peel wigs</strong> が学習ポイント。<em>peel</em> は「皮を剥く」、<em>wig</em> は「かつら（頭部）」。</p>
+        <p>合わせると「かつらを剥がす＝頭を撃ち抜く・殺す」というヴィジュアルメタファーです。</p>
         <p>殺すという行為を直接表現せずに、画像として間接的に表現するこの種の婉曲語法は、ヒップホップのリリックに頻繁に登場します。</p>
         <p>行の前半 <strong class="text-[var(--c-text)]">ill kids</strong> の <strong class="text-[var(--c-text)]">ill</strong> は、90年代NYヒップホップで「スキルが高い・やばい（良い意味）」と「危険・凶暴」の両方に使える形容詞です。「sick」も同様の多義性を持つ語で、英語の「病気・悪い」が「すごい・最高」に意味が転倒するヒップホップ特有の価値観の表れです。</p>
         <p>この行は音の面でも、<em>ill / real / peel</em> の「イル・リル・ピール」という音の連鎖が心地よく響きます。</p>
         <Fragment slot="usage">
-          <p><strong class="text-[var(--c-text)]">peel wigs</strong> 以外にも、銃撃を視覚的に表現するスラングはいくつかある。<em>split your wig</em>（頭を割る）、<em>cap someone</em>（銃で撃つ）、<em>wet someone up</em>（血で濡らす＝撃ちまくる）など。いずれも直接的な「kill / shoot」を避けて映像的な言い換えにする点が共通。</p>
+          <p><strong class="text-[var(--c-text)]">peel wigs</strong> 以外にも、銃撃を視覚的に表現するスラングはいくつかある。<em>split your wig</em>（頭を割る）、<em>cap someone</em>（銃で撃つ）、<em>wet someone up</em>（血で濡らす＝撃ちまくる）など。</p>
+          <p>いずれも直接的な「kill / shoot」を避けて映像的な言い換えにする点が共通。</p>
           <p><strong class="text-[var(--c-text)]">ill</strong> はNYヒップホップを理解する上で外せない形容詞で、「病的なほど素晴らしい」という誇張から「最高」「凄い」のポジティブな意味で定着した。<em>that's ill</em>（最高だ）のように使う。</p>
         </Fragment>
+      </LearningUnit>
+
+      <!-- sheriff-reggie (引用不要方式) -->
+      <LearningUnit
+        heading="new sheriff in town, and it ain't Reggie Hammond — 映画で刺す一行"
+        label="★ 固有名詞／文化背景"
+        mc="Big L（Verse 3）"
+        t={TS["sheriff-reggie"].t} tApprox={TS["sheriff-reggie"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3の後半、支配権の交代を宣言する件。</p>
+        <p>「It's a new sheriff in town」は「新しい保安官が街にやって来た＝ここの仕切りが変わった」という西部劇由来の決まり文句です。</p>
+        <p>面白いのはその後で、「and it ain't <strong class="text-[var(--c-text)]">Reggie Hammond</strong>」と付け足すところ。Reggie Hammondは、エディ・マーフィ主演の映画『48時間』（1982年）でマーフィが演じた、口の達者な囚人のキャラクター名です。</p>
+        <p>「新しい仕切り役が来た、ただしReggie Hammondみたいな軽いノリの奴じゃない、本物だ」という含みで、映画のキャラを引き合いに出して自分の凄みを対比させています。当時のリスナーが元ネタを知っている前提の、目配せの効いた一行です。</p>
+        <p><strong class="text-[var(--c-text)]">it ain't ~</strong> は <em>it is not</em> のAAVE短縮で、否定を軽く砕けた響きにします。</p>
+      </LearningUnit>
+
+      <!-- children-corn (引用不要方式) -->
+      <LearningUnit
+        heading="Children of the Corn — Big Lのクルー名の由来"
+        label="★ 固有名詞／クルー"
+        mc="Big L（Verse 3）"
+        t={TS["children-corn"].t} tApprox={TS["children-corn"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3の終盤、仲間へ挨拶を送る件。</p>
+        <p>「Peace to my peoples, the <strong class="text-[var(--c-text)]">Children of the Corn</strong>」で名前が挙がるのは、Big Lが結成に関わったハーレムのクルー名です。</p>
+        <p>元はスティーヴン・キング原作のホラー映画『Children of the Corn』（1984年）から取った物騒な名前で、Cam'ron、Mase（当時Murda Ma$e）、Bloodshed、McGruffらが在籍していました。</p>
+        <p>のちにDiplomats（Dipset）へと連なるハーレム人脈の源流にあたるグループで、この一行はそのクルーへの挨拶です。<strong class="text-[var(--c-text)]">Peace to ~</strong>（〜に平安を）は仲間や場所へ敬意を送る定番の言い回しで、次のアウトロのシャウトアウトへ自然につながっていきます。</p>
+        <p>物騒な映画名をそのままクルー名にするあたりに、90年代ハーレムの美意識がよく出ています。</p>
       </LearningUnit>
 
       <!-- ⑩ D.I.T.C. outro -->
@@ -325,8 +641,10 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <p>「he be puttin' it on」の <strong class="text-[var(--c-text)]">be</strong> はAAVEの<strong class="text-[var(--c-text)]">習慣的be（habitual be）</strong>。「常にそれをしている・いつもそうだ」という反復・習慣の意味を持つAAVE固有の文法で、標準英語にはないニュアンス。</p>
         <p>「he is puttin' it on（今やってる）」とは違い、「あいつはいつでも全力でやってる」という継続的な評価を表す。</p>
         <Fragment slot="usage">
-          <p><strong class="text-[var(--c-text)]">習慣的be（habitual be / invariant be）</strong>はAAVEの代表的な文法現象。<em>She be working late</em>（彼女はいつも遅くまで働いている）のように、現在進行形ではなく「いつもそうしている」という習慣・傾向を表す。主語の人称にかかわらず <em>be</em> の形が変わらないのが特徴（三単現の -s が付かない）。</p>
-          <p>このルールを知っていると、ラップで <em>he/she/they be doing</em> という形を聞いたとき、即座に「それが習慣的な行動の描写だ」と理解できる。<strong class="text-[var(--c-text)]">shout-out</strong>（シャウトアウト）は、曲中・ライブで特定の個人・グループ・場所に感謝や敬意を贈る口頭のクレジット。ヒップホップ文化に深く根付いた慣習で、アウトロで使われることが多い。</p>
+          <p><strong class="text-[var(--c-text)]">習慣的be（habitual be / invariant be）</strong>はAAVEの代表的な文法現象。<em>She be working late</em>（彼女はいつも遅くまで働いている）のように、現在進行形ではなく「いつもそうしている」という習慣・傾向を表す。</p>
+          <p>主語の人称にかかわらず <em>be</em> の形が変わらないのが特徴（三単現の -s が付かない）。</p>
+          <p>このルールを知っていると、ラップで <em>he/she/they be doing</em> という形を聞いたとき、即座に「それが習慣的な行動の描写だ」と理解できる。<strong class="text-[var(--c-text)]">shout-out</strong>（シャウトアウト）は、曲中・ライブで特定の個人・グループ・場所に感謝や敬意を贈る口頭のクレジット。</p>
+          <p>ヒップホップ文化に深く根付いた慣習で、アウトロで使われることが多い。</p>
         </Fragment>
       </LearningUnit>
     </section>
@@ -428,7 +746,10 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <h3 class="font-semibold text-base mb-3">ジャズベースとドラムブレイクの組み合わせ</h3>
         <div class="space-y-3 text-[var(--c-muted)] text-sm leading-relaxed">
           <p>
-            ビートの土台はふたつのサンプルで組まれています。ベースラインは<strong class="text-[var(--c-text)]">Buster Williams "Vibrations"（1976年、アルバム『Crystal Reflections』収録）</strong>から。Buster Williamsはニューヨーク出身のジャズベーシストで、Herbie HancockやStan Getzのバンドにも参加した人物。
+            ビートの土台はふたつのサンプルで組まれています。ベースラインは<strong class="text-[var(--c-text)]">Buster Williams "Vibrations"（1976年、アルバム『Crystal Reflections』収録）</strong>から。
+          </p>
+          <p>
+            Buster Williamsはニューヨーク出身のジャズベーシストで、Herbie HancockやStan Getzのバンドにも参加した人物。
           </p>
           <p>
             そのジャジーで重いベースが、Big Lのリリックの重さを底から支えています。ドラムは<strong class="text-[var(--c-text)]">Skull Snaps "It's a New Day"（1973年）</strong>のブレイクを使っています。

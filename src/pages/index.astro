@@ -3,6 +3,8 @@ import Layout from '../layouts/Layout.astro';
 import { songs, ranking } from '../data/songs';
 import { artists } from '../data/artists';
 import { columns } from '../data/columns';
+import PreviewButton from '../components/PreviewButton.astro';
+import PreviewPlayer from '../components/PreviewPlayer.astro';
 
 const coreSongs = songs.filter(s => s.tier === 'core');
 const totalSongs = coreSongs.length;
@@ -222,6 +224,7 @@ const regions = [
                   </div>
                 </>
               )}
+              <PreviewButton slug={song.slug} title={song.title} class="top-2.5 right-2.5" />
             </a>
           );
         })}
@@ -326,13 +329,16 @@ const regions = [
             <li>
               <a href={r.slug} class={`group flex items-center gap-4 md:gap-6 p-4 rounded-xl border transition-colors ${i === 0 ? 'border-[var(--c-gold)]/30 bg-[var(--c-surface)]' : 'border-[var(--c-border)] bg-[var(--c-surface)]'} hover:border-[var(--c-gold)]/60`}>
                 <span class="ranking-num font-black tabular-nums leading-none shrink-0" style={i === 0 ? 'color:var(--c-gold);opacity:0.5' : 'color:var(--c-border)'}>{String(i + 1).padStart(2, '0')}</span>
-                <img
-                  src={`/images/covers/${key}.jpg`}
-                  alt={song.album}
-                  class="w-14 h-14 rounded-lg object-cover shrink-0"
-                  loading="eager"
-                  onerror="this.style.display='none'"
-                />
+                <div class="relative shrink-0">
+                  <img
+                    src={`/images/covers/${key}.jpg`}
+                    alt={song.album}
+                    class="w-14 h-14 rounded-lg object-cover"
+                    loading="eager"
+                    onerror="this.style.display='none'"
+                  />
+                  <PreviewButton slug={r.slug} title={r.title} size="sm" class="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+                </div>
                 <div class="flex-1 min-w-0">
                   <p class="text-[var(--c-text)] font-bold text-base md:text-lg group-hover:text-[var(--c-gold)] transition-colors truncate">{r.title}</p>
                   <p class="text-[var(--c-muted)] text-sm mt-0.5 truncate">{r.artists}</p>
@@ -366,7 +372,10 @@ const regions = [
             <li>
               <a href={song.slug} class="flex items-center gap-3 md:gap-4 py-3 group hover:bg-[var(--c-bg)] -mx-2 px-2 rounded-lg transition-colors">
                 <span class="text-[var(--c-very-dim)] text-xs font-mono w-4 text-right shrink-0">{String(i + 1).padStart(2, '0')}</span>
-                <img src={`/images/covers/${key}.jpg`} alt={song.album} class="w-10 h-10 rounded-lg object-cover shrink-0" loading="lazy" onerror="this.style.display='none'" />
+                <div class="relative shrink-0">
+                  <img src={`/images/covers/${key}.jpg`} alt={song.album} class="w-10 h-10 rounded-lg object-cover" loading="lazy" onerror="this.style.display='none'" />
+                  <PreviewButton slug={song.slug} title={song.title} size="sm" class="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 !w-6 !h-6" />
+                </div>
                 <div class="flex-1 min-w-0">
                   <p class="text-[var(--c-text)] text-sm font-bold group-hover:text-[var(--c-gold)] transition-colors truncate">{song.title}</p>
                   <p class="text-[var(--c-very-dim)] text-xs truncate">{song.artists}</p>
@@ -506,9 +515,10 @@ const regions = [
                   <p class="text-white/60 text-xs leading-snug truncate">{song.artists}</p>
                   <p class="text-white/35 text-[10px] mt-1 uppercase tracking-widest">{song.subtitle}</p>
                 </div>
-                <span class="absolute top-3 right-3 text-white/20 text-xs tabular-nums select-none font-mono">
+                <span class="absolute top-3 left-3 text-white/20 text-xs tabular-nums select-none font-mono">
                   {String(i + 1).padStart(2, '0')}
                 </span>
+                <PreviewButton slug={song.slug} title={song.title} class="top-2.5 right-2.5" />
               </a>
             </li>
           ))}
@@ -532,6 +542,8 @@ const regions = [
   <button id="back-to-top" aria-label="トップへ戻る" class="fixed bottom-6 right-4 z-40 w-10 h-10 rounded-full bg-[var(--c-gold)] text-[#111] flex items-center justify-center shadow-lg opacity-0 pointer-events-none transition-opacity duration-300 hover:bg-[var(--c-gold-light)]">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
   </button>
+
+  <PreviewPlayer />
 
 </Layout>
 

@@ -6,9 +6,27 @@
     "manualSec": null
   },
   {
+    "id": "them-those",
+    "anchor": ["no", "time", "for", "them", "thoughts"],
+    "fallbackT": 58,
+    "manualSec": null
+  },
+  {
+    "id": "drop-clk",
+    "anchor": ["in", "the", "cut", "drop", "clk", "the", "top", "s", "up"],
+    "fallbackT": 112,
+    "manualSec": null
+  },
+  {
     "id": "trees-wet",
     "anchor": ["trees", "got", "me", "wet"],
     "fallbackT": 132,
+    "manualSec": null
+  },
+  {
+    "id": "stephanie-mills",
+    "anchor": ["a", "old", "cassette", "fly", "stephanie", "mills"],
+    "fallbackT": 140,
     "manualSec": null
   },
   {
@@ -30,21 +48,75 @@
     "manualSec": null
   },
   {
+    "id": "stick-like-glue",
+    "anchor": ["make", "it", "all", "stick", "like", "glue", "then", "you", "through"],
+    "fallbackT": 200,
+    "manualSec": null
+  },
+  {
     "id": "lit-dutchie",
     "anchor": ["tryna", "chill", "just", "lit", "a", "dutchie"],
     "fallbackT": 212,
     "manualSec": null
   },
   {
+    "id": "foul-cats",
+    "anchor": ["same", "foul", "cats", "who", "tried", "to", "bust", "me"],
+    "fallbackT": 222,
+    "manualSec": null
+  },
+  {
+    "id": "spanish-harlem",
+    "anchor": ["caught", "em", "sleepin", "in", "spanish", "harlem"],
+    "fallbackT": 230,
+    "manualSec": null
+  },
+  {
     "id": "alone-with-gats",
     "anchor": ["alone", "with", "gats", "left", "with", "a", "vest"],
-    "fallbackT": 235,
+    "fallbackT": 238,
+    "manualSec": null
+  },
+  {
+    "id": "one-time",
+    "anchor": ["look", "for", "any", "sign", "showin", "one", "time", "is", "knowin"],
+    "fallbackT": 244,
     "manualSec": null
   },
   {
     "id": "dynasty-cold-war",
     "anchor": ["about", "the", "dynasty", "shit", "is", "not", "minor", "leagues"],
     "fallbackT": 248,
+    "manualSec": null
+  },
+  {
+    "id": "milked-cow",
+    "anchor": ["we", "rich", "now", "milked", "the", "whole", "cow", "split", "the", "growth"],
+    "fallbackT": 258,
+    "manualSec": null
+  },
+  {
+    "id": "decoy-pictures",
+    "anchor": ["sendin", "two", "decoy", "bitches", "with", "pictures"],
+    "fallbackT": 280,
+    "manualSec": null
+  },
+  {
+    "id": "fuck-with-police",
+    "anchor": ["for", "all", "a", "nigga", "know", "them", "hoes", "fuck", "with", "police"],
+    "fallbackT": 292,
+    "manualSec": null
+  },
+  {
+    "id": "clickin-over",
+    "anchor": ["no", "shit", "i", "m", "clickin", "over", "i", "mma", "tell", "sos", "quick"],
+    "fallbackT": 300,
+    "manualSec": null
+  },
+  {
+    "id": "play-the-low",
+    "anchor": ["so", "play", "the", "low", "change", "your", "clothes", "pack", "your", "bags"],
+    "fallbackT": 312,
     "manualSec": null
   },
   {

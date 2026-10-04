@@ -72,7 +72,7 @@ export const columns = [
   {
     slug: '/columns/shook-ones-making-of',
     title: 'Shook Ones Pt. IIを深掘り——Pt. Iからの上書きと、Herbie Hancockのサンプルの謎',
-    description: 'Mobb Deep「Shook Ones Pt. II」の制作と評価を掘り下げる。なぜ「Pt. II」が決定版になったのか、長年謎だったあのピアノループの正体（Herbie Hancock「Jessica」）、Billboard 200最高3位、8 Mile、そして「ラップの試金石」と呼ばれるまでの軌跡。',
+    description: 'Mobb Deep「Shook Ones Pt. II」の制作と評価を掘り下げる。なぜ「Pt. II」が決定版になったのか、長年謎だったあのピアノループの正体（Herbie Hancock「Jessica」）、Top R&B/Hip-Hop Albums最高3位、8 Mile、そして「ラップの試金石」と呼ばれるまでの軌跡。',
     tag: '制作・評価',
     relatedSongs: ['/songs/shook-ones-pt-ii'],
   },

@@ -42,7 +42,7 @@ if (targets.length === 0) {
   process.exit(1);
 }
 
-const urls = targets.map((t) => PREVIEW_BASE + (t.startsWith('/') ? t : `/songs/${t}`));
+const urls = targets.map((t) => PREVIEW_BASE + (t.startsWith('/') ? t : `/songs/${t}`) + (t.includes('?') ? '' : '?edit=1'));
 const text = [
   '📝 レビュー依頼（reviewブランチ・本番未反映）',
   ...urls,

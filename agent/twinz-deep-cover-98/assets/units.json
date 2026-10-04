@@ -1,5 +1,17 @@
 [
   {
+    "id": "blow-they-spot",
+    "anchor": ["how", "you", "wanna", "blow", "they", "spot"],
+    "fallbackT": 12,
+    "manualSec": null
+  },
+  {
+    "id": "punisher-vito-noodles",
+    "anchor": ["meet", "me", "at", "vitos", "with", "noodles"],
+    "fallbackT": 17,
+    "manualSec": null
+  },
+  {
     "id": "dead-little-italy",
     "anchor": ["dead", "in", "the", "middle", "of", "little", "italy"],
     "fallbackT": 22,
@@ -12,9 +24,21 @@
     "manualSec": null
   },
   {
+    "id": "snub-tre-eight",
+    "anchor": ["with", "my", "snub", "tre", "eight"],
+    "fallbackT": 48,
+    "manualSec": null
+  },
+  {
+    "id": "amityville",
+    "anchor": ["like", "amityville", "and", "drill", "the", "nerves"],
+    "fallbackT": 54,
+    "manualSec": null
+  },
+  {
     "id": "insanity-pavilion",
     "anchor": ["insanity", "buildin", "a", "pavilion", "in", "my", "civilian"],
-    "fallbackT": 56,
+    "fallbackT": 58,
     "manualSec": null
   },
   {
@@ -24,27 +48,111 @@
     "manualSec": null
   },
   {
+    "id": "brother-another-mother",
+    "anchor": ["brother", "from", "another", "mother", "sent", "from", "the", "above"],
+    "fallbackT": 78,
+    "manualSec": null
+  },
+  {
+    "id": "spike-lee",
+    "anchor": ["spike", "lee", "couldnt", "paint", "a", "better", "picture"],
+    "fallbackT": 86,
+    "manualSec": null
+  },
+  {
+    "id": "bumpin-cash-rules",
+    "anchor": ["cruisin", "in", "the", "land", "bumpin", "cash", "rules"],
+    "fallbackT": 94,
+    "manualSec": null
+  },
+  {
+    "id": "the-land",
+    "anchor": ["truck", "jewels", "jewels", "cruisin", "in", "the", "land"],
+    "fallbackT": 95,
+    "manualSec": null
+  },
+  {
+    "id": "cop-killers",
+    "anchor": ["twenty", "shot", "glock", "with", "the", "cop", "killers"],
+    "fallbackT": 104,
+    "manualSec": null
+  },
+  {
+    "id": "cracks-the-rock",
+    "anchor": ["joey", "cracks", "the", "rock", "and", "big", "pun"],
+    "fallbackT": 108,
+    "manualSec": null
+  },
+  {
     "id": "one-eight-seven",
     "anchor": ["still", "187", "on", "an", "undercover", "cop"],
-    "fallbackT": 80,
+    "fallbackT": 114,
+    "manualSec": null
+  },
+  {
+    "id": "first-amendment",
+    "anchor": ["the", "first", "amendment", "culturally", "biased"],
+    "fallbackT": 126,
     "manualSec": null
   },
   {
     "id": "black-pearl-latina",
     "anchor": ["black", "pearl", "latina", "mas", "fina"],
-    "fallbackT": 112,
+    "fallbackT": 134,
+    "manualSec": null
+  },
+  {
+    "id": "steal-rich",
+    "anchor": ["we", "steal", "from", "the", "rich", "and", "keep", "it"],
+    "fallbackT": 138,
+    "manualSec": null
+  },
+  {
+    "id": "talk-to-police",
+    "anchor": ["you", "never", "see", "me", "talk", "to", "police"],
+    "fallbackT": 150,
     "manualSec": null
   },
   {
     "id": "don-cartagena",
     "anchor": ["all", "the", "kids", "in", "the", "ghetto", "call", "me", "don", "cartagena"],
-    "fallbackT": 125,
+    "fallbackT": 155,
+    "manualSec": null
+  },
+  {
+    "id": "tec-jeep-lexus",
+    "anchor": ["three", "tecs", "is", "in", "the", "jeep", "lexus"],
+    "fallbackT": 172,
     "manualSec": null
   },
   {
     "id": "street-professors",
     "anchor": ["street", "professors", "terror", "squad", "ghetto", "scholars"],
-    "fallbackT": 146,
+    "fallbackT": 178,
+    "manualSec": null
+  },
+  {
+    "id": "boogie-down",
+    "anchor": ["boogie", "down", "major", "like", "nine"],
+    "fallbackT": 190,
+    "manualSec": null
+  },
+  {
+    "id": "crime-boss-ny",
+    "anchor": ["plus", "im", "the", "crime", "boss", "of", "new", "york"],
+    "fallbackT": 194,
+    "manualSec": null
+  },
+  {
+    "id": "walk-the-walk",
+    "anchor": ["taught", "to", "walk", "the", "walk"],
+    "fallbackT": 198,
+    "manualSec": null
+  },
+  {
+    "id": "armageddon",
+    "anchor": ["punish", "niggas", "til", "its", "armageddon"],
+    "fallbackT": 206,
     "manualSec": null
   }
 ]

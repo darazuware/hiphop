@@ -1,106 +1,30 @@
 [
-  {
-    "id": "chorus-diggedy",
-    "anchor": [
-      "das",
-      "efx",
-      "with",
-      "the",
-      "real"
-    ],
-    "fallbackT": 5,
-    "manualSec": null
-  },
-  {
-    "id": "fat-like-joe",
-    "anchor": [
-      "flow",
-      "is",
-      "fat",
-      "like",
-      "joe"
-    ],
-    "fallbackT": 26,
-    "manualSec": null
-  },
-  {
-    "id": "pac-man",
-    "anchor": [
-      "eat",
-      "a",
-      "rapper",
-      "like",
-      "pac"
-    ],
-    "fallbackT": 33,
-    "manualSec": null
-  },
-  {
-    "id": "cutlass-supreme",
-    "anchor": [
-      "reign",
-      "supreme",
-      "like",
-      "a",
-      "cutlass"
-    ],
-    "fallbackT": 58,
-    "manualSec": null
-  },
-  {
-    "id": "dangerfield",
-    "anchor": [
-      "dangerfield",
-      "like",
-      "rodney"
-    ],
-    "fallbackT": 102,
-    "manualSec": null
-  },
-  {
-    "id": "true-to-streets",
-    "anchor": [
-      "true",
-      "to",
-      "the",
-      "streets"
-    ],
-    "fallbackT": 108,
-    "manualSec": null
-  },
-  {
-    "id": "hold-it-down",
-    "anchor": [
-      "got",
-      "to",
-      "hold",
-      "it",
-      "down"
-    ],
-    "fallbackT": 130,
-    "manualSec": null
-  },
-  {
-    "id": "webster-defined",
-    "anchor": [
-      "well",
-      "defined",
-      "like",
-      "webster"
-    ],
-    "fallbackT": 158,
-    "manualSec": null
-  },
-  {
-    "id": "lego-eggo",
-    "anchor": [
-      "connect",
-      "my",
-      "rhymes",
-      "like",
-      "lego"
-    ],
-    "fallbackT": 185,
-    "manualSec": null
-  }
+  { "id": "chorus-diggedy", "anchor": ["das", "efx", "with", "the", "real"], "fallbackT": 5, "manualSec": null },
+  { "id": "on-your-mark", "anchor": ["on", "your", "mark", "and", "get"], "fallbackT": 22, "manualSec": null },
+  { "id": "fat-like-joe", "anchor": ["flow", "is", "fat", "like", "joe"], "fallbackT": 26, "manualSec": null },
+  { "id": "pac-man", "anchor": ["eat", "a", "rapper", "like", "pac"], "fallbackT": 33, "manualSec": null },
+  { "id": "lou-piniella", "anchor": ["more", "hits", "than", "lou", "piniella"], "fallbackT": 40, "manualSec": null },
+  { "id": "bring-ruckus", "anchor": ["crew", "bringing", "the", "ruckus"], "fallbackT": 52, "manualSec": null },
+  { "id": "cutlass-supreme", "anchor": ["reign", "supreme", "like", "a", "cutlass"], "fallbackT": 58, "manualSec": null },
+  { "id": "boo-ks-spell", "anchor": ["the", "b", "double", "o"], "fallbackT": 64, "manualSec": null },
+  { "id": "metallica", "anchor": ["rock", "shit", "like", "metallica"], "fallbackT": 70, "manualSec": null },
+  { "id": "snake-fake", "anchor": ["hearts", "of", "them", "snake", "fake"], "fallbackT": 74, "manualSec": null },
+  { "id": "miracles-smokey", "anchor": ["more", "miracles", "than", "smokey"], "fallbackT": 96, "manualSec": null },
+  { "id": "dangerfield", "anchor": ["dangerfield", "like", "rodney"], "fallbackT": 102, "manualSec": null },
+  { "id": "true-to-streets", "anchor": ["true", "to", "the", "streets"], "fallbackT": 108, "manualSec": null },
+  { "id": "to-a-tee", "anchor": ["game", "to", "a", "tee", "like"], "fallbackT": 112, "manualSec": null },
+  { "id": "bring-up-rear", "anchor": ["bringin", "up", "the", "rear"], "fallbackT": 126, "manualSec": null },
+  { "id": "hold-it-down", "anchor": ["got", "to", "hold", "it", "down"], "fallbackT": 130, "manualSec": null },
+  { "id": "kick-feet-up", "anchor": ["kick", "my", "feet", "up"], "fallbackT": 136, "manualSec": null },
+  { "id": "carl-lewis", "anchor": ["more", "run", "than", "carl", "lewis"], "fallbackT": 145, "manualSec": null },
+  { "id": "webster-defined", "anchor": ["well", "defined", "like", "webster"], "fallbackT": 158, "manualSec": null },
+  { "id": "raw-jaw", "anchor": ["raw", "from", "the", "jaw", "than"], "fallbackT": 162, "manualSec": null },
+  { "id": "sharon-sliver", "anchor": ["stone", "like", "sharon", "from", "sliver"], "fallbackT": 166, "manualSec": null },
+  { "id": "lego-eggo", "anchor": ["connect", "my", "rhymes", "like", "lego"], "fallbackT": 185, "manualSec": null },
+  { "id": "waco-maaco", "anchor": ["burn", "ya", "like", "waco"], "fallbackT": 190, "manualSec": null },
+  { "id": "uhaul", "anchor": ["keep", "em", "moving", "like"], "fallbackT": 194, "manualSec": null },
+  { "id": "rupaul-school", "anchor": ["to", "school", "yall", "figgedy"], "fallbackT": 198, "manualSec": null },
+  { "id": "jack-dempsey", "anchor": ["knock", "em", "out", "like", "jack"], "fallbackT": 204, "manualSec": null },
+  { "id": "sensi-guinness", "anchor": ["burn", "some", "sensi", "and"], "fallbackT": 208, "manualSec": null },
+  { "id": "illest-hook", "anchor": ["illest", "now", "hit", "me", "with"], "fallbackT": 212, "manualSec": null }
 ]

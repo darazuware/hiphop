@@ -1,12 +1,14 @@
 @import "tailwindcss";
 
 body {
-  font-family: 'Space Grotesk', 'Hiragino Sans', 'Noto Sans JP', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic UI', Meiryo, sans-serif;
+  font-weight: 400;
+  line-height: 1.8;
 }
 
 h1, h2, h3 {
-  font-family: 'Space Grotesk', 'Hiragino Sans', 'Noto Sans JP', sans-serif;
-  font-weight: 700;
+  font-family: 'Inter Tight', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic UI', Meiryo, sans-serif;
+  font-weight: 800;
   letter-spacing: -0.01em;
 }
 
@@ -14,7 +16,8 @@ h1, h2, h3 {
 .font-mono,
 [class*="tracking-widest"],
 [class*="uppercase"] {
-  font-family: 'IBM Plex Mono', 'Menlo', monospace;
+  font-family: 'Inter Tight', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic UI', Meiryo, sans-serif;
+  font-weight: 700;
 }
 
 :root {
@@ -22,10 +25,10 @@ h1, h2, h3 {
   --c-surface: #1a1a1a;
   --c-border: #2a2a2a;
   --c-text: #eee;
-  --c-muted: #999;
-  --c-muted-mid: #bbb;
-  --c-dim: #777;
-  --c-very-dim: #555;
+  --c-muted: #d0d0d0;
+  --c-muted-mid: #dedede;
+  --c-dim: #b8b8b8;
+  --c-very-dim: #989898;
   --c-gold: #d4af37;
   --c-gold-light: #f0cd6a;
 
@@ -51,10 +54,10 @@ html[data-theme="light"] {
   --c-surface: #ffffff;
   --c-border: #e0e0e0;
   --c-text: #1a1a1a;
-  --c-muted: #666;
-  --c-muted-mid: #777;
-  --c-dim: #555;
-  --c-very-dim: #888;
+  --c-muted: #3f3f3f;
+  --c-muted-mid: #333;
+  --c-dim: #4d4d4d;
+  --c-very-dim: #656565;
   --c-gold: #e0a800;
   --c-gold-light: #f5c518;
 
@@ -73,10 +76,10 @@ html[data-theme="light"] {
     --c-surface: #ffffff;
     --c-border: #e0e0e0;
     --c-text: #1a1a1a;
-    --c-muted: #666;
-    --c-muted-mid: #777;
-    --c-dim: #555;
-    --c-very-dim: #888;
+    --c-muted: #3f3f3f;
+    --c-muted-mid: #333;
+    --c-dim: #4d4d4d;
+    --c-very-dim: #656565;
     --c-gold: #a07800;
     --c-gold-light: #c49a00;
 

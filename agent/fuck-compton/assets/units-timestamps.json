@@ -3,6 +3,7 @@
     "id": "nitty-gritty",
     "whisperSec": 23.5,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 10,
     "t": 10,
     "source": "fallback",
@@ -13,6 +14,7 @@
     "id": "no-comp",
     "whisperSec": null,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 20,
     "t": 20,
     "source": "fallback",
@@ -20,9 +22,32 @@
     "score": 0.17
   },
   {
+    "id": "suckers-riff",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 23,
+    "t": 23,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "so-bad",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 25,
+    "t": 25,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "spray-raid",
     "whisperSec": 39.8,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 28,
     "t": 28,
     "source": "fallback",
@@ -30,9 +55,87 @@
     "score": 1
   },
   {
+    "id": "hard-brother",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 35,
+    "t": 35,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "fuck-compton-hook",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 43,
+    "t": 43,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "ain't-shit",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 52,
+    "t": 52,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "cool-with",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 58,
+    "t": 58,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "dee-barnes",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 62,
+    "t": 62,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "step-to",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 65,
+    "t": 65,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "michel-le",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 67,
+    "t": 67,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "ballistics",
     "whisperSec": null,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 68,
     "t": 68,
     "source": "fallback",
@@ -43,6 +146,7 @@
     "id": "fighting-colors",
     "whisperSec": 86.8,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 80,
     "t": 80,
     "source": "fallback",
@@ -50,9 +154,21 @@
     "score": 0.67
   },
   {
+    "id": "thinking-hard",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 85,
+    "t": 85,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "jheri-curl",
     "whisperSec": 95.8,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 95,
     "t": 95,
     "source": "fallback",
@@ -60,9 +176,43 @@
     "score": 0.5
   },
   {
+    "id": "south-bronx",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 100,
+    "t": 100,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "eyes-on-prize",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 122,
+    "t": 122,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "tec-nine",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 126,
+    "t": 126,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "hundred-miles",
     "whisperSec": 140.8,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 130,
     "t": 130,
     "source": "fallback",
@@ -70,13 +220,80 @@
     "score": 1
   },
   {
+    "id": "so-large",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 138,
+    "t": 138,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "man-at-hand",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 148,
+    "t": 148,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "name-game",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 151,
+    "t": 151,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "myth",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 153,
+    "t": 153,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "riff-spliff",
     "whisperSec": null,
     "manualSec": null,
+    "captionSec": null,
     "fallbackT": 155,
     "t": 155,
     "source": "fallback",
     "approx": true,
     "score": 0.4
+  },
+  {
+    "id": "fold-bold",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 160,
+    "t": 160,
+    "source": "fallback",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "wack-ass",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "fallbackT": 172,
+    "t": 172,
+    "source": "fallback",
+    "approx": true,
+    "score": null
   }
 ]

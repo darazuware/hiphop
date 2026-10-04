@@ -1,0 +1,174 @@
+---
+interface Segment {
+  text: string;
+  s?: number;
+  e?: number;
+}
+interface Cue {
+  eng: string;
+  jpn: string;
+  start: number;
+  end: number;
+  segments: Segment[];
+}
+interface Props {
+  youtubeId: string;
+  title: string;
+  cues: Cue[];
+}
+const { youtubeId, title, cues } = Astro.props;
+const playerId = 'kc-yt-player';
+---
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800&display=swap" rel="stylesheet" />
+
+<div class="mb-8 aspect-video w-full rounded-lg overflow-hidden relative bg-black" id="kc-root" data-cues={JSON.stringify(cues)}>
+  <div id={playerId} class="w-full h-full"></div>
+  <div id="kc-overlay" class="pointer-events-none absolute inset-x-0 bottom-0 flex flex-col items-center gap-1 px-3 pb-3 pt-8 bg-gradient-to-t from-black/85 via-black/40 to-transparent opacity-0 transition-opacity duration-200">
+    <p id="kc-eng" class="kc-eng text-center leading-snug"></p>
+    <p id="kc-jpn" class="kc-jpn text-center leading-snug"></p>
+  </div>
+</div>
+
+<style>
+  .kc-eng {
+    font-family: 'Inter', 'Hiragino Sans', sans-serif;
+    font-weight: 700;
+    font-size: clamp(0.95rem, 2.6vw, 1.5rem);
+    color: rgba(255, 255, 255, 0.55);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+  }
+  .kc-jpn {
+    font-family: 'Hiragino Sans', 'Noto Sans JP', sans-serif;
+    font-weight: 700;
+    font-size: clamp(0.8rem, 2.1vw, 1.1rem);
+    color: #fff;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+  }
+  .kc-eng :global(span.kc-w) {
+    color: rgba(255, 255, 255, 0.55);
+    transition: color 0.08s linear;
+  }
+  .kc-eng :global(span.kc-w.kc-played) {
+    color: #fff;
+  }
+  .kc-eng :global(span.kc-w.kc-active) {
+    color: var(--c-gold, #d4af37);
+  }
+</style>
+
+<script define:vars={{ youtubeId, title, playerId }}>
+  (function () {
+    const root = document.getElementById('kc-root');
+    if (!root) return;
+    const cues = JSON.parse(root.dataset.cues || '[]');
+    const overlay = document.getElementById('kc-overlay');
+    const engEl = document.getElementById('kc-eng');
+    const jpnEl = document.getElementById('kc-jpn');
+
+    let currentCueIndex = -1;
+    let wordSpans = [];
+
+    function renderCue(cue) {
+      engEl.innerHTML = '';
+      wordSpans = [];
+      for (const seg of cue.segments) {
+        if (seg.s != null) {
+          const span = document.createElement('span');
+          span.className = 'kc-w';
+          span.textContent = seg.text;
+          span.dataset.s = String(seg.s);
+          span.dataset.e = String(seg.e);
+          engEl.appendChild(span);
+          wordSpans.push(span);
+        } else {
+          engEl.appendChild(document.createTextNode(seg.text));
+        }
+      }
+      jpnEl.textContent = cue.jpn;
+    }
+
+    function findCueIndex(tMs) {
+      for (let i = 0; i < cues.length; i++) {
+        if (tMs >= cues[i].start && tMs < cues[i].end) return i;
+      }
+      return -1;
+    }
+
+    function tick(tMs) {
+      const idx = findCueIndex(tMs);
+      if (idx !== currentCueIndex) {
+        currentCueIndex = idx;
+        if (idx === -1) {
+          overlay.style.opacity = '0';
+        } else {
+          renderCue(cues[idx]);
+          overlay.style.opacity = '1';
+        }
+      }
+      if (idx !== -1) {
+        for (const span of wordSpans) {
+          const s = Number(span.dataset.s);
+          const e = Number(span.dataset.e);
+          const active = tMs >= s && tMs < e;
+          const played = tMs >= e;
+          span.classList.toggle('kc-active', active);
+          span.classList.toggle('kc-played', played && !active);
+        }
+      }
+    }
+
+    let player = null;
+    let rafId = null;
+
+    function loop() {
+      if (player && typeof player.getCurrentTime === 'function') {
+        const state = player.getPlayerState ? player.getPlayerState() : 1;
+        if (state === 1) {
+          tick(player.getCurrentTime() * 1000);
+        }
+      }
+      rafId = requestAnimationFrame(loop);
+    }
+
+    function initPlayer() {
+      player = new window.YT.Player(playerId, {
+        videoId: youtubeId,
+        playerVars: {
+          rel: 0,
+          modestbranding: 1,
+        },
+        host: 'https://www.youtube.com',
+        events: {
+          onReady: () => {
+            loop();
+          },
+        },
+      });
+    }
+
+    if (window.YT && window.YT.Player) {
+      initPlayer();
+    } else {
+      const existing = document.getElementById('kc-yt-iframe-api');
+      if (!existing) {
+        const tag = document.createElement('script');
+        tag.id = 'kc-yt-iframe-api';
+        tag.src = 'https://www.youtube.com/iframe_api';
+        document.head.appendChild(tag);
+      }
+      const prevCallback = window.onYouTubeIframeAPIReady;
+      window.onYouTubeIframeAPIReady = function () {
+        if (typeof prevCallback === 'function') prevCallback();
+        initPlayer();
+      };
+    }
+
+    document.addEventListener('astro:before-swap', () => {
+      if (rafId) cancelAnimationFrame(rafId);
+      if (player && typeof player.destroy === 'function') player.destroy();
+    }, { once: true });
+  })();
+</script>
