@@ -548,6 +548,15 @@ export const artists = [
     summary: 'カリフォルニア州コンプトン出身のラッパー（本名Artis Leon Ivey Jr.）。1990年代前半にグループWC and the Maad Circleに参加したのち、1994年にソロでデビュー。1995年の「Gangsta\'s Paradise」（L.V.をフィーチャー）は映画『Dangerous Minds』の主題歌として世界的なヒットとなり、グラミー賞の最優秀ラップ・ソロ・パフォーマンスを受賞した。2022年に亡くなった。',
     japan: '日本語で読める資料はまだ多くありませんが、代表曲「Gangsta\'s Paradise」の歌詞は、このサイトで1行ずつ解説しています。',
   },
+  {
+    slug: 'the-pharcyde',
+    name: 'The Pharcyde',
+    origin: 'Los Angeles, California',
+    active: '1991–2000, 2004–',
+    genre: 'West Coast Alternative Hip-Hop',
+    summary: 'ロサンゼルス出身のヒップホップグループ。Imani、Slimkid3、Bootie Brown、Fatlipの4人のMCと、プロデューサーのJ-Swiftで結成された。1992年のデビューアルバム『Bizarre Ride II the Pharcyde』は、ユーモアのある語り口とサンプリングを生かしたトラックで知られ、1993年のシングル「Passin\' Me By」は代表曲として聴かれ続けている。',
+    japan: '日本語で読める資料はまだ多くありませんが、代表曲「Passin\' Me By」の歌詞は、このサイトで1行ずつ解説しています。',
+  },
 ] as const;
 
 export type Artist = typeof artists[number];
