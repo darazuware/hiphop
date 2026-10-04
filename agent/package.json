@@ -1,14 +1,8 @@
 {
   "name": "hiphop-agent",
   "version": "1.0.0",
-  "description": "Telegram → Gemini Deep Research → Genius → Claude Code 自律エージェント",
+  "description": "hiphop 記事生成・検証スクリプト群",
   "type": "module",
-  "main": "src/index.mjs",
-  "scripts": {
-    "start": "node src/index.mjs",
-    "dev": "node --watch src/index.mjs",
-    "bot": "node src/wax-bot.mjs"
-  },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.96.0",
     "@google-analytics/data": "^7.2.1",

@@ -15,9 +15,9 @@
 - **トーンはラフでも事実は厳密。** トーン調整は日本語解説部分のみで行い、英語引用（eng）・和訳（jpn）の分量は増やさない。事実主張は上記「事実チェック」に従う。
 
 ## review運用（本番push制限・重要・2026-07-02〜）
-- AdSense審査対策として、**mainへの本番pushは1日1回程度に抑える**運用にした。記事（.astro・songs.ts・artists.ts・画像等サイトコンテンツ）の編集は、常設worktree **`/Users/ktamatzmoto/Desktop/hiphop-review`（`review`ブランチ）** で行い、`git push origin review` する。**mainへの直pushはしない**（対話セッション・Telegram bot共通）。
-- **デプロイ実体はVercel**（GitHub連携。Cloudflareはドメイン前段のDNS/プロキシのみで、ビルド・プレビューはCloudflareではない）。Vercelが`review`ブランチのプレビューを自動デプロイする。固定プレビューURL: `https://hiphop-git-review-darazuwares-projects.vercel.app`（プッシュのたびに内容が更新される。個別デプロイのハッシュ付きURLはpushごとに変わるので使わない）。ユーザーはスマホでこのURLを確認し、Telegramでフィードバックを出す。Vercelのデプロイ保護が有効なため初回はVercelログインを求められることがある。
-- 承認後の本番反映（`review`→`main`のマージ・build確認・push）は決定的スクリプト [`agent/src/publish-main.mjs`](agent/src/publish-main.mjs)（Telegramの`/publish`コマンド）でのみ行う。対話セッションが自然文の指示で代わりにmainへマージ・pushしない。
+- AdSense審査対策として、**mainへの本番pushは1日1回程度に抑える**運用にした。記事（.astro・songs.ts・artists.ts・画像等サイトコンテンツ）の編集は、常設worktree **`/Users/ktamatzmoto/Desktop/hiphop-review`（`review`ブランチ）** で行い、`git push origin review` する。**mainへの直pushはしない**（対話セッションのみ。Telegram bot/watcherは廃止済み）。
+- **デプロイ実体はVercel**（GitHub連携。Cloudflareはドメイン前段のDNS/プロキシのみで、ビルド・プレビューはCloudflareではない）。Vercelが`review`ブランチのプレビューを自動デプロイする。固定プレビューURL: `https://hiphop-git-review-darazuwares-projects.vercel.app`（プッシュのたびに内容が更新される。個別デプロイのハッシュ付きURLはpushごとに変わるので使わない）。ユーザーはこのURLを確認し、claudeアプリ（PC/スマホ）の対話セッションでフィードバックを出す。Vercelのデプロイ保護が有効なため初回はVercelログインを求められることがある。
+- 承認後の本番反映（`review`→`main`のマージ・build確認・push）は決定的スクリプト [`agent/src/publish-main.mjs`](agent/src/publish-main.mjs)（`node agent/src/publish-main.mjs`。ユーザーが承認した時に対話セッションから実行）でのみ行う。対話セッションが自然文の指示で代わりにmainへマージ・pushしない。
 - **例外**: `agent/`配下のbotスクリプトや`docs/`のドキュメント、`CLAUDE.md`自体など、Astroビルド出力（`src/`・`public/`）に影響しないインフラ/ドキュメント変更は、この制限の対象外（サイトの表示内容が変わらないため）。これらはmainへ直接commit・pushしてよい。
 
 ## 絵文字禁止（サイト全体）
@@ -61,8 +61,8 @@ public/images/   # アルバムアート
 - **頻出スラングのdesc集約（2026-07-03確定）**: 複数曲に出る語の「素の意味・語源」は `slang.ts` に1回だけ書き、ページ側の `desc` は「この曲での使われ方・ニュアンス」中心に書く。同一descの曲間コピペは定型句ガード（Item4）に当たるため禁止、毎回のゼロから書き直しも不要
 - 詳細リンク先 `/slang?q={英語語}` では、その語を使う全曲が「使用曲」として自動内部リンクされる（`word=`/`term=` 両prop・日本語注釈付き対応済み）
 
-## 既存曲の自動修正ルーティン（Telegram: `修正依頼 <曲名>`・2026-07-11更新）
-- 入口は Telegram の **`修正依頼 <曲名>`**（例: `修正依頼 put it on`）。`index.mjs` → `claude.mjs` の `runToneFix` が固定手順を流す。実装を変える時は両者と本節を同期する。
+## 既存曲の修正ルーティン（対話セッションで `修正依頼 <曲名>`・2026-10-04 Telegram bot廃止）
+- 入口は対話セッションでの **`修正依頼 <曲名>`**（例: `修正依頼 put it on`）。以下の4点を固定手順として流す（旧 `index.mjs`/`claude.mjs`/`watcher.mjs`/`tone-campaign.mjs` は削除済み）。
 - **モデルは Opus デフォルト**（三稿制Sonnet は 4-5時間かかる非効率型のため廃止。Opus の高精度 1回で正解を狙う。tone-campaign.mjs で `--model sonnet` を指定すると Sonnet も使える）。**ただし reflowOnly（nas-is-like等・文言不変の<p>分割のみ）は指定に関わらず常に Sonnet へ自動降格する**（`runToneFix` 側で強制。文体を書く/書き直す仕事はOpus、構造をいじるだけの機械作業はSonnetで十分という判断・2026-07-13確定）。
 - **1回の修正依頼で必ず4点すべてやる**:
   1. 文体を **nas-is-like基調**へ（`docs/article-tone.md`。評論家ヅラ・AI臭・ダッシュ・読者命令形ゼロ、敬体率ガードに触れない）
@@ -172,7 +172,7 @@ public/images/   # アルバムアート
 14. 自分が変更・作成したファイル（.astro, songs.ts, artists.ts, public/images/covers/{slug}.jpg, agent/{slug}/assets/*.json）のみを、**`hiphop-review` worktree（reviewブランチ）で** git add → git commit → git push origin review
     ※【厳守】絶対に "git add ." を実行しないこと（ユーザーのローカル作業と競合するため）
     ※【厳守】mainへ直接pushしない。本番反映はユーザーが `/publish` コマンドで行う
-15. レビュー依頼通知（必須）: push成功後に `node agent/src/notify-review.mjs {slug}` を実行し、Telegramへ固定プレビューURL（`https://hiphop-git-review-darazuwares-projects.vercel.app/songs/{slug}`）を送る。運営者がスマホでレビューし、承認なら `/publish`、修正指示はTelegramで返ってくる（Telegram bot経由の生成ではwatcherが自動送信するので手動実行は対話セッションのみ）
+15. レビュー依頼通知（必須）: push成功後に `node agent/src/notify-review.mjs {slug}` を実行し、固定プレビューURL（`https://hiphop-git-review-darazuwares-projects.vercel.app/songs/{slug}`）をTelegramへ一方向通知する（任意）。運営者がレビューし、承認なら対話セッションで `publish-main.mjs` を実行、修正指示は対話セッションで受ける
 ```
 
 ## アーティスト自動追加ルール（重要）
