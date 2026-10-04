@@ -1,0 +1,596 @@
+---
+import LearningUnit from '../../components/LearningUnit.astro';
+import QuickSlang from '../../components/QuickSlang.astro';
+import SongLayout from '../../layouts/SongLayout.astro';
+
+import tsData from '../../../agent/check-the-rhime/assets/units-timestamps.json';
+const YT = "1QWEPdgS3As";
+const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.approx }]));
+---
+
+<SongLayout
+  title="Check the Rhime 和訳・意味・スラング解説 | A Tribe Called Quest"
+  description="A Tribe Called Quest「Check the Rhime」を英語学習とヒップホップ理解の教材として精読。kick routines、on point、come correct、dead wrongなどのスラングと、Q-TipとPhife Dawgの掛け合いの構造を、PV頭出し付きで解説。"
+  slug="check-the-rhime"
+  learningPage={true}
+  songDuration={224}
+  highlights={[
+    'Q-TipとPhife Dawgの掛け合いを、「相手に呼びかける→答える」の会話文として読める',
+    'on point、come correct、dead wrong、no home training など、そのまま使えるスラングと慣用句',
+    'Linden Boulevard、Lou Brock、Mr. Clean。固有名詞で語る思い出と比喩',
+  ]}
+  youtubeId="1QWEPdgS3As"
+>
+
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■この曲で何を学べるか</h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          A Tribe Called Questの「Check the Rhime」は、二人のMCが、昔の思い出をキャッチボールのように語り合う曲だと思っています。1991年の9月に、2枚目のアルバム『The Low End Theory』からの先行シングルとして出ました。
+        </p>
+        <p>
+          声が分かりやすく掛け合うので、英語の会話の練習素材としても、とても読みやすい曲です。「You on point?」「All the time」と、問いと答えがそのまま歌詞になっています。
+        </p>
+        <p>
+          曲の中で、昔の思い出話、自慢、業界への一言と、話題が次々に切り替わります。1行ずつ拾っていくと、会話の日本語にそのまま置き換えられる表現が、たくさん見つかります。
+        </p>
+      </div>
+    </section>
+
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■「ライム」の綴りが、そもそも遊びになっている</h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          タイトルの <em>Rhime</em> は、通常の綴り <em>rhyme</em> とは違います。歌詞の中でも、<em>rhyme</em> が使われているので、この綴りは意図した言葉遊びだと思っています。
+        </p>
+        <p>
+          言葉を扱うグループが、綴りの段階から言葉を遊んでいる。この感覚が、曲全体のノリにも現れています。
+        </p>
+        <p>
+          ここでは、1行ずつ、掛け合いの構造と、口語の使い方を整理していきます。
+        </p>
+      </div>
+    </section>
+
+    <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
+      <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
+        <li><a href="#story" class="hover:text-[var(--c-gold)] transition-colors">01 ストーリーの流れ（まず曲全体をつかむ）</a></li>
+        <li><a href="#units" class="hover:text-[var(--c-gold)] transition-colors">02 学ぶ表現（スラング・韻・言葉遊び・AAVE）</a></li>
+        <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">03 文化的背景</a></li>
+        <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">04 制作の裏側</a></li>
+        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">05 評価とその後</a></li>
+      </ol>
+    </nav>
+
+    <section id="story" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        ストーリーの流れ（まず曲全体をつかむ）
+      </h2>
+      <p class="text-xs text-[var(--c-dim)] mb-5">
+        曲は、二人のMCが、昔の思い出話をしながら交互にバースを回す構成です。誰がどこを担当しているかを先に押さえます。
+      </p>
+      <div class="space-y-4 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          <strong class='text-[var(--c-text)]'>Verse 1</strong>は、Q-TipとPhife Dawgの会話です。昔、Linden Boulevardで二人でライムの練習をした思い出を、呼びかけと返事のかたちで語ります。
+        </p>
+        <p>
+          <strong class='text-[var(--c-text)]'>Verse 2</strong>は、Phife Dawgのソロです。自分の腕前を誇り、批判してくる相手に言い返し、自分は誠実で、ごまかしがないとアピールします。
+        </p>
+        <p>
+          <strong class='text-[var(--c-text)]'>Hook</strong>は、「Check the rhyme y'all」の繰り返しです。聞き手を巻き込む、コール&レスポンスの形です。
+        </p>
+        <p>
+          <strong class='text-[var(--c-text)]'>Verse 3</strong>は、Verse 1と同じ導入で始まりますが、二人の役割が入れ替わっています。Phife Dawgが、Q-Tipに昔の思い出を問いかけます。
+        </p>
+        <p>
+          <strong class='text-[var(--c-text)]'>Verse 4</strong>は、Q-Tipのソロです。知識への姿勢、音楽業界への警戒、「ラップはポップではない」という主張が語られます。
+        </p>
+        <p>
+          最後は、アメリカ各地と、ロンドンへの挨拶で閉じます。
+        </p>
+        <p class="text-xs text-[var(--c-dim)]">
+          ※本ページは批評・教育目的で、解説に必要な範囲の断片のみを引用しています。全歌詞の対訳は掲載していません。
+        </p>
+      </div>
+    </section>
+
+    <div id="units"></div>
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        学ぶ表現（スラング・韻・言葉遊び・AAVE）
+      </h2>
+      <div class="space-y-3 text-xs text-[var(--c-dim)] mb-6">
+        <p>ここからは、歌詞の中の表現を1つずつ取り上げます。上に短い用例、下に意味と使い方の解説を置いています。</p>
+        <p>固有名詞や、誤解を招きやすい行は、引用を省いて背景だけを説明しています。▶を押すと、PVの該当箇所から再生できます。</p>
+      </div>
+
+      <LearningUnit
+        heading="Back in the days on the boulevard of Linden / kick routines"
+        label="★ 思い出／口語"
+        mc="Q-Tip & Phife Dawg（Verse 1）"
+        t={TS["linden-boulevard-routines"].t} tApprox={TS["linden-boulevard-routines"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Back in the days on the boulevard of Linden<br />We used to kick routines and the presence was fittin'</Fragment>
+        <Fragment slot="jpn">昔、リンデン通りで、俺たちはルーティンを披露してた。その場の雰囲気もぴったりだった</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の頭。思い出語りの型が出ています。</p>
+        <p><strong class='text-[var(--c-text)]'>Back in the days</strong> は、「あの頃は」と、昔を振り返る言い方です。標準的には <em>back in the day</em> と単数で言うことが多い表現です。</p>
+        <p><strong class='text-[var(--c-text)]'>kick routines</strong> は、ライムの掛け合いや、ネタを披露すること。<code>kick</code> は、ヒップホップでは「（ライムを）繰り出す」という意味でよく使われます。</p>
+        <p><code>Linden</code> は、ニューヨーク・クイーンズのLinden Boulevard。二人が、10代の頃に、ライムの練習をした場所です。</p>
+        <p>後半の <code>the presence was fittin'</code> は、「その場の空気がちょうど合っていた」。<em>fitting</em> は、形容詞で、「ふさわしい」という意味です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>used to + 動詞</strong>: <em>We used to play here.</em>（ここでよく遊んだ）。懐かしさを表す定番の型です。</p>
+          <p><em>kick</em> は、<em>kick a freestyle</em>（フリースタイルをやる）のように、ラップの場面で、「繰り出す」に使われます。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="It was I, The Abstract / And me, the Five Footer 呼び名と文法"
+        label="★ 文法／ニックネーム"
+        mc="Q-Tip（Verse 1）"
+        t={TS["abstract-five-footer"].t} tApprox={TS["abstract-five-footer"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">It was I, The Abstract<br />And me, the Five Footer</Fragment>
+        <Fragment slot="jpn">それは俺、The Abstractと、俺、Five Footerだった</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 二人のニックネームが、一行ずつ出てくる場面です。</p>
+        <p><strong class='text-[var(--c-text)]'>The Abstract</strong> は、Q-Tipのニックネーム。<strong class='text-[var(--c-text)]'>the Five Footer</strong> は、Phife Dawgのニックネームで、背が低いことにちなんでいます。</p>
+        <p>文法の面で、<code>It was I</code> という言い方に注目です。<em>It was me</em> が口語では普通ですが、ここは主格の <em>I</em> を使った、硬めで丁寧な言い方になっています。</p>
+        <p>次の行では、<code>And me, the Five Footer</code> と、<em>me</em> に戻っています。同じ文の中で、硬い言い方と口語が混ざる、遊びです。</p>
+        <p>ニックネームで自己紹介する、というのも、ヒップホップの定番の流れです。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>It was I.</strong>: 形式的な言い方で、日常では <em>It was me.</em> が普通です。<em>This is she.</em>（電話で「私です」）のように、固い場面に残っています。</p>
+          <p><em>-footer</em> のように、<em>five-foot</em>（5フィートの背丈）を人にして、呼び名にすることもあります。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="I kicks the mad style / mad は「すごい」の強調"
+        label="★ スラング／AAVE"
+        mc="Q-Tip（Verse 1）"
+        t={TS["mad-style-frankfurter"].t} tApprox={TS["mad-style-frankfurter"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">I kicks the mad style so step off the frankfurter</Fragment>
+        <Fragment slot="jpn">俺はすごいスタイルで繰り出すから、フランクフルトから下がってろ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 一人称なのに -s が付く、ユニークな動詞の形です。</p>
+        <p>この行の <strong class='text-[var(--c-text)]'>mad</strong> は、「怒っている」ではなく、「ものすごい、とても」の強調です。ニューヨークのスラングで、<em>mad style</em> は、「すごくかっこいいスタイル」。</p>
+        <p>動詞は <code>I kicks</code>。一人称なのに、動詞に <em>-s</em> が付いています。</p>
+        <p>リズムや、言い回しの個性を優先した、ヒップホップならではの形です。</p>
+        <p><strong class='text-[var(--c-text)]'>step off</strong> は、「下がれ、どけ」。誰かに離れるよう言う、強い言い方です。</p>
+        <p><code>frankfurter</code> は、ソーセージ（フランクフルト）で、ここでは、意味よりも、<em>kicks</em> や <em>step off</em> との語感の遊びに使われていると思います。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>mad + 名詞</strong>: <em>mad love</em>、<em>mad skills</em>（とてつもない腕前）。ニューヨーク周辺の強調語です。</p>
+          <p><strong class='text-[var(--c-text)]'>Step off.</strong>: 「どけ、離れろ」。ケンカ腰の場面でよく使われる表現です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="spiffy like Mr. Clean 商品キャラクターの直喩"
+        label="★ 直喩／語彙"
+        mc="Q-Tip（Verse 1）"
+        t={TS["spiffy-mr-clean"].t} tApprox={TS["spiffy-mr-clean"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">That we used to make spiffy like Mr. Clean?</Fragment>
+        <Fragment slot="jpn">俺たちがMr. Cleanみたいにピカピカに仕上げてた、あのルーティンのこと？</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 家庭用洗剤のキャラクターが出てくる比喩です。</p>
+        <p><strong class='text-[var(--c-text)]'>spiffy</strong> は、「こざっぱりした、洒落た」という意味の口語です。見た目が整って、きれいな状態を指します。</p>
+        <p><strong class='text-[var(--c-text)]'>Mr. Clean</strong> は、アメリカの洗剤のブランドで、頭がつるんとした男性キャラクターが、ロゴになっています。「ピカピカ」の比喩として、よく使われます。</p>
+        <p>二人のルーティンを、「磨き上げた」と言う比喩です。洗剤のブランドを持ち出すところに、日常の物を比喩に使う、このグループらしさが出ています。</p>
+        <p><code>used to make spiffy</code> の <em>make A B</em>（AをBにする）の形にも注目です。<em>make 〜 spiffy</em> で、「〜をきれいに整える」です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>make + 目的語 + 形容詞</strong>: <em>make it clean</em>、<em>make me happy</em>。結果の状態を表す、基本の文型です。</p>
+          <p><em>spiffy</em> は、<em>spiffy outfit</em>（洒落た服装）のように、見た目をほめるときに使えます。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="You on point, Phife? All the time, Tip コール&レスポンス"
+        label="★ 会話／スラング"
+        mc="Q-Tip & Phife Dawg（Verse 1）"
+        t={TS["you-on-point"].t} tApprox={TS["you-on-point"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">You on point, Phife? All the time, Tip</Fragment>
+        <Fragment slot="jpn">調子はいいか、Phife？ いつでもな、Tip</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 二人の掛け合いが、そのまま台本のように読める場面です。</p>
+        <p><strong class='text-[var(--c-text)]'>on point</strong> は、「調子がいい、抜かりがない、的を射ている」という意味のスラングです。もともとは、軍隊などで先頭を行く役、という言葉から来ています。</p>
+        <p><code>You on point?</code> は、<em>Are you</em> が省略された、疑問文。AAVEのコピュラ省略の例でもあります。</p>
+        <p>返事の <code>All the time</code> は、「いつでも」。短く返すことで、軽快な掛け合いに聞こえます。</p>
+        <p>この3行を3回繰り返した、呼びかけと返事の流れは、聴いていて、ラップというより、会話劇のようです。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>on point</strong>: <em>Your outfit is on point.</em>（その服、バッチリだね）。今でも若者言葉として使われます。</p>
+          <p><em>all the time</em> は、「いつも」。<em>always</em> より、くだけた言い方です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="grab the microphone and let your words rip"
+        label="★ 慣用句／語法"
+        mc="Q-Tip（Verse 1）"
+        t={TS["let-your-words-rip"].t} tApprox={TS["let-your-words-rip"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Well, then grab the microphone and let your words rip</Fragment>
+        <Fragment slot="jpn">じゃあ、マイクをつかんで、言葉をぶちかませ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 掛け合いの締めの1行。バトンを渡す場面です。</p>
+        <p><strong class='text-[var(--c-text)]'>let 〜 rip</strong> は、「〜を思い切りやらせる、勢いに任せる」という言い方です。<em>let it rip</em> で「思いきりやれ」。</p>
+        <p><code>grab the microphone</code> は、「マイクをつかむ」ことで、ラップを始める動作を指します。ここは、命令文で、順番を促す行です。</p>
+        <p><code>Well, then</code> は、前の流れを受けて、「それじゃあ」と進める言い方です。会話の接続詞としてよく使います。</p>
+        <p>Verse 1の締めとして、バトンをPhife Dawgに渡しています。会話から、次の独演に移る、きれいな切り替えです。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>let it rip</strong>: <em>Just let it rip!</em>（思い切りやれ！）。エンジンをふかす動作にも使われる、勢いを出す言い方です。</p>
+          <p><em>then</em> は、「それなら」の意味でも使えます。<em>If so, then go ahead.</em>（そうなら、どうぞ）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="send a telegram / like an energizer 古い物と電池の比喩"
+        label="★ 比喩／固有名詞"
+        mc="Phife Dawg（Verse 2）"
+        t={TS["telegram-energizer"].t} tApprox={TS["telegram-energizer"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Tell your mother, tell your father, send a telegram<br />I'm like an energizer 'cause, you see, I last long</Fragment>
+        <Fragment slot="jpn">母さんにも父さんにも伝えて、電報を打て。俺はエナジャイザー、長持ちするんだ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Phife Dawgのソロの頭。身近な物を比喩に使います。</p>
+        <p><strong class='text-[var(--c-text)]'>send a telegram</strong> は、電報を打つこと。「みんなに知らせろ」という、誇張した言い方で、古い通信手段が、わざと選ばれています。</p>
+        <p><strong class='text-[var(--c-text)]'>Energizer</strong> は、アメリカの電池のブランドで、「いつまでも動き続けるウサギ」のCMで有名でした。ここでは、長持ちする自分の、比喩として使っています。</p>
+        <p><code>I'm like 〜</code> は、直喩の基本の型です。ここでは、電池に例えて、自分のスタミナを誇っています。</p>
+        <p><code>'cause, you see, I last long</code> の <em>you see</em> は、「いいかい」という、会話の挿入句です。語りかけの調子が、ここでも出ています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>last long</strong>: <em>This battery lasts long.</em>（この電池は長持ちする）。<em>last</em> は、「持続する」の動詞です。</p>
+          <p><em>you see</em> は、説明を始めるときの挟み言葉。<em>You know</em> と同じ役割です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="never ever wack / dead wrong 強調の語"
+        label="★ スラング／強調"
+        mc="Phife Dawg（Verse 2）"
+        t={TS["never-ever-wack"].t} tApprox={TS["never-ever-wack"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Now if you say my style is wack, that's where you're dead wrong</Fragment>
+        <Fragment slot="jpn">もし俺のスタイルがダサいと言うなら、そこがお前の大間違いだ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 批判への反論の場面です。強調語に注目です。</p>
+        <p><strong class='text-[var(--c-text)]'>wack</strong> は、「ダサい、質が低い」というスラング。ヒップホップでは、下手なラップや、つまらない物を、これで切り捨てます。</p>
+        <p>前の行の <code>never ever</code> は、<em>never</em> をさらに強めるための、同語反復です。<em>never</em> を重ねるだけで、「絶対に」の強調になります。</p>
+        <p><strong class='text-[var(--c-text)]'>dead wrong</strong> の <code>dead</code> は、「完全に」という強調の副詞。<em>dead serious</em>（本気だ）、<em>dead tired</em> と同じ使い方です。</p>
+        <p><code>that's where 〜</code> は、「そこが〜なところだ」という、論点を指す言い方です。反論の場面で、よく使います。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>dead + 形容詞</strong>: <em>dead wrong</em>、<em>dead right</em>、<em>dead serious</em>。強調として便利です。</p>
+          <p><em>That's where you're wrong.</em>（そこが君の間違いだ）は、議論で使いやすい決まり文句です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="you know and I know that you know who I am"
+        label="★ 構文／反復"
+        mc="Phife Dawg（Verse 2）"
+        t={TS["you-know-that-you-know"].t} tApprox={TS["you-know-that-you-know"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">You'd be a fool to reply that Phife is not the man<br />'Cause you know and I know that you know who I am</Fragment>
+        <Fragment slot="jpn">Phifeがすごくないと言い返すなんて、バカだ。お前も俺も、お前が俺を知ってるって分かってる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ know が3回出てくる、言葉遊びの2行です。</p>
+        <p><strong class='text-[var(--c-text)]'>You'd be a fool to 〜</strong> は、「〜するなんて、愚かだ」という、仮定法の言い方です。<em>You would be</em> の短縮形です。</p>
+        <p><strong class='text-[var(--c-text)]'>the man</strong> は、「できる男、頼れる存在」のスラング。<em>You the man!</em> と、ほめるときにも使えます。</p>
+        <p>次の行は、<code>you know and I know that you know who I am</code>。<em>know</em> が3回出てくる、くるくる回る文です。</p>
+        <p>「お互い分かってるよね」という強調のしかたです。</p>
+        <p>同じ語を、繰り返しながら文を組み立てるのは、英語のスピーチでも、リズムを作る技法のひとつです。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>You'd be a fool to 〜</strong>: <em>You'd be a fool to refuse.</em>（断るなんてバカだ）。助言を強めたいときに使います。</p>
+          <p><em>the man</em> は、<em>the guy</em> 以外に、「リーダー、すごい人」という意味で使われます。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="They get vexed, I roll next, can't none contest me"
+        label="★ AAVE／二重否定"
+        mc="Phife Dawg（Verse 2）"
+        t={TS["vexed-cant-none"].t} tApprox={TS["vexed-cant-none"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">They get vexed, I roll next, can't none contest me</Fragment>
+        <Fragment slot="jpn">あいつらは腹を立てるが、俺は次へ進む。誰も俺に異議は唱えられない</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 否定の語順が標準英語と違う行です。</p>
+        <p><strong class='text-[var(--c-text)]'>vexed</strong> は、「イライラした、腹を立てた」という意味の、古風で硬めの語です。会話でも使えますが、ここでは、からかうニュアンスで使われています。</p>
+        <p><strong class='text-[var(--c-text)]'>can't none contest me</strong> は、語順に注目です。標準では <em>none can contest me</em> や <em>nobody can contest me</em>。</p>
+        <p><code>can't none</code> と、否定を、文の頭に置く形は、AAVEの特徴のひとつです。</p>
+        <p><strong class='text-[var(--c-text)]'>contest</strong> は、「異議を唱える、争う」という動詞です。名詞のコンテスト、競技会とはアクセントの位置が違います。</p>
+        <p><code>I roll next</code> は、「次へ進む」。<em>roll</em> は、前にも出た、「進む」という口語の動詞です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>Ain't nobody 〜</strong>、<strong class='text-[var(--c-text)]'>Can't nobody 〜</strong> のように、否定語を頭に置くのは、AAVEの定番の構文です。</p>
+          <p><em>contest</em> は、名詞（コンテスト）のアクセントは前、動詞（異議を唱える）は後ろにあります。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="five foot three and very brave / no home training"
+        label="★ 慣用句／身長"
+        mc="Phife Dawg（Verse 2）"
+        t={TS["five-foot-three-no-home-training"].t} tApprox={TS["five-foot-three-no-home-training"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">I'm just a fly MC who's five foot three and very brave<br />On top remaining, no home training 'cause I misbehave</Fragment>
+        <Fragment slot="jpn">俺はただの、5フィート3インチで、とても勇敢なイカしたMC。トップに居続けてる、躾けがないのは、俺がわんぱくだからだ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 自己紹介の2行。身長と、行儀の話です。</p>
+        <p><strong class='text-[var(--c-text)]'>fly</strong> は、前に出てきたとおり、「かっこいい」というスラングです。<code>five foot three</code> は、約160センチ。</p>
+        <p>背の低さを、自分の強みとして堂々と名乗っています。</p>
+        <p><strong class='text-[var(--c-text)]'>no home training</strong> は、「家で躾けられていない、行儀が悪い」という口語です。<em>You got no home training</em> のように、相手を叱る場面で使われます。</p>
+        <p>ここでは、自分で自分に、「行儀が悪いのは、わんぱくだから」と、茶目っ気を込めて言っています。叱る言葉を、自己紹介に使うひねりです。</p>
+        <p><code>On top remaining</code> は、<em>remaining on top</em> の語順を入れ替えた形で、<code>brave</code> と <code>misbehave</code> の韻を作るためです。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>five foot three</strong>: 身長の言い方で、「5フィート3インチ」。<em>He's six foot two.</em> のように、<em>foot</em> は単数のまま使います。</p>
+          <p><em>misbehave</em> は、「行儀悪く振る舞う」。<em>behave</em>（行儀よくする）の反対の動詞です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="I come correct in full effect 準備万端で現れる"
+        label="★ 慣用句／スラング"
+        mc="Phife Dawg（Verse 2）"
+        t={TS["come-correct"].t} tApprox={TS["come-correct"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">I come correct in full effect</Fragment>
+        <Fragment slot="jpn">俺はしっかり準備して、全力で現れる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ ヒップホップの定番フレーズが、2つ並ぶ行です。</p>
+        <p><strong class='text-[var(--c-text)]'>come correct</strong> は、「礼儀を守って、準備をして臨む」という意味のスラング。ケンカ腰のときにも、礼儀正しくするときにも、使われます。</p>
+        <p><strong class='text-[var(--c-text)]'>in full effect</strong> は、「全開で、フルパワーで」。<em>in effect</em> は、本来は「有効で」の意味ですが、ヒップホップでは、勢いを表す言葉としても使います。</p>
+        <p>二つの定型句を並べて、ひとつの宣言にしています。短い行ですが、気合の入りが伝わります。</p>
+        <p><code>come correct</code> は、<em>correct</em> が副詞として使われている、口語の形です。正式には <em>correctly</em> ですが、ここでは、短く言い切るのが好まれます。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>Come correct or don't come at all.</strong>: 準備していないなら、来るな、という強い言い方です。</p>
+          <p><em>in full effect</em>: <em>The party is in full effect.</em>（パーティーは最高潮だ）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="my aura's positive, I don't promote no junk 誠実さの宣言"
+        label="★ 二重否定／語彙"
+        mc="Phife Dawg（Verse 2）"
+        t={TS["aura-positive-punk"].t} tApprox={TS["aura-positive-punk"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">You see, my aura's positive, I don't promote no junk<br />See, I'm far from a bully and I ain't a punk</Fragment>
+        <Fragment slot="jpn">いいかい、俺のオーラはポジティブで、ガラクタは売り込まない。いじめっ子とは程遠いし、臆病者でもない</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 批判への反論として、自分は誠実だと宣言する場面です。</p>
+        <p><strong class='text-[var(--c-text)]'>aura</strong> は、人が放つ雰囲気、気配のこと。<em>positive aura</em> で、「前向きな空気」です。</p>
+        <p><code>I don't promote no junk</code> は、二重否定。ここも、否定の強調として使われています。</p>
+        <p>「ガラクタは一切宣伝しない」という意味です。</p>
+        <p><strong class='text-[var(--c-text)]'>far from a bully</strong> の <code>far from 〜</code> は、「〜とは程遠い」。<em>far from perfect</em>（完璧とは程遠い）のように使います。</p>
+        <p><strong class='text-[var(--c-text)]'>punk</strong> は、ここでは「弱虫、臆病者」の意味です。強がるだけの人、という意味合いで、使われています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>far from + 名詞/形容詞</strong>: <em>The result is far from satisfactory.</em>（結果は満足には程遠い）。控えめに否定するときにも使えます。</p>
+          <p><em>promote</em> は、「宣伝する、昇進させる」の2つの意味があります。ここでは前者です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="if knowledge is the key, then just show me the lock"
+        label="★ 比喩／知性"
+        mc="Q-Tip（Verse 4）"
+        t={TS["knowledge-key-lock"].t} tApprox={TS["knowledge-key-lock"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Okay, if knowledge is the key, then just show me the lock</Fragment>
+        <Fragment slot="jpn">もし知識が鍵なら、さあ、その鍵穴を見せてくれ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Q-Tipのバースの頭。比喩を使った、自信の表明です。</p>
+        <p><strong class='text-[var(--c-text)]'>if knowledge is the key</strong> は、「知識は鍵だ」という、よくある格言を、条件文に置き換えた形です。「知識が鍵なら、鍵穴を見せてみろ」と、挑発の調子で続けます。</p>
+        <p>この比喩は、論理がきれいです。鍵(key)があるなら、錠(lock)がある。</p>
+        <p>知識を持っているのだから、どんな扉でも開けられる、という意味です。</p>
+        <p><code>just show me 〜</code> の <em>just</em> は、「さあ、ともかく」という、軽く促す語です。ここでは、少し自信の強い口調になっています。</p>
+        <p>Verse 4は、Q-Tipの知的な側面が表に出てくるバースです。同じグループでも、二人のキャラクターの違いが、はっきり出ています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>If A is B, then C</strong>: <em>If you are so smart, then solve it.</em>（そんなに賢いなら、解いてみろ）。皮肉や挑発に使う型です。</p>
+          <p><em>Knowledge is the key.</em> は、教育や自己啓発でよく聞く、格言のような言い方です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="scrawny legs but I move just like Lou Brock スポーツ選手の比喩"
+        label="★ 直喩／固有名詞"
+        mc="Q-Tip（Verse 4）"
+        t={TS["lou-brock"].t} tApprox={TS["lou-brock"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Got the scrawny legs but I move just like Lou Brock</Fragment>
+        <Fragment slot="jpn">脚はひょろひょろだけど、動きはLou Brockそっくりだ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 野球選手の名前を使った、直喩の行です。</p>
+        <p><strong class='text-[var(--c-text)]'>scrawny</strong> は、「やせこけた、ひょろひょろの」。体が細いことを、少しからかうように言う形容詞です。</p>
+        <p><strong class='text-[var(--c-text)]'>Lou Brock</strong> は、メジャーリーグのセントルイス・カージナルスの選手で、盗塁の名手として知られています。足の速さの比喩として出てきます。</p>
+        <p><code>just like 〜</code> は、「まさに〜のように」という、強調された直喩です。<em>like</em> の前に <em>just</em> を付けるだけで、似ている度合いが強まります。</p>
+        <p>細い脚を、短所ではなく、俊敏さの理由として語り直す。このひっくり返しが、バースの面白さです。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>move like 〜</strong>: <em>He moves like a cat.</em>（猫みたいな身のこなしだ）。動きの比喩に、よく使います。</p>
+          <p><em>scrawny</em> は、<em>skinny</em> より悪い印象で、弱々しく見えるときに使います。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="My optic presentation sizzles the retina 科学用語を混ぜる"
+        label="★ 語彙／韻"
+        mc="Q-Tip（Verse 4）"
+        t={TS["optic-retina"].t} tApprox={TS["optic-retina"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">My optic presentation sizzles the retina</Fragment>
+        <Fragment slot="jpn">俺の見せる姿は、網膜を焼き付ける</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 硬い専門語が、スラングの間に入る行です。</p>
+        <p><strong class='text-[var(--c-text)]'>optic</strong> は、「目の、視覚の」という意味の形容詞。<strong class='text-[var(--c-text)]'>retina</strong> は、目の網膜です。</p>
+        <p>ふだんのラップでは、あまり出てこない、医学や科学の語彙です。</p>
+        <p><strong class='text-[var(--c-text)]'>sizzle</strong> は、肉などを焼くときの「ジュージュー」という音を表す動詞。ここでは、網膜を焦がすほど、強烈な印象を与える、という誇張です。</p>
+        <p>語彙のレベルが、他の行より一段高いのが、この行の特徴です。ラップで、あえて難しい言葉を混ぜることで、知的なイメージを作っています。</p>
+        <p>このグループは、スラングだけでなく、辞書にも載る硬い言葉も、自在に混ぜるのが特徴です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>sizzle</strong>: <em>The steak was sizzling.</em>（ステーキがジュージュー音を立てていた）。人気や熱気にも、<em>sizzling hot</em> のように使えます。</p>
+          <p><em>presentation</em> は、「発表、見せ方」。ここでは、見た目の印象、という意味で使っています。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Industry rule number four-thousand-and-eighty / shady"
+        label="★ 誇張／スラング"
+        mc="Q-Tip（Verse 4）"
+        t={TS["industry-rule-shady"].t} tApprox={TS["industry-rule-shady"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Industry rule number four-thousand-and-eighty<br />Record company people are shady</Fragment>
+        <Fragment slot="jpn">業界の掟、その4,080番。レコード会社の連中は信用ならない</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 音楽業界への警告を、冗談を込めて言う2行です。</p>
+        <p><strong class='text-[var(--c-text)]'>rule number four-thousand-and-eighty</strong> は、掟の番号を、わざと大きく言う冗談です。「4,080番目」ということは、「それほど数え切れない掟がある」という、誇張になっています。</p>
+        <p><strong class='text-[var(--c-text)]'>shady</strong> は、「うさんくさい、信用できない」という形容詞。もとは「日陰の」ですが、「やましいところがある」という意味で、口語でよく使われます。</p>
+        <p>デビューして間もない新人が、業界の裏を警戒する、というリアルな忠告として読めます。</p>
+        <p><code>number four-thousand-and-eighty</code> と、数字を言葉で言い切るリズムも、聴きどころです。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>shady</strong>: <em>a shady deal</em>（怪しい取引）、<em>shady business</em>（うさんくさい商売）。<em>shade</em> の派生語です。</p>
+          <p><em>Rule number one</em> は、「第一の掟」。冗談で、<em>rule number one: have fun</em> のように使います。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Rap is not pop, if you call it that, then stop"
+        label="★ 主張／構文"
+        mc="Q-Tip（Verse 4）"
+        t={TS["rap-is-not-pop"].t} tApprox={TS["rap-is-not-pop"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Rap is not pop, if you call it that, then stop</Fragment>
+        <Fragment slot="jpn">ラップはポップじゃない。そう呼ぶなら、やめろ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 4の締めの1行。ジャンルについての主張です。</p>
+        <p>この行は、Q-Tipの、ジャンルへの姿勢を表す宣言です。<strong class='text-[var(--c-text)]'>Rap is not pop</strong> は、「ラップは商業的な流行歌（ポップ）とは違う」という立場の表明です。</p>
+        <p><code>if you call it that, then stop</code> は、「そう呼ぶなら、やめろ」。<em>if 〜 then ...</em> の形で、条件と結論を短く並べた、強い言い切りです。</p>
+        <p><code>stop</code> が、前の <code>pop</code> と韻を踏んでいます。意味と音が、同時に決まる行です。</p>
+        <p>1991年は、ラップが、ポップチャートに入り始めた時期です。そうした流れに対して、ジャンルのアイデンティティを守ろうとする、当時の空気が見えます。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>call it that</strong>: <em>Don't call it that.</em>（そう呼ぶな）。呼び方に異議を唱えるときの言い方です。</p>
+          <p><em>pop</em> は、<em>popular</em> の短縮形。音楽のジャンルとしての「ポップス」です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="NC, SC, Virginia, in London 各地への挨拶"
+        label="★ 文化／略称"
+        mc="Q-Tip（Outro）"
+        t={TS["outro-nc-sc-london"].t} tApprox={TS["outro-nc-sc-london"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p>最後に、アメリカ各地と、ロンドンへの挨拶が並びます。この部分は、引用を省いて、背景だけを説明します（▶で該当箇所に飛べます）。</p>
+        <p><strong class='text-[var(--c-text)]'>NC</strong>、<strong class='text-[var(--c-text)]'>SC</strong> は、それぞれノースカロライナ、サウスカロライナの略称です。州名を、2文字の略称で言うのは、アメリカでは日常的です。</p>
+        <p>シャウトアウトで、聞き手を巻き込むのが、このアウトロの狙いです。「どこで聴いている人にも、聞こえている」と、全国と海外へ語りかける形です。</p>
+        <p>地名の略称は、ヒップホップでは、地元や、客層への敬意を示す記号として、よく使われます。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>州の略称</strong>: NY、LA、NC、SC、TX など。2文字の略称は、住所や、ラップの歌詞でよく見かけます。</p>
+          <p><em>y'all</em> は、<em>you all</em> の短縮形で、会場の聴衆への呼びかけに、ぴったりです。</p>
+        </Fragment>
+      </LearningUnit>
+    </section>
+
+    <section id="background" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        文化的背景
+      </h2>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">Linden Boulevardの思い出</p>
+        <h3 class="font-semibold text-base mb-3">クイーンズの路上で始まった、二人のライム練習</h3>
+        <div class="space-y-3 text-[var(--c-muted)] text-sm leading-relaxed">
+          <p>
+            「Check the Rhime」は、1980年代半ばに、Phife DawgとQ-Tipが、クイーンズのLinden Boulevardで繰り返していた、ライムの練習がもとになっています。
+          </p>
+          <p>
+            その頃の思い出を、温かい気持ちで振り返る曲です。会話のように進む構成になっているのは、そのためだと思います。
+          </p>
+        </div>
+      </div>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">『The Low End Theory』</p>
+        <h3 class="font-semibold text-base mb-3">1991年の2作目からの先行シングル</h3>
+        <div class="space-y-3 text-[var(--c-muted)] text-sm leading-relaxed">
+          <p>
+            この曲は、1991年9月に、Jive Recordsから、アルバム『The Low End Theory』の先行シングルとして出ています。
+          </p>
+          <p>
+            アルバムは、グループにとって2作目にあたります。
+          </p>
+        </div>
+      </div>
+
+      <div class="p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">キーワード早見表</p>
+        <h3 class="font-semibold text-base mb-3">この曲で学んだ表現の整理</h3>
+        <div class="space-y-3 mt-3">
+          {[
+            ['back in the days', '昔は。思い出話の定番の入り口'],
+            ['kick (a routine / rhymes)', 'ライムやネタを披露する'],
+            ['on point', '調子がいい、的を射ている'],
+            ['wack', 'ダサい、質が低い'],
+            ['dead + 形容詞', 'dead wrong のように、完全に、の強調'],
+            ['can\'t none 〜', '否定語を頭に置くAAVEの構文（誰も〜できない）'],
+            ['no home training', '躾けられていない、行儀が悪い'],
+            ['come correct', '準備をして、礼儀を守って臨む'],
+            ['in full effect', '全開で、最高潮で'],
+            ['shady', 'うさんくさい、信用できない'],
+          ].map(([w, d]) => (
+            <div class="text-sm">
+              <span class="font-semibold text-[var(--c-text)]">{w}</span>
+              <span class="text-[var(--c-muted)]"> {d}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="behind" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        制作の裏側
+      </h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          「Check the Rhime」は、1991年9月に、Jive Recordsから、アルバム『The Low End Theory』の最初のシングルとして発売されました。
+        </p>
+        <p>
+          サンプルの主なものは、Minnie Ripertonの「Baby, This Love I Have」（1975年）です。ホーンのフレーズは、Average White Bandの「Love Your Life」（1976年）から来ています。
+        </p>
+        <p>
+          複数の曲から素材を取って、新しい曲に組み立てる手法は、ヒップホップのトラックメイクの基本です。サンプル元の曲を聴き比べると、どの部分がどこから来たのかが分かって、面白いです。
+        </p>
+        <p>
+          サンプル元の2曲は、元曲を聴いてから本曲に戻ると、どこがつながっているのかが分かりやすいです。制作現場の細かい話は、確かめられた範囲のみ書いています。
+        </p>
+      </div>
+    </section>
+
+    <section id="legacy" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        評価とその後
+      </h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          「Check the Rhime」は、A Tribe Called Questの代表曲のひとつとして、今も聴かれ続けています。
+        </p>
+        <p>
+          歌詞の呼びかけと返事は、聞くだけで会話の流れが分かるので、英語の会話の例としても読みやすい構造です。
+        </p>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        まとめ
+      </h2>
+      <ul class="space-y-2 text-sm text-[var(--c-muted)] list-disc list-inside leading-relaxed">
+        <li>「Check the Rhime」は、Q-TipとPhife Dawgの呼びかけと返事で組まれた、会話劇のような曲です。</li>
+        <li>on point、come correct、dead wrong、no home training、shadyなど、日常でも使えるスラングが、ひとつずつ学べます。</li>
+        <li>can't none contest、I kicks、I don't promote no junkなど、AAVEの否定や動詞の使い方が、具体例で出てきます。</li>
+        <li>Mr. Clean、Energizer、Lou Brockなど、身近な固有名詞を使った比喩が、聴き手に親しみを与えています。</li>
+        <li>Rap is not pop という一言には、1991年のヒップホップが、どう自己主張していたかが表れています。</li>
+      </ul>
+    </section>
+
+</SongLayout>
