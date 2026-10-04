@@ -82,7 +82,7 @@ const regions = [
       <p class="text-[var(--c-very-dim)] text-[10px] uppercase tracking-widest px-3 pt-3 pb-1.5">ページ内ジャンプ</p>
       {[
         { href: '#', label: '↑ トップへ' },
-        { href: '#ranking', label: 'ランキング' },
+        { href: '#ranking', label: 'おすすめ' },
         { href: '#series', label: '特集シリーズ' },
         { href: '#latest', label: '最新追加' },
         { href: '#all-songs', label: '全曲リスト' },
@@ -318,7 +318,7 @@ const regions = [
   <section id="ranking" class="border-b border-[var(--c-border)] py-10 md:py-14">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="mb-7 border-l-2 border-[var(--c-gold)] pl-4">
-        <h2 class="text-[var(--c-text)] text-xl font-bold">アクセスランキング</h2>
+        <h2 class="text-[var(--c-text)] text-xl font-bold">編集部おすすめ</h2>
       </div>
       <ol class="space-y-3">
         {ranking.map((r, i) => {
@@ -456,7 +456,7 @@ const regions = [
       <div class="lg:hidden flex flex-wrap gap-2 mb-5">
         {[
           { href: '#', label: '↑ トップ' },
-          { href: '#ranking', label: 'ランキング' },
+          { href: '#ranking', label: 'おすすめ' },
           { href: '#series', label: '特集' },
           { href: '#latest', label: '最新' },
         ].map(item => (

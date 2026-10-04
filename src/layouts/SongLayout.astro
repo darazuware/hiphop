@@ -63,7 +63,7 @@ const waveformModules = import.meta.glob<{ default: number[] }>('../data/wavefor
 const waveformPeaks = waveformModules[`../data/waveforms/${slug}.json`]?.default ?? null;
 ---
 
-<Layout title={title} description={description} ogType="article" publishedTime={song?.pubDate} modifiedTime={updatedDate ?? undefined} noindex={noindex}>
+<Layout title={title} description={description} ogType="article" publishedTime={song?.pubDate} modifiedTime={updatedDate ?? undefined} noindex={noindex || song?.tier === 'thin'}>
   <!-- Progress bar -->
   <div id="progress-bar" class="fixed top-0 left-0 h-0.5 bg-[var(--c-gold)] z-50 transition-none" style="width:0%"></div>
 

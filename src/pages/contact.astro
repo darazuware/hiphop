@@ -61,7 +61,8 @@ import Layout from '../layouts/Layout.astro';
     try {
       const res = await fetch('/api/contact', {
         method: 'POST',
-        body: new FormData(form),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(Object.fromEntries(new FormData(form))),
       });
       const data = await res.json() as { ok: boolean; error?: string };
       if (data.ok) {
