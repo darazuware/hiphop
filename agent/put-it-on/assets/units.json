@@ -1,28 +1,340 @@
 [
-  { "id": "head-flown",        "anchor": ["better","flee","hops","or","get"], "fallbackT": 12, "manualSec": null },
-  { "id": "reeboks",           "anchor": ["l","keep","rappers","hearts","pumpin"], "fallbackT": 16, "manualSec": null },
-  { "id": "clout-sprouts",     "anchor": ["every","year","i","gain","clout"], "fallbackT": 22, "manualSec": null },
-  { "id": "crack-virgins",     "anchor": ["some","brothers","still","be","virgins"], "fallbackT": 27, "manualSec": null },
-  { "id": "wild-foul",         "anchor": ["i","got","the","wild","style"], "fallbackT": 32, "manualSec": null },
-  { "id": "boom-pow",          "anchor": ["my","guns","go","boom","boom"], "fallbackT": 36, "manualSec": null },
-  { "id": "hottie-open",       "anchor": ["im","known","to","have","a"], "fallbackT": 40, "manualSec": null },
-  { "id": "toni-braxton",      "anchor": ["i","got","girls","that","make"], "fallbackT": 46, "manualSec": null },
-  { "id": "thirty-five-bodies","anchor": ["thirty","five","bodies","buddy","dont"], "fallbackT": 50, "manualSec": null },
-  { "id": "put-it-on-title",   "anchor": ["word","is","born","i","leave"], "fallbackT": 56, "manualSec": null },
-  { "id": "loss-chief",        "anchor": ["nobody","can","take","nothin","from"], "fallbackT": 80, "manualSec": null },
-  { "id": "gotti",             "anchor": ["got","more","cash","than","gotti"], "fallbackT": 88, "manualSec": null },
-  { "id": "gas-shotty",        "anchor": ["im","known","to","gas","a"], "fallbackT": 94, "manualSec": null },
-  { "id": "baby-mother",       "anchor": ["a","smooth","kid","thatll","run"], "fallbackT": 100, "manualSec": null },
-  { "id": "hit-skins",         "anchor": ["i","push","a","slick","benz"], "fallbackT": 106, "manualSec": null },
-  { "id": "money-getter",      "anchor": ["cause","im","a","money","getter"], "fallbackT": 112, "manualSec": null },
-  { "id": "catchin-wreck",     "anchor": ["im","catchin","wreck","to","the"], "fallbackT": 122, "manualSec": null },
-  { "id": "major-chubby",      "anchor": ["some","boys","see","me","gun"], "fallbackT": 150, "manualSec": null },
-  { "id": "moet-becks",        "anchor": ["i","drink","moet","not","becks"], "fallbackT": 162, "manualSec": null },
-  { "id": "gat-arm-reach",     "anchor": ["and","its","a","fact","i"], "fallbackT": 170, "manualSec": null },
-  { "id": "charm-geeks",       "anchor": ["i","charm","freaks","and","bomb"], "fallbackT": 174, "manualSec": null },
-  { "id": "born-dead",         "anchor": ["i","smash","mics","like","cornbread"], "fallbackT": 188, "manualSec": null },
-  { "id": "peel-wigs",         "anchor": ["i","run","with","ill","kids"], "fallbackT": 196, "manualSec": null },
-  { "id": "sheriff-reggie",    "anchor": ["its","a","new","sheriff","in"], "fallbackT": 205, "manualSec": null },
-  { "id": "children-corn",     "anchor": ["peace","to","my","peoples","the"], "fallbackT": 212, "manualSec": null },
-  { "id": "ditc-outro",        "anchor": ["lord","finesse","he","be","puttin"], "fallbackT": 235, "manualSec": null }
+  {
+    "id": "head-flown",
+    "anchor": [
+      "better",
+      "flee",
+      "hops",
+      "or",
+      "get"
+    ],
+    "fallbackT": 12,
+    "manualSec": null,
+    "captionSec": null
+  },
+  {
+    "id": "reeboks",
+    "anchor": [
+      "l",
+      "keep",
+      "rappers",
+      "hearts",
+      "pumpin"
+    ],
+    "fallbackT": 16,
+    "manualSec": null,
+    "captionSec": 30
+  },
+  {
+    "id": "clout-sprouts",
+    "anchor": [
+      "every",
+      "year",
+      "i",
+      "gain",
+      "clout"
+    ],
+    "fallbackT": 22,
+    "manualSec": null,
+    "captionSec": 32
+  },
+  {
+    "id": "crack-virgins",
+    "anchor": [
+      "some",
+      "brothers",
+      "still",
+      "be",
+      "virgins"
+    ],
+    "fallbackT": 27,
+    "manualSec": null,
+    "captionSec": 35
+  },
+  {
+    "id": "wild-foul",
+    "anchor": [
+      "i",
+      "got",
+      "the",
+      "wild",
+      "style"
+    ],
+    "fallbackT": 32,
+    "manualSec": null,
+    "captionSec": 35
+  },
+  {
+    "id": "boom-pow",
+    "anchor": [
+      "my",
+      "guns",
+      "go",
+      "boom",
+      "boom"
+    ],
+    "fallbackT": 36,
+    "manualSec": null,
+    "captionSec": 40
+  },
+  {
+    "id": "hottie-open",
+    "anchor": [
+      "im",
+      "known",
+      "to",
+      "have",
+      "a"
+    ],
+    "fallbackT": 40,
+    "manualSec": null,
+    "captionSec": 43
+  },
+  {
+    "id": "toni-braxton",
+    "anchor": [
+      "i",
+      "got",
+      "girls",
+      "that",
+      "make"
+    ],
+    "fallbackT": 46,
+    "manualSec": null,
+    "captionSec": 51
+  },
+  {
+    "id": "thirty-five-bodies",
+    "anchor": [
+      "thirty",
+      "five",
+      "bodies",
+      "buddy",
+      "dont"
+    ],
+    "fallbackT": 50,
+    "manualSec": null,
+    "captionSec": 56
+  },
+  {
+    "id": "put-it-on-title",
+    "anchor": [
+      "word",
+      "is",
+      "born",
+      "i",
+      "leave"
+    ],
+    "fallbackT": 56,
+    "manualSec": null,
+    "captionSec": null
+  },
+  {
+    "id": "loss-chief",
+    "anchor": [
+      "nobody",
+      "can",
+      "take",
+      "nothin",
+      "from"
+    ],
+    "fallbackT": 80,
+    "manualSec": null,
+    "captionSec": 75
+  },
+  {
+    "id": "gotti",
+    "anchor": [
+      "got",
+      "more",
+      "cash",
+      "than",
+      "gotti"
+    ],
+    "fallbackT": 88,
+    "manualSec": null,
+    "captionSec": 78
+  },
+  {
+    "id": "gas-shotty",
+    "anchor": [
+      "im",
+      "known",
+      "to",
+      "gas",
+      "a"
+    ],
+    "fallbackT": 94,
+    "manualSec": null,
+    "captionSec": 80
+  },
+  {
+    "id": "baby-mother",
+    "anchor": [
+      "a",
+      "smooth",
+      "kid",
+      "thatll",
+      "run"
+    ],
+    "fallbackT": 100,
+    "manualSec": null,
+    "captionSec": 88
+  },
+  {
+    "id": "hit-skins",
+    "anchor": [
+      "i",
+      "push",
+      "a",
+      "slick",
+      "benz"
+    ],
+    "fallbackT": 106,
+    "manualSec": null,
+    "captionSec": 91
+  },
+  {
+    "id": "money-getter",
+    "anchor": [
+      "cause",
+      "im",
+      "a",
+      "money",
+      "getter"
+    ],
+    "fallbackT": 112,
+    "manualSec": null,
+    "captionSec": 91
+  },
+  {
+    "id": "catchin-wreck",
+    "anchor": [
+      "im",
+      "catchin",
+      "wreck",
+      "to",
+      "the"
+    ],
+    "fallbackT": 122,
+    "manualSec": null,
+    "captionSec": 104
+  },
+  {
+    "id": "major-chubby",
+    "anchor": [
+      "some",
+      "boys",
+      "see",
+      "me",
+      "gun"
+    ],
+    "fallbackT": 150,
+    "manualSec": null,
+    "captionSec": 123
+  },
+  {
+    "id": "moet-becks",
+    "anchor": [
+      "i",
+      "drink",
+      "moet",
+      "not",
+      "becks"
+    ],
+    "fallbackT": 162,
+    "manualSec": null,
+    "captionSec": 132
+  },
+  {
+    "id": "gat-arm-reach",
+    "anchor": [
+      "and",
+      "its",
+      "a",
+      "fact",
+      "i"
+    ],
+    "fallbackT": 170,
+    "manualSec": null,
+    "captionSec": 139
+  },
+  {
+    "id": "charm-geeks",
+    "anchor": [
+      "i",
+      "charm",
+      "freaks",
+      "and",
+      "bomb"
+    ],
+    "fallbackT": 174,
+    "manualSec": null,
+    "captionSec": 142
+  },
+  {
+    "id": "born-dead",
+    "anchor": [
+      "i",
+      "smash",
+      "mics",
+      "like",
+      "cornbread"
+    ],
+    "fallbackT": 188,
+    "manualSec": null,
+    "captionSec": 152
+  },
+  {
+    "id": "peel-wigs",
+    "anchor": [
+      "i",
+      "run",
+      "with",
+      "ill",
+      "kids"
+    ],
+    "fallbackT": 196,
+    "manualSec": null,
+    "captionSec": 158
+  },
+  {
+    "id": "sheriff-reggie",
+    "anchor": [
+      "its",
+      "a",
+      "new",
+      "sheriff",
+      "in"
+    ],
+    "fallbackT": 205,
+    "manualSec": null,
+    "captionSec": 163
+  },
+  {
+    "id": "children-corn",
+    "anchor": [
+      "peace",
+      "to",
+      "my",
+      "peoples",
+      "the"
+    ],
+    "fallbackT": 212,
+    "manualSec": null,
+    "captionSec": 166
+  },
+  {
+    "id": "ditc-outro",
+    "anchor": [
+      "lord",
+      "finesse",
+      "he",
+      "be",
+      "puttin"
+    ],
+    "fallbackT": 235,
+    "manualSec": null,
+    "captionSec": 192
+  }
 ]

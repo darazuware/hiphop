@@ -8,7 +8,8 @@
       "than"
     ],
     "fallbackT": 15,
-    "manualSec": null
+    "manualSec": null,
+    "captionSec": 52
   },
   {
     "id": "another-drought",
@@ -20,7 +21,8 @@
       "out"
     ],
     "fallbackT": 28,
-    "manualSec": null
+    "manualSec": null,
+    "captionSec": 66
   },
   {
     "id": "since-86",
@@ -32,7 +34,8 @@
       "crowd"
     ],
     "fallbackT": 42,
-    "manualSec": null
+    "manualSec": null,
+    "captionSec": 76
   },
   {
     "id": "fountain-of-youth",
@@ -44,7 +47,8 @@
       "youth"
     ],
     "fallbackT": 58,
-    "manualSec": null
+    "manualSec": null,
+    "captionSec": 89
   },
   {
     "id": "off-meters-cosign",
@@ -56,7 +60,8 @@
       "believers"
     ],
     "fallbackT": 64,
-    "manualSec": null
+    "manualSec": null,
+    "captionSec": 93
   },
   {
     "id": "uptowns-uppies",
@@ -67,8 +72,9 @@
       "em",
       "uppies"
     ],
-    "fallbackT": 73,
-    "manualSec": null
+    "fallbackT": 93,
+    "manualSec": null,
+    "captionSec": null
   },
   {
     "id": "made-you-look",
@@ -79,8 +85,9 @@
       "look",
       "heaters"
     ],
-    "fallbackT": 82,
-    "manualSec": null
+    "fallbackT": 93,
+    "manualSec": null,
+    "captionSec": null
   },
   {
     "id": "walked-with-jesus",
@@ -91,8 +98,9 @@
       "walked",
       "jesus"
     ],
-    "fallbackT": 88,
-    "manualSec": null
+    "fallbackT": 93,
+    "manualSec": null,
+    "captionSec": null
   },
   {
     "id": "superfly-ness",
@@ -104,7 +112,8 @@
       "superfly"
     ],
     "fallbackT": 115,
-    "manualSec": null
+    "manualSec": null,
+    "captionSec": 118
   },
   {
     "id": "novice-polished",
@@ -116,7 +125,8 @@
       "polished"
     ],
     "fallbackT": 122,
-    "manualSec": null
+    "manualSec": null,
+    "captionSec": 144
   },
   {
     "id": "rob-base-two",
@@ -128,7 +138,8 @@
       "rob"
     ],
     "fallbackT": 130,
-    "manualSec": null
+    "manualSec": null,
+    "captionSec": 151
   },
   {
     "id": "habitual-be",
@@ -139,8 +150,9 @@
       "shit",
       "thats"
     ],
-    "fallbackT": 138,
-    "manualSec": null
+    "fallbackT": 151,
+    "manualSec": null,
+    "captionSec": null
   },
   {
     "id": "go-platinum",
@@ -151,7 +163,8 @@
       "times"
     ],
     "fallbackT": 178,
-    "manualSec": null
+    "manualSec": null,
+    "captionSec": null
   },
   {
     "id": "amateur-night",
@@ -162,7 +175,8 @@
       "showtime"
     ],
     "fallbackT": 190,
-    "manualSec": null
+    "manualSec": null,
+    "captionSec": 200
   },
   {
     "id": "chips-aint-right",
@@ -174,7 +188,8 @@
       "aint"
     ],
     "fallbackT": 200,
-    "manualSec": null
+    "manualSec": null,
+    "captionSec": 212
   },
   {
     "id": "its-just-iron",
@@ -185,8 +200,9 @@
       "im",
       "in"
     ],
-    "fallbackT": 210,
-    "manualSec": null
+    "fallbackT": 212,
+    "manualSec": null,
+    "captionSec": null
   },
   {
     "id": "wall-toast",
@@ -198,7 +214,8 @@
       "up"
     ],
     "fallbackT": 225,
-    "manualSec": null
+    "manualSec": null,
+    "captionSec": null
   },
   {
     "id": "hustlers-shoe",
@@ -210,7 +227,8 @@
       "ones"
     ],
     "fallbackT": 235,
-    "manualSec": null
+    "manualSec": null,
+    "captionSec": 231
   },
   {
     "id": "criminal-minded",
@@ -222,7 +240,8 @@
       "neck"
     ],
     "fallbackT": 252,
-    "manualSec": null
+    "manualSec": null,
+    "captionSec": 260
   },
   {
     "id": "blastmaster-bdp",
@@ -231,8 +250,9 @@
       "krs",
       "one"
     ],
-    "fallbackT": 254,
-    "manualSec": null
+    "fallbackT": 260,
+    "manualSec": null,
+    "captionSec": null
   },
   {
     "id": "wes-a-nation",
@@ -243,8 +263,9 @@
       "wes",
       "nation"
     ],
-    "fallbackT": 257,
-    "manualSec": null
+    "fallbackT": 260,
+    "manualSec": null,
+    "captionSec": null
   },
   {
     "id": "smoke-them-trees",
@@ -256,7 +277,8 @@
       "trees"
     ],
     "fallbackT": 260,
-    "manualSec": null
+    "manualSec": null,
+    "captionSec": 274
   },
   {
     "id": "emceein-vs-rap",
@@ -267,8 +289,9 @@
       "and",
       "rap"
     ],
-    "fallbackT": 262,
-    "manualSec": null
+    "fallbackT": 274,
+    "manualSec": null,
+    "captionSec": null
   },
   {
     "id": "jmj-scott-tribute",
@@ -278,8 +301,9 @@
       "la",
       "rock"
     ],
-    "fallbackT": 268,
-    "manualSec": null
+    "fallbackT": 274,
+    "manualSec": null,
+    "captionSec": null
   },
   {
     "id": "peace-love-unity",
@@ -291,6 +315,7 @@
       "fun"
     ],
     "fallbackT": 275,
-    "manualSec": null
+    "manualSec": null,
+    "captionSec": null
   }
 ]

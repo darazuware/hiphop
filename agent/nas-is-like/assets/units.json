@@ -8,7 +8,8 @@
       "same",
       "time"
     ],
-    "fallbackT": 16
+    "fallbackT": 76,
+    "captionSec": null
   },
   {
     "id": "defines-my-name",
@@ -20,7 +21,8 @@
       "what",
       "defines"
     ],
-    "fallbackT": 20
+    "fallbackT": 76,
+    "captionSec": null
   },
   {
     "id": "nasty-name",
@@ -32,7 +34,8 @@
       "but",
       "times"
     ],
-    "fallbackT": 24
+    "fallbackT": 76,
+    "captionSec": null
   },
   {
     "id": "time-game-fame",
@@ -44,7 +47,8 @@
       "the",
       "game"
     ],
-    "fallbackT": 28
+    "fallbackT": 76,
+    "captionSec": null
   },
   {
     "id": "fiends-flatline",
@@ -57,7 +61,8 @@
       "do",
       "lines"
     ],
-    "fallbackT": 32
+    "fallbackT": 76,
+    "captionSec": null
   },
   {
     "id": "weak-picture-squeeze",
@@ -70,7 +75,8 @@
       "to",
       "trees"
     ],
-    "fallbackT": 39
+    "fallbackT": 76,
+    "captionSec": null
   },
   {
     "id": "street-scriptures",
@@ -81,7 +87,8 @@
       "lost",
       "souls"
     ],
-    "fallbackT": 44
+    "fallbackT": 76,
+    "captionSec": null
   },
   {
     "id": "they-possessive",
@@ -92,7 +99,8 @@
       "they",
       "neck"
     ],
-    "fallbackT": 58
+    "fallbackT": 76,
+    "captionSec": null
   },
   {
     "id": "nas-spell",
@@ -103,7 +111,8 @@
       "that",
       "spell"
     ],
-    "fallbackT": 62
+    "fallbackT": 62,
+    "captionSec": 76
   },
   {
     "id": "poetry-never-fell",
@@ -115,7 +124,8 @@
       "never",
       "fell"
     ],
-    "fallbackT": 73
+    "fallbackT": 73,
+    "captionSec": 76
   },
   {
     "id": "half-man-amazin",
@@ -125,7 +135,8 @@
       "half",
       "amazing"
     ],
-    "fallbackT": 10
+    "fallbackT": 10,
+    "captionSec": 76
   },
   {
     "id": "earth-wind-fire",
@@ -137,7 +148,8 @@
       "and",
       "tires"
     ],
-    "fallbackT": 92
+    "fallbackT": 92,
+    "captionSec": 92
   },
   {
     "id": "pharaoh-nas",
@@ -150,7 +162,8 @@
       "the",
       "pharaoh"
     ],
-    "fallbackT": 97
+    "fallbackT": 97,
+    "captionSec": 99
   },
   {
     "id": "before-christ-after-death",
@@ -162,7 +175,8 @@
       "the",
       "death"
     ],
-    "fallbackT": 99
+    "fallbackT": 99,
+    "captionSec": 99
   },
   {
     "id": "seiko-rolex",
@@ -173,7 +187,8 @@
       "to",
       "rolex"
     ],
-    "fallbackT": 107
+    "fallbackT": 107,
+    "captionSec": 109
   },
   {
     "id": "chips-cake",
@@ -185,7 +200,8 @@
       "no",
       "chips"
     ],
-    "fallbackT": 110
+    "fallbackT": 110,
+    "captionSec": 109
   },
   {
     "id": "siete-pesos",
@@ -198,7 +214,8 @@
       "the",
       "pesos"
     ],
-    "fallbackT": 113
+    "fallbackT": 113,
+    "captionSec": 119
   },
   {
     "id": "cant-take-it",
@@ -211,7 +228,8 @@
       "under",
       "this"
     ],
-    "fallbackT": 116
+    "fallbackT": 116,
+    "captionSec": 122
   },
   {
     "id": "numbers-called",
@@ -222,7 +240,8 @@
       "your",
       "grave"
     ],
-    "fallbackT": 120
+    "fallbackT": 120,
+    "captionSec": 126
   },
   {
     "id": "much-success-prophet",
@@ -234,7 +253,8 @@
       "even",
       "if"
     ],
-    "fallbackT": 135
+    "fallbackT": 135,
+    "captionSec": 142
   },
   {
     "id": "beef-heat",
@@ -246,7 +266,8 @@
       "like",
       "beef"
     ],
-    "fallbackT": 169
+    "fallbackT": 169,
+    "captionSec": 167
   },
   {
     "id": "street-sweeper",
@@ -258,7 +279,8 @@
       "green",
       "leaf"
     ],
-    "fallbackT": 175
+    "fallbackT": 175,
+    "captionSec": 170
   },
   {
     "id": "greeks-egypt",
@@ -269,7 +291,8 @@
       "egypt",
       "learning"
     ],
-    "fallbackT": 178
+    "fallbackT": 178,
+    "captionSec": 170
   },
   {
     "id": "like-pac",
@@ -280,7 +303,8 @@
       "like",
       "pac"
     ],
-    "fallbackT": 180
+    "fallbackT": 180,
+    "captionSec": 180
   },
   {
     "id": "loot-crisp",
@@ -290,7 +314,8 @@
       "of",
       "loot"
     ],
-    "fallbackT": 185
+    "fallbackT": 185,
+    "captionSec": 183
   },
   {
     "id": "summer-jam",
@@ -301,7 +326,8 @@
       "summer",
       "jam"
     ],
-    "fallbackT": 193
+    "fallbackT": 193,
+    "captionSec": 188
   },
   {
     "id": "locked-down-fam",
@@ -312,7 +338,8 @@
       "new",
       "faces"
     ],
-    "fallbackT": 197
+    "fallbackT": 197,
+    "captionSec": 194
   },
   {
     "id": "thug-poet",
@@ -323,7 +350,8 @@
       "thug",
       "poet"
     ],
-    "fallbackT": 212
+    "fallbackT": 212,
+    "captionSec": null
   },
   {
     "id": "system-every-night",
@@ -334,6 +362,7 @@
       "i'm",
       "like"
     ],
-    "fallbackT": 217
+    "fallbackT": 217,
+    "captionSec": 212
   }
 ]
