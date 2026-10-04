@@ -1,4 +1,4 @@
-// mp3 → 80分割ピーク配列（0..1）を src/data/waveforms/{slug}.json に書き出す。
+// mp3 → 320分割（Serato風の細密波形）ピーク配列（0..1）を src/data/waveforms/{slug}.json に書き出す。
 // 再生はYouTube iframeでライブFFT不可のため、曲の実振幅を事前計算した静的波形を使う
 // （SoundCloud/Serato方式）。プレーヤーの棒グラフ高さに利用。
 import { spawnSync } from "node:child_process";
@@ -10,7 +10,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..", "..");          // repo root
 const AGENT = join(ROOT, "agent");
 const OUT = join(ROOT, "src", "data", "waveforms");
-const N_BARS = 80;
+const N_BARS = 320;
 
 mkdirSync(OUT, { recursive: true });
 
@@ -30,17 +30,18 @@ function peaksFromMp3(mp3) {
   const bucket = Math.floor(n / N_BARS);
   const peaks = new Array(N_BARS).fill(0);
   for (let b = 0; b < N_BARS; b++) {
-    let max = 0;
+    let max = 0, sq = 0;
     const start = b * bucket;
     const end = b === N_BARS - 1 ? n : start + bucket;
     for (let i = start; i < end; i++) {
       const v = Math.abs(buf.readInt16LE(i * 2));
       if (v > max) max = v;
+      sq += v * v;
     }
-    peaks[b] = max;
+    peaks[b] = 0.4 * max + 0.6 * Math.sqrt(sq / Math.max(1, end - start));
   }
   const globalMax = Math.max(...peaks, 1);
-  // 正規化 → 知覚的に持ち上げ（pow 0.7）→ 下限0.12でツブれ防止
+  // 正規化 → 知覚的に持ち上げ（pow 0.7）→ 下限0.12でツブれ防止（ピークとRMSの混合で強弱を出す）
   return peaks.map((v) => {
     const norm = Math.pow(v / globalMax, 0.7);
     return Math.round(Math.max(0.12, Math.min(1, norm)) * 100) / 100;
