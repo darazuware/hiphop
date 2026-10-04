@@ -32,4 +32,5 @@ export const ranking = [
   { slug: '/songs/cream',           title: 'C.R.E.A.M.',      artists: 'Wu-Tang Clan' },
   { slug: '/songs/protect-ya-neck', title: 'Protect Ya Neck', artists: 'Wu-Tang Clan' },
   { slug: '/songs/nas-is-like',     title: 'Nas Is Like',     artists: 'Nas' },
+  { slug: '/songs/lose-yourself', title: "Lose Yourself", subtitle: 'Eminem, Jeff Bass & Luis Resto Produced · 2002', artists: 'Eminem', tag: 'アカデミー賞受賞アンセム', era: '00s以降', region: 'Detroit', producer: 'Eminem, Jeff Bass & Luis Resto', bpm: 171, sample: null, album: '8 Mile (Soundtrack)', mbid: null, artistSlug: 'eminem', asin: null, pubDate: "2026-10-04" , tier: "core" },
 ];
