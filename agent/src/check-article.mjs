@@ -61,6 +61,16 @@ if (hasAsin) {
   step("[IMG] カバー画像", `node agent/src/check-cover-image.mjs ${slug}`);
 }
 
+// 1.5 songs配列登録（ranking配列への誤追記だと一覧・関連記事・アフィリエイトが欠落する）
+{
+  console.log("\n━━━ [REG] songs配列登録 ━━━");
+  const pos = songsTs.indexOf(entry);
+  const rankPos = songsTs.indexOf("export const ranking");
+  const ok = entry !== "" && pos >= 0 && (rankPos < 0 || pos < rankPos);
+  console.log(ok ? "✅ songs配列に存在" : `❌ ${slug} が songs 配列に無い（ranking配列への誤追記の可能性）`);
+  results.push({ label: "[REG] songs配列登録", ok });
+}
+
 // 2. YouTube
 step("[YT] YouTube埋め込み", `node agent/src/check-youtube.mjs ${slug}`);
 
