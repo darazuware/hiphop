@@ -12,7 +12,7 @@ const { slug } = Astro.params;
 const artist = artists.find(a => a.slug === slug)!;
 // core曲のみ表示・index対象。core曲を持たない（thin曲のみの）アーティストはnoindex。
 const artistSongs = songs.filter(s => s.artistSlug === slug && s.tier === 'core');
-const noindex = artistSongs.length === 0;
+const noindex = true;
 ---
 
 <Layout
