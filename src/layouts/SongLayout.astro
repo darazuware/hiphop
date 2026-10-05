@@ -285,7 +285,7 @@ const waveformPeaks = waveformModules[`../data/waveforms/${slug}.json`]?.default
       ) : song ? (
         <div class="mb-6">
           <a
-            href={`https://www.amazon.co.jp/s?k=${encodeURIComponent(song.artists + ' ' + song.album)}&i=music&tag=wax1124-22`}
+            href={`https://www.amazon.co.jp/s?k=${encodeURIComponent((song.artists + ' ' + song.album).replace(/[.…]+$/, ''))}&i=music&tag=wax1124-22`}
             target="_blank"
             rel="noopener sponsored nofollow"
             data-affiliate-merchant="amazon"
