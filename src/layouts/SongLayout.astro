@@ -61,9 +61,12 @@ const relatedColumns = song
 // あればプレーヤーの棒グラフ高さに使い、無ければJS側の擬似乱数にフォールバック。
 const waveformModules = import.meta.glob<{ default: number[] }>('../data/waveforms/*.json', { eager: true });
 const waveformPeaks = waveformModules[`../data/waveforms/${slug}.json`]?.default ?? null;
+const seoDescription = song && !description.includes('和訳')
+  ? `${song.title}（${song.artists}）の表現・スラングを和訳つきで解説。${description}`
+  : description;
 ---
 
-<Layout title={title} description={description} ogType="article" publishedTime={song?.pubDate} modifiedTime={updatedDate ?? undefined} noindex={noindex || song?.tier === 'thin'}>
+<Layout title={title} description={seoDescription} ogType="article" publishedTime={song?.pubDate} modifiedTime={updatedDate ?? undefined} noindex={noindex || song?.tier === 'thin'}>
   <!-- Progress bar -->
   <div id="progress-bar" class="fixed top-0 left-0 h-0.5 bg-[var(--c-gold)] z-50 transition-none" style="width:0%"></div>
 
@@ -197,6 +200,9 @@ const waveformPeaks = waveformModules[`../data/waveforms/${slug}.json`]?.default
       <!-- Header -->
       <header class="mb-8">
         <h1 class="text-2xl md:text-3xl font-bold leading-tight mb-4">{h1}</h1>
+        {song && (
+          <p class="text-[var(--c-muted)] text-sm leading-relaxed mb-4">{song.title}に出てくるスラングや言い回しの意味を、和訳つきで一つずつ読み解きます。</p>
+        )}
         {song?.pubDate && (
           <time datetime={song.pubDate} class="block text-[var(--c-very-dim)] text-xs mb-1">
             公開: {new Date(song.pubDate).toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' })}
