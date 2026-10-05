@@ -40,7 +40,7 @@ export const songs = [
 ] as const;
 
 export const ranking = [
-  { slug: '/songs/cream',           title: 'C.R.E.A.M.',      artists: 'Wu-Tang Clan' },
-  { slug: '/songs/protect-ya-neck', title: 'Protect Ya Neck', artists: 'Wu-Tang Clan' },
-  { slug: '/songs/nas-is-like',     title: 'Nas Is Like',     artists: 'Nas' },
+  { slug: "/songs/93-til-infinity", title: "93 'Til Infinity", artists: "Souls of Mischief" },
+  { slug: "/songs/ny-state-of-mind", title: "N.Y. State of Mind", artists: "Nas" },
+  { slug: "/songs/come-down", title: "Come Down", artists: "Anderson .Paak" },
 ];
