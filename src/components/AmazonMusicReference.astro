@@ -1,0 +1,37 @@
+---
+interface Props {
+  query: string; title: string; label: string; position: string;
+  cover: string; artist: string; record?: string; href?: string; mercariHref?: string;
+}
+const { query, title, label, position, cover, artist, record, href: suppliedHref, mercariHref } = Astro.props as Props;
+const TAG = "wax1124-22";
+const href = suppliedHref ?? `https://www.amazon.co.jp/s?k=${encodeURIComponent(query)}&i=music&tag=${TAG}`;
+---
+<aside class="release-reference" aria-label={title}>
+  <a href={href} target="_blank" rel="noopener sponsored nofollow" aria-label={`${title}をAmazonで探す [PR]`}
+    data-affiliate-merchant="amazon" data-affiliate-item={title} data-affiliate-position={`${position}-cover`}>
+    <img src={cover} alt={`${record ?? title}のジャケット`} width="100" height="100" loading="lazy" />
+  </a>
+  <div>
+    <p class="release-artist">{artist}</p>
+    <p class="release-title">{title}</p>
+    {record && <p class="release-record">収録盤：{record}</p>}
+    <div class="release-links">
+      <a href={href} target="_blank" rel="noopener sponsored nofollow"
+        data-affiliate-merchant="amazon" data-affiliate-item={title} data-affiliate-position={position}>{label} → <span>[PR]</span></a>
+      {mercariHref && <a href={mercariHref} target="_blank" rel="noopener sponsored nofollow"
+        data-affiliate-merchant="mercari" data-affiliate-item={title} data-affiliate-position={`${position}-mercari`}>メルカリの出品を見る → <span>[PR]</span></a>}
+    </div>
+  </div>
+</aside>
+<style>
+  .release-reference { display: grid; grid-template-columns: 100px minmax(0, 1fr); gap: 1rem; align-items: start; margin: 1.5rem 0; padding: 1rem; border: 1px solid var(--c-border); border-radius: .5rem; background: var(--c-surface); font-size: .85rem; }
+  img { display: block; width: 100px; height: 100px; object-fit: contain; border-radius: .25rem; }
+  p { margin: 0; overflow-wrap: anywhere; }
+  .release-artist, .release-record { color: var(--c-muted); font-size: .75rem; }
+  .release-title { font-weight: 600; margin: .25rem 0; }
+  .release-links { display: grid; gap: .5rem; margin-top: .75rem; }
+  .release-links a { color: var(--c-gold); text-decoration: underline; text-underline-offset: .2em; }
+  .release-links span { font-size: .65rem; }
+  a:focus-visible { outline: 2px solid var(--c-gold); outline-offset: 4px; }
+</style>

@@ -2,7 +2,12 @@
 import LearningUnit from '../../components/LearningUnit.astro';
 import DiveCards from '../../components/DiveCards.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
+import AmazonMusicReference from '../../components/AmazonMusicReference.astro';
 import SongLayout from '../../layouts/SongLayout.astro';
+import { songs } from '../../data/songs';
+const record = songs.find(song => song.slug === '/songs/93-til-infinity')!;
+const recordAmazon = `https://www.amazon.co.jp/s?k=${encodeURIComponent(record.artists + ' ' + record.album)}&i=music&tag=wax1124-22`;
+const recordMercari = `https://jp.mercari.com/search?keyword=${encodeURIComponent(record.artists + ' ' + record.album)}&afid=3150124771`;
 
 // 学習ユニットのPVタイムスタンプ。agent/src/extract-unit-timestamps.mjs で album音源を
 // whisper単語アライメントして取得（whisperSec）し、運営者の実測値があれば manualSec が
@@ -13,8 +18,8 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
 ---
 
 <SongLayout
-  title="93 'Til Infinity 英語・スラング解説 | Souls of Mischief"
-  description="Souls of Mischiefの93 'Til Infinityを英語学習＋ヒップホップ理解の教材として精読。chill・the Land(オークランド)・indo・fits/kicks/dippedなど西海岸スラング、Good Vibrationsの引用、AAVEの習慣のbe、A-Plusのサンプリングを表現単位で解説。各表現はPVの該当箇所へ頭出しリンク付き。"
+  title="93 'Til Infinity 和訳・意味・スラング解説 | Souls of Mischief"
+  description="93 'Til Infinityのタイトルの意味と、Souls of Mischiefの4人が描くチルな日常を解説。25の表現を和訳・スラング解説とPV頭出しで読み解き、Billy Cobham「Heather」を使ったビートの元ネタにも触れます。全歌詞の対訳ではなく、引用断片に和訳を添えた解説記事です。"
   slug="93-til-infinity"
   highlights={[
     '93 \'Til Infinityはオークランドの若者の「チル」を描いた西海岸ゴールデンエラの定番曲',
@@ -24,42 +29,63 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
   youtubeId="fXJc2NYwHjw"
   sampleYoutubeId="l7Q-JfAV2xk"
   sampleTitle="Billy Cobham - Heather"
+  sampleInContent={true}
   learningPage={true}
   songDuration={286}
 >
 
-    <!-- 導入 -->
-    <section class="mb-6">
-      <h2 class="text-base font-semibold mb-2">■重たいNYの後の、極上の箸休め</h2>
-      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
-        <p>
-          重たいテーマのhiphopが主流の90年代HIPHOPの中で、この曲はいい箸休めになると思います。1993年、カリフォルニア州 <strong class="text-[var(--c-text)]">East Oakland（イースト・オークランド）</strong> の4人組 <strong class="text-[var(--c-text)]">Souls of Mischief（ソウルズ・オブ・ミスチーフ）</strong>（Opio、A-Plus、Tajai、Phesto）が、ただひたすら「俺たちの chill（だらだら過ごす）のやり方」を語るだけの一曲。
-        </p>
-        <p>
-          女の子、酒、葉っぱ、スニーカー、フリースタイル……深刻なテーマはほぼ無し。なのに、まどろむようなジャジーなビートと、4人がリレーしていく軽妙な韻が、最高に気持ちいい。
-        </p>
-        <p>この記事は英語学習とヒップホップ理解の教材として読んでもらえればと思います。リリックには西海岸特有のスラング（the Land、indo、fits、kicks、dipped…）、AAVE文法、そしてビーチ・ボーイズの引用みたいな小ネタがさりげなく散っています。</p>
-        <p>それを「学ぶ表現」単位で解説していきます。</p>
+    <section slot="record" id="record-summary" aria-label="作品情報" class="record-summary">
+      <a href={recordAmazon} target="_blank" rel="noopener sponsored nofollow" aria-label={`${record.album}をAmazonで探す [PR]`}
+        data-affiliate-merchant="amazon" data-affiliate-item={record.album} data-affiliate-position="song-cover">
+        <img src="/images/covers/93-til-infinity.jpg" alt={`${record.album}のアルバムジャケット`} width="192" height="192" fetchpriority="high" />
+        <span class="record-pr">Amazonで探す → [PR]</span>
+      </a>
+      <div class="record-info">
+        <dl>
+          <dt>アーティスト</dt><dd>{record.artists}</dd>
+          <dt>リリース</dt><dd>1993年</dd>
+          <dt>アルバム</dt><dd>{record.album}</dd>
+          <dt>プロデュース</dt><dd>{record.producer}</dd>
+          <dt>エリア / BPM</dt><dd>Oakland / {record.bpm}</dd>
+        </dl>
+        <a href={recordMercari} target="_blank" rel="noopener sponsored nofollow" data-affiliate-merchant="mercari" data-affiliate-item={record.album} data-affiliate-position="r103-record-mercari" class="record-pr">メルカリで盤を探す → [PR]</a>
       </div>
     </section>
 
-    <section class="mb-6">
-      <h2 class="text-base font-semibold mb-2">■服・靴・天気・週末、"日常の英語"がぎっしり</h2>
+    <section slot="intro" id="reading-start" aria-labelledby="reading-start-title" class="mb-5">
+      <h2 id="reading-start-title" class="text-base font-semibold mb-2">「チルする」の中身を、4人が見せてくれる</h2>
       <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
-        <p>
-          深刻な犯罪描写の代わりに、出てくるのは服・靴・天気・週末の予定といった等身大の話題で、そのぶん <strong class="text-[var(--c-text)]">カジュアルな口語表現とスラング</strong>がふんだんに学べます。
-        </p>
-        <p>
-          <code>chill</code>（だらける）、<code>dipped</code>（バッチリ決める）、<code>fits / kicks</code>（服／スニーカー）など、今でもそのまま通じる語が満載。タイトルの「from '93 'til（'93からずっと）」は、後ろの <em>infinity</em>（無限に）を省いた省略表現で、口語の省略の感覚もつかめます。
-        </p>
-        <p>
-          さらに東海岸の曲とは語彙が違い、同じ「街」でもオークランドは <strong class="text-[var(--c-text)]">"the Land"</strong> と呼ぶので、<strong class="text-[var(--c-text)]">スラングの地域差</strong>を体感する教材としても面白い。肩の力を抜いて、英語の手触りを楽しめる一曲です。
-        </p>
+        <p>「93 'Til Infinity」は「1993年から、<br />
+ずっと」という意味。<br />
+<code>'til</code> は until（〜まで）の短縮形、<br />
+<code>infinity</code> は「無限」です。</p>
+        <p>友達とくつろぐ、<br />
+服や靴を選ぶ。<br />
+4人の短いバースから、<br />
+チルな日常が見えてきます。</p>
       </div>
+      <nav aria-label="この曲を読む3つの入口" class="mt-4 grid gap-2 sm:grid-cols-3">
+        <a href="#story" class="block rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] p-3 hover:border-[var(--c-gold)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--c-gold)]">
+          <span class="block text-sm font-semibold text-[var(--c-gold)]">曲全体の意味 →</span>
+          <span class="block mt-1 text-xs text-[var(--c-muted)]">4人が描く、チルな日常</span>
+        </a>
+        <a href="#units" class="block rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] p-3 hover:border-[var(--c-gold)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--c-gold)]">
+          <span class="block text-sm font-semibold text-[var(--c-gold)]">和訳つき表現 →</span>
+          <span class="block mt-1 text-xs text-[var(--c-muted)]">スラング・韻など25の解説</span>
+        </a>
+        <a href="#behind" class="block rounded-lg border border-[var(--c-border)] bg-[var(--c-surface)] p-3 hover:border-[var(--c-gold)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--c-gold)]">
+          <span class="block text-sm font-semibold text-[var(--c-gold)]">ビートの元ネタ →</span>
+          <span class="block mt-1 text-xs text-[var(--c-muted)]">Billy Cobham「Heather」</span>
+        </a>
+      </nav>
+      <p class="mt-3 text-xs text-[var(--c-dim)]">引用した短い用例に和訳を添え、<br />
+意味や使い方を解説しています。<br />
+全歌詞の対訳は掲載していません。</p>
     </section>
 
+    <div id="song-reading-body">
     <!-- Table of Contents -->
-    <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+    <nav id="article-toc" aria-label="記事の目次" tabindex="-1" class="mb-10 scroll-mt-40 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
       <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
       <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
         <li><a href="#story" class="hover:text-[var(--c-gold)] transition-colors">01 — ストーリーの流れ（まず曲全体をつかむ）</a></li>
@@ -70,47 +96,64 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       </ol>
     </nav>
 
+    <a href="#article-toc" class="toc-return">↑ 目次に戻る</a>
+
     <!-- ストーリー -->
-    <section id="story" class="mb-12">
+    <section id="story" class="mb-12 scroll-mt-40">
       <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
         ストーリーの流れ — まず曲全体をつかむ
       </h2>
-      <p class="text-xs text-[var(--c-dim)] mb-5">
-        この曲は物語というより、4人のMCが順番にマイクを回して「自分のチルの流儀」を見せ合う、リレー形式のポッセカット（大人数の曲）です。誰が何を担当しているかをざっくり押さえると、次章で一語ずつ掘るときに楽になります。
-      </p>
+      <p class="text-xs text-[var(--c-dim)] mb-5">この曲は物語というより、<br />
+4人のMCが順番にマイクを回して「自分のチルの流儀」を見せ合う、<br />
+リレー形式のポッセカット（大人数の曲）です。<br />
+誰が何を担当しているかをざっくり押さえると、<br />
+次章で一語ずつ掘るときに楽になります。</p>
       <div class="space-y-4 text-sm text-[var(--c-muted)] leading-relaxed">
-        <p>
-          <strong class="text-[var(--c-text)]">Intro（Tajai）</strong>で「East Oaklandから来た」「今はスタジオでただ maxin'（だらけてる）」と自己紹介。これから始まるのが深刻な曲ではなく「どう chill するか」の話だと、最初に温度感を伝えてくれます。
-        </p>
-        <p>
-          <strong class="text-[var(--c-text)]">Verse 1〜4</strong>は、Opio → A-Plus → Tajai → Phesto と短く回していきます。電話で女の子を誘い、40オンスの酒を冷やし、葉っぱでマウイ気分になり、映画とデートの段取りを立てる、という流れです。
-        </p>
-        <p>
-          要は週末の過ごし方。カリフォルニアの陽気な空気がそのまま音になっています。
-        </p>
-        <p>
-          <strong class="text-[var(--c-text)]">Chorus</strong>の「This is how we chill from '93 'til」が、曲全体の合言葉。<em>'til</em> の後ろの <em>infinity</em>（無限に）が省略されていて、タイトルと響き合う作りです。
-        </p>
-        <p>
-          <strong class="text-[var(--c-text)]">後半（Verse 5〜12）</strong>では、スニーカーや服へのこだわり、フリースタイルの腕自慢、クルーの結束、そしてオークランド（the Land）への愛着が語られています。最後のアウトロでは Hieroglyphics の仲間（Casual、Del the Funky Homosapien ら）の名前を次々に呼んでいきます。
-        </p>
-        <p>正直、歌詞の意味を知るまでは、トラックの雰囲気から何かシリアスなことでも言ってるのかなと思っていました。でも中身は、この「肩の力の抜けた多幸感」。</p>
-        <p>初めて聴いたとき、すっかりやられました。</p>
-        <p class="text-xs text-[var(--c-dim)]">
-          ※本ページは批評・教育目的で、解説に必要な範囲の断片のみを引用しています。全歌詞の対訳は掲載していません。
-        </p>
+        <p><strong class="text-[var(--c-text)]">Intro（Tajai）</strong>では、<br />
+East Oaklandから来た4人を紹介。<br />
+スタジオで maxin'（くつろいでいる）という、<br />
+録音中の様子から始まります。</p>
+        <p><strong class="text-[var(--c-text)]">Verse 1〜4</strong>は、<br />
+Opio → A-Plus → Tajai → Phesto と短く回していきます。<br />
+電話で女の子を誘い、<br />
+40オンスの酒を冷やし、<br />
+葉っぱでマウイ気分になり、<br />
+映画とデートの段取りを立てる、<br />
+という流れです。</p>
+        <p>要は週末の過ごし方。<br />
+カリフォルニアの陽気な空気がそのまま音になっています。</p>
+        <p><strong class="text-[var(--c-text)]">Chorus</strong>の「This is how we chill from '93 'til」が、<br />
+曲全体の合言葉。<br />
+<em>'til</em> の後ろの <em>infinity</em>（無限に）が省略されていて、<br />
+タイトルと響き合う作りです。</p>
+        <p><strong class="text-[var(--c-text)]">後半（Verse 5〜12）</strong>では、<br />
+スニーカーや服へのこだわり、<br />
+フリースタイルの腕自慢、<br />
+クルーの結束、<br />
+そしてオークランド（the Land）への愛着が語られています。<br />
+最後のアウトロでは Hieroglyphics の仲間（Casual、<br />
+Del the Funky Homosapien ら）の名前を次々に呼んでいきます。</p>
+
+
+
       </div>
     </section>
 
+<figure class="context-photo" id="photo-oakland-aerial">
+          <img src="/images/context/93-til-infinity/oakland-aerial.jpg" alt="丘陵の住宅地と市街地、湾を上空から見たオークランド" width="1280" height="853" style="max-width: 660.26px" loading="lazy" decoding="async" />
+          <figcaption>上空から見たオークランド。丘陵の住宅地から市街地、サンフランシスコ湾へ続いています（2022年撮影）。<small><a href="https://commons.wikimedia.org/wiki/File:Aerial_view_of_Oakland_CA_August_2022.jpg" target="_blank" rel="noopener noreferrer">写真：4300streetcar</a> · <a href="https://creativecommons.org/licenses/by/4.0" target="_blank" rel="noopener noreferrer">CC BY 4.0</a></small></figcaption>
+        </figure>
+
     <!-- 学習ユニット -->
-    <div id="units"></div>
+    <div id="units" class="scroll-mt-40"></div>
     <section class="mb-12">
       <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2 border-b border-[var(--c-border)] pb-2">
         学ぶ表現 — スラング・韻・言葉遊び・AAVE
       </h2>
-      <p class="text-xs text-[var(--c-dim)] mb-6">各見出しは「この曲から学べる英語表現」。多くのユニットには、上に短い英語の用例（1〜2行）を添えてあります。</p>
-      <p class="text-xs text-[var(--c-dim)] mb-6"><strong class="text-[var(--c-text)]">まず英語を音で追って、どこが学習対象かを掴んでから</strong>日本語の解説に入ると、英語が得意でなくても迷いません。ブランド名・地域スラング・葉っぱまわりの語彙を扱うユニットは、行を引かずに語の意味と背景だけで解説しています（引用を必要最小限に絞る方針のため。</p>
-      <p class="text-xs text-[var(--c-dim)] mb-6">▶で該当箇所へ飛べます）。</p>
+      <p class="text-xs text-[var(--c-dim)] mb-6">見出しの表現を、<br />
+和訳とスラング・文法の解説で読み解きます。</p>
+      <p class="text-xs text-[var(--c-dim)] mb-6">▶でPVの該当箇所へ飛べます。</p>
+
 
       <!-- ① chill / from '93 'til -->
       <LearningUnit
@@ -123,11 +166,21 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <Fragment slot="eng">This is how we chill from '93 'til<br />This is how we chill from '93 'til</Fragment>
         <Fragment slot="jpn">これが俺たちの過ごし方、'93から（ずっと）／これが俺たちの過ごし方、'93から</Fragment>
         <p class="text-xs text-[var(--c-dim)] mb-1">▶ 各バースの合間に繰り返されるフック。曲名そのものです。</p>
-        <p>まずキーワードの <strong class="text-[var(--c-text)]"><QuickSlang word="chill" desc="リラックスする・のんびり過ごす・たむろする。最重要の日常スラング" /></strong>。「リラックスする・だらだら過ごす・たむろする」という、今でも超頻出の日常スラングです。</p>
-        <p>日本でもいつの間にか「カフェでチルする」「シーシャで一服してチルする」みたいに、くつろぐ意味でそのまま使われるようになりましたよね。</p>
-        <p>そして学習ポイントは行末 <strong class="text-[var(--c-text)]">from '93 'til</strong>。これは <code>from 1993 'til infinity</code>（1993年から永遠に）の <strong class="text-[var(--c-text)]">infinity を省略した</strong>言い回しで、曲名「93 'Til Infinity」と響き合っています。</p>
-        <p><code>'til</code> は <em>until</em>（〜まで）の短縮。後ろの目的語をあえて言い切らずに余韻で残す、この<strong class="text-[var(--c-text)]">省略の感覚</strong>が、口語のリズムを作っています。</p>
-        <p>「俺たちのチルは'93から、この先ずっと変わらない」という宣言が、たった数語に畳まれています。</p>
+        <p>まずキーワードの <strong class="text-[var(--c-text)]"><QuickSlang word="chill" desc="リラックスする・のんびり過ごす・たむろする。最重要の日常スラング" /></strong>。<br />
+「リラックスする・だらだら過ごす・たむろする」という、<br />
+今でも超頻出の日常スラングです。</p>
+        <p>日本でもいつの間にか「カフェでチルする」「シーシャで一服してチルする」みたいに、<br />
+くつろぐ意味でそのまま使われるようになりましたよね。</p>
+        <p>そして学習ポイントは行末 <strong class="text-[var(--c-text)]">from '93 'til</strong>。<br />
+これは <code>from 1993 'til infinity</code>（1993年から永遠に）の <strong class="text-[var(--c-text)]">infinity を省略した</strong>言い回しで、<br />
+曲名「93 'Til Infinity」と響き合っています。</p>
+        <p><code>'til</code> は <em>until</em>（〜まで）の短縮。<br />
+後ろの目的語をあえて言い切らずに余韻で残す、<br />
+この<strong class="text-[var(--c-text)]">省略の感覚</strong>が、<br />
+口語のリズムを作っています。</p>
+        <p>「俺たちのチルは'93から、<br />
+この先ずっと変わらない」という宣言が、<br />
+たった数語に畳まれています。</p>
         <Fragment slot="usage">
           <p><strong class="text-[var(--c-text)]">chill</strong> は動詞・形容詞・間投詞すべてで使える万能スラング。<em>I'm just chillin'</em>（ただまったりしてる）、<em>a chill spot</em>（くつろげる場所）、<em>Chill!</em>（落ち着け！</p>
           <p>）。NYの <em>lamp</em> と同義だが、chill の方が全国区で通じる。</p>
@@ -144,13 +197,22 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         t={TS["intro-maxin"].t} tApprox={TS["intro-maxin"].approx} youtubeId={YT}
         embed=""
       >
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 曲の口火を切るイントロ。Tajaiがメンバーを紹介する件。</p>
-        <p class="text-xs text-[var(--c-dim)] mb-1">語りものなので行は引きません。</p>
-        <p>曲はいきなりビートに乗るのではなく、Tajaiの語りかけから始まります。「これはTajai、相棒のPhestoとOp（Opio）とつるんでる」と、まずクルーの名前を挙げていく。</p>
-        <p>深刻な宣戦布告ではなく、仲間内の会話にそっと混ぜてもらう感じで幕が開きます。</p>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 曲の口火を切るイントロ。Tajaiがメンバーを紹介するくだり。</p>
+
+        <p>曲はTajaiの語りかけから始まります。<br />
+PhestoやOpioの名前を挙げ、<br />
+スタジオにいる仲間を紹介していく。</p>
+
         <p>ここで学習ポイントは <strong class="text-[var(--c-text)]"><QuickSlang word="my man" desc="my man＝相棒・仲間。親しい男friend への呼びかけ・言及に使う定番の口語" /></strong>（マイ・マン）という言い方。</p>
-        <p>「俺の相棒」という意味で、親しい仲間を指すときの超定番の口語です。<code>my man Phesto</code> のように、名前の前にそのまま付けて使えます。</p>
-        <p>この曲のキー動詞 <strong class="text-[var(--c-text)]">maxin'</strong>（だらける・くつろぐ）も、このイントロで顔を出します。何をするでもなくスタジオでまったりしている、その温度感の紹介から入るのが、いかにもこの曲らしい始まり方だと思います。</p>
+        <p>「俺の相棒」という意味で、<br />
+親しい仲間を指すときの超定番の口語です。<br />
+<code>my man Phesto</code> のように、<br />
+名前の前にそのまま付けて使えます。</p>
+        <p>この曲のキー動詞 <strong class="text-[var(--c-text)]">maxin'</strong>（だらける・くつろぐ）も、<br />
+このイントロで顔を出します。<br />
+何をするでもなくスタジオでまったりしている、<br />
+その温度感の紹介から入るのが、<br />
+いかにもこの曲らしい始まり方だと思います。</p>
       </LearningUnit>
 
       <!-- intro cloudy -->
@@ -161,11 +223,21 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         t={TS["intro-cloudy"].t} tApprox={TS["intro-cloudy"].approx} youtubeId={YT}
         embed=""
       >
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ イントロの後半、部屋の様子を語る件。ほのめかしものなので行は引きません。</p>
-        <p>イントロの終盤で、Tajaiが「ときどき、ちょっと <strong class="text-[var(--c-text)]">cloudy</strong>（曇ってくる）」と言います。学習ポイントはこの <strong class="text-[var(--c-text)]">cloudy</strong> の使い方。</p>
-        <p>文字どおりなら「曇り空」ですが、ここは天気の話ではありません。部屋にこもった葉っぱの煙で視界が白くかすむ様子を、<strong class="text-[var(--c-text)]">天気の言葉に見せかけて言い換えている</strong>わけです。</p>
-        <p>直接的な言葉を避けて情景だけ置く、この曲の抜けた品の良さがよく出ています。</p>
-        <p>この「直接言わずに近い日常語で匂わせる」やり方は、あとの Good Vibrations（グッド・ヴァイブレーション）や indo（上物の葉っぱ）の件にもつながっていきます。イントロの時点で、もう曲全体のトーンが決まっています。</p>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ イントロの後半、部屋の様子を語るくだり。</p>
+        <p>イントロの終盤で、<br />
+Tajaiが「ときどき、<br />
+ちょっと <strong class="text-[var(--c-text)]">cloudy</strong>（曇ってくる）」と言います。<br />
+学習ポイントはこの <strong class="text-[var(--c-text)]">cloudy</strong> の使い方。</p>
+        <p>文字どおりなら「曇り空」ですが、<br />
+ここは天気の話ではありません。<br />
+部屋にこもった葉っぱの煙で視界が白くかすむ様子を、<br />
+<strong class="text-[var(--c-text)]">天気の言葉に見せかけて言い換えている</strong>わけです。</p>
+        <p>直接的な言葉を避けて情景だけ置く、<br />
+この曲の抜けた品の良さがよく出ています。</p>
+        <p>この「直接言わずに近い日常語で匂わせる」やり方は、<br />
+あとの Good Vibrations（グッド・ヴァイブレーション）や indo（上物の葉っぱ）のくだりにもつながっていきます。<br />
+イントロの時点で、<br />
+もう曲全体のトーンが決まっています。</p>
       </LearningUnit>
 
       <!-- v1 seven digits -->
@@ -178,13 +250,21 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       >
         <Fragment slot="eng">Dial the seven digits, call up</Fragment>
         <Fragment slot="jpn">7桁の番号を回して、電話をかける</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1（Opio）の頭、女の子に電話するところから週末が動き出す件。</p>
-        <p>Opioのバースは、電話をかける場面から始まります。学習ポイントは <strong class="text-[var(--c-text)]">dial the seven digits</strong>。</p>
-        <p><code>dial</code> は「（電話の番号を）回す・押す」という動詞で、いまはスマホでも <em>dial a number</em> とそのまま使います。</p>
-        <p>面白いのは <strong class="text-[var(--c-text)]">seven digits</strong>（7桁）という言い方。市外局番を省いた市内通話の電話番号がちょうど7桁で、「近所の子に電話する」という距離感まで数字が語っています。</p>
-        <p>1993年の、固定電話に番号を打ち込む手触りがそのまま残った一句です。</p>
-        <p><code>call up</code>（電話をかける）の <strong class="text-[var(--c-text)]">up</strong> は「相手に連絡を取る」を締める副詞。<em>call up a friend</em> のように、日常会話でもそのまま使えます。</p>
-        <p>深刻な事件ではなく「まず電話」から始まるのが、この曲の等身大の良さです。</p>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1（Opio）の頭、女の子に電話するところから週末が動き出すくだり。</p>
+        <p>Opioのバースは、<br />
+電話をかける場面から始まります。<br />
+学習ポイントは <strong class="text-[var(--c-text)]">dial the seven digits</strong>。</p>
+        <p><code>dial</code> は「（電話の番号を）回す・押す」という動詞で、<br />
+いまはスマホでも <em>dial a number</em> とそのまま使います。</p>
+        <p>面白いのは <strong class="text-[var(--c-text)]">seven digits</strong>（7桁）という言い方。<br />
+市外局番を省いた市内通話の電話番号がちょうど7桁で、<br />
+「近所の子に電話する」という距離感まで数字が語っています。</p>
+        <p>1993年の、<br />
+固定電話に番号を打ち込む手触りがそのまま残った一句です。</p>
+        <p><code>call up</code>（電話をかける）の <strong class="text-[var(--c-text)]">up</strong> は「相手に連絡を取る」を締める副詞。<br />
+<em>call up a friend</em> のように、<br />
+日常会話でもそのまま使えます。</p>
+
       </LearningUnit>
 
       <!-- ② 40 / stoge -->
@@ -197,12 +277,22 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       >
         <Fragment slot="eng">Here's a 40 — swig it! You know it's frigid<br />Damn! That's the fattest stoge I ever seen</Fragment>
         <Fragment slot="jpn">ほら40（オンスの酒）だ、グイっといけ！キンキンに冷えてる／うわ！こんなにぶっといブラント、見たことない</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1（Opio）中盤、週末の小道具が並ぶ件。スラングが3つ。</p>
-        <p>この件は「チルの小道具」のスラング集です。<strong class="text-[var(--c-text)]"><QuickSlang word="40" desc="40オンス（約1.2L）入りの安価なモルトリカー（麦芽酒）。</p>
-        <p>ストリートの定番" /></strong> は40オンス入りの安い麦芽酒（モルトリカー）のこと。<strong class="text-[var(--c-text)]">swig</strong> は「（ボトルから）ゴクゴク飲む」という動詞。</p>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1（Opio）中盤、週末の小道具が並ぶくだり。スラングが3つ。</p>
+        <p><strong class="text-[var(--c-text)]"><QuickSlang word="40" desc="40オンス（約1.2L）入りのモルトリカー（麦芽酒）。ストリートの定番" /></strong> は、<br />
+40オンス入りの麦芽酒（モルトリカー）のこと。<br />
+ボトルの容量を、<br />
+そのまま酒の呼び名にしています。</p>
+        <figure class="context-photo" id="photo-forty" data-image-source="user-provided">
+          <img src="/images/context/93-til-infinity/forty-user.jpg" alt="Olde English 800の40オンスボトルと、ボトルが写った集合写真" width="1280" height="772" style="max-width: 729.53px" loading="lazy" decoding="async" />
+          <figcaption>40オンスのOlde English 800。右側の写真にも、同じボトルが写っています。</figcaption>
+        </figure>
+
+        <p><strong class="text-[var(--c-text)]">swig</strong> は「（ボトルから）ゴクゴク飲む」という動詞です。</p>
         <p><code>frigid</code>（凍えるほど冷たい）でキンキンに冷えた様子を出す。</p>
-        <p>下の行の <strong class="text-[var(--c-text)]"><QuickSlang word="stoge" desc="stogie（葉巻）から転じて、太く巻いたブラント（マリファナ）を指す" /></strong> は <em>stogie</em>（葉巻）から来た語で、ここでは太く巻いたブラントのこと。<strong class="text-[var(--c-text)]">fattest</strong>（いちばん太い）が「最高の」というポジティブな強調として効いています。</p>
-        <p>深刻さゼロ、生活のディテールだけで情景を立ち上げます。この曲のいちばん好きなところです。</p>
+        <p>下の行の <strong class="text-[var(--c-text)]"><QuickSlang word="stoge" desc="stogie（葉巻）から転じて、太く巻いたブラント（マリファナ）を指す" /></strong> は <em>stogie</em>（葉巻）から来た語で、<br />
+ここでは太く巻いたブラントのこと。<br />
+<strong class="text-[var(--c-text)]">fattest</strong>（いちばん太い）が「最高の」というポジティブな強調として効いています。</p>
+
         <Fragment slot="usage">
           <p><strong class="text-[var(--c-text)]">fat / phat</strong> はスラングでは「（量が）たっぷりの／最高の」という<strong class="text-[var(--c-text)]">褒め言葉</strong>。<em>a fat stoge</em>（ぶっといブラント）、<em>fat stacks</em>（札束）のように、大きい＝良い、の感覚で使う。</p>
           <p>綴りを <em>phat</em> にすると、より「イケてる」のニュアンスが強まります。</p>
@@ -221,11 +311,24 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       >
         <Fragment slot="eng">The weather's keen in Cali, gettin' weeded makes it feel like Maui<br />Now we feel the Good Vibrations</Fragment>
         <Fragment slot="jpn">カリフォルニアは天気が最高、葉っぱをキメればマウイ島みたいな気分／今、俺たちはグッド・ヴァイブレーションを感じてる</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1（Opio）の終盤、西海岸の多幸感を描く件。</p>
-        <p>まず音のそろい方から。上の行は <strong class="text-[var(--c-text)]">Cali / Maui</strong> が韻を踏み、さらに <code>weather's keen / weeded</code> と頭の音も重ねています。</p>
-        <p>意味の核は下の行 <strong class="text-[var(--c-text)]">Good Vibrations</strong>。これはビーチ・ボーイズの名曲「Good Vibrations」への引用で、<strong class="text-[var(--c-text)]">カリフォルニアそのものの象徴</strong>を一語で呼び込んでいます。</p>
-        <p>NasがNYを描くのに犯罪を引いたのとは対照的に、ここでは「いい波動（good vibes）」＝陽気な西海岸の空気を引くわけです。</p>
-        <p><strong class="text-[var(--c-text)]"><QuickSlang word="weeded" desc="weed（マリファナ）をやってハイになった状態" /></strong>（葉っぱでハイになる）や <strong class="text-[var(--c-text)]">keen</strong>（イケてる・素晴らしい）も、当時のカジュアルな語彙。引用・韻・スラングが軽やかに同居する、西海岸らしい一節です。</p>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1（Opio）の終盤、西海岸の多幸感を描くくだり。</p>
+        <p>まず音のそろい方から。<br />
+上の行は <strong class="text-[var(--c-text)]">Cali / Maui</strong> が韻を踏み、<br />
+さらに <code>weather's keen / weeded</code> と頭の音も重ねています。</p>
+        <p><strong class="text-[var(--c-text)]">Good Vibrations</strong> は、<br />
+ビーチ・ボーイズの曲名と重なる言葉。<br />
+「いい気分」という意味に、<br />
+カリフォルニアのバンドへの目配せも感じられます。</p>
+
+        <p><strong class="text-[var(--c-text)]"><QuickSlang word="weeded" desc="weed（マリファナ）をやってハイになった状態" /></strong>（葉っぱでハイになる）や <strong class="text-[var(--c-text)]">keen</strong>（イケてる・素晴らしい）も、<br />
+当時のカジュアルな語彙。<br />
+引用・韻・スラングが軽やかに同居する、<br />
+西海岸らしい一節です。</p>
+      <figure class="context-photo" id="photo-maui" data-image-source="user-provided">
+          <img src="/images/context/93-til-infinity/maui-user.jpg" alt="マウイ島の海岸と青い海" width="588" height="261" style="max-width: 588.00px" loading="lazy" decoding="async" />
+          <figcaption>マウイ島の海岸。</figcaption>
+        </figure>
+<AmazonMusicReference query="The Beach Boys Good Vibrations" artist="The Beach Boys" record="Smiley Smile" cover="/images/context/93-til-infinity/beach-boys-cover.jpg" title="ビーチ・ボーイズ「Good Vibrations」" label="曲・収録盤をAmazonで探す" position="r103-reference-beach-boys" />
       </LearningUnit>
 
       <!-- ④ bones to pick -->
@@ -238,10 +341,17 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       >
         <Fragment slot="eng">I roam the strip for bones to pick<br />When I find one, I'm gon' take her home and quickly do this</Fragment>
         <Fragment slot="jpn">通り（the strip）を歩き回って、bones to pick（拾える相手）を探す／見つけたら、家に連れ帰ってサッと事を済ませる</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2（A-Plus）、ナンパの流儀を語る件。学習対象は上の行。</p>
-        <p>上の行の <strong class="text-[var(--c-text)]">bones to pick</strong> が言葉遊びです。英語には <strong class="text-[var(--c-text)]">"have a bone to pick (with someone)"</strong>（〜に文句・恨み言がある）という決まり文句があります。</p>
-        <p>A-Plusはこの慣用句の形をそのまま借りつつ、意味を「声をかける女の子（拾う相手）」へずらしています。下の行で <code>When I find one, I'm gon' take her home</code>（見つけたら家に連れて帰る）と続くので、<em>bone</em> が「文句のタネ」ではなく「相手」を指しているのが分かる仕組み。</p>
-        <p><strong class="text-[var(--c-text)]">既存の<QuickSlang word="イディオム" desc="慣用句。複数の語がセットで固まって、単語の意味の足し算では出てこない決まった意味になる言い回し（例: have a bone to pick=文句がある）" />を下敷きにして別の意味を走らせる</strong>のは、ヒップホップの王道の遊び方です。<code>I'm gon'</code>（＝I'm going to）の砕けた発音もチェック。</p>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2（A-Plus）、ナンパの流儀を語るくだり。学習対象は上の行。</p>
+        <p>上の行の <strong class="text-[var(--c-text)]">bones to pick</strong> が言葉遊びです。<br />
+英語には <strong class="text-[var(--c-text)]">"have a bone to pick (with someone)"</strong>（〜に文句・恨み言がある）という決まり文句があります。</p>
+        <p>ここでは <em>bone</em> に、<br />
+性的な含みを持たせています。<br />
+「文句がある」という慣用句を、<br />
+女の子への声かけにずらした、<br />
+笑える一節となっています。</p>
+        <p><strong class="text-[var(--c-text)]">既存の<QuickSlang word="イディオム" desc="慣用句。複数の語がセットで固まって、単語の意味の足し算では出てこない決まった意味になる言い回し（例: have a bone to pick=文句がある）" />を下敷きにして別の意味を走らせる</strong>のは、<br />
+ヒップホップの王道の遊び方です。<br />
+<code>I'm gon'</code>（＝I'm going to）の砕けた発音もチェック。</p>
         <Fragment slot="usage">
           <p><strong class="text-[var(--c-text)]">have a bone to pick with ~</strong> は「〜に言いたいこと（不満・苦情）がある」を表すイディオム。<em>I've got a bone to pick with you</em>（君に文句があるんだ）が標準的な使い方。</p>
           <p>元の意味を知っていると、ここでの「意味のずらし」が笑える。</p>
@@ -259,11 +369,18 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       >
         <Fragment slot="eng">We in the cut, the cinema</Fragment>
         <Fragment slot="jpn">俺たちは in the cut（人目につかないところ）、映画館</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3（Tajai）、デートの段取りを立てる件。学習対象は行頭。</p>
-        <p>Tajaiのバースは、女の子を誘って出かける段取りの話です。学習ポイントは <strong class="text-[var(--c-text)]"><QuickSlang word="in the cut" desc="人目につかない場所・落ち着ける奥まった場所。cut は「奥まった一角」の意" /></strong>（イン・ザ・カット）。</p>
-        <p>これは「人目につかない場所・落ち着ける奥まったところ」を指すスラングです。<code>cut</code> には「（道や建物の）奥まった一角」というニュアンスがあり、<em>in the cut</em> で「目立たない、二人きりになれる場所」を表します。</p>
-        <p>続く <code>the cinema</code>（映画館）で、その「落ち着ける場所」が具体化される仕組み。</p>
-        <p>暴力的な隠れ家ではなく、映画デートの前置きとして出てくるのが、この曲ならでは。同じスラングでも、殺伐とした曲では「身を潜める場所」の意味で使われることがあります。</p>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3（Tajai）、デートの段取りを立てるくだり。学習対象は行頭。</p>
+        <p>Tajaiのバースは、<br />
+女の子を誘って出かける段取りの話です。<br />
+学習ポイントは <strong class="text-[var(--c-text)]"><QuickSlang word="in the cut" desc="人目につかない場所・落ち着ける奥まった場所。cut は「奥まった一角」の意" /></strong>（イン・ザ・カット）。</p>
+        <p>これは「人目につかない場所・落ち着ける奥まったところ」を指すスラングです。<br />
+<code>cut</code> には「（道や建物の）奥まった一角」というニュアンスがあり、<br />
+<em>in the cut</em> で「目立たない、<br />
+二人きりになれる場所」を表します。</p>
+        <p>続く <code>the cinema</code>（映画館）で、<br />
+その「落ち着ける場所」が具体化される仕組み。</p>
+        <p>ここでは、<br />
+映画デートの前に待ち合わせる場所として出てきます。</p>
         <p>文脈で温度が変わる語です。</p>
         <Fragment slot="usage">
           <p><strong class="text-[var(--c-text)]">in the cut</strong>＝「人目につかない・奥まった場所（で）」。<em>chillin' in the cut</em>（目立たない場所でまったりする）のように使う。</p>
@@ -281,12 +398,23 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       >
         <Fragment slot="eng">Close range, I throws game at 'em</Fragment>
         <Fragment slot="jpn">至近距離で、俺は game（口説き）を仕掛ける</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 4（Phesto）、ナンパの構えを語る件。学習対象は行の後半。</p>
-        <p>Phestoのバースで学習ポイントになるのが <strong class="text-[var(--c-text)]"><QuickSlang word="game" desc="ここでは「口説きのテクニック・手管」。throw game で口説き文句を仕掛ける、の意。rap game 等の「稼業」とは別の用法" /></strong> の使い方。<code>throw game</code> で「口説き文句を仕掛ける・手管を使って気を引く」という意味になります。</p>
-        <p>この <em>game</em> は、他の曲に出てくる <em>rap game</em>（ラップ稼業）の game とは別の用法で、恋愛の駆け引きの「手札・テクニック」を指します。<em>He's got game</em> なら「あいつは口説きがうまい」。</p>
-        <p><code>close range</code>（至近距離で）を添えて、正面から仕掛けにいく構えを見せています。</p>
-        <p>もう一つ、文法の小ネタ。主語が I なのに <strong class="text-[var(--c-text)]">throws</strong> と三単現の s が付いています。</p>
-        <p>標準英語なら <em>I throw</em> ですが、AAVEやラップの韻の都合では、こうして人称と関係なく <em>-s</em> を付けることがあります。次の <code>all that / all phat</code> の件へ、勢いよく渡していく一行です。</p>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 4（Phesto）、ナンパの構えを語るくだり。学習対象は行の後半。</p>
+        <p>Phestoのバースで学習ポイントになるのが <strong class="text-[var(--c-text)]"><QuickSlang word="game" desc="ここでは「口説きのテクニック・手管」。throw game で口説き文句を仕掛ける、の意。rap game 等の「稼業」とは別の用法" /></strong> の使い方。<br />
+<code>throw game</code> で「口説き文句を仕掛ける・手管を使って気を引く」という意味になります。</p>
+        <p>この <em>game</em> は、<br />
+他の曲に出てくる <em>rap game</em>（ラップ稼業）の game とは別の用法で、<br />
+恋愛の駆け引きの「手札・テクニック」を指します。<br />
+<em>He's got game</em> なら「あいつは口説きがうまい」。</p>
+        <p><code>close range</code>（至近距離で）を添えて、<br />
+正面から仕掛けにいく構えを見せています。</p>
+        <p>もう一つ、<br />
+文法の小ネタ。<br />
+主語が I なのに <strong class="text-[var(--c-text)]">throws</strong> と三単現の s が付いています。</p>
+        <p>標準英語なら <em>I throw</em> ですが、<br />
+AAVEやラップの韻の都合では、<br />
+こうして人称と関係なく <em>-s</em> を付けることがあります。<br />
+次の <code>all that / all phat</code> のくだりへ、<br />
+勢いよく渡していく一行です。</p>
       </LearningUnit>
 
       <!-- ⑤ all that / phat -->
@@ -299,10 +427,17 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       >
         <Fragment slot="eng">'Cause the man's all that! All phat!<br />I'm D to chill from '93 'til</Fragment>
         <Fragment slot="jpn">だってこの男（俺）は最高だから！全部イケてる！／俺は'93から（ずっと）チルする構えだ</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 4（Phesto）、短く決めてフックへ渡す件。</p>
-        <p>学習ポイントは <strong class="text-[var(--c-text)]">all that</strong> と <strong class="text-[var(--c-text)]">phat</strong>。<strong class="text-[var(--c-text)]">all that</strong> は「すごくイケてる・あらゆる点で最高」を表す90年代の定番スラングで、<em>She thinks she's all that</em>（あの子は自分が最高だと思ってる）のように使います。</p>
-        <p><strong class="text-[var(--c-text)]"><QuickSlang word="phat" desc="excellentの意のスラング。fatと同音で「最高・イケてる」。PHATと大文字書きされることも" /></strong> は <em>fat</em> と同音で、「最高・イケてる」という褒め言葉（しばしば PHAT と綴られる）。どちらも <strong class="text-[var(--c-text)]">「良い」を表すポジティブ・スラング</strong>で、当時の空気が濃く出ている語です。</p>
-        <p><code>the man</code>（その男＝俺）も「the man＝大物・すごいやつ」の用法。短い一行に自賛のスラングをぎゅっと詰めて、軽快にフックへ受け渡しています。</p>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 4（Phesto）、短く決めてフックへ渡すくだり。</p>
+        <p>学習ポイントは <strong class="text-[var(--c-text)]">all that</strong> と <strong class="text-[var(--c-text)]">phat</strong>。<br />
+<strong class="text-[var(--c-text)]">all that</strong> は「すごくイケてる・あらゆる点で最高」を表す90年代の定番スラングで、<br />
+<em>She thinks she's all that</em>（あの子は自分が最高だと思ってる）のように使います。</p>
+        <p><strong class="text-[var(--c-text)]"><QuickSlang word="phat" desc="excellentの意のスラング。fatと同音で「最高・イケてる」。PHATと大文字書きされることも" /></strong> は <em>fat</em> と同音で、<br />
+「最高・イケてる」という褒め言葉（しばしば PHAT と綴られる）。<br />
+どちらも <strong class="text-[var(--c-text)]">「良い」を表すポジティブ・スラング</strong>で、<br />
+当時の空気が濃く出ている語です。</p>
+        <p><code>the man</code>（その男＝俺）も「the man＝大物・すごいやつ」の用法。<br />
+短い一行に自賛のスラングをぎゅっと詰めて、<br />
+軽快にフックへ受け渡しています。</p>
       </LearningUnit>
 
       <!-- v5 timbs -->
@@ -313,26 +448,50 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         t={TS["v5-timbs"].t} tApprox={TS["v5-timbs"].approx} youtubeId={YT}
         embed=""
       >
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 5（A-Plus）の頭、足元自慢から入る件。ブランド名ものなので行は引きません。</p>
-        <p>A-Plusは黒い <strong class="text-[var(--c-text)]"><QuickSlang word="Timbs" desc="Timberland（ティンバーランド）のワークブーツの略称。90年代NYヒップホップの制服的アイテムだが、西海岸でも履かれた" /></strong> が「自分を引き立ててくれる」と足元の話から入ります。学習ポイントはこの <strong class="text-[var(--c-text)]">Timbs</strong>。</p>
-        <p>Timbs は <strong class="text-[var(--c-text)]">Timberland（ティンバーランド）</strong>のワークブーツの略称です。もともとは労働者向けの黄色いブーツで、90年代のニューヨーク・ヒップホップでは制服のような定番アイテムでした。</p>
-        <p>西海岸の彼らが黒のTimbsを履いているのは、東西の境を越えてこのブーツが浸透していた証でもあります。</p>
-        <p><code>do me right</code>（俺にとって良い働きをしてくれる）は「相性がいい・頼りになる」というくだけた言い回し。モノを擬人化して「こいつは俺を裏切らない」と言う、愛着のこもった表現です。</p>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 5（A-Plus）の頭、足元自慢から入るくだり。</p>
+        <p>A-Plusは黒い <strong class="text-[var(--c-text)]"><QuickSlang word="Timbs" desc="Timberland（ティンバーランド）のワークブーツの略称。90年代NYヒップホップの制服的アイテムだが、西海岸でも履かれた" /></strong> が「自分を引き立ててくれる」と足元の話から入ります。<br />
+学習ポイントはこの <strong class="text-[var(--c-text)]">Timbs</strong>。</p>
+        <p>Timbs は <strong class="text-[var(--c-text)]">Timberland（ティンバーランド）</strong>のワークブーツの略称です。<br />
+もともとは労働者向けの黄色いブーツで、<br />
+90年代のニューヨーク・ヒップホップでは制服のような定番アイテムでした。</p>
+        <figure class="context-photo" id="photo-timbs" data-image-source="user-provided">
+          <img src="/images/context/93-til-infinity/timbs-user.jpg" alt="黒いTimberlandのブーツ" width="408" height="251" style="max-width: 408.00px" loading="lazy" decoding="async" />
+          <figcaption>黒いTimberlandのブーツ。</figcaption>
+        </figure>
+
+        <p>西海岸の彼らが黒のTimbsを履いているのは、<br />
+東西の境を越えてこのブーツが浸透していた証でもあります。</p>
+        <p><code>do me right</code>（俺にとって良い働きをしてくれる）は「相性がいい・頼りになる」というくだけた言い回し。<br />
+モノを擬人化して「こいつは俺を裏切らない」と言う、<br />
+愛着のこもった表現です。</p>
       </LearningUnit>
 
       <!-- v6 cops / blunts flip -->
       <LearningUnit
-        heading="The cops wanna stop our fun — 警官を軽くいなす件と blunts"
+        heading="The cops wanna stop our fun — 警官を軽くいなすくだりと blunts"
         label="★ スラング／文化"
         mc="Phesto（Verse 6）"
         t={TS["v6-blunts-flip"].t} tApprox={TS["v6-blunts-flip"].approx} youtubeId={YT}
         embed=""
       >
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 6（Phesto）、たむろを邪魔される件。語彙ものなので行は引きません。</p>
-        <p>Phestoのバースでは「crews（他のクルー）は俺たちに嫉妬してる」「<strong class="text-[var(--c-text)]">the cops</strong>（警官）は俺たちの fun（楽しみ）を止めたがる」と、周りの邪魔をさらりと流します。深刻な当局批判ではなく、たむろを邪魔してくる面倒なもの、くらいの軽さで置かれているのがポイント。</p>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 6（Phesto）、たむろを邪魔されるくだり。</p>
+        <p>Phestoは、<br />
+他のクルーからの嫉妬や、<br />
+<strong class="text-[var(--c-text)]">the cops</strong>（警官）に楽しみを邪魔されることを語っています。</p>
         <p>学習語は <strong class="text-[var(--c-text)]"><QuickSlang word="blunt" desc="葉巻の中身をくり抜いてマリファナを詰め直した太い巻きたばこ。Phillies Blunt などの銘柄名から" /></strong>（ブラント）。</p>
-        <p>葉巻（cigar）の中身を抜いてマリファナを詰め直した太い巻きたばこのことで、<code>hit blunts</code> で「ブラントを吸う」。前の件に出てきた <em>stoge</em> とほぼ同じものを別の語で言い直しています。</p>
-        <p><code>flip</code> はここでは韻遊びの動詞で、言葉やフロウを「ひねる・転がす」感覚。楽しみを邪魔されても、吸って韻を転がしてやり過ごす、というマイペースぶりが一貫しています。</p>
+        <p>葉巻（cigar）の中身を抜いてマリファナを詰め直した太い巻きたばこのことで、<br />
+<code>hit blunts</code> で「ブラントを吸う」。<br />
+前のくだりに出てきた <em>stoge</em> とほぼ同じものを別の語で言い直しています。</p>
+        <figure class="context-photo" id="photo-blunt">
+          <img src="/images/context/93-til-infinity/blunt.jpg" alt="手に持ったブラントの白黒写真" width="1280" height="1280" style="max-width: 440.00px" loading="lazy" decoding="async" />
+          <figcaption>bluntは、葉巻の皮で大麻を巻いたものを指す言葉です。<small><a href="https://commons.wikimedia.org/wiki/File:Marijuana_blunt.jpg" target="_blank" rel="noopener noreferrer">写真：Torben Hansen</a> · <a href="https://creativecommons.org/licenses/by/2.0" target="_blank" rel="noopener noreferrer">CC BY 2.0</a></small></figcaption>
+        </figure>
+
+        <p><code>flip</code> はここでは韻遊びの動詞で、<br />
+言葉やフロウを「ひねる・転がす」感覚。<br />
+楽しみを邪魔されても、<br />
+吸って韻を転がしてやり過ごす、<br />
+というマイペースぶりが一貫しています。</p>
         <Fragment slot="usage">
           <p><strong class="text-[var(--c-text)]">blunt</strong> と <em>joint</em> は別物: joint は紙で巻いた細いもの、blunt は葉巻の皮で巻いた太いもの。<em>roll a blunt</em>（ブラントを巻く）、<em>hit the blunt</em>（一服する）のように使う。</p>
           <p>ヒップホップの歌詞では超頻出の語。</p>
@@ -347,11 +506,18 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         t={TS["v7-posted"].t} tApprox={TS["v7-posted"].approx} youtubeId={YT}
         embed=""
       >
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 7（Tajai）の頭、たまり場での構えを語る件。動作の語彙なので行は引きません。</p>
-        <p>Tajaiは自分を「<strong class="text-[var(--c-text)]">posted</strong>」と言い表します。学習ポイントはこの一語。</p>
-        <p><strong class="text-[var(--c-text)]"><QuickSlang word="posted" desc="posted up の略。ある場所に陣取って動かず、たむろ・待機している状態。歩哨（post）が持ち場に立つイメージから" /></strong>（またはposted up）は「ある場所に陣取って動かずにいる・たむろしている」を表すスラングです。歩哨（post）が持ち場に立つイメージから来ていて、<em>posted up on the corner</em>（街角に陣取ってる）のように使います。</p>
-        <p>「どこかへ出かける」ではなく「その場に居座ってくつろぐ」という、この曲のチルの核心をそのまま動詞にした語。次の <code>tons of indo</code>（大量の上物）へつながって、腰を据えて葉っぱを楽しむ流れになります。</p>
-        <p><em>chill</em>・<em>max</em>・<em>posted</em> と、「動かずにいる」語彙がこの曲には何通りも出てきます。</p>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 7（Tajai）の頭、たまり場での構えを語るくだり。</p>
+        <p>Tajaiは自分を「<strong class="text-[var(--c-text)]">posted</strong>」と言い表します。<br />
+学習ポイントはこの一語。</p>
+        <p><strong class="text-[var(--c-text)]"><QuickSlang word="posted" desc="posted up の略。ある場所に陣取って動かず、たむろ・待機している状態。歩哨（post）が持ち場に立つイメージから" /></strong>（またはposted up）は「ある場所に陣取って動かずにいる・たむろしている」を表すスラングです。<br />
+歩哨（post）が持ち場に立つイメージから来ていて、<br />
+<em>posted up on the corner</em>（街角に陣取ってる）のように使います。</p>
+        <p>「どこかへ出かける」ではなく「その場に居座ってくつろぐ」という、<br />
+この曲のチルの核心をそのまま動詞にした語。<br />
+次の <code>tons of indo</code>（大量の上物）へつながって、<br />
+腰を据えて葉っぱを楽しむ流れになります。</p>
+        <p><em>chill</em>・<em>max</em>・<em>posted</em> と、<br />
+「動かずにいる」語彙がこの曲には何通りも出てきます。</p>
       </LearningUnit>
 
       <!-- ⑥ indo -->
@@ -364,11 +530,23 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       >
         <Fragment slot="eng">So I got tons of indo and go to the Owen's basement</Fragment>
         <Fragment slot="jpn">だから大量のindo（上物の葉っぱ）を手に、オーウェンの地下室へ向かう</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 7（Tajai）、たまり場へ向かう件。</p>
-        <p>学習ポイントは <strong class="text-[var(--c-text)]"><QuickSlang word="indo" desc="高品質のマリファナを指す西海岸由来のスラング。90年代に広まった" /></strong>。「高品質のマリファナ」を指す、<strong class="text-[var(--c-text)]">西海岸発のスラング</strong>です。</p>
-        <p>90年代の西海岸ヒップホップで一気に広まった語で（同時期のヒット曲のタイトルにもなっています）、同じ「葉っぱ」でも東海岸の <em>woolies</em> や <em>buddha</em> とは語感も出どころも違います。</p>
-        <p><code>tons of ~</code>（大量の〜）も口語の定番で、<em>tons of fun</em>（すごく楽しい）のように使えます。</p>
-        <p>スラングは地域の方言で、<em>indo</em> が出てきた瞬間に「あ、西海岸だな」と分かります。語を一つ知ることが、その土地を一つ知ることになる好例です。</p>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 7（Tajai）、たまり場へ向かうくだり。</p>
+        <p>学習ポイントは <strong class="text-[var(--c-text)]"><QuickSlang word="indo" desc="高品質のマリファナを指す西海岸由来のスラング。90年代に広まった" /></strong>。<br />
+「高品質のマリファナ」を指す、<br />
+<strong class="text-[var(--c-text)]">西海岸発のスラング</strong>です。</p>
+        <p>同じ1993年には、<br />
+Mista Grimmの「Indo Smoke」もリリースされています。<br />
+曲名にもこの <em>indo</em> が使われていて、<br />
+同じ「葉っぱ」でも東海岸の <em>woolies</em> や <em>buddha</em> とは語感も出どころも違います。</p>
+        <AmazonMusicReference query="Mista Grimm Indo Smoke" title="Indo Smoke（1993）" artist="Mista Grimm" cover="/images/context/93-til-infinity/grimm-cover.jpg" label="Amazonでレコードを見る" position="r103-reference-grimm" href="https://www.amazon.co.jp/dp/B00008FS5U/?tag=wax1124-22" mercariHref="https://jp.mercari.com/item/m86391808150?afid=3150124771&amp;source_location=share&amp;utm_medium=share&amp;utm_source=ios" />
+
+        <p><code>tons of ~</code>（大量の〜）も口語の定番で、<br />
+<em>tons of fun</em>（すごく楽しい）のように使えます。</p>
+        <p>スラングは地域の方言で、<br />
+<em>indo</em> が出てきた瞬間に「あ、<br />
+西海岸だな」と分かります。<br />
+語を一つ知ることが、<br />
+その土地を一つ知ることになる好例です。</p>
       </LearningUnit>
 
       <!-- ⑦ greenbacks / stacks -->
@@ -381,12 +559,24 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       >
         <Fragment slot="eng">Greenbacks in stacks, don't even ask who got the fat stacks<br />We can max pumpin' phat tracks</Fragment>
         <Fragment slot="jpn">札束が積み上がってる、誰がいちばん持ってるかなんて訊くな／俺たちは最高のトラックを流してまったりできる</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 8（Opio）の冒頭、金と音の話を畳む件。</p>
-        <p>音だけ追うと、<strong class="text-[var(--c-text)]">stacks / ask / fat stacks / max / tracks</strong> と <code>-a(ck/sk/x)</code> の響きが連打されている、Opioらしい多重韻です。</p>
-        <p>意味の方も金のスラングが二つ。<strong class="text-[var(--c-text)]"><QuickSlang word="greenbacks" desc="米ドル紙幣のスラング。</p>
-        <p>裏面が緑色であることに由来" /></strong> は「ドル紙幣」（裏が緑なのが由来）、<strong class="text-[var(--c-text)]"><QuickSlang word="stacks" desc="積み上げた札束。お金（とくにまとまった現金）のスラング" /></strong> は「積み上がった札束」。</p>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 8（Opio）の冒頭、金と音の話を畳むくだり。</p>
+        <p>音だけ追うと、<br />
+<strong class="text-[var(--c-text)]">stacks / ask / fat stacks / max / tracks</strong> と <code>-a(ck/sk/x)</code> の響きが連打されている、<br />
+Opioらしい多重韻です。</p>
+        <p><strong class="text-[var(--c-text)]"><QuickSlang word="greenbacks" desc="米ドル紙幣のスラング。裏面が緑色であることに由来" /></strong> は「ドル紙幣」。<br />
+紙幣の裏面が緑色なので、<br />
+この呼び名がついています。</p>
+        <figure class="context-photo" id="photo-greenbacks" data-image-source="user-provided">
+          <img src="/images/context/93-til-infinity/greenbacks-user.jpg" alt="アメリカの1ドル札の表面と緑色の裏面" width="1280" height="446" style="max-width: 1262.78px" loading="lazy" decoding="async" />
+          <figcaption>1ドル札の表と裏。greenbacksの呼び名は、緑色の裏面から。</figcaption>
+        </figure>
+
+        <p><strong class="text-[var(--c-text)]"><QuickSlang word="stacks" desc="積み上げた札束。お金（とくにまとまった現金）のスラング" /></strong> は「積み上がった札束」です。</p>
         <p><code>fat stacks</code> で「分厚い札束」。</p>
-        <p>下の行の <strong class="text-[var(--c-text)]">max</strong>（だらける・くつろぐ）も intro から出てくるこの曲のキー動詞で、<code>phat tracks</code>（最高のトラック）と韻を踏みます。金の話すら肩肘張らず、韻遊びの素材にしてしまうのが彼ららしい。</p>
+        <p>下の行の <strong class="text-[var(--c-text)]">max</strong>（だらける・くつろぐ）も intro から出てくるこの曲のキー動詞で、<br />
+<code>phat tracks</code>（最高のトラック）と韻を踏みます。<br />
+金の話すら肩肘張らず、<br />
+韻遊びの素材にしてしまうのが彼ららしい。</p>
         <Fragment slot="usage">
           <p>金のスラングは多彩: <strong class="text-[var(--c-text)]">greenbacks</strong>（紙幣／裏が緑）、<strong class="text-[var(--c-text)]">stacks</strong>（札束）、<em>bands</em>（帯封の付いた1,000ドル）、<em>guap</em>（大金）。<em>fat / phat</em> を付けると「たっぷりの金」になる。</p>
           <p><strong class="text-[var(--c-text)]">max</strong>（または maxin'）は「リラックスして過ごす・だらける」のスラング。<em>just maxin' and relaxin'</em> のように chill と並べて使う、90年代色の濃い語。</p>
@@ -404,31 +594,49 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <Fragment slot="eng">I be coolin', school's in session, but I'm fresh in<br />Rappin', so I take time off to never rhyme soft</Fragment>
         <Fragment slot="jpn">俺はいつもクールに過ごしてる、学校は授業中だけど俺は颯爽と入っていく／ラップしてる、だから時間を取って、決して軟弱には韻を踏まない</Fragment>
         <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 9（Phesto）の冒頭。学習対象は行頭。</p>
-        <p>行頭の <strong class="text-[var(--c-text)]">I be coolin'</strong> に注目。標準英語なら <em>I'm cooling</em> ですが、ここは <code>be</code> が原形のまま。</p>
-        <p>これが<QuickSlang word="AAVE" desc="African American Vernacular English＝アフリカ系アメリカ人の英語。独自の文法・発音を持つ、れっきとした方言。スラングとは別物の「文法体系」" />最大の特徴 <strong class="text-[var(--c-text)]">習慣のbe（habitual be）</strong>で、「いつも・習慣的にクールに過ごしている」という反復のニュアンスを出します（今だけの進行形 <em>I'm coolin'</em> とは時間の幅が違う）。</p>
-        <p><strong class="text-[var(--c-text)]"><QuickSlang word="fresh" desc="かっこいい・洗練された・イケてる。新しくて鮮度がある、の意から" /></strong>（イケてる・洗練された）も最重要スラングのひとつ。<code>session / fresh in / Rappin'</code> あたりの軽い韻の運びも、Phestoの持ち味です。</p>
-        <p>NYの曲（N.Y. State of Mind）でも同じ習慣のbeが出てきた。東西で語彙は違っても、AAVEの土台は共通している、というのが分かる箇所でもあります。</p>
+        <p>行頭の <strong class="text-[var(--c-text)]">I be coolin'</strong> に注目。<br />
+標準英語なら <em>I'm cooling</em> ですが、<br />
+ここは <code>be</code> が原形のまま。</p>
+        <p>これが<QuickSlang word="AAVE" desc="African American Vernacular English＝アフリカ系アメリカ人の英語。独自の文法・発音を持つ、れっきとした方言。スラングとは別物の「文法体系」" />最大の特徴 <strong class="text-[var(--c-text)]">習慣のbe（habitual be）</strong>で、<br />
+「いつも・習慣的にクールに過ごしている」という反復のニュアンスを出します（今だけの進行形 <em>I'm coolin'</em> とは時間の幅が違う）。</p>
+        <p><strong class="text-[var(--c-text)]"><QuickSlang word="fresh" desc="かっこいい・洗練された・イケてる。新しくて鮮度がある、の意から" /></strong>（イケてる・洗練された）も最重要スラングのひとつ。<br />
+<code>session / fresh in / Rappin'</code> あたりの軽い韻の運びも、<br />
+Phestoの持ち味です。</p>
+        <p>Nasの「N.Y. State of Mind」も、<br />
+街の日常をラップした一曲。<br />
+こちらはニューヨークの風景で、<br />
+収録アルバムは『Illmatic』です。</p>
         <Fragment slot="usage">
           <p><strong class="text-[var(--c-text)]">habitual be</strong>: 動詞 be を原形のまま使い「習慣的にそうしている」を表すAAVE文法。<em>I be coolin'</em>＝「いつもまったりしてる」。</p>
           <p><em>I'm coolin'</em>（今くつろいでいる）と区別される、れっきとした時制表現。</p>
           <p><strong class="text-[var(--c-text)]">fresh</strong> は「かっこいい・洗練された・新しくてイケてる」を表す褒め言葉。<em>You look fresh</em>（イケてるね）、<em>fresh kicks</em>（イケてるスニーカー）のように使う。</p>
         </Fragment>
+      <AmazonMusicReference query="Nas N.Y. State of Mind Illmatic" artist="Nas" record="Illmatic" cover="/images/covers/ny-state-of-mind.jpg" title="Nas「N.Y. State of Mind」" label="収録アルバム『Illmatic』をAmazonで探す" position="r103-reference-nas" />
       </LearningUnit>
 
       <!-- v10 mall / shoppin -->
       <LearningUnit
-        heading="Restin' at the mall — 買い物に出る件と shoppin' for my image"
+        heading="Restin' at the mall — 買い物に出るくだりと shoppin' for my image"
         label="★ 表現／文化"
         mc="Tajai（Verse 10）"
         t={TS["v10-mall"].t} tApprox={TS["v10-mall"].approx} youtubeId={YT}
         embed=""
       >
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 10（Tajai）の頭、モールで過ごす件。次のファッション語への前振り。</p>
-        <p class="text-xs text-[var(--c-dim)] mb-1">行は引きません。</p>
-        <p>Tajaiのバースは、<strong class="text-[var(--c-text)]">the mall</strong>（ショッピングモール）でくつろぐ場面から始まります。ここでの学習ポイントは、この曲の「チル」が郊外の日常にまで及んでいる、という点です。</p>
-        <p>殺伐とした路上ではなく、モールで店員（attendants）に囲まれてぶらぶらする。この等身大のスケール感が、暴力描写主体の当時の主流とはっきり違うところです。</p>
-        <p>そして自分が買い物をするのは <strong class="text-[var(--c-text)]">my image</strong>（自分のイメージ・見た目）のためだ、と続けます。次の <code>fits / kicks / dipped</code>（服・スニーカー・キメる）の件は、この「見た目への投資」という前振りを受けて出てきます。</p>
-        <p>買い物の理由を先に置いてから語彙を並べる、丁寧なつなぎ方です。</p>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 10（Tajai）の頭、モールで過ごすくだり。次のファッション語への前振り。</p>
+
+        <p>Tajaiのバースは、<br />
+<strong class="text-[var(--c-text)]">the mall</strong>（ショッピングモール）でくつろぐ場面から始まります。<br />
+ここでの学習ポイントは、<br />
+この曲の「チル」が郊外の日常にまで及んでいる、<br />
+という点です。</p>
+        <p>Tajaiがいるのはショッピングモール。<br />
+店員（attendants）に囲まれながら、<br />
+買い物をしています。</p>
+        <p>そして自分が買い物をするのは <strong class="text-[var(--c-text)]">my image</strong>（自分のイメージ・見た目）のためだ、<br />
+と続けます。<br />
+次の <code>fits / kicks / dipped</code>（服・スニーカー・キメる）のくだりは、<br />
+この「見た目への投資」という前振りを受けて出てきます。</p>
+
       </LearningUnit>
 
       <!-- ⑨ fits / kicks / dipped -->
@@ -441,10 +649,17 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       >
         <Fragment slot="eng">Some few fits, some new kicks<br />I often do this, 'cause it's the pits not bein' dipped</Fragment>
         <Fragment slot="jpn">服を何着か、新しいスニーカーを何足か／よくやるんだ、だってビシッと決めてないのは最悪だから</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 10（Tajai）、買い物の件。ファッション語が3つ。</p>
-        <p>ここはファッション・スラングの宝庫です。<strong class="text-[var(--c-text)]"><QuickSlang word="fits" desc="outfits（服装・コーディネート）の略。今も使われる" /></strong> は <em>outfits</em>（服装・コーデ）の略、<strong class="text-[var(--c-text)]"><QuickSlang word="kicks" desc="スニーカー・靴を指すスラング" /></strong> は「スニーカー（靴）」、<strong class="text-[var(--c-text)]"><QuickSlang word="dipped" desc="バッチリ着こなしている・キメている状態。dipには「着飾る」の意" /></strong> は「バッチリ着こなしている／キメている」状態。</p>
-        <p><code>it's the pits</code>（最悪だ）という別のイディオムも入っていて、<strong class="text-[var(--c-text)]">「キメてないのは the pits（最低）」</strong>と、おしゃれへのこだわりを語っています。</p>
-        <p><code>fits / kicks / this / pits</code> の <strong class="text-[var(--c-text)]">-i(t/ts/s)</strong> 系の韻も小気味いい。これらの語は今でもそのまま通じるので、覚えておいて損はないです。</p>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 10（Tajai）、買い物のくだり。ファッション語が3つ。</p>
+        <p>ここはファッション・スラングの宝庫です。<br />
+<strong class="text-[var(--c-text)]"><QuickSlang word="fits" desc="outfits（服装・コーディネート）の略。今も使われる" /></strong> は <em>outfits</em>（服装・コーデ）の略、<br />
+<strong class="text-[var(--c-text)]"><QuickSlang word="kicks" desc="スニーカー・靴を指すスラング" /></strong> は「スニーカー（靴）」、<br />
+<strong class="text-[var(--c-text)]"><QuickSlang word="dipped" desc="バッチリ着こなしている・キメている状態。dipには「着飾る」の意" /></strong> は「バッチリ着こなしている／キメている」状態。</p>
+        <p><code>it's the pits</code>（最悪だ）という別のイディオムも入っていて、<br />
+<strong class="text-[var(--c-text)]">「キメてないのは the pits（最低）」</strong>と、<br />
+おしゃれへのこだわりを語っています。</p>
+        <p><code>fits / kicks / this / pits</code> の <strong class="text-[var(--c-text)]">-i(t/ts/s)</strong> 系の韻も小気味いい。<br />
+これらの語は今でもそのまま通じるので、<br />
+覚えておいて損はないです。</p>
         <Fragment slot="usage">
           <p>ファッション系スラングはセットで覚えると便利:<strong class="text-[var(--c-text)]">fit(s)</strong>（服装＝outfit）、<strong class="text-[var(--c-text)]">kicks</strong>（スニーカー）、<strong class="text-[var(--c-text)]">dripped / dipped</strong>（バッチリ着こなした）、<em>fresh</em>（イケてる）。<em>nice fit</em>（いいコーデ）、<em>clean kicks</em>（きれいなスニーカー）のように使う。</p>
           <p><strong class="text-[var(--c-text)]">the pits</strong> は「最悪・最低」を表すイディオム。<em>This is the pits</em>（最悪だ）。</p>
@@ -462,11 +677,19 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       >
         <Fragment slot="eng">Keep tabs on your main squeeze</Fragment>
         <Fragment slot="jpn">お前の main squeeze（本命）から目を離すなよ</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 11（Opio）、恋愛まわりを軽口で語る件。学習対象は行末。</p>
-        <p>Opioのバースに出てくる <strong class="text-[var(--c-text)]"><QuickSlang word="main squeeze" desc="本命の恋人・付き合っている相手。squeeze だけでも「恋人」を指す口語" /></strong> が学習ポイント。「本命の恋人・付き合っている相手」を指す、砕けた言い回しです。</p>
-        <p><code>squeeze</code>（ぎゅっと抱きしめる）が名詞化して「抱きしめる相手＝恋人」になり、<em>main</em>（メインの＝本命の）が付いて「一番の相手」になります。<em>He's my squeeze</em> だけでも「私の彼氏」の意味で通じます。</p>
-        <p>行頭の <strong class="text-[var(--c-text)]">keep tabs on ~</strong>（〜から目を離さない・様子を見張る）は、日常会話でもそのまま使えるイディオム。<em>keep tabs on the news</em>（ニュースを追い続ける）のように、人にも物事にも使えます。</p>
-        <p>恋愛の話すら軽い忠告調で流すのが、この曲の抜け感です。</p>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 11（Opio）、恋愛まわりを軽口で語るくだり。学習対象は行末。</p>
+        <p>Opioのバースに出てくる <strong class="text-[var(--c-text)]"><QuickSlang word="main squeeze" desc="本命の恋人・付き合っている相手。squeeze だけでも「恋人」を指す口語" /></strong> が学習ポイント。<br />
+「本命の恋人・付き合っている相手」を指す、<br />
+砕けた言い回しです。</p>
+        <p><code>squeeze</code>（ぎゅっと抱きしめる）が名詞化して「抱きしめる相手＝恋人」になり、<br />
+<em>main</em>（メインの＝本命の）が付いて「一番の相手」になります。<br />
+<em>He's my squeeze</em> だけでも「私の彼氏」の意味で通じます。</p>
+        <p>行頭の <strong class="text-[var(--c-text)]">keep tabs on ~</strong>（〜から目を離さない・様子を見張る）は、<br />
+日常会話でもそのまま使えるイディオム。<br />
+<em>keep tabs on the news</em>（ニュースを追い続ける）のように、<br />
+人にも物事にも使えます。</p>
+        <p>恋愛の話すら軽い忠告調で流すのが、<br />
+この曲の抜け感です。</p>
         <Fragment slot="usage">
           <p><strong class="text-[var(--c-text)]">keep tabs on ~</strong>＝「〜を見張る・動向を把握し続ける」。<em>keep tabs on your spending</em>（出費を見張る）。</p>
           <p><strong class="text-[var(--c-text)]">squeeze</strong>（名詞）＝「恋人」。<em>main squeeze</em> で「本命」、対して遊び相手を指すときは別の語になる。</p>
@@ -481,11 +704,18 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         t={TS["v12-mack"].t} tApprox={TS["v12-mack"].approx} youtubeId={YT}
         embed=""
       >
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 12（A-Plus）の頭、恋の攻めを語る件。語彙ものなので行は引きません。</p>
-        <p>A-Plusの最後のバースは <strong class="text-[var(--c-text)]"><QuickSlang word="mack" desc="口説く・言葉巧みに女性を惹きつける、の意の動詞。名詞 mack は「口説きの達人・女たらし」" /></strong> という動詞から入ります。学習ポイントはこの語。</p>
-        <p><strong class="text-[var(--c-text)]">mack</strong> は「口説く・言葉巧みに気を引く」という意味の動詞です。名詞では「口説きの達人・女たらし」を指し、<em>a real mack</em> なら「大した口説き上手」。</p>
-        <p>前の Phesto の <em>throw game</em>（口説きを仕掛ける）と近い語彙で、4人が入れ替わり立ち替わり同じテーマを別の語で見せ合っているのが分かります。</p>
-        <p>続く <code>attack her</code> と <strong class="text-[var(--c-text)]">mack / attack</strong> で軽く韻を踏んでいるのも小気味いい。物騒な言葉に聞こえますが、あくまで恋の駆け引きの誇張表現で、この曲の温度から外れません。</p>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 12（A-Plus）の頭、恋の攻めを語るくだり。</p>
+        <p>A-Plusの最後のバースは <strong class="text-[var(--c-text)]"><QuickSlang word="mack" desc="口説く・言葉巧みに女性を惹きつける、の意の動詞。名詞 mack は「口説きの達人・女たらし」" /></strong> という動詞から入ります。<br />
+学習ポイントはこの語。</p>
+        <p><strong class="text-[var(--c-text)]">mack</strong> は「口説く・言葉巧みに気を引く」という意味の動詞です。<br />
+名詞では「口説きの達人・女たらし」を指し、<br />
+<em>a real mack</em> なら「大した口説き上手」。</p>
+        <p>前の Phesto の <em>throw game</em>（口説きを仕掛ける）と近い語彙で、<br />
+4人が入れ替わり立ち替わり同じテーマを別の語で見せ合っているのが分かります。</p>
+        <p>続く <code>attack her</code> と <strong class="text-[var(--c-text)]">mack / attack</strong> で軽く韻を踏んでいるのも小気味いい。<br />
+物騒な言葉に聞こえますが、<br />
+あくまで恋の駆け引きの誇張表現で、<br />
+この曲の温度から外れません。</p>
       </LearningUnit>
 
       <!-- ⑩ bite flows -->
@@ -498,10 +728,18 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       >
         <Fragment slot="eng">They bite flows, but we make up new ones<br />If you're really dope, why ain't you signed yet?</Fragment>
         <Fragment slot="jpn">やつらはフロウをパクる、でも俺たちは新しいのを作る／本当に dope（イケてる）なら、なんでまだ契約取れてないんだ？</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 12（A-Plus）、ライバルを牽制する件。</p>
-        <p>上の行頭 <strong class="text-[var(--c-text)]"><QuickSlang word="bite" desc="他人のスタイル・フロウ・ネタを盗む/真似ること。ヒップホップ最大級のタブー" /></strong> がヒップホップ重要語。「他人のスタイルやフロウを<strong class="text-[var(--c-text)]">パクる・盗む</strong>」という意味で、ヒップホップでは最大級のタブーとされる行為です。</p>
-        <p><code>They bite flows, but we make up new ones</code>（やつらはパクる、でも俺たちは新しいのを作る）で、オリジナリティの優位を主張しています。下の行の <strong class="text-[var(--c-text)]"><QuickSlang word="dope" desc="最高の・イケてる、を意味する最頻出のポジティブ・スラング" /></strong>（イケてる）も必修語。</p>
-        <p>そして <code>why <strong class="text-[var(--c-text)]">ain't</strong> you signed yet?</code> の <strong class="text-[var(--c-text)]">ain't</strong> は、<em>aren't / haven't</em> などをまとめて担うAAVEの否定形で、「本当にすごいなら、なんでまだ（レーベルと）契約してないんだ？」という挑発になっています。</p>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 12（A-Plus）、ライバルを牽制するくだり。</p>
+        <p>上の行頭 <strong class="text-[var(--c-text)]"><QuickSlang word="bite" desc="他人のスタイル・フロウ・ネタを盗む/真似ること。ヒップホップ最大級のタブー" /></strong> がヒップホップ重要語。<br />
+「他人のスタイルやフロウを<strong class="text-[var(--c-text)]">パクる・盗む</strong>」という意味で、<br />
+ヒップホップでは最大級のタブーとされる行為です。</p>
+        <p><code>They bite flows, but we make up new ones</code>（やつらはパクる、<br />
+でも俺たちは新しいのを作る）で、<br />
+オリジナリティの優位を主張しています。<br />
+下の行の <strong class="text-[var(--c-text)]"><QuickSlang word="dope" desc="最高の・イケてる、を意味する最頻出のポジティブ・スラング" /></strong>（イケてる）も必修語。</p>
+        <p>そして <code>why <strong class="text-[var(--c-text)]">ain't</strong> you signed yet?</code> の <strong class="text-[var(--c-text)]">ain't</strong> は、<br />
+<em>aren't / haven't</em> などをまとめて担うAAVEの否定形で、<br />
+「本当にすごいなら、<br />
+なんでまだ（レーベルと）契約してないんだ？」という挑発になっています。</p>
         <Fragment slot="usage">
           <p><strong class="text-[var(--c-text)]">bite</strong>（動詞）＝「（他人のネタ・スタイルを）盗む・真似る」。<em>Stop bitin' my style</em>（俺のスタイルをパクるな）。</p>
           <p>名詞 <em>biter</em>（パクる奴）も使う。オリジナリティを重んじるヒップホップでは強い非難語。</p>
@@ -518,12 +756,22 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         t={TS["v12-loot"].t} tApprox={TS["v12-loot"].approx} youtubeId={YT}
         embed=""
       >
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 12（A-Plus）の締め、タイトルへ橋渡しする件。語彙・構成の話なので行は引きません。</p>
-        <p>A-Plusはバースの終わりで、自分は <strong class="text-[var(--c-text)]"><QuickSlang word="loot" desc="現金・稼ぎのスラング。辞書では「戦利品・略奪品」だが、ストリートでは現ナマを指す" /></strong> を手にしている、と言います。学習ポイントはこの <strong class="text-[var(--c-text)]">loot</strong>。</p>
-        <p>辞書では「戦利品・略奪品」ですが、ストリートでは転じて <strong class="text-[var(--c-text)]">現金・稼ぎ</strong>そのものを指します。ゲームで手に入る「ルート（戦利品）」と同じ単語なので、案外なじみがあるかもしれません。</p>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 12（A-Plus）の締め、タイトルへ橋渡しするくだり。</p>
+        <p>A-Plusはバースの終わりで、<br />
+自分は <strong class="text-[var(--c-text)]"><QuickSlang word="loot" desc="現金・稼ぎのスラング。辞書では「戦利品・略奪品」だが、ストリートでは現ナマを指す" /></strong> を手にしている、<br />
+と言います。<br />
+学習ポイントはこの <strong class="text-[var(--c-text)]">loot</strong>。</p>
+        <p>辞書では「戦利品・略奪品」ですが、<br />
+ストリートでは転じて <strong class="text-[var(--c-text)]">現金・稼ぎ</strong>そのものを指します。<br />
+ゲームで手に入る「ルート（戦利品）」と同じ単語なので、<br />
+案外なじみがあるかもしれません。</p>
         <p>前に出てきた <em>greenbacks</em>（紙幣）や <em>stacks</em>（札束）と同じ「金」の語彙のバリエーションです。</p>
-        <p>そしてこの件で、曲の合言葉 <strong class="text-[var(--c-text)]">from now to infinity</strong>（今から永遠に）が顔を出します。フックの <em>from '93 'til</em>（'93から）が省略していた <strong class="text-[var(--c-text)]">infinity</strong> が、ここではっきり言い切られる。</p>
-        <p>タイトルの答え合わせを最後のバースに仕込む、憎い構成です。</p>
+        <p>そしてこのくだりで、<br />
+曲の合言葉 <strong class="text-[var(--c-text)]">from now to infinity</strong>（今から永遠に）が顔を出します。<br />
+フックの <em>from '93 'til</em>（'93から）が省略していた <strong class="text-[var(--c-text)]">infinity</strong> が、<br />
+ここではっきり言い切られる。</p>
+        <p>タイトルの答え合わせを最後のバースに仕込む、<br />
+憎い構成です。</p>
       </LearningUnit>
 
       <!-- outro crew -->
@@ -534,11 +782,28 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         t={TS["outro-crew"].t} tApprox={TS["outro-crew"].approx} youtubeId={YT}
         embed=""
       >
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ アウトロ、仲間の名を順に呼んでいく件。呼びかけの語りなので行は引きません。</p>
-        <p>アウトロは、メンバーが「<strong class="text-[var(--c-text)]">Who's chillin'?</strong>（誰がチルしてる？）」と問いかけ、仲間の名前を一人ずつ挙げていく、掛け合いの構成になっています。</p>
-        <p>ここで名前が呼ばれるのは、彼らの所属する大所帯クルー <strong class="text-[var(--c-text)]">Hieroglyphics（ハイエログリフィクス、通称ハイエロ）</strong>の面々。<strong class="text-[var(--c-text)]">Casual、Del the Funky Homosapien、Pep Love</strong> といった、当時のオークランド・アンダーグラウンドの主役たちです。</p>
-        <p>「誰がチルしてる？」と問いかけて名前で応える、この呼び合いそのものが、クルー文化（crew culture）の温度を伝えてくれます。一人の曲ではなく、仲間全員の曲だと最後に示して締めにいく作りです。</p>
-        <p>次の件で、その舞台となる土地の呼び名が出てきます。</p>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ アウトロ、仲間の名を順に呼んでいくくだり。</p>
+        <p>アウトロは、<br />
+メンバーが「<strong class="text-[var(--c-text)]">Who's chillin'?</strong>（誰がチルしてる？）」と問いかけ、<br />
+仲間の名前を一人ずつ挙げていく、<br />
+掛け合いの構成になっています。</p>
+        <p>ここで名前が呼ばれるのは、<br />
+彼らの所属する大所帯クルー <strong class="text-[var(--c-text)]">Hieroglyphics（ハイエログリフィクス、<br />
+通称ハイエロ）</strong>の面々。<br />
+<strong class="text-[var(--c-text)]">Casual、<br />
+Del the Funky Homosapien、<br />
+Pep Love</strong> といった、<br />
+当時のオークランド・アンダーグラウンドの主役たちです。</p>
+        <figure class="context-photo" id="photo-hiero-casual">
+          <img src="/images/context/93-til-infinity/hiero-casual.jpg" alt="三つ目のHieroglyphicsロゴのTシャツを着たCasual" width="600" height="900" style="max-width: 293.33px" loading="lazy" decoding="async" />
+          <figcaption>ハイエロのMC、Casual。2006年のライブ写真で、Tシャツにはクルーの三つ目ロゴが見えます。<small><a href="https://commons.wikimedia.org/wiki/File:Casual_hieroglyphics.jpg" target="_blank" rel="noopener noreferrer">写真：Brian Kennedy</a> · <a href="https://creativecommons.org/licenses/by-sa/3.0" target="_blank" rel="noopener noreferrer">CC BY-SA 3.0</a></small></figcaption>
+        </figure>
+
+        <p>Souls of Mischiefの4人から、<br />
+ハイエロの仲間へ。<br />
+名前を呼び合って、<br />
+曲を締めています。</p>
+<AmazonMusicReference query="Hieroglyphics 3rd Eye Vision" artist="Hieroglyphics" cover="/images/context/93-til-infinity/hiero-cover.jpg" title="Hieroglyphics『3rd Eye Vision』（1998）" label="ハイエロのクルー作品をAmazonで探す" position="r103-reference-hiero" />
       </LearningUnit>
 
       <!-- ⑪ the Land -->
@@ -551,11 +816,21 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       >
         <Fragment slot="eng">But who's chillin' around the Land, y'know?<br />Casual — you know he's chillin'</Fragment>
         <Fragment slot="jpn">で、誰がthe Land（オークランド）でチルしてる？／カジュアル——あいつはチルしてるだろ</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ アウトロ、クルーの面々を呼んでいく件。</p>
-        <p>学習ポイントは <strong class="text-[var(--c-text)]">the Land</strong>。これは <strong class="text-[var(--c-text)]">Oakland（オークランド）の愛称</strong>で、<em>Oakland → Oak-LAND → the Land</em> という、地名そのものを縮めて呼ぶ言い方です（オークランドは "The Town" とも呼ばれます）。</p>
-        <p>同じ「地元」でも、NasのNY＝Shaolinやクイーンズブリッジとはまったく違う呼び名で、<strong class="text-[var(--c-text)]">スラングの地域差</strong>がここにも出ています。</p>
-        <p>アウトロでは <strong class="text-[var(--c-text)]">Casual、Del the Funky Homosapien、Pep Love</strong> ら、彼らの所属クルー <strong class="text-[var(--c-text)]">Hieroglyphics</strong> の面々の名前を次々に呼んでいきます。</p>
-        <p>「誰がチルしてる？」と仲間の名を挙げていく構成そのものが、クルー文化（crew culture）の温度を伝えてくれます。<code>y'know</code>（＝you know）の口癖も、リラックスした語りの空気そのものです。</p>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ アウトロ、地元の呼び名が出てくるくだり。</p>
+        <p>学習ポイントは <strong class="text-[var(--c-text)]">the Land</strong>。<br />
+これは <strong class="text-[var(--c-text)]">Oakland（オークランド）の愛称</strong>で、<br />
+<em>Oakland → Oak-LAND → the Land</em> という、<br />
+地名そのものを縮めて呼ぶ言い方です（オークランドは "The Town" とも呼ばれます）。</p>
+        <figure class="context-photo" id="photo-oakland-city" data-image-source="user-provided">
+          <img src="/images/context/93-til-infinity/oakland-city-user.jpg" alt="オークランドの市街地と建物" width="1280" height="649" style="max-width: 867.80px" loading="lazy" decoding="async" />
+          <figcaption>オークランドの街並み。</figcaption>
+        </figure>
+
+
+
+        <p><code>y'know</code> は <em>you know</em> を縮めた口語。<br />
+「ほら」「分かるだろ」のように、<br />
+話の合間にはさみます。</p>
       </LearningUnit>
 
       <!-- outro 92 to 93 -->
@@ -566,12 +841,24 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         t={TS["outro-92-93"].t} tApprox={TS["outro-92-93"].approx} youtubeId={YT}
         embed=""
       >
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 曲の本当の最後、年をまたいで宣言する件。締めの語りなので行は引きません。</p>
-        <p>曲の締めで、「<strong class="text-[var(--c-text)]">'92 is over</strong>（92年は終わった）、'93、それが始まりだ」と、年をまたぐ言い方が出てきます。</p>
-        <p>これがタイトル「93 'Til Infinity」の完結です。前の年（'92）に区切りをつけて、'93からこのチルが始まり、そこから <strong class="text-[var(--c-text)]">infinity（無限）</strong>まで続いていく。</p>
-        <p>冒頭からフックで繰り返してきた <em>from '93 'til</em> が、最後にきちんと時間の物語として閉じられます。</p>
-        <p><code>~ is over</code>（〜は終わった）は「一区切りついた」を表す平易な言い回しで、日常でも <em>Summer is over</em>（夏が終わった）のようにそのまま使えます。特別な仕掛けのある語ではありませんが、この曲では「一つの年の終わりと、終わらない時間の始まり」を分ける蝶番として効いています。</p>
-        <p>リリースから30年以上経ったいまも、この宣言だけは本当に続いているのが面白いところです。</p>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 曲の本当の最後、年をまたいで宣言するくだり。</p>
+        <p>曲の締めで、<br />
+「<strong class="text-[var(--c-text)]">'92 is over</strong>（92年は終わった）、<br />
+'93、<br />
+それが始まりだ」と、<br />
+年をまたぐ言い方が出てきます。</p>
+        <p>これがタイトル「93 'Til Infinity」の完結です。<br />
+前の年（'92）に区切りをつけて、<br />
+'93からこのチルが始まり、<br />
+そこから <strong class="text-[var(--c-text)]">infinity（無限）</strong>まで続いていく。</p>
+        <p>冒頭からフックで繰り返してきた <em>from '93 'til</em> が、<br />
+最後にきちんと時間の物語として閉じられます。</p>
+        <p><code>~ is over</code>（〜は終わった）は「一区切りついた」を表す平易な言い回しで、<br />
+日常でも <em>Summer is over</em>（夏が終わった）のようにそのまま使えます。<br />
+特別な仕掛けのある語ではありませんが、<br />
+この曲では「一つの年の終わりと、<br />
+終わらない時間の始まり」を分ける蝶番として効いています。</p>
+
       </LearningUnit>
     </section>
 
@@ -585,15 +872,18 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">Hieroglyphics と East Oakland</p>
         <h3 class="font-semibold text-base mb-3">G-Funk全盛の西海岸の、もう一つの顔</h3>
         <div class="space-y-3 text-[var(--c-muted)] text-sm leading-relaxed">
-          <p>
-            1993年当時の西海岸といえば、Dr. DreやDeath Rowが牽引する <strong class="text-[var(--c-text)]">G-Funk</strong> の全盛期。重たいシンセとギャングスタの世界観が主流でした。
-          </p>
-          <p>
-            そのなかで、East Oaklandの <strong class="text-[var(--c-text)]">Souls of Mischief</strong>（Del the Funky Homosapienらと共に大所帯クルー <strong class="text-[var(--c-text)]">Hieroglyphics（ハイエログリフィクス、通称ハイエロ）</strong>を形成する4人組）は、ジャジーで頭脳的、そして肩の力の抜けた別ベクトルの西海岸像を提示しました。10代後半の若者たちが、暴力ではなく「どう楽しく過ごすか」を、技巧的な韻で描く。
-          </p>
-          <p>
-            彼らはのちに自主レーベル <strong class="text-[var(--c-text)]">Hiero Imperium</strong> を立ち上げ、インディペンデント運営の先駆けの一つにもなります。同じ西海岸でも、ウェッサイ＝G-Funkという図式だけでは語れない、というのを教えてくれる存在です。
-          </p>
+          <p>1993年当時の西海岸といえば、<br />
+Dr. DreやDeath Rowが牽引する <strong class="text-[var(--c-text)]">G-Funk</strong> の全盛期。<br />
+重たいシンセとギャングスタの世界観が主流でした。</p>
+          <p>East Oaklandの <strong class="text-[var(--c-text)]">Souls of Mischief</strong>は、<br />
+ジャズを使ったビートに、<br />
+買い物やデート、<br />
+仲間との時間を乗せました。<br />
+4人はDelやCasualらとともに、<br />
+<strong class="text-[var(--c-text)]">Hieroglyphics</strong>の一員として活動しています。</p>
+          <p>クルーはのちに自主レーベル <strong class="text-[var(--c-text)]">Hiero Imperium</strong>を設立。<br />
+1998年には、<br />
+ハイエロ全体のアルバム『3rd Eye Vision』をリリースしました。</p>
         </div>
       </div>
 
@@ -617,7 +907,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
             ["bite", "他人のスタイル・フロウを盗む。ヒップホップ最大級のタブー"],
             ["habitual be", "AAVEの習慣のbe。I be coolin'＝「いつもまったりしてる」"],
           ].map(([term, desc]) => (
-            <div class="flex gap-3 text-sm">
+            <div class="grid gap-1 sm:grid-cols-[180px_1fr] sm:gap-3 text-sm">
               <span class="text-[var(--c-gold)] shrink-0 font-semibold min-w-[150px]">{term}</span>
               <span class="text-[var(--c-muted)]">{desc}</span>
             </div>
@@ -627,23 +917,29 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
     </section>
 
     <!-- サンプル・制作の裏側 -->
-    <section id="behind" class="mb-12">
+    <section id="behind" class="mb-12 scroll-mt-40">
       <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
         サンプル・制作の裏側
       </h2>
 
       <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
         <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">サンプル元</p>
+        <div id="sample-topic-player" class="aspect-video w-full rounded-lg overflow-hidden mb-5">
+          <iframe loading="lazy" class="w-full h-full" src="https://www.youtube.com/embed/l7Q-JfAV2xk" title="Billy Cobham - Heather" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
         <h3 class="font-semibold text-base mb-3">まどろむジャジーループ — Billy Cobham "Heather"</h3>
         <div class="space-y-3 text-[var(--c-muted)] text-sm leading-relaxed">
-          <p>この曲のあの夢見心地のループは、フュージョン・ドラマー <strong class="text-[var(--c-text)]">Billy Cobham の「Heather」（アルバム『Crosswinds』1974年）</strong>からのサンプリング。プロデュースを手がけたのは、ラップにも参加している <strong class="text-[var(--c-text)]">A-Plus</strong> 本人です。</p>
-          <p>彼はこの『Crosswinds』を、なんと安売りのワゴン（ダラー・ビン）で見つけたと語っています。</p>
-          <p>
-            原曲のメロウなフレーズを刻み、ホーンにディレイ（やまびこのような残響）を効かせて、あの浮遊感のあるトラックに仕立て上げました。<strong class="text-[var(--c-text)]">ラップする本人がビートも作っている</strong>のがこの曲のポイントで、だからこそ声とトラックの呼吸がぴたりと合っています。
-          </p>
-          <p>
-            ワゴンで拾った一枚から、自分の声と完璧に噛み合うビートを一人で組み上げる。掘る嗅覚とビート勘が地続きなのが、この曲のいちばんの強みです。
-          </p>
+          <p>この曲のあの夢見心地のループは、<br />
+フュージョン・ドラマー <strong class="text-[var(--c-text)]">Billy Cobham の「Heather」（アルバム『Crosswinds』1974年）</strong>からのサンプリング。<br />
+プロデュースを手がけたのは、<br />
+ラップにも参加している <strong class="text-[var(--c-text)]">A-Plus</strong> 本人です。</p>
+          <p>彼はこの『Crosswinds』を、<br />
+なんと安売りのワゴン（ダラー・ビン）で見つけたと語っています。</p>
+          <p>原曲のフレーズを切り出し、<br />
+ホーンにディレイ（やまびこのような残響）を加えています。<br />
+ラップするA-Plusが、<br />
+このビートも作っているんです。</p>
+
         </div>
       </div>
 
@@ -651,12 +947,11 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">リレー形式の妙</p>
         <h3 class="font-semibold text-base mb-3">4人で回す、チルの見せ合い</h3>
         <div class="space-y-3 text-[var(--c-muted)] text-sm leading-relaxed">
-          <p>
-            この曲は、Opio・A-Plus・Tajai・Phestoの4人が <strong class="text-[var(--c-text)]">短いバースを次々にリレーしていく</strong>構成。一人が長尺で語り倒すのではなく、バトンを渡し合うことで、クルー全体の一体感と「みんなで chill してる」空気が生まれています。
-          </p>
-          <p>
-            同じ韻のテーマ（音）を引き継ぎながら、それぞれが自分の個性で少しずつ崩していきます。大所帯クルーならではの楽しさが、構成そのものに出ている一曲です。
-          </p>
+          <p>4人は、<br />
+短いバースで次々に交代します。<br />
+電話の話から服の話へ、<br />
+一人の話を次のMCが受け取っていくような流れです。</p>
+
         </div>
       </div>
     </section>
@@ -693,21 +988,19 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">後世への影響</p>
         <h3 class="font-semibold text-base mb-3">「チル・アンセム」の永久指定席</h3>
         <div class="space-y-3 text-[var(--c-muted)] text-sm leading-relaxed">
-          <p>
-            「93 'Til Infinity」は、大ヒットしてチャートを席巻したというより、<strong class="text-[var(--c-text)]">「いい意味で力の抜けたヒップホップ」の代名詞</strong>として、世代を超えて愛され続けてきた曲です。
-          </p>
-          <p>
-            あのジャジーなループと「from '93 'til（'93からずっと）」というフレーズは、夏・週末・たむろ、そういう時間のサウンドトラックとして、今もプレイリストの定番。
-          </p>
-          <p>
-            Souls of Mischiefが属するHieroglyphicsは、その後インディペンデントなクルー運営のモデルケースにもなりました。
-          </p>
-          <p>
-            タイトルどおり、1993年から「infinity（無限）」へ。リリースから30年以上経っても、そのチル・アンセムとしての地位は揺らいでいません。
-          </p>
-          <p>
-            英語学習の面でも、肩の力を抜いて生きた口語に触れられる、最高の入口だと思います。
-          </p>
+          <p>「93 'Til Infinity」は、<br />
+大ヒットしてチャートを席巻したというより、<br />
+<strong class="text-[var(--c-text)]">「いい意味で力の抜けたヒップホップ」の代名詞</strong>として、<br />
+世代を超えて愛され続けてきた曲です。</p>
+          <p>夏や週末に、<br />
+このループを流したくなる。<br />
+友達と過ごす時間のことを歌っているから、<br />
+聴く場面にもよく合うんだと思います。</p>
+
+          <p>1993年から30年以上。<br />
+タイトルの「ずっと」が、<br />
+いま聴くとまた違って聞こえてきます。</p>
+
         </div>
       </div>
     </section>
@@ -719,8 +1012,8 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       </h2>
       <ul class="space-y-2 text-sm text-[var(--c-muted)] list-disc list-inside leading-relaxed">
         <li>「93 'Til Infinity」は、East Oaklandの4人組がひたすら「chill（だらける）」を描いた、西海岸ゴールデンエラのチル・アンセム。</li>
-        <li>chill・dipped・fits・kicks・phat・dope といった<strong>今でも通じるカジュアル・スラング</strong>が高密度で、深刻な犯罪語彙なしに生きた口語が学べます。</li>
-        <li>the Land（＝Oakland）やindoなど<strong>西海岸特有の語彙</strong>で、東海岸（N.Y. State of Mind等）とのスラングの地域差を体感できます。</li>
+        <li>chill・dipped・fits・kicks・phat・dope といった<strong>今でも通じるカジュアル・スラング</strong>から、生きた口語が学べます。</li>
+        <li>the Land（＝Oakland）やindoなど<strong>西海岸特有の語彙</strong>も登場します。</li>
         <li>AAVEの習慣のbe（I be coolin'）、bones to pickのイディオム遊び、Good Vibrationsの引用など、文法・言葉遊び・レファレンスも一通り押さえられます。</li>
       </ul>
     </section>
@@ -738,4 +1031,27 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       ]}
     />
 
+    </div>
 </SongLayout>
+<style>
+  .record-summary { display: grid; grid-template-columns: 160px minmax(0, 1fr); gap: 1.5rem; align-items: start; margin: 1.5rem 0; }
+  .record-summary img { display: block; width: 160px; height: 160px; border-radius: .5rem; }
+  .record-info { min-width: 0; }
+  .record-info dl { display: grid; gap: .25rem; font-size: .8rem; }
+  .record-info dt { color: var(--c-dim); font-size: .65rem; }
+  .record-info dd { margin: 0 0 .4rem; overflow-wrap: anywhere; }
+  .record-pr { display: block; margin-top: .75rem; color: var(--c-gold); font-size: .7rem; text-decoration: underline; text-underline-offset: .2em; }
+  .toc-return { position: fixed; left: 1rem; bottom: 1.5rem; z-index: 40; display: flex; align-items: center; min-height: 44px; padding: .5rem .8rem; border: 1px solid var(--c-border); border-radius: 999px; background: var(--c-surface); color: var(--c-gold); font-size: .75rem; box-shadow: 0 2px 8px #0003; }
+  .toc-return:focus-visible { outline: 2px solid var(--c-gold); outline-offset: 4px; }
+  @media (max-width: 480px) { .record-summary { grid-template-columns: 128px minmax(0, 1fr); gap: 1rem; } .record-summary img { width: 128px; height: 128px; } }
+
+  :global(#song-reading-body p:not(.uppercase)),
+  :global(#reading-start p) { line-height: 1.95; }
+  :global(#song-reading-body .space-y-3 > p + p),
+  :global(#song-reading-body .space-y-4 > p + p) { margin-top: 1.4rem; }
+  .context-photo { margin: 2rem 0; scroll-margin-top: 160px; }
+  .context-photo img { display: block; width: 100%; height: auto; margin: 0 auto; border-radius: 0.5rem; }
+  .context-photo figcaption { margin-top: 0.75rem; color: var(--c-muted); font-size: 0.8rem; line-height: 1.8; }
+  .context-photo small { display: block; margin-top: 0.4rem; color: var(--c-dim); font-size: 0.7rem; }
+  .context-photo a { text-decoration: underline; text-underline-offset: 0.15em; }
+</style>
