@@ -82,7 +82,8 @@ function affiliateIssues(tag) {
     }
     if (merchant === "mercari") {
       if (url.searchParams.get("afid") !== "3150124771") issues.push("P3:mercari-afid");
-      if (!url.searchParams.get("keyword")?.trim()) issues.push("P2:mercari-query");
+      const itemPath = url.hostname === "jp.mercari.com" && /^\/item\/m\d+$/.test(url.pathname);
+      if (!itemPath && !url.searchParams.get("keyword")?.trim()) issues.push("P2:mercari-query");
     }
   } catch {
     issues.push("P2:url");
@@ -100,6 +101,12 @@ function runSelfTest() {
     [],
   );
   assert(affiliateIssues('<a href="#" data-affiliate-merchant="u-next">').includes("P2:url"));
+  const mercari = href => `<a href="${href}" rel="sponsored nofollow noopener" data-affiliate-merchant="mercari" data-affiliate-item="record" data-affiliate-position="inline">`;
+  assert.deepEqual(affiliateIssues(mercari('https://jp.mercari.com/item/m86391808150?afid=3150124771')), []);
+  assert(affiliateIssues(mercari('https://jp.mercari.com/item/m86391808150')).includes('P3:mercari-afid'));
+  assert(affiliateIssues(mercari('https://jp.mercari.com/item/not-an-id?afid=3150124771')).includes('P2:mercari-query'));
+  assert(affiliateIssues(mercari('https://example.com/item/m86391808150?afid=3150124771')).includes('P2:mercari-query'));
+  assert(affiliateIssues(mercari('https://jp.mercari.com/search?afid=3150124771')).includes('P2:mercari-query'));
   console.log("✅ publish safety self-test");
 }
 
