@@ -9,6 +9,7 @@ const record = songs.find(song => song.slug === '/songs/93-til-infinity')!;
 const recordAmazon = `https://www.amazon.co.jp/s?k=${encodeURIComponent(record.artists + ' ' + record.album)}&i=music&tag=wax1124-22`;
 const recordMercari = `https://jp.mercari.com/search?keyword=${encodeURIComponent(record.artists + ' ' + record.album)}&afid=3150124771`;
 
+const oaklandFlight = 'https://hb.afl.rakuten.co.jp/hgc/5852bc79.f9142da9.5852bc7a.df572a4b/?pc=https%3A%2F%2Ftravel.rakuten.co.jp%2Fair%2Fus%2Foak_tyo.html&link_type=text&ut=eyJwYWdlIjoidXJsIiwidHlwZSI6InRleHQiLCJjb2wiOjF9';
 const mauiStay = 'https://hb.afl.rakuten.co.jp/hgc/5852bc79.f9142da9.5852bc7a.df572a4b/?pc=https%3A%2F%2Ftravel.rakuten.co.jp%2FHOTEL%2F148254%2F148254.html&link_type=text&ut=eyJwYWdlIjoidXJsIiwidHlwZSI6InRleHQiLCJjb2wiOjF9';
 
 const contextProducts = {
@@ -862,6 +863,16 @@ Pep Love</strong> といった、<br />
           <img src="/images/context/93-til-infinity/oakland-city-user.jpg" alt="オークランドの市街地と建物" width="1280" height="649" style="max-width: 867.80px" loading="lazy" decoding="async" />
           <figcaption>オークランドの街並み。</figcaption>
         </figure>
+        <aside class="travel-stay" id="oakland-flight" aria-label="オークランド行きの航空券">
+          <div class="travel-stay-label">オークランドへの旅 <span>[PR]</span></div>
+          <div class="travel-stay-title">この街の空気を、<br class="travel-stay-break" />現地で感じてみる。</div>
+          <div class="travel-stay-hotel">東京発・カリフォルニア州オークランド行き</div>
+          <a href={oaklandFlight} target="_blank" rel="nofollow sponsored noopener"
+            data-affiliate-merchant="rakuten-travel" data-affiliate-item="Tokyo to Oakland California OAK" data-affiliate-position="r103-oakland-flight">
+            <span>航空券・日程を見てみる</span><span aria-hidden="true">→</span>
+          </a>
+          <div class="travel-stay-service">楽天トラベル</div>
+        </aside>
 
 
 
