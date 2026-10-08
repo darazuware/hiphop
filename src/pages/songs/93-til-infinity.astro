@@ -9,6 +9,8 @@ const record = songs.find(song => song.slug === '/songs/93-til-infinity')!;
 const recordAmazon = `https://www.amazon.co.jp/s?k=${encodeURIComponent(record.artists + ' ' + record.album)}&i=music&tag=wax1124-22`;
 const recordMercari = `https://jp.mercari.com/search?keyword=${encodeURIComponent(record.artists + ' ' + record.album)}&afid=3150124771`;
 
+const mauiStay = 'https://hb.afl.rakuten.co.jp/hgc/5852bc79.f9142da9.5852bc7a.df572a4b/?pc=https%3A%2F%2Ftravel.rakuten.co.jp%2FHOTEL%2F148254%2F148254.html&link_type=text&ut=eyJwYWdlIjoidXJsIiwidHlwZSI6InRleHQiLCJjb2wiOjF9';
+
 const contextProducts = {
   forty: { query: 'Olde English 800', mercariLabel: 'メルカリで関連品を探す' },
   timbs: { query: 'Timberland ブーツ ブラック', mercariLabel: 'メルカリで探す' },
@@ -344,6 +346,16 @@ Tajaiが「ときどき、<br />
           <img src="/images/context/93-til-infinity/maui-user.jpg" alt="マウイ島の海岸と青い海" width="588" height="261" style="max-width: 588.00px" loading="lazy" decoding="async" />
           <figcaption>マウイ島の海岸。</figcaption>
         </figure>
+        <aside class="travel-stay" id="maui-stay" aria-label="マウイ島のホテル">
+          <div class="travel-stay-label">マウイ島で泊まるなら <span>[PR]</span></div>
+          <div class="travel-stay-title">海のそばで過ごす、<br class="travel-stay-break" />マウイの休日。</div>
+          <div class="travel-stay-hotel">グランド・ワイレア<br />ウォルドーフ・アストリア・リゾート</div>
+          <a href={mauiStay} target="_blank" rel="nofollow sponsored noopener"
+            data-affiliate-merchant="rakuten-travel" data-affiliate-item="Grand Wailea 148254" data-affiliate-position="r103-maui-stay">
+            <span>客室・宿泊プランを見てみる</span><span aria-hidden="true">→</span>
+          </a>
+          <div class="travel-stay-service">楽天トラベル</div>
+        </aside>
 <AmazonMusicReference query="The Beach Boys Good Vibrations" artist="The Beach Boys" record="Smiley Smile" cover="/images/context/93-til-infinity/beach-boys-cover.jpg" title="ビーチ・ボーイズ「Good Vibrations」" label="曲・収録盤をAmazonで探す" position="r103-reference-beach-boys" />
       </LearningUnit>
 
@@ -1074,6 +1086,17 @@ Dr. DreやDeath Rowが牽引する <strong class="text-[var(--c-text)]">G-Funk</
   :global(#reading-start p) { line-height: 1.95; }
   :global(#song-reading-body .space-y-3 > p + p),
   :global(#song-reading-body .space-y-4 > p + p) { margin-top: 1.4rem; }
+  .travel-stay { max-width: 588px; margin: -0.5rem auto 2rem; padding: 1.3rem; border: 1px solid var(--c-gold); border-radius: 0.65rem; background: var(--c-surface); }
+  .travel-stay-label { display: flex; justify-content: space-between; gap: 1rem; color: var(--c-gold); font-size: 0.75rem; font-weight: 600; }
+  .travel-stay-label span { color: var(--c-muted); font-weight: 400; }
+  .travel-stay-title { margin-top: 0.65rem; color: var(--c-text); font-size: 1.25rem; font-weight: 700; line-height: 1.6; }
+  .travel-stay-break { display: none; }
+  .travel-stay-hotel { margin-top: 0.7rem; color: var(--c-muted); font-size: 0.8rem; line-height: 1.7; }
+  .travel-stay a { display: flex; align-items: center; justify-content: space-between; gap: 0.8rem; min-height: 52px; margin-top: 1.1rem; padding: 0.8rem 1rem; border-radius: 0.4rem; background: var(--c-gold); color: #111; font-size: 0.85rem; font-weight: 700; line-height: 1.6; text-decoration: none; }
+  .travel-stay a:hover { filter: brightness(1.08); }
+  .travel-stay a:focus-visible { outline: 2px solid var(--c-text); outline-offset: 3px; }
+  .travel-stay-service { margin-top: 0.4rem; text-align: right; color: var(--c-muted); font-size: 0.7rem; }
+  @media (max-width: 480px) { .travel-stay-break { display: block; } }
   .context-photo { margin: 2rem 0; scroll-margin-top: 160px; }
   .context-photo img { display: block; width: 100%; height: auto; margin: 0 auto; border-radius: 0.5rem; }
   .context-photo figcaption { margin-top: 0.75rem; color: var(--c-muted); font-size: 0.8rem; line-height: 1.8; }

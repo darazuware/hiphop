@@ -54,7 +54,8 @@ function affiliateIssues(tag) {
   const merchant = attribute(tag, "data-affiliate-merchant");
   const looksAffiliate = Boolean(merchant)
     || /amazon\.co\.jp\/.*[?&]tag=/i.test(href)
-    || /jp\.mercari\.com\/.*[?&]afid=/i.test(href);
+    || /jp\.mercari\.com\/.*[?&]afid=/i.test(href)
+    || /hb\.afl\.rakuten\.co\.jp\//i.test(href);
   if (!looksAffiliate) return [];
 
   const issues = [];
@@ -85,6 +86,22 @@ function affiliateIssues(tag) {
       const itemPath = url.hostname === "jp.mercari.com" && /^\/item\/m\d+$/.test(url.pathname);
       if (!itemPath && !url.searchParams.get("keyword")?.trim()) issues.push("P2:mercari-query");
     }
+    if (merchant === "rakuten-travel") {
+      if (url.hostname !== "hb.afl.rakuten.co.jp"
+        || !url.pathname.startsWith("/hgc/5852bc79.f9142da9.5852bc7a.df572a4b/")) {
+        issues.push("P3:rakuten-publisher");
+      }
+      try {
+        const destination = new URL(url.searchParams.get("pc") ?? "");
+        if (destination.protocol !== "https:"
+          || !(destination.hostname === "travel.rakuten.co.jp"
+            || destination.hostname.endsWith(".travel.rakuten.co.jp"))) {
+          issues.push("P2:rakuten-destination");
+        }
+      } catch {
+        issues.push("P2:rakuten-destination");
+      }
+    }
   } catch {
     issues.push("P2:url");
   }
@@ -107,6 +124,13 @@ function runSelfTest() {
   assert(affiliateIssues(mercari('https://jp.mercari.com/item/not-an-id?afid=3150124771')).includes('P2:mercari-query'));
   assert(affiliateIssues(mercari('https://example.com/item/m86391808150?afid=3150124771')).includes('P2:mercari-query'));
   assert(affiliateIssues(mercari('https://jp.mercari.com/search?afid=3150124771')).includes('P2:mercari-query'));
+  const rakuten = href => `<a href="${href}" rel="sponsored nofollow noopener" data-affiliate-merchant="rakuten-travel" data-affiliate-item="hotel" data-affiliate-position="inline">`;
+  const rakutenUrl = 'https://hb.afl.rakuten.co.jp/hgc/5852bc79.f9142da9.5852bc7a.df572a4b/?pc=https%3A%2F%2Ftravel.rakuten.co.jp%2FHOTEL%2F148254%2F148254.html&link_type=text';
+  assert.deepEqual(affiliateIssues(rakuten(rakutenUrl)), []);
+  assert(affiliateIssues(rakuten(rakutenUrl.replace('5852bc79', '00000000'))).includes('P3:rakuten-publisher'));
+  assert(affiliateIssues(rakuten(rakutenUrl.replace('travel.rakuten.co.jp', 'example.com'))).includes('P2:rakuten-destination'));
+  assert(affiliateIssues(rakuten(rakutenUrl.split('?')[0])).includes('P2:rakuten-destination'));
+  assert(affiliateIssues(`<a href="${rakutenUrl}" rel="sponsored nofollow noopener">`).includes('P3:merchant'));
   console.log("✅ publish safety self-test");
 }
 
