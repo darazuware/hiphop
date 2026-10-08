@@ -9,6 +9,13 @@ const record = songs.find(song => song.slug === '/songs/93-til-infinity')!;
 const recordAmazon = `https://www.amazon.co.jp/s?k=${encodeURIComponent(record.artists + ' ' + record.album)}&i=music&tag=wax1124-22`;
 const recordMercari = `https://jp.mercari.com/search?keyword=${encodeURIComponent(record.artists + ' ' + record.album)}&afid=3150124771`;
 
+const contextProducts = {
+  forty: { query: 'Olde English 800', mercariLabel: 'メルカリで関連品を探す' },
+  timbs: { query: 'Timberland ブーツ ブラック', mercariLabel: 'メルカリで探す' },
+};
+const contextAmazon = (query: string) => `https://www.amazon.co.jp/s?k=${encodeURIComponent(query)}&tag=wax1124-22`;
+const contextMercari = (query: string) => `https://jp.mercari.com/search?keyword=${encodeURIComponent(query)}&afid=3150124771`;
+
 // 学習ユニットのPVタイムスタンプ。agent/src/extract-unit-timestamps.mjs で album音源を
 // whisper単語アライメントして取得（whisperSec）し、運営者の実測値があれば manualSec が
 // 上書きする二層構造。詳細は docs/timestamp-override.md。approx=true は概算（未実測）。
@@ -283,8 +290,17 @@ Tajaiが「ときどき、<br />
 ボトルの容量を、<br />
 そのまま酒の呼び名にしています。</p>
         <figure class="context-photo" id="photo-forty" data-image-source="user-provided">
-          <img src="/images/context/93-til-infinity/forty-user.jpg" alt="Olde English 800の40オンスボトルと、ボトルが写った集合写真" width="1280" height="772" style="max-width: 729.53px" loading="lazy" decoding="async" />
+          <a href={contextAmazon(contextProducts.forty.query)} target="_blank" rel="noopener sponsored nofollow"
+            data-affiliate-merchant="amazon" data-affiliate-item={contextProducts.forty.query} data-affiliate-position="r103-forty-photo">
+            <img src="/images/context/93-til-infinity/forty-user.jpg" alt="Olde English 800の40オンスボトルと、ボトルが写った集合写真" width="1280" height="772" style="max-width: 729.53px" loading="lazy" decoding="async" />
+          </a>
           <figcaption>40オンスのOlde English 800。右側の写真にも、同じボトルが写っています。</figcaption>
+          <div class="context-purchase" aria-label="Olde English 800を探す">
+            <a href={contextAmazon(contextProducts.forty.query)} target="_blank" rel="noopener sponsored nofollow"
+              data-affiliate-merchant="amazon" data-affiliate-item={contextProducts.forty.query} data-affiliate-position="r103-forty-amazon">Amazonで探す → [PR]</a>
+            <a href={contextMercari(contextProducts.forty.query)} target="_blank" rel="noopener sponsored nofollow"
+              data-affiliate-merchant="mercari" data-affiliate-item={contextProducts.forty.query} data-affiliate-position="r103-forty-mercari">{contextProducts.forty.mercariLabel} → [PR]</a>
+          </div>
         </figure>
 
         <p><strong class="text-[var(--c-text)]">swig</strong> は「（ボトルから）ゴクゴク飲む」という動詞です。</p>
@@ -455,8 +471,17 @@ AAVEやラップの韻の都合では、<br />
 もともとは労働者向けの黄色いブーツで、<br />
 90年代のニューヨーク・ヒップホップでは制服のような定番アイテムでした。</p>
         <figure class="context-photo" id="photo-timbs" data-image-source="user-provided">
-          <img src="/images/context/93-til-infinity/timbs-user.jpg" alt="黒いTimberlandのブーツ" width="408" height="251" style="max-width: 408.00px" loading="lazy" decoding="async" />
+          <a href={contextAmazon(contextProducts.timbs.query)} target="_blank" rel="noopener sponsored nofollow"
+            data-affiliate-merchant="amazon" data-affiliate-item={contextProducts.timbs.query} data-affiliate-position="r103-timbs-photo">
+            <img src="/images/context/93-til-infinity/timbs-user.jpg" alt="黒いTimberlandのブーツ" width="408" height="251" style="max-width: 408.00px" loading="lazy" decoding="async" />
+          </a>
           <figcaption>黒いTimberlandのブーツ。</figcaption>
+          <div class="context-purchase" aria-label="Timberlandの黒いブーツを探す">
+            <a href={contextAmazon(contextProducts.timbs.query)} target="_blank" rel="noopener sponsored nofollow"
+              data-affiliate-merchant="amazon" data-affiliate-item={contextProducts.timbs.query} data-affiliate-position="r103-timbs-amazon">Amazonで探す → [PR]</a>
+            <a href={contextMercari(contextProducts.timbs.query)} target="_blank" rel="noopener sponsored nofollow"
+              data-affiliate-merchant="mercari" data-affiliate-item={contextProducts.timbs.query} data-affiliate-position="r103-timbs-mercari">{contextProducts.timbs.mercariLabel} → [PR]</a>
+          </div>
         </figure>
 
         <p>西海岸の彼らが黒のTimbsを履いているのは、<br />
@@ -1053,5 +1078,8 @@ Dr. DreやDeath Rowが牽引する <strong class="text-[var(--c-text)]">G-Funk</
   .context-photo img { display: block; width: 100%; height: auto; margin: 0 auto; border-radius: 0.5rem; }
   .context-photo figcaption { margin-top: 0.75rem; color: var(--c-muted); font-size: 0.8rem; line-height: 1.8; }
   .context-photo small { display: block; margin-top: 0.4rem; color: var(--c-dim); font-size: 0.7rem; }
+  .context-purchase { display: flex; flex-wrap: wrap; gap: 0.65rem; margin-top: 0.85rem; }
+  .context-photo .context-purchase a { display: inline-flex; align-items: center; min-height: 44px; padding: 0.6rem 0.85rem; border: 1px solid var(--c-gold); border-radius: 0.5rem; color: var(--c-gold); font-size: 0.8rem; font-weight: 600; text-decoration: none; }
+  .context-photo .context-purchase a:hover { background: var(--c-gold); color: #111; }
   .context-photo a { text-decoration: underline; text-underline-offset: 0.15em; }
 </style>
