@@ -1,10 +1,11 @@
 ---
 // メルカリアフィリエイトCTA（共通コンポーネント）。
 // タグ(afid)は本コンポーネントで集中管理し、ページに生のmercari URLを直書きしない。
-// Amazon戦略と同じ「検索リンクを踏ませる」方式: 個別出品への直リンクは売却・削除で
-// すぐ死にリンク化するため使わない。検索結果ページは常に何か表示され死なない。
+// 通常は検索案内。ユーザー指定の出品がある場合はhref/coverで商品写真付き直リンクを表示する。
 // 3本柱（アルバム名・曲名・アーティスト名）で検索角度を変え、ヒット率を最大化する。
 interface Item {
+  href?: string; // ユーザー指定の発行済み出品URL（afid保持）
+  cover?: string; // 当該出品ページで確認した商品写真
   query: string; // 検索キーワード
   label: string; // ボタン表示名（実名を出して埋没させない）
 }
@@ -23,17 +24,18 @@ const hrefFor = (q: string) => `https://jp.mercari.com/search?keyword=${encodeUR
     <span class="text-[var(--c-very-dim)] normal-case">[PR]</span> {heading}
   </p>
   <div class="flex flex-wrap gap-2">
-    {items.map(item => (
+    {items.map((item, index) => (
       <a
-        href={hrefFor(item.query)}
+        href={item.href ?? hrefFor(item.query)}
         target="_blank"
         rel="noopener sponsored nofollow"
         data-affiliate-merchant="mercari"
         data-affiliate-item={item.query}
-        data-affiliate-position={position}
-        class="inline-flex items-center gap-1.5 border border-[var(--c-gold)]/60 text-[var(--c-gold)] text-sm font-semibold px-4 py-2.5 rounded-lg hover:bg-[var(--c-gold)] hover:text-black transition-colors"
+        data-affiliate-position={item.href ? `${position}-${index + 1}` : position}
+        class:list={["inline-flex items-center gap-1.5 border border-[var(--c-gold)]/60 text-[var(--c-gold)] text-sm font-semibold px-4 py-2.5 rounded-lg hover:bg-[var(--c-gold)] hover:text-black transition-colors", item.cover && "w-full min-w-0"]}
       >
-        {item.label} →
+        {item.cover && <img src={item.cover} alt={item.query} width="72" height="72" loading="lazy" class="w-[72px] h-[72px] object-contain shrink-0" />}
+        {item.cover ? <span class="min-w-0 break-words">{item.label} →</span> : `${item.label} →`}
       </a>
     ))}
   </div>

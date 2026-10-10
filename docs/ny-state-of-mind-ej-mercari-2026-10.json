@@ -1,0 +1,72 @@
+{
+  "date": "2026-10-10 JST",
+  "baseReview": "43b4edb6da0f32d5a59d9f24a0471358ddcfe184",
+  "scope": "E&J Amazon search CTA replaced with two specified Mercari listing cards only",
+  "copy": "国内でE&Jを手に入れたいなら、メルカリの出品もチェックできます。グラス付きのセットや古酒も出品されています。",
+  "availabilityClaim": "No unsupported claim that there are no sellers anywhere in Japan; listing availability may change",
+  "sources": [
+    {
+      "url": "https://jp.mercari.com/item/m82177084030?afid=3150124771",
+      "title": "E&J BRANDY オリジナル ブランデー 700ml グラス付き - メルカリ",
+      "image": "https://static.mercdn.net/item/detail/orig/photos/m82177084030_1.jpg?1791329454",
+      "http": 200,
+      "browserStateAtCheck": {
+        "soldOut": false,
+        "purchaseButton": true,
+        "productVisible": true
+      }
+    },
+    {
+      "url": "https://jp.mercari.com/item/m69069345363?afid=3150124771",
+      "title": "E&J BRANDY ORIGINAL 古酒 - メルカリ",
+      "image": "https://static.mercdn.net/item/detail/orig/photos/m69069345363_1.jpg?1788934155",
+      "http": 200,
+      "browserStateAtCheck": {
+        "soldOut": false,
+        "purchaseButton": true,
+        "productVisible": true
+      }
+    }
+  ],
+  "imageTerms": "Actual listing photographs hosted by Mercari, linked to source listing, no rehosting/alteration/free-license assertion; copyright remains with rights holder.",
+  "preservation": {
+    "onlyCTAChanged": true,
+    "articleBeforeSHA256": "1c4ee1e27119d79cf5ef4e73aa95b80aa014d4bd2e609429d680af2359632f26",
+    "articleAfterSHA256": "28a67442d54811acfdfcf50446481ab53381686583d13a7caabf76b58a053204",
+    "quotes28AndTimestamps11": "Original hashes verified; all 11 times still estimates",
+    "providedPhotos4": "Original bytes preserved",
+    "ScarfaceDVDAndStop": "Unchanged",
+    "existingMercariFallback": "Same href/item/position in both browser viewports; new optional href/cover props only"
+  },
+  "checks": {
+    "tone": "Initial correction passed, independent reread, final passed",
+    "article": "10 checks incl build passed",
+    "publishSafety": "Passed",
+    "regression": "12 conditions passed",
+    "diff": "Passed",
+    "browser": [
+      {
+        "viewport": 1440,
+        "noHorizontalOverflow": true,
+        "photosLoaded": true,
+        "providedLinksAndAfid": "Exact",
+        "isolatedAffiliateEvents": 2,
+        "screenshot": "/private/tmp/ny-ej-card-1440.jpg"
+      },
+      {
+        "viewport": 390,
+        "noHorizontalOverflow": true,
+        "photosLoaded": true,
+        "providedLinksAndAfid": "Exact",
+        "isolatedAffiliateEvents": 2,
+        "screenshot": "/private/tmp/ny-ej-card-390.jpg"
+      }
+    ],
+    "realPurchaseClicks": 0
+  },
+  "pending": [
+    "Production approval, then publish-main.mjs only",
+    "11 audio timestamps remain unmeasured",
+    "Unprovided advertising codes remain separate follow-up"
+  ]
+}
