@@ -23,9 +23,11 @@ learning型ページの各学習ユニットには、公式PVへの頭出しリ�
 | `whisperSec` | whisper単語アライメント（album相対・自動） | 受ける（`--offset`） | 記録のみ（tに不採用） |
 | `fallbackT` | 手動推定（線形補間の保険） | 受けない | 低 |
 | `captionSec` | **align-yt-captions.mjs**（埋め込み動画の公式キャプション照合・[docs/timestamp-caption-alignment.md](timestamp-caption-alignment.md)） | 受けない | 中（PV絶対秒） |
+| `syncedSec` | 出典付きの既存同期データ。公式字幕と共有区間を照合し、音源ID/尺/出典を同曲assetsに記録 | 受けない | fallbackTより上・公式字幕より下 |
 | `manualSec` | **運営者が実機(PV)で測った実測秒（PV絶対秒）** | 受けない | **最優先** |
 
-最終表示値 `t` は `manualSec ?? captionSec ?? fallbackT`（whisperSecは不採用）。
+最終表示値 `t` は `manualSec ?? captionSec ?? syncedSec ?? fallbackT`（whisperSecは不採用）。
+`timingPending: true` は頭出し時刻を確認できないunitで、概算へ戻さず t=null とする（manualSecを設定すれば復帰）。同期データは運営者の実測や公式字幕とは区別し、manualSec/captionSecへ偽装しない。
 `mvAbsent: true` のunitは引用パートが動画に存在しない（アルバム版のみ等）ため t=null＝▶非表示。
 つまり **manualSec が入っていれば常にそれが勝つ**。記事には `units-timestamps.json` の `t` が出る。
 

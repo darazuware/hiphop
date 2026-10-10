@@ -19,11 +19,9 @@ const contextProducts = {
 const contextAmazon = (query: string) => `https://www.amazon.co.jp/s?k=${encodeURIComponent(query)}&tag=wax1124-22`;
 const contextMercari = (query: string) => `https://jp.mercari.com/search?keyword=${encodeURIComponent(query)}&afid=3150124771`;
 
-// 学習ユニットのPVタイムスタンプ。agent/src/extract-unit-timestamps.mjs で album音源を
-// whisper単語アライメントして取得（whisperSec）し、運営者の実測値があれば manualSec が
-// 上書きする二層構造。詳細は docs/timestamp-override.md。approx=true は概算（未実測）。
+// 公式フル音源の頭出し時刻。根拠は assets/playback-timing.json。
 import tsData from '../../../agent/93-til-infinity/assets/units-timestamps.json';
-const YT = "fXJc2NYwHjw";
+const YT = "4Z0TeaTzo_U";
 const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.approx }]));
 ---
 
@@ -33,10 +31,10 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
   slug="93-til-infinity"
   highlights={[
     '93 \'Til Infinityはオークランドの若者の「チル」を描いた西海岸ゴールデンエラの定番曲',
-    'スラング・韻・言葉遊び・AAVEを「学ぶ表現」単位で解説（PV頭出しリンク付き）',
+    'スラング・韻・言葉遊び・AAVEを「学ぶ表現」単位で解説（公式音源の頭出しリンク付き）',
     'A-PlusがBilly Cobham「Heather」を刻んだ、まどろむようなジャジーループ',
   ]}
-  youtubeId="fXJc2NYwHjw"
+  youtubeId="4Z0TeaTzo_U"
   sampleYoutubeId="l7Q-JfAV2xk"
   sampleTitle="Billy Cobham - Heather"
   sampleInContent={true}
@@ -162,45 +160,32 @@ Del the Funky Homosapien ら）の名前を次々に呼んでいきます。</p>
       </h2>
       <p class="text-xs text-[var(--c-dim)] mb-6">見出しの表現を、<br />
 和訳とスラング・文法の解説で読み解きます。</p>
-      <p class="text-xs text-[var(--c-dim)] mb-6">▶でPVの該当箇所へ飛べます。</p>
+      <p class="text-xs text-[var(--c-dim)] mb-6">▶で公式フル音源の該当箇所へ飛べます。</p>
 
 
       <!-- ① chill / from '93 'til -->
-      <LearningUnit
-        heading="This is how we chill from '93 'til — 省略のきいたタイトルフレーズ"
-        label="★ 構文／スラング"
-        mc="Souls of Mischief（Chorus）"
-        t={TS["chill-93-til"].t} tApprox={TS["chill-93-til"].approx} youtubeId={YT}
-        embed=""
-      >
-        <Fragment slot="eng">This is how we chill from '93 'til<br />This is how we chill from '93 'til</Fragment>
-        <Fragment slot="jpn">これが俺たちの過ごし方、'93から（ずっと）／これが俺たちの過ごし方、'93から</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 各バースの合間に繰り返されるフック。曲名そのものです。</p>
-        <p>まずキーワードの <strong class="text-[var(--c-text)]"><QuickSlang word="chill" desc="リラックスする・のんびり過ごす・たむろする。最重要の日常スラング" /></strong>。<br />
-「リラックスする・だらだら過ごす・たむろする」という、<br />
-今でも超頻出の日常スラングです。</p>
-        <p>日本でもいつの間にか「カフェでチルする」「シーシャで一服してチルする」みたいに、<br />
-くつろぐ意味でそのまま使われるようになりましたよね。</p>
-        <p>そして学習ポイントは行末 <strong class="text-[var(--c-text)]">from '93 'til</strong>。<br />
-これは <code>from 1993 'til infinity</code>（1993年から永遠に）の <strong class="text-[var(--c-text)]">infinity を省略した</strong>言い回しで、<br />
-曲名「93 'Til Infinity」と響き合っています。</p>
-        <p><code>'til</code> は <em>until</em>（〜まで）の短縮。<br />
-後ろの目的語をあえて言い切らずに余韻で残す、<br />
-この<strong class="text-[var(--c-text)]">省略の感覚</strong>が、<br />
-口語のリズムを作っています。</p>
-        <p>「俺たちのチルは'93から、<br />
-この先ずっと変わらない」という宣言が、<br />
-たった数語に畳まれています。</p>
-        <Fragment slot="usage">
-          <p><strong class="text-[var(--c-text)]">chill</strong> は動詞・形容詞・間投詞すべてで使える万能スラング。<em>I'm just chillin'</em>（ただまったりしてる）、<em>a chill spot</em>（くつろげる場所）、<em>Chill!</em>（落ち着け！</p>
-          <p>）。NYの <em>lamp</em> と同義だが、chill の方が全国区で通じる。</p>
-          <p><strong class="text-[var(--c-text)]">'til</strong> は <em>until / till</em> の口語短縮。<em>from A 'til B</em>（AからBまで）の形で使い、ここでは B（infinity）を省いて余韻にしている。</p>
-          <p>会話でも <em>'til then</em>（それまで）のように頻出。</p>
-        </Fragment>
-      </LearningUnit>
 
       <!-- intro maxin -->
-      <LearningUnit
+
+  <span hidden data-player-marker data-t="0" data-mc="Intro"></span>
+  <span hidden data-player-marker data-t="18" data-mc="Verse 1"></span>
+  <span hidden data-player-marker data-t="37" data-mc="Verse 2"></span>
+  <span hidden data-player-marker data-t="51" data-mc="Verse 3"></span>
+  <span hidden data-player-marker data-t="65" data-mc="Verse 4"></span>
+  <span hidden data-player-marker data-t="74" data-mc="Hook"></span>
+  <span hidden data-player-marker data-t="92" data-mc="Verse 5"></span>
+  <span hidden data-player-marker data-t="102" data-mc="Verse 6"></span>
+  <span hidden data-player-marker data-t="116" data-mc="Verse 7"></span>
+  <span hidden data-player-marker data-t="135" data-mc="Verse 8"></span>
+  <span hidden data-player-marker data-t="148" data-mc="Hook"></span>
+  <span hidden data-player-marker data-t="167" data-mc="Verse 9"></span>
+  <span hidden data-player-marker data-t="186" data-mc="Verse 10"></span>
+  <span hidden data-player-marker data-t="195" data-mc="Verse 11"></span>
+  <span hidden data-player-marker data-t="204" data-mc="Verse 12"></span>
+  <span hidden data-player-marker data-t="223" data-mc="Hook"></span>
+  <span hidden data-player-marker data-t="242" data-mc="Outro"></span>
+
+  <LearningUnit
         heading="I'm chillin' with my man Phesto — 自己紹介から始まるイントロ"
         label="★ 構成／スラング"
         mc="Tajai（Intro）"
@@ -469,6 +454,39 @@ AAVEやラップの韻の都合では、<br />
 軽快にフックへ受け渡しています。</p>
       </LearningUnit>
 
+  <LearningUnit
+        heading="This is how we chill from '93 'til — 省略のきいたタイトルフレーズ"
+        label="★ 構文／スラング"
+        mc="Souls of Mischief（Chorus）"
+        t={TS["chill-93-til"].t} tApprox={TS["chill-93-til"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">This is how we chill from '93 'til<br />This is how we chill from '93 'til</Fragment>
+        <Fragment slot="jpn">これが俺たちの過ごし方、'93から（ずっと）／これが俺たちの過ごし方、'93から</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 各バースの合間に繰り返されるフック。曲名そのものです。</p>
+        <p>まずキーワードの <strong class="text-[var(--c-text)]"><QuickSlang word="chill" desc="リラックスする・のんびり過ごす・たむろする。最重要の日常スラング" /></strong>。<br />
+「リラックスする・だらだら過ごす・たむろする」という、<br />
+今でも超頻出の日常スラングです。</p>
+        <p>日本でもいつの間にか「カフェでチルする」「シーシャで一服してチルする」みたいに、<br />
+くつろぐ意味でそのまま使われるようになりましたよね。</p>
+        <p>そして学習ポイントは行末 <strong class="text-[var(--c-text)]">from '93 'til</strong>。<br />
+これは <code>from 1993 'til infinity</code>（1993年から永遠に）の <strong class="text-[var(--c-text)]">infinity を省略した</strong>言い回しで、<br />
+曲名「93 'Til Infinity」と響き合っています。</p>
+        <p><code>'til</code> は <em>until</em>（〜まで）の短縮。<br />
+後ろの目的語をあえて言い切らずに余韻で残す、<br />
+この<strong class="text-[var(--c-text)]">省略の感覚</strong>が、<br />
+口語のリズムを作っています。</p>
+        <p>「俺たちのチルは'93から、<br />
+この先ずっと変わらない」という宣言が、<br />
+たった数語に畳まれています。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">chill</strong> は動詞・形容詞・間投詞すべてで使える万能スラング。<em>I'm just chillin'</em>（ただまったりしてる）、<em>a chill spot</em>（くつろげる場所）、<em>Chill!</em>（落ち着け！</p>
+          <p>）。NYの <em>lamp</em> と同義だが、chill の方が全国区で通じる。</p>
+          <p><strong class="text-[var(--c-text)]">'til</strong> は <em>until / till</em> の口語短縮。<em>from A 'til B</em>（AからBまで）の形で使い、ここでは B（infinity）を省いて余韻にしている。</p>
+          <p>会話でも <em>'til then</em>（それまで）のように頻出。</p>
+        </Fragment>
+      </LearningUnit>
+
       <!-- v5 timbs -->
       <LearningUnit
         heading="My black Timbs do me right — スニーカーではなく Timbs（ティンバーランド）"
@@ -622,7 +640,8 @@ Opioらしい多重韻です。</p>
       </LearningUnit>
 
       <!-- ⑧ habitual be -->
-      <LearningUnit
+
+  <LearningUnit
         heading="I be coolin' — AAVEの習慣のbe（habitual be）"
         label="★ AAVE文法"
         mc="Phesto（Verse 9）"
@@ -813,39 +832,10 @@ Phestoの持ち味です。</p>
       </LearningUnit>
 
       <!-- outro crew -->
-      <LearningUnit
-        heading="Who's chillin'? — 名前を呼び合うアウトロと Hieroglyphics"
-        label="★ 構成／文化"
-        mc="Souls of Mischief（Outro）"
-        t={TS["outro-crew"].t} tApprox={TS["outro-crew"].approx} youtubeId={YT}
-        embed=""
-      >
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ アウトロ、仲間の名を順に呼んでいくくだり。</p>
-        <p>アウトロは、<br />
-メンバーが「<strong class="text-[var(--c-text)]">Who's chillin'?</strong>（誰がチルしてる？）」と問いかけ、<br />
-仲間の名前を一人ずつ挙げていく、<br />
-掛け合いの構成になっています。</p>
-        <p>ここで名前が呼ばれるのは、<br />
-彼らの所属する大所帯クルー <strong class="text-[var(--c-text)]">Hieroglyphics（ハイエログリフィクス、<br />
-通称ハイエロ）</strong>の面々。<br />
-<strong class="text-[var(--c-text)]">Casual、<br />
-Del the Funky Homosapien、<br />
-Pep Love</strong> といった、<br />
-当時のオークランド・アンダーグラウンドの主役たちです。</p>
-        <figure class="context-photo" id="photo-hiero-casual">
-          <img src="/images/context/93-til-infinity/hiero-casual.jpg" alt="三つ目のHieroglyphicsロゴのTシャツを着たCasual" width="600" height="900" style="max-width: 293.33px" loading="lazy" decoding="async" />
-          <figcaption>ハイエロのMC、Casual。2006年のライブ写真で、Tシャツにはクルーの三つ目ロゴが見えます。<small><a href="https://commons.wikimedia.org/wiki/File:Casual_hieroglyphics.jpg" target="_blank" rel="noopener noreferrer">写真：Brian Kennedy</a> · <a href="https://creativecommons.org/licenses/by-sa/3.0" target="_blank" rel="noopener noreferrer">CC BY-SA 3.0</a></small></figcaption>
-        </figure>
-
-        <p>Souls of Mischiefの4人から、<br />
-ハイエロの仲間へ。<br />
-名前を呼び合って、<br />
-曲を締めています。</p>
-<AmazonMusicReference query="Hieroglyphics 3rd Eye Vision" artist="Hieroglyphics" cover="/images/context/93-til-infinity/hiero-cover.jpg" title="Hieroglyphics『3rd Eye Vision』（1998）" label="ハイエロのクルー作品をAmazonで探す" position="r103-reference-hiero" />
-      </LearningUnit>
 
       <!-- ⑪ the Land -->
-      <LearningUnit
+
+  <LearningUnit
         heading="who's chillin' around the Land — オークランド＝the Land"
         label="★ スラング（地名）／文化"
         mc="Souls of Mischief（Outro）"
@@ -879,6 +869,37 @@ Pep Love</strong> といった、<br />
         <p><code>y'know</code> は <em>you know</em> を縮めた口語。<br />
 「ほら」「分かるだろ」のように、<br />
 話の合間にはさみます。</p>
+      </LearningUnit>
+
+  <LearningUnit
+        heading="Who's chillin'? — 名前を呼び合うアウトロと Hieroglyphics"
+        label="★ 構成／文化"
+        mc="Souls of Mischief（Outro）"
+        t={TS["outro-crew"].t} tApprox={TS["outro-crew"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ アウトロ、仲間の名を順に呼んでいくくだり。</p>
+        <p>アウトロは、<br />
+メンバーが「<strong class="text-[var(--c-text)]">Who's chillin'?</strong>（誰がチルしてる？）」と問いかけ、<br />
+仲間の名前を一人ずつ挙げていく、<br />
+掛け合いの構成になっています。</p>
+        <p>ここで名前が呼ばれるのは、<br />
+彼らの所属する大所帯クルー <strong class="text-[var(--c-text)]">Hieroglyphics（ハイエログリフィクス、<br />
+通称ハイエロ）</strong>の面々。<br />
+<strong class="text-[var(--c-text)]">Casual、<br />
+Del the Funky Homosapien、<br />
+Pep Love</strong> といった、<br />
+当時のオークランド・アンダーグラウンドの主役たちです。</p>
+        <figure class="context-photo" id="photo-hiero-casual">
+          <img src="/images/context/93-til-infinity/hiero-casual.jpg" alt="三つ目のHieroglyphicsロゴのTシャツを着たCasual" width="600" height="900" style="max-width: 293.33px" loading="lazy" decoding="async" />
+          <figcaption>ハイエロのMC、Casual。2006年のライブ写真で、Tシャツにはクルーの三つ目ロゴが見えます。<small><a href="https://commons.wikimedia.org/wiki/File:Casual_hieroglyphics.jpg" target="_blank" rel="noopener noreferrer">写真：Brian Kennedy</a> · <a href="https://creativecommons.org/licenses/by-sa/3.0" target="_blank" rel="noopener noreferrer">CC BY-SA 3.0</a></small></figcaption>
+        </figure>
+
+        <p>Souls of Mischiefの4人から、<br />
+ハイエロの仲間へ。<br />
+名前を呼び合って、<br />
+曲を締めています。</p>
+<AmazonMusicReference query="Hieroglyphics 3rd Eye Vision" artist="Hieroglyphics" cover="/images/context/93-til-infinity/hiero-cover.jpg" title="Hieroglyphics『3rd Eye Vision』（1998）" label="ハイエロのクルー作品をAmazonで探す" position="r103-reference-hiero" />
       </LearningUnit>
 
       <!-- outro 92 to 93 -->

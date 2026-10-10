@@ -1,0 +1,111 @@
+{
+  "videoId": "4Z0TeaTzo_U",
+  "duration": 286,
+  "officialUrl": "https://www.youtube.com/watch?v=4Z0TeaTzo_U",
+  "previousVideoId": "fXJc2NYwHjw",
+  "previousDuration": 215,
+  "timingSource": "https://lrclib.net/api/get/35152057",
+  "timingSourceDuration": 286,
+  "method": "Existing synced line timestamps, matched to unit anchors; floored for pre-roll. Official MV captions independently corroborate shared sections; full audio has no captions. Not operator listening measurements.",
+  "lineStarts": {
+    "intro-maxin": 4.15,
+    "intro-cloudy": 13.11,
+    "v1-seven-digits": 18.81,
+    "forty-stoge": 23.38,
+    "good-vibrations": 32.91,
+    "bones-to-pick": 42.05,
+    "v3-in-the-cut": 60.83,
+    "v4-throws-game": 67.63,
+    "all-that-phat": 69.68,
+    "chill-93-til": 74.35,
+    "v5-timbs": 92.84,
+    "v6-blunts-flip": 113.61,
+    "v7-posted": 116.39,
+    "indo": 127.68,
+    "greenbacks-stacks": 135.1,
+    "habitual-be": 167.3,
+    "v10-mall": 186.36,
+    "fashion-dipped": 190.75,
+    "v11-main-squeeze": 202.29,
+    "v12-mack": 204.72,
+    "bite-flows": 214.23,
+    "v12-loot": 218.48,
+    "the-land": 245.53,
+    "outro-crew": 247.51
+  },
+  "pending": [
+    "outro-92-93"
+  ],
+  "pendingReason": "No synchronized line timestamp for the final expression; suppress guessed seek until measured.",
+  "markers": [
+    {
+      "t": 0,
+      "mc": "Intro"
+    },
+    {
+      "t": 18,
+      "mc": "Verse 1"
+    },
+    {
+      "t": 37,
+      "mc": "Verse 2"
+    },
+    {
+      "t": 51,
+      "mc": "Verse 3"
+    },
+    {
+      "t": 65,
+      "mc": "Verse 4"
+    },
+    {
+      "t": 74,
+      "mc": "Hook"
+    },
+    {
+      "t": 92,
+      "mc": "Verse 5"
+    },
+    {
+      "t": 102,
+      "mc": "Verse 6"
+    },
+    {
+      "t": 116,
+      "mc": "Verse 7"
+    },
+    {
+      "t": 135,
+      "mc": "Verse 8"
+    },
+    {
+      "t": 148,
+      "mc": "Hook"
+    },
+    {
+      "t": 167,
+      "mc": "Verse 9"
+    },
+    {
+      "t": 186,
+      "mc": "Verse 10"
+    },
+    {
+      "t": 195,
+      "mc": "Verse 11"
+    },
+    {
+      "t": 204,
+      "mc": "Verse 12"
+    },
+    {
+      "t": 223,
+      "mc": "Hook"
+    },
+    {
+      "t": 242,
+      "mc": "Outro"
+    }
+  ],
+  "sectionMethod": "Verse starts matched from existing Genius section headings to synchronized lines; hook repetitions and outro from the same timed data."
+}
