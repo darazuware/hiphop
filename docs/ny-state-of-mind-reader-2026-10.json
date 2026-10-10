@@ -141,5 +141,158 @@
       "isolatedAffiliateEvents": 6,
       "externalCommerceRequests": 0
     }
-  ]
+  ],
+  "userPhotoRevision": {
+    "baseReviewCommit": "164b84c566bb4ec933e3e29d721db5d1d102bd67",
+    "status": "validated",
+    "assets": [
+      {
+        "id": "scarface",
+        "attachment": "1-写真1.jpg",
+        "file": "public/images/context/ny-state-of-mind/scarface-user.jpg",
+        "sha256": "36c78c89a471d38f5354d7c988aeeb910ed497b062e2305aab3dd6bc5ca61105",
+        "width": 1280,
+        "height": 563,
+        "provenance": "user-provided",
+        "modifications": "none; source bytes and watermarks retained",
+        "originalAuthorLicense": "not supplied; no independent license asserted"
+      },
+      {
+        "id": "ej",
+        "attachment": "4-写真4.jpg",
+        "file": "public/images/context/ny-state-of-mind/ej-brandy-user.jpg",
+        "sha256": "4b39d510a1b1b7935531ee0e3db4a682d4af53f8170545db4aad36d21a3a55fc",
+        "width": 554,
+        "height": 554,
+        "provenance": "user-provided",
+        "modifications": "none; source bytes and watermarks retained",
+        "originalAuthorLicense": "not supplied; no independent license asserted"
+      },
+      {
+        "id": "grants",
+        "attachment": "2-写真2.jpg",
+        "file": "public/images/context/ny-state-of-mind/grants-user.jpg",
+        "sha256": "2e83dba1ca061a5e7c3b71b6d1da2991b1bf62a92dfc2feb4c97f1a96cf41f6c",
+        "width": 588,
+        "height": 254,
+        "provenance": "user-provided",
+        "modifications": "none; source bytes and watermarks retained",
+        "originalAuthorLicense": "not supplied; no independent license asserted"
+      },
+      {
+        "id": "ceelo",
+        "attachment": "3-写真3.jpg",
+        "file": "public/images/context/ny-state-of-mind/ceelo-user.jpg",
+        "sha256": "be0d95cd0755eb0d7cd46f1a3cb74b5a4bec1ec4425eb4dfb600d27d3084aadb",
+        "width": 1280,
+        "height": 514,
+        "provenance": "user-provided",
+        "modifications": "none; source bytes and watermarks retained",
+        "originalAuthorLicense": "not supplied; no independent license asserted"
+      }
+    ],
+    "placements": [
+      "scarface after Montana paragraph",
+      "ej after E&J paragraph",
+      "grants after Grants definition",
+      "ceelo at end of ej-grants-ceelo prose"
+    ],
+    "newAmazonPositions": [
+      "ny-scarface",
+      "ny-ej-brandy"
+    ],
+    "sources": [
+      "https://www.universalpicturesathome.com/movies/scarface-1983",
+      "https://www.ejbrandy.com/collection/"
+    ],
+    "productionApproval": "awaiting photo revision review",
+    "checks": {
+      "toneThreePasses": "PASS",
+      "article10IncludingBuild": "PASS",
+      "publishSafety": "PASS",
+      "readerPreservation10": "PASS",
+      "originalAttachmentHashes": "4/4 match",
+      "unrelatedWIP": "unchanged",
+      "diffWhitespace": "PASS",
+      "PC390px": "PASS: 5 loaded photos, 0 horizontal overflow, 8 isolated affiliate events per width, 11 existing seek/stop pairs"
+    },
+    "browser": [
+      {
+        "width": 1440,
+        "overflow": 0,
+        "photoDimensions": [
+          {
+            "width": 640,
+            "naturalWidth": 1280,
+            "naturalHeight": 563
+          },
+          {
+            "width": 320,
+            "naturalWidth": 554,
+            "naturalHeight": 554
+          },
+          {
+            "width": 640,
+            "naturalWidth": 588,
+            "naturalHeight": 246
+          },
+          {
+            "width": 640,
+            "naturalWidth": 1280,
+            "naturalHeight": 514
+          },
+          {
+            "width": 684,
+            "naturalWidth": 3606,
+            "naturalHeight": 2464
+          }
+        ],
+        "placements": {
+          "scarface": true,
+          "ej": true,
+          "grants": true,
+          "ceelo": true
+        },
+        "affiliateEvents": 8
+      },
+      {
+        "width": 390,
+        "overflow": 0,
+        "photoDimensions": [
+          {
+            "width": 314,
+            "naturalWidth": 1280,
+            "naturalHeight": 563
+          },
+          {
+            "width": 314,
+            "naturalWidth": 554,
+            "naturalHeight": 554
+          },
+          {
+            "width": 314,
+            "naturalWidth": 588,
+            "naturalHeight": 246
+          },
+          {
+            "width": 314,
+            "naturalWidth": 1280,
+            "naturalHeight": 514
+          },
+          {
+            "width": 358,
+            "naturalWidth": 3606,
+            "naturalHeight": 2464
+          }
+        ],
+        "placements": {
+          "scarface": true,
+          "ej": true,
+          "grants": true,
+          "ceelo": true
+        },
+        "affiliateEvents": 8
+      }
+    ]
+  }
 }
