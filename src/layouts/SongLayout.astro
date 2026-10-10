@@ -1243,6 +1243,12 @@ const seoDescription = song && !description.includes('和訳')
     // 各ユニットの▶ボタン: 上部プレーヤーを該当秒へジャンプ＋再生。
     // YTプレーヤーがある場合はYouTube遷移を抑止して内部シーク。無ければ素のリンク動作にフォールバック。
     document.addEventListener('click', (e: MouseEvent) => {
+      const stop = (e.target as HTMLElement)?.closest('[data-player-stop]');
+      if (stop) {
+        e.preventDefault();
+        pausePlayback();
+        return;
+      }
       const link = (e.target as HTMLElement)?.closest('[data-seek]') as HTMLElement | null;
       if (!link || !ytIframe) return;  // 動画なし＝従来どおりリンクで開く
       const sec = parseFloat(link.getAttribute('data-seek') ?? '');
@@ -1323,11 +1329,20 @@ const seoDescription = song && !description.includes('和訳')
       else { cancelAnimationFrame(rafId); updateFollowChip(); }
     }
 
+    // 再生位置は保持し、準備前の再生予約も取り消す。
+    function pausePlayback() {
+      pendingPlay = false;
+      if (ytReady && ytPlayer?.pauseVideo) ytPlayer.pauseVideo();
+      setPlaying(false);
+      iconPlay.style.display = 'block';
+      iconPause.style.display = 'none';
+    }
+
     playBtn.addEventListener('click', () => {
       if (ytIframe) {
         // PVがある＝実音源で再生。状態は onStateChange→setPlaying で反映。
         if (ytReady && ytPlayer) {
-          if (playing) ytPlayer.pauseVideo();
+          if (playing) pausePlayback();
           else {
             // 初回再生のみ: PVイントロ映像(ヘリの音等)を飛ばして実曲の始まりへシーク
             if (YT_START != null && !hasSeekedToStart) {
