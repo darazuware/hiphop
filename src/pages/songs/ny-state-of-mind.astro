@@ -5,6 +5,7 @@ import QuickSlang from '../../components/QuickSlang.astro';
 import SongLayout from '../../layouts/SongLayout.astro';
 import MercariCta from '../../components/MercariCta.astro';
 import AmazonMusicReference from '../../components/AmazonMusicReference.astro';
+import shop from '../../data/ny-state-of-mind-commerce.json';
 const recordAmazon = `https://www.amazon.co.jp/s?k=${encodeURIComponent('Nas Illmatic')}&i=music&tag=wax1124-22`;
 
 // 公式音源の頭出しは11件ともfallback由来の推定値。運営者実測・字幕照合は未確認。
@@ -268,7 +269,8 @@ Nasは弾詰まりや逃げる動きまで描いています。<br />
           <figcaption>E&Jのブランデー。<small>画像：ユーザー提供（原画像のクレジットを保持）</small></figcaption>
         </figure>
         <div id="ej-mercari-guide">
-          <p>国内でE&amp;Jを手に入れたいなら、メルカリの出品もチェックできます。グラス付きのセットや古酒も出品されています。</p>
+          <p>残念ながらE&amp;Jは日本での正規取扱いができる通販はありません。Amazonにもありませんでした。</p>
+          <p>メルカリで見つけました。</p>
           <MercariCta heading="E&amp;Jをメルカリでゲットする" position="ny-ej-mercari"
             items={[
               { query: "E&J BRANDY オリジナル ブランデー 700ml グラス付き", label: "E&J 700ml・グラス付きの出品を見る", href: "https://jp.mercari.com/item/m82177084030?afid=3150124771", cover: "https://static.mercdn.net/item/detail/orig/photos/m82177084030_1.jpg?1791329454" },
@@ -294,6 +296,8 @@ Nasは弾詰まりや逃げる動きまで描いています。<br />
           <img src="/images/context/ny-state-of-mind/ceelo-user.jpg" alt="cee-loのルールが描かれた看板と3個のサイコロ、路上でサイコロを振る様子" width="1280" height="514" loading="lazy" decoding="async" />
           <figcaption>cee-loのルールと、サイコロで遊ぶ様子。<small>画像：ユーザー提供（原画像のクレジットを保持）</small></figcaption>
         </figure>
+        <p>サイコロの形が気になるなら、部屋に飾れる金属製のダイスもあります。こちらはインテリアや置物にも使える5個セットです。</p>
+        <div id="purchase-ceelo" class="scroll-mt-40"><AmazonMusicReference {...shop.ceelo} /></div>
 
         <Fragment slot="usage">
           <p>アメリカの紙幣スラングは <strong class="text-[var(--c-text)]">肖像の人物名</strong>で呼ぶのが定番です。<em>Grants</em>＝50ドル（グラント）、<em>Franklins</em>＝100ドル（フランクリン）、<em>Jacksons</em>＝20ドル（ジャクソン）。</p>
@@ -370,7 +374,13 @@ Nasは <code>I think of crime</code>（犯罪のことを考える）と接続�
         <Fragment slot="jpn">いつもギャングスタの夢を見る、モエを飲み、TECを構える／金がきっちり入るのを確かめて、それから立ち去った</Fragment>
         <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の冒頭、夢の中のギャングスタ像を描く件。</p>
         <p>上の行はブランド名と銃で「ギャングスタの夢」を一気に描いています。</p>
-<p><strong class="text-[var(--c-text)]">Moëts</strong> はシャンパンのモエ・エ・シャンドン（Moët）、<strong class="text-[var(--c-text)]"><QuickSlang word="TECs" desc="TEC-9。当時ストリートで多用された安価なセミオート拳銃" /></strong> は拳銃TEC-9のことです。</p>
+<p><strong class="text-[var(--c-text)]">Moëts</strong> はシャンパンのモエ・エ・シャンドン（Moët）です。</p>
+        <div id="purchase-moet" class="scroll-mt-40"><AmazonMusicReference {...shop.moet} /></div>
+        <p><strong class="text-[var(--c-text)]"><QuickSlang word="TECs" desc="TEC-9。当時ストリートで多用された安価なセミオート拳銃" /></strong> は拳銃TEC-9のことです。</p>
+        <p>TEC-9は9mm口径のセミオート式ピストルで、引き金を引くたびに一発ずつ発射する銃です。先行機種のKG-9から発展したもので、KG-9は連射式へ改造されやすいことが問題となり、1982年に米国で規制対象になりました。</p>
+        <p>その外形を知る入口として、KG-9を再現したガスガンもあります。下はKTC製KT-101、BB弾を使うエアソフトガンです。</p>
+        <div id="purchase-tec9" class="scroll-mt-40"><AmazonMusicReference {...shop.tec9} /></div>
+        <p class="text-xs text-[var(--c-muted)]">銃の来歴：<a href="https://www.atf.gov/rules-and-regulations/rulings/firearms-rulings?field_topic_tid=All&amp;og_group_ref_target_id%5B186%5D=186&amp;page=2" target="_blank" rel="noopener noreferrer" class="underline">ATFのKG-9資料</a></p>
         <p>高級シャンパンと安価な銃を同じ行に並べることで、<br />
 虚飾と暴力が隣り合う夢の質感が出ています。</p>
         <p>冒頭の <strong class="text-[var(--c-text)]">Be havin'</strong> は、<br />
@@ -421,6 +431,12 @@ Nasは <code>I think of crime</code>（犯罪のことを考える）と接続�
         <p><code>lamp like Capone</code> で「（伝説のギャング）アル・カポネのように悠然とくつろぐ」という意味になります。<br />
 スラングは <strong class="text-[var(--c-text)]">地域の方言</strong>で、<br />
 この <em>lamp</em> は特にNYの語感が強い一語です。</p>
+        <p>Al Caponeをモデルにしたのは、1932年版『Scarface』の主人公トニー・カモンテ。上で紹介したアル・パチーノ主演の1983年版『スカーフェイス』は、舞台をマイアミの麻薬ビジネスへ移したリメイクです。</p>
+        <figure class="context-photo supplied-photo" id="photo-capone" data-image-source="user-provided">
+          <img src="/images/context/ny-state-of-mind/capone-user.jpg" alt="Al Caponeを紹介する2枚の白黒写真" width="1280" height="514" loading="lazy" />
+          <figcaption>Al Caponeを紹介する画像。画像：ユーザー提供（原本を掲載、改変なし）。</figcaption>
+        </figure>
+        <p class="text-xs text-[var(--c-muted)]">映画の背景：<a href="https://catalog.afi.com/Catalog/moviedetails/1134" target="_blank" rel="noopener noreferrer" class="underline">AFI『Scarface』（1932）の作品資料</a></p>
         <p>行末の <strong class="text-[var(--c-text)]">stones</strong> は「ダイヤなどの宝石」を指し、<code>rings flooded with stones</code>（石で溢れた指輪）で富を描きます。</p>
         <p><code>Capone / sewn / stones / homes</code> と <strong class="text-[var(--c-text)]">-one/-ones</strong> の脚韻が連なっているのも聴きどころです。</p>
         <Fragment slot="usage">
@@ -499,11 +515,22 @@ Nasらしい一行です。<code>plateau / slow / rhymin'</code> 周辺の音の
 MC Shanやマーリー・マールを輩出したヒップホップの聖地であり、<br />
 同時にクラック・エピデミックと暴力の渦中にあった土地でもありました。
           </p>
+          <figure class="context-photo supplied-photo" id="photo-queensbridge-collage" data-image-source="user-provided">
+            <img src="/images/context/ny-state-of-mind/queensbridge-collage-user.jpg" alt="クイーンズブリッジの看板、団地、橋を組み合わせた提供写真" width="1280" height="357" loading="lazy" />
+            <figcaption>クイーンズブリッジの団地とその周辺。画像：ユーザー提供（合成画像の原本を掲載、改変なし）。</figcaption>
+          </figure>
           <p>
             「N.Y. State of Mind」の一人称の銃撃描写や、<br />
 E&J・cee-lo・lampといった語彙は、<br />
 すべてこの団地の日常から立ち上がっています。
           </p>
+          <h3 class="font-semibold text-base text-[var(--c-text)] mt-6">MC Shan：Nasより前のクイーンズブリッジ</h3>
+          <p>MC Shanはクイーンズブリッジを代表するMCで、地元を歌った「The Bridge」で知られています。Nasが育った団地には、その前からラップの歴史がありました。</p>
+          <div id="purchase-mcShan" class="scroll-mt-40"><AmazonMusicReference {...shop.mcShan} /></div>
+          <h3 class="font-semibold text-base text-[var(--c-text)] mt-6">Marley Marl：団地の音を組んだプロデューサー</h3>
+          <p>マーリー・マールは、MC Shanの「The Bridge」を手がけたプロデューサー。レコードからドラムの音を取り出してビートを組む手法を広めた、クイーンズブリッジの音楽を語るうえで欠かせない一人です。</p>
+          <div id="purchase-marleyMarl" class="scroll-mt-40"><AmazonMusicReference {...shop.marleyMarl} /></div>
+          <p class="text-xs">人物の背景：<a href="https://www.redbullmusicacademy.com/lectures/marley-marl-tokyo-2014/" target="_blank" rel="noopener noreferrer" class="underline">Marley Marl本人のインタビュー</a></p>
           <p>
             1994年の『Illmatic』は、<br />
 わずか10曲・約40分ながら「史上最高のヒップホップ・アルバム」の常連に挙げられる一枚です。<br />
@@ -525,6 +552,7 @@ E&J・cee-lo・lampといった語彙は、<br />
 この曲は冒頭の「The Genesis」に続く2曲目。<br />
 アルバムを通して聴くと、<br />
 Nasが描く街の別の表情も見えてきます。</p>
+      <div id="purchase-illmatic" class="scroll-mt-40"><AmazonMusicReference {...shop.illmatic} /></div>
       <MercariCta heading="Illmaticの中古CD・レコードを探す" position="ny-background-illmatic"
         items={[{ query: 'Nas Illmatic', label: 'Illmaticの出品を見る' }]} />
       <p class="mb-6 text-xs text-[var(--c-dim)]">CD・レコード・再発盤で仕様が異なるため、<br />
@@ -561,14 +589,12 @@ Nasが描く街の別の表情も見えてきます。</p>
         <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">サンプル元</p>
         <h3 class="font-semibold text-base mb-3">不穏なピアノの正体 — Joe Chambers "Mind Rain"</h3>
         <div class="space-y-3 text-[var(--c-muted)] text-sm leading-relaxed">
-          <p>
-            曲を支配するあの不穏なピアノのループは、<br />
-ジャズ・ドラマー <strong class="text-[var(--c-text)]">Joe Chambers の「Mind Rain」（1977年、<br />
-収録盤『Double Exposure』）</strong>からのサンプリング。<br />
-そこに <strong class="text-[var(--c-text)]">Kool &amp; the Gang「N.T.」（1971年）のドラムブレイク</strong>を重ね、<br />
-さらに <strong class="text-[var(--c-text)]">Donald Byrd「Flight Time」（1973年）</strong>由来の細かな音の断片（チャープ）を散らして、<br />
-あの緊張感のある音像を組み上げています。
-          </p>
+          <p>曲を支配する不穏なピアノのループは、Joe Chambersの「Mind Rain」（1977年、収録盤『Double Exposure』）からのサンプリング。原曲をアルバムの中で聴くと、Premierが切り出した断片の前後も楽しめます。</p>
+          <div id="purchase-doubleExposure" class="scroll-mt-40"><AmazonMusicReference {...shop.doubleExposure} /></div>
+          <p>そこにKool &amp; The Gang「N.T.」（1971年）のドラムブレイクを重ねています。収録盤『Live at P.J.'s』では、そのリズムをライブ演奏の流れの中で聴けます。</p>
+          <div id="purchase-livePjs" class="scroll-mt-40"><AmazonMusicReference {...shop.livePjs} /></div>
+          <p>Donald Byrd「Flight Time」（1973年）からも、細かな音の断片を取り込んでいます。収録盤『Black Byrd』に戻ると、この音が元の曲でどう鳴っていたのかが分かります。</p>
+          <div id="purchase-blackByrd" class="scroll-mt-40"><AmazonMusicReference {...shop.blackByrd} /></div>
           <p>
             複数のジャズ／ファンクのレコードをコラージュして一つの空気を作るのが、<br />
 DJ Premierの手つきです。<br />
@@ -590,6 +616,8 @@ DJ Premierの手つきです。<br />
 Nasが歌っているのではなく、<strong class="text-[var(--c-text)]">先輩MCのRakim（Eric B. & Rakim）の「Mahogany」（1990年）の一節を、<br />
 Premierがスクラッチで引用した</strong>もの。
           </p>
+          <p>声の出どころをアルバムで聴くなら、Eric B. &amp; Rakimの『Let the Rhythm Hit 'Em』へ。「Mahogany」はこの盤に収録されています。</p>
+          <div id="purchase-rhythm" class="scroll-mt-40"><AmazonMusicReference {...shop.rhythm} /></div>
           <p>
             「最も偉大なMC」と称されるRakimの声を借りてフックにすることで、<br />
 Nasを正統な後継者として印象づける、<br />
@@ -643,6 +671,7 @@ DJ Premierの代名詞。
             続編の「N.Y. State of Mind, Pt. II」（『I Am...』収録）も作られ、<br />
 本曲はNasのキャリアを貫くモチーフになりました。
           </p>
+        <div id="purchase-iam" class="scroll-mt-40"><AmazonMusicReference {...shop.iam} /></div>
           <p>
             英語のリアルな手触りと、<br />
 それが生まれた現場の温度を同時に学べる。<br />
@@ -659,7 +688,7 @@ DJ Premierの代名詞。
 収録盤『Illmatic』へ。<br />
 新品や再発盤はAmazon、<br />
 中古のCD・レコードは上のメルカリ案内から探せます。</p>
-      <a href={recordAmazon} target="_blank" rel="noopener sponsored nofollow" data-affiliate-merchant="amazon" data-affiliate-item="Nas Illmatic" data-affiliate-position="ny-listen-more" class="purchase-button">IllmaticをAmazonで探す → [PR]</a>
+      <a href="#purchase-illmatic" class="purchase-button">『Illmatic』の商品写真・購入先へ戻る →</a>
     </section>
 
     <!-- まとめ -->

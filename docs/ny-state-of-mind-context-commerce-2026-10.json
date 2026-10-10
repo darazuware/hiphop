@@ -1,0 +1,318 @@
+{
+  "date": "2026-10-11 JST",
+  "scope": "ny-state-of-mind only",
+  "baseReview": "2654ec70b3b34b510a4f14e883d1a1ef78599f58",
+  "triage": {
+    "clicks": 18,
+    "impressions": 695,
+    "fallbackTimes": 11,
+    "priority": "first after completed R-103"
+  },
+  "assets": [
+    {
+      "file": "public/images/context/ny-state-of-mind/capone-user.jpg",
+      "provided": "/tmp/codex-remote-attachments/01a12486-fa49-74f3-846c-e41cd60fee70/BD7F5DD7-6F20-4546-9552-743CD16F860F/1-写真1.jpg",
+      "sha256": "48f90e80a31796dd9da7218dd279fa86f8387a30158e491bf07cf8eb0cb75b90",
+      "dimensions": [
+        1280,
+        514
+      ],
+      "source": "User provided original; no author/license inferred; unmodified"
+    },
+    {
+      "file": "public/images/context/ny-state-of-mind/queensbridge-collage-user.jpg",
+      "provided": "/tmp/codex-remote-attachments/01a12486-fa49-74f3-846c-e41cd60fee70/BD7F5DD7-6F20-4546-9552-743CD16F860F/2-写真2.jpg",
+      "sha256": "6d4f950d49402e33dcb0f1eed20f5cd700baa9c608a25306f698f3605aac8fce",
+      "dimensions": [
+        1280,
+        357
+      ],
+      "source": "User provided original; no author/license inferred; unmodified"
+    }
+  ],
+  "products": [
+    {
+      "key": "ceelo",
+      "providedURL": "https://link.amazon/B0i12SqnI",
+      "verifiedURL": "https://www.amazon.co.jp/dp/B0F1FCZ5V3/ref=cm_sw_r_as_gl_api_gl_i_EVZZZB84RDW0RKT7CVT3?linkCode=ml1&tag=wax1124-22&linkId=ad80deab514db7f7cb705311ba693c0a&ascsubtag=srctok-1209de4a7c4523e1&btn_type=ss&btn_ref=srctok-1209de4a7c4523e1",
+      "href": "https://www.amazon.co.jp/dp/B0F1FCZ5V3/ref=cm_sw_r_as_gl_api_gl_i_EVZZZB84RDW0RKT7CVT3?linkCode=ml1&tag=wax1124-22&linkId=ad80deab514db7f7cb705311ba693c0a&ascsubtag=srctok-1209de4a7c4523e1&btn_type=ss&btn_ref=srctok-1209de4a7c4523e1",
+      "title": "Amazon | [AiO JAPAN] サイコロ 金属製のダイス 金属 5個セット オブジェ インテリア 置物 (シルバー) | ダイス・サイコロ | おもちゃ",
+      "image": "https://m.media-amazon.com/images/I/5162N+Wuu6L._AC_SY300_SX300_QL70_ML2_.jpg",
+      "status": 200,
+      "position": "ny-ceelo",
+      "merchant": "amazon"
+    },
+    {
+      "key": "moet",
+      "providedURL": "https://link.amazon/B0h5oTke4",
+      "verifiedURL": "https://www.amazon.co.jp/dp/B01DT59ON6/ref=cm_sw_r_as_gl_api_gl_i_7TDZ88P8K7HSR4BQH5TD?linkCode=ml1&tag=wax1124-22&linkId=0821a9028713161104ee66b6eb6a2c71&ascsubtag=srctok-26e3bb894b8ea48d&btn_type=ss&btn_ref=srctok-26e3bb894b8ea48d",
+      "href": "https://www.amazon.co.jp/dp/B01DT59ON6/ref=cm_sw_r_as_gl_api_gl_i_7TDZ88P8K7HSR4BQH5TD?linkCode=ml1&tag=wax1124-22&linkId=0821a9028713161104ee66b6eb6a2c71&ascsubtag=srctok-26e3bb894b8ea48d&btn_type=ss&btn_ref=srctok-26e3bb894b8ea48d",
+      "title": "Amazon.co.jp: モエ・エ・シャンドン モエ アンペリアル 正規品 750ml / MOET&CHANDON MOET IMPERIAL : 食品・飲料・お酒",
+      "image": "https://m.media-amazon.com/images/I/61zuPAN-qqL._AC_SX342_SY445_QL70_ML2_.jpg",
+      "status": 200,
+      "position": "ny-moet",
+      "merchant": "amazon"
+    },
+    {
+      "key": "tec9",
+      "providedURL": "https://a.r10.to/hgGKkn",
+      "verifiedURL": "https://item.rakuten.co.jp/toybase2017/01142112547818428/?scid=af_pc_ich_spweb_item_copy&sc2id=af_101_0_0",
+      "href": "https://a.r10.to/hgGKkn",
+      "title": "【楽天市場】KTC製 KT-101(KG-9) オープンボルト ガスブローバック ガスガン：玩基貿易",
+      "image": "https://shop.r10s.jp/toybase2017/cabinet/kg-9_1.jpg",
+      "status": 200,
+      "position": "ny-tec9",
+      "merchant": "rakuten"
+    },
+    {
+      "key": "mcShan",
+      "providedURL": "https://link.amazon/B07pU0bKK",
+      "verifiedURL": "https://www.amazon.co.jp/dp/B00005JIWK/ref=cm_sw_r_as_gl_api_gl_i_FBHSJ31B3HF04T0KXC58?linkCode=ml1&tag=wax1124-22&linkId=2b935aa323153b816e6dcb3efa19666d&ascsubtag=srctok-62b43cc4f5c568a4&btn_type=ss&btn_ref=srctok-62b43cc4f5c568a4",
+      "href": "https://www.amazon.co.jp/dp/B00005JIWK/ref=cm_sw_r_as_gl_api_gl_i_FBHSJ31B3HF04T0KXC58?linkCode=ml1&tag=wax1124-22&linkId=2b935aa323153b816e6dcb3efa19666d&ascsubtag=srctok-62b43cc4f5c568a4&btn_type=ss&btn_ref=srctok-62b43cc4f5c568a4",
+      "title": "Amazon.co.jp: Best Of: ミュージック",
+      "image": "https://m.media-amazon.com/images/I/91bU3dSRbLL._AC_SX300_SY300_QL70_ML2_.jpg",
+      "status": 200,
+      "position": "ny-mc-shan",
+      "merchant": "amazon"
+    },
+    {
+      "key": "marleyMarl",
+      "providedURL": "https://link.amazon/B0iBA8dep",
+      "verifiedURL": "https://www.amazon.co.jp/dp/B00005Q6OX/ref=cm_sw_r_as_gl_api_gl_i_DBSVMBZW96MWJ98H8M1N?linkCode=ml1&tag=wax1124-22&linkId=78d26b6b9a5fadc09631218e1de85b39&ascsubtag=srctok-276cef395a801c15&btn_type=ss&btn_ref=srctok-276cef395a801c15",
+      "href": "https://www.amazon.co.jp/dp/B00005Q6OX/ref=cm_sw_r_as_gl_api_gl_i_DBSVMBZW96MWJ98H8M1N?linkCode=ml1&tag=wax1124-22&linkId=78d26b6b9a5fadc09631218e1de85b39&ascsubtag=srctok-276cef395a801c15&btn_type=ss&btn_ref=srctok-276cef395a801c15",
+      "title": "Amazon.co.jp: Vol. 1 & 2-in Control-Best of: ミュージック",
+      "image": "https://m.media-amazon.com/images/I/51seyffHtmL._AC_SX300_SY300_QL70_ML2_.jpg",
+      "status": 200,
+      "position": "ny-marley-marl",
+      "merchant": "amazon"
+    },
+    {
+      "key": "doubleExposure",
+      "providedURL": null,
+      "verifiedURL": "https://www.amazon.co.jp/dp/B0G1R1MP6Y",
+      "href": "https://www.amazon.co.jp/dp/B0G1R1MP6Y?tag=wax1124-22",
+      "title": "Amazon.co.jp: Double Exposure (LP) (Ltd) [Analog]: ミュージック",
+      "image": "https://m.media-amazon.com/images/I/71AJi9wPapL._AC_SY300_SX300_QL70_ML2_.jpg",
+      "status": 200,
+      "position": "ny-double-exposure",
+      "merchant": "amazon"
+    },
+    {
+      "key": "livePjs",
+      "providedURL": null,
+      "verifiedURL": "https://www.amazon.co.jp/dp/B09X71XKG9",
+      "href": "https://www.amazon.co.jp/dp/B09X71XKG9?tag=wax1124-22",
+      "title": "Amazon.co.jp: ライヴ・アット・ピージェイズ+1(生産限定盤): ミュージック",
+      "image": "https://m.media-amazon.com/images/I/71al9zcacbL._AC_SX300_SY300_QL70_ML2_.jpg",
+      "status": 200,
+      "position": "ny-live-pjs",
+      "merchant": "amazon"
+    },
+    {
+      "key": "blackByrd",
+      "providedURL": null,
+      "verifiedURL": "https://www.amazon.co.jp/dp/B01LW46LZF",
+      "href": "https://www.amazon.co.jp/dp/B01LW46LZF?tag=wax1124-22",
+      "title": "Amazon.co.jp: ブラック・バード: ミュージック",
+      "image": "https://m.media-amazon.com/images/I/71Y3wFB36SL._AC_SX300_SY300_QL70_ML2_.jpg",
+      "status": 200,
+      "position": "ny-black-byrd",
+      "merchant": "amazon"
+    },
+    {
+      "key": "rhythm",
+      "providedURL": null,
+      "verifiedURL": "https://www.amazon.co.jp/dp/B000002O75",
+      "href": "https://www.amazon.co.jp/dp/B000002O75?tag=wax1124-22",
+      "title": "Amazon.co.jp: Let Rhythm Hit Em: ミュージック",
+      "image": "https://m.media-amazon.com/images/I/41FI+5E6+LL._AC_SY300_SX300_QL70_ML2_.jpg",
+      "status": 200,
+      "position": "ny-rhythm",
+      "merchant": "amazon"
+    },
+    {
+      "key": "iam",
+      "providedURL": null,
+      "verifiedURL": "https://www.amazon.co.jp/dp/B0000256TO",
+      "href": "https://www.amazon.co.jp/dp/B0000256TO?tag=wax1124-22",
+      "title": "Amazon.co.jp: I AM...: ミュージック",
+      "image": "https://m.media-amazon.com/images/I/81+B6jJmBDL._AC_SX300_SY300_QL70_ML2_.jpg",
+      "status": 200,
+      "position": "ny-iam",
+      "merchant": "amazon"
+    },
+    {
+      "key": "illmatic",
+      "providedURL": null,
+      "verifiedURL": "https://www.amazon.co.jp/dp/B00L9EL3XO",
+      "href": "https://www.amazon.co.jp/dp/B00L9EL3XO?tag=wax1124-22",
+      "title": "Amazon.co.jp: イルマティック XX: ミュージック",
+      "image": "https://m.media-amazon.com/images/I/51-9G3udKrL._AC_SY300_SX300_QL70_ML2_.jpg",
+      "status": 200,
+      "position": "ny-background-illmatic",
+      "merchant": "amazon"
+    }
+  ],
+  "facts": [
+    {
+      "topic": "Scarface / Al Capone",
+      "status": "OK with distinction",
+      "claim": "1932 protagonist modeled on Capone; 1983 Pacino film is a remake relocated to Miami, not Capone biography",
+      "sources": [
+        "https://catalog.afi.com/Catalog/moviedetails/1134",
+        "https://www.tcm.com/articles/1008196/scarface-1983"
+      ]
+    },
+    {
+      "topic": "KG-9 / TEC-9",
+      "status": "Corrected user summary",
+      "claim": "KG-9 is semiautomatic, not the military SMG itself; TEC-9 lineage from KG-9; ATF 1982 classification is high-level context only. Product is KG-9-type BB gas airsoft gun KT-101, not actual TEC-9 or a non-firing model gun. No modification/operational details.",
+      "sources": [
+        "https://www.atf.gov/rules-and-regulations/rulings/firearms-rulings?field_topic_tid=All&og_group_ref_target_id%5B186%5D=186&page=2",
+        "https://www.justice.gov/archive/usao/nys/pressreleases/July07/solomonyanetalpr.pdf",
+        "https://ojp.gov/pdffiles1/Digitization/128172NCJRS.pdf",
+        "https://item.rakuten.co.jp/toybase2017/01142112547818428/"
+      ]
+    },
+    {
+      "topic": "MC Shan / Marley Marl",
+      "status": "OK",
+      "sources": [
+        "https://www.redbullmusicacademy.com/lectures/marley-marl-tokyo-2014/"
+      ]
+    },
+    {
+      "topic": "E&J Japanese retail availability",
+      "status": "User-supplied wording applied exactly; not an independent exhaustive-market verification",
+      "copy": "残念ながらE&Jは日本での正規取扱いができる通販はありません。Amazonにもありませんでした。メルカリで見つけました。",
+      "sources": [
+        "User 2026-10-11; Mercari two official listings previously verified"
+      ],
+      "followUp": "No manufacturer Japan sales declaration found; nationwide nonexistence not independently established. Treat user-authored statement separately from measured evidence."
+    },
+    {
+      "topic": "Sample album pairing",
+      "status": "Product pages and existing sample source checked; no guessed ASINs",
+      "sources": [
+        "https://www.whosampled.com/Nas/N.Y.-State-of-Mind/",
+        "https://music.apple.com/us/album/let-the-rhythm-hit-em/1444096102",
+        "https://www.universal-music.co.jp/donald-byrd/products/tocj-50504/"
+      ]
+    }
+  ],
+  "imageTerms": "User photos original bytes preserved; photographer/license not provided, not invented. Product images are actual retailer-hosted listing pictures linked to source products, not rehosted/edited; no free reuse license asserted.",
+  "preservation": {
+    "quoteSlots28": "Must match original hash",
+    "times11": "Original fallback/approx data, never asserted measured",
+    "stopAndVideos": "Untouched"
+  },
+  "checks": {
+    "tone": "Initial pass, independent reread of new prose/cards, final pass",
+    "article": "Final 10 checks incl build passed after non-music photo alt correction; /private/tmp/ny-extra-final-article.log",
+    "publishSafety": "Pass: no unresolved markers/invalid CTA; tracking/CSP pass",
+    "regression": "16 conditions pass, including 28 exact quote-slot and 11 original timestamp hashes",
+    "diff": "Pass",
+    "browser": [
+      {
+        "width": 1440,
+        "productCards": 12,
+        "contextPhotos": 7,
+        "allSpecifiedPlacements": true,
+        "allVerifiedProductImagesLoaded": true,
+        "horizontalOverflow": false,
+        "TOC": "6 destinations and return passed",
+        "albumReturn": "Illmatic card anchor passed",
+        "seekStop": [
+          11,
+          11
+        ],
+        "isolatedAffiliateEvents": 31,
+        "rakutenImageAndButtonEvents": 2
+      },
+      {
+        "width": 390,
+        "productCards": 12,
+        "contextPhotos": 7,
+        "allSpecifiedPlacements": true,
+        "allVerifiedProductImagesLoaded": true,
+        "horizontalOverflow": false,
+        "TOC": "6 destinations and return passed",
+        "albumReturn": "Illmatic card anchor passed",
+        "seekStop": [
+          11,
+          11
+        ],
+        "isolatedAffiliateEvents": 31,
+        "rakutenImageAndButtonEvents": 2
+      }
+    ],
+    "visual": "390px cards and both provided figures inspected. Transient QuickSlang hover overlay in early capture disappeared with pointer away and transition complete; card markup/placement correct; shared component unchanged.",
+    "realPurchaseClicks": 0,
+    "finalPhotoAltAndPointer": [
+      {
+        "width": 1440,
+        "alts": [
+          {
+            "key": "ceelo",
+            "alt": "金属製ダイス 5個セット（シルバー）の商品写真"
+          },
+          {
+            "key": "moet",
+            "alt": "モエ アンペリアル 750mlの商品写真"
+          },
+          {
+            "key": "tec9",
+            "alt": "KT-101（KG-9型）ガスガンの商品写真"
+          }
+        ],
+        "events": [
+          {
+            "event": "affiliate_click",
+            "merchant": "rakuten",
+            "content_type": "song",
+            "slug": "ny-state-of-mind",
+            "item": "KT-101（KG-9型）ガスガン",
+            "position": "ny-tec9-cover",
+            "destination_host": "a.r10.to",
+            "transport_type": "beacon"
+          }
+        ]
+      },
+      {
+        "width": 390,
+        "alts": [
+          {
+            "key": "ceelo",
+            "alt": "金属製ダイス 5個セット（シルバー）の商品写真"
+          },
+          {
+            "key": "moet",
+            "alt": "モエ アンペリアル 750mlの商品写真"
+          },
+          {
+            "key": "tec9",
+            "alt": "KT-101（KG-9型）ガスガンの商品写真"
+          }
+        ],
+        "events": [
+          {
+            "event": "affiliate_click",
+            "merchant": "rakuten",
+            "content_type": "song",
+            "slug": "ny-state-of-mind",
+            "item": "KT-101（KG-9型）ガスガン",
+            "position": "ny-tec9-cover",
+            "destination_host": "a.r10.to",
+            "transport_type": "beacon"
+          }
+        ]
+      }
+    ]
+  },
+  "pending": [
+    "11 audio positions still unmeasured",
+    "Unprovided advertising codes",
+    "Production approval, then existing publish-main.mjs",
+    "E&J nationwide retail nonexistence is user-supplied copy; independent exhaustive verification is separate follow-up"
+  ]
+}
