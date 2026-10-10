@@ -1,0 +1,145 @@
+{
+  "date": "2026-10-10 JST",
+  "status": "review_candidate_validated",
+  "article": "ny-state-of-mind",
+  "owner": "Codex",
+  "baseReviewCommit": "eae22aca8e2b5ca2f2a0747ff20a296aec4e4c90",
+  "entry": "node agent/src/check-article.mjs ny-state-of-mind",
+  "priorityBasis": {
+    "record": "docs/article-rollout-triage-2026-10.json",
+    "savedPeriod": "2026-09-09–2026-10-06",
+    "clicks": 18,
+    "impressions": 695,
+    "note": "saved GSC data, not a fresh query"
+  },
+  "findings": [
+    "Intro explains textbook value before song meaning; two repetitive opening sections",
+    "No contextual photo or return-to-TOC link",
+    "Mobile glossary and three-column evaluation cramped",
+    "Illmatic track number incorrectly 3 instead of 2",
+    "Article duration 294 vs embedded official video 296; 11 timestamps are fallback estimates"
+  ],
+  "changes": [
+    "Song-specific meaning-first intro and three entry links",
+    "1–2 sentence paragraphs and visible punctuation breaks; mobile glossary and evaluation cards",
+    "One Queensbridge contextual photo with source, public-domain reuse terms and 2009 date",
+    "Illmatic purchase guidance after place context and article conclusion; existing affiliate tracking reused",
+    "Duration corrected to 296; actual-measurement claims avoided; 11 estimates clearly explained"
+  ],
+  "facts": [
+    {
+      "claim": "Illmatic (1994), N.Y. State of Mind track 2 of 10",
+      "result": "confirmed; corrected track3",
+      "url": "https://www.sonymusic.co.jp/artist/Nas/discography/buy/SRCS-7318"
+    },
+    {
+      "claim": "DJ Premier production, Mind Rain piano/N.T. drums/Flight Time fragments/Mahogany vocal",
+      "result": "confirmed",
+      "url": "https://en.wikipedia.org/wiki/N.Y._State_of_Mind",
+      "sampleDatabase": "https://www.whosampled.com/sample/206418/Mac-Storm-%2890s-Rapper%29-Assassin-Nation-Nas-N.Y.-State-of-Mind/",
+      "note": "WhoSampled direct track page blocked; indexed sample-chain evidence lists Mind Rain 1977, N.T. 1971, Flight Time 1973. Double Exposure album release 1978 is distinct; no album-year rewrite in shared songs.ts."
+    },
+    {
+      "claim": "First verse one take, opening hesitation retained",
+      "result": "confirmed in attributed producer interview",
+      "url": "https://www.complex.com/music/a/jaeki-cho/dj-premier-tells-all-stories-behind-classic-records"
+    },
+    {
+      "claim": "Pt. II on I Am... (1999)",
+      "result": "confirmed",
+      "url": "https://www.youtube.com/watch?v=cVNRjPpo68I"
+    }
+  ],
+  "photo": {
+    "url": "https://commons.wikimedia.org/wiki/File:Queensbr_NYCHA_Vernon_jeh.JPG",
+    "file": "public/images/context/ny-state-of-mind/queensbridge-vernon.jpg",
+    "author": "Jim.henderson",
+    "date": "2009-04-09",
+    "reuse": "public domain release by author worldwide",
+    "changes": "none; original file bytes",
+    "sha256": "218f795483034f8a186dbbc78ca343f9bf7d4bca4f7dce25bff9b127eb0804ae"
+  },
+  "playback": {
+    "id": "hI8A14Qcv68",
+    "title": "Nas - N.Y. State of Mind (Official Audio)",
+    "channel": "Nas",
+    "duration": 296,
+    "upload_date": "20170519",
+    "availability": "public",
+    "subtitles": [],
+    "automatic_captions": [],
+    "evidenceMethod": "yt-dlp --skip-download --dump-single-json, 2026-10-10",
+    "measurementStatus": "not measured",
+    "estimateCount": 11,
+    "timestampChanges": false,
+    "externalCandidate": {
+      "provider": "LRCLIB",
+      "id": 88599,
+      "url": "https://lrclib.net/api/get/88599",
+      "duration": 294,
+      "status": "not adopted; embedded-video correspondence and offset unverified"
+    },
+    "followup": "Measure 11 unit starts against hI8A14Qcv68 and use set-manual-timestamp.mjs only after owner measurement; do not silently promote estimates"
+  },
+  "commerce": {
+    "merchantIDs": {
+      "amazon": "wax1124-22",
+      "mercari": "3150124771"
+    },
+    "clickEvent": "affiliate_click",
+    "fields": [
+      "slug",
+      "merchant",
+      "item",
+      "position",
+      "destination_host"
+    ],
+    "conversion": "existing Amazon/Mercari provider IDs retained for provider-side conversion reporting; no actual sales generated or asserted",
+    "issuedAdditionalCodes": "none provided; no invented affiliate IDs/placeholders"
+  },
+  "preservation": {
+    "quoteSlotSHA256": "31117352645ff28f53ef433e00477ec0ddc62b7b317b6a239698146120f49f21",
+    "quoteSlots": 28,
+    "timestampSHA256": "8cbb6722c25059ce3f7868ad93a739e02626d02e1186efc9c46c7ba74571109f",
+    "sharedStopControl": "unchanged",
+    "userClaudeVideos": "untouched"
+  },
+  "checks": {
+    "tone": "PASS (initial check, independent reread, final check)",
+    "article10IncludingBuildLyricsLinksSEO": "PASS",
+    "publishSafety": "PASS",
+    "publishSafetySelfTest": "PASS",
+    "readerPreservation8": "PASS",
+    "diffWhitespace": "PASS",
+    "existingWIP54Hashes": "unchanged",
+    "browserPC390": "PASS final build",
+    "note": "Specialized attribute guard found and repaired three QuickSlang attributes affected by paragraph splitting; originals restored before final gates."
+  },
+  "followups": [
+    "11 unit positions need actual measurement on official video; caption tracks absent",
+    "Additional ad codes only if supplied; current Illmatic purchase links use existing issued IDs",
+    "Human review and production approval; publish-main.mjs only after approval"
+  ],
+  "previewUrl": "https://hiphop-git-review-darazuwares-projects.vercel.app/songs/ny-state-of-mind/",
+  "productionPublished": false,
+  "browser": [
+    {
+      "width": 1440,
+      "horizontalOverflow": 0,
+      "tocJumpsAndReturn": 6,
+      "loadedContextPhotos": 1,
+      "seekStopPairs": 11,
+      "isolatedAffiliateEvents": 6,
+      "externalCommerceRequests": 0
+    },
+    {
+      "width": 390,
+      "horizontalOverflow": 0,
+      "tocJumpsAndReturn": 6,
+      "loadedContextPhotos": 1,
+      "seekStopPairs": 11,
+      "isolatedAffiliateEvents": 6,
+      "externalCommerceRequests": 0
+    }
+  ]
+}

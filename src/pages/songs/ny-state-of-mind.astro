@@ -3,68 +3,73 @@ import LearningUnit from '../../components/LearningUnit.astro';
 import DiveCards from '../../components/DiveCards.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
 import SongLayout from '../../layouts/SongLayout.astro';
+import MercariCta from '../../components/MercariCta.astro';
+const recordAmazon = `https://www.amazon.co.jp/s?k=${encodeURIComponent('Nas Illmatic')}&i=music&tag=wax1124-22`;
 
-// 学習ユニットのPVタイムスタンプ。agent/src/extract-unit-timestamps.mjs で album音源を
-// whisper単語アライメントして取得（whisperSec）し、運営者の実測値があれば manualSec が
-// 上書きする二層構造。詳細は docs/timestamp-override.md。approx=true は概算（未実測）。
+// 公式音源の頭出しは11件ともfallback由来の推定値。運営者実測・字幕照合は未確認。
 import tsData from '../../../agent/ny-state-of-mind/assets/units-timestamps.json';
 const YT = "hI8A14Qcv68";
 const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.approx }]));
 ---
 
 <SongLayout
-  title="N.Y. State of Mind 英語・スラング解説 | Nas（Illmatic）"
-  description="NasのN.Y. State of Mindを英語学習＋ヒップホップ理解の教材として精読。AAVEの習慣のbe（I be kickin'）、steelo・E&J・Grants・cee-lo・lampなどNYスラング、sleep is the cousin of deathの比喩、DJ Premierのサンプリングを表現単位で解説。各表現はPVの該当箇所へ頭出しリンク付き。"
+  title="N.Y. State of Mind 和訳・意味・スラング解説 | Nas（Illmatic）"
+  description="N.Y. State of Mindの意味と、Nasが描くクイーンズブリッジの日常を解説。11の表現を和訳・スラング・AAVE文法で読み解き、DJ Premierのサンプル元と制作背景も紹介。公式音源の頭出しは推定位置を明示しています。"
   slug="ny-state-of-mind"
   highlights={[
-    'N.Y. State of Mindは20歳のNasが描いた90年代NYストリートのドキュメンタリー',
-    'スラング・韻・言葉遊び・AAVEを「学ぶ表現」単位で解説（PV頭出しリンク付き）',
+    '曲名は「ニューヨークで生きる者の心の状態」。街の危険とラッパーとしての自負を描く',
+    '11の表現を和訳・スラング・文法で解説（公式音源の頭出しは推定値）',
     'DJ Premierの不穏なピアノループとスクラッチ・フックの作り方',
   ]}
   youtubeId="hI8A14Qcv68"
   learningPage={true}
-  songDuration={294}
+  songDuration={296}
 >
 
-    <!-- 導入 -->
-    <section class="mb-6">
-      <h2 class="text-base font-semibold mb-2">■この曲で何を学べるか</h2>
-      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
-        <p>
-          1994年のアルバム『Illmatic（イルマティック）』3曲目。当時まだ <strong class="text-[var(--c-text)]">20歳のNas</strong> が、ニューヨーク・クイーンズブリッジ団地のストリートを、一切美化せずに描き切ったドキュメンタリーのような一曲です。
-        </p>
-        <p>
-          プロデュースは <strong class="text-[var(--c-text)]">DJ Premier（プリモ）</strong>。不穏なピアノのループの上で、暴力・ドラッグ・生き延びることへの強迫が、立て板に水のごとく畳みかけられていきます。
-        </p>
-        <p>
-          この記事は英語学習とヒップホップ理解の教材として読んでもらえればと思います。リリックには、辞書に載らないニューヨーク特有のスラング（steelo、E&J、Grants、cee-lo、lamp…）、AAVE（アフリカ系アメリカ人英語）の文法、そして「sleep is the cousin of death」のような一行で世界観を射抜く比喩がぎっしり詰まっています。
-        </p>
-        <p>
-          それを「学ぶ表現」単位で取り出して、用例の断片・和訳・語法と文化背景を解説していきます。
-        </p>
-      </div>
+    <section slot="record" id="record-summary" aria-label="作品情報" class="record-summary">
+      <a href={recordAmazon} target="_blank" rel="noopener sponsored nofollow" aria-label="IllmaticをAmazonで探す [PR]"
+        data-affiliate-merchant="amazon" data-affiliate-item="Nas Illmatic" data-affiliate-position="song-cover">
+        <img src="/images/covers/ny-state-of-mind.jpg" alt="Nas『Illmatic』のアルバムジャケット" width="192" height="192" fetchpriority="high" />
+        <span class="record-pr">Amazonで探す → [PR]</span>
+      </a>
+      <dl>
+        <dt>アーティスト</dt><dd>Nas（ナズ）</dd>
+        <dt>リリース</dt><dd>1994年</dd>
+        <dt>アルバム</dt><dd>Illmatic · 2曲目</dd>
+        <dt>プロデュース</dt><dd>DJ Premier</dd>
+        <dt>舞台</dt><dd>NY・クイーンズブリッジ</dd>
+      </dl>
     </section>
 
-    <section class="mb-6">
-      <h2 class="text-base font-semibold mb-2">■なぜN.Y. State of Mindが教材として優れるか</h2>
+    <section slot="intro" id="reading-start" aria-labelledby="reading-start-title" class="mb-5">
+      <h2 id="reading-start-title" class="text-base font-semibold mb-2">街で生き延びる緊張を、Nasの言葉から読む</h2>
       <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
-        <p>
-          理由は、<strong class="text-[var(--c-text)]">「生きた英語の密度」がとにかく高い</strong>から。教科書では絶対に出てこない地域スラングが一行に何個も詰まっていて、しかもそれが90年代NYという特定の時代・場所の空気とぴったり結びついています。
-        </p>
-        <p>
-          スラングを一つ覚えるたびに、その街の地図が一マスずつ埋まっていく感覚があります。
-        </p>
-        <p>
-          文法面でも、AAVEを代表する <strong class="text-[var(--c-text)]">習慣のbe（habitual be）</strong>、「I be kickin'」「Be havin' dreams」のように <code>be</code> を原形のまま使って「いつも〜している」を表す用法が、冒頭からはっきり出てきます。
-        </p>
-        <p>
-          さらにこの曲は録音にまつわる伝説（最初の一行は本当に「どう始めればいいか分からない」状態だった）まで含めて語り草で、初期ヒップホップの制作の生々しさを知る入口にもなります。リアルな英語と、それが生まれた現場の温度を、同時に味わえる教材です。
-        </p>
+        <p>「N.Y. State of Mind」は、<br />
+直訳すると「ニューヨークの心の状態」。<br />
+ここでは、<br />
+危険と隣り合わせの街で生きるNasの警戒心や考え方として読むと、<br />
+タイトルが腑に落ちます。</p>
+        <p>銃撃の場面、<br />
+酒や賭け事、<br />
+ラッパーとしての自信。<br />
+クイーンズブリッジの日常を、<br />
+短い用例の和訳と11の表現解説から読み解きます。</p>
+        <p>習慣を表す <code>be</code> の文法や、<br />
+金額を人名で呼ぶスラングが分かると、<br />
+Nasが何を見ているのかが具体的になります。</p>
       </div>
+      <nav aria-label="この曲を読む3つの入口" class="reading-entries">
+        <a href="#story"><strong>曲全体の意味 →</strong><span>2つのバースで描く街の光景</span></a>
+        <a href="#units"><strong>和訳つき表現 →</strong><span>スラング・比喩・AAVE文法</span></a>
+        <a href="#behind"><strong>ビートの元ネタ →</strong><span>ピアノとスクラッチの出所</span></a>
+      </nav>
+      <p class="mt-3 text-xs text-[var(--c-dim)]">解説に必要な短い用例に和訳を添えています。<br />
+全歌詞の対訳は掲載していません。</p>
     </section>
 
+    <div id="song-reading-body">
     <!-- Table of Contents -->
-    <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+    <nav id="article-toc" aria-label="記事の目次" tabindex="-1" class="mb-10 scroll-mt-40 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
       <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
       <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
         <li><a href="#story" class="hover:text-[var(--c-gold)] transition-colors">01 — ストーリーの流れ（まず曲全体をつかむ）</a></li>
@@ -72,56 +77,92 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">03 — 文化的背景</a></li>
         <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">04 — サンプル・制作の裏側</a></li>
         <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">05 — 評価とその後の影響</a></li>
+        <li><a href="#listen-more" class="hover:text-[var(--c-gold)] transition-colors">06 · 収録盤を聴く・探す [PR]</a></li>
       </ol>
     </nav>
 
+    <a href="#article-toc" class="toc-return">↑ 目次に戻る</a>
+
     <!-- ストーリー -->
-    <section id="story" class="mb-12">
+    <section id="story" class="mb-12 scroll-mt-40">
       <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
         ストーリーの流れ — まず曲全体をつかむ
       </h2>
       <p class="text-xs text-[var(--c-dim)] mb-5">
-        この曲は明確な起承転結の物語ではなく、ストリートの光景を高解像度で連射していく「視点の記録」です。各パートが何を映しているかをざっと押さえておくと、次章で一語ずつ掘るときに迷子になりません。
+        Nasは街の光景を、<br />
+自分の視点から次々と語っています。<br />
+ラップの腕自慢と危険な日常が、<br />
+同じバースの中で行き来する曲です。
       </p>
       <div class="space-y-4 text-sm text-[var(--c-muted)] leading-relaxed">
         <p>
-          <strong class="text-[var(--c-text)]">Intro</strong>。「straight out the fuckin' dungeons of rap（ラップの地下牢からまっすぐ出てきた）」という名乗りに続いて、Nasが「I don't know how to start this shit（どう始めればいいか分からない）」とつぶやきます。
+          <strong class="text-[var(--c-text)]">Intro</strong>。<br />
+「straight out the fuckin' dungeons of rap（ラップの地下牢からまっすぐ出てきた）」という名乗りに続いて、<br />
+Nasが「I don't know how to start this shit（どう始めればいいか分からない）」とつぶやきます。
         </p>
         <p>
           この迷いの一言がそのまま音源に残っているのが伝説です（詳細は「制作の裏側」で）。
         </p>
         <p>
-          <strong class="text-[var(--c-text)]">Verse 1</strong>は、ラップの腕前の誇示から始まり、すぐに銃撃戦の生々しい一人称描写へ。MAC-10が草むらにあった、撃った、弾詰まりした、という極めて具体的な場面が、映画のワンシーンのように展開します。
+          <strong class="text-[var(--c-text)]">Verse 1</strong>は、<br />
+ラップの腕前の誇示から始まり、<br />
+すぐに銃撃戦の生々しい一人称描写へ。<br />
+MAC-10が草むらにあった、<br />
+撃った、<br />
+弾詰まりした、<br />
+という極めて具体的な場面が、<br />
+映画のワンシーンのように展開します。
         </p>
         <p>
-          終盤、「sleep is the cousin of death（眠りは死の従兄弟）」という有名な一行で、常に気を張って生きるしかない緊張を凝縮し、タイトルの「New York State of Mind」へ着地します。
+          終盤、<br />
+「sleep is the cousin of death（眠りは死の従兄弟）」という有名な一行で、<br />
+常に気を張って生きるしかない緊張を凝縮し、<br />
+タイトルの「New York State of Mind」へ着地します。
         </p>
         <p>
-          <strong class="text-[var(--c-text)]">Chorus</strong>の「New York state of mind」は、実はNasの声ではなく、<strong class="text-[var(--c-text)]">RakimのバースをPremierがスクラッチで引用した</strong>もの。先輩MCの声を借りてフックにするのが渋いところです。
+          <strong class="text-[var(--c-text)]">Chorus</strong>の「New York state of mind」は、<br />
+実はNasの声ではなく、<strong class="text-[var(--c-text)]">RakimのバースをPremierがスクラッチで引用した</strong>もの。<br />
+先輩MCの声を借りてフックにするのが渋いところです。
         </p>
         <p>
-          <strong class="text-[var(--c-text)]">Verse 2</strong>は、ギャングスタの夢、投資とドラッグ売買、ラッパーとしての矜持が交錯します。「Life is parallel to Hell（人生は地獄と平行に走る）」という比喩や、自分のライムを「カプセルなしのビタミン」に喩える件など、危険な日常と言葉への自負が同居しています。
+          <strong class="text-[var(--c-text)]">Verse 2</strong>は、<br />
+ギャングスタの夢、<br />
+投資とドラッグ売買、<br />
+ラッパーとしての矜持が交錯します。<br />
+「Life is parallel to Hell（人生は地獄と平行に走る）」という比喩や、<br />
+自分のライムを「カプセルなしのビタミン」に喩える件など、<br />
+危険な日常と言葉への自負が同居しています。
         </p>
         <p>
-          初めて通しで聴いたとき、20歳がこの密度で街を describe してしまうことに静かにやられました。
+          銃撃の場面でも、<br />
+Nasは弾詰まりや逃げる動きまで描いています。<br />
+大きな言葉で危険を説明するより、<br />
+こうした細部のほうが緊張を伝えてくれると思います。
         </p>
         <p class="text-xs text-[var(--c-dim)]">
-          ※本ページは批評・教育目的で、解説に必要な範囲の断片のみを引用しています。全歌詞の対訳は掲載していません。
+          ※本ページは批評・教育目的で、<br />
+解説に必要な範囲の断片のみを引用しています。<br />
+全歌詞の対訳は掲載していません。
         </p>
       </div>
     </section>
 
     <!-- 学習ユニット -->
-    <div id="units"></div>
+    <div id="units" class="scroll-mt-40"></div>
     <section class="mb-12">
       <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2 border-b border-[var(--c-border)] pb-2">
         学ぶ表現 — スラング・韻・言葉遊び・AAVE
       </h2>
       <p class="text-xs text-[var(--c-dim)] mb-6">
-        各見出しは「この曲から学べる英語表現」。各ユニットはまず上に英語の用例（1〜2行）を置いてあります。
+        11の表現を、<br />
+短い用例・和訳・日本語解説の順で読み解きます。</p>
+      <p class="text-xs text-[var(--c-dim)] mb-6">AAVEはアフリカ系アメリカ人英語のこと。<br />
+教科書の英語と違う形にも、<br />
+意味を伝えるためのルールがあります。
       </p>
       <p class="text-xs text-[var(--c-dim)] mb-6">
-        <strong class="text-[var(--c-text)]">先に英語を音で追い、行のどこが学習対象かを確かめてから</strong>下の日本語解説に進むと、英語が苦手でも置いていかれません。
+        埋め込みはNas公式のフル音源（4分56秒）。</p>
+<p class="text-xs text-[var(--c-dim)] mb-6">▶の「≈」は推定位置です。11か所とも字幕による照合・実測が済んでいないため、表現の始まりとずれる場合があります。
       </p>
 
       <!-- ① habitual be -->
@@ -135,8 +176,11 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <Fragment slot="eng">Rappers: I monkey-flip 'em with the funky rhythm I be kickin'<br />Musician, inflictin' composition of pain</Fragment>
         <Fragment slot="jpn">ラッパーども、俺はファンキーなリズムでやつらをひっくり返す（いつもそうしてる）／痛みの作曲を浴びせるミュージシャンだ</Fragment>
         <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1のいちばん最初、曲の口火を切る一行。学習対象は行末。</p>
-        <p>行末の「the funky rhythm <strong class="text-[var(--c-text)]">I be kickin'</strong>」に注目。標準英語なら <em>I'm kicking</em> か <em>I kick</em> ですが、ここは <strong class="text-[var(--c-text)]">be</strong> が原形のまま入っています。</p>
-        <p>これがAAVE最大の特徴 <strong class="text-[var(--c-text)]">習慣のbe（habitual be）</strong>です。「いつも・習慣的に〜している」という反復のニュアンスを <code>be ＋ -ing</code> で表します。</p>
+        <p>行末の「the funky rhythm <strong class="text-[var(--c-text)]">I be kickin'</strong>」に注目。<br />
+標準英語なら <em>I'm kicking</em> か <em>I kick</em> ですが、<br />
+ここは <strong class="text-[var(--c-text)]">be</strong> が原形のまま入っています。</p>
+        <p>これがAAVE最大の特徴 <strong class="text-[var(--c-text)]">習慣のbe（habitual be）</strong>です。<br />
+「いつも・習慣的に〜している」という反復のニュアンスを <code>be ＋ -ing</code> で表します。</p>
         <p>単なる現在進行（今やっている）ではなく「常日頃やっている」という時間幅が出るのがポイントです。</p>
         <p>Verse 2の頭でも <code>Be havin' dreams that I'm a gangsta</code>（いつもギャングスタの夢を見る）ともう一度出てきます。</p>
         <p>冒頭の <strong class="text-[var(--c-text)]"><QuickSlang word="monkey-flip" desc="相手を完全に圧倒する・ひっくり返すこと。レスリング/体操の技に由来するスラング" /></strong>（圧倒する）も覚えておきたいスラングです。</p>
@@ -158,10 +202,18 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <Fragment slot="eng">I'm like Scarface sniffin' cocaine<br />Holdin' an M16, see, with the pen I'm extreme</Fragment>
         <Fragment slot="jpn">俺はコカインを吸うスカーフェイスのようだ／M16を構え、見ろ、ペンを握れば俺は極端だ</Fragment>
         <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1前半、自分のラップの激しさを喩える件。学習対象は上の行。</p>
-        <p>「I'm <strong class="text-[var(--c-text)]">like</strong> Scarface sniffin' cocaine」。直喩（<code>A is like B</code>）で、自分を映画『スカーフェイス』の主人公トニー・モンタナに重ねています。</p>
-        <p><strong class="text-[var(--c-text)]">Scarface</strong> は1983年の同名映画の主人公で、ヒップホップでは「成り上がりと破滅」の象徴として無数に引用される名前です。</p>
-        <p>下の行の <code>with the pen I'm extreme</code>（ペンを握れば極端だ）は、銃（M16）と<strong class="text-[var(--c-text)]">ペン（＝ラップを書く力）</strong>を並べて、暴力と言葉を同じ武器として語るレトリックです。</p>
-        <p>映画の引用を直喩で取り込みつつ、自分の本当の武器はペンだとずらしています。比喩を読むことが、そのまま文化のレファレンスを読むことになる好例です。</p>
+        <p>「I'm <strong class="text-[var(--c-text)]">like</strong> Scarface sniffin' cocaine」。<br />
+直喩（<code>A is like B</code>）で、<br />
+自分を映画『スカーフェイス』の主人公トニー・モンタナに重ねています。</p>
+        <p><strong class="text-[var(--c-text)]">Scarface</strong> は1983年の同名映画の主人公で、<br />
+ヒップホップでは「成り上がりと破滅」の象徴として無数に引用される名前です。</p>
+        <p>下の行の <code>with the pen I'm extreme</code>（ペンを握れば極端だ）は、<br />
+銃（M16）と<strong class="text-[var(--c-text)]">ペン（＝ラップを書く力）</strong>を並べて、<br />
+暴力と言葉を同じ武器として語るレトリックです。</p>
+        <p>映画の引用を直喩で取り込みつつ、<br />
+自分の本当の武器はペンだとずらしています。<br />
+比喩を読むことが、<br />
+そのまま文化のレファレンスを読むことになる好例です。</p>
       </LearningUnit>
 
       <!-- ③ steelo -->
@@ -175,9 +227,16 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <Fragment slot="eng">Y'all know my steelo, with or without the airplay</Fragment>
         <Fragment slot="jpn">お前ら俺のスタイル（steelo）は知ってるだろ、ラジオでかかろうがかかるまいが</Fragment>
         <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1前半、自分の流儀を宣言する件。</p>
-        <p>学習ポイントは <strong class="text-[var(--c-text)]"><QuickSlang word="steelo" desc="style（スタイル）が崩れたスラング。その人独自のやり方・流儀・美学" /></strong>。これは <em>style</em>（スタイル）が音的に崩れてできたスラングで、「その人独自のやり方・流儀・美学」を指します。</p>
-        <p><code>Y'all know my steelo</code>（俺の流儀は知ってるだろ）のように使います。行頭の <strong class="text-[var(--c-text)]">Y'all</strong>（＝you all）は南部・AAVE由来の二人称複数で、これも頻出です。</p>
-        <p><code>with or without the airplay</code>（ラジオでかかろうがかかるまいが）は、商業的成功に左右されない自分の姿勢を示す決め台詞です。スラング一語に、その人のアイデンティティが乗っているのが分かる箇所です。</p>
+        <p>学習ポイントは <strong class="text-[var(--c-text)]"><QuickSlang word="steelo" desc="style（スタイル）が崩れたスラング。その人独自のやり方・流儀・美学" /></strong>。<br />
+これは <em>style</em>（スタイル）が音的に崩れてできたスラングで、<br />
+「その人独自のやり方・流儀・美学」を指します。</p>
+        <p><code>Y'all know my steelo</code>（俺の流儀は知ってるだろ）のように使います。<br />
+行頭の <strong class="text-[var(--c-text)]">Y'all</strong>（＝you all）は南部・AAVE由来の二人称複数で、<br />
+これも頻出です。</p>
+        <p><code>with or without the airplay</code>（ラジオでかかろうがかかるまいが）は、<br />
+商業的成功に左右されない自分の姿勢を示す決め台詞です。<br />
+スラング一語に、<br />
+その人のアイデンティティが乗っているのが分かる箇所です。</p>
       </LearningUnit>
 
       <!-- ④ E&J / Grants / cee-lo -->
@@ -191,10 +250,16 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <Fragment slot="eng">I keep some E&J, sittin' bent up in the stairway<br />Or either on the corner bettin' Grants with the cee-lo champs</Fragment>
         <Fragment slot="jpn">E&Jを切らさず、階段でへべれけになって座ってる／でなきゃ街角で、cee-loの猛者たちとグラント（50ドル札）を賭けてる</Fragment>
         <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1中盤、日常の過ごし方を描く2行。スラングが4つ詰まっています。</p>
-        <p>この2行はスラングの宝庫です。<strong class="text-[var(--c-text)]"><QuickSlang word="E&J" desc="E&J Brandy（エラドビントナーズの安価なブランデー）。ストリートの定番の酒" /></strong> は安価なブランデーの銘柄、<strong class="text-[var(--c-text)]">bent</strong> は「酔っ払った・ラリった」状態を指します。</p>
-        <p><strong class="text-[var(--c-text)]"><QuickSlang word="Grants" desc="50ドル札のこと。紙幣に描かれた第18代大統領ユリシーズ・S・グラントに由来" /></strong> は「50ドル札」（紙幣に描かれたグラント大統領から）、<strong class="text-[var(--c-text)]"><QuickSlang word="cee-lo" desc="サイコロ3個で行うストリートの賭博ゲーム" /></strong> はサイコロ賭博のことです。たった2行で、酒・酩酊・賭博という街角の時間が立ち上がります。</p>
-        <p><strong class="text-[var(--c-text)]">紙幣を大統領の名で呼ぶ</strong>（Grants＝50ドル、ほかに Franklins＝100ドルなど）のは英語スラングの定番なので、ここで覚えておくと他の曲でも効きます。</p>
-        <p>スラングは地域の方言で、知ることはその街の地図を手に入れることに近いんです。</p>
+        <p>この2行はスラングの宝庫です。</p>
+<p><strong class="text-[var(--c-text)]"><QuickSlang word="E&J" desc="E&J Brandy（エラドビントナーズの安価なブランデー）。ストリートの定番の酒" /></strong> は安価なブランデーの銘柄、<strong class="text-[var(--c-text)]">bent</strong> は「酔っ払った・ラリった」状態を指します。</p>
+        <p><strong class="text-[var(--c-text)]"><QuickSlang word="Grants" desc="50ドル札のこと。紙幣に描かれた第18代大統領ユリシーズ・S・グラントに由来" /></strong> は「50ドル札」（紙幣に描かれたグラント大統領から）、<strong class="text-[var(--c-text)]"><QuickSlang word="cee-lo" desc="サイコロ3個で行うストリートの賭博ゲーム" /></strong> はサイコロ賭博のことです。<br />
+たった2行で、<br />
+酒・酩酊・賭博という街角の時間が立ち上がります。</p>
+        <p><strong class="text-[var(--c-text)]">紙幣を大統領の名で呼ぶ</strong>（Grants＝50ドル、<br />
+ほかに Franklins＝100ドルなど）のは英語スラングの定番なので、<br />
+ここで覚えておくと他の曲でも効きます。</p>
+        <p>スラングは地域の方言で、<br />
+知ることはその街の地図を手に入れることに近いんです。</p>
         <Fragment slot="usage">
           <p>アメリカの紙幣スラングは <strong class="text-[var(--c-text)]">肖像の人物名</strong>で呼ぶのが定番です。<em>Grants</em>＝50ドル（グラント）、<em>Franklins</em>＝100ドル（フランクリン）、<em>Jacksons</em>＝20ドル（ジャクソン）。</p>
           <p>金額を直接言わずに人名で示すので、肖像と額面のペアを知っておくと聞き取れます。</p>
@@ -214,11 +279,21 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <Fragment slot="eng">I never sleep, huh, 'cause sleep is the cousin of death</Fragment>
         <Fragment slot="jpn">俺は決して眠らない、なぜなら眠りは死の従兄弟だから</Fragment>
         <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の終盤、緊張の核心を一行に凝縮する件（Verse 2でも反復）。</p>
-        <p>この曲、いや、ヒップホップ全体でも屈指の名フレーズです。「sleep is the <strong class="text-[var(--c-text)]">cousin of death</strong>（眠りは死の従兄弟）」。</p>
-        <p>眠りと死を <strong class="text-[var(--c-text)]">cousin（従兄弟）</strong>という血縁語で結ぶ比喩で、「気を抜いて眠れば、死がすぐ隣に来る」というストリートの強迫を、たった一行で射抜いています。</p>
-        <p>眠ること＝無防備になること＝死に近づくこと、という連想が <code>cousin</code> 一語に畳まれています。</p>
-        <p><code>I never sleep</code>（俺は決して眠らない）と前置きしてからこの比喩に落とすことで、「眠れない」のではなく「眠らない（生き延びるために）」という能動の緊張に読み替わります。</p>
-        <p>Verse 2の終わりでもう一度繰り返されることで、曲全体を貫くテーマだと分かる作りです。何度聴いても唸ります。</p>
+        <p>この曲、<br />
+いや、<br />
+ヒップホップ全体でも屈指の名フレーズです。<br />
+「sleep is the <strong class="text-[var(--c-text)]">cousin of death</strong>（眠りは死の従兄弟）」。</p>
+        <p>眠りと死を <strong class="text-[var(--c-text)]">cousin（従兄弟）</strong>という血縁語で結ぶ比喩で、<br />
+「気を抜いて眠れば、<br />
+死がすぐ隣に来る」というストリートの強迫を、<br />
+たった一行で射抜いています。</p>
+        <p>眠ること＝無防備になること＝死に近づくこと、<br />
+という連想が <code>cousin</code> 一語に畳まれています。</p>
+        <p><code>I never sleep</code>（俺は決して眠らない）と前置きしてからこの比喩に落とすことで、<br />
+「眠れない」のではなく「眠らない（生き延びるために）」という能動の緊張に読み替わります。</p>
+        <p>Verse 2の終わりでもう一度繰り返されることで、<br />
+曲全体を貫くテーマだと分かる作りです。<br />
+何度聴いても唸ります。</p>
       </LearningUnit>
 
       <!-- ⑥ state of mind / title -->
@@ -232,9 +307,15 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <Fragment slot="eng">Beyond the walls of intelligence, life is defined<br />I think of crime when I'm in a New York State of Mind</Fragment>
         <Fragment slot="jpn">知性の壁の向こうで、人生は定義される／ニューヨーク・ステイト・オブ・マインドにいると、俺は犯罪のことを考える</Fragment>
         <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の締め、タイトルに着地する2行。</p>
-        <p>学習ポイントは <strong class="text-[var(--c-text)]">state of mind</strong> という英語の定型表現です。「心の状態・精神状態・物の見方」を意味するイディオムで、<em>a New York state of mind</em> なら「ニューヨーク的なものの見方／NYにいるときの心持ち」を指します。</p>
-        <p>Billy Joelの名曲タイトルでもある言い回しを、Nasは <code>I think of crime</code>（犯罪のことを考える）と接続することで、まったく別の、緊張と暴力に満ちたNY観へと塗り替えています。</p>
-        <p>同じ定型句が、置かれる文脈でここまで意味を変えるのか、という好例です。</p>
+        <p>学習ポイントは <strong class="text-[var(--c-text)]">state of mind</strong> という英語の定型表現です。<br />
+「心の状態・精神状態・物の見方」を意味するイディオムで、<em>a New York state of mind</em> なら「ニューヨーク的なものの見方／NYにいるときの心持ち」を指します。</p>
+        <p>Billy Joelの名曲タイトルでもある言い回しを、<br />
+Nasは <code>I think of crime</code>（犯罪のことを考える）と接続することで、<br />
+まったく別の、<br />
+緊張と暴力に満ちたNY観へと塗り替えています。</p>
+        <p>同じ定型句が、<br />
+置かれる文脈でここまで意味を変えるのか、<br />
+という好例です。</p>
         <p>上の行 <code>life is defined</code>（人生が定義される）と <code>State of Mind</code> で <strong class="text-[var(--c-text)]">defined / Mind</strong> の脚韻も効いています。</p>
         <Fragment slot="usage">
           <p><strong class="text-[var(--c-text)]">state of mind</strong> は「心の状態・心境・物の見方」を表す名詞句。<em>be in a good state of mind</em>（良い精神状態にある）、<em>a positive state of mind</em>（前向きな心持ち）のように使う、日常でも頻出のイディオム。</p>
@@ -253,10 +334,14 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <Fragment slot="eng">Be havin' dreams that I'm a gangsta, drinkin' Moëts, holdin' TECs<br />Makin' sure the cash came correct, then I stepped</Fragment>
         <Fragment slot="jpn">いつもギャングスタの夢を見る、モエを飲み、TECを構える／金がきっちり入るのを確かめて、それから立ち去った</Fragment>
         <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の冒頭、夢の中のギャングスタ像を描く件。</p>
-        <p>上の行はブランド名と銃で「ギャングスタの夢」を一気に描いています。<strong class="text-[var(--c-text)]">Moëts</strong> はシャンパンのモエ・エ・シャンドン（Moët）、<strong class="text-[var(--c-text)]"><QuickSlang word="TECs" desc="TEC-9。当時ストリートで多用された安価なセミオート拳銃" /></strong> は拳銃TEC-9のことです。</p>
-        <p>高級シャンパンと安価な銃を同じ行に並べることで、虚飾と暴力が隣り合う夢の質感が出ています。</p>
-        <p>冒頭の <strong class="text-[var(--c-text)]">Be havin'</strong> は、ユニット①で見た <strong class="text-[var(--c-text)]">習慣のbe</strong>（いつも夢を見る）がここでも使われている箇所です。</p>
-        <p>下の行 <code>the cash came correct</code>（金がきっちり入った）の <strong class="text-[var(--c-text)]">come correct</strong> は「ちゃんとする・抜かりなくやる」という頻出スラングなので、これも一緒に押さえておきたいところです。</p>
+        <p>上の行はブランド名と銃で「ギャングスタの夢」を一気に描いています。</p>
+<p><strong class="text-[var(--c-text)]">Moëts</strong> はシャンパンのモエ・エ・シャンドン（Moët）、<strong class="text-[var(--c-text)]"><QuickSlang word="TECs" desc="TEC-9。当時ストリートで多用された安価なセミオート拳銃" /></strong> は拳銃TEC-9のことです。</p>
+        <p>高級シャンパンと安価な銃を同じ行に並べることで、<br />
+虚飾と暴力が隣り合う夢の質感が出ています。</p>
+        <p>冒頭の <strong class="text-[var(--c-text)]">Be havin'</strong> は、<br />
+ユニット①で見た <strong class="text-[var(--c-text)]">習慣のbe</strong>（いつも夢を見る）がここでも使われている箇所です。</p>
+        <p>下の行 <code>the cash came correct</code>（金がきっちり入った）の <strong class="text-[var(--c-text)]">come correct</strong> は「ちゃんとする・抜かりなくやる」という頻出スラングなので、<br />
+これも一緒に押さえておきたいところです。</p>
         <Fragment slot="usage">
           <p><strong class="text-[var(--c-text)]">come correct</strong> は「（態度・準備・支払いなどを）きちんとする、抜かりなくやる」を表すスラングです。<em>You better come correct</em>（ちゃんとやれよ）のように使います。</p>
           <p>standard の <em>do it right / be on point</em> に近い言い回しです。</p>
@@ -276,9 +361,12 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <Fragment slot="eng">Investments in stock, sewin' up the blocks to sell rocks<br />Winnin' gunfights with mega-cops</Fragment>
         <Fragment slot="jpn">株への投資、ブロックを縫い上げて（掌握して）ロック（クラック）を売る／メガ級の警官との銃撃戦に勝つ</Fragment>
         <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2前半、ドラッグ経済を語る件。まず音で。</p>
-        <p>まず耳に残るのは音の方です。<strong class="text-[var(--c-text)]">stock / blocks / rocks / cops</strong> と <code>-ock(s)</code> の音が連打されていて、これが聴きどころです。</p>
-        <p>意味の方も、<strong class="text-[var(--c-text)]">sew up the blocks</strong>（街区を縫い上げる＝そのエリアの売買を完全に掌握する）という句動詞的な言い回しに、<strong class="text-[var(--c-text)]"><QuickSlang word="rocks" desc="固形のクラック・コカイン（crack rocks）" /></strong>（クラックの固まり）というスラングが組み合わさって、ドラッグ経済の支配がわずか一行に圧縮されています。</p>
-        <p>合法の <code>investments in stock</code>（株式投資）と非合法の <code>sell rocks</code>（クラック売買）を同じ韻でつなぐことで、両者を地続きに見せる皮肉も効いています。</p>
+        <p>まず耳に残るのは音の方です。<strong class="text-[var(--c-text)]">stock / blocks / rocks / cops</strong> と <code>-ock(s)</code> の音が連打されていて、<br />
+これが聴きどころです。</p>
+        <p>意味の方も、<strong class="text-[var(--c-text)]">sew up the blocks</strong>（街区を縫い上げる＝そのエリアの売買を完全に掌握する）という句動詞的な言い回しに、<strong class="text-[var(--c-text)]"><QuickSlang word="rocks" desc="固形のクラック・コカイン（crack rocks）" /></strong>（クラックの固まり）というスラングが組み合わさって、<br />
+ドラッグ経済の支配がわずか一行に圧縮されています。</p>
+        <p>合法の <code>investments in stock</code>（株式投資）と非合法の <code>sell rocks</code>（クラック売買）を同じ韻でつなぐことで、<br />
+両者を地続きに見せる皮肉も効いています。</p>
         <p>脚韻が意味の橋渡しまでしている好例です。</p>
       </LearningUnit>
 
@@ -293,8 +381,11 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <Fragment slot="eng">And lamp like Capone, with drug scripts sewn<br />Or the legal luxury life, rings flooded with stones, homes</Fragment>
         <Fragment slot="jpn">そしてカポネのようにくつろぐ、ドラッグの筋書きを縫い込んで／でなきゃ合法の贅沢な暮らし、石（ダイヤ）で埋め尽くした指輪、なあ</Fragment>
         <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2中盤、成功後のくつろぎを夢想する件。学習対象は上の行。</p>
-        <p>上の行頭の <strong class="text-[var(--c-text)]"><QuickSlang word="lamp" desc="ニューヨーク特有のスラングで「くつろぐ・のんびり過ごす」。relax / chill と同義" /></strong> が学習ポイントです。これはニューヨーク特有のスラングで「くつろぐ・まったり過ごす」という意味（<em>relax / chill</em> と同義）。</p>
-        <p><code>lamp like Capone</code> で「（伝説のギャング）アル・カポネのように悠然とくつろぐ」という意味になります。スラングは <strong class="text-[var(--c-text)]">地域の方言</strong>で、この <em>lamp</em> は特にNYの語感が強い一語です。</p>
+        <p>上の行頭の <strong class="text-[var(--c-text)]"><QuickSlang word="lamp" desc="ニューヨーク特有のスラングで「くつろぐ・のんびり過ごす」。relax / chill と同義" /></strong> が学習ポイントです。<br />
+これはニューヨーク特有のスラングで「くつろぐ・まったり過ごす」という意味（<em>relax / chill</em> と同義）。</p>
+        <p><code>lamp like Capone</code> で「（伝説のギャング）アル・カポネのように悠然とくつろぐ」という意味になります。<br />
+スラングは <strong class="text-[var(--c-text)]">地域の方言</strong>で、<br />
+この <em>lamp</em> は特にNYの語感が強い一語です。</p>
         <p>行末の <strong class="text-[var(--c-text)]">stones</strong> は「ダイヤなどの宝石」を指し、<code>rings flooded with stones</code>（石で溢れた指輪）で富を描きます。</p>
         <p><code>Capone / sewn / stones / homes</code> と <strong class="text-[var(--c-text)]">-one/-ones</strong> の脚韻が連なっているのも聴きどころです。</p>
         <Fragment slot="usage">
@@ -315,11 +406,17 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <Fragment slot="eng">I'm takin' rappers to a new plateau, through rap slow<br />My rhymin' is a vitamin held without a capsule</Fragment>
         <Fragment slot="jpn">俺はラッパーたちを新たな高みへ連れて行く、ゆっくりとしたラップで／俺のライムはカプセルなしのビタミンだ</Fragment>
         <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2中盤、自分のライムの効き目を喩える件。学習対象は下の行。</p>
-        <p>下の行が今回の学習ポイントです。「My rhymin' is a <strong class="text-[var(--c-text)]">vitamin held without a capsule</strong>」。</p>
-        <p>これは <code>like</code> を使わない <strong class="text-[var(--c-text)]">隠喩（metaphor）</strong>。自分のライムを「カプセルに包まれていないビタミン」に喩えています。</p>
-        <p>カプセル（オブラート）がない＝<strong class="text-[var(--c-text)]">薄めも飾りもせず、栄養（中身）がダイレクトに効く</strong>、というイメージです。</p>
-        <p>直喩（A is like B）が「〜のようだ」と距離を残すのに対し、隠喩は「A is B」と言い切ることで像をより強く重ねます。</p>
-        <p>たった一語の比喩で「俺の言葉は混じりけなしに効く」と宣言してしまう、Nasらしい一行です。<code>plateau / slow / rhymin'</code> 周辺の音の運びも滑らかで気持ちいいところです。</p>
+        <p>下の行が今回の学習ポイントです。<br />
+「My rhymin' is a <strong class="text-[var(--c-text)]">vitamin held without a capsule</strong>」。</p>
+        <p>これは <code>like</code> を使わない <strong class="text-[var(--c-text)]">隠喩（metaphor）</strong>。<br />
+自分のライムを「カプセルに包まれていないビタミン」に喩えています。</p>
+        <p>カプセル（オブラート）がない＝<strong class="text-[var(--c-text)]">薄めも飾りもせず、<br />
+栄養（中身）がダイレクトに効く</strong>、<br />
+というイメージです。</p>
+        <p>直喩（A is like B）が「〜のようだ」と距離を残すのに対し、<br />
+隠喩は「A is B」と言い切ることで像をより強く重ねます。</p>
+        <p>たった一語の比喩で「俺の言葉は混じりけなしに効く」と宣言してしまう、<br />
+Nasらしい一行です。<code>plateau / slow / rhymin'</code> 周辺の音の運びも滑らかで気持ちいいところです。</p>
         <Fragment slot="usage">
           <p><strong class="text-[var(--c-text)]">隠喩（metaphor）</strong>は <em>like / as</em> を使わず「AはBだ」と直接言い切る比喩です。直喩 <em>A is like B</em> より距離が近く、像が強く重なります。</p>
           <p><em>My rhymin' is a vitamin</em>（俺のライムはビタミンだ）のように、be動詞で名詞を直結させるのが基本形です。</p>
@@ -339,35 +436,64 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <Fragment slot="jpn">この街は決して眠らない、悪党と不気味な連中で溢れてる／そこで俺はハッスル（生き抜く術）を覚えた、変なやつらと揉めながら</Fragment>
         <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2後半、街そのものを描く件。まず音で。</p>
         <p>ここもまず音の連なりが聴きどころです。<strong class="text-[var(--c-text)]">sleeps / creeps / freaks</strong> と <code>-ee(p/k)s</code> の内部韻が続きます。</p>
-        <p>意味の核は <strong class="text-[var(--c-text)]">The city never sleeps</strong>（眠らない街）、ニューヨークを指す超有名な常套句です。</p>
-        <p>Nasはそこに <code>full of villains and creeps</code>（悪党と不気味な連中で溢れた）を付けて、観光的なきらめきではなく、夜も危険が絶えない街として描き直しています。</p>
+        <p>意味の核は <strong class="text-[var(--c-text)]">The city never sleeps</strong>（眠らない街）、<br />
+ニューヨークを指す超有名な常套句です。</p>
+        <p>Nasはそこに <code>full of villains and creeps</code>（悪党と不気味な連中で溢れた）を付けて、<br />
+観光的なきらめきではなく、<br />
+夜も危険が絶えない街として描き直しています。</p>
         <p><strong class="text-[var(--c-text)]"><QuickSlang word="hustle" desc="生き抜くために必死で稼ぐ/動くこと。ストリートでの商売や工夫を含む" /></strong>（必死に生き抜く・稼ぐ）も最重要スラングのひとつです。</p>
-        <p>常套句を一度借りて、自分の経験で塗り替える。表現の手つきがよく分かる箇所です。</p>
+        <p>常套句を一度借りて、<br />
+自分の経験で塗り替える。<br />
+表現の手つきがよく分かる箇所です。</p>
       </LearningUnit>
     </section>
 
     <!-- 文化的背景 -->
-    <section id="background" class="mb-12">
+    <section id="background" class="mb-12 scroll-mt-40">
       <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
         文化的背景
       </h2>
 
       <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
         <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">Queensbridge と『Illmatic』</p>
-        <h3 class="font-semibold text-base mb-3">全米最大の公営団地が生んだ20歳の傑作</h3>
+        <h3 class="font-semibold text-base mb-3">クイーンズブリッジから見たニューヨーク</h3>
         <div class="space-y-3 text-[var(--c-muted)] text-sm leading-relaxed">
           <p>
-            Nasが育ったクイーンズブリッジ（Queensbridge）は、ニューヨーク・クイーンズにある<strong class="text-[var(--c-text)]">全米最大級の公営住宅</strong>。MC Shanやマーリー・マールを輩出したヒップホップの聖地であり、同時にクラック・エピデミックと暴力の渦中にあった土地でもある。
+            Nasが育ったクイーンズブリッジ（Queensbridge）は、<br />
+ニューヨーク・クイーンズにある<strong class="text-[var(--c-text)]">大規模な公営住宅</strong>。<br />
+MC Shanやマーリー・マールを輩出したヒップホップの聖地であり、<br />
+同時にクラック・エピデミックと暴力の渦中にあった土地でもありました。
           </p>
           <p>
-            「N.Y. State of Mind」の一人称の銃撃描写や、E&J・cee-lo・lampといった語彙は、すべてこの団地の日常から立ち上がっています。
+            「N.Y. State of Mind」の一人称の銃撃描写や、<br />
+E&J・cee-lo・lampといった語彙は、<br />
+すべてこの団地の日常から立ち上がっています。
           </p>
           <p>
-            1994年の『Illmatic』は、わずか10曲・約40分ながら「史上最高のヒップホップ・アルバム」の常連に挙げられる一枚です。20歳のNasが、自分の街をここまで高い解像度で記録してしまったことが、本作の神話性の源だと思います。
+            1994年の『Illmatic』は、<br />
+わずか10曲・約40分ながら「史上最高のヒップホップ・アルバム」の常連に挙げられる一枚です。<br />
+若いNasが、<br />
+自分の街をここまで高い解像度で記録してしまったことが、<br />
+本作の神話性の源だと思います。
           </p>
         </div>
       </div>
 
+
+      <figure class="context-photo" id="photo-queensbridge">
+        <img src="/images/context/ny-state-of-mind/queensbridge-vernon.jpg" alt="ヴァーノン通り沿いのクイーンズブリッジ団地と公園を、クイーンズボロ橋から見た風景" width="3606" height="2464" loading="lazy" decoding="async" />
+        <figcaption>クイーンズボロ橋から北へ見たクイーンズブリッジ。通りの右に団地、左に公園が広がります。2009年の写真で、曲が描く1990年代の記録写真ではありません。
+          <small><a href="https://commons.wikimedia.org/wiki/File:Queensbr_NYCHA_Vernon_jeh.JPG" target="_blank" rel="noopener noreferrer">写真：Jim.henderson / Wikimedia Commons</a> · <a href="https://commons.wikimedia.org/wiki/File:Queensbr_NYCHA_Vernon_jeh.JPG#Licensing" target="_blank" rel="noopener noreferrer">著作者によるパブリックドメイン公開</a> · 原本を掲載、改変なし</small>
+        </figcaption>
+      </figure>
+      <p class="text-sm text-[var(--c-muted)] leading-relaxed mb-3">『Illmatic』では、<br />
+この曲は冒頭の「The Genesis」に続く2曲目。<br />
+アルバムを通して聴くと、<br />
+Nasが描く街の別の表情も見えてきます。</p>
+      <MercariCta heading="Illmaticの中古CD・レコードを探す" position="ny-background-illmatic"
+        items={[{ query: 'Nas Illmatic', label: 'Illmaticの出品を見る' }]} />
+      <p class="mb-6 text-xs text-[var(--c-dim)]">CD・レコード・再発盤で仕様が異なるため、<br />
+購入先で媒体と収録内容を確認できます。</p>
       <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
         <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">キーワード早見表</p>
         <h3 class="font-semibold text-base mb-3">この曲で学んだ表現の整理</h3>
@@ -381,8 +507,8 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
             ['lamp', 'くつろぐ・まったりする（NYスラング。relax / chill）'],
             ['sleep is the cousin of death', '眠りと死を血縁で結ぶ比喩。常に気を張る緊張の凝縮'],
           ].map(([term, desc]) => (
-            <div class="flex gap-3 text-sm">
-              <span class="text-[var(--c-gold)] shrink-0 font-semibold min-w-[150px]">{term}</span>
+            <div class="keyword-row">
+              <span class="text-[var(--c-gold)] shrink-0 font-semibold ">{term}</span>
               <span class="text-[var(--c-muted)]">{desc}</span>
             </div>
           ))}
@@ -391,7 +517,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
     </section>
 
     <!-- サンプル・制作の裏側 -->
-    <section id="behind" class="mb-12">
+    <section id="behind" class="mb-12 scroll-mt-40">
       <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
         サンプル・制作の裏側
       </h2>
@@ -401,10 +527,18 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <h3 class="font-semibold text-base mb-3">不穏なピアノの正体 — Joe Chambers "Mind Rain"</h3>
         <div class="space-y-3 text-[var(--c-muted)] text-sm leading-relaxed">
           <p>
-            曲を支配するあの不穏なピアノのループは、ジャズ・ドラマー <strong class="text-[var(--c-text)]">Joe Chambers の「Mind Rain」（アルバム『Double Exposure』1978年）</strong>からのサンプリング。そこに <strong class="text-[var(--c-text)]">Kool &amp; the Gang「N.T.」のドラムブレイク</strong>を重ね、さらに <strong class="text-[var(--c-text)]">Donald Byrd「Flight Time」</strong>由来の細かな音の断片（チャープ）を散らして、あの緊張感のある音像を組み上げている。
+            曲を支配するあの不穏なピアノのループは、<br />
+ジャズ・ドラマー <strong class="text-[var(--c-text)]">Joe Chambers の「Mind Rain」（1977年、<br />
+収録盤『Double Exposure』）</strong>からのサンプリング。<br />
+そこに <strong class="text-[var(--c-text)]">Kool &amp; the Gang「N.T.」（1971年）のドラムブレイク</strong>を重ね、<br />
+さらに <strong class="text-[var(--c-text)]">Donald Byrd「Flight Time」（1973年）</strong>由来の細かな音の断片（チャープ）を散らして、<br />
+あの緊張感のある音像を組み上げています。
           </p>
           <p>
-            複数のジャズ／ファンクのレコードをコラージュして一つの空気を作るのが、DJ Premierの手つきです。別々の盤の断片が、こうしてひとつの張り詰めた夜気に溶け合っていきます。
+            複数のジャズ／ファンクのレコードをコラージュして一つの空気を作るのが、<br />
+DJ Premierの手つきです。<br />
+別々の盤の断片が、<br />
+こうしてひとつの張り詰めた夜気に溶け合っていきます。
           </p>
           <p>
             サンプリングが単なる引用ではなく作曲なんだと分からせてくれる一例です。
@@ -417,72 +551,80 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <h3 class="font-semibold text-base mb-3">Rakimの声を借りたコーラス</h3>
         <div class="space-y-3 text-[var(--c-muted)] text-sm leading-relaxed">
           <p>
-            サビの「New York state of mind」は、Nasが歌っているのではなく、<strong class="text-[var(--c-text)]">先輩MCのRakim（Eric B. & Rakim）の「Mahogany」の一節を、Premierがスクラッチで引用した</strong>もの。
+            サビの「New York state of mind」は、<br />
+Nasが歌っているのではなく、<strong class="text-[var(--c-text)]">先輩MCのRakim（Eric B. & Rakim）の「Mahogany」（1990年）の一節を、<br />
+Premierがスクラッチで引用した</strong>もの。
           </p>
           <p>
-            「最も偉大なMC」と称されるRakimの声を借りてフックにすることで、Nasを正統な後継者として印象づける、という文脈まで読める仕掛けです。声を楽器のように刻んでサビを組むのは、DJ Premierの代名詞。
+            「最も偉大なMC」と称されるRakimの声を借りてフックにすることで、<br />
+Nasを正統な後継者として印象づける、<br />
+という文脈まで読める仕掛けです。<br />
+声を楽器のように刻んでサビを組むのは、<br />
+DJ Premierの代名詞。
           </p>
         </div>
       </div>
 
       <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
         <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">制作秘話</p>
-        <h3 class="font-semibold text-base mb-3">「どう始めればいいか分からない」が残った理由</h3>
+        <h3 class="font-semibold text-base mb-3">迷いのつぶやきから、最初のバースへ</h3>
         <div class="space-y-3 text-[var(--c-muted)] text-sm leading-relaxed">
-          <p>
-            イントロでNasが口にする「I don't know how to start this shit（どう始めればいいか分からない）」は、演出ではなく、<strong class="text-[var(--c-text)]">本当にどこから乗るか掴みあぐねていた瞬間</strong>がそのまま録音に残ったものとして知られています。普通なら録り直すところを、その迷いごと採用してしまった。
-          </p>
-          <p>
-            結果、最高のバースの直前に「人間の素の一瞬」が貼り付いた、稀有な導入になっている。制約も偶然も、そのまま作品に変えてしまう初期ヒップホップの体温が出た一節です。
-          </p>
+          <p>最初のバースは一度のテイクで録音され、<br />
+冒頭の迷いのつぶやきも音源に残っています。</p>
         </div>
+        <p class="mt-3 text-xs text-[var(--c-dim)]"><a href="https://www.complex.com/music/a/jaeki-cho/dj-premier-tells-all-stories-behind-classic-records" target="_blank" rel="noopener noreferrer" class="underline">出典：DJ Premier本人のインタビュー（Complex、<br />
+2011年）</a></p>
       </div>
     </section>
 
     <!-- 評価と影響 -->
-    <section id="legacy" class="mb-12">
+    <section id="legacy" class="mb-12 scroll-mt-40">
       <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
         評価とその後の影響
       </h2>
 
-      <div class="mb-4 rounded-lg overflow-hidden border border-[var(--c-border)] text-sm">
-        <div class="grid grid-cols-3 bg-[var(--c-bg)] text-[var(--c-very-dim)] text-xs uppercase tracking-widest">
-          <div class="p-3 border-b border-[var(--c-border)]">指標</div>
-          <div class="p-3 border-b border-l border-[var(--c-border)]">記録</div>
-          <div class="p-3 border-b border-l border-[var(--c-border)]">意義</div>
-        </div>
-        {[
-          ['収録アルバム', '『Illmatic』（1994）3曲目', 'シングルではなくアルバムの中核曲。10曲約40分の濃密な構成の心臓部'],
-          ['アルバム認定', 'RIAA Platinum（2001年）', '発売当初の評価以上に、年を追って古典としての地位を確立'],
-          ['プロデュース', 'DJ Premier', 'Gang Starrの片割れ。ジャズのコラージュとスクラッチでNasの一人称を支えた'],
-          ['名フレーズ', '"sleep is the cousin of death"', '無数の作品・記事で引用される、ヒップホップ屈指の一行に'],
-        ].map(([metric, record, significance]) => (
-          <div class="grid grid-cols-3">
-            <div class="p-3 border-b border-[var(--c-border)] text-[var(--c-dim)]">{metric}</div>
-            <div class="p-3 border-b border-l border-[var(--c-border)] text-[var(--c-gold)] font-medium">{record}</div>
-            <div class="p-3 border-b border-l border-[var(--c-border)] text-[var(--c-muted)] text-xs">{significance}</div>
-          </div>
-        ))}
-      </div>
-
+      <dl class="legacy-records mb-4">
+        <div><dt>収録アルバム</dt><dd>『Illmatic』（1994年）2曲目。全10曲のアルバムで、最初のラップ曲にあたります。</dd></div>
+        <div><dt>プロデュース</dt><dd>DJ Premier。ピアノのループと、声を刻むスクラッチでNasの語りを支えています。</dd></div>
+        <div><dt>続編</dt><dd>『I Am...』（1999年）には「N.Y. State of Mind, Pt. II」が収録されています。</dd></div>
+      </dl>
       <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
         <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">後世への影響</p>
         <h3 class="font-semibold text-base mb-3">「リリシズムの基準点」になった一曲</h3>
         <div class="space-y-3 text-[var(--c-muted)] text-sm leading-relaxed">
           <p>
-            「N.Y. State of Mind」は、シングルとしてヒットチャートを駆け上がったタイプの曲ではありません。それでも、<strong class="text-[var(--c-text)]">「リリックの巧さ（lyricism）とは何か」を語るときの基準点</strong>として、リスナーにもMCにも長く参照され続けてきました。
+            「N.Y. State of Mind」は、<br />
+シングルとしてヒットチャートを駆け上がったタイプの曲ではありません。<br />
+それでも、<strong class="text-[var(--c-text)]">「リリックの巧さ（lyricism）とは何か」を語るときの基準点</strong>として、<br />
+リスナーにもMCにも長く参照され続けてきました。
           </p>
           <p>
-            一人称の銃撃描写の生々しさ、スラングの密度、そして「sleep is the cousin of death」のような一行で世界観を射抜く力。それらが「Nasは20歳でここまで書けた」という神話とともに語り継がれています。
+            一人称の銃撃描写の生々しさ、<br />
+スラングの密度、<br />
+そして「sleep is the cousin of death」のような一行で世界観を射抜く力。<br />
+それらが「若いNasがここまで書けた」という神話とともに語り継がれています。
           </p>
           <p>
-            続編の「N.Y. State of Mind, Pt. II」（『I Am...』収録）も作られ、本曲はNasのキャリアを貫くモチーフになりました。
+            続編の「N.Y. State of Mind, Pt. II」（『I Am...』収録）も作られ、<br />
+本曲はNasのキャリアを貫くモチーフになりました。
           </p>
           <p>
-            英語のリアルな手触りと、それが生まれた現場の温度を同時に学べる。教材としても、何度も戻ってきたくなる一曲です。
+            英語のリアルな手触りと、<br />
+それが生まれた現場の温度を同時に学べる。<br />
+教材としても、<br />
+何度も戻ってきたくなる一曲です。
           </p>
         </div>
       </div>
+    </section>
+
+    <section id="listen-more" class="mb-8 scroll-mt-40" aria-labelledby="listen-more-title">
+      <h2 id="listen-more-title" class="text-base font-semibold mb-3">この曲から『Illmatic』へ</h2>
+      <p class="text-sm text-[var(--c-muted)] mb-4">Nasの街の描写をもっと聴くなら、<br />
+収録盤『Illmatic』へ。<br />
+新品や再発盤はAmazon、<br />
+中古のCD・レコードは上のメルカリ案内から探せます。</p>
+      <a href={recordAmazon} target="_blank" rel="noopener sponsored nofollow" data-affiliate-merchant="amazon" data-affiliate-item="Nas Illmatic" data-affiliate-position="ny-listen-more" class="purchase-button">IllmaticをAmazonで探す → [PR]</a>
     </section>
 
     <!-- まとめ -->
@@ -491,7 +633,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         まとめ
       </h2>
       <ul class="space-y-2 text-sm text-[var(--c-muted)] list-disc list-inside leading-relaxed">
-        <li>「N.Y. State of Mind」は、20歳のNasが90年代クイーンズブリッジを高解像度で記録した、リリシズムの基準点というべき一曲。</li>
+        <li>「N.Y. State of Mind」は、若いNasが90年代クイーンズブリッジを高解像度で記録した、リリシズムの基準点というべき一曲。</li>
         <li>AAVEの <strong>習慣のbe</strong>（I be kickin' / Be havin'）、steelo・E&J・Grants・cee-lo・lampといったNYスラングなど、辞書英語の外側の生きた表現が高密度で学べる。</li>
         <li>「sleep is the cousin of death」の比喩、「My rhymin' is a vitamin」の隠喩、state of mindの定型句の塗り替え。比喩と定型句の運用が一通り押さえられる。</li>
         <li>DJ PremierがJoe Chambers・Kool & the Gang・Donald Byrdを刻み、Rakimの声をスクラッチでフックにした制作も含め、初期ヒップホップの手つきが詰まっている。</li>
@@ -513,7 +655,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
           icon: "NAS",
           kicker: "映画解説",
           title: "ドキュメンタリー『Time Is Illmatic』",
-          desc: "この曲が幕を開けるアルバム『Illmatic』はどう生まれたか。クイーンズブリッジの現実と20歳のNas。",
+          desc: "この曲が幕を開けるアルバム『Illmatic』はどう生まれたか。クイーンズブリッジの現実と若いNas。",
           hint: "NAS",
         },
         {
@@ -521,10 +663,42 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
           icon: "QB",
           kicker: "文化・歴史",
           title: "クラック・エピデミックとヒップホップ",
-          desc: "20歳のNasが記録したクイーンズブリッジの現実。あの生々しさの裏にあった時代を。",
+          desc: "若いNasが記録したクイーンズブリッジの現実。あの生々しさの裏にあった時代を。",
           hint: "QB",
         },
       ]}
     />
 
+    <aside class="source-notes mb-10" aria-label="事実確認の出典">
+      <p>作品情報：<a href="https://www.sonymusic.co.jp/artist/Nas/discography/buy/SRCS-7318" target="_blank" rel="noopener noreferrer">Sony Music『Illmatic』</a> · サンプル：<a href="https://www.whosampled.com/Nas/N.Y.-State-of-Mind/" target="_blank" rel="noopener noreferrer">WhoSampled</a> · 続編：<a href="https://www.youtube.com/watch?v=cVNRjPpo68I" target="_blank" rel="noopener noreferrer">Nas公式音源</a></p>
+    </aside>
+    </div>
 </SongLayout>
+
+<style>
+  .record-summary { display:grid; grid-template-columns:112px minmax(0,1fr); gap:1rem; align-items:start; margin:1.25rem 0; padding:1rem; border:1px solid var(--c-border); border-radius:.5rem; background:var(--c-surface); }
+  .record-summary img { display:block; width:112px; height:112px; border-radius:.25rem; }
+  .record-summary dl { display:grid; grid-template-columns:auto minmax(0,1fr); gap:.4rem .75rem; font-size:.75rem; }
+  .record-summary dt { color:var(--c-dim); } .record-summary dd { overflow-wrap:anywhere; }
+  .record-pr { display:block; margin-top:.5rem; color:var(--c-gold); font-size:.65rem; }
+  .reading-entries { display:grid; gap:.5rem; margin-top:1rem; }
+  .reading-entries a { display:block; border:1px solid var(--c-border); border-radius:.5rem; padding:.8rem; background:var(--c-surface); }
+  .reading-entries strong { display:block; color:var(--c-gold); font-size:.85rem; }
+  .reading-entries span { display:block; margin-top:.3rem; color:var(--c-muted); font-size:.75rem; }
+  .reading-entries a:hover { border-color:var(--c-gold); }
+  #song-reading-body :global(p) { overflow-wrap:anywhere; }
+  #song-reading-body :global(h2) { font-size:1.1rem; line-height:1.5; letter-spacing:.02em; text-transform:none; }
+  #article-toc a { display:block; padding:.55rem 0; }
+  .toc-return { position:sticky; top:148px; z-index:25; display:block; width:fit-content; margin:0 0 1rem auto; padding:.65rem .9rem; border:1px solid var(--c-border); border-radius:.5rem; background:var(--c-bg); color:var(--c-gold); font-size:.75rem; }
+  .context-photo { margin:1.5rem 0; } .context-photo img { display:block; width:100%; height:auto; border-radius:.5rem; }
+  .context-photo figcaption { margin-top:.6rem; color:var(--c-muted); font-size:.8rem; line-height:1.7; }
+  .context-photo small { display:block; margin-top:.5rem; color:var(--c-dim); font-size:.7rem; }
+  .context-photo a,.source-notes a { text-decoration:underline; text-underline-offset:.2em; }
+  .keyword-row { display:grid; gap:.4rem; font-size:.85rem; padding:.6rem 0; border-bottom:1px solid var(--c-border); }
+  .legacy-records { display:grid; gap:.75rem; } .legacy-records > div { padding:1rem; border:1px solid var(--c-border); border-radius:.5rem; }
+  .legacy-records dt { color:var(--c-gold); font-size:.8rem; margin-bottom:.5rem; } .legacy-records dd { color:var(--c-muted); font-size:.85rem; line-height:1.8; }
+  .purchase-button { display:inline-flex; align-items:center; min-height:48px; padding:.75rem 1rem; color:var(--c-gold); border:1px solid var(--c-gold); border-radius:.5rem; font-size:.85rem; }
+  .source-notes { color:var(--c-dim); font-size:.75rem; line-height:1.8; }
+  a:focus-visible { outline:2px solid var(--c-gold); outline-offset:4px; }
+  @media(min-width:640px) { .reading-entries { grid-template-columns:repeat(3,minmax(0,1fr)); } .keyword-row { grid-template-columns:minmax(150px,1fr) 2fr; } }
+</style>
