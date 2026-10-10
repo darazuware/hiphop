@@ -1,5 +1,17 @@
 [
   {
+    "id": "intro-dungeon",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "syncedSec": null,
+    "fallbackT": null,
+    "t": null,
+    "source": "pending",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "habitual-be",
     "whisperSec": 23.8,
     "manualSec": null,
@@ -38,6 +50,18 @@
     "source": "fallback",
     "approx": true,
     "score": 0.67
+  },
+  {
+    "id": "gun-malfunction",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "syncedSec": null,
+    "fallbackT": null,
+    "t": null,
+    "source": "pending",
+    "approx": true,
+    "score": null
   },
   {
     "id": "cousin-of-death",
@@ -80,6 +104,30 @@
     "score": 0.71
   },
   {
+    "id": "smith-wesson",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "syncedSec": null,
+    "fallbackT": null,
+    "t": null,
+    "source": "pending",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "street-maze",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "syncedSec": null,
+    "fallbackT": null,
+    "t": null,
+    "source": "pending",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "lamp-capone",
     "whisperSec": 193.8,
     "manualSec": null,
@@ -88,6 +136,30 @@
     "source": "fallback",
     "approx": true,
     "score": 0.6
+  },
+  {
+    "id": "life-hell",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "syncedSec": null,
+    "fallbackT": null,
+    "t": null,
+    "source": "pending",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "new-plateau",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "syncedSec": null,
+    "fallbackT": null,
+    "t": null,
+    "source": "pending",
+    "approx": true,
+    "score": null
   },
   {
     "id": "vitamin-capsule",

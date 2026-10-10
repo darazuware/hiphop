@@ -8,7 +8,7 @@ import AmazonMusicReference from '../../components/AmazonMusicReference.astro';
 import shop from '../../data/ny-state-of-mind-commerce.json';
 const recordAmazon = `https://www.amazon.co.jp/s?k=${encodeURIComponent('Nas Illmatic')}&i=music&tag=wax1124-22`;
 
-// 公式音源の頭出しは11件ともfallback由来の推定値。運営者実測・字幕照合は未確認。
+// 既存11件はfallback由来の推定値。追加6件は位置未確認のためt:null。
 import tsData from '../../../agent/ny-state-of-mind/assets/units-timestamps.json';
 const YT = "hI8A14Qcv68";
 const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.approx }]));
@@ -16,11 +16,11 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
 
 <SongLayout
   title="N.Y. State of Mind 和訳・意味・スラング解説 | Nas（Illmatic）"
-  description="N.Y. State of Mindの意味と、Nasが描くクイーンズブリッジの日常を解説。11の表現を和訳・スラング・AAVE文法で読み解き、DJ Premierのサンプル元と制作背景も紹介。公式音源の頭出しは推定位置を明示しています。"
+  description="N.Y. State of Mindの意味と、Nasが描くクイーンズブリッジの日常を解説。17の表現を和訳・スラング・AAVE文法で読み解き、DJ Premierのサンプル元と制作背景も紹介。公式音源の頭出しは推定位置を明示しています。"
   slug="ny-state-of-mind"
   highlights={[
     '曲名は「ニューヨークで生きる者の心の状態」。街の危険とラッパーとしての自負を描く',
-    '11の表現を和訳・スラング・文法で解説（公式音源の頭出しは推定値）',
+    '17の表現を和訳・スラング・文法で解説（公式音源の頭出しは推定値）',
     'DJ Premierの不穏なピアノループとスクラッチ・フックの作り方',
   ]}
   youtubeId="hI8A14Qcv68"
@@ -55,7 +55,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
 酒や賭け事、<br />
 ラッパーとしての自信。<br />
 クイーンズブリッジの日常を、<br />
-短い用例の和訳と11の表現解説から読み解きます。</p>
+短い用例の和訳と17の表現解説から読み解きます。</p>
         <p>習慣を表す <code>be</code> の文法や、<br />
 金額を人名で呼ぶスラングが分かると、<br />
 Nasが何を見ているのかが具体的になります。</p>
@@ -86,68 +86,10 @@ Nasが何を見ているのかが具体的になります。</p>
     <a href="#article-toc" class="toc-return">↑ 目次に戻る</a>
 
     <!-- ストーリー -->
-    <section id="story" class="mb-12 scroll-mt-40">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        ストーリーの流れ — まず曲全体をつかむ
-      </h2>
-      <p class="text-xs text-[var(--c-dim)] mb-5">
-        Nasは街の光景を、<br />
-自分の視点から次々と語っています。<br />
-ラップの腕自慢と危険な日常が、<br />
-同じバースの中で行き来する曲です。
-      </p>
-      <div class="space-y-4 text-sm text-[var(--c-muted)] leading-relaxed">
-        <p>
-          <strong class="text-[var(--c-text)]">Intro</strong>。<br />
-「straight out the fuckin' dungeons of rap（ラップの地下牢からまっすぐ出てきた）」という名乗りに続いて、<br />
-Nasが「I don't know how to start this shit（どう始めればいいか分からない）」とつぶやきます。
-        </p>
-        <p>
-          この迷いの一言がそのまま音源に残っているのが伝説です（詳細は「制作の裏側」で）。
-        </p>
-        <p>
-          <strong class="text-[var(--c-text)]">Verse 1</strong>は、<br />
-ラップの腕前の誇示から始まり、<br />
-すぐに銃撃戦の生々しい一人称描写へ。<br />
-MAC-10が草むらにあった、<br />
-撃った、<br />
-弾詰まりした、<br />
-という極めて具体的な場面が、<br />
-映画のワンシーンのように展開します。
-        </p>
-        <p>
-          終盤、<br />
-「sleep is the cousin of death（眠りは死の従兄弟）」という有名な一行で、<br />
-常に気を張って生きるしかない緊張を凝縮し、<br />
-タイトルの「New York State of Mind」へ着地します。
-        </p>
-        <p>
-          <strong class="text-[var(--c-text)]">Chorus</strong>の「New York state of mind」は、<br />
-実はNasの声ではなく、<strong class="text-[var(--c-text)]">RakimのバースをPremierがスクラッチで引用した</strong>もの。<br />
-先輩MCの声を借りてフックにするのが渋いところです。
-        </p>
-        <p>
-          <strong class="text-[var(--c-text)]">Verse 2</strong>は、<br />
-ギャングスタの夢、<br />
-投資とドラッグ売買、<br />
-ラッパーとしての矜持が交錯します。<br />
-「Life is parallel to Hell（人生は地獄と平行に走る）」という比喩や、<br />
-自分のライムを「カプセルなしのビタミン」に喩える件など、<br />
-危険な日常と言葉への自負が同居しています。
-        </p>
-        <p>
-          銃撃の場面でも、<br />
-Nasは弾詰まりや逃げる動きまで描いています。<br />
-大きな言葉で危険を説明するより、<br />
-こうした細部のほうが緊張を伝えてくれると思います。
-        </p>
-        <p class="text-xs text-[var(--c-dim)]">
-          ※本ページは批評・教育目的で、<br />
-解説に必要な範囲の断片のみを引用しています。<br />
-全歌詞の対訳は掲載していません。
-        </p>
-      </div>
-    </section>
+    <section id="story" class="scroll-mt-40 mt-8 mb-10">
+<h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">曲のあらすじ</h2>
+<div class="text-[var(--c-muted)] text-sm leading-relaxed space-y-3"><p>Nasが描くのは、クイーンズブリッジで暮らす若者の視点です。前半はラップの腕自慢から銃撃と逃走へ、後半は金や成功への夢から街の危険へと話が移ります。</p><p>言葉を武器にする自負と、気を抜けば命を失う緊張が、曲を通して続いています。</p></div>
+</section>
 
     <!-- 学習ユニット -->
     <div id="units" class="scroll-mt-40"></div>
@@ -156,7 +98,7 @@ Nasは弾詰まりや逃げる動きまで描いています。<br />
         学ぶ表現 — スラング・韻・言葉遊び・AAVE
       </h2>
       <p class="text-xs text-[var(--c-dim)] mb-6">
-        11の表現を、<br />
+        17の表現を、<br />
 短い用例・和訳・日本語解説の順で読み解きます。</p>
       <p class="text-xs text-[var(--c-dim)] mb-6">AAVEはアフリカ系アメリカ人英語のこと。<br />
 教科書の英語と違う形にも、<br />
@@ -164,11 +106,20 @@ Nasは弾詰まりや逃げる動きまで描いています。<br />
       </p>
       <p class="text-xs text-[var(--c-dim)] mb-6">
         埋め込みはNas公式のフル音源（4分56秒）。</p>
-<p class="text-xs text-[var(--c-dim)] mb-6">▶の「≈」は推定位置です。11か所とも字幕による照合・実測が済んでいないため、表現の始まりとずれる場合があります。
+<p class="text-xs text-[var(--c-dim)] mb-6">▶の「≈」は推定位置です。既存11か所は字幕照合・実測が未完了です。</p><p class="text-xs text-[var(--c-dim)] mb-6">追加6項目は位置が未確認のため、頭出しボタンを付けていません。
       </p>
 
       <!-- ① habitual be -->
-      <LearningUnit
+      <details id="point-index" class="mb-6 rounded border border-[var(--c-border)] p-3"><summary class="cursor-pointer text-sm font-bold text-[var(--c-orange)]">17の解説ポイント（開く）</summary><ol class="mt-3 grid gap-2 sm:grid-cols-2 text-sm"><li><a class="underline" href="#point-intro-dungeon">1. ラップの地下牢</a></li><li><a class="underline" href="#point-habitual-be">2. 習慣を表すbe</a></li><li><a class="underline" href="#point-scarface-simile">3. Scarfaceと銃・ペン</a></li><li><a class="underline" href="#point-steelo">4. 自分の流儀steelo</a></li><li><a class="underline" href="#point-ej-grants-ceelo">5. E&amp;J・50ドル札・cee-lo</a></li><li><a class="underline" href="#point-gun-malfunction">6. 銃が撃てない瞬間</a></li><li><a class="underline" href="#point-cousin-of-death">7. 眠りと死</a></li><li><a class="underline" href="#point-state-of-mind">8. 知性の壁とタイトルの意味</a></li><li><a class="underline" href="#point-moet-tec">9. MoëtとTEC-9</a></li><li><a class="underline" href="#point-blocks-rocks">10. 株とクラックの韻</a></li><li><a class="underline" href="#point-smith-wesson">11. Smith &amp; Wessonと脅しの韻</a></li><li><a class="underline" href="#point-street-maze">12. 街区と迷路</a></li><li><a class="underline" href="#point-lamp-capone">13. Caponeのようにくつろぐ</a></li><li><a class="underline" href="#point-life-hell">14. 人生と地獄</a></li><li><a class="underline" href="#point-new-plateau">15. ラップで次の高みへ</a></li><li><a class="underline" href="#point-vitamin-capsule">16. ライムはビタミン</a></li><li><a class="underline" href="#point-city-never-sleeps">17. 眠らない街</a></li></ol></details>
+<div id="point-intro-dungeon" class="scroll-mt-56">
+<LearningUnit heading="ラップの地下牢" mc="Intro" t={TS["intro-dungeon"].t} tApprox={TS["intro-dungeon"].approx} youtubeId={YT} label="曲の入口・頭出し位置未確認">
+  <Fragment slot="eng">dungeons of rap</Fragment>
+  <Fragment slot="jpn">ラップの地下牢。</Fragment>
+  <p>冒頭は、ラップの地下牢から来たという名乗り。地下牢は実際の地名ではなく、閉じ込められた場所を借りた比喩です。</p><p>この名乗りで、街の表側からは見えない場所の話へ。曲が始まる前から暗い空気が伝わってきます。</p>
+</LearningUnit>
+</div>
+<div id="point-habitual-be" class="scroll-mt-56">
+<LearningUnit
         heading="I be kickin' / Be havin' dreams — AAVEの習慣のbe（habitual be）"
         label="★ AAVE文法（最重要）"
         mc="Nas（Verse 1）"
@@ -192,9 +143,11 @@ Nasは弾詰まりや逃げる動きまで描いています。<br />
           <p>見分け方: <code>主語 ＋ be ＋ 動詞-ing</code> で be が活用していない（am/is/are になっていない）ら、まず「いつも〜している」の習慣のbeを疑う。AAVEではこの be の有無で「今だけ」か「いつも」かを区別する、れっきとした時制表現です。</p>
         </Fragment>
       </LearningUnit>
+</div>
 
       <!-- ② Scarface simile -->
-      <LearningUnit
+      <div id="point-scarface-simile" class="scroll-mt-56">
+<LearningUnit
         heading="I'm like Scarface sniffin' cocaine — 映画の引用を直喩に畳む"
         label="★ 比喩／引用"
         mc="Nas（Verse 1）"
@@ -227,9 +180,11 @@ Nasは弾詰まりや逃げる動きまで描いています。<br />
 比喩を読むことが、<br />
 そのまま文化のレファレンスを読むことになる好例です。</p>
       </LearningUnit>
+</div>
 
       <!-- ③ steelo -->
-      <LearningUnit
+      <div id="point-steelo" class="scroll-mt-56">
+<LearningUnit
         heading="Y'all know my steelo — スタイルを指すNYスラング"
         label="★ スラング"
         mc="Nas（Verse 1）"
@@ -250,9 +205,11 @@ Nasは弾詰まりや逃げる動きまで描いています。<br />
 スラング一語に、<br />
 その人のアイデンティティが乗っているのが分かる箇所です。</p>
       </LearningUnit>
+</div>
 
       <!-- ④ E&J / Grants / cee-lo -->
-      <LearningUnit
+      <div id="point-ej-grants-ceelo" class="scroll-mt-56">
+<LearningUnit
         heading="E&J, bent, Grants, cee-lo — 一行に畳まれたNYストリート語彙"
         label="★ スラング（地域語）"
         mc="Nas（Verse 1）"
@@ -306,9 +263,18 @@ Nasは弾詰まりや逃げる動きまで描いています。<br />
           <p>標準英語の drunk より口語的でストリート寄りの語感です。</p>
         </Fragment>
       </LearningUnit>
+</div>
 
       <!-- ⑤ cousin of death -->
-      <LearningUnit
+      <div id="point-gun-malfunction" class="scroll-mt-56">
+<LearningUnit heading="銃が撃てない瞬間" mc="Nas · Verse 1" t={TS["gun-malfunction"].t} tApprox={TS["gun-malfunction"].approx} youtubeId={YT} label="場面の読み方・頭出し位置未確認">
+  <Fragment slot="eng">Tried to cock it, it wouldn't shoot, now I'm in danger</Fragment>
+  <Fragment slot="jpn">銃を使おうとしたが、撃てなかった。</Fragment>
+  <p>銃撃戦の最中、自分の銃が動かなくなる場面です。強気な語りが、撃てない焦りへ変わります。</p><p>勝って終わる武勇伝にはせず、手元の失敗や追い詰められる怖さまで描いています。街の危険を大づかみに語るより、この細かさのほうが近く感じられます。</p>
+</LearningUnit>
+</div>
+<div id="point-cousin-of-death" class="scroll-mt-56">
+<LearningUnit
         heading="sleep is the cousin of death — 一行で世界観を射抜く比喩"
         label="★ 比喩（最重要）"
         mc="Nas（Verse 1）"
@@ -334,9 +300,12 @@ Nasは弾詰まりや逃げる動きまで描いています。<br />
 曲全体を貫くテーマだと分かる作りです。<br />
 何度聴いても唸ります。</p>
       </LearningUnit>
+</div>
 
       <!-- ⑥ state of mind / title -->
-      <LearningUnit
+
+<div id="point-state-of-mind" class="scroll-mt-56">
+<LearningUnit
         heading="I think of crime when I'm in a New York State of Mind — タイトルの着地"
         label="★ 表現／テーマ"
         mc="Nas（Verse 1）"
@@ -346,6 +315,7 @@ Nasは弾詰まりや逃げる動きまで描いています。<br />
         <Fragment slot="eng">Beyond the walls of intelligence, life is defined<br />I think of crime when I'm in a New York State of Mind</Fragment>
         <Fragment slot="jpn">知性の壁の向こうで、人生は定義される／ニューヨーク・ステイト・オブ・マインドにいると、俺は犯罪のことを考える</Fragment>
         <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の締め、タイトルに着地する2行。</p>
+<p>上の一行には、知性を壁のある空間に見立てる比喩もあります。理屈だけでは届かない街の経験が、人生の理解につながっているように聞こえます。</p>
         <p>学習ポイントは <strong class="text-[var(--c-text)]">state of mind</strong> という英語の定型表現です。<br />
 「心の状態・精神状態・物の見方」を意味するイディオムで、<em>a New York state of mind</em> なら「ニューヨーク的なものの見方／NYにいるときの心持ち」を指します。</p>
         <p>Billy Joelの名曲タイトルでもある言い回しを、<br />
@@ -361,9 +331,11 @@ Nasは <code>I think of crime</code>（犯罪のことを考える）と接続�
           <p>地名＋state of mind で「その土地（に染まった）特有の感覚」を表せる。Nasはこの定型句に「犯罪を考える」を接続して、NYのダークな側面を一語で立ち上げている。</p>
         </Fragment>
       </LearningUnit>
+</div>
 
       <!-- ⑦ Moet / TEC -->
-      <LearningUnit
+      <div id="point-moet-tec" class="scroll-mt-56">
+<LearningUnit
         heading="drinkin' Moëts, holdin' TECs — ブランドと銃で描くギャングスタの夢"
         label="★ スラング／文化"
         mc="Nas（Verse 2）"
@@ -378,7 +350,7 @@ Nasは <code>I think of crime</code>（犯罪のことを考える）と接続�
         <div id="purchase-moet" class="scroll-mt-40"><AmazonMusicReference {...shop.moet} /></div>
         <p><strong class="text-[var(--c-text)]"><QuickSlang word="TECs" desc="TEC-9。当時ストリートで多用された安価なセミオート拳銃" /></strong> は拳銃TEC-9のことです。</p>
         <p>TEC-9は9mm口径のセミオート式ピストルで、引き金を引くたびに一発ずつ発射する銃です。先行機種のKG-9から発展したもので、KG-9は連射式へ改造されやすいことが問題となり、1982年に米国で規制対象になりました。</p>
-        <p>楽天には、KG-9を再現したKTC製のガスガン「KT-101」がありました。BB弾を使うエアソフトガンです。</p>
+
         <div id="purchase-tec9" class="scroll-mt-40"><AmazonMusicReference {...shop.tec9} /></div>
         <p class="text-xs text-[var(--c-muted)]">銃の来歴：<a href="https://www.atf.gov/rules-and-regulations/rulings/firearms-rulings?field_topic_tid=All&amp;og_group_ref_target_id%5B186%5D=186&amp;page=2" target="_blank" rel="noopener noreferrer" class="underline">ATFのKG-9資料</a></p>
         <p>高級シャンパンと安価な銃を同じ行に並べることで、<br />
@@ -394,9 +366,11 @@ Nasは <code>I think of crime</code>（犯罪のことを考える）と接続�
           <p>Moët、Cristal、Rolex などはそのまま富のメタファーになるので、銘柄を知っておくと情景が立ち上がりやすくなります。</p>
         </Fragment>
       </LearningUnit>
+</div>
 
       <!-- ⑧ blocks / rocks -->
-      <LearningUnit
+      <div id="point-blocks-rocks" class="scroll-mt-56">
+<LearningUnit
         heading="sewin' up the blocks to sell rocks — ドラッグ経済のスラングと脚韻"
         label="★ スラング／韻"
         mc="Nas（Verse 2）"
@@ -414,9 +388,25 @@ Nasは <code>I think of crime</code>（犯罪のことを考える）と接続�
 両者を地続きに見せる皮肉も効いています。</p>
         <p>脚韻が意味の橋渡しまでしている好例です。</p>
       </LearningUnit>
+</div><div id="point-smith-wesson" class="scroll-mt-56">
+<LearningUnit heading="Smith &amp; Wessonと脅しの韻" mc="Nas · Verse 2" t={TS["smith-wesson"].t} tApprox={TS["smith-wesson"].approx} youtubeId={YT} label="パンチライン・頭出し位置未確認">
+  <Fragment slot="eng">I ain't the type of brother made for you to start testin'<br />Give me a Smith &amp; Wesson, I'll have niggas undressin'</Fragment>
+  <Fragment slot="jpn">試す相手を間違えるな。銃を持てば、相手を丸裸にする。</Fragment>
+  <p>Smith &amp; Wesson（スミス＆ウェッソン）は銃のメーカー名です。ここでは、相手に服を脱がせるほどの脅しとして登場します。</p><p>挑発する行末のtestin'と、服を脱がせるというundressin'が韻を踏み、メーカー名のWessonも同じ音に乗っています。銃の名前と脅しが、音でもつながるパンチラインです。</p>
+</LearningUnit>
+</div><div id="point-street-maze" class="scroll-mt-56">
+<LearningUnit heading="街区は迷路、住人は罠の中" mc="Nas · Verse 2" t={TS["street-maze"].t} tApprox={TS["street-maze"].approx} youtubeId={YT} label="パンチライン・頭出し位置未確認">
+  <Fragment slot="eng">each block is like a maze<br />Full of black rats trapped</Fragment>
+  <Fragment slot="jpn">一つひとつの街区は迷路。閉じ込められた黒いネズミたち。</Fragment>
+  <p>街区を迷路に、その中の人々を閉じ込められたネズミに喩えています。道が入り組んでいるだけでなく、暮らしから抜け出せない感覚も重なる比喩です。</p><p>黒いネズミという言葉には、人間として扱われない住人の姿が浮かびます。</p>
+</LearningUnit>
+</div>
+
+
 
       <!-- ⑨ lamp like Capone -->
-      <LearningUnit
+      <div id="point-lamp-capone" class="scroll-mt-56">
+<LearningUnit
         heading="lamp like Capone — 「くつろぐ」を意味するNYスラング"
         label="★ スラング（地域語）"
         mc="Nas（Verse 2）"
@@ -431,12 +421,13 @@ Nasは <code>I think of crime</code>（犯罪のことを考える）と接続�
         <p><code>lamp like Capone</code> で「（伝説のギャング）アル・カポネのように悠然とくつろぐ」という意味になります。<br />
 スラングは <strong class="text-[var(--c-text)]">地域の方言</strong>で、<br />
 この <em>lamp</em> は特にNYの語感が強い一語です。</p>
-        <p>Al Caponeをモデルにしたのは、1932年版『Scarface』の主人公トニー・カモンテ。上で紹介したアル・パチーノ主演の1983年版『スカーフェイス』は、舞台をマイアミの麻薬ビジネスへ移したリメイクです。</p>
+        <p>アル・カポネを題材にした映画は、『アンタッチャブル』などいくつもあります。『スカーフェイス』もそのひとつで、1932年版『Scarface』の主人公トニー・カモンテはCaponeをモデルにした人物です。</p><p>上で紹介したアル・パチーノ主演の1983年版『スカーフェイス』は、この1932年版のリメイク。舞台をマイアミの麻薬ビジネスへ移し、主人公もトニー・モンタナに変わっています。</p>
         <figure class="context-photo supplied-photo" id="photo-capone" data-image-source="user-provided">
           <img src="/images/context/ny-state-of-mind/capone-user.jpg" alt="Al Caponeを紹介する2枚の白黒写真" width="1280" height="514" loading="lazy" />
           <figcaption>Al Caponeを紹介する画像。画像：ユーザー提供（原本を掲載、改変なし）。</figcaption>
         </figure>
-        <p class="text-xs text-[var(--c-muted)]">映画の背景：<a href="https://catalog.afi.com/Catalog/moviedetails/1134" target="_blank" rel="noopener noreferrer" class="underline">AFI『Scarface』（1932）の作品資料</a></p>
+        <p class="text-xs text-[var(--c-muted)]">映画の背景：<a href="https://catalog.afi.com/Catalog/moviedetails/1134" target="_blank" rel="noopener noreferrer" class="underline">AFI『Scarface』（1932）の作品資料</a>／<a href="https://www.paramountplus.com/movies/video/0tnMAzwCVxRVBmd3DwW2T_dIgpjNa697/" target="_blank" rel="noopener noreferrer" class="underline">『アンタッチャブル』作品紹介</a></p>
+<div id="purchase-scarface-stream" class="scroll-mt-40"><AmazonMusicReference {...shop.scarfaceStream} /></div>
         <p>行末の <strong class="text-[var(--c-text)]">stones</strong> は「ダイヤなどの宝石」を指し、<code>rings flooded with stones</code>（石で溢れた指輪）で富を描きます。</p>
         <p><code>Capone / sewn / stones / homes</code> と <strong class="text-[var(--c-text)]">-one/-ones</strong> の脚韻が連なっているのも聴きどころです。</p>
         <Fragment slot="usage">
@@ -445,9 +436,25 @@ Nasは <code>I think of crime</code>（犯罪のことを考える）と接続�
           <p><strong class="text-[var(--c-text)]">stones</strong> は文脈によって「宝石（ダイヤ）」を指すスラング。<em>flooded with stones</em>（石で埋め尽くされた）はアクセサリーに宝石を敷き詰めた状態の定番表現。</p>
         </Fragment>
       </LearningUnit>
+</div><div id="point-life-hell" class="scroll-mt-56">
+<LearningUnit heading="人生と地獄が並んで走る" mc="Nas · Verse 2" t={TS["life-hell"].t} tApprox={TS["life-hell"].approx} youtubeId={YT} label="パンチライン・頭出し位置未確認">
+  <Fragment slot="eng">Life is parallel to Hell</Fragment>
+  <Fragment slot="jpn">人生は地獄と平行にある。</Fragment>
+  <p>人生を地獄そのものとは言わず、平行に並べています。近くにあるのに、簡単には離れられないという距離感が残る表現です。</p><p>そのあとも、生き方を保ち、成功しようとする話が続きます。地獄の比喩で終わらず、危険な場所で暮らしを続ける話に戻るところが好きです。</p>
+</LearningUnit>
+</div>
+
 
       <!-- ⑩ vitamin without a capsule -->
-      <LearningUnit
+      <div id="point-new-plateau" class="scroll-mt-56">
+<LearningUnit heading="ラップで次の高みへ" mc="Nas · Verse 2" t={TS["new-plateau"].t} tApprox={TS["new-plateau"].approx} youtubeId={YT} label="比喩・頭出し位置未確認">
+  <Fragment slot="eng">new plateau</Fragment>
+  <Fragment slot="jpn">新しい高み。</Fragment>
+  <p>plateauは台地や高原のこと。ここでは、他のラッパーを連れていく新しい到達点として使っています。</p><p>相手を倒すという腕自慢から、ラップの水準を上げるという話へ。すぐあとのビタミンの比喩と合わせると、自分の言葉には効き目があるという自負が見えてきます。</p>
+</LearningUnit>
+</div>
+<div id="point-vitamin-capsule" class="scroll-mt-56">
+<LearningUnit
         heading="My rhymin' is a vitamin held without a capsule — 隠喩(metaphor)の作り方"
         label="★ 比喩"
         mc="Nas（Verse 2）"
@@ -474,9 +481,11 @@ Nasらしい一行です。<code>plateau / slow / rhymin'</code> 周辺の音の
           <p>比喩を読むコツ: be動詞の後ろに、文字どおりには成り立たない名詞（rhyme＝vitamin）が来たら隠喩を疑う。その「ありえない等式」が何を強調しているか（ここでは"混じりけなく効く"）を考えると、意図が見えてきます。</p>
         </Fragment>
       </LearningUnit>
+</div>
 
       <!-- ⑪ city never sleeps -->
-      <LearningUnit
+      <div id="point-city-never-sleeps" class="scroll-mt-56">
+<LearningUnit
         heading="The city never sleeps, full of villains and creeps — NYの常套句と内部韻"
         label="★ 韻／表現"
         mc="Nas（Verse 2）"
@@ -497,6 +506,9 @@ Nasらしい一行です。<code>plateau / slow / rhymin'</code> 周辺の音の
 自分の経験で塗り替える。<br />
 表現の手つきがよく分かる箇所です。</p>
       </LearningUnit>
+</div>
+<p id="lyric-source" class="text-xs text-[var(--c-dim)] mt-4">引用元：<a href="https://genius.com/Nas-ny-state-of-mind-lyrics" target="_blank" rel="noopener noreferrer" class="underline">Nas「N.Y. State of Mind」（Genius）</a>。批評・解説に必要な断片のみを掲載しています。</p>
+
     </section>
 
     <!-- 文化的背景 -->
