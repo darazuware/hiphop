@@ -1,127 +1,338 @@
 [
   {
-    "id": "chill-93-til",
-    "anchor": ["this", "is", "how", "we", "chill", "from"],
-    "fallbackT": 8
-  },
-  {
     "id": "intro-maxin",
-    "anchor": ["im", "chillin", "with", "my", "man", "phesto"],
-    "fallbackT": 12
+    "anchor": [
+      "im",
+      "chillin",
+      "with",
+      "my",
+      "man",
+      "phesto"
+    ],
+    "fallbackT": 12,
+    "syncedSec": 4,
+    "timingSource": "https://lrclib.net/api/get/35152057"
   },
   {
     "id": "intro-cloudy",
-    "anchor": ["and", "um", "sometimes", "it", "gets", "a"],
-    "fallbackT": 18
+    "anchor": [
+      "and",
+      "um",
+      "sometimes",
+      "it",
+      "gets",
+      "a"
+    ],
+    "fallbackT": 18,
+    "syncedSec": 13,
+    "timingSource": "https://lrclib.net/api/get/35152057"
   },
   {
     "id": "v1-seven-digits",
-    "anchor": ["dial", "the", "seven", "digits", "call", "up"],
-    "fallbackT": 24
+    "anchor": [
+      "dial",
+      "the",
+      "seven",
+      "digits",
+      "call",
+      "up"
+    ],
+    "fallbackT": 24,
+    "syncedSec": 18,
+    "timingSource": "https://lrclib.net/api/get/35152057"
   },
   {
     "id": "forty-stoge",
-    "anchor": ["heres", "a", "forty", "swig", "it"],
-    "fallbackT": 30
+    "anchor": [
+      "heres",
+      "a",
+      "forty",
+      "swig",
+      "it"
+    ],
+    "fallbackT": 30,
+    "syncedSec": 23,
+    "timingSource": "https://lrclib.net/api/get/35152057"
   },
   {
     "id": "good-vibrations",
-    "anchor": ["now", "we", "feel", "the", "good", "vibrations"],
-    "fallbackT": 38
+    "anchor": [
+      "now",
+      "we",
+      "feel",
+      "the",
+      "good",
+      "vibrations"
+    ],
+    "fallbackT": 38,
+    "syncedSec": 32,
+    "timingSource": "https://lrclib.net/api/get/35152057"
   },
   {
     "id": "bones-to-pick",
-    "anchor": ["roam", "the", "strip", "for", "bones"],
-    "fallbackT": 50
+    "anchor": [
+      "roam",
+      "the",
+      "strip",
+      "for",
+      "bones"
+    ],
+    "fallbackT": 50,
+    "syncedSec": 42,
+    "timingSource": "https://lrclib.net/api/get/35152057"
   },
   {
     "id": "v3-in-the-cut",
-    "anchor": ["we", "in", "the", "cut", "the", "cinema"],
-    "fallbackT": 66
+    "anchor": [
+      "we",
+      "in",
+      "the",
+      "cut",
+      "the",
+      "cinema"
+    ],
+    "fallbackT": 66,
+    "syncedSec": 60,
+    "timingSource": "https://lrclib.net/api/get/35152057"
   },
   {
     "id": "v4-throws-game",
-    "anchor": ["close", "range", "i", "throws", "game", "at"],
-    "fallbackT": 74
+    "anchor": [
+      "close",
+      "range",
+      "i",
+      "throws",
+      "game",
+      "at"
+    ],
+    "fallbackT": 74,
+    "syncedSec": 67,
+    "timingSource": "https://lrclib.net/api/get/35152057"
   },
   {
     "id": "all-that-phat",
-    "anchor": ["cause", "the", "mans", "all", "that"],
-    "fallbackT": 80
+    "anchor": [
+      "cause",
+      "the",
+      "mans",
+      "all",
+      "that"
+    ],
+    "fallbackT": 80,
+    "syncedSec": 69,
+    "timingSource": "https://lrclib.net/api/get/35152057"
+  },
+  {
+    "id": "chill-93-til",
+    "anchor": [
+      "this",
+      "is",
+      "how",
+      "we",
+      "chill",
+      "from"
+    ],
+    "fallbackT": 8,
+    "syncedSec": 74,
+    "timingSource": "https://lrclib.net/api/get/35152057"
   },
   {
     "id": "v5-timbs",
-    "anchor": ["huh", "my", "black", "timbs", "do", "me"],
-    "fallbackT": 92
+    "anchor": [
+      "huh",
+      "my",
+      "black",
+      "timbs",
+      "do",
+      "me"
+    ],
+    "fallbackT": 92,
+    "syncedSec": 92,
+    "timingSource": "https://lrclib.net/api/get/35152057"
   },
   {
     "id": "v6-blunts-flip",
-    "anchor": ["to", "hit", "blunts", "and", "flip", "once"],
-    "fallbackT": 104
+    "anchor": [
+      "to",
+      "hit",
+      "blunts",
+      "and",
+      "flip",
+      "once"
+    ],
+    "fallbackT": 104,
+    "syncedSec": 113,
+    "timingSource": "https://lrclib.net/api/get/35152057"
   },
   {
     "id": "v7-posted",
-    "anchor": ["im", "posted", "most", "kids", "accept", "this"],
-    "fallbackT": 116
+    "anchor": [
+      "im",
+      "posted",
+      "most",
+      "kids",
+      "accept",
+      "this"
+    ],
+    "fallbackT": 116,
+    "syncedSec": 116,
+    "timingSource": "https://lrclib.net/api/get/35152057"
   },
   {
     "id": "indo",
-    "anchor": ["so", "i", "got", "tons", "of", "indo"],
-    "fallbackT": 128
+    "anchor": [
+      "so",
+      "i",
+      "got",
+      "tons",
+      "of",
+      "indo"
+    ],
+    "fallbackT": 128,
+    "syncedSec": 127,
+    "timingSource": "https://lrclib.net/api/get/35152057"
   },
   {
     "id": "greenbacks-stacks",
-    "anchor": ["greenbacks", "in", "stacks"],
-    "fallbackT": 138
+    "anchor": [
+      "greenbacks",
+      "in",
+      "stacks"
+    ],
+    "fallbackT": 138,
+    "syncedSec": 135,
+    "timingSource": "https://lrclib.net/api/get/35152057"
   },
   {
     "id": "habitual-be",
-    "anchor": ["be", "coolin", "schools", "in", "session"],
-    "fallbackT": 156
+    "anchor": [
+      "be",
+      "coolin",
+      "schools",
+      "in",
+      "session"
+    ],
+    "fallbackT": 156,
+    "syncedSec": 167,
+    "timingSource": "https://lrclib.net/api/get/35152057"
   },
   {
     "id": "v10-mall",
-    "anchor": ["restin", "at", "the", "mall", "attendants"],
-    "fallbackT": 170
+    "anchor": [
+      "restin",
+      "at",
+      "the",
+      "mall",
+      "attendants"
+    ],
+    "fallbackT": 170,
+    "syncedSec": 186,
+    "timingSource": "https://lrclib.net/api/get/35152057"
   },
   {
     "id": "fashion-dipped",
-    "anchor": ["some", "few", "fits", "some", "new", "kicks"],
-    "fallbackT": 178
+    "anchor": [
+      "some",
+      "few",
+      "fits",
+      "some",
+      "new",
+      "kicks"
+    ],
+    "fallbackT": 178,
+    "syncedSec": 190,
+    "timingSource": "https://lrclib.net/api/get/35152057"
   },
   {
     "id": "v11-main-squeeze",
-    "anchor": ["keep", "tabs", "on", "your", "main", "squeeze"],
-    "fallbackT": 186
+    "anchor": [
+      "keep",
+      "tabs",
+      "on",
+      "your",
+      "main",
+      "squeeze"
+    ],
+    "fallbackT": 186,
+    "syncedSec": 202,
+    "timingSource": "https://lrclib.net/api/get/35152057"
   },
   {
     "id": "v12-mack",
-    "anchor": ["i", "mack", "her", "attack", "her", "with"],
-    "fallbackT": 196
+    "anchor": [
+      "i",
+      "mack",
+      "her",
+      "attack",
+      "her",
+      "with"
+    ],
+    "fallbackT": 196,
+    "syncedSec": 204,
+    "timingSource": "https://lrclib.net/api/get/35152057"
   },
   {
     "id": "bite-flows",
-    "anchor": ["they", "bite", "flows"],
-    "fallbackT": 202
+    "anchor": [
+      "they",
+      "bite",
+      "flows"
+    ],
+    "fallbackT": 202,
+    "syncedSec": 214,
+    "timingSource": "https://lrclib.net/api/get/35152057"
   },
   {
     "id": "v12-loot",
-    "anchor": ["but", "i", "get", "my", "loot", "from"],
-    "fallbackT": 208
-  },
-  {
-    "id": "outro-crew",
-    "anchor": ["yo", "whos", "chillin", "i", "think", "i"],
-    "fallbackT": 232
+    "anchor": [
+      "but",
+      "i",
+      "get",
+      "my",
+      "loot",
+      "from"
+    ],
+    "fallbackT": 208,
+    "syncedSec": 218,
+    "timingSource": "https://lrclib.net/api/get/35152057"
   },
   {
     "id": "the-land",
-    "anchor": ["chillin", "around", "the", "land"],
-    "fallbackT": 240
+    "anchor": [
+      "chillin",
+      "around",
+      "the",
+      "land"
+    ],
+    "fallbackT": 240,
+    "syncedSec": 245,
+    "timingSource": "https://lrclib.net/api/get/35152057"
+  },
+  {
+    "id": "outro-crew",
+    "anchor": [
+      "yo",
+      "whos",
+      "chillin",
+      "i",
+      "think",
+      "i"
+    ],
+    "fallbackT": 232,
+    "syncedSec": 247,
+    "timingSource": "https://lrclib.net/api/get/35152057"
   },
   {
     "id": "outro-92-93",
-    "anchor": ["92", "is", "over", "93", "thats", "when"],
-    "fallbackT": 262
+    "anchor": [
+      "92",
+      "is",
+      "over",
+      "93",
+      "thats",
+      "when"
+    ],
+    "fallbackT": 262,
+    "timingPending": true
   }
 ]
