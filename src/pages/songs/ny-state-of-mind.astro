@@ -4,6 +4,7 @@ import DiveCards from '../../components/DiveCards.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
 import SongLayout from '../../layouts/SongLayout.astro';
 import MercariCta from '../../components/MercariCta.astro';
+import AmazonMusicReference from '../../components/AmazonMusicReference.astro';
 const recordAmazon = `https://www.amazon.co.jp/s?k=${encodeURIComponent('Nas Illmatic')}&i=music&tag=wax1124-22`;
 
 // 公式音源の頭出しは11件ともfallback由来の推定値。運営者実測・字幕照合は未確認。
@@ -209,8 +210,11 @@ Nasは弾詰まりや逃げる動きまで描いています。<br />
           <img src="/images/context/ny-state-of-mind/scarface-user.jpg" alt="映画『スカーフェイス』のトニー・モンタナを演じるアル・パチーノ" width="1280" height="563" loading="lazy" decoding="async" />
           <figcaption>映画『スカーフェイス』のトニー・モンタナ（アル・パチーノ）。<small>画像：ユーザー提供（原画像のクレジットを保持）</small></figcaption>
         </figure>
-        <a href="https://www.amazon.co.jp/s?k=%E3%82%B9%E3%82%AB%E3%83%BC%E3%83%95%E3%82%A7%E3%82%A4%E3%82%B9%201983%20Blu-ray&i=dvd&tag=wax1124-22" target="_blank" rel="noopener sponsored nofollow"
-          data-affiliate-merchant="amazon" data-affiliate-item="Scarface (1983)" data-affiliate-position="ny-scarface" class="purchase-button mb-5">スカーフェイスのDVD・Blu-rayをAmazonで探す → [PR]</a>
+        <AmazonMusicReference query="スカーフェイス DVD" title="スカーフェイス [DVD]"
+      artist="アル・パチーノ主演" label="このDVDをAmazonで購入" position="ny-scarface"
+      coverLabel="スカーフェイスのDVDをAmazonで購入 [PR]"
+      cover="https://m.media-amazon.com/images/I/71NL7LHndKL._AC_SY445_SX342_QL70_ML2_.jpg"
+      href="https://www.amazon.co.jp/%E3%82%B9%E3%82%AB%E3%83%BC%E3%83%95%E3%82%A7%E3%82%A4%E3%82%B9-DVD-%E3%82%A2%E3%83%AB%E3%83%BB%E3%83%91%E3%83%81%E3%83%BC%E3%83%8E/dp/B006QJSACY?linkCode=sl2&tag=wax1124-22&linkId=3782d361e0e6ab4a55089586e906e082&ref_=as_li_ss_tl&ascsubtag=srctok-7158641f44ba1df1&btn_type=ss&btn_ref=srctok-7158641f44ba1df1" />
 
         <p><strong class="text-[var(--c-text)]">Scarface</strong> は1983年の同名映画の主人公で、<br />
 ヒップホップでは「成り上がりと破滅」の象徴として無数に引用される名前です。</p>

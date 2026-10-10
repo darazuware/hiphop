@@ -1,14 +1,14 @@
 ---
 interface Props {
   query: string; title: string; label: string; position: string;
-  cover: string; artist: string; record?: string; href?: string; mercariHref?: string;
+  cover: string; coverLabel?: string; artist: string; record?: string; href?: string; mercariHref?: string;
 }
-const { query, title, label, position, cover, artist, record, href: suppliedHref, mercariHref } = Astro.props as Props;
+const { query, title, label, position, cover, coverLabel, artist, record, href: suppliedHref, mercariHref } = Astro.props as Props;
 const TAG = "wax1124-22";
 const href = suppliedHref ?? `https://www.amazon.co.jp/s?k=${encodeURIComponent(query)}&i=music&tag=${TAG}`;
 ---
 <aside class="release-reference" aria-label={title}>
-  <a href={href} target="_blank" rel="noopener sponsored nofollow" aria-label={`${title}をAmazonで探す [PR]`}
+  <a href={href} target="_blank" rel="noopener sponsored nofollow" aria-label={coverLabel ?? `${title}をAmazonで探す [PR]`}
     data-affiliate-merchant="amazon" data-affiliate-item={title} data-affiliate-position={`${position}-cover`}>
     <img src={cover} alt={`${record ?? title}のジャケット`} width="100" height="100" loading="lazy" />
   </a>
