@@ -54,25 +54,25 @@
   {
     "id": "corners-goners",
     "whisperSec": null,
-    "manualSec": null,
+    "manualSec": 97,
     "captionSec": null,
     "syncedSec": null,
     "fallbackT": null,
-    "t": null,
-    "source": "pending",
-    "approx": true,
+    "t": 97,
+    "source": "manual",
+    "approx": false,
     "score": null
   },
   {
     "id": "stickup-kids",
     "whisperSec": null,
-    "manualSec": null,
+    "manualSec": 100,
     "captionSec": null,
     "syncedSec": null,
     "fallbackT": null,
-    "t": null,
-    "source": "pending",
-    "approx": true,
+    "t": 100,
+    "source": "manual",
+    "approx": false,
     "score": null
   },
   {

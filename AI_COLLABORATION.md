@@ -182,3 +182,10 @@ AIを活用し、WAX&THINKの検索・動画流入を継続収益へ変える。
 ### NY State of Mind 追加項目の再生復旧終了 — 2026-10-11 JST
 - Codex。終了時競合なし。追加2項目へ再生/停止を復旧、contextStart任意propで直前の確定80.50秒を渡し「前の場面から 1:20」と明示。発声開始t=null/pendingとdata-tなしを維持、既存15時刻/元16点証拠/引用本文/商品/動画/WIP保全。
 - 記事10項目（build込み）/専用30条件/停止harness/文体/公開安全/diff通過。PC1440/390で17再生停止、既存15小数seek/バー、追加2の80.50秒seek/play/pauseと文脈表示/横溢れ0/pageerror0。nas-is-like29整数seek/表示の回帰確認。新2発声開始は未実測、モックはAPI受渡しのみ検証。証拠docs/ny-state-of-mind-unit-replacement-2026-10.json。対象5ファイルのみreview push、本番非公開。
+
+### NY State of Mind 追加2項目の実測反映着手 — 2026-10-11 JST
+- Codex。競合なし、隔離review 8eec5b1再利用。ユーザー実測「corner1:37,stick1:40」を97/100秒へ解釈。既存set-manual入口、対象追加2レコード/当該注記と文脈prop/専用ガード/入替証拠/本ボード。既存15確定値と元16点記録保全、17再生停止と記事/build/safety検証、review push、本番非公開。
+
+### NY State of Mind 追加2項目の実測反映終了 — 2026-10-11 JST
+- Codex。終了時競合なし。ユーザー提供corner1:37/stick1:40をcorners-goners=97/stickup-kids=100秒のmanualへ反映。追加2のtimingPending/contextStart/確認中注記撤去。既存15レコードとLearningUnit/元16実測証拠、共通player/本文引用/写真商品/動画/WIP保全。
+- 記事10項目（build込み）/専用30条件/文体/公開安全/diff pass。PC1440/390の17seek/play/pause/バー時刻/17fontと読書位置/購入配置/横溢れ0/pageerror0確認。発声根拠は今回のユーザー実測、ブラウザはAPI受渡し検証。追加2の実測待ちは解消。対象6ファイルのみreview push、本番非公開。証拠docs/ny-state-of-mind-unit-replacement-2026-10.json。

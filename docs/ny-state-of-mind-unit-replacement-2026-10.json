@@ -212,5 +212,83 @@
         "pageErrors": 0
       }
     ]
+  },
+  "addedOnsetRevision": {
+    "baseCommit": "8eec5b14ae1927ff6accdb573f839f00386ff8b6",
+    "operatorResponse": "corner1:37,stick1:40",
+    "videoId": "hI8A14Qcv68",
+    "positions": [
+      {
+        "id": "corners-goners",
+        "manualSec": 97,
+        "quoteOnsetVerified": true
+      },
+      {
+        "id": "stickup-kids",
+        "manualSec": 100,
+        "quoteOnsetVerified": true
+      }
+    ],
+    "preservation": "retained 15 records and original 16-point measured evidence unchanged",
+    "verification": {
+      "articleChecks": 10,
+      "nyReaderChecks": 30,
+      "publishSafety": "pass",
+      "tone": "pass",
+      "browser": [
+        {
+          "width": 1440,
+          "retailerPair": {
+            "amazonX": 240,
+            "mercariX": 575.5,
+            "amazonY": -2284.125,
+            "mercariY": -2284.125,
+            "width": 684,
+            "height": 106.921875
+          },
+          "compactEnd": {
+            "x": 224,
+            "y": 1286.890625,
+            "width": 378.03125,
+            "height": 78.390625
+          },
+          "units": 17,
+          "pendingUnits": 0,
+          "measuredSeekStopPairs": 17,
+          "allSeekPlayPauseHandoffs": 17,
+          "barTimesChecked": 17,
+          "duration": "4:56",
+          "playerAPI": "mock verifies exact decimal handoff; acoustic evidence is operator report",
+          "horizontalOverflow": 0,
+          "pageErrors": 0
+        },
+        {
+          "width": 390,
+          "retailerPair": {
+            "amazonX": 32,
+            "mercariX": 200.5,
+            "amazonY": -2958.984375,
+            "mercariY": -2958.984375,
+            "width": 358,
+            "height": 119.890625
+          },
+          "compactEnd": {
+            "x": 16,
+            "y": 1521.375,
+            "width": 358,
+            "height": 106.390625
+          },
+          "units": 17,
+          "pendingUnits": 0,
+          "measuredSeekStopPairs": 17,
+          "allSeekPlayPauseHandoffs": 17,
+          "barTimesChecked": 17,
+          "duration": "4:56",
+          "playerAPI": "mock verifies exact decimal handoff; acoustic evidence is operator report",
+          "horizontalOverflow": 0,
+          "pageErrors": 0
+        }
+      ]
+    }
   }
 }
