@@ -217,3 +217,10 @@ AIを活用し、WAX&THINKの検索・動画流入を継続収益へ変える。
 ### NY State of Mind サイコロcaption一行化終了 — 2026-10-11 JST
 - Codex。終了時競合なし。指定文「路上でcee-loを行う様子。」の右へAI生成をinline spanで配置。旧smallの二行注記を撤去し、captionのみ変更。他source/画像/17確定時刻/購入保全。
 - 文体/article10（build含む）/専用32/safety/diff pass。PC1440/390/320で一行・右側ラベル/画像ロード/横溢れ0、全17data-seek保全。対象4ファイルのみreview push、本番非公開。証拠docs/ny-state-of-mind-ceelo-image-2026-10.json。
+
+### NY State of Mind 提供画像出典・地図反映着手 — 2026-10-11 JST
+- Codex。競合なし、隔離review 1cb0b01。新規提供5画像と出典を対応させ当該figureへ反映、Google Maps埋込を文化的背景へ追加。橋と団地/出生と成育を混同しない。本文引用/17時刻/既存AIサイコロ/商品/動画WIP保全。対象当該ページ/新画像/Maps用CSP2ファイル/専用ガード/証拠/台帳。DoD画像とmapのPC390表示、保全/記事/build/safety/diff/pre-push、review push、本番非公開。
+
+### NY State of Mind 提供画像出典・地図反映終了 — 2026-10-11 JST
+- Codex。終了時競合なし。提供5画像をWebP最適化して各figureへ反映、Pexels/E&J公式/IMDb/Wikipedia出典リンクを付与。カポネは提供済み合成を使用、元画像保持。橋はクイーンズボロ橋、地図はノース・ハウジズ周辺として表記し、出生地と断定せずNYCHAの成育情報に合わせた。画像出典と利用許諾確認を混同しない。
+- 5figureとmapを戻すと前commitのページとbyte一致、CSP2ファイルはGoogle frame origin追加だけ。17確定時刻/引用/商品/AIサイコロ/動画WIP保全。記事10（build含む）/専用33/公開安全/diff pass。PC1440・390で5画像ロード・出典/Google map実描画（配信CSP下HTTP200）/横溢れ0、17seek-play-pause-barと読書位置font再確認、既存dicecaptionは1440/390/320一行。証拠docs/ny-state-of-mind-media-sources-map-2026-10.json。対象11ファイルのみreview push、本番非公開。人間待ち：review表示確認。
