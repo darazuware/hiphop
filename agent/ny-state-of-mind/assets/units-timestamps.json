@@ -150,18 +150,6 @@
     "score": null
   },
   {
-    "id": "new-plateau",
-    "whisperSec": null,
-    "manualSec": null,
-    "captionSec": null,
-    "syncedSec": null,
-    "fallbackT": 229,
-    "t": 229,
-    "source": "fallback",
-    "approx": true,
-    "score": null
-  },
-  {
     "id": "vitamin-capsule",
     "whisperSec": 220,
     "manualSec": null,

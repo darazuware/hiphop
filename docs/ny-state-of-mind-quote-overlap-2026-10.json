@@ -1,0 +1,111 @@
+{
+  "date": "2026-10-11",
+  "slug": "ny-state-of-mind",
+  "baseCommit": "a7f39287e342d80384bd3696ff51ac0aa2b2a374",
+  "cause": {
+    "firstIntroducedCommit": "cc72694549e2c660bcf2ce276b10d97e3312cd82",
+    "beforeCommit": "4904f86",
+    "mechanism": "Added short-quote unit new-plateau immediately before existing vitamin-capsule, whose two-line quote already includes that phrase. Existing quote preservation and 17-count assertions passed while source-coverage checks deduplicate repeated lines. Existing same/contiguous-line merge rule was not applied. No evidence of missing lyrics; valid content was split redundantly.",
+    "beforeUnits": 11,
+    "afterExpansionUnits": 17,
+    "overlapReproduction": {
+      "firstUnit": 15,
+      "secondUnit": 16,
+      "sharedTokens": 2
+    },
+    "policyGap": "fact-check-rules called reuse free under [D], while article-tone required merging same/contiguous lines; clarified counting is not permission to split repeated quotes",
+    "failedGateBefore": "check-quote-overlap exit 1 for the reported pair; [B/C/D] still pass",
+    "coverageBeforeAfter": "[B/C/D] passed both before/after; quotation coverage stays 32% despite 17→16 units, proving aggregate coverage cannot detect duplicate presentation"
+  },
+  "fix": {
+    "mergedUnit": "vitamin-capsule",
+    "removedStandaloneID": "new-plateau",
+    "unitCount": 16,
+    "retainedConcepts": 2,
+    "retainedOriginal28Slots": true,
+    "removedOnlyAddedSlots": 2,
+    "remainingSlots": 38,
+    "removedSlotHashes": [
+      "d460bc66bcfbd9357feee86a09ccf4dbe8b98a566b802a81fc65d1782a49d38f",
+      "c7897d3d6dcb568191dce66a6de22747724d785732c944ae36d8fc23f426ef0c"
+    ],
+    "sharedTimestamp": 232,
+    "timestampStatus": "Existing estimate retained, not measured; original 11 records unchanged",
+    "remainingSlotSHA256": "41183f6d0a21254a8ae5de2018d08404f3554cee580bd1986a7a86ae26923cd3"
+  },
+  "prevention": {
+    "entry": "node agent/src/check-quote-overlap.mjs ny-state-of-mind; also [F] in check-lyrics-coverage/check-article/normal pre-push",
+    "checks": "All unit pairs: complete short-quote containment from 2 tokens; partial overlap from 8 tokens; entities/curly apostrophes/QuickSlang normalized; no lyrics printed",
+    "unitCount": "reader guard follows metadata, not a fixed numeric target"
+  },
+  "verification": {
+    "state": "passed",
+    "regression": "before cc72694: 0 overlaps; introduced cc72694: 1; previous a7f3928: 1; current: 0; positions/counts only, no lyrics printed",
+    "tests": "5 committed synthetic regression tests passed: short containment, inline vocabulary/entity/apostrophe normalization, partial long overlap, shared quote inside one unit, unrelated common words",
+    "tone": "initial machine, independent reread of merged prose, final machine pass",
+    "article": "all 10 required checks including B/C/D/new F, official audio and chronological metadata passed",
+    "build": "final index cleanup followed by current-source build passed",
+    "readerGuard": "25 conditions passed; unit count derived from metadata rather than 17 or 16 target",
+    "publishSafety": "passed",
+    "diff": "passed",
+    "browser": [
+      {
+        "width": 1440,
+        "units": 16,
+        "approxSeekStopPairs": 16,
+        "newSeekPlayPauseChecks": 5,
+        "playerAPI": "mock confirms handoff, no real audio measurement",
+        "indexJumps": 16,
+        "productImageAndBothTargets": true,
+        "events": [
+          {
+            "event": "affiliate_click",
+            "merchant": "amazon",
+            "position": "ny-smith-wesson-airsoft-cover"
+          },
+          {
+            "event": "affiliate_click",
+            "merchant": "amazon",
+            "position": "ny-smith-wesson-airsoft"
+          }
+        ],
+        "horizontalOverflow": 0,
+        "pageErrors": 0
+      },
+      {
+        "width": 390,
+        "units": 16,
+        "approxSeekStopPairs": 16,
+        "newSeekPlayPauseChecks": 5,
+        "playerAPI": "mock confirms handoff, no real audio measurement",
+        "indexJumps": 16,
+        "productImageAndBothTargets": true,
+        "events": [
+          {
+            "event": "affiliate_click",
+            "merchant": "amazon",
+            "position": "ny-smith-wesson-airsoft-cover"
+          },
+          {
+            "event": "affiliate_click",
+            "merchant": "amazon",
+            "position": "ny-smith-wesson-airsoft"
+          }
+        ],
+        "horizontalOverflow": 0,
+        "pageErrors": 0
+      }
+    ],
+    "visual": "PC1440/390 combined unit inspected with all lyric blocks masked; two small headings, one quote block and one approximate seek/stop pair",
+    "preservation": "original 28 quote slots and original 11 units/timestamp records verified by existing hashes; only added duplicate quote/translation removed; 13 commerce objects/photos/shared components/videos unchanged",
+    "scope": "one article, its units/timestamps, dedicated guard, shared quotation-overlap gate/test and two necessary rule clarifications; no unrelated articles",
+    "deployment": "review only; production awaits approval via publish-main.mjs"
+  },
+  "pending": [
+    "All 16 remaining timestamps still estimates; require real measurement",
+    "Unprovided advertising code",
+    "Supplied photo original author/reuse conditions",
+    "E&J exhaustive domestic retail availability confirmation"
+  ],
+  "production": "awaits explicit approval, publish-main.mjs only"
+}

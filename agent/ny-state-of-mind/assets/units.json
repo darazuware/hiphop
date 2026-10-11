@@ -13,7 +13,6 @@
   {"id": "street-maze", "anchor": ["each", "block", "is", "like", "a", "maze", "Full", "of", "black", "rats", "trapped"], "fallbackT": 191, "manualSec": null},
   { "id": "lamp-capone", "anchor": ["lamp","like","capone","with","drug"], "fallbackT": 205 },
   {"id": "life-hell", "anchor": ["Life", "is", "parallel", "to", "Hell"], "fallbackT": 214, "manualSec": null},
-  {"id": "new-plateau", "anchor": ["new", "plateau"], "fallbackT": 229, "manualSec": null},
   { "id": "vitamin-capsule", "anchor": ["rhyming","is","a","vitamin"], "fallbackT": 232 },
   { "id": "city-never-sleeps", "anchor": ["city","never","sleeps","full","of","villains"], "fallbackT": 240 }
 ]

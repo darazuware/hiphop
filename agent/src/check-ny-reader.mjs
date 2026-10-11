@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import { readFileSync, existsSync } from 'node:fs';
 import { createHash } from 'node:crypto';
+import { findQuoteOverlaps } from './check-quote-overlap.mjs';
 const root = new URL('../../', import.meta.url);
 const read = name => readFileSync(new URL(name, root), 'utf8');
 const source = read('src/pages/songs/ny-state-of-mind.astro');
@@ -9,17 +10,20 @@ const extra = JSON.parse(read('docs/ny-state-of-mind-context-commerce-2026-10.js
 const shop = JSON.parse(read('src/data/ny-state-of-mind-commerce.json'));
 const revision = JSON.parse(read('docs/ny-state-of-mind-punchlines-2026-10.json'));
 const followup = JSON.parse(read('docs/ny-state-of-mind-player-smif-2026-10.json'));
+const mergeFix = JSON.parse(read('docs/ny-state-of-mind-quote-overlap-2026-10.json'));
 const newIDs = revision.newUnits.map(u => u.id);
+const activeNewIDs = newIDs.filter(id=>id!==mergeFix.fix.removedStandaloneID);
+const activeEstimates = followup.audio.newEstimates.filter(e=>activeNewIDs.includes(e.id));
 const units = JSON.parse(read('agent/ny-state-of-mind/assets/units.json'));
 const canonical = value => JSON.stringify(Array.isArray(value) ? value.map(v => JSON.parse(canonical(v))) : value && typeof value === 'object' ? Object.fromEntries(Object.keys(value).sort().map(k => [k, JSON.parse(canonical(value[k]))])) : value);
 const timestamps = JSON.parse(read('agent/ny-state-of-mind/assets/units-timestamps.json'));
 const quoteSlots = source.match(/<Fragment slot="(?:eng|jpn|usage)">[\s\S]*?<\/Fragment>/g) ?? [];
 const hash = s => createHash('sha256').update(s).digest('hex');
 const checks = {
-  '17 distinct units retain all original 28 quote slots in order': (source.match(/<LearningUnit\b/g)??[]).length===revision.unitCount && hash(quoteSlots.filter(q=>revision.originalSlotHashes.includes(hash(q))).join('\n'))===proof.preservation.quoteSlotSHA256,
-  '11 original records preserved; all 17 replay positions explicitly estimated': timestamps.length===revision.unitCount && timestamps.filter(u=>!newIDs.includes(u.id)).length===11 && hash(canonical(timestamps.filter(u=>!newIDs.includes(u.id))))===revision.originalTimestampsHash && timestamps.every(u=>u.source==='fallback'&&u.approx===true&&Number.isFinite(u.t)&&u.t>=0&&u.t<296&&u.manualSec==null&&u.captionSec==null&&u.syncedSec==null&&units.some(v=>v.id===u.id&&v.fallbackT===u.t&&!v.timingPending)&&source.includes(`t={TS["${u.id}"].t}`)&&source.includes(`tApprox={TS["${u.id}"].approx}`)) && hash(canonical(units.filter(u=>!newIDs.includes(u.id))))===revision.originalUnitsHash,
-  'six added estimates match their documented unmeasured fallback methods': followup.audio.newEstimates.length===6 && followup.audio.newEstimates.every(e=>newIDs.includes(e.id)&&timestamps.some(t=>t.id===e.id&&t.t===e.t)&& (e.id==='intro-dungeon' ? e.t===0 && e.method.includes('not phrase onset') : e.t===Math.round(e.left.t+(e.sourceLines[0]-e.left.line)/(e.right.line-e.left.line)*(e.right.t-e.left.t))&&timestamps.some(t=>t.id===e.left.id&&t.t===e.left.t)&&timestamps.some(t=>t.id===e.right.id&&t.t===e.right.t))) && !source.includes('頭出し位置未確認') && !source.includes('頭出しボタンを付けていません'),
-  'verified official audio and video duration': source.includes('const YT = "hI8A14Qcv68"')&&source.includes('youtubeId="hI8A14Qcv68"')&&source.includes('songDuration={296}')&&source.includes('17か所とも字幕照合・実測は未完了'),
+  'unit count follows metadata; original 28 quote slots retained': (source.match(/<LearningUnit\b/g)??[]).length===units.length && new Set(units.map(u=>u.id)).size===units.length && hash(quoteSlots.filter(q=>revision.originalSlotHashes.includes(hash(q))).join('\n'))===proof.preservation.quoteSlotSHA256,
+  '11 original records preserved; every replay position explicitly estimated': timestamps.length===units.length && timestamps.filter(u=>!newIDs.includes(u.id)).length===11 && hash(canonical(timestamps.filter(u=>!newIDs.includes(u.id))))===revision.originalTimestampsHash && timestamps.every(u=>u.source==='fallback'&&u.approx===true&&Number.isFinite(u.t)&&u.t>=0&&u.t<296&&u.manualSec==null&&u.captionSec==null&&u.syncedSec==null&&units.some(v=>v.id===u.id&&v.fallbackT===u.t&&!v.timingPending)&&source.includes(`t={TS["${u.id}"].t}`)&&source.includes(`tApprox={TS["${u.id}"].approx}`)) && hash(canonical(units.filter(u=>!newIDs.includes(u.id))))===revision.originalUnitsHash,
+  'active added estimates match documented unmeasured fallback methods': activeEstimates.length===activeNewIDs.length && activeEstimates.every(e=>newIDs.includes(e.id)&&timestamps.some(t=>t.id===e.id&&t.t===e.t)&& (e.id==='intro-dungeon' ? e.t===0 && e.method.includes('not phrase onset') : e.t===Math.round(e.left.t+(e.sourceLines[0]-e.left.line)/(e.right.line-e.left.line)*(e.right.t-e.left.t))&&timestamps.some(t=>t.id===e.left.id&&t.t===e.left.t)&&timestamps.some(t=>t.id===e.right.id&&t.t===e.right.t))) && !source.includes('頭出し位置未確認') && !source.includes('頭出しボタンを付けていません'),
+  'verified official audio and video duration': source.includes('const YT = "hI8A14Qcv68"')&&source.includes('youtubeId="hI8A14Qcv68"')&&source.includes('songDuration={296}')&&source.includes('{tsData.length}か所とも字幕照合・実測は未完了'),
   'intro slot and navigable table of contents': source.includes('slot="intro"')&&source.includes('id="article-toc"')&&source.includes('href="#article-toc"')&&['story','units','background','behind','legacy','listen-more'].every(id=>source.includes(`id="${id}"`)&&source.includes(`href="#${id}"`)),
   'one credited historical-context photo with explicit reuse terms': (source.match(/<figure\b[^>]*class="[^"]*\bcontext-photo\b[^"]*"/g)??[]).length===7&&source.includes('Jim.henderson')&&source.includes('パブリックドメイン公開')&&source.includes('2009年')&&source.includes('原本を掲載、改変なし')&&existsSync(new URL('public/images/context/ny-state-of-mind/queensbridge-vernon.jpg',root)),
   '4 supplied image originals and requested placements': proof.userPhotoRevision.assets.every(a=>hash(readFileSync(new URL(a.file,root)))===a.sha256) && ['scarface','ej','grants','ceelo'].every(id=>source.includes(`id="photo-${id}"`)) && (source.match(/data-image-source="user-provided"/g)??[]).length===6,
@@ -38,6 +42,8 @@ const checks = {
   'S&W card retains exact supplied destination/photo and distinguishes BB product': shop.smithWesson.href===followup.product.resolved && shop.smithWesson.cover===followup.product.image && shop.smithWesson.position===followup.product.position && shop.smithWesson.artist.includes('6mm BB弾用エアソフトガン') && shop.smithWesson.artist.includes('18歳以上用') && source.includes('id="purchase-smith-wesson"'),
   'rapper explanation and name-dispute episode have direct interview sources': source.includes('Smif-N-Wessun（スミフン・ウェッスン）') && source.includes('TekとSteele') && source.includes('Boot Camp Clik') && source.includes('Cocoa Brovaz') && source.includes('https://www.daveyd.com/cocoabrovasinterview.html') && source.includes('https://www.skiddle.com/news/all/Smif-N-Wessun-interview-By-the-grace-of-God/28128/'),
   'TEC historical affordability precedes comparison; sound-first preface removed': source.indexOf('1990年代初めの米国では、TEC-9は比較的安価で手に入りやすい') >= 0 && source.indexOf('1990年代初めの米国では、TEC-9は比較的安価で手に入りやすい') < source.indexOf('<p>高級シャンパンと安価な銃') && source.includes('https://www.ojp.gov/pdffiles1/Digitization/137307NCJRS.pdf') && !source.includes('まず耳に残るのは音の方です') && !source.includes('まず音で。'),
+  'reported overlap merged with both concepts and one retained quote/replay': !units.some(u=>u.id===mergeFix.fix.removedStandaloneID) && !source.includes('point-new-plateau') && source.includes('1. 新しい高みへ') && source.includes('2. カプセルなしのビタミン') && hash(quoteSlots.join('\n'))===mergeFix.fix.remainingSlotSHA256,
+  'cross-unit quotation overlap is blocked without a numeric unit target': findQuoteOverlaps(source).length===0 && !/<li[^>]*>\s*<\/li>/.test(source),
   'reflow markup is excluded from component attributes': !/\b(?:desc|word|heading|title|alt)="[^"]*<(?:\/?p\b|br\b)/.test(source),
 };
 for(const [name,ok]of Object.entries(checks))console.log(`${ok?'PASS':'FAIL'} ${name}`);

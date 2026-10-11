@@ -8,7 +8,7 @@ import AmazonMusicReference from '../../components/AmazonMusicReference.astro';
 import shop from '../../data/ny-state-of-mind-commerce.json';
 const recordAmazon = `https://www.amazon.co.jp/s?k=${encodeURIComponent('Nas Illmatic')}&i=music&tag=wax1124-22`;
 
-// 全17件がfallback由来の推定値。追加6件の推定方法は専用検証記録に保存。
+// 全件がfallback由来の推定値。統合後の追加5件の推定方法は専用検証記録に保存。
 import tsData from '../../../agent/ny-state-of-mind/assets/units-timestamps.json';
 const YT = "hI8A14Qcv68";
 const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.approx }]));
@@ -106,11 +106,11 @@ Nasが何を見ているのかが具体的になります。</p>
       </p>
       <p class="text-xs text-[var(--c-dim)] mb-6">
         埋め込みはNas公式のフル音源（4分56秒）。</p>
-<p class="text-xs text-[var(--c-dim)] mb-6">▶の「≈」は推定位置です。17か所とも字幕照合・実測は未完了のため、前後にずれる場合があります。
+<p class="text-xs text-[var(--c-dim)] mb-6">▶の「≈」は推定位置です。{tsData.length}か所とも字幕照合・実測は未完了のため、前後にずれる場合があります。
       </p>
 
       <!-- ① habitual be -->
-      <details id="point-index" class="mb-6 rounded border border-[var(--c-border)] p-3"><summary class="cursor-pointer text-sm font-bold text-[var(--c-orange)]">17の解説ポイント（開く）</summary><ol class="mt-3 grid gap-2 sm:grid-cols-2 text-sm"><li><a class="underline" href="#point-intro-dungeon">1. ラップの地下牢</a></li><li><a class="underline" href="#point-habitual-be">2. 習慣を表すbe</a></li><li><a class="underline" href="#point-scarface-simile">3. Scarfaceと銃・ペン</a></li><li><a class="underline" href="#point-steelo">4. 自分の流儀steelo</a></li><li><a class="underline" href="#point-ej-grants-ceelo">5. E&amp;J・50ドル札・cee-lo</a></li><li><a class="underline" href="#point-gun-malfunction">6. 銃が撃てない瞬間</a></li><li><a class="underline" href="#point-cousin-of-death">7. 眠りと死</a></li><li><a class="underline" href="#point-state-of-mind">8. 知性の壁とタイトルの意味</a></li><li><a class="underline" href="#point-moet-tec">9. MoëtとTEC-9</a></li><li><a class="underline" href="#point-blocks-rocks">10. 株とクラックの韻</a></li><li><a class="underline" href="#point-smith-wesson">11. Smith &amp; Wessonと脅しの韻</a></li><li><a class="underline" href="#point-street-maze">12. 街区と迷路</a></li><li><a class="underline" href="#point-lamp-capone">13. Caponeのようにくつろぐ</a></li><li><a class="underline" href="#point-life-hell">14. 人生と地獄</a></li><li><a class="underline" href="#point-new-plateau">15. ラップで次の高みへ</a></li><li><a class="underline" href="#point-vitamin-capsule">16. ライムはビタミン</a></li><li><a class="underline" href="#point-city-never-sleeps">17. 眠らない街</a></li></ol></details>
+      <details id="point-index" class="mb-6 rounded border border-[var(--c-border)] p-3"><summary class="cursor-pointer text-sm font-bold text-[var(--c-orange)]">17の解説ポイント（開く）</summary><ol class="mt-3 grid gap-2 sm:grid-cols-2 text-sm"><li><a class="underline" href="#point-intro-dungeon">1. ラップの地下牢</a></li><li><a class="underline" href="#point-habitual-be">2. 習慣を表すbe</a></li><li><a class="underline" href="#point-scarface-simile">3. Scarfaceと銃・ペン</a></li><li><a class="underline" href="#point-steelo">4. 自分の流儀steelo</a></li><li><a class="underline" href="#point-ej-grants-ceelo">5. E&amp;J・50ドル札・cee-lo</a></li><li><a class="underline" href="#point-gun-malfunction">6. 銃が撃てない瞬間</a></li><li><a class="underline" href="#point-cousin-of-death">7. 眠りと死</a></li><li><a class="underline" href="#point-state-of-mind">8. 知性の壁とタイトルの意味</a></li><li><a class="underline" href="#point-moet-tec">9. MoëtとTEC-9</a></li><li><a class="underline" href="#point-blocks-rocks">10. 株とクラックの韻</a></li><li><a class="underline" href="#point-smith-wesson">11. Smith &amp; Wessonと脅しの韻</a></li><li><a class="underline" href="#point-street-maze">12. 街区と迷路</a></li><li><a class="underline" href="#point-lamp-capone">13. Caponeのようにくつろぐ</a></li><li><a class="underline" href="#point-life-hell">14. 人生と地獄</a></li><li><a class="underline" href="#point-vitamin-capsule">ラップの高みとビタミンの比喩</a></li><li><a class="underline" href="#point-city-never-sleeps">17. 眠らない街</a></li></ol></details>
 <div id="point-intro-dungeon" class="scroll-mt-56">
 <LearningUnit heading="ラップの地下牢" mc="Intro" t={TS["intro-dungeon"].t} tApprox={TS["intro-dungeon"].approx} youtubeId={YT} label="曲冒頭から">
   <Fragment slot="eng">dungeons of rap</Fragment>
@@ -455,16 +455,9 @@ Nasは <code>I think of crime</code>（犯罪のことを考える）と接続�
 
 
       <!-- ⑩ vitamin without a capsule -->
-      <div id="point-new-plateau" class="scroll-mt-56">
-<LearningUnit heading="ラップで次の高みへ" mc="Nas · Verse 2" t={TS["new-plateau"].t} tApprox={TS["new-plateau"].approx} youtubeId={YT} label="比喩">
-  <Fragment slot="eng">new plateau</Fragment>
-  <Fragment slot="jpn">新しい高み。</Fragment>
-  <p>plateauは台地や高原のこと。ここでは、他のラッパーを連れていく新しい到達点として使っています。</p><p>相手を倒すという腕自慢から、ラップの水準を上げるという話へ。すぐあとのビタミンの比喩と合わせると、自分の言葉には効き目があるという自負が見えてきます。</p>
-</LearningUnit>
-</div>
-<div id="point-vitamin-capsule" class="scroll-mt-56">
+      <div id="point-vitamin-capsule" class="scroll-mt-56">
 <LearningUnit
-        heading="My rhymin' is a vitamin held without a capsule — 隠喩(metaphor)の作り方"
+        heading="ラップの新しい高みと、カプセルなしのビタミン"
         label="★ 比喩"
         mc="Nas（Verse 2）"
         t={TS["vitamin-capsule"].t} tApprox={TS["vitamin-capsule"].approx} youtubeId={YT}
@@ -472,9 +465,11 @@ Nasは <code>I think of crime</code>（犯罪のことを考える）と接続�
       >
         <Fragment slot="eng">I'm takin' rappers to a new plateau, through rap slow<br />My rhymin' is a vitamin held without a capsule</Fragment>
         <Fragment slot="jpn">俺はラッパーたちを新たな高みへ連れて行く、ゆっくりとしたラップで／俺のライムはカプセルなしのビタミンだ</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2中盤、自分のライムの効き目を喩える件。学習対象は下の行。</p>
-        <p>下の行が今回の学習ポイントです。<br />
-「My rhymin' is a <strong class="text-[var(--c-text)]">vitamin held without a capsule</strong>」。</p>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2中盤、ラップの到達点と、自分の言葉の効き目を喩える件。</p>
+        <p class="mt-3 mb-1 font-bold text-[var(--c-text)]">1. 新しい高みへ</p>
+<p>plateauは台地や高原のこと。ここでは、他のラッパーを連れていく新しい到達点として使っています。</p>
+<p>相手を倒すという腕自慢から、ラップの水準を上げるという話へ。次の行のビタミンの比喩と合わせると、自分の言葉には効き目があるという自負が見えてきます。</p>
+<p class="mt-3 mb-1 font-bold text-[var(--c-text)]">2. カプセルなしのビタミン</p>
         <p>これは <code>like</code> を使わない <strong class="text-[var(--c-text)]">隠喩（metaphor）</strong>。<br />
 自分のライムを「カプセルに包まれていないビタミン」に喩えています。</p>
         <p>カプセル（オブラート）がない＝<strong class="text-[var(--c-text)]">薄めも飾りもせず、<br />
