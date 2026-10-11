@@ -1,6 +1,6 @@
 {
   "baseCommit": "1cb0b016676240dc38162c9bd3f92ebb82efbab2",
-  "articleSHA256": "30eb8bfdbec4837723b19ba3c8864175ef52112d1483ba13aa22dc377ee49a6c",
+  "articleSHA256": "05526553ae3adbed8c1bf0d69eb9f44bc0397cb50a8662713bad74abdeb200e2",
   "figures": [
     {
       "id": "photo-scarface",
@@ -20,7 +20,7 @@
     {
       "id": "photo-capone",
       "original": "<figure class=\"context-photo supplied-photo\" id=\"photo-capone\" data-image-source=\"user-provided\">\n          <img src=\"/images/context/ny-state-of-mind/capone-user.jpg\" alt=\"Al Caponeを紹介する2枚の白黒写真\" width=\"1280\" height=\"514\" loading=\"lazy\" />\n          <figcaption>Al Caponeを紹介する画像。画像：ユーザー提供（原本を掲載、改変なし）。</figcaption>\n        </figure>",
-      "updated": "<figure class=\"context-photo supplied-photo\" id=\"photo-capone\" data-image-source=\"credited-source\">\n          <img src=\"/images/context/ny-state-of-mind/capone-wikipedia-composite.webp\" alt=\"アル・カポネの肖像と正面・横顔の写真を組み合わせた画像\" width=\"1366\" height=\"381\" loading=\"lazy\" decoding=\"async\" />\n          <figcaption>アル・カポネ。 <span class=\"text-[var(--c-dim)]\">出典：<a href=\"https://en.wikipedia.org/wiki/Al_Capone\" target=\"_blank\" rel=\"noopener noreferrer\">Wikipediaの写真をユーザーが合成</a></span></figcaption>\n        </figure>"
+      "updated": "<figure class=\"context-photo supplied-photo\" id=\"photo-capone\" data-image-source=\"credited-source\">\n          <img src=\"/images/context/ny-state-of-mind/capone-wikipedia-composite.webp\" alt=\"アル・カポネの肖像と正面・横顔の写真を組み合わせた画像\" width=\"1366\" height=\"381\" loading=\"lazy\" decoding=\"async\" />\n          <figcaption>アル・カポネ。 <span class=\"text-[var(--c-dim)]\">出典：<a href=\"https://en.wikipedia.org/wiki/Al_Capone\" target=\"_blank\" rel=\"noopener noreferrer\">Wikipediaより引用し編集</a></span></figcaption>\n        </figure>"
     },
     {
       "id": "photo-queensbridge-collage",
@@ -75,7 +75,7 @@
       "terms": "Pexels license; https://www.pexels.com/license/ ; individual page inaccessible in web fetch"
     }
   ],
-  "mapBlock": "\n      <figure class=\"context-photo\" id=\"queensbridge-map\">\n        <iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3254.51309423195!2d-73.94521928236429!3d40.754788782082436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c258d09915d8cd%3A0xdd9ffbcedf1f5b15!2z44Kv44Kk44O844Oz44K644OW44Oq44OD44K444O744OO44O844K544O744OP44Km44K344K6!5e1!3m2!1sja!2sjp!4v1791706895462!5m2!1sja!2sjp\" title=\"クイーンズブリッジ・ノース・ハウジズ周辺の地図\" width=\"600\" height=\"450\" style=\"display:block;width:100%;height:auto;aspect-ratio:4/3;border:0;border-radius:.5rem\" allowfullscreen loading=\"lazy\" referrerpolicy=\"strict-origin-when-cross-origin\"></iframe>\n        <figcaption>Nasが育ったクイーンズブリッジ。地図はノース・ハウジズの周辺です。</figcaption>\n      </figure>\n",
+  "mapBlock": "\n      <figure class=\"context-photo\" id=\"queensbridge-map\">\n        <iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3254.51309423195!2d-73.94521928236429!3d40.754788782082436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c258d09915d8cd%3A0xdd9ffbcedf1f5b15!2z44Kv44Kk44O844Oz44K644OW44Oq44OD44K444O744OO44O844K544O744OP44Km44K344K6!5e1!3m2!1sja!2sjp!4v1791706895462!5m2!1sja!2sjp\" title=\"クイーンズブリッジ・ノース・ハウシズ周辺の地図\" width=\"600\" height=\"450\" style=\"display:block;width:100%;height:auto;aspect-ratio:4/3;border:0;border-radius:.5rem\" allowfullscreen loading=\"lazy\" referrerpolicy=\"strict-origin-when-cross-origin\"></iframe>\n        <figcaption>Nasが育ったクイーンズブリッジ。地図はノース・ハウシズの周辺です。</figcaption>\n      </figure>\n",
   "mapURL": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3254.51309423195!2d-73.94521928236429!3d40.754788782082436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c258d09915d8cd%3A0xdd9ffbcedf1f5b15!2z44Kv44Kk44O844Oz44K644OW44Oq44OD44K444O744OO44O844K544O744OP44Km44K344K6!5e1!3m2!1sja!2sjp!4v1791706895462!5m2!1sja!2sjp",
   "mapContextSources": [
     "https://www.nyc.gov/assets/nycha/downloads/pdf/jan-2017-nycha-journal-en.pdf",
@@ -211,5 +211,28 @@
     "playerRegression": "1440/390: 17 seek/play/pause + bar times; no new acoustic measurement",
     "diceCaption": "one line at 1440/390/320; unchanged",
     "publication": "review only"
+  },
+  "captionEdits": [
+    {
+      "original": "<figcaption>クイーンズボロ橋から北へ見たクイーンズブリッジ。通りの右に団地、左に公園が広がります。2009年の写真で、曲が描く1990年代の記録写真ではありません。\n          <small><a href=\"https://commons.wikimedia.org/wiki/File:Queensbr_NYCHA_Vernon_jeh.JPG\" target=\"_blank\" rel=\"noopener noreferrer\">写真：Jim.henderson / Wikimedia Commons</a> · <a href=\"https://commons.wikimedia.org/wiki/File:Queensbr_NYCHA_Vernon_jeh.JPG#Licensing\" target=\"_blank\" rel=\"noopener noreferrer\">著作者によるパブリックドメイン公開</a> · 原本を掲載、改変なし</small>\n        </figcaption>",
+      "updated": "<figcaption>通りの右に団地、左に公園が広がります。2009年の写真で、曲が描く1990年代の記録写真ではありません。\n          <small><a href=\"https://commons.wikimedia.org/wiki/File:Queensbr_NYCHA_Vernon_jeh.JPG\" target=\"_blank\" rel=\"noopener noreferrer\">写真：Jim.henderson / Wikimedia Commons</a> · <a href=\"https://commons.wikimedia.org/wiki/File:Queensbr_NYCHA_Vernon_jeh.JPG#Licensing\" target=\"_blank\" rel=\"noopener noreferrer\">著作者によるパブリックドメイン公開</a> · 原本を掲載、改変なし</small>\n        </figcaption>"
+    }
+  ],
+  "captionRevision": {
+    "baseCommit": "3dde8761ae97158d1a3efb94248e9b244b89c963",
+    "changes": [
+      "Wikipediaより引用し編集",
+      "ハウシズ",
+      "Remove requested bridge explanation sentence only"
+    ],
+    "preservation": "only specified text changes; audio/quotes/images/URLs/commerce preserved",
+    "verification": {
+      "exactRequestedChangesOnly": true,
+      "articleChecks": 10,
+      "build": "pass",
+      "readerGuard": 33,
+      "publishSafety": "pass",
+      "builtLabels": "pass"
+    }
   }
 }

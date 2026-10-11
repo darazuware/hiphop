@@ -224,3 +224,9 @@ AIを活用し、WAX&THINKの検索・動画流入を継続収益へ変える。
 ### NY State of Mind 提供画像出典・地図反映終了 — 2026-10-11 JST
 - Codex。終了時競合なし。提供5画像をWebP最適化して各figureへ反映、Pexels/E&J公式/IMDb/Wikipedia出典リンクを付与。カポネは提供済み合成を使用、元画像保持。橋はクイーンズボロ橋、地図はノース・ハウジズ周辺として表記し、出生地と断定せずNYCHAの成育情報に合わせた。画像出典と利用許諾確認を混同しない。
 - 5figureとmapを戻すと前commitのページとbyte一致、CSP2ファイルはGoogle frame origin追加だけ。17確定時刻/引用/商品/AIサイコロ/動画WIP保全。記事10（build含む）/専用33/公開安全/diff pass。PC1440・390で5画像ロード・出典/Google map実描画（配信CSP下HTTP200）/横溢れ0、17seek-play-pause-barと読書位置font再確認、既存dicecaptionは1440/390/320一行。証拠docs/ny-state-of-mind-media-sources-map-2026-10.json。対象11ファイルのみreview push、本番非公開。人間待ち：review表示確認。
+
+### NY State of Mind 指定caption表記修正着手 — 2026-10-11 JST
+- Codex。競合なし、隔離review 3dde876。指定Wikipediaリンク文言/ハウシズ表記/橋の説明一文削除のみ。入口media-sources-map証拠、DoD指定置換以外byte保全＋文体/article/build/専用/safety、出口review push。本番非公開、17時刻/WIP保全。
+
+### NY State of Mind 指定caption表記修正終了 — 2026-10-11 JST
+- Codex。競合なし。リンク文言をWikipediaより引用し編集、mapのtitle/captionをハウシズへ統一、指定の橋説明一文のみ削除。指定置換以外byte一致、17確定時刻/引用/画像/商品/URL/WIP保全。文体/article10（build含む）/専用33/公開安全/diff/ビルド後の指定文字列検証pass。対象4ファイルのみreview push、本番非公開。人間待ち：review表示確認。
