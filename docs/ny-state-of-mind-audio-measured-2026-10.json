@@ -4,7 +4,7 @@
   "video": "hI8A14Qcv68",
   "durationSeconds": 296,
   "baseCommit": "bc46188144452b06e24cee3ed9b6c3730d7ab892",
-  "status": "operator-measured",
+  "status": "partial-operator-measured",
   "interpretation": "Digits without a decimal point denote hundredths of a second; 147.7 denotes 147.70 seconds. Clock is source seconds, t0=0; no speed conversion or offset.",
   "positions": [
     {
@@ -13,7 +13,9 @@
       "rawUserValue": "1410",
       "manualSec": 14.1,
       "evidence": "operator observed source clock in numbered 0.5x debug clip",
-      "clipSHA256": "f2f37ef3646fbdd2ff7f28b48a83a90abb9efe86e3c74a887fc2a026663535cb"
+      "clipSHA256": "f2f37ef3646fbdd2ff7f28b48a83a90abb9efe86e3c74a887fc2a026663535cb",
+      "quoteOnsetVerified": true,
+      "originalFallbackT": 0
     },
     {
       "number": 2,
@@ -21,31 +23,45 @@
       "rawUserValue": "2450",
       "manualSec": 24.5,
       "evidence": "operator observed source clock in numbered 0.5x debug clip",
-      "clipSHA256": "b2521566ae24e69650fdf862c65ff43be633d611b269064fc6fb2d30fbf26a76"
+      "clipSHA256": "b2521566ae24e69650fdf862c65ff43be633d611b269064fc6fb2d30fbf26a76",
+      "quoteOnsetVerified": true,
+      "originalFallbackT": 22
     },
     {
       "number": 3,
       "id": "scarface-simile",
       "rawUserValue": "2980",
-      "manualSec": 29.8,
+      "manualSec": null,
       "evidence": "operator observed source clock in numbered 0.5x debug clip",
-      "clipSHA256": "204d88aa996b8fa41e95a92548e4e5a388037afa8c6a4f09ed7adb5bef44ffc9"
+      "clipSHA256": "204d88aa996b8fa41e95a92548e4e5a388037afa8c6a4f09ed7adb5bef44ffc9",
+      "quoteOnsetVerified": false,
+      "anchorObservationSec": 29.8,
+      "originalFallbackT": 30,
+      "temporaryEstimateMethod": "Use reported internal-anchor second as a provisional approximate replay position, not measured quotation onset."
     },
     {
       "number": 4,
       "id": "steelo",
       "rawUserValue": "4200",
-      "manualSec": 42.0,
+      "manualSec": null,
       "evidence": "operator observed source clock in numbered 0.5x debug clip",
-      "clipSHA256": "8c3d758302e42490d94ec3c3a9bbcd83e2342e9df9e9fcec3d35e2f51cdbffd7"
+      "clipSHA256": "8c3d758302e42490d94ec3c3a9bbcd83e2342e9df9e9fcec3d35e2f51cdbffd7",
+      "quoteOnsetVerified": false,
+      "anchorObservationSec": 42.0,
+      "originalFallbackT": 40,
+      "temporaryEstimateMethod": "Use reported internal-anchor second as a provisional approximate replay position, not measured quotation onset."
     },
     {
       "number": 5,
       "id": "ej-grants-ceelo",
       "rawUserValue": "4465",
-      "manualSec": 44.65,
+      "manualSec": null,
       "evidence": "operator observed source clock in numbered 0.5x debug clip",
-      "clipSHA256": "d00216854d4b282401e5e933126ee20d7f0dd0a4fc54798720ec7515c3711f45"
+      "clipSHA256": "d00216854d4b282401e5e933126ee20d7f0dd0a4fc54798720ec7515c3711f45",
+      "quoteOnsetVerified": false,
+      "anchorObservationSec": 44.65,
+      "originalFallbackT": 45,
+      "temporaryEstimateMethod": "Use reported internal-anchor second as a provisional approximate replay position, not measured quotation onset."
     },
     {
       "number": 6,
@@ -53,15 +69,21 @@
       "rawUserValue": "8050",
       "manualSec": 80.5,
       "evidence": "operator observed source clock in numbered 0.5x debug clip",
-      "clipSHA256": "0a7f6a96c4680ff937c0f66f71286e3b877ca64ec509762736455b3d4bebadf3"
+      "clipSHA256": "0a7f6a96c4680ff937c0f66f71286e3b877ca64ec509762736455b3d4bebadf3",
+      "quoteOnsetVerified": true,
+      "originalFallbackT": 83
     },
     {
       "number": 7,
       "id": "cousin-of-death",
       "rawUserValue": "12937",
-      "manualSec": 129.37,
+      "manualSec": null,
       "evidence": "operator observed source clock in numbered 0.5x debug clip",
-      "clipSHA256": "127517a109bdba869a5eb32b5ebafab994f831fabb6400220fad93baebc3c78c"
+      "clipSHA256": "127517a109bdba869a5eb32b5ebafab994f831fabb6400220fad93baebc3c78c",
+      "quoteOnsetVerified": false,
+      "anchorObservationSec": 129.37,
+      "originalFallbackT": 132,
+      "temporaryEstimateMethod": "Use reported internal-anchor second as a provisional approximate replay position, not measured quotation onset."
     },
     {
       "number": 8,
@@ -69,23 +91,33 @@
       "rawUserValue": "13112",
       "manualSec": 131.12,
       "evidence": "operator observed source clock in numbered 0.5x debug clip",
-      "clipSHA256": "2af46a48ea6cc42c15fe6b1e77a78ac7dc911601e08e86e7eaf9827d0dee4b25"
+      "clipSHA256": "2af46a48ea6cc42c15fe6b1e77a78ac7dc911601e08e86e7eaf9827d0dee4b25",
+      "quoteOnsetVerified": true,
+      "originalFallbackT": 138
     },
     {
       "number": 9,
       "id": "moet-tec",
       "rawUserValue": "147.7",
-      "manualSec": 147.7,
+      "manualSec": null,
       "evidence": "operator observed source clock in numbered 0.5x debug clip",
-      "clipSHA256": "9a87f783fd05563e5b5e3d18cbcca5e9364ae84ec815dd0dc59efc90adc86c83"
+      "clipSHA256": "9a87f783fd05563e5b5e3d18cbcca5e9364ae84ec815dd0dc59efc90adc86c83",
+      "quoteOnsetVerified": false,
+      "anchorObservationSec": 147.7,
+      "originalFallbackT": 158,
+      "temporaryEstimateMethod": "Use reported internal-anchor second as a provisional approximate replay position, not measured quotation onset."
     },
     {
       "number": 10,
       "id": "blocks-rocks",
       "rawUserValue": "15579",
-      "manualSec": 155.79,
+      "manualSec": null,
       "evidence": "operator observed source clock in numbered 0.5x debug clip",
-      "clipSHA256": "163c7ee24b905844630f16a5e5b0a06b245d9ae2d6e817faed7e89bbc1f58a05"
+      "clipSHA256": "163c7ee24b905844630f16a5e5b0a06b245d9ae2d6e817faed7e89bbc1f58a05",
+      "quoteOnsetVerified": false,
+      "anchorObservationSec": 155.79,
+      "originalFallbackT": 166,
+      "temporaryEstimateMethod": "Use reported internal-anchor second as a provisional approximate replay position, not measured quotation onset."
     },
     {
       "number": 11,
@@ -93,7 +125,9 @@
       "rawUserValue": "16560",
       "manualSec": 165.6,
       "evidence": "operator observed source clock in numbered 0.5x debug clip",
-      "clipSHA256": "4488a4ab50fee9974d91c3a0165a4c62080eb4a282b5e81d4cb8ab6dcaf71e95"
+      "clipSHA256": "4488a4ab50fee9974d91c3a0165a4c62080eb4a282b5e81d4cb8ab6dcaf71e95",
+      "quoteOnsetVerified": true,
+      "originalFallbackT": 177
     },
     {
       "number": 12,
@@ -101,15 +135,21 @@
       "rawUserValue": "18079",
       "manualSec": 180.79,
       "evidence": "operator observed source clock in numbered 0.5x debug clip",
-      "clipSHA256": "43e08e5d07ccb3199a4a2ed29396aec289c9857f89d2bc196aff654681e10b00"
+      "clipSHA256": "43e08e5d07ccb3199a4a2ed29396aec289c9857f89d2bc196aff654681e10b00",
+      "quoteOnsetVerified": true,
+      "originalFallbackT": 191
     },
     {
       "number": 13,
       "id": "lamp-capone",
       "rawUserValue": "19412",
-      "manualSec": 194.12,
+      "manualSec": null,
       "evidence": "operator observed source clock in numbered 0.5x debug clip",
-      "clipSHA256": "83754efd01e56f02baca95e5168b6c6c513b483915a0d8b15296f00f4dabba43"
+      "clipSHA256": "83754efd01e56f02baca95e5168b6c6c513b483915a0d8b15296f00f4dabba43",
+      "quoteOnsetVerified": false,
+      "anchorObservationSec": 194.12,
+      "originalFallbackT": 205,
+      "temporaryEstimateMethod": "Use reported internal-anchor second as a provisional approximate replay position, not measured quotation onset."
     },
     {
       "number": 14,
@@ -117,23 +157,33 @@
       "rawUserValue": "20225",
       "manualSec": 202.25,
       "evidence": "operator observed source clock in numbered 0.5x debug clip",
-      "clipSHA256": "3fb34d2c7c35b3d4b138c030d35ecde873dfeb411cd7d9c434c1c04d64a1ab95"
+      "clipSHA256": "3fb34d2c7c35b3d4b138c030d35ecde873dfeb411cd7d9c434c1c04d64a1ab95",
+      "quoteOnsetVerified": true,
+      "originalFallbackT": 214
     },
     {
       "number": 15,
       "id": "vitamin-capsule",
       "rawUserValue": "21975",
-      "manualSec": 219.75,
+      "manualSec": null,
       "evidence": "operator observed source clock in numbered 0.5x debug clip",
-      "clipSHA256": "11a440be76335f39f1120250bb656dabeb5f12e4f1e098b94c307ed0300256f4"
+      "clipSHA256": "11a440be76335f39f1120250bb656dabeb5f12e4f1e098b94c307ed0300256f4",
+      "quoteOnsetVerified": false,
+      "anchorObservationSec": 219.75,
+      "originalFallbackT": 232,
+      "temporaryEstimateMethod": "Use reported internal-anchor second as a provisional approximate replay position, not measured quotation onset."
     },
     {
       "number": 16,
       "id": "city-never-sleeps",
       "rawUserValue": "22787",
-      "manualSec": 227.87,
+      "manualSec": null,
       "evidence": "operator observed source clock in numbered 0.5x debug clip",
-      "clipSHA256": "62cfefe5c4b766fd954eca279fb4493a6c36554910d6cf165d6ff8354683b337"
+      "clipSHA256": "62cfefe5c4b766fd954eca279fb4493a6c36554910d6cf165d6ff8354683b337",
+      "quoteOnsetVerified": false,
+      "anchorObservationSec": 227.87,
+      "originalFallbackT": 240,
+      "temporaryEstimateMethod": "Use reported internal-anchor second as a provisional approximate replay position, not measured quotation onset."
     }
   ],
   "preservationSHA256": {
@@ -145,14 +195,16 @@
     "src/components/LearningUnit.astro": "df1a7d2f62098f0ec4244c057f3a1647e9236f64003d71775a8d2c2154af2fa6"
   },
   "verification": {
-    "article": "10 checks passed, including final Astro build",
-    "readerGuard": "24 checks passed; exact user value mapping and original fallback/anchor preservation",
+    "article": "10 checks passed, including final build and chronological timestamps",
+    "readerGuard": "25 checks passed; measured/estimated status tied to exact quotation target audit",
+    "regression": "Promoting pending number 03 partial-anchor observation to measured quotation onset is rejected",
     "publishSafety": "passed",
     "browser": [
       {
         "width": 1440,
         "units": 16,
-        "measuredSeekStopPairs": 16,
+        "measuredSeekStopPairs": 7,
+        "pendingApproxSeekStopPairs": 9,
         "allSeekPlayPauseHandoffs": 16,
         "barTimesChecked": 16,
         "duration": "4:56",
@@ -163,7 +215,8 @@
       {
         "width": 390,
         "units": 16,
-        "measuredSeekStopPairs": 16,
+        "measuredSeekStopPairs": 7,
+        "pendingApproxSeekStopPairs": 9,
         "allSeekPlayPauseHandoffs": 16,
         "barTimesChecked": 16,
         "duration": "4:56",
@@ -172,10 +225,35 @@
         "pageErrors": 0
       }
     ],
-    "defaultRegression": "nas-is-like: 29 unit seek values and links retain integer defaults",
-    "articlePreservation": "Reversing 16 preciseSeek props and estimate-note display condition reproduces base article bytes exactly. All prose, quotes, photos and purchase guidance preserved.",
-    "metadataPreservation": "Only manualSec/t/source/approx changed; fallbackT, anchors and historical alignment fields retained.",
+    "preservation": "Article prose/quotes/photos/commerce untouched; only timing status notice changes; original estimates retained in evidence.",
     "diff": "git diff --check passed"
   },
-  "production": "Not published. review only; main 4cfc95e0f2245e9d15bf0995e4181ccae44eefd7 unchanged."
+  "production": "Not published. review only; main 4cfc95e0f2245e9d15bf0995e4181ccae44eefd7 unchanged.",
+  "correction": {
+    "cause": "Confirmation clips used partial search anchors, not always article quotation onset. User reports shifted starts; exact quotation onset is unverified for nine targets.",
+    "staleBrowser": "Before reload all 16 estimates; after reload latest deployment has 14.1 etc. No underlying reset of intro timing.",
+    "pendingNumbers": [
+      3,
+      4,
+      5,
+      7,
+      9,
+      10,
+      13,
+      15,
+      16
+    ],
+    "acceptedNumbers": [
+      1,
+      2,
+      6,
+      8,
+      11,
+      12,
+      14
+    ],
+    "note": "Original raw replies and anchor observations retained; no unobserved offset correction."
+  },
+  "statusNote": "Nine quote onsets pending operator observation; seven accepted positions retained.",
+  "articleOutsideTimingSHA256": "606599c7bf6510d851c08a0cb719725264d3ebb9dee2d079773ad79df1206b13"
 }

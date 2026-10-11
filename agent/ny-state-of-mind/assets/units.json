@@ -1,18 +1,18 @@
 [
   {"id": "intro-dungeon", "anchor": ["dungeons", "of", "rap"], "fallbackT": 0, "manualSec": 14.1},
   { "id": "habitual-be", "anchor": ["monkey","flip","with","the","funky"], "fallbackT": 22, "manualSec": 24.5 },
-  { "id": "scarface-simile", "anchor": ["like","scarface","sniffing","cocaine"], "fallbackT": 30, "manualSec": 29.8 },
-  { "id": "steelo", "anchor": ["with","or","without","the","airplay"], "fallbackT": 40, "manualSec": 42.0 },
-  { "id": "ej-grants-ceelo", "anchor": ["sitting","bent","up","in","the","stairway"], "fallbackT": 45, "manualSec": 44.65 },
+  { "id": "scarface-simile", "anchor": ["like","scarface","sniffing","cocaine"], "fallbackT": 29.8, "manualSec": null },
+  { "id": "steelo", "anchor": ["with","or","without","the","airplay"], "fallbackT": 42.0, "manualSec": null },
+  { "id": "ej-grants-ceelo", "anchor": ["sitting","bent","up","in","the","stairway"], "fallbackT": 44.65, "manualSec": null },
   {"id": "gun-malfunction", "anchor": ["Tried", "to", "cock", "it,", "it", "wouldn't", "shoot,", "now", "I'm", "in", "danger"], "fallbackT": 83, "manualSec": 80.5},
-  { "id": "cousin-of-death", "anchor": ["sleep","is","the","cousin","of","death"], "fallbackT": 132, "manualSec": 129.37 },
+  { "id": "cousin-of-death", "anchor": ["sleep","is","the","cousin","of","death"], "fallbackT": 129.37, "manualSec": null },
   { "id": "state-of-mind", "anchor": ["beyond","the","walls","of","intelligence"], "fallbackT": 138, "manualSec": 131.12 },
-  { "id": "moet-tec", "anchor": ["having","dreams","that","i'm","a","gangsta"], "fallbackT": 158, "manualSec": 147.7 },
-  { "id": "blocks-rocks", "anchor": ["sewing","up","the","blocks","to","sell","rocks"], "fallbackT": 166, "manualSec": 155.79 },
+  { "id": "moet-tec", "anchor": ["having","dreams","that","i'm","a","gangsta"], "fallbackT": 147.7, "manualSec": null },
+  { "id": "blocks-rocks", "anchor": ["sewing","up","the","blocks","to","sell","rocks"], "fallbackT": 155.79, "manualSec": null },
   {"id": "smith-wesson", "anchor": ["I", "ain't", "the", "type", "of", "brother", "made", "for", "you", "to", "start", "testin'", "Give", "me", "a", "Smith", "&", "Wesson,", "I'll", "have", "niggas", "undressin'"], "fallbackT": 177, "manualSec": 165.6},
   {"id": "street-maze", "anchor": ["each", "block", "is", "like", "a", "maze", "Full", "of", "black", "rats", "trapped"], "fallbackT": 191, "manualSec": 180.79},
-  { "id": "lamp-capone", "anchor": ["lamp","like","capone","with","drug"], "fallbackT": 205, "manualSec": 194.12 },
+  { "id": "lamp-capone", "anchor": ["lamp","like","capone","with","drug"], "fallbackT": 194.12, "manualSec": null },
   {"id": "life-hell", "anchor": ["Life", "is", "parallel", "to", "Hell"], "fallbackT": 214, "manualSec": 202.25},
-  { "id": "vitamin-capsule", "anchor": ["rhyming","is","a","vitamin"], "fallbackT": 232, "manualSec": 219.75 },
-  { "id": "city-never-sleeps", "anchor": ["city","never","sleeps","full","of","villains"], "fallbackT": 240, "manualSec": 227.87 }
+  { "id": "vitamin-capsule", "anchor": ["rhyming","is","a","vitamin"], "fallbackT": 219.75, "manualSec": null },
+  { "id": "city-never-sleeps", "anchor": ["city","never","sleeps","full","of","villains"], "fallbackT": 227.87, "manualSec": null }
 ]

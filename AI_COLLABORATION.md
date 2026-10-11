@@ -126,3 +126,14 @@ AIを活用し、WAX&THINKの検索・動画流入を継続収益へ変える。
 - LearningUnitに任意preciseSeek（default false）を追加、この曲の16ボタンだけ小数秒をYT APIとリンクへ渡す。未実測注記はapproxが残る場合のみ表示。元fallback/anchor/過去whisper等の記録は保全。本文は同期propと注記条件を戻すとbaseとbyte一致、写真・購入案内・引用・共通停止・動画/WIP保全。
 - 記事10項目（最終build込み）/専用24条件/公開安全/diff通過。PC1440/390で16小数seek/play/pause/APIモック・bar時刻・≈表示0/旧未実測注記0・4:56尺・横溢れ0/pageerror0。実音の根拠はユーザー実測、ブラウザモックは受渡し検証。nas-is-like29件で既存整数seek/link保全。docs/ny-state-of-mind-audio-measured-2026-10.jsonに短い証拠。
 - 今回の対象7ファイルのみreviewへcommit/push、確認URL https://hiphop-git-review-darazuwares-projects.vercel.app/songs/ny-state-of-mind/ 。計測用動画はローカル保存のみ、記事へ掲載なし。16点実測の人間待ちは解消。本番公開はせずmain 4cfc95e不変。
+
+### NY State of Mind 頭出し対象不一致調査着手 — 2026-10-11 JST
+- Codex。ユーザーが01=0:00表示/03確認語と引用先頭の差/その他ズレを指摘。investigate-first適用。IABの旧DOMは全16fallback、reload後はcf7b3e6の全16manual表示（01=14.10）。表示更新と発声対象の誤設定を分離。ユーザー指定値自体を改変/推定オフセットしない。
+- 対象: 全16引用先頭対旧確認アンカーの監査、新規短尺再確認動画、必要な時刻状態/証拠/再発ガード。記事本文/写真/購入案内/既存動画保全。本番公開なし。引用先頭の観測がない箇所は未確認と明記し、既存アンカー秒を引用先頭実測と断定しない。
+
+### NY State of Mind 引用先頭の再確認準備終了 — 2026-10-11 JST
+- Codex。原因を2点に分離。IAB旧DOMは16fallback（01=0:00）、reload後はcf7b3e6の16指定値（01=14.10）。03等は検索用途中anchorを実測依頼対象にしたため引用先頭と異なる。対象不一致03/04/05/07/09/10/13/15/16、02はユーザーが正しいと明示、残る6は元対象と引用先頭一致。
+- 9件のmanualSecを取り消し、元回答の途中語観測秒をfallback推定目安に保存。approx=true、引用先頭未確認9件と表示し、7実測は維持。元raw回答/観測秒/旧fallbackは証拠に保全、推測で前方オフセットなし。本文/写真/購入案内/引用/動画保全。
+- 新規measurement-start-recheck-2026-10-11に同じ番号の9短尺クリップ。中央元音源秒0.01桁/0.5倍速、記事engスロットから抽出した先頭12語・水色の最初の単語を静的識別表示。全9decode/動画音声/尺を検証。記事先頭と確認対象のhash対応ガード、途中anchorをmanualへ転用する回帰ブロック、timestamp-overrideルールを追加。
+- 記事10項目（最終build含む）/専用25条件/回帰/公開安全/PC1440・390の16seek-play-pause・バー時刻・7実測/9推定・未確認件数9/横溢れ0/pageerror0/diff pass。対象8ファイルのみreview push、計測動画はローカル送付のみ。本番非公開。証拠docs/ny-state-of-mind-audio-target-audit-2026-10.json。
+- 人間待ち: 03/04/05/07/09/10/13/15/16の水色先頭語が始まる中央時計秒。音同期はこの9件が未完了。
