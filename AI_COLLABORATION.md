@@ -175,3 +175,10 @@ AIを活用し、WAX&THINKの検索・動画流入を継続収益へ変える。
 - 既存15LearningUnitはbyte一致、units/timestampsの15レコード完全同値。地下牢の14.10秒は入替証拠と旧16点の実測証拠に保存、値変更なし。追加2項目は既存timingPending経路でt=null/頭出しなし。LearningUnit/player/写真/購入先/計測/他曲/WIP・生成動画保全。
 - 三稿/記事10項目/最終build/公開安全/専用29条件/diff通過。英引用1090字・独自JP7263字、カバレッジ33%、実在・項目間重複なし。PC1440/390で17font/索引/現在位置、15小数seek-play-pause-bar、追加2の確認中表示とボタン非表示、購入左右配置/コンパクト導線/横溢れ0/pageerror0確認。
 - 今回対象7ファイルのみreviewへcommit/push、本番未公開。証拠docs/ny-state-of-mind-unit-replacement-2026-10.json。次の1件は表示確認。追加2項目の頭出しは発声開始の実測待ち（確定時刻を転用しない）。
+
+### NY State of Mind 追加項目の再生復旧着手 — 2026-10-11 JST
+- Codex。競合なし、隔離review bae10c9再利用。追加2項目の再生・停止を復旧。正確な発声開始はpendingのまま、直前の確定80.50秒を文脈再生として明示。既存15時刻/元16点証拠/本文/商品/動画保全。入口実測JSON、DoD専用ガード・記事/build/safety・PC390の17再生停止・通常review push。本番非公開。
+
+### NY State of Mind 追加項目の再生復旧終了 — 2026-10-11 JST
+- Codex。終了時競合なし。追加2項目へ再生/停止を復旧、contextStart任意propで直前の確定80.50秒を渡し「前の場面から 1:20」と明示。発声開始t=null/pendingとdata-tなしを維持、既存15時刻/元16点証拠/引用本文/商品/動画/WIP保全。
+- 記事10項目（build込み）/専用30条件/停止harness/文体/公開安全/diff通過。PC1440/390で17再生停止、既存15小数seek/バー、追加2の80.50秒seek/play/pauseと文脈表示/横溢れ0/pageerror0。nas-is-like29整数seek/表示の回帰確認。新2発声開始は未実測、モックはAPI受渡しのみ検証。証拠docs/ny-state-of-mind-unit-replacement-2026-10.json。対象5ファイルのみreview push、本番非公開。

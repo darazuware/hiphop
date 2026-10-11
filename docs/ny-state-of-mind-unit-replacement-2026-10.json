@@ -137,5 +137,80 @@
     "publishSafety": "passed",
     "diff": "passed",
     "retained": "all 15 original LearningUnit blocks byte-identical; original units/timestamp entries semantically identical; historical 16-point measurement proof unchanged"
+  },
+  "contextReplayRevision": {
+    "baseCommit": "bae10c938601ceeb9809acb42ab84def9553f4b6",
+    "ids": [
+      "corners-goners",
+      "stickup-kids"
+    ],
+    "contextStart": 80.5,
+    "contextSource": "gun-malfunction retained measured onset",
+    "label": "前の場面から 1:20",
+    "onsetStatus": "pending; t=null remains unchanged",
+    "checks": {
+      "article": 10,
+      "nyReader": 30,
+      "playerStopHarness": "pass",
+      "publishSafety": "pass",
+      "tone": "pass",
+      "nasIsLikeDefaultIntegerSeeks": 29
+    },
+    "browser": [
+      {
+        "width": 1440,
+        "retailerPair": {
+          "amazonX": 240,
+          "mercariX": 575.5,
+          "amazonY": 10043.875,
+          "mercariY": 10043.875,
+          "width": 684,
+          "height": 106.921875
+        },
+        "compactEnd": {
+          "x": 224,
+          "y": 13614.890625,
+          "width": 378.03125,
+          "height": 78.390625
+        },
+        "units": 17,
+        "pendingUnits": 2,
+        "measuredSeekStopPairs": 15,
+        "contextSeekStopPairs": 2,
+        "allSeekPlayPauseHandoffs": 17,
+        "barTimesChecked": 15,
+        "duration": "4:56",
+        "playerAPI": "mock verifies exact decimal handoff; acoustic evidence is operator report",
+        "horizontalOverflow": 0,
+        "pageErrors": 0
+      },
+      {
+        "width": 390,
+        "retailerPair": {
+          "amazonX": 32,
+          "mercariX": 200.5,
+          "amazonY": 12326.015625,
+          "mercariY": 12326.015625,
+          "width": 358,
+          "height": 119.890625
+        },
+        "compactEnd": {
+          "x": 16,
+          "y": 16808.375,
+          "width": 358,
+          "height": 106.390625
+        },
+        "units": 17,
+        "pendingUnits": 2,
+        "measuredSeekStopPairs": 15,
+        "contextSeekStopPairs": 2,
+        "allSeekPlayPauseHandoffs": 17,
+        "barTimesChecked": 15,
+        "duration": "4:56",
+        "playerAPI": "mock verifies exact decimal handoff; acoustic evidence is operator report",
+        "horizontalOverflow": 0,
+        "pageErrors": 0
+      }
+    ]
   }
 }
