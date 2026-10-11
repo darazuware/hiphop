@@ -98,3 +98,135 @@ AIを活用し、WAX&THINKの検索・動画流入を継続収益へ変える。
 - 歌詞量: 変更なし（本文の日本語解説・事実記述のみ調整、eng/jpn引用ブロックは未変更）。
 - 検証: `npm run check:publish-safety` → exit 0（`astro build` 174ページ／`check-publish-safety.mjs`未検出0件／内部デッドリンク0／SEO必須項目全件OK）。`check:publish-safety:self-test` も exit 0 で回帰確認済み。diffは上記8ファイルのみ（他ファイルへの影響なし）。
 - 未解決事項: なし（依頼範囲は全項目解消）。人間待ち事項（AdSense CMP・VOD提携先の実URL取得）は変更なし、継続。
+
+### NY State of Mind 音同期確認着手 — 2026-10-11 JST
+- Codex。nextTask入口、Active workと直近終了を確認し担当競合なし。隔離review /private/tmp/ny-reader-release（a39f5ad、clean）を再利用。対象は当該音源/16時刻/同期証拠のみ、記事文章・写真・購入案内・動画・既存WIPは保全。
+- 入口: node agent/src/align-yt-captions.mjs --slug ny-state-of-mind（dry-run）。DoD: 対象動画版/尺/字幕確認、観測根拠に限る時刻更新、全16button/bar/PC390連携、必要記事/build/safety、保全hash/短い証拠、選択review push。本番公開なし。開始位置を観測できなければfallback/approx維持、未確認を明記。
+
+### NY State of Mind 音同期確認終了・実測保留 — 2026-10-11 JST
+- Codex。終了時Active work/直近記録に新規競合なし。接続可能なyt-dlpでhI8A14Qcv68＝Nas公式Official Audio/public/296秒を確認。手動・自動字幕とも0、align-yt-captions dry-run exit1。初回sandbox DNS失敗と区別して再確認済み。発声開始の観測0、manualSec/captionSec変更0。全16値fallback/approxを維持、音同期完了とは扱わない。
+- 記事/引用/写真/購入案内、units2ファイル、共通player/stopはbase a39f5adとbyte一致・SHA256記録。ユーザー/Claude WIP、生成済み動画は未変更。記事10項目（最終build込み）、専用23条件、公開安全、PC1440/390の全16seek/play/pause/APIモック・bar時刻/4:56尺/横溢れ0/pageerror0、diff通過。モックは音の開始位置の証拠ではない。
+- 対象は本ボードとdocs/ny-state-of-mind-audio-sync-2026-10.jsonのみ、検証記録をreviewへpush。本番公開なし。main 4cfc95e不変。Telegram送信なし。人間待ち: 同じ公式音源でunit ID＝実測秒の観測根拠。全16音同期は未確認のまま。
+
+### NY State of Mind 実測用スロークリップ着手 — 2026-10-11 JST
+- Codex。ユーザー指定のsubvideo-debugで全16頭出し確認箇所に番号、中央clip秒0.01桁/0.5倍速の短い動画を作成。対象は新規agent/subvideo/ny-state-of-mind-syncのみ。公式hI8A14Qcv68を入力とし既存動画/記事/時刻/写真/購入案内は保全。字幕候補は推定と明記し発声実測の扱いにしない。
+- DoD: source ID/296秒、16番号対応/範囲内cue、出力動画/音声/0.5倍速尺/中央時刻検証、動画送付、実測値待ち。入力値が届いてから時刻修正/検証/review push、本番非公開。
+
+### NY State of Mind 実測用スロークリップ送付 — 2026-10-11 JST
+- Codex。全16対象を01–16に番号付け、既存subvideo-debug.mjsを読み取り実行して0.5倍速の短いクリップ生成。新規agent/ny-state-of-mind/measurement-2026-10-11へ保存。中央clip秒0.01桁、t0=0なので公式音源の絶対秒を直接回答できる。英文は対象識別用の静的候補、TIMING UNVERIFIEDを明示。黄色単語の実測演出はしない。
+- 公式hI8A14Qcv68を新規取得（metadata296秒、実ファイル295.554秒）。16番号/範囲内各1cue、全16動画・音声/0.5倍速尺/全decode/中央時計ASSを検証。01の再生4秒で中央2.00を目視確認。source・manifest・入力cue/partsも保存。記事/写真/購入案内/時刻/既存動画は変更なし、本番公開なし。
+- 人間待ち: 各番号の対象表現が始まる中央の黄色い秒数。バース頭だけの一律補正は行わず、観測された番号にのみmanualSecを焼く。回答後に必要検証とreview push。
+
+### NY State of Mind ユーザー実測16点反映着手 — 2026-10-11 JST
+- Codex。担当競合なし、review bc46188を再利用。ユーザーが01–16全点の中央時計実測を提供。整数表記は百分秒（1410→14.10）、09は147.70秒、変速換算なし。既存set-manual-timestamp入口で16manualSec適用。
+- 対象: units/units-timestamps、当該ページの音同期prop/推定注記表示条件、LearningUnitの当該曲だけ任意小数seek、専用ガード、実測証拠、本ボード。DoD: ユーザー値一致/元fallback・anchor保全/本文写真購入保全、16小数seek/バー停止PC390、記事/build/safety/diff/pre-push、選択review push。本番非公開。
+
+### NY State of Mind ユーザー実測16点反映終了 — 2026-10-11 JST
+- Codex。終了時台帳に新規担当競合なし。01–16のユーザー提供実測を14.10/24.50/29.80/42.00/44.65/80.50/129.37/131.12/147.70/155.79/165.60/180.79/194.12/202.25/219.75/227.87秒へ解釈し、既存set-manual-timestampでmanualSec/t/source=manual/approx=falseを焼いた。個別観測だけを反映し、推定補完なし。原回答/番号/ID/対象動画/クリップhashを専用記録へ保存。
+- LearningUnitに任意preciseSeek（default false）を追加、この曲の16ボタンだけ小数秒をYT APIとリンクへ渡す。未実測注記はapproxが残る場合のみ表示。元fallback/anchor/過去whisper等の記録は保全。本文は同期propと注記条件を戻すとbaseとbyte一致、写真・購入案内・引用・共通停止・動画/WIP保全。
+- 記事10項目（最終build込み）/専用24条件/公開安全/diff通過。PC1440/390で16小数seek/play/pause/APIモック・bar時刻・≈表示0/旧未実測注記0・4:56尺・横溢れ0/pageerror0。実音の根拠はユーザー実測、ブラウザモックは受渡し検証。nas-is-like29件で既存整数seek/link保全。docs/ny-state-of-mind-audio-measured-2026-10.jsonに短い証拠。
+- 今回の対象7ファイルのみreviewへcommit/push、確認URL https://hiphop-git-review-darazuwares-projects.vercel.app/songs/ny-state-of-mind/ 。計測用動画はローカル保存のみ、記事へ掲載なし。16点実測の人間待ちは解消。本番公開はせずmain 4cfc95e不変。
+
+### NY State of Mind 頭出し対象不一致調査着手 — 2026-10-11 JST
+- Codex。ユーザーが01=0:00表示/03確認語と引用先頭の差/その他ズレを指摘。investigate-first適用。IABの旧DOMは全16fallback、reload後はcf7b3e6の全16manual表示（01=14.10）。表示更新と発声対象の誤設定を分離。ユーザー指定値自体を改変/推定オフセットしない。
+- 対象: 全16引用先頭対旧確認アンカーの監査、新規短尺再確認動画、必要な時刻状態/証拠/再発ガード。記事本文/写真/購入案内/既存動画保全。本番公開なし。引用先頭の観測がない箇所は未確認と明記し、既存アンカー秒を引用先頭実測と断定しない。
+
+### NY State of Mind 引用先頭の再確認準備終了 — 2026-10-11 JST
+- Codex。原因を2点に分離。IAB旧DOMは16fallback（01=0:00）、reload後はcf7b3e6の16指定値（01=14.10）。03等は検索用途中anchorを実測依頼対象にしたため引用先頭と異なる。対象不一致03/04/05/07/09/10/13/15/16、02はユーザーが正しいと明示、残る6は元対象と引用先頭一致。
+- 9件のmanualSecを取り消し、元回答の途中語観測秒をfallback推定目安に保存。approx=true、引用先頭未確認9件と表示し、7実測は維持。元raw回答/観測秒/旧fallbackは証拠に保全、推測で前方オフセットなし。本文/写真/購入案内/引用/動画保全。
+- 新規measurement-start-recheck-2026-10-11に同じ番号の9短尺クリップ。中央元音源秒0.01桁/0.5倍速、記事engスロットから抽出した先頭12語・水色の最初の単語を静的識別表示。全9decode/動画音声/尺を検証。記事先頭と確認対象のhash対応ガード、途中anchorをmanualへ転用する回帰ブロック、timestamp-overrideルールを追加。
+- 記事10項目（最終build含む）/専用25条件/回帰/公開安全/PC1440・390の16seek-play-pause・バー時刻・7実測/9推定・未確認件数9/横溢れ0/pageerror0/diff pass。対象8ファイルのみreview push、計測動画はローカル送付のみ。本番非公開。証拠docs/ny-state-of-mind-audio-target-audit-2026-10.json。
+- 人間待ち: 03/04/05/07/09/10/13/15/16の水色先頭語が始まる中央時計秒。音同期はこの9件が未完了。
+
+### NY State of Mind 引用先頭再実測10点反映着手 — 2026-10-11 JST
+- Codex。担当競合なし、review 2d88805を再利用。ユーザーが03/04/05/07/09/10/13/15/16＝29.70/40.87/43.37/128.32/147.35/154.12/194.00/216.35/227.77秒を提供、02の0:233は23.30秒と解釈。対象はunits2ファイル/実測証拠2ファイル/本ボードのみ。記事文章・写真・購入案内・引用・共通player・生成済み動画保全。
+- 入口set-manual-timestamp、DoD: 全16manual/approx=false/引用先頭監査対応/元履歴保全、PC390・bar・再生停止、記事/build/safety/diff/pre-push、review pushと配信DOM確認。本番公開なし。
+
+### NY State of Mind 引用先頭再実測10点反映終了 — 2026-10-11 JST
+- Codex。終了時担当競合なし。再確認9件と02訂正を既存set-manualで適用し、全16引用先頭manual/approx=falseへ。01=14.10は保全、02=23.30、03=29.70、04=40.87、05=43.37、07=128.32、09=147.35、10=154.12、13=194.00、15=216.35、16=227.77。その他5実測値保全。0:233の23.30解釈・旧回答・途中anchor観測・旧fallback履歴・再確認clip hashを記録。
+- 引用先頭監査も全16acceptedへ更新。記事source/共通LearningUnit/player/写真/購入案内/引用は2d88805とbyte一致。記事10項目（最終build含む）/専用25条件/公開安全/diff pass。PC1440/390全16小数seek/play/pause・bar時刻・4:56尺・≈0/未確認注記0・横溢れ0/pageerror0。発声根拠はユーザー実測、APIモックは受渡し検証。
+- 対象5ファイルのみreview commit/push。音同期の実測待ちは解消。更新後配信DOMも確認し、旧表示を避ける。本番公開なし。計測動画/既存WIP未変更。
+
+### NY State of Mind 読書位置・見出し修正着手 — 2026-10-11 JST
+- Codex。担当競合なし。隔離review /private/tmp/ny-reader-release（32a3b4e）再利用。入口docs/ny-state-of-mind-audio-measured-2026-10.json。対象は当該記事/任意読書案内部品/当該曲だけのlayout分岐/専用ガード/検証記録/本ボード。
+- DoD: 16見出しInter 800 italic、本文・PR・関連記事の明示/現在節と解説番号、PC1440/390スクロール/横溢れ/16seek停止、確定時刻2ファイルと引用/写真/商品属性保全、article/build/safety/diff/通常pre-push、review push。本番公開なし。
+
+### NY State of Mind 読書位置・見出し修正終了 — 2026-10-11 JST
+- Codex。終了時担当競合なし。16見出しにInter本物の800 italicを読み込み、当該曲だけ適用。記事本体の節番号と境界、全12差込みのPR購入案内、既存関連記事と末尾自動生成リンクの区切り、追従する現在節/解説番号/目次を追加。関連記事は既存生成を使用。
+- 本文/全引用/写真/購入先と計測属性、確定16時刻2ファイル、実測証拠はhash・専用ガードで保全。LearningUnit/player変更なし、ユーザー/Claude WIP・生成済み動画未変更。記事10項目/最終build/公開安全/文体/専用27条件/diff pass。PC1440/390で16font/現在unitと節/PR関連記事/16小数seek再生停止とbar/横溢れ0/pageerror0を確認。音同期は再実測せず確定値保全。
+- 対象6ファイルだけreviewへcommit/push。本番公開なし、main 4cfc95e不変。証拠docs/ny-state-of-mind-reading-guide-2026-10.json。次の1件はユーザーの表示確認。Telegram送信なし。
+
+### NY State of Mind 購入余白・見出し順修正着手 — 2026-10-11 JST
+- Codex。競合なし、隔離review 7aa3528再利用。入口実測JSON。対象は当該記事/ReadingGuide/当該曲layout/専用ガード/記録。PR購入案内の余分な見出しを撤去、Illmatic購入案内をAmazon左・Mercari右、末尾導線縮小、英語主見出し/日本語副見出し統一。
+- DoD: PC1440/390の配置・寸法・フォント・scroll/16seek停止、引用/確定16時刻・商品画像URL計測の保全、article/build/safety/専用/diff/pre-push、review push。本番公開なし。1:20–2:08の未採用学習候補は調査し根拠/実測未確認を記録、確認なく新時刻を確定しない。
+
+### NY State of Mind 購入余白・見出し順修正終了 — 2026-10-11 JST
+- Codex。競合なし。冗長なPR購入見出しを撤去（購入リンク上のPRは維持）。IllmaticはAmazon左・Mercari右の共通枠、右ボタンにメルカリを明記。末尾は見出し/既存購入枠へのリンクへ縮小。日本語だけだった6見出しを最小の英語表現＋日本語説明へ、全16の順序/Inter800italicを統一。
+- 全引用・学習本文/写真/商品データとmerchant/item/position、LearningUnit/player、確定時刻2ファイル/実測証拠を保全。学習unit増加0、新時刻0。47.82秒の間隔と3学習候補を歌詞非転載で別記録、後半へ偏る選定を確認。候補の発声開始は未観測で確定値扱いしない。
+- 最終記事10項目/build/文体/専用28条件/公開安全/diff pass。PC1440/390で16英語主見出し/副見出しとfont、現在位置/16小数seek-play-pause-bar/全PR関連記事、左右購入配置、コンパクト導線/最終商品画像ロード・横溢れ0を確認。対象7ファイルだけreview push、本番公開なし、既存WIP/動画保全。
+- 次の1件はユーザーの表示確認と未採用候補の採用判断。購入表示・見出しの修正は完了、既存16の音同期は維持。記録docs/ny-state-of-mind-reading-guide-2026-10.json、docs/ny-state-of-mind-selection-audit-2026-10.md。
+
+### NY State of Mind 解説入替着手 — 2026-10-11 JST
+- Codex。担当競合なし、隔離review bbd58df再利用。ユーザー指定で地下牢unit削除、重要2項目（corners/gonersの韻・stickup kidsの語義）を追加。対象は当該記事/units2ファイル/専用ガード/入替証拠/本ボード。
+- DoD: 残る15確定unit・時刻・引用・本文保全、削除実測は元証拠へ残す、新2unitはtimingPending/t=nullで推測の頭出しなし、17項目の索引/読書位置/Inter800italic、引用実在/重複/予算/三稿制/article/build/safety/PC390/diff/pre-push、review push。本番公開なし。
+
+### NY State of Mind 解説入替終了 — 2026-10-11 JST
+- Codex。終了時競合なし。地下牢を削除、corners/gonersの音と生き残りの意味、stick-up kidsの複合語を銃の不調と眠りの比喩の間へ追加。各々最小断片/和訳/短い解説。計17項目の索引をDOM順再生成、旧推定注記/metadataの不整合も当該曲だけ整合。韻の対応をguns/gonersとした会話の誤りはcorners/gonersへ訂正。
+- 既存15LearningUnitはbyte一致、units/timestampsの15レコード完全同値。地下牢の14.10秒は入替証拠と旧16点の実測証拠に保存、値変更なし。追加2項目は既存timingPending経路でt=null/頭出しなし。LearningUnit/player/写真/購入先/計測/他曲/WIP・生成動画保全。
+- 三稿/記事10項目/最終build/公開安全/専用29条件/diff通過。英引用1090字・独自JP7263字、カバレッジ33%、実在・項目間重複なし。PC1440/390で17font/索引/現在位置、15小数seek-play-pause-bar、追加2の確認中表示とボタン非表示、購入左右配置/コンパクト導線/横溢れ0/pageerror0確認。
+- 今回対象7ファイルのみreviewへcommit/push、本番未公開。証拠docs/ny-state-of-mind-unit-replacement-2026-10.json。次の1件は表示確認。追加2項目の頭出しは発声開始の実測待ち（確定時刻を転用しない）。
+
+### NY State of Mind 追加項目の再生復旧着手 — 2026-10-11 JST
+- Codex。競合なし、隔離review bae10c9再利用。追加2項目の再生・停止を復旧。正確な発声開始はpendingのまま、直前の確定80.50秒を文脈再生として明示。既存15時刻/元16点証拠/本文/商品/動画保全。入口実測JSON、DoD専用ガード・記事/build/safety・PC390の17再生停止・通常review push。本番非公開。
+
+### NY State of Mind 追加項目の再生復旧終了 — 2026-10-11 JST
+- Codex。終了時競合なし。追加2項目へ再生/停止を復旧、contextStart任意propで直前の確定80.50秒を渡し「前の場面から 1:20」と明示。発声開始t=null/pendingとdata-tなしを維持、既存15時刻/元16点証拠/引用本文/商品/動画/WIP保全。
+- 記事10項目（build込み）/専用30条件/停止harness/文体/公開安全/diff通過。PC1440/390で17再生停止、既存15小数seek/バー、追加2の80.50秒seek/play/pauseと文脈表示/横溢れ0/pageerror0。nas-is-like29整数seek/表示の回帰確認。新2発声開始は未実測、モックはAPI受渡しのみ検証。証拠docs/ny-state-of-mind-unit-replacement-2026-10.json。対象5ファイルのみreview push、本番非公開。
+
+### NY State of Mind 追加2項目の実測反映着手 — 2026-10-11 JST
+- Codex。競合なし、隔離review 8eec5b1再利用。ユーザー実測「corner1:37,stick1:40」を97/100秒へ解釈。既存set-manual入口、対象追加2レコード/当該注記と文脈prop/専用ガード/入替証拠/本ボード。既存15確定値と元16点記録保全、17再生停止と記事/build/safety検証、review push、本番非公開。
+
+### NY State of Mind 追加2項目の実測反映終了 — 2026-10-11 JST
+- Codex。終了時競合なし。ユーザー提供corner1:37/stick1:40をcorners-goners=97/stickup-kids=100秒のmanualへ反映。追加2のtimingPending/contextStart/確認中注記撤去。既存15レコードとLearningUnit/元16実測証拠、共通player/本文引用/写真商品/動画/WIP保全。
+- 記事10項目（build込み）/専用30条件/文体/公開安全/diff pass。PC1440/390の17seek/play/pause/バー時刻/17fontと読書位置/購入配置/横溢れ0/pageerror0確認。発声根拠は今回のユーザー実測、ブラウザはAPI受渡し検証。追加2の実測待ちは解消。対象6ファイルのみreview push、本番非公開。証拠docs/ny-state-of-mind-unit-replacement-2026-10.json。
+
+### NY State of Mind 単体記事点検着手 — 2026-10-11 JST
+- Codex。競合なし、review eeb92abを読取専用で点検。対象は広告/購入案内密度、独自解説・引用、冗長性/重複、導線。Google公式ポリシー照合、sourceとPC390表示の集計、専用/公開安全検証。記事/時刻/WIPの編集・本番公開なし、結果を人間へ報告。
+
+### NY State of Mind 単体記事点検終了 — 2026-10-11 JST
+- Codex。終了時競合なし、記事/確定17時刻の変更0。Google公式の独自価値/販促密度/知財/広告制限を照合。最優先は提供画像6点の元ライセンス未確認、次に本文購入枠11の中断、重複総括・銃映画詳説。違反/承認可否は断定せず記録。
+- PC1440/390、font/遅延画像ロード後22419/28447px、横溢れ0/画像7点ロード/17ボタン/未確認注記0。専用30条件/公開安全pass。自動広告実配信は未検証。詳記docs/ny-state-of-mind-article-audit-2026-10.md、ページ修正/push/本番公開なし。次は点検結果へのユーザー判断。
+
+### NY State of Mind 重複説明・サイコロ購入案内削除着手 — 2026-10-11 JST
+- Codex。競合なし、隔離review eeb92ab再利用。単体点検のユーザー承認で重複説明とサイコロ商品リンクを削除。対象当該記事/当該商品データ/専用保全ガード/削減証拠/点検記録/本ボード。17unitと確定時刻/引用/写真/他購入先保全、削除限定差分とarticle/build/safety/PC390再生停止確認、review push、本番非公開。画像生成の質問は文化庁一次資料を照合し回答、画像の置換は今回行わない。
+
+### NY State of Mind 重複説明・サイコロ購入案内削除終了 — 2026-10-11 JST
+- Codex。終了時競合なし。重複する10段落（学習方法/眠り比喩/タイトル/韻/サンプル総括/影響節の一般的評価）とサイコロ販促を削除。サイコロ商品データだけ除去、語義/写真/17unit全引用・確定時刻/他購入先/WIP動画保全。原文から指定11ブロックと空行余白を削っただけの差分であることを機械確認。
+- 文体/記事10項目（build含む）/専用31条件/公開安全/diff/PC1440・390の17seek-play-pauseとbar/現在位置font/サイコロリンク0・写真1/横溢れ0・pageerror0 pass。証拠docs/ny-state-of-mind-prose-cleanup-2026-10.json。AIでPVへそっくりに生成しても著作権上自動的に可にはならない旨を文化庁資料で回答、今回画像置換なし。対象6ファイルのみreview push、本番非公開。
+
+### NY State of Mind サイコロ画像差替着手 — 2026-10-11 JST
+- Codex。競合なし、隔離review 293f57f再利用。ユーザー承認の直前生成画像へphoto-ceeloのみ差替。AI生成のイメージと明示し旧看板/ルール写真という説明を訂正。元画像保持、17時刻/引用/他画像商品/動画保全。画像asset/当該figure/差替証拠/専用ガード/台帳を対象、article/build/safety/PC390画像ロードと17再生停止、review push、本番非公開。
+
+### NY State of Mind サイコロ画像差替終了 — 2026-10-11 JST
+- Codex。終了時競合なし。承認された生成修正版をceelo-ai-v2.webp（1679×937、281738bytes）へ保存、photo-ceeloだけ差替。看板/ルール写真という旧説明を画像内容に即したaltとAI生成・記録写真ではないcaptionへ訂正。旧画像を保持。AI由来は記録し、元参照の権利確認済みとは扱わない。
+- article figure1か所以外byte一致、17確定時刻/購入データ不変。文体/記事10項目（build込み）/専用32条件/公開安全/diff pass。PC1440/390画像実寸ロード/生成注記/サイコロ購入0・写真1/17seek-play-pause-bar/読書位置font/横溢れ0/pageerror0確認。証拠docs/ny-state-of-mind-ceelo-image-2026-10.json。対象5ファイルのみreview push、本番非公開、WIP/動画保全。
+
+### NY State of Mind サイコロcaption一行化着手 — 2026-10-11 JST
+- Codex。競合なし、隔離review 78c110c。指定文「路上でcee-loを行う様子。」と右側AI生成へcaptionだけ変更。画像/17確定時刻/本文商品保全、PC1440/390/320で一行と横溢れ検証、文体/article/build/専用/safety/diff/通常review push、本番非公開。
+
+### NY State of Mind サイコロcaption一行化終了 — 2026-10-11 JST
+- Codex。終了時競合なし。指定文「路上でcee-loを行う様子。」の右へAI生成をinline spanで配置。旧smallの二行注記を撤去し、captionのみ変更。他source/画像/17確定時刻/購入保全。
+- 文体/article10（build含む）/専用32/safety/diff pass。PC1440/390/320で一行・右側ラベル/画像ロード/横溢れ0、全17data-seek保全。対象4ファイルのみreview push、本番非公開。証拠docs/ny-state-of-mind-ceelo-image-2026-10.json。
+
+### NY State of Mind 提供画像出典・地図反映着手 — 2026-10-11 JST
+- Codex。競合なし、隔離review 1cb0b01。新規提供5画像と出典を対応させ当該figureへ反映、Google Maps埋込を文化的背景へ追加。橋と団地/出生と成育を混同しない。本文引用/17時刻/既存AIサイコロ/商品/動画WIP保全。対象当該ページ/新画像/Maps用CSP2ファイル/専用ガード/証拠/台帳。DoD画像とmapのPC390表示、保全/記事/build/safety/diff/pre-push、review push、本番非公開。
+
+### NY State of Mind 提供画像出典・地図反映終了 — 2026-10-11 JST
+- Codex。終了時競合なし。提供5画像をWebP最適化して各figureへ反映、Pexels/E&J公式/IMDb/Wikipedia出典リンクを付与。カポネは提供済み合成を使用、元画像保持。橋はクイーンズボロ橋、地図はノース・ハウジズ周辺として表記し、出生地と断定せずNYCHAの成育情報に合わせた。画像出典と利用許諾確認を混同しない。
+- 5figureとmapを戻すと前commitのページとbyte一致、CSP2ファイルはGoogle frame origin追加だけ。17確定時刻/引用/商品/AIサイコロ/動画WIP保全。記事10（build含む）/専用33/公開安全/diff pass。PC1440・390で5画像ロード・出典/Google map実描画（配信CSP下HTTP200）/横溢れ0、17seek-play-pause-barと読書位置font再確認、既存dicecaptionは1440/390/320一行。証拠docs/ny-state-of-mind-media-sources-map-2026-10.json。対象11ファイルのみreview push、本番非公開。人間待ち：review表示確認。
+
+### NY State of Mind 指定caption表記修正着手 — 2026-10-11 JST
+- Codex。競合なし、隔離review 3dde876。指定Wikipediaリンク文言/ハウシズ表記/橋の説明一文削除のみ。入口media-sources-map証拠、DoD指定置換以外byte保全＋文体/article/build/専用/safety、出口review push。本番非公開、17時刻/WIP保全。
+
+### NY State of Mind 指定caption表記修正終了 — 2026-10-11 JST
+- Codex。競合なし。リンク文言をWikipediaより引用し編集、mapのtitle/captionをハウシズへ統一、指定の橋説明一文のみ削除。指定置換以外byte一致、17確定時刻/引用/画像/商品/URL/WIP保全。文体/article10（build含む）/専用33/公開安全/diff/ビルド後の指定文字列検証pass。対象4ファイルのみreview push、本番非公開。人間待ち：review表示確認。

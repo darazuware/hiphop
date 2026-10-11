@@ -20,15 +20,20 @@ interface Props {
   t?: number | null;      // PVタイムスタンプ（秒）。nullなら非表示
   youtubeId?: string;     // 動画ID（t=秒リンク用）
   tApprox?: boolean;      // 秒数が推定値の場合true（「≈」表示）
+  preciseSeek?: boolean;
+  contextStart?: number | null;
   label?: string;         // バッジ（例: ★ トリプルミーニング）
   eng?: string;           // 用例断片（最小引用）
   jpn?: string;           // 和訳
   embed?: string;         // 公式埋め込みURL（任意・空なら非表示）
   embedCaption?: string;  // 埋め込みのキャプション（任意）
 }
-const { heading, mc, t = null, youtubeId, tApprox = false, label, eng, jpn, embed, embedCaption } = Astro.props;
-const mmss = t != null ? `${Math.floor(t / 60)}:${String(Math.floor(t % 60)).padStart(2, "0")}` : null;
-const ytUrl = t != null && youtubeId ? `https://www.youtube.com/watch?v=${youtubeId}&t=${Math.floor(t)}s` : null;
+const { heading, mc, t = null, youtubeId, tApprox = false, preciseSeek = false, contextStart = null, label, eng, jpn, embed, embedCaption } = Astro.props;
+const playbackT = t ?? contextStart;
+const contextReplay = t == null && contextStart != null;
+const mmss = playbackT != null ? `${Math.floor(playbackT / 60)}:${String(Math.floor(playbackT % 60)).padStart(2, "0")}` : null;
+const seekT = playbackT != null ? (preciseSeek ? playbackT : Math.floor(playbackT)) : null;
+const ytUrl = playbackT != null && youtubeId ? `https://www.youtube.com/watch?v=${youtubeId}&t=${seekT}s` : null;
 const hasUsage = Astro.slots.has("usage");
 // eng/jpn は props と slot の両対応（全曲ページは <Fragment slot="eng"> で渡している）。
 // props のみ見て slot 渡しの引用が描画されないバグの修正（2026-07-03）。
@@ -102,14 +107,15 @@ const ghostWord = heading.split(/[—\s]/)[0].slice(0, 6).toUpperCase();
             <span class="inline-flex items-center gap-2">
               <a
                 href={ytUrl}
-                data-seek={t != null ? Math.floor(t) : undefined}
+                data-seek={seekT ?? undefined}
+                aria-label={contextReplay ? `直前の確認済み位置${mmss}から再生` : undefined}
                 target="_blank"
                 rel="noopener"
                 class="inline-flex min-h-[44px] items-center gap-2 font-mono text-black bg-[var(--c-player)] hover:bg-[var(--c-player-hi)] transition-colors px-3 py-1.5 text-sm font-black tracking-wide"
                 style="border-radius:3px"
               >
                 <svg width="12" height="12" viewBox="0 0 8 8" fill="currentColor" aria-hidden="true"><polygon points="1,0 8,4 1,8"/></svg>
-                {tApprox ? "≈" : ""}{mmss}
+                {contextReplay ? "前の場面から " : tApprox ? "≈" : ""}{mmss}
               </a>
               <button
                 type="button"
@@ -125,7 +131,7 @@ const ghostWord = heading.split(/[—\s]/)[0].slice(0, 6).toUpperCase();
           ) : (
             <span class="inline-flex items-center gap-1 font-mono text-[var(--c-dim)] border border-[var(--c-border)] px-2 py-0.5 text-[11px]" style="border-radius:2px">
               <svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor" aria-hidden="true"><polygon points="1,0 8,4 1,8"/></svg>
-              {tApprox ? "≈" : ""}{mmss}
+              {contextReplay ? "前の場面から " : tApprox ? "≈" : ""}{mmss}
             </span>
           )
         )}

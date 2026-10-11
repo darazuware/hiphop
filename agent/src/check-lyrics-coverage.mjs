@@ -8,6 +8,7 @@
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { createHash } from 'node:crypto';
+import { findQuoteOverlaps } from './check-quote-overlap.mjs';
 
 const slug = process.argv[2];
 const verbose = process.argv.includes('--verbose');
@@ -364,6 +365,11 @@ if (hallucinated.length === 0) {
 }
 
 if (learning) {
+  // [F] Local structural check: corpus coverage cannot detect repeated citations.
+  const quoteOverlaps = findQuoteOverlaps(astroRaw);
+  for (const o of quoteOverlaps) console.log(`❌ [F] 引用重複: unit ${o.firstUnit}/${o.secondUnit}・source lines ${o.sourceLines.join('/')}（${o.sharedTokens}語を共有）。同じ引用の解説は1unitへ統合。`);
+  if (quoteOverlaps.length) hasError = true;
+  else console.log('✅ [F] 項目間の引用重複なし');
   // ── learning型: 独自性・引用最小性・構造を検証。[A]下限は適用しない ──────
   const COLUMN_MIN = 1200;       // コラム基準の独自解説量
   const MAX_COVERAGE = 60;       // これ以上のeng引用率＝全行掲載の疑い

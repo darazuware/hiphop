@@ -1,0 +1,102 @@
+{
+  "mcShan": {
+    "query": "Best Of",
+    "title": "Best Of",
+    "artist": "MC Shan",
+    "label": "この盤をAmazonで見る",
+    "coverLabel": "Best Ofの商品詳細を見る [PR]",
+    "position": "ny-mc-shan",
+    "cover": "https://m.media-amazon.com/images/I/91bU3dSRbLL._AC_SX300_SY300_QL70_ML2_.jpg",
+    "href": "https://www.amazon.co.jp/dp/B00005JIWK/ref=cm_sw_r_as_gl_api_gl_i_FBHSJ31B3HF04T0KXC58?linkCode=ml1&tag=wax1124-22&linkId=2b935aa323153b816e6dcb3efa19666d&ascsubtag=srctok-62b43cc4f5c568a4&btn_type=ss&btn_ref=srctok-62b43cc4f5c568a4",
+    "merchant": "amazon"
+  },
+  "marleyMarl": {
+    "query": "Vol. 1 & 2-in Control-Best of",
+    "title": "Vol. 1 & 2-in Control-Best of",
+    "artist": "Marley Marl",
+    "label": "この盤をAmazonで見る",
+    "coverLabel": "Vol. 1 & 2-in Control-Best ofの商品詳細を見る [PR]",
+    "position": "ny-marley-marl",
+    "cover": "https://m.media-amazon.com/images/I/51seyffHtmL._AC_SX300_SY300_QL70_ML2_.jpg",
+    "href": "https://www.amazon.co.jp/dp/B00005Q6OX/ref=cm_sw_r_as_gl_api_gl_i_DBSVMBZW96MWJ98H8M1N?linkCode=ml1&tag=wax1124-22&linkId=78d26b6b9a5fadc09631218e1de85b39&ascsubtag=srctok-276cef395a801c15&btn_type=ss&btn_ref=srctok-276cef395a801c15",
+    "merchant": "amazon"
+  },
+  "doubleExposure": {
+    "query": "Double Exposure（アナログ盤）",
+    "title": "Double Exposure（アナログ盤）",
+    "artist": "Joe Chambers",
+    "label": "このレコードをAmazonで見る",
+    "coverLabel": "Double Exposure（アナログ盤）の商品詳細を見る [PR]",
+    "position": "ny-double-exposure",
+    "cover": "https://m.media-amazon.com/images/I/71AJi9wPapL._AC_SY300_SX300_QL70_ML2_.jpg",
+    "href": "https://www.amazon.co.jp/dp/B0G1R1MP6Y?tag=wax1124-22",
+    "merchant": "amazon"
+  },
+  "livePjs": {
+    "query": "ライヴ・アット・ピージェイズ+1",
+    "title": "ライヴ・アット・ピージェイズ+1",
+    "artist": "Kool & The Gang",
+    "label": "この盤をAmazonで見る",
+    "coverLabel": "ライヴ・アット・ピージェイズ+1の商品詳細を見る [PR]",
+    "position": "ny-live-pjs",
+    "cover": "https://m.media-amazon.com/images/I/71al9zcacbL._AC_SX300_SY300_QL70_ML2_.jpg",
+    "href": "https://www.amazon.co.jp/dp/B09X71XKG9?tag=wax1124-22",
+    "merchant": "amazon"
+  },
+  "blackByrd": {
+    "query": "ブラック・バード",
+    "title": "ブラック・バード",
+    "artist": "Donald Byrd",
+    "label": "この盤をAmazonで見る",
+    "coverLabel": "ブラック・バードの商品詳細を見る [PR]",
+    "position": "ny-black-byrd",
+    "cover": "https://m.media-amazon.com/images/I/71Y3wFB36SL._AC_SX300_SY300_QL70_ML2_.jpg",
+    "href": "https://www.amazon.co.jp/dp/B01LW46LZF?tag=wax1124-22",
+    "merchant": "amazon"
+  },
+  "rhythm": {
+    "query": "Let the Rhythm Hit 'Em",
+    "title": "Let the Rhythm Hit 'Em",
+    "artist": "Eric B. & Rakim",
+    "label": "この盤をAmazonで見る",
+    "coverLabel": "Let the Rhythm Hit 'Emの商品詳細を見る [PR]",
+    "position": "ny-rhythm",
+    "cover": "https://m.media-amazon.com/images/I/41FI+5E6+LL._AC_SY300_SX300_QL70_ML2_.jpg",
+    "href": "https://www.amazon.co.jp/dp/B000002O75?tag=wax1124-22",
+    "merchant": "amazon"
+  },
+  "iam": {
+    "query": "I AM...",
+    "title": "I AM...",
+    "artist": "Nas",
+    "label": "この盤をAmazonで見る",
+    "coverLabel": "I AM...の商品詳細を見る [PR]",
+    "position": "ny-iam",
+    "cover": "https://m.media-amazon.com/images/I/81+B6jJmBDL._AC_SX300_SY300_QL70_ML2_.jpg",
+    "href": "https://www.amazon.co.jp/dp/B0000256TO?tag=wax1124-22",
+    "merchant": "amazon"
+  },
+  "illmatic": {
+    "query": "イルマティック XX",
+    "title": "イルマティック XX",
+    "artist": "Nas",
+    "label": "この盤をAmazonで見る",
+    "coverLabel": "イルマティック XXの商品詳細を見る [PR]",
+    "position": "ny-background-illmatic",
+    "cover": "https://m.media-amazon.com/images/I/51-9G3udKrL._AC_SY300_SX300_QL70_ML2_.jpg",
+    "href": "https://www.amazon.co.jp/dp/B00L9EL3XO?tag=wax1124-22",
+    "merchant": "amazon"
+  },
+  "scarfaceStream": {
+    "query": "スカーフェイス 1983",
+    "title": "スカーフェイス（1983年版）· Prime Video",
+    "artist": "アル・パチーノ主演 · 配信版",
+    "label": "Prime Videoで視聴方法を見る",
+    "position": "ny-capone-scarface-stream",
+    "merchant": "amazon",
+    "cover": "https://m.media-amazon.com/images/S/pv-target-images/7bafb2caa789cf3e7fcfc906154e106ef35ccd5ed99c1ba99bc64cec220c5f38.jpg",
+    "coverLabel": "1983年版スカーフェイスをPrime Videoで見る [PR]",
+    "coverAlt": "スカーフェイス（1983年版）のPrime Video作品画像",
+    "href": "https://www.amazon.co.jp/gp/video/detail/B0DBV85DZM?qid=1791670993367&pageTypeId=B0DBV887N2&pageTypeIdSource=ASIN&sr=1-1&linkCode=sl2&tag=wax1124-22&linkId=5d07974f4f99d61f9a89ecbcca9067f6&ref_=as_li_ss_tl"
+  }
+}

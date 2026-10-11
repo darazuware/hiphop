@@ -1,0 +1,145 @@
+{
+  "date": "2026-10-10 JST",
+  "scope": "ny-state-of-mind Scarface DVD CTA + permanent product policy only",
+  "baseReview": "705c6503dd0a9b24b76e4642b3bf49385d3b0350",
+  "product": {
+    "providedURL": "https://link.amazon/B06UjmREU",
+    "resolvedURL": "https://www.amazon.co.jp/%E3%82%B9%E3%82%AB%E3%83%BC%E3%83%95%E3%82%A7%E3%82%A4%E3%82%B9-DVD-%E3%82%A2%E3%83%AB%E3%83%BB%E3%83%91%E3%83%81%E3%83%BC%E3%83%8E/dp/B006QJSACY?linkCode=sl2&tag=wax1124-22&linkId=3782d361e0e6ab4a55089586e906e082&ref_=as_li_ss_tl&ascsubtag=srctok-7158641f44ba1df1&btn_type=ss&btn_ref=srctok-7158641f44ba1df1",
+    "httpStatus": 200,
+    "title": "スカーフェイス [DVD]",
+    "asin": "B006QJSACY",
+    "format": "DVD",
+    "trackingParams": "All supplied resolved URL parameters preserved; no guessed ASIN",
+    "image": {
+      "url": "https://m.media-amazon.com/images/I/71NL7LHndKL._AC_SY445_SX342_QL70_ML2_.jpg",
+      "source": "Specified Amazon product page landingImage; actual DVD jacket visually verified",
+      "delivery": "Remote original Amazon-hosted image, no rehosting or alteration",
+      "usageTerms": "Product page does not provide a free reuse license; no license asserted. Product image is linked to the specified Amazon listing; copyright remains with rights holder."
+    }
+  },
+  "changes": [
+    "Replaced Scarface search-only CTA with existing product-card component + DVD jacket and direct purchase link",
+    "Added optional coverLabel with unchanged default for existing callers",
+    "Replaced search-priority rule in CLAUDE.md with exact product + image priority; no bulk edits to other articles",
+    "Added regression against wrong product/search fallback/missing jacket/purchase wording"
+  ],
+  "preservation": {
+    "articleBeforeSHA256": "52a3f50d91cfddc5e2215cfea0d641b10840808492528717636bf0a97f2b04ea",
+    "articleAfterSHA256": "1c4ee1e27119d79cf5ef4e73aa95b80aa014d4bd2e609429d680af2359632f26",
+    "onlyCTAAndImportChanged": true,
+    "quotes28": "Original hash verified by check-ny-reader",
+    "timestamps11": "Original hash; fallback/approx unchanged",
+    "providedPhotos4": "Original bytes verified by check-ny-reader",
+    "sharedStop": "Untouched",
+    "otherCallers": "Optional coverLabel defaults to original aria-label, no existing caller changed"
+  },
+  "verification": {
+    "tone": "Initial and final automated checks pass; independent reread of changed card/policy completed",
+    "article": "10 checks including build pass; /private/tmp/ny-dvd-article.log",
+    "publishSafety": "Pass, no invalid CTA/unresolved facts; /private/tmp/ny-dvd-safety.log",
+    "targetRegression": "11 checks pass",
+    "diffCheck": "Pass",
+    "browser": [
+      {
+        "text": "アル・パチーノ主演 スカーフェイス [DVD]   このDVDをAmazonで購入 → [PR]",
+        "image": "https://m.media-amazon.com/images/I/71NL7LHndKL._AC_SY445_SX342_QL70_ML2_.jpg",
+        "imageLoaded": true,
+        "links": [
+          {
+            "href": "https://www.amazon.co.jp/%E3%82%B9%E3%82%AB%E3%83%BC%E3%83%95%E3%82%A7%E3%82%A4%E3%82%B9-DVD-%E3%82%A2%E3%83%AB%E3%83%BB%E3%83%91%E3%83%81%E3%83%BC%E3%83%8E/dp/B006QJSACY?linkCode=sl2&tag=wax1124-22&linkId=3782d361e0e6ab4a55089586e906e082&ref_=as_li_ss_tl&ascsubtag=srctok-7158641f44ba1df1&btn_type=ss&btn_ref=srctok-7158641f44ba1df1",
+            "label": "スカーフェイスのDVDをAmazonで購入 [PR]",
+            "rel": "noopener sponsored nofollow",
+            "position": "ny-scarface-cover"
+          },
+          {
+            "href": "https://www.amazon.co.jp/%E3%82%B9%E3%82%AB%E3%83%BC%E3%83%95%E3%82%A7%E3%82%A4%E3%82%B9-DVD-%E3%82%A2%E3%83%AB%E3%83%BB%E3%83%91%E3%83%81%E3%83%BC%E3%83%8E/dp/B006QJSACY?linkCode=sl2&tag=wax1124-22&linkId=3782d361e0e6ab4a55089586e906e082&ref_=as_li_ss_tl&ascsubtag=srctok-7158641f44ba1df1&btn_type=ss&btn_ref=srctok-7158641f44ba1df1",
+            "label": "このDVDをAmazonで購入 → [PR]",
+            "rel": "noopener sponsored nofollow",
+            "position": "ny-scarface"
+          }
+        ],
+        "previousPhoto": "photo-scarface",
+        "width": 640,
+        "viewport": 1440,
+        "scrollWidth": 1440,
+        "screenshot": "/private/tmp/ny-dvd-card-1440.jpg",
+        "events": [
+          {
+            "event": "affiliate_click",
+            "merchant": "amazon",
+            "content_type": "song",
+            "slug": "ny-state-of-mind",
+            "item": "スカーフェイス [DVD]",
+            "position": "ny-scarface-cover",
+            "destination_host": "www.amazon.co.jp",
+            "transport_type": "beacon"
+          },
+          {
+            "event": "affiliate_click",
+            "merchant": "amazon",
+            "content_type": "song",
+            "slug": "ny-state-of-mind",
+            "item": "スカーフェイス [DVD]",
+            "position": "ny-scarface",
+            "destination_host": "www.amazon.co.jp",
+            "transport_type": "beacon"
+          }
+        ]
+      },
+      {
+        "text": "アル・パチーノ主演 スカーフェイス [DVD]   このDVDをAmazonで購入 → [PR]",
+        "image": "https://m.media-amazon.com/images/I/71NL7LHndKL._AC_SY445_SX342_QL70_ML2_.jpg",
+        "imageLoaded": true,
+        "links": [
+          {
+            "href": "https://www.amazon.co.jp/%E3%82%B9%E3%82%AB%E3%83%BC%E3%83%95%E3%82%A7%E3%82%A4%E3%82%B9-DVD-%E3%82%A2%E3%83%AB%E3%83%BB%E3%83%91%E3%83%81%E3%83%BC%E3%83%8E/dp/B006QJSACY?linkCode=sl2&tag=wax1124-22&linkId=3782d361e0e6ab4a55089586e906e082&ref_=as_li_ss_tl&ascsubtag=srctok-7158641f44ba1df1&btn_type=ss&btn_ref=srctok-7158641f44ba1df1",
+            "label": "スカーフェイスのDVDをAmazonで購入 [PR]",
+            "rel": "noopener sponsored nofollow",
+            "position": "ny-scarface-cover"
+          },
+          {
+            "href": "https://www.amazon.co.jp/%E3%82%B9%E3%82%AB%E3%83%BC%E3%83%95%E3%82%A7%E3%82%A4%E3%82%B9-DVD-%E3%82%A2%E3%83%AB%E3%83%BB%E3%83%91%E3%83%81%E3%83%BC%E3%83%8E/dp/B006QJSACY?linkCode=sl2&tag=wax1124-22&linkId=3782d361e0e6ab4a55089586e906e082&ref_=as_li_ss_tl&ascsubtag=srctok-7158641f44ba1df1&btn_type=ss&btn_ref=srctok-7158641f44ba1df1",
+            "label": "このDVDをAmazonで購入 → [PR]",
+            "rel": "noopener sponsored nofollow",
+            "position": "ny-scarface"
+          }
+        ],
+        "previousPhoto": "photo-scarface",
+        "width": 314,
+        "viewport": 390,
+        "scrollWidth": 390,
+        "screenshot": "/private/tmp/ny-dvd-card-390.jpg",
+        "events": [
+          {
+            "event": "affiliate_click",
+            "merchant": "amazon",
+            "content_type": "song",
+            "slug": "ny-state-of-mind",
+            "item": "スカーフェイス [DVD]",
+            "position": "ny-scarface-cover",
+            "destination_host": "www.amazon.co.jp",
+            "transport_type": "beacon"
+          },
+          {
+            "event": "affiliate_click",
+            "merchant": "amazon",
+            "content_type": "song",
+            "slug": "ny-state-of-mind",
+            "item": "スカーフェイス [DVD]",
+            "position": "ny-scarface",
+            "destination_host": "www.amazon.co.jp",
+            "transport_type": "beacon"
+          }
+        ]
+      }
+    ],
+    "imageLoadCheck": "Waited for lazy image network completion; both viewports HTTP200 image/jpeg",
+    "realAffiliatePurchaseClicks": 0
+  },
+  "pending": [
+    "Production approval; publish-main.mjs only after user approval",
+    "Original 11 timing estimates still require measurement",
+    "Unprovided ad codes remain separate follow-up",
+    "Deployment appearance requires Vercel authenticated session; local PC/390px confirmed"
+  ]
+}

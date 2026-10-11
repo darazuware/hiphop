@@ -75,3 +75,9 @@ agent/{slug}/assets/
 
 記事(.astro)は `units-timestamps.json` を import し、`t` と `approx`(=source!=="manual")を
 各 `<LearningUnit t={...} tApprox={...}>` に渡す。manualSec を焼いて build すれば即反映される。
+
+## 実測依頼の対象語を固定する（2026-10-11）
+- 記事の頭出しは引用の最初の発声を対象にする。units.jsonの検索用anchorは引用途中の場合があるため、そのまま実測依頼の対象にしない。
+- 確認クリップは記事のengスロットから引用先頭を抽出し、番号・引用先頭・最初の単語を明示する。表示対象と引用先頭の一致を生成時に検証する。歌詞は応答本文に転載しない。
+- 部分anchorへの回答はその語の観測として保存し、引用先頭のmanualSecへ無条件に転用しない。先頭が未確認ならmanualSec=null・fallback/approxのまま待つ。
+- ローカルAPIモックはseek受渡しの証明であり、発声対象の正しさや配信更新の証明ではない。review push後は配信DOMの時刻も確認する。

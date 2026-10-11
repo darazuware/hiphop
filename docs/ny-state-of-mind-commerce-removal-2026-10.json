@@ -1,0 +1,81 @@
+{
+  "date": "2026-10-11",
+  "slug": "ny-state-of-mind",
+  "baseCommit": "deeb42d0d64f9a50d947da52a80237fd051258d4",
+  "change": {
+    "removed": [
+      "E&J Mercari guide and two listings",
+      "Moet Amazon card",
+      "TEC/KG-9 Rakuten airsoft card",
+      "S&W Amazon airsoft card"
+    ],
+    "retained": "Educational descriptions, 7 context photos, all music/movie/dice commerce, lyrics slots, official video and all 16 estimated timestamps unchanged",
+    "removedProductDestinations": 5,
+    "remainingCommerceRecords": 10
+  },
+  "preservation": {
+    "quoteSlotSHA256": "41183f6d0a21254a8ae5de2018d08404f3554cee580bd1986a7a86ae26923cd3",
+    "audioMetadataSHA256": {
+      "agent/ny-state-of-mind/assets/units.json": "6bf244992a815a63aec9d765605f902e8731282dfe54de6b66dd770d345211a3",
+      "agent/ny-state-of-mind/assets/units-timestamps.json": "2db45befb6826c2e8b66e7d821b7efe05e95c0c4f250c13728a545231a30c795"
+    },
+    "remainingCommerceExactlyUnchanged": true
+  },
+  "verification": {
+    "readerGuard": "23 conditions passed",
+    "article": "10 checks passed using built dist; initial sandbox YT network failure resolved by connected recheck",
+    "build": "npm run build passed within check-article",
+    "publishSafety": "node agent/src/check-publish-safety.mjs passed (technical gate, not AdSense approval)",
+    "browser": [
+      {
+        "width": 1440,
+        "removedContainers": 0,
+        "removedLinks": 0,
+        "units": 16,
+        "photos": 7,
+        "overflow": 0,
+        "ejPhoto": true,
+        "scarface": true,
+        "retainedCards": true,
+        "pageErrors": 0,
+        "remoteAssetsBlocked": true
+      },
+      {
+        "width": 390,
+        "removedContainers": 0,
+        "removedLinks": 0,
+        "units": 16,
+        "photos": 7,
+        "overflow": 0,
+        "ejPhoto": true,
+        "scarface": true,
+        "retainedCards": true,
+        "pageErrors": 0,
+        "remoteAssetsBlocked": true
+      }
+    ],
+    "visual": "PC1440 and 390px inspected after removal; lyrics masked; external assets/ads blocked",
+    "diff": "git diff --check passed"
+  },
+  "pending": [
+    "16 playback positions not synchronized; separate task",
+    "Photo authors/reuse conditions unverified",
+    "AdSense code not provided; policy/approval not guaranteed"
+  ],
+  "nextTask": {
+    "task": "ny-state-of-mindだけの公式音源と全16頭出しの同期確認・必要最小修正",
+    "video": "hI8A14Qcv68",
+    "knownDurationSeconds": 296,
+    "currentTiming": "All 16 approx=true/source=fallback, none measured. Confirm current exact version and duration before alignment. Previous caption query found no track.",
+    "files": [
+      "src/pages/songs/ny-state-of-mind.astro",
+      "agent/ny-state-of-mind/assets/units.json",
+      "agent/ny-state-of-mind/assets/units-timestamps.json"
+    ],
+    "entry": "Read AGENTS.md, CLAUDE.md, docs/mission-protocol.md, timestamp-caption-alignment.md and timestamp-override.md, then current Active work only. Reuse clean review checkout /private/tmp/ny-reader-release or a clean origin/review candidate.",
+    "scope": "Audio alignment only; no article expansion or commerce changes. Preserve shared stop/player, photos, existing videos and all user/Claude WIP. Do not output lyrics or lyric HTML.",
+    "done": "Record observed onset evidence (manualSec only for actual observation), verify every button/bar timestamp and PC390 player behavior, run necessary article/build/safety checks, record compact evidence, selected review push. Main only after user approval via publish-main.mjs.",
+    "stop": "If onset cannot be confirmed, retain approximate status and report unverified; do not invent measured timestamps."
+  },
+  "production": "Not published. Await explicit user approval, publish-main.mjs only."
+}

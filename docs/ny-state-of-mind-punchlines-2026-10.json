@@ -1,0 +1,135 @@
+{
+  "date": "2026-10-11",
+  "scope": "ny-state-of-mind only",
+  "baseline": "4904f868983672b05bc858d4019a093b85b4a98a",
+  "originalSlotHashes": [
+    "62efc1a5cc397a6eca9773c774fe34e412b62cc9a1239e0a24661cc374de9d12",
+    "e090c3a455e8358c560573791d429bf5becd4062441b9252c642d2a4dfb9b2e3",
+    "091ff4af2f9ae5fef1725e30b7fae244e2f203e379856849dca8a70df8d835c5",
+    "163db8c4b7ed9a9915ab6c177a5ad3a49386af50d85f6e6694c0c98fd0d6465b",
+    "f12f5db580e299cd2b8c965f3cc574e40810a30ce9b2c369a73f8bf47c529145",
+    "063a70b51d412f8bdcf337855b347d9c935389c4df2f5921e7dcd3463bc77b39",
+    "0509a5cd33d2fb717fd7131b2c549b2a81e229ea2d3cf87f70c85eb5891ccdd0",
+    "971c9679ef7327f1da159695594d169db9417105c8319c3580ea8493a7a125aa",
+    "7ccf070e72ff1558802aed2294026a0200c2c214bc5776dc0b3644b5de4fe673",
+    "3a25dca9ff54fb2996030fe6b685b830139c194073a52da172879d7c1acc6b66",
+    "9d995ec8218b7cab3f79f1d126fc28b4b0b014c9b2eea2b55d9691ab99ec67d9",
+    "94458bf2314b4ec68f621125d113f6db0abf8ec52c5146dd978d37af3593701f",
+    "c21f120e160baafbdc8685fc751d3285573da50a4f039907477b6e8af2648442",
+    "44e6105231b9e72dd52272a4f0bc16ede2f2bca8613e0802c93aae488032aa4f",
+    "2eaa060d18e13e4a15f22de013ad0f147abffb753003926fbef02fc6d277f0b9",
+    "9a668f11df84fae2f399e4e8c97149852d6943fb9578f9a1f923f23582bb26ab",
+    "b955a3c21a235584bffe92629ac0901b7b12a496267ecba9db67df2c76275d52",
+    "15f99990a25088c54e799ec822ddd3510e9a7bb64d57ae33e2d76da33d1c2417",
+    "6f3d883eb579f41d0d2270123c86ed94b7723395233fef83aa347280b324e793",
+    "1a1d24095aa089c72e3af786e91bfce63d3086159b405902803c350de209f55b",
+    "a6ae1bf923084b9164b4bd8ca9733a2fa0e817c4e890ed9c2717465ed2d9b23c",
+    "bd7e7d5db230888ae10b36851e8938840215858353e1a66d47df70eb6af8eba1",
+    "799abdc134442dc46fe480e9a95b6b5f9426a492be2f509317edf56467b4d80d",
+    "c987c37784648c7dc097ad9e395cbee1605dc38fbaaf63ff08f7218c7fa52444",
+    "9d23bd1e5cf82bc6bd90826385650eb14323fb1b6a7cc052e25a19eb2e8fb610",
+    "d62821447da0ca1fcf81adaa56dd0687e1ecf03eec18a85f04933dc04a84014c",
+    "fa1f32b3763e7e2465ae18dd2efe22c06183fb935f5049b67c2b5d2df26efe52",
+    "bd74eeac5d3957d0d4886ab93208a8ba3025d73668e972e21be80ff0d9568bf0"
+  ],
+  "originalTimestampsHash": "6522001bc663e5a1f9daa8d423550903811aaf12fbb76b897307c29cb18527c8",
+  "originalUnitsHash": "704a582834e19b213e70bf46e6a480d01fe2265ea8208b1fc1161584df9c71b2",
+  "sources": {
+    "lyrics": "https://genius.com/Nas-ny-state-of-mind-lyrics",
+    "smithWesson": "https://www.smith-wesson.com/ourstory",
+    "caponeScarface": "https://catalog.afi.com/Catalog/moviedetails/1134",
+    "remake": "https://www.tcm.com/articles/1008196/scarface-1983",
+    "untouchables": "https://www.paramountplus.com/movies/video/0tnMAzwCVxRVBmd3DwW2T_dIgpjNa697/"
+  },
+  "newUnits": [
+    {
+      "id": "intro-dungeon",
+      "sourceLines": [
+        7
+      ],
+      "timing": "pending, no seek control"
+    },
+    {
+      "id": "gun-malfunction",
+      "sourceLines": [
+        33
+      ],
+      "timing": "pending, no seek control"
+    },
+    {
+      "id": "smith-wesson",
+      "sourceLines": [
+        67,
+        68
+      ],
+      "timing": "pending, no seek control"
+    },
+    {
+      "id": "street-maze",
+      "sourceLines": [
+        72,
+        73
+      ],
+      "timing": "pending, no seek control"
+    },
+    {
+      "id": "life-hell",
+      "sourceLines": [
+        80
+      ],
+      "timing": "pending, no seek control"
+    },
+    {
+      "id": "new-plateau",
+      "sourceLines": [
+        85
+      ],
+      "timing": "pending, no seek control"
+    }
+  ],
+  "unitCount": 17,
+  "storyCharacters": 111,
+  "originalStoryCharacters": 1164,
+  "streamProduct": {
+    "supplied": "https://link.amazon/A050ECHCT",
+    "resolved": "https://www.amazon.co.jp/gp/video/detail/B0DBV85DZM?qid=1791670993367&pageTypeId=B0DBV887N2&pageTypeIdSource=ASIN&sr=1-1&linkCode=sl2&tag=wax1124-22&linkId=5d07974f4f99d61f9a89ecbcca9067f6&ref_=as_li_ss_tl",
+    "http": 200,
+    "title": "Amazon.co.jp: スカーフェイスを観る | Prime Video",
+    "productTitle": null,
+    "image": "https://m.media-amazon.com/images/S/pv-target-images/7bafb2caa789cf3e7fcfc906154e106ef35ccd5ed99c1ba99bc64cec220c5f38.jpg",
+    "asin": null,
+    "format": "Prime Video",
+    "version": "1983",
+    "actorsVerified": true,
+    "tracking": {
+      "tag": "wax1124-22",
+      "linkId": "5d07974f4f99d61f9a89ecbcca9067f6"
+    }
+  },
+  "ruleReason": "Second feedback on contrived affiliate introductions; allow cards directly after the explanation, without invented reasons to buy.",
+  "integratedTopics": [
+    {
+      "topic": "intelligence-walls",
+      "unit": "state-of-mind",
+      "reason": "Same originally quoted line; retain one unit rather than duplicate."
+    }
+  ],
+  "verification": {
+    "tone": "initial machine, own independent reread and refinement, final machine pass",
+    "article": "all 10 checks including final build passed",
+    "lyricChecks": "B/C/D pass; quotation coverage 32%; original 28 quote slots retained",
+    "readerGuard": "19 conditions passed",
+    "publishSafety": "passed",
+    "diff": "passed",
+    "scope": "only target article, target metadata/guard/proof and two tone rules; no other articles, components or videos",
+    "browser": "PC1440/390: 17 index jumps and heading clear of fixed controls; original 11 approx seek/stop pairs; six pending without buttons; 111-character synopsis; TEC card without sales preface; Prime Video image and two isolated affiliate click events",
+    "pending": [
+      "Original 11 timestamps need measurement/caption verification",
+      "Six additional positions unverified; seek omitted",
+      "Missing advertising code",
+      "User supplied photo original creators/reuse terms",
+      "Independent exhaustive E&J Japan retail verification"
+    ],
+    "production": "awaiting explicit approval; publish-main.mjs only"
+  }
+}
