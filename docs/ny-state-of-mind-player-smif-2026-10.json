@@ -1,0 +1,226 @@
+{
+  "date": "2026-10-11",
+  "slug": "ny-state-of-mind",
+  "baseCommit": "cc72694549e2c660bcf2ce276b10d97e3312cd82",
+  "changes": [
+    "shared replay/stop controls now available on all 17 points; no component reimplementation",
+    "Smif-N-Wessun Tek/Steele and Cocoa Brovaz name-dispute episode",
+    "specified S&W Amazon product photo card, verified BB airsoft type",
+    "historical TEC-9 price/access explained before comparison; remove unnatural sound-first preface"
+  ],
+  "audio": {
+    "youtubeId": "hI8A14Qcv68",
+    "durationSeconds": 296,
+    "captionRecheck": "2026-10-11 align-yt-captions: no caption tracks; no measurements",
+    "allPositions": "fallback estimates, approx=true; no manual/caption/synced measurements",
+    "lyricsSource": "https://genius.com/Nas-ny-state-of-mind-lyrics",
+    "frozenSourceSHA256": "41fe3004cb6b10b91f3c9ee40b8a23ccb8d4bc4ca623c966c2806b9ad1cad745",
+    "newEstimates": [
+      {
+        "id": "intro-dungeon",
+        "t": 0,
+        "sourceLines": [
+          7
+        ],
+        "method": "song start fallback, not phrase onset"
+      },
+      {
+        "id": "gun-malfunction",
+        "t": 83,
+        "sourceLines": [
+          33
+        ],
+        "method": "linear source-line interpolation between existing estimated anchors; rounded to nearest second",
+        "left": {
+          "id": "ej-grants-ceelo",
+          "line": 20,
+          "t": 45
+        },
+        "right": {
+          "id": "cousin-of-death",
+          "line": 50,
+          "t": 132
+        },
+        "unroundedEstimate": 82.7
+      },
+      {
+        "id": "smith-wesson",
+        "t": 177,
+        "sourceLines": [
+          67,
+          68
+        ],
+        "method": "linear source-line interpolation between existing estimated anchors; rounded to nearest second",
+        "left": {
+          "id": "blocks-rocks",
+          "line": 63,
+          "t": 166
+        },
+        "right": {
+          "id": "lamp-capone",
+          "line": 77,
+          "t": 205
+        },
+        "unroundedEstimate": 177.1429
+      },
+      {
+        "id": "street-maze",
+        "t": 191,
+        "sourceLines": [
+          72,
+          73
+        ],
+        "method": "linear source-line interpolation between existing estimated anchors; rounded to nearest second",
+        "left": {
+          "id": "blocks-rocks",
+          "line": 63,
+          "t": 166
+        },
+        "right": {
+          "id": "lamp-capone",
+          "line": 77,
+          "t": 205
+        },
+        "unroundedEstimate": 191.0714
+      },
+      {
+        "id": "life-hell",
+        "t": 214,
+        "sourceLines": [
+          80
+        ],
+        "method": "linear source-line interpolation between existing estimated anchors; rounded to nearest second",
+        "left": {
+          "id": "lamp-capone",
+          "line": 77,
+          "t": 205
+        },
+        "right": {
+          "id": "vitamin-capsule",
+          "line": 86,
+          "t": 232
+        },
+        "unroundedEstimate": 214.0
+      },
+      {
+        "id": "new-plateau",
+        "t": 229,
+        "sourceLines": [
+          85
+        ],
+        "method": "linear source-line interpolation between existing estimated anchors; rounded to nearest second",
+        "left": {
+          "id": "lamp-capone",
+          "line": 77,
+          "t": 205
+        },
+        "right": {
+          "id": "vitamin-capsule",
+          "line": 86,
+          "t": 232
+        },
+        "unroundedEstimate": 229.0
+      }
+    ],
+    "original11": "unchanged; prior proof hashes continue to be checked"
+  },
+  "sources": [
+    {
+      "url": "https://www.skiddle.com/news/all/Smif-N-Wessun-interview-By-the-grace-of-God/28128/",
+      "supports": "Tek/Steele, Brooklyn, Boot Camp Clik; direct interview"
+    },
+    {
+      "url": "https://www.daveyd.com/cocoabrovasinterview.html",
+      "supports": "gun-company name dispute, Cocoa Brovaz name change and marketing setback; Steele direct interview"
+    },
+    {
+      "url": "https://www.ojp.gov/pdffiles1/Digitization/137307NCJRS.pdf",
+      "supports": "archival TEC-9 inexpensive pricing; Appendix AA; underlying 1989 reprint"
+    },
+    {
+      "url": "https://www.washingtonpost.com/archive/local/1993/02/09/apples-of-the-criminal-eye/b0af484b-6d17-47f7-8e9b-48e6b043e5af/",
+      "supports": "contemporaneous 1993 Virginia reporting, police testimony and widespread retail availability; historical US context only"
+    },
+    {
+      "url": "https://www.tokyo-marui.co.jp/products/gas/blowback/397",
+      "supports": "M&P 9 V Custom official product; 6mm BB, gas blowback,18+; not real firearm"
+    }
+  ],
+  "product": {
+    "supplied": "https://link.amazon/B04I6X0eB",
+    "resolved": "https://www.amazon.co.jp/%E6%9D%B1%E4%BA%AC%E3%83%9E%E3%83%AB%E3%82%A4-TOKYO-MARUI-H9275T-18%E6%AD%B3%E4%BB%A5%E4%B8%8A%E3%82%AC%E3%82%B9%E3%83%96%E3%83%AD%E3%83%BC%E3%83%90%E3%83%83%E3%82%AF/dp/B00R0NTOJI?crid=1F3RRMYG4D003&dib=eyJ2IjoiMSJ9.mC19m-FkcMrrr582A3I4e8QG1niva9Sg_AKj3lRTJYTv26ytB9__bnXGuK7J4RCScVM85w42quEo6MYABc68vKJNaRfuQcgbk5EoUAceiq99XQfyvUueyAT86xkAFcoC40b42jUgfM3HHqu8XndRncM-Ke93ofZiiGHWxmra2q6-MfvlEi5OvbgiWo89_WkhCw46TeW_TVckwB59A0i-2xw_4Iw3P-7NVEdKAgJmeVczI_zMQ1eORjWlc6rcuUk3R-TrqkQ9Pbt27Ex4_iZXV4jKqxRayKqp68jkBEfEVeQ.7OiLxdt4VbaUaLNR0IpxilKbneWYwZ_LmC0IbnHBdHc&dib_tag=se&keywords=smith%2B%26%2Bwesson%2B%E3%82%AC%E3%82%B9%E3%82%AC%E3%83%B3&qid=1791679476&sprefix=smith%2B%26%2Bwesson%2Caps%2C252&sr=8-4&th=1&linkCode=sl2&tag=wax1124-22&linkId=2e83486e7874b7e8ae2457bc7b40bf75&ref_=as_li_ss_tl&ascsubtag=srctok-218f4095c40c8e01&btn_type=ss&btn_ref=srctok-218f4095c40c8e01",
+    "image": "https://m.media-amazon.com/images/I/51tdAbUfDlL._AC_SL1051_.jpg",
+    "position": "ny-smith-wesson-airsoft",
+    "asin": "B00R0NTOJI",
+    "verifiedTitle": "東京マルイ S&W M&P 9 V CUSTOM 18歳以上ガスブローバック",
+    "imageUse": "Amazon product-page remote image with direct affiliate link, no local copy"
+  },
+  "verification": {
+    "state": "passed",
+    "tone": "initial machine, independent prose reread/refinement, final machine pass",
+    "article": "all 10 required checks passed; final label edit followed by current-source build",
+    "lyrics": "B/C/D passed; original 28 slots and original 11 units/timestamp records retained by hashes",
+    "readerGuard": "23 conditions passed; all 17 fallback controls and estimated status covered",
+    "build": "passed; built source confirmed final wording",
+    "publishSafety": "passed; no unresolved hard-gated facts; affiliate/CSP/ads.txt valid",
+    "diff": "passed",
+    "browser": [
+      {
+        "width": 1440,
+        "units": 17,
+        "approxSeekStopPairs": 17,
+        "newSeekPlayPauseChecks": 6,
+        "playerAPI": "mock confirms handoff, no real audio measurement",
+        "indexJumps": 17,
+        "productImageAndBothTargets": true,
+        "events": [
+          {
+            "event": "affiliate_click",
+            "merchant": "amazon",
+            "position": "ny-smith-wesson-airsoft-cover"
+          },
+          {
+            "event": "affiliate_click",
+            "merchant": "amazon",
+            "position": "ny-smith-wesson-airsoft"
+          }
+        ],
+        "horizontalOverflow": 0,
+        "pageErrors": 0
+      },
+      {
+        "width": 390,
+        "units": 17,
+        "approxSeekStopPairs": 17,
+        "newSeekPlayPauseChecks": 6,
+        "playerAPI": "mock confirms handoff, no real audio measurement",
+        "indexJumps": 17,
+        "productImageAndBothTargets": true,
+        "events": [
+          {
+            "event": "affiliate_click",
+            "merchant": "amazon",
+            "position": "ny-smith-wesson-airsoft-cover"
+          },
+          {
+            "event": "affiliate_click",
+            "merchant": "amazon",
+            "position": "ny-smith-wesson-airsoft"
+          }
+        ],
+        "horizontalOverflow": 0,
+        "pageErrors": 0
+      }
+    ],
+    "visual": "PC1440 and 390px actual S&W product card; 390px rapper explanation visually inspected, screenshots exclude lyrics",
+    "scope": "target article, target commerce/units/timestamps, dedicated guard and this short proof only; shared player/stop, all photographs, video and unrelated WIP untouched",
+    "deployment": "review only; production awaits user approval via publish-main.mjs",
+    "preservation": "All 40 current quotation/translation/usage slots byte-identical to base commit; all 12 existing product objects unchanged; original 11 unit/timestamp hashes unchanged; supplied photographs/shared components/videos untouched"
+  },
+  "pending": [
+    "All 17 positions still require listening/measurement; interpolation is not measured timing",
+    "Advertising code not supplied",
+    "Original authors and reuse permissions for supplied photo collages remain follow-up",
+    "E&J absence of regular Japanese retail cannot be established exhaustively"
+  ]
+}
