@@ -155,3 +155,13 @@ AIを活用し、WAX&THINKの検索・動画流入を継続収益へ変える。
 - Codex。終了時担当競合なし。16見出しにInter本物の800 italicを読み込み、当該曲だけ適用。記事本体の節番号と境界、全12差込みのPR購入案内、既存関連記事と末尾自動生成リンクの区切り、追従する現在節/解説番号/目次を追加。関連記事は既存生成を使用。
 - 本文/全引用/写真/購入先と計測属性、確定16時刻2ファイル、実測証拠はhash・専用ガードで保全。LearningUnit/player変更なし、ユーザー/Claude WIP・生成済み動画未変更。記事10項目/最終build/公開安全/文体/専用27条件/diff pass。PC1440/390で16font/現在unitと節/PR関連記事/16小数seek再生停止とbar/横溢れ0/pageerror0を確認。音同期は再実測せず確定値保全。
 - 対象6ファイルだけreviewへcommit/push。本番公開なし、main 4cfc95e不変。証拠docs/ny-state-of-mind-reading-guide-2026-10.json。次の1件はユーザーの表示確認。Telegram送信なし。
+
+### NY State of Mind 購入余白・見出し順修正着手 — 2026-10-11 JST
+- Codex。競合なし、隔離review 7aa3528再利用。入口実測JSON。対象は当該記事/ReadingGuide/当該曲layout/専用ガード/記録。PR購入案内の余分な見出しを撤去、Illmatic購入案内をAmazon左・Mercari右、末尾導線縮小、英語主見出し/日本語副見出し統一。
+- DoD: PC1440/390の配置・寸法・フォント・scroll/16seek停止、引用/確定16時刻・商品画像URL計測の保全、article/build/safety/専用/diff/pre-push、review push。本番公開なし。1:20–2:08の未採用学習候補は調査し根拠/実測未確認を記録、確認なく新時刻を確定しない。
+
+### NY State of Mind 購入余白・見出し順修正終了 — 2026-10-11 JST
+- Codex。競合なし。冗長なPR購入見出しを撤去（購入リンク上のPRは維持）。IllmaticはAmazon左・Mercari右の共通枠、右ボタンにメルカリを明記。末尾は見出し/既存購入枠へのリンクへ縮小。日本語だけだった6見出しを最小の英語表現＋日本語説明へ、全16の順序/Inter800italicを統一。
+- 全引用・学習本文/写真/商品データとmerchant/item/position、LearningUnit/player、確定時刻2ファイル/実測証拠を保全。学習unit増加0、新時刻0。47.82秒の間隔と3学習候補を歌詞非転載で別記録、後半へ偏る選定を確認。候補の発声開始は未観測で確定値扱いしない。
+- 最終記事10項目/build/文体/専用28条件/公開安全/diff pass。PC1440/390で16英語主見出し/副見出しとfont、現在位置/16小数seek-play-pause-bar/全PR関連記事、左右購入配置、コンパクト導線/最終商品画像ロード・横溢れ0を確認。対象7ファイルだけreview push、本番公開なし、既存WIP/動画保全。
+- 次の1件はユーザーの表示確認と未採用候補の採用判断。購入表示・見出しの修正は完了、既存16の音同期は維持。記録docs/ny-state-of-mind-reading-guide-2026-10.json、docs/ny-state-of-mind-selection-audit-2026-10.md。

@@ -12,7 +12,7 @@ import '@fontsource/inter/800-italic.css';
   [data-guided-reading] #reading-location { display:block; overflow-wrap:anywhere; line-height:1.5; }
   [data-guided-reading] .reading-guide a { flex-shrink:0; padding:.4rem; color:var(--c-gold); }
   [data-guided-reading] .learning-unit h3 > span:first-child { font-family:'Inter','Hiragino Sans','Yu Gothic',sans-serif !important; font-weight:800; font-style:italic; text-transform:none; overflow-wrap:anywhere; }
-  [data-guided-reading] .reader-block { margin:1.5rem 0; padding:1rem; border:1px solid var(--c-border); border-left:4px solid var(--c-gold); border-radius:.5rem; background:var(--c-surface); }
+  [data-guided-reading] .reader-block { margin:1rem 0; padding:.75rem; border:1px solid var(--c-border); border-left:4px solid var(--c-gold); border-radius:.5rem; background:var(--c-surface); }
   [data-guided-reading] .reader-block[data-reading-kind="PR"] { border-left-color:var(--c-dim); border-style:dashed; }
   [data-guided-reading] .reader-block[data-reading-kind="関連記事"] { border-left-color:var(--c-orange); }
   [data-guided-reading] .reader-block-label { margin:0 0 .75rem; color:var(--c-dim); font-size:.7rem; font-weight:700; letter-spacing:.04em; }
@@ -21,6 +21,22 @@ import '@fontsource/inter/800-italic.css';
   [data-guided-reading] .reader-section-label { display:block; color:var(--c-dim); font-size:.7rem; margin-bottom:.6rem; }
   [data-guided-reading] [id^="point-"] { scroll-margin-top:240px; }
   [data-guided-reading] a:focus-visible { outline:2px solid var(--c-gold); outline-offset:3px; }
+  [data-guided-reading] .commerce-pair { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:1rem; }
+  [data-guided-reading] .commerce-pair > div { min-width:0; }
+  [data-guided-reading] .commerce-pair .release-reference { margin:0; padding:0; border:0; background:transparent; grid-template-columns:64px minmax(0,1fr); gap:.5rem; }
+  [data-guided-reading] .commerce-pair .release-reference img { width:64px; height:64px; }
+  [data-guided-reading] .commerce-pair .release-reference .release-links { margin-top:.4rem; }
+  [data-guided-reading] .commerce-mercari > section { margin:0; padding:0 0 0 .75rem; border:0; border-left:1px solid var(--c-border); border-radius:0; background:transparent; }
+  [data-guided-reading] .commerce-mercari > section > p { margin-bottom:.5rem; letter-spacing:0; line-height:1.5; }
+  [data-guided-reading] .commerce-mercari a { padding:.5rem; font-size:.8rem; }
+  @media(max-width:520px) {
+    [data-guided-reading] .commerce-pair { gap:.5rem; }
+    [data-guided-reading] .commerce-pair .release-reference { grid-template-columns:44px minmax(0,1fr); gap:.4rem; font-size:.75rem; }
+    [data-guided-reading] .commerce-pair .release-reference img { width:44px; height:44px; }
+    [data-guided-reading] .commerce-pair .release-artist, [data-guided-reading] .commerce-pair .release-record { font-size:.65rem; }
+    [data-guided-reading] .commerce-mercari > section { padding-left:.5rem; }
+    [data-guided-reading] .commerce-mercari a { font-size:.75rem; }
+  }
 </style>
 <script>
   const root = document.querySelector<HTMLElement>('[data-guided-reading]');

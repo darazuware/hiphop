@@ -41,5 +41,94 @@
     ],
     "readingUI": "PC1440/390: 16 computed Inter/800/italic headings; each unit position; all body sections/aria-current; all visible PR/related inserts at scrollable viewport height; no overflow/page errors",
     "diff": "passed"
+  },
+  "compactRevision": {
+    "baseCommit": "7aa35288b071269923f8498505eb266be3bc3f83",
+    "articleTextProjectionSHA256": "b7ae9e4904558a29aa187796f2a7b13a926a11f3bb4a0b790a0ebe89bc2afa5a",
+    "authorizedTextException": "listen-more purchase-only section shortened to title and existing anchor; no learning prose or quotation changes",
+    "headings": "six Japanese-only headings now English expression first, Japanese explanation second; all 16 follow same pattern",
+    "commerce": "remove redundant PR purchase headings; preserve link-level PR; shared Illmatic two-column block, Amazon left/Mercari right",
+    "verification": {
+      "article": "all 10 checks passed, includes final build",
+      "readerGuard": "28 conditions passed",
+      "tone": "passed",
+      "browser": [
+        {
+          "width": 1440,
+          "retailerPair": {
+            "amazonX": 240,
+            "mercariX": 575.5,
+            "amazonY": -2284.109375,
+            "mercariY": -2284.109375,
+            "width": 684,
+            "height": 106.921875
+          },
+          "compactEnd": {
+            "x": 224,
+            "y": 1286.90625,
+            "width": 378.03125,
+            "height": 78.390625
+          },
+          "units": 16,
+          "measuredSeekStopPairs": 16,
+          "allSeekPlayPauseHandoffs": 16,
+          "barTimesChecked": 16,
+          "duration": "4:56",
+          "playerAPI": "mock verifies exact decimal handoff; acoustic evidence is operator report",
+          "horizontalOverflow": 0,
+          "pageErrors": 0
+        },
+        {
+          "width": 390,
+          "retailerPair": {
+            "amazonX": 32,
+            "mercariX": 200.5,
+            "amazonY": -2958.40625,
+            "mercariY": -2958.40625,
+            "width": 358,
+            "height": 119.890625
+          },
+          "compactEnd": {
+            "x": 16,
+            "y": 1521.953125,
+            "width": 358,
+            "height": 106.390625
+          },
+          "units": 16,
+          "measuredSeekStopPairs": 16,
+          "allSeekPlayPauseHandoffs": 16,
+          "barTimesChecked": 16,
+          "duration": "4:56",
+          "playerAPI": "mock verifies exact decimal handoff; acoustic evidence is operator report",
+          "horizontalOverflow": 0,
+          "pageErrors": 0
+        }
+      ],
+      "finalLayout": [
+        {
+          "width": 1440,
+          "pairHeight": 106.921875,
+          "amazonLeft": true,
+          "sameRow": true,
+          "endWidth": 378.03125,
+          "endHeight": 78.390625,
+          "mercariLabel": true,
+          "overflow": false
+        },
+        {
+          "width": 390,
+          "pairHeight": 119.890625,
+          "amazonLeft": true,
+          "sameRow": true,
+          "endWidth": 358,
+          "endHeight": 106.390625,
+          "mercariLabel": true,
+          "overflow": false
+        }
+      ],
+      "publishSafety": "passed",
+      "diff": "passed",
+      "selectionAudit": "docs/ny-state-of-mind-selection-audit-2026-10.md; candidates only, no new units/quotes/timestamps"
+    }
   }
 }

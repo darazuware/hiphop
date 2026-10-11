@@ -432,7 +432,6 @@ const seoDescription = song && !description.includes('和訳')
 
       {song && (
         <div class:list={[{ "reader-block": guidedReading }]} data-reading-kind={guidedReading ? "PR" : undefined} data-reading-section={guidedReading ? "中古盤・グッズの購入案内" : undefined}>
-        {guidedReading && <p class="reader-block-label">PR · 購入案内</p>}
         <MercariCta
           heading="この曲の中古盤・グッズをメルカリで探す"
           position="song-bottom"
