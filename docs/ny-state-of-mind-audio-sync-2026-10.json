@@ -1,0 +1,188 @@
+{
+  "date": "2026-10-11 JST",
+  "slug": "ny-state-of-mind",
+  "baseCommit": "a39f5ad93563a3ffa16a021a67ee67892b119d95",
+  "status": "onset-unverified; no timing corrections applied",
+  "entry": "docs/ny-state-of-mind-commerce-removal-2026-10.json#nextTask",
+  "video": {
+    "id": "hI8A14Qcv68",
+    "title": "Nas - N.Y. State of Mind (Official Audio)",
+    "channel": "Nas",
+    "channel_id": "UCATuR6v6DRf0tz0ww6V66LA",
+    "duration": 296,
+    "webpage_url": "https://www.youtube.com/watch?v=hI8A14Qcv68",
+    "availability": "public"
+  },
+  "captionCheck": {
+    "method": "connected yt-dlp --skip-download --dump-single-json; align-yt-captions dry-run",
+    "manualTracks": [],
+    "automaticTracks": [],
+    "alignmentExitCode": 1,
+    "result": "no subtitle tracks; no captionSec applied",
+    "initialSandboxDNSFailure": "resolved by connected recheck"
+  },
+  "audioObservation": {
+    "observedOnsets": 0,
+    "manualSecApplied": 0,
+    "reason": "No timestamped captions or operator-measured onset evidence available. UI/API mock cannot hear or establish lyric onset.",
+    "audioDownloaded": false,
+    "whisperExecuted": false
+  },
+  "positions": [
+    {
+      "id": "intro-dungeon",
+      "t": 0,
+      "source": "fallback",
+      "approx": true,
+      "onsetVerified": false
+    },
+    {
+      "id": "habitual-be",
+      "t": 22,
+      "source": "fallback",
+      "approx": true,
+      "onsetVerified": false
+    },
+    {
+      "id": "scarface-simile",
+      "t": 30,
+      "source": "fallback",
+      "approx": true,
+      "onsetVerified": false
+    },
+    {
+      "id": "steelo",
+      "t": 40,
+      "source": "fallback",
+      "approx": true,
+      "onsetVerified": false
+    },
+    {
+      "id": "ej-grants-ceelo",
+      "t": 45,
+      "source": "fallback",
+      "approx": true,
+      "onsetVerified": false
+    },
+    {
+      "id": "gun-malfunction",
+      "t": 83,
+      "source": "fallback",
+      "approx": true,
+      "onsetVerified": false
+    },
+    {
+      "id": "cousin-of-death",
+      "t": 132,
+      "source": "fallback",
+      "approx": true,
+      "onsetVerified": false
+    },
+    {
+      "id": "state-of-mind",
+      "t": 138,
+      "source": "fallback",
+      "approx": true,
+      "onsetVerified": false
+    },
+    {
+      "id": "moet-tec",
+      "t": 158,
+      "source": "fallback",
+      "approx": true,
+      "onsetVerified": false
+    },
+    {
+      "id": "blocks-rocks",
+      "t": 166,
+      "source": "fallback",
+      "approx": true,
+      "onsetVerified": false
+    },
+    {
+      "id": "smith-wesson",
+      "t": 177,
+      "source": "fallback",
+      "approx": true,
+      "onsetVerified": false
+    },
+    {
+      "id": "street-maze",
+      "t": 191,
+      "source": "fallback",
+      "approx": true,
+      "onsetVerified": false
+    },
+    {
+      "id": "lamp-capone",
+      "t": 205,
+      "source": "fallback",
+      "approx": true,
+      "onsetVerified": false
+    },
+    {
+      "id": "life-hell",
+      "t": 214,
+      "source": "fallback",
+      "approx": true,
+      "onsetVerified": false
+    },
+    {
+      "id": "vitamin-capsule",
+      "t": 232,
+      "source": "fallback",
+      "approx": true,
+      "onsetVerified": false
+    },
+    {
+      "id": "city-never-sleeps",
+      "t": 240,
+      "source": "fallback",
+      "approx": true,
+      "onsetVerified": false
+    }
+  ],
+  "preservationSHA256": {
+    "src/pages/songs/ny-state-of-mind.astro": "0a27d8a7a114c529f0b628e8b3f6311524da97d86a864c41825c46650ba26a61",
+    "agent/ny-state-of-mind/assets/units.json": "6bf244992a815a63aec9d765605f902e8731282dfe54de6b66dd770d345211a3",
+    "agent/ny-state-of-mind/assets/units-timestamps.json": "2db45befb6826c2e8b66e7d821b7efe05e95c0c4f250c13728a545231a30c795",
+    "src/data/ny-state-of-mind-commerce.json": "b5b3690795e0ac01e09fe8e25870a469ace6e1c9e741ba5408953fce7dc6833c",
+    "src/layouts/SongLayout.astro": "2c305fd46fa068953cf0b5e137a55a6d95fe9d7ea7c27c15ae621d1f705f3127",
+    "src/components/LearningUnit.astro": "df1a7d2f62098f0ec4244c057f3a1647e9236f64003d71775a8d2c2154af2fa6"
+  },
+  "preservation": "All six files byte-identical to base: article text/quotes/photos/commerce/player/timing unchanged. Existing WIP and generated videos untouched.",
+  "verification": {
+    "article": "10 checks passed; includes final Astro build",
+    "readerGuard": "23 conditions passed",
+    "publishSafety": "passed (technical gate only)",
+    "browser": [
+      {
+        "width": 1440,
+        "units": 16,
+        "approxSeekStopPairs": 16,
+        "allSeekPlayPauseHandoffs": 16,
+        "barTimesChecked": 16,
+        "duration": "4:56",
+        "playerAPI": "mock only; no acoustic onset observation",
+        "horizontalOverflow": 0,
+        "pageErrors": 0
+      },
+      {
+        "width": 390,
+        "units": 16,
+        "approxSeekStopPairs": 16,
+        "allSeekPlayPauseHandoffs": 16,
+        "barTimesChecked": 16,
+        "duration": "4:56",
+        "playerAPI": "mock only; no acoustic onset observation",
+        "horizontalOverflow": 0,
+        "pageErrors": 0
+      }
+    ],
+    "diff": "git diff --check passed"
+  },
+  "scope": "Only collaboration board and this evidence record changed. No Telegram messages sent.",
+  "pending": "All 16 acoustic onsets require observation in this exact official audio. Retain fallback/approx until actual measured seconds are supplied.",
+  "review": "Evidence-only push; audio synchronization is not complete.",
+  "production": "Not published; main unchanged at 4cfc95e0f2245e9d15bf0995e4181ccae44eefd7."
+}

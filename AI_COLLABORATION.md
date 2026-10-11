@@ -98,3 +98,12 @@ AIを活用し、WAX&THINKの検索・動画流入を継続収益へ変える。
 - 歌詞量: 変更なし（本文の日本語解説・事実記述のみ調整、eng/jpn引用ブロックは未変更）。
 - 検証: `npm run check:publish-safety` → exit 0（`astro build` 174ページ／`check-publish-safety.mjs`未検出0件／内部デッドリンク0／SEO必須項目全件OK）。`check:publish-safety:self-test` も exit 0 で回帰確認済み。diffは上記8ファイルのみ（他ファイルへの影響なし）。
 - 未解決事項: なし（依頼範囲は全項目解消）。人間待ち事項（AdSense CMP・VOD提携先の実URL取得）は変更なし、継続。
+
+### NY State of Mind 音同期確認着手 — 2026-10-11 JST
+- Codex。nextTask入口、Active workと直近終了を確認し担当競合なし。隔離review /private/tmp/ny-reader-release（a39f5ad、clean）を再利用。対象は当該音源/16時刻/同期証拠のみ、記事文章・写真・購入案内・動画・既存WIPは保全。
+- 入口: node agent/src/align-yt-captions.mjs --slug ny-state-of-mind（dry-run）。DoD: 対象動画版/尺/字幕確認、観測根拠に限る時刻更新、全16button/bar/PC390連携、必要記事/build/safety、保全hash/短い証拠、選択review push。本番公開なし。開始位置を観測できなければfallback/approx維持、未確認を明記。
+
+### NY State of Mind 音同期確認終了・実測保留 — 2026-10-11 JST
+- Codex。終了時Active work/直近記録に新規競合なし。接続可能なyt-dlpでhI8A14Qcv68＝Nas公式Official Audio/public/296秒を確認。手動・自動字幕とも0、align-yt-captions dry-run exit1。初回sandbox DNS失敗と区別して再確認済み。発声開始の観測0、manualSec/captionSec変更0。全16値fallback/approxを維持、音同期完了とは扱わない。
+- 記事/引用/写真/購入案内、units2ファイル、共通player/stopはbase a39f5adとbyte一致・SHA256記録。ユーザー/Claude WIP、生成済み動画は未変更。記事10項目（最終build込み）、専用23条件、公開安全、PC1440/390の全16seek/play/pause/APIモック・bar時刻/4:56尺/横溢れ0/pageerror0、diff通過。モックは音の開始位置の証拠ではない。
+- 対象は本ボードとdocs/ny-state-of-mind-audio-sync-2026-10.jsonのみ、検証記録をreviewへpush。本番公開なし。main 4cfc95e不変。Telegram送信なし。人間待ち: 同じ公式音源でunit ID＝実測秒の観測根拠。全16音同期は未確認のまま。
