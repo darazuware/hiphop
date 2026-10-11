@@ -24,6 +24,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
     'DJ Premierの不穏なピアノループとスクラッチ・フックの作り方',
   ]}
   youtubeId="hI8A14Qcv68"
+  guidedReading={true}
   learningPage={true}
   songDuration={296}
 >
@@ -83,17 +84,18 @@ Nasが何を見ているのかが具体的になります。</p>
       </ol>
     </nav>
 
-    <a href="#article-toc" class="toc-return">↑ 目次に戻る</a>
+
 
     <!-- ストーリー -->
-    <section id="story" class="scroll-mt-40 mt-8 mb-10">
+    <section data-reading-section="01 · 曲のあらすじ" data-reading-kind="記事本体" id="story" class="scroll-mt-40 mt-8 mb-10">
+<span class="reader-section-label">記事本体 · 01</span>
 <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">曲のあらすじ</h2>
 <div class="text-[var(--c-muted)] text-sm leading-relaxed space-y-3"><p>Nasが描くのは、クイーンズブリッジで暮らす若者の視点です。前半はラップの腕自慢から銃撃と逃走へ、後半は金や成功への夢から街の危険へと話が移ります。</p><p>言葉を武器にする自負と、気を抜けば命を失う緊張が、曲を通して続いています。</p></div>
 </section>
 
     <!-- 学習ユニット -->
-    <div id="units" class="scroll-mt-40"></div>
-    <section class="mb-12">
+    <section id="units" data-reading-section="02 · 学ぶ表現" data-reading-kind="記事本体" class="mb-12 scroll-mt-40">
+      <span class="reader-section-label">記事本体 · 02</span>
       <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2 border-b border-[var(--c-border)] pb-2">
         学ぶ表現 — スラング・韻・言葉遊び・AAVE
       </h2>
@@ -164,11 +166,13 @@ Nasが何を見ているのかが具体的になります。</p>
           <img src="/images/context/ny-state-of-mind/scarface-user.jpg" alt="映画『スカーフェイス』のトニー・モンタナを演じるアル・パチーノ" width="1280" height="563" loading="lazy" decoding="async" />
           <figcaption>映画『スカーフェイス』のトニー・モンタナ（アル・パチーノ）。<small>画像：ユーザー提供（原画像のクレジットを保持）</small></figcaption>
         </figure>
-        <AmazonMusicReference query="スカーフェイス DVD" title="スカーフェイス [DVD]"
+        <aside class="reader-block" data-reading-kind="PR" data-reading-section="購入案内" aria-label="PR・購入案内"><p class="reader-block-label">PR · 購入案内</p>
+<AmazonMusicReference query="スカーフェイス DVD" title="スカーフェイス [DVD]"
       artist="アル・パチーノ主演" label="このDVDをAmazonで購入" position="ny-scarface"
       coverLabel="スカーフェイスのDVDをAmazonで購入 [PR]"
       cover="https://m.media-amazon.com/images/I/71NL7LHndKL._AC_SY445_SX342_QL70_ML2_.jpg"
       href="https://www.amazon.co.jp/%E3%82%B9%E3%82%AB%E3%83%BC%E3%83%95%E3%82%A7%E3%82%A4%E3%82%B9-DVD-%E3%82%A2%E3%83%AB%E3%83%BB%E3%83%91%E3%83%81%E3%83%BC%E3%83%8E/dp/B006QJSACY?linkCode=sl2&tag=wax1124-22&linkId=3782d361e0e6ab4a55089586e906e082&ref_=as_li_ss_tl&ascsubtag=srctok-7158641f44ba1df1&btn_type=ss&btn_ref=srctok-7158641f44ba1df1" />
+</aside>
 
         <p><strong class="text-[var(--c-text)]">Scarface</strong> は1983年の同名映画の主人公で、<br />
 ヒップホップでは「成り上がりと破滅」の象徴として無数に引用される名前です。</p>
@@ -244,7 +248,9 @@ Nasが何を見ているのかが具体的になります。</p>
           <figcaption>cee-loのルールと、サイコロで遊ぶ様子。<small>画像：ユーザー提供（原画像のクレジットを保持）</small></figcaption>
         </figure>
         <p>この金属製のサイコロは、部屋のインテリアにもよさそうです。シルバーの5個セット。</p>
-        <div id="purchase-ceelo" class="scroll-mt-40"><AmazonMusicReference {...shop.ceelo} /></div>
+        <div id="purchase-ceelo" class="scroll-mt-40"><aside class="reader-block" data-reading-kind="PR" data-reading-section="購入案内" aria-label="PR・購入案内"><p class="reader-block-label">PR · 購入案内</p>
+<AmazonMusicReference {...shop.ceelo} />
+</aside></div>
 
         <Fragment slot="usage">
           <p>アメリカの紙幣スラングは <strong class="text-[var(--c-text)]">肖像の人物名</strong>で呼ぶのが定番です。<em>Grants</em>＝50ドル（グラント）、<em>Franklins</em>＝100ドル（フランクリン）、<em>Jacksons</em>＝20ドル（ジャクソン）。</p>
@@ -423,7 +429,9 @@ Nasは <code>I think of crime</code>（犯罪のことを考える）と接続�
           <figcaption>Al Caponeを紹介する画像。画像：ユーザー提供（原本を掲載、改変なし）。</figcaption>
         </figure>
         <p class="text-xs text-[var(--c-muted)]">映画の背景：<a href="https://catalog.afi.com/Catalog/moviedetails/1134" target="_blank" rel="noopener noreferrer" class="underline">AFI『Scarface』（1932）の作品資料</a>／<a href="https://www.paramountplus.com/movies/video/0tnMAzwCVxRVBmd3DwW2T_dIgpjNa697/" target="_blank" rel="noopener noreferrer" class="underline">『アンタッチャブル』作品紹介</a></p>
-<div id="purchase-scarface-stream" class="scroll-mt-40"><AmazonMusicReference {...shop.scarfaceStream} /></div>
+<div id="purchase-scarface-stream" class="scroll-mt-40"><aside class="reader-block" data-reading-kind="PR" data-reading-section="購入案内" aria-label="PR・購入案内"><p class="reader-block-label">PR · 購入案内</p>
+<AmazonMusicReference {...shop.scarfaceStream} />
+</aside></div>
         <p>行末の <strong class="text-[var(--c-text)]">stones</strong> は「ダイヤなどの宝石」を指し、<code>rings flooded with stones</code>（石で溢れた指輪）で富を描きます。</p>
         <p><code>Capone / sewn / stones / homes</code> と <strong class="text-[var(--c-text)]">-one/-ones</strong> の脚韻が連なっているのも聴きどころです。</p>
         <Fragment slot="usage">
@@ -503,7 +511,8 @@ Nasらしい一行です。<code>plateau / slow / rhymin'</code> 周辺の音の
     </section>
 
     <!-- 文化的背景 -->
-    <section id="background" class="mb-12 scroll-mt-40">
+    <section data-reading-section="03 · 文化的背景" data-reading-kind="記事本体" id="background" class="mb-12 scroll-mt-40">
+<span class="reader-section-label">記事本体 · 03</span>
       <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
         文化的背景
       </h2>
@@ -529,10 +538,14 @@ E&J・cee-lo・lampといった語彙は、<br />
           </p>
           <h3 class="font-semibold text-base text-[var(--c-text)] mt-6">MC Shan：Nasより前のクイーンズブリッジ</h3>
           <p>MC Shanはクイーンズブリッジを代表するMCで、地元を歌った「The Bridge」で知られています。Nasが育った団地には、その前からラップの歴史がありました。</p>
-          <div id="purchase-mcShan" class="scroll-mt-40"><AmazonMusicReference {...shop.mcShan} /></div>
+          <div id="purchase-mcShan" class="scroll-mt-40"><aside class="reader-block" data-reading-kind="PR" data-reading-section="購入案内" aria-label="PR・購入案内"><p class="reader-block-label">PR · 購入案内</p>
+<AmazonMusicReference {...shop.mcShan} />
+</aside></div>
           <h3 class="font-semibold text-base text-[var(--c-text)] mt-6">Marley Marl：団地の音を組んだプロデューサー</h3>
           <p>マーリー・マールは、MC Shanの「The Bridge」を手がけたプロデューサー。レコードからドラムの音を取り出してビートを組む手法を広めた、クイーンズブリッジの音楽を語るうえで欠かせない一人です。</p>
-          <div id="purchase-marleyMarl" class="scroll-mt-40"><AmazonMusicReference {...shop.marleyMarl} /></div>
+          <div id="purchase-marleyMarl" class="scroll-mt-40"><aside class="reader-block" data-reading-kind="PR" data-reading-section="購入案内" aria-label="PR・購入案内"><p class="reader-block-label">PR · 購入案内</p>
+<AmazonMusicReference {...shop.marleyMarl} />
+</aside></div>
           <p class="text-xs">人物の背景：<a href="https://www.redbullmusicacademy.com/lectures/marley-marl-tokyo-2014/" target="_blank" rel="noopener noreferrer" class="underline">Marley Marl本人のインタビュー</a></p>
           <p>
             1994年の『Illmatic』は、<br />
@@ -555,9 +568,13 @@ E&J・cee-lo・lampといった語彙は、<br />
 この曲は冒頭の「The Genesis」に続く2曲目。<br />
 アルバムを通して聴くと、<br />
 Nasが描く街の別の表情も見えてきます。</p>
-      <div id="purchase-illmatic" class="scroll-mt-40"><AmazonMusicReference {...shop.illmatic} /></div>
-      <MercariCta heading="Illmaticの中古CD・レコードを探す" position="ny-background-illmatic"
+      <div id="purchase-illmatic" class="scroll-mt-40"><aside class="reader-block" data-reading-kind="PR" data-reading-section="購入案内" aria-label="PR・購入案内"><p class="reader-block-label">PR · 購入案内</p>
+<AmazonMusicReference {...shop.illmatic} />
+</aside></div>
+      <aside class="reader-block" data-reading-kind="PR" data-reading-section="購入案内" aria-label="PR・購入案内"><p class="reader-block-label">PR · 購入案内</p>
+<MercariCta heading="Illmaticの中古CD・レコードを探す" position="ny-background-illmatic"
         items={[{ query: 'Nas Illmatic', label: 'Illmaticの出品を見る' }]} />
+</aside>
       <p class="mb-6 text-xs text-[var(--c-dim)]">CD・レコード・再発盤で仕様が異なるため、<br />
 購入先で媒体と収録内容を確認できます。</p>
       <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
@@ -583,7 +600,8 @@ Nasが描く街の別の表情も見えてきます。</p>
     </section>
 
     <!-- サンプル・制作の裏側 -->
-    <section id="behind" class="mb-12 scroll-mt-40">
+    <section data-reading-section="04 · サンプル・制作の裏側" data-reading-kind="記事本体" id="behind" class="mb-12 scroll-mt-40">
+<span class="reader-section-label">記事本体 · 04</span>
       <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
         サンプル・制作の裏側
       </h2>
@@ -593,11 +611,17 @@ Nasが描く街の別の表情も見えてきます。</p>
         <h3 class="font-semibold text-base mb-3">不穏なピアノの正体 — Joe Chambers "Mind Rain"</h3>
         <div class="space-y-3 text-[var(--c-muted)] text-sm leading-relaxed">
           <p>曲を支配する不穏なピアノのループは、Joe Chambersの「Mind Rain」（1977年、収録盤『Double Exposure』）からのサンプリング。原曲をアルバムの中で聴くと、Premierが切り出した断片の前後も楽しめます。</p>
-          <div id="purchase-doubleExposure" class="scroll-mt-40"><AmazonMusicReference {...shop.doubleExposure} /></div>
+          <div id="purchase-doubleExposure" class="scroll-mt-40"><aside class="reader-block" data-reading-kind="PR" data-reading-section="購入案内" aria-label="PR・購入案内"><p class="reader-block-label">PR · 購入案内</p>
+<AmazonMusicReference {...shop.doubleExposure} />
+</aside></div>
           <p>そこにKool &amp; The Gang「N.T.」（1971年）のドラムブレイクを重ねています。収録盤『Live at P.J.'s』では、そのリズムをライブ演奏の流れの中で聴けます。</p>
-          <div id="purchase-livePjs" class="scroll-mt-40"><AmazonMusicReference {...shop.livePjs} /></div>
+          <div id="purchase-livePjs" class="scroll-mt-40"><aside class="reader-block" data-reading-kind="PR" data-reading-section="購入案内" aria-label="PR・購入案内"><p class="reader-block-label">PR · 購入案内</p>
+<AmazonMusicReference {...shop.livePjs} />
+</aside></div>
           <p>Donald Byrd「Flight Time」（1973年）からも、細かな音の断片を取り込んでいます。収録盤『Black Byrd』に戻ると、この音が元の曲でどう鳴っていたのかが分かります。</p>
-          <div id="purchase-blackByrd" class="scroll-mt-40"><AmazonMusicReference {...shop.blackByrd} /></div>
+          <div id="purchase-blackByrd" class="scroll-mt-40"><aside class="reader-block" data-reading-kind="PR" data-reading-section="購入案内" aria-label="PR・購入案内"><p class="reader-block-label">PR · 購入案内</p>
+<AmazonMusicReference {...shop.blackByrd} />
+</aside></div>
           <p>
             複数のジャズ／ファンクのレコードをコラージュして一つの空気を作るのが、<br />
 DJ Premierの手つきです。<br />
@@ -620,7 +644,9 @@ Nasが歌っているのではなく、<strong class="text-[var(--c-text)]">先�
 Premierがスクラッチで引用した</strong>もの。
           </p>
           <p>声の出どころをアルバムで聴くなら、Eric B. &amp; Rakimの『Let the Rhythm Hit 'Em』へ。「Mahogany」はこの盤に収録されています。</p>
-          <div id="purchase-rhythm" class="scroll-mt-40"><AmazonMusicReference {...shop.rhythm} /></div>
+          <div id="purchase-rhythm" class="scroll-mt-40"><aside class="reader-block" data-reading-kind="PR" data-reading-section="購入案内" aria-label="PR・購入案内"><p class="reader-block-label">PR · 購入案内</p>
+<AmazonMusicReference {...shop.rhythm} />
+</aside></div>
           <p>
             「最も偉大なMC」と称されるRakimの声を借りてフックにすることで、<br />
 Nasを正統な後継者として印象づける、<br />
@@ -644,7 +670,8 @@ DJ Premierの代名詞。
     </section>
 
     <!-- 評価と影響 -->
-    <section id="legacy" class="mb-12 scroll-mt-40">
+    <section data-reading-section="05 · 評価とその後の影響" data-reading-kind="記事本体" id="legacy" class="mb-12 scroll-mt-40">
+<span class="reader-section-label">記事本体 · 05</span>
       <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
         評価とその後の影響
       </h2>
@@ -674,7 +701,9 @@ DJ Premierの代名詞。
             続編の「N.Y. State of Mind, Pt. II」（『I Am...』収録）も作られ、<br />
 本曲はNasのキャリアを貫くモチーフになりました。
           </p>
-        <div id="purchase-iam" class="scroll-mt-40"><AmazonMusicReference {...shop.iam} /></div>
+        <div id="purchase-iam" class="scroll-mt-40"><aside class="reader-block" data-reading-kind="PR" data-reading-section="購入案内" aria-label="PR・購入案内"><p class="reader-block-label">PR · 購入案内</p>
+<AmazonMusicReference {...shop.iam} />
+</aside></div>
           <p>
             英語のリアルな手触りと、<br />
 それが生まれた現場の温度を同時に学べる。<br />
@@ -685,7 +714,8 @@ DJ Premierの代名詞。
       </div>
     </section>
 
-    <section id="listen-more" class="mb-8 scroll-mt-40" aria-labelledby="listen-more-title">
+    <section data-reading-section="06 · 収録盤を聴く・探す" data-reading-kind="PR" id="listen-more" class="mb-8 scroll-mt-40" aria-labelledby="listen-more-title">
+<span class="reader-section-label">PR · 購入案内</span>
       <h2 id="listen-more-title" class="text-base font-semibold mb-3">この曲から『Illmatic』へ</h2>
       <p class="text-sm text-[var(--c-muted)] mb-4">Nasの街の描写をもっと聴くなら、<br />
 収録盤『Illmatic』へ。<br />
@@ -707,7 +737,8 @@ DJ Premierの代名詞。
       </ul>
     </section>
 
-    <DiveCards
+    <aside class="reader-block" data-reading-kind="関連記事" data-reading-section="背景をさらに読む" aria-label="関連記事"><p class="reader-block-label">関連記事 · 背景をさらに読む</p>
+<DiveCards
       cards={[
         {
           href: "/columns/dj-premier-sampling",
@@ -735,6 +766,7 @@ DJ Premierの代名詞。
         },
       ]}
     />
+</aside>
 
     <aside class="source-notes mb-10" aria-label="事実確認の出典">
       <p>作品情報：<a href="https://www.sonymusic.co.jp/artist/Nas/discography/buy/SRCS-7318" target="_blank" rel="noopener noreferrer">Sony Music『Illmatic』</a> · サンプル：<a href="https://www.whosampled.com/Nas/N.Y.-State-of-Mind/" target="_blank" rel="noopener noreferrer">WhoSampled</a> · 続編：<a href="https://www.youtube.com/watch?v=cVNRjPpo68I" target="_blank" rel="noopener noreferrer">Nas公式音源</a></p>
@@ -756,7 +788,6 @@ DJ Premierの代名詞。
   #song-reading-body :global(p) { overflow-wrap:anywhere; }
   #song-reading-body :global(h2) { font-size:1.1rem; line-height:1.5; letter-spacing:.02em; text-transform:none; }
   #article-toc a { display:block; padding:.55rem 0; }
-  .toc-return { position:sticky; top:148px; z-index:25; display:block; width:fit-content; margin:0 0 1rem auto; padding:.65rem .9rem; border:1px solid var(--c-border); border-radius:.5rem; background:var(--c-bg); color:var(--c-gold); font-size:.75rem; }
   .context-photo { margin:1.5rem 0; } .context-photo img { display:block; width:100%; height:auto; border-radius:.5rem; }
   .supplied-photo .bottle-photo { max-width:320px; margin-inline:auto; }
   .context-photo figcaption { margin-top:.6rem; color:var(--c-muted); font-size:.8rem; line-height:1.7; }

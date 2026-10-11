@@ -146,3 +146,12 @@ AIを活用し、WAX&THINKの検索・動画流入を継続収益へ変える。
 - Codex。終了時担当競合なし。再確認9件と02訂正を既存set-manualで適用し、全16引用先頭manual/approx=falseへ。01=14.10は保全、02=23.30、03=29.70、04=40.87、05=43.37、07=128.32、09=147.35、10=154.12、13=194.00、15=216.35、16=227.77。その他5実測値保全。0:233の23.30解釈・旧回答・途中anchor観測・旧fallback履歴・再確認clip hashを記録。
 - 引用先頭監査も全16acceptedへ更新。記事source/共通LearningUnit/player/写真/購入案内/引用は2d88805とbyte一致。記事10項目（最終build含む）/専用25条件/公開安全/diff pass。PC1440/390全16小数seek/play/pause・bar時刻・4:56尺・≈0/未確認注記0・横溢れ0/pageerror0。発声根拠はユーザー実測、APIモックは受渡し検証。
 - 対象5ファイルのみreview commit/push。音同期の実測待ちは解消。更新後配信DOMも確認し、旧表示を避ける。本番公開なし。計測動画/既存WIP未変更。
+
+### NY State of Mind 読書位置・見出し修正着手 — 2026-10-11 JST
+- Codex。担当競合なし。隔離review /private/tmp/ny-reader-release（32a3b4e）再利用。入口docs/ny-state-of-mind-audio-measured-2026-10.json。対象は当該記事/任意読書案内部品/当該曲だけのlayout分岐/専用ガード/検証記録/本ボード。
+- DoD: 16見出しInter 800 italic、本文・PR・関連記事の明示/現在節と解説番号、PC1440/390スクロール/横溢れ/16seek停止、確定時刻2ファイルと引用/写真/商品属性保全、article/build/safety/diff/通常pre-push、review push。本番公開なし。
+
+### NY State of Mind 読書位置・見出し修正終了 — 2026-10-11 JST
+- Codex。終了時担当競合なし。16見出しにInter本物の800 italicを読み込み、当該曲だけ適用。記事本体の節番号と境界、全12差込みのPR購入案内、既存関連記事と末尾自動生成リンクの区切り、追従する現在節/解説番号/目次を追加。関連記事は既存生成を使用。
+- 本文/全引用/写真/購入先と計測属性、確定16時刻2ファイル、実測証拠はhash・専用ガードで保全。LearningUnit/player変更なし、ユーザー/Claude WIP・生成済み動画未変更。記事10項目/最終build/公開安全/文体/専用27条件/diff pass。PC1440/390で16font/現在unitと節/PR関連記事/16小数seek再生停止とbar/横溢れ0/pageerror0を確認。音同期は再実測せず確定値保全。
+- 対象6ファイルだけreviewへcommit/push。本番公開なし、main 4cfc95e不変。証拠docs/ny-state-of-mind-reading-guide-2026-10.json。次の1件はユーザーの表示確認。Telegram送信なし。
