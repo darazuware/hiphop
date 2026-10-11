@@ -12,3 +12,7 @@
 歌詞本文は記録しない。存在・並びの照合元: [Shazam / Appleの当該曲歌詞](https://www.shazam.com/song/806427719/ny-state-of-mind)。サイトの既存Genius実在チェックも通常記事検証で維持する。音源上の新しい秒数は別途観測が必要。
 
 語義確認: [goner（Cambridge）](https://dictionary.cambridge.org/us/dictionary/english/goner)、[stick-up（Cambridge）](https://dictionary.cambridge.org/us/dictionary/english/stick-up)、[jet（Merriam-Webster）](https://www.merriam-webster.com/dictionary/jet)。jetの辞書義は素早く移動すること。曲内の「逃走」は、建物のロビーへ向かう場面からの文脈解釈。
+
+## 採用（2026-10-11・ユーザー指定）
+
+地下牢の解説を削除し、韻と複合語の2項目を採用。韻の対応はcorners/gonersで、先の会話でのguns/gonersという説明を訂正する。銃の有無は語義を結ぶ文脈で、音の対応語ではない。jettin'は今回は追加しない。合計17項目、既存15実測を維持。追加2箇所はtimingPendingで頭出しを保留し、推定秒を実測扱いしない。証拠はny-state-of-mind-unit-replacement-2026-10.json。

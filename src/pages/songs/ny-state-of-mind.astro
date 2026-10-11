@@ -16,11 +16,11 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
 
 <SongLayout
   title="N.Y. State of Mind 和訳・意味・スラング解説 | Nas（Illmatic）"
-  description="N.Y. State of Mindの意味と、Nasが描くクイーンズブリッジの日常を解説。17の表現を和訳・スラング・AAVE文法で読み解き、DJ Premierのサンプル元と制作背景も紹介。公式音源の頭出しは推定位置を明示しています。"
+  description="N.Y. State of Mindの意味と、Nasが描くクイーンズブリッジの日常を解説。17の表現を和訳・スラング・AAVE文法で読み解き、DJ Premierのサンプル元と制作背景も紹介。公式音源とともに、言葉の意味や韻を確認できます。"
   slug="ny-state-of-mind"
   highlights={[
     '曲名は「ニューヨークで生きる者の心の状態」。街の危険とラッパーとしての自負を描く',
-    '17の表現を和訳・スラング・文法で解説（公式音源の頭出しは推定値）',
+    '17の表現を和訳・スラング・文法で解説',
     'DJ Premierの不穏なピアノループとスクラッチ・フックの作り方',
   ]}
   youtubeId="hI8A14Qcv68"
@@ -108,18 +108,10 @@ Nasが何を見ているのかが具体的になります。</p>
       </p>
       <p class="text-xs text-[var(--c-dim)] mb-6">
         埋め込みはNas公式のフル音源（4分56秒）。</p>
-{tsData.some(u => u.approx) && (<p class="text-xs text-[var(--c-dim)] mb-6">▶の「≈」は推定位置です。{tsData.filter(u => u.approx).length}か所は引用先頭の実測が未完了のため、前後にずれる場合があります。
-</p>)}
+{tsData.some(u => u.source === 'pending') && (<p class="text-xs text-[var(--c-dim)] mb-6">追加した2項目の頭出し位置は確認中です。既存15項目の確認済み位置は維持しています。</p>)}
 
       <!-- ① habitual be -->
-      <details id="point-index" class="mb-6 rounded border border-[var(--c-border)] p-3"><summary class="cursor-pointer text-sm font-bold text-[var(--c-orange)]">17の解説ポイント（開く）</summary><ol class="mt-3 grid gap-2 sm:grid-cols-2 text-sm"><li><a class="underline" href="#point-intro-dungeon">1. ラップの地下牢</a></li><li><a class="underline" href="#point-habitual-be">2. 習慣を表すbe</a></li><li><a class="underline" href="#point-scarface-simile">3. Scarfaceと銃・ペン</a></li><li><a class="underline" href="#point-steelo">4. 自分の流儀steelo</a></li><li><a class="underline" href="#point-ej-grants-ceelo">5. E&amp;J・50ドル札・cee-lo</a></li><li><a class="underline" href="#point-gun-malfunction">6. 銃が撃てない瞬間</a></li><li><a class="underline" href="#point-cousin-of-death">7. 眠りと死</a></li><li><a class="underline" href="#point-state-of-mind">8. 知性の壁とタイトルの意味</a></li><li><a class="underline" href="#point-moet-tec">9. MoëtとTEC-9</a></li><li><a class="underline" href="#point-blocks-rocks">10. 株とクラックの韻</a></li><li><a class="underline" href="#point-smith-wesson">11. Smith &amp; Wessonと脅しの韻</a></li><li><a class="underline" href="#point-street-maze">12. 街区と迷路</a></li><li><a class="underline" href="#point-lamp-capone">13. Caponeのようにくつろぐ</a></li><li><a class="underline" href="#point-life-hell">14. 人生と地獄</a></li><li><a class="underline" href="#point-vitamin-capsule">ラップの高みとビタミンの比喩</a></li><li><a class="underline" href="#point-city-never-sleeps">17. 眠らない街</a></li></ol></details>
-<div id="point-intro-dungeon" class="scroll-mt-56">
-<LearningUnit heading="Dungeons of rap — ラップの地下牢" mc="Intro" t={TS["intro-dungeon"].t} tApprox={TS["intro-dungeon"].approx} preciseSeek={true} youtubeId={YT} label="曲冒頭から">
-  <Fragment slot="eng">dungeons of rap</Fragment>
-  <Fragment slot="jpn">ラップの地下牢。</Fragment>
-  <p>冒頭は、ラップの地下牢から来たという名乗り。地下牢は実際の地名ではなく、閉じ込められた場所を借りた比喩です。</p><p>この名乗りで、街の表側からは見えない場所の話へ。曲が始まる前から暗い空気が伝わってきます。</p>
-</LearningUnit>
-</div>
+      <details id="point-index" class="mb-6 rounded border border-[var(--c-border)] p-3"><summary class="cursor-pointer text-sm font-bold text-[var(--c-orange)]">17の解説ポイント（開く）</summary><ol class="mt-3 grid gap-2 sm:grid-cols-2 text-sm"><li><a class="underline" href="#point-habitual-be">1. 習慣を表すbe</a></li><li><a class="underline" href="#point-scarface-simile">2. Scarfaceと銃・ペン</a></li><li><a class="underline" href="#point-steelo">3. 自分の流儀steelo</a></li><li><a class="underline" href="#point-ej-grants-ceelo">4. E&amp;J・50ドル札・cee-lo</a></li><li><a class="underline" href="#point-gun-malfunction">5. 銃が撃てない瞬間</a></li><li><a class="underline" href="#point-corners-goners">6. 縄張りと生き残りを結ぶ韻</a></li><li><a class="underline" href="#point-stickup-kids">7. 街角の強盗を指す複合語</a></li><li><a class="underline" href="#point-cousin-of-death">8. 眠りと死</a></li><li><a class="underline" href="#point-state-of-mind">9. 知性の壁とタイトルの意味</a></li><li><a class="underline" href="#point-moet-tec">10. MoëtとTEC-9</a></li><li><a class="underline" href="#point-blocks-rocks">11. 株とクラックの韻</a></li><li><a class="underline" href="#point-smith-wesson">12. Smith &amp; Wessonと脅しの韻</a></li><li><a class="underline" href="#point-street-maze">13. 街区と迷路</a></li><li><a class="underline" href="#point-lamp-capone">14. Caponeのようにくつろぐ</a></li><li><a class="underline" href="#point-life-hell">15. 人生と地獄</a></li><li><a class="underline" href="#point-vitamin-capsule">16. ラップの高みとビタミンの比喩</a></li><li><a class="underline" href="#point-city-never-sleeps">17. 眠らない街</a></li></ol></details>
 <div id="point-habitual-be" class="scroll-mt-56">
 <LearningUnit
         heading="I be kickin' / Be havin' dreams — AAVEの習慣のbe（habitual be）"
@@ -267,6 +259,25 @@ Nasが何を見ているのかが具体的になります。</p>
   <p>銃撃戦の最中、自分の銃が動かなくなる場面です。強気な語りが、撃てない焦りへ変わります。</p><p>勝って終わる武勇伝にはせず、手元の失敗や追い詰められる怖さまで描いています。街の危険を大づかみに語るより、この細かさのほうが近く感じられます。</p>
 </LearningUnit>
 </div>
+<div id="point-corners-goners" class="scroll-mt-56">
+<LearningUnit preciseSeek={true} t={TS["corners-goners"].t} tApprox={TS["corners-goners"].approx} youtubeId={YT}
+  heading="Corners / Goners — 縄張りの街角と、生き残れない者" mc="Nas（Verse 1）" label="韻 / ストリート語彙">
+  <Fragment slot="eng">corners, crews without guns are goners</Fragment>
+  <Fragment slot="jpn">街角の縄張り。銃のない連中は、助からない。</Fragment>
+  <p>ここでは、cornersが街角の縄張り、gonersが「もう助からない者たち」。gonerは、命や物事の行く末が危ういときに使う口語です。</p><p>cornersとgonersは、後半の音が近い組み合わせ。縄張りを押さえる話から、そこで生き残れるかという話へ、韻でつないでいます。</p><p>銃を持つ者が強く出る街では、持たない集団の立場が弱くなる。その怖さを、説明を重ねず短い言葉へ畳んでいるのが効いていると思います。</p>
+  <p class="text-xs text-[var(--c-dim)]">この項目の頭出し位置は確認中です。</p>
+</LearningUnit>
+</div>
+<div id="point-stickup-kids" class="scroll-mt-56">
+<LearningUnit preciseSeek={true} t={TS["stickup-kids"].t} tApprox={TS["stickup-kids"].approx} youtubeId={YT}
+  heading="Stick-up kids — 街角で襲う若者たち" mc="Nas（Verse 1）" label="複合語 / ストリート語彙">
+  <Fragment slot="eng">stick-up kids</Fragment>
+  <Fragment slot="jpn">路上で強盗を働く若者たち。</Fragment>
+  <p>stick-upは、銃で脅して金品を奪う強盗のこと。stickとupを別々に訳すと、この意味にはたどり着きにくい表現です。</p><p>kidsは若者たち。stick-upと合わせると、道で人を襲う若者を指すひとまとまりの表現になります。</p><p>直前には銃を持たない集団の危うさ、続く場面には白昼の襲撃。暗くなってからだけ警戒すれば済む街ではないと伝わってきます。</p>
+  <p class="text-xs text-[var(--c-dim)]">この項目の頭出し位置は確認中です。</p>
+</LearningUnit>
+</div>
+
 <div id="point-cousin-of-death" class="scroll-mt-56">
 <LearningUnit
         heading="sleep is the cousin of death — 一行で世界観を射抜く比喩"

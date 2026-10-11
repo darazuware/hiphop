@@ -1,0 +1,141 @@
+{
+  "date": "2026-10-11 JST",
+  "baseCommit": "bbd58dffbc5e85a234e7369964073a58a14e0f29",
+  "removed": "intro-dungeon",
+  "added": [
+    "corners-goners",
+    "stickup-kids"
+  ],
+  "activeIDs": [
+    "habitual-be",
+    "scarface-simile",
+    "steelo",
+    "ej-grants-ceelo",
+    "gun-malfunction",
+    "corners-goners",
+    "stickup-kids",
+    "cousin-of-death",
+    "state-of-mind",
+    "moet-tec",
+    "blocks-rocks",
+    "smith-wesson",
+    "street-maze",
+    "lamp-capone",
+    "life-hell",
+    "vitamin-capsule",
+    "city-never-sleeps"
+  ],
+  "retainedBlocksSHA256": {
+    "habitual-be": "db956bc7cab48d5515138b6166cf952618e5d13ed3d764f0d84119286e31819b",
+    "scarface-simile": "e989171c6e897cf8509e55884ee8ae9ed05d1238fc542e88c3ac54b82cd8cc7a",
+    "steelo": "687689c78eb69e7910166be8b994f0914e86fb9fa7993e7a46257541f7a08a12",
+    "ej-grants-ceelo": "db459707c1240ee1bdff23ab85f651199844841dec4f23c1f23f9c57fa51e4ca",
+    "gun-malfunction": "a14ddc2abd08a5d18cff05d81f2c5050b34be93931729b4d327c96545932fa30",
+    "cousin-of-death": "7ebfdb060d867b63d7303f9baba712fbd8e346cee8645c7739a0a4dbec467090",
+    "state-of-mind": "efef2205e6c131b80a38169154167eea6211727c6dd18336ab2836db2180c1d5",
+    "moet-tec": "d5e8e4dbd6d5b8a15e95f8caeec697d8b0693b023b38755268053b185ed5945c",
+    "blocks-rocks": "01a23505ed0014bd4a3740f49235952efbc8545ff5d3a43c19b8f73e3e8ee2c8",
+    "smith-wesson": "00c1c46ac54681fddfdb738335cb83b049a16a1ce0d6d21242f8c48ee4fb5e05",
+    "street-maze": "02b6923657d6e863347122316448e5788076d1e8dba337bb0434fc8dc8971c60",
+    "lamp-capone": "0ed91f20aade8e8f8f9b2e7fff2d9d9133e5139d31c648d09163adfa2491bd52",
+    "life-hell": "60f4f1bbbd18a11ebd9065a6446fd544a92cfb390bc1428100469fa142d6b544",
+    "vitamin-capsule": "dba2f229b815f227a0c03fe8a3e05f315f553807f71528cacdeeee9c7ef0c07a",
+    "city-never-sleeps": "09f5e11c16ea7c75f163f32df5d4c7ea88a5814f7ec7402a38711d9eb654a183"
+  },
+  "retainedUnitsSHA256": "340d5947feb6cbde88bdaeb231646a1b45a06aa12fe864207b0734fbbb293882",
+  "retainedTimestampsSHA256": "48e21de02bb3cd8e7c37a999775b8e235b583ccb99099c849193a7384e68d737",
+  "remainingOldQuoteSHA256": "9c37f6ccdd568be3af35d2ef34cd7ac0da55b0c67463ce999cf2040def9f8656",
+  "activeQuoteSHA256": "f53699fbe7d483cc1097285a7b572bfcbe885bc2b3a167559641d1c38b182bce",
+  "outsideReplacementProseSHA256": "6b44b6c77b6e9085e665cc9d0c1efc756b2944ddf6f1a25f19173a1ded716c6e",
+  "addedQuotationSHA256": {
+    "corners-goners": "229a783782ffd09487d71bb4bb56d296663e2808f1d83a6c278688ff82fcadd7",
+    "stickup-kids": "6ef700e95bb88e948c24df7dd6aced27b5329475d45c755fd377844f5e62ddfc"
+  },
+  "removedTimingRecord": {
+    "id": "intro-dungeon",
+    "whisperSec": null,
+    "manualSec": 14.1,
+    "captionSec": null,
+    "syncedSec": null,
+    "fallbackT": 0,
+    "t": 14.1,
+    "source": "manual",
+    "approx": false,
+    "score": null
+  },
+  "measuredEvidence": "original 16-onset JSON remains byte-identical; removed onset archived, retained 15 entries unchanged",
+  "newTiming": "timingPending=true, t=null, no guessed replay button",
+  "sources": [
+    "https://www.shazam.com/song/806427719/ny-state-of-mind",
+    "https://dictionary.cambridge.org/us/dictionary/english/goner",
+    "https://dictionary.cambridge.org/us/dictionary/english/stick-up"
+  ],
+  "quoteSelection": "two minimal snippets, 8 words total; corners/goners sound correspondence, not guns/goners rhyme",
+  "production": "review only; not published",
+  "verification": {
+    "article": "all 10 checks passed",
+    "tone": "initial mechanical pass, independent reread/wording finish, final pass",
+    "readerGuard": "29 conditions passed",
+    "citationCoveragePercent": 33,
+    "independentJapaneseCharacters": 7263,
+    "englishQuotationCharacters": 1090,
+    "quotationOverlap": "none",
+    "browser": [
+      {
+        "width": 1440,
+        "retailerPair": {
+          "amazonX": 240,
+          "mercariX": 575.5,
+          "amazonY": -2284.125,
+          "mercariY": -2284.125,
+          "width": 684,
+          "height": 106.921875
+        },
+        "compactEnd": {
+          "x": 224,
+          "y": 1286.890625,
+          "width": 378.03125,
+          "height": 78.390625
+        },
+        "units": 17,
+        "pendingUnits": 2,
+        "measuredSeekStopPairs": 15,
+        "allSeekPlayPauseHandoffs": 15,
+        "barTimesChecked": 15,
+        "duration": "4:56",
+        "playerAPI": "mock verifies exact decimal handoff; acoustic evidence is operator report",
+        "horizontalOverflow": 0,
+        "pageErrors": 0
+      },
+      {
+        "width": 390,
+        "retailerPair": {
+          "amazonX": 32,
+          "mercariX": 200.5,
+          "amazonY": -2958.984375,
+          "mercariY": -2958.984375,
+          "width": 358,
+          "height": 119.890625
+        },
+        "compactEnd": {
+          "x": 16,
+          "y": 1521.375,
+          "width": 358,
+          "height": 106.390625
+        },
+        "units": 17,
+        "pendingUnits": 2,
+        "measuredSeekStopPairs": 15,
+        "allSeekPlayPauseHandoffs": 15,
+        "barTimesChecked": 15,
+        "duration": "4:56",
+        "playerAPI": "mock verifies exact decimal handoff; acoustic evidence is operator report",
+        "horizontalOverflow": 0,
+        "pageErrors": 0
+      }
+    ],
+    "publishSafety": "passed",
+    "diff": "passed",
+    "retained": "all 15 original LearningUnit blocks byte-identical; original units/timestamp entries semantically identical; historical 16-point measurement proof unchanged"
+  }
+}

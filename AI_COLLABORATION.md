@@ -165,3 +165,13 @@ AIを活用し、WAX&THINKの検索・動画流入を継続収益へ変える。
 - 全引用・学習本文/写真/商品データとmerchant/item/position、LearningUnit/player、確定時刻2ファイル/実測証拠を保全。学習unit増加0、新時刻0。47.82秒の間隔と3学習候補を歌詞非転載で別記録、後半へ偏る選定を確認。候補の発声開始は未観測で確定値扱いしない。
 - 最終記事10項目/build/文体/専用28条件/公開安全/diff pass。PC1440/390で16英語主見出し/副見出しとfont、現在位置/16小数seek-play-pause-bar/全PR関連記事、左右購入配置、コンパクト導線/最終商品画像ロード・横溢れ0を確認。対象7ファイルだけreview push、本番公開なし、既存WIP/動画保全。
 - 次の1件はユーザーの表示確認と未採用候補の採用判断。購入表示・見出しの修正は完了、既存16の音同期は維持。記録docs/ny-state-of-mind-reading-guide-2026-10.json、docs/ny-state-of-mind-selection-audit-2026-10.md。
+
+### NY State of Mind 解説入替着手 — 2026-10-11 JST
+- Codex。担当競合なし、隔離review bbd58df再利用。ユーザー指定で地下牢unit削除、重要2項目（corners/gonersの韻・stickup kidsの語義）を追加。対象は当該記事/units2ファイル/専用ガード/入替証拠/本ボード。
+- DoD: 残る15確定unit・時刻・引用・本文保全、削除実測は元証拠へ残す、新2unitはtimingPending/t=nullで推測の頭出しなし、17項目の索引/読書位置/Inter800italic、引用実在/重複/予算/三稿制/article/build/safety/PC390/diff/pre-push、review push。本番公開なし。
+
+### NY State of Mind 解説入替終了 — 2026-10-11 JST
+- Codex。終了時競合なし。地下牢を削除、corners/gonersの音と生き残りの意味、stick-up kidsの複合語を銃の不調と眠りの比喩の間へ追加。各々最小断片/和訳/短い解説。計17項目の索引をDOM順再生成、旧推定注記/metadataの不整合も当該曲だけ整合。韻の対応をguns/gonersとした会話の誤りはcorners/gonersへ訂正。
+- 既存15LearningUnitはbyte一致、units/timestampsの15レコード完全同値。地下牢の14.10秒は入替証拠と旧16点の実測証拠に保存、値変更なし。追加2項目は既存timingPending経路でt=null/頭出しなし。LearningUnit/player/写真/購入先/計測/他曲/WIP・生成動画保全。
+- 三稿/記事10項目/最終build/公開安全/専用29条件/diff通過。英引用1090字・独自JP7263字、カバレッジ33%、実在・項目間重複なし。PC1440/390で17font/索引/現在位置、15小数seek-play-pause-bar、追加2の確認中表示とボタン非表示、購入左右配置/コンパクト導線/横溢れ0/pageerror0確認。
+- 今回対象7ファイルのみreviewへcommit/push、本番未公開。証拠docs/ny-state-of-mind-unit-replacement-2026-10.json。次の1件は表示確認。追加2項目の頭出しは発声開始の実測待ち（確定時刻を転用しない）。

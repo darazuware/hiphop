@@ -1,17 +1,5 @@
 [
   {
-    "id": "intro-dungeon",
-    "whisperSec": null,
-    "manualSec": 14.1,
-    "captionSec": null,
-    "syncedSec": null,
-    "fallbackT": 0,
-    "t": 14.1,
-    "source": "manual",
-    "approx": false,
-    "score": null
-  },
-  {
     "id": "habitual-be",
     "whisperSec": 23.8,
     "manualSec": 23.3,
@@ -61,6 +49,30 @@
     "t": 80.5,
     "source": "manual",
     "approx": false,
+    "score": null
+  },
+  {
+    "id": "corners-goners",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "syncedSec": null,
+    "fallbackT": null,
+    "t": null,
+    "source": "pending",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "stickup-kids",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": null,
+    "syncedSec": null,
+    "fallbackT": null,
+    "t": null,
+    "source": "pending",
+    "approx": true,
     "score": null
   },
   {
