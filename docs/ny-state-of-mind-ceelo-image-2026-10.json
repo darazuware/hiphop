@@ -1,0 +1,93 @@
+{
+  "baseCommit": "293f57f2766392bf7e3b53a9b8f38109868ebcbc",
+  "asset": "public/images/context/ny-state-of-mind/ceelo-ai-v2.webp",
+  "sha256": "b21e14d121ba628c7bbfcc13efdb72de5fcdf8808f92dc6f03c59abdb68bfbcf",
+  "width": 1679,
+  "height": 937,
+  "sourceGeneratedSHA256": "135a8fdab1bb6f775f190fd3ddca10e7be2c655cc3f1351b61830b74b9c933c2",
+  "origin": "User-supplied Gemini-generated image edited with imagegen at user request; equal dice sizes and rightmost leg anatomy corrected",
+  "rights": "AI provenance recorded; underlying reference rights not independently verified, no legal clearance asserted",
+  "originalFigure": "<figure class=\"context-photo supplied-photo\" id=\"photo-ceelo\" data-image-source=\"user-provided\">\n          <img src=\"/images/context/ny-state-of-mind/ceelo-user.jpg\" alt=\"cee-loのルールが描かれた看板と3個のサイコロ、路上でサイコロを振る様子\" width=\"1280\" height=\"514\" loading=\"lazy\" decoding=\"async\" />\n          <figcaption>cee-loのルールと、サイコロで遊ぶ様子。<small>画像：ユーザー提供（原画像のクレジットを保持）</small></figcaption>\n        </figure>",
+  "newFigure": "<figure class=\"context-photo supplied-photo\" id=\"photo-ceelo\" data-image-source=\"ai-generated\">\n          <img src=\"/images/context/ny-state-of-mind/ceelo-ai-v2.webp\" alt=\"路上の人々が紙幣と3個のサイコロを囲むAI生成画像\" width=\"1679\" height=\"937\" loading=\"lazy\" decoding=\"async\" />\n          <figcaption>サイコロ3個を囲む路上の場面。<small>AI生成のイメージ（実際の記録写真ではありません）</small></figcaption>\n        </figure>",
+  "articleSHA256": "12d1193f7696e1ecaaedbed6150f97248940e913c15b0bc13c5a561c5453f05e",
+  "preservation": "Only photo-ceelo figure changed; previous image bytes retained and all 17 confirmed timestamps unchanged",
+  "verification": {
+    "figureOnlyDiff": "pass",
+    "articleChecks": 10,
+    "nyReaderChecks": 32,
+    "tone": "pass",
+    "publishSafety": "pass",
+    "browser": [
+      {
+        "width": 1440,
+        "pageHeight": 21687,
+        "diceCommerce": 0,
+        "dicePhoto": 1,
+        "ceeloImage": {
+          "width": 1679,
+          "height": 937,
+          "source": "ai-generated",
+          "loaded": true
+        },
+        "retailerPair": {
+          "amazonX": 240,
+          "mercariX": 575.5,
+          "amazonY": 11084.78125,
+          "mercariY": 11084.78125,
+          "width": 684,
+          "height": 106.921875
+        },
+        "compactEnd": {
+          "x": 224,
+          "y": 14233.046875,
+          "width": 378.03125,
+          "height": 78.390625
+        },
+        "units": 17,
+        "pendingUnits": 0,
+        "measuredSeekStopPairs": 17,
+        "allSeekPlayPauseHandoffs": 17,
+        "barTimesChecked": 17,
+        "duration": "4:56",
+        "playerAPI": "mock verifies exact decimal handoff; acoustic evidence is operator report",
+        "horizontalOverflow": 0,
+        "pageErrors": 0
+      },
+      {
+        "width": 390,
+        "pageHeight": 27454,
+        "diceCommerce": 0,
+        "dicePhoto": 1,
+        "ceeloImage": {
+          "width": 1679,
+          "height": 937,
+          "source": "ai-generated",
+          "loaded": true
+        },
+        "retailerPair": {
+          "amazonX": 32,
+          "mercariX": 200.5,
+          "amazonY": 13430.34375,
+          "mercariY": 13430.34375,
+          "width": 358,
+          "height": 119.890625
+        },
+        "compactEnd": {
+          "x": 16,
+          "y": 17305.953125,
+          "width": 358,
+          "height": 106.390625
+        },
+        "units": 17,
+        "pendingUnits": 0,
+        "measuredSeekStopPairs": 17,
+        "allSeekPlayPauseHandoffs": 17,
+        "barTimesChecked": 17,
+        "duration": "4:56",
+        "playerAPI": "mock verifies exact decimal handoff; acoustic evidence is operator report",
+        "horizontalOverflow": 0,
+        "pageErrors": 0
+      }
+    ]
+  }
+}

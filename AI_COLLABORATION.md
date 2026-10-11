@@ -203,3 +203,10 @@ AIを活用し、WAX&THINKの検索・動画流入を継続収益へ変える。
 ### NY State of Mind 重複説明・サイコロ購入案内削除終了 — 2026-10-11 JST
 - Codex。終了時競合なし。重複する10段落（学習方法/眠り比喩/タイトル/韻/サンプル総括/影響節の一般的評価）とサイコロ販促を削除。サイコロ商品データだけ除去、語義/写真/17unit全引用・確定時刻/他購入先/WIP動画保全。原文から指定11ブロックと空行余白を削っただけの差分であることを機械確認。
 - 文体/記事10項目（build含む）/専用31条件/公開安全/diff/PC1440・390の17seek-play-pauseとbar/現在位置font/サイコロリンク0・写真1/横溢れ0・pageerror0 pass。証拠docs/ny-state-of-mind-prose-cleanup-2026-10.json。AIでPVへそっくりに生成しても著作権上自動的に可にはならない旨を文化庁資料で回答、今回画像置換なし。対象6ファイルのみreview push、本番非公開。
+
+### NY State of Mind サイコロ画像差替着手 — 2026-10-11 JST
+- Codex。競合なし、隔離review 293f57f再利用。ユーザー承認の直前生成画像へphoto-ceeloのみ差替。AI生成のイメージと明示し旧看板/ルール写真という説明を訂正。元画像保持、17時刻/引用/他画像商品/動画保全。画像asset/当該figure/差替証拠/専用ガード/台帳を対象、article/build/safety/PC390画像ロードと17再生停止、review push、本番非公開。
+
+### NY State of Mind サイコロ画像差替終了 — 2026-10-11 JST
+- Codex。終了時競合なし。承認された生成修正版をceelo-ai-v2.webp（1679×937、281738bytes）へ保存、photo-ceeloだけ差替。看板/ルール写真という旧説明を画像内容に即したaltとAI生成・記録写真ではないcaptionへ訂正。旧画像を保持。AI由来は記録し、元参照の権利確認済みとは扱わない。
+- article figure1か所以外byte一致、17確定時刻/購入データ不変。文体/記事10項目（build込み）/専用32条件/公開安全/diff pass。PC1440/390画像実寸ロード/生成注記/サイコロ購入0・写真1/17seek-play-pause-bar/読書位置font/横溢れ0/pageerror0確認。証拠docs/ny-state-of-mind-ceelo-image-2026-10.json。対象5ファイルのみreview push、本番非公開、WIP/動画保全。
