@@ -1,0 +1,41 @@
+[
+  {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Staten_Island_Ferry.jpg",
+    "file": "public/images/context/cream/staten-ferry.jpg",
+    "sha256": "19c574c79f2ef07831ed16e4b973eadf1f7a264f80cf52f030c24976308f505e",
+    "bytes": 582496
+  },
+  {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Stax_Museum_Memphis_TN_01.jpg",
+    "file": "public/images/context/cream/stax-museum.jpg",
+    "sha256": "9db74529c91e574a6a3f03c3cae342eb3b91983e1e03636f55eda4601d45a807",
+    "bytes": 615544
+  },
+  {
+    "url": "https://waxthink.com/songs/cream/",
+    "status": 200,
+    "final": "https://waxthink.com/songs/cream/",
+    "sha256": "4f6b643250d3cdfe5f6a36ce0814639d74ab50e1d90442f99f2e04035c69602a",
+    "bytes": 230309,
+    "learningUnits": 24,
+    "seekButtons": 23
+  },
+  {
+    "url": "https://waxthink.com/songs/ny-state-of-mind/",
+    "status": 200,
+    "final": "https://waxthink.com/songs/ny-state-of-mind/",
+    "sha256": "390907da0dcce6f12cc8c854ed378eb00a6739eb7588bcb3f1f5b080199b734b",
+    "bytes": 217837,
+    "learningUnits": 17,
+    "seekButtons": 17
+  },
+  {
+    "url": "https://hiphop-git-review-darazuwares-projects.vercel.app/songs/cream/",
+    "status": 200,
+    "final": "https://vercel.com/login?next=%2Fsso-api%3Furl%3Dhttps%253A%252F%252Fhiphop-git-review-darazuwares-projects.vercel.app%252Fsongs%252Fcream%252F%26nonce%3Dffc2b82c05542f962562d4899a8fed0d0a2d110bb311516f9bc4dc5b04211109",
+    "sha256": "c086319e35a69b7b6a8f01d7229c6955ceb6cffabbad600aec82709570e5fdad",
+    "bytes": 332237,
+    "learningUnits": 0,
+    "seekButtons": 0
+  }
+]

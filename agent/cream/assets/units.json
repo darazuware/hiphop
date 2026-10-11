@@ -132,6 +132,19 @@
     "captionSec": 86
   },
   {
+    "id": "fifteen-bagged",
+    "anchor": [
+      "at",
+      "the",
+      "age",
+      "of",
+      "fifteen"
+    ],
+    "fallbackT": 126,
+    "manualSec": null,
+    "captionSec": 109.78
+  },
+  {
     "id": "could-not-touch",
     "anchor": [
       "trying",
@@ -154,19 +167,6 @@
     "fallbackT": 118,
     "manualSec": null,
     "captionSec": 126
-  },
-  {
-    "id": "fifteen-bagged",
-    "anchor": [
-      "at",
-      "the",
-      "age",
-      "of",
-      "fifteen"
-    ],
-    "fallbackT": 126,
-    "manualSec": null,
-    "captionSec": null
   },
   {
     "id": "world-cell",
@@ -208,6 +208,18 @@
     "captionSec": 133
   },
   {
+    "id": "bones-staircase",
+    "anchor": [
+      "smokin",
+      "bones",
+      "in",
+      "the"
+    ],
+    "fallbackT": 138,
+    "manualSec": null,
+    "captionSec": 136.401
+  },
+  {
     "id": "whats-it-worth",
     "anchor": [
       "and",
@@ -231,18 +243,6 @@
     "fallbackT": 153,
     "manualSec": 149,
     "captionSec": 147
-  },
-  {
-    "id": "bones-staircase",
-    "anchor": [
-      "smokin",
-      "bones",
-      "in",
-      "the"
-    ],
-    "fallbackT": 138,
-    "manualSec": null,
-    "captionSec": null
   },
   {
     "id": "stickup-kids",

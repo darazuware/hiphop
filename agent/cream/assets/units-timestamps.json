@@ -121,6 +121,17 @@
     "score": 1
   },
   {
+    "id": "fifteen-bagged",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 109.78,
+    "fallbackT": 126,
+    "t": 109.78,
+    "source": "caption",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "could-not-touch",
     "whisperSec": 120.8,
     "manualSec": 116,
@@ -140,17 +151,6 @@
     "t": 126,
     "source": "caption",
     "approx": false,
-    "score": null
-  },
-  {
-    "id": "fifteen-bagged",
-    "whisperSec": null,
-    "manualSec": null,
-    "captionSec": null,
-    "fallbackT": 126,
-    "t": 126,
-    "source": "fallback",
-    "approx": true,
     "score": null
   },
   {
@@ -187,6 +187,17 @@
     "score": 0.8
   },
   {
+    "id": "bones-staircase",
+    "whisperSec": null,
+    "manualSec": null,
+    "captionSec": 136.401,
+    "fallbackT": 138,
+    "t": 136.401,
+    "source": "caption",
+    "approx": true,
+    "score": null
+  },
+  {
     "id": "whats-it-worth",
     "whisperSec": null,
     "manualSec": null,
@@ -207,17 +218,6 @@
     "source": "manual",
     "approx": false,
     "score": 1
-  },
-  {
-    "id": "bones-staircase",
-    "whisperSec": null,
-    "manualSec": null,
-    "captionSec": null,
-    "fallbackT": 138,
-    "t": 138,
-    "source": "fallback",
-    "approx": true,
-    "score": null
   },
   {
     "id": "stickup-kids",

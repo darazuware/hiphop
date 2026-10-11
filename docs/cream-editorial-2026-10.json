@@ -1,0 +1,33 @@
+{
+  "baseline": "3fbbfc01985532f2a2c034061e5e68e414e32d5e48e96d4bb267eedf9b262789",
+  "draft1": "7f0d5dbc9d54aef929a977389ba31f675e8a8bbe95095a0cd6e453cd1a3bce48",
+  "units": 24,
+  "changes": [
+    "album year corrected",
+    "duplicate quotations shortened",
+    "24 original topics retained",
+    "manual/caption timestamps untouched",
+    "MV duration corrected to 242",
+    "concrete grammar and scene explanations",
+    "removed unsupported rankings and causal claims"
+  ],
+  "draft2Review": {
+    "tone": "two 3-sentence paragraphs split in finishing draft",
+    "quoteOverlap": "pass",
+    "reviewedAsExternalEditor": true,
+    "findings": [
+      "self-referential old-error paragraph should be removed",
+      "unverified polysemy framed cautiously",
+      "meaningless summaries removed",
+      "precise grammar corrected",
+      "preserve all 24 topics; sorting actual source pending two measurements"
+    ]
+  },
+  "draft3": "635f78955ea3b7ec62ae905df7a4c2bf1e210e22ad5d55a29035eec1b95e40d3",
+  "browserReviewCorrections": [
+    "remove unrelated quotation from lo-goose; refer to g-off quote",
+    "align tooltip polysemy and recording-cause claims with prose",
+    "article-local anchor clearance 240px",
+    "readable record data 12px at 320px"
+  ]
+}

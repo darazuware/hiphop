@@ -230,3 +230,13 @@ AIを活用し、WAX&THINKの検索・動画流入を継続収益へ変える。
 
 ### NY State of Mind 指定caption表記修正終了 — 2026-10-11 JST
 - Codex。競合なし。リンク文言をWikipediaより引用し編集、mapのtitle/captionをハウシズへ統一、指定の橋説明一文のみ削除。指定置換以外byte一致、17確定時刻/引用/画像/商品/URL/WIP保全。文体/article10（build含む）/専用33/公開安全/diff/ビルド後の指定文字列検証pass。対象4ファイルのみreview push、本番非公開。人間待ち：review表示確認。
+
+### C.R.E.A.M. 改善着手 — 2026-10-11 JST
+- Codex。ユーザー指定CREAMのみ、NY完成本番74a1863/review dc99baeを基準に三稿・再生・写真・盤案内を改善。常設main/reviewのWIPは変更せず、前回隔離cloneから最新reviewのclean隔離 /private/tmp/cream-reader-review を作成。入口CLAUDE記事フロー、DoD tone/article/引用/安全/diff/PC1440・390・320/再生停止/目次/画像/商品計測。対象cream astro・専用時刻/証拠/画像/commerce/専用検証/本ボード。共通部品は既存機能を再利用、他記事/動画を編集しない。出口対象だけreview push、本番は人間承認後に未変更publish-main.mjs。音声聴取できない部分は確認素材を用意し実測入力待ちとする。
+
+### C.R.E.A.M. review稿の検証終了／聴取待ち — 2026-10-11 JST
+- Codex。対象creamのみ。作品データ・短い導入・3入口・24項目の目次往復、句読点改行／段落分け／重複削減、CC写真2枚、具体CD2盤＋Mercari CD検索を実装。共通部品・NY・Come Down・93Til・publish-mainは変更なし。隔離review clone /private/tmp/cream-reader-review。
+- 三稿／Genius実取得／文体／引用重複0／check-article10項目／build・links・SEO／check:publish-safety／diff／専用guard／停止guard合格。引用240→207tokens、24項目・23seekを保持。実幅1440/390/320で横溢れ0・ジャケット左とデータ右・3入口着地点を確認、320で24目次往復と23頭出し表示／停止UI合格、全写真・盤画像load確認。購入5リンクのtag/afid/PR/sponsoredと実handlerのaffiliate_click送出payload合格、GA4受信・成約は未取得。
+- 保全証明: 常設mainの変更ファイル429・review76のhashを照合し、ボード以外の変更0／status一致。音声・字幕・raw WIP snapshotは未追跡のローカル資料で、commit対象外。終了成果物はCREAM専用本文・時刻・画像・commerce・guard・証拠・本ボードに限定。出口reviewへ送信、本番は未公開／承認待ち。
+- 未完了: 推定2件は公式MV字幕の109.780/136.401秒候補へ変更、≈表示。既存manual14/caption7/非収録1は原記録を保全。音源MV242秒維持、album254秒へ切替／offset適用なし。IABでYouTube埋め込み再生不可のため実音は未確認。http://127.0.0.1:4334/ で2区間と両版導入を聴取可能。発声開始2点と導入のMV非収録確認が人間待ち。Amazon商品画像の個別API取得／再利用許諾証跡は未取得としてledger記録。
+- 次1タスク: 再生位置の聴取確定（字幕ブロックと発声開始を区別するため）。難度中／GPT-6.1 Sol high。ユーザー操作は聴取ページを開き「①秒、②秒、③MV非収録を確認／相違」を返信。確認反映後にCREAMだけの公開承認を受け、未変更publish-main.mjsのみ実行。次の記事へ進まない。作業全体は難度高。レビュー https://hiphop-git-review-darazuwares-projects.vercel.app/songs/cream/ （Vercelログイン保護あり）。詳細docs/cream-review-result-2026-10.md。

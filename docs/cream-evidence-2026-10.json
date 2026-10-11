@@ -1,0 +1,96 @@
+{
+  "checkedAtUTC": "2026-10-11T11:26:07.640003+00:00",
+  "championMain": "74a1863fe2f3a2108c479242d2c2310c12ae32ff",
+  "reviewBase": "dc99bae232f476f1ae50ac0071bfe53b40e08359",
+  "photos": [
+    {
+      "local": "public/images/context/cream/staten-ferry.jpg",
+      "original": "https://commons.wikimedia.org/wiki/File:Staten_Island_Ferry.jpg",
+      "author": "Beyond My Ken",
+      "date": "2011-08-12",
+      "license": "CC BY-SA 4.0",
+      "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "modified": false,
+      "attribution": "visible article caption",
+      "sha256": "19c574c79f2ef07831ed16e4b973eadf1f7a264f80cf52f030c24976308f505e"
+    },
+    {
+      "local": "public/images/context/cream/stax-museum.jpg",
+      "original": "https://commons.wikimedia.org/wiki/File:Stax_Museum_Memphis_TN_01.jpg",
+      "author": "Thomas R Machnitzki",
+      "date": "2010-04-08",
+      "license": "CC BY-SA 3.0",
+      "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "modified": false,
+      "attribution": "visible article caption",
+      "sha256": "9db74529c91e574a6a3f03c3cae342eb3b91983e1e03636f55eda4601d45a807"
+    }
+  ],
+  "jackets": {
+    "source": "Amazon product display on observed product detail pages; external image URLs, not rehosted",
+    "license": "Amazon product-display reference under existing affiliate integration; not a free license. Specific image reuse permission/API provenance not independently verified.",
+    "legacyCover": "public/images/covers/cream.jpg unchanged; legacy provenance not newly verified"
+  },
+  "products": {
+    "wu": {
+      "query": "Enter the Wu-Tang 36 Chambers RCA CD",
+      "title": "Enter the Wu-Tang (36 Chambers) / RCA通常CD・1枚組",
+      "label": "AmazonでこのCDを見る",
+      "position": "cream-36chambers",
+      "cover": "https://m.media-amazon.com/images/I/71BUBWTvyhL._AC_SX679_.jpg",
+      "artist": "Wu-Tang Clan",
+      "href": "https://www.amazon.co.jp/dp/B000002WPI?tag=wax1124-22",
+      "mercariHref": "https://jp.mercari.com/search?keyword=Enter%20the%20Wu-Tang%2036%20Chambers%20CD&afid=3150124771"
+    },
+    "stax": {
+      "query": "ザ・コンプリート・スタックス ヴォルト シングルズ 1959-1968 WPCR-12578",
+      "title": "The Complete Stax/Volt Singles 1959–1968 / 国内9枚組CD（WPCR-12578〜86）",
+      "record": "The Charmels「As Long As I’ve Got You」Disc 9・2曲目",
+      "label": "Amazonで国内CDボックスを見る",
+      "position": "cream-charmels-source",
+      "cover": "https://m.media-amazon.com/images/I/31lfe1c0RJL._AC_.jpg",
+      "artist": "Various Artists / Warner Music Japan",
+      "href": "https://www.amazon.co.jp/dp/B0011EUMIY?tag=wax1124-22"
+    }
+  },
+  "productVerification": {
+    "B000002WPI": {
+      "page": "https://www.amazon.co.jp/dp/B000002WPI",
+      "artist": "Wu-Tang Clan",
+      "label": "RCA",
+      "media": "CD",
+      "discs": 1,
+      "albumReleaseYear": 1993,
+      "method": "visible product title, selected CD format, product details and cover"
+    },
+    "B0011EUMIY": {
+      "page": "https://www.amazon.co.jp/dp/B0011EUMIY",
+      "label": "Warner Music Japan",
+      "media": "CD",
+      "discs": 9,
+      "catalog": "WPCR-12578〜86",
+      "ean": "4943674070459",
+      "charmelsTrack": "Disc 9 track 2",
+      "method": "visible product title, details and tracklist; Warner official catalog"
+    },
+    "mercari": {
+      "url": "https://jp.mercari.com/search?keyword=Enter%20the%20Wu-Tang%2036%20Chambers%20CD&afid=3150124771",
+      "method": "native browser title confirms exact CD search; URL retains afid"
+    }
+  },
+  "facts": {
+    "album": "https://www.sonymusic.ca/press_release/celebrate-the-wu-tang-clans-30th-anniversary-of-debut-album-enter-the-wu-tang-36-chambers",
+    "voices": "https://www.grammy.com/news/rza-wu-tang-clan-bobby-digital-saturday-afternoon-kung-fu-theater-interview/",
+    "sample": "https://staxrecords.com/spotlight/stax-groups-the-astors-jeanne-the-darlings-the-charmels/",
+    "trackCatalog": "https://wmg.jp/compi/discography/3985",
+    "sampleCorroboration": "https://www.whosampled.com/Wu-Tang-Clan/C.R.E.A.M./",
+    "ferry": "https://www.nyc.gov/html/dot/html/ferrybus/staten-island-ferry.shtml",
+    "lyricProof": "Genius actual fetched 109 lines; no text stored in this ledger"
+  },
+  "measurement": {
+    "affiliateDispatch": "real Layout handler tested against five rendered product links, gtag and dataLayer fallback",
+    "GA4Receipt": "not verified",
+    "purchaseConversion": "external Amazon/Mercari report; not verified",
+    "audioOnsets": "human listening pending"
+  }
+}

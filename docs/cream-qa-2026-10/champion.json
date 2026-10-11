@@ -1,0 +1,16 @@
+{
+  "pass": true,
+  "units": 24,
+  "seek": 23,
+  "preservedManual": 14,
+  "preservedCaption": 7,
+  "mvAbsent": 1,
+  "newCaptionCandidates": 2,
+  "quoteTokensBefore": 240,
+  "quoteTokensAfter": 207,
+  "productLinks": 5,
+  "affiliateDispatch": "gtag and dataLayer fallback pass",
+  "otherArticlesAndPublisher": "unchanged",
+  "audiblePlayback": "not verified; embed unavailable in test browser",
+  "conversion": "merchant report / GA4 receipt not verified"
+}

@@ -1,0 +1,54 @@
+{
+  "youtubeId": "PBwAxmrE194",
+  "title": "Wu-Tang Clan - C.R.E.A.M. (Official HD Video - Edited)",
+  "duration": 242,
+  "channel": "Wu-Tang Clan",
+  "originalRecordsPreserved": true,
+  "albumSwitch": false,
+  "focus": [
+    {
+      "id": "fifteen-bagged",
+      "captionMatches": [
+        {
+          "captionBlockStart": 109.78,
+          "captionBlockDuration": 2.631,
+          "matchMethod": "numeric age anchor in official subtitle; block start only"
+        }
+      ],
+      "earVerified": false
+    },
+    {
+      "id": "bones-staircase",
+      "captionMatches": [
+        {
+          "captionBlockStart": 136.401,
+          "captionBlockDuration": 2.922
+        }
+      ],
+      "earVerified": false
+    },
+    {
+      "id": "intro-vendor",
+      "captionMatches": [],
+      "earVerified": false
+    }
+  ],
+  "subtitleSHA256": "85f5c89c9bc1878fe89d1d314366b9f1633b81c2d038ad28d3170c149f00c835",
+  "captionCandidates": {
+    "fifteen-bagged": 109.78,
+    "bones-staircase": 136.401
+  },
+  "note": "Only the two estimates updated using fresh official caption block starts. Not measured vocal onsets. Existing 14 manual and 7 caption records unchanged; all caption sources displayed with approx. MV maintained; no album offset applied.",
+  "album": {
+    "id": "4yNQ7_7I5aE",
+    "title": "C.R.E.A.M. (Cash Rules Everything Around Me) (Official Audio)",
+    "duration": 254,
+    "offsetMeasured": false
+  },
+  "localListeningPage": "audio-review/index.html (untracked, no publication)",
+  "pendingHuman": [
+    "fifteen-bagged onset",
+    "bones-staircase onset",
+    "intro absence: compare official MV and official album intro"
+  ]
+}
