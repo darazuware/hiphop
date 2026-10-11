@@ -61,7 +61,8 @@
       "sourceEngSlotSHA256": "fcced198675bd163ae61dd0e868081244bd342d46bad4500d9538d378a5fb1f4",
       "exactTargetQuoteSHA256": "36d5aad277cdc04160230f25eade0d073f53da2cbebb3b8f45b60c9c6aeed6f1",
       "quoteOnsetAccepted": true,
-      "acceptance": "user explicitly confirmed number 02"
+      "acceptance": "operator confirmed exact quotation first word in second reply",
+      "reconfirmedSec": 23.3
     },
     {
       "number": 3,
@@ -71,8 +72,9 @@
       "existingManualSec": 29.8,
       "sourceEngSlotSHA256": "95c371589d16c1ab56372222171189988e4d06f0d40d71c16a6d6ffa2c86b04c",
       "exactTargetQuoteSHA256": "3eb321ed7bed87e42cc1dde259a6b5d8b71d966db4e61500d67bc7d95c5e4c72",
-      "quoteOnsetAccepted": false,
-      "acceptance": "pending exact first word confirmation"
+      "quoteOnsetAccepted": true,
+      "acceptance": "operator confirmed exact quotation first word in second reply",
+      "reconfirmedSec": 29.7
     },
     {
       "number": 4,
@@ -82,8 +84,9 @@
       "existingManualSec": 42.0,
       "sourceEngSlotSHA256": "6fd6e72d8901a464d7756ad9fdc0c523eda1609fcde3636a1729e9f27f7f0925",
       "exactTargetQuoteSHA256": "6fd6e72d8901a464d7756ad9fdc0c523eda1609fcde3636a1729e9f27f7f0925",
-      "quoteOnsetAccepted": false,
-      "acceptance": "pending exact first word confirmation"
+      "quoteOnsetAccepted": true,
+      "acceptance": "operator confirmed exact quotation first word in second reply",
+      "reconfirmedSec": 40.87
     },
     {
       "number": 5,
@@ -93,8 +96,9 @@
       "existingManualSec": 44.65,
       "sourceEngSlotSHA256": "a2127193297dd88ff849f326e318c062fd319087428f6f65b2bea493dee6966a",
       "exactTargetQuoteSHA256": "812927e55c05fea1263dd56ca44725852766e32ee60ab803264a2b654b04e658",
-      "quoteOnsetAccepted": false,
-      "acceptance": "pending exact first word confirmation"
+      "quoteOnsetAccepted": true,
+      "acceptance": "operator confirmed exact quotation first word in second reply",
+      "reconfirmedSec": 43.37
     },
     {
       "number": 6,
@@ -115,8 +119,9 @@
       "existingManualSec": 129.37,
       "sourceEngSlotSHA256": "2d227b6c5e863d63f9b12cad033c9dd696c5cd7c33f331ba803518ef7cc1925e",
       "exactTargetQuoteSHA256": "2d227b6c5e863d63f9b12cad033c9dd696c5cd7c33f331ba803518ef7cc1925e",
-      "quoteOnsetAccepted": false,
-      "acceptance": "pending exact first word confirmation"
+      "quoteOnsetAccepted": true,
+      "acceptance": "operator confirmed exact quotation first word in second reply",
+      "reconfirmedSec": 128.32
     },
     {
       "number": 8,
@@ -137,8 +142,9 @@
       "existingManualSec": 147.7,
       "sourceEngSlotSHA256": "cadca6903f3ec871b422783dbbe019dc8a9a1957f6a8942ec2ed72a46ac7741e",
       "exactTargetQuoteSHA256": "251d48730a051fe9bd36cb7db5e3a5bbd3faa4b34196468f267c387cd3ac8421",
-      "quoteOnsetAccepted": false,
-      "acceptance": "pending exact first word confirmation"
+      "quoteOnsetAccepted": true,
+      "acceptance": "operator confirmed exact quotation first word in second reply",
+      "reconfirmedSec": 147.35
     },
     {
       "number": 10,
@@ -148,8 +154,9 @@
       "existingManualSec": 155.79,
       "sourceEngSlotSHA256": "6f14d6d59c79327f2a5a4bb401040d98d8b1dd8ab61d95eaabdd64ccc34df2eb",
       "exactTargetQuoteSHA256": "76a8e9156c38215a68f1492f03025b6a0df817000f7808a9fe36226996acd184",
-      "quoteOnsetAccepted": false,
-      "acceptance": "pending exact first word confirmation"
+      "quoteOnsetAccepted": true,
+      "acceptance": "operator confirmed exact quotation first word in second reply",
+      "reconfirmedSec": 154.12
     },
     {
       "number": 11,
@@ -181,8 +188,9 @@
       "existingManualSec": 194.12,
       "sourceEngSlotSHA256": "5b6168f70f68ec4c4a979d1e440ddafc32af17a980f98e6510352637efb431c3",
       "exactTargetQuoteSHA256": "c39366a72324ed3d844ef436870ee710e21992653ad7e70ed71a624f40f0e4ac",
-      "quoteOnsetAccepted": false,
-      "acceptance": "pending exact first word confirmation"
+      "quoteOnsetAccepted": true,
+      "acceptance": "operator confirmed exact quotation first word in second reply",
+      "reconfirmedSec": 194.0
     },
     {
       "number": 14,
@@ -203,8 +211,9 @@
       "existingManualSec": 219.75,
       "sourceEngSlotSHA256": "b68ac1262f7aeb9a2576fa833ea97515da8cd3c3ba392ff9ea681fb58679ea7d",
       "exactTargetQuoteSHA256": "4f8f84a00614676439916dd3ee5720ef5aca06fb978af53861f95f73199dc6a4",
-      "quoteOnsetAccepted": false,
-      "acceptance": "pending exact first word confirmation"
+      "quoteOnsetAccepted": true,
+      "acceptance": "operator confirmed exact quotation first word in second reply",
+      "reconfirmedSec": 216.35
     },
     {
       "number": 16,
@@ -214,8 +223,9 @@
       "existingManualSec": 227.87,
       "sourceEngSlotSHA256": "cf940eac0d2a4498baccffaf041fbc5625e772e13116d2031c735a09e47b7ddc",
       "exactTargetQuoteSHA256": "8d0fbc571ab4337b4f4d911b0cbb75c87b60c7b44ff0bad322d8f0da5be4dfa1",
-      "quoteOnsetAccepted": false,
-      "acceptance": "pending exact first word confirmation"
+      "quoteOnsetAccepted": true,
+      "acceptance": "operator confirmed exact quotation first word in second reply",
+      "reconfirmedSec": 227.77
     }
   ],
   "correctedClips": [
@@ -227,9 +237,10 @@
       "speed": 0.5,
       "quoteSHA256": "3eb321ed7bed87e42cc1dde259a6b5d8b71d966db4e61500d67bc7d95c5e4c72",
       "prefixSHA256": "8c6e0e93e9d9c2a034b0265379c69c8751cde27034ba8a53526b32a95d615f1f",
-      "quoteStartVerified": false,
+      "quoteStartVerified": true,
       "path": "/Users/ktamatzmoto/Desktop/hiphop/agent/ny-state-of-mind/measurement-start-recheck-2026-10-11/03-scarface-simile.mp4",
-      "sha256": "650493c107e00748f8a68066aa485572aeb4bbb2ea410b4bb386348887d1e462"
+      "sha256": "650493c107e00748f8a68066aa485572aeb4bbb2ea410b4bb386348887d1e462",
+      "observedOnsetSec": 29.7
     },
     {
       "number": 4,
@@ -239,9 +250,10 @@
       "speed": 0.5,
       "quoteSHA256": "6fd6e72d8901a464d7756ad9fdc0c523eda1609fcde3636a1729e9f27f7f0925",
       "prefixSHA256": "6fd6e72d8901a464d7756ad9fdc0c523eda1609fcde3636a1729e9f27f7f0925",
-      "quoteStartVerified": false,
+      "quoteStartVerified": true,
       "path": "/Users/ktamatzmoto/Desktop/hiphop/agent/ny-state-of-mind/measurement-start-recheck-2026-10-11/04-steelo.mp4",
-      "sha256": "be69e815cbc8c05c30dd39f44274c0b09aca411ad57ac514cc64272621bf0e6b"
+      "sha256": "be69e815cbc8c05c30dd39f44274c0b09aca411ad57ac514cc64272621bf0e6b",
+      "observedOnsetSec": 40.87
     },
     {
       "number": 5,
@@ -251,9 +263,10 @@
       "speed": 0.5,
       "quoteSHA256": "812927e55c05fea1263dd56ca44725852766e32ee60ab803264a2b654b04e658",
       "prefixSHA256": "dd38bc211991b7faf545316a5b317d84c437a1b59161bbc10df555406b906e5a",
-      "quoteStartVerified": false,
+      "quoteStartVerified": true,
       "path": "/Users/ktamatzmoto/Desktop/hiphop/agent/ny-state-of-mind/measurement-start-recheck-2026-10-11/05-ej-grants-ceelo.mp4",
-      "sha256": "292cc00b906c12a1125581708cf63be742684a036b1d6f67c332e98a78c06a29"
+      "sha256": "292cc00b906c12a1125581708cf63be742684a036b1d6f67c332e98a78c06a29",
+      "observedOnsetSec": 43.37
     },
     {
       "number": 7,
@@ -263,9 +276,10 @@
       "speed": 0.5,
       "quoteSHA256": "2d227b6c5e863d63f9b12cad033c9dd696c5cd7c33f331ba803518ef7cc1925e",
       "prefixSHA256": "2d227b6c5e863d63f9b12cad033c9dd696c5cd7c33f331ba803518ef7cc1925e",
-      "quoteStartVerified": false,
+      "quoteStartVerified": true,
       "path": "/Users/ktamatzmoto/Desktop/hiphop/agent/ny-state-of-mind/measurement-start-recheck-2026-10-11/07-cousin-of-death.mp4",
-      "sha256": "719f735d3cb7a0df0264252fdde476a4751763f2d3b99769f801482a1e26588f"
+      "sha256": "719f735d3cb7a0df0264252fdde476a4751763f2d3b99769f801482a1e26588f",
+      "observedOnsetSec": 128.32
     },
     {
       "number": 9,
@@ -275,9 +289,10 @@
       "speed": 0.5,
       "quoteSHA256": "251d48730a051fe9bd36cb7db5e3a5bbd3faa4b34196468f267c387cd3ac8421",
       "prefixSHA256": "060e145565a9c326e59fc5cdc961468b9a743f2cee1aa1217f8ea08286f36b09",
-      "quoteStartVerified": false,
+      "quoteStartVerified": true,
       "path": "/Users/ktamatzmoto/Desktop/hiphop/agent/ny-state-of-mind/measurement-start-recheck-2026-10-11/09-moet-tec.mp4",
-      "sha256": "b1fbf34642a43f401d1fc1d74cd900913525699d31c83f4cd9fa79e4d9efdb76"
+      "sha256": "b1fbf34642a43f401d1fc1d74cd900913525699d31c83f4cd9fa79e4d9efdb76",
+      "observedOnsetSec": 147.35
     },
     {
       "number": 10,
@@ -287,9 +302,10 @@
       "speed": 0.5,
       "quoteSHA256": "76a8e9156c38215a68f1492f03025b6a0df817000f7808a9fe36226996acd184",
       "prefixSHA256": "d0c2656ca712b0856c6ad9261976881c76451cc7ceb999176feff4c3a842b625",
-      "quoteStartVerified": false,
+      "quoteStartVerified": true,
       "path": "/Users/ktamatzmoto/Desktop/hiphop/agent/ny-state-of-mind/measurement-start-recheck-2026-10-11/10-blocks-rocks.mp4",
-      "sha256": "05318f9bd5994876e9a0ed103d28c602f800daac292e420b7bd57c4318ff3277"
+      "sha256": "05318f9bd5994876e9a0ed103d28c602f800daac292e420b7bd57c4318ff3277",
+      "observedOnsetSec": 154.12
     },
     {
       "number": 13,
@@ -299,9 +315,10 @@
       "speed": 0.5,
       "quoteSHA256": "c39366a72324ed3d844ef436870ee710e21992653ad7e70ed71a624f40f0e4ac",
       "prefixSHA256": "0f6d74f49ec2d9ed4045a9159925977d48330c6eba5b83194c834ba3bee9418a",
-      "quoteStartVerified": false,
+      "quoteStartVerified": true,
       "path": "/Users/ktamatzmoto/Desktop/hiphop/agent/ny-state-of-mind/measurement-start-recheck-2026-10-11/13-lamp-capone.mp4",
-      "sha256": "bc192a18cab60a2fde690d0b4c3b2edf6f24a0c8dff007dafab7d65a61aaf4cd"
+      "sha256": "bc192a18cab60a2fde690d0b4c3b2edf6f24a0c8dff007dafab7d65a61aaf4cd",
+      "observedOnsetSec": 194.0
     },
     {
       "number": 15,
@@ -311,9 +328,10 @@
       "speed": 0.5,
       "quoteSHA256": "4f8f84a00614676439916dd3ee5720ef5aca06fb978af53861f95f73199dc6a4",
       "prefixSHA256": "575f4b26a862c2314eac2f6327362b169a2ba89d01b533278fe9b71a73cb962c",
-      "quoteStartVerified": false,
+      "quoteStartVerified": true,
       "path": "/Users/ktamatzmoto/Desktop/hiphop/agent/ny-state-of-mind/measurement-start-recheck-2026-10-11/15-vitamin-capsule.mp4",
-      "sha256": "12eda5a0728cbc0526079389fdf79ad03a4332667b967c8c6c6a5af3d2e38ec4"
+      "sha256": "12eda5a0728cbc0526079389fdf79ad03a4332667b967c8c6c6a5af3d2e38ec4",
+      "observedOnsetSec": 216.35
     },
     {
       "number": 16,
@@ -323,24 +341,23 @@
       "speed": 0.5,
       "quoteSHA256": "8d0fbc571ab4337b4f4d911b0cbb75c87b60c7b44ff0bad322d8f0da5be4dfa1",
       "prefixSHA256": "ffd206b56e02b658bd352062d567259704832d56b4947f48e40cfdf2136042b8",
-      "quoteStartVerified": false,
+      "quoteStartVerified": true,
       "path": "/Users/ktamatzmoto/Desktop/hiphop/agent/ny-state-of-mind/measurement-start-recheck-2026-10-11/16-city-never-sleeps.mp4",
-      "sha256": "7f5508ccb6f8b77765e6909b8438926bb8c2f92c5835abdf4a3b27d015a7cf66"
+      "sha256": "7f5508ccb6f8b77765e6909b8438926bb8c2f92c5835abdf4a3b27d015a7cf66",
+      "observedOnsetSec": 227.77
     }
   ],
   "newClipTarget": "First 12 words of actual article quotation, first word marked cyan; static target marker, not measured karaoke.",
-  "production": "Not published; awaiting nine exact first-word measurements.",
+  "production": "Not published; all quotation onsets now confirmed in operator second reply.",
   "verification": {
-    "clips": "9 short 0.5x clips, original source clock, cyan static first word, audio/video and full decode verified; prefix extracted from exact eng slot",
-    "readerGuard": "25 checks passed",
-    "regression": "Incorrect partial-anchor manual promotion is rejected",
-    "article": "10 checks passed including build",
+    "article": "10 checks passed, includes final Astro build",
+    "readerGuard": "25 checks passed; exact quotation target audit matches all 16 confirmed observations",
+    "publishSafety": "passed",
     "browser": [
       {
         "width": 1440,
         "units": 16,
-        "measuredSeekStopPairs": 7,
-        "pendingApproxSeekStopPairs": 9,
+        "measuredSeekStopPairs": 16,
         "allSeekPlayPauseHandoffs": 16,
         "barTimesChecked": 16,
         "duration": "4:56",
@@ -351,8 +368,7 @@
       {
         "width": 390,
         "units": 16,
-        "measuredSeekStopPairs": 7,
-        "pendingApproxSeekStopPairs": 9,
+        "measuredSeekStopPairs": 16,
         "allSeekPlayPauseHandoffs": 16,
         "barTimesChecked": 16,
         "duration": "4:56",
@@ -361,6 +377,7 @@
         "pageErrors": 0
       }
     ],
-    "publishSafety": "passed"
+    "preservation": "Article source, shared LearningUnit/player, photos and commerce byte-identical to 2d88805; original observations and fallback history retained.",
+    "diff": "git diff --check passed"
   }
 }
