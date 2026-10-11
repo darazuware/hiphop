@@ -91,6 +91,8 @@
     "affiliateDispatch": "real Layout handler tested against five rendered product links, gtag and dataLayer fallback",
     "GA4Receipt": "not verified",
     "purchaseConversion": "external Amazon/Mercari report; not verified",
-    "audioOnsets": "human listening pending"
+    "audioOnsets": "human listening pending",
+    "liveReviewPlayback": "23 heads play and stop at 390px; time advances 1:49 to 1:50 then freezes after stop; no ear-verified onsets",
+    "reviewDeployment": "Vercel success on 87f20779938f336ce5c374c8b87550f1170fe454; native authenticated browser confirms article"
   }
 }

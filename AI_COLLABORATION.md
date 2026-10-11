@@ -240,3 +240,8 @@ AIを活用し、WAX&THINKの検索・動画流入を継続収益へ変える。
 - 保全証明: 常設mainの変更ファイル429・review76のhashを照合し、ボード以外の変更0／status一致。音声・字幕・raw WIP snapshotは未追跡のローカル資料で、commit対象外。終了成果物はCREAM専用本文・時刻・画像・commerce・guard・証拠・本ボードに限定。出口reviewへ送信、本番は未公開／承認待ち。
 - 未完了: 推定2件は公式MV字幕の109.780/136.401秒候補へ変更、≈表示。既存manual14/caption7/非収録1は原記録を保全。音源MV242秒維持、album254秒へ切替／offset適用なし。IABでYouTube埋め込み再生不可のため実音は未確認。http://127.0.0.1:4334/ で2区間と両版導入を聴取可能。発声開始2点と導入のMV非収録確認が人間待ち。Amazon商品画像の個別API取得／再利用許諾証跡は未取得としてledger記録。
 - 次1タスク: 再生位置の聴取確定（字幕ブロックと発声開始を区別するため）。難度中／GPT-6.1 Sol high。ユーザー操作は聴取ページを開き「①秒、②秒、③MV非収録を確認／相違」を返信。確認反映後にCREAMだけの公開承認を受け、未変更publish-main.mjsのみ実行。次の記事へ進まない。作業全体は難度高。レビュー https://hiphop-git-review-darazuwares-projects.vercel.app/songs/cream/ （Vercelログイン保護あり）。詳細docs/cream-review-result-2026-10.md。
+
+### C.R.E.A.M. review送信／実機検証追補 — 2026-10-11 JST
+- Codex。87f20779938f336ce5c374c8b87550f1170fe454をreviewへpush、通常YouTube/Geniusフック合格、Vercel success。main74a1863不変。認証済み実reviewで24項目・23seek・候補109.78/136.401・写真2・商品5リンクの反映を確認。
+- ローカルYouTube再生不可の記録を補足: 実reviewでは再生時刻1:49→1:50、停止後1:50固定。390px全23箇所の再生と停止UI合格。実reviewのPC1440/390/320は実幅一致・横溢れ0・全5画像load合格。docs/cream-qa-2026-10の画像を実review撮影へ更新。本文／時刻への追加変更なし。
+- 人間待ちは発声開始2点＋導入のMV非収録の耳確認、本番公開承認。次1タスクと操作／モデルは上記の聴取確定のまま。GA4受信・成約とAmazon画像個別許諾の証跡は未取得。次の記事へ進まない。

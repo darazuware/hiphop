@@ -349,6 +349,268 @@
       "tocTop": 240.21875
     }
   ],
-  "actualAudio": "YouTube embed unavailable in IAB; onsets and MV intro comparison pending human listening",
+  "liveReview": {
+    "commit": "87f20779938f336ce5c374c8b87550f1170fe454",
+    "url": "https://hiphop-git-review-darazuwares-projects.vercel.app/songs/cream/",
+    "liveSeekQA": [
+      {
+        "id": "point-crime-side",
+        "t": 23,
+        "playing": true,
+        "time": "0:23",
+        "stopped": true
+      },
+      {
+        "id": "point-lo-goose",
+        "t": 31,
+        "playing": true,
+        "time": "0:31",
+        "stopped": true
+      },
+      {
+        "id": "point-gold-tooth",
+        "t": 32,
+        "playing": true,
+        "time": "0:32",
+        "stopped": true
+      },
+      {
+        "id": "point-shaolin-land",
+        "t": 32,
+        "playing": true,
+        "time": "0:32",
+        "stopped": true
+      },
+      {
+        "id": "point-g-off",
+        "t": 37,
+        "playing": true,
+        "time": "0:37",
+        "stopped": true
+      },
+      {
+        "id": "point-runnin-up-gates",
+        "t": 49,
+        "playing": true,
+        "time": "0:49",
+        "stopped": true
+      },
+      {
+        "id": "point-keys-seas",
+        "t": 76,
+        "playing": true,
+        "time": "1:16",
+        "stopped": true
+      },
+      {
+        "id": "point-mpv-forty-g",
+        "t": 77,
+        "playing": true,
+        "time": "1:17",
+        "stopped": true
+      },
+      {
+        "id": "point-tec-9",
+        "t": 83,
+        "playing": true,
+        "time": "1:23",
+        "stopped": true
+      },
+      {
+        "id": "point-cream-hook",
+        "t": 86,
+        "playing": true,
+        "time": "1:26",
+        "stopped": true
+      },
+      {
+        "id": "point-fifteen-bagged",
+        "t": 109.78,
+        "playing": true,
+        "time": "1:50",
+        "stopped": true
+      },
+      {
+        "id": "point-could-not-touch",
+        "t": 116,
+        "playing": true,
+        "time": "1:56",
+        "stopped": true
+      },
+      {
+        "id": "point-shorty-life",
+        "t": 126,
+        "playing": true,
+        "time": "2:06",
+        "stopped": true
+      },
+      {
+        "id": "point-world-cell",
+        "t": 132,
+        "playing": true,
+        "time": "2:12",
+        "stopped": true
+      },
+      {
+        "id": "point-life-is-hell",
+        "t": 132,
+        "playing": true,
+        "time": "2:12",
+        "stopped": true
+      },
+      {
+        "id": "point-jakes-base",
+        "t": 135,
+        "playing": true,
+        "time": "2:15",
+        "stopped": true
+      },
+      {
+        "id": "point-bones-staircase",
+        "t": 136.401,
+        "playing": true,
+        "time": "2:16",
+        "stopped": true
+      },
+      {
+        "id": "point-whats-it-worth",
+        "t": 144,
+        "playing": true,
+        "time": "2:24",
+        "stopped": true
+      },
+      {
+        "id": "point-old-earth",
+        "t": 149,
+        "playing": true,
+        "time": "2:29",
+        "stopped": true
+      },
+      {
+        "id": "point-stickup-kids",
+        "t": 156,
+        "playing": true,
+        "time": "2:36",
+        "stopped": true
+      },
+      {
+        "id": "point-livin-proof",
+        "t": 161,
+        "playing": true,
+        "time": "2:44",
+        "stopped": true
+      },
+      {
+        "id": "point-kick-truth",
+        "t": 163,
+        "playing": true,
+        "time": "2:43",
+        "stopped": true
+      },
+      {
+        "id": "point-dollar-outro",
+        "t": 179,
+        "playing": true,
+        "time": "2:59",
+        "stopped": true
+      }
+    ],
+    "liveWidths": [
+      {
+        "width": 1440,
+        "actual": 1440,
+        "scroll": 1440,
+        "images": [
+          {
+            "loaded": true,
+            "src": "https://m.media-amazon.com/images/I/71BUBWTvyhL._AC_SX679_.jpg"
+          },
+          {
+            "loaded": true,
+            "src": "/images/context/cream/staten-ferry.jpg"
+          },
+          {
+            "loaded": true,
+            "src": "/images/context/cream/stax-museum.jpg"
+          },
+          {
+            "loaded": true,
+            "src": "https://m.media-amazon.com/images/I/31lfe1c0RJL._AC_.jpg"
+          },
+          {
+            "loaded": true,
+            "src": "https://m.media-amazon.com/images/I/71BUBWTvyhL._AC_SX679_.jpg"
+          }
+        ]
+      },
+      {
+        "width": 390,
+        "actual": 390,
+        "scroll": 390,
+        "images": [
+          {
+            "loaded": true,
+            "src": "https://m.media-amazon.com/images/I/71BUBWTvyhL._AC_SX679_.jpg"
+          },
+          {
+            "loaded": true,
+            "src": "/images/context/cream/staten-ferry.jpg"
+          },
+          {
+            "loaded": true,
+            "src": "/images/context/cream/stax-museum.jpg"
+          },
+          {
+            "loaded": true,
+            "src": "https://m.media-amazon.com/images/I/31lfe1c0RJL._AC_.jpg"
+          },
+          {
+            "loaded": true,
+            "src": "https://m.media-amazon.com/images/I/71BUBWTvyhL._AC_SX679_.jpg"
+          }
+        ]
+      },
+      {
+        "width": 320,
+        "actual": 320,
+        "scroll": 320,
+        "images": [
+          {
+            "loaded": true,
+            "src": "https://m.media-amazon.com/images/I/71BUBWTvyhL._AC_SX679_.jpg"
+          },
+          {
+            "loaded": true,
+            "src": "/images/context/cream/staten-ferry.jpg"
+          },
+          {
+            "loaded": true,
+            "src": "/images/context/cream/stax-museum.jpg"
+          },
+          {
+            "loaded": true,
+            "src": "https://m.media-amazon.com/images/I/31lfe1c0RJL._AC_.jpg"
+          },
+          {
+            "loaded": true,
+            "src": "https://m.media-amazon.com/images/I/71BUBWTvyhL._AC_SX679_.jpg"
+          }
+        ]
+      }
+    ],
+    "runtimePlay": {
+      "start": "1:49",
+      "afterPlay": {
+        "playing": true,
+        "time": "1:50"
+      },
+      "stopTime": "1:50",
+      "afterStop": {
+        "stopped": true,
+        "time": "1:50"
+      }
+    }
+  },
+  "actualAudio": "live review playback progressed and paused; vocal onsets and MV intro comparison still pending human listening",
   "productDestinations": "Amazon CD details and covers observed; Mercari exact CD search title and afid verified"
 }

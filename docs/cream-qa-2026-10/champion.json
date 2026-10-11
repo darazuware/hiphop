@@ -11,6 +11,6 @@
   "productLinks": 5,
   "affiliateDispatch": "gtag and dataLayer fallback pass",
   "otherArticlesAndPublisher": "unchanged",
-  "audiblePlayback": "not verified; embed unavailable in test browser",
+  "audiblePlayback": "not assessed by this guard; see browser.json live review evidence",
   "conversion": "merchant report / GA4 receipt not verified"
 }
