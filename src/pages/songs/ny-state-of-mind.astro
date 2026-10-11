@@ -106,13 +106,13 @@ Nasが何を見ているのかが具体的になります。</p>
       </p>
       <p class="text-xs text-[var(--c-dim)] mb-6">
         埋め込みはNas公式のフル音源（4分56秒）。</p>
-<p class="text-xs text-[var(--c-dim)] mb-6">▶の「≈」は推定位置です。{tsData.length}か所とも字幕照合・実測は未完了のため、前後にずれる場合があります。
-      </p>
+{tsData.some(u => u.approx) && (<p class="text-xs text-[var(--c-dim)] mb-6">▶の「≈」は推定位置です。{tsData.length}か所とも字幕照合・実測は未完了のため、前後にずれる場合があります。
+      </p>)}
 
       <!-- ① habitual be -->
       <details id="point-index" class="mb-6 rounded border border-[var(--c-border)] p-3"><summary class="cursor-pointer text-sm font-bold text-[var(--c-orange)]">17の解説ポイント（開く）</summary><ol class="mt-3 grid gap-2 sm:grid-cols-2 text-sm"><li><a class="underline" href="#point-intro-dungeon">1. ラップの地下牢</a></li><li><a class="underline" href="#point-habitual-be">2. 習慣を表すbe</a></li><li><a class="underline" href="#point-scarface-simile">3. Scarfaceと銃・ペン</a></li><li><a class="underline" href="#point-steelo">4. 自分の流儀steelo</a></li><li><a class="underline" href="#point-ej-grants-ceelo">5. E&amp;J・50ドル札・cee-lo</a></li><li><a class="underline" href="#point-gun-malfunction">6. 銃が撃てない瞬間</a></li><li><a class="underline" href="#point-cousin-of-death">7. 眠りと死</a></li><li><a class="underline" href="#point-state-of-mind">8. 知性の壁とタイトルの意味</a></li><li><a class="underline" href="#point-moet-tec">9. MoëtとTEC-9</a></li><li><a class="underline" href="#point-blocks-rocks">10. 株とクラックの韻</a></li><li><a class="underline" href="#point-smith-wesson">11. Smith &amp; Wessonと脅しの韻</a></li><li><a class="underline" href="#point-street-maze">12. 街区と迷路</a></li><li><a class="underline" href="#point-lamp-capone">13. Caponeのようにくつろぐ</a></li><li><a class="underline" href="#point-life-hell">14. 人生と地獄</a></li><li><a class="underline" href="#point-vitamin-capsule">ラップの高みとビタミンの比喩</a></li><li><a class="underline" href="#point-city-never-sleeps">17. 眠らない街</a></li></ol></details>
 <div id="point-intro-dungeon" class="scroll-mt-56">
-<LearningUnit heading="ラップの地下牢" mc="Intro" t={TS["intro-dungeon"].t} tApprox={TS["intro-dungeon"].approx} youtubeId={YT} label="曲冒頭から">
+<LearningUnit heading="ラップの地下牢" mc="Intro" t={TS["intro-dungeon"].t} tApprox={TS["intro-dungeon"].approx} preciseSeek={true} youtubeId={YT} label="曲冒頭から">
   <Fragment slot="eng">dungeons of rap</Fragment>
   <Fragment slot="jpn">ラップの地下牢。</Fragment>
   <p>冒頭は、ラップの地下牢から来たという名乗り。地下牢は実際の地名ではなく、閉じ込められた場所を借りた比喩です。</p><p>この名乗りで、街の表側からは見えない場所の話へ。曲が始まる前から暗い空気が伝わってきます。</p>
@@ -123,7 +123,7 @@ Nasが何を見ているのかが具体的になります。</p>
         heading="I be kickin' / Be havin' dreams — AAVEの習慣のbe（habitual be）"
         label="★ AAVE文法（最重要）"
         mc="Nas（Verse 1）"
-        t={TS["habitual-be"].t} tApprox={TS["habitual-be"].approx} youtubeId={YT}
+        t={TS["habitual-be"].t} tApprox={TS["habitual-be"].approx} preciseSeek={true} youtubeId={YT}
         embed=""
       >
         <Fragment slot="eng">Rappers: I monkey-flip 'em with the funky rhythm I be kickin'<br />Musician, inflictin' composition of pain</Fragment>
@@ -151,7 +151,7 @@ Nasが何を見ているのかが具体的になります。</p>
         heading="I'm like Scarface sniffin' cocaine — 映画の引用を直喩に畳む"
         label="★ 比喩／引用"
         mc="Nas（Verse 1）"
-        t={TS["scarface-simile"].t} tApprox={TS["scarface-simile"].approx} youtubeId={YT}
+        t={TS["scarface-simile"].t} tApprox={TS["scarface-simile"].approx} preciseSeek={true} youtubeId={YT}
         embed=""
       >
         <Fragment slot="eng">I'm like Scarface sniffin' cocaine<br />Holdin' an M16, see, with the pen I'm extreme</Fragment>
@@ -188,7 +188,7 @@ Nasが何を見ているのかが具体的になります。</p>
         heading="Y'all know my steelo — スタイルを指すNYスラング"
         label="★ スラング"
         mc="Nas（Verse 1）"
-        t={TS["steelo"].t} tApprox={TS["steelo"].approx} youtubeId={YT}
+        t={TS["steelo"].t} tApprox={TS["steelo"].approx} preciseSeek={true} youtubeId={YT}
         embed=""
       >
         <Fragment slot="eng">Y'all know my steelo, with or without the airplay</Fragment>
@@ -213,7 +213,7 @@ Nasが何を見ているのかが具体的になります。</p>
         heading="E&J, bent, Grants, cee-lo — 一行に畳まれたNYストリート語彙"
         label="★ スラング（地域語）"
         mc="Nas（Verse 1）"
-        t={TS["ej-grants-ceelo"].t} tApprox={TS["ej-grants-ceelo"].approx} youtubeId={YT}
+        t={TS["ej-grants-ceelo"].t} tApprox={TS["ej-grants-ceelo"].approx} preciseSeek={true} youtubeId={YT}
         embed=""
       >
         <Fragment slot="eng">I keep some E&J, sittin' bent up in the stairway<br />Or either on the corner bettin' Grants with the cee-lo champs</Fragment>
@@ -257,7 +257,7 @@ Nasが何を見ているのかが具体的になります。</p>
 
       <!-- ⑤ cousin of death -->
       <div id="point-gun-malfunction" class="scroll-mt-56">
-<LearningUnit heading="銃が撃てない瞬間" mc="Nas · Verse 1" t={TS["gun-malfunction"].t} tApprox={TS["gun-malfunction"].approx} youtubeId={YT} label="場面の読み方">
+<LearningUnit heading="銃が撃てない瞬間" mc="Nas · Verse 1" t={TS["gun-malfunction"].t} tApprox={TS["gun-malfunction"].approx} preciseSeek={true} youtubeId={YT} label="場面の読み方">
   <Fragment slot="eng">Tried to cock it, it wouldn't shoot, now I'm in danger</Fragment>
   <Fragment slot="jpn">銃を使おうとしたが、撃てなかった。</Fragment>
   <p>銃撃戦の最中、自分の銃が動かなくなる場面です。強気な語りが、撃てない焦りへ変わります。</p><p>勝って終わる武勇伝にはせず、手元の失敗や追い詰められる怖さまで描いています。街の危険を大づかみに語るより、この細かさのほうが近く感じられます。</p>
@@ -268,7 +268,7 @@ Nasが何を見ているのかが具体的になります。</p>
         heading="sleep is the cousin of death — 一行で世界観を射抜く比喩"
         label="★ 比喩（最重要）"
         mc="Nas（Verse 1）"
-        t={TS["cousin-of-death"].t} tApprox={TS["cousin-of-death"].approx} youtubeId={YT}
+        t={TS["cousin-of-death"].t} tApprox={TS["cousin-of-death"].approx} preciseSeek={true} youtubeId={YT}
         embed=""
       >
         <Fragment slot="eng">I never sleep, huh, 'cause sleep is the cousin of death</Fragment>
@@ -299,7 +299,7 @@ Nasが何を見ているのかが具体的になります。</p>
         heading="I think of crime when I'm in a New York State of Mind — タイトルの着地"
         label="★ 表現／テーマ"
         mc="Nas（Verse 1）"
-        t={TS["state-of-mind"].t} tApprox={TS["state-of-mind"].approx} youtubeId={YT}
+        t={TS["state-of-mind"].t} tApprox={TS["state-of-mind"].approx} preciseSeek={true} youtubeId={YT}
         embed=""
       >
         <Fragment slot="eng">Beyond the walls of intelligence, life is defined<br />I think of crime when I'm in a New York State of Mind</Fragment>
@@ -329,7 +329,7 @@ Nasは <code>I think of crime</code>（犯罪のことを考える）と接続�
         heading="drinkin' Moëts, holdin' TECs — ブランドと銃で描くギャングスタの夢"
         label="★ スラング／文化"
         mc="Nas（Verse 2）"
-        t={TS["moet-tec"].t} tApprox={TS["moet-tec"].approx} youtubeId={YT}
+        t={TS["moet-tec"].t} tApprox={TS["moet-tec"].approx} preciseSeek={true} youtubeId={YT}
         embed=""
       >
         <Fragment slot="eng">Be havin' dreams that I'm a gangsta, drinkin' Moëts, holdin' TECs<br />Makin' sure the cash came correct, then I stepped</Fragment>
@@ -363,7 +363,7 @@ Nasは <code>I think of crime</code>（犯罪のことを考える）と接続�
         heading="sewin' up the blocks to sell rocks — ドラッグ経済のスラングと脚韻"
         label="★ スラング／韻"
         mc="Nas（Verse 2）"
-        t={TS["blocks-rocks"].t} tApprox={TS["blocks-rocks"].approx} youtubeId={YT}
+        t={TS["blocks-rocks"].t} tApprox={TS["blocks-rocks"].approx} preciseSeek={true} youtubeId={YT}
         embed=""
       >
         <Fragment slot="eng">Investments in stock, sewin' up the blocks to sell rocks<br />Winnin' gunfights with mega-cops</Fragment>
@@ -378,7 +378,7 @@ Nasは <code>I think of crime</code>（犯罪のことを考える）と接続�
         <p>脚韻が意味の橋渡しまでしている好例です。</p>
       </LearningUnit>
 </div><div id="point-smith-wesson" class="scroll-mt-56">
-<LearningUnit heading="Smith &amp; Wessonと脅しの韻" mc="Nas · Verse 2" t={TS["smith-wesson"].t} tApprox={TS["smith-wesson"].approx} youtubeId={YT} label="パンチライン">
+<LearningUnit heading="Smith &amp; Wessonと脅しの韻" mc="Nas · Verse 2" t={TS["smith-wesson"].t} tApprox={TS["smith-wesson"].approx} preciseSeek={true} youtubeId={YT} label="パンチライン">
   <Fragment slot="eng">I ain't the type of brother made for you to start testin'<br />Give me a Smith &amp; Wesson, I'll have niggas undressin'</Fragment>
   <Fragment slot="jpn">試す相手を間違えるな。銃を持てば、相手を丸裸にする。</Fragment>
   <p>Smith &amp; Wesson（スミス＆ウェッソン）は銃のメーカー名です。ここでは、相手に服を脱がせるほどの脅しとして登場します。</p><p>挑発する行末のtestin'と、服を脱がせるというundressin'が韻を踏み、メーカー名のWessonも同じ音に乗っています。銃の名前と脅しが、音でもつながるパンチラインです。</p>
@@ -391,7 +391,7 @@ Nasは <code>I think of crime</code>（犯罪のことを考える）と接続�
 
 </LearningUnit>
 </div><div id="point-street-maze" class="scroll-mt-56">
-<LearningUnit heading="街区は迷路、住人は罠の中" mc="Nas · Verse 2" t={TS["street-maze"].t} tApprox={TS["street-maze"].approx} youtubeId={YT} label="パンチライン">
+<LearningUnit heading="街区は迷路、住人は罠の中" mc="Nas · Verse 2" t={TS["street-maze"].t} tApprox={TS["street-maze"].approx} preciseSeek={true} youtubeId={YT} label="パンチライン">
   <Fragment slot="eng">each block is like a maze<br />Full of black rats trapped</Fragment>
   <Fragment slot="jpn">一つひとつの街区は迷路。閉じ込められた黒いネズミたち。</Fragment>
   <p>街区を迷路に、その中の人々を閉じ込められたネズミに喩えています。道が入り組んでいるだけでなく、暮らしから抜け出せない感覚も重なる比喩です。</p><p>黒いネズミという言葉には、人間として扱われない住人の姿が浮かびます。</p>
@@ -406,7 +406,7 @@ Nasは <code>I think of crime</code>（犯罪のことを考える）と接続�
         heading="lamp like Capone — 「くつろぐ」を意味するNYスラング"
         label="★ スラング（地域語）"
         mc="Nas（Verse 2）"
-        t={TS["lamp-capone"].t} tApprox={TS["lamp-capone"].approx} youtubeId={YT}
+        t={TS["lamp-capone"].t} tApprox={TS["lamp-capone"].approx} preciseSeek={true} youtubeId={YT}
         embed=""
       >
         <Fragment slot="eng">And lamp like Capone, with drug scripts sewn<br />Or the legal luxury life, rings flooded with stones, homes</Fragment>
@@ -433,7 +433,7 @@ Nasは <code>I think of crime</code>（犯罪のことを考える）と接続�
         </Fragment>
       </LearningUnit>
 </div><div id="point-life-hell" class="scroll-mt-56">
-<LearningUnit heading="人生と地獄が並んで走る" mc="Nas · Verse 2" t={TS["life-hell"].t} tApprox={TS["life-hell"].approx} youtubeId={YT} label="パンチライン">
+<LearningUnit heading="人生と地獄が並んで走る" mc="Nas · Verse 2" t={TS["life-hell"].t} tApprox={TS["life-hell"].approx} preciseSeek={true} youtubeId={YT} label="パンチライン">
   <Fragment slot="eng">Life is parallel to Hell</Fragment>
   <Fragment slot="jpn">人生は地獄と平行にある。</Fragment>
   <p>人生を地獄そのものとは言わず、平行に並べています。近くにあるのに、簡単には離れられないという距離感が残る表現です。</p><p>そのあとも、生き方を保ち、成功しようとする話が続きます。地獄の比喩で終わらず、危険な場所で暮らしを続ける話に戻るところが好きです。</p>
@@ -447,7 +447,7 @@ Nasは <code>I think of crime</code>（犯罪のことを考える）と接続�
         heading="ラップの新しい高みと、カプセルなしのビタミン"
         label="★ 比喩"
         mc="Nas（Verse 2）"
-        t={TS["vitamin-capsule"].t} tApprox={TS["vitamin-capsule"].approx} youtubeId={YT}
+        t={TS["vitamin-capsule"].t} tApprox={TS["vitamin-capsule"].approx} preciseSeek={true} youtubeId={YT}
         embed=""
       >
         <Fragment slot="eng">I'm takin' rappers to a new plateau, through rap slow<br />My rhymin' is a vitamin held without a capsule</Fragment>
@@ -480,7 +480,7 @@ Nasらしい一行です。<code>plateau / slow / rhymin'</code> 周辺の音の
         heading="The city never sleeps, full of villains and creeps — NYの常套句と内部韻"
         label="★ 韻／表現"
         mc="Nas（Verse 2）"
-        t={TS["city-never-sleeps"].t} tApprox={TS["city-never-sleeps"].approx} youtubeId={YT}
+        t={TS["city-never-sleeps"].t} tApprox={TS["city-never-sleeps"].approx} preciseSeek={true} youtubeId={YT}
         embed=""
       >
         <Fragment slot="eng">The city never sleeps, full of villains and creeps<br />That's where I learned to do my hustle, had to scuffle with freaks</Fragment>

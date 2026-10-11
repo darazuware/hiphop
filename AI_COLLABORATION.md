@@ -107,3 +107,22 @@ AIを活用し、WAX&THINKの検索・動画流入を継続収益へ変える。
 - Codex。終了時Active work/直近記録に新規競合なし。接続可能なyt-dlpでhI8A14Qcv68＝Nas公式Official Audio/public/296秒を確認。手動・自動字幕とも0、align-yt-captions dry-run exit1。初回sandbox DNS失敗と区別して再確認済み。発声開始の観測0、manualSec/captionSec変更0。全16値fallback/approxを維持、音同期完了とは扱わない。
 - 記事/引用/写真/購入案内、units2ファイル、共通player/stopはbase a39f5adとbyte一致・SHA256記録。ユーザー/Claude WIP、生成済み動画は未変更。記事10項目（最終build込み）、専用23条件、公開安全、PC1440/390の全16seek/play/pause/APIモック・bar時刻/4:56尺/横溢れ0/pageerror0、diff通過。モックは音の開始位置の証拠ではない。
 - 対象は本ボードとdocs/ny-state-of-mind-audio-sync-2026-10.jsonのみ、検証記録をreviewへpush。本番公開なし。main 4cfc95e不変。Telegram送信なし。人間待ち: 同じ公式音源でunit ID＝実測秒の観測根拠。全16音同期は未確認のまま。
+
+### NY State of Mind 実測用スロークリップ着手 — 2026-10-11 JST
+- Codex。ユーザー指定のsubvideo-debugで全16頭出し確認箇所に番号、中央clip秒0.01桁/0.5倍速の短い動画を作成。対象は新規agent/subvideo/ny-state-of-mind-syncのみ。公式hI8A14Qcv68を入力とし既存動画/記事/時刻/写真/購入案内は保全。字幕候補は推定と明記し発声実測の扱いにしない。
+- DoD: source ID/296秒、16番号対応/範囲内cue、出力動画/音声/0.5倍速尺/中央時刻検証、動画送付、実測値待ち。入力値が届いてから時刻修正/検証/review push、本番非公開。
+
+### NY State of Mind 実測用スロークリップ送付 — 2026-10-11 JST
+- Codex。全16対象を01–16に番号付け、既存subvideo-debug.mjsを読み取り実行して0.5倍速の短いクリップ生成。新規agent/ny-state-of-mind/measurement-2026-10-11へ保存。中央clip秒0.01桁、t0=0なので公式音源の絶対秒を直接回答できる。英文は対象識別用の静的候補、TIMING UNVERIFIEDを明示。黄色単語の実測演出はしない。
+- 公式hI8A14Qcv68を新規取得（metadata296秒、実ファイル295.554秒）。16番号/範囲内各1cue、全16動画・音声/0.5倍速尺/全decode/中央時計ASSを検証。01の再生4秒で中央2.00を目視確認。source・manifest・入力cue/partsも保存。記事/写真/購入案内/時刻/既存動画は変更なし、本番公開なし。
+- 人間待ち: 各番号の対象表現が始まる中央の黄色い秒数。バース頭だけの一律補正は行わず、観測された番号にのみmanualSecを焼く。回答後に必要検証とreview push。
+
+### NY State of Mind ユーザー実測16点反映着手 — 2026-10-11 JST
+- Codex。担当競合なし、review bc46188を再利用。ユーザーが01–16全点の中央時計実測を提供。整数表記は百分秒（1410→14.10）、09は147.70秒、変速換算なし。既存set-manual-timestamp入口で16manualSec適用。
+- 対象: units/units-timestamps、当該ページの音同期prop/推定注記表示条件、LearningUnitの当該曲だけ任意小数seek、専用ガード、実測証拠、本ボード。DoD: ユーザー値一致/元fallback・anchor保全/本文写真購入保全、16小数seek/バー停止PC390、記事/build/safety/diff/pre-push、選択review push。本番非公開。
+
+### NY State of Mind ユーザー実測16点反映終了 — 2026-10-11 JST
+- Codex。終了時台帳に新規担当競合なし。01–16のユーザー提供実測を14.10/24.50/29.80/42.00/44.65/80.50/129.37/131.12/147.70/155.79/165.60/180.79/194.12/202.25/219.75/227.87秒へ解釈し、既存set-manual-timestampでmanualSec/t/source=manual/approx=falseを焼いた。個別観測だけを反映し、推定補完なし。原回答/番号/ID/対象動画/クリップhashを専用記録へ保存。
+- LearningUnitに任意preciseSeek（default false）を追加、この曲の16ボタンだけ小数秒をYT APIとリンクへ渡す。未実測注記はapproxが残る場合のみ表示。元fallback/anchor/過去whisper等の記録は保全。本文は同期propと注記条件を戻すとbaseとbyte一致、写真・購入案内・引用・共通停止・動画/WIP保全。
+- 記事10項目（最終build込み）/専用24条件/公開安全/diff通過。PC1440/390で16小数seek/play/pause/APIモック・bar時刻・≈表示0/旧未実測注記0・4:56尺・横溢れ0/pageerror0。実音の根拠はユーザー実測、ブラウザモックは受渡し検証。nas-is-like29件で既存整数seek/link保全。docs/ny-state-of-mind-audio-measured-2026-10.jsonに短い証拠。
+- 今回の対象7ファイルのみreviewへcommit/push、確認URL https://hiphop-git-review-darazuwares-projects.vercel.app/songs/ny-state-of-mind/ 。計測用動画はローカル保存のみ、記事へ掲載なし。16点実測の人間待ちは解消。本番公開はせずmain 4cfc95e不変。
