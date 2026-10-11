@@ -1,0 +1,155 @@
+{
+  "baseCommit": "eeb92ab76a80d0a0ffc77c08f83436d4b28a3426",
+  "removed": [
+    {
+      "kind": "paragraph",
+      "selector": "17の表現を、",
+      "sha256": "4adef168d05c910cdd50391b6ab86a7fa2dead23d5905855edf8e405a584f4a4"
+    },
+    {
+      "kind": "paragraph",
+      "selector": "この金属製のサイコロは、",
+      "sha256": "9c3ec315f15cdf79d5173cdc117f67b9fd5f5ecc7a7996d092da5e45618ec386"
+    },
+    {
+      "kind": "paragraph",
+      "selector": "眠ること＝無防備になること＝死に近づくこと、",
+      "sha256": "9368ff8b8a277d19759e8429ffece02b261bfa359d616cd72759dfbd61b47e38"
+    },
+    {
+      "kind": "paragraph",
+      "selector": "同じ定型句が、",
+      "sha256": "48e08784f8085f5f0d56db83f3bfad06e6d26623745befc7e43abbba33b7975d"
+    },
+    {
+      "kind": "paragraph",
+      "selector": "脚韻が意味の橋渡しまでしている好例です。",
+      "sha256": "ccf8d78d6f7233845a477808eebe85541bb0e4e8e1055f926b6d61bb93fcc101"
+    },
+    {
+      "kind": "paragraph",
+      "selector": "複数のジャズ／ファンクのレコードをコラージュして",
+      "sha256": "25bfce08971a72b9ec4a2933eb2ac3fcc3a36ebb99adf332d2e7945d85a1d34e"
+    },
+    {
+      "kind": "paragraph",
+      "selector": "サンプリングが単なる引用ではなく作曲",
+      "sha256": "62a3ae0044e0a56b36eaa424e5686ff90ac83be96d1b86a44b7ac8532117bf71"
+    },
+    {
+      "kind": "paragraph",
+      "selector": "シングルとしてヒットチャートを駆け上がったタイプ",
+      "sha256": "626b1d0f3583fadcadb0a2779eaea322a8811bb83be0691689487f548ca2f78f"
+    },
+    {
+      "kind": "paragraph",
+      "selector": "それらが「若いNasがここまで書けた」",
+      "sha256": "99b2f518f003e1dd006f2718aca5152b6f57533f408e96c1094a07e90e76d78e"
+    },
+    {
+      "kind": "paragraph",
+      "selector": "英語のリアルな手触りと、",
+      "sha256": "4f3db7cdb11ffbe24df5f7e9810550c0eb07272801e60a6ec778d488f844e1be"
+    },
+    {
+      "kind": "commerce-block",
+      "id": "purchase-ceelo",
+      "sha256": "f292f73e6625e16b50120357315ad4f2aa322cb0f20ea9c9bf5632ff0c328be5"
+    }
+  ],
+  "change": "only the ten specified prose paragraphs and one dice purchase block removed; no added article text",
+  "articleSHA256": "88c0e2431d0a4357b87d822f9801e36c016ca4911db131db397cb14f0a88168a",
+  "outsideReplacementProseSHA256": "5b1cd22e19ef11188b07ff0f5f3ffc7749a1e5328c67276d4d827e130a54295e",
+  "retainedBlocksSHA256": {
+    "habitual-be": "db956bc7cab48d5515138b6166cf952618e5d13ed3d764f0d84119286e31819b",
+    "scarface-simile": "e989171c6e897cf8509e55884ee8ae9ed05d1238fc542e88c3ac54b82cd8cc7a",
+    "steelo": "687689c78eb69e7910166be8b994f0914e86fb9fa7993e7a46257541f7a08a12",
+    "ej-grants-ceelo": "77e57722d669f8e1ee4011729c1a5b4bf7c5a151859756b795a096eea9de3428",
+    "gun-malfunction": "a14ddc2abd08a5d18cff05d81f2c5050b34be93931729b4d327c96545932fa30",
+    "cousin-of-death": "a45a48d6cf75494d11a449cae6a60d656ec11a748944a72b737357989cdc92af",
+    "state-of-mind": "000bbad9cb0a580beac2585938b9fb23c26dc7082cb145db66db12fc158ff260",
+    "moet-tec": "d5e8e4dbd6d5b8a15e95f8caeec697d8b0693b023b38755268053b185ed5945c",
+    "blocks-rocks": "ebceb0d99bb89b02b40a570f8d9e4d014634df407ea2012d2d5736e9bca89c27",
+    "smith-wesson": "00c1c46ac54681fddfdb738335cb83b049a16a1ce0d6d21242f8c48ee4fb5e05",
+    "street-maze": "02b6923657d6e863347122316448e5788076d1e8dba337bb0434fc8dc8971c60",
+    "lamp-capone": "0ed91f20aade8e8f8f9b2e7fff2d9d9133e5139d31c648d09163adfa2491bd52",
+    "life-hell": "60f4f1bbbd18a11ebd9065a6446fd544a92cfb390bc1428100469fa142d6b544",
+    "vitamin-capsule": "dba2f229b815f227a0c03fe8a3e05f315f553807f71528cacdeeee9c7ef0c07a",
+    "city-never-sleeps": "09f5e11c16ea7c75f163f32df5d4c7ea88a5814f7ec7402a38711d9eb654a183"
+  },
+  "commerceSHA256": "114c51ff6abcd1c68dbbb12e262fb1e920cfc17ae18a89948b462b789df663c4",
+  "citationSlotsSHA256": "f53699fbe7d483cc1097285a7b572bfcbe885bc2b3a167559641d1c38b182bce",
+  "preservedFilesSHA256": {
+    "agent/ny-state-of-mind/assets/units.json": "fc01fc48b28ab0d4a932e657302fe6f2f91bb5b234385dee3132a80cbc1e8596",
+    "agent/ny-state-of-mind/assets/units-timestamps.json": "9bbfdc0b267a49e202a56775b412e34e5e0425670452cc2d2ffc34337cf3eedc",
+    "docs/ny-state-of-mind-audio-measured-2026-10.json": "b4f868f8bed790f80f98e9df1335336f38b856683fe2ee67f3b73c35c4716e4c"
+  },
+  "verification": {
+    "removalOnlyDiff": "pass; original source minus the 11 hashed blocks and empty-line whitespace equals final source",
+    "commerceDiff": "only ceelo key removed",
+    "articleChecks": 10,
+    "nyReaderChecks": 31,
+    "tone": "pass",
+    "publishSafety": "pass",
+    "browser": [
+      {
+        "width": 1440,
+        "pageHeight": 21587,
+        "diceCommerce": 0,
+        "dicePhoto": 1,
+        "retailerPair": {
+          "amazonX": 240,
+          "mercariX": 575.5,
+          "amazonY": -2158.375,
+          "mercariY": -2158.375,
+          "width": 684,
+          "height": 106.921875
+        },
+        "compactEnd": {
+          "x": 224,
+          "y": 989.890625,
+          "width": 378.03125,
+          "height": 78.390625
+        },
+        "units": 17,
+        "pendingUnits": 0,
+        "measuredSeekStopPairs": 17,
+        "allSeekPlayPauseHandoffs": 17,
+        "barTimesChecked": 17,
+        "duration": "4:56",
+        "playerAPI": "mock verifies exact decimal handoff; acoustic evidence is operator report",
+        "horizontalOverflow": 0,
+        "pageErrors": 0
+      },
+      {
+        "width": 390,
+        "pageHeight": 27405,
+        "diceCommerce": 0,
+        "dicePhoto": 1,
+        "retailerPair": {
+          "amazonX": 32,
+          "mercariX": 200.5,
+          "amazonY": -2764.796875,
+          "mercariY": -2764.796875,
+          "width": 358,
+          "height": 119.890625
+        },
+        "compactEnd": {
+          "x": 16,
+          "y": 1110.8125,
+          "width": 358,
+          "height": 106.390625
+        },
+        "units": 17,
+        "pendingUnits": 0,
+        "measuredSeekStopPairs": 17,
+        "allSeekPlayPauseHandoffs": 17,
+        "barTimesChecked": 17,
+        "duration": "4:56",
+        "playerAPI": "mock verifies exact decimal handoff; acoustic evidence is operator report",
+        "horizontalOverflow": 0,
+        "pageErrors": 0
+      }
+    ]
+  }
+}
