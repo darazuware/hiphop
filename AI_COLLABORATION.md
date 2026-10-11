@@ -210,3 +210,10 @@ AIを活用し、WAX&THINKの検索・動画流入を継続収益へ変える。
 ### NY State of Mind サイコロ画像差替終了 — 2026-10-11 JST
 - Codex。終了時競合なし。承認された生成修正版をceelo-ai-v2.webp（1679×937、281738bytes）へ保存、photo-ceeloだけ差替。看板/ルール写真という旧説明を画像内容に即したaltとAI生成・記録写真ではないcaptionへ訂正。旧画像を保持。AI由来は記録し、元参照の権利確認済みとは扱わない。
 - article figure1か所以外byte一致、17確定時刻/購入データ不変。文体/記事10項目（build込み）/専用32条件/公開安全/diff pass。PC1440/390画像実寸ロード/生成注記/サイコロ購入0・写真1/17seek-play-pause-bar/読書位置font/横溢れ0/pageerror0確認。証拠docs/ny-state-of-mind-ceelo-image-2026-10.json。対象5ファイルのみreview push、本番非公開、WIP/動画保全。
+
+### NY State of Mind サイコロcaption一行化着手 — 2026-10-11 JST
+- Codex。競合なし、隔離review 78c110c。指定文「路上でcee-loを行う様子。」と右側AI生成へcaptionだけ変更。画像/17確定時刻/本文商品保全、PC1440/390/320で一行と横溢れ検証、文体/article/build/専用/safety/diff/通常review push、本番非公開。
+
+### NY State of Mind サイコロcaption一行化終了 — 2026-10-11 JST
+- Codex。終了時競合なし。指定文「路上でcee-loを行う様子。」の右へAI生成をinline spanで配置。旧smallの二行注記を撤去し、captionのみ変更。他source/画像/17確定時刻/購入保全。
+- 文体/article10（build含む）/専用32/safety/diff pass。PC1440/390/320で一行・右側ラベル/画像ロード/横溢れ0、全17data-seek保全。対象4ファイルのみreview push、本番非公開。証拠docs/ny-state-of-mind-ceelo-image-2026-10.json。
