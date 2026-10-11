@@ -480,7 +480,8 @@
     "tone": "pass",
     "article": "10 checks pass including build",
     "publishSafety": "pass",
-    "champion": "pass (groups/time order/11 justified changes/13 untouched records/affiliate dispatch)"
+    "champion": "pass (groups/time order/11 justified changes/13 untouched records/affiliate dispatch)",
+    "browser": "Live review: all15 play/stop on390px; representative PC1440/320 play/stop; all16 TOC roundtrips320; widths1440/390/320 overflow0, image5 article+cover verified; time progressed from1:52 and froze after stop."
   },
   "limitations": [
     "Intro MV absence remains a legacy unverified ear assertion; no seek created.",
@@ -490,5 +491,7 @@
   ],
   "pending": [
     "Review approval before publish-main.mjs"
-  ]
+  ],
+  "reviewImplementationCommit": "719be82",
+  "deployment": "Vercel success, authenticated live review verified"
 }

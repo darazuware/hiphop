@@ -253,3 +253,8 @@ AIを活用し、WAX&THINKの検索・動画流入を継続収益へ変える。
 ### C.R.E.A.M. 読者レビュー本文修正・ローカル検証終了 — 2026-10-11 JST
 - Codex。lo gooseは34.9秒の明示返信で確定。Shaolinを独立して先に置き、金歯/Lo/G off、keys/MPV、fifteen/young、world/life、escape/bones、worth/Old Earth、proof/truth/youthを同じ一節へ統合。自然な区切りは16ブロック・15seek（着手時15案から修正）。元24語の記録は残し、ユーザー実測11のみ上書き、他13の時刻・原文を保全。
 - 三稿・文体・記事10項目/build・Genius実在/重複0・引用37%・公開安全・専用保全ガード・diff pass。引用eng207→198語、jpn538→525字。PC1440/390/320横溢れ0・画像6表示ロード、320px全16目次往復/15時刻表示確認。ローカルのYouTube実再生は判定せず、次はreview push後の実再生/停止確認。main/常設main-review WIP・他記事・動画・共通部品・publisherを保全。intro非収録の耳確認、GA4受信/成約、Amazon画像個別許諾は前回未確認のまま。証拠cream-reader-feedback JSON/cream-feedback-qa。
+
+### C.R.E.A.M. 読者レビュー修正終了・review実機確認 — 2026-10-11 JST
+- Codex。対象11ファイルを719be82でreviewへpush、通常フック合格・Vercel success。認証済み実reviewに16ブロック/15seek/ユーザー実測の反映を確認。390px全15再生→停止合格、PC1440/320のフックも再生停止合格、時刻進行と停止後固定を確認。320px全16目次往復、PC1440/390/320横溢れ0・記事画像5点load、ジャケット左/データ右を確認。目次画像3幅とbrowser JSONを保存。検証記録のみ追補commitして終了。
+- 完了: 今回指定の曲順・統合・fifteen/shorty文脈・実測11反映、文体/記事/引用/公開安全/専用/diff/UI。未完了: 本番公開（承認待ち）。旧導入の非収録の耳確認、GA4受信/成約、Amazon画像個別許諾は前回保留を継承。main74a1863、他記事/共通player/規定publisher/常設WIP/動画は変更0。
+- 次1タスク: CREAM最終レビューと公開可否の確定。理由: まとまりと実測反映をユーザーが確認した版だけを既定publish-mainへ渡すため。難度:中。推奨GPT-6.1 Sol/high。操作: reviewのcreamを再読み込みし、曲順/統合/前後文を確認して「CREAM公開」または修正箇所を返信。必要入力: 本番公開承認、旧導入の非収録の聴取結果（未確認のため引継ぎ）。次の記事へ進まない。
