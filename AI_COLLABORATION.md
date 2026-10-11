@@ -245,3 +245,11 @@ AIを活用し、WAX&THINKの検索・動画流入を継続収益へ変える。
 - Codex。87f20779938f336ce5c374c8b87550f1170fe454をreviewへpush、通常YouTube/Geniusフック合格、Vercel success。main74a1863不変。認証済み実reviewで24項目・23seek・候補109.78/136.401・写真2・商品5リンクの反映を確認。
 - ローカルYouTube再生不可の記録を補足: 実reviewでは再生時刻1:49→1:50、停止後1:50固定。390px全23箇所の再生と停止UI合格。実reviewのPC1440/390/320は実幅一致・横溢れ0・全5画像load合格。docs/cream-qa-2026-10の画像を実review撮影へ更新。本文／時刻への追加変更なし。
 - 人間待ちは発声開始2点＋導入のMV非収録の耳確認、本番公開承認。次1タスクと操作／モデルは上記の聴取確定のまま。GA4受信・成約とAmazon画像個別許諾の証跡は未取得。次の記事へ進まない。
+
+### C.R.E.A.M. 読者レビュー修正着手 — 2026-10-11 JST
+- Codex。ユーザー実測と統合指示を受け、creamだけの曲順・同一一節のブロック統合・fifteen/shorty前後文脈を修正。review45f3dbc/main74a1863と隔離clone clean一致。入口CLAUDE記事フロー、surgical-patch。対象cream本文・units/時刻・専用guard・証拠・本ボード。共通部品、他記事、動画、常設WIPを保全。
+- DoD三稿・Genius/引用増量なし/重複0・時系列/統合語の包含・各ゲート・PC390320再生停止/目次/画像。出口対象review push、本番は承認後publish-mainのみ。原24記録は履歴として保持し表示を15ブロックへ統合。ユーザー実測が旧確認値を上書きする根拠。lo goose「3409」の小数解釈を質問中、統合頭出し31秒には影響しない。
+
+### C.R.E.A.M. 読者レビュー本文修正・ローカル検証終了 — 2026-10-11 JST
+- Codex。lo gooseは34.9秒の明示返信で確定。Shaolinを独立して先に置き、金歯/Lo/G off、keys/MPV、fifteen/young、world/life、escape/bones、worth/Old Earth、proof/truth/youthを同じ一節へ統合。自然な区切りは16ブロック・15seek（着手時15案から修正）。元24語の記録は残し、ユーザー実測11のみ上書き、他13の時刻・原文を保全。
+- 三稿・文体・記事10項目/build・Genius実在/重複0・引用37%・公開安全・専用保全ガード・diff pass。引用eng207→198語、jpn538→525字。PC1440/390/320横溢れ0・画像6表示ロード、320px全16目次往復/15時刻表示確認。ローカルのYouTube実再生は判定せず、次はreview push後の実再生/停止確認。main/常設main-review WIP・他記事・動画・共通部品・publisherを保全。intro非収録の耳確認、GA4受信/成約、Amazon画像個別許諾は前回未確認のまま。証拠cream-reader-feedback JSON/cream-feedback-qa。

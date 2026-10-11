@@ -25,13 +25,14 @@
     "captionSec": 22
   },
   {
-    "id": "lo-goose",
+    "id": "shaolin-land",
     "anchor": [
-      "a",
-      "young",
-      "youth"
+      "so",
+      "then",
+      "we",
+      "moved"
     ],
-    "fallbackT": 33,
+    "fallbackT": 36,
     "manualSec": 31,
     "captionSec": 32
   },
@@ -44,19 +45,18 @@
       "tooth"
     ],
     "fallbackT": 35,
-    "manualSec": null,
+    "manualSec": 34,
     "captionSec": 32
   },
   {
-    "id": "shaolin-land",
+    "id": "lo-goose",
     "anchor": [
-      "so",
-      "then",
-      "we",
-      "moved"
+      "a",
+      "young",
+      "youth"
     ],
-    "fallbackT": 36,
-    "manualSec": null,
+    "fallbackT": 33,
+    "manualSec": 34.9,
     "captionSec": 32
   },
   {
@@ -81,7 +81,7 @@
       "gates"
     ],
     "fallbackT": 55,
-    "manualSec": 49,
+    "manualSec": 47,
     "captionSec": 49
   },
   {
@@ -116,7 +116,7 @@
       "anger"
     ],
     "fallbackT": 87,
-    "manualSec": 83,
+    "manualSec": 81,
     "captionSec": 81
   },
   {
@@ -128,7 +128,7 @@
       "around"
     ],
     "fallbackT": 92,
-    "manualSec": 86,
+    "manualSec": 86.5,
     "captionSec": 86
   },
   {
@@ -141,7 +141,7 @@
       "fifteen"
     ],
     "fallbackT": 126,
-    "manualSec": null,
+    "manualSec": 112,
     "captionSec": 109.78
   },
   {
@@ -154,7 +154,7 @@
       "clutch"
     ],
     "fallbackT": 121,
-    "manualSec": 116,
+    "manualSec": 112.8,
     "captionSec": 109
   },
   {
@@ -178,7 +178,7 @@
       "no"
     ],
     "fallbackT": 137,
-    "manualSec": 132,
+    "manualSec": 129,
     "captionSec": 131
   },
   {
@@ -204,7 +204,7 @@
       "from"
     ],
     "fallbackT": 139,
-    "manualSec": 135,
+    "manualSec": 134,
     "captionSec": 133
   },
   {
@@ -228,7 +228,7 @@
       "whats"
     ],
     "fallbackT": 147,
-    "manualSec": null,
+    "manualSec": 144,
     "captionSec": 144
   },
   {

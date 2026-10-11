@@ -5,17 +5,17 @@ import AmazonMusicReference from '../../components/AmazonMusicReference.astro';
 import shop from '../../data/cream-commerce.json';
 import SongLayout from '../../layouts/SongLayout.astro';
 
-// 公式Edited MVの時間軸。既存manual値を優先し、字幕・推定は聴取未確認として表示。
+// 公式Edited MVの時間軸。運営者の実測を優先し、字幕・推定は≈表示。同じ一節の表現は頭出しを共有。
 import tsData from '../../../agent/cream/assets/units-timestamps.json';
 const YT = "PBwAxmrE194";
 const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.source !== "manual" }]));
-const units = [{"id": "intro-vendor", "title": "Two for five"}, {"id": "crime-side", "title": "crime side / Times side / no jive"}, {"id": "lo-goose", "title": "'Lo goose"}, {"id": "gold-tooth", "title": "gold tooth"}, {"id": "shaolin-land", "title": "Shaolin land"}, {"id": "g-off", "title": "G off"}, {"id": "runnin-up-gates", "title": "runnin’ up in gates"}, {"id": "keys-seas", "title": "keys / seas"}, {"id": "mpv-forty-g", "title": "MPV / forty G’s"}, {"id": "tec-9", "title": "here go"}, {"id": "cream-hook", "title": "C.R.E.A.M. / y’all"}, {"id": "fifteen-bagged", "title": "fifteen"}, {"id": "could-not-touch", "title": "could not…"}, {"id": "shorty-life", "title": "shorty"}, {"id": "world-cell", "title": "world / cell"}, {"id": "life-is-hell", "title": "life is hell"}, {"id": "jakes-base", "title": "Jakes / base"}, {"id": "bones-staircase", "title": "bones / staircase"}, {"id": "whats-it-worth", "title": "What’s it worth?"}, {"id": "old-earth", "title": "Old Earth"}, {"id": "stickup-kids", "title": "stickup kids / stray shots"}, {"id": "livin-proof", "title": "livin’ proof"}, {"id": "kick-truth", "title": "proof / truth / youth"}, {"id": "dollar-outro", "title": "dollar / y’all"}];
+const units = [{"id": "intro-vendor", "title": "Two for five"}, {"id": "crime-side", "title": "crime side / Times side / no jive"}, {"id": "shaolin-land", "title": "Shaolin land"}, {"id": "g-off", "title": "gold tooth / ’Lo goose / G off"}, {"id": "runnin-up-gates", "title": "woolies / runnin’ up in gates"}, {"id": "keys-seas", "title": "keys / seas / MPV / forty G’s"}, {"id": "tec-9", "title": "here go / TEC-9"}, {"id": "cream-hook", "title": "C.R.E.A.M. / y’all"}, {"id": "fifteen-bagged", "title": "fifteen / young buck / could not"}, {"id": "shorty-life", "title": "shorty"}, {"id": "world-cell", "title": "life is hell / world / cell"}, {"id": "jakes-base", "title": "Jakes / base / bones / staircase"}, {"id": "whats-it-worth", "title": "What’s it worth? / Old Earth"}, {"id": "stickup-kids", "title": "stickup kids / stray shots"}, {"id": "livin-proof", "title": "livin’ proof / kick the truth / youth"}, {"id": "dollar-outro", "title": "dollar / y’all"}];
 ---
 
 <SongLayout title="C.R.E.A.M. 英語・スラング解説 | Wu-Tang Clan"
- description="Wu-Tang Clan『C.R.E.A.M.』の意味、スラング、韻とAAVEを24の表現から解説。RaekwonとInspectah Deckの物語、RZAの元ネタ、36 ChambersのCDと原曲収録盤を案内。"
+ description="Wu-Tang Clan『C.R.E.A.M.』の意味、スラング、韻とAAVEを16のまとまりから解説。RaekwonとInspectah Deckの物語、RZAの元ネタ、36 ChambersのCDと原曲収録盤を案内。"
  slug="cream" learningPage={true} guidedReading={true} songDuration={242}
- highlights={['Raekwonの稼ぎとDeckの収監を、同じ金のフックがつなぐ','24の表現からスラング・韻・AAVEを読む','The CharmelsのピアノからRZAのループへ']}
+ highlights={['Raekwonの稼ぎとDeckの収監を、同じ金のフックがつなぐ','16のまとまりからスラング・韻・AAVEを読む','The CharmelsのピアノからRZAのループへ']}
  youtubeId="PBwAxmrE194" sampleYoutubeId="gp9uZjPaB4w" sampleInContent={true} sampleTitle="The Charmels - As Long As I've Got You">
  <div id="song-reading-body">
  <section id="start-here" data-reading-section="01 · 金のフックと二人の暮らし" class="mb-8 scroll-mt-40" style="scroll-margin-top:240px">
@@ -30,14 +30,14 @@ const units = [{"id": "intro-vendor", "title": "Two for five"}, {"id": "crime-si
   </div>
   <nav class="reading-entries" aria-label="読み始める3つの入口">
    <a href="#story"><strong>意味から読む</strong><span>稼ぎと収監を語る二人の流れ</span></a>
-   <a href="#units"><strong>表現から読む</strong><span>スラング・韻・AAVEの24項目</span></a>
+   <a href="#units"><strong>表現から読む</strong><span>スラング・韻・AAVEの16項目</span></a>
    <a href="#sample"><strong>元ネタから聴く</strong><span>The CharmelsのピアノとRZAのループ</span></a>
   </nav>
  </section>
  <nav id="article-toc" class="article-toc scroll-mt-40" aria-label="記事の目次" style="scroll-margin-top:240px">
   <h2>目次</h2><ol>
    <li><a href="#story">01 · 曲の話をつかむ</a></li>
-   <li><a href="#units">02 · 学ぶ表現</a><details><summary>24項目を選ぶ</summary><ol>{units.map((u,i)=>(<li><a href={`#point-${u.id}`}>{i+1}. {u.title}</a></li>))}</ol></details></li>
+   <li><a href="#units">02 · 学ぶ表現</a><details><summary>16項目を選ぶ</summary><ol>{units.map((u,i)=>(<li><a href={`#point-${u.id}`}>{i+1}. {u.title}</a></li>))}</ol></details></li>
    <li><a href="#background">03 · Shaolinとスタテンアイランド</a></li>
    <li><a href="#sample">04 · 元ネタのピアノを聴く</a></li>
    <li><a href="#records">05 · 収録盤を聴く・探す</a></li>
@@ -53,7 +53,7 @@ const units = [{"id": "intro-vendor", "title": "Two for five"}, {"id": "crime-si
  <section id="units" data-reading-section="02 · 学ぶ表現" class="mb-12 scroll-mt-40" style="scroll-margin-top:240px">
   <h2>学ぶ表現</h2>
   <p class="playback-note">頭出しは公式Edited MV（4:02）の時間軸です。</p>
-<p>「≈」は字幕または推定に基づく、聴取未確認の位置。冒頭の掛け合いはMV非収録です。</p>
+<p>同じ一節の表現は、引用と頭出しをまとめています。<br />「≈」は聴取未確認の字幕位置。</p><p>冒頭の掛け合いはMV非収録です。</p>
 <div id="point-intro-vendor" class="scroll-mt-40">
 <LearningUnit
         heading="Two for five — 数と価格を組み合わせる路上の呼び声"
@@ -103,51 +103,6 @@ jiveはでたらめやふざけた話を指し、no jiveなら「冗談じゃな
 </LearningUnit>
 <a class="back-toc" href="#article-toc">目次へ ↑</a>
 </div>
-<div id="point-lo-goose" class="scroll-mt-40">
-<LearningUnit
-        heading="'Lo goose — Poloのダウンを着こなす"
-        label="★ スラング／文化"
-        mc="Raekwon（Verse 1）"
-        t={TS["lo-goose"].t} tApprox={TS["lo-goose"].approx} preciseSeek={true} youtubeId={YT}
-        embed=""
-      >
-<div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
-<p>後のG off項目に引用した'Lo gooseは、Poloのグースダウンジャケットを指します。<br />
-'LoはPoloを短くした呼び方。</p>
-<p>手前のrockin’は「かっこよく身につける」。<br />
-服だけでなく、帽子やアクセサリーにも使える動詞です。</p>
-<p>金歯とダウンを並べて、自分がどんな格好をしていたかを描いています。<br />
-ブランド名まで挙げるから、ただ「いい服」と言うより身なりが具体的になる。</p>
-</div>
-<Fragment slot="usage">
-          <p><strong class="text-[var(--c-text)]">rock</strong> は「（服・靴・アクセサリーなどを）かっこよく身につける／着こなす」という他動詞。<code>rock + 名詞</code>の形で使い、単に着る（wear）よりも「それを堂々と見せびらかす・似合っている」というニュアンスが乗る。</p>
-          <p>例: <em>rock a gold chain</em>（金のチェーンをキメる）、<em>rock those sneakers</em>（あのスニーカーを履きこなす）。進行形 <code>rockin'</code> で「今まさに着こなしている」状態を表す。</p>
-          <p>ブランド名を短縮した <strong class="text-[var(--c-text)]">'Lo</strong>（＝Polo）のように、ヒップホップでは固有名詞を切り詰めてスラング化するのが定石。リスナーが元を補完できる前提で、語感とリズムを優先して縮める。</p>
-        </Fragment>
-</LearningUnit>
-<a class="back-toc" href="#article-toc">目次へ ↑</a>
-</div>
-<div id="point-gold-tooth" class="scroll-mt-40">
-<LearningUnit
-        heading="gold tooth — 金歯もrockする"
-        label="★ スラング／文化"
-        mc="Raekwon（Verse 1）"
-        t={TS["gold-tooth"].t} tApprox={TS["gold-tooth"].approx} preciseSeek={true} youtubeId={YT}
-        embed=""
-      >
-
-<div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
-<p>前の引用にあるgold toothは金歯のこと。<br />
-toothは単数で、歯全体を覆うgrillとは語の指す範囲が違います。</p>
-<p>rockという動詞が服にも金歯にもかかっています。<br />
-「着る」と「つける」を言い分けず、身につけたものをまとめて見せる言い方です。</p>
-<p>ここで示されるのは口元と服装。<br />
-金歯だけを根拠に、語り手の資産や暮らしまで決めつける必要はありません。</p>
-</div>
-
-</LearningUnit>
-<a class="back-toc" href="#article-toc">目次へ ↑</a>
-</div>
 <div id="point-shaolin-land" class="scroll-mt-40">
 <LearningUnit
         heading="Shaolin land — スタテンアイランドの別名"
@@ -169,30 +124,17 @@ toothは単数で、歯全体を覆うgrillとは語の指す範囲が違いま�
 </LearningUnit>
 <a class="back-toc" href="#article-toc">目次へ ↑</a>
 </div>
-<div id="point-g-off" class="scroll-mt-40">
-<LearningUnit
-        heading="G off — 麻薬の稼ぎでのし上がる"
-        label="★ 言葉遊び（最重要）"
-        mc="Raekwon（Verse 1）"
-        t={TS["g-off"].t} tApprox={TS["g-off"].approx} preciseSeek={true} youtubeId={YT}
-        embed=""
-      >
-<Fragment slot="eng">A young youth, yo, rockin' the gold tooth, 'Lo goose<br />Only way I begin to <QuickSlang word="G off" desc="麻薬で得た金でのし上がる、という文脈。Gはgrandやgangstaも連想させる文字" /> was drug loot</Fragment>
-<Fragment slot="jpn">血気盛んな若者、金歯を光らせ、ポロのダウン／のし上がる唯一の方法は、麻薬の稼ぎしかなかった</Fragment>
+<div id="point-g-off" class="scroll-mt-40"><span id="point-gold-tooth"></span><span id="point-lo-goose"></span>
+<LearningUnit heading="gold tooth / ’Lo goose / G off — 身なりから稼ぎの話へ" label="★ スラング／表現" mc="Raekwon（Verse 1）" t={TS["gold-tooth"].t} tApprox={TS["gold-tooth"].approx} preciseSeek={true} youtubeId={YT} embed="">
+<Fragment slot="eng">gold tooth, 'Lo goose<br />Only way I begin to <QuickSlang word="G off" desc="麻薬で得た金でのし上がる、という文脈。Gはgrandやgangstaも連想させる文字" /> was drug loot</Fragment>
+<Fragment slot="jpn">金歯を光らせ、Poloのダウンを着こなす／のし上がる唯一の方法は、麻薬の稼ぎだった</Fragment>
 <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
-<p>引用のG offは、drug loot（麻薬で得た金）と組になっています。<br />
-この文脈では、稼いでのし上がるという読みが軸です。</p>
-<p>Gは金額を示すgrand（1,000ドル）やgangstaを連想させる文字でもあります。<br />
-ただし、この2語を機械的に三つの意味へ訳し分けるより、後ろのdrug lootと一緒に読むほうが話が通ります。</p>
-<p>lootは戦利品のほか、金や稼ぎを指すスラング。<br />
-ここでは稼ぎの手段まで明かしているので、単なる成功自慢には聞こえません。</p>
+<p>gold toothは金歯、’Lo gooseはPoloのグースダウンジャケット。<br />’LoはPoloを短くした呼び方です。</p>
+<p>この手前のrockin’は「かっこよく身につける」。<br />金歯とダウンを並べ、口元と服装を具体的に見せています。</p>
+<p>続くG offでは、その身なりを支える稼ぎへ話が移ります。<br />drug lootは麻薬で得た金で、lootは金や稼ぎを指すスラングです。</p>
+<p>ここでのG offは、稼いでのし上がるという読みが軸。<br />Gにはgrand（1,000ドル）やgangstaの連想もありますが、後ろのdrug lootと組にすると話がつながります。</p>
 </div>
-<Fragment slot="usage">
-          <p>核になる <strong class="text-[var(--c-text)]">get off</strong> は句動詞で、文脈により意味が振れる多義語。ここでは「（厳しい環境から）抜け出す・うまくいく」の意で使われています。</p>
-          <p><code>get off + (the streets / the block)</code> なら「ストリートから足を洗う」、文末で単独だと「成功する・キマる」。聞き手は前後関係から意味を選び取る。</p>
-          <p>その<strong class="text-[var(--c-text)]">どれにも取れる曖昧さ</strong>こそ、ここでは <em>gangsta として動く</em>・<em>G（=1,000ドル）を稼ぐ</em> の読みも同時に走らせる仕掛けになっています。</p>
-          <p>学習上のコツ: 句動詞は「動詞＋前置詞/副詞」を1セットの意味として丸ごと覚える。get off を「get＋off」と分解せず、「抜け出す」という1語の感覚で蓄えると、リスニングで瞬時に取れます。</p>
-        </Fragment>
+<Fragment slot="usage"><p><code>rock + 名詞</code> は服やアクセサリーを着こなす言い方。<em>rock those sneakers</em> なら「あのスニーカーを履きこなす」。</p><p>wearより、身につけたものを堂々と見せる感じがあります。</p></Fragment>
 </LearningUnit>
 <a class="back-toc" href="#article-toc">目次へ ↑</a>
 </div>
@@ -222,50 +164,17 @@ inの後ろに来る場所と、強盗を語る前後の文脈で意味が絞ら
 </LearningUnit>
 <a class="back-toc" href="#article-toc">目次へ ↑</a>
 </div>
-<div id="point-keys-seas" class="scroll-mt-40">
-<LearningUnit
-        heading="keys / seas — 密輸を語る二つの音"
-        label="★ 言葉遊び"
-        mc="Raekwon（Verse 1）"
-        t={TS["keys-seas"].t} tApprox={TS["keys-seas"].approx} preciseSeek={true} youtubeId={YT}
-        embed=""
-      >
+<div id="point-keys-seas" class="scroll-mt-40"><span id="point-mpv-forty-g"></span>
+<LearningUnit heading="keys / seas / forty G’s — 密輸、車、毎週の稼ぎ" label="★ スラング／表現" mc="Raekwon（Verse 1）" t={TS["keys-seas"].t} tApprox={TS["keys-seas"].approx} preciseSeek={true} youtubeId={YT} embed="">
 <Fragment slot="eng">Catchin' <QuickSlang word="keys" desc="キロ単位の薬物を指すスラング。ここでは海を越えて受け取る密輸の文脈" /> from 'cross seas<br />Rollin' in MPV's, every week we made forty G's</Fragment>
 <Fragment slot="jpn">海を越えてくる「キー」を掴む／MPVを乗り回し、毎週4万ドルを稼いだ</Fragment>
 <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
-<p>引用のkeysとseasは、長い母音と末尾のz音がそろう脚韻です。<br />
-keysはキロ単位の薬物を指すスラング。</p>
-<p>across seasは「海を越えて」。<br />
-直前までの麻薬の稼ぎの話とつなぐと、海外から薬物を受け取る場面になります。</p>
-<p>keyには鍵や鍵盤という意味もありますが、この一行だけで音楽活動への転身を断定するのは飛躍です。<br />
-まず密輸の話として読むと、次に出てくる金額ともつながります。</p>
+<p>keysはキロ単位の薬物を指すスラングで、across seasは「海を越えて」。<br />麻薬の稼ぎを語る流れの中で、海外から受け取る場面を示しています。</p>
+<p>keysとseasは、長い母音と末尾のz音がそろう脚韻。<br />海を越える品物と、その移動を音でも結び付けています。</p>
+<p>次のMPVはMazdaのミニバン名で、forty G’sは4万ドル。<br />Gはgrand（1,000ドル）の略なので、車種と毎週の稼ぎが同じ一節に並びます。</p>
+<p>G’sのアポストロフィは、ここでは所有を表すものではありません。<br />金額の単位を複数にしているところです。</p>
 </div>
-
-</LearningUnit>
-<a class="back-toc" href="#article-toc">目次へ ↑</a>
-</div>
-<div id="point-mpv-forty-g" class="scroll-mt-40">
-<LearningUnit
-        heading="MPV / forty G’s — 車種と金額を略して言う"
-        label="★ スラング（金）"
-        mc="Raekwon（Verse 1）"
-        t={TS["mpv-forty-g"].t} tApprox={TS["mpv-forty-g"].approx} preciseSeek={true} youtubeId={YT}
-        embed=""
-      >
-
-<div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
-<p>forty G’sのGはgrand（1,000ドル）。<br />
-fortyは40なので、ここでは4万ドルを表しています。</p>
-<p>G’sは複数の金額単位を示す書き方です。<br />
-アルファベットに付いたアポストロフィを、所有の意味に取らないところ。</p>
-<p>MPVはMazdaのミニバン名。<br />
-車種と毎週の稼ぎを並べて、密輸に関わる暮らしを具体的にしています。</p>
-</div>
-<Fragment slot="usage">
-          <p><strong class="text-[var(--c-text)]">G</strong> は <em>grand</em>（1,000ドル）の略で、複数形は <em>G's</em>。<em>ten G's</em>（1万ドル）、<em>a hundred G's</em>（10万ドル）のように数える。</p>
-          <p><em>grand</em> 自体も <em>five grand</em> のようにそのまま使える。</p>
-          <p>同じGでも文脈で意味が変わる語で、呼びかけの <em>What's good, G?</em> なら「相棒・仲間」の意（gangsta / homeboy 由来）。金額の話か呼びかけかは、前後で見分ける。</p>
-        </Fragment>
+<Fragment slot="usage"><p><em>ten G’s</em> は1万ドル、<em>five grand</em> は5,000ドル。数字と一緒に出てくるGは、金額として読むところです。</p></Fragment>
 </LearningUnit>
 <a class="back-toc" href="#article-toc">目次へ ↑</a>
 </div>
@@ -303,14 +212,14 @@ AAVE（アフリカ系アメリカ人英語）で見られる提示表現。</p>
         t={TS["cream-hook"].t} tApprox={TS["cream-hook"].approx} preciseSeek={true} youtubeId={YT}
         embed=""
       >
-<Fragment slot="eng">Cash rules everything around me / C.R.E.A.M. / Get the money / Dollar, dollar bill, y'all</Fragment>
-<Fragment slot="jpn">金が俺の周りのすべてを支配する／C.R.E.A.M.／金を手に入れろ／ドル札だ、お前ら</Fragment>
+<Fragment slot="eng">Cash rules everything around me</Fragment>
+<Fragment slot="jpn">金が俺の周りのすべてを支配する</Fragment>
 <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
 <p>C.R.E.A.M.はフックの文を頭文字でまとめたものです。<br />
 意味は「金が身の回りのすべてを支配する」。</p>
 <p>creamには金を指すスラングの用法もあります。<br />
 この曲で初めて生まれた言葉と断定するより、頭字語と既存の金の語彙が重なるところを押さえるのがよさそうです。</p>
-<p>末尾のy’allはyou allを縮めた、複数の相手への呼びかけ。<br />
+<p>フックで続くy’allはyou allを縮めた、複数の相手への呼びかけ。<br />
 Jimmy Spicerの1983年曲「Money (Dollar Bill Y’all)」にもつながる、歌い直しのフレーズです。</p>
 <p>Raekwonの稼ぎの話から、Deckの収監の話へ渡す位置にこのフックがあります。<br />
 同じ金の言葉が、二人の暮らしをつなぐ。</p>
@@ -319,204 +228,70 @@ Jimmy Spicerの1983年曲「Money (Dollar Bill Y’all)」にもつながる、�
 </LearningUnit>
 <a class="back-toc" href="#article-toc">目次へ ↑</a>
 </div>
-<div id="point-fifteen-bagged" class="scroll-mt-40">
-<LearningUnit
-        heading="fifteen — 収監を年齢で示す"
-        label="★ 表現／時代背景"
-        mc="Inspectah Deck（Verse 2）"
-        t={TS["fifteen-bagged"].t} tApprox={TS["fifteen-bagged"].approx} preciseSeek={true} youtubeId={YT}
-        embed=""
-      >
-
+<div id="point-fifteen-bagged" class="scroll-mt-40"><span id="point-could-not-touch"></span>
+<LearningUnit heading="fifteen / young buck — 15歳の収監と若かった自分" label="★ スラング／表現" mc="Inspectah Deck（Verse 2）" t={TS["fifteen-bagged"].t} tApprox={TS["fifteen-bagged"].approx} preciseSeek={true} youtubeId={YT} embed="">
+<Fragment slot="eng">Which failed; I went to jail at the age of fifteen<br />A young buck sellin' drugs and such, who never had much</Fragment>
+<Fragment slot="jpn">15歳で捕まったことを振り返り／大したものを持ったことのない、薬物を売る若造だった</Fragment>
 <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
-<p>Deckは収監されたときの年齢をfifteen（15歳）と示します。<br />
-「若い頃」とぼかさず、具体的な年齢を置くところです。</p>
-<p>語り出しの現在の年齢と、15歳の過去を対比する流れ。<br />
-この数字は、次の裁判や移送の場面をいつの話として読むかの手がかりになります。</p>
+<p>Deckは、金を稼ごうとした計画が失敗し、15歳で刑務所に入ったと振り返ります。<br />引用のfifteenは、その年齢。</p>
+<p>直後に、自分をyoung buck（若者）と呼び直します。<br />薬物を売っていたけれど、持っているものは少なかったという振り返りです。</p>
+<p>続くclutchは「しっかりつかむ」、could notは「できなかった」。<br />望むものへ手を伸ばしても届かず、行末も言い切らない形で切れます。</p>
+<p>その後には裁判、手錠、バスでの移送が続きます。<br />年齢の数字から、若かった自分と収監の場面へ進む一節です。</p>
 </div>
-
-</LearningUnit>
-<a class="back-toc" href="#article-toc">目次へ ↑</a>
-</div>
-<div id="point-could-not-touch" class="scroll-mt-40">
-<LearningUnit
-        heading="could not… — 言い切られない行末"
-        label="★ 表現技法"
-        mc="Inspectah Deck（Verse 2）"
-        t={TS["could-not-touch"].t} tApprox={TS["could-not-touch"].approx} preciseSeek={true} youtubeId={YT}
-        embed=""
-      >
-<Fragment slot="eng">A young buck sellin' drugs and such, who never had much<br />Tryin' to get a clutch at what I could not... [<QuickSlang word="touch" desc="touchは「触れる」。この行末では音が抜けた形になっている。制作原因は断定していない" />]</Fragment>
-<Fragment slot="jpn">大したものを持ったことのない、ヤクを売る若造／手の届かない何かを、必死に掴もうとしていた</Fragment>
-<div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
-<p>引用の下の行は、何かをつかもうとしても届かない、という話です。<br />
-clutchはしっかりつかむこと。</p>
-<p>行末のtouchが抜けた形は、到達できなかったものを語る空白として読むことができます。<br />
-「消えた音」の制作原因まで、歌詞の表記だけから断定することはできません。</p>
-<p>直後には裁判と収監の話が続きます。<br />
-夢をつかむ話の途中に、手錠と移送の場面が割り込んでくる構成です。</p>
-</div>
-
 </LearningUnit>
 <a class="back-toc" href="#article-toc">目次へ ↑</a>
 </div>
 <div id="point-shorty-life" class="scroll-mt-40">
-<LearningUnit
-        heading="shorty — 子どもを指す呼び方"
-        label="★ スラング（地域語）"
-        mc="Inspectah Deck（Verse 2）"
-        t={TS["shorty-life"].t} tApprox={TS["shorty-life"].approx} preciseSeek={true} youtubeId={YT}
-        embed=""
-      >
-
+<LearningUnit heading="shorty — 収監の話から子ども時代へ" label="★ スラング／表現" mc="Inspectah Deck（Verse 2）" t={TS["shorty-life"].t} tApprox={TS["shorty-life"].approx} preciseSeek={true} youtubeId={YT} embed="">
+<Fragment slot="eng">Life as a shorty shouldn't be so rough</Fragment>
+<Fragment slot="jpn">子どもの頃、暮らしはそこまで厳しくなかった</Fragment>
 <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
-<p>ここでのshortyは、子どもや若者を指す呼び方です。<br />
-手錠をかけられ、バスで移送される話の後に出てきます。</p>
-<p>別の曲では若い女性への呼びかけにもなりますが、ここで語っているのは自分の子ども時代。<br />
-誰を指すかは、前後の場面で決まります。</p>
-<p>収監の説明を終えてからshortyと呼び直すので、語り手がまだ若かったことへ目が戻ります。</p>
+<p>裁判と移送を語った後、Deckはshortyだった頃の暮らしへ話を戻します。<br />この一行では、その頃の暮らしはそこまで厳しくなかったと振り返っています。</p>
+<p>shortyは、ここでは子どもや若者を指す呼び方です。<br />自分の過去を語っているので、若い女性への呼びかけとは別の用法。</p>
+<p>その直後に、世界を知るにつれて人生への見方が変わったという話が続きます。<br />次のlife is hellと並べると、子ども時代の感覚との違いが見えます。</p>
 </div>
-<Fragment slot="usage">
-          <p><strong class="text-[var(--c-text)]">shorty</strong>（<em>shawty</em> とも綴る）は文脈で(1)子ども・年下、(2)若い女性・恋人、の二つに大きく振れる。<em>when I was a shorty</em> なら前者、<em>What's up, shorty?</em> なら後者。</p>
-          <p>南部ヒップホップでは <em>shawty</em> の綴りで「相棒・お前」くらいの軽い呼びかけにも広がりました。どの意味かは相手・場面で判断します。</p>
-        </Fragment>
+<Fragment slot="usage"><p><code>when I was a shorty</code> は「子どもの頃」。shortyの指す相手は、呼びかけか、自分の過去の話かで変わります。</p></Fragment>
 </LearningUnit>
 <a class="back-toc" href="#article-toc">目次へ ↑</a>
 </div>
-<div id="point-world-cell" class="scroll-mt-40">
-<LearningUnit
-        heading="world / cell — 世界を独房にたとえる"
-        label="★ 比喩／AAVE文法"
-        mc="Inspectah Deck（Verse 2）"
-        t={TS["world-cell"].t} tApprox={TS["world-cell"].approx} preciseSeek={true} youtubeId={YT}
-        embed=""
-      >
+<div id="point-world-cell" class="scroll-mt-40"><span id="point-life-is-hell"></span>
+<LearningUnit heading="life is hell / world / cell — 人生と独房を重ねる" label="★ 比喩／韻／AAVE文法" mc="Inspectah Deck（Verse 2）" t={TS["world-cell"].t} tApprox={TS["world-cell"].approx} preciseSeek={true} youtubeId={YT} embed="">
 <Fragment slot="eng">But as the world turned, I learned life is hell<br />Living in the world no different from a cell</Fragment>
 <Fragment slot="jpn">だが世界が回るにつれ、人生は地獄だと思い知った／この世界で生きることは、独房（セル）で生きるのと何ら変わらない</Fragment>
 <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
-<p>引用の下の行で、world（世界）とcell（独房）が結び付けられます。<br />
-刑務所を出れば暮らしが自由になる、とは言い切れない比喩です。</p>
-<p>no different fromは「〜と変わらない」。<br />
-ここではbe動詞が表面に出ず、短い形で比較しています。</p>
-<p>上の行末のhellと、下のcellも韻の組。<br />
-語尾の音がそろうので、人生への評価と独房の比喩が続けて耳に残ります。</p>
+<p>子ども時代の話に続いて、人生は地獄だと思い知ったと語ります。<br />life is hellは、その経験から得た認識です。</p>
+<p>learned（学んだ）で、現在形のlife is hellを受けています。<br />間のthatを省くのは標準英語の会話にもある形で、この部分だけがAAVE特有というわけではありません。</p>
+<p>次の行では、世界で生きることをcell（独房）で生きることに重ねます。<br />no different fromは「〜と変わらない」で、be動詞が表面に出ない短い比較です。</p>
+<p>hellとcellは行末の韻。<br />人生への評価と独房の比喩が、語尾の音でもつながっています。</p>
 </div>
-<Fragment slot="usage">
-          <p>AAVEでは、現在形の <strong class="text-[var(--c-text)]">be動詞（is / are）を落とせる</strong>のが大きな特徴。標準英語の <em>He is cool</em> → <em>He cool</em>、<em>They are ready</em> → <em>They ready</em> のように、主語の直後にいきなり形容詞・名詞・前置詞句が続く。</p>
-          <p>ここでも <em>the world (that is) no different from a cell</em> から関係詞＋be動詞が丸ごと省かれ、名詞に説明句が直結している。</p>
-          <p>使い分けの目安: 省略できるのは<strong class="text-[var(--c-text)]">現在形</strong>で、標準英語なら短縮形（'s / 're）になる位置。過去形 was/were や、文末で強調する位置（例: <em>Yes he is</em>）は省略しない。</p>
-          <p>この規則性を知ると、聞き取り時に「動詞が抜けている＝AAVEの現在形」と即座に補完できる。</p>
-        </Fragment>
+<Fragment slot="usage"><p>AAVE（アフリカ系アメリカ人英語）には、現在形のisやareが省かれる形があります。<em>He cool</em> なら「彼はかっこいい」。</p><p>標準英語で短縮形にできる位置など、省略には条件があります。</p></Fragment>
 </LearningUnit>
 <a class="back-toc" href="#article-toc">目次へ ↑</a>
 </div>
-<div id="point-life-is-hell" class="scroll-mt-40">
-<LearningUnit
-        heading="life is hell — 過去の経験と現在形"
-        label="★ AAVE文法／表現"
-        mc="Inspectah Deck（Verse 2）"
-        t={TS["life-is-hell"].t} tApprox={TS["life-is-hell"].approx} preciseSeek={true} youtubeId={YT}
-        embed=""
-      >
-
-<div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
-<p>前の引用で語られるlife is hellは、「人生は地獄だ」という現在形です。<br />
-それをlearned（学んだ）という過去形の動詞で受けています。</p>
-<p>learnedの後ろにはthatを補って読むことができます。<br />
-この接続詞を省くのは、標準英語の会話でも普通にある形です。</p>
-<p>時制だけで「常に地獄」と決まるわけではありません。<br />
-苦しい経験から得た認識を、今の自分の言葉として述べている、と読むと流れが自然です。</p>
-</div>
-
-</LearningUnit>
-<a class="back-toc" href="#article-toc">目次へ ↑</a>
-</div>
-<div id="point-jakes-base" class="scroll-mt-40">
-<LearningUnit
-        heading="Jakes / base — 警察と薬物を指す短い語"
-        label="★ スラング（地域語）"
-        mc="Inspectah Deck（Verse 2）"
-        t={TS["jakes-base"].t} tApprox={TS["jakes-base"].approx} preciseSeek={true} youtubeId={YT}
-        embed=""
-      >
+<div id="point-jakes-base" class="scroll-mt-40"><span id="point-bones-staircase"></span>
+<LearningUnit heading="Jakes / base / bones — 追跡、密売、階段での喫煙" label="★ スラング／表現" mc="Inspectah Deck（Verse 2）" t={TS["jakes-base"].t} tApprox={TS["jakes-base"].approx} preciseSeek={true} youtubeId={YT} embed="">
 <Fragment slot="eng">Every day I escape from <QuickSlang word="Jakes" desc="警察官を指すニューヨーク特有のストリートスラング" /> givin' chase<br />Sellin' <QuickSlang word="base" desc="freebaseに由来する、コカインを指す薬物のスラング" />, smokin' bones in the staircase</Fragment>
 <Fragment slot="jpn">毎日、追ってくる警察（Jakes）から逃れ／クラック（base）を売り、階段でジョイントをふかす</Fragment>
 <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
-<p>引用のJakesは警察を指すスラングです。<br />
-give chaseは追跡することなので、ここでは警察に追われています。</p>
-<p>baseはfreebaseに由来する、コカインを指す薬物の語彙。<br />
-ここでは売るという動詞が付き、一般語の「土台」とは別の意味になります。</p>
-<p>chase、base、次のstaircaseは語尾の音が近い組です。<br />
-追跡、密売、階段での喫煙が、音のつながりで一続きになります。</p>
+<p>Jakesは警察を指すニューヨークのスラング。<br />give chaseは「追いかける」なので、最初の行では警察から逃れています。</p>
+<p>次のbaseはfreebaseに由来する、コカインを指す語です。<br />売るという動詞と組になり、一般語の「土台」とは意味が違います。</p>
+<p>同じ行のbonesはマリファナのジョイントで、staircaseは階段。<br />薬物を売り、階段で煙を吸う場面までが一続きです。</p>
+<p>chase、base、staircaseは語尾の音が近い組。<br />追跡、密売、喫煙を切り離さず、音のつながりでもまとめています。</p>
 </div>
-<Fragment slot="usage">
-          <p><strong class="text-[var(--c-text)]">give chase</strong> は「追跡する・追いかける」を表す決まり文句（イディオム）。<code>chase</code> に冠詞を付けずそのまま動詞 give の目的語に立てるのがポイントで、<em>the police gave chase</em>（警察が追ってきた）のように使う。</p>
-          <p>報道英語にも出てくるややフォーマルな言い回しだが、ここでは進行形 <code>givin' chase</code> で「日々追われ続けている」緊迫した反復状況を描く。</p>
-          <p>地域スラングの使い分けも重要: 同じ「警察」でもニューヨークでは <strong class="text-[var(--c-text)]">Jakes</strong>、ロサンゼルスでは <em>one-time</em>、他にも <em>5-0（five-oh）</em> など呼称が街ごとに違います。</p>
-          <p>どの語が出るかで、語り手がどの土地の人間かが分かります。スラングは話者の出自を示す地図でもあるわけです。</p>
-        </Fragment>
+<Fragment slot="usage"><p><code>give chase</code> は「追跡する」。<em>the police gave chase</em> なら「警察が追ってきた」で、chaseに冠詞を付けずに使います。</p></Fragment>
 </LearningUnit>
 <a class="back-toc" href="#article-toc">目次へ ↑</a>
 </div>
-<div id="point-bones-staircase" class="scroll-mt-40">
-<LearningUnit
-        heading="bones / staircase — ジョイントと階段"
-        label="★ スラング（地域語）"
-        mc="Inspectah Deck（Verse 2）"
-        t={TS["bones-staircase"].t} tApprox={TS["bones-staircase"].approx} preciseSeek={true} youtubeId={YT}
-        embed=""
-      >
-
-<div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
-<p>bonesは、ここではマリファナのジョイントを指します。<br />
-smokeという動詞と組になるので、骨を文字どおりに読む場面ではありません。</p>
-<p>場所を示すのはstaircase（階段）。<br />
-歌詞だけで建物の種類や正確な所在地までは特定できないので、公営団地の特定の階段と断定するのは避けたいところです。</p>
-<p>警察からの逃走の後に、階段で煙を吸う場面が続く。<br />
-大きな事件と日常の動きが、同じ一節に収まっています。</p>
-</div>
-
-</LearningUnit>
-<a class="back-toc" href="#article-toc">目次へ ↑</a>
-</div>
-<div id="point-whats-it-worth" class="scroll-mt-40">
-<LearningUnit
-        heading="What’s it worth? — 価値を問い直す"
-        label="★ 表現／テーマ"
-        mc="Inspectah Deck（Verse 2）"
-        t={TS["whats-it-worth"].t} tApprox={TS["whats-it-worth"].approx} preciseSeek={true} youtubeId={YT}
-        embed=""
-      >
-
-<div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
-<p>worthは、金額だけでなく「それだけの価値があるか」を問う語です。<br />
-ここではそれまでの暮らしを振り返る問いとして出てきます。</p>
-<p>続くのは、薬物で一時的に気を紛らわせることと、母の助言を求めること。<br />
-その並びを踏まえると、金の値段を尋ねるより、今の生き方を自問する言葉に聞こえます。</p>
-</div>
-
-</LearningUnit>
-<a class="back-toc" href="#article-toc">目次へ ↑</a>
-</div>
-<div id="point-old-earth" class="scroll-mt-40">
-<LearningUnit
-        heading="Old Earth — 母を呼ぶ思想の語彙"
-        label="★ スラング（思想語彙）"
-        mc="Inspectah Deck（Verse 2）"
-        t={TS["old-earth"].t} tApprox={TS["old-earth"].approx} preciseSeek={true} youtubeId={YT}
-        embed=""
-      >
+<div id="point-whats-it-worth" class="scroll-mt-40"><span id="point-old-earth"></span>
+<LearningUnit heading="What’s it worth? / Old Earth — 生き方を問い、母へ相談する" label="★ スラング／表現" mc="Inspectah Deck（Verse 2）" t={TS["whats-it-worth"].t} tApprox={TS["whats-it-worth"].approx} preciseSeek={true} youtubeId={YT} embed="">
 <Fragment slot="eng">But I'm still depressed, and I ask: What's it worth?<br />Ready to give up so I seek the <QuickSlang word="Old Earth" desc="「Five-Percent Nation」由来のスラングで「母親」を指す。生命の源たる大地（Earth）としての女性の敬称" /></Fragment>
 <Fragment slot="jpn">それでも気は塞いだまま、俺は問う——これに何の意味がある？／諦めかけて、俺は「オールド・アース（母）」に助言を求めた</Fragment>
 <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
-<p>引用末尾のOld Earthは母親を指す言葉です。<br />
-Five-Percent Nation（Nation of Gods and Earths）の語彙につながります。</p>
-<p>Earthを女性に用いる呼び方を、年長の母へ向けた形。<br />
-地球そのものを探しに行く、という意味ではありません。</p>
-<p>ここから勤労と忍耐についての助言へ進みます。<br />
-金や薬物を語ってきたバースに、母へ相談する場面が入る。</p>
+<p>気が塞いだまま、今の暮らしにどれだけの価値があるのかと自問します。<br />worthは、金額だけでなく「それだけの価値があるか」を問う語です。</p>
+<p>そのまま諦めるのではなく、次の行でOld Earthへ助言を求めます。<br />Old Earthはここでは母親を指す呼び方。</p>
+<p>Five-Percent Nation（Nation of Gods and Earths）の語彙で、Earthを女性に用いる呼び方につながります。<br />その語を年長の母へ向けているところです。</p>
+<p>この後は、勤労と忍耐についての助言へ進みます。<br />生き方への問いと母への相談が、続く二行に収まっています。</p>
 </div>
-
 </LearningUnit>
 <a class="back-toc" href="#article-toc">目次へ ↑</a>
 </div>
@@ -544,56 +319,18 @@ stickupは銃などで脅して金品を奪う強盗を指します。</p>
 </LearningUnit>
 <a class="back-toc" href="#article-toc">目次へ ↑</a>
 </div>
-<div id="point-livin-proof" class="scroll-mt-40">
-<LearningUnit
-        heading="livin’ proof — 語り手自身が証拠になる"
-        label="★ 最重要パンチライン"
-        mc="Inspectah Deck（Verse 2）"
-        t={TS["livin-proof"].t} tApprox={TS["livin-proof"].approx} preciseSeek={true} youtubeId={YT}
-        embed=""
-      >
-<Fragment slot="eng">Leave it up to me while I be livin' proof</Fragment>
-<Fragment slot="jpn">あとは俺に任せろ——俺自身が、生き証人なんだ</Fragment>
+<div id="point-livin-proof" class="scroll-mt-40"><span id="point-kick-truth"></span>
+<LearningUnit heading="livin’ proof / truth / youth — 生きた証拠として若者へ語る" label="★ 言い回し／韻" mc="Inspectah Deck（Verse 2）" t={TS["livin-proof"].t} tApprox={TS["livin-proof"].approx} preciseSeek={true} youtubeId={YT} embed="">
+<Fragment slot="eng">Leave it up to me while I be livin' proof<br />To kick the truth to the young black youth</Fragment>
+<Fragment slot="jpn">あとは俺に任せろ——俺自身が、生き証人なんだ／若い黒人の若者たちに、真実を叩き込むために</Fragment>
 <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
-<p>引用後半のliving proofは「生きた証拠」。<br />
-経験した本人がそこにいる、という意味のまとまりです。</p>
-<p>前半のleave it up to meは「俺に任せておけ」。<br />
-これまで過去を語っていたDeckが、今度は自分を話の担い手として差し出します。</p>
-<p>次の行で語りかける相手は若い黒人の若者たち。<br />
-自分の経験を何のために語るのかが、ここから明かされます。</p>
+<p>leave it up to meは「俺に任せておけ」で、living proofは「生きた証拠」。<br />ここまで過去を語っていたDeckが、自分を話の担い手として差し出します。</p>
+<p>次のkick the truthは、真実を語るという言い方です。<br />kickは蹴るだけでなく、ラップや話を繰り出す場面でも使われます。</p>
+<p>語りかける相手はyoung black youth。<br />自分と同じような街で暮らす若者へ、経験を渡そうとしています。</p>
+<p>proof、truth、youthには長いuの母音が共通します。<br />proofの末尾はf、truthとyouthはthなので、三語すべてが完全韻ではありません。</p>
+<p>この後にも、話を聞いてもらえないという展開が続きます。<br />若者に伝えようとする二行で、バースがきれいに解決するわけではないところです。</p>
 </div>
-<Fragment slot="usage">
-          <p><code>I be livin' proof</code> の <strong class="text-[var(--c-text)]">be</strong> は、AAVE（アフリカ系アメリカ人英語）の <strong class="text-[var(--c-text)]">habitual be（恒常相のbe）</strong>。標準英語の "I am living proof"（今この瞬間）と違い、「いつも・常態として生き証人であり続ける」という<strong class="text-[var(--c-text)]">継続・反復の状態</strong>を表す。</p>
-          <p>am/is/are に置換できない、AAVE固有の時制マーカーです。</p>
-          <p><code>leave it up to me</code> は「（それは）俺に任せておけ」。責任や役割を自分が引き受けると宣言する口語表現で、ここでは「次世代に伝える役目は俺が担う」という覚悟の前振りになっている。</p>
-        </Fragment>
-</LearningUnit>
-<a class="back-toc" href="#article-toc">目次へ ↑</a>
-</div>
-<div id="point-kick-truth" class="scroll-mt-40">
-<LearningUnit
-        heading="proof / truth / youth — 若者へ渡す言葉と韻"
-        label="★ 最重要パンチライン"
-        mc="Inspectah Deck（Verse 2）"
-        t={TS["kick-truth"].t} tApprox={TS["kick-truth"].approx} preciseSeek={true} youtubeId={YT}
-        embed=""
-      >
-<Fragment slot="eng">To kick the truth to the young black youth</Fragment>
-<Fragment slot="jpn">若い黒人の若者たちに、真実を叩き込むために</Fragment>
-<div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
-<p>引用にあるkick the truthは、真実を語るという言い方です。<br />
-kickは蹴るだけでなく、ラップや話を繰り出す場面でも使われます。</p>
-<p>相手を示すのはyoung black youth。<br />
-自分と同じような街で暮らす若者へ、経験を伝えようとしています。</p>
-<p>前のproofと、この行のtruth、youthには長いuの母音が共通します。<br />
-ただしproofの末尾はf、truthとyouthはthなので、三語すべてが完全韻というわけではありません。</p>
-<p>次の世代へ話そうとした後にも、聞いてもらえないという展開が続きます。<br />
-この一行を成功談の結末にしてしまわないのが、このバースの後味です。</p>
-</div>
-<Fragment slot="usage">
-          <p><code>kick the truth</code> は「真実を勢いよく投げかける／説く」のヒップホップ定型句。<code>kick a rhyme / kick knowledge / kick a verse</code> と同系で、<code>kick</code>＝言葉を放つ動詞として機能する。</p>
-          <p>日常英語の「蹴る」とは別の用法です。</p>
-        </Fragment>
+<Fragment slot="usage"><p>AAVEの<code>habitual be</code>は「いつも・繰り返しそうである」という状態を表すbe。ここでは自分が生きた証拠であり続けるという言い方につながります。</p><p><code>kick knowledge</code> も、知識を語って伝える言い方。kickが、言葉を繰り出す動詞として使われています。</p></Fragment>
 </LearningUnit>
 <a class="back-toc" href="#article-toc">目次へ ↑</a>
 </div>

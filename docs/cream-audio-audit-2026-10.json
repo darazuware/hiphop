@@ -3,7 +3,7 @@
   "title": "Wu-Tang Clan - C.R.E.A.M. (Official HD Video - Edited)",
   "duration": 242,
   "channel": "Wu-Tang Clan",
-  "originalRecordsPreserved": true,
+  "originalRecordsPreserved": false,
   "albumSwitch": false,
   "focus": [
     {
@@ -38,7 +38,7 @@
     "fifteen-bagged": 109.78,
     "bones-staircase": 136.401
   },
-  "note": "Only the two estimates updated using fresh official caption block starts. Not measured vocal onsets. Existing 14 manual and 7 caption records unchanged; all caption sources displayed with approx. MV maintained; no album offset applied.",
+  "note": "Previous caption observations retained below as history. Eleven timestamps updated from owner listening evidence; thirteen other records preserved. Display grouped into16 passages,15 seeks. See cream-reader-feedback-2026-10.json.",
   "album": {
     "id": "4yNQ7_7I5aE",
     "title": "C.R.E.A.M. (Cash Rules Everything Around Me) (Official Audio)",
@@ -47,8 +47,25 @@
   },
   "localListeningPage": "audio-review/index.html (untracked, no publication)",
   "pendingHuman": [
-    "fifteen-bagged onset",
-    "bones-staircase onset",
-    "intro absence: compare official MV and official album intro"
-  ]
+    "intro absence: compare official MV and official album intro",
+    "production approval"
+  ],
+  "followup": {
+    "evidence": "docs/cream-reader-feedback-2026-10.json",
+    "fifteen": {
+      "t": 112,
+      "targetCue": "fifteen",
+      "authority": "owner manual",
+      "notFullContextOnset": true
+    },
+    "bones": {
+      "groupSeek": 134,
+      "authority": "owner Every day I escape cue",
+      "ownOnsetVerified": false
+    },
+    "loGoose": {
+      "t": 34.9,
+      "authority": "owner confirmation"
+    }
+  }
 }

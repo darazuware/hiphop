@@ -4,7 +4,7 @@ import { execFileSync } from 'node:child_process';
 import { runInNewContext } from 'node:vm';
 import cheerio from 'cheerio-without-node-native';
 
-const baseline = 'dc99bae232f476f1ae50ac0071bfe53b40e08359';
+const baseline = '45f3dbc726f645b9041f2f476dde960aa208d77a';
 const read = p => readFileSync(p, 'utf8');
 const previous = p => execFileSync('git', ['show', `${baseline}:${p}`], {encoding:'utf8'});
 const file = 'agent/cream/assets/units-timestamps.json';
@@ -12,28 +12,56 @@ const before = JSON.parse(previous(file));
 const after = JSON.parse(read(file));
 assert.equal(after.length, 24);
 assert.deepEqual(after.map(u=>u.id).sort(), before.map(u=>u.id).sort());
-for (const old of before.filter(u=>['manual','caption','mv-absent'].includes(u.source))) {
-  assert.deepEqual(after.find(u=>u.id===old.id), old, `Preserve confirmed record: ${old.id}`);
+const overrides = {'shaolin-land':31,'gold-tooth':34,'lo-goose':34.9,'runnin-up-gates':47,'tec-9':81,'cream-hook':86.5,'fifteen-bagged':112,'could-not-touch':112.8,'world-cell':129,'jakes-base':134,'whats-it-worth':144};
+for (const old of before) {
+  const current=after.find(u=>u.id===old.id);
+  const expected=Object.hasOwn(overrides,old.id)?{...old,manualSec:overrides[old.id],t:overrides[old.id],source:'manual',approx:false}:old;
+  assert.deepEqual(current,expected,`Only owner-backed override allowed: ${old.id}`);
 }
-for (const [id,t] of Object.entries({'fifteen-bagged':109.78,'bones-staircase':136.401})) {
-  const u=after.find(u=>u.id===id);
-  assert.equal(u.source,'caption'); assert.equal(u.t,t); assert.equal(u.approx,true);
-  assert.equal(u.manualSec,null);
+const groups=JSON.parse(read('agent/cream/assets/reading-groups.json'));
+assert.equal(groups.length,16);
+assert.deepEqual(groups.flatMap(g=>g.members).sort(),before.map(u=>u.id).sort());
+const requiredGroups={ 'g-off':['gold-tooth','lo-goose','g-off'], 'keys-seas':['keys-seas','mpv-forty-g'], 'fifteen-bagged':['fifteen-bagged','could-not-touch'], 'world-cell':['world-cell','life-is-hell'], 'jakes-base':['jakes-base','bones-staircase'], 'whats-it-worth':['whats-it-worth','old-earth'], 'livin-proof':['livin-proof','kick-truth'] };
+for(const [id,members] of Object.entries(requiredGroups)) assert.deepEqual(groups.find(g=>g.id===id).members,members,id);
+assert.equal(groups.find(g=>g.id==='g-off').seekId,'gold-tooth');
+assert.equal(groups[2].id,'shaolin-land'); assert.equal(groups[3].id,'g-off');
+for(const p of ['agent/cream/assets/units.json',file]) {
+  const units=JSON.parse(read(p)); const times=units.filter(u=>u.t!=null).map(u=>u.t);
+  assert.ok(times.every((t,i)=>!i||t>=times[i-1]),`Chronological records: ${p}`);
+  assert.deepEqual(units.map(u=>u.id).sort(),before.map(u=>u.id).sort());
 }
+const inputBefore=JSON.parse(previous('agent/cream/assets/units.json'));
+const inputAfter=JSON.parse(read('agent/cream/assets/units.json'));
+assert.deepEqual(inputAfter.map(u=>u.id),after.map(u=>u.id));
+for(const old of inputBefore) assert.deepEqual(inputAfter.find(u=>u.id===old.id),Object.hasOwn(overrides,old.id)?{...old,manualSec:overrides[old.id]}:old,`Preserve source text and other fields: ${old.id}`);
 const source = read('src/pages/songs/cream.astro');
 assert.match(source,/songDuration=\{242\}/);
 assert.match(source,/guidedReading=\{true\}/);
-assert.equal((source.match(/<LearningUnit\b/g)||[]).length,24);
-assert.equal((source.match(/preciseSeek=\{true\}/g)||[]).length,24);
+assert.equal((source.match(/<LearningUnit\b/g)||[]).length,16);
+assert.equal((source.match(/preciseSeek=\{true\}/g)||[]).length,16);
 const quoteTokens = s => [...s.matchAll(/<Fragment slot="eng">([\s\S]*?)<\/Fragment>/g)].reduce((n,m)=>n+m[1].replace(/<QuickSlang[^>]*word="([^"]*)"[^>]*\/?>/g,'$1').replace(/<[^>]+>/g,' ').split(/\s+/).filter(Boolean).length,0);
 assert.ok(quoteTokens(source)<=quoteTokens(previous('src/pages/songs/cream.astro')));
 const root = cheerio.load(read('dist/songs/cream/index.html'));
-assert.equal(root('[data-seek]').length,23);
-assert.equal(root('[data-player-stop]').length,23);
+assert.equal(root('[data-seek]').length,15);
+assert.equal(root('[data-player-stop]').length,15);
 assert.equal(root('#point-intro-vendor').find('[data-seek]').length,0);
 for (const a of root('a[href^="#"]').toArray()) assert.ok(root(root(a).attr('href')).length,root(a).attr('href'));
-assert.equal(root('[id^="point-"] .back-toc').length,24);
+assert.equal(root('[id^="point-"] .back-toc').length,16);
 for (const id of ['story','units','background','sample','records','article-toc']) assert.match(root(`#${id}`).attr('style'), /scroll-margin-top:240px/);
+const displayed=root('div[id^="point-"]').filter((_,e)=>root(e).find('.learning-unit').length).toArray();
+assert.deepEqual(displayed.map(e=>root(e).attr('id').slice(6)),groups.map(g=>g.id));
+for(const group of groups) {
+  const wrapper=root(`#point-${group.id}`);
+  assert.equal(wrapper.find('.learning-unit').length,1);
+  for(const member of group.members) assert.equal(wrapper.find(`#point-${member}`).length+(member===group.id?1:0),1,member);
+  const record=after.find(u=>u.id===group.seekId); const seek=wrapper.find('[data-seek]');
+  assert.equal(seek.length,record.t===null?0:1);
+  if(record.t!==null) assert.equal(Number(seek.attr('data-seek')),record.t,group.id);
+}
+const seekTimes=root('[data-seek]').toArray().map(e=>Number(root(e).attr('data-seek')));
+assert.ok(seekTimes.every((t,i)=>!i||t>=seekTimes[i-1]));
+const quoteChars=(s,slot)=>[...s.matchAll(new RegExp(`<Fragment slot="${slot}">([\\s\\S]*?)<\\/Fragment>`,'g'))].reduce((n,m)=>n+m[1].replace(/<[^>]+>/g,'').length,0);
+for(const slot of ['eng','jpn']) assert.ok(quoteChars(source,slot)<=quoteChars(previous('src/pages/songs/cream.astro'),slot),slot);
 const productLinks=root('a[data-affiliate-position^="cream-"]').toArray();
 assert.equal(productLinks.length,5);
 const layout=read('src/layouts/Layout.astro');
@@ -65,4 +93,4 @@ for (const element of productLinks) {
   }
 }
 for (const p of ['src/pages/songs/ny-state-of-mind.astro','src/pages/songs/come-down.astro','src/pages/songs/93-til-infinity.astro','src/layouts/Layout.astro','src/layouts/SongLayout.astro','src/components/LearningUnit.astro','agent/src/publish-main.mjs']) assert.equal(read(p),previous(p),p);
-console.log(JSON.stringify({pass:true,units:24,seek:23,preservedManual:14,preservedCaption:7,mvAbsent:1,newCaptionCandidates:2,quoteTokensBefore:quoteTokens(previous('src/pages/songs/cream.astro')),quoteTokensAfter:quoteTokens(source),productLinks:productLinks.length,affiliateDispatch:'gtag and dataLayer fallback pass',otherArticlesAndPublisher:'unchanged',audiblePlayback:'not assessed by this guard; see browser.json live review evidence',conversion:'merchant report / GA4 receipt not verified'},null,2));
+console.log(JSON.stringify({pass:true,records:24,readingGroups:16,seek:15,unchangedRecords:13,humanOverrides:11,quoteTokensBefore:quoteTokens(previous('src/pages/songs/cream.astro')),quoteTokensAfter:quoteTokens(source),productLinks:productLinks.length,affiliateDispatch:'gtag and dataLayer fallback pass',otherArticlesAndPublisher:'unchanged',audiblePlayback:'see browser.json live review evidence',conversion:'merchant report / GA4 receipt not verified'},null,2));
