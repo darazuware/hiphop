@@ -54,10 +54,20 @@
     }
   ],
   "loLife": {
-    "claim": "Lo Life name and apparel activity continue",
-    "primarySource": "https://lo-life.com/",
-    "observed": "official storefront currently lists Lo Life Crew Hoody and Lo Goose on the Deuce capsule",
-    "articleDecision": "short context line only; any future fashion affiliate article requires separate product, rights, attribution, link tracking, and conversion verification"
+    "claim": "Lo Life is an enduring Polo collector and styling culture, with vivid primary colors and bold color blocking visible in selected early-1990s Polo collections",
+    "primarySources": [
+      "https://www.houyhnhnm.jp/feature/184981/",
+      "https://www.ralphlauren.com/rlmag/the-story-of-snow-beach.html",
+      "https://corporate.ralphlauren.com/pr_260930_PoloFest.html?q=lauren+ralph"
+    ],
+    "observed": "Original Lo Life member Rack-Lo describes red, yellow and blue styling and Lo Down culture in a first-person interview; Ralph Lauren describes the Snow Beach palette, bold graphics and New York street uptake; its September 2026 PoloFest announcement documents continuing collector and fan activity. These sources support continued interest in the style, not a claim that all Polo garments have the same colors.",
+    "articleDecision": "brief culture paragraph without a Lo Life shop link; a future fashion affiliate article needs separate product, rights, attribution, click tracking and conversion verification"
+  },
+  "captionAndMapRevision": {
+    "date": "2026-10-12",
+    "captions": "Both Pexels captions link directly to the owner-provided original-image URLs with the short label Pexelsより引用; AI image is labeled 参考画像（AI生成）; MPV reads 初代マツダMPV。出典：マツダ100周年サイト; ferry historical disclaimer removed while CC BY-SA attribution and license remain.",
+    "map": "Owner-provided Google Maps embed for Staten Island, responsive iframe with title; Google Maps availability depends on third-party loading and reader consent/settings.",
+    "mapURL": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d104441.60191270344!2d-74.22921926610205!3d40.56470673948775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c245ef79f4d4e7%3A0x50271f8534babc78!2z44Ki44Oh44Oq44Kr5ZCI6KGG5Zu9IOODi-ODpeODvOODqOODvOOCr-W3niDjgrnjgr_jg4bjg7PjgqLjgqTjg6njg7Pjg4k!5e1!3m2!1sja!2sjp!4v1791809334980!5m2!1sja!2sjp"
   },
   "instagram": {
     "decision": "none placed after owner confirmed the third AI image replaces the requested Instagram post",

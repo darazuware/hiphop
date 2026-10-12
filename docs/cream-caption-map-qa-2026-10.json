@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-12",
+  "scope": "CREAM caption, Lo Life culture paragraph, and Google Maps embed on review only",
+  "checks": {
+    "tone": "pass after three-pass paragraph split",
+    "article": "10/10 pass with live YouTube and Genius URL checks",
+    "publishSafety": "pass; build, internal links, and SEO gates complete",
+    "preservation": "check-cream-champion pass: 16 reading groups, 15 seek controls, 24 timestamp records and quote slots byte-identical to prior approved media review; NY/other pages/publisher unchanged",
+    "responsive": {
+      "widths": [1440, 390, 320],
+      "horizontalOverflowPixels": [0, 0, 0],
+      "mapWidthsPixels": [600, 358, 288],
+      "imageLoad": "5/5 local context images loaded with nonzero natural widths at 320px",
+      "toc": "16 destinations present; selected Lo goose entry landed 240px below viewport top",
+      "seekAndStop": "15 seek and 15 stop controls present; representative local seek retained 0:34 after stop. Actual YouTube video playback unavailable in local in-app browser."
+    },
+    "captions": "11.2px italic at all three widths; Pexels image URLs and Mazda credit match owner request; ferry CC BY-SA attribution remains",
+    "map": "Google Maps iframe visible at 320px in browser screenshot with Staten Island outline; title, lazy load and referrer policy present"
+  },
+  "pending": "Live review seek/stop recheck and review deployment verification before final report; production awaits owner approval."
+}

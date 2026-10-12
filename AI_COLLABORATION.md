@@ -269,3 +269,7 @@ AIを活用し、WAX&THINKの検索・動画流入を継続収益へ変える。
 
 ### C.R.E.A.M. 提供画像review送信・配信確認終了 — 2026-10-12 JST
 - Codex。対象9ファイルのみ209c911でreview push、通常pre-push YouTube/Genius/引用・文体チェックpass。初回Vercelは「Git information retrieval failed」でビルド前失敗、同一コミットをPreview再デプロイしBV9zQSKE9zS2grgoGWRf7zvdGNan Ready。実reviewのPC1440/390/320で横溢れ0、16目次/15seek/15停止/記事画像5点ロードを確認。代表0:34の頭出し/停止表示は合格、今回IABで音声進行そのものは未再確認（前回実reviewの結果を継承）。レビューURL https://hiphop-git-review-darazuwares-projects.vercel.app/songs/cream/ 。main/NY/他記事/WIP/動画は保全。本番未公開、人間待ち：CREAMレビューと公開承認、既存のMV導入の耳確認は保留。次1タスクはCREAMの最終レビュー・公開可否判断（難度中、GPT-6.1 Sol/high）。
+
+### C.R.E.A.M. 写真注釈・Lo Life文・地図改稿着手 — 2026-10-12 JST
+- Codex。隔離review `/private/tmp/cream-reader-review` を使用、最新review 74f9a5e、clean。対象はCREAM本文・提供素材台帳・専用ガード/QA・本ボードのみ。Pexels写真とAI画像、MPV、フェリーの注釈をユーザー指定に合わせて短縮し、Lo Life文化の記述を一次情報で裏取り、指定Google Mapsを埋め込む。NY・他記事・WIP・動画・引用・16ブロック・確定再生位置は保全。
+- DoD: 三稿/記事/公開安全/専用保全、PC1440/390/320の画像/地図/目次/再生停止、対象だけreview pushと実URL確認。本番公開は承認後、既定publish-main.mjsのみ。人間待ち: 最終reviewと本番公開承認。
