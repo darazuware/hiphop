@@ -266,3 +266,6 @@ AIを活用し、WAX&THINKの検索・動画流入を継続収益へ変える。
 ### C.R.E.A.M. 提供画像・Instagram配置ローカル検証終了 — 2026-10-12 JST
 - Codex。New York Timesの直下へ提供Pexels写真、gold tooth直下へ提供Pexels写真、Lo goose直下へ提供AI画像、MPV説明直下へマツダ公式初代MPV写真を配置。Pexels元画像URL/金歯作品ページ・撮影者/利用条件、マツダ出典と再利用許諾未確認、AI生成表示を専用台帳に記録。Lo Life公式サイトの現行商品を根拠に一文追加。ユーザー確認によりInstagram埋め込み不要。
 - ユーザー指摘を受け、Stax Museumの写真はCREAMから除去。既存画像ファイルと元ネタ音源・収録盤の説明は保全し、別記事は未作成。16ブロック/15頭出し/確定時刻と歌詞引用は最新reviewと一致。tone、記事10項目（YouTube/Genius実取得）、公開安全、専用保全、diff全合格。PC1440/390/320横溢れ0・16目次・15再生/停止UI・画像5点ロード合格。ローカルYouTube音声はIAB制限で不可、前回実review再生停止結果を継承。NY/他記事/共通部品/動画/WIP変更0。対象だけreview push、本番は承認後の既定publish-main.mjsのみ。詳細docs/cream-provided-media-2026-10.jsonとqa JSON。
+
+### C.R.E.A.M. 提供画像review送信・配信確認終了 — 2026-10-12 JST
+- Codex。対象9ファイルのみ209c911でreview push、通常pre-push YouTube/Genius/引用・文体チェックpass。初回Vercelは「Git information retrieval failed」でビルド前失敗、同一コミットをPreview再デプロイしBV9zQSKE9zS2grgoGWRf7zvdGNan Ready。実reviewのPC1440/390/320で横溢れ0、16目次/15seek/15停止/記事画像5点ロードを確認。代表0:34の頭出し/停止表示は合格、今回IABで音声進行そのものは未再確認（前回実reviewの結果を継承）。レビューURL https://hiphop-git-review-darazuwares-projects.vercel.app/songs/cream/ 。main/NY/他記事/WIP/動画は保全。本番未公開、人間待ち：CREAMレビューと公開承認、既存のMV導入の耳確認は保留。次1タスクはCREAMの最終レビュー・公開可否判断（難度中、GPT-6.1 Sol/high）。
