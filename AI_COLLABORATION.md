@@ -273,3 +273,8 @@ AIを活用し、WAX&THINKの検索・動画流入を継続収益へ変える。
 ### C.R.E.A.M. 写真注釈・Lo Life文・地図改稿着手 — 2026-10-12 JST
 - Codex。隔離review `/private/tmp/cream-reader-review` を使用、最新review 74f9a5e、clean。対象はCREAM本文・提供素材台帳・専用ガード/QA・本ボードのみ。Pexels写真とAI画像、MPV、フェリーの注釈をユーザー指定に合わせて短縮し、Lo Life文化の記述を一次情報で裏取り、指定Google Mapsを埋め込む。NY・他記事・WIP・動画・引用・16ブロック・確定再生位置は保全。
 - DoD: 三稿/記事/公開安全/専用保全、PC1440/390/320の画像/地図/目次/再生停止、対象だけreview pushと実URL確認。本番公開は承認後、既定publish-main.mjsのみ。人間待ち: 最終reviewと本番公開承認。
+
+### C.R.E.A.M. 写真注釈・Lo Life文・地図改稿終了 — 2026-10-12 JST
+- Codex。CREAMのPexels2点はユーザー提示の元画像URLへ「Pexelsより引用」の短いリンク、AI画像は「参考画像（AI生成）」、MPVは指定どおりの初代車種とマツダ100周年出典に変更。フェリーの2011年注釈のみ削り、CC BY-SAの撮影者・ライセンス表示を保全。Google Mapsを指定URLで埋め込み、320pxまで幅を追従させた。Lo LifeはRack-Lo本人のインタビュー、Ralph LaurenのSnow Beach記事と2026年PoloFest発表で裏取りし、ショップリンクを外してカルチャーと原色・切り返しの説明へ変更。Instagramはユーザー指定により不要、Stax Museum写真は引き続き掲載なし。
+- 文体・記事10項目（実YouTube/Genius確認）・build/公開安全・専用保全ガード・diff pass。16ブロック/15seek、確定時刻全記録と歌詞引用は承認済みreviewと一致。PC1440/390/320横溢れ0、地図幅600/358/288px、画像5点load、目次16件と15再生/停止UIを確認。Chromeの実reviewで0:34頭出しから0:45まで進行し、停止後0:45で固定。隔離cloneの対象5ファイルのみ6c3522fでreview push、通常pre-push pass、Vercel success、実reviewの改稿反映確認。詳細 `docs/cream-caption-map-qa-2026-10.json`。
+- 確認URL https://hiphop-git-review-darazuwares-projects.vercel.app/songs/cream/ 。main/NY/他記事/WIP/動画/共通player/既定publisher変更0。本番未公開。人間待ち: CREAM最終reviewと本番公開承認、旧MV導入の非収録に関する聴取結果は従来どおり保留。次1タスク: CREAMの最終レビュー・公開可否判断。理由: ユーザーが最新の注釈と地図を確認した版だけを既定publish-main.mjsへ渡すため。難度: 中。推奨 GPT-6.1 Sol/high。操作: review URLを再読み込みし、写真注釈/Lo Life文/地図を確認して「CREAM公開」または修正箇所を返信。

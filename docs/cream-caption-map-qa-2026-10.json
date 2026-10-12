@@ -17,5 +17,12 @@
     "captions": "11.2px italic at all three widths; Pexels image URLs and Mazda credit match owner request; ferry CC BY-SA attribution remains",
     "map": "Google Maps iframe visible at 320px in browser screenshot with Staten Island outline; title, lazy load and referrer policy present"
   },
-  "pending": "Live review seek/stop recheck and review deployment verification before final report; production awaits owner approval."
+  "reviewDeployment": {
+    "commit": "6c3522f",
+    "status": "Vercel success via GitHub commit status",
+    "url": "https://hiphop-git-review-darazuwares-projects.vercel.app/songs/cream/",
+    "liveContent": "Short Pexels caption, Lo Life culture paragraph, Google Maps iframe and 15 seek controls confirmed on the live review at 390px with no overflow",
+    "livePlayback": "Chrome 0:34 seek advanced to 0:45; stop returned pause icon to play icon; subsequent read remained 0:45. In-app browser playback remained unavailable."
+  },
+  "pending": "Production awaits owner review and explicit approval through the existing publish-main.mjs flow."
 }
