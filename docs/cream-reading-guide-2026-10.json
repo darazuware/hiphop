@@ -10,6 +10,6 @@
     "localPC": "guide retains 59.5px desktop layout; body label at item 9; zero horizontal overflow",
     "preservation": "16 reading groups, 15 seek controls, quote and timestamp records unchanged; dedicated check passed; NY and other article source unchanged",
     "gates": "tone, article 10/10, build, publish safety, internal links, SEO, diff check passed",
-    "liveReview": "pending deployment"
+    "liveReview": "Ready at b4f9e34; 1440/390/320 verified, 46px at mobile, item 9 shows body, PR appears only within card, TOC round trip works, zero horizontal overflow"
   }
 }

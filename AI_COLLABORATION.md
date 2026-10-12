@@ -291,3 +291,7 @@ AIを活用し、WAX&THINKの検索・動画流入を継続収益へ変える。
 ### C.R.E.A.M. 読書位置バー修正着手 — 2026-10-12 JST
 - Codex。隔離review `/private/tmp/cream-reader-review`、review 2aaf6b7 clean。ユーザー画像と実reviewの9項目目でPR誤表示を再現。原因は購入カードのdata-reading-sectionを現在の大節として記憶し続ける判定。CREAM限定でカード通過後は記事本体へ戻し、スマホの現在地/PRラベルを一行の薄いバーへ圧縮する。NY・他記事・WIP・動画、本文・引用・16ブロック・15seekは保全。
 - 入口: CLAUDE記事フロー/ReadingGuide。DoD: 専用保全・build・公開安全、320/390/PCで9以降のPR誤表示なし・購入カード上ではPR・目次ジャンプ・横溢れ0・再生停止。出口: 対象差分だけreview pushと実review確認。本番は承認後に既定publish-main.mjsのみ。
+
+### C.R.E.A.M. 読書位置バー修正終了・本番公開着手 — 2026-10-12 JST
+- Codex。b4f9e34をreviewへpushし、Vercel Readyの実reviewでPC/390/320を確認。スマホのバーは46px、9項目目は「本文 09/16」、PRカード中のみPR、目次往復・横溢れ0。16ブロック/15seek/確定時刻/引用不変、文体・記事10項目・build・公開安全・専用保全合格。NY・他記事・WIP・動画は変更なし。
+- ユーザーが2026-10-12に本番公開を明示承認。公開直前の差分監査でreviewに残ったCREAM外のランキング変更と運用ファイル2件の削除を検出し、origin/mainの内容へ復元。対象をCREAM関連へ限定してから既定`agent/src/publish-main.mjs`で本番公開する。人間待ちなし。次1タスク: 本番URLでCREAMの表示・再生導線を確認する。
