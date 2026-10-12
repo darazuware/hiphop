@@ -1,0 +1,72 @@
+{
+  "date": "2026-10-12",
+  "scope": "C.R.E.A.M. review only",
+  "reviewBase": "679d79d8dfc07266ee9cae794d8101e276389904",
+  "images": [
+    {
+      "placement": "after New York Times explanation",
+      "file": "public/images/context/cream/new-york-times-provided.png",
+      "sourceFile": "Downloads/名称未設定のデザイン (2).png",
+      "sha256": "eaa72b8e672f5b14f5c4dc74a5376dcb851ad762b7617b86635121e11c9673d6",
+      "dimensions": "2000x700",
+      "provenance": "Owner says sourced from Pexels; edited/exported through Canva according to embedded XMP",
+      "originalPexelsPage": null,
+      "photographer": null,
+      "useTerms": "Direct image URL resolves on Pexels and owner identified it as the source. Pexels License permits website and commercial use and modification without required attribution; newspaper masthead may carry separate rights. Photographer and item page were not independently identified.",
+      "licenseURL": "https://www.pexels.com/legal-pages/license/",
+      "representation": "modern illustrative newspaper photo, not 1993 reportage",
+      "originalImageURL": "https://images.pexels.com/photos/17608510/pexels-photo-17608510.jpeg"
+    },
+    {
+      "placement": "after gold tooth explanation",
+      "file": "public/images/context/cream/gold-tooth-provided.png",
+      "sourceFile": "Downloads/名称未設定のデザイン (3).png",
+      "sha256": "9ac4e8508a4f995c994bfdca7ae61b8a3772c217eb1eae547da1fe8bf5006c22",
+      "dimensions": "1000x450",
+      "provenance": "Owner says sourced from Pexels; edited/exported through Canva according to embedded XMP",
+      "originalPexelsPage": "https://www.pexels.com/photo/close-up-of-man-with-gold-dental-grillz-38742471/",
+      "photographer": "Thedollasyn",
+      "useTerms": "Direct image and item page resolve on Pexels. Pexels License permits website and commercial use and modification without required attribution. Avoid implying the pictured person endorses this article or is the artist.",
+      "licenseURL": "https://www.pexels.com/legal-pages/license/",
+      "representation": "illustrative close-up, not artist or historical documentation",
+      "originalImageURL": "https://images.pexels.com/photos/38742471/pexels-photo-38742471.jpeg"
+    },
+    {
+      "placement": "after Lo goose explanation",
+      "file": "public/images/context/cream/lo-goose-ai-provided.jpeg",
+      "sourceFile": "Downloads/Gemini_Generated_Image_k0d0s6k0d0s6k0d0.jpeg",
+      "sha256": "0ed54f2ea11503d965f9d765f1f52660d71d9706dd9ae125fa5b780c455b9f2f",
+      "dimensions": "1632x656",
+      "provenance": "Owner-provided AI-generated image (Gemini per owner's statement and file name)",
+      "useTerms": "Owner supplied for this article. Underlying generated content rights and depicted Polo marks were not independently established; no brand or crew endorsement is implied.",
+      "representation": "AI illustration, not a photo of actual Lo Lifes or the 1990s"
+    },
+    {
+      "placement": "after Mazda MPV explanation",
+      "originalURL": "https://www2.mazda.com/ja/100th/virtual_museum/episode/img/episode__image--03--05.png",
+      "file": "public/images/context/cream/mazda-mpv-official.png",
+      "sha256": "ac508c0a011cb9928c138ee98919220c012badbe856b852d33cc935514c435cb",
+      "sourcePage": "https://www2.mazda.com/ja/100th/virtual_museum/episode/episode003.html",
+      "publisher": "Mazda Motor Corporation",
+      "identity": "first generation MPV, as captioned on the official Mazda page",
+      "useTerms": "No open reuse license found. Owner supplied the official image URL for placement. A local copy is used because the official host blocks hotlinking on the article; visible source link and attribution remain. Do not treat as freely reusable.",
+      "representation": "model reference, not the vehicle used in the song or video"
+    }
+  ],
+  "loLife": {
+    "claim": "Lo Life name and apparel activity continue",
+    "primarySource": "https://lo-life.com/",
+    "observed": "official storefront currently lists Lo Life Crew Hoody and Lo Goose on the Deuce capsule",
+    "articleDecision": "short context line only; any future fashion affiliate article requires separate product, rights, attribution, link tracking, and conversion verification"
+  },
+  "instagram": {
+    "decision": "none placed after owner confirmed the third AI image replaces the requested Instagram post",
+    "postURLs": [],
+    "embedVerified": "not applicable without a post URL",
+    "fallbackPostLink": "not applicable"
+  },
+  "staxMuseum": {
+    "decision": "remove the museum photograph and its caption from C.R.E.A.M.; keep existing local asset and historical evidence unchanged for a separate Stax-focused article if later commissioned",
+    "reason": "the building is unrelated to the specific sampled recording; the song page already has primary Stax source and track-specific listening"
+  }
+}

@@ -258,3 +258,11 @@ AIを活用し、WAX&THINKの検索・動画流入を継続収益へ変える。
 - Codex。対象11ファイルを719be82でreviewへpush、通常フック合格・Vercel success。認証済み実reviewに16ブロック/15seek/ユーザー実測の反映を確認。390px全15再生→停止合格、PC1440/320のフックも再生停止合格、時刻進行と停止後固定を確認。320px全16目次往復、PC1440/390/320横溢れ0・記事画像5点load、ジャケット左/データ右を確認。目次画像3幅とbrowser JSONを保存。検証記録のみ追補commitして終了。
 - 完了: 今回指定の曲順・統合・fifteen/shorty文脈・実測11反映、文体/記事/引用/公開安全/専用/diff/UI。未完了: 本番公開（承認待ち）。旧導入の非収録の耳確認、GA4受信/成約、Amazon画像個別許諾は前回保留を継承。main74a1863、他記事/共通player/規定publisher/常設WIP/動画は変更0。
 - 次1タスク: CREAM最終レビューと公開可否の確定。理由: まとまりと実測反映をユーザーが確認した版だけを既定publish-mainへ渡すため。難度:中。推奨GPT-6.1 Sol/high。操作: reviewのcreamを再読み込みし、曲順/統合/前後文を確認して「CREAM公開」または修正箇所を返信。必要入力: 本番公開承認、旧導入の非収録の聴取結果（未確認のため引継ぎ）。次の記事へ進まない。
+
+### C.R.E.A.M. 提供画像・Instagram配置着手 — 2026-10-12 JST
+- Codex。最新origin/review=679d79d、main=74a1863、隔離review `/private/tmp/cream-reader-review` clean、担当競合なし。対象はcream本文の指定箇所・新画像3点・出典/利用条件台帳・専用保全検証・本ボードのみ。NY・他記事・共通部品・WIP・動画・確定再生位置・引用を保全。
+- 入口CLAUDE記事フロー/cream-reader-feedback/cream-review-result。DoD 16ブロック・15seek/時刻と引用の一致、画像/出典/Instagramの可否と代替リンク、文体/article/build/safety、PC1440/390/320・目次・再生停止。対象だけreview push、本番は承認後に既定publish-main.mjs。Instagram投稿URLはユーザーに照会中。
+
+### C.R.E.A.M. 提供画像・Instagram配置ローカル検証終了 — 2026-10-12 JST
+- Codex。New York Timesの直下へ提供Pexels写真、gold tooth直下へ提供Pexels写真、Lo goose直下へ提供AI画像、MPV説明直下へマツダ公式初代MPV写真を配置。Pexels元画像URL/金歯作品ページ・撮影者/利用条件、マツダ出典と再利用許諾未確認、AI生成表示を専用台帳に記録。Lo Life公式サイトの現行商品を根拠に一文追加。ユーザー確認によりInstagram埋め込み不要。
+- ユーザー指摘を受け、Stax Museumの写真はCREAMから除去。既存画像ファイルと元ネタ音源・収録盤の説明は保全し、別記事は未作成。16ブロック/15頭出し/確定時刻と歌詞引用は最新reviewと一致。tone、記事10項目（YouTube/Genius実取得）、公開安全、専用保全、diff全合格。PC1440/390/320横溢れ0・16目次・15再生/停止UI・画像5点ロード合格。ローカルYouTube音声はIAB制限で不可、前回実review再生停止結果を継承。NY/他記事/共通部品/動画/WIP変更0。対象だけreview push、本番は承認後の既定publish-main.mjsのみ。詳細docs/cream-provided-media-2026-10.jsonとqa JSON。
