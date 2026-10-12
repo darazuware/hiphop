@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-12",
+  "scope": "C.R.E.A.M. Jimmy Spicer reference link only",
+  "product": {
+    "asin": "B0BZMWPH2W",
+    "url": "https://www.amazon.co.jp/dp/B0BZMWPH2W?tag=wax1124-22",
+    "amazonListing": "Dollar Bill Y'All: Spring Records & The First Decade Of Hip Hop / Various",
+    "format": "import CD, one disc, 2023 compilation; not the original 1983 single",
+    "trackEvidence": "Amazon.co.jp track list item 1: Money (Dollar Bill Y'all) (Long Version) - Jimmy Spicer",
+    "publisherEvidence": "https://acerecords.co.uk/dollar-bill-yall-spring-records-and-the-first-decade-of-hip-hop-1",
+    "amazonObserved": "2026-10-12; ASIN, CD format, one disc, track list and cover image checked on the actual Amazon.co.jp listing; availability and price are variable",
+    "coverURL": "https://m.media-amazon.com/images/I/91uNdXWKc-L._AC_SX679_.jpg",
+    "coverUseTerms": "Amazon listing image used as a linked product thumbnail, following existing site practice. Individual reproduction permission was not independently obtained; retain the Amazon destination and image attribution context.",
+    "affiliate": {
+      "tag": "wax1124-22",
+      "positions": ["cream-jimmy-spicer-source-cover", "cream-jimmy-spicer-source"],
+      "event": "affiliate_click through existing site handler for image and text link",
+      "conversion": "Amazon order attribution cannot be verified from the site; check Associates report after traffic"
+    }
+  },
+  "checks": {
+    "article": "10/10 pass including live YouTube/Genius URL checks",
+    "tone": "pass",
+    "publishSafety": "pass",
+    "preservation": "16 reading groups, 15 seek controls, every timestamp and quotation retained; dedicated guard pass; product link count 5 to 7 for one added image/text pair",
+    "responsive": "1440/390/320px horizontal overflow 0; new cover loaded with natural width 679px; 320px card image reduced to 72px and remains readable",
+    "liveReview": "pending push and deployment verification"
+  }
+}
