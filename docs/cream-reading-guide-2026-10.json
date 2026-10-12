@@ -10,6 +10,7 @@
     "localPC": "guide retains 59.5px desktop layout; body label at item 9; zero horizontal overflow",
     "preservation": "16 reading groups, 15 seek controls, quote and timestamp records unchanged; dedicated check passed; NY and other article source unchanged",
     "gates": "tone, article 10/10, build, publish safety, internal links, SEO, diff check passed",
-    "liveReview": "Ready at b4f9e34; 1440/390/320 verified, 46px at mobile, item 9 shows body, PR appears only within card, TOC round trip works, zero horizontal overflow"
+    "liveReview": "Ready at b4f9e34; 1440/390/320 verified, 46px at mobile, item 9 shows body, PR appears only within card, TOC round trip works, zero horizontal overflow",
+    "production": "Published through unchanged agent/src/publish-main.mjs at d1f6ad4. Live https://waxthink.com/songs/cream/ shows the compact guide, 16 reading blocks, 15 seeks, item 9 as body 09/16 at 390px and 320px, 46px mobile guide, zero horizontal overflow, Google map present, and all five CREAM image URLs return HTTP 200 with image content types."
   }
 }
