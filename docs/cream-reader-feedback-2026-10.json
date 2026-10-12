@@ -1,0 +1,497 @@
+{
+  "date": "2026-10-11",
+  "baselineReview": "45f3dbc726f645b9041f2f476dde960aa208d77a",
+  "main": "74a1863fe2f3a2108c479242d2c2310c12ae32ff",
+  "scope": "cream only; no production publish",
+  "audio": {
+    "id": "PBwAxmrE194",
+    "duration": 242,
+    "edition": "Official HD Video - Edited",
+    "switched": false
+  },
+  "evidenceAuthority": "Owner listened and supplied corrections in this chat. Not a model ear measurement. Exact target words are cues; not asserted first-word onsets for all expanded quote contexts.",
+  "overrides": [
+    {
+      "id": "shaolin-land",
+      "targetCue": "Shaolin",
+      "before": {
+        "id": "shaolin-land",
+        "whisperSec": null,
+        "manualSec": null,
+        "captionSec": 32,
+        "fallbackT": 36,
+        "t": 32,
+        "source": "caption",
+        "approx": false,
+        "score": null
+      },
+      "after": {
+        "id": "shaolin-land",
+        "whisperSec": null,
+        "manualSec": 31,
+        "captionSec": 32,
+        "fallbackT": 36,
+        "t": 31,
+        "source": "manual",
+        "approx": false,
+        "score": null
+      },
+      "authority": "user manual observation"
+    },
+    {
+      "id": "gold-tooth",
+      "targetCue": "gold tooth",
+      "before": {
+        "id": "gold-tooth",
+        "whisperSec": null,
+        "manualSec": null,
+        "captionSec": 32,
+        "fallbackT": 35,
+        "t": 32,
+        "source": "caption",
+        "approx": false,
+        "score": null
+      },
+      "after": {
+        "id": "gold-tooth",
+        "whisperSec": null,
+        "manualSec": 34,
+        "captionSec": 32,
+        "fallbackT": 35,
+        "t": 34,
+        "source": "manual",
+        "approx": false,
+        "score": null
+      },
+      "authority": "user manual observation"
+    },
+    {
+      "id": "lo-goose",
+      "targetCue": "Lo goose (34.9 explicitly confirmed)",
+      "before": {
+        "id": "lo-goose",
+        "whisperSec": 37.2,
+        "manualSec": 31,
+        "captionSec": 32,
+        "fallbackT": 33,
+        "t": 31,
+        "source": "manual",
+        "approx": false,
+        "score": 1
+      },
+      "after": {
+        "id": "lo-goose",
+        "whisperSec": 37.2,
+        "manualSec": 34.9,
+        "captionSec": 32,
+        "fallbackT": 33,
+        "t": 34.9,
+        "source": "manual",
+        "approx": false,
+        "score": 1
+      },
+      "authority": "user manual observation"
+    },
+    {
+      "id": "runnin-up-gates",
+      "targetCue": "started smoking",
+      "before": {
+        "id": "runnin-up-gates",
+        "whisperSec": 54.5,
+        "manualSec": 49,
+        "captionSec": 49,
+        "fallbackT": 55,
+        "t": 49,
+        "source": "manual",
+        "approx": false,
+        "score": 0.75
+      },
+      "after": {
+        "id": "runnin-up-gates",
+        "whisperSec": 54.5,
+        "manualSec": 47,
+        "captionSec": 49,
+        "fallbackT": 55,
+        "t": 47,
+        "source": "manual",
+        "approx": false,
+        "score": 0.75
+      },
+      "authority": "user manual observation"
+    },
+    {
+      "id": "tec-9",
+      "targetCue": "yo respect",
+      "before": {
+        "id": "tec-9",
+        "whisperSec": 87.4,
+        "manualSec": 83,
+        "captionSec": 81,
+        "fallbackT": 87,
+        "t": 83,
+        "source": "manual",
+        "approx": false,
+        "score": 0.5
+      },
+      "after": {
+        "id": "tec-9",
+        "whisperSec": 87.4,
+        "manualSec": 81,
+        "captionSec": 81,
+        "fallbackT": 87,
+        "t": 81,
+        "source": "manual",
+        "approx": false,
+        "score": 0.5
+      },
+      "authority": "user manual observation"
+    },
+    {
+      "id": "cream-hook",
+      "targetCue": "cash rules",
+      "before": {
+        "id": "cream-hook",
+        "whisperSec": 91.5,
+        "manualSec": 86,
+        "captionSec": 86,
+        "fallbackT": 92,
+        "t": 86,
+        "source": "manual",
+        "approx": false,
+        "score": 1
+      },
+      "after": {
+        "id": "cream-hook",
+        "whisperSec": 91.5,
+        "manualSec": 86.5,
+        "captionSec": 86,
+        "fallbackT": 92,
+        "t": 86.5,
+        "source": "manual",
+        "approx": false,
+        "score": 1
+      },
+      "authority": "user manual observation"
+    },
+    {
+      "id": "fifteen-bagged",
+      "targetCue": "fifteen",
+      "before": {
+        "id": "fifteen-bagged",
+        "whisperSec": null,
+        "manualSec": null,
+        "captionSec": 109.78,
+        "fallbackT": 126,
+        "t": 109.78,
+        "source": "caption",
+        "approx": true,
+        "score": null
+      },
+      "after": {
+        "id": "fifteen-bagged",
+        "whisperSec": null,
+        "manualSec": 112,
+        "captionSec": 109.78,
+        "fallbackT": 126,
+        "t": 112,
+        "source": "manual",
+        "approx": false,
+        "score": null
+      },
+      "authority": "user manual observation"
+    },
+    {
+      "id": "could-not-touch",
+      "targetCue": "A young",
+      "before": {
+        "id": "could-not-touch",
+        "whisperSec": 120.8,
+        "manualSec": 116,
+        "captionSec": 109,
+        "fallbackT": 121,
+        "t": 116,
+        "source": "manual",
+        "approx": false,
+        "score": 1
+      },
+      "after": {
+        "id": "could-not-touch",
+        "whisperSec": 120.8,
+        "manualSec": 112.8,
+        "captionSec": 109,
+        "fallbackT": 121,
+        "t": 112.8,
+        "source": "manual",
+        "approx": false,
+        "score": 1
+      },
+      "authority": "user manual observation"
+    },
+    {
+      "id": "world-cell",
+      "targetCue": "But as the world",
+      "before": {
+        "id": "world-cell",
+        "whisperSec": 137.2,
+        "manualSec": 132,
+        "captionSec": 131,
+        "fallbackT": 137,
+        "t": 132,
+        "source": "manual",
+        "approx": false,
+        "score": 1
+      },
+      "after": {
+        "id": "world-cell",
+        "whisperSec": 137.2,
+        "manualSec": 129,
+        "captionSec": 131,
+        "fallbackT": 137,
+        "t": 129,
+        "source": "manual",
+        "approx": false,
+        "score": 1
+      },
+      "authority": "user manual observation"
+    },
+    {
+      "id": "jakes-base",
+      "targetCue": "Every day I escape",
+      "before": {
+        "id": "jakes-base",
+        "whisperSec": 139.3,
+        "manualSec": 135,
+        "captionSec": 133,
+        "fallbackT": 139,
+        "t": 135,
+        "source": "manual",
+        "approx": false,
+        "score": 0.8
+      },
+      "after": {
+        "id": "jakes-base",
+        "whisperSec": 139.3,
+        "manualSec": 134,
+        "captionSec": 133,
+        "fallbackT": 139,
+        "t": 134,
+        "source": "manual",
+        "approx": false,
+        "score": 0.8
+      },
+      "authority": "user manual observation"
+    },
+    {
+      "id": "whats-it-worth",
+      "targetCue": "But I’m still",
+      "before": {
+        "id": "whats-it-worth",
+        "whisperSec": null,
+        "manualSec": null,
+        "captionSec": 144,
+        "fallbackT": 147,
+        "t": 144,
+        "source": "caption",
+        "approx": false,
+        "score": null
+      },
+      "after": {
+        "id": "whats-it-worth",
+        "whisperSec": null,
+        "manualSec": 144,
+        "captionSec": 144,
+        "fallbackT": 147,
+        "t": 144,
+        "source": "manual",
+        "approx": false,
+        "score": null
+      },
+      "authority": "user manual observation"
+    }
+  ],
+  "unchangedRecords": 13,
+  "records": 24,
+  "readingGroups": [
+    {
+      "id": "intro-vendor",
+      "title": "Two for five",
+      "seekId": "intro-vendor",
+      "members": [
+        "intro-vendor"
+      ]
+    },
+    {
+      "id": "crime-side",
+      "title": "crime side / Times side / no jive",
+      "seekId": "crime-side",
+      "members": [
+        "crime-side"
+      ]
+    },
+    {
+      "id": "shaolin-land",
+      "title": "Shaolin land",
+      "seekId": "shaolin-land",
+      "members": [
+        "shaolin-land"
+      ]
+    },
+    {
+      "id": "g-off",
+      "title": "gold tooth / ’Lo goose / G off",
+      "seekId": "gold-tooth",
+      "members": [
+        "gold-tooth",
+        "lo-goose",
+        "g-off"
+      ]
+    },
+    {
+      "id": "runnin-up-gates",
+      "title": "woolies / runnin’ up in gates",
+      "seekId": "runnin-up-gates",
+      "members": [
+        "runnin-up-gates"
+      ]
+    },
+    {
+      "id": "keys-seas",
+      "title": "keys / seas / MPV / forty G’s",
+      "seekId": "keys-seas",
+      "members": [
+        "keys-seas",
+        "mpv-forty-g"
+      ]
+    },
+    {
+      "id": "tec-9",
+      "title": "here go / TEC-9",
+      "seekId": "tec-9",
+      "members": [
+        "tec-9"
+      ]
+    },
+    {
+      "id": "cream-hook",
+      "title": "C.R.E.A.M. / y’all",
+      "seekId": "cream-hook",
+      "members": [
+        "cream-hook"
+      ]
+    },
+    {
+      "id": "fifteen-bagged",
+      "title": "fifteen / young buck / could not",
+      "seekId": "fifteen-bagged",
+      "members": [
+        "fifteen-bagged",
+        "could-not-touch"
+      ]
+    },
+    {
+      "id": "shorty-life",
+      "title": "shorty",
+      "seekId": "shorty-life",
+      "members": [
+        "shorty-life"
+      ]
+    },
+    {
+      "id": "world-cell",
+      "title": "life is hell / world / cell",
+      "seekId": "world-cell",
+      "members": [
+        "world-cell",
+        "life-is-hell"
+      ]
+    },
+    {
+      "id": "jakes-base",
+      "title": "Jakes / base / bones / staircase",
+      "seekId": "jakes-base",
+      "members": [
+        "jakes-base",
+        "bones-staircase"
+      ]
+    },
+    {
+      "id": "whats-it-worth",
+      "title": "What’s it worth? / Old Earth",
+      "seekId": "whats-it-worth",
+      "members": [
+        "whats-it-worth",
+        "old-earth"
+      ]
+    },
+    {
+      "id": "stickup-kids",
+      "title": "stickup kids / stray shots",
+      "seekId": "stickup-kids",
+      "members": [
+        "stickup-kids"
+      ]
+    },
+    {
+      "id": "livin-proof",
+      "title": "livin’ proof / kick the truth / youth",
+      "seekId": "livin-proof",
+      "members": [
+        "livin-proof",
+        "kick-truth"
+      ]
+    },
+    {
+      "id": "dollar-outro",
+      "title": "dollar / y’all",
+      "seekId": "dollar-outro",
+      "members": [
+        "dollar-outro"
+      ]
+    }
+  ],
+  "drafts": [
+    {
+      "pass": 1,
+      "sha256": "ee4b7efa051d80f43247fd1ab00463bc62bf619bc990f957a141a4f679d8dfe9",
+      "notes": "Initial regroup and minimal context; tone gate identified three oversized paragraphs."
+    },
+    {
+      "pass": 2,
+      "sha256": "4f0508525602dc7131001fcee4e0baa084e3ff0d17a67c4dec3d25065dd9f9e0",
+      "notes": "Split paragraphs, tone gate pass, reread meanings against Genius cache."
+    },
+    {
+      "pass": 3,
+      "sha256": "1fb045513b0f6a67e7044dd96557a6ec7c61943aca1d9e043b3dd6f0a245d22a",
+      "notes": "Correct shorty context/translation to childhood less rough; age/failure context; hook reference clarified. Tone and article gate pass."
+    }
+  ],
+  "quotes": {
+    "engWordsBefore": 207,
+    "engWordsAfter": 198,
+    "engCharsBefore": 979,
+    "engCharsAfter": 930,
+    "jpnCharsBefore": 538,
+    "jpnCharsAfter": 525,
+    "coveragePercent": 37,
+    "overlaps": 0
+  },
+  "validation": {
+    "tone": "pass",
+    "article": "10 checks pass including build",
+    "publishSafety": "pass",
+    "champion": "pass (groups/time order/11 justified changes/13 untouched records/affiliate dispatch)",
+    "browser": "Live review: all15 play/stop on390px; representative PC1440/320 play/stop; all16 TOC roundtrips320; widths1440/390/320 overflow0, image5 article+cover verified; time progressed from1:52 and froze after stop."
+  },
+  "limitations": [
+    "Intro MV absence remains a legacy unverified ear assertion; no seek created.",
+    "Bones old independent caption136.401 is preserved, no independent onset claimed; grouped at owner cue134.",
+    "Shorty126 and outro179 remain caption approximate.",
+    "GA4 server receipt/conversion and Amazon image individual authorization remain unverified as in prior report."
+  ],
+  "pending": [
+    "Review approval before publish-main.mjs"
+  ],
+  "reviewImplementationCommit": "719be82",
+  "deployment": "Vercel success, authenticated live review verified"
+}

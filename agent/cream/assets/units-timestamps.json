@@ -22,37 +22,37 @@
     "score": 1
   },
   {
-    "id": "lo-goose",
-    "whisperSec": 37.2,
+    "id": "shaolin-land",
+    "whisperSec": null,
     "manualSec": 31,
     "captionSec": 32,
-    "fallbackT": 33,
+    "fallbackT": 36,
     "t": 31,
     "source": "manual",
     "approx": false,
-    "score": 1
+    "score": null
   },
   {
     "id": "gold-tooth",
     "whisperSec": null,
-    "manualSec": null,
+    "manualSec": 34,
     "captionSec": 32,
     "fallbackT": 35,
-    "t": 32,
-    "source": "caption",
+    "t": 34,
+    "source": "manual",
     "approx": false,
     "score": null
   },
   {
-    "id": "shaolin-land",
-    "whisperSec": null,
-    "manualSec": null,
+    "id": "lo-goose",
+    "whisperSec": 37.2,
+    "manualSec": 34.9,
     "captionSec": 32,
-    "fallbackT": 36,
-    "t": 32,
-    "source": "caption",
+    "fallbackT": 33,
+    "t": 34.9,
+    "source": "manual",
     "approx": false,
-    "score": null
+    "score": 1
   },
   {
     "id": "g-off",
@@ -68,10 +68,10 @@
   {
     "id": "runnin-up-gates",
     "whisperSec": 54.5,
-    "manualSec": 49,
+    "manualSec": 47,
     "captionSec": 49,
     "fallbackT": 55,
-    "t": 49,
+    "t": 47,
     "source": "manual",
     "approx": false,
     "score": 0.75
@@ -101,10 +101,10 @@
   {
     "id": "tec-9",
     "whisperSec": 87.4,
-    "manualSec": 83,
+    "manualSec": 81,
     "captionSec": 81,
     "fallbackT": 87,
-    "t": 83,
+    "t": 81,
     "source": "manual",
     "approx": false,
     "score": 0.5
@@ -112,21 +112,32 @@
   {
     "id": "cream-hook",
     "whisperSec": 91.5,
-    "manualSec": 86,
+    "manualSec": 86.5,
     "captionSec": 86,
     "fallbackT": 92,
-    "t": 86,
+    "t": 86.5,
     "source": "manual",
     "approx": false,
     "score": 1
   },
   {
+    "id": "fifteen-bagged",
+    "whisperSec": null,
+    "manualSec": 112,
+    "captionSec": 109.78,
+    "fallbackT": 126,
+    "t": 112,
+    "source": "manual",
+    "approx": false,
+    "score": null
+  },
+  {
     "id": "could-not-touch",
     "whisperSec": 120.8,
-    "manualSec": 116,
+    "manualSec": 112.8,
     "captionSec": 109,
     "fallbackT": 121,
-    "t": 116,
+    "t": 112.8,
     "source": "manual",
     "approx": false,
     "score": 1
@@ -143,23 +154,12 @@
     "score": null
   },
   {
-    "id": "fifteen-bagged",
-    "whisperSec": null,
-    "manualSec": null,
-    "captionSec": null,
-    "fallbackT": 126,
-    "t": 126,
-    "source": "fallback",
-    "approx": true,
-    "score": null
-  },
-  {
     "id": "world-cell",
     "whisperSec": 137.2,
-    "manualSec": 132,
+    "manualSec": 129,
     "captionSec": 131,
     "fallbackT": 137,
-    "t": 132,
+    "t": 129,
     "source": "manual",
     "approx": false,
     "score": 1
@@ -178,22 +178,33 @@
   {
     "id": "jakes-base",
     "whisperSec": 139.3,
-    "manualSec": 135,
+    "manualSec": 134,
     "captionSec": 133,
     "fallbackT": 139,
-    "t": 135,
+    "t": 134,
     "source": "manual",
     "approx": false,
     "score": 0.8
   },
   {
-    "id": "whats-it-worth",
+    "id": "bones-staircase",
     "whisperSec": null,
     "manualSec": null,
+    "captionSec": 136.401,
+    "fallbackT": 138,
+    "t": 136.401,
+    "source": "caption",
+    "approx": true,
+    "score": null
+  },
+  {
+    "id": "whats-it-worth",
+    "whisperSec": null,
+    "manualSec": 144,
     "captionSec": 144,
     "fallbackT": 147,
     "t": 144,
-    "source": "caption",
+    "source": "manual",
     "approx": false,
     "score": null
   },
@@ -207,17 +218,6 @@
     "source": "manual",
     "approx": false,
     "score": 1
-  },
-  {
-    "id": "bones-staircase",
-    "whisperSec": null,
-    "manualSec": null,
-    "captionSec": null,
-    "fallbackT": 138,
-    "t": 138,
-    "source": "fallback",
-    "approx": true,
-    "score": null
   },
   {
     "id": "stickup-kids",

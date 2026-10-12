@@ -230,3 +230,68 @@ AIを活用し、WAX&THINKの検索・動画流入を継続収益へ変える。
 
 ### NY State of Mind 指定caption表記修正終了 — 2026-10-11 JST
 - Codex。競合なし。リンク文言をWikipediaより引用し編集、mapのtitle/captionをハウシズへ統一、指定の橋説明一文のみ削除。指定置換以外byte一致、17確定時刻/引用/画像/商品/URL/WIP保全。文体/article10（build含む）/専用33/公開安全/diff/ビルド後の指定文字列検証pass。対象4ファイルのみreview push、本番非公開。人間待ち：review表示確認。
+
+### C.R.E.A.M. 改善着手 — 2026-10-11 JST
+- Codex。ユーザー指定CREAMのみ、NY完成本番74a1863/review dc99baeを基準に三稿・再生・写真・盤案内を改善。常設main/reviewのWIPは変更せず、前回隔離cloneから最新reviewのclean隔離 /private/tmp/cream-reader-review を作成。入口CLAUDE記事フロー、DoD tone/article/引用/安全/diff/PC1440・390・320/再生停止/目次/画像/商品計測。対象cream astro・専用時刻/証拠/画像/commerce/専用検証/本ボード。共通部品は既存機能を再利用、他記事/動画を編集しない。出口対象だけreview push、本番は人間承認後に未変更publish-main.mjs。音声聴取できない部分は確認素材を用意し実測入力待ちとする。
+
+### C.R.E.A.M. review稿の検証終了／聴取待ち — 2026-10-11 JST
+- Codex。対象creamのみ。作品データ・短い導入・3入口・24項目の目次往復、句読点改行／段落分け／重複削減、CC写真2枚、具体CD2盤＋Mercari CD検索を実装。共通部品・NY・Come Down・93Til・publish-mainは変更なし。隔離review clone /private/tmp/cream-reader-review。
+- 三稿／Genius実取得／文体／引用重複0／check-article10項目／build・links・SEO／check:publish-safety／diff／専用guard／停止guard合格。引用240→207tokens、24項目・23seekを保持。実幅1440/390/320で横溢れ0・ジャケット左とデータ右・3入口着地点を確認、320で24目次往復と23頭出し表示／停止UI合格、全写真・盤画像load確認。購入5リンクのtag/afid/PR/sponsoredと実handlerのaffiliate_click送出payload合格、GA4受信・成約は未取得。
+- 保全証明: 常設mainの変更ファイル429・review76のhashを照合し、ボード以外の変更0／status一致。音声・字幕・raw WIP snapshotは未追跡のローカル資料で、commit対象外。終了成果物はCREAM専用本文・時刻・画像・commerce・guard・証拠・本ボードに限定。出口reviewへ送信、本番は未公開／承認待ち。
+- 未完了: 推定2件は公式MV字幕の109.780/136.401秒候補へ変更、≈表示。既存manual14/caption7/非収録1は原記録を保全。音源MV242秒維持、album254秒へ切替／offset適用なし。IABでYouTube埋め込み再生不可のため実音は未確認。http://127.0.0.1:4334/ で2区間と両版導入を聴取可能。発声開始2点と導入のMV非収録確認が人間待ち。Amazon商品画像の個別API取得／再利用許諾証跡は未取得としてledger記録。
+- 次1タスク: 再生位置の聴取確定（字幕ブロックと発声開始を区別するため）。難度中／GPT-6.1 Sol high。ユーザー操作は聴取ページを開き「①秒、②秒、③MV非収録を確認／相違」を返信。確認反映後にCREAMだけの公開承認を受け、未変更publish-main.mjsのみ実行。次の記事へ進まない。作業全体は難度高。レビュー https://hiphop-git-review-darazuwares-projects.vercel.app/songs/cream/ （Vercelログイン保護あり）。詳細docs/cream-review-result-2026-10.md。
+
+### C.R.E.A.M. review送信／実機検証追補 — 2026-10-11 JST
+- Codex。87f20779938f336ce5c374c8b87550f1170fe454をreviewへpush、通常YouTube/Geniusフック合格、Vercel success。main74a1863不変。認証済み実reviewで24項目・23seek・候補109.78/136.401・写真2・商品5リンクの反映を確認。
+- ローカルYouTube再生不可の記録を補足: 実reviewでは再生時刻1:49→1:50、停止後1:50固定。390px全23箇所の再生と停止UI合格。実reviewのPC1440/390/320は実幅一致・横溢れ0・全5画像load合格。docs/cream-qa-2026-10の画像を実review撮影へ更新。本文／時刻への追加変更なし。
+- 人間待ちは発声開始2点＋導入のMV非収録の耳確認、本番公開承認。次1タスクと操作／モデルは上記の聴取確定のまま。GA4受信・成約とAmazon画像個別許諾の証跡は未取得。次の記事へ進まない。
+
+### C.R.E.A.M. 読者レビュー修正着手 — 2026-10-11 JST
+- Codex。ユーザー実測と統合指示を受け、creamだけの曲順・同一一節のブロック統合・fifteen/shorty前後文脈を修正。review45f3dbc/main74a1863と隔離clone clean一致。入口CLAUDE記事フロー、surgical-patch。対象cream本文・units/時刻・専用guard・証拠・本ボード。共通部品、他記事、動画、常設WIPを保全。
+- DoD三稿・Genius/引用増量なし/重複0・時系列/統合語の包含・各ゲート・PC390320再生停止/目次/画像。出口対象review push、本番は承認後publish-mainのみ。原24記録は履歴として保持し表示を15ブロックへ統合。ユーザー実測が旧確認値を上書きする根拠。lo goose「3409」の小数解釈を質問中、統合頭出し31秒には影響しない。
+
+### C.R.E.A.M. 読者レビュー本文修正・ローカル検証終了 — 2026-10-11 JST
+- Codex。lo gooseは34.9秒の明示返信で確定。Shaolinを独立して先に置き、金歯/Lo/G off、keys/MPV、fifteen/young、world/life、escape/bones、worth/Old Earth、proof/truth/youthを同じ一節へ統合。自然な区切りは16ブロック・15seek（着手時15案から修正）。元24語の記録は残し、ユーザー実測11のみ上書き、他13の時刻・原文を保全。
+- 三稿・文体・記事10項目/build・Genius実在/重複0・引用37%・公開安全・専用保全ガード・diff pass。引用eng207→198語、jpn538→525字。PC1440/390/320横溢れ0・画像6表示ロード、320px全16目次往復/15時刻表示確認。ローカルのYouTube実再生は判定せず、次はreview push後の実再生/停止確認。main/常設main-review WIP・他記事・動画・共通部品・publisherを保全。intro非収録の耳確認、GA4受信/成約、Amazon画像個別許諾は前回未確認のまま。証拠cream-reader-feedback JSON/cream-feedback-qa。
+
+### C.R.E.A.M. 読者レビュー修正終了・review実機確認 — 2026-10-11 JST
+- Codex。対象11ファイルを719be82でreviewへpush、通常フック合格・Vercel success。認証済み実reviewに16ブロック/15seek/ユーザー実測の反映を確認。390px全15再生→停止合格、PC1440/320のフックも再生停止合格、時刻進行と停止後固定を確認。320px全16目次往復、PC1440/390/320横溢れ0・記事画像5点load、ジャケット左/データ右を確認。目次画像3幅とbrowser JSONを保存。検証記録のみ追補commitして終了。
+- 完了: 今回指定の曲順・統合・fifteen/shorty文脈・実測11反映、文体/記事/引用/公開安全/専用/diff/UI。未完了: 本番公開（承認待ち）。旧導入の非収録の耳確認、GA4受信/成約、Amazon画像個別許諾は前回保留を継承。main74a1863、他記事/共通player/規定publisher/常設WIP/動画は変更0。
+- 次1タスク: CREAM最終レビューと公開可否の確定。理由: まとまりと実測反映をユーザーが確認した版だけを既定publish-mainへ渡すため。難度:中。推奨GPT-6.1 Sol/high。操作: reviewのcreamを再読み込みし、曲順/統合/前後文を確認して「CREAM公開」または修正箇所を返信。必要入力: 本番公開承認、旧導入の非収録の聴取結果（未確認のため引継ぎ）。次の記事へ進まない。
+
+### C.R.E.A.M. 提供画像・Instagram配置着手 — 2026-10-12 JST
+- Codex。最新origin/review=679d79d、main=74a1863、隔離review `/private/tmp/cream-reader-review` clean、担当競合なし。対象はcream本文の指定箇所・新画像3点・出典/利用条件台帳・専用保全検証・本ボードのみ。NY・他記事・共通部品・WIP・動画・確定再生位置・引用を保全。
+- 入口CLAUDE記事フロー/cream-reader-feedback/cream-review-result。DoD 16ブロック・15seek/時刻と引用の一致、画像/出典/Instagramの可否と代替リンク、文体/article/build/safety、PC1440/390/320・目次・再生停止。対象だけreview push、本番は承認後に既定publish-main.mjs。Instagram投稿URLはユーザーに照会中。
+
+### C.R.E.A.M. 提供画像・Instagram配置ローカル検証終了 — 2026-10-12 JST
+- Codex。New York Timesの直下へ提供Pexels写真、gold tooth直下へ提供Pexels写真、Lo goose直下へ提供AI画像、MPV説明直下へマツダ公式初代MPV写真を配置。Pexels元画像URL/金歯作品ページ・撮影者/利用条件、マツダ出典と再利用許諾未確認、AI生成表示を専用台帳に記録。Lo Life公式サイトの現行商品を根拠に一文追加。ユーザー確認によりInstagram埋め込み不要。
+- ユーザー指摘を受け、Stax Museumの写真はCREAMから除去。既存画像ファイルと元ネタ音源・収録盤の説明は保全し、別記事は未作成。16ブロック/15頭出し/確定時刻と歌詞引用は最新reviewと一致。tone、記事10項目（YouTube/Genius実取得）、公開安全、専用保全、diff全合格。PC1440/390/320横溢れ0・16目次・15再生/停止UI・画像5点ロード合格。ローカルYouTube音声はIAB制限で不可、前回実review再生停止結果を継承。NY/他記事/共通部品/動画/WIP変更0。対象だけreview push、本番は承認後の既定publish-main.mjsのみ。詳細docs/cream-provided-media-2026-10.jsonとqa JSON。
+
+### C.R.E.A.M. 提供画像review送信・配信確認終了 — 2026-10-12 JST
+- Codex。対象9ファイルのみ209c911でreview push、通常pre-push YouTube/Genius/引用・文体チェックpass。初回Vercelは「Git information retrieval failed」でビルド前失敗、同一コミットをPreview再デプロイしBV9zQSKE9zS2grgoGWRf7zvdGNan Ready。実reviewのPC1440/390/320で横溢れ0、16目次/15seek/15停止/記事画像5点ロードを確認。代表0:34の頭出し/停止表示は合格、今回IABで音声進行そのものは未再確認（前回実reviewの結果を継承）。レビューURL https://hiphop-git-review-darazuwares-projects.vercel.app/songs/cream/ 。main/NY/他記事/WIP/動画は保全。本番未公開、人間待ち：CREAMレビューと公開承認、既存のMV導入の耳確認は保留。次1タスクはCREAMの最終レビュー・公開可否判断（難度中、GPT-6.1 Sol/high）。
+
+### C.R.E.A.M. 写真注釈・Lo Life文・地図改稿着手 — 2026-10-12 JST
+- Codex。隔離review `/private/tmp/cream-reader-review` を使用、最新review 74f9a5e、clean。対象はCREAM本文・提供素材台帳・専用ガード/QA・本ボードのみ。Pexels写真とAI画像、MPV、フェリーの注釈をユーザー指定に合わせて短縮し、Lo Life文化の記述を一次情報で裏取り、指定Google Mapsを埋め込む。NY・他記事・WIP・動画・引用・16ブロック・確定再生位置は保全。
+- DoD: 三稿/記事/公開安全/専用保全、PC1440/390/320の画像/地図/目次/再生停止、対象だけreview pushと実URL確認。本番公開は承認後、既定publish-main.mjsのみ。人間待ち: 最終reviewと本番公開承認。
+
+### C.R.E.A.M. 写真注釈・Lo Life文・地図改稿終了 — 2026-10-12 JST
+- Codex。CREAMのPexels2点はユーザー提示の元画像URLへ「Pexelsより引用」の短いリンク、AI画像は「参考画像（AI生成）」、MPVは指定どおりの初代車種とマツダ100周年出典に変更。フェリーの2011年注釈のみ削り、CC BY-SAの撮影者・ライセンス表示を保全。Google Mapsを指定URLで埋め込み、320pxまで幅を追従させた。Lo LifeはRack-Lo本人のインタビュー、Ralph LaurenのSnow Beach記事と2026年PoloFest発表で裏取りし、ショップリンクを外してカルチャーと原色・切り返しの説明へ変更。Instagramはユーザー指定により不要、Stax Museum写真は引き続き掲載なし。
+- 文体・記事10項目（実YouTube/Genius確認）・build/公開安全・専用保全ガード・diff pass。16ブロック/15seek、確定時刻全記録と歌詞引用は承認済みreviewと一致。PC1440/390/320横溢れ0、地図幅600/358/288px、画像5点load、目次16件と15再生/停止UIを確認。Chromeの実reviewで0:34頭出しから0:45まで進行し、停止後0:45で固定。隔離cloneの対象5ファイルのみ6c3522fでreview push、通常pre-push pass、Vercel success、実reviewの改稿反映確認。詳細 `docs/cream-caption-map-qa-2026-10.json`。
+- 確認URL https://hiphop-git-review-darazuwares-projects.vercel.app/songs/cream/ 。main/NY/他記事/WIP/動画/共通player/既定publisher変更0。本番未公開。人間待ち: CREAM最終reviewと本番公開承認、旧MV導入の非収録に関する聴取結果は従来どおり保留。次1タスク: CREAMの最終レビュー・公開可否判断。理由: ユーザーが最新の注釈と地図を確認した版だけを既定publish-main.mjsへ渡すため。難度: 中。推奨 GPT-6.1 Sol/high。操作: review URLを再読み込みし、写真注釈/Lo Life文/地図を確認して「CREAM公開」または修正箇所を返信。
+
+### C.R.E.A.M. Jimmy Spicer Amazonリンク着手 — 2026-10-12 JST
+- Codex。隔離review `/private/tmp/cream-reader-review`、review 6675b28 clean。対象はCREAMのJimmy Spicer言及近傍、commerceデータ、商品確認記録、専用ガードと本ボード。実商品のAmazon直リンク・収録内容・ジャケット・tag/計測を確認し、16ブロック/15seek/引用、NY・他記事・WIP・動画は保全。
+- 入口: CLAUDE記事フロー・商品案内ルール。DoD: 商品実在と画像出典、記事10項目・文体・公開安全・専用保全、PC/390/320表示とリンク、review push/配信確認。本番は承認後に既定publish-main.mjsのみ。人間待ち: 最終review・公開承認。
+
+### C.R.E.A.M. Jimmy Spicer Amazonリンク終了 — 2026-10-12 JST
+- Codex。Amazon.co.jpの輸入CD B0BZMWPH2W（2023年コンピ盤）の1曲目にJimmy Spicer「Money (Dollar Bill Y'all) (Long Version)」が収録されることを商品ページとAce Recordsの曲目表で確認。1983年オリジナル盤と混同しない案内をJimmy Spicer言及の直下へ追加。既存の購入カードを再利用し、画像・文字リンクに別々のaffiliate positionと既存click計測を適用。商品画像の個別再利用許諾は未取得として台帳に記録。
+- 文体、記事10項目（実YouTube/Genius確認）、公開安全、専用保全、build、diff合格。16ブロック/15seek・確定時刻・引用の保全を確認。ローカルPC1440/390/320で横溢れ0、商品画像ロード、リンク先と[PR]表示を確認。対象5ファイルだけ2ff66cdでreview push、通常pre-push合格。Vercel自動プレビューが未起動のため同コミットのPreviewを作成し67CxZGtfVjgzdud41gsNaXBCZCxd Ready。固定review URLでカード・2リンク・画像679px・15seekを再確認。記録は `docs/cream-jimmy-spicer-amazon-2026-10.json`。
+- 確認URL https://hiphop-git-review-darazuwares-projects.vercel.app/songs/cream/ 。main/NY/他記事/WIP/動画/共通player/既定publisher変更0。本番未公開。人間待ち: CREAMの最終review・公開承認。次1タスク: review画面でJimmy Spicerの商品案内を確認し、公開可否を判断する（難度低、推奨 GPT-6.1 Sol/medium）。公開承認時だけ既定publish-main.mjsを使用。
+
+### C.R.E.A.M. 読書位置バー修正着手 — 2026-10-12 JST
+- Codex。隔離review `/private/tmp/cream-reader-review`、review 2aaf6b7 clean。ユーザー画像と実reviewの9項目目でPR誤表示を再現。原因は購入カードのdata-reading-sectionを現在の大節として記憶し続ける判定。CREAM限定でカード通過後は記事本体へ戻し、スマホの現在地/PRラベルを一行の薄いバーへ圧縮する。NY・他記事・WIP・動画、本文・引用・16ブロック・15seekは保全。
+- 入口: CLAUDE記事フロー/ReadingGuide。DoD: 専用保全・build・公開安全、320/390/PCで9以降のPR誤表示なし・購入カード上ではPR・目次ジャンプ・横溢れ0・再生停止。出口: 対象差分だけreview pushと実review確認。本番は承認後に既定publish-main.mjsのみ。
+
+### C.R.E.A.M. 読書位置バー修正終了・本番公開着手 — 2026-10-12 JST
+- Codex。b4f9e34をreviewへpushし、Vercel Readyの実reviewでPC/390/320を確認。スマホのバーは46px、9項目目は「本文 09/16」、PRカード中のみPR、目次往復・横溢れ0。16ブロック/15seek/確定時刻/引用不変、文体・記事10項目・build・公開安全・専用保全合格。NY・他記事・WIP・動画は変更なし。
+- ユーザーが2026-10-12に本番公開を明示承認。公開直前の差分監査でreviewに残ったCREAM外のランキング変更と運用ファイル2件の削除を検出し、origin/mainの内容へ復元。対象をCREAM関連へ限定してから既定`agent/src/publish-main.mjs`で本番公開する。人間待ちなし。次1タスク: 本番URLでCREAMの表示・再生導線を確認する。

@@ -1,775 +1,436 @@
 ---
 import LearningUnit from '../../components/LearningUnit.astro';
-import RelatedColumnTeaser from '../../components/RelatedColumnTeaser.astro';
-import DiveCards from '../../components/DiveCards.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
+import AmazonMusicReference from '../../components/AmazonMusicReference.astro';
+import shop from '../../data/cream-commerce.json';
 import SongLayout from '../../layouts/SongLayout.astro';
 
-// 学習ユニットのPVタイムスタンプ。agent/src/extract-unit-timestamps.mjs で album音源を
-// whisper単語アライメントして取得（whisperSec）し、運営者の実測値があれば manualSec が
-// 上書きする二層構造（manualSec優先）。一律オフセット補正は廃止。
-// crime-side / lo-goose は運営者がPVで実測した値（manualSec=23 / 33）。
+// 公式Edited MVの時間軸。運営者の実測を優先し、字幕・推定は≈表示。同じ一節の表現は頭出しを共有。
 import tsData from '../../../agent/cream/assets/units-timestamps.json';
 const YT = "PBwAxmrE194";
-const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.approx }]));
+const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.source !== "manual" }]));
+const units = [{"id": "intro-vendor", "title": "Two for five"}, {"id": "crime-side", "title": "crime side / Times side / no jive"}, {"id": "shaolin-land", "title": "Shaolin land"}, {"id": "g-off", "title": "gold tooth / ’Lo goose / G off"}, {"id": "runnin-up-gates", "title": "woolies / runnin’ up in gates"}, {"id": "keys-seas", "title": "keys / seas / MPV / forty G’s"}, {"id": "tec-9", "title": "here go / TEC-9"}, {"id": "cream-hook", "title": "C.R.E.A.M. / y’all"}, {"id": "fifteen-bagged", "title": "fifteen / young buck / could not"}, {"id": "shorty-life", "title": "shorty"}, {"id": "world-cell", "title": "life is hell / world / cell"}, {"id": "jakes-base", "title": "Jakes / base / bones / staircase"}, {"id": "whats-it-worth", "title": "What’s it worth? / Old Earth"}, {"id": "stickup-kids", "title": "stickup kids / stray shots"}, {"id": "livin-proof", "title": "livin’ proof / kick the truth / youth"}, {"id": "dollar-outro", "title": "dollar / y’all"}];
 ---
 
-<SongLayout
-  title="C.R.E.A.M. 英語・スラング解説 | Wu-Tang Clan"
-  description="Wu-Tang ClanのC.R.E.A.M.を英語学習＋ヒップホップ理解の教材として精読。'Lo goose・G off・keys・Old EarthなどのスラングとAAVE、RZAのサンプリングを表現単位で解説。各表現はPVの該当箇所へ頭出しリンク付き。"
-  slug="cream"
-  learningPage={true}
-  songDuration={252}
-  highlights={[
-    'C.R.E.A.M.は拝金主義ではなく貧困の構造的暴力への告発',
-    'スラング・韻・言葉遊びを「学ぶ表現」単位で解説（PV頭出しリンク付き）',
-    'RZAのサンプリング哲学とLoFi Hip-Hopの源流',
-  ]}
-  youtubeId="PBwAxmrE194"
-  sampleYoutubeId="gp9uZjPaB4w"
-  sampleTitle="The Charmels - As Long As I've Got You"
->
-
-    <!-- ===================== -->
-    <!-- 導入                  -->
-    <!-- ===================== -->
-    <section class="mb-6">
-      <h2 class="text-base font-semibold mb-2">■この曲で何を学べるか</h2>
-      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
-        <p>Cash Rules Everything Around Me（金が周りのすべてを支配する）。クラック・エピデミックが蔓延したインナーシティで、金のために生き、金のために死ぬほかない若者たちの絶望を描いた曲です。</p>
-        <p>1994年のアルバム『Enter the Wu-Tang (36 Chambers)』に収められています。</p>
-        <p>「俺はこんなに金持ってんだぜ」というFLEX的な拝金の讃歌ではありません。両脇を絶望のバースに挟むことで、金がなければ死ぬという現実への悲鳴に反転させてしまう。</p>
-        <p>ここがこの曲のえぐいところです。</p>
-        <p>
-          色々いるウータン（Wu-Tang Clan）のメンバーの中でも、ここでラップするのは <strong class="text-[var(--c-text)]">RaekwonとInspectah Deck</strong>、そしてHOOK担当が <strong class="text-[var(--c-text)]">Method Man（メソッドマン）</strong>という少数精鋭の構成。
-        </p>
-        <p>
-          リリックには、辞書に載らないストリートスラング、AAVE（アフリカ系アメリカ人英語）の文法、二重・三重の意味を仕込んだ言葉遊び、そして韻の構築がぎっしり。それを「学ぶ表現」単位で取り出して、用例の断片・和訳・語法と文化背景を解説していきます。
-        </p>
-      </div>
-    </section>
-
-    <section class="mb-6">
-      <h2 class="text-base font-semibold mb-2">■なぜC.R.E.A.M.が教材になるのか</h2>
-      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
-        <p>
-          理由はシンプルで、<strong class="text-[var(--c-text)]">生きたストリート言語の密度</strong>が桁違いだからです。教科書英語からは決して出てこない語彙と文法が、数語のなかにいくつも畳み込まれている。
-        </p>
-        <p>
-          「G off」のように、たった2語に三つの意味を通す言葉遊びが平気で出てきます。この<strong class="text-[var(--c-text)]">言葉の圧縮力</strong>を体感できるのが、この曲を教材にしたい一番の理由なんです。
-        </p>
-        <p>制作はRZA。The Charmelsの哀愁ピアノをサンプリングし、Wu-Tang Clanで最大のヒットとなって4×プラチナに認定されました。</p>
-        <p>しかも「C.R.E.A.M.」という単語は後に「現金」を意味するスラングとして英語の辞書に載ったそうです（本場だけあって、HIPHOPの影響力すごすぎ）。</p>
-        <p>
-          当時は西海岸のG-Funk全盛の時代でした。そのなかでスタテンアイランド（＝Shaolin＝少林）から放たれた東海岸の反撃、という文脈も一緒に知っておくと、聴こえ方が変わってくると思います。
-        </p>
-      </div>
-    </section>
-
-    <!-- Table of Contents -->
-    <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
-      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
-      <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
-        <li><a href="#story" class="hover:text-[var(--c-gold)] transition-colors">01 — ストーリーの流れ（まず曲全体をつかむ）</a></li>
-        <li><a href="#units" class="hover:text-[var(--c-gold)] transition-colors">02 — 学ぶ表現（スラング・韻・言葉遊び・AAVE）</a></li>
-        <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">03 — 文化的背景</a></li>
-        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">04 — 評価とその後の影響</a></li>
-      </ol>
-    </nav>
-
-    <!-- ===================== -->
-    <!-- ストーリー要約（散文・まず全体像）  -->
-    <!-- ===================== -->
-    <section id="story" class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        ストーリーの流れ — まず曲全体をつかむ
-      </h2>
-      <p class="text-xs text-[var(--c-dim)] mb-5">
-        個々のスラングに入る前に、まず曲が何を語っているかをざっと散文でつかんでおきましょう。全体の物語が頭に入っていると、次章「学ぶ表現」で一語一語を掘るときに、その言葉が物語のどこに位置するのかが立体的に見えてきます。
-      </p>
-      <div class="space-y-4 text-sm text-[var(--c-muted)] leading-relaxed">
-        <p>
-          曲は、ストリートのドラッグ売買の生々しい客引き（「2個で5ドル」という路上相場）から幕を開けます。RaekwonとMethod Manの語りが、これから語られる世界の温度を先に提示する導入。
-        </p>
-        <p>
-          <strong class="text-[var(--c-text)]">Verse 1（Raekwon）</strong>。犯罪多発地域で育った少年が、金歯とポロのダウンを身にまとい、麻薬の稼ぎだけが「のし上がる唯一の方法」だった過去を語っていきます。
-        </p>
-        <p>
-          トラップハウスへの強盗、コカインの密輸、毎週4万ドル。それだけ稼いでも人生は一向に良くならず、同じセーターを着続ける無限ループとして描かれるのが切ない。
-        </p>
-        <p>
-          そして終盤、密輸の「keys」が音楽の「keys」へとスッと転じて、Wu-Tangでの合法的な成功へと物語が折り返します。
-        </p>
-        <p>
-          <strong class="text-[var(--c-text)]">Hook（Method Man）</strong>の「Cash rules everything around me」は、両脇を絶望のバースに挟まれることで、拝金の讃歌ではなく「金がなければ死ぬ」という現実への悲鳴として響いてくる。
-        </p>
-        <p>
-          同じ一行でも、どこに置かれるかで意味が変わるわけです。
-        </p>
-        <p>
-          <strong class="text-[var(--c-text)]">Verse 2（Inspectah Deck）</strong>は、15歳での投獄、世界そのものが独房だという比喩、母（Old Earth）の教え、そして強盗・悪徳警官・流れ弾が渦巻く街区へと展開していきます。
-        </p>
-        <p>
-          生き証人として若者に説こうとするが、彼らはかつての自分と同じで聞く耳を持たない。サイクルは終わらないまま、フックがもう一度繰り返されてフェードアウトしていきます。
-        </p>
-        <p>
-          映画のような悲劇構造で曲は閉じていきます。
-        </p>
-        <p class="text-xs text-[var(--c-dim)]">
-          ※本ページは批評・教育目的で、解説に必要な範囲の断片のみを引用しています。全歌詞の対訳は掲載していません。
-        </p>
-      </div>
-    </section>
-
-    <!-- ===================== -->
-    <!-- Deep-Dive Teaser (BEFORE units) -->
-    <!-- ===================== -->
-    <RelatedColumnTeaser
-      eyebrow="関連コラム — 読み込む前に"
-      cards={[
-        {
-          href: "/columns/crack-epidemic-hiphop",
-          kicker: "COLUMN ／ 文化・歴史",
-          title: "クラック・エピデミックとヒップホップ",
-          desc: "1980〜90年代インナーシティの実像。このバースが産まれた時代背景をまず知ると、解説の密度が変わります。",
-          time: "約5分",
-        },
-        {
-          href: "/columns/ny-golden-era-1994",
-          kicker: "COLUMN ／ 時代解説",
-          title: "1994年 NYヒップホップ黄金期",
-          desc: "Nas・Wu-Tang・The Notorious B.I.Gが同時に産まれた年。C.R.E.A.M.リリースの同年、なにが起きていたのかを綴っています。",
-          time: "約7分",
-        },
-      ]}
-    >
-      下は<strong>別ページのコラム</strong>。先に時代背景を入れておくと、解説の入りが段違いになります。
-    </RelatedColumnTeaser>
-
-    <!-- ===================== -->
-    <!-- 学習ユニット群（主役）  -->
-    <!-- ===================== -->
-    <div id="units"></div>
-    <section class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2 border-b border-[var(--c-border)] pb-2">
-        学ぶ表現 — スラング・韻・言葉遊び・AAVE
-      </h2>
-      <p class="text-xs text-[var(--c-dim)] mb-6">各見出しは「この曲から学べる英語表現」。各ユニットはまず上に英語の用例（1〜2行）を置いてあります。</p>
-      <p class="text-xs text-[var(--c-dim)] mb-6"><strong class="text-[var(--c-text)]">先に英語を音で追い、行のどこが学習対象かを確かめてから</strong>下の日本語解説に進むと、英語が苦手でも置いていかれません。</p>
-
-      <!-- ⓪ intro dialogue -->
-      <LearningUnit
-        heading="Two for five — 路上相場の呼び声から始まる"
+<SongLayout title="C.R.E.A.M. 英語・スラング解説 | Wu-Tang Clan"
+ description="Wu-Tang Clan『C.R.E.A.M.』の意味、スラング、韻とAAVEを16のまとまりから解説。RaekwonとInspectah Deckの物語、RZAの元ネタ、36 ChambersのCDと原曲収録盤を案内。"
+ slug="cream" learningPage={true} guidedReading={true} songDuration={242}
+ highlights={['Raekwonの稼ぎとDeckの収監を、同じ金のフックがつなぐ','16のまとまりからスラング・韻・AAVEを読む','The CharmelsのピアノからRZAのループへ']}
+ youtubeId="PBwAxmrE194" sampleYoutubeId="gp9uZjPaB4w" sampleInContent={true} sampleTitle="The Charmels - As Long As I've Got You">
+ <div id="song-reading-body">
+ <section id="start-here" data-reading-section="01 · 金のフックと二人の暮らし" class="mb-8 scroll-mt-40" style="scroll-margin-top:240px">
+  <h2>金のフックと、稼いでも抜け出せない暮らし</h2>
+  <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+   <p>Raekwonは麻薬で稼いだ過去を語り、<br />Inspectah Deckは収監とその後の暮らしを語ります。</p>
+   <p>二人の間でMethod Manが繰り返すのは、金が身の回りを支配するというフック。<br />稼ぎの自慢だけでは終わらない曲です。</p>
+  </div>
+  <div class="record-summary" aria-label="作品データ">
+   <img src="https://m.media-amazon.com/images/I/71BUBWTvyhL._AC_SX679_.jpg" width="112" height="112" alt="Enter the Wu-Tang (36 Chambers)のジャケット" />
+   <dl><dt>作品</dt><dd>C.R.E.A.M.</dd><dt>収録盤</dt><dd>Enter the Wu-Tang (36 Chambers)</dd><dt>発売</dt><dd>アルバム 1993年／シングル 1994年</dd><dt>制作</dt><dd>RZA</dd><dt>ラップ</dt><dd>Raekwon／Inspectah Deck</dd><dt>フック</dt><dd>Method Man</dd></dl>
+  </div>
+  <nav class="reading-entries" aria-label="読み始める3つの入口">
+   <a href="#story"><strong>意味から読む</strong><span>稼ぎと収監を語る二人の流れ</span></a>
+   <a href="#units"><strong>表現から読む</strong><span>スラング・韻・AAVEの16項目</span></a>
+   <a href="#sample"><strong>元ネタから聴く</strong><span>The CharmelsのピアノとRZAのループ</span></a>
+  </nav>
+ </section>
+ <nav id="article-toc" class="article-toc scroll-mt-40" aria-label="記事の目次" style="scroll-margin-top:240px">
+  <h2>目次</h2><ol>
+   <li><a href="#story">01 · 曲の話をつかむ</a></li>
+   <li><a href="#units">02 · 学ぶ表現</a><details><summary>16項目を選ぶ</summary><ol>{units.map((u,i)=>(<li><a href={`#point-${u.id}`}>{i+1}. {u.title}</a></li>))}</ol></details></li>
+   <li><a href="#background">03 · Shaolinとスタテンアイランド</a></li>
+   <li><a href="#sample">04 · 元ネタのピアノを聴く</a></li>
+   <li><a href="#records">05 · 収録盤を聴く・探す</a></li>
+  </ol>
+ </nav>
+ <section id="story" data-reading-section="01 · 曲の話をつかむ" class="mb-8 scroll-mt-40" style="scroll-margin-top:240px">
+  <h2>二人の過去を、同じフックがつなぐ</h2>
+  <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+   <p>Raekwonは、身なり、薬物、強盗と稼ぎを語ります。<br />金が入っても暮らしが良くならなかった、という振り返りです。</p>
+   <p>Deckは、少年時代の収監から母の助言、若者への語りかけへ。<br />経験を伝えようとしても聞いてもらえないまま、金のフックが戻ってきます。</p>
+  </div>
+ </section>
+ <section id="units" data-reading-section="02 · 学ぶ表現" class="mb-12 scroll-mt-40" style="scroll-margin-top:240px">
+  <h2>学ぶ表現</h2>
+  <p class="playback-note">頭出しは公式Edited MV（4:02）の時間軸です。</p>
+<p>同じ一節の表現は、引用と頭出しをまとめています。<br />「≈」は聴取未確認の字幕位置。</p><p>冒頭の掛け合いはMV非収録です。</p>
+<div id="point-intro-vendor" class="scroll-mt-40">
+<LearningUnit
+        heading="Two for five — 数と価格を組み合わせる路上の呼び声"
         label="★ スラング／導入"
         mc="Raekwon &amp; Method Man（Intro）"
-        t={TS["intro-vendor"].t} tApprox={TS["intro-vendor"].approx} youtubeId={YT}
+        t={TS["intro-vendor"].t} tApprox={TS["intro-vendor"].approx} preciseSeek={true} youtubeId={YT}
         embed=""
       >
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 曲のいちばん最初、バースが始まる前の路上の掛け合い。ここは語だけ取り出します。</p>
-        <p class="text-xs text-[var(--c-dim)] mb-1">※この導入部はアルバム版のみで、上の公式MVには収録されていません。アルバム『Enter the Wu-Tang (36 Chambers)』で聴けます。</p>
-        <p>曲はラップではなく、路上の呼び声から幕を開けます。ここで飛び交うのが <strong class="text-[var(--c-text)]">two for five</strong>（2個で5ドル）という言い回し。</p>
-        <p>数字＋for＋数字で「いくつでいくら」を示す、露店や街角の売り買いでそのまま使う口語です。ここでは売られているのが日用品ではなく、ドラッグだというのがミソです。</p>
-        <p>相場の呼び声をそのまま曲頭に置くことで、これから語られる世界の温度が、歌詞が始まる前にもう決まってしまいます。「舞台は路上、通貨はドラッグ」という前提を、説明ぬきで耳に刷り込む導入になっています。</p>
-        <p>掛け合いの主はRaekwonとMethod Man、この二人がバースとフックの担い手なので、声の顔ぶれの予告にもなっています。</p>
-      </LearningUnit>
 
-      <!-- ① crime side / no jive（冒頭2行を1unitで） -->
-      <LearningUnit
-        heading="crime side / Times side / no jive — 冒頭2行に詰まった韻とスラング"
+<div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+<p>アルバム版の導入では、two for five（2個で5ドル）という売り声が聞こえます。</p>
+<p>数量＋for＋価格で「いくつでいくら」を示す形。<br />
+売り物や単位は、会話の相手が知っていれば省けます。</p>
+<p>この場面の売り物はドラッグ。<br />
+ラップが始まる前から、路上の取引を曲の中へ持ち込んでいます。</p>
+<p>この掛け合いは上のEdited MVには非収録として記録されています。<br />
+アルバム版とは時間軸が違うため、ここにはMVの頭出しを付けていません。</p>
+</div>
+
+</LearningUnit>
+<a class="back-toc" href="#article-toc">目次へ ↑</a>
+</div>
+<div id="point-crime-side" class="scroll-mt-40">
+<LearningUnit
+        heading="crime side / Times side / no jive — 街の呼び方と二組の韻"
         label="★ 言葉遊び／イディオム"
         mc="Raekwon（Verse 1）"
-        t={TS["crime-side"].t} tApprox={TS["crime-side"].approx} youtubeId={YT}
+        t={TS["crime-side"].t} tApprox={TS["crime-side"].approx} preciseSeek={true} youtubeId={YT}
         embed=""
       >
-        <Fragment slot="eng">I grew up on the crime side, the New York Times side<br />Stayin' alive was no jive</Fragment>
-        <Fragment slot="jpn">犯罪が蔓延る側、（だが）ニューヨーク・タイムズ紙に載る側で育った／生き延びるのは、冗談ごとじゃなかった</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1のいちばん最初、Raekwonがこの曲世界の口火を切る2行。学ぶ表現が2つ続けて出てくるので、ここはまとめて見ていきます。</p>
-        <p class="mt-3 mb-1 font-bold text-[var(--c-text)]">1. crime side / New York Times side（同音をぶつける言葉遊び）</p>
-        <p>まず上の1行目を音で追ってみると、鍵は行の前半 <strong class="text-[var(--c-text)]">crime side</strong>（犯罪多発地域）と後半 <strong class="text-[var(--c-text)]">Times side</strong>、ここで同じ「- side」の音が返ってくるのに気づきます。冒頭の一行にもう脚韻が仕込まれているんです。</p>
-        <p>そのうえ後半の <strong class="text-[var(--c-text)]">New York Times</strong> が「権威ある新聞」と「自分の街＝ニューヨーク」のダブルミーニング。つまり「育った場所は、事件として新聞の三面記事に載るような街だった」を、固有名詞ひとつにギュッと畳んでいる。</p>
-        <p><code>- side</code> を韻の軸に据えるこの作り、ラップを聴けば一気に腑に落ちます。</p>
-        <p class="mt-3 mb-1 font-bold text-[var(--c-text)]">2. no jive（「マジな話」を意味するイディオム）</p>
-        <p>続く2行目の後半、<strong class="text-[var(--c-text)]">was no jive</strong> がもうひとつの学習ポイント。<strong class="text-[var(--c-text)]">jive</strong> はもともと「でたらめ・ふざけた話」を指す黒人英語の古い語で、<code>no jive</code> で「冗談ごとじゃない・マジな話」という意味になります。</p>
-        <p>「生き延びることは、ちっとも軽い話じゃなかった」というわけです。</p>
-        <p>音のうえでも <code>alive / jive</code> で脚韻を踏んでいて、意味と韻が同時に決まっている。jive は1970年代のスラング（映画やソウルの歌詞で有名）で、90年代のバースにこの古語が自然に出てくるあたり、ストリート英語が世代を越えて受け継がれているのだと分かります。</p>
-        <p><code>no 〜</code> で名詞を否定して「〜なんかじゃない」と言い切る形は、口語で幅広く使えます。</p>
-        <Fragment slot="usage">
+<Fragment slot="eng">I grew up on the crime side, the New York Times side<br />Stayin' alive was no jive</Fragment>
+<Fragment slot="jpn">犯罪が蔓延る側、（だが）ニューヨーク・タイムズ紙に載る側で育った／生き延びるのは、冗談ごとじゃなかった</Fragment>
+<div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+<p>1行目ではcrime sideとTimes sideが同じsideで返ってきます。<br />
+その間のcrimeとTimesも、母音の響きが近い組み合わせです。</p>
+<p>crime sideは犯罪のある側、New York Timesは新聞名。<br />
+自分の育った街を、事件が新聞に載る側として読むことができます。</p>
+<figure class="context-photo"><img src="/images/context/cream/new-york-times-provided.png" width="2000" height="700" loading="lazy" alt="現在のThe New York Times紙を手に持つイメージ写真" />
+<figcaption><a href="https://images.pexels.com/photos/17608510/pexels-photo-17608510.jpeg" target="_blank" rel="noopener noreferrer">Pexelsより引用</a></figcaption></figure>
+<p>次の行ではaliveとjiveが韻の組。<br />
+jiveはでたらめやふざけた話を指し、no jiveなら「冗談じゃない」という意味になります。</p>
+<p>生き延びる話にno jiveを添えることで、軽口で済む話ではなかったと念を押しています。</p>
+</div>
+<Fragment slot="usage">
           <p><strong class="text-[var(--c-text)]">jive</strong> は名詞・形容詞で「でたらめ（な）」。<em>Don't give me that jive</em>（たわ言はやめろ）、<em>a jive story</em>（いいかげんな話）のように使う。</p>
           <p><code>no jive</code> は「本気だ・ウソじゃない」と念押しする決まり文句。</p>
           <p>同系の口語に <em>no joke</em>（冗談抜き）、<em>for real</em>（マジで）がある。jive はやや古風で、レトロな響きを出したいときに効く。</p>
         </Fragment>
-      </LearningUnit>
-
-      <!-- ② 'Lo goose -->
-      <LearningUnit
-        heading="'Lo goose — ブランド名がステータス語彙になる"
-        label="★ スラング／文化"
-        mc="Raekwon（Verse 1）"
-        t={TS["lo-goose"].t} youtubeId={YT}
-        embed=""
-      >
-        <Fragment slot="eng">So then we moved to Shaolin land<br />A young youth, yo, rockin' the gold tooth, <QuickSlang word="'Lo goose" desc="Polo Ralph Laurenのグースダウンジャケット。当時のゲットーにおける最高のステータスアイテム" /></Fragment>
-        <Fragment slot="jpn">それで俺たちはシャオリン（＝スタテンアイランド）へ移った／血気盛んな若者、金歯を光らせ、ポロのダウンを着こなす</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1前半、Raekwonが少年時代の出で立ちを描く件。上は2行で、学習対象は下の行。</p>
-        <p>上の行の<strong class="text-[var(--c-text)]">いちばん最後</strong>、「…rockin' the gold tooth, <strong class="text-[var(--c-text)]">'Lo goose</strong>」。この行末の <strong class="text-[var(--c-text)]">'Lo goose</strong> が学習ポイントです。</p>
-        <p><strong class="text-[var(--c-text)]">'Lo</strong> は Polo（Ralph Lauren）の略、<strong class="text-[var(--c-text)]">goose</strong> はグースダウン（羽毛）ジャケット。つなげて「'Lo goose」＝ポロのダウンジャケット。</p>
-        <p>面白いのは、本来は白人富裕層の象徴だったラルフローレンを、万引き集団 <strong class="text-[var(--c-text)]">Lo-Lifes</strong> や麻薬資金で手に入れ、自分たちのステータス記号へ堂々と読み替えたゲットー文化が、この一語に丸ごと入っているところ。</p>
-        <p>すぐ手前の <code>rockin'</code>（＝wearing、着こなす）も、AAVE的な動詞を使った表現。</p>
-        <Fragment slot="usage">
-          <p><strong class="text-[var(--c-text)]">rock</strong> は「（服・靴・アクセサリーなどを）かっこよく身につける／着こなす」という他動詞。<code>rock + 名詞</code>の形で使い、単に着る（wear）よりも「それを堂々と見せびらかす・似合っている」というニュアンスが乗る。</p>
-          <p>例: <em>rock a gold chain</em>（金のチェーンをキメる）、<em>rock those sneakers</em>（あのスニーカーを履きこなす）。進行形 <code>rockin'</code> で「今まさに着こなしている」状態を表す。</p>
-          <p>ブランド名を短縮した <strong class="text-[var(--c-text)]">'Lo</strong>（＝Polo）のように、ヒップホップでは固有名詞を切り詰めてスラング化するのが定石。リスナーが元を補完できる前提で、語感とリズムを優先して縮める。</p>
-        </Fragment>
-      </LearningUnit>
-
-      <!-- ②a gold tooth -->
-      <LearningUnit
-        heading="rockin' the gold tooth — 貧しさの中の見栄というアイテム"
-        label="★ スラング／文化"
-        mc="Raekwon（Verse 1）"
-        t={TS["gold-tooth"].t} tApprox={TS["gold-tooth"].approx} youtubeId={YT}
-        embed=""
-      >
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ ②「'Lo goose」と同じ行の前半。少年時代の身なりを描く件。</p>
-        <p class="text-xs text-[var(--c-dim)] mb-1">前ユニットで引いた行なので語だけ取り出します。</p>
-        <p>ユニット②で引いた行、その前半に出てくる <strong class="text-[var(--c-text)]">gold tooth</strong>（金歯）が今回の学習ポイント。文字どおり金でできた差し歯・被せ歯のことで、<code>rockin' the gold tooth</code> で「金歯を光らせている」。</p>
-        <p>②で見た動詞 <strong class="text-[var(--c-text)]">rock</strong>（かっこよく身につける）が、ここでも効いています。</p>
-        <p>金歯は、当時のインナーシティで<strong class="text-[var(--c-text)]">「持たざる者のジュエリー」</strong>のような意味を持っていました。高価な宝石は買えなくても、口元に金を仕込むことで富の記号をまとえます。</p>
-        <p>'Lo goose（ポロのダウン）と並べて置かれることで、貧しさの中でこそステータスに執着する感覚が、身なりの描写だけで立ち上がってきます。モノを列挙するだけで人物の背景を語る、ヒップホップの人物描写の基本形です。</p>
-      </LearningUnit>
-
-      <!-- ②b Shaolin land -->
-      <LearningUnit
-        heading="moved to Shaolin land — 地名を神話に変える"
+</LearningUnit>
+<a class="back-toc" href="#article-toc">目次へ ↑</a>
+</div>
+<div id="point-shaolin-land" class="scroll-mt-40">
+<LearningUnit
+        heading="Shaolin land — スタテンアイランドの別名"
         label="★ スラング（地域語）"
         mc="Raekwon（Verse 1）"
-        t={TS["shaolin-land"].t} tApprox={TS["shaolin-land"].approx} youtubeId={YT}
+        t={TS["shaolin-land"].t} tApprox={TS["shaolin-land"].approx} preciseSeek={true} youtubeId={YT}
         embed=""
       >
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1前半、②「'Lo goose」の少し手前で出てくる地名。語だけ取り出します。</p>
-        <p>Raekwonは自分が移り住んだ土地を <strong class="text-[var(--c-text)]">Shaolin land</strong> と呼びます。学習ポイントはこの <strong class="text-[var(--c-text)]">Shaolin</strong>。</p>
-        <p>地図上のどこにも「シャオリン」という街はありません。これはWu-Tang Clanが自分たちの地元スタテンアイランドに付けた<strong class="text-[var(--c-text)]">符牒（あだ名としての地名）</strong>です。</p>
-        <p>カンフー映画の聖地・少林寺（Shaolin）を、麻薬と暴力の島に重ねる。過酷な現実の街を、武術修行の霊山として読み替えてしまう発想が、この一語に詰まっています。</p>
-        <p>固有名詞を知らないと字面では追えないけれど、背景が分かった瞬間に世界観が立ち上がります。スラングが地図であると同時に神話にもなる好例です（島の孤立とこの呼称の由来は「文化的背景」でもう少し掘ります）。</p>
-      </LearningUnit>
 
-      <!-- ③ G off -->
-      <LearningUnit
-        heading="G off — 一語に三つの意味を畳む（トリプルエンタンドル）"
-        label="★ 言葉遊び（最重要）"
-        mc="Raekwon（Verse 1）"
-        t={TS["g-off"].t} youtubeId={YT}
-        embed=""
-      >
-        <Fragment slot="eng">A young youth, yo, rockin' the gold tooth, 'Lo goose<br />Only way I begin to <QuickSlang word="G off" desc="①Get off（成功する・抜け出す）②Gangstaとして動く③G（Grand=1000ドル）を稼ぐ、のトリプルミーニング" /> was drug loot</Fragment>
-        <Fragment slot="jpn">血気盛んな若者、金歯を光らせ、ポロのダウン／のし上がる唯一の方法は、麻薬の稼ぎしかなかった</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1前半、②「'Lo goose」のすぐ次の行。Raekwonが"のし上がる道"を語る件。</p>
-        <p class="text-xs text-[var(--c-dim)] mb-1">学習対象は下の行。</p>
-        <p>上の行の真ん中、「Only way I begin to <strong class="text-[var(--c-text)]">G off</strong> was drug loot」。この <strong class="text-[var(--c-text)]">G off</strong> の二語が、この曲いちばんの仕掛けです。</p>
-        <p>ここに三つの意味が同時に通っています。①<em>get off</em>＝ゲットーを抜け出す／成功する、②<em>gangsta</em> として動く、③<em>G（grand＝1,000ドル）</em>を稼ぐ。</p>
-        <p>たった2語で三重に読める。Geniusでも「12音節のトリプルエンタンドル」として知られる箇所です。</p>
-        <p>行末の <code>loot</code>（戦利品・金）も、定番のストリートスラング。</p>
-        <Fragment slot="usage">
-          <p>核になる <strong class="text-[var(--c-text)]">get off</strong> は句動詞で、文脈により意味が振れる多義語。ここでは「（厳しい環境から）抜け出す・うまくいく」の意で使われています。</p>
-          <p><code>get off + (the streets / the block)</code> なら「ストリートから足を洗う」、文末で単独だと「成功する・キマる」。聞き手は前後関係から意味を選び取る。</p>
-          <p>その<strong class="text-[var(--c-text)]">どれにも取れる曖昧さ</strong>こそ、ここでは <em>gangsta として動く</em>・<em>G（=1,000ドル）を稼ぐ</em> の読みも同時に走らせる仕掛けになっています。</p>
-          <p>学習上のコツ: 句動詞は「動詞＋前置詞/副詞」を1セットの意味として丸ごと覚える。get off を「get＋off」と分解せず、「抜け出す」という1語の感覚で蓄えると、リスニングで瞬時に取れます。</p>
-        </Fragment>
-      </LearningUnit>
+<div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+<p>Shaolinは、Wu-Tangがスタテンアイランドを呼ぶときの名前です。<br />
+少林寺を指す語を、自分たちの島へ重ねています。</p>
+<p>landが続くので、ここでは地名として読むところ。<br />
+少林寺へ実際に引っ越した、という意味ではありません。</p>
+<p>カンフー映画の語彙が、メンバーの育った場所を語る言葉にもなる。<br />
+下の文化背景では島の位置を写真と地図で確認できます。</p>
+</div>
 
-      <!-- ④ runnin' up in gates / woolies -->
-      <LearningUnit
-        heading="runnin' up in gates — 句動詞＋名詞スラングで情景を圧縮"
+</LearningUnit>
+<a class="back-toc" href="#article-toc">目次へ ↑</a>
+</div>
+<div id="point-g-off" class="scroll-mt-40"><span id="point-gold-tooth"></span><span id="point-lo-goose"></span>
+<LearningUnit heading="gold tooth / ’Lo goose / G off — 身なりから稼ぎの話へ" label="★ スラング／表現" mc="Raekwon（Verse 1）" t={TS["gold-tooth"].t} tApprox={TS["gold-tooth"].approx} preciseSeek={true} youtubeId={YT} embed="">
+<Fragment slot="eng">gold tooth, 'Lo goose<br />Only way I begin to <QuickSlang word="G off" desc="麻薬で得た金でのし上がる、という文脈。Gはgrandやgangstaも連想させる文字" /> was drug loot</Fragment>
+<Fragment slot="jpn">金歯を光らせ、Poloのダウンを着こなす／のし上がる唯一の方法は、麻薬の稼ぎだった</Fragment>
+<div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+<p>gold toothは金歯。口元の飾りを、身なりのひとつとして挙げています。</p>
+<figure class="context-photo"><img src="/images/context/cream/gold-tooth-provided.png" width="1000" height="450" loading="lazy" alt="金色の歯飾りを見せる口元の参考写真" />
+<figcaption><a href="https://images.pexels.com/photos/38742471/pexels-photo-38742471.jpeg" target="_blank" rel="noopener noreferrer">Pexelsより引用</a></figcaption></figure>
+<p>’Lo gooseはPoloのグースダウンジャケット。<br />’LoはPoloを短くした呼び方です。</p>
+<figure class="context-photo"><img src="/images/context/cream/lo-goose-ai-provided.jpeg" width="1632" height="656" loading="lazy" alt="色鮮やかなダウンジャケットを着た3人を描いたAI生成イメージ" />
+<figcaption>参考画像（AI生成）</figcaption></figure>
+<p>Lo Lifeは服のブランド名だけでなく、Poloを全身で着こなすところから育ったカルチャーでもあります。<br />90年代のPoloに見られた赤・黄・青の原色や大胆な色の切り返しに熱狂した人たちがいて、そのスタイルは今も語り継がれています。</p>
+<p>服とカルチャーの話は、いつか別の記事でじっくり扱いたいです。</p>
+<p>この手前のrockin’は「かっこよく身につける」。<br />金歯とダウンを並べ、口元と服装を具体的に見せています。</p>
+<p>続くG offでは、その身なりを支える稼ぎへ話が移ります。<br />drug lootは麻薬で得た金で、lootは金や稼ぎを指すスラングです。</p>
+<p>ここでのG offは、稼いでのし上がるという読みが軸。<br />Gにはgrand（1,000ドル）やgangstaの連想もありますが、後ろのdrug lootと組にすると話がつながります。</p>
+</div>
+<Fragment slot="usage"><p><code>rock + 名詞</code> は服やアクセサリーを着こなす言い方。<em>rock those sneakers</em> なら「あのスニーカーを履きこなす」。</p><p>wearより、身につけたものを堂々と見せる感じがあります。</p></Fragment>
+</LearningUnit>
+<a class="back-toc" href="#article-toc">目次へ ↑</a>
+</div>
+<div id="point-runnin-up-gates" class="scroll-mt-40">
+<LearningUnit
+        heading="runnin’ up in gates — 売買の場所へ押し入る"
         label="★ スラング／句動詞"
         mc="Raekwon（Verse 1）"
-        t={TS["runnin-up-gates"].t} youtubeId={YT}
+        t={TS["runnin-up-gates"].t} tApprox={TS["runnin-up-gates"].approx} preciseSeek={true} youtubeId={YT}
         embed=""
       >
-        <Fragment slot="eng">Started smokin' <QuickSlang word="woolies" desc="マリファナにコカインやクラックを混ぜた非常に危険なジョイント" /> at sixteen / And runnin' up in <QuickSlang word="gates" desc="ドラッグの売買拠点（トラップハウス）。武装強盗で突入する行為が「runnin' up in gates」" /></Fragment>
-        <Fragment slot="jpn">16歳でウーリーズを吸い始め／売人のアジトに押し入っていた</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1中盤、Raekwonが16歳からの薬物と強盗の日々を語り出す件。</p>
-        <p>上は2行あります。学習ポイントは<strong class="text-[var(--c-text)]">下の行</strong>「And <strong class="text-[var(--c-text)]">runnin' up in gates</strong>」。</p>
-        <p>句動詞 <strong class="text-[var(--c-text)]">run up in ~</strong>（～に押し入る・襲撃する）に、スラング <strong class="text-[var(--c-text)]">gates</strong>（ドラッグ売買拠点＝トラップハウス）が組み合わさり、武装強盗という最もリスクの高い行為がわずか数語に圧縮されています。</p>
-        <p>上の行に出てくる <strong class="text-[var(--c-text)]">woolies</strong> は、マリファナにコカイン／クラックを混ぜた危険なジョイント。こういう固有のスラングは、知らないと字面を追っても意味が取れない。</p>
-        <p>でも逆に、ここさえ分かれば一気に情景が立ち上がる。スラング学習のいちばん面白いところです。</p>
-        <Fragment slot="usage">
+<Fragment slot="eng">Started smokin' <QuickSlang word="woolies" desc="マリファナにコカインやクラックを混ぜた非常に危険なジョイント" /> at sixteen / And runnin' up in <QuickSlang word="gates" desc="ドラッグの売買拠点（トラップハウス）。武装強盗で突入する行為が「runnin' up in gates」" /></Fragment>
+<Fragment slot="jpn">16歳でウーリーズを吸い始め／売人のアジトに押し入っていた</Fragment>
+<div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+<p>引用の後半にあるrun up inは、「中へ踏み込む・押し入る」という動きです。<br />
+ここでのgatesは、ドラッグを売買する場所を指す言葉。</p>
+<p>直前に出てくるwooliesは、コカインを混ぜたマリファナのジョイントを指します。<br />
+吸うことと、押し入ることが同じ段落の中に並んでいます。</p>
+<p>走るという動詞だけでは、ただ移動しているようにも読めます。<br />
+inの後ろに来る場所と、強盗を語る前後の文脈で意味が絞られます。</p>
+</div>
+<Fragment slot="usage">
           <p><strong class="text-[var(--c-text)]">run up in ~</strong> は「～に（突然・強引に）押し入る、踏み込む」を表す句動詞。<code>up</code> が「勢いよく接近する」、<code>in</code> が「中へ」を担い、二つ合わさって「ガサ入れのように突入する」という荒々しい含意になる。</p>
           <p>目的語には場所（a spot, the gates, the crib）を取り、<em>run up in the spot</em> のように使う。標準英語の <em>break into</em> より口語的・攻撃的。</p>
           <p>進行形 <code>runnin' up in ~</code> は「常習的にそれをやっていた」という反復・習慣のニュアンス。過去の生活を語るバースで多用される時制感覚です。</p>
         </Fragment>
-      </LearningUnit>
-
-      <!-- ⑤ keys from across seas -->
-      <LearningUnit
-        heading="Catchin' keys from across seas — 過去と未来を貫くダブルミーニング"
-        label="★ 言葉遊び"
-        mc="Raekwon（Verse 1）"
-        t={TS["keys-seas"].t} youtubeId={YT}
-        embed=""
-      >
-        <Fragment slot="eng">Catchin' <QuickSlang word="keys" desc="①キロ単位のコカイン（kilos=keys）②音楽の鍵盤・成功の鍵、のダブルミーニング" /> from 'cross seas<br />Rollin' in MPV's, every week we made forty G's</Fragment>
-        <Fragment slot="jpn">海を越えてくる「キー」を掴む／MPVを乗り回し、毎週4万ドルを稼いだ</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1終盤、Raekwonが密輸から成功へと物語を折り返す件。学習対象は上の行。</p>
-        <p>「Catchin' <strong class="text-[var(--c-text)]">keys</strong> from 'cross <strong class="text-[var(--c-text)]">seas</strong>」。まず音で。</p>
-        <p>行頭近くの <strong class="text-[var(--c-text)]">keys</strong> と行末の <strong class="text-[var(--c-text)]">seas</strong> で脚韻、ここがフックです。</p>
-        <p>その <strong class="text-[var(--c-text)]">keys</strong> は発音が <em>kilos</em>（キロ単位のコカイン）に通じる隠語であり、同時に <em>音楽の鍵盤＝成功の鍵</em> でもある。さらに <strong class="text-[var(--c-text)]">'cross seas</strong>（across seas＝海を越えて、の縮約）が、麻薬密輸という過去と、Wu-Tangで世界を獲る未来の両方を、たった一行に重ねてきます。</p>
-        <p>過酷な過去から合法的成功へ、その転換点を、語の多義性だけで描いてしまうんです。一行でこれをやられると、正直かなわないなと思う。</p>
-      </LearningUnit>
-
-      <!-- ⑤b MPV / forty G's -->
-      <LearningUnit
-        heading="every week we made forty G's — G＝grand（千ドル）の数え方"
-        label="★ スラング（金）"
-        mc="Raekwon（Verse 1）"
-        t={TS["mpv-forty-g"].t} tApprox={TS["mpv-forty-g"].approx} youtubeId={YT}
-        embed=""
-      >
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ ⑤「keys / seas」のすぐ次の行。稼ぎの額を口にする件。</p>
-        <p class="text-xs text-[var(--c-dim)] mb-1">金の語彙ものなので語だけ取り出します。</p>
-        <p>密輸の稼ぎを語るこの件で、Raekwonは金額を <strong class="text-[var(--c-text)]">forty G's</strong> と言います。学習ポイントはこの <strong class="text-[var(--c-text)]">G</strong>。</p>
-        <p>ここでのGは <strong class="text-[var(--c-text)]">grand＝1,000ドル</strong>の頭文字で、forty G's なら「4万ドル」。それを毎週（every week）稼いでいた、という一行です。</p>
-        <p>金額を Gで数えるのはヒップホップの定番で、五十音でいう「万」の感覚に近い。ユニット③の「G off」でGが grand の意味も背負っていたのと、ここでちゃんと呼応しています。</p>
-        <p>ちなみに同じ行に出てくる <strong class="text-[var(--c-text)]">MPV</strong> はミニバンの車種名。派手なスポーツカーではなく実用車を挙げるあたりに、見栄よりも運び屋としての現実味がにじみます。</p>
-        <p>これだけ稼いでも暮らしは楽にならない、という次の展開への布石にもなっています。</p>
-        <Fragment slot="usage">
-          <p><strong class="text-[var(--c-text)]">G</strong> は <em>grand</em>（1,000ドル）の略で、複数形は <em>G's</em>。<em>ten G's</em>（1万ドル）、<em>a hundred G's</em>（10万ドル）のように数える。</p>
-          <p><em>grand</em> 自体も <em>five grand</em> のようにそのまま使える。</p>
-          <p>同じGでも文脈で意味が変わる語で、呼びかけの <em>What's good, G?</em> なら「相棒・仲間」の意（gangsta / homeboy 由来）。金額の話か呼びかけかは、前後で見分ける。</p>
-        </Fragment>
-      </LearningUnit>
-
-      <!-- ⑥ here go the TEC-9 -->
-      <LearningUnit
-        heading="here go the TEC-9 — AAVEの提示構文「here go」"
+</LearningUnit>
+<a class="back-toc" href="#article-toc">目次へ ↑</a>
+</div>
+<div id="point-keys-seas" class="scroll-mt-40"><span id="point-mpv-forty-g"></span>
+<LearningUnit heading="keys / seas / forty G’s — 密輸、車、毎週の稼ぎ" label="★ スラング／表現" mc="Raekwon（Verse 1）" t={TS["keys-seas"].t} tApprox={TS["keys-seas"].approx} preciseSeek={true} youtubeId={YT} embed="">
+<Fragment slot="eng">Catchin' <QuickSlang word="keys" desc="キロ単位の薬物を指すスラング。ここでは海を越えて受け取る密輸の文脈" /> from 'cross seas<br />Rollin' in MPV's, every week we made forty G's</Fragment>
+<Fragment slot="jpn">海を越えてくる「キー」を掴む／MPVを乗り回し、毎週4万ドルを稼いだ</Fragment>
+<div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+<p>keysはキロ単位の薬物を指すスラングで、across seasは「海を越えて」。<br />麻薬の稼ぎを語る流れの中で、海外から受け取る場面を示しています。</p>
+<p>keysとseasは、長い母音と末尾のz音がそろう脚韻。<br />海を越える品物と、その移動を音でも結び付けています。</p>
+<p>次のMPVはMazdaのミニバン名で、forty G’sは4万ドル。<br />Gはgrand（1,000ドル）の略なので、車種と毎週の稼ぎが同じ一節に並びます。</p>
+<figure class="context-photo"><img src="/images/context/cream/mazda-mpv-official.png" width="520" height="390" loading="lazy" alt="マツダ公式資料に掲載された初代MPVの写真" />
+<figcaption>初代マツダMPV。出典：<a href="https://www2.mazda.com/ja/100th/virtual_museum/episode/episode003.html" target="_blank" rel="noopener noreferrer">マツダ100周年サイト</a></figcaption></figure>
+<p>G’sのアポストロフィは、ここでは所有を表すものではありません。<br />金額の単位を複数にしているところです。</p>
+</div>
+<Fragment slot="usage"><p><em>ten G’s</em> は1万ドル、<em>five grand</em> は5,000ドル。数字と一緒に出てくるGは、金額として読むところです。</p></Fragment>
+</LearningUnit>
+<a class="back-toc" href="#article-toc">目次へ ↑</a>
+</div>
+<div id="point-tec-9" class="scroll-mt-40">
+<LearningUnit
+        heading="here go — ものを示すAAVEの言い方"
         label="★ AAVE文法"
         mc="Raekwon（Verse 1）"
-        t={TS["tec-9"].t} youtubeId={YT}
+        t={TS["tec-9"].t} tApprox={TS["tec-9"].approx} preciseSeek={true} youtubeId={YT}
         embed=""
       >
-        <Fragment slot="eng">Yo, respect mine, or here go the <QuickSlang word="TEC-9" desc="TEC-9：当時ストリートで使われた安価なセミオート拳銃" /><br />Ch-chick-pow! Move from the gate now</Fragment>
-        <Fragment slot="jpn">俺の領分を尊重しろ、さもなくばTEC-9（拳銃）のお出ましだ／チャッ、チャッ、パウ！ 今すぐそこをどけ</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の締め、Raekwonが凄んでバースを閉じる最後の一発。学習対象は上の行。</p>
-        <p>学習ポイントは行の<strong class="text-[var(--c-text)]">後半</strong>、「…or <strong class="text-[var(--c-text)]">here go</strong> the TEC-9」の <strong class="text-[var(--c-text)]">here go</strong>。標準英語の <em>here comes ~ ／ here's ~</em>（～が来る・～の登場だ）にあたる<strong class="text-[var(--c-text)]">AAVEの提示構文</strong>で、<code>here go</code> は主語が三人称でも時制が変わっても形を一切変えません。</p>
-        <p>「敬意を払わなければTEC-9（拳銃）が出てくるぞ」という物騒な予告を、この二語で表現しています。</p>
-        <p>行の<strong class="text-[var(--c-text)]">前半</strong> <code>respect mine</code>（＝respect what's mine／俺の領分を尊重しろ）も、所有代名詞 <em>mine</em> をそのまま目的語に立てるAAVE的な簡潔さ。辞書英語からは決して学べない、生きた文法がここにあります。</p>
-        <Fragment slot="usage">
+<Fragment slot="eng">Yo, respect mine, or here go the <QuickSlang word="TEC-9" desc="TEC-9：当時ストリートで使われた安価なセミオート拳銃" /><br />Ch-chick-pow! Move from the gate now</Fragment>
+<Fragment slot="jpn">俺の領分を尊重しろ、さもなくばTEC-9（拳銃）のお出ましだ／チャッ、チャッ、パウ！ 今すぐそこをどけ</Fragment>
+<div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+<p>引用後半のhere goは、「ほら、これだ」とものを示す言い方です。<br />
+AAVE（アフリカ系アメリカ人英語）で見られる提示表現。</p>
+<p>標準英語ならhere isなどを使う場面です。<br />
+ここではTEC-9という銃の名前が続き、相手への威嚇になります。</p>
+<p>前半のmineは所有代名詞で、「俺のもの・俺の領分」。<br />
+所有代名詞を目的語にすること自体は標準英語にもあるので、文法全体をAAVE特有と考えないほうがよさそうです。</p>
+</div>
+<Fragment slot="usage">
           <p><strong class="text-[var(--c-text)]">here go ~</strong> は「ほら～だ／～が来るぞ」と、目の前のモノや事態を相手に差し出す<strong class="text-[var(--c-text)]">提示構文</strong>。標準英語の <em>here comes ~</em>／<em>here's ~</em> に当たるが、AAVEでは主語の人称や時制に関わらず <code>go</code> の形を変えない（三単現の -s も付けない）。</p>
           <p><em>Here go your change</em>（はい、おつり）、<em>Here go the bus</em>（ほらバスが来た）のように、日常の手渡し・到来の場面で広く使う。</p>
           <p>この曲では脅し文句として効いており、「敬意を払え、さもないと <em>here go</em>（出てくるぞ）」という条件→結果の流れを、たった2語で凄みを持って提示。<code>respect mine</code> の <em>mine</em>（＝what's mine）のように、所有代名詞を目的語に立てて言い切るのもAAVE的な簡潔さ。</p>
         </Fragment>
-      </LearningUnit>
-
-      <!-- ⑦ C.R.E.A.M. hook -->
-      <LearningUnit
-        heading="Cash Rules Everything Around Me — 頭字語が普通名詞になるまで"
+</LearningUnit>
+<a class="back-toc" href="#article-toc">目次へ ↑</a>
+</div>
+<div id="point-cream-hook" class="scroll-mt-40">
+<LearningUnit
+        heading="C.R.E.A.M. / y’all — 題名の頭文字と呼びかけ"
         label="★ フック／語源"
         mc="Method Man（Hook）"
-        t={TS["cream-hook"].t} youtubeId={YT}
+        t={TS["cream-hook"].t} tApprox={TS["cream-hook"].approx} preciseSeek={true} youtubeId={YT}
         embed=""
       >
-        <Fragment slot="eng">Cash rules everything around me / C.R.E.A.M. / Get the money / Dollar, dollar bill, y'all</Fragment>
-        <Fragment slot="jpn">金が俺の周りのすべてを支配する／C.R.E.A.M.／金を手に入れろ／ドル札だ、お前ら</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1とVerse 2のあいだ、Method Manが繰り返すフック（曲のタイトルそのもの）。</p>
-        <p>上のフックの<strong class="text-[var(--c-text)]">2行目</strong> <strong class="text-[var(--c-text)]">C.R.E.A.M.</strong> に注目。各単語の頭文字をとった頭字語（acronym）が、そのまま「現金」を意味する普通名詞として英語に定着してしまった。</p>
-        <p>これは本当に稀な例です。</p>
-        <p><strong class="text-[var(--c-text)]">4行目</strong>の <code>y'all</code>（＝you all）は南部・AAVEを代表する二人称複数。フレーズ自体はJimmy Spicerの1983年「Money (Dollar Bill Y'all)」のインターポレーション（引用的な歌い直し）。</p>
-        <p>パッと見は拝金的なフックなのに、両側を悲惨なバースに挟まれた瞬間「金がなければ命を落とす」という叫びへ反転する。置かれる場所が語の意味を決めてしまう、その好例です。</p>
-      </LearningUnit>
+<Fragment slot="eng">Cash rules everything around me</Fragment>
+<Fragment slot="jpn">金が俺の周りのすべてを支配する</Fragment>
+<div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+<p>C.R.E.A.M.はフックの文を頭文字でまとめたものです。<br />
+意味は「金が身の回りのすべてを支配する」。</p>
+<p>creamには金を指すスラングの用法もあります。<br />
+この曲で初めて生まれた言葉と断定するより、頭字語と既存の金の語彙が重なるところを押さえるのがよさそうです。</p>
+<p>フックで続くy’allはyou allを縮めた、複数の相手への呼びかけ。<br />
+Jimmy Spicerの1983年曲「Money (Dollar Bill Y’all)」にもつながる、歌い直しのフレーズです。</p>
+<aside class="reader-block spicer-reference" data-reading-kind="PR" data-reading-section="Jimmy Spicer収録CD" aria-label="Jimmy Spicer収録CDの購入案内"><AmazonMusicReference {...shop.spicer} /></aside>
+<p>Raekwonの稼ぎの話から、Deckの収監の話へ渡す位置にこのフックがあります。<br />
+同じ金の言葉が、二人の暮らしをつなぐ。</p>
+</div>
 
-      <!-- ⑧ I could not... [touch] -->
-      <LearningUnit
-        heading="what I could not... [touch] — 欠落が意味を生む"
-        label="★ 表現技法"
-        mc="Inspectah Deck（Verse 2）"
-        t={TS["could-not-touch"].t} youtubeId={YT}
-        embed=""
-      >
-        <Fragment slot="eng">A young buck sellin' drugs and such, who never had much<br />Tryin' to get a clutch at what I could not... [<QuickSlang word="touch" desc="本来あった「touch（触れる）」がRZAのディレイ操作のミスで音源から消えた。その「空白」がリリックの絶望感と奇跡的にリンクした" />]</Fragment>
-        <Fragment slot="jpn">大したものを持ったことのない、ヤクを売る若造／手の届かない何かを、必死に掴もうとしていた</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2中盤、Inspectah Deckが15歳での投獄前夜を語る件。学習対象は下の行、その行末で音が消える。</p>
-        <p>注目は行末、「…what I could not… [<strong class="text-[var(--c-text)]">touch</strong>]」の部分。本来 <code>could not touch</code> と続くはずの <strong class="text-[var(--c-text)]">touch</strong> が、録音時のディレイ操作のミスで音源からスッポリ消えています。</p>
-        <p>ところが、その<strong class="text-[var(--c-text)]">偶然の空白</strong>が「決して手の届かない夢・富」というテーマと共鳴してしまい、ヒップホップ史上いちばん有名な「欠落」として語り継がれることに。</p>
-        <p>行頭近くの <code>get a clutch at ~</code>（必死に掴もうとする）という言い回しも覚えておきたい。ミスがそのままいちばんの名場面になってしまうあたり、この時代のヒップホップはやっぱり面白い。</p>
-      </LearningUnit>
-
-      <!-- ⑧b life as a shorty -->
-      <LearningUnit
-        heading="shorty — 子ども時代を指すNYのストリート語"
-        label="★ スラング（地域語）"
-        mc="Inspectah Deck（Verse 2）"
-        t={TS["shorty-life"].t} tApprox={TS["shorty-life"].approx} youtubeId={YT}
-        embed=""
-      >
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2序盤、Deckが自分の生い立ちを振り返り始める件。語だけ取り出します。</p>
-        <p>Deckが自分の幼少期を語るときに使うのが <strong class="text-[var(--c-text)]">shorty</strong> です。学習ポイントはこの一語。</p>
-        <p>short（背が低い）から来たスラングで、もともとは<strong class="text-[var(--c-text)]">「背の低い者＝子ども」</strong>を指します。ここでは「子どもの頃の俺」というニュアンス。</p>
-        <p>面白いのは、この語が文脈で意味を変えること。子どもを指すこともあれば、後年のヒップホップでは「若い女性・彼女」への呼びかけ（Hey shorty）にもなる。</p>
-        <p>ニューヨークのストリート語として長く生き残ってきた多義語です。ここでは、まだ何も持たない「shorty」だった頃から絶望が始まっていた、という時間の起点を置く役割を担っています。</p>
-        <Fragment slot="usage">
-          <p><strong class="text-[var(--c-text)]">shorty</strong>（<em>shawty</em> とも綴る）は文脈で(1)子ども・年下、(2)若い女性・恋人、の二つに大きく振れる。<em>when I was a shorty</em> なら前者、<em>What's up, shorty?</em> なら後者。</p>
-          <p>南部ヒップホップでは <em>shawty</em> の綴りで「相棒・お前」くらいの軽い呼びかけにも広がりました。どの意味かは相手・場面で判断します。</p>
-        </Fragment>
-      </LearningUnit>
-
-      <!-- ⑧c fifteen / bagged -->
-      <LearningUnit
-        heading="at the age of fifteen — 数字が語る収監の早さ"
-        label="★ 表現／時代背景"
-        mc="Inspectah Deck（Verse 2）"
-        t={TS["fifteen-bagged"].t} tApprox={TS["fifteen-bagged"].approx} youtubeId={YT}
-        embed=""
-      >
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2序盤、Deckが人生の転落点を年齢で刻む件。語だけ取り出します。</p>
-        <p>Deckは自分が捕まった時期を <strong class="text-[var(--c-text)]">at the age of fifteen</strong>（15歳のとき）と、はっきり数字で置きます。学習ポイントは、この<strong class="text-[var(--c-text)]">具体的な年齢の効かせ方</strong>。</p>
-        <p>抽象的に「若くして」と言うのではなく「15」と刻むことで、投獄がどれほど早く訪れたかが一撃で伝わります。</p>
-        <p>ストーリー欄で触れた「15歳での投獄」の出どころは、ここです。まだ子ども（前のユニットの shorty）だった者が、15で塀の中へ。</p>
-        <p>数字ひとつが、失われた時間の重さを物語ります。事実を淡々と置くだけで感情を動かす、ドキュメンタリーのような書き方がこのVerse 2の持ち味です。</p>
-      </LearningUnit>
-
-      <!-- ⑨ world no different from a cell -->
-      <LearningUnit
-        heading="the world no different from a cell — 比喩で社会構造を一言で射る"
-        label="★ 比喩／AAVE文法"
-        mc="Inspectah Deck（Verse 2）"
-        t={TS["world-cell"].t} youtubeId={YT}
-        embed=""
-      >
-        <Fragment slot="eng">But as the world turned, I learned life is hell<br />Living in the world no different from a cell</Fragment>
-        <Fragment slot="jpn">だが世界が回るにつれ、人生は地獄だと思い知った／この世界で生きることは、独房（セル）で生きるのと何ら変わらない</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2中盤、投獄を経たDeckが世界そのものを独房に喩える件。学習対象は下の行（hell／cellで脚韻）。</p>
-        <p>「Living in the world <strong class="text-[var(--c-text)]">no different from</strong> a cell」。まず構造を見ると、標準英語なら <em>the world <strong class="text-[var(--c-text)]">that is</strong> no different from…</em> と関係代名詞＋be動詞が入るところ、ここでは <strong class="text-[var(--c-text)]">the world no different from a cell</strong> とダイレクトに繋がっている。</p>
-        <p>この <strong class="text-[var(--c-text)]">コピュラ（be動詞）の省略</strong>がAAVEの代表的な特徴で、今回の学習ポイントです。</p>
-        <p>意味のうえでも、行末の <strong class="text-[var(--c-text)]">cell</strong>（独房）に世界そのものを喩えて、インナーシティの貧困が生む「見えない牢獄」を一語で射抜く。文法の省略がリズムを一切損なわずに比喩を運ぶ、その両立が効いています。</p>
-        <Fragment slot="usage">
-          <p>AAVEでは、現在形の <strong class="text-[var(--c-text)]">be動詞（is / are）を落とせる</strong>のが大きな特徴。標準英語の <em>He is cool</em> → <em>He cool</em>、<em>They are ready</em> → <em>They ready</em> のように、主語の直後にいきなり形容詞・名詞・前置詞句が続く。</p>
-          <p>ここでも <em>the world (that is) no different from a cell</em> から関係詞＋be動詞が丸ごと省かれ、名詞に説明句が直結している。</p>
-          <p>使い分けの目安: 省略できるのは<strong class="text-[var(--c-text)]">現在形</strong>で、標準英語なら短縮形（'s / 're）になる位置。過去形 was/were や、文末で強調する位置（例: <em>Yes he is</em>）は省略しない。</p>
-          <p>この規則性を知ると、聞き取り時に「動詞が抜けている＝AAVEの現在形」と即座に補完できる。</p>
-        </Fragment>
-      </LearningUnit>
-
-      <!-- ⑨b life is hell -->
-      <LearningUnit
-        heading="life is hell — 断定を支える AAVE の時制感覚"
-        label="★ AAVE文法／表現"
-        mc="Inspectah Deck（Verse 2）"
-        t={TS["life-is-hell"].t} tApprox={TS["life-is-hell"].approx} youtubeId={YT}
-        embed=""
-      >
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ ⑨「world / cell」と同じ件の前半。世界観を一言で言い切る件。</p>
-        <p class="text-xs text-[var(--c-dim)] mb-1">語だけ取り出します。</p>
-        <p>ユニット⑨で見た「独房と変わらない世界」の直前で、Deckは <strong class="text-[var(--c-text)]">life is hell</strong>（人生は地獄だ）と言い切ります。学習ポイントは、この<strong class="text-[var(--c-text)]">現在形の断定</strong>。</p>
-        <p>過去の一時期の話ではなく、<code>is</code> を使うことで「今も、いつも地獄だ」という<strong class="text-[var(--c-text)]">恒常的な状態</strong>として置いています。</p>
-        <p><code>learned life is hell</code>（人生は地獄だと学んだ）という形で、<strong class="text-[var(--c-text)]">learn that 〜 の that が省かれている</strong>のも口語らしいところ。標準英語なら <em>learned that life is hell</em> ですが、話し言葉では that はよく落ちます。</p>
-        <p>難しい語をひとつも使わずに、現在形と接続詞の省略だけで「これは一時の不幸ではなく常態だ」という諦めの深さを出している。文法の選択がそのまま感情の温度になる一行です。</p>
-      </LearningUnit>
-
-      <!-- ⑩ Jakes / base -->
-      <LearningUnit
-        heading="escape from Jakes, sellin' base — ニューヨーク固有のスラング"
-        label="★ スラング（地域語）"
-        mc="Inspectah Deck（Verse 2）"
-        t={TS["jakes-base"].t} youtubeId={YT}
-        embed=""
-      >
-        <Fragment slot="eng">Every day I escape from <QuickSlang word="Jakes" desc="警察官を指すニューヨーク特有のストリートスラング" /> givin' chase<br />Sellin' <QuickSlang word="base" desc="フリーベース（純度の高いクラック・コカイン）" />, smokin' bones in the staircase</Fragment>
-        <Fragment slot="jpn">毎日、追ってくる警察（Jakes）から逃れ／クラック（base）を売り、階段でジョイントをふかす</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2後半、Deckが日々の逃走と密売を畳みかける件。学習対象はJakes（上の行）とbase（下の行）。</p>
-        <p>学習ポイントは行の中の二つ、<strong class="text-[var(--c-text)]">Jakes</strong> と <strong class="text-[var(--c-text)]">base</strong>。「…escape from <strong class="text-[var(--c-text)]">Jakes</strong> givin' chase, sellin' <strong class="text-[var(--c-text)]">base</strong>」。</p>
-        <p>行の前半にある <strong class="text-[var(--c-text)]">Jakes</strong> は警察官を指すニューヨーク特有の隠語で、とりわけ黒人コミュニティへの過剰な取り締まりを象徴する語。行末の <strong class="text-[var(--c-text)]">base</strong> はフリーベース（純度の高いクラック）。</p>
-        <p>面白いのは、同じ「警察」でもLA系なら <em>one-time</em>、ここニューヨークでは <em>Jakes</em> になること。スラングは<strong class="text-[var(--c-text)]">地域の方言</strong>であって、語を知ることはそのまま、その街の地図を手に入れることに近いんです。</p>
-        <p>あいだの <code>givin' chase</code>（追跡してくる）の進行形も、生きた口語として一緒に。</p>
-        <Fragment slot="usage">
-          <p><strong class="text-[var(--c-text)]">give chase</strong> は「追跡する・追いかける」を表す決まり文句（イディオム）。<code>chase</code> に冠詞を付けずそのまま動詞 give の目的語に立てるのがポイントで、<em>the police gave chase</em>（警察が追ってきた）のように使う。</p>
-          <p>報道英語にも出てくるややフォーマルな言い回しだが、ここでは進行形 <code>givin' chase</code> で「日々追われ続けている」緊迫した反復状況を描く。</p>
-          <p>地域スラングの使い分けも重要: 同じ「警察」でもニューヨークでは <strong class="text-[var(--c-text)]">Jakes</strong>、ロサンゼルスでは <em>one-time</em>、他にも <em>5-0（five-oh）</em> など呼称が街ごとに違います。</p>
-          <p>どの語が出るかで、語り手がどの土地の人間かが分かります。スラングは話者の出自を示す地図でもあるわけです。</p>
-        </Fragment>
-      </LearningUnit>
-
-      <!-- ⑩a bones / staircase -->
-      <LearningUnit
-        heading="smokin' bones in the staircase — 「bones」が意味するもの"
-        label="★ スラング（地域語）"
-        mc="Inspectah Deck（Verse 2）"
-        t={TS["bones-staircase"].t} tApprox={TS["bones-staircase"].approx} youtubeId={YT}
-        embed=""
-      >
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ ⑩「Jakes / base」と同じ件の行末。日々の光景を描くもう一語。</p>
-        <p class="text-xs text-[var(--c-dim)] mb-1">語だけ取り出します。</p>
-        <p>密売と逃走を描くこの件の締めに出てくるのが <strong class="text-[var(--c-text)]">bones</strong> です。学習ポイントはこの一語。</p>
-        <p>骨のことではなく、ここでは <strong class="text-[var(--c-text)]">巻いたジョイント（マリファナ煙草）</strong>を指すスラング。<code>smokin' bones</code> で「ジョイントをふかす」。</p>
-        <p>そしてその場所が <strong class="text-[var(--c-text)]">staircase</strong>（団地の階段）だというのが効いています。公営団地（projects）の吹きさらしの階段は、行き場のない若者のたまり場そのもの。</p>
-        <p>特別な事件ではなく、階段でただ煙をくゆらせる日常の一コマを置くことで、出口のなさがかえって濃く出ます。地名も小道具もすべて団地の現実に根ざしていて、抽象的な貧困論とは温度が違います。</p>
-      </LearningUnit>
-
-      <!-- ⑩b what's it worth -->
-      <LearningUnit
-        heading="What's it worth? — 富を積んだ末の反語"
-        label="★ 表現／テーマ"
-        mc="Inspectah Deck（Verse 2）"
-        t={TS["whats-it-worth"].t} tApprox={TS["whats-it-worth"].approx} youtubeId={YT}
-        embed=""
-      >
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ ⑪「Old Earth」と同じ件の直前、Deckが自問する件。前ユニットで引く行と続きなので語だけ取り出します。</p>
-        <p>母（Old Earth）に救いを求める直前、Deckは <strong class="text-[var(--c-text)]">What's it worth?</strong>（これに何の意味がある？）と自らに問いかけます。学習ポイントは、この<strong class="text-[var(--c-text)]">反語（レトリカル・クエスチョン）</strong>。</p>
-        <p>答えを求めているのではなく、「たいした意味なんてない」という諦めを、あえて問いの形で置いている。</p>
-        <p>面白いのは、この問いがVerse 1のRaekwonやフックのGet the moneyと<strong class="text-[var(--c-text)]">正面から衝突する</strong>ところ。曲の前半で積み上げてきた「金がすべて」という価値観に、Verse 2の当事者が「その金に何の意味がある」と疑問符を突きつけます。</p>
-        <p>同じ曲の中で主張と反問がぶつかり、拝金の讃歌が生きるための悲鳴へと反転していく。その転回点になる、小さいけれど重い一言です。</p>
-      </LearningUnit>
-
-      <!-- ⑪ Old Earth -->
-      <LearningUnit
-        heading="seek the Old Earth — Five-Percent Nationの世界観"
-        label="★ スラング（思想語彙）"
-        mc="Inspectah Deck（Verse 2）"
-        t={TS["old-earth"].t} youtubeId={YT}
-        embed=""
-      >
-        <Fragment slot="eng">But I'm still depressed, and I ask: What's it worth?<br />Ready to give up so I seek the <QuickSlang word="Old Earth" desc="「Five-Percent Nation」由来のスラングで「母親」を指す。生命の源たる大地（Earth）としての女性の敬称" /></Fragment>
-        <Fragment slot="jpn">それでも気は塞いだまま、俺は問う——これに何の意味がある？／諦めかけて、俺は「オールド・アース（母）」に助言を求めた</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2後半、Deckが諦めかけ、母に救いを求める件。学習対象は下の行（worth／Earthで脚韻）。</p>
-        <p>行末、「…so I seek the <strong class="text-[var(--c-text)]">Old Earth</strong>」の <strong class="text-[var(--c-text)]">Old Earth</strong> が学習ポイント。Five-Percent Nation（Wu-Tangの思想的な背景にある運動）の用語で、「母親」を指します。</p>
-        <p>女性を生命の源たる <em>Earth（地球・大地）</em> に喩える教義から来た言葉。麻薬による一時的な逃避の虚しさを悟って、母の教え（勤労と忍耐）に救いを求める。</p>
-        <p>その心の動きが、この一語の選択にちゃんと宿っている。</p>
-        <p>背景思想を知らないと、辞書をいくら引いても辿り着けません。文化の文脈そのものが意味を担う、語彙の好例です。</p>
-      </LearningUnit>
-
-      <!-- ⑫ stickup kids, corrupt cops -->
-      <LearningUnit
-        heading="stickup kids, corrupt cops, and crack rocks — 名詞を積んで作る韻と情景"
+</LearningUnit>
+<a class="back-toc" href="#article-toc">目次へ ↑</a>
+</div>
+<div id="point-fifteen-bagged" class="scroll-mt-40"><span id="point-could-not-touch"></span>
+<LearningUnit heading="fifteen / young buck — 15歳の収監と若かった自分" label="★ スラング／表現" mc="Inspectah Deck（Verse 2）" t={TS["fifteen-bagged"].t} tApprox={TS["fifteen-bagged"].approx} preciseSeek={true} youtubeId={YT} embed="">
+<Fragment slot="eng">Which failed; I went to jail at the age of fifteen<br />A young buck sellin' drugs and such, who never had much</Fragment>
+<Fragment slot="jpn">15歳で捕まったことを振り返り／大したものを持ったことのない、薬物を売る若造だった</Fragment>
+<div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+<p>Deckは、金を稼ごうとした計画が失敗し、15歳で刑務所に入ったと振り返ります。<br />引用のfifteenは、その年齢。</p>
+<p>直後に、自分をyoung buck（若者）と呼び直します。<br />薬物を売っていたけれど、持っているものは少なかったという振り返りです。</p>
+<p>続くclutchは「しっかりつかむ」、could notは「できなかった」。<br />望むものへ手を伸ばしても届かず、行末も言い切らない形で切れます。</p>
+<p>その後には裁判、手錠、バスでの移送が続きます。<br />年齢の数字から、若かった自分と収監の場面へ進む一節です。</p>
+</div>
+</LearningUnit>
+<a class="back-toc" href="#article-toc">目次へ ↑</a>
+</div>
+<div id="point-shorty-life" class="scroll-mt-40">
+<LearningUnit heading="shorty — 収監の話から子ども時代へ" label="★ スラング／表現" mc="Inspectah Deck（Verse 2）" t={TS["shorty-life"].t} tApprox={TS["shorty-life"].approx} preciseSeek={true} youtubeId={YT} embed="">
+<Fragment slot="eng">Life as a shorty shouldn't be so rough</Fragment>
+<Fragment slot="jpn">子どもの頃、暮らしはそこまで厳しくなかった</Fragment>
+<div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+<p>裁判と移送を語った後、Deckはshortyだった頃の暮らしへ話を戻します。<br />この一行では、その頃の暮らしはそこまで厳しくなかったと振り返っています。</p>
+<p>shortyは、ここでは子どもや若者を指す呼び方です。<br />自分の過去を語っているので、若い女性への呼びかけとは別の用法。</p>
+<p>その直後に、世界を知るにつれて人生への見方が変わったという話が続きます。<br />次のlife is hellと並べると、子ども時代の感覚との違いが見えます。</p>
+</div>
+<Fragment slot="usage"><p><code>when I was a shorty</code> は「子どもの頃」。shortyの指す相手は、呼びかけか、自分の過去の話かで変わります。</p></Fragment>
+</LearningUnit>
+<a class="back-toc" href="#article-toc">目次へ ↑</a>
+</div>
+<div id="point-world-cell" class="scroll-mt-40"><span id="point-life-is-hell"></span>
+<LearningUnit heading="life is hell / world / cell — 人生と独房を重ねる" label="★ 比喩／韻／AAVE文法" mc="Inspectah Deck（Verse 2）" t={TS["world-cell"].t} tApprox={TS["world-cell"].approx} preciseSeek={true} youtubeId={YT} embed="">
+<Fragment slot="eng">But as the world turned, I learned life is hell<br />Living in the world no different from a cell</Fragment>
+<Fragment slot="jpn">だが世界が回るにつれ、人生は地獄だと思い知った／この世界で生きることは、独房（セル）で生きるのと何ら変わらない</Fragment>
+<div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+<p>子ども時代の話に続いて、人生は地獄だと思い知ったと語ります。<br />life is hellは、その経験から得た認識です。</p>
+<p>learned（学んだ）で、現在形のlife is hellを受けています。<br />間のthatを省くのは標準英語の会話にもある形で、この部分だけがAAVE特有というわけではありません。</p>
+<p>次の行では、世界で生きることをcell（独房）で生きることに重ねます。<br />no different fromは「〜と変わらない」で、be動詞が表面に出ない短い比較です。</p>
+<p>hellとcellは行末の韻。<br />人生への評価と独房の比喩が、語尾の音でもつながっています。</p>
+</div>
+<Fragment slot="usage"><p>AAVE（アフリカ系アメリカ人英語）には、現在形のisやareが省かれる形があります。<em>He cool</em> なら「彼はかっこいい」。</p><p>標準英語で短縮形にできる位置など、省略には条件があります。</p></Fragment>
+</LearningUnit>
+<a class="back-toc" href="#article-toc">目次へ ↑</a>
+</div>
+<div id="point-jakes-base" class="scroll-mt-40"><span id="point-bones-staircase"></span>
+<LearningUnit heading="Jakes / base / bones — 追跡、密売、階段での喫煙" label="★ スラング／表現" mc="Inspectah Deck（Verse 2）" t={TS["jakes-base"].t} tApprox={TS["jakes-base"].approx} preciseSeek={true} youtubeId={YT} embed="">
+<Fragment slot="eng">Every day I escape from <QuickSlang word="Jakes" desc="警察官を指すニューヨーク特有のストリートスラング" /> givin' chase<br />Sellin' <QuickSlang word="base" desc="freebaseに由来する、コカインを指す薬物のスラング" />, smokin' bones in the staircase</Fragment>
+<Fragment slot="jpn">毎日、追ってくる警察（Jakes）から逃れ／クラック（base）を売り、階段でジョイントをふかす</Fragment>
+<div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+<p>Jakesは警察を指すニューヨークのスラング。<br />give chaseは「追いかける」なので、最初の行では警察から逃れています。</p>
+<p>次のbaseはfreebaseに由来する、コカインを指す語です。<br />売るという動詞と組になり、一般語の「土台」とは意味が違います。</p>
+<p>同じ行のbonesはマリファナのジョイントで、staircaseは階段。<br />薬物を売り、階段で煙を吸う場面までが一続きです。</p>
+<p>chase、base、staircaseは語尾の音が近い組。<br />追跡、密売、喫煙を切り離さず、音のつながりでもまとめています。</p>
+</div>
+<Fragment slot="usage"><p><code>give chase</code> は「追跡する」。<em>the police gave chase</em> なら「警察が追ってきた」で、chaseに冠詞を付けずに使います。</p></Fragment>
+</LearningUnit>
+<a class="back-toc" href="#article-toc">目次へ ↑</a>
+</div>
+<div id="point-whats-it-worth" class="scroll-mt-40"><span id="point-old-earth"></span>
+<LearningUnit heading="What’s it worth? / Old Earth — 生き方を問い、母へ相談する" label="★ スラング／表現" mc="Inspectah Deck（Verse 2）" t={TS["whats-it-worth"].t} tApprox={TS["whats-it-worth"].approx} preciseSeek={true} youtubeId={YT} embed="">
+<Fragment slot="eng">But I'm still depressed, and I ask: What's it worth?<br />Ready to give up so I seek the <QuickSlang word="Old Earth" desc="「Five-Percent Nation」由来のスラングで「母親」を指す。生命の源たる大地（Earth）としての女性の敬称" /></Fragment>
+<Fragment slot="jpn">それでも気は塞いだまま、俺は問う——これに何の意味がある？／諦めかけて、俺は「オールド・アース（母）」に助言を求めた</Fragment>
+<div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+<p>気が塞いだまま、今の暮らしにどれだけの価値があるのかと自問します。<br />worthは、金額だけでなく「それだけの価値があるか」を問う語です。</p>
+<p>そのまま諦めるのではなく、次の行でOld Earthへ助言を求めます。<br />Old Earthはここでは母親を指す呼び方。</p>
+<p>Five-Percent Nation（Nation of Gods and Earths）の語彙で、Earthを女性に用いる呼び方につながります。<br />その語を年長の母へ向けているところです。</p>
+<p>この後は、勤労と忍耐についての助言へ進みます。<br />生き方への問いと母への相談が、続く二行に収まっています。</p>
+</div>
+</LearningUnit>
+<a class="back-toc" href="#article-toc">目次へ ↑</a>
+</div>
+<div id="point-stickup-kids" class="scroll-mt-40">
+<LearningUnit
+        heading="stickup kids / stray shots — 名詞を並べる街の描写"
         label="★ 韻／列挙"
         mc="Inspectah Deck（Verse 2）"
-        t={TS["stickup-kids"].t} youtubeId={YT}
+        t={TS["stickup-kids"].t} tApprox={TS["stickup-kids"].approx} preciseSeek={true} youtubeId={YT}
         embed=""
       >
-        <Fragment slot="eng">We got stickup kids, corrupt cops, and crack rocks / And stray shots, all on the block that stays hot</Fragment>
-        <Fragment slot="jpn">強盗キッズ、悪徳警官、クラックの塊／そして流れ弾、常に熱を帯びたブロックに</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2終盤、Deckが街区（ブロック）の混沌を名詞で畳みかける件。</p>
-        <p>上は2行。まず音だけ追ってみると、<strong class="text-[var(--c-text)]">cops / rocks / shots / hot / block</strong> と <code>-o(c/t)</code> 系の音が連打されているのがわかります。</p>
-        <p>これが今回の聴きどころです。</p>
-        <p>そこに名詞を畳みかけて、ブロック（街区）の混沌をひと息に描く。<strong class="text-[var(--c-text)]">stickup kids</strong>（強盗常習の若者）、<strong class="text-[var(--c-text)]">crack rocks</strong>（クラックの塊）、<strong class="text-[var(--c-text)]">stray shots</strong>（流れ弾）が、それぞれ情景の一片を担う。</p>
-        <p>下の行末の <code>stays hot</code> は「（警察の目・銃撃で）常にヤバい状態が続く」の意です。列挙と脚韻、それだけで一つの風景が立ち上がる。</p>
-        <p>ヒップホップ的な構文の基本形がここに詰まっています。</p>
-      </LearningUnit>
+<Fragment slot="eng">We got stickup kids, corrupt cops, and crack rocks / And stray shots, all on the block that stays hot</Fragment>
+<Fragment slot="jpn">強盗キッズ、悪徳警官、クラックの塊／そして流れ弾、常に熱を帯びたブロックに</Fragment>
+<div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+<p>引用に並ぶstickup kidsは、強盗をする若者。<br />
+stickupは銃などで脅して金品を奪う強盗を指します。</p>
+<p>crack rocksはクラックの塊、stray shotsは流れ弾。<br />
+人物と薬物と銃弾を、短い名詞のまとまりで並べています。</p>
+<p>最後のstays hotは、危険や緊張が続くという読み方です。<br />
+暑いという温度の話から離れているところ。</p>
+<p>block、rocks、cops、shots、hotは完全に同じ音ではありませんが、短い母音と子音の響きを寄せています。<br />
+列挙を止めずに、街区の光景を描くための韻です。</p>
+</div>
 
-      <!-- ⑬ Leave it up to me while I be livin' proof（証人としての反転） -->
-      <LearningUnit
-        heading="Leave it up to me while I be livin' proof — 語り手が「生き証人」へと反転する一行"
-        label="★ 最重要パンチライン"
-        mc="Inspectah Deck（Verse 2）"
-        t={TS["livin-proof"].t} tApprox={TS["livin-proof"].approx} youtubeId={YT}
-        embed=""
-      >
-        <Fragment slot="eng">Leave it up to me while I be livin' proof</Fragment>
-        <Fragment slot="jpn">あとは俺に任せろ——俺自身が、生き証人なんだ</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の最後。絶望を語り尽くしたDeckが、自らを「証人」として差し出す件。</p>
-        <p>バースの着地はここから始まります。投獄・強盗・流れ弾と「出口のない街」を語ってきた当人が、最後に役割を反転させる。</p>
-        <p><strong class="text-[var(--c-text)]">Leave it up to me</strong>（あとは俺に任せろ）と引き受け、自分はそこから逃れられなかったが、その人生まるごとが <strong class="text-[var(--c-text)]">livin' proof（生き証人）</strong> なんだ、と。被害者でも傍観者でもなく、街の現実そのものを背負う「証拠物件」として立つわけです。</p>
-        <p>曲全体を覆う「金がなければ死ぬ」という悲鳴のなかで、語り手が初めて前を向く一行で、個人的にすごく好きなところ。</p>
-        <p class="border-l-2 border-[var(--c-gold)] pl-3 text-[var(--c-muted)]">この行は後世にそっくり受け継がれました。Gang Starr一派 <strong class="text-[var(--c-text)]">Group Home</strong> のDJ Premier制作デビュー作、その表題曲「<strong class="text-[var(--c-text)]">Livin' Proof</strong>」（1995）は、ずばりこの "Leave it up to me while I be livin' proof..." をフックに据えています。</p>
-        <p class="border-l-2 border-[var(--c-gold)] pl-3 text-[var(--c-muted)]">アルバム名そのものが <em>Livin' Proof</em> という事実が、Deckのこの一行が持っていた重みを物語っていると思います。</p>
-        <Fragment slot="usage">
-          <p><code>I be livin' proof</code> の <strong class="text-[var(--c-text)]">be</strong> は、AAVE（アフリカ系アメリカ人英語）の <strong class="text-[var(--c-text)]">habitual be（恒常相のbe）</strong>。標準英語の "I am living proof"（今この瞬間）と違い、「いつも・常態として生き証人であり続ける」という<strong class="text-[var(--c-text)]">継続・反復の状態</strong>を表す。</p>
-          <p>am/is/are に置換できない、AAVE固有の時制マーカーです。</p>
-          <p><code>leave it up to me</code> は「（それは）俺に任せておけ」。責任や役割を自分が引き受けると宣言する口語表現で、ここでは「次世代に伝える役目は俺が担う」という覚悟の前振りになっている。</p>
-        </Fragment>
-      </LearningUnit>
-
-      <!-- ⑭ kick the truth to the young black youth（伝説のパンチライン・三連韻） -->
-      <LearningUnit
-        heading="kick the truth to the young black youth — Deck代表句の着地"
-        label="★ 最重要パンチライン"
-        mc="Inspectah Deck（Verse 2）"
-        t={TS["kick-truth"].t} tApprox={TS["kick-truth"].approx} youtubeId={YT}
-        embed=""
-      >
-        <Fragment slot="eng">To kick the truth to the young black youth</Fragment>
-        <Fragment slot="jpn">若い黒人の若者たちに、真実を叩き込むために</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 前行を受けての締め。証人となった目的＝次世代への伝達が明かされる件。</p>
-        <p>前行で「生き証人」として立った語り手が、その目的を言い切る。<strong class="text-[var(--c-text)]">kick the truth</strong>（真実を叩き込む）の相手は <strong class="text-[var(--c-text)]">young black youth（若い黒人の若者たち）</strong>、つまり、かつての自分と同じ場所にいる者たち。</p>
-        <p>絶望の記録が、ここで次世代への警告＝教育の言葉へと裏返る。Inspectah Deckの代表句として今も引用され続ける、バースの真の着地点です。</p>
-        <p>この韻がとにかく気持ちいい。前行の <strong class="text-[var(--c-text)]">proof</strong> をこの行の <strong class="text-[var(--c-text)]">truth / youth</strong> が受け、<code>-uːθ</code> 系の音が三連で畳みかけられる。</p>
-        <p>意味の流れ（生き証人→真実→若者）と脚韻がぴったり重なって着地するので、一度聴くと耳から離れません。2行をまたいで仕込まれたこの韻でといい感じに曲を締めています。</p>
-        <Fragment slot="usage">
-          <p><code>kick the truth</code> は「真実を勢いよく投げかける／説く」のヒップホップ定型句。<code>kick a rhyme / kick knowledge / kick a verse</code> と同系で、<code>kick</code>＝言葉を放つ動詞として機能する。</p>
-          <p>日常英語の「蹴る」とは別の用法です。</p>
-        </Fragment>
-      </LearningUnit>
-
-      <!-- ⑮ Dollar dollar bill y'all outro -->
-      <LearningUnit
-        heading="Dollar, dollar bill, y'all — 反復が呪文になるアウトロ"
+</LearningUnit>
+<a class="back-toc" href="#article-toc">目次へ ↑</a>
+</div>
+<div id="point-livin-proof" class="scroll-mt-40"><span id="point-kick-truth"></span>
+<LearningUnit heading="livin’ proof / truth / youth — 生きた証拠として若者へ語る" label="★ 言い回し／韻" mc="Inspectah Deck（Verse 2）" t={TS["livin-proof"].t} tApprox={TS["livin-proof"].approx} preciseSeek={true} youtubeId={YT} embed="">
+<Fragment slot="eng">Leave it up to me while I be livin' proof<br />To kick the truth to the young black youth</Fragment>
+<Fragment slot="jpn">あとは俺に任せろ——俺自身が、生き証人なんだ／若い黒人の若者たちに、真実を叩き込むために</Fragment>
+<div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+<p>leave it up to meは「俺に任せておけ」で、living proofは「生きた証拠」。<br />ここまで過去を語っていたDeckが、自分を話の担い手として差し出します。</p>
+<p>次のkick the truthは、真実を語るという言い方です。<br />kickは蹴るだけでなく、ラップや話を繰り出す場面でも使われます。</p>
+<p>語りかける相手はyoung black youth。<br />自分と同じような街で暮らす若者へ、経験を渡そうとしています。</p>
+<p>proof、truth、youthには長いuの母音が共通します。<br />proofの末尾はf、truthとyouthはthなので、三語すべてが完全韻ではありません。</p>
+<p>この後にも、話を聞いてもらえないという展開が続きます。<br />若者に伝えようとする二行で、バースがきれいに解決するわけではないところです。</p>
+</div>
+<Fragment slot="usage"><p>AAVEの<code>habitual be</code>は「いつも・繰り返しそうである」という状態を表すbe。ここでは自分が生きた証拠であり続けるという言い方につながります。</p><p><code>kick knowledge</code> も、知識を語って伝える言い方。kickが、言葉を繰り出す動詞として使われています。</p></Fragment>
+</LearningUnit>
+<a class="back-toc" href="#article-toc">目次へ ↑</a>
+</div>
+<div id="point-dollar-outro" class="scroll-mt-40">
+<LearningUnit
+        heading="dollar / y’all — 話を聞いた後に戻るフック"
         label="★ フック／構成"
         mc="Method Man（Outro）"
-        t={TS["dollar-outro"].t} tApprox={TS["dollar-outro"].approx} youtubeId={YT}
+        t={TS["dollar-outro"].t} tApprox={TS["dollar-outro"].approx} preciseSeek={true} youtubeId={YT}
         embed=""
       >
-        <Fragment slot="eng">Cash rules everything around me / C.R.E.A.M. / Get the money / Dollar, dollar bill, y'all</Fragment>
-        <Fragment slot="jpn">金が俺の周りのすべてを支配する／C.R.E.A.M.／金を手に入れろ／ドル札だ、お前ら</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の絶望を語り終えた直後、フックが繰り返されながら曲がフェードアウトしていくアウトロ。</p>
-        <p>アウトロで注目したいのは <strong class="text-[var(--c-text)]">Dollar, dollar bill, y'all</strong> の<strong class="text-[var(--c-text)]">反復</strong>そのものです。ユニット⑦で見たとおり、このフレーズはJimmy Spicerの1983年「Money (Dollar Bill Y'all)」を引いたもの。</p>
-        <p>ここでは意味を進めるのではなく、同じ言葉が呪文のように繰り返されて曲が閉じていきます。</p>
-        <p>面白いのは、<code>Get the money</code>（金を手に入れろ）という号令が、Verse 2の「出口のない街」を通過した後だと、まったく違って響くこと。景気のいい掛け声のはずが、「そうしなければ生き残れない」という強迫に聴こえてきます。</p>
-        <p>同じ一言でも、置かれる場所で意味が反転してしまう。この曲がずっとやってきたことを、最後にもう一度だけ、フェードアウトしながら念押ししている終わり方です。</p>
-      </LearningUnit>
 
-      <!-- 時間軸マーカー: 3:00(180s)で締めのフック反復が始まる（PV/Apple Music実測）。
-           解説カードは持たず、プレーヤー帯のラベルを Verse 2→Hook に切り替えるだけ。 -->
-      <div data-player-marker data-t="180" data-mc="Method Man（Hook）" hidden></div>
-    </section>
+<div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+<p>最後に戻ってくるのは、最初のフックと同じ金の言葉です。<br />
+英語と和訳は上のフック項目にまとめ、ここでは反復の役割を見ます。</p>
+<p>billは紙幣、dollarはドル。<br />
+y’allで周りの人々へ呼びかける形も変わりません。</p>
+<p>Deckが若者に話を聞いてもらえない場面を経てから戻るので、稼ぎを求める声と、そこから抜けにくい暮らしが重なって聞こえます。</p>
+</div>
 
-    <!-- ===================== -->
-    <!-- 文化的背景            -->
-    <!-- ===================== -->
-    <section id="background" class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        文化的背景
-      </h2>
-
-      <div class="mb-6 p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
-        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">クラック・エピデミック</p>
-        <h3 class="font-semibold text-base mb-3">1990年代ニューヨークを破壊した麻薬の惨禍</h3>
-        <div class="space-y-3 text-[var(--c-muted)] text-sm leading-relaxed">
-          <p>粉末コカインを重曹で固形化した安価なクラック・コカインは、レーガノミクスによる社会福祉削減で疲弊したインナーシティに、文字通り壊滅的な打撃を与えました。1992年のニューヨーク市の殺人事件数は年間<strong class="text-[var(--c-text)]">2,225件</strong>（2020年は477件）。</p>
-          <p>数字を見るだけで、戦場みたいな状況だったとわかります。</p>
-          <p>
-            Wu-Tang Clanが育ったスタテンアイランドのパークヒル・プロジェクトも、この惨禍のど真ん中でした。だから彼らのリリックは、エピデミックの渦中でいかにして生き延びるかという生存戦略そのものなんです。
-          </p>
-        </div>
-      </div>
-
-      <div class="mb-6 p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
-        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">Shaolin（少林）= スタテンアイランド</p>
-        <h3 class="font-semibold text-base mb-3">孤立した島が生んだ純粋培養の文化</h3>
-        <div class="space-y-3 text-[var(--c-muted)] text-sm leading-relaxed">
-          <p>ニューヨーク5区の中で、スタテンアイランドだけが地下鉄と繋がっていません。フェリーがなければマンハッタンへも行けない。</p>
-          <p>この<strong class="text-[var(--c-text)]">地理的な孤立</strong>こそが、独自のスラングとハングリー精神を純粋培養したのだと思います。</p>
-          <p>
-            RZAたちはこの島に、カンフー映画「少林寺武者房（Shaolin and Wu Tang / 1983）」の世界観を重ねて「Shaolin」と呼びました。東洋の武術哲学とアメリカのインナーシティを融合させるこのAfro-Asian aesthetic（アフロ＝アジア的美学）は、のちのKanye Westや日本産アニメ「アフロサムライ」にまで影響を伸ばしていきます。
-          </p>
-        </div>
-      </div>
-
-      <div class="p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
-        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">キーワード早見表</p>
-        <h3 class="font-semibold text-base mb-3">この曲で学んだスラングの整理</h3>
-        <div class="space-y-3 mt-3">
-          {[
-            ['C.R.E.A.M.', '「Cash Rules Everything Around Me」の頭字語。後に「現金」のスラングとして英語辞書に掲載'],
-            ['Shaolin', 'スタテンアイランドのWu-Tang特有の呼称。地理的孤立とカンフー映画の神話を重ねた'],
-            ["'Lo goose", 'Polo Ralph Laurenのグースダウン。Lo-Lifes（万引き集団）が社会への反逆として着こなした'],
-            ['G off', 'get off（成功）・gangsta・G（1000ドル）のトリプルミーニング'],
-            ['keys', 'kilos（コカイン）と音楽の鍵盤・成功の鍵を掛けた語'],
-            ['Jakes', '警察官を指すニューヨーク特有のスラング'],
-            ['Old Earth', 'Five-Percent Nationの語彙で「母親」を指す敬称'],
-          ].map(([term, desc]) => (
-            <div class="flex gap-3 text-sm">
-              <span class="text-[var(--c-orange)] shrink-0 font-semibold min-w-[120px]">{term}</span>
-              <span class="text-[var(--c-muted)]">{desc}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================== -->
-    <!-- 評価と影響            -->
-    <!-- ===================== -->
-    <section id="legacy" class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        評価とその後の影響
-      </h2>
-
-      <div class="mb-4 overflow-hidden border-2 border-[var(--c-orange)] text-sm" style="border-radius:0">
-        <div class="grid grid-cols-3 bg-[var(--c-bg)] text-[var(--c-very-dim)] text-xs uppercase tracking-widest">
-          <div class="p-3 border-b border-[var(--c-border)]">指標</div>
-          <div class="p-3 border-b border-l border-[var(--c-border)]">記録</div>
-          <div class="p-3 border-b border-l border-[var(--c-border)]">意義</div>
-        </div>
-        {[
-          ['US Billboard Hot 100', '最高60位 (1994年4月23日)', 'Wu-Tang楽曲として史上最高位。アンダーグラウンドのハードコアがメインストリームの壁を突破した歴史的瞬間'],
-          ['US Hot R&B/Hip-Hop Songs', '最高32位', 'ストリートの熱量とソウルフルなサンプリングがR&Bリスナー層にも波及'],
-          ['US Hot Rap Songs', '最高8位', 'ハードコアヒップホップリスナーからの圧倒的支持'],
-          ['RIAA認定', '4× Platinum（2025年認定）', 'リリース15年後の2009年にGold、ストリーミング時代に世代を超えて再生され2025年に4×Platinumへ'],
-          ['Rolling Stone誌', '史上最も偉大なヒップホップ・ソング50選 第11位', "同誌「史上最も偉大な500曲」第107位にも選出"],
-          ['TIME誌', 'All-Time 100 Greatest Songs選出', '音楽の枠を超えアメリカ文化の暗部を描いた優れた文学・ドキュメンタリーとして評価'],
-        ].map(([metric, record, significance]) => (
-          <div class="grid grid-cols-3">
-            <div class="p-3 border-b border-[var(--c-border)] text-[var(--c-dim)]">{metric}</div>
-            <div class="p-3 border-b border-l border-[var(--c-border)] text-[var(--c-green)] font-medium">{record}</div>
-            <div class="p-3 border-b border-l border-[var(--c-border)] text-[var(--c-muted)] text-xs">{significance}</div>
-          </div>
-        ))}
-      </div>
-
-      <div class="p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
-        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">後世への影響</p>
-        <h3 class="font-semibold text-base mb-3">「Cream」が英語の辞書に載った日</h3>
-        <div class="space-y-3 text-[var(--c-muted)] text-sm leading-relaxed mb-4">
-          <p>「C.R.E.A.M.（Cream）」はリリース後、「現金」を意味する新しいスラングとして、英語圏の辞書に載るほどまでに定着しました。かつてシェイクスピアが英語の語彙そのものを押し広げたのと同じように、Wu-Tang Clanもまた現代英語に言語学的な貢献を果たした、と言ったら大げさに聞こえるでしょうか。</p>
-          <p>でも本当にそうなんです。</p>
-          <p>
-            「Dollar, dollar bill, y'all」というパンチラインは、のちのThe Notorious B.I.G.・Drake・JAY-Z・Kanye Westら、数えきれないほどの作品でサンプリング／引用されています。
-          </p>
-        </div>
-        <ul class="space-y-3 text-sm">
-          <li class="flex gap-3">
-            <span class="text-[var(--c-green)] shrink-0 font-semibold">Kanye West</span>
-            <span class="text-[var(--c-muted)]">RZAとの深い交流が、後の楽曲における東洋的なオリエンタリズムの導入に影響を与えたとされる。Wu-TangのAfro-Asian aestheticの現代への翻訳。</span>
-          </li>
-          <li class="flex gap-3">
-            <span class="text-[var(--c-green)] shrink-0 font-semibold">アフロサムライ</span>
-            <span class="text-[var(--c-muted)]">RZA自身がサウンドトラックを手掛けた日本産アニメ。Wu-Tangが提示した「東洋武術×ブラック・アメリカ」の文化融合の最終形態。</span>
-          </li>
-          <li class="flex gap-3">
-            <span class="text-[var(--c-green)] shrink-0 font-semibold">LoFi Hip-Hop</span>
-            <span class="text-[var(--c-muted)]">クオンタイズを無視した「埃っぽいドラム」の手法は、後のLoFi Hip-Hopムーブメントの直接的な源流。制約と偶然を芸術に変えるRZAの哲学は今も生き続けている。</span>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- まとめ -->
-    <section class="mb-12">
-      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
-        まとめ
-      </h2>
-      <ul class="space-y-2 text-sm text-[var(--c-muted)] list-disc list-inside leading-relaxed">
-        <li>C.R.E.A.M.は、辞書に載らないスラング・AAVE文法・二重三重の言葉遊びがぎっしり詰まった、英語表現の教材として頭ひとつ抜けた楽曲。</li>
-        <li>「G off」のトリプルエンタンドル、「keys／seas」の多義、AAVEのコピュラ省略。数語に意味を畳み込む「言葉の圧縮力」がしっかり学べる。</li>
-        <li>「Cash Rules Everything Around Me」は拝金の讃歌ではなく、貧困の構造的暴力への告発。文脈が語の意味を反転させてしまう好例です。</li>
-        <li>消えた「touch」は、機材ミスが生んだ奇跡の空白。制約と偶然をそのまま芸術に変えてしまう、ヒップホップの初期衝動を象徴している。</li>
-      </ul>
-    </section>
-
-    <DiveCards
-      cards={[
-        {
-          href: "/columns/crack-epidemic-hiphop",
-          icon: "SI",
-          kicker: "文化・歴史",
-          title: "クラック・エピデミックとヒップホップ",
-          desc: "1992年のNY市の殺人件数2,225件。曲の言葉がそのまま生存戦略だった時代の話を、もう少し掘り下げて。",
-          hint: "SI",
-        },
-        {
-          href: "/columns/rza-sampling-philosophy",
-          icon: "RZA",
-          kicker: "C.R.E.A.M. 深掘り",
-          title: "制作秘話とサンプリングの全貌",
-          desc: "哀愁ピアノの正体はThe Charmels、消えた「touch」は機材ミス。RZAが低予算スタジオで組み上げたC.R.E.A.M.のビートを分解する。",
-          hint: "RZA",
-        },
-        {
-          href: "/columns/ny-golden-era-1994",
-          icon: "94",
-          kicker: "時代解説",
-          title: "1994年、NY黄金期の頂点",
-          desc: "C.R.E.A.M.が出たのと同じ年、Nas・Big・Wu-Tangが一斉に名盤を放っていた。その狂った一年の全景。",
-          hint: "94",
-        },
-      ]}
-    />
-
+</LearningUnit>
+<a class="back-toc" href="#article-toc">目次へ ↑</a>
+</div>
+ </section>
+ <section id="background" data-reading-section="03 · Shaolinとスタテンアイランド" class="mb-12 scroll-mt-40" style="scroll-margin-top:240px">
+  <h2>Shaolinは、ニューヨークの島の名前</h2>
+  <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+   <p>Wu-Tangの言うShaolinはスタテンアイランド。<br />マンハッタンの南西、ニューヨーク港を挟んだ位置にあります。</p>
+   <p>フェリーは島のSt. Georgeと、マンハッタンのWhitehallを結ぶ航路です。</p>
+  </div>
+  <figure class="context-photo"><img src="/images/context/cream/staten-ferry.jpg" width="1941" height="1200" loading="lazy" alt="ニューヨーク港を進むオレンジ色のスタテンアイランド・フェリー" />
+   <figcaption>スタテンアイランド・フェリー。写真：<a href="https://commons.wikimedia.org/wiki/File:Staten_Island_Ferry.jpg" target="_blank" rel="noopener noreferrer">Beyond My Ken / Wikimedia Commons</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a></figcaption>
+  </figure>
+  <div class="context-map"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d104441.60191270344!2d-74.22921926610205!3d40.56470673948775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c245ef79f4d4e7%3A0x50271f8534babc78!2z44Ki44Oh44Oq44Kr5ZCI6KGG5Zu9IOODi-ODpeODvOODqOODvOOCr-W3niDjgrnjgr_jg4bjg7PjgqLjgqTjg6njg7Pjg4k!5e1!3m2!1sja!2sjp!4v1791809334980!5m2!1sja!2sjp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="スタテンアイランド周辺の地図"></iframe></div>
+  <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed mt-5">
+   <p>曲の中では、警察に追われること、薬物を売ること、母へ助言を求めることが並びます。<br />街の背景を、語り手の具体的な動きから読むと追いやすいと思います。</p>
+  </div>
+  <a class="back-toc" href="#article-toc">目次へ ↑</a>
+ </section>
+ <section id="sample" data-reading-section="04 · 元ネタのピアノを聴く" class="mb-12 scroll-mt-40" style="scroll-margin-top:240px">
+  <h2>The Charmelsのイントロから、RZAのループへ</h2>
+  <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+   <p>元ネタはThe Charmels「As Long As I’ve Got You」（1967年、Volt）。<br />Isaac HayesとDavid Porterが書いた曲で、冒頭のピアノがC.R.E.A.M.へ使われています。</p>
+   <p>原曲はイントロから歌へ進みますが、RZAのビートではそのピアノが繰り返されます。<br />声が入る前の短い演奏を、ラップの間ずっと残す使い方です。</p>
+  </div>
+  <div class="aspect-video rounded-lg overflow-hidden mt-5"><iframe loading="lazy" class="w-full h-full" src="https://www.youtube.com/embed/gp9uZjPaB4w" title="The Charmels - As Long As I've Got You 元ネタ試聴" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+  <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+   <p>The Charmelsの原曲を収めた国内9枚組CDでは、Disc 9の2曲目に入っています。</p>
+<p>ピアノだけを聴き比べるなら、原曲の試聴から。盤で持つなら、他のStax／Voltの録音もまとめて聴くためのボックスです。</p>
+  </div>
+  <aside class="reader-block" data-reading-kind="PR" data-reading-section="元ネタ収録盤" aria-label="元ネタ収録盤の購入案内"><AmazonMusicReference {...shop.stax} /></aside>
+  <a class="back-toc" href="#article-toc">目次へ ↑</a>
+ </section>
+ <section id="records" data-reading-section="05 · 収録盤を聴く・探す" class="mb-12 scroll-mt-40" style="scroll-margin-top:240px">
+  <h2>『36 Chambers』を一曲の先まで聴く</h2>
+  <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+   <p>C.R.E.A.M.が入っているのは、1993年のデビュー盤『Enter the Wu-Tang (36 Chambers)』。<br />シングルの発売は翌1994年なので、アルバム年とは分けておきたいところです。</p>
+   <p>下のAmazonリンクは、RCAの通常CD（ASIN：B000002WPI、1枚組）です。<br />C.R.E.A.M.のアルバム版に加えて、「Protect Ya Neck」などのマイクリレーも同じ盤で聴けます。</p>
+   <p>メルカリは中古CDの検索へ。<br />同じ題名のライブ盤やアナログ盤もあるので、媒体、収録曲、ディスクと付属物の状態を見分けるための案内です。</p>
+  </div>
+  <aside class="reader-block" data-reading-kind="PR" data-reading-section="36 ChambersのCD" aria-label="36 Chambersの購入案内"><AmazonMusicReference {...shop.wu} /></aside>
+  <a class="back-toc" href="#article-toc">目次へ ↑</a>
+ </section>
+ <aside class="source-notes" aria-label="出典と作品情報">
+  <p>作品・出演：<a href="https://www.sonymusic.ca/press_release/celebrate-the-wu-tang-clans-30th-anniversary-of-debut-album-enter-the-wu-tang-36-chambers" target="_blank" rel="noopener noreferrer">Sony Music</a> · <a href="https://www.grammy.com/news/rza-wu-tang-clan-bobby-digital-saturday-afternoon-kung-fu-theater-interview/" target="_blank" rel="noopener noreferrer">RZAインタビュー（GRAMMY）</a></p>
+  <p>元ネタ：<a href="https://staxrecords.com/spotlight/stax-groups-the-astors-jeanne-the-darlings-the-charmels/" target="_blank" rel="noopener noreferrer">Stax Records</a> · <a href="https://www.whosampled.com/Wu-Tang-Clan/C.R.E.A.M./" target="_blank" rel="noopener noreferrer">WhoSampled</a> · 原曲収録盤：<a href="https://wmg.jp/compi/discography/3985" target="_blank" rel="noopener noreferrer">Warner Music Japan</a></p>
+  <p>歌詞用例：<a href="https://genius.com/Wu-tang-clan-cream-lyrics" target="_blank" rel="noopener noreferrer">Genius</a>。解説に必要な断片だけを引用しています。</p>
+  <p>航路：<a href="https://www.nyc.gov/html/dot/html/ferrybus/staten-island-ferry.shtml" target="_blank" rel="noopener noreferrer">NYC DOT</a>。ジャケット画像：Amazonの商品表示。</p>
+  <p>Lo LifeとPolo：<a href="https://www.houyhnhnm.jp/feature/184981/" target="_blank" rel="noopener noreferrer">Rack-Loインタビュー</a> · <a href="https://www.ralphlauren.com/rlmag/the-story-of-snow-beach.html" target="_blank" rel="noopener noreferrer">Ralph Lauren</a> · <a href="https://corporate.ralphlauren.com/pr_260930_PoloFest.html?q=lauren+ralph" target="_blank" rel="noopener noreferrer">PoloFest</a></p>
+ </aside>
+ </div>
 </SongLayout>
+<style>
+ .record-summary { display:grid; grid-template-columns:100px minmax(0,1fr); gap:.8rem; align-items:start; margin:1.25rem 0; padding:.8rem; border:1px solid var(--c-border); border-radius:.5rem; background:var(--c-surface); }
+ .record-summary img { width:100px; height:100px; object-fit:contain; }
+ .record-summary dl { display:grid; grid-template-columns:auto minmax(0,1fr); gap:.35rem .5rem; font-size:.8rem; }
+ .record-summary dt { color:var(--c-dim); } .record-summary dd { overflow-wrap:anywhere; }
+ .reading-entries { display:grid; gap:.5rem; } .reading-entries a { display:block; padding:.8rem; border:1px solid var(--c-border); border-radius:.5rem; background:var(--c-surface); }
+ .reading-entries strong { display:block; color:var(--c-gold); font-size:.85rem; } .reading-entries span { display:block; margin-top:.3rem; font-size:.75rem; color:var(--c-muted); }
+ #song-reading-body :global(p) { overflow-wrap:anywhere; } #song-reading-body :global(h2) { margin-bottom:1rem; font-size:1.1rem; line-height:1.5; }
+ .article-toc { margin:1.5rem 0 2rem; padding:1rem; border:1px solid var(--c-border); border-radius:.5rem; background:var(--c-surface); font-size:.85rem; }
+ .article-toc a { display:block; min-height:44px; padding:.65rem 0; } .article-toc summary { cursor:pointer; padding:.5rem 0; color:var(--c-gold); } .article-toc details ol { padding-left:1rem; }
+ .back-toc { display:block; width:fit-content; min-height:44px; margin:.5rem 0 1rem auto; padding:.65rem .5rem; font-size:.75rem; color:var(--c-gold); }
+ .context-photo { margin:1.5rem 0; } .context-photo img { display:block; width:100%; height:auto; border-radius:.5rem; } .context-photo figcaption { margin-top:.6rem; font-size:.7rem; font-style:italic; line-height:1.6; color:var(--c-muted); }
+ .context-map { max-width:600px; margin:1.5rem 0; } .context-map iframe { display:block; width:100%; max-width:100%; aspect-ratio:4/3; height:auto; border:0; }
+ .context-photo a,.source-notes a,.map-link { text-decoration:underline; text-underline-offset:.2em; }
+ .source-notes,.playback-note { font-size:.75rem; line-height:1.8; color:var(--c-dim); margin-bottom:1.5rem; } .source-notes p { margin:.5rem 0; } .map-link { font-size:.85rem; color:var(--c-gold); }
+ a:focus-visible,summary:focus-visible { outline:2px solid var(--c-gold); outline-offset:3px; }
+ @media(min-width:640px) { .reading-entries { grid-template-columns:repeat(3,minmax(0,1fr)); } }
+ @media(max-width:360px) { .record-summary { grid-template-columns:76px minmax(0,1fr); gap:.5rem; padding:.6rem; } .record-summary img { width:76px; height:76px; } .record-summary dl { font-size:.75rem; gap:.3rem .4rem; } .spicer-reference :global(.release-reference) { grid-template-columns:72px minmax(0,1fr); gap:.6rem; padding:.65rem; } .spicer-reference :global(.release-reference img) { width:72px; height:72px; } }
+</style>

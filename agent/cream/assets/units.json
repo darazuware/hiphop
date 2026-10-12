@@ -25,13 +25,14 @@
     "captionSec": 22
   },
   {
-    "id": "lo-goose",
+    "id": "shaolin-land",
     "anchor": [
-      "a",
-      "young",
-      "youth"
+      "so",
+      "then",
+      "we",
+      "moved"
     ],
-    "fallbackT": 33,
+    "fallbackT": 36,
     "manualSec": 31,
     "captionSec": 32
   },
@@ -44,19 +45,18 @@
       "tooth"
     ],
     "fallbackT": 35,
-    "manualSec": null,
+    "manualSec": 34,
     "captionSec": 32
   },
   {
-    "id": "shaolin-land",
+    "id": "lo-goose",
     "anchor": [
-      "so",
-      "then",
-      "we",
-      "moved"
+      "a",
+      "young",
+      "youth"
     ],
-    "fallbackT": 36,
-    "manualSec": null,
+    "fallbackT": 33,
+    "manualSec": 34.9,
     "captionSec": 32
   },
   {
@@ -81,7 +81,7 @@
       "gates"
     ],
     "fallbackT": 55,
-    "manualSec": 49,
+    "manualSec": 47,
     "captionSec": 49
   },
   {
@@ -116,7 +116,7 @@
       "anger"
     ],
     "fallbackT": 87,
-    "manualSec": 83,
+    "manualSec": 81,
     "captionSec": 81
   },
   {
@@ -128,8 +128,21 @@
       "around"
     ],
     "fallbackT": 92,
-    "manualSec": 86,
+    "manualSec": 86.5,
     "captionSec": 86
+  },
+  {
+    "id": "fifteen-bagged",
+    "anchor": [
+      "at",
+      "the",
+      "age",
+      "of",
+      "fifteen"
+    ],
+    "fallbackT": 126,
+    "manualSec": 112,
+    "captionSec": 109.78
   },
   {
     "id": "could-not-touch",
@@ -141,7 +154,7 @@
       "clutch"
     ],
     "fallbackT": 121,
-    "manualSec": 116,
+    "manualSec": 112.8,
     "captionSec": 109
   },
   {
@@ -156,19 +169,6 @@
     "captionSec": 126
   },
   {
-    "id": "fifteen-bagged",
-    "anchor": [
-      "at",
-      "the",
-      "age",
-      "of",
-      "fifteen"
-    ],
-    "fallbackT": 126,
-    "manualSec": null,
-    "captionSec": null
-  },
-  {
     "id": "world-cell",
     "anchor": [
       "living",
@@ -178,7 +178,7 @@
       "no"
     ],
     "fallbackT": 137,
-    "manualSec": 132,
+    "manualSec": 129,
     "captionSec": 131
   },
   {
@@ -204,8 +204,20 @@
       "from"
     ],
     "fallbackT": 139,
-    "manualSec": 135,
+    "manualSec": 134,
     "captionSec": 133
+  },
+  {
+    "id": "bones-staircase",
+    "anchor": [
+      "smokin",
+      "bones",
+      "in",
+      "the"
+    ],
+    "fallbackT": 138,
+    "manualSec": null,
+    "captionSec": 136.401
   },
   {
     "id": "whats-it-worth",
@@ -216,7 +228,7 @@
       "whats"
     ],
     "fallbackT": 147,
-    "manualSec": null,
+    "manualSec": 144,
     "captionSec": 144
   },
   {
@@ -231,18 +243,6 @@
     "fallbackT": 153,
     "manualSec": 149,
     "captionSec": 147
-  },
-  {
-    "id": "bones-staircase",
-    "anchor": [
-      "smokin",
-      "bones",
-      "in",
-      "the"
-    ],
-    "fallbackT": 138,
-    "manualSec": null,
-    "captionSec": null
   },
   {
     "id": "stickup-kids",

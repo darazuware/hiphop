@@ -1,7 +1,8 @@
 ---
 import '@fontsource/inter/800-italic.css';
+const { compact = false } = Astro.props;
 ---
-<nav class="reading-guide" aria-label="現在の読書位置">
+<nav class:list={["reading-guide", { "reading-guide-compact": compact }]} aria-label="現在の読書位置">
   <div><span id="reading-kind">記事本体</span><strong id="reading-location">目次</strong></div>
   <a href="#article-toc">目次 ↑</a>
 </nav>
@@ -30,6 +31,11 @@ import '@fontsource/inter/800-italic.css';
   [data-guided-reading] .commerce-mercari > section > p { margin-bottom:.5rem; letter-spacing:0; line-height:1.5; }
   [data-guided-reading] .commerce-mercari a { padding:.5rem; font-size:.8rem; }
   @media(max-width:520px) {
+    [data-guided-reading] .reading-guide-compact { min-height:44px; padding:0 .45rem 0 .55rem; margin-bottom:.6rem; gap:.35rem; border-left-width:3px; }
+    [data-guided-reading] .reading-guide-compact div { display:flex; align-items:center; flex:1; gap:.35rem; overflow:hidden; }
+    [data-guided-reading] .reading-guide-compact #reading-kind { display:inline; flex-shrink:0; padding-right:.35rem; border-right:1px solid var(--c-border); font-size:.65rem; white-space:nowrap; }
+    [data-guided-reading] .reading-guide-compact #reading-location { min-width:0; overflow:hidden; overflow-wrap:normal; white-space:nowrap; text-overflow:ellipsis; line-height:1.2; font-size:.7rem; }
+    [data-guided-reading] .reading-guide-compact a { display:flex; align-items:center; min-height:44px; padding:0 .3rem; font-size:.7rem; white-space:nowrap; }
     [data-guided-reading] .commerce-pair { gap:.5rem; }
     [data-guided-reading] .commerce-pair .release-reference { grid-template-columns:44px minmax(0,1fr); gap:.4rem; font-size:.75rem; }
     [data-guided-reading] .commerce-pair .release-reference img { width:44px; height:44px; }
@@ -44,18 +50,22 @@ import '@fontsource/inter/800-italic.css';
     const bar = root.querySelector<HTMLElement>('.reading-guide')!;
     const kind = root.querySelector<HTMLElement>('#reading-kind')!;
     const location = root.querySelector<HTMLElement>('#reading-location')!;
+    const compact = bar.classList.contains('reading-guide-compact');
     const units = [...root.querySelectorAll<HTMLElement>('[id^="point-"]')].filter(el => el.querySelector('.learning-unit'));
-    const major = [...root.querySelectorAll<HTMLElement>('[data-reading-section]')];
+    const major = [...root.querySelectorAll<HTMLElement>(compact ? '#song-reading-body > section[data-reading-section]' : '[data-reading-section]')];
     const inserts = [...root.querySelectorAll<HTMLElement>('.reader-block')];
     const visible = (el: HTMLElement) => el.getClientRects().length > 0;
     const update = () => {
-      const line = bar.getBoundingClientRect().bottom + 40;
+      const line = bar.getBoundingClientRect().bottom + (compact && matchMedia('(max-width:520px)').matches ? 48 : 40);
       const containsLine = (el: HTMLElement) => { const r = el.getBoundingClientRect(); return visible(el) && r.top <= line && r.bottom > line; };
       const section = major.filter(el => visible(el) && el.getBoundingClientRect().top <= line).at(-1);
       const unit = units.find(containsLine);
       const insert = inserts.find(containsLine);
-      kind.textContent = insert?.dataset.readingKind ?? section?.dataset.readingKind ?? '記事本体';
-      location.textContent = insert?.dataset.readingSection ?? (unit ? `学ぶ表現 ${units.indexOf(unit) + 1} / ${units.length} · ${root.querySelector(`a[href="#${unit.id}"]`)?.textContent?.replace(/^\d+\.\s*/, '') ?? ''}` : section?.dataset.readingSection ?? '目次');
+      const mobile = compact && matchMedia('(max-width:520px)').matches;
+      const readingKind = insert?.dataset.readingKind ?? section?.dataset.readingKind ?? '記事本体';
+      kind.textContent = mobile && readingKind === '記事本体' ? '本文' : readingKind;
+      const unitTitle = unit ? root.querySelector(`a[href="#${unit.id}"]`)?.textContent?.replace(/^\d+\.\s*/, '') ?? '' : '';
+      location.textContent = insert?.dataset.readingSection ?? (unit ? mobile ? `${String(units.indexOf(unit) + 1).padStart(2, '0')}/${units.length} · ${unitTitle}` : `学ぶ表現 ${units.indexOf(unit) + 1} / ${units.length} · ${unitTitle}` : section?.dataset.readingSection ?? '目次');
       root.querySelectorAll<HTMLAnchorElement>('#article-toc a').forEach(a => {
         if (section && a.hash === `#${section.id}`) a.setAttribute('aria-current', 'location');
         else a.removeAttribute('aria-current');

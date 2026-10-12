@@ -1,0 +1,71 @@
+{
+  "youtubeId": "PBwAxmrE194",
+  "title": "Wu-Tang Clan - C.R.E.A.M. (Official HD Video - Edited)",
+  "duration": 242,
+  "channel": "Wu-Tang Clan",
+  "originalRecordsPreserved": false,
+  "albumSwitch": false,
+  "focus": [
+    {
+      "id": "fifteen-bagged",
+      "captionMatches": [
+        {
+          "captionBlockStart": 109.78,
+          "captionBlockDuration": 2.631,
+          "matchMethod": "numeric age anchor in official subtitle; block start only"
+        }
+      ],
+      "earVerified": false
+    },
+    {
+      "id": "bones-staircase",
+      "captionMatches": [
+        {
+          "captionBlockStart": 136.401,
+          "captionBlockDuration": 2.922
+        }
+      ],
+      "earVerified": false
+    },
+    {
+      "id": "intro-vendor",
+      "captionMatches": [],
+      "earVerified": false
+    }
+  ],
+  "subtitleSHA256": "85f5c89c9bc1878fe89d1d314366b9f1633b81c2d038ad28d3170c149f00c835",
+  "captionCandidates": {
+    "fifteen-bagged": 109.78,
+    "bones-staircase": 136.401
+  },
+  "note": "Previous caption observations retained below as history. Eleven timestamps updated from owner listening evidence; thirteen other records preserved. Display grouped into16 passages,15 seeks. See cream-reader-feedback-2026-10.json.",
+  "album": {
+    "id": "4yNQ7_7I5aE",
+    "title": "C.R.E.A.M. (Cash Rules Everything Around Me) (Official Audio)",
+    "duration": 254,
+    "offsetMeasured": false
+  },
+  "localListeningPage": "audio-review/index.html (untracked, no publication)",
+  "pendingHuman": [
+    "intro absence: compare official MV and official album intro",
+    "production approval"
+  ],
+  "followup": {
+    "evidence": "docs/cream-reader-feedback-2026-10.json",
+    "fifteen": {
+      "t": 112,
+      "targetCue": "fifteen",
+      "authority": "owner manual",
+      "notFullContextOnset": true
+    },
+    "bones": {
+      "groupSeek": 134,
+      "authority": "owner Every day I escape cue",
+      "ownOnsetVerified": false
+    },
+    "loGoose": {
+      "t": 34.9,
+      "authority": "owner confirmation"
+    }
+  }
+}

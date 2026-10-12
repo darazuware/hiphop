@@ -1,0 +1,616 @@
+{
+  "finalWidths": [
+    {
+      "width": 1440,
+      "actualWidth": 1440,
+      "dataLeft": 350.59375,
+      "jacketLeft": 237.796875,
+      "scrollWidth": 1440,
+      "entrances": [
+        {
+          "href": "#story",
+          "top": 239.75
+        },
+        {
+          "href": "#units",
+          "top": 240.1484375
+        },
+        {
+          "href": "#sample",
+          "top": 240.171875
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "actualWidth": 390,
+      "dataLeft": 142.59375,
+      "jacketLeft": 29.796875,
+      "scrollWidth": 390,
+      "entrances": [
+        {
+          "href": "#story",
+          "top": 239.765625
+        },
+        {
+          "href": "#units",
+          "top": 239.9140625
+        },
+        {
+          "href": "#sample",
+          "top": 240.2265625
+        }
+      ]
+    },
+    {
+      "width": 320,
+      "actualWidth": 320,
+      "dataLeft": 110.59375,
+      "jacketLeft": 26.59375,
+      "scrollWidth": 320,
+      "entrances": [
+        {
+          "href": "#story",
+          "top": 240.2421875
+        },
+        {
+          "href": "#units",
+          "top": 240.140625
+        },
+        {
+          "href": "#sample",
+          "top": 240.078125
+        }
+      ]
+    }
+  ],
+  "seekQA": [
+    {
+      "id": "point-crime-side",
+      "t": 23,
+      "time": "0:23",
+      "headDisplay": true,
+      "stopUI": true
+    },
+    {
+      "id": "point-lo-goose",
+      "t": 31,
+      "time": "0:31",
+      "headDisplay": true,
+      "stopUI": true
+    },
+    {
+      "id": "point-gold-tooth",
+      "t": 32,
+      "time": "0:32",
+      "headDisplay": true,
+      "stopUI": true
+    },
+    {
+      "id": "point-shaolin-land",
+      "t": 32,
+      "time": "0:32",
+      "headDisplay": true,
+      "stopUI": true
+    },
+    {
+      "id": "point-g-off",
+      "t": 37,
+      "time": "0:37",
+      "headDisplay": true,
+      "stopUI": true
+    },
+    {
+      "id": "point-runnin-up-gates",
+      "t": 49,
+      "time": "0:49",
+      "headDisplay": true,
+      "stopUI": true
+    },
+    {
+      "id": "point-keys-seas",
+      "t": 76,
+      "time": "1:16",
+      "headDisplay": true,
+      "stopUI": true
+    },
+    {
+      "id": "point-mpv-forty-g",
+      "t": 77,
+      "time": "1:17",
+      "headDisplay": true,
+      "stopUI": true
+    },
+    {
+      "id": "point-tec-9",
+      "t": 83,
+      "time": "1:23",
+      "headDisplay": true,
+      "stopUI": true
+    },
+    {
+      "id": "point-cream-hook",
+      "t": 86,
+      "time": "1:26",
+      "headDisplay": true,
+      "stopUI": true
+    },
+    {
+      "id": "point-fifteen-bagged",
+      "t": 109.78,
+      "time": "1:49",
+      "headDisplay": true,
+      "stopUI": true
+    },
+    {
+      "id": "point-could-not-touch",
+      "t": 116,
+      "time": "1:56",
+      "headDisplay": true,
+      "stopUI": true
+    },
+    {
+      "id": "point-shorty-life",
+      "t": 126,
+      "time": "2:06",
+      "headDisplay": true,
+      "stopUI": true
+    },
+    {
+      "id": "point-world-cell",
+      "t": 132,
+      "time": "2:12",
+      "headDisplay": true,
+      "stopUI": true
+    },
+    {
+      "id": "point-life-is-hell",
+      "t": 132,
+      "time": "2:12",
+      "headDisplay": true,
+      "stopUI": true
+    },
+    {
+      "id": "point-jakes-base",
+      "t": 135,
+      "time": "2:15",
+      "headDisplay": true,
+      "stopUI": true
+    },
+    {
+      "id": "point-bones-staircase",
+      "t": 136.401,
+      "time": "2:16",
+      "headDisplay": true,
+      "stopUI": true
+    },
+    {
+      "id": "point-whats-it-worth",
+      "t": 144,
+      "time": "2:24",
+      "headDisplay": true,
+      "stopUI": true
+    },
+    {
+      "id": "point-old-earth",
+      "t": 149,
+      "time": "2:29",
+      "headDisplay": true,
+      "stopUI": true
+    },
+    {
+      "id": "point-stickup-kids",
+      "t": 156,
+      "time": "2:36",
+      "headDisplay": true,
+      "stopUI": true
+    },
+    {
+      "id": "point-livin-proof",
+      "t": 161,
+      "time": "2:41",
+      "headDisplay": true,
+      "stopUI": true
+    },
+    {
+      "id": "point-kick-truth",
+      "t": 163,
+      "time": "2:43",
+      "headDisplay": true,
+      "stopUI": true
+    },
+    {
+      "id": "point-dollar-outro",
+      "t": 179,
+      "time": "2:59",
+      "headDisplay": true,
+      "stopUI": true
+    }
+  ],
+  "tocQA": [
+    {
+      "id": "#point-intro-vendor",
+      "targetClear": true,
+      "tocTop": 240.21875
+    },
+    {
+      "id": "#point-crime-side",
+      "targetClear": true,
+      "tocTop": 240.21875
+    },
+    {
+      "id": "#point-lo-goose",
+      "targetClear": true,
+      "tocTop": 240.21875
+    },
+    {
+      "id": "#point-gold-tooth",
+      "targetClear": true,
+      "tocTop": 240.21875
+    },
+    {
+      "id": "#point-shaolin-land",
+      "targetClear": true,
+      "tocTop": 240.21875
+    },
+    {
+      "id": "#point-g-off",
+      "targetClear": true,
+      "tocTop": 240.21875
+    },
+    {
+      "id": "#point-runnin-up-gates",
+      "targetClear": true,
+      "tocTop": 240.21875
+    },
+    {
+      "id": "#point-keys-seas",
+      "targetClear": true,
+      "tocTop": 240.21875
+    },
+    {
+      "id": "#point-mpv-forty-g",
+      "targetClear": true,
+      "tocTop": 240.21875
+    },
+    {
+      "id": "#point-tec-9",
+      "targetClear": true,
+      "tocTop": 240.21875
+    },
+    {
+      "id": "#point-cream-hook",
+      "targetClear": true,
+      "tocTop": 240.21875
+    },
+    {
+      "id": "#point-fifteen-bagged",
+      "targetClear": true,
+      "tocTop": 240.21875
+    },
+    {
+      "id": "#point-could-not-touch",
+      "targetClear": true,
+      "tocTop": 240.21875
+    },
+    {
+      "id": "#point-shorty-life",
+      "targetClear": true,
+      "tocTop": 240.21875
+    },
+    {
+      "id": "#point-world-cell",
+      "targetClear": true,
+      "tocTop": 240.21875
+    },
+    {
+      "id": "#point-life-is-hell",
+      "targetClear": true,
+      "tocTop": 240.21875
+    },
+    {
+      "id": "#point-jakes-base",
+      "targetClear": true,
+      "tocTop": 240.21875
+    },
+    {
+      "id": "#point-bones-staircase",
+      "targetClear": true,
+      "tocTop": 240.21875
+    },
+    {
+      "id": "#point-whats-it-worth",
+      "targetClear": true,
+      "tocTop": 240.21875
+    },
+    {
+      "id": "#point-old-earth",
+      "targetClear": true,
+      "tocTop": 240.21875
+    },
+    {
+      "id": "#point-stickup-kids",
+      "targetClear": true,
+      "tocTop": 240.21875
+    },
+    {
+      "id": "#point-livin-proof",
+      "targetClear": true,
+      "tocTop": 240.21875
+    },
+    {
+      "id": "#point-kick-truth",
+      "targetClear": true,
+      "tocTop": 240.21875
+    },
+    {
+      "id": "#point-dollar-outro",
+      "targetClear": true,
+      "tocTop": 240.21875
+    }
+  ],
+  "liveReview": {
+    "commit": "87f20779938f336ce5c374c8b87550f1170fe454",
+    "url": "https://hiphop-git-review-darazuwares-projects.vercel.app/songs/cream/",
+    "liveSeekQA": [
+      {
+        "id": "point-crime-side",
+        "t": 23,
+        "playing": true,
+        "time": "0:23",
+        "stopped": true
+      },
+      {
+        "id": "point-lo-goose",
+        "t": 31,
+        "playing": true,
+        "time": "0:31",
+        "stopped": true
+      },
+      {
+        "id": "point-gold-tooth",
+        "t": 32,
+        "playing": true,
+        "time": "0:32",
+        "stopped": true
+      },
+      {
+        "id": "point-shaolin-land",
+        "t": 32,
+        "playing": true,
+        "time": "0:32",
+        "stopped": true
+      },
+      {
+        "id": "point-g-off",
+        "t": 37,
+        "playing": true,
+        "time": "0:37",
+        "stopped": true
+      },
+      {
+        "id": "point-runnin-up-gates",
+        "t": 49,
+        "playing": true,
+        "time": "0:49",
+        "stopped": true
+      },
+      {
+        "id": "point-keys-seas",
+        "t": 76,
+        "playing": true,
+        "time": "1:16",
+        "stopped": true
+      },
+      {
+        "id": "point-mpv-forty-g",
+        "t": 77,
+        "playing": true,
+        "time": "1:17",
+        "stopped": true
+      },
+      {
+        "id": "point-tec-9",
+        "t": 83,
+        "playing": true,
+        "time": "1:23",
+        "stopped": true
+      },
+      {
+        "id": "point-cream-hook",
+        "t": 86,
+        "playing": true,
+        "time": "1:26",
+        "stopped": true
+      },
+      {
+        "id": "point-fifteen-bagged",
+        "t": 109.78,
+        "playing": true,
+        "time": "1:50",
+        "stopped": true
+      },
+      {
+        "id": "point-could-not-touch",
+        "t": 116,
+        "playing": true,
+        "time": "1:56",
+        "stopped": true
+      },
+      {
+        "id": "point-shorty-life",
+        "t": 126,
+        "playing": true,
+        "time": "2:06",
+        "stopped": true
+      },
+      {
+        "id": "point-world-cell",
+        "t": 132,
+        "playing": true,
+        "time": "2:12",
+        "stopped": true
+      },
+      {
+        "id": "point-life-is-hell",
+        "t": 132,
+        "playing": true,
+        "time": "2:12",
+        "stopped": true
+      },
+      {
+        "id": "point-jakes-base",
+        "t": 135,
+        "playing": true,
+        "time": "2:15",
+        "stopped": true
+      },
+      {
+        "id": "point-bones-staircase",
+        "t": 136.401,
+        "playing": true,
+        "time": "2:16",
+        "stopped": true
+      },
+      {
+        "id": "point-whats-it-worth",
+        "t": 144,
+        "playing": true,
+        "time": "2:24",
+        "stopped": true
+      },
+      {
+        "id": "point-old-earth",
+        "t": 149,
+        "playing": true,
+        "time": "2:29",
+        "stopped": true
+      },
+      {
+        "id": "point-stickup-kids",
+        "t": 156,
+        "playing": true,
+        "time": "2:36",
+        "stopped": true
+      },
+      {
+        "id": "point-livin-proof",
+        "t": 161,
+        "playing": true,
+        "time": "2:44",
+        "stopped": true
+      },
+      {
+        "id": "point-kick-truth",
+        "t": 163,
+        "playing": true,
+        "time": "2:43",
+        "stopped": true
+      },
+      {
+        "id": "point-dollar-outro",
+        "t": 179,
+        "playing": true,
+        "time": "2:59",
+        "stopped": true
+      }
+    ],
+    "liveWidths": [
+      {
+        "width": 1440,
+        "actual": 1440,
+        "scroll": 1440,
+        "images": [
+          {
+            "loaded": true,
+            "src": "https://m.media-amazon.com/images/I/71BUBWTvyhL._AC_SX679_.jpg"
+          },
+          {
+            "loaded": true,
+            "src": "/images/context/cream/staten-ferry.jpg"
+          },
+          {
+            "loaded": true,
+            "src": "/images/context/cream/stax-museum.jpg"
+          },
+          {
+            "loaded": true,
+            "src": "https://m.media-amazon.com/images/I/31lfe1c0RJL._AC_.jpg"
+          },
+          {
+            "loaded": true,
+            "src": "https://m.media-amazon.com/images/I/71BUBWTvyhL._AC_SX679_.jpg"
+          }
+        ]
+      },
+      {
+        "width": 390,
+        "actual": 390,
+        "scroll": 390,
+        "images": [
+          {
+            "loaded": true,
+            "src": "https://m.media-amazon.com/images/I/71BUBWTvyhL._AC_SX679_.jpg"
+          },
+          {
+            "loaded": true,
+            "src": "/images/context/cream/staten-ferry.jpg"
+          },
+          {
+            "loaded": true,
+            "src": "/images/context/cream/stax-museum.jpg"
+          },
+          {
+            "loaded": true,
+            "src": "https://m.media-amazon.com/images/I/31lfe1c0RJL._AC_.jpg"
+          },
+          {
+            "loaded": true,
+            "src": "https://m.media-amazon.com/images/I/71BUBWTvyhL._AC_SX679_.jpg"
+          }
+        ]
+      },
+      {
+        "width": 320,
+        "actual": 320,
+        "scroll": 320,
+        "images": [
+          {
+            "loaded": true,
+            "src": "https://m.media-amazon.com/images/I/71BUBWTvyhL._AC_SX679_.jpg"
+          },
+          {
+            "loaded": true,
+            "src": "/images/context/cream/staten-ferry.jpg"
+          },
+          {
+            "loaded": true,
+            "src": "/images/context/cream/stax-museum.jpg"
+          },
+          {
+            "loaded": true,
+            "src": "https://m.media-amazon.com/images/I/31lfe1c0RJL._AC_.jpg"
+          },
+          {
+            "loaded": true,
+            "src": "https://m.media-amazon.com/images/I/71BUBWTvyhL._AC_SX679_.jpg"
+          }
+        ]
+      }
+    ],
+    "runtimePlay": {
+      "start": "1:49",
+      "afterPlay": {
+        "playing": true,
+        "time": "1:50"
+      },
+      "stopTime": "1:50",
+      "afterStop": {
+        "stopped": true,
+        "time": "1:50"
+      }
+    }
+  },
+  "actualAudio": "live review playback progressed and paused; vocal onsets and MV intro comparison still pending human listening",
+  "productDestinations": "Amazon CD details and covers observed; Mercari exact CD search title and afid verified"
+}

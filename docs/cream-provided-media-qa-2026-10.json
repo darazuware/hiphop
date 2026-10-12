@@ -1,0 +1,79 @@
+{
+  "date": "2026-10-12",
+  "scope": "CREAM only",
+  "baseReview": "679d79d8dfc07266ee9cae794d8101e276389904",
+  "localBrowser": {
+    "url": "http://127.0.0.1:4342/songs/cream/",
+    "widths": [
+      1440,
+      390,
+      320
+    ],
+    "horizontalOverflow": [
+      false,
+      false,
+      false
+    ],
+    "figures": 5,
+    "loadedArticleImages": [
+      "new-york-times-provided.png",
+      "gold-tooth-provided.png",
+      "lo-goose-ai-provided.jpeg",
+      "mazda-mpv-official.png",
+      "staten-ferry.jpg"
+    ],
+    "staxMuseumRemovedFromArticle": true,
+    "tocEntries": 16,
+    "seekControls": 15,
+    "stopControls": 15,
+    "tocJumpVerifiedAt": [
+      1440,
+      390,
+      320
+    ],
+    "seekAndStopUIVerifiedAt": [
+      1440,
+      390,
+      320
+    ],
+    "exampleSeek": "gold-tooth 0:34",
+    "localYouTubeAudiblePlayback": "not verified in local IAB; player iframe reported unavailable. Prior live review verified playback and stop; player and timestamps remain unchanged in this task."
+  },
+  "checks": {
+    "tone": "pass",
+    "article10": "pass after Pexels attribution and Stax removal; YouTube and Genius live checks passed with network access",
+    "publishSafety": "pass",
+    "creamChampion": "pass; 16 groups, 15 seek, approved quotes and timestamp records byte-identical to review baseline",
+    "diffCheck": "pass"
+  },
+  "instagram": "not used per owner clarification; AI image placed instead",
+  "production": "not published; requires owner approval and unchanged publish-main.mjs",
+  "review": {
+    "url": "https://hiphop-git-review-darazuwares-projects.vercel.app/songs/cream/",
+    "sourceCommit": "209c91133ca5d2a77f504af9f6a2f2ea460172c1",
+    "initialDeployment": "failed before build: Git information retrieval failed for this deployment",
+    "redeployment": "dpl_BV9zQSKE9zS2grgoGWRf7zvdGNan Ready, same source commit, Preview environment",
+    "verifiedWidths": [
+      1440,
+      390,
+      320
+    ],
+    "horizontalOverflow": [
+      false,
+      false,
+      false
+    ],
+    "figures": 5,
+    "loadedArticleImages": [
+      "new-york-times-provided.png",
+      "gold-tooth-provided.png",
+      "lo-goose-ai-provided.jpeg",
+      "mazda-mpv-official.png",
+      "staten-ferry.jpg"
+    ],
+    "tocEntries": 16,
+    "seekControls": 15,
+    "stopControls": 15,
+    "seekAndStopUI": "representative 0:34 seek and stop displayed and stayed at 0:34; audio progression not independently verified this run; earlier live review audio progression evidence retained"
+  }
+}
