@@ -24,6 +24,6 @@
     "publishSafety": "pass",
     "preservation": "16 reading groups, 15 seek controls, every timestamp and quotation retained; dedicated guard pass; product link count 5 to 7 for one added image/text pair",
     "responsive": "1440/390/320px horizontal overflow 0; new cover loaded with natural width 679px; 320px card image reduced to 72px and remains readable",
-    "liveReview": "pending push and deployment verification"
+    "liveReview": "Vercel Preview 67CxZGtfVjgzdud41gsNaXBCZCxd Ready for commit 2ff66cd; fixed review URL displays the card after the Jimmy Spicer passage; both links have exact ASIN/tag, distinct affiliate positions, and sponsored/nofollow rel; Amazon cover loaded at natural width 679px; 15 seek controls and zero horizontal overflow"
   }
 }

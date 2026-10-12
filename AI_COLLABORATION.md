@@ -282,3 +282,8 @@ AIを活用し、WAX&THINKの検索・動画流入を継続収益へ変える。
 ### C.R.E.A.M. Jimmy Spicer Amazonリンク着手 — 2026-10-12 JST
 - Codex。隔離review `/private/tmp/cream-reader-review`、review 6675b28 clean。対象はCREAMのJimmy Spicer言及近傍、commerceデータ、商品確認記録、専用ガードと本ボード。実商品のAmazon直リンク・収録内容・ジャケット・tag/計測を確認し、16ブロック/15seek/引用、NY・他記事・WIP・動画は保全。
 - 入口: CLAUDE記事フロー・商品案内ルール。DoD: 商品実在と画像出典、記事10項目・文体・公開安全・専用保全、PC/390/320表示とリンク、review push/配信確認。本番は承認後に既定publish-main.mjsのみ。人間待ち: 最終review・公開承認。
+
+### C.R.E.A.M. Jimmy Spicer Amazonリンク終了 — 2026-10-12 JST
+- Codex。Amazon.co.jpの輸入CD B0BZMWPH2W（2023年コンピ盤）の1曲目にJimmy Spicer「Money (Dollar Bill Y'all) (Long Version)」が収録されることを商品ページとAce Recordsの曲目表で確認。1983年オリジナル盤と混同しない案内をJimmy Spicer言及の直下へ追加。既存の購入カードを再利用し、画像・文字リンクに別々のaffiliate positionと既存click計測を適用。商品画像の個別再利用許諾は未取得として台帳に記録。
+- 文体、記事10項目（実YouTube/Genius確認）、公開安全、専用保全、build、diff合格。16ブロック/15seek・確定時刻・引用の保全を確認。ローカルPC1440/390/320で横溢れ0、商品画像ロード、リンク先と[PR]表示を確認。対象5ファイルだけ2ff66cdでreview push、通常pre-push合格。Vercel自動プレビューが未起動のため同コミットのPreviewを作成し67CxZGtfVjgzdud41gsNaXBCZCxd Ready。固定review URLでカード・2リンク・画像679px・15seekを再確認。記録は `docs/cream-jimmy-spicer-amazon-2026-10.json`。
+- 確認URL https://hiphop-git-review-darazuwares-projects.vercel.app/songs/cream/ 。main/NY/他記事/WIP/動画/共通player/既定publisher変更0。本番未公開。人間待ち: CREAMの最終review・公開承認。次1タスク: review画面でJimmy Spicerの商品案内を確認し、公開可否を判断する（難度低、推奨 GPT-6.1 Sol/medium）。公開承認時だけ既定publish-main.mjsを使用。
