@@ -46,6 +46,11 @@ function getSlangSongs(slangWord: string, explicitSlugs: string[] = []) {
   return [...found.values()];
 }
 
+const pageFiles = import.meta.glob('../data/slang-pages/*.json', { eager: true, import: 'default' }) as Record<string, { slug: string; word: string; category: string }>;
+const wordPages = Object.values(pageFiles).sort((a, b) => a.word.localeCompare(b.word));
+const pageSlugs = new Set(wordPages.map(p => p.slug));
+const pageFor = (word: string) => word.toLowerCase().split(/\s*\/\s*/).find(v => pageSlugs.has(v));
+
 const slang = [...slangData].sort((a, b) => a.word.toLowerCase().localeCompare(b.word.toLowerCase()));
 
 const getBucket = (word: string) => {
@@ -72,6 +77,21 @@ const grouped = alphabet.map(letter => ({
       <h1 class="text-2xl md:text-3xl font-bold leading-tight mb-1">スラング索引</h1>
       <p class="text-[var(--c-dim)] text-sm">全{slang.length}語 — ヒップホップ歌詞に登場するスラング・固有名詞・文化用語を解説</p>
     </header>
+
+    <section class="mb-8 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg p-5">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-1">詳しく解説した語</h2>
+      <p class="text-[var(--c-dim)] text-xs mb-4">意味・語源・例文・曲での使われ方を1語1ページでまとめています（{wordPages.length}語）</p>
+      <ul class="flex flex-wrap gap-2">
+        {wordPages.map(p => (
+          <li>
+            <a href={`/slang/${p.slug}`} class="inline-flex items-baseline gap-1.5 text-sm border border-[var(--c-border)] rounded px-2.5 py-1 hover:border-[var(--c-gold)] hover:text-[var(--c-gold)] transition-colors">
+              <span class="font-semibold">{p.word}</span>
+              <span class="text-[10px] text-[var(--c-very-dim)]">{p.category}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
 
     <!-- Search -->
     <div class="mb-6">
@@ -112,6 +132,9 @@ const grouped = alphabet.map(letter => ({
                 <dt class="text-[var(--c-text)] font-semibold shrink-0 min-w-[140px] max-w-[180px] break-words">{s.word}</dt>
                 <dd class="text-[var(--c-muted)] leading-relaxed">
                   {s.desc}
+                  {pageFor(s.word) && (
+                    <a href={`/slang/${pageFor(s.word)}`} class="block mt-1 text-xs text-[var(--c-gold)] hover:underline underline-offset-2">{pageFor(s.word)} を詳しく解説 →</a>
+                  )}
                   {songRefs.length > 0 && (
                     <span class="block mt-1 text-xs text-[var(--c-very-dim)]">
                       使用曲:{' '}
