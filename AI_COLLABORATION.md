@@ -287,3 +287,7 @@ AIを活用し、WAX&THINKの検索・動画流入を継続収益へ変える。
 - Codex。Amazon.co.jpの輸入CD B0BZMWPH2W（2023年コンピ盤）の1曲目にJimmy Spicer「Money (Dollar Bill Y'all) (Long Version)」が収録されることを商品ページとAce Recordsの曲目表で確認。1983年オリジナル盤と混同しない案内をJimmy Spicer言及の直下へ追加。既存の購入カードを再利用し、画像・文字リンクに別々のaffiliate positionと既存click計測を適用。商品画像の個別再利用許諾は未取得として台帳に記録。
 - 文体、記事10項目（実YouTube/Genius確認）、公開安全、専用保全、build、diff合格。16ブロック/15seek・確定時刻・引用の保全を確認。ローカルPC1440/390/320で横溢れ0、商品画像ロード、リンク先と[PR]表示を確認。対象5ファイルだけ2ff66cdでreview push、通常pre-push合格。Vercel自動プレビューが未起動のため同コミットのPreviewを作成し67CxZGtfVjgzdud41gsNaXBCZCxd Ready。固定review URLでカード・2リンク・画像679px・15seekを再確認。記録は `docs/cream-jimmy-spicer-amazon-2026-10.json`。
 - 確認URL https://hiphop-git-review-darazuwares-projects.vercel.app/songs/cream/ 。main/NY/他記事/WIP/動画/共通player/既定publisher変更0。本番未公開。人間待ち: CREAMの最終review・公開承認。次1タスク: review画面でJimmy Spicerの商品案内を確認し、公開可否を判断する（難度低、推奨 GPT-6.1 Sol/medium）。公開承認時だけ既定publish-main.mjsを使用。
+
+### C.R.E.A.M. 読書位置バー修正着手 — 2026-10-12 JST
+- Codex。隔離review `/private/tmp/cream-reader-review`、review 2aaf6b7 clean。ユーザー画像と実reviewの9項目目でPR誤表示を再現。原因は購入カードのdata-reading-sectionを現在の大節として記憶し続ける判定。CREAM限定でカード通過後は記事本体へ戻し、スマホの現在地/PRラベルを一行の薄いバーへ圧縮する。NY・他記事・WIP・動画、本文・引用・16ブロック・15seekは保全。
+- 入口: CLAUDE記事フロー/ReadingGuide。DoD: 専用保全・build・公開安全、320/390/PCで9以降のPR誤表示なし・購入カード上ではPR・目次ジャンプ・横溢れ0・再生停止。出口: 対象差分だけreview pushと実review確認。本番は承認後に既定publish-main.mjsのみ。

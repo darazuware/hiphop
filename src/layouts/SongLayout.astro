@@ -380,7 +380,7 @@ const seoDescription = song && !description.includes('和訳')
 
       <!-- Main content slot -->
       <ExplanationToggle />
-      {guidedReading && <ReadingGuide />}
+      {guidedReading && <ReadingGuide compact={slug === 'cream'} />}
       <div id="edit-scope">
         <slot />
       </div>

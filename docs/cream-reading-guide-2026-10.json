@@ -1,0 +1,15 @@
+{
+  "date": "2026-10-12",
+  "scope": "C.R.E.A.M. reading guide only",
+  "cause": "The previous-position lookup included a PR card in the list of major sections, so its PR kind remained active after the card ended.",
+  "change": "For C.R.E.A.M. only, major positions come from direct article sections; PR is shown only while the reading line intersects a purchase card. At widths up to 520px the guide is one row with a shortened body label and ellipsized location; the table-of-contents link keeps a 44px target.",
+  "checks": {
+    "before": "review URL at #point-fifteen-bagged displayed PR for item 9",
+    "local390": "guide 46px tall; PR on Jimmy Spicer card; body label immediately after the card; zero horizontal overflow",
+    "local320": "guide 46px tall; item 9 shows body and 09/16; table-of-contents link and return jump work; zero horizontal overflow",
+    "localPC": "guide retains 59.5px desktop layout; body label at item 9; zero horizontal overflow",
+    "preservation": "16 reading groups, 15 seek controls, quote and timestamp records unchanged; dedicated check passed; NY and other article source unchanged",
+    "gates": "tone, article 10/10, build, publish safety, internal links, SEO, diff check passed",
+    "liveReview": "pending deployment"
+  }
+}

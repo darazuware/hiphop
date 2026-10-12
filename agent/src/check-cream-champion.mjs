@@ -125,5 +125,7 @@ for (const element of productLinks) {
     assert.equal(payload.transport_type,'beacon');
   }
 }
-for (const p of ['src/pages/songs/ny-state-of-mind.astro','src/pages/songs/come-down.astro','src/pages/songs/93-til-infinity.astro','src/layouts/Layout.astro','src/layouts/SongLayout.astro','src/components/LearningUnit.astro','agent/src/publish-main.mjs']) assert.equal(read(p),previous(p),p);
+for (const p of ['src/pages/songs/ny-state-of-mind.astro','src/pages/songs/come-down.astro','src/pages/songs/93-til-infinity.astro','src/layouts/Layout.astro','src/components/LearningUnit.astro','agent/src/publish-main.mjs']) assert.equal(read(p),previous(p),p);
+const songLayout = read('src/layouts/SongLayout.astro');
+assert.equal(songLayout.replace('<ReadingGuide compact={slug === \'cream\'} />','<ReadingGuide />'),previous('src/layouts/SongLayout.astro'),'Only the CREAM-specific reading guide option may change in SongLayout');
 console.log(JSON.stringify({pass:true,records:24,readingGroups:16,seek:15,unchangedRecords:13,humanOverrides:11,quoteTokensBefore:quoteTokens(previous('src/pages/songs/cream.astro')),quoteTokensAfter:quoteTokens(source),productLinks:productLinks.length,affiliateDispatch:'gtag and dataLayer fallback pass',otherArticlesAndPublisher:'unchanged',audiblePlayback:'see browser.json live review evidence',conversion:'merchant report / GA4 receipt not verified'},null,2));
