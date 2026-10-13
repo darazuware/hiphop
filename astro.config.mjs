@@ -12,6 +12,7 @@ const thinUrls = new Set(
 // アーティストページは審査中ノーインデックスのためsitemapから全除外（[slug].astroのnoindexと一致）
 export default defineConfig({
   site: 'https://waxthink.com',
+  trailingSlash: 'always',
   integrations: [
     sitemap({
       filter: (page) => {

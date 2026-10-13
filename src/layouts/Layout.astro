@@ -13,7 +13,7 @@ interface Props {
 }
 
 const { title, description, schema, ogType = 'website', publishedTime, modifiedTime, noindex = false } = Astro.props;
-const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://hiphop.vercel.app');
+const canonicalURL = new URL(Astro.url.pathname.replace(/([^/])$/, '$1/'), Astro.site ?? 'https://hiphop.vercel.app');
 const pathname = Astro.url.pathname;
 const isHome = pathname === '/';
 const isSongPage = pathname.startsWith('/songs/');
