@@ -295,3 +295,8 @@ AIを活用し、WAX&THINKの検索・動画流入を継続収益へ変える。
 ### C.R.E.A.M. 読書位置バー修正終了・本番公開着手 — 2026-10-12 JST
 - Codex。b4f9e34をreviewへpushし、Vercel Readyの実reviewでPC/390/320を確認。スマホのバーは46px、9項目目は「本文 09/16」、PRカード中のみPR、目次往復・横溢れ0。16ブロック/15seek/確定時刻/引用不変、文体・記事10項目・build・公開安全・専用保全合格。NY・他記事・WIP・動画は変更なし。
 - ユーザーが2026-10-12に本番公開を明示承認。公開直前の差分監査でreviewに残ったCREAM外のランキング変更と運用ファイル2件の削除を検出し、origin/mainの内容へ復元。対象をCREAM関連へ限定してから既定`agent/src/publish-main.mjs`で本番公開する。人間待ちなし。次1タスク: 本番URLでCREAMの表示・再生導線を確認する。
+
+### C.R.E.A.M. 本番公開・検証終了 — 2026-10-12 JST
+- Codex。ユーザーの本日中の公開承認に従い、既定`agent/src/publish-main.mjs`のみでreviewをmainへ反映。公開commit d1f6ad4、遠隔main一致。スクリプト内build/内部リンク/SEO合格。CREAM外のランキングと運用ファイル2件は復元してから公開し、NY・他記事・WIP・動画を保全。
+- 本番 https://waxthink.com/songs/cream/ で新稿の16ブロック/15seek、Google地図、コンパクトな読書位置バーを確認。390px/320pxで高さ46px・横溢れ0、目次から9項目目へ往復して「本文 09/16」を確認。提供画像5点は本番URLで各HTTP 200と画像MIMEを確認。公開前の実reviewでは15再生停止とPRカード中のみPRを検証済み。本番での音声再生そのものと購入成約は未計測。
+- 人間待ちなし。次1タスク: 公開後のGA4 affiliate_click受信とAmazon/Mercariのクリック計測を確認する。確認URLは上記本番URL。今回の終了記録のみreviewに追補し、mainへの再公開はしない。
