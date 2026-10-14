@@ -41,6 +41,6 @@ export const songs = [
 
 export const ranking = [
   { slug: "/songs/93-til-infinity", title: "93 'Til Infinity", artists: "Souls of Mischief" },
-  { slug: "/songs/ny-state-of-mind", title: "N.Y. State of Mind", artists: "Nas" },
   { slug: "/songs/shook-ones-pt-ii", title: "Shook Ones Pt. II", artists: "Mobb Deep" },
+  { slug: "/songs/ny-state-of-mind", title: "N.Y. State of Mind", artists: "Nas" },
 ];
