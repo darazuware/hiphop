@@ -11,13 +11,17 @@ import Layout from '../layouts/Layout.astro';
       <p class="text-[var(--c-dim)] text-sm">誤訳・スラングの解釈ミス・掲載リクエストなどお気軽にどうぞ。</p>
     </header>
 
-    <div class="p-6 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg space-y-4">
-      <p class="text-[var(--c-dim)] text-sm leading-relaxed">お問い合わせは下記のメールアドレスまでお送りください。内容を確認のうえ、ご返信いたします。</p>
-      <p class="text-lg">
-        <a href="mailto:nanakuroseta@gmail.com" class="text-[var(--c-gold)] hover:opacity-75 transition-opacity break-all">nanakuroseta@gmail.com</a>
-      </p>
-      <p class="text-[var(--c-very-dim)] text-xs leading-relaxed">誤訳・スラングの解釈ミスのご指摘、掲載リクエスト、著作権に関するご連絡などをお受けしています。返信までお時間をいただく場合があります。</p>
+    <div class="p-2 sm:p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+      <iframe
+        src="https://docs.google.com/forms/d/126Q9sqAGTj5FpB8G7xi_FYw2PzC4FrK_qqVEZX8cdpw/viewform?embedded=true"
+        title="お問い合わせフォーム"
+        class="w-full rounded-md bg-white"
+        style="height: 720px; border: 0;"
+        loading="lazy"
+      >読み込み中…</iframe>
     </div>
+
+    <p class="text-[var(--c-very-dim)] text-xs leading-relaxed mt-4">誤訳・スラングの解釈ミスのご指摘、掲載リクエスト、著作権に関するご連絡などをお受けしています。返信までお時間をいただく場合があります。フォームはGoogleフォームを利用しており、入力内容はGoogleに送信されます。</p>
 
   </div>
 </Layout>
