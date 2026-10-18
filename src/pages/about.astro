@@ -1,10 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { songs } from '../data/songs';
-import { artists } from '../data/artists';
+import { slang } from '../data/slang';
 
 const totalSongs = songs.filter(s => s.tier === 'core').length;
-const totalArtists = artists.length;
+const totalArtists = new Set(songs.filter(s => s.tier === 'core').map(s => s.artistSlug)).size;
+const totalSlang = slang.length;
 ---
 
 <Layout title="About | WAX&THINK ヒップホップ英語・スラング解説" description="WAX&THINKは、1990年代を中心とするヒップホップの名曲から、スラング・韻・言葉遊び・AAVE文法を日本語で読み解く学習解説サイトです。運営者の思いと、解説の作り方を紹介しています。">
@@ -74,7 +75,7 @@ const totalArtists = artists.length;
           <li>· チャート成績・評価・後世への影響</li>
         </ul>
         <p class="text-[var(--c-very-dim)] text-xs mt-4">
-          現在 {totalSongs}曲・{totalArtists}アーティスト・150+ スラング用語を収録。随時追加予定。
+          現在 {totalSongs}曲・{totalArtists}アーティスト・{totalSlang}スラング用語を収録。随時追加予定。
         </p>
       </div>
 
