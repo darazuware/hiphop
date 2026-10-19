@@ -170,13 +170,13 @@
   {
     "id": "not-a-threat-a-promise",
     "whisperSec": null,
-    "manualSec": null,
+    "manualSec": 151,
     "captionSec": null,
     "syncedSec": null,
-    "fallbackT": 153,
-    "t": 153,
-    "source": "fallback",
-    "approx": true,
+    "fallbackT": 151,
+    "t": 151,
+    "source": "manual",
+    "approx": false,
     "score": null
   },
   {
@@ -194,11 +194,11 @@
   {
     "id": "touched-the-hood-no-hands",
     "whisperSec": null,
-    "manualSec": 193,
+    "manualSec": 195,
     "captionSec": null,
     "syncedSec": null,
-    "fallbackT": 193,
-    "t": 193,
+    "fallbackT": 195,
+    "t": 195,
     "source": "manual",
     "approx": false,
     "score": null
@@ -209,8 +209,8 @@
     "manualSec": null,
     "captionSec": null,
     "syncedSec": null,
-    "fallbackT": 196,
-    "t": 196,
+    "fallbackT": 198,
+    "t": 198,
     "source": "fallback",
     "approx": true,
     "score": null
@@ -221,8 +221,8 @@
     "manualSec": null,
     "captionSec": null,
     "syncedSec": null,
-    "fallbackT": 213,
-    "t": 213,
+    "fallbackT": 215,
+    "t": 215,
     "source": "fallback",
     "approx": true,
     "score": null
@@ -233,8 +233,8 @@
     "manualSec": null,
     "captionSec": null,
     "syncedSec": null,
-    "fallbackT": 216,
-    "t": 216,
+    "fallbackT": 218,
+    "t": 218,
     "source": "fallback",
     "approx": true,
     "score": null

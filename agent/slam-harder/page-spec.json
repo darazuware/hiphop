@@ -401,14 +401,14 @@
         "gullyest"
       ],
       "t": 142,
-      "eng": "'cause we be the hungriest",
-      "jpn": "なぜなら、俺たちがいちばん飢えているからだ",
-      "note": "2バース目の中ほど、続く2行です。前の行の言葉も一緒に扱います。",
+      "eng": "My killas the grimiest, we keep it the Gullyest<br />We leave you the bloodiest, 'cause we be the hungriest",
+      "jpn": "俺の仲間はいちばん泥くさい、俺たちはいちばん荒っぽくやる。お前らに残すのはいちばん血なまぐさい結末、なぜなら俺たちがいちばん飢えているからだ",
+      "note": "2バース目の中ほど、2行セットです。形容詞が最上級で並びます。",
       "body": [
-        "<strong class='text-[var(--c-text)]'>grimy</strong> は、「泥くさい」「荒っぽい」。ニューヨークのラップでは、洗練されていない路上の質感を褒める言葉として使われます。",
-        "<strong class='text-[var(--c-text)]'>gully</strong> も、似た方向の言葉で、路上の荒々しさ、泥くささを指すスラング。<em>keep it gully</em> のように使います。",
-        "<strong class='text-[var(--c-text)]'>grimiest / Gullyest</strong> は、それぞれ <em>-est</em> を付けた最上級です。本来は短い形容詞にしか付けない語尾を、スラングにそのまま足しているのが面白いところです。<strong class='text-[var(--c-text)]'>keep it ～</strong> は、<em>keep it real</em>（本物でいる）と同じ作りの型です。",
-        "続く行の <strong class='text-[var(--c-text)]'>we be the hungriest</strong> の <em>be</em> は、AAVEの習慣のbeです。<em>we are</em> が「いま」を表すのに対し、<em>we be</em> は「いつもそうだ」という常態を表します。",
+        "この2行は、<em>-est</em>（最上級）が4回並ぶ構造です。<strong class='text-[var(--c-text)]'>grimiest / Gullyest / bloodiest / hungriest</strong> と、最後の語尾までそろえて、勢いを作っています。",
+        "<strong class='text-[var(--c-text)]'>grimy</strong> は、「泥くさい」「荒っぽい」。ニューヨークのラップでは、洗練されていない路上の質感を褒める言葉として使われます。<strong class='text-[var(--c-text)]'>gully</strong> も似た方向のスラングで、<em>keep it gully</em> のように使います。",
+        "<strong class='text-[var(--c-text)]'>killas</strong> は <em>killers</em> の崩した綴りで、ここでは仲間を指す大げさな呼び方。<strong class='text-[var(--c-text)]'>bloodiest</strong> も、強がりを強める誇張として読めます。<strong class='text-[var(--c-text)]'>keep it ～</strong> は、<em>keep it real</em>（本物でいる）と同じ作りの型です。",
+        "<strong class='text-[var(--c-text)]'>we be the hungriest</strong> の <em>be</em> は、AAVEの習慣のbeです。<em>we are</em> が「いま」を表すのに対し、<em>we be</em> は「いつもそうだ」という常態を表します。",
         "<strong class='text-[var(--c-text)]'>hungry</strong> は、本来はお腹がすいているという意味ですが、スラングでは「成功したくてたまらない」「ガツガツしている」という意味でも使います。",
         "直後の <em>(Grrrrr!)</em> は、うなり声の効果音。飢えを、文字どおり獣の声で聞かせています。続く <em>hunger pains</em> は、標準的には <em>hunger pangs</em>（空腹の痛み）という言い方です。"
       ],
@@ -432,7 +432,7 @@
         "a",
         "promise"
       ],
-      "t": 153,
+      "t": 151,
       "eng": "It's not a threat, it's a promise",
       "jpn": "脅しじゃない、約束だ",
       "note": "2バース目の終わり近くです。",
@@ -489,7 +489,7 @@
         "whole",
         "hood"
       ],
-      "t": 193,
+      "t": 195,
       "eng": "The minute I reached out and touched the whole hood with no hands",
       "jpn": "手を伸ばした瞬間、手を使わずに地元じゅうに触れた",
       "note": "3バース目の前半です。",
@@ -519,7 +519,7 @@
         "through",
         "it"
       ],
-      "t": 196,
+      "t": 198,
       "eng": "'Cause in the streets I live through it, it's more than music<br />Whatever I'm spittin' on, I put my life into it",
       "jpn": "路上でそれを生き抜いてきたから、音楽以上のものだ。どんなビートに乗せても、命を込めてる",
       "note": "3バース目の半ば、2行セットです。",
@@ -548,7 +548,7 @@
         "a",
         "bid"
       ],
-      "t": 213,
+      "t": 215,
       "note": "3バース目の後半。短い言い回しが、その場の状況を伝えます。",
       "body": [
         "<strong class='text-[var(--c-text)]'>do a bid</strong> は、刑務所で刑期をつとめること。<em>bid</em> は、ここでは刑期の長さを指す言葉で、<em>a two-year bid</em>（2年の刑期）のように数字と組みます。",
@@ -573,7 +573,7 @@
         "the",
         "ghetto"
       ],
-      "t": 216,
+      "t": 218,
       "eng": "I'm the voice of the ghetto, the heart of New York",
       "jpn": "俺はゲットーの声、ニューヨークの心臓だ",
       "note": "3バース目の後半です。",
