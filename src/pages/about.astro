@@ -1,10 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { songs } from '../data/songs';
-import { artists } from '../data/artists';
+import { slang } from '../data/slang';
 
 const totalSongs = songs.filter(s => s.tier === 'core').length;
-const totalArtists = artists.length;
+const totalArtists = new Set(songs.filter(s => s.tier === 'core').map(s => s.artistSlug)).size;
+const totalSlang = slang.length;
 ---
 
 <Layout title="About | WAX&THINK ヒップホップ英語・スラング解説" description="WAX&THINKは、1990年代を中心とするヒップホップの名曲から、スラング・韻・言葉遊び・AAVE文法を日本語で読み解く学習解説サイトです。運営者の思いと、解説の作り方を紹介しています。">
@@ -32,13 +33,13 @@ const totalArtists = artists.length;
         <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">Story</p>
         <h2 class="font-semibold text-base mb-3">このサイトを作った理由</h2>
         <p class="text-[var(--c-muted)] text-sm leading-relaxed mb-3">
-          はじめてNasの「N.Y. State of Mind」を聴いたのは中学生のころでした。ビートの重さと、流れるようなフロウの存在感は伝わってきた。<br />でも、何を言っているのかはほとんどわからなかったんです。辞書を引いてもスラングは載っていないし、翻訳サイトに入れると意味不明な日本語が返ってきます。
+          ヒップホップが好きで、よく聴いています。ただ、長いあいだ「ビート」として聴いているだけでした。<br />歌詞は聞き取れないし、慣用句や現地の文化的な背景も知らないので、言葉遊びやリリックそのものの面白さに気づけていなかったんです。
         </p>
         <p class="text-[var(--c-muted)] text-sm leading-relaxed mb-3">
-          その後、英語を学ぶうちに、少しずつリリックが読めるようになりました。すると「カッコいい音楽」だと思っていた曲が、それぞれリアルな物語を抱えていることに気づいたんです。<br />NYの貧困、ドラッグ、暴力、そして生き残ること。バースの一行、一語に、時代と場所がライムとして詰め込まれていました。
+          それなら調べてみよう、と思ったのがこのサイトの出発点です。<br />自分と同じように、音は好きだけど歌詞までは追えていない人は多いはずだと思い、調べたことを発信することにしました。
         </p>
         <p class="text-[var(--c-muted)] text-sm leading-relaxed">
-          この面白さを、英語が得意でない人にも届けたい。それがWAX&amp;THINKを始めた理由です。<br />ここでやっているのは歌詞の翻訳ではありません。曲に出てくるスラング、韻の踏み方、言葉遊び、AAVEの文法を「学ぶ表現」として一つずつ取り出し、なぜそう聞こえるのかを日本語で解説しています。
+          ここでやっているのは歌詞の翻訳だけではありません。曲に出てくるスラング、韻の踏み方、言葉遊び、AAVEの文法を「学ぶ表現」として一つずつ取り出し、なぜそう聞こえるのかを日本語で解説しています。
         </p>
       </div>
 
@@ -50,6 +51,14 @@ const totalArtists = artists.length;
         </p>
         <p class="text-[var(--c-muted)] text-sm leading-relaxed">
           そこで各曲のページでは、歌詞を全文載せることはせず、学ぶ表現ごとに「用例の断片（その表現を含む1〜2行の引用）＋独自の解説」という形にしています。解説のほうが主役で、引用は説明に必要な最小限です。<br />サンプルの元ネタ、リリース年、客演、チャート順位といった事実は、WhoSampled・Wikipedia・Discogs・Geniusなどの一次ソースで裏を取ってから書いています。
+        </p>
+      </div>
+
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">Production</p>
+        <h2 class="font-semibold text-base mb-3">記事の作り方</h2>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">
+          記事の下書きにはAIを活用しています。曲の選定、プレビューの確認と修正、頭出しの秒数の調整は運営者が行い、年・サンプリング元・チャート順位などの事実は、WhoSampled・Wikipedia・Discogs・Geniusで裏取りしています。誤りにお気づきの際は、お問い合わせフォームからご連絡ください。
         </p>
       </div>
 
@@ -66,7 +75,7 @@ const totalArtists = artists.length;
           <li>· チャート成績・評価・後世への影響</li>
         </ul>
         <p class="text-[var(--c-very-dim)] text-xs mt-4">
-          現在 {totalSongs}曲・{totalArtists}アーティスト・150+ スラング用語を収録。随時追加予定。
+          現在 {totalSongs}曲・{totalArtists}アーティスト・{totalSlang}スラング用語を収録。随時追加予定。
         </p>
       </div>
 
