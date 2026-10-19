@@ -655,5 +655,5 @@
   "extraImports": [
     "import ColumnAlbums from '../../components/ColumnAlbums.astro';"
   ],
-  "extraFrontmatter": "const slamAlbums = [\n  { label: \"John Sebastian『Welcome Back』（1976年のアルバム。原曲「Welcome Back」を収録）\", query: \"John Sebastian Welcome Back\" },\n  { label: \"Onyx「Slam」（1993年のシングル）\", query: \"Onyx Slam\" },\n  { label: \"Onyx『Bacdafucup』（1993年のデビューアルバム）\", query: \"Onyx Bacdafucup\" },\n  { label: \"Onyx『Bacdafucup: Part II』（2002年。Slam Harderを収録）\", query: \"Onyx Bacdafucup Part II\" },\n  { label: \"The Notorious B.I.G.『Ready to Die』（1994年のデビューアルバム）\", query: \"Notorious B.I.G. Ready to Die\" },\n  { label: \"Onyx「Slam Harder / Hold Up」（2002年のシングル）\", query: \"Onyx Slam Harder Hold Up\" },\n  { label: \"Onyx「Slam Harder / Bring 'Em Out Dead」（2002年のシングル）\", query: \"Onyx Slam Harder Bring Em Out Dead\" },\n];"
+  "extraFrontmatter": "const slamAlbums = [\n  { label: \"John Sebastian『Welcome Back』（1976年のアルバム。原曲「Welcome Back」を収録）\", query: \"John Sebastian Welcome Back\" },\n  { label: \"Onyx『Bacdafucup』（1993年のデビューアルバム）\", query: \"Onyx Bacdafucup\" },\n  { label: \"Onyx『Bacdafucup: Part II』（2002年。Slam Harderを収録）\", query: \"Onyx Bacdafucup Part II\" },\n];"
 }
