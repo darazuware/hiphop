@@ -108,18 +108,6 @@
     "score": null
   },
   {
-    "id": "pop-bottles-of-bub",
-    "whisperSec": null,
-    "manualSec": null,
-    "captionSec": null,
-    "syncedSec": null,
-    "fallbackT": 79,
-    "t": 79,
-    "source": "fallback",
-    "approx": true,
-    "score": null
-  },
-  {
     "id": "hustle-settle",
     "whisperSec": null,
     "manualSec": 87,
@@ -211,18 +199,6 @@
     "syncedSec": null,
     "fallbackT": 198,
     "t": 198,
-    "source": "fallback",
-    "approx": true,
-    "score": null
-  },
-  {
-    "id": "do-a-bid",
-    "whisperSec": null,
-    "manualSec": null,
-    "captionSec": null,
-    "syncedSec": null,
-    "fallbackT": 215,
-    "t": 215,
     "source": "fallback",
     "approx": true,
     "score": null

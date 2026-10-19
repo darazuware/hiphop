@@ -9,3 +9,9 @@
 2. 取り除いたもの: なし（他の項目は審査前の方針と矛盾しない範囲で残してある）。
 
 頭出しの確定値は units.json の manualSec を参照（unit id: gully-hungriest は概算 142秒）。
+
+## 2026-10-19 追加で外したもの（審査中のみ）
+- unit `pop-bottles-of-bub`（pop shots と pop bottles の言葉遊び）
+- unit `do-a-bid`（刑期をつとめる）
+- unit `voice-of-the-ghetto` の fiend（薬物依存の人）の段落
+- 上記の全文は `removed-units.json`。復元するときは page-spec.json の units に、元の位置（hustle-settle の前／voice-of-the-ghetto の前）へ戻し、keywords（bub'、do a bid）・description・highlights・summary の言及も戻す。

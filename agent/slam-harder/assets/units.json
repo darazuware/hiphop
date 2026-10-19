@@ -110,21 +110,6 @@
     "manualSec": null
   },
   {
-    "id": "pop-bottles-of-bub",
-    "anchor": [
-      "like",
-      "you",
-      "really",
-      "pop",
-      "shots",
-      "in",
-      "the",
-      "club"
-    ],
-    "fallbackT": 79,
-    "manualSec": null
-  },
-  {
     "id": "hustle-settle",
     "anchor": [
       "on",
@@ -230,20 +215,6 @@
       "it"
     ],
     "fallbackT": 198,
-    "manualSec": null
-  },
-  {
-    "id": "do-a-bid",
-    "anchor": [
-      "my",
-      "music",
-      "helped",
-      "'em",
-      "do",
-      "a",
-      "bid"
-    ],
-    "fallbackT": 215,
     "manualSec": null
   },
   {
