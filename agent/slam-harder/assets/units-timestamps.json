@@ -170,11 +170,11 @@
   {
     "id": "not-a-threat-a-promise",
     "whisperSec": null,
-    "manualSec": 151,
+    "manualSec": 152,
     "captionSec": null,
     "syncedSec": null,
     "fallbackT": 151,
-    "t": 151,
+    "t": 152,
     "source": "manual",
     "approx": false,
     "score": null

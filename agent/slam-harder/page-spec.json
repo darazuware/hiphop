@@ -401,21 +401,19 @@
         "gullyest"
       ],
       "t": 142,
-      "eng": "My killas the grimiest, we keep it the Gullyest<br />We leave you the bloodiest, 'cause we be the hungriest",
-      "jpn": "俺の仲間はいちばん泥くさい、俺たちはいちばん荒っぽくやる。お前らに残すのはいちばん血なまぐさい結末、なぜなら俺たちがいちばん飢えているからだ",
-      "note": "2バース目の中ほど、2行セットです。形容詞が最上級で並びます。",
+      "eng": "'cause we be the hungriest",
+      "jpn": "なぜなら、俺たちがいちばん飢えているからだ",
+      "note": "2バース目の中ほど。直後に、うなり声の効果音が入ります。",
       "body": [
-        "この2行は、<em>-est</em>（最上級）が4回並ぶ構造です。<strong class='text-[var(--c-text)]'>grimiest / Gullyest / bloodiest / hungriest</strong> と、最後の語尾までそろえて、勢いを作っています。",
         "<strong class='text-[var(--c-text)]'>grimy</strong> は、「泥くさい」「荒っぽい」。ニューヨークのラップでは、洗練されていない路上の質感を褒める言葉として使われます。<strong class='text-[var(--c-text)]'>gully</strong> も似た方向のスラングで、<em>keep it gully</em> のように使います。",
-        "<strong class='text-[var(--c-text)]'>killas</strong> は <em>killers</em> の崩した綴りで、ここでは仲間を指す大げさな呼び方。<strong class='text-[var(--c-text)]'>bloodiest</strong> も、強がりを強める誇張として読めます。<strong class='text-[var(--c-text)]'>keep it ～</strong> は、<em>keep it real</em>（本物でいる）と同じ作りの型です。",
-        "<strong class='text-[var(--c-text)]'>we be the hungriest</strong> の <em>be</em> は、AAVEの習慣のbeです。<em>we are</em> が「いま」を表すのに対し、<em>we be</em> は「いつもそうだ」という常態を表します。",
+        "<strong class='text-[var(--c-text)]'>grimiest / Gullyest</strong> は、それぞれ <em>-est</em> を付けた最上級です。本来は短い形容詞にしか付けない語尾を、スラングにそのまま足しているのが面白いところです。<strong class='text-[var(--c-text)]'>keep it ～</strong> は、<em>keep it real</em>（本物でいる）と同じ作りの型です。",
+        "続く <strong class='text-[var(--c-text)]'>we be the hungriest</strong> の <em>be</em> は、AAVEの習慣のbeです。<em>we are</em> が「いま」を表すのに対し、<em>we be</em> は「いつもそうだ」という常態を表します。",
         "<strong class='text-[var(--c-text)]'>hungry</strong> は、本来はお腹がすいているという意味ですが、スラングでは「成功したくてたまらない」「ガツガツしている」という意味でも使います。",
         "直後の <em>(Grrrrr!)</em> は、うなり声の効果音。飢えを、文字どおり獣の声で聞かせています。続く <em>hunger pains</em> は、標準的には <em>hunger pangs</em>（空腹の痛み）という言い方です。"
       ],
       "usage": [
         "<strong class='text-[var(--c-text)]'>He be working.</strong> は、「彼はいつも働いている」。<em>He is working.</em>（いま働いている）との違いが、習慣のbeの核心です。",
-        "<em>stay hungry</em> は、「満足せずに挑み続けろ」という励ましの決まり文句として知られています。",
-        "<strong class='text-[var(--c-text)]'>keep it + 形容詞</strong> は、<em>keep it simple</em>（簡単にしておく）、<em>keep it 100</em>（正直でいる）など、応用がきく型です。"
+        "<em>stay hungry</em> は、「満足せずに挑み続けろ」という励ましの決まり文句として知られています。"
       ]
     },
     {
