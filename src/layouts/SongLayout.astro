@@ -238,8 +238,10 @@ const seoDescription = song && !description.includes('和訳')
             <dd>{song.album}</dd>
             <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">エリア</dt>
             <dd>{song.region}</dd>
-            <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">BPM</dt>
-            <dd>{song.bpm}</dd>
+            {song.bpm && <>
+              <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">BPM</dt>
+              <dd>{song.bpm}</dd>
+            </>}
             {song.sample && <>
               <dt class="text-[var(--c-very-dim)] uppercase tracking-widest">サンプル元</dt>
               <dd class="col-span-1 truncate">{song.sample}</dd>

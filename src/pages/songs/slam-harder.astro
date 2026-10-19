@@ -1,0 +1,600 @@
+---
+import LearningUnit from '../../components/LearningUnit.astro';
+import QuickSlang from '../../components/QuickSlang.astro';
+import SongLayout from '../../layouts/SongLayout.astro';
+
+import tsData from '../../../agent/slam-harder/assets/units-timestamps.json';
+const YT = "MpAmaJjiJC4";
+const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.approx }]));
+---
+
+<SongLayout
+  title="Slam Harder 英語・スラング解説 | Onyx"
+  description="Onyx「Slam Harder」（2002年）を英語学習の教材として解説。『Welcome Back, Kotter』のテーマを使ったサンプル、Vince Carterを引き合いに出した言葉遊び、put on the mapなどの表現を、PV頭出し付きで読み解きます。"
+  slug="slam-harder"
+  learningPage={true}
+  songDuration={276}
+  highlights={[
+    '『Welcome Back, Kotter』のテーマ曲（1976年）を冒頭と終わりに置いた、「おかえり」の一曲',
+    'Vince Carterの名前で、slam dunkと自分たちのヒット曲「Slam」を重ねた言葉遊び',
+    'put on the map、no gas moneyなど、短い言い回しと路上スラングが学べる',
+  ]}
+  youtubeId="MpAmaJjiJC4"
+  sampleYoutubeId="OK4_fDHv-SQ"
+  sampleTitle="John Sebastian - Welcome Back (Theme from Welcome Back, Kotter)"
+>
+
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■この曲で何を学べるか</h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          Onyxの「Slam Harder」は、2002年のアルバム『Bacdafucup: Part II』の3曲目に入っています。
+        </p>
+        <p>
+          冒頭と終わりに、1970年代のテレビドラマ『Welcome Back, Kotter』のテーマ曲が流れます。1993年の大ヒット「Slam」を思わせる題名と合わせて、「戻ってきたぞ」と告げる一曲に聞こえます。
+        </p>
+        <p>
+          英語の面では、短い決まり文句と、音で遊ぶ言い回しがよく出てきます。バスケットボール選手の名前、シャンパンの栓を抜く動作、車のホイールのサイズ。
+        </p>
+        <p>
+          身近な小道具が、短い行の中にぎゅっと詰まっています。
+        </p>
+      </div>
+    </section>
+
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■Vince Carterを呼び出した問いかけ</h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          サビは、「slamが強いのはどっち？ Onyxか、Vince Carterか」という問いかけです。
+        </p>
+        <p>
+          Vince Carterは、当時Toronto Raptorsでプレーしていたバスケットボール選手で、ダンクの名手として知られています。2000年のNBAスラムダンク・コンテストでも優勝しました。
+        </p>
+        <p>
+          ここでのslamは、ダンクと、Onyxの代表曲「Slam」の両方に引っかけてあります。二重の意味を知ってから聴くと、短いサビの狙いが見えてきます。
+        </p>
+      </div>
+    </section>
+
+    <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
+      <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
+        <li><a href="#story" class="hover:text-[var(--c-gold)] transition-colors">01 ストーリーの流れ（まず曲全体をつかむ）</a></li>
+        <li><a href="#units" class="hover:text-[var(--c-gold)] transition-colors">02 学ぶ表現（スラング・韻・言葉遊び・AAVE）</a></li>
+        <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">03 文化的背景</a></li>
+        <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">04 制作の裏側</a></li>
+        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">05 評価とその後</a></li>
+      </ol>
+    </nav>
+
+    <section id="story" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        ストーリーの流れ（まず曲全体をつかむ）
+      </h2>
+      <p class="text-xs text-[var(--c-dim)] mb-5">
+        曲の構成を先につかんでおくと、解説が追いやすくなります。
+      </p>
+      <div class="space-y-4 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          冒頭はWelcome Backのテーマ。そのあと、Fredro Starr、Sonsee、Sticky Fingazの順に3人が1バースずつ担当し、サビのあいだに合いの手が入ります。
+        </p>
+        <p>
+          語られるのは、自分たちが路上の現実をラップするグループだということ。見せかけだけの派手さを笑い、自分たちの積み上げを誇ります。
+        </p>
+        <p>
+          最後はまたWelcome Backに戻って終わります。
+        </p>
+        <p class="text-xs text-[var(--c-dim)]">
+          ※本ページは批評・教育目的で、解説に必要な範囲の断片のみを引用しています。全歌詞の対訳は掲載していません。
+        </p>
+      </div>
+    </section>
+
+    <div id="units"></div>
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        学ぶ表現（スラング・韻・言葉遊び・AAVE）
+      </h2>
+      <div class="space-y-3 text-xs text-[var(--c-dim)] mb-6">
+        <p>ここは、歌詞の中の表現を一つずつ取り上げる章です。銃や暴力にまつわる行は取り上げず、日常の語彙、慣用句、言葉遊びを中心に解説します。</p>
+        <p>引用がない項目は、行を引かずに背景だけを書いています。▶を押すと、PVの該当箇所から再生できます。</p>
+        <p>頭出しの秒数は概算のものがあり、ずれて聞こえることがあります。</p>
+      </div>
+
+      <LearningUnit
+        heading="Welcome back 「おかえり」とサンプルの正体"
+        label="★ サンプル／あいさつ"
+        mc="John Sebastian（サンプル）"
+        t={TS["intro-welcome-back"].t} tApprox={TS["intro-welcome-back"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Welcome back, welcome back, welcome back</Fragment>
+        <Fragment slot="jpn">おかえり、おかえり、おかえり</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 曲の最初。テレビドラマの主題歌が、そのまま流れます。</p>
+        <p>冒頭と終わりに流れるこの部分は、1970年代のテレビドラマ『Welcome Back, Kotter』の主題歌です。</p>
+        <p>原曲はJohn Sebastianの「Welcome Back」。1976年3月にアルバム『Welcome Back』から出て、同年5月にBillboard Hot 100で1位になりました。</p>
+        <p>ドラマは1975年の秋にアメリカのABCで始まっています。最初は『Kotter』という題名でしたが、主題歌にちなんで改題されました。</p>
+        <p><strong class='text-[var(--c-text)]'>Welcome back</strong> は、久しぶりに戻ってきた人を迎える、ごく普通のあいさつです。Onyxにとっては、1993年の『Bacdafucup』の続編にあたる作品の、最初の一言になっています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>Welcome back.</strong> は、帰ってきた人にも、久しぶりに会った人にも使います。番組や店の出迎えにも定番です。</p>
+          <p><em>Welcome back to the show.</em>（番組にまたお越しいただきました）のように、後ろに場所を足せます。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="What! / C'mon! 掛け声とコール＆レスポンス"
+        label="★ 掛け声／ad-lib"
+        mc="Onyx（Pre-Chorus）"
+        t={TS["call-and-response"].t} tApprox={TS["call-and-response"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">What! What! What! What!<br />Yeah! (What!) Yeah! (What!)</Fragment>
+        <Fragment slot="jpn">（掛け声）ほら！ ほら！ ほら！ ほら！</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ サビの前後に、何度も戻ってくる掛け声です。</p>
+        <p>ここは歌詞というより、客席を煽る掛け声です。メインの声が「Yeah!」と叫び、別の声が「What!」と返します。</p>
+        <p>これをコール＆レスポンス（呼びかけと応答）と呼びます。</p>
+        <p><strong class='text-[var(--c-text)]'>What!</strong> は、疑問の「何？」ではなく、気合の一声です。ヒップホップのライブでは、拍の頭に置く合図としてよく使われます。</p>
+        <p><strong class='text-[var(--c-text)]'>C'mon!</strong> は <em>come on</em> の短縮形で、「来いよ」「いくぞ」という勢いのある呼びかけ。</p>
+        <p>Onyxは、叫ぶような声と攻撃的なステージで知られるグループです。この掛け声の連打は、その持ち味がそのまま音になった部分と読めます。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>Come on!</strong> は、「ほら」「頑張れ」「冗談でしょ」と、場面で意味が変わる万能の一言です。</p>
+          <p>くだけた会話では <em>c'mon</em> と綴ることもあります。発音は「カモン」です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="whose slam harder: Onyx or Vince Carter? 二重の意味を持つ問い"
+        label="★ 言葉遊び／固有名詞"
+        mc="Versatile（Chorus）"
+        t={TS["whose-slam-harder"].t} tApprox={TS["whose-slam-harder"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Aiyyo, whose slam harder: Onyx or Vince Carter?</Fragment>
+        <Fragment slot="jpn">なあ、slamが強いのはどっちだ、Onyxか、Vince Carterか</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 題名と同じ一行です。サビの頭で、何度も繰り返されます。</p>
+        <p><strong class='text-[var(--c-text)]'>Aiyyo</strong> は、<em>yo</em> と同じ呼びかけで、「なあ」「おい」。ニューヨークのラップでよく聞きます。</p>
+        <p><strong class='text-[var(--c-text)]'>whose slam harder</strong> は、<em>whose slam is harder</em> から is が落ちた形です。くだけた話し言葉では、比べる形の is をよく省きます。</p>
+        <p><strong class='text-[var(--c-text)]'>Vince Carter</strong> は、2000年のNBAスラムダンク・コンテストで優勝した選手です。ダンクで勝負する人を持ってくることで、slamを「叩きつける強さ」として比べる形になっています。</p>
+        <p>もう一つの意味が、Onyxの代表曲「Slam」です。1993年のあの曲と、バスケットボールのダンクが、同じ単語の上で重なっています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>A or B? </strong> の形で、「AとBのどちらが上か」を挑発的に聞く言い方は、ラップの定番です。</p>
+          <p><em>harder</em> は <em>hard</em> の比較級で、ここでは「より強く、より激しく」。<em>Slam Harder</em> という題名は、ダンクを「もっと強く」叩きつける、という言い方にも聞こえます。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="gettin' dollars / holla 「稼ぐ」と「声をかける」"
+        label="★ スラング／口語"
+        mc="Versatile（Chorus）"
+        t={TS["thugs-gettin-dollars"].t} tApprox={TS["thugs-gettin-dollars"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">All my thugs gettin' dollars<br />All my ladies just holla</Fragment>
+        <Fragment slot="jpn">俺の仲間はみんな金を稼いでる、女の子たちはただ声を上げてる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ サビの2行目と3行目です。</p>
+        <p><strong class='text-[var(--c-text)]'>gettin' dollars</strong> は、「金を稼ぐ」。<code>gettin'</code> は <em>getting</em> の語尾の g が落ちた形で、会話ではほぼこの発音です。</p>
+        <p><strong class='text-[var(--c-text)]'>thugs</strong> は、元は「ならず者」ですが、ヒップホップでは仲間に呼びかける言葉としても使われます。ここでは、自分のクルーを指していると読めます。</p>
+        <p><strong class='text-[var(--c-text)]'>holla</strong> は <em>holler</em>（大声で呼ぶ）の崩した綴りで、声を上げる、あいさつする、声をかけるの意味。</p>
+        <p>二行とも、動詞に語尾の s も ed も付いていません。くだけた口語で、文法をそのまま短くしています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>holla at me</strong> は、「連絡してよ」「声かけて」。友達同士の気軽な誘い文句です。</p>
+          <p><em>get paid / get money</em> も、「稼ぐ」を表すスラングです。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="good look / put on the map 「地図に載せた」"
+        label="★ イディオム／スラング"
+        mc="Fredro Starr（Verse 1）"
+        t={TS["good-look-on-the-map"].t} tApprox={TS["good-look-on-the-map"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">It's a good look, we put hardcore on the map</Fragment>
+        <Fragment slot="jpn">いい流れだ、俺たちがハードコアを地図に載せた</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 1バース目の中ほどです。</p>
+        <p><strong class='text-[var(--c-text)]'>put ～ on the map</strong> は、「～を有名にする」という慣用句。地図に載っていなかった場所や人を、知られる存在にした、というイメージです。</p>
+        <p>ここで載せたのは <strong class='text-[var(--c-text)]'>hardcore</strong>、つまり容赦のないタイプのラップ。自分たちが広めた、という自負がこの一行に入っています。</p>
+        <p><strong class='text-[var(--c-text)]'>a good look</strong> は、直訳すると「いい見た目」。そこから、「いい展開」「いい話」と広がった言い方で、ここでは「いい流れだ」くらいに読めます。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>put ～ on the map</strong> は、<em>The festival put the town on the map.</em>（その祭りが町を有名にした）のように、人にも場所にも使えます。</p>
+          <p><em>that's a good look</em> は、服装を褒めるときにも、いい判断をほめるときにも使われます。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="them streets / play at 「あの」の them と文末の at"
+        label="★ AAVE／文法"
+        mc="Fredro Starr（Verse 1）"
+        t={TS["them-streets"].t} tApprox={TS["them-streets"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">See a thug on the TV, and chicks dig that<br />But we rap for them streets where them thugs play at</Fragment>
+        <Fragment slot="jpn">テレビにワルが映れば女の子は夢中になる。でも俺たちは、あの連中がたむろする通りのためにラップしてる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 1バース目の中ほど、2行セットです。</p>
+        <p><strong class='text-[var(--c-text)]'>them streets / them thugs</strong> は、AAVE（アフリカ系アメリカ人英語）でよくある形で、<em>those</em> の代わりに <em>them</em> を使っています。「あの通り」「あの連中」と、指さすような感覚です。</p>
+        <p><strong class='text-[var(--c-text)]'>play at</strong> は、文末に <em>at</em> が余った形です。標準的には <em>where they play</em> で足りますが、話し言葉では場所の気分を強めるために添えることがあります。</p>
+        <p><strong class='text-[var(--c-text)]'>chicks dig that</strong> の <em>dig</em> は、「気に入る」「好む」。古い世代のスラングで、いまでも映画や歌に出てきます。</p>
+        <p><em>chicks</em> は、若い女性を指すくだけた呼び方です。</p>
+        <p>前半では、テレビに映るワルの人気を言い、後半では、自分たちはその外側のリアルな通りのために歌う、と言い切っています。<em>But</em> を境に、見せ物と現場を分ける構造です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>I dig it.</strong> は「それ、いいね」。<em>dig</em> を好みの意味で使う、昔ながらの言い方です。</p>
+          <p><em>them</em> を <em>those</em> の意味で使うのは、教科書では誤りとされますが、AAVEや地方の英語では一貫した用法です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Bacdafucup / get ya Slam on 自分たちの過去への呼びかけ"
+        label="★ 固有名詞／セルフ言及"
+        mc="Fredro Starr（Verse 1）"
+        t={TS["bacdafucup-slam"].t} tApprox={TS["bacdafucup-slam"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">So "Bacdafucup" comin' through, comin' through, get ya "Slam" on</Fragment>
+        <Fragment slot="jpn">『Bacdafucup』が通るぞ、通るぞ、『Slam』をかけろ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 1バース目の後半。自分たちの作品名を、そのまま言っています。</p>
+        <p><strong class='text-[var(--c-text)]'>Bacdafucup</strong> は、1993年のデビューアルバムの題名。<strong class='text-[var(--c-text)]'>Slam</strong> は、そのアルバムから出たシングルです。</p>
+        <p>「Slam」は1993年5月に出て、Billboard Hot 100で最高4位。ラップ部門のチャートでは1位になり、同年のうちにRIAAのプラチナ認定を受けました。</p>
+        <p>題名のslamは、スラムダンス（客席でぶつかり合って踊るモッシュ風のダンス）のことです。この曲が、そのダンスをヒップホップに持ち込んだと言われています。</p>
+        <p><strong class='text-[var(--c-text)]'>get ya ～ on</strong> は、<em>get your ～ on</em> の ya が崩れた形で、「～を始めろ」「～を決めろ」。<em>get your groove on</em>（ノリを出せ）と同じ型です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>get your ～ on</strong> は、<em>get your party on</em>、<em>get your game face on</em> のように、気分や態度を前に出すときの型です。</p>
+          <p><em>ya</em> は <em>you / your</em> の弱い発音を綴った形で、歌詞ではよく見ます。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="20's / no gas money 「見せかけ」の小道具"
+        label="★ 固有名詞／スラング"
+        mc="Fredro Starr（Verse 1）"
+        t={TS["twenties-no-gas-money"].t} tApprox={TS["twenties-no-gas-money"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 1バース目の後半。他のラッパーを皮肉る一行です。</p>
+        <p><strong class='text-[var(--c-text)]'>20's</strong> は、20インチのホイール（車の車輪の外径）のこと。大きなホイールは、派手な車の象徴で、当時のラップでは羽振りの良さを示す小道具でした。</p>
+        <p><strong class='text-[var(--c-text)]'>sittin' on 20's</strong> は、「大きなホイールを履かせた車に乗っている」。<strong class='text-[var(--c-text)]'>with no gas money</strong> が付くことで、「車は派手なのに、ガソリン代もない」という皮肉になります。</p>
+        <p>見た目の派手さと、実際の懐具合のずれを笑う、軽いからかいです。この曲では、自分たちを「本物」、他人を「見せかけ」とする対比が、何度も顔を出します。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>all show, no go</strong> は、見た目だけで中身がないことを指す言い方で、ここの皮肉と近い発想です。</p>
+          <p><em>broke</em> は「一文なし」。<em>I'm broke.</em> は、日常会話でよく使います。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="shinin' like Puff 固有名詞が比喩になる"
+        label="★ 固有名詞／スラング"
+        mc="Fredro Starr（Verse 1）"
+        t={TS["shinin-like-puff"].t} tApprox={TS["shinin-like-puff"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 1バース目の後半。人名が、そのまま比較の物差しになっています。</p>
+        <p><strong class='text-[var(--c-text)]'>Puff</strong> は、Puff Daddy（本名Sean Combs。のちにDiddyとも名乗りました）のこと。</p>
+        <p>90年代後半、派手な暮らしぶりとヒップホップの商業的な成功の象徴でした。</p>
+        <p><strong class='text-[var(--c-text)]'>shinin'</strong> は、「輝いている」から転じて、「羽振りよく見せている」「景気よく振る舞う」。ここでは、「Puffみたいに稼いでいるつもりか」という皮肉です。</p>
+        <p>続く <em>Who got money?</em> は、同じ行の中の合いの手。誰も持っていない、と笑う返しとして置かれています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>shine</strong> には、「目立つ」「活躍する」の意味もあります。<em>It's your time to shine.</em>（活躍する番だ）は定番です。</p>
+          <p>人名を比喩に使う言い方は、<em>He thinks he's Michael Jordan.</em>（自分をジョーダンだと思っている）のように、日常でも使えます。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="hustle / settle 語尾をそろえる韻"
+        label="★ 韻／語彙"
+        mc="Fredro Starr（Verse 1）"
+        t={TS["hustle-settle"].t} tApprox={TS["hustle-settle"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">On the everyday hustle, never ready to settle</Fragment>
+        <Fragment slot="jpn">毎日が稼ぎの勝負、落ち着く気はない</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 1バース目の終わりです。</p>
+        <p><strong class='text-[var(--c-text)]'>hustle</strong> と <strong class='text-[var(--c-text)]'>settle</strong> は、語尾の <code>-le</code> の響きがそろった韻です。母音は違いますが、最後の「ル」の音で耳に残ります。</p>
+        <p><strong class='text-[var(--c-text)]'>the everyday hustle</strong> は、日々金を稼ぐための動き、つまり「毎日の勝負」。ヒップホップでは、ずる賢さだけでなく、「必死に働く姿勢」も指す言葉です。</p>
+        <p><strong class='text-[var(--c-text)]'>settle</strong> は、「落ち着く」「妥協する」。<em>never ready to settle</em> は、「ここで満足するつもりはない」という意志の表れです。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>side hustle</strong> は、本業のほかにやる副業のこと。いまでは日常会話の言葉です。</p>
+          <p><em>Don't settle for less.</em> は、「妥協するな」。やる気を出す場面でよく使います。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="plaques and stacks 頭の音で刻むリズム"
+        label="★ 語彙／韻"
+        mc="Sonsee（Verse 2）"
+        t={TS["plaques-and-stacks"].t} tApprox={TS["plaques-and-stacks"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Plaques and stacks of their dough on our living room floor</Fragment>
+        <Fragment slot="jpn">ゴールドの盾も札束も、あいつらの金も、うちのリビングの床に積まれてる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 2バース目の最初の行の近くです。</p>
+        <p><strong class='text-[var(--c-text)]'>plaques</strong> は、売上に応じて贈られる額入りの認定盾（ゴールドやプラチナのレコード）のこと。<strong class='text-[var(--c-text)]'>stacks</strong> は、積み上げた札束です。</p>
+        <p><strong class='text-[var(--c-text)]'>dough</strong> は、金のスラング。生地という意味から、膨らむもの、増えるもの、という連想で使われてきました。</p>
+        <p><em>plaques</em> と <em>stacks</em> は、語尾の <code>-acks</code> の響きをそろえた並びです。2語で、栄誉とお金を同時に見せるのが狙いと読めます。</p>
+        <p>リビングの床に積まれている、と言い切るのは誇張ですが、「それくらいありふれている」という大げさな見せ方です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>stacks</strong> は、<em>a stack of papers</em>（書類の山）のような普通の英語でもあり、お金の山を指すスラングでもあります。</p>
+          <p><strong class='text-[var(--c-text)]'>dough</strong> は、<em>bread</em> や <em>paper</em> と並ぶ、お金の言い換えです。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="project heat / sick ridiculous flow 褒め言葉になる悪い言葉"
+        label="★ スラング／語彙"
+        mc="Sonsee（Verse 2）"
+        t={TS["project-heat"].t} tApprox={TS["project-heat"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">From that project heat sick ridiculous flow</Fragment>
+        <Fragment slot="jpn">団地の熱気から生まれた、とんでもなくイカれたフロー</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 2バース目の3行目あたりです。</p>
+        <p><strong class='text-[var(--c-text)]'>the projects</strong> は、アメリカの低所得者向け公営住宅の団地。ニューヨークのラップでは、育った場所を示す言葉としてよく出てきます。</p>
+        <p><strong class='text-[var(--c-text)]'>heat</strong> は、熱気や勢い。団地の暑さと、そこで磨かれた勢いが、フローの熱になっている、という比喩です。</p>
+        <p><strong class='text-[var(--c-text)]'>sick</strong> と <strong class='text-[var(--c-text)]'>ridiculous</strong> は、本来は「病気の」「ばかげた」ですが、ここでは「ものすごくうまい」という褒め言葉。スラングでは、悪い言葉が最上級のほめ言葉に変わることがあります。</p>
+        <p><strong class='text-[var(--c-text)]'>flow</strong> は、ラップの乗せ方、リズムの運び。内容ではなく、声の流れを指す言葉です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>That's sick!</strong> は、「それ、やばい（すごい）」という褒め言葉。ほかに <em>insane</em> や <em>crazy</em> も同じ使い方をします。</p>
+          <p><em>ridiculous</em> は、普通は「ばかげている」ですが、<em>ridiculously good</em> のように副詞にすると、「とんでもなくいい」という意味にもなります。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="grimiest / Gullyest / we be the hungriest 路上の質感を最上級にして、習慣のbeで言い切る"
+        label="★ スラング／AAVE"
+        mc="Sonsee（Verse 2）"
+        t={TS["gully-hungriest"].t} tApprox={TS["gully-hungriest"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">'cause we be the hungriest</Fragment>
+        <Fragment slot="jpn">なぜなら、俺たちがいちばん飢えているからだ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 2バース目の中ほど。直後に、うなり声の効果音が入ります。</p>
+        <p><strong class='text-[var(--c-text)]'>grimy</strong> は、「泥くさい」「荒っぽい」。ニューヨークのラップでは、洗練されていない路上の質感を褒める言葉として使われます。</p>
+        <p><strong class='text-[var(--c-text)]'>gully</strong> も似た方向のスラングで、<em>keep it gully</em> のように使います。</p>
+        <p><strong class='text-[var(--c-text)]'>grimiest / Gullyest</strong> は、それぞれ <em>-est</em> を付けた最上級です。本来は短い形容詞にしか付けない語尾を、スラングにそのまま足しているのが面白いところです。</p>
+        <p><strong class='text-[var(--c-text)]'>keep it ～</strong> は、<em>keep it real</em>（本物でいる）と同じ作りの型です。</p>
+        <p>続く <strong class='text-[var(--c-text)]'>we be the hungriest</strong> の <em>be</em> は、AAVEの習慣のbeです。<em>we are</em> が「いま」を表すのに対し、<em>we be</em> は「いつもそうだ」という常態を表します。</p>
+        <p><strong class='text-[var(--c-text)]'>hungry</strong> は、本来はお腹がすいているという意味ですが、スラングでは「成功したくてたまらない」「ガツガツしている」という意味でも使います。</p>
+        <p>直後の <em>(Grrrrr!)</em> は、うなり声の効果音。飢えを、文字どおり獣の声で聞かせています。</p>
+        <p>続く <em>hunger pains</em> は、標準的には <em>hunger pangs</em>（空腹の痛み）という言い方です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>He be working.</strong> は、「彼はいつも働いている」。<em>He is working.</em>（いま働いている）との違いが、習慣のbeの核心です。</p>
+          <p><em>stay hungry</em> は、「満足せずに挑み続けろ」という励ましの決まり文句として知られています。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="It's not a threat, it's a promise 対比で言い切る型"
+        label="★ 構文／対比"
+        mc="Sonsee（Verse 2）"
+        t={TS["not-a-threat-a-promise"].t} tApprox={TS["not-a-threat-a-promise"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">It's not a threat, it's a promise</Fragment>
+        <Fragment slot="jpn">脅しじゃない、約束だ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 2バース目の終わり近くです。</p>
+        <p><strong class='text-[var(--c-text)]'>It's not A, it's B</strong> は、否定と肯定を並べて言い切る型です。<em>threat</em> と <em>promise</em> は、似た響きでも向きが違う言葉なので、並べると対比がくっきり出ます。</p>
+        <p>どちらも「これから起こることを宣言する」点は同じ。違うのは、聞く側の受け取り方です。</p>
+        <p>同じ宣言を、脅しと呼ぶか約束と呼ぶかで、話し手の立場が変わって聞こえます。</p>
+        <p>この型は、映画のせりふや広告でもよく使われます。会話で相手を言い返す場面に、そのまま持っていける形です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>It's not a bug, it's a feature.</strong>（バグじゃない、仕様だ）は、同じ型を使った有名な冗談です。</p>
+          <p><em>not A but B</em> と言い換えると、書き言葉にも使えます。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="I'm like B.I.G.'s first album 作品名を比喩にする"
+        label="★ 固有名詞／比喩"
+        mc="Sticky Fingaz（Verse 3）"
+        t={TS["like-bigs-first-album"].t} tApprox={TS["like-bigs-first-album"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">I'm like B.I.G.'s first album</Fragment>
+        <Fragment slot="jpn">俺はB.I.G.のファーストアルバムみたいなものだ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 3バース目の3行目あたりです。</p>
+        <p><strong class='text-[var(--c-text)]'>B.I.G.</strong> は、Notorious B.I.G.（ビギー）。そのファーストアルバムは、1994年の『Ready to Die』です。</p>
+        <p>行の後半では、その題名をそのまま自分の覚悟に重ねています。つまり、<em>like</em> を使った直喩で、作品名を「態度の説明」に使っているわけです。</p>
+        <p><strong class='text-[var(--c-text)]'>I'm like ～</strong> は、「～みたいなものだ」。ここでは、人ではなく、アルバムを物差しにしています。</p>
+        <p>ヒップホップでは、アルバム名や曲名を比喩に使う言い方が、普通に出てきます。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>I'm like ～</strong> は、直喩の基本形。<em>He's like a brother to me.</em>（彼は兄弟みたいなものだ）のように使います。</p>
+          <p><em>ready to ～</em> は、「～する覚悟ができている」。<em>I'm ready to go.</em>（行く準備はできている）など、日常でも使えます。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="touched the whole hood with no hands 手を使わずに届く"
+        label="★ 比喩／語彙"
+        mc="Sticky Fingaz（Verse 3）"
+        t={TS["touched-the-hood-no-hands"].t} tApprox={TS["touched-the-hood-no-hands"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">The minute I reached out and touched the whole hood with no hands</Fragment>
+        <Fragment slot="jpn">手を伸ばした瞬間、手を使わずに地元じゅうに触れた</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 3バース目の前半です。</p>
+        <p><strong class='text-[var(--c-text)]'>the minute ～</strong> は、「～した瞬間に」という接続の言い方です。<em>the moment</em> や <em>as soon as</em> と同じように使えます。</p>
+        <p><strong class='text-[var(--c-text)]'>the hood</strong> は、<em>neighborhood</em> の短縮で、自分が育った地元。地域とのつながりを示す、ヒップホップの基本語彙です。</p>
+        <p><strong class='text-[var(--c-text)]'>touched … with no hands</strong> は、矛盾した言い方です。手を使わずに触れる、つまり、音楽で人の心に届く、という誇張になっています。</p>
+        <p><em>reached out</em> は、手を伸ばして届く、働きかけるという意味でも使います。ここでは、物理と比喩の両方に聞こえます。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>reach out to ～</strong> は、仕事の場面でよく使う「～に連絡を取る」。<em>Feel free to reach out.</em>（お気軽に連絡ください）は定番です。</p>
+          <p><em>The minute you arrive, call me.</em>（着いたらすぐ電話して）のように、日常でも使えます。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="it's more than music / put my life into it 比較の言い方"
+        label="★ 口語／構文"
+        mc="Sticky Fingaz（Verse 3）"
+        t={TS["more-than-music"].t} tApprox={TS["more-than-music"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">'Cause in the streets I live through it, it's more than music<br />Whatever I'm spittin' on, I put my life into it</Fragment>
+        <Fragment slot="jpn">路上でそれを生き抜いてきたから、音楽以上のものだ。どんなビートに乗せても、命を込めてる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 3バース目の半ば、2行セットです。</p>
+        <p><strong class='text-[var(--c-text)]'>live through ～</strong> は、「～を生き延びる」「～を経験して乗り越える」。ただ暮らすのではなく、くぐり抜けた、という意味です。</p>
+        <p><strong class='text-[var(--c-text)]'>spit</strong> は、「ラップする」という意味のスラング。<em>spittin' on</em> の on は、ビートの上に乗せる、という感覚で付いています。</p>
+        <p><strong class='text-[var(--c-text)]'>Whatever ～</strong> は、「何を～しても」という複合関係詞の形。後ろに <em>I put my life into it</em> がついて、「何に乗せても本気だ」と言い切ります。</p>
+        <p><strong class='text-[var(--c-text)]'>put my life into it</strong> は、<em>put one's heart into ～</em>（～に心を込める）の強めた言い方です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>more than ～</strong> は、「～以上のもの」。<em>It's more than a job.</em>（ただの仕事ではない）のように使います。</p>
+          <p><em>put your heart into it</em> は、励ましの決まり文句で、「本気を出してやれ」に近い言い方です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="the voice of the ghetto / the heart of New York 名乗りの型"
+        label="★ 構文／固有名詞"
+        mc="Sticky Fingaz（Verse 3）"
+        t={TS["voice-of-the-ghetto"].t} tApprox={TS["voice-of-the-ghetto"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">I'm the voice of the ghetto, the heart of New York</Fragment>
+        <Fragment slot="jpn">俺はゲットーの声、ニューヨークの心臓だ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 3バース目の後半です。</p>
+        <p><strong class='text-[var(--c-text)]'>the voice of ～ / the heart of ～</strong> は、自分を代表者として名乗る型。「～の声」「～の中心」と並べ、規模を大きくしていきます。</p>
+        <p><strong class='text-[var(--c-text)]'>ghetto</strong> は、もとは移民や少数派が集住する地区を指す言葉。ヒップホップでは、自分の育った場所を指すときに、誇りを込めて使われることもあります。</p>
+        <p><strong class='text-[var(--c-text)]'>the heart of New York</strong> と、街の名前を出すことで、自分たちを一地区ではなく、ニューヨーク全体の顔として押し出しています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>the voice of a generation</strong> は、ある世代を代表する声、という決まり文句です。</p>
+          <p><em>the heart of ～</em> は、<em>the heart of the city</em>（街の中心）のように、場所の中心を指すふつうの言い方でもあります。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="ふたたび Welcome back 最後に戻る輪"
+        label="★ 構成／サンプル"
+        mc="John Sebastian（サンプル）"
+        t={TS["outro-welcome-back"].t} tApprox={TS["outro-welcome-back"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Welcome back— back— back— back—</Fragment>
+        <Fragment slot="jpn">おかえり、おかえり、おかえり</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 曲の最後。途切れる形で、繰り返しが続きます。</p>
+        <p>最後に、冒頭と同じ主題歌が戻ってきます。ただし、歌詞の後半は短く切られ、<em>back</em> だけが何度も続く形になっています。</p>
+        <p>曲の頭と尻に同じ素材を置く構成は、聴き手に「ひと回りして戻ってきた」と感じさせます。ここでは、「戻ってきたぞ」という曲のテーマと、構成が重なっています。</p>
+        <p><em>back</em> を連打する終わり方は、レコードの針が飛んでいるようにも、話し言葉のくり返しにも聞こえます。意味より、音の勢いで締めています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>be back</strong> は、「戻ってくる」。<em>I'll be back.</em>（また来る）は、映画『ターミネーター』のせりふでも知られています。</p>
+          <p><em>back</em> は、場所に戻る、元の状態に戻る、味方につく、と意味が広い単語です。</p>
+        </Fragment>
+      </LearningUnit>
+    </section>
+
+    <section id="background" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        文化的背景
+      </h2>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">2002年のOnyx</p>
+        <h3 class="font-semibold text-base mb-3">「Slam」から9年後に出た、続編のような一曲</h3>
+        <div class="space-y-3 text-[var(--c-muted)] text-sm leading-relaxed">
+          <p>
+            Onyxは、ニューヨークのクイーンズ出身のグループです。1993年のデビュー作『Bacdafucup』から出たシングル「Slam」は、Billboard Hot 100で最高4位、ラップ部門のチャートでは1位になりました。
+          </p>
+          <p>
+            「Slam」は、スラムダンス（客席でぶつかり合って踊るモッシュ風のダンス）をヒップホップに持ち込んだ曲として知られています。このことを知っておくと、Slam Harderという題名の意味が分かりやすくなります。
+          </p>
+          <p>
+            2002年のアルバム『Bacdafucup: Part II』は、デビュー作の続編のような題名でした。「Slam Harder」も、題名からして、あの曲に重ねた呼びかけに聞こえます。
+          </p>
+        </div>
+      </div>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">バスケットボールとヒップホップ</p>
+        <h3 class="font-semibold text-base mb-3">Vince Carterが名前を貸した理由</h3>
+        <div class="space-y-3 text-[var(--c-muted)] text-sm leading-relaxed">
+          <p>
+            Vince Carterは、1998年から2004年までToronto Raptorsに在籍した選手です。2000年のNBAスラムダンク・コンテストで優勝し、同年のシドニー五輪では、2メートルを超えるフランス人選手の頭上を越えるダンクを決めて話題になりました。
+          </p>
+          <p>
+            ヒップホップでは、スポーツ選手の名前を、強さや勢いの比喩に使うことがよくあります。この曲では、Onyxの「slam」を、NBAを代表するダンクの名手と並べて、勝負を挑む形にしています。
+          </p>
+        </div>
+      </div>
+
+      <div class="p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">キーワード早見表</p>
+        <h3 class="font-semibold text-base mb-3">この曲で学んだ表現の整理</h3>
+        <div class="space-y-3 mt-3">
+          {[
+            ['slam', 'ダンク、スラムダンス、Onyxのヒット曲「Slam」の三重の意味'],
+            ['Aiyyo', 'yo と同じ呼びかけ。「なあ」'],
+            ['gettin\' dollars', '金を稼ぐ。get paid と近い言い方'],
+            ['holla', '大声で呼ぶ、声をかける。holler の崩した綴り'],
+            ['put ～ on the map', '～を有名にする。地図に載せるという比喩'],
+            ['good look', 'いい見た目、転じて「いい展開」。文脈で意味が動く'],
+            ['them + 名詞', 'AAVEで those の代わりに使う。them streets'],
+            ['20\'s', '20インチのホイール。派手な車を示す小道具'],
+            ['hustle', '金を稼ぐための日々の動き。必死に働く姿勢も指す'],
+            ['plaques / stacks / dough', '認定の盾、札束、お金。三つとも「稼ぎ」の小道具'],
+            ['the projects', '低所得者向け公営住宅の団地。育った場所の目印'],
+            ['sick / ridiculous', '本来は悪い意味だが、スラングでは最上級の褒め言葉'],
+            ['gully / grimy', '路上の荒っぽさ、泥くささ。褒め言葉としても使う'],
+            ['we be', 'AAVEの習慣のbe。「いつもそうだ」'],
+            ['spit', 'ラップする。ビートの上に言葉を乗せること'],
+          ].map(([w, d]) => (
+            <div class="text-sm">
+              <span class="font-semibold text-[var(--c-text)]">{w}</span>
+              <span class="text-[var(--c-muted)]"> {d}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="behind" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        制作の裏側
+      </h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          プロデュースはDR Periodです。冒頭から曲全体にかけて、John Sebastianの「Welcome Back」（1976年）のテーマ旋律が使われています。
+        </p>
+        <p>
+          曲はアルバム『Bacdafucup: Part II』の3曲目で、収録時間は4分38秒です。2002年には、「Slam Harder / Hold Up」と「Slam Harder / Bring 'Em Out Dead」の2種類のシングルが出ました。
+        </p>
+        <p>
+          サビはVersatile名義でクレジットされています。バースは順に、Fredro Starr、Sonsee、Sticky Fingazが担当します。
+        </p>
+        <p>
+          アルバムの中でも、この曲だけは、他の曲と違って表現を伏せた版で収録されています。
+        </p>
+        <p>
+          サンプル元の「Welcome Back」は、このページ上部の埋め込みで聴けます。聴き比べると、冒頭と最後の旋律が、そのまま使われていることが分かります。
+        </p>
+      </div>
+    </section>
+
+    <section id="legacy" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        評価とその後
+      </h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          アルバム『Bacdafucup: Part II』は、2002年7月9日にKoch Recordsから出ました。
+        </p>
+        <p>
+          チャートは、Billboard 200で最高46位、Top R&B/Hip-Hop Albumsで最高11位、Top Independent Albumsで最高2位です。
+        </p>
+        <p>
+          いまも、Fredro StarrとSticky Fingazがグループの中心メンバーです。
+        </p>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        まとめ
+      </h2>
+      <ul class="space-y-2 text-sm text-[var(--c-muted)] list-disc list-inside leading-relaxed">
+        <li>「Slam Harder」は、代表曲「Slam」に重ねて、続編の気分で戻ってきたことを伝える曲です。</li>
+        <li>Vince Carterを引き合いに出すサビで、slamの三重の意味が学べます。</li>
+        <li>put on the map、hustleなど、短くて会話にも使いやすい表現がそろっています。</li>
+        <li>them streets、we be、ain't got noなど、AAVEの文法の見本も出てきます。</li>
+        <li>冒頭と最後のWelcome Backは、1976年に全米1位になった曲の旋律です。</li>
+      </ul>
+    </section>
+
+</SongLayout>

@@ -45,10 +45,12 @@ const noindex = true;
     />
 
     <!-- Japan connection -->
-    <section class="mb-10 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
-      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">日本との関わり</p>
-      <p class="text-[var(--c-muted)] text-sm leading-relaxed">{artist.japan}</p>
-    </section>
+    {artist.japan && (
+      <section class="mb-10 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">日本との関わり</p>
+        <p class="text-[var(--c-muted)] text-sm leading-relaxed">{artist.japan}</p>
+      </section>
+    )}
 
     <!-- Songs on this site -->
     {artistSongs.length > 0 && (

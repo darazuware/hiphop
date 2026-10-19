@@ -1,0 +1,244 @@
+[
+  {
+    "id": "intro-welcome-back",
+    "anchor": [
+      "welcome",
+      "back",
+      "welcome",
+      "back"
+    ],
+    "fallbackT": 2,
+    "manualSec": 14
+  },
+  {
+    "id": "call-and-response",
+    "anchor": [
+      "what",
+      "what",
+      "what",
+      "what"
+    ],
+    "fallbackT": 14,
+    "manualSec": 17
+  },
+  {
+    "id": "whose-slam-harder",
+    "anchor": [
+      "aiyyo",
+      "whose",
+      "slam",
+      "harder"
+    ],
+    "fallbackT": 22,
+    "manualSec": 28
+  },
+  {
+    "id": "thugs-gettin-dollars",
+    "anchor": [
+      "all",
+      "my",
+      "thugs",
+      "gettin'",
+      "dollars"
+    ],
+    "fallbackT": 26,
+    "manualSec": 31
+  },
+  {
+    "id": "good-look-on-the-map",
+    "anchor": [
+      "it's",
+      "a",
+      "good",
+      "look",
+      "we",
+      "put",
+      "hardcore",
+      "on",
+      "the",
+      "map"
+    ],
+    "fallbackT": 59,
+    "manualSec": null
+  },
+  {
+    "id": "them-streets",
+    "anchor": [
+      "see",
+      "a",
+      "thug",
+      "on",
+      "the",
+      "TV"
+    ],
+    "fallbackT": 64,
+    "manualSec": null
+  },
+  {
+    "id": "bacdafucup-slam",
+    "anchor": [
+      "so",
+      "bacdafucup",
+      "comin'",
+      "through"
+    ],
+    "fallbackT": 69,
+    "manualSec": 69
+  },
+  {
+    "id": "twenties-no-gas-money",
+    "anchor": [
+      "sittin'",
+      "on",
+      "20's",
+      "with",
+      "no",
+      "gas",
+      "money"
+    ],
+    "fallbackT": 74,
+    "manualSec": null
+  },
+  {
+    "id": "shinin-like-puff",
+    "anchor": [
+      "shinin'",
+      "like",
+      "puff"
+    ],
+    "fallbackT": 77,
+    "manualSec": null
+  },
+  {
+    "id": "hustle-settle",
+    "anchor": [
+      "on",
+      "the",
+      "everyday",
+      "hustle"
+    ],
+    "fallbackT": 87,
+    "manualSec": 87
+  },
+  {
+    "id": "plaques-and-stacks",
+    "anchor": [
+      "plaques",
+      "and",
+      "stacks",
+      "of",
+      "their",
+      "dough"
+    ],
+    "fallbackT": 128,
+    "manualSec": 128
+  },
+  {
+    "id": "project-heat",
+    "anchor": [
+      "from",
+      "that",
+      "project",
+      "heat",
+      "sick",
+      "ridiculous",
+      "flow"
+    ],
+    "fallbackT": 131,
+    "manualSec": null
+  },
+  {
+    "id": "gully-hungriest",
+    "anchor": [
+      "we",
+      "keep",
+      "it",
+      "the",
+      "gullyest"
+    ],
+    "fallbackT": 142,
+    "manualSec": null
+  },
+  {
+    "id": "not-a-threat-a-promise",
+    "anchor": [
+      "it's",
+      "not",
+      "a",
+      "threat",
+      "it's",
+      "a",
+      "promise"
+    ],
+    "fallbackT": 151,
+    "manualSec": 152
+  },
+  {
+    "id": "like-bigs-first-album",
+    "anchor": [
+      "i'm",
+      "like",
+      "b.i.g.'s",
+      "first",
+      "album"
+    ],
+    "fallbackT": 189,
+    "manualSec": 189
+  },
+  {
+    "id": "touched-the-hood-no-hands",
+    "anchor": [
+      "the",
+      "minute",
+      "i",
+      "reached",
+      "out",
+      "and",
+      "touched",
+      "the",
+      "whole",
+      "hood"
+    ],
+    "fallbackT": 195,
+    "manualSec": 195
+  },
+  {
+    "id": "more-than-music",
+    "anchor": [
+      "'cause",
+      "in",
+      "the",
+      "streets",
+      "i",
+      "live",
+      "through",
+      "it"
+    ],
+    "fallbackT": 198,
+    "manualSec": null
+  },
+  {
+    "id": "voice-of-the-ghetto",
+    "anchor": [
+      "i'm",
+      "the",
+      "voice",
+      "of",
+      "the",
+      "ghetto"
+    ],
+    "fallbackT": 218,
+    "manualSec": null
+  },
+  {
+    "id": "outro-welcome-back",
+    "anchor": [
+      "welcome",
+      "back",
+      "back",
+      "back"
+    ],
+    "fallbackT": 262,
+    "manualSec": null
+  }
+]

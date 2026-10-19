@@ -557,6 +557,15 @@ export const artists = [
     summary: 'ロサンゼルス出身のヒップホップグループ。Imani、Slimkid3、Bootie Brown、Fatlipの4人のMCと、プロデューサーのJ-Swiftで結成された。1992年のデビューアルバム『Bizarre Ride II the Pharcyde』は、ユーモアのある語り口とサンプリングを生かしたトラックで知られ、1993年のシングル「Passin\' Me By」は代表曲として聴かれ続けている。',
     japan: '日本語で読める資料はまだ多くありませんが、代表曲「Passin\' Me By」の歌詞は、このサイトで1行ずつ解説しています。',
   },
+  {
+    slug: 'onyx',
+    name: 'Onyx',
+    origin: 'Queens, New York',
+    active: '1988–',
+    genre: 'Hardcore Hip-Hop',
+    summary: 'Fredro Starr、Sticky Fingaz、Sonny Seeza、Big DSによるクイーンズ出身のグループ。1993年のデビュー作『Bacdafucup』と、全米4位のヒット「Slam」で知られる。叫ぶような声と攻撃的なステージが持ち味。',
+    japan: '',
+  },
 ] as const;
 
 export type Artist = typeof artists[number];

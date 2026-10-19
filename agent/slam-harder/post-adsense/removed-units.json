@@ -1,0 +1,61 @@
+{
+  "pop-bottles-of-bub": {
+    "id": "pop-bottles-of-bub",
+    "heading": "pop … / pop bottles of bub' 同じ動詞の落差",
+    "label": "★ 言葉遊び／スラング",
+    "mc": "Fredro Starr（Verse 1）",
+    "anchor": [
+      "like",
+      "you",
+      "really",
+      "pop",
+      "shots",
+      "in",
+      "the",
+      "club"
+    ],
+    "t": 79,
+    "eng": "Like you really pop shots in the club? You only pop<br />Bottles of bub', y'all ain't got no real street love",
+    "jpn": "本当にクラブで撃ち合うつもりか？ 開けるのはせいぜい泡の酒のボトルだろ、本物のストリートの愛なんてない",
+    "note": "1バース目の終わり近く。行をまたいで、言葉が入れ替わります。",
+    "body": [
+      "ポイントは、<strong class='text-[var(--c-text)]'>pop</strong> を同じ文の中で二度使い、意味を入れ替えているところです。一つ目の <em>pop shots</em> は発砲すること、二つ目の <em>pop bottles</em> は栓を抜くことです。",
+      "<strong class='text-[var(--c-text)]'>bub'</strong> は <em>bubbly</em> の短縮で、シャンパンなどの泡の出る酒。クラブでボトルを開けて見せるのは、羽振りの良さを見せる行為でした。",
+      "行をまたいで、<em>You only pop / Bottles of bub'</em> と続けるのは、ラップではよくある切り方です。次の行の頭で意味が反転するので、聴き手に小さな驚きが生まれます。",
+      "つまり、「本気で撃つ度胸もないのに、ボトルを開けて強がっているだけだ」という皮肉です。<strong class='text-[var(--c-text)]'>ain't got no</strong> の二重否定は、AAVEの強調表現で、意味は「何もない」のままです。"
+    ],
+    "usage": [
+      "<strong class='text-[var(--c-text)]'>pop a bottle</strong> は、「ボトルを開ける」。パーティーの場面でそのまま使えます。",
+      "<em>I ain't got no money.</em> は、二重否定でも「お金がまったくない」という意味です。"
+    ]
+  },
+  "do-a-bid": {
+    "id": "do-a-bid",
+    "heading": "do a bid 「刑期をつとめる」",
+    "label": "★ スラング／語彙",
+    "mc": "Sticky Fingaz（Verse 3）",
+    "anchor": [
+      "my",
+      "music",
+      "helped",
+      "'em",
+      "do",
+      "a",
+      "bid"
+    ],
+    "t": 215,
+    "note": "3バース目の後半。短い言い回しが、その場の状況を伝えます。",
+    "body": [
+      "<strong class='text-[var(--c-text)]'>do a bid</strong> は、刑務所で刑期をつとめること。<em>bid</em> は、ここでは刑期の長さを指す言葉で、<em>a two-year bid</em>（2年の刑期）のように数字と組みます。",
+      "<strong class='text-[var(--c-text)]'>helped 'em do a bid</strong> は、「彼らが刑期を乗り切る助けになった」。<em>'em</em> は <em>them</em> の短縮です。",
+      "この行は、自分の音楽が、塀の中の人にも届いている、という誇りを言っています。街の外だけでなく、閉じた場所にも届くことが、「路上の声」を名乗る根拠になっています。"
+    ],
+    "usage": [
+      "<strong class='text-[var(--c-text)]'>do time</strong> も、同じく「刑期をつとめる」。<em>do time</em> のほうが、ほかの映画や小説にも広く出てきます。",
+      "<em>help ～ (to) 動詞</em> は、「～が…するのを助ける」という型。<em>help me move</em>（引っ越しを手伝って）のように使います。"
+    ]
+  },
+  "voice-of-the-ghetto__fiend-paragraph": [
+    "次の行では、<em>fiend</em>（薬物依存の人）が、最後の一服を差し出してでも自分の話を聞きたがる、という誇張が続きます。ここでも、自分の声の影響力を大きく見せる言い方です。"
+  ]
+}
