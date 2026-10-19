@@ -2,10 +2,20 @@
 import LearningUnit from '../../components/LearningUnit.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
 import SongLayout from '../../layouts/SongLayout.astro';
+import ColumnAlbums from '../../components/ColumnAlbums.astro';
 
 import tsData from '../../../agent/slam-harder/assets/units-timestamps.json';
 const YT = "MpAmaJjiJC4";
 const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.approx }]));
+const slamAlbums = [
+  { label: "John Sebastian『Welcome Back』（1976年のアルバム。原曲「Welcome Back」を収録）", query: "John Sebastian Welcome Back" },
+  { label: "Onyx「Slam」（1993年のシングル）", query: "Onyx Slam" },
+  { label: "Onyx『Bacdafucup』（1993年のデビューアルバム）", query: "Onyx Bacdafucup" },
+  { label: "Onyx『Bacdafucup: Part II』（2002年。Slam Harderを収録）", query: "Onyx Bacdafucup Part II" },
+  { label: "The Notorious B.I.G.『Ready to Die』（1994年のデビューアルバム）", query: "Notorious B.I.G. Ready to Die" },
+  { label: "Onyx「Slam Harder / Hold Up」（2002年のシングル）", query: "Onyx Slam Harder Hold Up" },
+  { label: "Onyx「Slam Harder / Bring 'Em Out Dead」（2002年のシングル）", query: "Onyx Slam Harder Bring Em Out Dead" },
+];
 ---
 
 <SongLayout
@@ -38,21 +48,6 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         </p>
         <p>
           身近な小道具が、短い行の中にぎゅっと詰まっています。
-        </p>
-      </div>
-    </section>
-
-    <section class="mb-6">
-      <h2 class="text-base font-semibold mb-2">■Vince Carterを呼び出した問いかけ</h2>
-      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
-        <p>
-          サビは、「slamが強いのはどっち？ Onyxか、Vince Carterか」という問いかけです。
-        </p>
-        <p>
-          Vince Carterは、当時Toronto Raptorsでプレーしていたバスケットボール選手で、ダンクの名手として知られています。2000年のNBAスラムダンク・コンテストでも優勝しました。
-        </p>
-        <p>
-          ここでのslamは、ダンクと、Onyxの代表曲「Slam」の両方に引っかけてあります。二重の意味を知ってから聴くと、短いサビの狙いが見えてきます。
         </p>
       </div>
     </section>
@@ -116,6 +111,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <p>原曲はJohn Sebastianの「Welcome Back」。1976年3月にアルバム『Welcome Back』から出て、同年5月にBillboard Hot 100で1位になりました。</p>
         <p>ドラマは1975年の秋にアメリカのABCで始まっています。最初は『Kotter』という題名でしたが、主題歌にちなんで改題されました。</p>
         <p><strong class='text-[var(--c-text)]'>Welcome back</strong> は、久しぶりに戻ってきた人を迎える、ごく普通のあいさつです。Onyxにとっては、1993年の『Bacdafucup』の続編にあたる作品の、最初の一言になっています。</p>
+        <ColumnAlbums albums={slamAlbums} position="slam-harder-welcome-back" heading="この曲に関連するCD（Amazon）" />
         <Fragment slot="usage">
           <p><strong class='text-[var(--c-text)]'>Welcome back.</strong> は、帰ってきた人にも、久しぶりに会った人にも使います。番組や店の出迎えにも定番です。</p>
           <p><em>Welcome back to the show.</em>（番組にまたお越しいただきました）のように、後ろに場所を足せます。</p>
@@ -266,7 +262,8 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         label="★ 固有名詞／スラング"
         mc="Fredro Starr（Verse 1）"
         t={TS["shinin-like-puff"].t} tApprox={TS["shinin-like-puff"].approx} youtubeId={YT}
-        embed=""
+        embed="https://www.instagram.com/p/CO81Fy3HjRE/"
+        embedCaption="Instagramの投稿（@strappedarchives）"
       >
         <p class="text-xs text-[var(--c-dim)] mb-1">▶ 1バース目の後半。人名が、そのまま比較の物差しになっています。</p>
         <p><strong class='text-[var(--c-text)]'>Puff</strong> は、Puff Daddy（本名Sean Combs。のちにDiddyとも名乗りました）のこと。</p>

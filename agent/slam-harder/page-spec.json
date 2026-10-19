@@ -18,14 +18,6 @@
         "冒頭と終わりに、1970年代のテレビドラマ『Welcome Back, Kotter』のテーマ曲が流れます。1993年の大ヒット「Slam」を思わせる題名と合わせて、「戻ってきたぞ」と告げる一曲に聞こえます。",
         "英語の面では、短い決まり文句と、音で遊ぶ言い回しがよく出てきます。バスケットボール選手の名前、シャンパンの栓を抜く動作、車のホイールのサイズ。身近な小道具が、短い行の中にぎゅっと詰まっています。"
       ]
-    },
-    {
-      "h2": "■Vince Carterを呼び出した問いかけ",
-      "paras": [
-        "サビは、「slamが強いのはどっち？ Onyxか、Vince Carterか」という問いかけです。",
-        "Vince Carterは、当時Toronto Raptorsでプレーしていたバスケットボール選手で、ダンクの名手として知られています。2000年のNBAスラムダンク・コンテストでも優勝しました。",
-        "ここでのslamは、ダンクと、Onyxの代表曲「Slam」の両方に引っかけてあります。二重の意味を知ってから聴くと、短いサビの狙いが見えてきます。"
-      ]
     }
   ],
   "storyLead": "曲の構成を先につかんでおくと、解説が追いやすくなります。",
@@ -62,7 +54,8 @@
       "usage": [
         "<strong class='text-[var(--c-text)]'>Welcome back.</strong> は、帰ってきた人にも、久しぶりに会った人にも使います。番組や店の出迎えにも定番です。",
         "<em>Welcome back to the show.</em>（番組にまたお越しいただきました）のように、後ろに場所を足せます。"
-      ]
+      ],
+      "extra": "        <ColumnAlbums albums={slamAlbums} position=\"slam-harder-welcome-back\" heading=\"この曲に関連するCD（Amazon）\" />"
     },
     {
       "id": "call-and-response",
@@ -276,7 +269,9 @@
       "usage": [
         "<strong class='text-[var(--c-text)]'>shine</strong> には、「目立つ」「活躍する」の意味もあります。<em>It's your time to shine.</em>（活躍する番だ）は定番です。",
         "人名を比喩に使う言い方は、<em>He thinks he's Michael Jordan.</em>（自分をジョーダンだと思っている）のように、日常でも使えます。"
-      ]
+      ],
+      "embed": "https://www.instagram.com/p/CO81Fy3HjRE/",
+      "embedCaption": "Instagramの投稿（@strappedarchives）"
     },
     {
       "id": "hustle-settle",
@@ -656,5 +651,9 @@
     "put on the map、hustleなど、短くて会話にも使いやすい表現がそろっています。",
     "them streets、we be、ain't got noなど、AAVEの文法の見本も出てきます。",
     "冒頭と最後のWelcome Backは、1976年に全米1位になった曲の旋律です。"
-  ]
+  ],
+  "extraImports": [
+    "import ColumnAlbums from '../../components/ColumnAlbums.astro';"
+  ],
+  "extraFrontmatter": "const slamAlbums = [\n  { label: \"John Sebastian『Welcome Back』（1976年のアルバム。原曲「Welcome Back」を収録）\", query: \"John Sebastian Welcome Back\" },\n  { label: \"Onyx「Slam」（1993年のシングル）\", query: \"Onyx Slam\" },\n  { label: \"Onyx『Bacdafucup』（1993年のデビューアルバム）\", query: \"Onyx Bacdafucup\" },\n  { label: \"Onyx『Bacdafucup: Part II』（2002年。Slam Harderを収録）\", query: \"Onyx Bacdafucup Part II\" },\n  { label: \"The Notorious B.I.G.『Ready to Die』（1994年のデビューアルバム）\", query: \"Notorious B.I.G. Ready to Die\" },\n  { label: \"Onyx「Slam Harder / Hold Up」（2002年のシングル）\", query: \"Onyx Slam Harder Hold Up\" },\n  { label: \"Onyx「Slam Harder / Bring 'Em Out Dead」（2002年のシングル）\", query: \"Onyx Slam Harder Bring Em Out Dead\" },\n];"
 }
