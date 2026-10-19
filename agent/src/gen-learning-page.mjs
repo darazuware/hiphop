@@ -62,7 +62,8 @@ const units = spec.units
         heading="${attr(u.heading)}"${u.label ? `\n        label="${attr(u.label)}"` : ""}
         mc="${attr(u.mc)}"
         t={TS["${u.id}"].t} tApprox={TS["${u.id}"].approx} youtubeId={YT}
-        embed=""
+        embed="${attr(u.embed || "")}"${u.embedCaption ? `
+        embedCaption="${attr(u.embedCaption)}"` : ""}
       >
 ${eng}${jpn}${note}${P(u.body, "        ")}
 ${usage}      </LearningUnit>`;
