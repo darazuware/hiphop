@@ -8,7 +8,7 @@
       "back"
     ],
     "fallbackT": 2,
-    "manualSec": null
+    "manualSec": 14
   },
   {
     "id": "call-and-response",
@@ -19,7 +19,7 @@
       "what"
     ],
     "fallbackT": 14,
-    "manualSec": null
+    "manualSec": 17
   },
   {
     "id": "whose-slam-harder",
@@ -30,7 +30,7 @@
       "harder"
     ],
     "fallbackT": 22,
-    "manualSec": null
+    "manualSec": 28
   },
   {
     "id": "thugs-gettin-dollars",
@@ -42,7 +42,7 @@
       "dollars"
     ],
     "fallbackT": 26,
-    "manualSec": null
+    "manualSec": 31
   },
   {
     "id": "its-time-to-get-live",
