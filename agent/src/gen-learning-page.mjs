@@ -62,10 +62,11 @@ const units = spec.units
         heading="${attr(u.heading)}"${u.label ? `\n        label="${attr(u.label)}"` : ""}
         mc="${attr(u.mc)}"
         t={TS["${u.id}"].t} tApprox={TS["${u.id}"].approx} youtubeId={YT}
-        embed=""
+        embed="${attr(u.embed || "")}"${u.embedCaption ? `
+        embedCaption="${attr(u.embedCaption)}"` : ""}
       >
 ${eng}${jpn}${note}${P(u.body, "        ")}
-${usage}      </LearningUnit>`;
+${u.extra ? u.extra + "\n" : ""}${usage}      </LearningUnit>`;
   })
   .join("\n\n");
 
@@ -100,11 +101,11 @@ const out = `---
 import LearningUnit from '../../components/LearningUnit.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
 import SongLayout from '../../layouts/SongLayout.astro';
-
+${(spec.extraImports || []).map((l) => l + "\n").join("")}
 import tsData from '../../../agent/${slug}/assets/units-timestamps.json';
 const YT = "${spec.youtubeId}";
 const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.approx }]));
----
+${spec.extraFrontmatter ? spec.extraFrontmatter + "\n" : ""}---
 
 <SongLayout
   title="${attr(spec.title)}"

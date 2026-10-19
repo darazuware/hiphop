@@ -15,3 +15,7 @@
 - unit `do-a-bid`（刑期をつとめる）
 - unit `voice-of-the-ghetto` の fiend（薬物依存の人）の段落
 - 上記の全文は `removed-units.json`。復元するときは page-spec.json の units に、元の位置（hustle-settle の前／voice-of-the-ghetto の前）へ戻し、keywords（bub'、do a bid）・description・highlights・summary の言及も戻す。
+
+## 2026-10-19 Amazonリンクを7件から3件に絞った（審査中のみ）
+- 残した: Welcome Back（原曲）/ Bacdafucup / Bacdafucup: Part II
+- 外した4件は `amazon-links-removed.txt`。審査通過後に page-spec.json の extraFrontmatter（slamAlbums）へ戻す。

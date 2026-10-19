@@ -1,0 +1,5 @@
+審査中に外したAmazon検索リンク（審査通過後に slamAlbums へ戻す）
+  { label: "Onyx「Slam」（1993年のシングル）", query: "Onyx Slam" },
+  { label: "The Notorious B.I.G.『Ready to Die』（1994年のデビューアルバム）", query: "Notorious B.I.G. Ready to Die" },
+  { label: "Onyx「Slam Harder / Hold Up」（2002年のシングル）", query: "Onyx Slam Harder Hold Up" },
+  { label: "Onyx「Slam Harder / Bring 'Em Out Dead」（2002年のシングル）", query: "Onyx Slam Harder Bring Em Out Dead" },
