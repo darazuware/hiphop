@@ -43,7 +43,12 @@
       "heading": "Welcome back 「おかえり」とサンプルの正体",
       "label": "★ サンプル／あいさつ",
       "mc": "John Sebastian（サンプル）",
-      "anchor": ["welcome", "back", "welcome", "back"],
+      "anchor": [
+        "welcome",
+        "back",
+        "welcome",
+        "back"
+      ],
       "t": 2,
       "eng": "Welcome back, welcome back, welcome back",
       "jpn": "おかえり、おかえり、おかえり",
@@ -64,7 +69,12 @@
       "heading": "What! / C'mon! 掛け声とコール＆レスポンス",
       "label": "★ 掛け声／ad-lib",
       "mc": "Onyx（Pre-Chorus）",
-      "anchor": ["what", "what", "what", "what"],
+      "anchor": [
+        "what",
+        "what",
+        "what",
+        "what"
+      ],
       "t": 14,
       "eng": "What! What! What! What!<br />Yeah! (What!) Yeah! (What!)",
       "jpn": "（掛け声）ほら！ ほら！ ほら！ ほら！",
@@ -85,7 +95,12 @@
       "heading": "whose slam harder: Onyx or Vince Carter? 二重の意味を持つ問い",
       "label": "★ 言葉遊び／固有名詞",
       "mc": "Versatile（Chorus）",
-      "anchor": ["aiyyo", "whose", "slam", "harder"],
+      "anchor": [
+        "aiyyo",
+        "whose",
+        "slam",
+        "harder"
+      ],
       "t": 22,
       "eng": "Aiyyo, whose slam harder: Onyx or Vince Carter?",
       "jpn": "なあ、slamが強いのはどっちだ、Onyxか、Vince Carterか",
@@ -106,7 +121,13 @@
       "heading": "gettin' dollars / holla 「稼ぐ」と「声をかける」",
       "label": "★ スラング／口語",
       "mc": "Versatile（Chorus）",
-      "anchor": ["all", "my", "thugs", "gettin'", "dollars"],
+      "anchor": [
+        "all",
+        "my",
+        "thugs",
+        "gettin'",
+        "dollars"
+      ],
       "t": 26,
       "eng": "All my thugs gettin' dollars<br />All my ladies just holla",
       "jpn": "俺の仲間はみんな金を稼いでる、女の子たちはただ声を上げてる",
@@ -127,8 +148,14 @@
       "heading": "It's time to get live 「盛り上がる時間だ」",
       "label": "★ スラング／構文",
       "mc": "Versatile（Chorus）",
-      "anchor": ["it's", "time", "to", "get", "live"],
-      "t": 31,
+      "anchor": [
+        "it's",
+        "time",
+        "to",
+        "get",
+        "live"
+      ],
+      "t": 37,
       "eng": "It's time to get live",
       "jpn": "盛り上がる時間だ",
       "note": "サビの最後。毎回、客席の返事が重なります。",
@@ -147,8 +174,19 @@
       "heading": "good look / put on the map 「地図に載せた」",
       "label": "★ イディオム／スラング",
       "mc": "Fredro Starr（Verse 1）",
-      "anchor": ["it's", "a", "good", "look", "we", "put", "hardcore", "on", "the", "map"],
-      "t": 52,
+      "anchor": [
+        "it's",
+        "a",
+        "good",
+        "look",
+        "we",
+        "put",
+        "hardcore",
+        "on",
+        "the",
+        "map"
+      ],
+      "t": 59,
       "eng": "It's a good look, we put hardcore on the map",
       "jpn": "いい流れだ、俺たちがハードコアを地図に載せた",
       "note": "1バース目の中ほどです。",
@@ -167,8 +205,15 @@
       "heading": "them streets / play at 「あの」の them と文末の at",
       "label": "★ AAVE／文法",
       "mc": "Fredro Starr（Verse 1）",
-      "anchor": ["see", "a", "thug", "on", "the", "TV"],
-      "t": 56,
+      "anchor": [
+        "see",
+        "a",
+        "thug",
+        "on",
+        "the",
+        "TV"
+      ],
+      "t": 64,
       "eng": "See a thug on the TV, and chicks dig that<br />But we rap for them streets where them thugs play at",
       "jpn": "テレビにワルが映れば女の子は夢中になる。でも俺たちは、あの連中がたむろする通りのためにラップしてる",
       "note": "1バース目の中ほど、2行セットです。",
@@ -188,8 +233,13 @@
       "heading": "Bacdafucup / get ya Slam on 自分たちの過去への呼びかけ",
       "label": "★ 固有名詞／セルフ言及",
       "mc": "Fredro Starr（Verse 1）",
-      "anchor": ["so", "bacdafucup", "comin'", "through"],
-      "t": 60,
+      "anchor": [
+        "so",
+        "bacdafucup",
+        "comin'",
+        "through"
+      ],
+      "t": 70,
       "eng": "So \"Bacdafucup\" comin' through, comin' through, get ya \"Slam\" on",
       "jpn": "『Bacdafucup』が通るぞ、通るぞ、『Slam』をかけろ",
       "note": "1バース目の後半。自分たちの作品名を、そのまま言っています。",
@@ -209,8 +259,16 @@
       "heading": "20's / no gas money 「見せかけ」の小道具",
       "label": "★ 固有名詞／スラング",
       "mc": "Fredro Starr（Verse 1）",
-      "anchor": ["sittin'", "on", "20's", "with", "no", "gas", "money"],
-      "t": 64,
+      "anchor": [
+        "sittin'",
+        "on",
+        "20's",
+        "with",
+        "no",
+        "gas",
+        "money"
+      ],
+      "t": 75,
       "note": "1バース目の後半。他のラッパーを皮肉る一行です。",
       "body": [
         "<strong class='text-[var(--c-text)]'>20's</strong> は、20インチのホイール（車の車輪の外径）のこと。大きなホイールは、派手な車の象徴で、当時のラップでは羽振りの良さを示す小道具でした。",
@@ -227,8 +285,12 @@
       "heading": "shinin' like Puff 固有名詞が比喩になる",
       "label": "★ 固有名詞／スラング",
       "mc": "Fredro Starr（Verse 1）",
-      "anchor": ["shinin'", "like", "puff"],
-      "t": 67,
+      "anchor": [
+        "shinin'",
+        "like",
+        "puff"
+      ],
+      "t": 77,
       "note": "1バース目の後半。人名が、そのまま比較の物差しになっています。",
       "body": [
         "<strong class='text-[var(--c-text)]'>Puff</strong> は、Puff Daddy（本名Sean Combs。のちにDiddyとも名乗りました）のこと。90年代後半、派手な暮らしぶりとヒップホップの商業的な成功の象徴でした。",
@@ -245,8 +307,17 @@
       "heading": "pop … / pop bottles of bub' 同じ動詞の落差",
       "label": "★ 言葉遊び／スラング",
       "mc": "Fredro Starr（Verse 1）",
-      "anchor": ["like", "you", "really", "pop", "shots", "in", "the", "club"],
-      "t": 70,
+      "anchor": [
+        "like",
+        "you",
+        "really",
+        "pop",
+        "shots",
+        "in",
+        "the",
+        "club"
+      ],
+      "t": 80,
       "eng": "Like you really pop shots in the club? You only pop<br />Bottles of bub', y'all ain't got no real street love",
       "jpn": "本当にクラブで撃ち合うつもりか？ 開けるのはせいぜい泡の酒のボトルだろ、本物のストリートの愛なんてない",
       "note": "1バース目の終わり近く。行をまたいで、言葉が入れ替わります。",
@@ -266,8 +337,13 @@
       "heading": "hustle / settle 語尾をそろえる韻",
       "label": "★ 韻／語彙",
       "mc": "Fredro Starr（Verse 1）",
-      "anchor": ["on", "the", "everyday", "hustle"],
-      "t": 74,
+      "anchor": [
+        "on",
+        "the",
+        "everyday",
+        "hustle"
+      ],
+      "t": 88,
       "eng": "On the everyday hustle, never ready to settle",
       "jpn": "毎日が稼ぎの勝負、落ち着く気はない",
       "note": "1バース目の終わりです。",
@@ -286,8 +362,15 @@
       "heading": "plaques and stacks 頭の音で刻むリズム",
       "label": "★ 語彙／韻",
       "mc": "Sonsee（Verse 2）",
-      "anchor": ["plaques", "and", "stacks", "of", "their", "dough"],
-      "t": 112,
+      "anchor": [
+        "plaques",
+        "and",
+        "stacks",
+        "of",
+        "their",
+        "dough"
+      ],
+      "t": 129,
       "eng": "Plaques and stacks of their dough on our living room floor",
       "jpn": "ゴールドの盾も札束も、あいつらの金も、うちのリビングの床に積まれてる",
       "note": "2バース目の最初の行の近くです。",
@@ -307,8 +390,16 @@
       "heading": "project heat / sick ridiculous flow 褒め言葉になる悪い言葉",
       "label": "★ スラング／語彙",
       "mc": "Sonsee（Verse 2）",
-      "anchor": ["from", "that", "project", "heat", "sick", "ridiculous", "flow"],
-      "t": 118,
+      "anchor": [
+        "from",
+        "that",
+        "project",
+        "heat",
+        "sick",
+        "ridiculous",
+        "flow"
+      ],
+      "t": 131,
       "eng": "From that project heat sick ridiculous flow",
       "jpn": "団地の熱気から生まれた、とんでもなくイカれたフロー",
       "note": "2バース目の3行目あたりです。",
@@ -328,8 +419,14 @@
       "heading": "grimiest / Gullyest 路上の荒っぽさを最上級にする",
       "label": "★ スラング／構文",
       "mc": "Sonsee（Verse 2）",
-      "anchor": ["we", "keep", "it", "the", "gullyest"],
-      "t": 124,
+      "anchor": [
+        "we",
+        "keep",
+        "it",
+        "the",
+        "gullyest"
+      ],
+      "t": 142,
       "note": "2バース目の中ほど。形容詞に最上級の語尾が付く形です。",
       "body": [
         "<strong class='text-[var(--c-text)]'>grimy</strong> は、「泥くさい」「荒っぽい」。ニューヨークのラップでは、洗練されていない、路上の質感を褒める言葉として使われます。",
@@ -347,8 +444,14 @@
       "heading": "we be the hungriest 習慣のbeと、飢えた状態",
       "label": "★ AAVE／文法",
       "mc": "Sonsee（Verse 2）",
-      "anchor": ["'cause", "we", "be", "the", "hungriest"],
-      "t": 128,
+      "anchor": [
+        "'cause",
+        "we",
+        "be",
+        "the",
+        "hungriest"
+      ],
+      "t": 144,
       "eng": "'cause we be the hungriest",
       "jpn": "なぜなら、俺たちがいちばん飢えているからだ",
       "note": "2バース目の中ほど。直後に、うなり声の効果音が入ります。",
@@ -367,8 +470,16 @@
       "heading": "It's not a threat, it's a promise 対比で言い切る型",
       "label": "★ 構文／対比",
       "mc": "Sonsee（Verse 2）",
-      "anchor": ["it's", "not", "a", "threat", "it's", "a", "promise"],
-      "t": 134,
+      "anchor": [
+        "it's",
+        "not",
+        "a",
+        "threat",
+        "it's",
+        "a",
+        "promise"
+      ],
+      "t": 152,
       "eng": "It's not a threat, it's a promise",
       "jpn": "脅しじゃない、約束だ",
       "note": "2バース目の終わり近くです。",
@@ -387,8 +498,14 @@
       "heading": "I'm like B.I.G.'s first album 作品名を比喩にする",
       "label": "★ 固有名詞／比喩",
       "mc": "Sticky Fingaz（Verse 3）",
-      "anchor": ["i'm", "like", "b.i.g.'s", "first", "album"],
-      "t": 172,
+      "anchor": [
+        "i'm",
+        "like",
+        "b.i.g.'s",
+        "first",
+        "album"
+      ],
+      "t": 191,
       "eng": "I'm like B.I.G.'s first album",
       "jpn": "俺はB.I.G.のファーストアルバムみたいなものだ",
       "note": "3バース目の3行目あたりです。",
@@ -407,8 +524,19 @@
       "heading": "touched the whole hood with no hands 手を使わずに届く",
       "label": "★ 比喩／語彙",
       "mc": "Sticky Fingaz（Verse 3）",
-      "anchor": ["the", "minute", "i", "reached", "out", "and", "touched", "the", "whole", "hood"],
-      "t": 178,
+      "anchor": [
+        "the",
+        "minute",
+        "i",
+        "reached",
+        "out",
+        "and",
+        "touched",
+        "the",
+        "whole",
+        "hood"
+      ],
+      "t": 196,
       "eng": "The minute I reached out and touched the whole hood with no hands",
       "jpn": "手を伸ばした瞬間、手を使わずに地元じゅうに触れた",
       "note": "3バース目の前半です。",
@@ -428,8 +556,17 @@
       "heading": "it's more than music / put my life into it 比較の言い方",
       "label": "★ 口語／構文",
       "mc": "Sticky Fingaz（Verse 3）",
-      "anchor": ["'cause", "in", "the", "streets", "i", "live", "through", "it"],
-      "t": 184,
+      "anchor": [
+        "'cause",
+        "in",
+        "the",
+        "streets",
+        "i",
+        "live",
+        "through",
+        "it"
+      ],
+      "t": 198,
       "eng": "'Cause in the streets I live through it, it's more than music<br />Whatever I'm spittin' on, I put my life into it",
       "jpn": "路上でそれを生き抜いてきたから、音楽以上のものだ。どんなビートに乗せても、命を込めてる",
       "note": "3バース目の半ば、2行セットです。",
@@ -449,8 +586,16 @@
       "heading": "do a bid 「刑期をつとめる」",
       "label": "★ スラング／語彙",
       "mc": "Sticky Fingaz（Verse 3）",
-      "anchor": ["my", "music", "helped", "'em", "do", "a", "bid"],
-      "t": 195,
+      "anchor": [
+        "my",
+        "music",
+        "helped",
+        "'em",
+        "do",
+        "a",
+        "bid"
+      ],
+      "t": 217,
       "note": "3バース目の後半。短い言い回しが、その場の状況を伝えます。",
       "body": [
         "<strong class='text-[var(--c-text)]'>do a bid</strong> は、刑務所で刑期をつとめること。<em>bid</em> は、ここでは刑期の長さを指す言葉で、<em>a two-year bid</em>（2年の刑期）のように数字と組みます。",
@@ -467,8 +612,15 @@
       "heading": "the voice of the ghetto / the heart of New York 名乗りの型",
       "label": "★ 構文／固有名詞",
       "mc": "Sticky Fingaz（Verse 3）",
-      "anchor": ["i'm", "the", "voice", "of", "the", "ghetto"],
-      "t": 200,
+      "anchor": [
+        "i'm",
+        "the",
+        "voice",
+        "of",
+        "the",
+        "ghetto"
+      ],
+      "t": 219,
       "eng": "I'm the voice of the ghetto, the heart of New York",
       "jpn": "俺はゲットーの声、ニューヨークの心臓だ",
       "note": "3バース目の後半です。",
@@ -488,8 +640,13 @@
       "heading": "ふたたび Welcome back 最後に戻る輪",
       "label": "★ 構成／サンプル",
       "mc": "John Sebastian（サンプル）",
-      "anchor": ["welcome", "back", "back", "back"],
-      "t": 240,
+      "anchor": [
+        "welcome",
+        "back",
+        "back",
+        "back"
+      ],
+      "t": 262,
       "eng": "Welcome back— back— back— back—",
       "jpn": "おかえり、おかえり、おかえり",
       "note": "曲の最後。途切れる形で、繰り返しが続きます。",
@@ -524,24 +681,78 @@
     }
   ],
   "keywords": [
-    ["slam", "ダンク、スラムダンス、Onyxのヒット曲「Slam」の三重の意味"],
-    ["Aiyyo", "yo と同じ呼びかけ。「なあ」"],
-    ["gettin' dollars", "金を稼ぐ。get paid と近い言い方"],
-    ["holla", "大声で呼ぶ、声をかける。holler の崩した綴り"],
-    ["get live", "盛り上がる、はしゃぐ。live は「生き生きした」"],
-    ["put ～ on the map", "～を有名にする。地図に載せるという比喩"],
-    ["good look", "いい見た目、転じて「いい展開」。文脈で意味が動く"],
-    ["them + 名詞", "AAVEで those の代わりに使う。them streets"],
-    ["20's", "20インチのホイール。派手な車を示す小道具"],
-    ["bub'", "bubbly の短縮。シャンパンなど泡の出る酒"],
-    ["hustle", "金を稼ぐための日々の動き。必死に働く姿勢も指す"],
-    ["plaques / stacks / dough", "認定の盾、札束、お金。三つとも「稼ぎ」の小道具"],
-    ["the projects", "低所得者向け公営住宅の団地。育った場所の目印"],
-    ["sick / ridiculous", "本来は悪い意味だが、スラングでは最上級の褒め言葉"],
-    ["gully / grimy", "路上の荒っぽさ、泥くささ。褒め言葉としても使う"],
-    ["we be", "AAVEの習慣のbe。「いつもそうだ」"],
-    ["do a bid", "刑期をつとめる。bid は刑期の長さ"],
-    ["spit", "ラップする。ビートの上に言葉を乗せること"]
+    [
+      "slam",
+      "ダンク、スラムダンス、Onyxのヒット曲「Slam」の三重の意味"
+    ],
+    [
+      "Aiyyo",
+      "yo と同じ呼びかけ。「なあ」"
+    ],
+    [
+      "gettin' dollars",
+      "金を稼ぐ。get paid と近い言い方"
+    ],
+    [
+      "holla",
+      "大声で呼ぶ、声をかける。holler の崩した綴り"
+    ],
+    [
+      "get live",
+      "盛り上がる、はしゃぐ。live は「生き生きした」"
+    ],
+    [
+      "put ～ on the map",
+      "～を有名にする。地図に載せるという比喩"
+    ],
+    [
+      "good look",
+      "いい見た目、転じて「いい展開」。文脈で意味が動く"
+    ],
+    [
+      "them + 名詞",
+      "AAVEで those の代わりに使う。them streets"
+    ],
+    [
+      "20's",
+      "20インチのホイール。派手な車を示す小道具"
+    ],
+    [
+      "bub'",
+      "bubbly の短縮。シャンパンなど泡の出る酒"
+    ],
+    [
+      "hustle",
+      "金を稼ぐための日々の動き。必死に働く姿勢も指す"
+    ],
+    [
+      "plaques / stacks / dough",
+      "認定の盾、札束、お金。三つとも「稼ぎ」の小道具"
+    ],
+    [
+      "the projects",
+      "低所得者向け公営住宅の団地。育った場所の目印"
+    ],
+    [
+      "sick / ridiculous",
+      "本来は悪い意味だが、スラングでは最上級の褒め言葉"
+    ],
+    [
+      "gully / grimy",
+      "路上の荒っぽさ、泥くささ。褒め言葉としても使う"
+    ],
+    [
+      "we be",
+      "AAVEの習慣のbe。「いつもそうだ」"
+    ],
+    [
+      "do a bid",
+      "刑期をつとめる。bid は刑期の長さ"
+    ],
+    [
+      "spit",
+      "ラップする。ビートの上に言葉を乗せること"
+    ]
   ],
   "behind": [
     "プロデュースはDR Periodです。冒頭から曲全体にかけて、John Sebastianの「Welcome Back」（1976年）のテーマ旋律が使われています。",

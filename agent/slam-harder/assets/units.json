@@ -53,7 +53,7 @@
       "get",
       "live"
     ],
-    "fallbackT": 31,
+    "fallbackT": 37,
     "manualSec": null
   },
   {
@@ -70,7 +70,7 @@
       "the",
       "map"
     ],
-    "fallbackT": 52,
+    "fallbackT": 59,
     "manualSec": null
   },
   {
@@ -83,7 +83,7 @@
       "the",
       "TV"
     ],
-    "fallbackT": 56,
+    "fallbackT": 64,
     "manualSec": null
   },
   {
@@ -94,7 +94,7 @@
       "comin'",
       "through"
     ],
-    "fallbackT": 60,
+    "fallbackT": 70,
     "manualSec": null
   },
   {
@@ -108,7 +108,7 @@
       "gas",
       "money"
     ],
-    "fallbackT": 64,
+    "fallbackT": 75,
     "manualSec": null
   },
   {
@@ -118,7 +118,7 @@
       "like",
       "puff"
     ],
-    "fallbackT": 67,
+    "fallbackT": 77,
     "manualSec": null
   },
   {
@@ -133,7 +133,7 @@
       "the",
       "club"
     ],
-    "fallbackT": 70,
+    "fallbackT": 80,
     "manualSec": null
   },
   {
@@ -144,7 +144,7 @@
       "everyday",
       "hustle"
     ],
-    "fallbackT": 74,
+    "fallbackT": 88,
     "manualSec": null
   },
   {
@@ -157,7 +157,7 @@
       "their",
       "dough"
     ],
-    "fallbackT": 112,
+    "fallbackT": 129,
     "manualSec": null
   },
   {
@@ -171,7 +171,7 @@
       "ridiculous",
       "flow"
     ],
-    "fallbackT": 118,
+    "fallbackT": 131,
     "manualSec": null
   },
   {
@@ -183,7 +183,7 @@
       "the",
       "gullyest"
     ],
-    "fallbackT": 124,
+    "fallbackT": 142,
     "manualSec": null
   },
   {
@@ -195,7 +195,7 @@
       "the",
       "hungriest"
     ],
-    "fallbackT": 128,
+    "fallbackT": 144,
     "manualSec": null
   },
   {
@@ -209,7 +209,7 @@
       "a",
       "promise"
     ],
-    "fallbackT": 134,
+    "fallbackT": 152,
     "manualSec": null
   },
   {
@@ -221,7 +221,7 @@
       "first",
       "album"
     ],
-    "fallbackT": 172,
+    "fallbackT": 191,
     "manualSec": null
   },
   {
@@ -238,7 +238,7 @@
       "whole",
       "hood"
     ],
-    "fallbackT": 178,
+    "fallbackT": 196,
     "manualSec": null
   },
   {
@@ -253,7 +253,7 @@
       "through",
       "it"
     ],
-    "fallbackT": 184,
+    "fallbackT": 198,
     "manualSec": null
   },
   {
@@ -267,7 +267,7 @@
       "a",
       "bid"
     ],
-    "fallbackT": 195,
+    "fallbackT": 217,
     "manualSec": null
   },
   {
@@ -280,7 +280,7 @@
       "the",
       "ghetto"
     ],
-    "fallbackT": 200,
+    "fallbackT": 219,
     "manualSec": null
   },
   {
@@ -291,7 +291,7 @@
       "back",
       "back"
     ],
-    "fallbackT": 240,
+    "fallbackT": 262,
     "manualSec": null
   }
 ]
