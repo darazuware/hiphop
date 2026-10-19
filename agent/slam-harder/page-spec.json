@@ -1,6 +1,6 @@
 {
   "title": "Slam Harder 英語・スラング解説 | Onyx",
-  "description": "Onyx「Slam Harder」（2002年）を英語学習の教材として解説。『Welcome Back, Kotter』のテーマを使ったサンプル、Vince Carterを引き合いに出した言葉遊び、get live・put on the map・do a bidなどの表現を、PV頭出し付きで読み解きます。",
+  "description": "Onyx「Slam Harder」（2002年）を英語学習の教材として解説。『Welcome Back, Kotter』のテーマを使ったサンプル、Vince Carterを引き合いに出した言葉遊び、put on the map・do a bidなどの表現を、PV頭出し付きで読み解きます。",
   "duration": 276,
   "youtubeId": "MpAmaJjiJC4",
   "sampleYoutubeId": "OK4_fDHv-SQ",
@@ -8,7 +8,7 @@
   "highlights": [
     "『Welcome Back, Kotter』のテーマ曲（1976年）を冒頭と終わりに置いた、「おかえり」の一曲",
     "Vince Carterの名前で、slam dunkと自分たちのヒット曲「Slam」を重ねた言葉遊び",
-    "get live、put on the map、do a bid、no gas moneyなど、短い言い回しと路上スラングが学べる"
+    "put on the map、do a bid、no gas moneyなど、短い言い回しと路上スラングが学べる"
   ],
   "intro": [
     {
@@ -144,32 +144,6 @@
       ]
     },
     {
-      "id": "its-time-to-get-live",
-      "heading": "It's time to get live 「盛り上がる時間だ」",
-      "label": "★ スラング／構文",
-      "mc": "Versatile（Chorus）",
-      "anchor": [
-        "it's",
-        "time",
-        "to",
-        "get",
-        "live"
-      ],
-      "t": 37,
-      "eng": "It's time to get live",
-      "jpn": "盛り上がる時間だ",
-      "note": "サビの最後。毎回、客席の返事が重なります。",
-      "body": [
-        "<strong class='text-[var(--c-text)]'>get live</strong> は、「盛り上がる」「はしゃぐ」。<em>live</em> が、ここでは「生き生きした」という形容詞として働いています。",
-        "<strong class='text-[var(--c-text)]'>It's time to ～</strong> は、「～する時間だ」という決まった型です。ここでは動詞の代わりに、<em>get live</em> が入っています。",
-        "短い一言ですが、サビの締めに置くことで、聴き手を一気に動かす号令になります。"
-      ],
-      "usage": [
-        "<strong class='text-[var(--c-text)]'>It's time to go.</strong>（そろそろ行く時間だ）、<em>It's time to get started.</em>（始める時間だ）と、そのまま日常に使えます。",
-        "パーティーの文脈では、<em>get lit</em> や <em>turn up</em> も近い意味です。"
-      ]
-    },
-    {
       "id": "good-look-on-the-map",
       "heading": "good look / put on the map 「地図に載せた」",
       "label": "★ イディオム／スラング",
@@ -239,7 +213,7 @@
         "comin'",
         "through"
       ],
-      "t": 70,
+      "t": 69,
       "eng": "So \"Bacdafucup\" comin' through, comin' through, get ya \"Slam\" on",
       "jpn": "『Bacdafucup』が通るぞ、通るぞ、『Slam』をかけろ",
       "note": "1バース目の後半。自分たちの作品名を、そのまま言っています。",
@@ -268,7 +242,7 @@
         "gas",
         "money"
       ],
-      "t": 75,
+      "t": 74,
       "note": "1バース目の後半。他のラッパーを皮肉る一行です。",
       "body": [
         "<strong class='text-[var(--c-text)]'>20's</strong> は、20インチのホイール（車の車輪の外径）のこと。大きなホイールは、派手な車の象徴で、当時のラップでは羽振りの良さを示す小道具でした。",
@@ -317,7 +291,7 @@
         "the",
         "club"
       ],
-      "t": 80,
+      "t": 79,
       "eng": "Like you really pop shots in the club? You only pop<br />Bottles of bub', y'all ain't got no real street love",
       "jpn": "本当にクラブで撃ち合うつもりか？ 開けるのはせいぜい泡の酒のボトルだろ、本物のストリートの愛なんてない",
       "note": "1バース目の終わり近く。行をまたいで、言葉が入れ替わります。",
@@ -343,7 +317,7 @@
         "everyday",
         "hustle"
       ],
-      "t": 88,
+      "t": 87,
       "eng": "On the everyday hustle, never ready to settle",
       "jpn": "毎日が稼ぎの勝負、落ち着く気はない",
       "note": "1バース目の終わりです。",
@@ -370,7 +344,7 @@
         "their",
         "dough"
       ],
-      "t": 129,
+      "t": 128,
       "eng": "Plaques and stacks of their dough on our living room floor",
       "jpn": "ゴールドの盾も札束も、あいつらの金も、うちのリビングの床に積まれてる",
       "note": "2バース目の最初の行の近くです。",
@@ -415,9 +389,9 @@
       ]
     },
     {
-      "id": "gully-grimy",
-      "heading": "grimiest / Gullyest 路上の荒っぽさを最上級にする",
-      "label": "★ スラング／構文",
+      "id": "gully-hungriest",
+      "heading": "grimiest / Gullyest / we be the hungriest 路上の質感を最上級にして、習慣のbeで言い切る",
+      "label": "★ スラング／AAVE",
       "mc": "Sonsee（Verse 2）",
       "anchor": [
         "we",
@@ -427,42 +401,21 @@
         "gullyest"
       ],
       "t": 142,
-      "note": "2バース目の中ほど。形容詞に最上級の語尾が付く形です。",
-      "body": [
-        "<strong class='text-[var(--c-text)]'>grimy</strong> は、「泥くさい」「荒っぽい」。ニューヨークのラップでは、洗練されていない、路上の質感を褒める言葉として使われます。",
-        "<strong class='text-[var(--c-text)]'>gully</strong> も、似た方向の言葉です。路上の荒々しさ、泥くささを指すスラングで、<em>keep it gully</em> のように使われます。",
-        "<strong class='text-[var(--c-text)]'>grimiest / Gullyest</strong> は、それぞれ <em>-est</em> を付けた最上級です。本来は短い形容詞にしか付けない語尾を、スラングにそのまま足しているのが面白いところです。",
-        "<strong class='text-[var(--c-text)]'>keep it ～</strong> は、「～の状態を保つ」という型。<em>keep it real</em>（本物でいる）と同じ作りです。"
-      ],
-      "usage": [
-        "<strong class='text-[var(--c-text)]'>keep it + 形容詞</strong> は、<em>keep it simple</em>（簡単にしておく）、<em>keep it 100</em>（正直でいる）など、応用がきく型です。",
-        "<em>the -est</em> を、本来付かない言葉に付けて強調するのは、英語の遊びとしてよくあります。"
-      ]
-    },
-    {
-      "id": "we-be-the-hungriest",
-      "heading": "we be the hungriest 習慣のbeと、飢えた状態",
-      "label": "★ AAVE／文法",
-      "mc": "Sonsee（Verse 2）",
-      "anchor": [
-        "'cause",
-        "we",
-        "be",
-        "the",
-        "hungriest"
-      ],
-      "t": 144,
       "eng": "'cause we be the hungriest",
       "jpn": "なぜなら、俺たちがいちばん飢えているからだ",
-      "note": "2バース目の中ほど。直後に、うなり声の効果音が入ります。",
+      "note": "2バース目の中ほど、続く2行です。前の行の言葉も一緒に扱います。",
       "body": [
-        "<strong class='text-[var(--c-text)]'>we be the hungriest</strong> の <em>be</em> は、AAVEの習慣のbeです。<em>we are</em> が「いま」を表すのに対し、<em>we be</em> は「いつもそうだ」という常態を表します。",
+        "<strong class='text-[var(--c-text)]'>grimy</strong> は、「泥くさい」「荒っぽい」。ニューヨークのラップでは、洗練されていない路上の質感を褒める言葉として使われます。",
+        "<strong class='text-[var(--c-text)]'>gully</strong> も、似た方向の言葉で、路上の荒々しさ、泥くささを指すスラング。<em>keep it gully</em> のように使います。",
+        "<strong class='text-[var(--c-text)]'>grimiest / Gullyest</strong> は、それぞれ <em>-est</em> を付けた最上級です。本来は短い形容詞にしか付けない語尾を、スラングにそのまま足しているのが面白いところです。<strong class='text-[var(--c-text)]'>keep it ～</strong> は、<em>keep it real</em>（本物でいる）と同じ作りの型です。",
+        "続く行の <strong class='text-[var(--c-text)]'>we be the hungriest</strong> の <em>be</em> は、AAVEの習慣のbeです。<em>we are</em> が「いま」を表すのに対し、<em>we be</em> は「いつもそうだ」という常態を表します。",
         "<strong class='text-[var(--c-text)]'>hungry</strong> は、本来はお腹がすいているという意味ですが、スラングでは「成功したくてたまらない」「ガツガツしている」という意味でも使います。",
         "直後の <em>(Grrrrr!)</em> は、うなり声の効果音。飢えを、文字どおり獣の声で聞かせています。続く <em>hunger pains</em> は、標準的には <em>hunger pangs</em>（空腹の痛み）という言い方です。"
       ],
       "usage": [
         "<strong class='text-[var(--c-text)]'>He be working.</strong> は、「彼はいつも働いている」。<em>He is working.</em>（いま働いている）との違いが、習慣のbeの核心です。",
-        "<em>stay hungry</em> は、「満足せずに挑み続けろ」という励ましの決まり文句として知られています。"
+        "<em>stay hungry</em> は、「満足せずに挑み続けろ」という励ましの決まり文句として知られています。",
+        "<strong class='text-[var(--c-text)]'>keep it + 形容詞</strong> は、<em>keep it simple</em>（簡単にしておく）、<em>keep it 100</em>（正直でいる）など、応用がきく型です。"
       ]
     },
     {
@@ -479,7 +432,7 @@
         "a",
         "promise"
       ],
-      "t": 152,
+      "t": 153,
       "eng": "It's not a threat, it's a promise",
       "jpn": "脅しじゃない、約束だ",
       "note": "2バース目の終わり近くです。",
@@ -505,7 +458,7 @@
         "first",
         "album"
       ],
-      "t": 191,
+      "t": 189,
       "eng": "I'm like B.I.G.'s first album",
       "jpn": "俺はB.I.G.のファーストアルバムみたいなものだ",
       "note": "3バース目の3行目あたりです。",
@@ -536,7 +489,7 @@
         "whole",
         "hood"
       ],
-      "t": 196,
+      "t": 193,
       "eng": "The minute I reached out and touched the whole hood with no hands",
       "jpn": "手を伸ばした瞬間、手を使わずに地元じゅうに触れた",
       "note": "3バース目の前半です。",
@@ -566,7 +519,7 @@
         "through",
         "it"
       ],
-      "t": 198,
+      "t": 196,
       "eng": "'Cause in the streets I live through it, it's more than music<br />Whatever I'm spittin' on, I put my life into it",
       "jpn": "路上でそれを生き抜いてきたから、音楽以上のものだ。どんなビートに乗せても、命を込めてる",
       "note": "3バース目の半ば、2行セットです。",
@@ -595,7 +548,7 @@
         "a",
         "bid"
       ],
-      "t": 217,
+      "t": 213,
       "note": "3バース目の後半。短い言い回しが、その場の状況を伝えます。",
       "body": [
         "<strong class='text-[var(--c-text)]'>do a bid</strong> は、刑務所で刑期をつとめること。<em>bid</em> は、ここでは刑期の長さを指す言葉で、<em>a two-year bid</em>（2年の刑期）のように数字と組みます。",
@@ -620,7 +573,7 @@
         "the",
         "ghetto"
       ],
-      "t": 219,
+      "t": 216,
       "eng": "I'm the voice of the ghetto, the heart of New York",
       "jpn": "俺はゲットーの声、ニューヨークの心臓だ",
       "note": "3バース目の後半です。",
@@ -698,10 +651,6 @@
       "大声で呼ぶ、声をかける。holler の崩した綴り"
     ],
     [
-      "get live",
-      "盛り上がる、はしゃぐ。live は「生き生きした」"
-    ],
-    [
       "put ～ on the map",
       "～を有名にする。地図に載せるという比喩"
     ],
@@ -769,7 +718,7 @@
   "summary": [
     "「Slam Harder」は、代表曲「Slam」に重ねて、続編の気分で戻ってきたことを伝える曲です。",
     "Vince Carterを引き合いに出すサビで、slamの三重の意味が学べます。",
-    "get live、put on the map、hustle、do a bidなど、短くて会話にも使いやすい表現がそろっています。",
+    "put on the map、hustle、do a bidなど、短くて会話にも使いやすい表現がそろっています。",
     "them streets、we be、ain't got noなど、AAVEの文法の見本も出てきます。",
     "冒頭と最後のWelcome Backは、1976年に全米1位になった曲の旋律です。"
   ]

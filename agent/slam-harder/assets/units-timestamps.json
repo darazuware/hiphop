@@ -48,18 +48,6 @@
     "score": null
   },
   {
-    "id": "its-time-to-get-live",
-    "whisperSec": null,
-    "manualSec": null,
-    "captionSec": null,
-    "syncedSec": null,
-    "fallbackT": 37,
-    "t": 37,
-    "source": "fallback",
-    "approx": true,
-    "score": null
-  },
-  {
     "id": "good-look-on-the-map",
     "whisperSec": null,
     "manualSec": null,
@@ -86,13 +74,13 @@
   {
     "id": "bacdafucup-slam",
     "whisperSec": null,
-    "manualSec": null,
+    "manualSec": 69,
     "captionSec": null,
     "syncedSec": null,
-    "fallbackT": 70,
-    "t": 70,
-    "source": "fallback",
-    "approx": true,
+    "fallbackT": 69,
+    "t": 69,
+    "source": "manual",
+    "approx": false,
     "score": null
   },
   {
@@ -101,8 +89,8 @@
     "manualSec": null,
     "captionSec": null,
     "syncedSec": null,
-    "fallbackT": 75,
-    "t": 75,
+    "fallbackT": 74,
+    "t": 74,
     "source": "fallback",
     "approx": true,
     "score": null
@@ -125,8 +113,8 @@
     "manualSec": null,
     "captionSec": null,
     "syncedSec": null,
-    "fallbackT": 80,
-    "t": 80,
+    "fallbackT": 79,
+    "t": 79,
     "source": "fallback",
     "approx": true,
     "score": null
@@ -134,25 +122,25 @@
   {
     "id": "hustle-settle",
     "whisperSec": null,
-    "manualSec": null,
+    "manualSec": 87,
     "captionSec": null,
     "syncedSec": null,
-    "fallbackT": 88,
-    "t": 88,
-    "source": "fallback",
-    "approx": true,
+    "fallbackT": 87,
+    "t": 87,
+    "source": "manual",
+    "approx": false,
     "score": null
   },
   {
     "id": "plaques-and-stacks",
     "whisperSec": null,
-    "manualSec": null,
+    "manualSec": 128,
     "captionSec": null,
     "syncedSec": null,
-    "fallbackT": 129,
-    "t": 129,
-    "source": "fallback",
-    "approx": true,
+    "fallbackT": 128,
+    "t": 128,
+    "source": "manual",
+    "approx": false,
     "score": null
   },
   {
@@ -168,7 +156,7 @@
     "score": null
   },
   {
-    "id": "gully-grimy",
+    "id": "gully-hungriest",
     "whisperSec": null,
     "manualSec": null,
     "captionSec": null,
@@ -180,25 +168,13 @@
     "score": null
   },
   {
-    "id": "we-be-the-hungriest",
-    "whisperSec": null,
-    "manualSec": null,
-    "captionSec": null,
-    "syncedSec": null,
-    "fallbackT": 144,
-    "t": 144,
-    "source": "fallback",
-    "approx": true,
-    "score": null
-  },
-  {
     "id": "not-a-threat-a-promise",
     "whisperSec": null,
     "manualSec": null,
     "captionSec": null,
     "syncedSec": null,
-    "fallbackT": 152,
-    "t": 152,
+    "fallbackT": 153,
+    "t": 153,
     "source": "fallback",
     "approx": true,
     "score": null
@@ -206,17 +182,29 @@
   {
     "id": "like-bigs-first-album",
     "whisperSec": null,
-    "manualSec": null,
+    "manualSec": 189,
     "captionSec": null,
     "syncedSec": null,
-    "fallbackT": 191,
-    "t": 191,
-    "source": "fallback",
-    "approx": true,
+    "fallbackT": 189,
+    "t": 189,
+    "source": "manual",
+    "approx": false,
     "score": null
   },
   {
     "id": "touched-the-hood-no-hands",
+    "whisperSec": null,
+    "manualSec": 193,
+    "captionSec": null,
+    "syncedSec": null,
+    "fallbackT": 193,
+    "t": 193,
+    "source": "manual",
+    "approx": false,
+    "score": null
+  },
+  {
+    "id": "more-than-music",
     "whisperSec": null,
     "manualSec": null,
     "captionSec": null,
@@ -228,25 +216,13 @@
     "score": null
   },
   {
-    "id": "more-than-music",
-    "whisperSec": null,
-    "manualSec": null,
-    "captionSec": null,
-    "syncedSec": null,
-    "fallbackT": 198,
-    "t": 198,
-    "source": "fallback",
-    "approx": true,
-    "score": null
-  },
-  {
     "id": "do-a-bid",
     "whisperSec": null,
     "manualSec": null,
     "captionSec": null,
     "syncedSec": null,
-    "fallbackT": 217,
-    "t": 217,
+    "fallbackT": 213,
+    "t": 213,
     "source": "fallback",
     "approx": true,
     "score": null
@@ -257,8 +233,8 @@
     "manualSec": null,
     "captionSec": null,
     "syncedSec": null,
-    "fallbackT": 219,
-    "t": 219,
+    "fallbackT": 216,
+    "t": 216,
     "source": "fallback",
     "approx": true,
     "score": null

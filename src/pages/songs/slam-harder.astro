@@ -10,14 +10,14 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
 
 <SongLayout
   title="Slam Harder 英語・スラング解説 | Onyx"
-  description="Onyx「Slam Harder」（2002年）を英語学習の教材として解説。『Welcome Back, Kotter』のテーマを使ったサンプル、Vince Carterを引き合いに出した言葉遊び、get live・put on the map・do a bidなどの表現を、PV頭出し付きで読み解きます。"
+  description="Onyx「Slam Harder」（2002年）を英語学習の教材として解説。『Welcome Back, Kotter』のテーマを使ったサンプル、Vince Carterを引き合いに出した言葉遊び、put on the map・do a bidなどの表現を、PV頭出し付きで読み解きます。"
   slug="slam-harder"
   learningPage={true}
   songDuration={276}
   highlights={[
     '『Welcome Back, Kotter』のテーマ曲（1976年）を冒頭と終わりに置いた、「おかえり」の一曲',
     'Vince Carterの名前で、slam dunkと自分たちのヒット曲「Slam」を重ねた言葉遊び',
-    'get live、put on the map、do a bid、no gas moneyなど、短い言い回しと路上スラングが学べる',
+    'put on the map、do a bid、no gas moneyなど、短い言い回しと路上スラングが学べる',
   ]}
   youtubeId="MpAmaJjiJC4"
   sampleYoutubeId="OK4_fDHv-SQ"
@@ -180,25 +180,6 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <Fragment slot="usage">
           <p><strong class='text-[var(--c-text)]'>holla at me</strong> は、「連絡してよ」「声かけて」。友達同士の気軽な誘い文句です。</p>
           <p><em>get paid / get money</em> も、「稼ぐ」を表すスラングです。</p>
-        </Fragment>
-      </LearningUnit>
-
-      <LearningUnit
-        heading="It's time to get live 「盛り上がる時間だ」"
-        label="★ スラング／構文"
-        mc="Versatile（Chorus）"
-        t={TS["its-time-to-get-live"].t} tApprox={TS["its-time-to-get-live"].approx} youtubeId={YT}
-        embed=""
-      >
-        <Fragment slot="eng">It's time to get live</Fragment>
-        <Fragment slot="jpn">盛り上がる時間だ</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ サビの最後。毎回、客席の返事が重なります。</p>
-        <p><strong class='text-[var(--c-text)]'>get live</strong> は、「盛り上がる」「はしゃぐ」。<em>live</em> が、ここでは「生き生きした」という形容詞として働いています。</p>
-        <p><strong class='text-[var(--c-text)]'>It's time to ～</strong> は、「～する時間だ」という決まった型です。ここでは動詞の代わりに、<em>get live</em> が入っています。</p>
-        <p>短い一言ですが、サビの締めに置くことで、聴き手を一気に動かす号令になります。</p>
-        <Fragment slot="usage">
-          <p><strong class='text-[var(--c-text)]'>It's time to go.</strong>（そろそろ行く時間だ）、<em>It's time to get started.</em>（始める時間だ）と、そのまま日常に使えます。</p>
-          <p>パーティーの文脈では、<em>get lit</em> や <em>turn up</em> も近い意味です。</p>
         </Fragment>
       </LearningUnit>
 
@@ -377,40 +358,27 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       </LearningUnit>
 
       <LearningUnit
-        heading="grimiest / Gullyest 路上の荒っぽさを最上級にする"
-        label="★ スラング／構文"
+        heading="grimiest / Gullyest / we be the hungriest 路上の質感を最上級にして、習慣のbeで言い切る"
+        label="★ スラング／AAVE"
         mc="Sonsee（Verse 2）"
-        t={TS["gully-grimy"].t} tApprox={TS["gully-grimy"].approx} youtubeId={YT}
-        embed=""
-      >
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 2バース目の中ほど。形容詞に最上級の語尾が付く形です。</p>
-        <p><strong class='text-[var(--c-text)]'>grimy</strong> は、「泥くさい」「荒っぽい」。ニューヨークのラップでは、洗練されていない、路上の質感を褒める言葉として使われます。</p>
-        <p><strong class='text-[var(--c-text)]'>gully</strong> も、似た方向の言葉です。路上の荒々しさ、泥くささを指すスラングで、<em>keep it gully</em> のように使われます。</p>
-        <p><strong class='text-[var(--c-text)]'>grimiest / Gullyest</strong> は、それぞれ <em>-est</em> を付けた最上級です。本来は短い形容詞にしか付けない語尾を、スラングにそのまま足しているのが面白いところです。</p>
-        <p><strong class='text-[var(--c-text)]'>keep it ～</strong> は、「～の状態を保つ」という型。<em>keep it real</em>（本物でいる）と同じ作りです。</p>
-        <Fragment slot="usage">
-          <p><strong class='text-[var(--c-text)]'>keep it + 形容詞</strong> は、<em>keep it simple</em>（簡単にしておく）、<em>keep it 100</em>（正直でいる）など、応用がきく型です。</p>
-          <p><em>the -est</em> を、本来付かない言葉に付けて強調するのは、英語の遊びとしてよくあります。</p>
-        </Fragment>
-      </LearningUnit>
-
-      <LearningUnit
-        heading="we be the hungriest 習慣のbeと、飢えた状態"
-        label="★ AAVE／文法"
-        mc="Sonsee（Verse 2）"
-        t={TS["we-be-the-hungriest"].t} tApprox={TS["we-be-the-hungriest"].approx} youtubeId={YT}
+        t={TS["gully-hungriest"].t} tApprox={TS["gully-hungriest"].approx} youtubeId={YT}
         embed=""
       >
         <Fragment slot="eng">'cause we be the hungriest</Fragment>
         <Fragment slot="jpn">なぜなら、俺たちがいちばん飢えているからだ</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 2バース目の中ほど。直後に、うなり声の効果音が入ります。</p>
-        <p><strong class='text-[var(--c-text)]'>we be the hungriest</strong> の <em>be</em> は、AAVEの習慣のbeです。<em>we are</em> が「いま」を表すのに対し、<em>we be</em> は「いつもそうだ」という常態を表します。</p>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 2バース目の中ほど、続く2行です。前の行の言葉も一緒に扱います。</p>
+        <p><strong class='text-[var(--c-text)]'>grimy</strong> は、「泥くさい」「荒っぽい」。ニューヨークのラップでは、洗練されていない路上の質感を褒める言葉として使われます。</p>
+        <p><strong class='text-[var(--c-text)]'>gully</strong> も、似た方向の言葉で、路上の荒々しさ、泥くささを指すスラング。<em>keep it gully</em> のように使います。</p>
+        <p><strong class='text-[var(--c-text)]'>grimiest / Gullyest</strong> は、それぞれ <em>-est</em> を付けた最上級です。本来は短い形容詞にしか付けない語尾を、スラングにそのまま足しているのが面白いところです。</p>
+        <p><strong class='text-[var(--c-text)]'>keep it ～</strong> は、<em>keep it real</em>（本物でいる）と同じ作りの型です。</p>
+        <p>続く行の <strong class='text-[var(--c-text)]'>we be the hungriest</strong> の <em>be</em> は、AAVEの習慣のbeです。<em>we are</em> が「いま」を表すのに対し、<em>we be</em> は「いつもそうだ」という常態を表します。</p>
         <p><strong class='text-[var(--c-text)]'>hungry</strong> は、本来はお腹がすいているという意味ですが、スラングでは「成功したくてたまらない」「ガツガツしている」という意味でも使います。</p>
         <p>直後の <em>(Grrrrr!)</em> は、うなり声の効果音。飢えを、文字どおり獣の声で聞かせています。</p>
         <p>続く <em>hunger pains</em> は、標準的には <em>hunger pangs</em>（空腹の痛み）という言い方です。</p>
         <Fragment slot="usage">
           <p><strong class='text-[var(--c-text)]'>He be working.</strong> は、「彼はいつも働いている」。<em>He is working.</em>（いま働いている）との違いが、習慣のbeの核心です。</p>
           <p><em>stay hungry</em> は、「満足せずに挑み続けろ」という励ましの決まり文句として知られています。</p>
+          <p><strong class='text-[var(--c-text)]'>keep it + 形容詞</strong> は、<em>keep it simple</em>（簡単にしておく）、<em>keep it 100</em>（正直でいる）など、応用がきく型です。</p>
         </Fragment>
       </LearningUnit>
 
@@ -594,7 +562,6 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
             ['Aiyyo', 'yo と同じ呼びかけ。「なあ」'],
             ['gettin\' dollars', '金を稼ぐ。get paid と近い言い方'],
             ['holla', '大声で呼ぶ、声をかける。holler の崩した綴り'],
-            ['get live', '盛り上がる、はしゃぐ。live は「生き生きした」'],
             ['put ～ on the map', '～を有名にする。地図に載せるという比喩'],
             ['good look', 'いい見た目、転じて「いい展開」。文脈で意味が動く'],
             ['them + 名詞', 'AAVEで those の代わりに使う。them streets'],
@@ -665,7 +632,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       <ul class="space-y-2 text-sm text-[var(--c-muted)] list-disc list-inside leading-relaxed">
         <li>「Slam Harder」は、代表曲「Slam」に重ねて、続編の気分で戻ってきたことを伝える曲です。</li>
         <li>Vince Carterを引き合いに出すサビで、slamの三重の意味が学べます。</li>
-        <li>get live、put on the map、hustle、do a bidなど、短くて会話にも使いやすい表現がそろっています。</li>
+        <li>put on the map、hustle、do a bidなど、短くて会話にも使いやすい表現がそろっています。</li>
         <li>them streets、we be、ain't got noなど、AAVEの文法の見本も出てきます。</li>
         <li>冒頭と最後のWelcome Backは、1976年に全米1位になった曲の旋律です。</li>
       </ul>
