@@ -108,7 +108,7 @@ const grouped = alphabet.map(letter => ({
               const shown = songRefs.slice(0, 4);
               const extra = songRefs.length - shown.length;
               return (
-              <div class="slang-entry flex gap-4 text-sm" data-word={s.word.toLowerCase()}>
+              <div class="slang-entry flex gap-4 text-sm" data-word={s.word.toLowerCase()} data-alias={((s as any).aliases ?? []).join(" ")}>
                 <dt class="text-[var(--c-text)] font-semibold shrink-0 min-w-[140px] max-w-[180px] break-words">{s.word}</dt>
                 <dd class="text-[var(--c-muted)] leading-relaxed">
                   {s.desc}
@@ -149,12 +149,39 @@ const grouped = alphabet.map(letter => ({
   const noSlang = document.getElementById('no-slang');
   const alphNav = document.getElementById('alpha-nav');
 
-  function applyFilter(q: string) {
+  const norm = (t: string) => t.normalize('NFKC').toLowerCase()
+    .replace(/[\u30a1-\u30f6]/g, c => String.fromCharCode(c.charCodeAt(0) - 0x60))
+    .replace(/[^a-z0-9\u3041-\u3096\u4e00-\u9fff]/g, '');
+  function lev(a: string, b: string, max: number) {
+    if (Math.abs(a.length - b.length) > max) return max + 1;
+    let prev = Array.from({ length: b.length + 1 }, (_, i) => i);
+    for (let i = 1; i <= a.length; i++) {
+      const cur = [i];
+      for (let j = 1; j <= b.length; j++)
+        cur[j] = Math.min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+      prev = cur;
+    }
+    return prev[b.length];
+  }
+  function fuzzy(q: string, key: string) {
+    if (key.includes(q)) return true;
+    const max = q.length >= 7 ? 2 : q.length >= 4 ? 1 : 0;
+    if (!max) return false;
+    for (let i = 0; i + q.length - max <= key.length; i++) {
+      for (let l = q.length - max; l <= q.length + max; l++) {
+        if (lev(q, key.slice(i, i + l), max) <= max) return true;
+      }
+    }
+    return false;
+  }
+
+  function applyFilter(raw: string) {
+    const q = norm(raw);
     let total = 0;
     entries.forEach(el => {
-      const word = el.dataset.word || '';
-      const desc = el.querySelector('dd')?.textContent?.toLowerCase() || '';
-      const match = !q || word.includes(q) || desc.includes(q);
+      const keys = norm((el.dataset.word || '') + ' ' + (el.dataset.alias || ''));
+      const desc = norm(el.querySelector('dd')?.textContent || '');
+      const match = !q || fuzzy(q, keys) || desc.includes(q);
       el.style.display = match ? '' : 'none';
       if (match) total++;
     });
