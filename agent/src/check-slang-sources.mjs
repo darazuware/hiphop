@@ -11,6 +11,7 @@ const slugs = args.filter(a => !a.startsWith('--'));
 const dir = 'src/data/slang-pages';
 const cacheDir = 'agent/.source-cache';
 fs.mkdirSync(cacheDir, { recursive: true });
+fs.writeFileSync(path.join(cacheDir, '.gitignore'), '*\n');
 const files = fs.readdirSync(dir).filter(f => f.endsWith('.json')).map(f => f.replace(/\.json$/, ''));
 const targets = slugs.length ? slugs : files;
 const yearRe = /(?<![0-9])(1[5-9]\d\d|20[0-2]\d)(?![0-9])(?!年代)/g;
