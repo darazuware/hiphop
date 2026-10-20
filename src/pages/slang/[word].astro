@@ -1,6 +1,8 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { songs } from '../../data/songs';
+import metaData from '../../data/slang-meta.json';
+const meta = metaData as Record<string, { tone: string; freq: string; kind: string; themes: string[]; hidden: string[] }>;
 
 export interface Entry {
   slug: string;
@@ -33,6 +35,7 @@ const { entry, all } = Astro.props as { entry: Entry; all: { slug: string; word:
 const siteSongs = (artist: string, song: string) =>
   songs.find(s => s.title.toLowerCase().replace(/[^a-z0-9]/g, '') === song.toLowerCase().replace(/[^a-z0-9]/g, '') && s.artists.toLowerCase().includes(artist.split(' ')[0].toLowerCase()));
 const known = new Set(all.map(a => a.slug));
+const m = meta[entry.slug] ?? null;
 const schema = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -51,7 +54,9 @@ const schema = {
       <p class="text-[var(--c-dim)] text-sm mb-3">{entry.reading}</p>
       <div class="flex flex-wrap gap-2 text-[11px]">
         <span class="border border-[var(--c-border)] rounded px-2 py-0.5 text-[var(--c-dim)]">{entry.pos}</span>
-        <span class="border border-[var(--c-border)] rounded px-2 py-0.5 text-[var(--c-dim)]">{entry.category}</span>
+        {m && [['tone', m.tone], ['freq', m.freq], ['kind', m.kind], ...m.themes.map(t => ['theme', t])].map(([k, v]) => (
+          <a href={`/slang?${k}=${encodeURIComponent(v)}`} class="border border-[var(--c-border)] rounded px-2 py-0.5 text-[var(--c-dim)] hover:border-[var(--c-gold)] hover:text-[var(--c-gold)] transition-colors">{v}</a>
+        ))}
         <span class="border border-[var(--c-border)] rounded px-2 py-0.5 text-[var(--c-dim)]">{entry.level}</span>
       </div>
     </header>

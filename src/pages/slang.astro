@@ -2,6 +2,13 @@
 import Layout from '../layouts/Layout.astro';
 import { songs } from '../data/songs';
 import { slang as slangData, cleanSlangTerm } from '../data/slang';
+import metaData from '../data/slang-meta.json';
+const meta = metaData as Record<string, { tone: string; freq: string; kind: string; themes: string[]; hidden: string[]; songs: number }>;
+const metaOf = (w: string) => meta[w.toLowerCase()] ?? meta[pageFor(w) ?? ''] ?? null;
+const TONES = ['ポジティブ', 'ネガティブ', '中立'];
+const FREQS = ['頻出', 'ふつう', 'レア'];
+const KINDS = ['一般語', '固有名詞'];
+const THEME_LIST = ['お金', '仕事・稼ぎ', '地元・場所', '仲間・人', '家族', '評価・ほめ言葉', '音楽・ラップ', 'ファッション・車', '感情・態度', '社会・文化', '人物・作品・地名'];
 
 // Build QuickSlang word (lowercase) → songs mapping from all song pages
 const songFiles = import.meta.glob('./songs/*.astro', { query: '?raw', import: 'default', eager: true }) as Record<string, string>;
@@ -86,11 +93,24 @@ const grouped = alphabet.map(letter => ({
           <li>
             <a href={`/slang/${p.slug}`} class="inline-flex items-baseline gap-1.5 text-sm border border-[var(--c-border)] rounded px-2.5 py-1 hover:border-[var(--c-gold)] hover:text-[var(--c-gold)] transition-colors">
               <span class="font-semibold">{p.word}</span>
-              <span class="text-[10px] text-[var(--c-very-dim)]">{p.category}</span>
+              <span class="text-[10px] text-[var(--c-very-dim)]">{meta[p.slug]?.themes?.[0] ?? ''}</span>
             </a>
           </li>
         ))}
       </ul>
+    </section>
+
+    <!-- Filters -->
+    <section id="slang-filters" class="mb-6 space-y-2.5">
+      {[['tone', 'ニュアンス', TONES], ['freq', '頻度', FREQS], ['kind', '種類', KINDS], ['theme', 'テーマ', THEME_LIST]].map(([key, label, opts]) => (
+        <div class="flex flex-wrap items-center gap-1.5">
+          <span class="text-[10px] uppercase tracking-widest text-[var(--c-very-dim)] w-16 shrink-0">{label}</span>
+          {(opts as string[]).map(o => (
+            <button type="button" data-filter={key as string} data-value={o} class="filter-chip text-xs border border-[var(--c-border)] rounded px-2 py-0.5 text-[var(--c-dim)] hover:border-[var(--c-gold)] hover:text-[var(--c-gold)] transition-colors">{o}</button>
+          ))}
+        </div>
+      ))}
+      <button type="button" id="filter-reset" class="hidden text-xs text-[var(--c-gold)] underline underline-offset-2">絞り込みを解除</button>
     </section>
 
     <!-- Search -->
@@ -98,7 +118,7 @@ const grouped = alphabet.map(letter => ({
       <input
         id="slang-search"
         type="text"
-        placeholder="検索... (例: gat, blunts, Wu-Tang)"
+        placeholder="検索... (例: ヴァイブ, bread, hustle, Wu-Tang)"
         class="w-full bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg px-4 py-3 text-sm text-[var(--c-text)] placeholder-[var(--c-very-dim)] focus:outline-none focus:border-[var(--c-gold)] transition-colors"
       />
     </div>
@@ -128,7 +148,7 @@ const grouped = alphabet.map(letter => ({
               const shown = songRefs.slice(0, 4);
               const extra = songRefs.length - shown.length;
               return (
-              <div class="slang-entry flex gap-4 text-sm" data-word={s.word.toLowerCase()} data-alias={((s as any).aliases ?? []).join(" ")}>
+              <div class="slang-entry flex gap-4 text-sm" data-word={s.word.toLowerCase()} data-alias={((s as any).aliases ?? []).join(" ")} data-tone={metaOf(s.word)?.tone ?? ""} data-freq={metaOf(s.word)?.freq ?? ""} data-kind={metaOf(s.word)?.kind ?? ""} data-themes={(metaOf(s.word)?.themes ?? []).join("|")}>
                 <dt class="text-[var(--c-text)] font-semibold shrink-0 min-w-[140px] max-w-[180px] break-words">{s.word}</dt>
                 <dd class="text-[var(--c-muted)] leading-relaxed">
                   {s.desc}
@@ -171,6 +191,11 @@ const grouped = alphabet.map(letter => ({
   const sections = document.querySelectorAll<HTMLElement>('.slang-section');
   const noSlang = document.getElementById('no-slang');
   const alphNav = document.getElementById('alpha-nav');
+  const chips = document.querySelectorAll<HTMLElement>('.filter-chip');
+  const resetBtn = document.getElementById('filter-reset');
+  const active: Record<string, string> = { tone: '', freq: '', kind: '', theme: '' };
+  const params = new URLSearchParams(location.search);
+  for (const k of Object.keys(active)) active[k] = params.get(k) || '';
 
   const norm = (t: string) => t.normalize('NFKC').toLowerCase()
     .replace(/[\u30a1-\u30f6]/g, c => String.fromCharCode(c.charCodeAt(0) - 0x60))
@@ -204,7 +229,11 @@ const grouped = alphabet.map(letter => ({
     entries.forEach(el => {
       const keys = norm((el.dataset.word || '') + ' ' + (el.dataset.alias || ''));
       const desc = norm(el.querySelector('dd')?.textContent || '');
-      const match = !q || fuzzy(q, keys) || desc.includes(q);
+      const tagOk = (!active.tone || el.dataset.tone === active.tone)
+        && (!active.freq || el.dataset.freq === active.freq)
+        && (!active.kind || el.dataset.kind === active.kind)
+        && (!active.theme || (el.dataset.themes || '').split('|').includes(active.theme));
+      const match = tagOk && (!q || fuzzy(q, keys) || desc.includes(q));
       el.style.display = match ? '' : 'none';
       if (match) total++;
     });
@@ -214,15 +243,34 @@ const grouped = alphabet.map(letter => ({
       sec.style.display = visible ? '' : 'none';
     });
     if (noSlang) noSlang.classList.toggle('hidden', total > 0);
-    if (alphNav) alphNav.style.display = q ? 'none' : '';
+    const filtering = !!q || Object.values(active).some(Boolean);
+    if (alphNav) alphNav.style.display = filtering ? 'none' : '';
+    chips.forEach(c => {
+      const on = active[c.dataset.filter as string] === c.dataset.value;
+      c.classList.toggle('text-[var(--c-gold)]', on);
+      c.classList.toggle('border-[var(--c-gold)]', on);
+    });
+    resetBtn?.classList.toggle('hidden', !Object.values(active).some(Boolean));
   }
 
-  const qParam = new URLSearchParams(location.search).get('q');
+  const qParam = params.get('q');
   if (qParam && input) {
     input.value = qParam;
     applyFilter(qParam.toLowerCase().trim());
     input.scrollIntoView({ block: 'center', behavior: 'smooth' });
+  } else if (Object.values(active).some(Boolean)) {
+    applyFilter('');
   }
+
+  chips.forEach(c => c.addEventListener('click', () => {
+    const k = c.dataset.filter as string;
+    active[k] = active[k] === c.dataset.value ? '' : (c.dataset.value as string);
+    applyFilter(input?.value.toLowerCase().trim() || '');
+  }));
+  resetBtn?.addEventListener('click', () => {
+    for (const k of Object.keys(active)) active[k] = '';
+    applyFilter(input?.value.toLowerCase().trim() || '');
+  });
 
   input?.addEventListener('input', () => {
     applyFilter(input.value.toLowerCase().trim());

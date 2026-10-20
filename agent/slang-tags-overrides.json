@@ -1,0 +1,502 @@
+{
+ "ayo": {
+  "tone": "中立",
+  "themes": [
+   "仲間・人"
+  ],
+  "hidden": []
+ },
+ "bag": {
+  "tone": "中立",
+  "themes": [
+   "お金",
+   "ファッション・車"
+  ],
+  "hidden": []
+ },
+ "bars": {
+  "tone": "ポジティブ",
+  "themes": [
+   "音楽・ラップ",
+   "評価・ほめ言葉"
+  ],
+  "hidden": []
+ },
+ "beef": {
+  "tone": "ネガティブ",
+  "themes": [
+   "仲間・人",
+   "音楽・ラップ"
+  ],
+  "hidden": []
+ },
+ "bet": {
+  "tone": "中立",
+  "themes": [
+   "感情・態度"
+  ],
+  "hidden": []
+ },
+ "bite": {
+  "tone": "ネガティブ",
+  "themes": [
+   "音楽・ラップ",
+   "評価・ほめ言葉"
+  ],
+  "hidden": []
+ },
+ "block": {
+  "tone": "中立",
+  "themes": [
+   "地元・場所"
+  ],
+  "hidden": []
+ },
+ "bread": {
+  "tone": "中立",
+  "themes": [
+   "お金"
+  ],
+  "hidden": []
+ },
+ "cat": {
+  "tone": "中立",
+  "themes": [
+   "仲間・人"
+  ],
+  "hidden": []
+ },
+ "chill": {
+  "tone": "ポジティブ",
+  "themes": [
+   "感情・態度"
+  ],
+  "hidden": []
+ },
+ "cipher": {
+  "tone": "中立",
+  "themes": [
+   "音楽・ラップ",
+   "仲間・人"
+  ],
+  "hidden": []
+ },
+ "clique": {
+  "tone": "中立",
+  "themes": [
+   "仲間・人"
+  ],
+  "hidden": []
+ },
+ "cop": {
+  "tone": "ネガティブ",
+  "themes": [
+   "社会・文化"
+  ],
+  "hidden": [
+   "犯罪"
+  ]
+ },
+ "crack": {
+  "tone": "ネガティブ",
+  "themes": [
+   "社会・文化"
+  ],
+  "hidden": [
+   "ドラッグ"
+  ]
+ },
+ "cream": {
+  "tone": "中立",
+  "themes": [
+   "お金"
+  ],
+  "hidden": []
+ },
+ "crew": {
+  "tone": "ポジティブ",
+  "themes": [
+   "仲間・人"
+  ],
+  "hidden": []
+ },
+ "crib": {
+  "tone": "中立",
+  "themes": [
+   "地元・場所"
+  ],
+  "hidden": []
+ },
+ "dime": {
+  "tone": "ポジティブ",
+  "themes": [
+   "評価・ほめ言葉",
+   "仲間・人"
+  ],
+  "hidden": []
+ },
+ "dope": {
+  "tone": "ポジティブ",
+  "themes": [
+   "評価・ほめ言葉"
+  ],
+  "hidden": []
+ },
+ "dough": {
+  "tone": "中立",
+  "themes": [
+   "お金"
+  ],
+  "hidden": []
+ },
+ "fake": {
+  "tone": "ネガティブ",
+  "themes": [
+   "評価・ほめ言葉",
+   "感情・態度"
+  ],
+  "hidden": []
+ },
+ "fiend": {
+  "tone": "ネガティブ",
+  "themes": [
+   "社会・文化"
+  ],
+  "hidden": [
+   "ドラッグ"
+  ]
+ },
+ "flip": {
+  "tone": "中立",
+  "themes": [
+   "音楽・ラップ",
+   "仕事・稼ぎ"
+  ],
+  "hidden": []
+ },
+ "flow": {
+  "tone": "ポジティブ",
+  "themes": [
+   "音楽・ラップ"
+  ],
+  "hidden": []
+ },
+ "fly": {
+  "tone": "ポジティブ",
+  "themes": [
+   "評価・ほめ言葉",
+   "ファッション・車"
+  ],
+  "hidden": []
+ },
+ "fresh": {
+  "tone": "ポジティブ",
+  "themes": [
+   "評価・ほめ言葉",
+   "ファッション・車"
+  ],
+  "hidden": []
+ },
+ "front": {
+  "tone": "ネガティブ",
+  "themes": [
+   "感情・態度"
+  ],
+  "hidden": []
+ },
+ "ghost": {
+  "tone": "中立",
+  "themes": [
+   "仲間・人",
+   "音楽・ラップ"
+  ],
+  "hidden": []
+ },
+ "grill": {
+  "tone": "ポジティブ",
+  "themes": [
+   "ファッション・車",
+   "お金"
+  ],
+  "hidden": []
+ },
+ "grind": {
+  "tone": "ポジティブ",
+  "themes": [
+   "仕事・稼ぎ"
+  ],
+  "hidden": []
+ },
+ "heat": {
+  "tone": "中立",
+  "themes": [
+   "音楽・ラップ",
+   "評価・ほめ言葉"
+  ],
+  "hidden": [
+   "犯罪"
+  ]
+ },
+ "herb": {
+  "tone": "ネガティブ",
+  "themes": [
+   "評価・ほめ言葉"
+  ],
+  "hidden": [
+   "大麻"
+  ]
+ },
+ "homie": {
+  "tone": "ポジティブ",
+  "themes": [
+   "仲間・人",
+   "地元・場所"
+  ],
+  "hidden": []
+ },
+ "hood": {
+  "tone": "中立",
+  "themes": [
+   "地元・場所"
+  ],
+  "hidden": []
+ },
+ "hustle": {
+  "tone": "ポジティブ",
+  "themes": [
+   "仕事・稼ぎ",
+   "お金"
+  ],
+  "hidden": []
+ },
+ "hype": {
+  "tone": "ポジティブ",
+  "themes": [
+   "評価・ほめ言葉",
+   "感情・態度"
+  ],
+  "hidden": []
+ },
+ "ice": {
+  "tone": "ポジティブ",
+  "themes": [
+   "ファッション・車",
+   "お金"
+  ],
+  "hidden": []
+ },
+ "ill": {
+  "tone": "ポジティブ",
+  "themes": [
+   "評価・ほめ言葉"
+  ],
+  "hidden": []
+ },
+ "joint": {
+  "tone": "中立",
+  "themes": [
+   "音楽・ラップ"
+  ],
+  "hidden": [
+   "大麻"
+  ]
+ },
+ "kicks": {
+  "tone": "中立",
+  "themes": [
+   "ファッション・車"
+  ],
+  "hidden": []
+ },
+ "mad": {
+  "tone": "中立",
+  "themes": [
+   "感情・態度"
+  ],
+  "hidden": []
+ },
+ "mic": {
+  "tone": "中立",
+  "themes": [
+   "音楽・ラップ"
+  ],
+  "hidden": []
+ },
+ "paper": {
+  "tone": "中立",
+  "themes": [
+   "お金"
+  ],
+  "hidden": []
+ },
+ "peeps": {
+  "tone": "ポジティブ",
+  "themes": [
+   "仲間・人",
+   "家族"
+  ],
+  "hidden": []
+ },
+ "pops": {
+  "tone": "ポジティブ",
+  "themes": [
+   "家族"
+  ],
+  "hidden": []
+ },
+ "props": {
+  "tone": "ポジティブ",
+  "themes": [
+   "評価・ほめ言葉",
+   "仲間・人"
+  ],
+  "hidden": []
+ },
+ "raw": {
+  "tone": "ポジティブ",
+  "themes": [
+   "評価・ほめ言葉"
+  ],
+  "hidden": [
+   "ドラッグ"
+  ]
+ },
+ "represent": {
+  "tone": "ポジティブ",
+  "themes": [
+   "地元・場所",
+   "仲間・人"
+  ],
+  "hidden": []
+ },
+ "ride": {
+  "tone": "中立",
+  "themes": [
+   "ファッション・車",
+   "仲間・人"
+  ],
+  "hidden": []
+ },
+ "rock": {
+  "tone": "中立",
+  "themes": [
+   "ファッション・車"
+  ],
+  "hidden": [
+   "ドラッグ"
+  ]
+ },
+ "shorty": {
+  "tone": "中立",
+  "themes": [
+   "仲間・人"
+  ],
+  "hidden": []
+ },
+ "sick": {
+  "tone": "ポジティブ",
+  "themes": [
+   "評価・ほめ言葉"
+  ],
+  "hidden": []
+ },
+ "slick": {
+  "tone": "中立",
+  "themes": [
+   "感情・態度",
+   "評価・ほめ言葉"
+  ],
+  "hidden": []
+ },
+ "son": {
+  "tone": "中立",
+  "themes": [
+   "仲間・人",
+   "家族"
+  ],
+  "hidden": []
+ },
+ "spit": {
+  "tone": "中立",
+  "themes": [
+   "音楽・ラップ"
+  ],
+  "hidden": []
+ },
+ "stack": {
+  "tone": "中立",
+  "themes": [
+   "お金"
+  ],
+  "hidden": []
+ },
+ "stash": {
+  "tone": "中立",
+  "themes": [
+   "お金"
+  ],
+  "hidden": [
+   "犯罪"
+  ]
+ },
+ "sucker": {
+  "tone": "ネガティブ",
+  "themes": [
+   "評価・ほめ言葉",
+   "仲間・人"
+  ],
+  "hidden": []
+ },
+ "tight": {
+  "tone": "ポジティブ",
+  "themes": [
+   "評価・ほめ言葉"
+  ],
+  "hidden": []
+ },
+ "trees": {
+  "tone": "中立",
+  "themes": [
+   "その他"
+  ],
+  "hidden": [
+   "大麻"
+  ]
+ },
+ "vibe": {
+  "tone": "ポジティブ",
+  "themes": [
+   "感情・態度"
+  ],
+  "hidden": []
+ },
+ "wack": {
+  "tone": "ネガティブ",
+  "themes": [
+   "評価・ほめ言葉"
+  ],
+  "hidden": []
+ },
+ "whip": {
+  "tone": "中立",
+  "themes": [
+   "ファッション・車"
+  ],
+  "hidden": []
+ },
+ "woke": {
+  "tone": "中立",
+  "themes": [
+   "社会・文化"
+  ],
+  "hidden": []
+ },
+ "word": {
+  "tone": "中立",
+  "themes": [
+   "仲間・人",
+   "感情・態度"
+  ],
+  "hidden": []
+ }
+}
