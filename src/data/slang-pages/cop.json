@@ -1,0 +1,170 @@
+{
+  "slug": "cop",
+  "word": "cop",
+  "reading": "コップ",
+  "pos": "動詞・名詞",
+  "category": "買い物・警察",
+  "level": "中級",
+  "title": "cop の意味と使い方｜「警官」だけじゃない、動詞 cop は「手に入れる・買う」。例文と曲での使われ方",
+  "description": "ヒップホップの cop は、名詞なら警官、動詞なら「買う、手に入れる」です。スニーカーを cop する、という今の使い方から、ストリートの売買まで。Wiktionary の語義、Constable On Patrol 説が俗説である理由、MF DOOM や Black Thought の曲での使われ方を日本語で解説します。",
+  "summary": [
+    "名詞の cop は警官です。一方、動詞の cop は「買う、手に入れる」で、歌詞ではこちらの意味もかなり多く出てきます。",
+    "I copped new kicks.（新しいスニーカー買った）のように、欲しかったものを手に入れたときの軽い言い方です。",
+    "もとはドラッグを買う場面でよく使われた語ですが、今は服や車、チケットまで何にでも使います。"
+  ],
+  "sections": [
+    {
+      "h": "動詞の cop は「ゲットする」",
+      "body": [
+        "cop は buy や get の砕けた言い方です。日本語の「ゲットした」「手に入れた」に近い軽さがあります。",
+        "Wiktionary は、この「手に入れる、買う」という意味を、もとはニューヨークの方言で AAVE（アフリカ系アメリカ人英語）の用法として載せていて、ドラッグに限らないと注記しています。"
+      ]
+    },
+    {
+      "h": "名詞の cop との見分け方",
+      "body": [
+        "名詞の cop は the cop、a cop、cop car のように冠詞や名詞と組み合わさります。動詞の cop は直後に買ったものが来ます。",
+        "cop a + 名詞（cop a bag、cop a whip）なら動詞、a cop + 動詞（a cop pulled me over）なら警官、と語順で決まることがほとんどです。"
+      ]
+    },
+    {
+      "h": "手に入れる側と、取り締まる側",
+      "body": [
+        "ストリートを描く曲では、ブツを cop する話と、cop に追われる話が隣り合わせに出てきます。同じ綴りなのに、片方は買う人、片方は捕まえる人です。",
+        "MF DOOM の Who You Think I Am? には、動詞の cop と名詞の cops を一行に並べた箇所があります。どちらの意味が先に立つかで聞こえ方が変わる、言葉遊びとして楽しめる一行です。"
+      ]
+    },
+    {
+      "h": "cop を使った決まり文句",
+      "body": [
+        "cop a plea は「司法取引に応じる」、cop out は「逃げる、責任を放り出す」です。どちらも一般の英語として定着しています。",
+        "cop a feel は「どさくさにまぎれて体を触る」という意味で、品のない言い方なので注意が要ります。"
+      ]
+    }
+  ],
+  "origin": [
+    "動詞の cop は、もともと「捕まえる、つかむ」という意味の古いスラングです。語源ははっきりしておらず、Wiktionary もいくつかの候補を挙げるにとどめています。",
+    "警官の cop は、その「捕まえる」から生まれた copper（捕まえる人）を縮めた形だと Wiktionary は説明しています。",
+    "「Constable On Patrol の頭文字」という説明をよく見かけますが、Wiktionary はこれを誤った俗説としています。",
+    "「捕まえる」から「手に入れる」への広がりは自然な流れに見えますが、それがいつ起きたかを示す資料は見つかりませんでした。"
+  ],
+  "examples": [
+    {
+      "en": "I finally copped those sneakers.",
+      "ja": "あのスニーカー、やっと買えた。",
+      "note": "発売を待っていたものを手に入れたときの定番。過去形は copped です。"
+    },
+    {
+      "en": "Where'd you cop that jacket?",
+      "ja": "そのジャケット、どこで買ったの？",
+      "note": "相手の持ち物をほめるついでに聞く言い方。Where'd you get that? と同じ使い方です。"
+    },
+    {
+      "en": "We need to cop tickets before they sell out.",
+      "ja": "売り切れる前にチケット取らないと。",
+      "note": "モノだけでなく、チケットや予約にも使えます。"
+    },
+    {
+      "en": "A cop pulled us over on the highway.",
+      "ja": "高速で警官に止められた。",
+      "note": "名詞の cop。pull over は「車を路肩に寄せさせる」です。"
+    },
+    {
+      "en": "Don't cop out now, we're almost done.",
+      "ja": "今さら逃げるなよ、もうすぐ終わるんだから。",
+      "note": "cop out は「途中で投げ出す、言い訳して逃げる」。名詞の cop-out は「逃げ口上」です。"
+    },
+    {
+      "en": "He copped a plea to avoid a longer sentence.",
+      "ja": "長い刑を避けるために、彼は司法取引に応じた。",
+      "note": "cop a plea はニュースでも使われる表現です。"
+    }
+  ],
+  "inSongs": [
+    {
+      "artist": "Black Thought",
+      "song": "Making a Murderer",
+      "quote": "took a flight to France to cop cardigans",
+      "note": "カーディガンを買うためだけにフランスまで飛んだ、という派手な自慢です。cop が服の買い物に使われる、今の用法そのものです。"
+    },
+    {
+      "artist": "Black Thought",
+      "song": "Dostoyevsky",
+      "quote": "I wanna cop when I get loot",
+      "note": "金が入ったら買いたい、という一節です。loot は「金」を指す口語で、cop と組み合わさって買い物の話だとわかります。"
+    },
+    {
+      "artist": "MF DOOM",
+      "song": "Gazzillion Ear",
+      "quote": "A junkie wanna cop a quarter-ton",
+      "note": "中毒者が4分の1トン分を買いたがる、という大げさなたとえです。ドラッグを買う場面の cop で、この語の古い使われ方がよく出ています。"
+    },
+    {
+      "artist": "MF DOOM",
+      "song": "Kon Karne",
+      "quote": "couldn't afford to cop the Cherry Coke",
+      "note": "チェリーコーラすら買えなかった、という貧しかった頃の回想です。高価なものでなく日用品にも cop を使っているのがわかります。"
+    },
+    {
+      "artist": "Kool G Rap",
+      "song": "Rikers Island",
+      "quote": "If you ever hear a cop say",
+      "note": "こちらは名詞の警官です。a cop のあとに say という動詞が続いていて、警官が主語だとすぐにわかります。"
+    },
+    {
+      "artist": "Nas",
+      "song": "The Message",
+      "quote": "coppin' the raw",
+      "note": "混ぜ物のないドラッグを仕入れていた、という昔の話です。動詞 cop と、純度の高いブツを指す raw がセットで使われています。"
+    }
+  ],
+  "compare": [
+    {
+      "term": "buy",
+      "ja": "買う",
+      "diff": "buy は最も中立的な語。cop は口語的で、狙っていたものを手に入れた満足感が乗ります。"
+    },
+    {
+      "term": "get",
+      "ja": "手に入れる",
+      "diff": "get は買う以外の入手全般に使える語。cop は基本的に買って手に入れる場面で使います。"
+    },
+    {
+      "term": "five-oh",
+      "ja": "警察",
+      "diff": "five-oh は警察を指すスラング。名詞の cop よりもストリート寄りの響きがあります。"
+    },
+    {
+      "term": "heat",
+      "ja": "警察の目・圧力",
+      "diff": "heat は警察そのものより、警察から受ける圧力や監視を指すことが多い語です。"
+    }
+  ],
+  "pitfalls": [
+    "歌詞の cop をすべて「警官」と読むと、買い物の自慢を取り違えます。",
+    "cop は警官を指す語として広く通じますが、本人に向けて言うと少しくだけすぎた響きになります。改まった場では police officer です。",
+    "cop a feel は性的な意味を含む表現なので、cop の軽い使い方と混同しないようにしたい語です。"
+  ],
+  "faq": [
+    {
+      "q": "cop の過去形は何ですか。",
+      "a": "copped です。I copped it yesterday.（昨日買った）のように使います。"
+    },
+    {
+      "q": "cop はドラッグを買うときだけの言葉ですか。",
+      "a": "いいえ。昔はドラッグの文脈で目立ちましたが、今はスニーカーや服、車など何を買うときにも使われます。"
+    },
+    {
+      "q": "cop は Constable On Patrol の略ですか。",
+      "a": "違います。copper（捕まえる人）を縮めた形で、頭文字説は後から作られた俗説とされています。"
+    }
+  ],
+  "related": [
+    "cops",
+    "five-oh",
+    "heat",
+    "raw",
+    "kicks"
+  ],
+  "stats": "解析に使ったヒップホップ約350曲の歌詞のうち、cop を含む曲は66曲で、13人中13人のラッパーに出てきました。Nas や Kool G Rap の曲に特に多く出てきます。出現数の多い順に並べると、内訳はNas 12曲、Kool G Rap 10曲、Black Thought 7曲、Ghostface Killah 6曲、J. Cole 6曲です。"
+}

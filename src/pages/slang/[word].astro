@@ -1,0 +1,158 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { songs } from '../../data/songs';
+import metaData from '../../data/slang-meta.json';
+const meta = metaData as Record<string, { tone: string; freq: string; kind: string; themes: string[]; hidden: string[] }>;
+
+export interface Entry {
+  slug: string;
+  word: string;
+  reading: string;
+  pos: string;
+  category: string;
+  level: string;
+  title: string;
+  description: string;
+  summary: string[];
+  sections: { h: string; body: string[] }[];
+  origin: string[];
+  examples: { en: string; ja: string; note: string }[];
+  inSongs: { artist: string; song: string; quote?: string; note: string }[];
+  compare: { term: string; ja: string; diff: string }[];
+  pitfalls: string[];
+  faq: { q: string; a: string }[];
+  related: string[];
+  stats: string;
+}
+
+export function getStaticPaths() {
+  const files = import.meta.glob('../../data/slang-pages/*.json', { eager: true, import: 'default' }) as Record<string, Entry>;
+  const entries = Object.values(files);
+  return entries.map(e => ({ params: { word: e.slug }, props: { entry: e, all: entries.map(x => ({ slug: x.slug, word: x.word })) } }));
+}
+
+const { entry, all } = Astro.props as { entry: Entry; all: { slug: string; word: string }[] };
+const siteSongs = (artist: string, song: string) =>
+  songs.find(s => s.title.toLowerCase().replace(/[^a-z0-9]/g, '') === song.toLowerCase().replace(/[^a-z0-9]/g, '') && s.artists.toLowerCase().includes(artist.split(' ')[0].toLowerCase()));
+const known = new Set(all.map(a => a.slug));
+const m = meta[entry.slug] ?? null;
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    { '@type': 'FAQPage', mainEntity: entry.faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+    { '@type': 'DefinedTerm', name: entry.word, description: entry.description, inDefinedTermSet: 'https://waxthink.com/slang' },
+  ],
+};
+---
+
+<Layout title={entry.title} description={entry.description} schema={schema}>
+  <article class="max-w-2xl mx-auto px-4 py-8">
+    <header class="mb-8">
+      <a href="/slang" class="text-[var(--c-very-dim)] text-xs hover:text-[var(--c-gold)] transition-colors mb-3 inline-block">← スラング索引に戻る</a>
+      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-1">Slang Dictionary</p>
+      <h1 class="text-3xl md:text-4xl font-bold leading-tight mb-2">{entry.word}</h1>
+      <p class="text-[var(--c-dim)] text-sm mb-3">{entry.reading}</p>
+      <div class="flex flex-wrap gap-2 text-[11px]">
+        <span class="border border-[var(--c-border)] rounded px-2 py-0.5 text-[var(--c-dim)]">{entry.pos}</span>
+        {m && [['tone', m.tone], ['freq', m.freq], ['kind', m.kind], ...m.themes.map(t => ['theme', t])].map(([k, v]) => (
+          <a href={`/slang?${k}=${encodeURIComponent(v)}`} class="border border-[var(--c-border)] rounded px-2 py-0.5 text-[var(--c-dim)] hover:border-[var(--c-gold)] hover:text-[var(--c-gold)] transition-colors">{v}</a>
+        ))}
+        <span class="border border-[var(--c-border)] rounded px-2 py-0.5 text-[var(--c-dim)]">{entry.level}</span>
+      </div>
+    </header>
+
+    <section class="mb-10 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg p-5 space-y-3">
+      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest">まず結論</p>
+      {entry.summary.map(p => <p class="text-sm leading-relaxed">{p}</p>)}
+    </section>
+
+    {entry.sections.map(s => (
+      <section class="mb-10">
+        <h2 class="text-lg font-bold mb-3 border-b border-[var(--c-border)] pb-2">{s.h}</h2>
+        <div class="space-y-3 text-sm leading-relaxed text-[var(--c-muted)]">
+          {s.body.map(p => <p>{p}</p>)}
+        </div>
+      </section>
+    ))}
+
+    <section class="mb-10">
+      <h2 class="text-lg font-bold mb-3 border-b border-[var(--c-border)] pb-2">語源と背景</h2>
+      <div class="space-y-3 text-sm leading-relaxed text-[var(--c-muted)]">
+        {entry.origin.map(p => <p>{p}</p>)}
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-lg font-bold mb-3 border-b border-[var(--c-border)] pb-2">例文</h2>
+      <p class="text-[var(--c-very-dim)] text-xs mb-4">例文は意味と使い方を示すための解説用の作例で、実際の歌詞の引用ではありません。歌詞の引用は「曲での使われ方」に載せています。</p>
+      <ol class="space-y-5">
+        {entry.examples.map((ex, i) => (
+          <li class="text-sm">
+            <p class="font-semibold leading-relaxed"><span class="text-[var(--c-gold)] mr-2">{i + 1}.</span>{ex.en}</p>
+            <p class="text-[var(--c-muted)] mt-1 pl-5">{ex.ja}</p>
+            <p class="text-[var(--c-very-dim)] text-xs mt-1 pl-5 leading-relaxed">{ex.note}</p>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-lg font-bold mb-2 border-b border-[var(--c-border)] pb-2">この曲ではこう使われていた</h2>
+      <p class="text-[var(--c-very-dim)] text-xs mb-4 leading-relaxed">{entry.stats}</p>
+      <ul class="space-y-5">
+        {entry.inSongs.map(r => {
+          const hit = siteSongs(r.artist, r.song);
+          return (
+            <li class="text-sm border-l-2 border-[var(--c-border)] pl-4">
+              <p class="font-semibold">
+                {hit ? <a href={hit.slug} class="hover:text-[var(--c-gold)] underline underline-offset-2">{r.artist} 「{r.song}」</a> : <span>{r.artist} 「{r.song}」</span>}
+              </p>
+              {r.quote && <p class="text-[var(--c-dim)] italic mt-1">"{r.quote}"</p>}
+              <p class="text-[var(--c-muted)] mt-1 leading-relaxed">{r.note}</p>
+            </li>
+          );
+        })}
+      </ul>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-lg font-bold mb-3 border-b border-[var(--c-border)] pb-2">似た表現との違い</h2>
+      <dl class="space-y-4 text-sm">
+        {entry.compare.map(c => (
+          <div>
+            <dt class="font-semibold">{c.term}<span class="text-[var(--c-dim)] font-normal ml-2">{c.ja}</span></dt>
+            <dd class="text-[var(--c-muted)] leading-relaxed mt-1">{c.diff}</dd>
+          </div>
+        ))}
+      </dl>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-lg font-bold mb-3 border-b border-[var(--c-border)] pb-2">使うときの注意</h2>
+      <ul class="space-y-3 text-sm leading-relaxed text-[var(--c-muted)] list-disc pl-5">
+        {entry.pitfalls.map(p => <li>{p}</li>)}
+      </ul>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-lg font-bold mb-3 border-b border-[var(--c-border)] pb-2">よくある質問</h2>
+      <dl class="space-y-4 text-sm">
+        {entry.faq.map(f => (
+          <div>
+            <dt class="font-semibold">{f.q}</dt>
+            <dd class="text-[var(--c-muted)] leading-relaxed mt-1">{f.a}</dd>
+          </div>
+        ))}
+      </dl>
+    </section>
+
+    <section class="mb-6">
+      <h2 class="text-lg font-bold mb-3 border-b border-[var(--c-border)] pb-2">関連するスラング</h2>
+      <div class="flex flex-wrap gap-2 text-sm">
+        {entry.related.map(r => known.has(r)
+          ? <a href={`/slang/${r}`} class="border border-[var(--c-border)] rounded px-3 py-1 hover:border-[var(--c-gold)] hover:text-[var(--c-gold)] transition-colors">{r}</a>
+          : <a href={`/slang?q=${encodeURIComponent(r)}`} class="border border-[var(--c-border)] rounded px-3 py-1 text-[var(--c-dim)] hover:border-[var(--c-gold)] hover:text-[var(--c-gold)] transition-colors">{r}</a>)}
+      </div>
+    </section>
+  </article>
+</Layout>

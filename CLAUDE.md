@@ -8,6 +8,9 @@
 - **サンプル系記事（曲ページ・コラム）を追加／編集するときは、作業前に必ず [`docs/fact-check-rules.md`](docs/fact-check-rules.md) を読み、本ルールに従う。**
 - サンプル・年・アルバム・客演・チャート順位・曲の実在性に関する事実主張は、生成時のハルシネーションを前提に一次ソース（WhoSampled / Wikipedia / Discogs / Genius）で必ず裏取りする。
 
+## スラング語ページの事実ガード（常駐）
+- `src/data/slang-pages/*.json` の追加・編集後は必ず `node agent/src/check-slang-all.mjs` を全✅にする（引用はコーパス照合・年は出典照合）。詳細は [`docs/slang-fact-guard.md`](docs/slang-fact-guard.md)。
+
 ## 記事トーン（常駐・文体ルール）
 - **記事・コラムの日本語文章を書く／書き直すときは、作業前に必ず [`docs/article-tone.md`](docs/article-tone.md)（チェックリスト版・これだけ読めばよい）を読み、運営者本人の声で書く。** 外注ライター調のガチガチな説明文を避ける。経緯・実例は `docs/article-tone-archive.md`（生成時に読まない）。
 - 核心: **敬体（です・ます）基調**に常体を柔らかい着地のスパイスで混ぜ、**常体敬体のゆらぎを許容**して固さを消す（※旧「常体基調」は撤回済み）。作品への熱と敬意、軽い口語の抜け、一文の長短の緩急、専門語の直後の噛み砕き。

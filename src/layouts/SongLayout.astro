@@ -64,12 +64,13 @@ const relatedColumns = song
 // あればプレーヤーの棒グラフ高さに使い、無ければJS側の擬似乱数にフォールバック。
 const waveformModules = import.meta.glob<{ default: number[] }>('../data/waveforms/*.json', { eager: true });
 const waveformPeaks = waveformModules[`../data/waveforms/${slug}.json`]?.default ?? null;
+const pageTitle = title.includes('和訳') ? title : title.replace(' 英語・スラング解説', ' 和訳・英語スラング解説');
 const seoDescription = song && !description.includes('和訳')
   ? `${song.title}（${song.artists}）の表現・スラングを和訳つきで解説。${description}`
   : description;
 ---
 
-<Layout title={title} description={seoDescription} ogType="article" publishedTime={song?.pubDate} modifiedTime={updatedDate ?? undefined} noindex={noindex || song?.tier === 'thin'}>
+<Layout title={pageTitle} description={seoDescription} ogType="article" publishedTime={song?.pubDate} modifiedTime={updatedDate ?? undefined} noindex={noindex || song?.tier === 'thin'}>
   <!-- Progress bar -->
   <div id="progress-bar" class="fixed top-0 left-0 h-0.5 bg-[var(--c-gold)] z-50 transition-none" style="width:0%"></div>
 

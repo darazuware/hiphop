@@ -93,6 +93,12 @@ if (remoteMainBeforeMerge === afterMergeHead) {
 }
 
 try {
+  run('node agent/src/check-slang-all.mjs');
+} catch (e) {
+  fail(`語ページの事実ガードに失敗（pushしていません）: ${(e.stdout || e.stderr || e.message).toString().slice(-1200)}`);
+}
+
+try {
   run('npm run build');
 } catch (e) {
   // ビルド失敗時は main を pushしない。マージ済みcommitはローカルに残す（次回修正して再実行できるように）。

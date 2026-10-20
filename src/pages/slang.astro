@@ -2,6 +2,13 @@
 import Layout from '../layouts/Layout.astro';
 import { songs } from '../data/songs';
 import { slang as slangData, cleanSlangTerm } from '../data/slang';
+import metaData from '../data/slang-meta.json';
+const meta = metaData as Record<string, { tone: string; freq: string; kind: string; themes: string[]; hidden: string[]; songs: number }>;
+const metaOf = (w: string) => meta[w.toLowerCase()] ?? meta[pageFor(w) ?? ''] ?? null;
+const TONES = ['ポジティブ', 'ネガティブ', '中立'];
+const FREQS = ['頻出', 'ふつう', 'レア'];
+const KINDS = ['一般語', '固有名詞'];
+const THEME_LIST = ['お金', '仕事・稼ぎ', '地元・場所', '仲間・人', '家族', '評価・ほめ言葉', '音楽・ラップ', 'ファッション・車', '感情・態度', '社会・文化', '人物・作品・地名'];
 
 // Build QuickSlang word (lowercase) → songs mapping from all song pages
 const songFiles = import.meta.glob('./songs/*.astro', { query: '?raw', import: 'default', eager: true }) as Record<string, string>;
@@ -46,6 +53,11 @@ function getSlangSongs(slangWord: string, explicitSlugs: string[] = []) {
   return [...found.values()];
 }
 
+const pageFiles = import.meta.glob('../data/slang-pages/*.json', { eager: true, import: 'default' }) as Record<string, { slug: string; word: string; category: string }>;
+const wordPages = Object.values(pageFiles).sort((a, b) => a.word.localeCompare(b.word));
+const pageSlugs = new Set(wordPages.map(p => p.slug));
+const pageFor = (word: string) => word.toLowerCase().split(/\s*\/\s*/).find(v => pageSlugs.has(v));
+
 const slang = [...slangData].sort((a, b) => a.word.toLowerCase().localeCompare(b.word.toLowerCase()));
 
 const getBucket = (word: string) => {
@@ -63,7 +75,7 @@ const grouped = alphabet.map(letter => ({
 }));
 ---
 
-<Layout title="ヒップホップ・スラング索引 — 歌詞に出てくる英語スラング辞典" description="ヒップホップの歌詞に登場する英語スラング100語以上を日本語で解説。銃・ドラッグ・カルチャー・固有名詞まで網羅した索引。">
+<Layout title="ヒップホップのスラング和訳辞典 — 歌詞に出てくる英語スラングの意味" description="ヒップホップの歌詞に登場する英語スラングやAAVEの表現を、意味・例文・使われた曲つきで日本語に和訳して解説する辞典。カタカナや綴りのゆれでも検索できます。">
   <div class="max-w-2xl mx-auto px-4 py-8">
 
     <header class="mb-8">
@@ -73,12 +85,40 @@ const grouped = alphabet.map(letter => ({
       <p class="text-[var(--c-dim)] text-sm">全{slang.length}語 — ヒップホップ歌詞に登場するスラング・固有名詞・文化用語を解説</p>
     </header>
 
+    <section class="mb-8 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg p-5">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-1">詳しく解説した語</h2>
+      <p class="text-[var(--c-dim)] text-xs mb-4">意味・語源・例文・曲での使われ方を1語1ページでまとめています（{wordPages.length}語）</p>
+      <ul class="flex flex-wrap gap-2">
+        {wordPages.map(p => (
+          <li>
+            <a href={`/slang/${p.slug}`} class="inline-flex items-baseline gap-1.5 text-sm border border-[var(--c-border)] rounded px-2.5 py-1 hover:border-[var(--c-gold)] hover:text-[var(--c-gold)] transition-colors">
+              <span class="font-semibold">{p.word}</span>
+              <span class="text-[10px] text-[var(--c-very-dim)]">{meta[p.slug]?.themes?.[0] ?? ''}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <!-- Filters -->
+    <section id="slang-filters" class="mb-6 space-y-2.5">
+      {[['tone', 'ニュアンス', TONES], ['freq', '頻度', FREQS], ['kind', '種類', KINDS], ['theme', 'テーマ', THEME_LIST]].map(([key, label, opts]) => (
+        <div class="flex flex-wrap items-center gap-1.5">
+          <span class="text-[10px] uppercase tracking-widest text-[var(--c-very-dim)] w-16 shrink-0">{label}</span>
+          {(opts as string[]).map(o => (
+            <button type="button" data-filter={key as string} data-value={o} class="filter-chip text-xs border border-[var(--c-border)] rounded px-2 py-0.5 text-[var(--c-dim)] hover:border-[var(--c-gold)] hover:text-[var(--c-gold)] transition-colors">{o}</button>
+          ))}
+        </div>
+      ))}
+      <button type="button" id="filter-reset" class="hidden text-xs text-[var(--c-gold)] underline underline-offset-2">絞り込みを解除</button>
+    </section>
+
     <!-- Search -->
     <div class="mb-6">
       <input
         id="slang-search"
         type="text"
-        placeholder="検索... (例: gat, blunts, Wu-Tang)"
+        placeholder="検索... (例: ヴァイブ, bread, hustle, Wu-Tang)"
         class="w-full bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg px-4 py-3 text-sm text-[var(--c-text)] placeholder-[var(--c-very-dim)] focus:outline-none focus:border-[var(--c-gold)] transition-colors"
       />
     </div>
@@ -108,10 +148,13 @@ const grouped = alphabet.map(letter => ({
               const shown = songRefs.slice(0, 4);
               const extra = songRefs.length - shown.length;
               return (
-              <div class="slang-entry flex gap-4 text-sm" data-word={s.word.toLowerCase()}>
+              <div class="slang-entry flex gap-4 text-sm" data-word={s.word.toLowerCase()} data-alias={((s as any).aliases ?? []).join(" ")} data-tone={metaOf(s.word)?.tone ?? ""} data-freq={metaOf(s.word)?.freq ?? ""} data-kind={metaOf(s.word)?.kind ?? ""} data-themes={(metaOf(s.word)?.themes ?? []).join("|")}>
                 <dt class="text-[var(--c-text)] font-semibold shrink-0 min-w-[140px] max-w-[180px] break-words">{s.word}</dt>
                 <dd class="text-[var(--c-muted)] leading-relaxed">
                   {s.desc}
+                  {pageFor(s.word) && (
+                    <a href={`/slang/${pageFor(s.word)}`} class="block mt-1 text-xs text-[var(--c-gold)] hover:underline underline-offset-2">{pageFor(s.word)} を詳しく解説 →</a>
+                  )}
                   {songRefs.length > 0 && (
                     <span class="block mt-1 text-xs text-[var(--c-very-dim)]">
                       使用曲:{' '}
@@ -148,13 +191,49 @@ const grouped = alphabet.map(letter => ({
   const sections = document.querySelectorAll<HTMLElement>('.slang-section');
   const noSlang = document.getElementById('no-slang');
   const alphNav = document.getElementById('alpha-nav');
+  const chips = document.querySelectorAll<HTMLElement>('.filter-chip');
+  const resetBtn = document.getElementById('filter-reset');
+  const active: Record<string, string> = { tone: '', freq: '', kind: '', theme: '' };
+  const params = new URLSearchParams(location.search);
+  for (const k of Object.keys(active)) active[k] = params.get(k) || '';
 
-  function applyFilter(q: string) {
+  const norm = (t: string) => t.normalize('NFKC').toLowerCase()
+    .replace(/[\u30a1-\u30f6]/g, c => String.fromCharCode(c.charCodeAt(0) - 0x60))
+    .replace(/[^a-z0-9\u3041-\u3096\u4e00-\u9fff]/g, '');
+  function lev(a: string, b: string, max: number) {
+    if (Math.abs(a.length - b.length) > max) return max + 1;
+    let prev = Array.from({ length: b.length + 1 }, (_, i) => i);
+    for (let i = 1; i <= a.length; i++) {
+      const cur = [i];
+      for (let j = 1; j <= b.length; j++)
+        cur[j] = Math.min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+      prev = cur;
+    }
+    return prev[b.length];
+  }
+  function fuzzy(q: string, key: string) {
+    if (key.includes(q)) return true;
+    const max = q.length >= 7 ? 2 : q.length >= 4 ? 1 : 0;
+    if (!max) return false;
+    for (let i = 0; i + q.length - max <= key.length; i++) {
+      for (let l = q.length - max; l <= q.length + max; l++) {
+        if (lev(q, key.slice(i, i + l), max) <= max) return true;
+      }
+    }
+    return false;
+  }
+
+  function applyFilter(raw: string) {
+    const q = norm(raw);
     let total = 0;
     entries.forEach(el => {
-      const word = el.dataset.word || '';
-      const desc = el.querySelector('dd')?.textContent?.toLowerCase() || '';
-      const match = !q || word.includes(q) || desc.includes(q);
+      const keys = norm((el.dataset.word || '') + ' ' + (el.dataset.alias || ''));
+      const desc = norm(el.querySelector('dd')?.textContent || '');
+      const tagOk = (!active.tone || el.dataset.tone === active.tone)
+        && (!active.freq || el.dataset.freq === active.freq)
+        && (!active.kind || el.dataset.kind === active.kind)
+        && (!active.theme || (el.dataset.themes || '').split('|').includes(active.theme));
+      const match = tagOk && (!q || fuzzy(q, keys) || desc.includes(q));
       el.style.display = match ? '' : 'none';
       if (match) total++;
     });
@@ -164,15 +243,34 @@ const grouped = alphabet.map(letter => ({
       sec.style.display = visible ? '' : 'none';
     });
     if (noSlang) noSlang.classList.toggle('hidden', total > 0);
-    if (alphNav) alphNav.style.display = q ? 'none' : '';
+    const filtering = !!q || Object.values(active).some(Boolean);
+    if (alphNav) alphNav.style.display = filtering ? 'none' : '';
+    chips.forEach(c => {
+      const on = active[c.dataset.filter as string] === c.dataset.value;
+      c.classList.toggle('text-[var(--c-gold)]', on);
+      c.classList.toggle('border-[var(--c-gold)]', on);
+    });
+    resetBtn?.classList.toggle('hidden', !Object.values(active).some(Boolean));
   }
 
-  const qParam = new URLSearchParams(location.search).get('q');
+  const qParam = params.get('q');
   if (qParam && input) {
     input.value = qParam;
     applyFilter(qParam.toLowerCase().trim());
     input.scrollIntoView({ block: 'center', behavior: 'smooth' });
+  } else if (Object.values(active).some(Boolean)) {
+    applyFilter('');
   }
+
+  chips.forEach(c => c.addEventListener('click', () => {
+    const k = c.dataset.filter as string;
+    active[k] = active[k] === c.dataset.value ? '' : (c.dataset.value as string);
+    applyFilter(input?.value.toLowerCase().trim() || '');
+  }));
+  resetBtn?.addEventListener('click', () => {
+    for (const k of Object.keys(active)) active[k] = '';
+    applyFilter(input?.value.toLowerCase().trim() || '');
+  });
 
   input?.addEventListener('input', () => {
     applyFilter(input.value.toLowerCase().trim());

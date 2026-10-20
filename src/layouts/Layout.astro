@@ -25,6 +25,9 @@ if (!isHome) {
   if (isSongPage) {
     breadcrumbItems.push({ label: '曲一覧', href: '/' });
     breadcrumbItems.push({ label: title.split(/ (?:英語・スラング解説|和訳)/)[0].split(' |')[0] });
+  } else if (/^\/slang\/[^/]+\/?$/.test(pathname)) {
+    breadcrumbItems.push({ label: 'スラング索引', href: '/slang' });
+    breadcrumbItems.push({ label: title.split(/ の意味|｜/)[0] });
   } else {
     const pageLabels: Record<string, string> = {
       '/about': 'About',
