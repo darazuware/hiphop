@@ -170,5 +170,16 @@
     "C.R.E.A.M.",
     "stash"
   ],
-  "stats": "約260曲の歌詞のうち、cream を含む曲は33曲、使っていたのは10人中7人でした。お金の意味の cream は GZA、Ghostface Killah、RZA という Wu-Tang Clan のメンバーと Nas の曲に出てきて、ほかのラッパーの cream は、アイスクリームなどの本来の意味や「最上のもの」の比喩がほとんどでした。"
+  "stats": "解析に使ったヒップホップ約350曲の歌詞のうち、cream を含む曲は36曲で、13人中8人のラッパーに出てきました。GZA や Kool Keith の曲に特に多く出てきます。出現数の多い順に並べると、内訳はGZA 12曲、Kool Keith 8曲、Ghostface Killah 7曲、Atmosphere 3曲、Rakim 3曲です。",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/C.R.E.A.M."
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Enter_the_Wu-Tang_(36_Chambers)"
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Raekwon"
+    }
+  ]
 }

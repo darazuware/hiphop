@@ -166,5 +166,10 @@
     "fiend",
     "props"
   ],
-  "stats": "解析に使ったヒップホップ約260曲の歌詞のうち、hype を含む曲は16曲で、10人中7人のラッパーに出てきました。Rakim の曲だけで6曲あり、「アガる」の hype を好んで使っていたことが分かります。"
+  "stats": "解析に使ったヒップホップ約350曲の歌詞のうち、hype を含む曲は17曲で、13人中7人のラッパーに出てきました。Rakim や Kool Keith の曲に特に多く出てきます。出現数の多い順に並べると、内訳はRakim 6曲、Kool Keith 4曲、GZA 2曲、Kool G Rap 2曲、Aesop Rock 1曲です。",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Don%27t_Believe_the_Hype"
+    }
+  ]
 }

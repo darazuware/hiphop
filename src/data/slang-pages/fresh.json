@@ -164,5 +164,13 @@
     "wack",
     "Timbs"
   ],
-  "stats": "解析に使ったヒップホップ約260曲の歌詞のうち、fresh を含む曲は24曲で、10人中8人のラッパーに出てきました。「新鮮な」という本来の意味や fresh out の形もかなりの割合を占めます。"
+  "stats": "解析に使ったヒップホップ約350曲の歌詞のうち、fresh を含む曲は31曲で、13人中11人のラッパーに出てきました。Ghostface Killah や Aesop Rock の曲に特に多く出てきます。出現数の多い順に並べると、内訳はGhostface Killah 7曲、Aesop Rock 5曲、Atmosphere 4曲、Black Thought 3曲、Kool G Rap 3曲です。",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Jam_on_It"
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Grandmaster_Flash_and_the_Furious_Five"
+    }
+  ]
 }

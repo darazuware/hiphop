@@ -176,5 +176,10 @@
     "hood",
     "ill"
   ],
-  "stats": "解析に使ったヒップホップ約350曲の歌詞のうち、woke を含む曲は15曲で、13人中9人のラッパーに出てきました。J. Cole の曲に特に多いものの、ほとんどは woke up の普通の用法で、スラングの stay woke は Black Thought の曲に見られます。"
+  "stats": "解析に使ったヒップホップ約350曲の歌詞のうち、woke を含む曲は15曲で、13人中9人のラッパーに出てきました。J. Cole や Aesop Rock の曲に特に多く出てきます。出現数の多い順に並べると、内訳はJ. Cole 5曲、Aesop Rock 3曲、Atmosphere 1曲、Black Thought 1曲、Kendrick Lamar 1曲です。",
+  "sources": [
+    {
+      "url": "https://www.snopes.com/articles/464795/origins-term-stay-woke/"
+    }
+  ]
 }

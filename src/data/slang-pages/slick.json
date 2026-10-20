@@ -159,5 +159,10 @@
     "fresh",
     "game"
   ],
-  "stats": "約260曲の歌詞のうち、slick を含む曲は13曲、使っていたのは10人中8人でした。口のうまさや立ち回りを言う slick に、Slick Rick などの名前としての Slick が混ざっています。"
+  "stats": "解析に使ったヒップホップ約350曲の歌詞のうち、slick を含む曲は15曲で、13人中9人のラッパーに出てきました。Kool G Rap や Ghostface Killah の曲に特に多く出てきます。出現数の多い順に並べると、内訳はKool G Rap 4曲、Ghostface Killah 2曲、J. Cole 2曲、Rakim 2曲、Aesop Rock 1曲です。",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Slick_Rick"
+    }
+  ]
 }

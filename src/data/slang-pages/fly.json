@@ -165,5 +165,10 @@
     "whip",
     "ice"
   ],
-  "stats": "解析に使ったヒップホップ約260曲の歌詞のうち、fly を含む曲は53曲で、調べた10人のラッパー全員に出てきました。動詞の fly も含まれているため、ほめ言葉として使われている曲はその一部です。"
+  "stats": "解析に使ったヒップホップ約350曲の歌詞のうち、fly を含む曲は65曲で、13人中13人のラッパーに出てきました。MF DOOM や Kool Keith の曲に特に多く出てきます。出現数の多い順に並べると、内訳はMF DOOM 10曲、Kool Keith 9曲、Ghostface Killah 8曲、Nas 7曲、J. Cole 6曲です。",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Super_Fly"
+    }
+  ]
 }

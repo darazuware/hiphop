@@ -175,5 +175,10 @@
     "cat",
     "vets"
   ],
-  "stats": "解析に使ったヒップホップ約260曲の歌詞のうち、homie を含む曲は15曲、homies を含む曲は4曲で、10人中8人のラッパーに出てきました。Black Thought の曲に多く、big homie や lil homie の形もよく見られます。"
+  "stats": "解析に使ったヒップホップ約350曲の歌詞のうち、homie を含む曲は46曲で、13人中11人のラッパーに出てきました。Kendrick Lamar や J. Cole の曲に特に多く出てきます。出現数の多い順に並べると、内訳はKendrick Lamar 15曲、J. Cole 8曲、Black Thought 5曲、Aesop Rock 3曲、Atmosphere 3曲です。",
+  "sources": [
+    {
+      "url": "https://en.wiktionary.org/wiki/homie"
+    }
+  ]
 }

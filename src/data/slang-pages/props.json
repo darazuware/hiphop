@@ -40,7 +40,7 @@
   "origin": [
     "props は proper（正当な、ふさわしい）を縮めた形とされています。proper respect（しかるべき敬意）、proper recognition（正当な評価）の短縮だと説明されることが多いです。",
     "Dictionary.com は1990年代初頭のアメリカ英語として載せていて、それより前に propers という形が使われていたとしています。",
-    "Oxford English Dictionary は、1990年のシカゴの新聞に載ったラッパー Roxanne Shanté の記事に出てくる propers を早い例として挙げている、と言葉の専門サイト Grammarphobia が紹介しています。ラップの世界で縮められて広まった、という見方が一般的です。"
+    "言葉の研究サイト Glossophilia によると、辞書編纂者の Grant Barrett は、props の最も古い印刷例を、1990年のシカゴの新聞に載ったラッパー Roxanne Shanté の紹介記事だと述べています。ラップの世界で縮められて広まった、という見方が一般的です。"
   ],
   "examples": [
     {
@@ -150,7 +150,7 @@
     },
     {
       "q": "props はいつ頃からある言葉ですか。",
-      "a": "1990年前後に propers という形の記録があり、その後 props に縮まって広まったとされています。"
+      "a": "propers という形が先にあり、props はその短縮形とされています。props の最も早い印刷例は、1990年の新聞記事だと報じられています。"
     },
     {
       "q": "give props と give respect は入れ替えられますか。",
@@ -168,5 +168,10 @@
     "word",
     "ill"
   ],
-  "stats": "解析に使ったヒップホップ約260曲の歌詞のうち、props を含む曲は9曲と多くはありませんが、10人中7人のラッパーに出てきました。Rakim の曲に多く見られ、proper や property との言葉遊びが目立ちます。"
+  "stats": "解析に使ったヒップホップ約350曲の歌詞のうち、props を含む曲は10曲で、13人中8人のラッパーに出てきました。Rakim や Aesop Rock の曲に特に多く出てきます。出現数の多い順に並べると、内訳はRakim 3曲、Aesop Rock 1曲、Ghostface Killah 1曲、GZA 1曲、J. Cole 1曲です。",
+  "sources": [
+    {
+      "url": "https://glossophilia.org/2015/07/mad-props/"
+    }
+  ]
 }

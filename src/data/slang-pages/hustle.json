@@ -170,5 +170,12 @@
     "dough",
     "crew"
   ],
-  "stats": "解析に使ったヒップホップ約260曲の歌詞のうち、hustle を含む曲は10曲で、10人中5人のラッパーに出てきました。Nas の曲に特に多く、稼ぎ方や生き抜く姿勢を語る場面で使われています。"
+  "stats": "解析に使ったヒップホップ約350曲の歌詞のうち、hustle を含む曲は17曲で、13人中8人のラッパーに出てきました。Nas や Atmosphere の曲に特に多く出てきます。出現数の多い順に並べると、内訳はNas 4曲、Atmosphere 3曲、GZA 3曲、Kendrick Lamar 2曲、MF DOOM 2曲です。",
+  "sources": [
+    {
+      "url": "https://www.etymonline.com/word/hustle",
+      "evidence": "sense of \"to get in a quick, illegal manner\" is 1840 in American English; hustler agent noun 1825; sense of \"a swindle, illegal business activity\" is by 1963",
+      "via": "WebSearch 2026-10-20 (etymonline is blocked to bots)"
+    }
+  ]
 }

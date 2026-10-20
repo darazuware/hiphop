@@ -163,5 +163,16 @@
     "dope",
     "cocaine"
   ],
-  "stats": "解析したヒップホップ約260曲のうち、crack を含む曲は44曲で、10人中9人が使っていました。ドラッグの crack が大半ですが、Aesop Rock の曲では「割る」「ひびを入れる」という本来の意味もよく出てきます。"
+  "stats": "解析に使ったヒップホップ約350曲の歌詞のうち、crack を含む曲は62曲で、13人中11人のラッパーに出てきました。Ghostface Killah や Nas の曲に特に多く出てきます。出現数の多い順に並べると、内訳はGhostface Killah 10曲、Nas 9曲、Kool Keith 7曲、MF DOOM 7曲、Kool G Rap 6曲です。",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Crack_epidemic_in_the_United_States"
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Night_of_the_Living_Baseheads"
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Ten_Crack_Commandments"
+    }
+  ]
 }

@@ -176,5 +176,10 @@
     "homie",
     "mic"
   ],
-  "stats": "解析に使ったヒップホップ約350曲の歌詞のうち、vibe を含む曲は16曲で、13人中8人のラッパーに出てきました。Kendrick Lamar の曲に特に多く、場の空気や人との相性を語る場面で使われています。"
+  "stats": "解析に使ったヒップホップ約350曲の歌詞のうち、vibe を含む曲は23曲で、13人中10人のラッパーに出てきました。Kendrick Lamar や J. Cole の曲に特に多く出てきます。出現数の多い順に並べると、内訳はKendrick Lamar 7曲、J. Cole 4曲、GZA 3曲、Atmosphere 2曲、Rakim 2曲です。",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Good_Vibrations"
+    }
+  ]
 }

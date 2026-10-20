@@ -158,5 +158,10 @@
     "bite",
     "front"
   ],
-  "stats": "解析した約260曲のうち、sucker を含む曲は17曲で、使っていたのは10人中4人でした。半分以上が Kool G Rap の曲で、ラッパーへのディスにも、ケンカ相手への悪態にも使われています。"
+  "stats": "解析に使ったヒップホップ約350曲の歌詞のうち、sucker を含む曲は30曲で、13人中8人のラッパーに出てきました。Kool G Rap や Rakim の曲に特に多く出てきます。出現数の多い順に並べると、内訳はKool G Rap 14曲、Rakim 4曲、Black Thought 3曲、Ghostface Killah 2曲、Kendrick Lamar 2曲です。",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Sucker_M.C.%27s"
+    }
+  ]
 }
