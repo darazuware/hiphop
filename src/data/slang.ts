@@ -6,6 +6,16 @@ export interface SlangEntry {
 }
 
 export const slang: SlangEntry[] = [
+  { word: "mic", aliases: ["マイク", "マイクチェック", "mike", "mic check", "drop the mic"], desc: "microphone の略。ラップでは語る場そのもの、ラッパーの舞台を指す。mic check は音の確認、drop the mic は決定的な一言で締める比喩" },
+  { word: "represent", aliases: ["レプリゼント", "レップ", "rep", "地元を背負う"], desc: "「代表する」から転じて、地元・仲間・信念を背負って堂々と名乗ること。represent のあとに地名が続くのが定番で、rep と略される" },
+  { word: "bars", aliases: ["バーズ", "バース", "16bars", "小節"], desc: "音楽の小節から転じて、歌詞の行、とくに出来のいいリリックを指す。16 bars はバース1つ分で、spit bars は「ラップする」" },
+  { word: "tight", aliases: ["タイト", "隙がない"], desc: "「きつい」が基本。ラップでは「隙がなく完成度が高い」「かっこいい」「仲が深い」を表し、金が tight だと「余裕がない」" },
+  { word: "bet", aliases: ["ベット", "I bet", "賭ける"], desc: "「賭ける」が基本。I bet ... は「絶対〜だ」という断言で、単独の Bet. は「了解、望むところだ」という返事" },
+  { word: "clique", aliases: ["クリーク", "クリック", "仲間"], desc: "気心の知れた少人数の仲間・一派。発音は「クリーク」。ヒップホップでは結束の誇示、一般英語では排他的というやや否定的な響き" },
+  { word: "bread", aliases: ["ブレッド", "パン", "break bread", "bread and butter"], desc: "パンのほかに「お金」を指すスラング。break bread は「食事を共にして親しくなる」、bread and butter は「生活の糧、本業」" },
+  { word: "hustle", aliases: ["ハッスル", "side hustle", "副業"], desc: "必死に動いて金や機会をつかむこと、またその稼ぎ方。日本語の「ハッスル」とは違い切実な響き。side hustle は副業" },
+  { word: "stack", aliases: ["スタック", "札束", "stack paper"], desc: "積み重ねたもの。ラップでは札束、または金を貯めること。stack up は「積み上がる」と「比較して並ぶ」の二つの意味" },
+  { word: "sick", aliases: ["シック", "ヤバい", "sick of", "sick and tired"], desc: "病気のほか、スラングでは「ずば抜けてすごい」という褒め言葉。sick of は「うんざり」で、同じ綴りで意味が三つに分かれる" },
   { word: "hold you down", aliases: ["ホールドユーダウン", "支える"],         desc: "文字通りは「押さえ続ける」だが、日常では「支え続ける・見捨てずに味方でい続ける」の意味。恋愛だけでなく、ストリートの人間関係や友情での忠誠・信頼を表すときにも広く使われる" },
   { word: "kick it", aliases: ["キックイット", "くつろぐ"],                desc: "本来は「蹴る」だが、口語では「くつろぐ・のんびり過ごす・一緒に時間を過ごす」。kick it to 誰々 の形になると「その人に（考えや言葉を）伝える・話しかける」の意味にもなる、使用頻度の高いイディオム" },
   { word: "the game", aliases: ["ザ・ゲーム", "ラップゲーム"],               desc: "ボードゲームの意味ではなく「ラップ稼業・音楽業界」あるいは「ストリートの経済そのもの」を指す定番スラング。rap game / dope game のように業界名と組み、in the game で「現役で身を置いて」、out the game で「足を洗って」" },
