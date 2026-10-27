@@ -32,8 +32,9 @@ const splitPara = (p) => {
   for (let i = 0; i < sents.length; i += 2) out.push(sents.slice(i, i + 2).join(""));
   return out;
 };
+// "<p" で始まる項目（unit内小見出し等）は分割・包み込みせずそのまま出す。
 const P = (items, indent) =>
-  items.flatMap(splitPara).map((p) => `${indent}<p>${p}</p>`).join("\n");
+  items.flatMap((x) => (x.startsWith("<p") ? [x] : splitPara(x).map((p) => `<p>${p}</p>`))).map((p) => `${indent}${p}`).join("\n");
 const PT = (items, indent) =>
   items.flatMap(splitPara).map((p) => `${indent}<p>\n${indent}  ${p}\n${indent}</p>`).join("\n");
 
