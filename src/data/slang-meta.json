@@ -304,6 +304,111 @@
   "hidden": [],
   "songs": 28
  },
+ "real": {
+  "tone": "ポジティブ",
+  "freq": "頻出",
+  "kind": "一般語",
+  "themes": [
+   "感情・態度",
+   "評価・ほめ言葉"
+  ],
+  "hidden": [],
+  "songs": 172
+ },
+ "cold": {
+  "tone": "中立",
+  "freq": "頻出",
+  "kind": "一般語",
+  "themes": [
+   "感情・態度",
+   "評価・ほめ言葉"
+  ],
+  "hidden": [],
+  "songs": 77
+ },
+ "broke": {
+  "tone": "ネガティブ",
+  "freq": "頻出",
+  "kind": "一般語",
+  "themes": [
+   "お金"
+  ],
+  "hidden": [],
+  "songs": 75
+ },
+ "rich": {
+  "tone": "ポジティブ",
+  "freq": "頻出",
+  "kind": "一般語",
+  "themes": [
+   "お金"
+  ],
+  "hidden": [],
+  "songs": 76
+ },
+ "slide": {
+  "tone": "中立",
+  "freq": "頻出",
+  "kind": "一般語",
+  "themes": [
+   "仲間・人",
+   "感情・態度"
+  ],
+  "hidden": [],
+  "songs": 23
+ },
+ "queen": {
+  "tone": "ポジティブ",
+  "freq": "頻出",
+  "kind": "一般語",
+  "themes": [
+   "仲間・人",
+   "評価・ほめ言葉"
+  ],
+  "hidden": [],
+  "songs": 35
+ },
+ "wave": {
+  "tone": "中立",
+  "freq": "頻出",
+  "kind": "一般語",
+  "themes": [
+   "音楽・ラップ",
+   "社会・文化"
+  ],
+  "hidden": [],
+  "songs": 20
+ },
+ "fit": {
+  "tone": "中立",
+  "freq": "頻出",
+  "kind": "一般語",
+  "themes": [
+   "ファッション・車"
+  ],
+  "hidden": [],
+  "songs": 35
+ },
+ "hot": {
+  "tone": "ポジティブ",
+  "freq": "頻出",
+  "kind": "一般語",
+  "themes": [
+   "評価・ほめ言葉"
+  ],
+  "hidden": [],
+  "songs": 103
+ },
+ "bro": {
+  "tone": "ポジティブ",
+  "freq": "頻出",
+  "kind": "一般語",
+  "themes": [
+   "仲間・人"
+  ],
+  "hidden": [],
+  "songs": 20
+ },
  "hold you down": {
   "tone": "ポジティブ",
   "freq": "レア",
