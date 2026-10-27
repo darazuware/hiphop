@@ -1,0 +1,416 @@
+[
+  {
+    "id": "whose-world",
+    "anchor": [
+      "whose",
+      "world",
+      "is",
+      "this"
+    ],
+    "fallbackT": 5,
+    "manualSec": null,
+    "captionSec": 5
+  },
+  {
+    "id": "dom-p-gandhi",
+    "anchor": [
+      "i",
+      "sip",
+      "the",
+      "dom",
+      "p",
+      "watchin",
+      "gandhi"
+    ],
+    "fallbackT": 22,
+    "manualSec": null,
+    "captionSec": 22
+  },
+  {
+    "id": "book-of-rhymes",
+    "anchor": [
+      "writin",
+      "in",
+      "my",
+      "book",
+      "of",
+      "rhymes"
+    ],
+    "fallbackT": 24,
+    "manualSec": null,
+    "captionSec": 24
+  },
+  {
+    "id": "act-right",
+    "anchor": [
+      "the",
+      "thiefs",
+      "theme",
+      "play",
+      "me",
+      "at",
+      "night"
+    ],
+    "fallbackT": 32,
+    "manualSec": null,
+    "captionSec": 32
+  },
+  {
+    "id": "facing-time",
+    "anchor": [
+      "the",
+      "mind",
+      "activation",
+      "react",
+      "like",
+      "im",
+      "facin"
+    ],
+    "fallbackT": 38,
+    "manualSec": null,
+    "captionSec": 38
+  },
+  {
+    "id": "sweat-dome",
+    "anchor": [
+      "wipe",
+      "the",
+      "sweat",
+      "off",
+      "my",
+      "dome"
+    ],
+    "fallbackT": 44,
+    "manualSec": null,
+    "captionSec": 44
+  },
+  {
+    "id": "suede-timbs",
+    "anchor": [
+      "suede",
+      "timbs",
+      "on",
+      "my",
+      "feets"
+    ],
+    "fallbackT": 46,
+    "manualSec": null,
+    "captionSec": 46
+  },
+  {
+    "id": "sikh-cab-montero",
+    "anchor": [
+      "whether",
+      "cruisin",
+      "in",
+      "a",
+      "sikhs",
+      "cab"
+    ],
+    "fallbackT": 49,
+    "manualSec": null,
+    "captionSec": 49
+  },
+  {
+    "id": "fallin-six-feet",
+    "anchor": [
+      "i",
+      "cant",
+      "call",
+      "it",
+      "the",
+      "beats"
+    ],
+    "fallbackT": 52,
+    "manualSec": null,
+    "captionSec": 52
+  },
+  {
+    "id": "dead-presidents",
+    "anchor": [
+      "im",
+      "out",
+      "for",
+      "dead",
+      "presidents",
+      "to",
+      "represent",
+      "me"
+    ],
+    "fallbackT": 63,
+    "manualSec": null,
+    "captionSec": 63
+  },
+  {
+    "id": "ill-will",
+    "anchor": [
+      "to",
+      "my",
+      "man",
+      "ill",
+      "will",
+      "god",
+      "bless",
+      "your",
+      "life"
+    ],
+    "fallbackT": 88,
+    "manualSec": null,
+    "captionSec": 88
+  },
+  {
+    "id": "beef-housing",
+    "anchor": [
+      "beef",
+      "with",
+      "housing",
+      "police"
+    ],
+    "fallbackT": 96,
+    "manualSec": null,
+    "captionSec": 96
+  },
+  {
+    "id": "mild-style",
+    "anchor": [
+      "yet",
+      "im",
+      "the",
+      "mild",
+      "moneygettin",
+      "style"
+    ],
+    "fallbackT": 99,
+    "manualSec": null,
+    "captionSec": 99
+  },
+  {
+    "id": "rotten-apple",
+    "anchor": [
+      "dwellin",
+      "in",
+      "the",
+      "rotten",
+      "apple"
+    ],
+    "fallbackT": 104,
+    "manualSec": null,
+    "captionSec": 104
+  },
+  {
+    "id": "old-folks-pray",
+    "anchor": [
+      "while",
+      "all",
+      "the",
+      "old",
+      "folks",
+      "pray"
+    ],
+    "fallbackT": 112,
+    "manualSec": null,
+    "captionSec": 112
+  },
+  {
+    "id": "name-my-daughter",
+    "anchor": [
+      "thinkin",
+      "a",
+      "word",
+      "best",
+      "describin",
+      "my",
+      "life"
+    ],
+    "fallbackT": 118,
+    "manualSec": null,
+    "captionSec": 118
+  },
+  {
+    "id": "how-you-livin",
+    "anchor": [
+      "how",
+      "you",
+      "livin",
+      "large",
+      "or",
+      "broke"
+    ],
+    "fallbackT": 127,
+    "manualSec": null,
+    "captionSec": 127
+  },
+  {
+    "id": "spades",
+    "anchor": [
+      "spit",
+      "spades",
+      "and",
+      "strip",
+      "poker"
+    ],
+    "fallbackT": 129,
+    "manualSec": null,
+    "captionSec": 129
+  },
+  {
+    "id": "break-it-down",
+    "anchor": [
+      "break",
+      "it",
+      "down"
+    ],
+    "fallbackT": 156,
+    "manualSec": null,
+    "captionSec": 156
+  },
+  {
+    "id": "city-bandit",
+    "anchor": [
+      "im",
+      "the",
+      "young",
+      "city",
+      "bandit"
+    ],
+    "fallbackT": 179,
+    "manualSec": null,
+    "captionSec": 179
+  },
+  {
+    "id": "born-alone",
+    "anchor": [
+      "born",
+      "alone",
+      "die",
+      "alone"
+    ],
+    "fallbackT": 184,
+    "manualSec": null,
+    "captionSec": 184
+  },
+  {
+    "id": "deep-by-sound",
+    "anchor": [
+      "im",
+      "deep",
+      "by",
+      "sound",
+      "alone"
+    ],
+    "fallbackT": 187,
+    "manualSec": null,
+    "captionSec": 187
+  },
+  {
+    "id": "black-cloud",
+    "anchor": [
+      "cause",
+      "while",
+      "its",
+      "over",
+      "me"
+    ],
+    "fallbackT": 192,
+    "manualSec": null,
+    "captionSec": 192
+  },
+  {
+    "id": "peeps-eatin",
+    "anchor": [
+      "picturin",
+      "my",
+      "peeps",
+      "not",
+      "eatin"
+    ],
+    "fallbackT": 197,
+    "manualSec": null,
+    "captionSec": 197
+  },
+  {
+    "id": "locked-the-champ",
+    "anchor": [
+      "and",
+      "im",
+      "amped",
+      "up",
+      "they",
+      "locked",
+      "the",
+      "champ",
+      "up"
+    ],
+    "fallbackT": 200,
+    "manualSec": null,
+    "captionSec": 200
+  },
+  {
+    "id": "big-willie",
+    "anchor": [
+      "the",
+      "crew",
+      "is",
+      "lampin",
+      "big",
+      "willie",
+      "style"
+    ],
+    "fallbackT": 206,
+    "manualSec": null,
+    "captionSec": 206
+  },
+  {
+    "id": "chip-toothed",
+    "anchor": [
+      "check",
+      "the",
+      "chiptoothed",
+      "smile"
+    ],
+    "fallbackT": 208,
+    "manualSec": null,
+    "captionSec": 208
+  },
+  {
+    "id": "stash-loot",
+    "anchor": [
+      "stash",
+      "loot",
+      "in",
+      "fly",
+      "clothes"
+    ],
+    "fallbackT": 211,
+    "manualSec": null,
+    "captionSec": 211
+  },
+  {
+    "id": "games-people-play",
+    "anchor": [
+      "walk",
+      "the",
+      "blocks",
+      "with",
+      "a",
+      "bop"
+    ],
+    "fallbackT": 214,
+    "manualSec": null,
+    "captionSec": 214
+  },
+  {
+    "id": "outro-shoutout",
+    "anchor": [
+      "to",
+      "everybody",
+      "in",
+      "queens",
+      "the",
+      "foundation"
+    ],
+    "fallbackT": 244,
+    "manualSec": null,
+    "mvAbsent": true
+  }
+]
