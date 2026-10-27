@@ -7,7 +7,7 @@
    "音楽・ラップ"
   ],
   "hidden": [],
-  "songs": 81
+  "songs": 83
  },
  "represent": {
   "tone": "ポジティブ",
@@ -29,7 +29,7 @@
    "評価・ほめ言葉"
   ],
   "hidden": [],
-  "songs": 29
+  "songs": 32
  },
  "tight": {
   "tone": "ポジティブ",
@@ -39,7 +39,7 @@
    "評価・ほめ言葉"
   ],
   "hidden": [],
-  "songs": 35
+  "songs": 44
  },
  "bet": {
   "tone": "中立",
@@ -49,7 +49,7 @@
    "感情・態度"
   ],
   "hidden": [],
-  "songs": 36
+  "songs": 51
  },
  "clique": {
   "tone": "中立",
@@ -59,30 +59,9 @@
    "仲間・人"
   ],
   "hidden": [],
-  "songs": 11
- },
- "bread": {
-  "tone": "中立",
-  "freq": "ふつう",
-  "kind": "一般語",
-  "themes": [
-   "お金"
-  ],
-  "hidden": [],
   "songs": 16
  },
- "hustle": {
-  "tone": "ポジティブ",
-  "freq": "ふつう",
-  "kind": "一般語",
-  "themes": [
-   "仕事・稼ぎ",
-   "お金"
-  ],
-  "hidden": [],
-  "songs": 17
- },
- "stack": {
+ "bread": {
   "tone": "中立",
   "freq": "頻出",
   "kind": "一般語",
@@ -92,6 +71,27 @@
   "hidden": [],
   "songs": 22
  },
+ "hustle": {
+  "tone": "ポジティブ",
+  "freq": "頻出",
+  "kind": "一般語",
+  "themes": [
+   "仕事・稼ぎ",
+   "お金"
+  ],
+  "hidden": [],
+  "songs": 20
+ },
+ "stack": {
+  "tone": "中立",
+  "freq": "頻出",
+  "kind": "一般語",
+  "themes": [
+   "お金"
+  ],
+  "hidden": [],
+  "songs": 30
+ },
  "sick": {
   "tone": "ポジティブ",
   "freq": "頻出",
@@ -100,7 +100,7 @@
    "評価・ほめ言葉"
   ],
   "hidden": [],
-  "songs": 33
+  "songs": 40
  },
  "vibe": {
   "tone": "ポジティブ",
@@ -110,7 +110,7 @@
    "感情・態度"
   ],
   "hidden": [],
-  "songs": 23
+  "songs": 26
  },
  "woke": {
   "tone": "中立",
@@ -120,7 +120,7 @@
    "社会・文化"
   ],
   "hidden": [],
-  "songs": 15
+  "songs": 17
  },
  "grind": {
   "tone": "ポジティブ",
@@ -130,7 +130,7 @@
    "仕事・稼ぎ"
   ],
   "hidden": [],
-  "songs": 13
+  "songs": 14
  },
  "flip": {
   "tone": "中立",
@@ -141,7 +141,7 @@
    "仕事・稼ぎ"
   ],
   "hidden": [],
-  "songs": 36
+  "songs": 38
  },
  "bag": {
   "tone": "中立",
@@ -152,7 +152,7 @@
    "ファッション・車"
   ],
   "hidden": [],
-  "songs": 49
+  "songs": 69
  },
  "ghost": {
   "tone": "中立",
@@ -163,7 +163,7 @@
    "音楽・ラップ"
   ],
   "hidden": [],
-  "songs": 44
+  "songs": 45
  },
  "block": {
   "tone": "中立",
@@ -173,7 +173,7 @@
    "地元・場所"
   ],
   "hidden": [],
-  "songs": 74
+  "songs": 82
  },
  "fake": {
   "tone": "ネガティブ",
@@ -184,7 +184,7 @@
    "感情・態度"
   ],
   "hidden": [],
-  "songs": 63
+  "songs": 72
  },
  "ride": {
   "tone": "中立",
@@ -195,7 +195,7 @@
    "仲間・人"
   ],
   "hidden": [],
-  "songs": 49
+  "songs": 76
  },
  "pops": {
   "tone": "ポジティブ",
@@ -205,7 +205,209 @@
    "家族"
   ],
   "hidden": [],
-  "songs": 13
+  "songs": 14
+ },
+ "finna": {
+  "tone": "中立",
+  "freq": "頻出",
+  "kind": "一般語",
+  "themes": [
+   "感情・態度"
+  ],
+  "hidden": [],
+  "songs": 23
+ },
+ "drip": {
+  "tone": "ポジティブ",
+  "freq": "ふつう",
+  "kind": "一般語",
+  "themes": [
+   "ファッション・車",
+   "評価・ほめ言葉"
+  ],
+  "hidden": [],
+  "songs": 15
+ },
+ "lit": {
+  "tone": "ポジティブ",
+  "freq": "頻出",
+  "kind": "一般語",
+  "themes": [
+   "評価・ほめ言葉",
+   "感情・態度"
+  ],
+  "hidden": [],
+  "songs": 43
+ },
+ "fire": {
+  "tone": "ポジティブ",
+  "freq": "頻出",
+  "kind": "一般語",
+  "themes": [
+   "評価・ほめ言葉",
+   "音楽・ラップ"
+  ],
+  "hidden": [],
+  "songs": 56
+ },
+ "flex": {
+  "tone": "中立",
+  "freq": "ふつう",
+  "kind": "一般語",
+  "themes": [
+   "感情・態度",
+   "お金"
+  ],
+  "hidden": [],
+  "songs": 17
+ },
+ "gang": {
+  "tone": "ポジティブ",
+  "freq": "頻出",
+  "kind": "一般語",
+  "themes": [
+   "仲間・人"
+  ],
+  "hidden": [],
+  "songs": 35
+ },
+ "savage": {
+  "tone": "ポジティブ",
+  "freq": "ふつう",
+  "kind": "一般語",
+  "themes": [
+   "評価・ほめ言葉",
+   "感情・態度"
+  ],
+  "hidden": [],
+  "songs": 16
+ },
+ "pull up": {
+  "tone": "中立",
+  "freq": "頻出",
+  "kind": "一般語",
+  "themes": [
+   "仲間・人",
+   "ファッション・車"
+  ],
+  "hidden": [],
+  "songs": 29
+ },
+ "boss": {
+  "tone": "ポジティブ",
+  "freq": "頻出",
+  "kind": "一般語",
+  "themes": [
+   "仕事・稼ぎ",
+   "評価・ほめ言葉"
+  ],
+  "hidden": [],
+  "songs": 28
+ },
+ "real": {
+  "tone": "ポジティブ",
+  "freq": "頻出",
+  "kind": "一般語",
+  "themes": [
+   "感情・態度",
+   "評価・ほめ言葉"
+  ],
+  "hidden": [],
+  "songs": 172
+ },
+ "cold": {
+  "tone": "中立",
+  "freq": "頻出",
+  "kind": "一般語",
+  "themes": [
+   "感情・態度",
+   "評価・ほめ言葉"
+  ],
+  "hidden": [],
+  "songs": 77
+ },
+ "broke": {
+  "tone": "ネガティブ",
+  "freq": "頻出",
+  "kind": "一般語",
+  "themes": [
+   "お金"
+  ],
+  "hidden": [],
+  "songs": 75
+ },
+ "rich": {
+  "tone": "ポジティブ",
+  "freq": "頻出",
+  "kind": "一般語",
+  "themes": [
+   "お金"
+  ],
+  "hidden": [],
+  "songs": 76
+ },
+ "slide": {
+  "tone": "中立",
+  "freq": "頻出",
+  "kind": "一般語",
+  "themes": [
+   "仲間・人",
+   "感情・態度"
+  ],
+  "hidden": [],
+  "songs": 23
+ },
+ "queen": {
+  "tone": "ポジティブ",
+  "freq": "頻出",
+  "kind": "一般語",
+  "themes": [
+   "仲間・人",
+   "評価・ほめ言葉"
+  ],
+  "hidden": [],
+  "songs": 35
+ },
+ "wave": {
+  "tone": "中立",
+  "freq": "頻出",
+  "kind": "一般語",
+  "themes": [
+   "音楽・ラップ",
+   "社会・文化"
+  ],
+  "hidden": [],
+  "songs": 20
+ },
+ "fit": {
+  "tone": "中立",
+  "freq": "頻出",
+  "kind": "一般語",
+  "themes": [
+   "ファッション・車"
+  ],
+  "hidden": [],
+  "songs": 35
+ },
+ "hot": {
+  "tone": "ポジティブ",
+  "freq": "頻出",
+  "kind": "一般語",
+  "themes": [
+   "評価・ほめ言葉"
+  ],
+  "hidden": [],
+  "songs": 103
+ },
+ "bro": {
+  "tone": "ポジティブ",
+  "freq": "頻出",
+  "kind": "一般語",
+  "themes": [
+   "仲間・人"
+  ],
+  "hidden": [],
+  "songs": 20
  },
  "hold you down": {
   "tone": "ポジティブ",
@@ -225,7 +427,7 @@
    "その他"
   ],
   "hidden": [],
-  "songs": 6
+  "songs": 8
  },
  "the game": {
   "tone": "中立",
@@ -236,7 +438,7 @@
    "音楽・ラップ"
   ],
   "hidden": [],
-  "songs": 38
+  "songs": 41
  },
  "work the angles": {
   "tone": "中立",
@@ -256,7 +458,7 @@
    "その他"
   ],
   "hidden": [],
-  "songs": 2
+  "songs": 3
  },
  "c.r.e.a.m.": {
   "tone": "ポジティブ",
@@ -302,7 +504,7 @@
    "お金"
   ],
   "hidden": [],
-  "songs": 27
+  "songs": 45
  },
  "snitch": {
   "tone": "ネガティブ",
@@ -314,7 +516,7 @@
   "hidden": [
    "犯罪"
   ],
-  "songs": 6
+  "songs": 8
  },
  "dough": {
   "tone": "中立",
@@ -324,7 +526,7 @@
    "お金"
   ],
   "hidden": [],
-  "songs": 26
+  "songs": 27
  },
  "one love": {
   "tone": "ポジティブ",
@@ -379,7 +581,7 @@
    "ファッション・車"
   ],
   "hidden": [],
-  "songs": 8
+  "songs": 9
  },
  "knots": {
   "tone": "中立",
@@ -399,7 +601,7 @@
    "感情・態度"
   ],
   "hidden": [],
-  "songs": 72
+  "songs": 98
  },
  "timbs": {
   "tone": "中立",
@@ -478,7 +680,7 @@
   "hidden": [
    "ドラッグ"
   ],
-  "songs": 8
+  "songs": 9
  },
  "beez": {
   "tone": "ネガティブ",
@@ -539,7 +741,7 @@
    "大麻",
    "ドラッグ"
   ],
-  "songs": 15
+  "songs": 16
  },
  "brand nubian": {
   "tone": "中立",
@@ -647,7 +849,7 @@
    "お金"
   ],
   "hidden": [],
-  "songs": 11
+  "songs": 12
  },
  "clip's": {
   "tone": "ネガティブ",
@@ -662,14 +864,15 @@
   "songs": 0
  },
  "clout": {
-  "tone": "ネガティブ",
+  "tone": "中立",
   "freq": "ふつう",
   "kind": "一般語",
   "themes": [
-   "感情・態度"
+   "社会・文化",
+   "評価・ほめ言葉"
   ],
   "hidden": [],
-  "songs": 9
+  "songs": 10
  },
  "cocaine": {
   "tone": "中立",
@@ -693,7 +896,7 @@
   "hidden": [
    "犯罪"
   ],
-  "songs": 8
+  "songs": 9
  },
  "cops": {
   "tone": "ネガティブ",
@@ -705,7 +908,7 @@
   "hidden": [
    "犯罪"
   ],
-  "songs": 36
+  "songs": 39
  },
  "curls": {
   "tone": "中立",
@@ -808,7 +1011,7 @@
    "評価・ほめ言葉"
   ],
   "hidden": [],
-  "songs": 38
+  "songs": 46
  },
  "wack": {
   "tone": "ネガティブ",
@@ -818,7 +1021,7 @@
    "評価・ほめ言葉"
   ],
   "hidden": [],
-  "songs": 33
+  "songs": 34
  },
  "hold it down": {
   "tone": "中立",
@@ -849,7 +1052,7 @@
    "その他"
   ],
   "hidden": [],
-  "songs": 27
+  "songs": 30
  },
  "school": {
   "tone": "中立",
@@ -859,7 +1062,7 @@
    "その他"
   ],
   "hidden": [],
-  "songs": 43
+  "songs": 50
  },
  "illest": {
   "tone": "ポジティブ",
@@ -914,7 +1117,7 @@
    "ドラッグ",
    "犯罪"
   ],
-  "songs": 9
+  "songs": 10
  },
  "gat / gats": {
   "tone": "ネガティブ",
@@ -926,7 +1129,7 @@
   "hidden": [
    "犯罪"
   ],
-  "songs": 22
+  "songs": 23
  },
  "glock": {
   "tone": "中立",
@@ -938,7 +1141,7 @@
   "hidden": [
    "犯罪"
   ],
-  "songs": 17
+  "songs": 19
  },
  "gods": {
   "tone": "中立",
@@ -1088,7 +1291,7 @@
   "hidden": [
    "大麻"
   ],
-  "songs": 15
+  "songs": 16
  },
  "keys": {
   "tone": "ポジティブ",
@@ -1100,7 +1303,7 @@
   "hidden": [
    "ドラッグ"
   ],
-  "songs": 20
+  "songs": 24
  },
  "killa beez": {
   "tone": "中立",
@@ -1144,7 +1347,7 @@
   "hidden": [
    "犯罪"
   ],
-  "songs": 1
+  "songs": 2
  },
  "mac / mac-10": {
   "tone": "中立",
@@ -1156,7 +1359,7 @@
   "hidden": [
    "犯罪"
   ],
-  "songs": 10
+  "songs": 12
  },
  "math": {
   "tone": "中立",
@@ -1302,7 +1505,7 @@
  },
  "peelin'": {
   "tone": "ネガティブ",
-  "freq": "レア",
+  "freq": "ふつう",
   "kind": "一般語",
   "themes": [
    "その他"
@@ -1310,7 +1513,7 @@
   "hidden": [
    "犯罪"
   ],
-  "songs": 4
+  "songs": 6
  },
  "pesos": {
   "tone": "中立",
@@ -1469,7 +1672,7 @@
    "人物・作品・地名"
   ],
   "hidden": [],
-  "songs": 1
+  "songs": 2
  },
  "superfly-ness": {
   "tone": "ポジティブ",
@@ -1503,7 +1706,7 @@
   "hidden": [
    "犯罪"
   ],
-  "songs": 1
+  "songs": 2
  },
  "thug poet": {
   "tone": "ネガティブ",
@@ -1533,11 +1736,11 @@
    "その他"
   ],
   "hidden": [],
-  "songs": 31
+  "songs": 45
  },
  "trees": {
   "tone": "中立",
-  "freq": "ふつう",
+  "freq": "頻出",
   "kind": "一般語",
   "themes": [
    "その他"
@@ -1545,7 +1748,7 @@
   "hidden": [
    "大麻"
   ],
-  "songs": 19
+  "songs": 22
  },
  "vandal": {
   "tone": "ネガティブ",
@@ -1616,7 +1819,7 @@
  },
  "bodies": {
   "tone": "ネガティブ",
-  "freq": "ふつう",
+  "freq": "頻出",
   "kind": "一般語",
   "themes": [
    "音楽・ラップ"
@@ -1624,7 +1827,7 @@
   "hidden": [
    "犯罪"
   ],
-  "songs": 18
+  "songs": 21
  },
  "put it on": {
   "tone": "中立",
@@ -1634,7 +1837,7 @@
    "地元・場所"
   ],
   "hidden": [],
-  "songs": 5
+  "songs": 14
  },
  "catchin' wreck": {
   "tone": "ネガティブ",
@@ -1678,7 +1881,7 @@
    "その他"
   ],
   "hidden": [],
-  "songs": 21
+  "songs": 25
  },
  "gwan": {
   "tone": "中立",
@@ -1700,11 +1903,11 @@
   "hidden": [
    "犯罪"
   ],
-  "songs": 22
+  "songs": 23
  },
  "raw": {
   "tone": "ポジティブ",
-  "freq": "ふつう",
+  "freq": "頻出",
   "kind": "一般語",
   "themes": [
    "評価・ほめ言葉"
@@ -1712,7 +1915,7 @@
   "hidden": [
    "ドラッグ"
   ],
-  "songs": 19
+  "songs": 24
  },
  "jake": {
   "tone": "ネガティブ",
@@ -1729,7 +1932,7 @@
  },
  "clap": {
   "tone": "ネガティブ",
-  "freq": "ふつう",
+  "freq": "頻出",
   "kind": "一般語",
   "themes": [
    "その他"
@@ -1737,7 +1940,7 @@
   "hidden": [
    "犯罪"
   ],
-  "songs": 17
+  "songs": 21
  },
  "strong-arm": {
   "tone": "ネガティブ",
@@ -1759,7 +1962,7 @@
    "その他"
   ],
   "hidden": [],
-  "songs": 50
+  "songs": 65
  },
  "gangsta lean": {
   "tone": "中立",
@@ -1826,7 +2029,7 @@
    "お金"
   ],
   "hidden": [],
-  "songs": 36
+  "songs": 40
  },
  "white": {
   "tone": "中立",
@@ -1838,7 +2041,7 @@
   "hidden": [
    "ドラッグ"
   ],
-  "songs": 70
+  "songs": 78
  },
  "cuzzo": {
   "tone": "中立",
@@ -1849,7 +2052,7 @@
    "家族"
   ],
   "hidden": [],
-  "songs": 0
+  "songs": 1
  },
  "shorties": {
   "tone": "中立",
@@ -1913,7 +2116,7 @@
    "その他"
   ],
   "hidden": [],
-  "songs": 1
+  "songs": 4
  },
  "come down": {
   "tone": "ポジティブ",
@@ -1945,7 +2148,7 @@
   "hidden": [
    "大麻"
   ],
-  "songs": 5
+  "songs": 7
  },
  "jam": {
   "tone": "中立",
@@ -1955,7 +2158,7 @@
    "音楽・ラップ"
   ],
   "hidden": [],
-  "songs": 44
+  "songs": 48
  },
  "rugged": {
   "tone": "ポジティブ",
@@ -1976,7 +2179,7 @@
    "音楽・ラップ"
   ],
   "hidden": [],
-  "songs": 66
+  "songs": 72
  },
  "labels": {
   "tone": "中立",
@@ -2041,7 +2244,7 @@
    "その他"
   ],
   "hidden": [],
-  "songs": 9
+  "songs": 10
  },
  "blastmaster": {
   "tone": "中立",
@@ -2061,7 +2264,7 @@
    "仲間・人"
   ],
   "hidden": [],
-  "songs": 36
+  "songs": 38
  },
  "beef": {
   "tone": "ネガティブ",
@@ -2072,7 +2275,7 @@
    "音楽・ラップ"
   ],
   "hidden": [],
-  "songs": 36
+  "songs": 45
  },
  "bite": {
   "tone": "ネガティブ",
@@ -2083,7 +2286,7 @@
    "評価・ほめ言葉"
   ],
   "hidden": [],
-  "songs": 21
+  "songs": 27
  },
  "cat": {
   "tone": "中立",
@@ -2093,17 +2296,17 @@
    "仲間・人"
   ],
   "hidden": [],
-  "songs": 50
+  "songs": 54
  },
  "chill": {
   "tone": "ポジティブ",
-  "freq": "ふつう",
+  "freq": "頻出",
   "kind": "一般語",
   "themes": [
    "感情・態度"
   ],
   "hidden": [],
-  "songs": 19
+  "songs": 24
  },
  "cipher": {
   "tone": "中立",
@@ -2126,7 +2329,7 @@
   "hidden": [
    "犯罪"
   ],
-  "songs": 66
+  "songs": 74
  },
  "crack": {
   "tone": "ネガティブ",
@@ -2138,7 +2341,7 @@
   "hidden": [
    "ドラッグ"
   ],
-  "songs": 62
+  "songs": 67
  },
  "cream": {
   "tone": "中立",
@@ -2148,7 +2351,7 @@
    "お金"
   ],
   "hidden": [],
-  "songs": 36
+  "songs": 40
  },
  "crew": {
   "tone": "ポジティブ",
@@ -2158,7 +2361,7 @@
    "仲間・人"
   ],
   "hidden": [],
-  "songs": 41
+  "songs": 46
  },
  "crib": {
   "tone": "中立",
@@ -2168,7 +2371,7 @@
    "地元・場所"
   ],
   "hidden": [],
-  "songs": 22
+  "songs": 31
  },
  "dime": {
   "tone": "ポジティブ",
@@ -2189,7 +2392,7 @@
    "評価・ほめ言葉"
   ],
   "hidden": [],
-  "songs": 40
+  "songs": 45
  },
  "fiend": {
   "tone": "ネガティブ",
@@ -2201,7 +2404,7 @@
   "hidden": [
    "ドラッグ"
   ],
-  "songs": 46
+  "songs": 48
  },
  "fly": {
   "tone": "ポジティブ",
@@ -2212,7 +2415,7 @@
    "ファッション・車"
   ],
   "hidden": [],
-  "songs": 65
+  "songs": 72
  },
  "fresh": {
   "tone": "ポジティブ",
@@ -2223,7 +2426,7 @@
    "ファッション・車"
   ],
   "hidden": [],
-  "songs": 31
+  "songs": 33
  },
  "front": {
   "tone": "ネガティブ",
@@ -2233,7 +2436,7 @@
    "感情・態度"
   ],
   "hidden": [],
-  "songs": 72
+  "songs": 79
  },
  "grill": {
   "tone": "ポジティブ",
@@ -2244,7 +2447,7 @@
    "お金"
   ],
   "hidden": [],
-  "songs": 14
+  "songs": 15
  },
  "heat": {
   "tone": "中立",
@@ -2257,7 +2460,7 @@
   "hidden": [
    "犯罪"
   ],
-  "songs": 52
+  "songs": 56
  },
  "herb": {
   "tone": "ネガティブ",
@@ -2280,7 +2483,7 @@
    "地元・場所"
   ],
   "hidden": [],
-  "songs": 46
+  "songs": 53
  },
  "hood": {
   "tone": "中立",
@@ -2290,18 +2493,18 @@
    "地元・場所"
   ],
   "hidden": [],
-  "songs": 37
+  "songs": 46
  },
  "hype": {
   "tone": "ポジティブ",
-  "freq": "ふつう",
+  "freq": "頻出",
   "kind": "一般語",
   "themes": [
    "評価・ほめ言葉",
    "感情・態度"
   ],
   "hidden": [],
-  "songs": 17
+  "songs": 20
  },
  "ill": {
   "tone": "ポジティブ",
@@ -2345,6 +2548,17 @@
   "hidden": [],
   "songs": 10
  },
+ "pull-up": {
+  "tone": "中立",
+  "freq": "頻出",
+  "kind": "一般語",
+  "themes": [
+   "仲間・人",
+   "ファッション・車"
+  ],
+  "hidden": [],
+  "songs": 29
+ },
  "rock": {
   "tone": "中立",
   "freq": "頻出",
@@ -2355,17 +2569,17 @@
   "hidden": [
    "ドラッグ"
   ],
-  "songs": 112
+  "songs": 135
  },
  "shorty": {
   "tone": "中立",
-  "freq": "ふつう",
+  "freq": "頻出",
   "kind": "一般語",
   "themes": [
    "仲間・人"
   ],
   "hidden": [],
-  "songs": 17
+  "songs": 21
  },
  "slick": {
   "tone": "中立",
@@ -2376,7 +2590,7 @@
    "評価・ほめ言葉"
   ],
   "hidden": [],
-  "songs": 15
+  "songs": 17
  },
  "son": {
   "tone": "中立",
@@ -2387,7 +2601,7 @@
    "家族"
   ],
   "hidden": [],
-  "songs": 72
+  "songs": 74
  },
  "spit": {
   "tone": "中立",
@@ -2397,7 +2611,7 @@
    "音楽・ラップ"
   ],
   "hidden": [],
-  "songs": 33
+  "songs": 42
  },
  "stash": {
   "tone": "中立",
@@ -2430,7 +2644,7 @@
    "ファッション・車"
   ],
   "hidden": [],
-  "songs": 23
+  "songs": 32
  },
  "word": {
   "tone": "中立",
@@ -2441,6 +2655,6 @@
    "感情・態度"
   ],
   "hidden": [],
-  "songs": 122
+  "songs": 126
  }
 }

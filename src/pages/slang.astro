@@ -56,7 +56,7 @@ function getSlangSongs(slangWord: string, explicitSlugs: string[] = []) {
 const pageFiles = import.meta.glob('../data/slang-pages/*.json', { eager: true, import: 'default' }) as Record<string, { slug: string; word: string; category: string }>;
 const wordPages = Object.values(pageFiles).sort((a, b) => a.word.localeCompare(b.word));
 const pageSlugs = new Set(wordPages.map(p => p.slug));
-const pageFor = (word: string) => word.toLowerCase().split(/\s*\/\s*/).find(v => pageSlugs.has(v));
+const pageFor = (word: string) => word.toLowerCase().split(/\s*\/\s*/).map(v => v.replace(/\s+/g, '-')).find(v => pageSlugs.has(v));
 
 const slang = [...slangData].sort((a, b) => a.word.toLowerCase().localeCompare(b.word.toLowerCase()));
 
