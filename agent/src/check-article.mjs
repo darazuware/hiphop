@@ -11,6 +11,7 @@
  *   1. [IMG]  check-cover-image.mjs   — カバー画像（asin設定済みならスキップ）
  *   2. [YT]   check-youtube.mjs       — YouTube埋め込みの実在
  *   3. [LYR]  pre-push-check.mjs      — 定型句(Item4)＋評論家口調(Item7)＋歌詞[B][C][D]
+ *   3b.[SYN]  check-short-sync.mjs    — 同じ曲の字幕ショートと和訳が一致
  *   4. [BLD]  npm run build           — ビルド成立
  *   5. [LNK]  check-internal-links.mjs — デッドリンク（サイト全体）＋内部リンク数
  *   6. [SEO]  check-seo.mjs           — title/description/canonical/h1
@@ -153,6 +154,9 @@ step("[YT] YouTube埋め込み", `node agent/src/check-youtube.mjs ${slug}`);
 
 // 3. 定型句＋トーン＋歌詞（pre-push-check が Item4/Item7/[B][C][D] を一括実行）
 step("[LYR] 歌詞・トーン・定型句", `node agent/src/pre-push-check.mjs src/pages/songs/${slug}.astro`);
+
+// 3b. 字幕ショートとの和訳同期（同じ曲のショートがある場合のみ。docs/article-tone.md 文体ルール22）
+step("[SYN] ショート和訳同期", `node agent/src/check-short-sync.mjs ${slug}`);
 
 // 4. ビルド
 if (noBuild && existsSync(join(projectRoot, "dist"))) {

@@ -23,7 +23,7 @@
       "paras": [
         "The world is yours という一句は、映画『スカーフェイス』（1983年）で、主人公が見上げる飛行船に流れる文字と同じフレーズです。",
         "ただ、この曲の「世界」は、豪邸から見下ろす世界ではありません。曲の最後でNasは、クイーンズ、ブルックリン、スタテンアイランド、サウスブロンクスと、NYの地名を一つずつ呼んで「世界はお前らのものだ」と配って回ります。",
-        "自分の足元から世界を取りにいく話として聴くと、フックの「It's mine」と「It's yours」が行き来する感じが、すっと入ってくると思います。"
+        "フックでPete Rockが「お前のものだ」と渡し、Nasが「俺のものだ」と受け取る。そのやりとりが、最後は地区ごとの人たちへの呼びかけに置き換わって終わります。"
       ]
     }
   ],
@@ -52,18 +52,18 @@
       ],
       "t": 5,
       "eng": "Whose world is this?<br />The world is yours, the world is yours",
-      "jpn": "この世界は誰のもの？／世界はお前のものだ、お前のものだ",
+      "jpn": "誰の世界だ？／世界はお前のものだ",
       "note": "曲の顔になっているフック。歌っているのはプロデューサーのPete Rockです。",
       "body": [
         "<p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>1. whose（誰の）</p>",
         "1行目の頭の <strong class='text-[var(--c-text)]'>whose</strong> は「誰の」を問う疑問詞です。Whose bag is this?（これ誰のかばん？）と同じ形で、目的語に world を置いただけ。",
-        "中学1〜2年で習う構文が、そのままヒップホップ史に残るフックになっている。ここが最初の驚きでした。",
+        "中学で習う構文が、そのまま曲のタイトルとフックになっています。",
         "<p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>2. yours と mine（所有代名詞）</p>",
         "答えの行末の <strong class='text-[var(--c-text)]'>yours</strong> は「あなたのもの」。フックの後半でNasは <code>It's mine</code>（俺のものだ）と3回重ねて返します。",
         "Pete Rockが「お前のものだ」と渡し、Nasが「いや俺のだ」と受け取る。所有代名詞の yours と mine だけで、掛け合いの芝居が成り立っています。",
         "<p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>3. It's yours（声ネタ）</p>",
         "フックの合間に挟まる短い「It's yours」は、T La Rock & Jazzy Jay の1984年の曲「It's Yours」から切り取られた声です。",
-        "古いヒップホップの名フレーズを、新しいフックの相づちに使う。サンプリング文化の楽しさがよく出ている箇所だと思います。"
+        "10年前の曲の声を、新しいフックの相づちとして差し込んでいます。"
       ],
       "usage": [
         "<strong class='text-[var(--c-text)]'>whose 〜 is this?</strong>: <em>Whose idea was it?</em>（誰の発案？）のように、名詞を後ろに置いて持ち主を尋ねます。",
@@ -86,12 +86,12 @@
       ],
       "t": 22,
       "eng": "I sip the Dom P, watchin' Gandhi 'til I'm charged, then",
-      "jpn": "ドンペリをすすりながら、気分が満ちるまで『ガンジー』を観て、それから",
+      "jpn": "ドン・Pをすすり、ガンジーを観て気合いが入ったら",
       "note": "Verse 1の一行目。ここからNasのひとり語りが始まります。",
       "body": [
         "行頭の <strong class='text-[var(--c-text)]'>Dom P</strong> は、シャンパンのドン・ペリニヨン（Dom Pérignon）を縮めた呼び方。日本語の「ドンペリ」とほぼ同じ縮め方なのが面白いところです。",
         "続く <strong class='text-[var(--c-text)]'>Gandhi</strong> は、1982年の映画『ガンジー』のこと。高級シャンパンと非暴力の指導者の伝記映画という、ちぐはぐな組み合わせが、この曲の主人公らしさを一行で見せています。",
-        "行末の <strong class='text-[var(--c-text)]'>'til I'm charged</strong> は「充電されるまで」。電池のように、気持ちが満ちて書く準備が整うまで、というニュアンスです。",
+        "行末の <strong class='text-[var(--c-text)]'>'til I'm charged</strong> は、直訳すると「充電されるまで」。和訳では「気合いが入ったら」としました。電池のように、気持ちが満ちて書く準備が整うまで、というニュアンスです。",
         "行の最後が then で切れて、次の行へそのまま流れ込みます。文を行末で閉じずにまたぐ書き方で、語りの勢いが途切れません。"
       ],
       "usage": [
@@ -114,7 +114,7 @@
       ],
       "t": 24,
       "eng": "Writin' in my book of rhymes, all the words past the margin",
-      "jpn": "韻のノートに書きつける、言葉はみんな余白の外まではみ出していく",
+      "jpn": "ライムのノートに書く、言葉は余白をはみ出していく",
       "note": "前の行の then を受けて、書く場面へ移ります。",
       "body": [
         "<strong class='text-[var(--c-text)]'>book of rhymes</strong> は、ラッパーがリリックを書きためるノートのこと。rhyme book とも言います。",
@@ -141,12 +141,12 @@
       ],
       "t": 32,
       "eng": "The thief's theme, play me at night, they won't act right",
-      "jpn": "盗人のテーマ曲、夜に俺をかければ、みんなおとなしくしちゃいられない",
+      "jpn": "泥棒のテーマ曲、夜にかければ誰もまともじゃいられない",
       "note": "自分の曲を「夜の街のテーマ」と言い切る一行です。",
       "body": [
         "行末の <strong class='text-[var(--c-text)]'>act right</strong> は、直訳すると「正しく振る舞う」。口語では「行儀よくする、まともにする」の意味で、親が子どもに Act right! と言うような場面でも使います。",
         "ここでは否定の won't がついて、「俺の曲を夜にかけたら、みんな行儀よくしていられなくなる」。音楽で人を浮き足立たせるという自慢です。",
-        "行頭の <strong class='text-[var(--c-text)]'>The thief's theme</strong> は、Nasがのちに2004年のアルバム『Street's Disciple』で同じ名前の曲を出しています。この一句をずっと気に入っていたんだろうな、と想像してしまいます。"
+        "行頭の <strong class='text-[var(--c-text)]'>The thief's theme</strong> は、Nasがのちに2004年のアルバム『Street's Disciple』で同じ名前の曲を出しています。10年後に、同じ言葉を曲名に使ったことになります。"
       ],
       "usage": [
         "<strong class='text-[var(--c-text)]'>act right</strong>: <em>If you act right, you can stay.</em>（ちゃんとしてるなら、いていいよ）。注意や条件づけの場面でよく出ます。"
@@ -194,11 +194,11 @@
       ],
       "t": 44,
       "eng": "Wipe the sweat off my dome, spit the phlegm on the streets",
-      "jpn": "頭の汗をぬぐい、通りに痰を吐く",
+      "jpn": "頭の汗をぬぐい、痰を路上に吐く",
       "note": "書く場面から、外の通りへ視点が移るところです。",
       "body": [
         "前半の行末にある <strong class='text-[var(--c-text)]'>dome</strong> が学習ポイント。丸屋根の「ドーム」から転じて、スラングで「頭」を指します。",
-        "汗をぬぐって痰を吐く、というかなり生々しい動作ですが、きれいごと抜きで街の空気を描くのがこの曲の書き方です。",
+        "後半の spit は「吐く」ですが、ラップすることも spit と言うので、二重に読めます。汗をぬぐって痰を吐く、というかなり生々しい動作ですが、きれいごと抜きで街の空気を描くのがこの曲の書き方です。",
         "dome と次の行の complete、streets と feets のように、2行ずつ母音を合わせて進んでいくのも聴きどころです。"
       ],
       "usage": [
@@ -219,7 +219,7 @@
       ],
       "t": 46,
       "eng": "Suede Timbs on my feets makes my cipher complete",
-      "jpn": "スエードのティンバーランドを履けば、俺の輪は完成する",
+      "jpn": "スエードのティンバを履けばサイファーは完成",
       "note": "90年代NYのファッションが一語で出てくる行です。",
       "body": [
         "行頭の <strong class='text-[var(--c-text)]'>Timbs</strong> は、ブーツブランドのティンバーランド（Timberland）の略。90年代のNYでは、ヒップホップの定番の足元でした。",
@@ -246,7 +246,7 @@
       ],
       "t": 49,
       "eng": "Whether cruisin' in a Sikh's cab or Montero Jeep",
-      "jpn": "シク教徒の運転手のタクシーでも、モンテロのジープでも",
+      "jpn": "シク教徒のタクシーでも、モンテロのジープでも",
       "note": "街を流す乗り物を2つ並べた行です。",
       "body": [
         "<strong class='text-[var(--c-text)]'>Sikh's cab</strong> は、シク教徒の運転手が走らせるタクシー。NYではインド系の運転手が多く、頭に巻いたターバンとともに街の見慣れた風景になっていました。",
@@ -274,7 +274,7 @@
       ],
       "t": 52,
       "eng": "I can't call it, the beats make me fallin' asleep<br />I keep fallin', but never fallin' six feet deep",
-      "jpn": "どうとも言えない、ビートに眠りへ落とされる／落ち続けても、6フィート下までは落ちない",
+      "jpn": "判断はつかない、ビートで眠りに落ちそうだ／落ち続けても、墓穴の深さまでは落ちない",
       "note": "fallin' を3回重ねて、眠りから墓までを一気に結ぶ2行です。",
       "body": [
         "<p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>1. I can't call it（判断がつかない）</p>",
@@ -282,7 +282,7 @@
         "<p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>2. fallin'（三段の言葉遊び）</p>",
         "fallin' asleep（眠りに落ちる）から、keep fallin'（落ち続ける）、そして never fallin' six feet deep（6フィートの深さまでは落ちない）へ。同じ動詞が3回出てきます。",
         "<strong class='text-[var(--c-text)]'>six feet deep</strong> は、棺を埋める深さとされる6フィート（約1.8メートル）のこと。six feet under と同じく「墓の下」を表します。",
-        "つまずいても、くたばりはしない。ビートに身を任せる話が、いつの間にか生き残りの話に変わっていて、初めて歌詞を追ったときにうなりました。"
+        "眠りに落ちる話で始まった2行が、終わりでは「死にはしない」という話になっています。"
       ],
       "usage": [
         "<strong class='text-[var(--c-text)]'>call it</strong>: <em>Heads or tails? Call it.</em>（表か裏か、言って）。ほかに <em>Let's call it a day.</em>（今日はここまで）も頻出です。"
@@ -305,12 +305,12 @@
       ],
       "t": 63,
       "eng": "I'm out for dead presidents to represent me",
-      "jpn": "俺は「死んだ大統領」を取りにいく、俺を代表させるために",
+      "jpn": "俺を語ってくれる金を、稼ぎにいく",
       "note": "Verse 1の締め。同じ形の行を3回重ね、3回目で dead が加わります。",
       "body": [
         "<strong class='text-[var(--c-text)]'>dead presidents</strong> は「紙幣、お札」を指すスラング。米ドル札には歴代大統領など、すでに亡くなった人物の肖像が刷られていることから来ています。",
         "行頭の <strong class='text-[var(--c-text)]'>I'm out for 〜</strong> は「〜を狙って出かける、〜を手に入れようとしている」。",
-        "後半の <strong class='text-[var(--c-text)]'>represent</strong> には「代表する」と「（地元や仲間を）背負って示す」の両方の意味があります。presidents（大統領）が represent（代表する）という語の並びは、選挙の話のようでいて、実はお金の話。",
+        "後半の <strong class='text-[var(--c-text)]'>represent</strong> には「代表する」と「（地元や仲間を）背負って示す」の両方の意味があります。presidents（大統領）が represent（代表する）という語の並びは、選挙の話のようでいて、実はお金の話。和訳では「俺を語ってくれる金」としました。",
         "この行は、2年後の1996年にJay-Zの「<a href='/songs/dead-presidents' class='underline'>Dead Presidents</a>」のフックとしてサンプリングされます。Nasの声が、別のラッパーの名刺代わりの曲に使われたわけです。"
       ],
       "usage": [
@@ -341,7 +341,7 @@
       "body": [
         "<p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>1. Ill Will（亡き親友）</p>",
         "<strong class='text-[var(--c-text)]'>Ill Will</strong> は、Nasの幼なじみで、同じ団地に住んでいた親友ウィリー・グラハムのあだ名です。1992年、まだ10代のうちにクイーンズブリッジで亡くなりました。",
-        "Nasはのちに自分のレーベルを Ill Will Records と名付けています。曲の真ん中でまっすぐ親友の名前を呼ぶこの行は、アルバム全体でもいちばん静かな瞬間の一つだと感じます。",
+        "Nasはのちに自分のレーベルを Ill Will Records と名付けています。",
         "<p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>2. my man と peoples</p>",
         "<strong class='text-[var(--c-text)]'>my man</strong> は「俺の相棒、ダチ」。2行目の <strong class='text-[var(--c-text)]'>peoples</strong> は、people にさらに s をつけた形で、AAVE（アフリカ系アメリカ人英語）では「自分の仲間たち、身内」を親しみを込めて呼ぶときに使います。",
         "God bless your life を2回繰り返して、ひとりへの祈りを地元全体へ広げています。"
@@ -651,7 +651,7 @@
       "body": [
         "前の行で、Nasは自分にまとわりつく <strong class='text-[var(--c-text)]'>black cloud</strong>（黒い雲）を、誰か別の人の方へ移ってほしいと言います。黒い雲が頭上についてくる、というのは英語で「不運や憂うつにつきまとわれる」ことの定番のたとえです。",
         "この行の <strong class='text-[var(--c-text)]'>it</strong> がその雲。雲が頭の上にある間は、暗すぎて <strong class='text-[var(--c-text)]'>tomorrow</strong>（明日）が見えない。",
-        "too 〜 to ... は「〜すぎて…できない」という中学の構文です。それが、未来が見えない若者の気持ちにそのまま使われていて、教科書の構文がこんなに重く響くのかと驚きました。"
+        "too 〜 to ... は「〜すぎて…できない」という中学の構文です。ここで見えなくなっているのは、tomorrow（明日）です。"
       ],
       "usage": [
         "<strong class='text-[var(--c-text)]'>a black cloud over one's head</strong>: <em>I've had a black cloud over my head all week.</em>（今週ずっとツイてない）。",
