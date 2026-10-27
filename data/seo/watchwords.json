@@ -1,1 +1,37 @@
-[]
+[
+  {
+    "keyword": "ヒップホップ 和訳",
+    "targetPage": "/",
+    "priority": "high"
+  },
+  {
+    "keyword": "ヒップホップ スラング 意味",
+    "targetPage": "/slang",
+    "priority": "high"
+  },
+  {
+    "keyword": "ヒップホップ スラング",
+    "targetPage": "/slang",
+    "priority": "high"
+  },
+  {
+    "keyword": "ヒップホップ 英語 スラング",
+    "targetPage": "/slang",
+    "priority": "medium"
+  },
+  {
+    "keyword": "AAVE とは",
+    "targetPage": "/columns/aave-hiphop-language",
+    "priority": "medium"
+  },
+  {
+    "keyword": "黒人英語 スラング",
+    "targetPage": "/slang",
+    "priority": "medium"
+  },
+  {
+    "keyword": "ラップ 歌詞 和訳",
+    "targetPage": "/",
+    "priority": "high"
+  }
+]
