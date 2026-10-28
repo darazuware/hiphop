@@ -1,0 +1,357 @@
+[
+  {
+    "id": "aint-hard-to-tell",
+    "anchor": [
+      "it",
+      "aint",
+      "hard",
+      "to",
+      "tell",
+      "i",
+      "excel"
+    ],
+    "fallbackT": 25,
+    "manualSec": null,
+    "captionSec": 25
+  },
+  {
+    "id": "mic-check",
+    "anchor": [
+      "my",
+      "mic",
+      "check",
+      "is",
+      "life",
+      "or",
+      "death"
+    ],
+    "fallbackT": 31,
+    "manualSec": null,
+    "captionSec": 31
+  },
+  {
+    "id": "the-shining",
+    "anchor": [
+      "deep",
+      "like",
+      "the",
+      "shining",
+      "sparkle",
+      "like",
+      "a",
+      "diamond"
+    ],
+    "fallbackT": 37,
+    "manualSec": null,
+    "captionSec": 37
+  },
+  {
+    "id": "comet",
+    "anchor": [
+      "hit",
+      "the",
+      "earth",
+      "like",
+      "a",
+      "comet"
+    ],
+    "fallbackT": 42,
+    "manualSec": null,
+    "captionSec": 42
+  },
+  {
+    "id": "afrocentric-asian",
+    "anchor": [
+      "nas",
+      "is",
+      "like",
+      "the",
+      "afrocentric",
+      "asian"
+    ],
+    "fallbackT": 44,
+    "manualSec": null,
+    "captionSec": 44
+  },
+  {
+    "id": "motrin",
+    "anchor": [
+      "delete",
+      "stress",
+      "like",
+      "motrin"
+    ],
+    "fallbackT": 47,
+    "manualSec": null,
+    "captionSec": 47
+  },
+  {
+    "id": "moet-medusa",
+    "anchor": [
+      "i",
+      "drink",
+      "moet",
+      "with",
+      "medusa"
+    ],
+    "fallbackT": 52,
+    "manualSec": null,
+    "captionSec": 52
+  },
+  {
+    "id": "hook-human-nature",
+    "anchor": [
+      "vocalization",
+      "over",
+      "hip",
+      "hop",
+      "beat"
+    ],
+    "fallbackT": 58,
+    "manualSec": null,
+    "captionSec": 58
+  },
+  {
+    "id": "aesop",
+    "anchor": [
+      "not",
+      "stories",
+      "by",
+      "aesop"
+    ],
+    "fallbackT": 80,
+    "manualSec": null,
+    "captionSec": 80
+  },
+  {
+    "id": "drop-a-jewel",
+    "anchor": [
+      "nas",
+      "i",
+      "analyze",
+      "drop",
+      "a",
+      "jew",
+      "el"
+    ],
+    "fallbackT": 84,
+    "manualSec": null,
+    "captionSec": 84
+  },
+  {
+    "id": "braille",
+    "anchor": [
+      "school",
+      "a",
+      "fool",
+      "well",
+      "you",
+      "feel",
+      "it",
+      "like",
+      "braille"
+    ],
+    "fallbackT": 87,
+    "manualSec": null,
+    "captionSec": 87
+  },
+  {
+    "id": "shaquille",
+    "anchor": [
+      "i",
+      "kick",
+      "a",
+      "skill",
+      "like",
+      "shaquille",
+      "holds",
+      "a",
+      "pill"
+    ],
+    "fallbackT": 90,
+    "manualSec": null,
+    "captionSec": 90
+  },
+  {
+    "id": "ill-plus-matic",
+    "anchor": [
+      "vocabulary",
+      "spills",
+      "im",
+      "ill",
+      "plus",
+      "matic"
+    ],
+    "fallbackT": 93,
+    "manualSec": null,
+    "captionSec": 93
+  },
+  {
+    "id": "iron-sheik",
+    "anchor": [
+      "i",
+      "freak",
+      "beats",
+      "slam",
+      "it",
+      "like",
+      "iron",
+      "sheik"
+    ],
+    "fallbackT": 95,
+    "manualSec": null,
+    "captionSec": 95
+  },
+  {
+    "id": "magmatize",
+    "anchor": [
+      "so",
+      "analyze",
+      "me",
+      "surprise",
+      "me"
+    ],
+    "fallbackT": 99,
+    "manualSec": null,
+    "captionSec": 99
+  },
+  {
+    "id": "rock-well",
+    "anchor": [
+      "nas",
+      "will",
+      "rock",
+      "well"
+    ],
+    "fallbackT": 108,
+    "manualSec": null,
+    "captionSec": 108
+  },
+  {
+    "id": "rhythmatic",
+    "anchor": [
+      "this",
+      "rhythmatic",
+      "explosion"
+    ],
+    "fallbackT": 130,
+    "manualSec": null,
+    "captionSec": 130
+  },
+  {
+    "id": "leviathan",
+    "anchor": [
+      "end",
+      "like",
+      "leviathan"
+    ],
+    "fallbackT": 137,
+    "manualSec": null,
+    "captionSec": 137
+  },
+  {
+    "id": "grapefruit",
+    "anchor": [
+      "wisdom",
+      "be",
+      "leakin",
+      "out",
+      "my",
+      "grapefruit"
+    ],
+    "fallbackT": 142,
+    "manualSec": null,
+    "captionSec": 142
+  },
+  {
+    "id": "break-loops",
+    "anchor": [
+      "i",
+      "dominate",
+      "break",
+      "loops"
+    ],
+    "fallbackT": 144,
+    "manualSec": null,
+    "captionSec": 144
+  },
+  {
+    "id": "streets-disciple",
+    "anchor": [
+      "streets",
+      "disciple",
+      "i",
+      "rock",
+      "beats"
+    ],
+    "fallbackT": 147,
+    "manualSec": null,
+    "captionSec": 147
+  },
+  {
+    "id": "villanova",
+    "anchor": [
+      "and",
+      "groove",
+      "even",
+      "smoother",
+      "than",
+      "moves",
+      "by",
+      "villanova"
+    ],
+    "fallbackT": 150,
+    "manualSec": null,
+    "captionSec": 150
+  },
+  {
+    "id": "sly-stone-cobra",
+    "anchor": [
+      "youre",
+      "still",
+      "a",
+      "soldier",
+      "im",
+      "like",
+      "sly",
+      "stone",
+      "in",
+      "cobra"
+    ],
+    "fallbackT": 152,
+    "manualSec": null,
+    "captionSec": 152
+  },
+  {
+    "id": "eavesdrop",
+    "anchor": [
+      "mcs",
+      "eavesdrop",
+      "though",
+      "they",
+      "need",
+      "not",
+      "to",
+      "sneak"
+    ],
+    "fallbackT": 158,
+    "manualSec": null,
+    "captionSec": 158
+  },
+  {
+    "id": "locked-in-a-cell",
+    "anchor": [
+      "nas",
+      "raps",
+      "should",
+      "be",
+      "locked",
+      "in",
+      "a",
+      "cell"
+    ],
+    "fallbackT": 163,
+    "manualSec": null,
+    "captionSec": 163
+  }
+]
