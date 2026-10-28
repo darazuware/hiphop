@@ -1,0 +1,752 @@
+---
+import LearningUnit from '../../components/LearningUnit.astro';
+import QuickSlang from '../../components/QuickSlang.astro';
+import SongLayout from '../../layouts/SongLayout.astro';
+
+import tsData from '../../../agent/juice-know-the-ledge/assets/units-timestamps.json';
+const YT = "OPkWYTUiPTo";
+const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.approx }]));
+---
+
+<SongLayout
+  title="Juice (Know the Ledge) 和訳・英語スラング解説 | Rakim"
+  description="Eric B. & Rakim「Juice (Know the Ledge)」（1992年・映画『Juice』）を英語学習向けに解説。Know the Ledge の意味（ledge と knowledge の掛け言葉）や juice、props、clout、peep など街ことばをPV頭出し付きで読み解きます。"
+  slug="juice-know-the-ledge"
+  learningPage={true}
+  songDuration={226}
+  highlights={[
+    'Know the Ledge は knowledge（知恵）と the ledge（崖っぷちの足場）の掛け言葉。バースの終わりごとに形を変えて戻ってくる',
+    'juice は果汁ではなく、街で一目置かれる力のこと。映画『Juice』のタイトルと同じ意味で使われる',
+    'Queens for queens、Strong Island など、NYの地名をひねった言葉遊びがVerse 1に詰まっている',
+  ]}
+  youtubeId="OPkWYTUiPTo"
+>
+
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■「Know the Ledge」はどういう意味か</h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          タイトルの Know the Ledge は、続けて読むと knowledge（ノレッジ、知恵・知識）とほとんど同じ音になります。
+        </p>
+        <p>
+          ledge は、建物の窓の外に張り出した細い出っ張りや、崖の途中の岩棚のこと。一歩踏み外せば落ちる、ぎりぎりの足場です。
+        </p>
+        <p>
+          各バースの終わりには too close to the edge（ふちに近づきすぎて）という句があり、そのすぐあとに know the ledge が来ます。edge（ふち）と ledge（足場）で韻を踏みながら、「おれは崖っぷちの歩き方を分かっているのか」と自分に問う形です。
+        </p>
+        <p>
+          なので Know the Ledge は、「知恵があるか」と「危ない足場の限界を知っているか」を一つの句に重ねたタイトル。和訳するなら「崖っぷちを知れ」と「知恵を持て」の二重読みになります。
+        </p>
+        <p>
+          バースの合間には、スクラッチされた Knowledge の一語が何度も差し込まれます。掛け言葉の答え合わせを、音でやってみせる作りです。
+        </p>
+      </div>
+    </section>
+
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■この曲で何を学べるか</h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          Eric B. & Rakimが、1992年1月公開の映画『Juice』のために作った一曲です。映画の舞台はニューヨークのハーレムで、曲の主人公も、街で名を上げたい若者として語られます。
+        </p>
+        <p>
+          英語の面では、juice、props、clout、peep、one deep といった90年代NYの街ことばが、短い行にぎっしり詰まっています。
+        </p>
+        <p>
+          Rakimは韻の置き方が細かいラッパーで、この曲でも1行の中に韻が2つ3つと重なります。単語の意味と音のつながりを一緒に追えるので、学習素材としてかなり手ごたえがある一曲だと思っています。
+        </p>
+      </div>
+    </section>
+
+    <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
+      <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
+        <li><a href="#story" class="hover:text-[var(--c-gold)] transition-colors">01 ストーリーの流れ（まず曲全体をつかむ）</a></li>
+        <li><a href="#units" class="hover:text-[var(--c-gold)] transition-colors">02 学ぶ表現（スラング・韻・言葉遊び・AAVE）</a></li>
+        <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">03 文化的背景</a></li>
+        <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">04 制作の裏側</a></li>
+        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">05 評価とその後</a></li>
+      </ol>
+    </nav>
+
+    <section id="story" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        ストーリーの流れ（まず曲全体をつかむ）
+      </h2>
+      <p class="text-xs text-[var(--c-dim)] mb-5">
+        4つのバースと、その合間に入る Knowledge のスクラッチでできた曲です。先に全体の流れをつかんでおきます。
+      </p>
+      <div class="space-y-4 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          主人公は、街での力（juice）を手に入れて名を上げようとする若者です。前半はNYの区を渡り歩いて顔を広げ、仲間を集め、評判を積み上げていきます。
+        </p>
+        <p>
+          後半になるほど危うい場面が増え、各バースの終わりで「崖っぷちを分かっているか」と自分に問い直します。最終バースは通学の朝から始まり、最後にその問いへの答えが出て終わります。
+        </p>
+        <p class="text-xs text-[var(--c-dim)]">
+          ※本ページは批評・教育目的で、解説に必要な範囲の断片のみを引用しています。全歌詞の対訳は掲載していません。
+        </p>
+      </div>
+    </section>
+
+    <div id="units"></div>
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        学ぶ表現（スラング・韻・言葉遊び・AAVE）
+      </h2>
+      <div class="space-y-3 text-xs text-[var(--c-dim)] mb-6">
+        <p>ここから先は、Verse 1 の頭から最終バースの終わりまで、出てくる順に表現を取り上げます。引用は解説に必要な1〜2行に絞っています。</p>
+        <p>原曲には荒っぽい描写の行も多くあります。このページではそうした行は引かず、ことばの学習に向く部分を中心に扱っています。</p>
+      </div>
+
+      <LearningUnit
+        heading="Sip the juice 力を「一口飲む」juice と enough to go around"
+        label="★ スラング"
+        mc="Rakim（Verse 1）"
+        t={TS["sip-the-juice"].t} tApprox={TS["sip-the-juice"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Sip the juice, I got enough to go around</Fragment>
+        <Fragment slot="jpn">この力を味わえよ、みんなに行き渡るくらいある</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 曲の1行目。タイトルの juice がいきなり出てきます。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>1. juice（影響力、顔の広さ）</p>
+        <p>行頭近くの <strong class='text-[var(--c-text)]'>juice</strong> は、ふつうなら果汁やジュースのこと。街のことばでは、人を動かせる影響力や、周りから一目置かれる力を指します。</p>
+        <p>映画『Juice』のタイトルも同じ意味です。sip（一口すする）と組み合わせて、力を飲み物のように差し出す言い方にしています。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>2. enough to go around（全員に行き渡る）</p>
+        <p>行末の <strong class='text-[var(--c-text)]'>enough to go around</strong> は「みんなに回るだけの量がある」という決まった言い回しです。おれの力は分けてやれるほどある、という余裕の一言で曲が始まります。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>have juice</strong>: <em>He's got a lot of juice in this town.</em>（この街では彼の顔が利く）</p>
+          <p><strong class='text-[var(--c-text)]'>go around</strong>: <em>There aren't enough chairs to go around.</em>（椅子が全員分ない）</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Uptown とハーレム takes place で舞台を示す"
+        label="★ 地名／熟語"
+        mc="Rakim（Verse 1）"
+        t={TS["uptown"].t} tApprox={TS["uptown"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">And the thought takes place Uptown</Fragment>
+        <Fragment slot="jpn">その考えが動き出すのはアップタウン</Fragment>
+        <p>行末の <strong class='text-[var(--c-text)]'>Uptown</strong> は、マンハッタンの北のほう、とくにハーレム周辺を指す呼び方です。映画『Juice』の舞台もハーレムで、PVでもRakimがハーレムの通りでラップしています。</p>
+        <p><strong class='text-[var(--c-text)]'>take place</strong> は「（出来事が）起こる、行われる」。主語が the thought（その考え）なので、話の出だしというより、頭の中の計画がアップタウンで動き出す感じに聞こえます。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>take place</strong>: <em>The festival takes place every August.</em>（その祭りは毎年8月に開かれる）</p>
+          <p>NYでは地図の北側を Uptown、南側を Downtown と呼び分けます。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="sidewalk と street talk 歩道で覚えた街のことば"
+        label="★ 韻"
+        mc="Rakim（Verse 1）"
+        t={TS["sidewalk-street-talk"].t} tApprox={TS["sidewalk-street-talk"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">I grew up on the sidewalk where I learned street talk</Fragment>
+        <Fragment slot="jpn">歩道で育って、そこで街のしゃべり方を覚えた</Fragment>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>1. street talk（街のことば）</p>
+        <p>行末の <strong class='text-[var(--c-text)]'>street talk</strong> は、学校では習わない街の言い回しやスラングのこと。この曲そのものが、Rakimが歩道で覚えたという street talk のかたまりになっています。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>2. -alk の連なり</p>
+        <p>行の中ほどの side<strong class='text-[var(--c-text)]'>walk</strong> と、行末の street <strong class='text-[var(--c-text)]'>talk</strong> が -alk で韻を踏みます。次の行でも同じ母音が続いて、New York の York までつながっていきます。</p>
+        <p><strong class='text-[var(--c-text)]'>grow up on</strong> は「〜で育つ」。on the sidewalk と組むと、家の中より外の歩道で育った、という子ども時代の景色になります。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>grow up on 〜</strong>: 場所だけでなく <em>I grew up on soul music.</em>（ソウルを聴いて育った）のように、育つ糧になったものにも使えます。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Queens for queens 区の名前と女の子を重ねる"
+        label="★ 言葉遊び／文法"
+        mc="Rakim（Verse 1）"
+        t={TS["queens-for-queens"].t} tApprox={TS["queens-for-queens"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">I go to Queens for queens, then get the crew from Brooklyn<br />Make money in Manhattan and never been tooken</Fragment>
+        <Fragment slot="jpn">クイーンズには女の子に会いに行き、ブルックリンで仲間を集める／マンハッタンで稼いで、出し抜かれたことは一度もない</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ ここから4行かけて、NYの区を順番に回っていきます。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>1. Queens と queens</p>
+        <p>1行目の前半で、区の名前の Queens と、女の子を指す <QuickSlang word='queens' desc='ここでは女の子、きれいな女性のこと。区の名前と同じ綴りを並べた言葉遊び' href='/slang/queen' /> を並べています。</p>
+        <p>クイーンズへはクイーンたちに会いに行く、の一言で、地名が別の意味に化けます。</p>
+        <p>後半の <QuickSlang word='crew' desc='いつもつるむ仲間、チーム。ここではブルックリンで集める手勢' href='/slang/crew' /> は、いつも一緒に動く仲間のこと。</p>
+        <p>区ごとに「ここでは何をするか」を割り振っていく流れです。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>2. never been tooken（崩した過去分詞）</p>
+        <p>2行目の行末 <strong class='text-[var(--c-text)]'>tooken</strong> は、標準英語なら taken。take の過去分詞を、口語で作り直した形です。</p>
+        <p>Brooklyn と tooken で音をそろえるために、この形を選んでいるのが面白いところ。been taken で「だまされる、出し抜かれる」の意味になります。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>get taken</strong>: <em>I got taken by that salesman.</em>（あのセールスマンにだまされた）のように、受け身で「だまされる」の意味になります。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Boogie Down と Strong Island 地名のあだ名"
+        label="★ 地名"
+        mc="Rakim（Verse 1）"
+        t={TS["boogie-down-strong-island"].t} tApprox={TS["boogie-down-strong-island"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Go Uptown in The Bronx to Boogie Down<br />Get Strong on the Island, recoup and lay around</Fragment>
+        <Fragment slot="jpn">北のブロンクス、ブギー・ダウンまで足をのばす／アイランドで力をつけ直して、取り戻したらのんびりする</Fragment>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>1. Boogie Down（ブロンクスの愛称）</p>
+        <p>1行目の行末 <strong class='text-[var(--c-text)]'>Boogie Down</strong> は、ブロンクスの愛称 Boogie Down Bronx から来ています。ヒップホップが生まれた区として知られ、KRS-Oneのグループ名 Boogie Down Productions にもこの呼び名が入っています。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>2. Strong Island（ロングアイランド）</p>
+        <p>2行目の <strong class='text-[var(--c-text)]'>Strong on the Island</strong> は、ロングアイランドのあだ名 Strong Island を割って使っています。Long を Strong に替えた呼び名で、Rakim自身がロングアイランドのワイアンダンチ育ちです。</p>
+        <p>地元で力（strong）をつけ直す、という意味と地名が一緒に響く一行。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>3. recoup（取り戻す）</p>
+        <p><strong class='text-[var(--c-text)]'>recoup</strong> は、損した分やお金を「取り戻す、回収する」という動詞です。lay around（ごろごろする）と並べて、地元でひと息つく流れになっています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>recoup</strong>: <em>It took a year to recoup the cost.</em>（費用を回収するのに1年かかった）</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="build my juice back up と props 評判を積み直す"
+        label="★ スラング"
+        mc="Rakim（Verse 1）"
+        t={TS["build-juice-props"].t} tApprox={TS["build-juice-props"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Time to build my juice back up<br />Props stack up</Fragment>
+        <Fragment slot="jpn">また力を積み直す時だ／評判が積み上がっていく</Fragment>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>1. build 〜 back up（立て直す）</p>
+        <p>1行目の <strong class='text-[var(--c-text)]'>build my juice back up</strong> は、いったん落ちた影響力を「もう一度積み上げる」。build up に back（元へ）が入って、立て直す意味になります。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>2. props と stack up</p>
+        <p>2行目の頭の <QuickSlang word='props' desc='周りから寄せられる敬意や称賛。ここでは街での評判が次々に集まってくる様子' href='/slang/props' /> は、敬意や「よくやった」という称賛のことです。</p>
+        <p>そこへ <QuickSlang word='stack' desc='積み重ねること。ここでは props が札束のように重なっていく' href='/slang/stack' /> up（積み上がる）を続けて、評判が束になって重なっていく絵にしています。</p>
+        <p>juice を立て直せば props もついてくる、という順番です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>props to 〜</strong>: <em>Props to the whole team.</em>（チームのみんなに拍手）のように、称賛や感謝を言うときの定番です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Don't doubt the clout 影響力を疑うな"
+        label="★ スラング／韻"
+        mc="Rakim（Verse 1）"
+        t={TS["doubt-the-clout"].t} tApprox={TS["doubt-the-clout"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Don't doubt the clout, you know what I'm about</Fragment>
+        <Fragment slot="jpn">この影響力を疑うな、おれがどういう人間か分かってるだろ</Fragment>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>1. clout（影響力）</p>
+        <p>行の前半の <QuickSlang word='clout' desc='人や物事を動かす力。ここでは juice とほぼ同じ方向で、街で一目置かれる重み' href='/slang/clout' /> は、人や物事を動かす力、影響力のこと。</p>
+        <p>いまはSNSで注目を集める意味でもよく見かけますが、ここでは juice と同じく、街での重みを指しています。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>2. doubt / clout / about</p>
+        <p>doubt、clout、about と、-out の音が1行に3つ並びます。doubt の b は発音しないので、耳で聞くと3つがきれいにそろいます。</p>
+        <p>後半の <strong class='text-[var(--c-text)]'>what I'm about</strong> は「おれが何を大事にしている人間か」。what 〜 is about で、その人や物事の中身、本質を表します。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>what 〜 is about</strong>: <em>That's what this club is about.</em>（それがこのクラブらしさだ）</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="rakin' 'em up 名前をしのばせる -in' 'em up の4連"
+        label="★ 韻／言葉遊び"
+        mc="Rakim（Verse 1）"
+        t={TS["rakin-em-up"].t} tApprox={TS["rakin-em-up"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Shakin' 'em up, wakin' 'em up<br />Breakin' 'em up, rakin' 'em up</Fragment>
+        <Fragment slot="jpn">揺さぶって、目を覚まさせる／ばらばらにして、かき集める</Fragment>
+        <p>2行にわたって <strong class='text-[var(--c-text)]'>-in' 'em up</strong> が4回続きます。shakin'、wakin'、breakin'、rakin' と、動詞の頭だけを入れ替えて同じ形を並べる作りです。</p>
+        <p>'em は them の口語の縮め。動詞の -ing を -in' と落とす発音と合わせて、早口でも転がるように聞こえます。</p>
+        <p>最後の <strong class='text-[var(--c-text)]'>rakin'</strong>（rake＝熊手でかき集める）は、Rakim という名前とほとんど同じ音。並べた動詞の締めに、自分の名前をしのばせているように聞こえます。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>shake 〜 up</strong>: <em>The news shook everyone up.</em>（その知らせにみんな動揺した）</p>
+          <p><strong class='text-[var(--c-text)]'>rake in</strong>: <em>They raked in a fortune.</em>（大もうけした）のように、お金をがっぽり稼ぐ意味でも使います。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Let's see if I know the ledge タイトルの意味が出てくる2行"
+        label="★ タイトル／掛け言葉"
+        mc="Rakim（Verse 1）"
+        t={TS["know-the-ledge"].t} tApprox={TS["know-the-ledge"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Standin' on shaky ground too close to the edge<br />Let's see if I know the ledge</Fragment>
+        <Fragment slot="jpn">崩れかけの地面に立って、ふちに近づきすぎてる／さて、おれは崖っぷちを分かってるのか</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の締め。ここでタイトルが初めて歌われます。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>1. edge と ledge</p>
+        <p>1行目の行末 <strong class='text-[var(--c-text)]'>edge</strong> は「ふち、端」。too close to the edge で「ふちに近づきすぎている」、つまり一歩間違えば落ちる危うさを言っています。</p>
+        <p>2行目の行末 <strong class='text-[var(--c-text)]'>ledge</strong> は、建物の窓の外や崖に張り出した、細い出っ張りのこと。edge と ledge で韻を踏みつつ、話が「端っこ」から「そこにある足場」へ移ります。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>2. know the ledge と knowledge</p>
+        <p>know the ledge を続けて発音すると、knowledge（知識、知恵）とほぼ同じ音です。「崖っぷちの足場を分かっているか」と「知恵があるか」が、ひとつの句に重なっています。</p>
+        <p><strong class='text-[var(--c-text)]'>Let's see if 〜</strong> は「〜かどうか見てみよう」。言い切らずに、自分を試すような口ぶりになっているのがポイントです。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>3. on shaky ground（不安定な立場）</p>
+        <p><strong class='text-[var(--c-text)]'>on shaky ground</strong> は、揺れる地面の上、つまり「立場や根拠が危うい」というイディオムです。英語のニュースでも、主張の弱さを言うときによく出てきます。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>on shaky ground</strong>: <em>His plan is on shaky ground.</em>（彼の計画は足元が危うい）</p>
+          <p><strong class='text-[var(--c-text)]'>on the edge</strong>: <em>a life on the edge</em> で「危ない橋を渡る暮らし」。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Knowledge スクラッチで差し込まれる一語"
+        label="★ フック"
+        mc="Break（スクラッチ）"
+        t={TS["knowledge-scratch"].t} tApprox={TS["knowledge-scratch"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Knowledge</Fragment>
+        <Fragment slot="jpn">知恵</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 各バースのあとに入る、スクラッチの一語です。</p>
+        <p>バースが終わるたびに、<strong class='text-[var(--c-text)]'>Knowledge</strong> という一語がレコードのスクラッチで繰り返されます。直前の know the ledge を、正しい綴りで言い直すような置き方です。</p>
+        <p>knowledge の頭の k は発音しません。know と同じく黙字（書くけれど読まない文字）で、だからこそ know the ledge と同じ音に聞こえます。</p>
+        <p>Rakimはネーション・オブ・ゴッズ・アンド・アーシズ（ファイブ・パーセント・ネーション）のメンバーで、その教えの Supreme Mathematics（数字に意味を当てる考え方）では、1が Knowledge にあたります。この一語を曲の芯に置いた背景として、知っておくと面白いと思います。</p>
+        <p>スクラッチの声をどのレコードから取ったかは、確認できていません。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>to my knowledge</strong>: <em>To my knowledge, the shop is closed today.</em>（私の知る限り、店は今日休み）</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="triflin' と shorty 街角の空気が変わる一行"
+        label="★ スラング／縮約"
+        mc="Rakim（Verse 2）"
+        t={TS["triflin-shorty"].t} tApprox={TS["triflin-shorty"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Corner's triflin' 'cause shorty's here</Fragment>
+        <Fragment slot="jpn">あの子が来てるから、街角の連中が浮ついてる</Fragment>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>1. triflin'（いいかげん、浮ついた）</p>
+        <p><strong class='text-[var(--c-text)]'>triflin'</strong> は trifling（取るに足らない）の口語形。AAVE（アフリカ系アメリカ人の英語）では、人に対して「いいかげん、信用できない、ちゃらついてる」の意味でよく使われます。</p>
+        <p>ここでは主語が Corner（街角）なので、街角にたむろする連中ごと浮ついている様子です。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>2. shorty と 's の縮約</p>
+        <p>行末の <QuickSlang word='shorty' desc='ここでは若い女の子のこと。その子が来たせいで街角が落ち着かなくなる' href='/slang/shorty' /> は、背の低い人というより、若い女の子や年下の相手を指す呼び方です。</p>
+        <p>shorty's は shorty is、Corner's も Corner is の縮約。be動詞を 's に縮めた形が、短い1行に2回出てきます。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>triflin'</strong>: <em>Don't be triflin'.</em>（いいかげんなことするなよ）のように、相手の態度をとがめるときに使います。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="亡くなった仲間への一口 sip がもう一度出てくる"
+        label="★ 文化"
+        mc="Rakim（Verse 2）"
+        t={TS["sip-for-the-crew"].t} tApprox={TS["sip-for-the-crew"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の前半、仲間をしのぶ一行。ここは行を引かず、語と習慣だけ取り上げます。</p>
+        <p>Verse 2の3行目で、Rakimは亡くなった <QuickSlang word='crew' desc='ここでは先に逝った仲間たち。Verse 1でブルックリンから集めた crew と同じ語' href='/slang/crew' /> のために一口（sip）を捧げます。</p>
+        <p>曲の頭の Sip the juice と同じ sip が、ここでは追悼の意味で戻ってきます。</p>
+        <p>飲み物の最初の一口を地面にこぼして、亡くなった人に分ける習慣は、英語で pour one out（一杯こぼす）と呼ばれます。ヒップホップの歌詞やPVで何度も描かれてきた場面です。</p>
+        <p><strong class='text-[var(--c-text)]'>deceased</strong> は「亡くなった」の改まった言い方。書類や報道で使われる硬めの語で、口語だらけの歌詞の中では少し浮いて聞こえます。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>the deceased</strong>: the を付けて「故人」。<em>the family of the deceased</em>（故人の遺族）のように使います。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="on P's と Hercules 気を抜かない言い方と韻"
+        label="★ スラング／韻"
+        mc="Rakim（Verse 2）"
+        t={TS["on-ps-hercules"].t} tApprox={TS["on-ps-hercules"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Stay alert and on P's<br />And I do work with these like Hercules</Fragment>
+        <Fragment slot="jpn">気を抜かず、抜かりなく／こいつでヘラクレスみたいにひと仕事やってのける</Fragment>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>1. on P's（抜かりなく）</p>
+        <p>1行目の <strong class='text-[var(--c-text)]'>on P's</strong> は、直前の stay alert（油断しない）と並べて、「抜かりなく構えている」という意味で使われています。</p>
+        <p>英語には mind your P's and Q's（言動に気をつけろ）という古い言い回しがあり、その P's と同じ形です。この P が何の頭文字なのかは、確認できていません。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>2. P's と Hercules</p>
+        <p>行末の P's（ピーズ）と、次の行末の Hercules（ハーキュリーズ）が、-eez の音で韻を踏みます。ギリシャ神話の怪力の英雄ヘラクレスは、英語では Hercules と書いてハーキュリーズと読みます。</p>
+        <p><strong class='text-[var(--c-text)]'>do work</strong> は口語で「きっちり仕事をこなす、やってのける」。冠詞も目的語も付けずに言い切るのが、街ことばらしい形です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>mind your P's and Q's</strong>: 「言葉づかいや行儀に気をつけなさい」という、子どもへの注意でよく聞く言い回しです。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="hype when night fall 三単現の s が落ちる形"
+        label="★ AAVE文法"
+        mc="Rakim（Verse 2）"
+        t={TS["hype-night-fall"].t} tApprox={TS["hype-night-fall"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">'Cause I don't like y'all, I'm hype when night fall<br />Smooth, but I move like an army</Fragment>
+        <Fragment slot="jpn">お前らが気に食わないし、夜になると気分が上がる／物腰は静か、でも動くときは軍隊なみ</Fragment>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>1. night fall（三単現の s の脱落）</p>
+        <p>1行目の行末は、標準英語なら when night falls。主語の night は三人称単数なので s が付くはずのところを、付けずに言っています。</p>
+        <p>AAVEでは、こうした三単現の -s が落ちる形がよく出てきます。ここでは y'all と night fall の音をそろえるのにも効いています。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>2. hype（気分が高ぶる）</p>
+        <p><QuickSlang word='hype' desc='ここでは気分が高ぶって勢いづいている状態。夜になるとスイッチが入る、という言い方' href='/slang/hype' /> は、名詞なら「あおり、宣伝」ですが、形容詞だと「興奮している、テンションが高い」。</p>
+        <p>I'm hype で「アガってる」です。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>3. Smooth, but 〜（反対の顔を並べる）</p>
+        <p>2行目の <strong class='text-[var(--c-text)]'>Smooth</strong> は、ふるまいが落ち着いていて角がないこと。but のあとで、いざ動くと大勢がまとめて動くような迫力がある、と反対の顔を並べています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>y'all</strong>: you all の縮約で「あんたたち」。南部やAAVEで広く使われ、いまは全米の会話に出てきます。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Pacino みたいに chill 映画スターで自分を語る"
+        label="★ 固有名詞"
+        mc="Rakim（Verse 2）"
+        t={TS["chill-like-pacino"].t} tApprox={TS["chill-like-pacino"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の終盤。ここは行を引かず、名前と語だけ取り上げます。</p>
+        <p>Verse 2の終わり近くで、Rakimは俳優アル・パチーノの名前を出し、<QuickSlang word='chill' desc='ここでは慌てず落ち着き払っていること。パチーノの抑えた芝居に重ねている' href='/slang/chill' /> like Pacino（パチーノみたいに落ち着いて構える）と言います。</p>
+        <p>同じ行には、パチーノと並ぶNY生まれの俳優ロバート・デ・ニーロの名前も出てきます。Pacino と De Niro の語尾 -no と -ro をそろえた韻で、2人の名前がそのまま押韻の材料になっています。</p>
+        <p><strong class='text-[var(--c-text)]'>chill</strong> は「冷える」から転じて「落ち着く、くつろぐ」。友だち同士の会話で一番よく出る語のひとつです。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>chill out</strong>: <em>Just chill out for a minute.</em>（ちょっと落ち着けって）</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="put shame in my game と make a name"
+        label="★ 韻／イディオム"
+        mc="Rakim（Verse 3）"
+        t={TS["shame-in-my-game"].t} tApprox={TS["shame-in-my-game"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Try to put shame in my game to make a name</Fragment>
+        <Fragment slot="jpn">おれのやり方に泥を塗って、名を上げようとしてくる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3は荒い描写が多いパートです。ここから先は、そうした行を飛ばしてことばを拾います。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>1. shame / game / name</p>
+        <p>1行の中に shame、game、name と -ame の音が3つ。行の中で韻を重ねていく、Rakimの得意な形です。</p>
+        <p><strong class='text-[var(--c-text)]'>game</strong> はここでは遊びではなく、その人のやり方、世渡りの腕前のこと。put shame in 〜 で「〜に恥をかかせる、泥を塗る」です。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>2. make a name（名を上げる）</p>
+        <p>行末の <strong class='text-[var(--c-text)]'>make a name</strong> は make a name for oneself の短い形で、「名を上げる、有名になる」。相手はおれを踏み台にして名を売ろうとしている、という状況です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>make a name for oneself</strong>: <em>She made a name for herself as a designer.</em>（彼女はデザイナーとして名を上げた）</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="paid my dues と welcome mat 下積みと歓迎"
+        label="★ イディオム"
+        mc="Rakim（Verse 3）"
+        t={TS["paid-my-dues"].t} tApprox={TS["paid-my-dues"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">I paid my dues, paid the cost<br />And my pockets are still fat</Fragment>
+        <Fragment slot="jpn">下積みはしてきた、代償も払った／それでもポケットはまだ膨らんでる</Fragment>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>1. pay one's dues（下積みをする）</p>
+        <p>1行目の <strong class='text-[var(--c-text)]'>paid my dues</strong> は、会費（dues）を払うことから転じて、「下積みの苦労をしてきた」という意味のイディオムです。paid the cost と重ねて、払うべきものは払った、と念を押しています。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>2. pockets are fat（金がある）</p>
+        <p>2行目の <strong class='text-[var(--c-text)]'>pockets are still fat</strong> は、ポケットが太っている、つまり「金を持っている」。財布が厚い、と同じ発想の言い方です。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>3. the welcome mat（歓迎）</p>
+        <p>続く行の行末には <strong class='text-[var(--c-text)]'>welcome mat</strong>（玄関マット）が出てきます。get the welcome mat で、どこへ行っても玄関にマットを敷いて迎えられる、つまり「歓迎される」。</p>
+        <p>fat、at、mat と -at の韻も続きます。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>pay your dues</strong>: <em>Every rookie has to pay their dues.</em>（新人はみんな下積みを経験する）</p>
+          <p><strong class='text-[var(--c-text)]'>roll out the welcome mat</strong>: 「（客を）大歓迎する」。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="one deep と peep 一人でも人目を引く"
+        label="★ スラング"
+        mc="Rakim（Verse 3）"
+        t={TS["one-deep-peep"].t} tApprox={TS["one-deep-peep"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Even if my crew is steep, I'm one deep<br />I attract attention, people like to peep</Fragment>
+        <Fragment slot="jpn">仲間がどれだけ多くても、おれは一人で動く／人目を引くから、みんなこっちをのぞきたがる</Fragment>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>1. one deep（一人で）</p>
+        <p>1行目の行末 <strong class='text-[var(--c-text)]'>one deep</strong> は「一人で、連れなしで」。deep は人数を表す口語で、five deep なら「5人で」です。</p>
+        <p>前半の <strong class='text-[var(--c-text)]'>steep</strong>（急な、法外な）は、ここでは仲間の人数が多いことを言っていて、steep と deep で韻がそろいます。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>2. peep（のぞく、見る）</p>
+        <p>2行目の行末 <strong class='text-[var(--c-text)]'>peep</strong> は「のぞき見る、ちらっと見る」。口語では Peep this.（これ見てみ）のように、ただ「見る」の意味でも使います。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>3. say hi to the bad guy</p>
+        <p>次の行の <strong class='text-[var(--c-text)]'>bad guy</strong> は、映画でいう「悪役」。悪役にあいさつしに来いよ、と自分を悪役として名乗る、芝居がかった一言です。</p>
+        <p>hi と guy の韻も入っています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>〜 deep</strong>: <em>We rolled up ten deep.</em>（10人で乗りつけた）のように、数字＋deep で人数を言います。</p>
+          <p><strong class='text-[var(--c-text)]'>peep</strong>: <em>Did you peep his new shoes?</em>（あいつの新しい靴、見た？）</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="loose / troops / juice 3回目の juice"
+        label="★ 韻"
+        mc="Rakim（Verse 3）"
+        t={TS["loose-troops-juice"].t} tApprox={TS["loose-troops-juice"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">'Cause I get loose, and I got troops, and crazy juice</Fragment>
+        <Fragment slot="jpn">おれは羽目を外すし、ついてくる連中もいるし、とんでもない影響力もある</Fragment>
+        <p>1行に loose、troops、juice と、-oo の音が3つ並びます。最後の <strong class='text-[var(--c-text)]'>juice</strong> は、曲の1行目から数えて3回目の登場です。</p>
+        <p><strong class='text-[var(--c-text)]'>get loose</strong> は「解き放たれる、羽目を外す」。ダンスの場面なら「ノッてくる」の意味でも使います。</p>
+        <p><strong class='text-[var(--c-text)]'>troops</strong> は本来は軍の部隊のことですが、ここでは自分についてくる仲間たちを大げさに言った形。crazy juice（とんでもない影響力）まで、手持ちの力を並べ立てています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>get loose</strong>: <em>Everybody got loose on the dance floor.</em>（フロアでみんなはじけた）</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="cook beef 揉めごとを「料理する」"
+        label="★ スラング"
+        mc="Rakim（Verse 3）"
+        t={TS["cook-beef"].t} tApprox={TS["cook-beef"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3の終盤。ここは行を引かず、語だけ取り上げます。</p>
+        <p><QuickSlang word='beef' desc='ここでは人との揉めごと、因縁。cook（料理する）と smoke（煙）を一緒に出して、牛肉の料理に見立てている' href='/slang/beef' /> は牛肉のことですが、ラップでは「揉めごと、因縁、対立」を指す定番のスラングです。</p>
+        <p>Verse 3の終わり近くで、Rakimはこの beef に cook（料理する）を付け、さらに smoke（煙）がいつまでも晴れない、と続けます。牛肉を焼けば煙が出る、という台所の連想で、揉めごとがいつまでも尾を引く様子を描いています。</p>
+        <p><strong class='text-[var(--c-text)]'>the smoke clears</strong> は「騒ぎが収まって状況が見えてくる」というイディオム。それが never clear なので、片がつかないまま続く、という意味になります。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>have beef with 〜</strong>: <em>I don't have beef with anyone.</em>（誰とも揉めてない）</p>
+          <p><strong class='text-[var(--c-text)]'>when the smoke clears</strong>: 「ほとぼりが冷めたら、事態が落ち着いたら」。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Hopin' that I know the ledge 問いかけが「願い」に変わる"
+        label="★ タイトル／変化"
+        mc="Rakim（Verse 3）"
+        t={TS["hopin-know-ledge"].t} tApprox={TS["hopin-know-ledge"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Livin' life too close to the edge<br />Hopin' that I know the ledge</Fragment>
+        <Fragment slot="jpn">ふちに近すぎる暮らしを続けて／崖っぷちを分かってると願うだけ</Fragment>
+        <p>Verse 1の終わりは Let's see if I know the ledge（分かってるか見てみよう）でした。Verse 2もほぼ同じ形で、地面の言い方だけ shaky grounds と複数形に変わります。</p>
+        <p>それがVerse 3では <strong class='text-[var(--c-text)]'>Hopin' that</strong>（〜だといいが）に変わります。試してみる余裕のある言い方から、そうであってほしいと願う言い方へ。</p>
+        <p>主人公の足場が、一段と危うくなっています。</p>
+        <p>1行目の <strong class='text-[var(--c-text)]'>Livin' life</strong> も、Verse 2の Livin' on 〜 より、生き方そのものを指す言い方です。too close to the edge は毎回同じなのに、前後の言葉が少しずつずれていきます。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>hope that 〜</strong>: <em>I hope that it works out.</em>（うまくいくといいけど）。主語を省いて Hopin' that 〜 と言うのは口語的な形です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="A brand new morn' 通学の朝に切り替わる"
+        label="★ 韻"
+        mc="Rakim（Verse 4）"
+        t={TS["brand-new-morn"].t} tApprox={TS["brand-new-morn"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">A brand new morn', no time to yawn<br />Shower's on, power's on</Fragment>
+        <Fragment slot="jpn">まっさらな朝、あくびしてる暇はない／シャワーを浴びて、スイッチも入った</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 最終バースは、学校へ向かう朝から始まります。</p>
+        <p>最終バースは、いきなり朝の場面から始まります。<strong class='text-[var(--c-text)]'>morn'</strong> は morning の語尾を落とした形で、yawn（あくび）と音をそろえています。</p>
+        <p>2行目は Shower's on（シャワーが出てる）と power's on（電源が入った）。-ower's on をぴったり重ねた、短くて覚えやすい対句です。</p>
+        <p>Verse 3までの重い空気から急に生活の音に切り替わり、曲の時間が一度巻き戻ったような作りになっています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>brand new</strong>: 「真新しい」。<em>a brand new start</em>（まっさらな再出発）のように使います。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="'stile と push up 駅の改札で始まる口説き"
+        label="★ スラング／言葉遊び"
+        mc="Rakim（Verse 4）"
+        t={TS["turnstile-push-up"].t} tApprox={TS["turnstile-push-up"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Girls hit the 'stile and whisper my name<br />I push up like an exercise</Fragment>
+        <Fragment slot="jpn">女の子たちが改札を抜けながら、おれの名前をささやく／腕立てみたいに、ぐっと距離を詰める</Fragment>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>1. 'stile（改札）</p>
+        <p>1行目の <strong class='text-[var(--c-text)]'>'stile</strong> は turnstile（回転式の改札バー）の頭を落とした形です。直前の行で遅刻しそうになって電車に乗っていて、地下鉄の改札を女の子たちが通り抜けていく場面になります。</p>
+        <p>train と name の韻も、この短い場面にそろっています。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>2. push up（言い寄る）</p>
+        <p>2行目の <strong class='text-[var(--c-text)]'>push up</strong> は、口語で「気になる相手に近づいて声をかける、言い寄る」。それを like an exercise（運動みたいに）と続けて、腕立て伏せの push-up と掛けています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>push up on 〜</strong>: <em>He pushed up on her at the party.</em>（パーティーで彼女に声をかけた）</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="résumé と she know 経歴書を読み上げる"
+        label="★ AAVE文法"
+        mc="Rakim（Verse 4）"
+        t={TS["resume-after-school"].t} tApprox={TS["resume-after-school"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Read her my résumé — she know already? Cool<br />Just meet me after school</Fragment>
+        <Fragment slot="jpn">おれの経歴を読み上げる。もう知ってる？ならいい／じゃあ放課後に会おう</Fragment>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>1. résumé（経歴書）</p>
+        <p>1行目の <strong class='text-[var(--c-text)]'>résumé</strong> は、就職のときに出す履歴書、職務経歴書のこと。口説き文句として自分の実績を履歴書のように読み上げる、という少しおかしな比喩です。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>2. she know（三単現の s の脱落）</p>
+        <p>同じ行の <strong class='text-[var(--c-text)]'>she know already?</strong> は、標準英語なら She knows already? 。Verse 2の night fall と同じく、三単現の -s が落ちた形です。</p>
+        <p>疑問文なのに語順を変えず、語尾を上げるだけで問いにしているところも会話らしい作り。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>3. Cool と school</p>
+        <p>行末の Cool と、次の行末の school で韻。meet me after school（放課後に会おう）は、教科書にそのまま載っていそうな一文です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>résumé</strong>: アメリカ英語の言い方。イギリスでは CV（curriculum vitae）と呼ぶのがふつうです。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Sweatin' me と sip the juice 1行目の句が戻ってくる"
+        label="★ スラング"
+        mc="Rakim（Verse 4）"
+        t={TS["sweatin-sip-juice"].t} tApprox={TS["sweatin-sip-juice"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Sweatin' me, she didn't want to let me loose<br />Come get me, that's if you want to sip the juice</Fragment>
+        <Fragment slot="jpn">あの子はおれにまとわりついて、離そうとしなかった／迎えに来いよ、この力を味わいたいならな</Fragment>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>1. sweat（しつこく付きまとう）</p>
+        <p>1行目の <strong class='text-[var(--c-text)]'>Sweatin' me</strong> は、汗をかく sweat を他動詞にして「（人に）しつこく付きまとう、せまる」。</p>
+        <p>let me loose は「おれを放す」。Verse 3の get loose と同じ loose が、ここでは束縛から解く意味で出てきます。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>2. sip the juice（曲頭への回帰）</p>
+        <p>2行目の行末で、曲の1行目と同じ <strong class='text-[var(--c-text)]'>sip the juice</strong> が戻ってきます。最初は「みんなに回るだけある」と配っていた juice を、ここでは「味わいたいなら来い」と相手に差し出す形です。</p>
+        <p>曲のはじまりの一句を最終バースで回収して、物語は結末へ向かいます。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>sweat 〜</strong>: <em>Quit sweatin' me about the rent.</em>（家賃のことでせっつくなよ）</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="I guess I didn't know the ledge 最後に出る答え"
+        label="★ タイトル／結末"
+        mc="Rakim（Verse 4）"
+        t={TS["didnt-know-ledge"].t} tApprox={TS["didnt-know-ledge"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">I guess I didn't know the ledge</Fragment>
+        <Fragment slot="jpn">どうやら、崖っぷちを分かってなかったらしい</Fragment>
+        <p>4つのバースを通して形を変えてきた know the ledge の句は、最後に <strong class='text-[var(--c-text)]'>I guess I didn't know</strong>（どうやら分かっていなかった）で終わります。</p>
+        <p>Let's see if（試してみよう）、Hopin' that（〜だといいが）、I guess I didn't（分かっていなかったらしい）と、確信が少しずつ崩れていく流れ。主人公は最後に足場を失い、物語はそこで幕を閉じます。</p>
+        <p><strong class='text-[var(--c-text)]'>I guess</strong> は「たぶん、どうやら」。自分のことなのに、どこか他人事のように振り返る言い方で、締めの一行がかえって静かに響きます。</p>
+        <p>直後にもう一度、スクラッチの Knowledge が入ります。知恵があれば足場を見誤らなかった、という含みを、タイトルの掛け言葉がそのまま背負っています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>I guess 〜</strong>: <em>I guess I was wrong.</em>（どうやら間違ってたみたいだ）</p>
+        </Fragment>
+      </LearningUnit>
+    </section>
+
+    <section id="background" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        文化的背景
+      </h2>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">映画『Juice』</p>
+        <h3 class="font-semibold text-base mb-3">1992年、ハーレムの若者4人を描いた映画</h3>
+        <div class="space-y-3 text-[var(--c-muted)] text-sm leading-relaxed">
+          <p>
+            『Juice』は1992年1月17日にアメリカで公開された映画です。監督の Ernest R. Dickerson は、Spike Lee作品の撮影監督として知られた人で、これが長編の監督デビュー作でした。
+          </p>
+          <p>
+            ハーレムで育った10代の4人の友情が、ある事件をきっかけに崩れていく話で、Omar Epps と 2Pac（Tupac Shakur）にとっては初期の出演作のひとつです。
+          </p>
+          <p>
+            作中にも you got the juice now（もう力を手にしたな）というせりふが出てきます。曲のタイトルの juice も、この「一目置かれる力」の意味を受けています。
+          </p>
+        </div>
+      </div>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">Eric B. & Rakim</p>
+        <h3 class="font-semibold text-base mb-3">ロングアイランド育ちのRakimと、NYの区めぐり</h3>
+        <div class="space-y-3 text-[var(--c-muted)] text-sm leading-relaxed">
+          <p>
+            Eric B. & Rakimは、DJのEric B.とラッパーのRakimによるデュオです。Rakimはロングアイランドのワイアンダンチで育ちました。
+          </p>
+          <p>
+            Verse 1で Queens、Brooklyn、Manhattan、The Bronx、そして Strong Island と地名を順に並べるくだりは、NYの土地勘があると一気に面白くなるところ。ロングアイランドはNY市の5区には入りませんが、Rakimにとっては地元です。
+          </p>
+          <p>
+            Rakimはネーション・オブ・ゴッズ・アンド・アーシズのメンバーで、Rakim という名前もその流れで名乗るようになったアラビア語の名前です。Knowledge の一語を繰り返す作りには、こうした背景も重なっています。
+          </p>
+        </div>
+      </div>
+
+      <div class="p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">キーワード早見表</p>
+        <h3 class="font-semibold text-base mb-3">この曲で学んだ表現の整理</h3>
+        <div class="space-y-3 mt-3">
+          {[
+            ['Know the Ledge', 'knowledge（知恵）と the ledge（崖っぷちの足場）の掛け言葉'],
+            ['juice', '街で一目置かれる力、影響力。映画『Juice』のタイトルと同じ意味'],
+            ['enough to go around', '全員に行き渡るだけある'],
+            ['Uptown', 'マンハッタン北部、とくにハーレム周辺'],
+            ['street talk', '街のことば、スラング'],
+            ['Queens / queens', '区の名前と、女の子を指す queens の掛け言葉'],
+            ['tooken', 'taken の口語形。been tooken で「出し抜かれる」'],
+            ['Boogie Down', 'ブロンクスの愛称'],
+            ['Strong Island', 'ロングアイランドのあだ名'],
+            ['recoup', '損した分を取り戻す、回収する'],
+            ['props', '敬意、称賛'],
+            ['clout', '影響力'],
+            ['what I\'m about', 'おれがどういう人間か'],
+            ['on shaky ground', '立場や根拠が危うい'],
+            ['Knowledge', '知恵。頭の k は黙字'],
+            ['triflin\'', 'いいかげん、浮ついた'],
+            ['shorty', '若い女の子、年下の相手'],
+            ['pour one out', '亡くなった人へ一口こぼして捧げる習慣'],
+            ['mind your P\'s and Q\'s', '言動に気をつけろ'],
+            ['hype', '気分が高ぶっている'],
+            ['chill', '落ち着く、くつろぐ'],
+            ['make a name', '名を上げる'],
+            ['pay one\'s dues', '下積みをする'],
+            ['welcome mat', '歓迎のしるし'],
+            ['one deep', '一人で、連れなしで'],
+            ['peep', 'のぞく、見る'],
+            ['get loose', '羽目を外す、ノッてくる'],
+            ['beef', '揉めごと、因縁'],
+            ['\'stile', 'turnstile（地下鉄の改札バー）の略'],
+            ['push up', '気になる相手に言い寄る'],
+            ['sweat 〜', '人にしつこく付きまとう'],
+          ].map(([w, d]) => (
+            <div class="text-sm">
+              <span class="font-semibold text-[var(--c-text)]">{w}</span>
+              <span class="text-[var(--c-muted)]"> {d}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="behind" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        制作の裏側
+      </h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          サウンドトラック盤のクレジットでは、作詞・プロデュースともにRakim（本名 William Griffin）です。The Bomb Squad もクレジットなしで制作に関わったとされていますが、具体的にどこを担当したかは確認できていません。
+        </p>
+        <p>
+          ベースラインは、ジャズのコルネット奏者 Nat Adderley の「Rise, Sally, Rise」（1968年のアルバム『The Scavenger』収録）から取られています。
+        </p>
+        <p>
+          Rakimは後のインタビューで、小さな部屋にこもってこのベースラインを見つけ、ドラムを重ね、1時間ほどで3つのバースを書き上げたと話しています。ドラムにはRakim自身が生で叩いた音も入っています。
+        </p>
+        <p>
+          録音は1991年、ニューヨークのスタジオ The Hit Factory で行われました。
+        </p>
+        <p>
+          バースの合間に入る Knowledge のスクラッチについては、元になったレコードを確認できていません。
+        </p>
+      </div>
+    </section>
+
+    <section id="legacy" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        評価とその後
+      </h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          サウンドトラック『Juice』は1991年12月31日に SOUL／MCA Records から出て、Billboard 200で17位、Top R&B/Hip-Hop Albumsで3位を記録し、RIAAのゴールド認定を受けています。
+        </p>
+        <p>
+          曲は1992年2月にシングルとしても出て、Billboard Hot 100で96位、Hot R&B/Hip-Hop Songsで38位、Hot Rap Songsで7位に入りました。
+        </p>
+        <p>
+          同じ1992年、Eric B. & Rakimの4作目のアルバム『Don't Sweat the Technique』にも「Know the Ledge」のタイトルで収録されています。これが2人にとって最後のスタジオアルバムになりました。
+        </p>
+        <p>
+          PVは白黒で、ハーレムの通りでラップするRakimの姿に、映画『Juice』の場面が挟み込まれています。
+        </p>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        まとめ
+      </h2>
+      <ul class="space-y-2 text-sm text-[var(--c-muted)] list-disc list-inside leading-relaxed">
+        <li>「Juice (Know the Ledge)」は、Eric B. & Rakimが1992年の映画『Juice』のために作った曲です。</li>
+        <li>タイトルの Know the Ledge は、knowledge（知恵）と the ledge（崖っぷちの足場）の掛け言葉。</li>
+        <li>juice、props、clout、peep、one deep など、影響力や評判をめぐる街ことばがまとめて学べます。</li>
+        <li>know the ledge の句は Let's see if、Hopin' that、I guess I didn't と形を変えながら、物語の結末を運んでいきます。</li>
+        <li>night fall、she know のような三単現の -s が落ちる形も、AAVEの文法として押さえておきたいところです。</li>
+      </ul>
+    </section>
+
+</SongLayout>

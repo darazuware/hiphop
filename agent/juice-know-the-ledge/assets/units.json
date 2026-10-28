@@ -1,0 +1,357 @@
+[
+  {
+    "id": "sip-the-juice",
+    "anchor": [
+      "sip",
+      "the",
+      "juice",
+      "i",
+      "got",
+      "enough"
+    ],
+    "fallbackT": 7,
+    "manualSec": null,
+    "captionSec": 7
+  },
+  {
+    "id": "uptown",
+    "anchor": [
+      "and",
+      "the",
+      "thought",
+      "takes",
+      "place",
+      "uptown"
+    ],
+    "fallbackT": 10,
+    "manualSec": null,
+    "captionSec": 10
+  },
+  {
+    "id": "sidewalk-street-talk",
+    "anchor": [
+      "i",
+      "grew",
+      "up",
+      "on",
+      "the",
+      "sidewalk"
+    ],
+    "fallbackT": 12,
+    "manualSec": null,
+    "captionSec": 12
+  },
+  {
+    "id": "queens-for-queens",
+    "anchor": [
+      "i",
+      "go",
+      "to",
+      "queens",
+      "for",
+      "queens"
+    ],
+    "fallbackT": 16,
+    "manualSec": null,
+    "captionSec": 16
+  },
+  {
+    "id": "boogie-down-strong-island",
+    "anchor": [
+      "go",
+      "uptown",
+      "in",
+      "the",
+      "bronx",
+      "to"
+    ],
+    "fallbackT": 20,
+    "manualSec": null,
+    "captionSec": 20
+  },
+  {
+    "id": "build-juice-props",
+    "anchor": [
+      "time",
+      "to",
+      "build",
+      "my",
+      "juice",
+      "back"
+    ],
+    "fallbackT": 24,
+    "manualSec": null,
+    "captionSec": 24
+  },
+  {
+    "id": "doubt-the-clout",
+    "anchor": [
+      "dont",
+      "doubt",
+      "the",
+      "clout",
+      "you",
+      "know"
+    ],
+    "fallbackT": 28,
+    "manualSec": null,
+    "captionSec": 28
+  },
+  {
+    "id": "rakin-em-up",
+    "anchor": [
+      "shakin",
+      "em",
+      "up",
+      "wakin",
+      "em",
+      "up"
+    ],
+    "fallbackT": 33,
+    "manualSec": null,
+    "captionSec": 33
+  },
+  {
+    "id": "know-the-ledge",
+    "anchor": [
+      "standin",
+      "on",
+      "shaky",
+      "ground",
+      "too",
+      "close"
+    ],
+    "fallbackT": 37,
+    "manualSec": null,
+    "captionSec": 37
+  },
+  {
+    "id": "knowledge-scratch",
+    "anchor": [
+      "knowledge"
+    ],
+    "fallbackT": 43,
+    "manualSec": null,
+    "captionSec": 43
+  },
+  {
+    "id": "triflin-shorty",
+    "anchor": [
+      "corners",
+      "triflin",
+      "cause",
+      "shortys",
+      "here"
+    ],
+    "fallbackT": 49,
+    "manualSec": null,
+    "captionSec": 49
+  },
+  {
+    "id": "sip-for-the-crew",
+    "anchor": [
+      "heres",
+      "a",
+      "sip",
+      "for",
+      "the",
+      "crew"
+    ],
+    "fallbackT": 53,
+    "manualSec": null,
+    "captionSec": 53
+  },
+  {
+    "id": "on-ps-hercules",
+    "anchor": [
+      "stay",
+      "alert",
+      "and",
+      "on",
+      "ps"
+    ],
+    "fallbackT": 62,
+    "manualSec": null,
+    "captionSec": 62
+  },
+  {
+    "id": "hype-night-fall",
+    "anchor": [
+      "cause",
+      "i",
+      "dont",
+      "like",
+      "yall",
+      "im"
+    ],
+    "fallbackT": 68,
+    "manualSec": null,
+    "captionSec": 68
+  },
+  {
+    "id": "chill-like-pacino",
+    "anchor": [
+      "ill",
+      "chill",
+      "like",
+      "pacino"
+    ],
+    "fallbackT": 82,
+    "manualSec": null,
+    "captionSec": 82
+  },
+  {
+    "id": "shame-in-my-game",
+    "anchor": [
+      "try",
+      "to",
+      "put",
+      "shame",
+      "in",
+      "my"
+    ],
+    "fallbackT": 103,
+    "manualSec": null,
+    "captionSec": 103
+  },
+  {
+    "id": "paid-my-dues",
+    "anchor": [
+      "i",
+      "paid",
+      "my",
+      "dues",
+      "paid",
+      "the"
+    ],
+    "fallbackT": 114,
+    "manualSec": null,
+    "captionSec": 114
+  },
+  {
+    "id": "one-deep-peep",
+    "anchor": [
+      "even",
+      "if",
+      "my",
+      "crew",
+      "is",
+      "steep"
+    ],
+    "fallbackT": 120,
+    "manualSec": null,
+    "captionSec": 120
+  },
+  {
+    "id": "loose-troops-juice",
+    "anchor": [
+      "cause",
+      "i",
+      "get",
+      "loose",
+      "and",
+      "i"
+    ],
+    "fallbackT": 129,
+    "manualSec": null,
+    "captionSec": 129
+  },
+  {
+    "id": "cook-beef",
+    "anchor": [
+      "when",
+      "i",
+      "cook",
+      "beef",
+      "the",
+      "smoke"
+    ],
+    "fallbackT": 141,
+    "manualSec": null,
+    "captionSec": 141
+  },
+  {
+    "id": "hopin-know-ledge",
+    "anchor": [
+      "livin",
+      "life",
+      "too",
+      "close",
+      "to",
+      "the"
+    ],
+    "fallbackT": 145,
+    "manualSec": null,
+    "captionSec": 145
+  },
+  {
+    "id": "brand-new-morn",
+    "anchor": [
+      "a",
+      "brand",
+      "new",
+      "morn",
+      "no",
+      "time"
+    ],
+    "fallbackT": 157,
+    "manualSec": null,
+    "captionSec": 157
+  },
+  {
+    "id": "turnstile-push-up",
+    "anchor": [
+      "girls",
+      "hit",
+      "the",
+      "stile",
+      "and",
+      "whisper"
+    ],
+    "fallbackT": 163,
+    "manualSec": null,
+    "captionSec": 163
+  },
+  {
+    "id": "resume-after-school",
+    "anchor": [
+      "read",
+      "her",
+      "my",
+      "resume",
+      "she",
+      "know"
+    ],
+    "fallbackT": 174,
+    "manualSec": null,
+    "captionSec": 174
+  },
+  {
+    "id": "sweatin-sip-juice",
+    "anchor": [
+      "sweatin",
+      "me",
+      "she",
+      "didnt",
+      "want",
+      "to"
+    ],
+    "fallbackT": 182,
+    "manualSec": null,
+    "captionSec": 182
+  },
+  {
+    "id": "didnt-know-ledge",
+    "anchor": [
+      "i",
+      "guess",
+      "i",
+      "didnt",
+      "know",
+      "the"
+    ],
+    "fallbackT": 196,
+    "manualSec": null,
+    "captionSec": 196
+  }
+]
