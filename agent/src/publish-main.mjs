@@ -9,7 +9,7 @@
  * 実行は主worktree（このファイルの2階層上 = リポジトリ直下）で行う。
  */
 
-import { execSync } from 'node:child_process';
+import { execSync, execFileSync } from 'node:child_process';
 import { readFileSync, unlinkSync, existsSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -127,6 +127,24 @@ console.log('✅ PUBLISHED');
 console.log('COMMITS:');
 for (const s of subjects) console.log(`- ${s}`);
 console.log('URL: https://waxthink.com');
+
+// どのセッションから公開しても、反映された記事がスマホで分かるようにTelegramへ一覧を送る。
+// 通知の失敗は本番反映の成否に影響させない。
+try {
+  const pages = run(`git diff --name-only --diff-filter=AM ${remoteMainBeforeMerge} ${afterMergeHead} -- src/pages`)
+    .split('\n')
+    .filter((f) => /\.(astro|md|mdx)$/.test(f) && !/\[/.test(f))
+    .map((f) => f.replace(/^src\/pages/, '').replace(/\.(astro|md|mdx)$/, '').replace(/\/index$/, '/'));
+  const lines = [
+    '【本番反映】waxthink.com',
+    pages.length ? `記事 ${pages.length}件:\n${pages.map((p) => `https://waxthink.com${p}`).join('\n')}` : '記事の追加・変更なし',
+    `コミット ${subjects.length}件:\n${subjects.slice(0, 10).map((s) => `- ${s}`).join('\n')}${subjects.length > 10 ? '\n…' : ''}`,
+  ];
+  execFileSync('node', [join(__dirname, 'notify-telegram.mjs'), lines.join('\n\n')], { cwd: ROOT, stdio: 'ignore' });
+  console.log('📨 Telegramへ反映一覧を通知');
+} catch (e) {
+  console.log(`⚠️ Telegram通知失敗（本番反映自体は成功済み）: ${(e.stderr || e.message || '').toString().slice(-200)}`);
+}
 
 try {
   const toneReport = buildToneDiffReport(remoteMainBeforeMerge, afterMergeHead);

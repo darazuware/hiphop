@@ -24,6 +24,15 @@
 - 承認後の本番反映（`review`→`main`のマージ・build確認・push）は決定的スクリプト [`agent/src/publish-main.mjs`](agent/src/publish-main.mjs)（`node agent/src/publish-main.mjs`。ユーザーが承認した時に対話セッションから実行）でのみ行う。対話セッションが自然文の指示で代わりにmainへマージ・pushしない。
 - **例外**: `agent/`配下のbotスクリプトや`docs/`のドキュメント、`CLAUDE.md`自体など、Astroビルド出力（`src/`・`public/`）に影響しないインフラ/ドキュメント変更は、この制限の対象外（サイトの表示内容が変わらないため）。これらはmainへ直接commit・pushしてよい。
 
+## セッション名で状態を示す（常駐・2026-10-29〜）
+- 運営者はスマホのclaudeアプリのセッション一覧で進み具合を見ている。**任務の区切り（完了報告・詰まり報告）では、必ず `mcp__ccd_session_mgmt__set_session_title`（session_id: "self"）でセッション名の頭に状態を付ける。** 名前の本体（何の任務か）は残し、頭の【】だけ付け替える。
+  - 【review待ち】review に push 済みで、本番はまだ。
+  - 【公開済】本番（main）に出た。
+  - 【完了】サイトの表示に関係しない任務（docs・agent・動画・調査等）が終わった。
+  - 【要対応】詰まった、または運営者の判断・素材が要る。何が要るかを完了報告に書く。
+- `publish-main.mjs` を実行して本番反映したセッションは、反映された記事の担当セッションを `mcp__ccd_session_mgmt__list_sessions` で探し、【review待ち】を【公開済】に付け替える（自分以外のセッションから公開されて状態がずれるのを防ぐ）。反映された記事の一覧は同スクリプトがTelegramにも送る。
+- 公開を頼まれたら、実行前に `git log origin/main..origin/review` で未反映のコミットがあるか確かめる。無ければ「公開済み」と返して終える。
+
 ## 絵文字禁止（サイト全体）
 - サイトのソースコード（.astro / .ts / .tsx / コンポーネント）に絵文字（Unicode Emoji）を使わない。DiveCardsの `icon` propなどもテキストラベル（例: "RZA", "94", "WU"）で代替する。
 - ★ や ▶ などの記号文字（Dingbats / Geometric Shapes）はUIパーツとして許容。
