@@ -1,5 +1,17 @@
 [
   {
+    "id": "appreciated",
+    "anchor": [
+      "you",
+      "are",
+      "appreciated"
+    ],
+    "fallbackT": 5,
+    "manualSec": null,
+    "mvAbsent": true,
+    "captionSec": null
+  },
+  {
     "id": "had-beef",
     "anchor": [
       "me",
@@ -12,6 +24,93 @@
     "fallbackT": 17,
     "manualSec": null,
     "captionSec": 12
+  },
+  {
+    "id": "mamas-place",
+    "anchor": [
+      "aint",
+      "a",
+      "woman",
+      "alive",
+      "that",
+      "could",
+      "take"
+    ],
+    "fallbackT": 29,
+    "manualSec": null,
+    "captionSec": 20
+  },
+  {
+    "id": "suspended",
+    "anchor": [
+      "suspended",
+      "from",
+      "school",
+      "and",
+      "scared",
+      "to",
+      "go",
+      "home"
+    ],
+    "fallbackT": 33,
+    "manualSec": null,
+    "captionSec": 23
+  },
+  {
+    "id": "baby-sister",
+    "anchor": [
+      "i",
+      "shed",
+      "tears",
+      "with",
+      "my",
+      "baby",
+      "sister"
+    ],
+    "fallbackT": 41,
+    "manualSec": null,
+    "captionSec": 29
+  },
+  {
+    "id": "different-daddies",
+    "anchor": [
+      "even",
+      "though",
+      "we",
+      "had",
+      "different",
+      "daddies"
+    ],
+    "fallbackT": 50,
+    "manualSec": null,
+    "captionSec": 35
+  },
+  {
+    "id": "elementary",
+    "anchor": [
+      "and",
+      "whod",
+      "think",
+      "in",
+      "elementary"
+    ],
+    "fallbackT": 66,
+    "manualSec": null,
+    "captionSec": 47
+  },
+  {
+    "id": "whoopin",
+    "anchor": [
+      "mama",
+      "catch",
+      "me",
+      "put",
+      "a",
+      "whoopin"
+    ],
+    "fallbackT": 78,
+    "manualSec": null,
+    "captionSec": 55
   },
   {
     "id": "crack-fiend-black-queen",
@@ -43,27 +142,104 @@
   {
     "id": "welfare",
     "anchor": [
-      "poor",
-      "single",
-      "mother",
-      "on",
-      "welfare"
+      "you",
+      "always",
+      "was",
+      "committed"
     ],
-    "fallbackT": 100,
+    "fallbackT": 96,
     "manualSec": null,
-    "captionSec": 71
+    "captionSec": 65
+  },
+  {
+    "id": "pay-you-back",
+    "anchor": [
+      "theres",
+      "no",
+      "way",
+      "i",
+      "can",
+      "pay",
+      "you",
+      "back"
+    ],
+    "fallbackT": 102,
+    "manualSec": null,
+    "captionSec": 75
   },
   {
     "id": "place-no-one",
     "anchor": [
-      "place",
-      "no",
-      "one",
-      "above"
+      "lady",
+      "dont",
+      "you",
+      "know",
+      "we",
+      "love",
+      "ya"
     ],
-    "fallbackT": 113,
+    "fallbackT": 111,
     "manualSec": null,
-    "captionSec": 87
+    "captionSec": 81
+  },
+  {
+    "id": "aint-nobody",
+    "anchor": [
+      "aint",
+      "nobody",
+      "tell",
+      "us",
+      "it",
+      "was",
+      "fair"
+    ],
+    "fallbackT": 121,
+    "manualSec": null,
+    "captionSec": 98
+  },
+  {
+    "id": "passed-away",
+    "anchor": [
+      "he",
+      "passed",
+      "away",
+      "and",
+      "i",
+      "didnt",
+      "cry"
+    ],
+    "fallbackT": 125,
+    "manualSec": null,
+    "captionSec": 103
+  },
+  {
+    "id": "heartless",
+    "anchor": [
+      "they",
+      "say",
+      "im",
+      "wrong",
+      "and",
+      "im",
+      "heartless"
+    ],
+    "fallbackT": 130,
+    "manualSec": null,
+    "captionSec": 109
+  },
+  {
+    "id": "young-brother",
+    "anchor": [
+      "they",
+      "showed",
+      "a",
+      "young",
+      "brother",
+      "love"
+    ],
+    "fallbackT": 136,
+    "manualSec": null,
+    "captionSec": 116
   },
   {
     "id": "slangin",
@@ -96,6 +272,53 @@
     "captionSec": 125
   },
   {
+    "id": "pay-rent",
+    "anchor": [
+      "i",
+      "love",
+      "payin",
+      "rent",
+      "when",
+      "the",
+      "rent",
+      "is",
+      "due"
+    ],
+    "fallbackT": 156,
+    "manualSec": null,
+    "captionSec": 131
+  },
+  {
+    "id": "when-low",
+    "anchor": [
+      "when",
+      "i",
+      "was",
+      "low",
+      "you",
+      "was",
+      "there",
+      "for",
+      "me"
+    ],
+    "fallbackT": 162,
+    "manualSec": null,
+    "captionSec": 131
+  },
+  {
+    "id": "hot-plate",
+    "anchor": [
+      "comin",
+      "home",
+      "after",
+      "work",
+      "late"
+    ],
+    "fallbackT": 167,
+    "manualSec": null,
+    "captionSec": 142
+  },
+  {
     "id": "scraps",
     "anchor": [
       "workin",
@@ -111,6 +334,21 @@
     "captionSec": 142
   },
   {
+    "id": "road-rough",
+    "anchor": [
+      "raise",
+      "two",
+      "bad",
+      "kids",
+      "on",
+      "your",
+      "own"
+    ],
+    "fallbackT": 179,
+    "manualSec": null,
+    "captionSec": 157
+  },
+  {
     "id": "pour-out-liquor",
     "anchor": [
       "pour",
@@ -123,19 +361,79 @@
     "captionSec": 183
   },
   {
+    "id": "back-in-focus",
+    "anchor": [
+      "when",
+      "it",
+      "seems",
+      "that",
+      "im",
+      "hopeless"
+    ],
+    "fallbackT": 204,
+    "manualSec": null,
+    "captionSec": 189
+  },
+  {
+    "id": "act-crazy",
+    "anchor": [
+      "and",
+      "even",
+      "though",
+      "i",
+      "act",
+      "crazy"
+    ],
+    "fallbackT": 215,
+    "manualSec": null,
+    "captionSec": 200
+  },
+  {
+    "id": "stayed-real",
+    "anchor": [
+      "you",
+      "never",
+      "kept",
+      "a",
+      "secret",
+      "always",
+      "stayed",
+      "real"
+    ],
+    "fallbackT": 221,
+    "manualSec": null,
+    "captionSec": 208
+  },
+  {
     "id": "brighter-day",
     "anchor": [
+      "i",
+      "wish",
+      "i",
+      "could",
+      "take",
+      "the",
+      "pain",
+      "away"
+    ],
+    "fallbackT": 226,
+    "manualSec": null,
+    "captionSec": 223
+  },
+  {
+    "id": "hold-on",
+    "anchor": [
+      "everything",
+      "will",
+      "be",
+      "alright",
       "if",
       "you",
-      "can",
-      "make",
-      "it",
-      "through",
-      "the",
-      "night"
+      "hold",
+      "on"
     ],
-    "fallbackT": 228,
+    "fallbackT": 230,
     "manualSec": null,
-    "captionSec": 220
+    "captionSec": 228
   }
 ]
