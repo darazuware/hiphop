@@ -127,8 +127,20 @@ const resolvedSchema = schema ?? defaultSchema;
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7526742711058970" crossorigin="anonymous"></script>
 
   <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EN2N33B7PB"></script>
-  <script is:inline>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-EN2N33B7PB');</script>
+  <script is:inline>
+    if (location.hostname === 'waxthink.com' || location.hostname === 'www.waxthink.com') {
+      var ga = document.createElement('script');
+      ga.async = true;
+      ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-EN2N33B7PB';
+      document.head.appendChild(ga);
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { dataLayer.push(arguments); };
+      gtag('js', new Date());
+      gtag('config', 'G-EN2N33B7PB');
+    } else {
+      window.gtag = function () {};
+    }
+  </script>
   <script is:inline>
     document.addEventListener('click', function(event) {
       var origin = event.target;
