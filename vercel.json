@@ -1,5 +1,17 @@
 {
   "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/tt",
+      "destination": "/?utm_source=tiktok&utm_medium=social&utm_campaign=profile",
+      "permanent": false
+    },
+    {
+      "source": "/tt/",
+      "destination": "/?utm_source=tiktok&utm_medium=social&utm_campaign=profile",
+      "permanent": false
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
@@ -32,7 +44,13 @@
     },
     {
       "source": "/(.*)",
-      "has": [{"type": "header", "key": "accept", "value": "text/html.*"}],
+      "has": [
+        {
+          "type": "header",
+          "key": "accept",
+          "value": "text/html.*"
+        }
+      ],
       "headers": [
         {
           "key": "Cache-Control",
