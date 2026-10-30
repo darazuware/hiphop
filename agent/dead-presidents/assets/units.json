@@ -113,16 +113,16 @@
     "manualSec": null
   },
   {
-    "id": "catch-a-freeze",
+    "id": "cerebral-breeds",
     "anchor": [
-      "in",
+      "and",
+      "my",
+      "cerebral",
+      "breeds",
       "the",
-      "game",
-      "so",
-      "deep",
-      "fiends"
+      "wickedest"
     ],
-    "fallbackT": 92,
+    "fallbackT": 89,
     "manualSec": null
   },
   {
@@ -198,18 +198,6 @@
     "manualSec": null
   },
   {
-    "id": "sl-bail-toast",
-    "anchor": [
-      "coast",
-      "in",
-      "the",
-      "sl",
-      "but"
-    ],
-    "fallbackT": 158,
-    "manualSec": null
-  },
-  {
     "id": "aint-all-swell",
     "anchor": [
       "it",
@@ -279,18 +267,6 @@
       "cars"
     ],
     "fallbackT": 194,
-    "manualSec": null
-  },
-  {
-    "id": "bodiers-cap-peelers",
-    "anchor": [
-      "east",
-      "coast",
-      "bodiers",
-      "west",
-      "coast"
-    ],
-    "fallbackT": 201,
     "manualSec": null
   },
   {

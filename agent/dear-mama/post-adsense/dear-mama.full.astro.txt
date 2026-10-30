@@ -1,0 +1,924 @@
+---
+import LearningUnit from '../../components/LearningUnit.astro';
+import QuickSlang from '../../components/QuickSlang.astro';
+import SongLayout from '../../layouts/SongLayout.astro';
+import AmazonAlbumCta from '../../components/AmazonAlbumCta.astro';
+import DiveCards from '../../components/DiveCards.astro';
+
+import tsData from '../../../agent/dear-mama/assets/units-timestamps.json';
+const YT = "Mb1ZvUDvLDY";
+const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.approx }]));
+---
+
+<SongLayout
+  title="Dear Mama 英語・スラング解説 | 2Pac"
+  description="2Pac「Dear Mama」の英語スラング・AAVE文法・文化背景を学ぶ。beef・crack fiend・slangin'・pour out liquorなど、ストリートと愛が交差する表現を用例断片＋日本語解説で読み解く。"
+  slug="dear-mama"
+  highlights={[
+    "「クラック中毒でも、お前は黒人の女王だった」。矛盾をそのまま一行に収めたAAVEの語り",
+    "beef・slangin'・sell rocks など、ストリートスラングがそのまま愛の語彙になる瞬間",
+    "Joe Sample の哀愁ピアノと The Spinners のフックをつなぎ合わせた Tony Pizarro のプロダクション",
+  ]}
+  youtubeId="Mb1ZvUDvLDY"
+  sampleYoutubeId="mLtB1pWcS00"
+  sampleTitle="Joe Sample - In My Wildest Dreams"
+  learningPage={true}
+  songDuration={276}
+>
+
+    <!-- ===================== -->
+    <!-- 導入                  -->
+    <!-- ===================== -->
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■クラック中毒者でも、黒人の女王だった</h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          「Dear Mama」のリリースは1995年2月9日。2Pacが性的暴行事件の有罪判決を受け、刑務所に入ったのと同じ月です。
+        </p>
+        <p>
+          アルバム『Me Against the World』の先行シングルとして、本人が塀の中にいるあいだにチャートを上っていきました。
+        </p>
+        <p>
+          ギャングスタ・ラップの語彙をそのまま使いながら、書いてあるのは母への感謝。クラック中毒、福祉、ゲットー、収監と、ふだんは「問題家庭」の説明に使われる言葉が、ここでは愛情の言葉として並んでいます。
+        </p>
+        <p>
+          この記事では、<strong class="text-[var(--c-text)]">beef・crack fiend・slangin'・sell rocks・pour out liquor</strong> などのストリートスラングと、<QuickSlang word="AAVE" desc="African American Vernacular English（アフリカ系アメリカ人英語）。黒人コミュニティ内で発展した英語の変種で、独自の文法・音韻・語彙を持つ" />（アフリカ系アメリカ人英語）の文法を「学ぶ表現」として30個取り出していきます。
+        </p>
+        <p>
+          英語に自信がなくても、上の用例を音で追ってから下の解説へ進む順番なら、だいたい置いていかれないと思います。
+        </p>
+      </div>
+    </section>
+
+    <!-- Table of Contents -->
+    <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
+      <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
+        <li><a href="#story" class="hover:text-[var(--c-gold)] transition-colors">01 — ストーリーの流れ</a></li>
+        <li><a href="#units" class="hover:text-[var(--c-gold)] transition-colors">02 — 学ぶ表現（スラング・AAVE・韻）</a></li>
+        <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">03 — 文化的背景</a></li>
+        <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">04 — サンプル・制作の裏側</a></li>
+        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">05 — 評価とその後の影響</a></li>
+      </ol>
+    </nav>
+
+    <!-- ===================== -->
+    <!-- ストーリー要約         -->
+    <!-- ===================== -->
+    <section id="story" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        ストーリーの流れ
+      </h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          感謝の一言で始まり、すぐに母とのケンカ、家を追い出された17歳、妹と泣いた日々へ。Verse 1は2Pacの少年時代の自伝で、最後に母を「黒人の女王」と呼んで向きが変わります。
+        </p>
+        <p>
+          Verse 2は父の不在と、家を出てからの暮らし、台所で残り物から食卓を作る母の姿。Verse 3は思い出と励ましの章で、ゴスペル寄りの言葉で締めくくられます。
+        </p>
+        <p class="text-xs text-[var(--c-dim)]">
+          ※本ページは批評・教育目的で、解説に必要な範囲の断片のみを引用しています。全歌詞の対訳は掲載していません。
+        </p>
+      </div>
+    </section>
+
+    <!-- ===================== -->
+    <!-- 学習ユニット群         -->
+    <!-- ===================== -->
+    <div id="units"></div>
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2 border-b border-[var(--c-border)] pb-2">
+        学ぶ表現 — スラング・AAVE・韻
+      </h2>
+<p class="text-xs text-[var(--c-dim)] mb-6">
+        各見出しは、この曲から拾える英語表現です。上の英語用例（1〜2行）と、行のどこが学習対象かを確かめてから下の解説へ、という順番で読めるように並べています。
+      </p>
+      <p class="text-xs text-[var(--c-dim)] mb-6">
+        マイクはリリックを担当するMC、▶は公式PVの該当箇所への頭出しリンク（秒数は概算）です。
+      </p>
+
+      <!-- ① You are appreciated -->
+      <LearningUnit
+        heading="You are appreciated — 受け身で言う「ありがとう」"
+        label="★ 語法"
+        mc="2Pac（Intro）"
+        t={TS["appreciated"].t} tApprox={TS["appreciated"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">You are appreciated</Fragment>
+        <Fragment slot="jpn">あなたに感謝しています</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 曲の一番最初、ビートに乗る前のひとこと。</p>
+        <p>たった3語のイントロです。動詞は <strong class="text-[var(--c-text)]">appreciate</strong>（ありがたく思う・価値を認める）で、それを <code>are appreciated</code> と受け身にしています。</p>
+        <p><em>I appreciate you</em> なら「俺はあなたに感謝している」。受け身にすると主語の「俺」が消えて、「あなたは感謝されるべき人だ」という事実の宣言みたいな響きになります。</p>
+        <p>このフレーズは各バースの最後とコーラスの合いの手で何度も戻ってきます。曲全体のタイトル代わりの一行、と考えていいと思います。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">be appreciated</strong>: 感謝される・正当に評価される。職場のメールでも <em>Your help is appreciated</em>（ご協力に感謝します）のように使います。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ② had beef / kicked out -->
+      <LearningUnit
+        heading="had beef / kicked out on the streets — 「確執」と「追い出された」"
+        label="★ スラング・句動詞"
+        mc="2Pac（Verse 1）"
+        t={TS["had-beef"].t} tApprox={TS["had-beef"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">When I was young, me and my mama had <QuickSlang word="beef" href="/slang/beef/" desc="ここでは母と息子のあいだの、根の深いわだかまり。ケンカ一回ではなく、長く続いた不仲のニュアンス" /></Fragment>
+        <Fragment slot="jpn">幼い頃、俺と母ちゃんの間には確執があった</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の第一行。曲が始まってすぐのところ。</p>
+        <p class="mt-3 mb-1 font-bold text-[var(--c-text)]">1. had beef（確執があった）</p>
+        <p>行末の <strong class="text-[var(--c-text)]">beef</strong> が学習ポイントです。本来は「牛肉」ですが、ヒップホップでは「誰かとの対立・揉め事・確執」を指すスラングとして定着しています。</p>
+        <p><code>have beef with ~</code> で「〜と揉めている」、<code>squash the beef</code> で「和解する」。</p>
+        <p>母への感謝の歌なのに、第一声は「確執があった」という告白です。ケンカしていた事実から入るので、後から出てくる感謝の言葉にきれいごとっぽさが出ません。</p>
+        <p class="mt-3 mb-1 font-bold text-[var(--c-text)]">2. kicked out（追い出された）</p>
+        <p>次の行で出てくる <strong class="text-[var(--c-text)]">kicked out</strong> は「蹴り出された」、つまり家から追い出されたという意味の句動詞です。</p>
+        <p>その行は主語も be動詞もなく、17歳という年齢と、追い出されたという出来事だけを置いています。履歴書の箇条書きみたいな、ラップらしい切り詰め方です。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">beef</strong> は名詞でも動詞でも使います。名詞なら <em>I got beef with him</em>（あいつと揉めてる）、動詞なら <em>Why you beefin'?</em>（なんで揉めてんの？）。</p>
+          <p><strong class="text-[var(--c-text)]">kick out</strong>: 追い出す。<em>He got kicked out of school</em>（退学になった）のように、学校・店・家など「場所から締め出される」場面で広く使えます。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ③ Ain't a woman alive -->
+      <LearningUnit
+        heading="Ain't a woman alive that could take my mama's place — ain't で始まる「存在しない」"
+        label="★ AAVE文法"
+        mc="2Pac（Verse 1）"
+        t={TS["mamas-place"].t} tApprox={TS["mamas-place"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Ain't a woman alive that could take my mama's place</Fragment>
+        <Fragment slot="jpn">おふくろの代わりになれる女はこの世にいない</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の序盤、ケンカの話のすぐあと。</p>
+        <p>行頭の <strong class="text-[var(--c-text)]">Ain't a woman alive</strong> に注目すると、文法の面白さが見えてきます。標準英語なら <em>There isn't a woman alive</em> です。</p>
+        <p>AAVEでは <code>there</code> を落として <code>ain't</code> から文を始め、「〜は存在しない」を言えます。<em>Ain't nobody</em>（誰もいない）と同じ形です。</p>
+<p>後半の <strong class="text-[var(--c-text)]">take ~'s place</strong> は「〜の代わりになる」。直前まで「確執があった」と言っていたのに、2行後には「代わりはいない」と言い切っている。</p>
+        <p>この切り替えの速さが、曲全体のテンポを決めています。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">take someone's place</strong>: 〜の後任になる・代わりを務める。<em>No one can take your place</em>（誰もあなたの代わりにはなれない）はラブソングの定番表現です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ④ suspended / big boys -->
+      <LearningUnit
+        heading="Suspended from school / with the big boys — 停学と「年上の連中」"
+        label="★ 語法・スラング"
+        mc="2Pac（Verse 1）"
+        t={TS["suspended"].t} tApprox={TS["suspended"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Suspended from school, and scared to go home<br />I was a fool, with the big boys breakin' all the rules</Fragment>
+        <Fragment slot="jpn">停学くらって、家に帰るのが怖かった／年上の悪ガキとつるんで、ルール破りの馬鹿だった</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の前半、少年時代の回想に入るところ。</p>
+        <p>1行目の <strong class="text-[var(--c-text)]">suspended from school</strong> は「停学になった」。<em>suspend</em> は「一時停止する」で、退学（<em>expelled</em>）より軽い処分です。</p>
+        <p>ここも主語が省かれていて、<code>I was suspended</code> の <code>I was</code> がありません。<code>school</code> と <code>fool</code>、<code>rules</code> の母音が並び、2行のなかで韻が回っています。</p>
+        <p>2行目の <strong class="text-[var(--c-text)]">the big boys</strong> は直訳すると「大きい男の子たち」。ここでは年上の不良グループを指していて、背伸びして悪い先輩とつるむ少年の姿が、この2語で見えてきます。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">get suspended</strong>: 停学・出場停止になる。スポーツでも <em>He got suspended for two games</em>（2試合の出場停止）と使います。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑤ baby sister / we was poorer -->
+      <LearningUnit
+        heading="I shed tears with my baby sister / We was poorer — 妹と、AAVEの we was"
+        label="★ 語法・AAVE文法"
+        mc="2Pac（Verse 1）"
+        t={TS["baby-sister"].t} tApprox={TS["baby-sister"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">I shed tears with my baby sister, over the years<br />We was poorer than the other little kids</Fragment>
+        <Fragment slot="jpn">妹と一緒に、何年も涙を流した／よその子より貧乏だった</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の中盤、家族の話に移るところ。</p>
+<p>1行目の <strong class="text-[var(--c-text)]">shed tears</strong> は「涙を流す」。<em>cry</em> より少し文語的で、静かに泣く感じが出ます。</p>
+        <p><em>shed</em> は過去形も <em>shed</em> のままの不規則動詞です。</p>
+<p><strong class="text-[var(--c-text)]">baby sister</strong> は赤ちゃんではなく「妹」。年齢に関係なく、下のきょうだいをこう呼びます。</p>
+        <p>2Pacの妹は Sekyiwa（セキーワ）です。</p>
+        <p>2行目の <strong class="text-[var(--c-text)]">We was</strong> は、標準英語なら <em>We were</em>。AAVEでは過去の be動詞を主語に関係なく <code>was</code> にそろえることがあり、このあと Verse 1の後半でも同じ形が出てきます。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">baby brother / baby sister</strong>: 弟・妹。<em>little brother / little sister</em> とほぼ同じですが、より親しみのこもった言い方です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑥ different daddies, same drama（引用不要） -->
+      <LearningUnit
+        heading="different daddies, the same drama — drama と「母のせいにした」"
+        label="★ スラング"
+        mc="2Pac（Verse 1）"
+        t={TS["different-daddies"].t} tApprox={TS["different-daddies"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の中盤、妹の話の続き。</p>
+        <p>2Pacと妹は父親が違います。歌詞ではそれを「父親は別々でも、<strong class="text-[var(--c-text)]">drama</strong> は同じ」とまとめています。</p>
+        <p>ここでの <strong class="text-[var(--c-text)]">drama</strong> は演劇ではなく、家庭内のごたごた・揉め事のこと。ヒップホップや若者言葉では、面倒な人間関係のトラブルをまとめて <em>drama</em> と呼びます。</p>
+        <p>続く行では、うまくいかないときは母のせいにしていた、と振り返ります。<code>drama</code> と <code>Mama</code> の音が重なっていて、家庭の揉め事と母の名前が韻でつながる作りです。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">drama</strong>: 揉め事・面倒ごと。<em>I don't want no drama</em>（揉め事はごめんだ）、<em>She's always starting drama</em>（いつも騒ぎを起こす）のように使います。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑦ elementary / penitentiary -->
+      <LearningUnit
+        heading="elementary / penitentiary — 小学校と刑務所で踏む多音節韻"
+        label="★ 韻"
+        mc="2Pac（Verse 1）"
+        t={TS["elementary"].t} tApprox={TS["elementary"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">And who'd think in elementary, hey<br />I'd see the penitentiary one day?</Fragment>
+        <Fragment slot="jpn">小学生の頃、誰が思う？／いつか刑務所を見ることになるなんて</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の中盤、少年時代から現在へ視点が飛ぶ2行。</p>
+        <p>2行の真ん中どうし、<strong class="text-[var(--c-text)]">elementary</strong>（小学校）と <strong class="text-[var(--c-text)]">penitentiary</strong>（刑務所）が韻です。</p>
+        <p><em>el-e-MEN-ta-ry</em> と <em>pen-i-TEN-tia-ry</em>、アクセントのある <code>-en-</code> から語尾の <code>-ary</code> まで、複数の音節がまとめて重なる多音節韻（マルチシラブル・ライム）になっています。</p>
+        <p>意味の上では、子ども時代の入り口と、大人になってからの行き先が一つの韻で結ばれている。<code>who'd think</code>（誰が思っただろう）という反語も、英作文でそのまま使える形です。</p>
+        <Fragment slot="usage">
+<p><strong class="text-[var(--c-text)]">Who'd have thought ~?</strong>: 〜なんて誰が思っただろう。<em>Who'd have thought we'd end up here?</em>（こんなところに行き着くなんてね）。</p>
+          <p>歌詞の <em>who'd think</em> はその口語寄りの形です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑧ whoopin'（引用不要） -->
+      <LearningUnit
+        heading="put a whoopin' to my backside — 母のお仕置きを表す whoopin'"
+        label="★ スラング・南部英語"
+        mc="2Pac（Verse 1）"
+        t={TS["whoopin"].t} tApprox={TS["whoopin"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の後半、悪さが見つかったときの思い出。</p>
+        <p>見つかった息子に母が <strong class="text-[var(--c-text)]">whoopin'</strong> を食らわせた、という一節です。<em>whooping</em> はアメリカ南部や黒人家庭の口語で「（親の）お尻たたき」を指します。</p>
+        <p><code>backside</code> は「お尻」の遠回しな言い方。<em>put a whoopin' on ~</em> で「〜にお仕置きをする」という決まった言い回しになります。</p>
+        <p>主語が Mama なのに動詞は <code>catch</code> と -es が付いていません。昔の出来事をいま目の前のように語る現在形と、AAVEの三単現の -s 省略が重なった形です。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">get a whoopin'</strong>: お仕置きを受ける。<em>You gon' get a whoopin'</em>（お尻ペンペンだよ）は、黒人家庭のコメディで定番の親の決め台詞です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑨ crack fiend / black queen -->
+      <LearningUnit
+        heading="crack fiend, Mama / You always was a black queen — 矛盾をそのまま認める逆接"
+        label="★ 最重要表現・AAVE文法"
+        mc="2Pac（Verse 1）"
+        t={TS["crack-fiend-black-queen"].t} tApprox={TS["crack-fiend-black-queen"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">And even as a <QuickSlang word="crack fiend" href="/slang/fiend/" desc="クラック・コカインの中毒者。ここでは比喩ではなく、母アフェニの実際の依存症を指す" />, Mama<br />You always was a <QuickSlang word="black queen" href="/slang/queen/" desc="黒人の女王。ブラック・プライドの文脈で、黒人女性に向ける最大級の敬称" />, Mama</Fragment>
+        <Fragment slot="jpn">クラック中毒者だったとしても、ママ／お前はいつだって黒人の女王だった、ママ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の後半、曲の向きが変わるポイント。</p>
+        <p>この曲でいちばん引用される2行です。1行目の中ほどに <strong class="text-[var(--c-text)]">crack fiend</strong>（クラック中毒者）、2行目に <strong class="text-[var(--c-text)]">You always was a black queen</strong>（お前はいつも黒人の女王だった）。</p>
+        <p><code>even as ~</code> は「〜であっても」という逆接です。社会が母に貼ったレッテルを否定せず、事実として認めたうえで、それでも女王だったと言っています。</p>
+        <p>裁きもしないし、言い訳もしない。この一行で、ここまでの苦い思い出話がまるごと賛辞にひっくり返るのが、この曲の一番の聴きどころだと思っています。</p>
+<p>文法面では <strong class="text-[var(--c-text)]">you always was</strong>。標準英語なら <em>you always were</em> ですが、AAVEの「invariant was（不変のwas）」で <code>was</code> になっています。</p>
+        <p>間違いではなく、ひとつの文法体系の表れです。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">Invariant was</strong>: AAVEでは過去の be動詞を人称・数にかかわらず <code>was</code> にそろえることがあります。<em>We was there</em>、<em>They was tired</em>、<em>You was right</em> など。</p>
+<p><strong class="text-[var(--c-text)]">black queen</strong> は、Black Power・ブラック・プライド運動の文脈で広まった敬称です。白人中心の美の基準を退けて、黒人女性を「女王」と讃える言葉。</p>
+          <p>この曲では、社会が「問題のある母親」として見ていた人への、いちばん強い反論になっています。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑩ raise a man -->
+      <LearningUnit
+        heading="tryin' to raise a man — raise の意味幅と ain't"
+        label="★ AAVE文法・語法"
+        mc="2Pac（Verse 1）"
+        t={TS["raise-a-man"].t} tApprox={TS["raise-a-man"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">For a woman, it <QuickSlang word="ain't" desc="is not / are not のAAVE・口語形。否定の最もカジュアルな言い方" /> easy tryin' to raise a man</Fragment>
+        <Fragment slot="jpn">女の身で、男を育て上げるのは簡単じゃない</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の締めちかく、2Pacが「ようやく分かった」と言う件。</p>
+<p>行の中ほど、<strong class="text-[var(--c-text)]">it ain't easy tryin' to raise a man</strong> が学習ポイントです。<strong class="text-[var(--c-text)]">ain't</strong> は <em>is not</em> の口語・AAVE形で、<em>it isn't easy</em> と同じ意味。</p>
+        <p>こちらのほうがリズムに乗ります。</p>
+        <p>面白いのは <strong class="text-[var(--c-text)]">raise a man</strong> という言い方。子どもを育てるなら <em>raise a child</em> で足りるところを、あえて <em>man</em>（一人前の男）と言っています。</p>
+        <p>生かしておくだけでなく、大人の男にまで育て上げる、という重みが乗る。しかも前置きが <code>For a woman</code>（女の身で）なので、性別と貧困とシングルという三重の苦労が、短い一行に積まれています。</p>
+        <p><code>tryin' to ~</code> は <em>trying to ~</em> の短縮で「〜しようとしている」。速く言うと <em>tryna</em>（トゥライナ）に聞こえることも多いです。</p>
+        <Fragment slot="usage">
+<p><strong class="text-[var(--c-text)]">raise</strong>: 育てる。<em>raise a child / raise kids / raise a family</em>。</p>
+          <p><em>bring up</em> とほぼ同じ意味で、米語では <em>raise</em> のほうがよく使われます。</p>
+          <p><strong class="text-[var(--c-text)]">ain't</strong> は <em>am not / is not / are not / has not / have not</em> をすべてカバーできる否定形。AAVEと南部英語で特によく出てきます。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑪ committed / welfare -->
+      <LearningUnit
+        heading="You always was committed / on welfare — 「やり抜いた人」と福祉のスティグマ"
+        label="★ 語法・文化"
+        mc="2Pac（Verse 1）"
+        t={TS["welfare"].t} tApprox={TS["welfare"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">You always was committed<br />A poor single mother on <QuickSlang word="welfare" desc="生活保護・社会福祉給付。1980〜90年代のアメリカでは黒人シングルマザーへの偏見と結びついて語られた" />, tell me how you did it</Fragment>
+        <Fragment slot="jpn">お前はいつだって腹をくくってた／生活保護を受ける貧しいシングルマザー、いったいどうやって乗り越えたんだ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の終盤、2Pacが母の境遇を言葉にする件。</p>
+        <p class="mt-3 mb-1 font-bold text-[var(--c-text)]">1. committed（腹をくくった）</p>
+<p>1行目の <strong class="text-[var(--c-text)]">committed</strong> は「献身的な・やると決めたらやり抜く」。仕事や恋愛でも使う、覚えておくと便利な形容詞です。</p>
+        <p>ここも <code>you always was</code> と、invariant was が続いています。</p>
+        <p class="mt-3 mb-1 font-bold text-[var(--c-text)]">2. on welfare（生活保護で）</p>
+        <p>2行目の <strong class="text-[var(--c-text)]">on welfare</strong> は、生活保護を受けている状態のことです。</p>
+        <p>1980年代のレーガン政権期には「福祉依存」を責める言説が強まり、<em>welfare queen</em>（税金で楽をする女、という蔑称）という言葉が黒人シングルマザーへの偏見として広まりました。</p>
+        <p>つまり <em>on welfare</em> は、単に貧しいというより、社会の烙印（スティグマ）を背負った状態を指す言葉でした。2Pacはその語をそのまま使って、母がどうやって子どもを育て上げたのかを問いかけています。</p>
+        <p>行末の <code>tell me how you did it</code> は答えを求める質問ではなく、「俺には想像もつかない」という驚きの言い方です。</p>
+        <Fragment slot="usage">
+<p><strong class="text-[var(--c-text)]">be on welfare / go on welfare</strong>: 生活保護を受けている・受け始める。<em>welfare</em> 自体は「福祉・幸福」ですが、米口語では政府の給付を指すことが多いです。</p>
+          <p>いまは偏見を避けて <em>public assistance</em> と言う場面も増えています。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑫ pay you back -->
+      <LearningUnit
+        heading="pay you back / the plan is to ~ — 返しきれない恩と「計画」"
+        label="★ 句動詞・表現"
+        mc="2Pac（Verse 1ほか各バース末）"
+        t={TS["pay-you-back"].t} tApprox={TS["pay-you-back"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の最後。同じ2行が Verse 2・3の終わりにも戻ってきます。</p>
+<p>各バースの終わりに置かれた2行です。1行目の <strong class="text-[var(--c-text)]">pay you back</strong> は「借りを返す」。</p>
+        <p>お金にも恩にも使える句動詞です。頭に <code>There's no way</code>（〜する方法はない、絶対に無理）が付いて、「返しようがない」になります。</p>
+        <p>2行目は <strong class="text-[var(--c-text)]">the plan is to ~</strong>（〜するつもりだ）。返せないと認めたうえで、せめて「分かっている」と示すのが計画だ、と言っています。</p>
+        <p>Verse 2・3では <code>my plan</code> に変わっていて、3回繰り返すうちに「計画」が少しずつ自分のものになっていく流れです。</p>
+        <Fragment slot="usage">
+<p><strong class="text-[var(--c-text)]">pay ~ back</strong>: 〜に返す・恩返しする。<em>I'll pay you back tomorrow</em>（明日返すね）。</p>
+          <p>仕返しの意味で使うこともあります。</p>
+          <p><strong class="text-[var(--c-text)]">no way</strong>: 絶対に無理・ありえない。単独で <em>No way!</em>（うそでしょ！）とも言います。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑬ place no one above ya -->
+      <LearningUnit
+        heading="don't you know we love ya / place no one above ya — Chorus の否定疑問とゴスペルの温度"
+        label="★ 表現・語法"
+        mc="Reggie Green & Sweet Franklin（Chorus）"
+        t={TS["place-no-one"].t} tApprox={TS["place-no-one"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Sweet lady, place no one above ya</Fragment>
+        <Fragment slot="jpn">やさしい人、あなたより上には誰も置かない</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Chorus。Reggie Green と Sweet Franklin が歌うフックの核。</p>
+        <p>この行の直前に歌われる <strong class="text-[var(--c-text)]">don't you know ~?</strong> は否定疑問文です。「知らないの？」と聞いているのではなく、「もちろん分かってるよね」と念を押す言い方になります。</p>
+        <p>引用した行の <strong class="text-[var(--c-text)]">place ~ above …</strong> は「〜を…より上に置く」。<em>place no one above ya</em> で、あなたより上の人はいない、つまり最高の存在だ、という讃え方です。</p>
+        <p><code>ya</code> は <em>you</em> の口語形。歌いやすい軽い発音で、フックによく出てきます。</p>
+        <p>コーラスを歌っているのは2Pacではなく、Reggie Green と Sweet Franklin という二人のシンガー。ソウルフルな歌声がラップと交互に来ることで、曲の温度がぐっと上がっています。</p>
+        <Fragment slot="usage">
+<p><strong class="text-[var(--c-text)]">place A above B</strong>: AをBより大事にする。<em>She places family above everything</em>（彼女は家族を何より優先する）。</p>
+          <p><em>put</em> より少しかしこまった響きです。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑭ ain't nobody tell us -->
+      <LearningUnit
+        heading="ain't nobody tell us it was fair — ain't が did not になる否定"
+        label="★ AAVE文法"
+        mc="2Pac（Verse 2）"
+        t={TS["aint-nobody"].t} tApprox={TS["aint-nobody"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Now, ain't nobody tell us it was fair<br />No love for my daddy, 'cause the coward wasn't there</Fragment>
+        <Fragment slot="jpn">誰も俺たちに「公平だ」なんて言わなかった／親父に向ける愛はない、あの臆病者はそこにいなかったから</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の第一行と二行目。父親の話から始まります。</p>
+        <p>1行目の <strong class="text-[var(--c-text)]">ain't nobody tell us</strong> は、標準英語なら <em>Nobody told us</em>（誰も言わなかった）。</p>
+        <p>ここでの <code>ain't</code> は <em>didn't</em> の代わりをしています。AAVEでは <code>ain't</code> が過去の否定にも使え、さらに <code>nobody</code> と否定を重ねて強める「二重否定（negative concord）」の形になっています。</p>
+<p>2行目は父への言葉。<strong class="text-[var(--c-text)]">coward</strong>（臆病者）と呼び、<code>wasn't there</code>（そこにいなかった）で不在をはっきり言っています。</p>
+        <p><code>fair</code> と <code>there</code> の脚韻も、この2行で決まっています。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">negative concord（否定の一致）</strong>: 否定語を重ねても肯定に戻らず、否定が強まる仕組み。<em>I ain't got no money</em>（金なんて全然ない）など、AAVEや多くの英語方言で見られます。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑮ passed away -->
+      <LearningUnit
+        heading="He passed away and I didn't cry — 死を柔らかく言う pass away"
+        label="★ 語法"
+        mc="2Pac（Verse 2）"
+        t={TS["passed-away"].t} tApprox={TS["passed-away"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">He passed away and I didn't cry</Fragment>
+        <Fragment slot="jpn">あいつが死んだとき、俺は泣かなかった</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の序盤、父の話の続き。</p>
+        <p><strong class="text-[var(--c-text)]">pass away</strong> は「亡くなる」。<em>die</em> を直接言わない、柔らかい言い方の代表です。</p>
+        <p>丁寧な言葉で父の死を言いながら、後半は <code>I didn't cry</code>（泣かなかった）と素っ気ない。言葉の丁寧さと感情の冷たさがずれていて、そこに父への複雑な気持ちが出ています。</p>
+        <p>続く行では、怒りのせいで他人のようにしか感じられなかった、と理由を説明します。<em>feel for ~</em>（〜に同情する）という句動詞がそこで使われています。</p>
+        <Fragment slot="usage">
+<p><strong class="text-[var(--c-text)]">pass away</strong>: 亡くなる。<em>My grandmother passed away last year</em>（祖母は昨年亡くなりました）。</p>
+          <p>単に <em>passed</em> だけでも同じ意味になります。</p>
+          <p><strong class="text-[var(--c-text)]">feel for ~</strong>: 〜を気の毒に思う。<em>I really feel for you</em>（本当に気の毒に思う）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑯ heartless / all along -->
+      <LearningUnit
+        heading="They say I'm wrong and I'm heartless, but all along — 「最初からずっと」の all along"
+        label="★ 語法"
+        mc="2Pac（Verse 2）"
+        t={TS["heartless"].t} tApprox={TS["heartless"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">They say I'm wrong and I'm heartless, but all along</Fragment>
+        <Fragment slot="jpn">みんな俺が間違ってる、薄情だって言う、でも最初からずっと</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の序盤、父の死に泣かなかった話のあと。</p>
+        <p>行の中ほど、<strong class="text-[var(--c-text)]">heartless</strong> は「心がない」、つまり薄情・冷酷。<code>-less</code> は「〜がない」を作る接尾辞で、<em>homeless</em>（家がない）や <em>hopeless</em>（希望がない）と同じ仲間です。</p>
+        <p>行末の <strong class="text-[var(--c-text)]">all along</strong> は「最初からずっと」。文はここで切れて、次の行に続きます。</p>
+        <p>次の行では、ずっと父親を探していた、と本音が明かされます。<code>wrong</code>・<code>along</code>・次の行末の <code>gone</code> と、母音の近い音が3つ並んで韻をつないでいます。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">all along</strong>: 最初からずっと。<em>I knew it all along</em>（最初から分かってた）は、ドラマや映画で頻出のフレーズです。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑰ young brother -->
+      <LearningUnit
+        heading="They showed a young brother love — brother が指す「黒人の若者」"
+        label="★ スラング"
+        mc="2Pac（Verse 2）"
+        t={TS["young-brother"].t} tApprox={TS["young-brother"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">They showed a young <QuickSlang word="brother" href="/slang/bro/" desc="ここでは実の兄弟ではなく、黒人男性どうしの連帯をこめた呼び方。young brother で「黒人の少年」" /> love</Fragment>
+        <Fragment slot="jpn">あいつらは若い黒人の俺に愛情を見せてくれた</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の中盤、父のかわりに地元の年上の連中とつるむようになった件。</p>
+        <p>父親の代わりに居場所をくれたのは、街の年上の不良たちでした。その人たちが自分に愛情を見せてくれた、という一行です。</p>
+        <p><strong class="text-[var(--c-text)]">brother</strong> は「兄弟」ですが、黒人コミュニティでは同胞の黒人男性を指す呼び方でもあります。<em>a young brother</em> で「若い黒人の男の子」、ここでは2Pac自身のことです。</p>
+        <p><code>show ~ love</code> は「〜に愛情・敬意を示す」。ヒップホップでは <em>show love</em> の形で、応援する・リスペクトを示す意味でもよく出てきます。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">show (some) love</strong>: 愛情・支持を示す。<em>Show some love for the DJ!</em>（DJに拍手を！）のように、ライブの煽りでも定番です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑱ slangin' -->
+      <LearningUnit
+        heading="I started slangin' — 動詞になったスラング"
+        label="★ スラング"
+        mc="2Pac（Verse 2）"
+        t={TS["slangin"].t} tApprox={TS["slangin"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">I needed money of my own, so I started <QuickSlang word="slangin'" desc="麻薬を売ること。slang を動詞として使う" /></Fragment>
+        <Fragment slot="jpn">自分で金が必要だった、だから麻薬の売人を始めた</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2前半、家を出て一人になった2Pacが金を稼ぎ始める件。</p>
+        <p>行末の <strong class="text-[var(--c-text)]">slangin'</strong> が学習ポイントです。<strong class="text-[var(--c-text)]">slang</strong> は名詞（俗語）としておなじみですが、ストリートでは動詞で「麻薬を売る」という意味にもなります。</p>
+        <p><em>slangin'</em> は <em>slanging</em> の短縮で、進行形が「常習的にやっている」状態を表しています。</p>
+        <p>文の形は <code>I needed X, so I started Y</code>。理由と行動が一行に収まっていて、因果を短く言いたいときの英作文の型としても使えます。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">slang（動詞）</strong>: 麻薬を売る。<em>slang on the corner</em>（街角で売る）のように使い、<em>slanging</em> で進行・習慣を表します。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑲ sell rocks / mailbox -->
+      <LearningUnit
+        heading="I sell rocks / put money in your mailbox — rocks と郵便受けへの仕送り"
+        label="★ スラング・文化"
+        mc="2Pac（Verse 2）"
+        t={TS["sell-rocks"].t} tApprox={TS["sell-rocks"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">I ain't guilty, 'cause even though I sell <QuickSlang word="rocks" href="/slang/rock/" desc="クラック・コカインの固形のこと。この行では母への仕送りの元手として出てくる" /><br />It feels good puttin' money in your mailbox</Fragment>
+        <Fragment slot="jpn">俺に罪はない、たとえロック（クラック）を売っていても／お前の郵便受けに金を入れるのは気持ちいい</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2中盤。上下2行で1セット。</p>
+<p>1行目の行末、<strong class="text-[var(--c-text)]">rocks</strong> はクラック・コカインを固めたものです。1980年代後半から90年代にかけて安く出回り、都市部の黒人コミュニティに深い傷を残しました。</p>
+        <p><em>sell rocks</em> でクラックを売ることを指します。</p>
+        <p>2行目は <code>it feels good puttin' money in your mailbox</code>（郵便受けに金を入れるのは気持ちいい）。違法に稼いだ金で母に仕送りをする、という道徳的に複雑な場面を、2Pacは「気持ちいい」とだけ言います。</p>
+        <p>弁解はしていません。行頭の <code>I ain't guilty</code>（罪はない）も、法律上の主張というより、母を助けるためだったという本人の中での折り合いに聞こえます。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">rocks</strong>: クラック・コカインの別名。形が小石（rock）に似ていることから来ています。</p>
+          <p><strong class="text-[var(--c-text)]">put money in one's mailbox</strong>: 郵便受けに現金を入れること。送金アプリのない時代の、仕送りの形です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ⑳ pay rent when the rent is due -->
+      <LearningUnit
+        heading="I love payin' rent when the rent is due — due（期限が来ている）"
+        label="★ 語法"
+        mc="2Pac（Verse 2）"
+        t={TS["pay-rent"].t} tApprox={TS["pay-rent"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">I love payin' rent when the rent is due</Fragment>
+        <Fragment slot="jpn">家賃の支払い日にちゃんと家賃を払えるのが、うれしいんだ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の中盤、仕送りの話の続き。</p>
+        <p>行末の <strong class="text-[var(--c-text)]">due</strong> は「（支払いや提出の）期限が来ている」。<em>The rent is due</em> で「家賃の支払い日だ」になります。</p>
+<p>家賃を払うのが好き、というのは普通なら変な言い方です。払えなかった日々を知っているから、期日に払えることがうれしい。</p>
+        <p>貧しかった家の事情が、この短い一行の裏に見えます。</p>
+        <p>次の行では、送ったダイヤのネックレスは届いたかと尋ねます。<code>due</code> と <code>you</code> で脚韻を踏む2行です。</p>
+        <Fragment slot="usage">
+<p><strong class="text-[var(--c-text)]">due</strong>: 期限の来た。<em>The report is due Friday</em>（レポートの締め切りは金曜）、<em>The baby is due in May</em>（5月に出産予定）。</p>
+          <p>学校でも職場でも毎日使う単語です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ㉑ when I was low -->
+      <LearningUnit
+        heading="'Cause when I was low you was there for me — low（どん底）と be there for"
+        label="★ 語法・AAVE文法"
+        mc="2Pac（Verse 2）"
+        t={TS["when-low"].t} tApprox={TS["when-low"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">'Cause when I was low you was there for me</Fragment>
+        <Fragment slot="jpn">だって俺が落ちてたとき、お前はそばにいてくれたから</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の中盤、仕送りの理由を語るところ。</p>
+        <p>行の前半、<strong class="text-[var(--c-text)]">when I was low</strong> の <code>low</code> は「低い」から転じて、気分が沈んでいる、または金もなくどん底にいる状態です。</p>
+        <p>後半の <strong class="text-[var(--c-text)]">be there for ~</strong> は「〜のそばにいる・支えになる」。物理的にそこにいるというより、困ったときに頼れる存在だった、という意味です。</p>
+        <p>そしてまた <code>you was</code>。この曲では母に呼びかける過去形が、ほぼすべて invariant was でそろえられています。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">be there for someone</strong>: 支えになる。<em>I'll always be there for you</em>（いつでも力になるよ）は、友情や恋愛の定番フレーズです。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ㉒ fix us a hot plate -->
+      <LearningUnit
+        heading="tryin' to fix us a hot plate — 料理を「作る」の fix"
+        label="★ 語法・南部英語"
+        mc="2Pac（Verse 2）"
+        t={TS["hot-plate"].t} tApprox={TS["hot-plate"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">And I could see you comin' home after work late<br />You're in the kitchen, tryin' to fix us a hot plate</Fragment>
+        <Fragment slot="jpn">仕事帰りに遅く帰ってくるお前の姿が目に浮かぶ／台所で、俺たちに温かい一皿を作ろうとしてる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の後半、台所の母を思い出す場面。</p>
+        <p>2行目の <strong class="text-[var(--c-text)]">fix</strong> は「修理する」ではなく「（食事を）用意する」。<em>fix dinner</em>、<em>fix a drink</em> のように、アメリカ南部や黒人英語でよく使われる意味です。</p>
+        <p><strong class="text-[var(--c-text)]">hot plate</strong> は「温かい料理の一皿」。<code>fix us a hot plate</code> で「俺たちに温かいご飯を一皿こしらえる」になります。</p>
+        <p>1行目の <code>late</code> と2行目の <code>plate</code> が脚韻。仕事帰りの遅い時間と、台所に立つ母の姿が、韻でひと続きの場面になっています。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">fix + 人 + 料理</strong>: 人に料理を作る。<em>Let me fix you something to eat</em>（何か食べるもの作るよ）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ㉓ scraps you was given -->
+      <LearningUnit
+        heading="workin' with the scraps you was given — 残り物の比喩と感謝祭"
+        label="★ AAVE文法・文化"
+        mc="2Pac（Verse 2）"
+        t={TS["scraps"].t} tApprox={TS["scraps"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">You just workin' with the <QuickSlang word="scraps" desc="端切れ・余り物・残飯。ここでは与えられた乏しい食材とお金の比喩" /> you was given<br />And Mama made miracles every Thanksgivin'</Fragment>
+        <Fragment slot="jpn">お前はただ、与えられた残り物でやりくりしていた／そしてママは感謝祭のたびに奇跡を作り出した</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の後半、台所の場面の続き。</p>
+<p>1行目の <strong class="text-[var(--c-text)]">scraps</strong> は端切れ・余り物。食卓の残り物や布の切れ端など、本来は使い物にならない残りを指します。</p>
+        <p>ここでは、母に与えられたわずかな食材やお金のことです。</p>
+<p>続く <strong class="text-[var(--c-text)]">you was given</strong> は、標準英語なら <em>you were given</em>。ここでも invariant was です。</p>
+        <p><code>You just workin'</code> も be動詞の <code>are</code> が落ちていて、AAVEの「コピュラ省略」の形になっています。</p>
+<p>2行目は <code>Mama made miracles every Thanksgivin'</code>。感謝祭（Thanksgiving）は北米で一番大きな家族の食事の日です。</p>
+        <p>残り物から毎年ごちそうを用意した、という具体的な行事の名前があるので、場面がはっきり浮かびます。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">scraps</strong>: <em>table scraps</em>（食卓の残り物）、<em>fabric scraps</em>（布の端切れ）。転じて「わずかな取り分・チャンス」の比喩にもなります。</p>
+          <p><strong class="text-[var(--c-text)]">work with what you're given</strong>: 与えられた条件でやりくりする、という慣用的な言い方です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ㉔ the road got rough / on your own -->
+      <LearningUnit
+        heading="raise two bad kids on your own — 「女手ひとつで」の on your own"
+        label="★ 語法"
+        mc="2Pac（Verse 2）"
+        t={TS["road-rough"].t} tApprox={TS["road-rough"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">You're tryin' to raise two bad kids on your own</Fragment>
+        <Fragment slot="jpn">手のかかるガキ二人を、たった一人で育てようとしてる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の終盤、「道が険しくなった」と母の孤独を語る件。</p>
+        <p>直前の行は <em>the road got rough</em>（道が険しくなった）。人生を道にたとえる、英語でよくある言い方です。</p>
+        <p>この行の行末、<strong class="text-[var(--c-text)]">on your own</strong> は「自分一人で・誰の助けもなく」。日本語の「女手ひとつで」にかなり近い響きです。</p>
+        <p><strong class="text-[var(--c-text)]">bad kids</strong> は「悪い子たち」、つまり手を焼かせる自分と妹のこと。Verse 1の <code>raise a man</code> がここで <code>raise two bad kids</code> になって戻ってきます。</p>
+        <Fragment slot="usage">
+<p><strong class="text-[var(--c-text)]">on one's own</strong>: 一人で・独力で。<em>She raised three kids on her own</em>（彼女は3人の子を一人で育てた）。</p>
+          <p><em>by oneself</em> とほぼ同じです。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ㉕ pour out some liquor -->
+      <LearningUnit
+        heading="Pour out some liquor and I reminisce — 追悼の一杯と depend on"
+        label="★ 文化・表現"
+        mc="2Pac（Verse 3）"
+        t={TS["pour-out-liquor"].t} tApprox={TS["pour-out-liquor"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Pour out some liquor and I reminisce<br />'Cause through the drama, I can always depend on my mama</Fragment>
+        <Fragment slot="jpn">酒を注いで、俺は思い出にふける／どんな揉め事のなかでも、いつだって母ちゃんを頼れたから</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3の冒頭、最終章の入り口。</p>
+        <p class="mt-3 mb-1 font-bold text-[var(--c-text)]">1. pour out some liquor（追悼の一杯）</p>
+        <p>1行目の <strong class="text-[var(--c-text)]">pour out some liquor</strong> は、亡くなった人や苦労した人への敬意として、酒を地面に注ぐ行為（libation、献酒）です。</p>
+        <p>アフリカ由来の習慣がアメリカの黒人コミュニティに残り、90年代のヒップホップでは「Pour one out for ~」（〜に一杯）という決まり文句として広まりました。</p>
+        <p>母は生きているので、ここは追悼というより、思い出に入る前の儀式に近い使い方です。<code>reminisce</code>（懐かしく思い出す）もラップで頻出の動詞です。</p>
+        <p class="mt-3 mb-1 font-bold text-[var(--c-text)]">2. depend on（頼る）</p>
+        <p>2行目の <strong class="text-[var(--c-text)]">depend on ~</strong> は「〜を頼りにする」。<code>through the drama</code> の drama は Verse 1でも出た「揉め事」で、<code>drama</code> と <code>mama</code> が行の中で韻を踏んでいます。</p>
+        <Fragment slot="usage">
+<p><strong class="text-[var(--c-text)]">pour one out（for ~）</strong>: 〜のために酒を注ぐ。<em>Pour one out for the homies</em>（亡くなった仲間に一杯）が定番です。</p>
+          <p>いまはミーム的に軽く使われることもあります。</p>
+          <p><strong class="text-[var(--c-text)]">reminisce</strong>: 良い思い出を懐かしむ。<em>reminisce about childhood</em>（子どもの頃を懐かしむ）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ㉖ hopeless / back in focus -->
+      <LearningUnit
+        heading="hopeless / get me back in focus — 母のひとことで立ち直る"
+        label="★ 韻・句動詞"
+        mc="2Pac（Verse 3）"
+        t={TS["back-in-focus"].t} tApprox={TS["back-in-focus"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">And when it seems that I'm hopeless<br />You say the words that can get me back in focus</Fragment>
+        <Fragment slot="jpn">もう自分はダメだと思えるとき／お前は、俺をもう一度しゃんとさせる言葉をくれる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3の序盤、思い出の章が始まってすぐ。</p>
+        <p>1行目の行末 <strong class="text-[var(--c-text)]">hopeless</strong>（希望がない）と、2行目の行末 <strong class="text-[var(--c-text)]">focus</strong>（集中）。<em>HOPE-less</em> と <em>FO-cus</em>、強く読む母音「オウ」とそのあとの弱い音節がそろった2音節の韻です。</p>
+        <p><strong class="text-[var(--c-text)]">get ~ back in focus</strong> は、ぼやけたピントを合わせ直す、というカメラ由来のイメージです。気持ちがばらばらになったときに、母の言葉で目の前のことに戻ってこられる、という意味になります。</p>
+        <p><code>it seems that ~</code>（〜のように思える）も、試験英語でおなじみの形がそのまま出てきます。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">get back in focus / refocus</strong>: 集中を取り戻す。<em>I need to get back in focus</em>（集中し直さないと）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ㉗ act crazy -->
+      <LearningUnit
+        heading="And even though I act crazy — 「ふるまう」の act"
+        label="★ 語法"
+        mc="2Pac（Verse 3）"
+        t={TS["act-crazy"].t} tApprox={TS["act-crazy"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">And even though I act crazy</Fragment>
+        <Fragment slot="jpn">俺はめちゃくちゃなことをしてるけど</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3の中盤、子ども時代の思い出のあと。</p>
+        <p><strong class="text-[var(--c-text)]">act + 形容詞</strong> で「〜にふるまう」。<code>act crazy</code> は「無茶をする・荒れた態度をとる」です。</p>
+        <p><code>even though</code>（〜だけれども）で始めて、次の行では、自分を産んでくれたことを神に感謝しなきゃ、と続けます。</p>
+        <p>ここで韻を踏むのは <code>crazy</code> と次の行末の <code>made me</code>。<em>CRA-zy</em> と <em>MADE me</em> の「エイ・イー」の母音が重なっていて、2語にまたがる韻の作り方の見本になっています。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">act + 形容詞</strong>: 〜のようにふるまう。<em>Stop acting weird</em>（変な態度とるなよ）、<em>act tough</em>（強がる）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ㉘ always stayed real -->
+      <LearningUnit
+        heading="You never kept a secret, always stayed real — ヒップホップの real"
+        label="★ スラング"
+        mc="2Pac（Verse 3）"
+        t={TS["stayed-real"].t} tApprox={TS["stayed-real"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">You never kept a secret, always stayed <QuickSlang word="real" href="/slang/real/" desc="ここでは母の、隠しごとをせず本当のことを言う態度。ヒップホップで最大級のほめ言葉" /></Fragment>
+        <Fragment slot="jpn">お前は隠しごとをしなかった、いつだって本音でいてくれた</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3の中盤。直前の行は「この気持ちを言い表す言葉がない」。</p>
+        <p>行末の <strong class="text-[var(--c-text)]">stayed real</strong> は、ヒップホップでいちばん大事にされる価値観のひとつ、<em>keep it real</em>（偽らずに本物でいる）と同じ考え方です。</p>
+        <p>前半の <code>never kept a secret</code>（秘密を持たなかった）と並べることで、ここでの real が「正直である」に寄った意味だと分かります。依存症のことも隠さなかった母への言葉として読むと、重みがあります。</p>
+        <p>直前の行末 <code>feel</code> と <code>real</code> で脚韻を踏んでいます。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">keep it real / stay real</strong>: 偽らない・自分らしくいる。<em>Thanks for keeping it real with me</em>（本音で話してくれてありがとう）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ㉙ take the pain away / brighter day -->
+      <LearningUnit
+        heading="take the pain away / there's a brighter day — ゴスペルの言葉で励ます"
+        label="★ イディオム・文化"
+        mc="2Pac（Verse 3）"
+        t={TS["brighter-day"].t} tApprox={TS["brighter-day"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">I wish I could take the pain away<br />If you can <QuickSlang word="make it through" desc="乗り越える・生き抜く。困難な状況を抜け出すことを指すイディオム" /> the night, there's a brighter day</Fragment>
+        <Fragment slot="jpn">お前の痛みを取り去ってやれたらいいのに／この夜を越えられたら、もっと明るい日が来る</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3の後半、曲が終わりに向かう場面。</p>
+        <p class="mt-3 mb-1 font-bold text-[var(--c-text)]">1. I wish I could ~（〜できたらいいのに）</p>
+<p>1行目は <strong class="text-[var(--c-text)]">I wish I could ~</strong> の仮定法。できないと分かっていることへの願いを表します。</p>
+        <p><code>take ~ away</code> は「〜を取り去る」です。</p>
+        <p class="mt-3 mb-1 font-bold text-[var(--c-text)]">2. make it through（乗り越える）</p>
+        <p>2行目の <strong class="text-[var(--c-text)]">make it through ~</strong> は「〜を乗り越える・生き抜く」という<QuickSlang word="イディオム" desc="慣用表現。複数の語が組み合わさって、個々の語の意味とは異なる固定した意味を持つ表現" />（慣用句）です。</p>
+        <p>後半の <code>there's a brighter day</code>（もっと明るい日がある）は、ゴスペルでよく歌われる希望の言い方。暗い夜のあとに光が来る、というキリスト教的な語り口です。</p>
+        <p>ストリートの語彙で始まった曲が、終盤でこういう言葉にたどり着く。<code>away</code> と <code>day</code> の脚韻で、励ましが素直に耳に残ります。</p>
+        <Fragment slot="usage">
+<p><strong class="text-[var(--c-text)]">make it through ~</strong>: 〜を切り抜ける。<em>make it through the winter</em>（冬を越す）、<em>make it through the week</em>（今週を乗り切る）。</p>
+          <p><em>get through</em> とほぼ同じです。</p>
+          <p><strong class="text-[var(--c-text)]">brighter day</strong>: より良い明日。ゴスペル・R&amp;B・ソウルで定番の希望表現です。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <!-- ㉚ hold on -->
+      <LearningUnit
+        heading="Everything will be alright if you hold on — 「踏ん張る」の hold on"
+        label="★ 句動詞"
+        mc="2Pac（Verse 3）"
+        t={TS["hold-on"].t} tApprox={TS["hold-on"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Everything will be alright if you hold on</Fragment>
+        <Fragment slot="jpn">踏ん張っていれば、何もかもうまくいく</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3の終盤、最後の「恩は返せない」の直前。</p>
+        <p>行末の <strong class="text-[var(--c-text)]">hold on</strong> は「しがみつく」から転じて、「あきらめずに耐える・踏ん張る」です。電話の「ちょっと待って」も同じ <em>hold on</em> ですが、ここは励ましの意味になります。</p>
+        <p>次の行は、毎日が闘いだけど進み続けなきゃ、という内容で、行末に <em>roll on</em>（転がり続ける、前に進む）が来ます。<code>hold on</code> と <code>roll on</code> で、母への励ましと自分への言い聞かせが韻で重なる終わり方です。</p>
+        <Fragment slot="usage">
+          <p><strong class="text-[var(--c-text)]">hold on</strong>: 踏ん張る・待つ。<em>Hold on, I'm coming</em>（待ってて、今行く）、<em>Just hold on a little longer</em>（もう少しの辛抱だ）。</p>
+        </Fragment>
+      </LearningUnit>
+
+    </section>
+
+    <!-- ===================== -->
+    <!-- 文化的背景             -->
+    <!-- ===================== -->
+    <section id="background" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        文化的背景
+      </h2>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">アフェニ・シャクール</p>
+        <h3 class="font-semibold text-base mb-3">ブラック・パンサー党員が一人で育てた息子</h3>
+        <div class="space-y-3 text-[var(--c-muted)] text-sm leading-relaxed">
+          <p>
+            アフェニ・シャクール（1947〜2016）は、1960年代末のブラック・パンサー党（Black Panther Party）の活動家です。爆発物の取り扱いなどの重罪で起訴されました。
+          </p>
+          <p>
+            いわゆる「パンサー21事件」の裁判では、陪審が3時間足らずの評議で全員無罪の評決を出しています。
+          </p>
+          <p>
+            2Pacが生まれた1971年、彼女はまさにその裁判のさなかにいました。のちにクラック・エピデミックが広がった1980年代後半には、アフェニ自身も依存症に苦しみます。
+          </p>
+          <p>
+            だからこの曲の「crack fiend」は、誇張でも比喩でもなく事実の描写です。その強さと弱さの両方を、2Pacは「黒人の女王」という一語にまとめています。
+          </p>
+        </div>
+      </div>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">クラック・エピデミックと黒人コミュニティ</p>
+        <h3 class="font-semibold text-base mb-3">1980〜90年代のインナーシティを襲った波</h3>
+        <div class="space-y-3 text-[var(--c-muted)] text-sm leading-relaxed">
+          <p>
+            クラック（固形のコカイン）は粉末より大幅に安く、1980年代半ばにニューヨークやロサンゼルスなど大都市の貧困地区へ一気に広まりました。
+          </p>
+<p>
+            家庭の崩壊、親の依存、子どもの貧困。「Dear Mama」に出てくる家族の姿は、この波をまともに受けた家庭の実像です。
+          </p>
+          <p>
+            語そのものの使われ方は <a href="/slang/crack/" class="underline underline-offset-2 hover:text-[var(--c-gold)]">crack の語ページ</a>にまとめています。
+          </p>
+          <p>
+            当時の政策はこの問題を「個人の道徳の失敗」として扱い、取り締まりの強化と福祉の削減が同時に進みました。
+          </p>
+          <p>
+            「sell rocks」「on welfare」「single mother」。この曲の言葉は、どれもその仕組みの中に置かれた家庭の言葉です。
+          </p>
+        </div>
+      </div>
+
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">キーワード早見表</p>
+        <h3 class="font-semibold text-base mb-3">この曲で学んだ語彙の整理</h3>
+        <div class="space-y-3 mt-3">
+          {[
+            ['beef', '対立・揉め事。have beef with ~ で「〜と揉めている」'],
+            ["ain't", 'is not / are not / did not のAAVE・口語形。文頭で「〜はいない」も作る'],
+            ['drama', '演劇ではなく、家庭や人間関係の揉め事'],
+            ["whoopin'", '親のお仕置き（お尻たたき）。南部・黒人家庭の口語'],
+            ['crack fiend', 'クラック・コカインの中毒者。アフェニの実際の依存症を指す'],
+            ['black queen', 'ブラック・プライド文脈での、黒人女性への最大の敬称'],
+            ['welfare', '生活保護。黒人シングルマザーへの偏見と結びついた語'],
+            ['pay back', '恩や借りを返す'],
+            ["slangin'", '麻薬を売ること（slangの動詞化）'],
+            ['fix', '（料理を）用意する。fix a plate で「一皿こしらえる」'],
+            ['scraps', '余り物・端切れ。乏しい暮らしの比喩'],
+            ['pour out liquor', '亡き人や苦労した人への敬意として酒を注ぐ行為'],
+            ['stay real', '偽らず本音でいる。keep it real と同じ価値観'],
+            ['make it through', '乗り越える・生き抜く（イディオム）'],
+          ].map(([term, desc]) => (
+            <div class="flex gap-3 text-sm">
+              <span class="text-[var(--c-gold)] shrink-0 font-semibold min-w-[130px]">{term}</span>
+              <span class="text-[var(--c-muted)]">{desc}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== -->
+    <!-- サンプル・制作の裏側   -->
+    <!-- ===================== -->
+    <section id="behind" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        サンプル・制作の裏側
+      </h2>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">サンプル元①</p>
+        <h3 class="font-semibold text-base mb-3">Joe Sample "In My Wildest Dreams"（1978）</h3>
+        <div class="space-y-3 text-[var(--c-muted)] text-sm leading-relaxed">
+          <p>
+            曲の土台のメロウなピアノ・ループは、ジャズ・フュージョンのピアニスト Joe Sample が1978年に出した「In My Wildest Dreams」から取られています。
+          </p>
+          <p>
+            The Crusaders のメンバーとしても知られる人で、元の曲でもとても穏やかで温かい音色です。
+          </p>
+          <p>
+            Tony Pizarro がそれをループさせたことで、2Pacのリリックを受け止める柔らかい下地ができました。元ネタと聴き比べると、ピアノの温かさがほとんどそのまま残っているのが分かります。
+          </p>
+        </div>
+      </div>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">サンプル元②</p>
+        <h3 class="font-semibold text-base mb-3">The Spinners "Sadie"（1975）</h3>
+        <div class="space-y-3 text-[var(--c-muted)] text-sm leading-relaxed">
+          <p>
+            Reggie Green と Sweet Franklin の歌うコーラス部分には、フィラデルフィア・ソウルのグループ The Spinners が1975年に出した「Sadie」が使われています。
+          </p>
+<p>
+            「Sadie」も母への感謝を歌った曲です。母に宛てた歌が、母に宛てた歌の素材になっている。
+          </p>
+          <p>
+            意図したかどうかは別にして、このつながりはかなりしっくりきます。
+          </p>
+        </div>
+      </div>
+
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">プロデューサー</p>
+        <h3 class="font-semibold text-base mb-3">Tony Pizarro — ソウルの温度を保ったまま</h3>
+        <div class="space-y-3 text-[var(--c-muted)] text-sm leading-relaxed">
+          <p>
+            この曲のプロデュースは Tony Pizarro。Joe Sample と The Spinners の素材をつなぎながら、ドラムを強くしすぎず、温かさを残す方向で組まれています。
+          </p>
+          <p>
+            ギャングスタ・ラップにありがちな攻撃的な音を抑えたぶん、歌詞の気持ちの揺れがそのまま届く。足すより引くことで効いているビートだと思います。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== -->
+    <!-- 評価と影響             -->
+    <!-- ===================== -->
+    <section id="legacy" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        評価とその後の影響
+      </h2>
+
+      <div class="mb-4 rounded-lg overflow-hidden border border-[var(--c-border)] text-sm">
+        <div class="grid grid-cols-3 bg-[var(--c-bg)] text-[var(--c-very-dim)] text-xs uppercase tracking-widest">
+          <div class="p-3 border-b border-[var(--c-border)]">指標</div>
+          <div class="p-3 border-b border-l border-[var(--c-border)]">記録</div>
+          <div class="p-3 border-b border-l border-[var(--c-border)]">メモ</div>
+        </div>
+        {[
+          ['US Billboard Hot 100', '最高9位', '2Pacのシングルの中でも上位のポップチャート成績'],
+          ['US Hot Rap Songs', '5週連続1位', 'ラップチャートでは頂点'],
+          ['US Hot R&B/Hip-Hop Songs', '最高3位', 'R&Bのリスナーにも広く届いた'],
+          ['第38回グラミー賞（1996年）', 'Best Rap Solo Performance ノミネート', '同年はアルバムも Best Rap Album にノミネート'],
+          ['米国議会図書館 National Recording Registry', '2010年に登録', '文化的・歴史的に重要な録音として保存対象に'],
+        ].map(([metric, record, significance]) => (
+          <div class="grid grid-cols-3">
+            <div class="p-3 border-b border-[var(--c-border)] text-[var(--c-dim)]">{metric}</div>
+            <div class="p-3 border-b border-l border-[var(--c-border)] text-[var(--c-gold)] font-medium">{record}</div>
+            <div class="p-3 border-b border-l border-[var(--c-border)] text-[var(--c-muted)] text-xs">{significance}</div>
+          </div>
+        ))}
+      </div>
+
+      <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+        <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">後世への影響</p>
+        <h3 class="font-semibold text-base mb-3">ストリートの言葉で「母への愛」を語っていいと示した曲</h3>
+        <div class="space-y-3 text-[var(--c-muted)] text-sm leading-relaxed">
+          <p>
+            「Dear Mama」以前のヒップホップに、母親をここまでまっすぐ讃えた曲は多くありませんでした。
+          </p>
+          <p>
+            ギャングスタ・ラップの語り口は強さを見せるためのもので、弱さや感謝を歌うのは難しい空気があったと思います。
+          </p>
+          <p>
+            この曲のヒットで、ストリートのリアルと母への愛は同じ曲の中に置ける、という前例ができました。
+          </p>
+          <p>
+            その後も、Kanye West の「Hey Mama」（2005）をはじめ、母への感謝を歌うヒップホップの流れは続いています。その早い位置にあるのが、1995年の「Dear Mama」です。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <AmazonAlbumCta query="2Pac Me Against the World" cover="/images/covers/dear-mama.jpg" title="Me Against the World" artist="2Pac" />
+
+    <!-- まとめ -->
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        まとめ
+      </h2>
+      <ul class="space-y-2 text-sm text-[var(--c-muted)] list-disc list-inside leading-relaxed">
+        <li>beef・drama・slangin'・sell rocks など、ストリートスラングがそのまま愛の語彙として使われています。</li>
+        <li>we was / you always was / you was given と、母に向けた過去形が invariant was でそろえられています。</li>
+        <li>「crack fiend でも black queen だった」の逆接で、苦い思い出話が賛辞に変わります。</li>
+        <li>Joe Sample と The Spinners の素材をつないだ Tony Pizarro のビートは、最後まで温かさを手放しません。</li>
+        <li>Billboard Hot 100で最高9位、グラミー賞ノミネート、2010年には米国議会図書館の録音登録簿入り。2Pacが刑務所にいるあいだに広まった一曲です。</li>
+      </ul>
+    </section>
+
+  <DiveCards
+    cards={[
+      {
+        href: "/columns/crack-epidemic-hiphop",
+        icon: "2P",
+        kicker: "文化・歴史",
+        title: "クラック・エピデミックとヒップホップ",
+        desc: "Afeniがブラック・パンサーからクラック依存に至った道は、1980年代のアメリカで何が起きたかを物語る。「Dear Mama」の感情の重さの背景をここで。",
+      },
+    ]}
+  />
+</SongLayout>

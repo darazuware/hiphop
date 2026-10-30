@@ -108,13 +108,13 @@
     "score": null
   },
   {
-    "id": "catch-a-freeze",
+    "id": "cerebral-breeds",
     "whisperSec": null,
     "manualSec": null,
     "captionSec": null,
     "syncedSec": null,
-    "fallbackT": 92,
-    "t": 92,
+    "fallbackT": 89,
+    "t": 89,
     "source": "fallback",
     "approx": true,
     "score": null
@@ -192,18 +192,6 @@
     "score": null
   },
   {
-    "id": "sl-bail-toast",
-    "whisperSec": null,
-    "manualSec": null,
-    "captionSec": null,
-    "syncedSec": null,
-    "fallbackT": 158,
-    "t": 158,
-    "source": "fallback",
-    "approx": true,
-    "score": 0
-  },
-  {
     "id": "aint-all-swell",
     "whisperSec": null,
     "manualSec": null,
@@ -271,18 +259,6 @@
     "syncedSec": null,
     "fallbackT": 194,
     "t": 194,
-    "source": "fallback",
-    "approx": true,
-    "score": null
-  },
-  {
-    "id": "bodiers-cap-peelers",
-    "whisperSec": null,
-    "manualSec": null,
-    "captionSec": null,
-    "syncedSec": null,
-    "fallbackT": 201,
-    "t": 201,
     "source": "fallback",
     "approx": true,
     "score": null

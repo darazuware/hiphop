@@ -86,44 +86,18 @@
     "captionSec": 35
   },
   {
-    "id": "elementary",
+    "id": "black-queen",
     "anchor": [
-      "and",
-      "whod",
-      "think",
-      "in",
-      "elementary"
-    ],
-    "fallbackT": 66,
-    "manualSec": null,
-    "captionSec": 47
-  },
-  {
-    "id": "whoopin",
-    "anchor": [
-      "mama",
-      "catch",
-      "me",
-      "put",
+      "you",
+      "always",
+      "was",
       "a",
-      "whoopin"
+      "black",
+      "queen"
     ],
-    "fallbackT": 78,
+    "fallbackT": 84,
     "manualSec": null,
-    "captionSec": 55
-  },
-  {
-    "id": "crack-fiend-black-queen",
-    "anchor": [
-      "even",
-      "as",
-      "a",
-      "crack",
-      "fiend"
-    ],
-    "fallbackT": 82,
-    "manualSec": null,
-    "captionSec": 58
+    "captionSec": 61
   },
   {
     "id": "raise-a-man",
@@ -242,34 +216,20 @@
     "captionSec": 116
   },
   {
-    "id": "slangin",
+    "id": "mailbox",
     "anchor": [
-      "i",
-      "needed",
+      "it",
+      "feels",
+      "good",
+      "puttin",
       "money",
-      "of",
-      "my",
-      "own",
-      "so",
-      "i",
-      "started"
+      "in",
+      "your",
+      "mailbox"
     ],
-    "fallbackT": 140,
+    "fallbackT": 152,
     "manualSec": null,
-    "captionSec": 122
-  },
-  {
-    "id": "sell-rocks",
-    "anchor": [
-      "even",
-      "though",
-      "i",
-      "sell",
-      "rocks"
-    ],
-    "fallbackT": 150,
-    "manualSec": null,
-    "captionSec": 125
+    "captionSec": 128
   },
   {
     "id": "pay-rent",

@@ -72,40 +72,16 @@
     "score": null
   },
   {
-    "id": "elementary",
+    "id": "black-queen",
     "whisperSec": null,
     "manualSec": null,
-    "captionSec": 47,
+    "captionSec": 61,
     "syncedSec": null,
-    "fallbackT": 66,
-    "t": 47,
+    "fallbackT": 84,
+    "t": 61,
     "source": "caption",
     "approx": false,
     "score": null
-  },
-  {
-    "id": "whoopin",
-    "whisperSec": null,
-    "manualSec": null,
-    "captionSec": 55,
-    "syncedSec": null,
-    "fallbackT": 78,
-    "t": 55,
-    "source": "caption",
-    "approx": false,
-    "score": null
-  },
-  {
-    "id": "crack-fiend-black-queen",
-    "whisperSec": 58.3,
-    "manualSec": null,
-    "captionSec": 58,
-    "syncedSec": null,
-    "fallbackT": 82,
-    "t": 58,
-    "source": "caption",
-    "approx": false,
-    "score": 1
   },
   {
     "id": "raise-a-man",
@@ -204,28 +180,16 @@
     "score": null
   },
   {
-    "id": "slangin",
+    "id": "mailbox",
     "whisperSec": null,
     "manualSec": null,
-    "captionSec": 122,
+    "captionSec": 128,
     "syncedSec": null,
-    "fallbackT": 140,
-    "t": 122,
+    "fallbackT": 152,
+    "t": 128,
     "source": "caption",
     "approx": false,
-    "score": 0.11
-  },
-  {
-    "id": "sell-rocks",
-    "whisperSec": null,
-    "manualSec": null,
-    "captionSec": 125,
-    "syncedSec": null,
-    "fallbackT": 150,
-    "t": 125,
-    "source": "caption",
-    "approx": false,
-    "score": 0
+    "score": null
   },
   {
     "id": "pay-rent",
