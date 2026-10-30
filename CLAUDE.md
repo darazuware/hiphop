@@ -19,7 +19,7 @@
 - **トーンはラフでも事実は厳密。** トーン調整は日本語解説部分のみで行い、英語引用（eng）・和訳（jpn）の分量は増やさない。事実主張は上記「事実チェック」に従う。
 
 ## review運用（本番push制限・重要・2026-07-02〜）
-- AdSense審査対策として、**mainへの本番pushは1日1回程度に抑える**運用にした。記事（.astro・songs.ts・artists.ts・画像等サイトコンテンツ）の編集は、常設worktree **`/Users/ktamatzmoto/Desktop/hiphop-review`（`review`ブランチ）** で行い、`git push origin review` する。**mainへの直pushはしない**（対話セッションのみ。Telegram bot/watcherは廃止済み）。
+- AdSense審査対策として、**mainへの本番pushは1日1回程度に抑える**運用にした。記事（.astro・songs.ts・artists.ts・画像等サイトコンテンツ）の編集は、常設worktree **`/Users/ktamatzmoto/Desktop/hiphop-review`（`review`ブランチ）** で行い、`node agent/src/review-push.mjs` でpushする（fetch→rebase→build→push。**`git push origin review` を直接使わない**。複数worktreeが直接pushしてローカル`review`が遅れる事故の恒久対策・2026-10-30）。**mainへの直pushはしない**（対話セッションのみ。Telegram bot/watcherは廃止済み）。
 - **デプロイ実体はVercel**（GitHub連携。Cloudflareはドメイン前段のDNS/プロキシのみで、ビルド・プレビューはCloudflareではない）。Vercelが`review`ブランチのプレビューを自動デプロイする。固定プレビューURL: `https://hiphop-git-review-darazuwares-projects.vercel.app`（プッシュのたびに内容が更新される。個別デプロイのハッシュ付きURLはpushごとに変わるので使わない）。ユーザーはこのURLを確認し、claudeアプリ（PC/スマホ）の対話セッションでフィードバックを出す。Vercelのデプロイ保護が有効なため初回はVercelログインを求められることがある。
 - 承認後の本番反映（`review`→`main`のマージ・build確認・push）は決定的スクリプト [`agent/src/publish-main.mjs`](agent/src/publish-main.mjs)（`node agent/src/publish-main.mjs`。ユーザーが承認した時に対話セッションから実行）でのみ行う。対話セッションが自然文の指示で代わりにmainへマージ・pushしない。
 - **例外**: `agent/`配下のbotスクリプトや`docs/`のドキュメント、`CLAUDE.md`自体など、Astroビルド出力（`src/`・`public/`）に影響しないインフラ/ドキュメント変更は、この制限の対象外（サイトの表示内容が変わらないため）。これらはmainへ直接commit・pushしてよい。
@@ -73,7 +73,7 @@ public/images/   # アルバムアート
   2. **1〜2文ごとの改行**（`<p>`に3文以上詰めない。全パート適用）
   3. **内部リンク修正**（重要スラングを `slang.ts` に登録／文中リンク先の実在確認。関連記事カードは手書き禁止＝SongLayout自動生成）
   4. **unitを上限ギリギリまで増強**（learning型のみ）: shook級25〜30unit・量MAXへ。硬い上限は [D] eng引用率<60% と [C] 独自解説JP>英語引用(≥1200字)の2ガードのみ、その内で最大化。unit追加時は `units.json` 追記＋`gen-fallback-timestamps.mjs` 再生成を必ずやる（怠るとimport不在でビルド落ち）。従来型はunit増強を飛ばし1〜3のみ。
-- 出口は共通: `check-tone-only.mjs` 全✅ → `npm run build` 確認 → `git push origin review` → `notify-review.mjs`（mainへは直pushしない）。
+- 出口は共通: `check-tone-only.mjs` 全✅ → `npm run build` 確認 → `node agent/src/review-push.mjs` → `notify-review.mjs`（mainへは直pushしない）。
 
 ## ページ種別（重要・新標準）
 曲ページには2種類ある。検証フックはページ種別で自動分岐する（`<LearningUnit>` の有無で判定）。
