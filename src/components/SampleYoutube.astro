@@ -1,0 +1,21 @@
+---
+interface Props {
+  id: string;
+  title: string;
+}
+const { id, title } = Astro.props;
+---
+<div class="mt-4">
+  <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">元ネタを聴く</p>
+  <div class="aspect-video w-full rounded-lg overflow-hidden">
+    <iframe
+      loading="lazy"
+      class="w-full h-full"
+      src={`https://www.youtube.com/embed/${id}`}
+      title={title}
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+  </div>
+</div>

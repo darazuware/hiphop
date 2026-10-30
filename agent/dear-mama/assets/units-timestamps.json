@@ -230,12 +230,12 @@
   {
     "id": "scraps",
     "whisperSec": null,
-    "manualSec": null,
+    "manualSec": 149,
     "captionSec": 142,
     "syncedSec": null,
     "fallbackT": 173,
-    "t": 142,
-    "source": "caption",
+    "t": 149,
+    "source": "manual",
     "approx": false,
     "score": 0.14
   },

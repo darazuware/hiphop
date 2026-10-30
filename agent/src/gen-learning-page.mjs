@@ -87,22 +87,27 @@ const keywords = spec.keywords
   .map(([w, d]) => `            ['${jsq(w)}', '${jsq(d)}'],`)
   .join("\n");
 
-const section = (id, title, items) => `    <section id="${id}" class="mb-12">
+const section = (id, title, items, after = "") => `    <section id="${id}" class="mb-12">
 ${H2(title)}
       <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
 ${PT(items, "        ")}
-      </div>
+      </div>${after}
     </section>`;
 
+// 元ネタYouTubeは冒頭でなくサンプル説明（behind）の中に置く（恒久ルール・2026-10-30）
+const sampleEmbed = spec.sampleYoutubeId
+  ? `\n      <SampleYoutube id="${spec.sampleYoutubeId}" title="${attr(spec.sampleTitle || "元ネタ")}" />`
+  : "";
+
 const sampleProps = spec.sampleYoutubeId
-  ? `\n  sampleYoutubeId="${spec.sampleYoutubeId}"\n  sampleTitle="${attr(spec.sampleTitle || "")}"`
+  ? `\n  sampleYoutubeId="${spec.sampleYoutubeId}"\n  sampleTitle="${attr(spec.sampleTitle || "")}"\n  sampleInContent={true}`
   : "";
 
 const out = `---
 import LearningUnit from '../../components/LearningUnit.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
 import SongLayout from '../../layouts/SongLayout.astro';
-${(spec.extraImports || []).map((l) => l + "\n").join("")}
+${spec.sampleYoutubeId ? "import SampleYoutube from '../../components/SampleYoutube.astro';\n" : ""}${(spec.extraImports || []).map((l) => l + "\n").join("")}
 import tsData from '../../../agent/${slug}/assets/units-timestamps.json';
 const YT = "${spec.youtubeId}";
 const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.approx }]));
@@ -177,7 +182,7 @@ ${keywords}
       </div>
     </section>
 
-${section("behind", "制作の裏側", spec.behind)}
+${section("behind", "制作の裏側", spec.behind, sampleEmbed)}
 
 ${section("legacy", "評価とその後", spec.legacy)}
 

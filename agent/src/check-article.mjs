@@ -117,6 +117,29 @@ step("[YT] YouTube埋め込み", `node agent/src/check-youtube.mjs ${slug}`);
   }
 }
 
+// 2.55 元ネタYouTubeの位置（恒久ルール・2026-10-30）: 冒頭でなくサンプル説明の中に置く。
+//      sampleYoutubeId があるなら sampleInContent={true} ＋本文（#behind）内に同IDの埋め込みが必須。
+{
+  console.log("\n━━━ [SMP] 元ネタ動画の位置 ━━━");
+  const astroSrc = readFileSync(astroPath, "utf-8");
+  const sid = astroSrc.match(/sampleYoutubeId="([^"]+)"/)?.[1];
+  if (!sid) {
+    console.log("⏭️  sampleYoutubeId なし");
+    results.push({ label: "[SMP] 元ネタ動画の位置", ok: true });
+  } else {
+    const behind = astroSrc.match(/<section id="behind"[\s\S]*?<\/section>/)?.[0] ?? "";
+    const inContent = /sampleInContent=\{true\}/.test(astroSrc);
+    const embedded = behind.includes(`id="${sid}"`) || behind.includes(`embed/${sid}`);
+    if (inContent && embedded) {
+      console.log("✅ 元ネタ動画はサンプル説明（#behind）内");
+      results.push({ label: "[SMP] 元ネタ動画の位置", ok: true });
+    } else {
+      console.error(`❌ 元ネタ動画が冒頭に出ています → SongLayout に sampleInContent={true}、#behind のサンプル説明の直後に <SampleYoutube id="${sid}" title="..." /> を置く`);
+      results.push({ label: "[SMP] 元ネタ動画の位置", ok: false });
+    }
+  }
+}
+
 // 2.6 頭出し時系列（learning型は .astro のunit出現順＝曲の時系列。t が逆行すると
 //     ▶頭出しラベルが 1:15→0:33→0:26… と戻り、自動追従スクロールも逆走する）。
 {
