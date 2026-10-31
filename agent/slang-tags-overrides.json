@@ -242,9 +242,7 @@
   "themes": [
    "評価・ほめ言葉"
   ],
-  "hidden": [
-   "大麻"
-  ]
+  "hidden": []
  },
  "homie": {
   "tone": "ポジティブ",
@@ -297,9 +295,7 @@
   "themes": [
    "音楽・ラップ"
   ],
-  "hidden": [
-   "大麻"
-  ]
+  "hidden": []
  },
  "kicks": {
   "tone": "中立",
@@ -357,9 +353,7 @@
   "themes": [
    "評価・ほめ言葉"
   ],
-  "hidden": [
-   "ドラッグ"
-  ]
+  "hidden": []
  },
  "represent": {
   "tone": "ポジティブ",
@@ -382,9 +376,7 @@
   "themes": [
    "ファッション・車"
   ],
-  "hidden": [
-   "ドラッグ"
-  ]
+  "hidden": []
  },
  "shorty": {
   "tone": "中立",

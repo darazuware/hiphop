@@ -3,13 +3,13 @@
   "word": "joint",
   "reading": "ジョイント",
   "pos": "名詞",
-  "category": "曲・場所・ドラッグ",
+  "category": "曲・場所",
   "level": "上級",
-  "title": "joint の意味と使い方｜「曲」「店」「刑務所」「巻いた大麻」。何でも入る箱のような語を例文で解説",
-  "description": "ヒップホップの joint は、曲や作品、店や場所、刑務所、巻いた大麻、ときには銃まで指す、意味の幅がとても広い語です。「つなぎ目」から「モノ」全般へ広がった流れ、Wiktionary の年代、Black Thought や RZA の曲での使われ方を日本語で解説します。",
+  "title": "joint の意味と使い方｜「曲」「店」「刑務所」。何でも入る箱のような語を例文で解説",
+  "description": "ヒップホップの joint は、曲や作品、店や場所、刑務所まで指す、意味の幅がとても広い語です。「つなぎ目」から「モノ」全般へ広がった流れ、Wiktionary の年代、Black Thought や RZA の曲での使われ方を日本語で解説します。",
   "summary": [
     "joint は本来「関節、つなぎ目」ですが、スラングでは中身を問わない「アレ」のような語として使われます。",
-    "ヒップホップでよく出るのは、曲や作品（this joint）、場所（up in this joint）、刑務所（the joint）、巻いた大麻（a joint）の四つです。",
+    "ヒップホップでよく出るのは、曲や作品（this joint）、場所（up in this joint）、刑務所（the joint）の三つです。",
     "どれも前後の語で決まるので、冠詞と動詞を手がかりに読み分けます。"
   ],
   "sections": [
@@ -28,24 +28,24 @@
       ]
     },
     {
-      "h": "刑務所の joint、巻いた joint",
+      "h": "刑務所の joint",
       "body": [
         "定冠詞付きの the joint は刑務所です。in the joint、out of the joint で「服役中」「出所した」になります。",
-        "a joint、light a joint は紙で巻いた大麻です。歌詞では曲の joint と同じ文に並ぶこともあり、わざと両方に読ませる言葉遊びもあります。"
+        "Spike Lee の映画に付く A Spike Lee Joint のように、作品を自分の持ち物のように呼ぶ言い方も、同じ「モノ」の感覚から来ています。"
       ]
     },
     {
       "h": "読み分けの手がかりは冠詞と動詞",
       "body": [
         "this や new が付けば曲、up in や at が付けば場所、the だけなら刑務所の可能性が高くなります。",
-        "light、roll、pass のような動詞と組めば巻いた大麻です。どれにも当てはまらないときは、直前の話題が何だったかに戻ると、たいてい答えが見つかります。"
+        "どれにも当てはまらないときは、直前の話題が何だったかに戻ると、たいてい答えが見つかります。"
       ]
     }
   ],
   "origin": [
     "joint は「つなぐ」を意味するラテン語にさかのぼり、古フランス語を経て、体の関節や物のつなぎ目を指す語として英語に入りました。",
-    "Wiktionary によると、怪しげな店や建物を指す用法は1821年までにアイルランド英語に現れ、1877年までにはアメリカの一般的なスラングとして、とくにアヘン窟の意味で使われていました。",
-    "巻いた大麻を指す joint は1935年から記録があると Wiktionary は書いています。",
+    "Wiktionary によると、怪しげな店や建物を指す用法は1821年までにアイルランド英語に現れ、1877年までにはアメリカの一般的なスラングとして使われていました。",
+    "Wiktionary はこのほかにも複数の口語の語義を載せていて、joint が時代ごとに中身を変えてきた語だと分かります。",
     "「モノ全般」を指す用法について、Wiktionary はもとは特定の人の口癖のような使い方だった AAVE の語義として載せていて、フィラデルフィアの jawn にも同じ広がり方が見られると指摘しています。"
   ],
   "examples": [
@@ -70,9 +70,9 @@
       "note": "定冠詞付きの the joint は刑務所。get out of the joint で出所です。"
     },
     {
-      "en": "They rolled a joint after the show.",
-      "ja": "ライブのあと、あいつらは大麻を巻いた。",
-      "note": "roll a joint は紙で巻く動作。a が付くと巻いたものを指します。"
+      "en": "We grabbed food at a little pizza joint.",
+      "ja": "小さなピザ屋でご飯を済ませた。",
+      "note": "pizza joint は気軽な店の定番の言い方。a が付いて場所を指しています。"
     },
     {
       "en": "My knee joint hurts when it rains.",
@@ -100,22 +100,22 @@
       "note": "Wu-Tang がこの場に来ている、という宣言です。up in this joint は会場やその場を指す決まり文句で、曲そのものを指すとも読めます。"
     },
     {
-      "artist": "Black Thought",
-      "song": "Making a Murderer",
-      "quote": "Light a joint",
-      "note": "こちらは巻いた大麻に火をつける場面です。動詞 light が付いているので、曲や場所の joint とはすぐに区別できます。"
+      "artist": "Travis Scott",
+      "song": "Meltdown",
+      "quote": "Heard your new joint",
+      "note": "お前の新曲を聴いたぞ、と切り出す挑発です。new joint は「新曲」の定番の形で、読み分けの手がかりどおりになっています。"
     },
     {
-      "artist": "GZA",
-      "song": "Pencil",
-      "quote": "his lungs are joint free",
-      "note": "肝臓は傷んでいても肺は大麻とは無縁だ、という人物描写です。joint free は「大麻を吸っていない」という意味になります。"
+      "artist": "J. Cole",
+      "song": "Forbidden Fruit",
+      "quote": "the rose gold joint",
+      "note": "ローズゴールドのやつ、と品名を言わずに語る一節です。joint が高価な持ち物を指していて、何でも入る箱のような性格が出ています。"
     },
     {
       "artist": "Ghostface Killah",
-      "song": "Shakey Dog",
-      "quote": "put the joint to my face",
-      "note": "強盗のふりをして顔に突きつける場面で、ここの joint は銃と読めます。何でも指せる joint が、文脈しだいで武器にもなる例です。"
+      "song": "Daytona 500",
+      "quote": "Fly joints that carry two points",
+      "note": "かっこいい物をまとめて fly joints と呼んでいます。複数形でも使える、くだけた「モノ」の joint の例です。"
     }
   ],
   "compare": [
@@ -125,9 +125,9 @@
       "diff": "jam も曲を指す語ですが、ノリのいい曲という評価が乗ります。joint は曲を指すだけの中立的な言い方です。"
     },
     {
-      "term": "blunts",
-      "ja": "葉巻で巻いた大麻",
-      "diff": "joint は紙で巻いたもの、blunt は中身を抜いた葉巻の皮で巻いたもの、と巻き方で呼び分けます。"
+      "term": "track",
+      "ja": "曲",
+      "diff": "曲を指す一般的な語。joint はくだけた響きで、track は制作側の言葉としても使われます。"
     },
     {
       "term": "bid",
@@ -141,9 +141,10 @@
     }
   ],
   "pitfalls": [
-    "a joint と the joint で意味がまったく変わることがあります。冠詞を読み飛ばすと、大麻の話と刑務所の話を取り違えます。",
+    "a joint と the joint で意味がまったく変わることがあります。冠詞を読み飛ばすと、店の話と刑務所の話を取り違えます。",
     "曲を joint と呼ぶのはくだけた言い方です。書き言葉やかしこまった紹介では track や song を使います。",
-    "Ghostface Killah の例のように、銃を joint と呼ぶ箇所もあります。辞書にない意味でも、文脈から何を指しているかを考える必要がある語です。"
+    "辞書にない意味で joint が使われる箇所もあります。文脈から何を指しているかを考える必要がある語です。",
+    "joint には「関節」「共同の」という日常の意味もあり、joint account（共同口座）のような語はスラングではありません。"
   ],
   "faq": [
     {
@@ -161,10 +162,8 @@
   ],
   "related": [
     "jam",
-    "blunts",
     "bid",
-    "crib",
-    "trees"
+    "crib"
   ],
   "stats": "解析に使ったヒップホップ約440曲の歌詞のうち、joint を含む曲は16曲で、16人中8人のラッパーに出てきました。Ghostface Killah や Black Thought の曲に特に多く出てきます。出現数の多い順に並べると、内訳はGhostface Killah 7曲、Black Thought 2曲、MF DOOM 2曲、GZA 1曲、J. Cole 1曲です。",
   "sources": [

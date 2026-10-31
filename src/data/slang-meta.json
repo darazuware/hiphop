@@ -540,28 +540,14 @@
   "songs": 4
  },
  "out the box": {
-  "tone": "ネガティブ",
+  "tone": "中立",
   "freq": "レア",
   "kind": "一般語",
   "themes": [
    "その他"
   ],
-  "hidden": [
-   "犯罪"
-  ],
+  "hidden": [],
   "songs": 3
- },
- "lick shots": {
-  "tone": "ネガティブ",
-  "freq": "レア",
-  "kind": "一般語",
-  "themes": [
-   "社会・文化"
-  ],
-  "hidden": [
-   "犯罪"
-  ],
-  "songs": 2
  },
  "fronting": {
   "tone": "ネガティブ",
@@ -624,18 +610,6 @@
   "hidden": [],
   "songs": 0
  },
- "12 gauge": {
-  "tone": "ネガティブ",
-  "freq": "レア",
-  "kind": "一般語",
-  "themes": [
-   "その他"
-  ],
-  "hidden": [
-   "犯罪"
-  ],
-  "songs": 1
- },
  "ac's": {
   "tone": "中立",
   "freq": "レア",
@@ -643,9 +617,7 @@
   "themes": [
    "人物・作品・地名"
   ],
-  "hidden": [
-   "ドラッグ"
-  ],
+  "hidden": [],
   "songs": 0
  },
  "aeropostale": {
@@ -670,41 +642,15 @@
   ],
   "songs": 1
  },
- "base": {
+ "beez": {
   "tone": "中立",
   "freq": "ふつう",
   "kind": "一般語",
   "themes": [
    "その他"
   ],
-  "hidden": [
-   "ドラッグ"
-  ],
-  "songs": 9
- },
- "beez": {
-  "tone": "ネガティブ",
-  "freq": "ふつう",
-  "kind": "一般語",
-  "themes": [
-   "仲間・人"
-  ],
-  "hidden": [
-   "犯罪"
-  ],
+  "hidden": [],
   "songs": 8
- },
- "biggie 101": {
-  "tone": "中立",
-  "freq": "レア",
-  "kind": "固有名詞",
-  "themes": [
-   "人物・作品・地名"
-  ],
-  "hidden": [
-   "犯罪"
-  ],
-  "songs": 0
  },
  "black hats": {
   "tone": "ネガティブ",
@@ -717,31 +663,6 @@
    "犯罪"
   ],
   "songs": 1
- },
- "blunts": {
-  "tone": "中立",
-  "freq": "ふつう",
-  "kind": "一般語",
-  "themes": [
-   "ファッション・車"
-  ],
-  "hidden": [
-   "大麻"
-  ],
-  "songs": 11
- },
- "bones": {
-  "tone": "中立",
-  "freq": "ふつう",
-  "kind": "一般語",
-  "themes": [
-   "その他"
-  ],
-  "hidden": [
-   "大麻",
-   "ドラッグ"
-  ],
-  "songs": 16
  },
  "brand nubian": {
   "tone": "中立",
@@ -780,9 +701,7 @@
   "themes": [
    "ファッション・車"
   ],
-  "hidden": [
-   "ドラッグ"
-  ],
+  "hidden": [],
   "songs": 1
  },
  "buggin' out": {
@@ -808,15 +727,13 @@
   "songs": 0
  },
  "cabbage": {
-  "tone": "ネガティブ",
+  "tone": "中立",
   "freq": "レア",
   "kind": "一般語",
   "themes": [
    "お金"
   ],
-  "hidden": [
-   "犯罪"
-  ],
+  "hidden": [],
   "songs": 4
  },
  "can't we just all get along?": {
@@ -829,18 +746,6 @@
   "hidden": [],
   "songs": 0
  },
- "cece": {
-  "tone": "中立",
-  "freq": "レア",
-  "kind": "固有名詞",
-  "themes": [
-   "人物・作品・地名"
-  ],
-  "hidden": [
-   "犯罪"
-  ],
-  "songs": 0
- },
  "chips": {
   "tone": "中立",
   "freq": "ふつう",
@@ -850,18 +755,6 @@
   ],
   "hidden": [],
   "songs": 12
- },
- "clip's": {
-  "tone": "ネガティブ",
-  "freq": "レア",
-  "kind": "一般語",
-  "themes": [
-   "その他"
-  ],
-  "hidden": [
-   "犯罪"
-  ],
-  "songs": 0
  },
  "clout": {
   "tone": "中立",
@@ -873,18 +766,6 @@
   ],
   "hidden": [],
   "songs": 10
- },
- "cocaine": {
-  "tone": "中立",
-  "freq": "ふつう",
-  "kind": "一般語",
-  "themes": [
-   "その他"
-  ],
-  "hidden": [
-   "ドラッグ"
-  ],
-  "songs": 14
  },
  "compton": {
   "tone": "中立",
@@ -970,28 +851,6 @@
   "hidden": [],
   "songs": 12
  },
- "dre, beating on dee": {
-  "tone": "中立",
-  "freq": "レア",
-  "kind": "固有名詞",
-  "themes": [
-   "人物・作品・地名"
-  ],
-  "hidden": [],
-  "songs": 0
- },
- "dutch": {
-  "tone": "中立",
-  "freq": "ふつう",
-  "kind": "一般語",
-  "themes": [
-   "その他"
-  ],
-  "hidden": [
-   "大麻"
-  ],
-  "songs": 7
- },
  "eazy": {
   "tone": "中立",
   "freq": "レア",
@@ -1074,18 +933,6 @@
   "hidden": [],
   "songs": 7
  },
- "sensi": {
-  "tone": "中立",
-  "freq": "レア",
-  "kind": "一般語",
-  "themes": [
-   "社会・文化"
-  ],
-  "hidden": [
-   "大麻"
-  ],
-  "songs": 0
- },
  "flatline": {
   "tone": "ネガティブ",
   "freq": "レア",
@@ -1105,43 +952,6 @@
   ],
   "hidden": [],
   "songs": 0
- },
- "gates": {
-  "tone": "ネガティブ",
-  "freq": "ふつう",
-  "kind": "一般語",
-  "themes": [
-   "音楽・ラップ"
-  ],
-  "hidden": [
-   "ドラッグ",
-   "犯罪"
-  ],
-  "songs": 10
- },
- "gat / gats": {
-  "tone": "ネガティブ",
-  "freq": "頻出",
-  "kind": "一般語",
-  "themes": [
-   "その他"
-  ],
-  "hidden": [
-   "犯罪"
-  ],
-  "songs": 23
- },
- "glock": {
-  "tone": "中立",
-  "freq": "ふつう",
-  "kind": "固有名詞",
-  "themes": [
-   "人物・作品・地名"
-  ],
-  "hidden": [
-   "犯罪"
-  ],
-  "songs": 19
  },
  "gods": {
   "tone": "中立",
@@ -1171,18 +981,6 @@
    "人物・作品・地名"
   ],
   "hidden": [],
-  "songs": 1
- },
- "heaters": {
-  "tone": "ネガティブ",
-  "freq": "レア",
-  "kind": "一般語",
-  "themes": [
-   "その他"
-  ],
-  "hidden": [
-   "犯罪"
-  ],
   "songs": 1
  },
  "henny sipper": {
@@ -1225,18 +1023,6 @@
   "hidden": [],
   "songs": 0
  },
- "ice me": {
-  "tone": "ネガティブ",
-  "freq": "レア",
-  "kind": "一般語",
-  "themes": [
-   "その他"
-  ],
-  "hidden": [
-   "犯罪"
-  ],
-  "songs": 0
- },
  "ice t": {
   "tone": "中立",
   "freq": "レア",
@@ -1256,9 +1042,7 @@
   "themes": [
    "人物・作品・地名"
   ],
-  "hidden": [
-   "大麻"
-  ],
+  "hidden": [],
   "songs": 0
  },
  "iron mike": {
@@ -1288,9 +1072,7 @@
   "themes": [
    "音楽・ラップ"
   ],
-  "hidden": [
-   "大麻"
-  ],
+  "hidden": [],
   "songs": 16
  },
  "keys": {
@@ -1300,9 +1082,7 @@
   "themes": [
    "音楽・ラップ"
   ],
-  "hidden": [
-   "ドラッグ"
-  ],
+  "hidden": [],
   "songs": 24
  },
  "killa beez": {
@@ -1312,9 +1092,7 @@
   "themes": [
    "人物・作品・地名"
   ],
-  "hidden": [
-   "犯罪"
-  ],
+  "hidden": [],
   "songs": 7
  },
  "legitimized crap": {
@@ -1336,30 +1114,6 @@
   ],
   "hidden": [],
   "songs": 3
- },
- "llama": {
-  "tone": "ネガティブ",
-  "freq": "レア",
-  "kind": "一般語",
-  "themes": [
-   "その他"
-  ],
-  "hidden": [
-   "犯罪"
-  ],
-  "songs": 2
- },
- "mac / mac-10": {
-  "tone": "中立",
-  "freq": "ふつう",
-  "kind": "固有名詞",
-  "themes": [
-   "人物・作品・地名"
-  ],
-  "hidden": [
-   "犯罪"
-  ],
-  "songs": 12
  },
  "math": {
   "tone": "中立",
@@ -1503,18 +1257,6 @@
   "hidden": [],
   "songs": 4
  },
- "peelin'": {
-  "tone": "ネガティブ",
-  "freq": "ふつう",
-  "kind": "一般語",
-  "themes": [
-   "その他"
-  ],
-  "hidden": [
-   "犯罪"
-  ],
-  "songs": 6
- },
  "pesos": {
   "tone": "中立",
   "freq": "レア",
@@ -1589,18 +1331,6 @@
   "hidden": [],
   "songs": 1
  },
- "sess": {
-  "tone": "中立",
-  "freq": "レア",
-  "kind": "一般語",
-  "themes": [
-   "その他"
-  ],
-  "hidden": [
-   "大麻"
-  ],
-  "songs": 2
- },
  "shaolin / shaolin style": {
   "tone": "中立",
   "freq": "ふつう",
@@ -1618,9 +1348,7 @@
   "themes": [
    "人物・作品・地名"
   ],
-  "hidden": [
-   "犯罪"
-  ],
+  "hidden": [],
   "songs": 0
  },
  "sony trucks": {
@@ -1684,18 +1412,6 @@
   "hidden": [],
   "songs": 0
  },
- "tec-9 / tecs / mac-10s": {
-  "tone": "中立",
-  "freq": "レア",
-  "kind": "固有名詞",
-  "themes": [
-   "人物・作品・地名"
-  ],
-  "hidden": [
-   "犯罪"
-  ],
-  "songs": 0
- },
  "teflon": {
   "tone": "ネガティブ",
   "freq": "レア",
@@ -1738,18 +1454,6 @@
   "hidden": [],
   "songs": 45
  },
- "trees": {
-  "tone": "中立",
-  "freq": "頻出",
-  "kind": "一般語",
-  "themes": [
-   "その他"
-  ],
-  "hidden": [
-   "大麻"
-  ],
-  "songs": 22
- },
  "vandal": {
   "tone": "ネガティブ",
   "freq": "レア",
@@ -1778,22 +1482,7 @@
   "themes": [
    "ファッション・車"
   ],
-  "hidden": [
-   "ドラッグ"
-  ],
-  "songs": 0
- },
- "woolies": {
-  "tone": "ネガティブ",
-  "freq": "レア",
-  "kind": "一般語",
-  "themes": [
-   "その他"
-  ],
-  "hidden": [
-   "大麻",
-   "ドラッグ"
-  ],
+  "hidden": [],
   "songs": 0
  },
  "wu-tang clan": {
@@ -1817,18 +1506,6 @@
   "hidden": [],
   "songs": 0
  },
- "bodies": {
-  "tone": "ネガティブ",
-  "freq": "頻出",
-  "kind": "一般語",
-  "themes": [
-   "音楽・ラップ"
-  ],
-  "hidden": [
-   "犯罪"
-  ],
-  "songs": 21
- },
  "put it on": {
   "tone": "中立",
   "freq": "ふつう",
@@ -1847,30 +1524,6 @@
    "音楽・ラップ"
   ],
   "hidden": [],
-  "songs": 0
- },
- "peel wigs": {
-  "tone": "ネガティブ",
-  "freq": "レア",
-  "kind": "一般語",
-  "themes": [
-   "音楽・ラップ"
-  ],
-  "hidden": [
-   "犯罪"
-  ],
-  "songs": 0
- },
- "born dead": {
-  "tone": "ネガティブ",
-  "freq": "レア",
-  "kind": "一般語",
-  "themes": [
-   "その他"
-  ],
-  "hidden": [
-   "犯罪"
-  ],
   "songs": 0
  },
  "gas": {
@@ -1893,18 +1546,6 @@
   "hidden": [],
   "songs": 1
  },
- "gat": {
-  "tone": "ネガティブ",
-  "freq": "頻出",
-  "kind": "一般語",
-  "themes": [
-   "その他"
-  ],
-  "hidden": [
-   "犯罪"
-  ],
-  "songs": 23
- },
  "raw": {
   "tone": "ポジティブ",
   "freq": "頻出",
@@ -1912,9 +1553,7 @@
   "themes": [
    "評価・ほめ言葉"
   ],
-  "hidden": [
-   "ドラッグ"
-  ],
+  "hidden": [],
   "songs": 24
  },
  "jake": {
@@ -1931,27 +1570,23 @@
   "songs": 10
  },
  "clap": {
-  "tone": "ネガティブ",
+  "tone": "中立",
   "freq": "頻出",
   "kind": "一般語",
   "themes": [
    "その他"
   ],
-  "hidden": [
-   "犯罪"
-  ],
+  "hidden": [],
   "songs": 21
  },
  "strong-arm": {
-  "tone": "ネガティブ",
+  "tone": "中立",
   "freq": "レア",
   "kind": "一般語",
   "themes": [
    "その他"
   ],
-  "hidden": [
-   "犯罪"
-  ],
+  "hidden": [],
   "songs": 0
  },
  "open": {
@@ -2031,18 +1666,6 @@
   "hidden": [],
   "songs": 40
  },
- "white": {
-  "tone": "中立",
-  "freq": "頻出",
-  "kind": "一般語",
-  "themes": [
-   "その他"
-  ],
-  "hidden": [
-   "ドラッグ"
-  ],
-  "songs": 78
- },
  "cuzzo": {
   "tone": "中立",
   "freq": "レア",
@@ -2075,15 +1698,13 @@
   "songs": 3
  },
  "fair one": {
-  "tone": "ネガティブ",
+  "tone": "中立",
   "freq": "レア",
   "kind": "一般語",
   "themes": [
    "その他"
   ],
-  "hidden": [
-   "犯罪"
-  ],
+  "hidden": [],
   "songs": 2
  },
  "sprewells": {
@@ -2094,18 +1715,6 @@
    "人物・作品・地名"
   ],
   "hidden": [],
-  "songs": 0
- },
- "throw shots": {
-  "tone": "ネガティブ",
-  "freq": "レア",
-  "kind": "一般語",
-  "themes": [
-   "その他"
-  ],
-  "hidden": [
-   "犯罪"
-  ],
   "songs": 0
  },
  "back it up": {
@@ -2137,18 +1746,6 @@
   ],
   "hidden": [],
   "songs": 0
- },
- "reefer": {
-  "tone": "中立",
-  "freq": "ふつう",
-  "kind": "一般語",
-  "themes": [
-   "社会・文化"
-  ],
-  "hidden": [
-   "大麻"
-  ],
-  "songs": 7
  },
  "jam": {
   "tone": "中立",
@@ -2212,18 +1809,6 @@
   ],
   "hidden": [],
   "songs": 2
- },
- "assassinator": {
-  "tone": "ネガティブ",
-  "freq": "レア",
-  "kind": "一般語",
-  "themes": [
-   "音楽・ラップ"
-  ],
-  "hidden": [
-   "犯罪"
-  ],
-  "songs": 1
  },
  "gospel": {
   "tone": "中立",
@@ -2331,18 +1916,6 @@
   ],
   "songs": 74
  },
- "crack": {
-  "tone": "ネガティブ",
-  "freq": "頻出",
-  "kind": "一般語",
-  "themes": [
-   "社会・文化"
-  ],
-  "hidden": [
-   "ドラッグ"
-  ],
-  "songs": 67
- },
  "cream": {
   "tone": "中立",
   "freq": "頻出",
@@ -2393,18 +1966,6 @@
   ],
   "hidden": [],
   "songs": 45
- },
- "fiend": {
-  "tone": "ネガティブ",
-  "freq": "頻出",
-  "kind": "一般語",
-  "themes": [
-   "社会・文化"
-  ],
-  "hidden": [
-   "ドラッグ"
-  ],
-  "songs": 48
  },
  "fly": {
   "tone": "ポジティブ",
@@ -2469,9 +2030,7 @@
   "themes": [
    "評価・ほめ言葉"
   ],
-  "hidden": [
-   "大麻"
-  ],
+  "hidden": [],
   "songs": 15
  },
  "homie": {
@@ -2566,9 +2125,7 @@
   "themes": [
    "ファッション・車"
   ],
-  "hidden": [
-   "ドラッグ"
-  ],
+  "hidden": [],
   "songs": 135
  },
  "shorty": {

@@ -5,11 +5,11 @@
   "pos": "名詞",
   "category": "ラップ・思想語彙",
   "level": "上級",
-  "title": "cipher（cypher）の意味と使い方｜ラッパーの輪、回し吸いの輪、そして Five Percent の「0」",
-  "description": "ヒップホップの cipher（cypher）は、輪になって順番にラップする場を指します。さらに大麻を回す輪、Five Percent Nation の教えで数字の0を表す語、cop を言い換える言葉遊びまで、輪と0でつながる意味の重なりを Nas や GZA の曲での使われ方とともに日本語で解説します。",
+  "title": "cipher（cypher）の意味と使い方｜ラッパーの輪、順番に回す輪、そして Five Percent の「0」",
+  "description": "ヒップホップの cipher（cypher）は、輪になって順番にラップする場を指します。さらに Five Percent Nation の教えで数字の0を表す語、cop を言い換える言葉遊びまで、輪と0でつながる意味の重なりを Nas や GZA の曲での使われ方とともに日本語で解説します。",
   "summary": [
     "cipher（綴りは cypher とも）は、ヒップホップでは輪になって順番にラップする集まりを指します。日本語の「サイファー」もこの意味です。",
-    "そのほかに、大麻を回して吸う輪、そして Five Percent Nation の教えで数字の0を表す語としても使われます。",
+    "そのほかに、人が順番に回していく輪全般、そして Five Percent Nation の教えで数字の0を表す語としても使われます。",
     "どの意味にも「輪」「0」という形が共通していて、歌詞ではいくつかの意味が重ねられていることがあります。"
   ],
   "sections": [
@@ -21,10 +21,10 @@
       ]
     },
     {
-      "h": "回し吸いの cipher",
+      "h": "輪としての cipher",
       "body": [
-        "Wiktionary には、仲間内で大麻を回していく道筋、またはその回し吸いの場という語義もあります。こちらも輪になって順番に回すという点で、ラップの cypher と形が重なります。",
-        "weak cipher なら、回ってくるものがしょぼい輪、という意味になります。"
+        "cipher は、ラップに限らず、仲間内で順番に何かを回していく輪を指すことがあります。輪になって順番に回すという点で、ラップの cypher と形が重なります。",
+        "weak cipher なら、回ってくるものがしょぼい輪、集まりとして物足りない輪、という意味になります。"
       ]
     },
     {
@@ -55,9 +55,9 @@
       "note": "have a cypher going で「サイファーが始まっている」。ライブ後の路上でよく見る光景です。"
     },
     {
-      "en": "She jumped in the cypher and killed it.",
+      "en": "She jumped in the cypher and tore it up.",
       "ja": "彼女がサイファーに飛び入りして、圧倒した。",
-      "note": "jump in the cypher は輪に入ってラップすること。killed it は「やりきった、最高だった」です。"
+      "note": "jump in the cypher は輪に入ってラップすること。tore it up は「やりきった、最高だった」です。"
     },
     {
       "en": "Everyone in the cypher gets a turn.",
@@ -103,13 +103,13 @@
       "artist": "GZA",
       "song": "Pass the Bone",
       "quote": "Forget about the weak-cipher",
-      "note": "大麻を回す輪がしょぼかったので、後ろへ移った、という流れです。曲名の Pass the Bone も回し吸いを思わせるので、ここは大麻を回す輪と読むのが自然です。"
+      "note": "物足りない輪に見切りをつけて、後ろへ移った、という流れです。weak と付くことで、集まりの質を値踏みする響きが出ています。"
     },
     {
-      "artist": "Ghostface Killah",
-      "song": "Assassination Day",
-      "quote": "Cee-Cipher-Power stalk",
-      "note": "Cee、Cipher、Power の頭文字を取ると C、O、P、つまり cop になる言葉遊びと読めます。0を表す Cipher を、形の似た O に当てているわけです。"
+      "artist": "GZA",
+      "song": "Alphabets",
+      "quote": "Master Now in Cypher",
+      "note": "アルファベットを順に読み込んでいく曲の一節で、ここの Cypher は教えの言葉として出てきます。輪と0を結ぶ語の重みが、ラップの場とは別の形で表れています。"
     },
     {
       "artist": "MF DOOM",
@@ -141,7 +141,7 @@
     }
   ],
   "pitfalls": [
-    "歌詞の cipher をすべてラップの輪と読むと、Five Percent の「完成」や回し吸いの輪を取り違えます。",
+    "歌詞の cipher をすべてラップの輪と読むと、Five Percent の「完成」や仲間内で回す輪を取り違えます。",
     "Five Percent の用語は人によって解釈に幅があり、決まった一つの定義があるわけではありません。断定せずに受け取るのが無難です。",
     "一般の英語では cipher は「暗号」の意味がまず浮かびます。ヒップホップの話だとわからない場面では、cypher と綴ったほうが通じやすくなります。"
   ],

@@ -4,7 +4,7 @@
  * 出力は slug・カテゴリ・件数のみ（語そのものや歌詞は出さない）。全0で exit 0。
  *
  * Usage:
- *   node agent/src/check-adsense-safe.mjs            # 全曲ページの一覧
+ *   node agent/src/check-adsense-safe.mjs            # 全曲ページ＋コラム＋スラング（語ページ・slang.ts・columns.ts）の一覧
  *   node agent/src/check-adsense-safe.mjs {slug}     # 1曲（unit別の内訳つき）
  */
 import fs from "node:fs";
@@ -24,9 +24,12 @@ export const CATS = {
   viol: /\b(rape\w*|tortur\w*|skulls?|knife|knives)\b|暴力|殴|強盗|拷問|レイプ|銃撃|暴行|ナイフ/gi,
 };
 
-export function count(text) {
+// コラム・スラングだけの除外。dope はほめ言葉の語ページを残すため、残りは人名とURL
+const SITE_MASK = [/\bdope\b|ドープ/gi, /Killa Beez|60 Second Assassin|crack-epidemic-hiphop/g];
+
+export function count(text, extraMask = []) {
   let t = text;
-  for (const re of MASK) t = t.replace(re, "");
+  for (const re of [...MASK, ...extraMask]) t = t.replace(re, "");
   const out = { total: 0 };
   for (const [k, re] of Object.entries(CATS)) {
     out[k] = (t.match(re) || []).length;
@@ -61,5 +64,21 @@ for (const slug of slugs) {
   const oc = count(outside);
   if (oc.total) console.log(`  (unit外)\t${fmt(oc)}`);
 }
-if (!arg) console.log(`\n対象 ${bad} / ${slugs.length} 本`);
+if (!arg) {
+  console.log(`\n対象 ${bad} / ${slugs.length} 本`);
+  const values = (v) => (typeof v === "string" ? [v] : v && typeof v === "object" ? Object.values(v).flatMap(values) : []);
+  const site = [
+    ...fs.readdirSync("src/pages/columns").filter((f) => f.endsWith(".astro")).map((f) => [`columns/${f}`, fs.readFileSync(`src/pages/columns/${f}`, "utf8")]),
+    ...fs.readdirSync("src/data/slang-pages").map((f) => [`slang-pages/${f}`, values(JSON.parse(fs.readFileSync(`src/data/slang-pages/${f}`, "utf8"))).join("\n")]),
+    ["data/slang.ts", fs.readFileSync("src/data/slang.ts", "utf8")],
+    ["data/columns.ts", fs.readFileSync("src/data/columns.ts", "utf8")],
+  ];
+  let siteBad = 0;
+  for (const [name, text] of site) {
+    const c = count(text, SITE_MASK);
+    if (c.total) { siteBad++; console.log(`❌ ${name}\t${c.total}\t${fmt(c)}`); }
+  }
+  console.log(`コラム・スラング 対象 ${siteBad} / ${site.length} 件`);
+  bad += siteBad;
+}
 process.exit(bad ? 1 : 0);

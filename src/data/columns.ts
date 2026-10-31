@@ -22,8 +22,8 @@ export const columns = [
   },
   {
     slug: '/columns/crack-epidemic-hiphop',
-    title: 'クラック・エピデミックとヒップホップ——1980〜90年代NYの現実',
-    description: 'クラック・コカインの蔓延がニューヨークのストリートをいかに変え、ヒップホップの歌詞にいかに刻み込まれたか。Nas、Notorious B.I.G.、Wu-Tang Clanらの楽曲から読み解く。',
+    title: '街の荒廃とヒップホップ——1980〜90年代NYの現実',
+    description: '1980〜90年代の街の荒廃がニューヨークのストリートをいかに変え、ヒップホップの歌詞にいかに刻み込まれたか。Nas、Notorious B.I.G.、Wu-Tang Clanらの楽曲から読み解く。',
     tag: '文化・歴史',
     relatedSongs: [],
   },
