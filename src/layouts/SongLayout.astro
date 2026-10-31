@@ -714,6 +714,9 @@ const seoDescription = song && !description.includes('和訳')
       ...document.querySelectorAll<HTMLElement>('.learning-unit[data-t]'),
       ...document.querySelectorAll<HTMLElement>('[data-player-marker][data-t]'),
     ];
+    type PlayerUnit = { el: HTMLElement; t: number; mc: string };
+    const byUnitTime = (a: PlayerUnit, b: PlayerUnit) =>
+      a.t - b.t || Number(b.el.hasAttribute('data-player-marker')) - Number(a.el.hasAttribute('data-player-marker'));
     const units = unitEls
       .map(el => ({
         el,
@@ -721,7 +724,7 @@ const seoDescription = song && !description.includes('和訳')
         mc: el.dataset.mc ?? '',
       }))
       .filter(u => !isNaN(u.t))
-      .sort((a, b) => a.t - b.t || Number(b.el.hasAttribute('data-player-marker')) - Number(a.el.hasAttribute('data-player-marker')));
+      .sort(byUnitTime);
 
     if (units.length === 0) return;
 
@@ -1017,10 +1020,12 @@ const seoDescription = song && !description.includes('和訳')
       }
     }
 
+    // YouTubeの頭出しは指定秒のわずかに手前へ着地するので、前のunit扱いにならないよう余裕を見る
+    const SEEK_TOLERANCE = 0.3;
     function getActiveUnit(t: number) {
       let active = null;
       for (const u of units) {
-        if (u.t <= t) active = u;
+        if (u.t <= t + SEEK_TOLERANCE) active = u;
         else break;
       }
       return active;
@@ -1384,11 +1389,17 @@ const seoDescription = song && !description.includes('和訳')
     // 編集オーバーレイ(EditOverlay.astro)向けの最小プレーヤーAPI。既存ロジックは変更せず読み書き口だけ公開する。
     (window as any).__waxPlayer = {
       getTime: () => (ytReady && ytPlayer?.getCurrentTime ? ytPlayer.getCurrentTime() : elapsed),
-      seekTo: (s: number) => {
+      seekTo: (s: number, keepScroll = false) => {
         elapsed = Math.min(s, DURATION);
         hasSeekedToStart = true;
         if (ytReady && ytPlayer?.seekTo) ytPlayer.seekTo(s, true);
-        render(elapsed, true);
+        render(elapsed, !keepScroll);
+      },
+      setUnitTime: (el: HTMLElement, t: number) => {
+        const unit = units.find(u => u.el === el);
+        if (!unit) return;
+        unit.t = t;
+        units.sort(byUnitTime);
       },
       play: () => { if (ytReady && ytPlayer?.playVideo) ytPlayer.playVideo(); },
       pause: () => { if (ytReady && ytPlayer?.pauseVideo) ytPlayer.pauseVideo(); },

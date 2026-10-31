@@ -143,7 +143,7 @@
     }
 
     const waxPlayer = () => (window as any).__waxPlayer as
-      { getTime: () => number; seekTo: (s: number) => void; play: () => void; pause: () => void } | undefined;
+      { getTime: () => number; seekTo: (s: number, keepScroll?: boolean) => void; setUnitTime: (el: HTMLElement, t: number) => void; play: () => void; pause: () => void } | undefined;
 
     // 波形クリックでの直感操作: 開いているパネルがあれば、波形上の相対位置を秒に変換してセットする
     // （既存のクリック→シーク挙動はそのまま。追加リスナーとして「音を聴きながらその場で拾う」を足すだけ）
@@ -219,7 +219,7 @@
       const previewBtn = mkBtn('▶ 試聴', () => {
         const wp = waxPlayer();
         if (!wp) return;
-        wp.seekTo(pendingT);
+        wp.seekTo(pendingT, true);
         wp.play();
       });
       const captureBtn = mkBtn('現在位置をセット', () => {
@@ -244,6 +244,7 @@
           }
           originalT = pendingT;
           unitEl.dataset.t = String(pendingT);
+          waxPlayer()?.setUnitTime(unitEl, pendingT);
           seekLink.setAttribute('data-seek', String(pendingT));
           const timeText = Array.from(seekLink.childNodes).reverse().find((n) => n.nodeType === Node.TEXT_NODE && n.textContent?.trim());
           if (timeText) timeText.textContent = `${Math.floor(pendingT / 60)}:${String(Math.floor(pendingT % 60)).padStart(2, '0')}`;
