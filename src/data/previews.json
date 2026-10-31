@@ -126,6 +126,12 @@
     "title": "Fuck Compton",
     "album": "Penicillin On Wax"
   },
+  "gangstas-paradise": {
+    "id": 1584416372,
+    "artist": "クーリオ",
+    "title": "Gangsta's Paradise",
+    "album": "Gangsta's Paradise"
+  },
   "get-by": {
     "id": 1346018822,
     "artist": "タリブ・クウェリ",
@@ -432,6 +438,7 @@
     "title": "The Light (International Radio Edit)",
     "album": "Electric Circus"
   },
+  "the-message": null,
   "the-next-episode": {
     "id": 128743595,
     "artist": "ドクター・ドレー",

@@ -72,18 +72,6 @@
     "score": null
   },
   {
-    "id": "strung-out",
-    "whisperSec": null,
-    "manualSec": null,
-    "captionSec": 55,
-    "syncedSec": null,
-    "fallbackT": 52,
-    "t": 55,
-    "source": "caption",
-    "approx": false,
-    "score": null
-  },
-  {
     "id": "hold-they-breath",
     "whisperSec": null,
     "manualSec": null,
@@ -94,18 +82,6 @@
     "source": "caption",
     "approx": false,
     "score": null
-  },
-  {
-    "id": "company-you-keep",
-    "whisperSec": null,
-    "manualSec": null,
-    "captionSec": 67,
-    "syncedSec": null,
-    "fallbackT": 66,
-    "t": 67,
-    "source": "caption",
-    "approx": false,
-    "score": 0.2
   },
   {
     "id": "take-the-vow",
@@ -216,18 +192,6 @@
     "score": 1
   },
   {
-    "id": "porch-monkeys",
-    "whisperSec": null,
-    "manualSec": null,
-    "captionSec": 160,
-    "syncedSec": null,
-    "fallbackT": 167,
-    "t": 160,
-    "source": "caption",
-    "approx": false,
-    "score": null
-  },
-  {
     "id": "kush-timbuktu",
     "whisperSec": null,
     "manualSec": null,
@@ -262,18 +226,6 @@
     "source": "caption",
     "approx": false,
     "score": null
-  },
-  {
-    "id": "read-more",
-    "whisperSec": 207,
-    "manualSec": null,
-    "captionSec": 206,
-    "syncedSec": null,
-    "fallbackT": 205,
-    "t": 206,
-    "source": "caption",
-    "approx": false,
-    "score": 1
   },
   {
     "id": "do-your-thing",

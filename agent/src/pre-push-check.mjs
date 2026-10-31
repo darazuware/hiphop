@@ -370,7 +370,7 @@ async function fetchLyrics(title, artist, slug) {
   const hasReferenceLength = cachedLines > 0;
   for (let attempt = 1; attempt <= 3; attempt++) {
     let lyrics = null;
-    try { lyrics = await getLyrics({ apiKey, title, artist, optimizeQuery: false }); } catch {}
+    try { lyrics = await getLyrics({ apiKey, title: title.replace(/F\*\*k/gi, 'Fuck'), artist, optimizeQuery: false }); } catch {}
     const n = lyrics ? lyrics.split('\n').length : 0;
     if (n > bestLines) { best = lyrics; bestLines = n; }
     if (hasReferenceLength && bestLines >= target) break;

@@ -1,17 +1,5 @@
 [
   {
-    "id": "head-flown",
-    "whisperSec": null,
-    "manualSec": null,
-    "captionSec": null,
-    "syncedSec": null,
-    "fallbackT": 12,
-    "t": 12,
-    "source": "fallback",
-    "approx": true,
-    "score": null
-  },
-  {
     "id": "reeboks",
     "whisperSec": null,
     "manualSec": null,
@@ -36,76 +24,16 @@
     "score": null
   },
   {
-    "id": "crack-virgins",
-    "whisperSec": null,
-    "manualSec": null,
-    "captionSec": 35,
-    "syncedSec": null,
-    "fallbackT": 27,
-    "t": 35,
-    "source": "caption",
-    "approx": false,
-    "score": null
-  },
-  {
     "id": "wild-foul",
     "whisperSec": null,
     "manualSec": null,
     "captionSec": 35,
     "syncedSec": null,
     "fallbackT": 32,
-    "t": 38,
-    "source": "caption+spread",
-    "approx": true,
-    "score": null
-  },
-  {
-    "id": "boom-pow",
-    "whisperSec": null,
-    "manualSec": null,
-    "captionSec": 40,
-    "syncedSec": null,
-    "fallbackT": 36,
-    "t": 40,
+    "t": 35,
     "source": "caption",
     "approx": false,
     "score": null
-  },
-  {
-    "id": "hottie-open",
-    "whisperSec": null,
-    "manualSec": null,
-    "captionSec": 43,
-    "syncedSec": null,
-    "fallbackT": 40,
-    "t": 43,
-    "source": "caption",
-    "approx": false,
-    "score": null
-  },
-  {
-    "id": "toni-braxton",
-    "whisperSec": null,
-    "manualSec": null,
-    "captionSec": 51,
-    "syncedSec": null,
-    "fallbackT": 46,
-    "t": 51,
-    "source": "caption",
-    "approx": false,
-    "score": null
-  },
-  {
-    "id": "thirty-five-bodies",
-    "whisperSec": null,
-    "manualSec": null,
-    "captionSec": 56,
-    "syncedSec": null,
-    "fallbackT": 50,
-    "t": 56,
-    "source": "caption",
-    "approx": false,
-    "score": 0.4
   },
   {
     "id": "put-it-on-title",
@@ -114,8 +42,8 @@
     "captionSec": null,
     "syncedSec": null,
     "fallbackT": 56,
-    "t": 59,
-    "source": "fallback+spread",
+    "t": 56,
+    "source": "fallback",
     "approx": true,
     "score": 0.6
   },
@@ -142,18 +70,6 @@
     "source": "caption",
     "approx": false,
     "score": null
-  },
-  {
-    "id": "gas-shotty",
-    "whisperSec": 80.9,
-    "manualSec": null,
-    "captionSec": 80,
-    "syncedSec": null,
-    "fallbackT": 94,
-    "t": 80,
-    "source": "caption",
-    "approx": false,
-    "score": 0.8
   },
   {
     "id": "baby-mother",
@@ -204,18 +120,6 @@
     "score": 0.2
   },
   {
-    "id": "major-chubby",
-    "whisperSec": null,
-    "manualSec": null,
-    "captionSec": 123,
-    "syncedSec": null,
-    "fallbackT": 150,
-    "t": 123,
-    "source": "caption",
-    "approx": false,
-    "score": 0.2
-  },
-  {
     "id": "moet-becks",
     "whisperSec": null,
     "manualSec": null,
@@ -223,66 +127,6 @@
     "syncedSec": null,
     "fallbackT": 162,
     "t": 132,
-    "source": "caption",
-    "approx": false,
-    "score": null
-  },
-  {
-    "id": "gat-arm-reach",
-    "whisperSec": null,
-    "manualSec": null,
-    "captionSec": 139,
-    "syncedSec": null,
-    "fallbackT": 170,
-    "t": 139,
-    "source": "caption",
-    "approx": false,
-    "score": null
-  },
-  {
-    "id": "charm-geeks",
-    "whisperSec": null,
-    "manualSec": null,
-    "captionSec": 142,
-    "syncedSec": null,
-    "fallbackT": 174,
-    "t": 142,
-    "source": "caption",
-    "approx": false,
-    "score": null
-  },
-  {
-    "id": "born-dead",
-    "whisperSec": 152.6,
-    "manualSec": null,
-    "captionSec": 152,
-    "syncedSec": null,
-    "fallbackT": 188,
-    "t": 152,
-    "source": "caption",
-    "approx": false,
-    "score": 0.8
-  },
-  {
-    "id": "peel-wigs",
-    "whisperSec": 158.4,
-    "manualSec": null,
-    "captionSec": 158,
-    "syncedSec": null,
-    "fallbackT": 196,
-    "t": 158,
-    "source": "caption",
-    "approx": false,
-    "score": 1
-  },
-  {
-    "id": "sheriff-reggie",
-    "whisperSec": null,
-    "manualSec": null,
-    "captionSec": 163,
-    "syncedSec": null,
-    "fallbackT": 205,
-    "t": 163,
     "source": "caption",
     "approx": false,
     "score": null

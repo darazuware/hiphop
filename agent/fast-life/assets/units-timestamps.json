@@ -12,18 +12,6 @@
     "score": null
   },
   {
-    "id": "fishscales-triple-beams",
-    "whisperSec": null,
-    "manualSec": null,
-    "captionSec": 40,
-    "syncedSec": null,
-    "fallbackT": 20,
-    "t": 40,
-    "source": "caption",
-    "approx": false,
-    "score": 0.25
-  },
-  {
     "id": "life-of-riley",
     "whisperSec": null,
     "manualSec": null,
@@ -36,50 +24,14 @@
     "score": 0.4
   },
   {
-    "id": "fifty-calis",
-    "whisperSec": null,
-    "manualSec": null,
-    "captionSec": null,
-    "syncedSec": null,
-    "fallbackT": 89,
-    "t": 89,
-    "source": "fallback",
-    "approx": true,
-    "score": null
-  },
-  {
     "id": "reno-armani",
     "whisperSec": null,
     "manualSec": null,
     "captionSec": null,
     "syncedSec": null,
     "fallbackT": 89,
-    "t": 89,
-    "source": "fallback",
-    "approx": true,
-    "score": null
-  },
-  {
-    "id": "rocked-amadeus",
-    "whisperSec": null,
-    "manualSec": null,
-    "captionSec": null,
-    "syncedSec": null,
-    "fallbackT": 89,
-    "t": 89,
-    "source": "fallback",
-    "approx": true,
-    "score": null
-  },
-  {
-    "id": "shells-adidas",
-    "whisperSec": null,
-    "manualSec": null,
-    "captionSec": null,
-    "syncedSec": null,
-    "fallbackT": 89,
-    "t": 89,
-    "source": "fallback",
+    "t": 91,
+    "source": "fallback+spread",
     "approx": true,
     "score": null
   },
@@ -90,22 +42,10 @@
     "captionSec": null,
     "syncedSec": null,
     "fallbackT": 89,
-    "t": 89,
-    "source": "fallback",
+    "t": 92,
+    "source": "fallback+spread",
     "approx": true,
     "score": null
-  },
-  {
-    "id": "payola-no-cola",
-    "whisperSec": 83.1,
-    "manualSec": null,
-    "captionSec": null,
-    "syncedSec": null,
-    "fallbackT": 89,
-    "t": 89,
-    "source": "fallback",
-    "approx": true,
-    "score": 0.67
   },
   {
     "id": "american-dream-cream",
@@ -118,18 +58,6 @@
     "source": "caption",
     "approx": false,
     "score": 0.6
-  },
-  {
-    "id": "smoke-trees",
-    "whisperSec": null,
-    "manualSec": null,
-    "captionSec": 111,
-    "syncedSec": null,
-    "fallbackT": 86,
-    "t": 111,
-    "source": "caption",
-    "approx": false,
-    "score": null
   },
   {
     "id": "where-all-my-niggas-be",
@@ -180,18 +108,6 @@
     "score": null
   },
   {
-    "id": "lickin-shots-holliday",
-    "whisperSec": null,
-    "manualSec": null,
-    "captionSec": null,
-    "syncedSec": null,
-    "fallbackT": 137,
-    "t": 140,
-    "source": "fallback+spread",
-    "approx": true,
-    "score": null
-  },
-  {
     "id": "cabbage",
     "whisperSec": null,
     "manualSec": null,
@@ -228,18 +144,6 @@
     "score": 0
   },
   {
-    "id": "yayo-blizzard",
-    "whisperSec": null,
-    "manualSec": null,
-    "captionSec": 179,
-    "syncedSec": null,
-    "fallbackT": 160,
-    "t": 179,
-    "source": "caption",
-    "approx": false,
-    "score": null
-  },
-  {
     "id": "sheisty",
     "whisperSec": null,
     "manualSec": null,
@@ -250,18 +154,6 @@
     "source": "caption",
     "approx": false,
     "score": null
-  },
-  {
-    "id": "arm-hammer-scramblers",
-    "whisperSec": null,
-    "manualSec": null,
-    "captionSec": 208,
-    "syncedSec": null,
-    "fallbackT": 180,
-    "t": 208,
-    "source": "caption",
-    "approx": false,
-    "score": 0
   },
   {
     "id": "veuve-dom",
@@ -276,18 +168,6 @@
     "score": null
   },
   {
-    "id": "perico",
-    "whisperSec": null,
-    "manualSec": null,
-    "captionSec": 218,
-    "syncedSec": null,
-    "fallbackT": 194,
-    "t": 218,
-    "source": "caption",
-    "approx": false,
-    "score": null
-  },
-  {
     "id": "block-to-boats",
     "whisperSec": null,
     "manualSec": null,
@@ -295,30 +175,6 @@
     "syncedSec": null,
     "fallbackT": 200,
     "t": 227,
-    "source": "caption",
-    "approx": false,
-    "score": null
-  },
-  {
-    "id": "blue-steel",
-    "whisperSec": null,
-    "manualSec": null,
-    "captionSec": 235,
-    "syncedSec": null,
-    "fallbackT": 210,
-    "t": 235,
-    "source": "caption",
-    "approx": false,
-    "score": null
-  },
-  {
-    "id": "graveyards-kings",
-    "whisperSec": null,
-    "manualSec": null,
-    "captionSec": 240,
-    "syncedSec": null,
-    "fallbackT": 216,
-    "t": 240,
     "source": "caption",
     "approx": false,
     "score": null

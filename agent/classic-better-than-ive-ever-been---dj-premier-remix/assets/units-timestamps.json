@@ -12,18 +12,6 @@
     "score": 0
   },
   {
-    "id": "another-drought",
-    "whisperSec": null,
-    "manualSec": null,
-    "captionSec": 66,
-    "syncedSec": null,
-    "fallbackT": 28,
-    "t": 66,
-    "source": "caption",
-    "approx": false,
-    "score": 0
-  },
-  {
     "id": "since-86",
     "whisperSec": null,
     "manualSec": null,
@@ -72,25 +60,13 @@
     "score": 0
   },
   {
-    "id": "made-you-look",
-    "whisperSec": null,
-    "manualSec": null,
-    "captionSec": null,
-    "syncedSec": null,
-    "fallbackT": 93,
-    "t": 99,
-    "source": "fallback+spread",
-    "approx": true,
-    "score": 0
-  },
-  {
     "id": "walked-with-jesus",
     "whisperSec": null,
     "manualSec": null,
     "captionSec": null,
     "syncedSec": null,
     "fallbackT": 93,
-    "t": 102,
+    "t": 99,
     "source": "fallback+spread",
     "approx": true,
     "score": 0
@@ -132,18 +108,6 @@
     "score": 0
   },
   {
-    "id": "habitual-be",
-    "whisperSec": null,
-    "manualSec": null,
-    "captionSec": null,
-    "syncedSec": null,
-    "fallbackT": 151,
-    "t": 154,
-    "source": "fallback+spread",
-    "approx": true,
-    "score": 0
-  },
-  {
     "id": "go-platinum",
     "whisperSec": null,
     "manualSec": null,
@@ -177,30 +141,6 @@
     "t": 212,
     "source": "caption",
     "approx": false,
-    "score": 0
-  },
-  {
-    "id": "its-just-iron",
-    "whisperSec": null,
-    "manualSec": null,
-    "captionSec": null,
-    "syncedSec": null,
-    "fallbackT": 212,
-    "t": 215,
-    "source": "fallback+spread",
-    "approx": true,
-    "score": 0
-  },
-  {
-    "id": "wall-toast",
-    "whisperSec": null,
-    "manualSec": null,
-    "captionSec": null,
-    "syncedSec": null,
-    "fallbackT": 225,
-    "t": 225,
-    "source": "fallback",
-    "approx": true,
     "score": 0
   },
   {
@@ -252,25 +192,13 @@
     "score": 0
   },
   {
-    "id": "smoke-them-trees",
-    "whisperSec": null,
-    "manualSec": null,
-    "captionSec": 274,
-    "syncedSec": null,
-    "fallbackT": 260,
-    "t": 274,
-    "source": "caption",
-    "approx": false,
-    "score": 0
-  },
-  {
     "id": "emceein-vs-rap",
     "whisperSec": null,
     "manualSec": null,
     "captionSec": null,
     "syncedSec": null,
-    "fallbackT": 274,
-    "t": 274,
+    "fallbackT": 270,
+    "t": 270,
     "source": "fallback",
     "approx": true,
     "score": 0

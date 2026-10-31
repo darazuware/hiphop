@@ -1,24 +1,12 @@
 [
   {
-    "id": "baby-born-murdered",
-    "whisperSec": null,
-    "manualSec": null,
-    "captionSec": null,
-    "syncedSec": null,
-    "fallbackT": 76,
-    "t": 77,
-    "source": "fallback+spread",
-    "approx": true,
-    "score": 0.2
-  },
-  {
     "id": "defines-my-name",
     "whisperSec": null,
     "manualSec": null,
     "captionSec": null,
     "syncedSec": null,
     "fallbackT": 76,
-    "t": 79,
+    "t": 78,
     "source": "fallback+spread",
     "approx": true,
     "score": null
@@ -30,7 +18,7 @@
     "captionSec": null,
     "syncedSec": null,
     "fallbackT": 76,
-    "t": 80,
+    "t": 81,
     "source": "fallback+spread",
     "approx": true,
     "score": 0.17
@@ -42,31 +30,7 @@
     "captionSec": null,
     "syncedSec": null,
     "fallbackT": 76,
-    "t": 82,
-    "source": "fallback+spread",
-    "approx": true,
-    "score": null
-  },
-  {
-    "id": "fiends-flatline",
-    "whisperSec": null,
-    "manualSec": null,
-    "captionSec": null,
-    "syncedSec": null,
-    "fallbackT": 76,
     "t": 83,
-    "source": "fallback+spread",
-    "approx": true,
-    "score": null
-  },
-  {
-    "id": "weak-picture-squeeze",
-    "whisperSec": null,
-    "manualSec": null,
-    "captionSec": null,
-    "syncedSec": null,
-    "fallbackT": 76,
-    "t": 85,
     "source": "fallback+spread",
     "approx": true,
     "score": null
@@ -78,22 +42,10 @@
     "captionSec": null,
     "syncedSec": null,
     "fallbackT": 76,
-    "t": 86,
+    "t": 85,
     "source": "fallback+spread",
     "approx": true,
     "score": null
-  },
-  {
-    "id": "they-possessive",
-    "whisperSec": null,
-    "manualSec": null,
-    "captionSec": null,
-    "syncedSec": null,
-    "fallbackT": 76,
-    "t": 88,
-    "source": "fallback+spread",
-    "approx": true,
-    "score": 0.2
   },
   {
     "id": "nas-spell",
@@ -102,7 +54,7 @@
     "captionSec": 76,
     "syncedSec": null,
     "fallbackT": 62,
-    "t": 89,
+    "t": 87,
     "source": "caption+spread",
     "approx": true,
     "score": null
@@ -114,7 +66,7 @@
     "captionSec": 76,
     "syncedSec": null,
     "fallbackT": 73,
-    "t": 91,
+    "t": 90,
     "source": "caption+spread",
     "approx": true,
     "score": null
@@ -168,40 +120,16 @@
     "score": 1
   },
   {
-    "id": "seiko-rolex",
-    "whisperSec": 112,
-    "manualSec": null,
-    "captionSec": 109,
-    "syncedSec": null,
-    "fallbackT": 107,
-    "t": 109,
-    "source": "caption",
-    "approx": false,
-    "score": 0.8
-  },
-  {
     "id": "chips-cake",
     "whisperSec": null,
     "manualSec": null,
     "captionSec": 109,
     "syncedSec": null,
     "fallbackT": 110,
-    "t": 112,
-    "source": "caption+spread",
-    "approx": true,
-    "score": null
-  },
-  {
-    "id": "siete-pesos",
-    "whisperSec": null,
-    "manualSec": null,
-    "captionSec": 119,
-    "syncedSec": null,
-    "fallbackT": 113,
-    "t": 119,
+    "t": 109,
     "source": "caption",
     "approx": false,
-    "score": 0.43
+    "score": null
   },
   {
     "id": "cant-take-it",
@@ -240,52 +168,16 @@
     "score": null
   },
   {
-    "id": "beef-heat",
-    "whisperSec": null,
-    "manualSec": null,
-    "captionSec": 167,
-    "syncedSec": null,
-    "fallbackT": 169,
-    "t": 167,
-    "source": "caption",
-    "approx": false,
-    "score": null
-  },
-  {
-    "id": "street-sweeper",
-    "whisperSec": 173.4,
-    "manualSec": null,
-    "captionSec": 170,
-    "syncedSec": null,
-    "fallbackT": 175,
-    "t": 170,
-    "source": "caption",
-    "approx": false,
-    "score": 0.67
-  },
-  {
     "id": "greeks-egypt",
     "whisperSec": 175.4,
     "manualSec": null,
     "captionSec": 170,
     "syncedSec": null,
     "fallbackT": 178,
-    "t": 173,
-    "source": "caption+spread",
-    "approx": true,
-    "score": 0.8
-  },
-  {
-    "id": "like-pac",
-    "whisperSec": null,
-    "manualSec": null,
-    "captionSec": 180,
-    "syncedSec": null,
-    "fallbackT": 180,
-    "t": 180,
+    "t": 170,
     "source": "caption",
     "approx": false,
-    "score": null
+    "score": 0.8
   },
   {
     "id": "loot-crisp",
