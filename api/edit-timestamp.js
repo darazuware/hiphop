@@ -92,7 +92,9 @@ export default async function handler(req, res) {
       return;
     }
     const currentT = typeof ts[index].t === 'number' ? ts[index].t : null;
-    if (currentT === null || Math.round(currentT * 10) !== Math.round(expectedT * 10)) {
+    // 保存直後はデプロイ完了まで古い秒が表示されるので、直前の変更が手動編集なら差を許す
+    const staleAfterManualEdit = ts[index].source === 'manual';
+    if (currentT === null || (!staleAfterManualEdit && Math.round(currentT * 10) !== Math.round(expectedT * 10))) {
       res.status(409).json({ ok: false, error: `変更${i + 1}件目: 表示中の秒数とファイルの現在値がズレています。ページを再読み込みしてやり直してください。` });
       return;
     }

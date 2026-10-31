@@ -32,8 +32,8 @@ const { heading, mc, t = null, youtubeId, tApprox = false, preciseSeek = false, 
 const playbackT = t ?? contextStart;
 const contextReplay = t == null && contextStart != null;
 const mmss = playbackT != null ? `${Math.floor(playbackT / 60)}:${String(Math.floor(playbackT % 60)).padStart(2, "0")}` : null;
-const seekT = playbackT != null ? (preciseSeek ? playbackT : Math.floor(playbackT)) : null;
-const ytUrl = playbackT != null && youtubeId ? `https://www.youtube.com/watch?v=${youtubeId}&t=${seekT}s` : null;
+const urlT = playbackT != null ? (preciseSeek ? playbackT : Math.floor(playbackT)) : null;
+const ytUrl = playbackT != null && youtubeId ? `https://www.youtube.com/watch?v=${youtubeId}&t=${urlT}s` : null;
 const hasUsage = Astro.slots.has("usage");
 // eng/jpn は props と slot の両対応（全曲ページは <Fragment slot="eng"> で渡している）。
 // props のみ見て slot 渡しの引用が描画されないバグの修正（2026-07-03）。
@@ -107,7 +107,7 @@ const ghostWord = heading.split(/[—\s]/)[0].slice(0, 6).toUpperCase();
             <span class="inline-flex items-center gap-2">
               <a
                 href={ytUrl}
-                data-seek={seekT ?? undefined}
+                data-seek={playbackT ?? undefined}
                 aria-label={contextReplay ? `直前の確認済み位置${mmss}から再生` : undefined}
                 target="_blank"
                 rel="noopener"

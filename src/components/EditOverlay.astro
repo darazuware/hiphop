@@ -170,7 +170,7 @@
     learningUnits.forEach((unitEl, index) => {
       const seekLink = unitEl.querySelector<HTMLElement>('[data-seek]');
       if (!seekLink) return; // t=null（mvAbsent等）は非対象
-      const originalT = parseFloat(unitEl.dataset.t ?? '');
+      let originalT = parseFloat(unitEl.dataset.t ?? '');
       if (isNaN(originalT)) return;
 
       let pendingT = originalT;
@@ -242,8 +242,11 @@
             status.textContent = '❌ ' + (data.error || `失敗 (${r.status})`);
             return;
           }
+          originalT = pendingT;
           unitEl.dataset.t = String(pendingT);
-          seekLink.setAttribute('data-seek', String(Math.floor(pendingT)));
+          seekLink.setAttribute('data-seek', String(pendingT));
+          const timeText = Array.from(seekLink.childNodes).reverse().find((n) => n.nodeType === Node.TEXT_NODE && n.textContent?.trim());
+          if (timeText) timeText.textContent = `${Math.floor(pendingT / 60)}:${String(Math.floor(pendingT % 60)).padStart(2, '0')}`;
           status.textContent = '✓ 保存しました（反映まで1〜2分）';
         } catch {
           status.textContent = '❌ 通信エラー';
