@@ -81,10 +81,16 @@ const j = JSON.parse(fs.readFileSync(capFiles[0], "utf8"));
 const stream = [];
 for (const ev of j.events || []) {
   if (!ev.segs) continue;
-  for (const seg of ev.segs) {
-    const t = (ev.tStartMs + (seg.tOffsetMs || 0)) / 1000;
-    for (const w of norm(seg.utf8 || "").split(" ")) if (w) stream.push({ sec: t, tok: w });
-  }
+  // 1字幕に2行分入っていると全語が同じ開始秒になり、別unitが同じ秒に重なる。
+  // セグメントの長さを語数で割って、語ごとの秒を見積もる。
+  ev.segs.forEach((seg, si) => {
+    const start = ev.tStartMs + (seg.tOffsetMs || 0);
+    const next = ev.segs[si + 1];
+    const end = next ? ev.tStartMs + (next.tOffsetMs || 0) : ev.tStartMs + (ev.dDurationMs || 0);
+    const words = norm(seg.utf8 || "").split(" ").filter(Boolean);
+    const span = Math.max(0, end - start);
+    words.forEach((w, k) => stream.push({ sec: (start + (span * k) / words.length) / 1000, tok: w }));
+  });
 }
 if (stream.length < 20) { console.log(`[align-yt] 字幕トラックが短すぎる（${stream.length}語）→ 中止`); process.exit(1); }
 
@@ -107,9 +113,14 @@ function matchAnchor(anchor, cursor) {
       si++;
     }
     const ratio = matched / toks.length;
-    if (ratio >= 0.75) return { sec: Math.floor(stream[i].sec), idx: i, score: ratio };
-    if (!best || ratio > best.score) best = { sec: Math.floor(stream[i].sec), idx: i, score: ratio };
+    const span = si - i;
+    if (!best || ratio > best.score || (ratio === best.score && span < best.span)) {
+      best = { sec: Math.floor(stream[i].sec), idx: i, score: ratio, span };
+    }
+    // 同じ語で始まる直前の行に引っ張られないよう、合格後も近くにより良い一致が無いか見る
+    if (best.score >= 0.75 && i - best.idx > 40) return best;
   }
+  if (best && best.score >= 0.75) return best;
   if (best && best.score >= 0.55) return best;
   return { notFound: true, bestScore: best?.score ?? 0 };
 }

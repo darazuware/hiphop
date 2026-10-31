@@ -31,6 +31,7 @@ import { join, basename } from 'node:path';
 import { execSync } from 'node:child_process';
 import { createRequire } from 'node:module';
 import { createHash } from 'node:crypto';
+import { findDuplicateTimestamps } from './timestamp-order.mjs';
 import {
   CRITIC_HARD, CRITIC_SOFT, READER_CMD_RE, DASH_RE, ASSERT_RE, ASSERT_LIMIT,
   jpBody, jpCharCount, escapeRe, loadDictWords,
@@ -437,6 +438,16 @@ if (changedPaths.length === 0) {
 
 // Item 7: 評論家口調ガード（変更された曲のみ走査）
 if (checkCriticTone(changedPaths)) anyFailed = true;
+
+// 同じ秒の▶が複数unitに並ぶページを止める（変更された曲のみ）
+for (const filePath of changedPaths) {
+  const slug = basename(filePath, '.astro');
+  const dups = findDuplicateTimestamps(slug);
+  if (dups.length) {
+    console.error(`❌ [SEQ] ${slug}: 同じ秒の▶ ${dups.map((d) => `${d.t}s×${d.ids.length}`).join(' / ')} → gen-fallback-timestamps で解消`);
+    anyFailed = true;
+  }
+}
 
 for (const filePath of changedPaths) {
   const slug = basename(filePath, '.astro');

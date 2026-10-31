@@ -12,6 +12,7 @@
  *   node agent/src/gen-fallback-timestamps.mjs --slug {slug}
  */
 import fs from "fs";
+import { domOrderIds, spreadDuplicates } from "./timestamp-order.mjs";
 
 function getArg(name, def = null) {
   const i = process.argv.indexOf(`--${name}`);
@@ -66,6 +67,9 @@ const results = units.map((u) => {
     score: old.score ?? null,
   };
 });
+
+const spread = spreadDuplicates(results, domOrderIds(slug));
+if (spread.length) console.log(`[ts-fallback] 同じ秒の重複を前へ送った: ${spread.join(", ")}`);
 
 fs.writeFileSync(outPath, JSON.stringify(results, null, 2));
 

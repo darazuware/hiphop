@@ -53,3 +53,11 @@
   `<LearningUnit ... embed="https://www.instagram.com/p/XXXX/" embedCaption="Lo Life クルーの..." >`
 - **画像のDL再ホストは禁止**（著作権）。公式埋め込みのみ。投稿が消えたら埋め込みも消えるだけで安全。
 - URL選定は自動化しない（良い投稿の判断は人間/対話セッションでWebSearch・実在確認してから貼る）。デッドリンク厳禁の原則どおり、貼る前に投稿の実在を確認する。
+
+## 同じ秒の▶を出さない（恒久・2026-10-31）
+
+1つの字幕に2行分の歌詞が入ると、別々のunitに同じ秒が入り、同じ時刻の▶が2つ並ぶ。次の3段で防ぐ。
+
+- `align-yt-captions.mjs`: 字幕の長さを語数で割り、語ごとの秒を見積もる。
+- `gen-fallback-timestamps.mjs`: それでも重なる2つ目以降を、次のunitの秒を越えない範囲で1行3秒ずつ前へ送る（`source` に `+spread` が付き、≈表示になる）。実測（manualSec）は動かさない。
+- `check-article.mjs [SEQ]` と `pre-push-check.mjs`: 残った重複を❌にする。空きが無いときは、同じ行のunitを1つに統合するか実測秒を入れる。

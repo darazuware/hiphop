@@ -23,7 +23,7 @@
     ],
     "fallbackT": 17,
     "manualSec": null,
-    "captionSec": 12
+    "captionSec": 13
   },
   {
     "id": "mamas-place",
@@ -123,7 +123,7 @@
     ],
     "fallbackT": 96,
     "manualSec": null,
-    "captionSec": 65
+    "captionSec": 70
   },
   {
     "id": "pay-you-back",
@@ -213,7 +213,7 @@
     ],
     "fallbackT": 136,
     "manualSec": null,
-    "captionSec": 116
+    "captionSec": 118
   },
   {
     "id": "mailbox",
@@ -246,7 +246,7 @@
     ],
     "fallbackT": 156,
     "manualSec": null,
-    "captionSec": 131
+    "captionSec": 132
   },
   {
     "id": "when-low",
@@ -263,7 +263,7 @@
     ],
     "fallbackT": 162,
     "manualSec": null,
-    "captionSec": 131
+    "captionSec": 137
   },
   {
     "id": "hot-plate",
@@ -276,7 +276,7 @@
     ],
     "fallbackT": 167,
     "manualSec": null,
-    "captionSec": 142
+    "captionSec": 144
   },
   {
     "id": "scraps",
@@ -291,7 +291,7 @@
     ],
     "fallbackT": 173,
     "manualSec": 149,
-    "captionSec": 142
+    "captionSec": 149
   },
   {
     "id": "road-rough",
@@ -306,7 +306,7 @@
     ],
     "fallbackT": 179,
     "manualSec": null,
-    "captionSec": 157
+    "captionSec": 158
   },
   {
     "id": "pour-out-liquor",
@@ -346,7 +346,7 @@
     ],
     "fallbackT": 215,
     "manualSec": null,
-    "captionSec": 200
+    "captionSec": 206
   },
   {
     "id": "stayed-real",
@@ -362,7 +362,7 @@
     ],
     "fallbackT": 221,
     "manualSec": null,
-    "captionSec": 208
+    "captionSec": 214
   },
   {
     "id": "brighter-day",

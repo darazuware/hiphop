@@ -22,6 +22,7 @@
 import { execSync } from "node:child_process";
 import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
+import { findDuplicateTimestamps } from "./timestamp-order.mjs";
 
 const projectRoot = new URL("../../", import.meta.url).pathname.replace(/\/$/, "");
 const argv = process.argv.slice(2);
@@ -163,13 +164,18 @@ step("[YT] YouTube埋め込み", `node agent/src/check-youtube.mjs ${slug}`);
       if (t < prev - 0.01) inv.push(`${id}(${t})`);
       prev = Math.max(prev, t);
     }
-    if (inv.length || whisper.length) {
+    const dups = findDuplicateTimestamps(slug);
+    if (dups.length) {
+      console.error(`❌ 同じ秒の▶が複数unitにある: ${dups.map((d) => `${d.t}s(${d.ids.join(",")})`).join(" / ")}`);
+      console.error("   → node agent/src/gen-fallback-timestamps.mjs で解消。解消しなければ同じ行のunitを1つに統合するか実測秒を入れる");
+    }
+    if (inv.length || whisper.length || dups.length) {
       if (inv.length) console.error(`❌ unit出現順に対し t が逆行（非時系列）: ${inv.join(" / ")}`);
       if (whisper.length) console.error(`❌ 廃止済みwhisper由来のtが残存（gen-fallback-timestampsで再生成を）: ${whisper.length}件`);
       console.error("   → agent/" + slug + "/assets/units.json の fallbackT をDOM順に直す or .astroのunit並び替え → node agent/src/gen-fallback-timestamps.mjs --slug " + slug);
       results.push({ label: "[SEQ] 頭出し時系列", ok: false });
     } else {
-      console.log(`✅ ${ids.length}unit すべて時系列（t 非減少・whisper無し）`);
+      console.log(`✅ ${ids.length}unit すべて時系列（t 増加・重複なし・whisper無し）`);
       results.push({ label: "[SEQ] 頭出し時系列", ok: true });
     }
   }
