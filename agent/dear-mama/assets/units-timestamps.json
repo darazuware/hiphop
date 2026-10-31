@@ -218,12 +218,12 @@
   {
     "id": "hot-plate",
     "whisperSec": null,
-    "manualSec": null,
+    "manualSec": 143.5,
     "captionSec": 144,
     "syncedSec": null,
     "fallbackT": 167,
-    "t": 144,
-    "source": "caption",
+    "t": 143.5,
+    "source": "manual",
     "approx": false,
     "score": null
   },
