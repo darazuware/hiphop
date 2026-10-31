@@ -77,19 +77,6 @@
     "captionSec": 52
   },
   {
-    "id": "strung-out",
-    "anchor": [
-      "hung",
-      "with",
-      "the",
-      "wrong",
-      "person"
-    ],
-    "fallbackT": 52,
-    "manualSec": null,
-    "captionSec": 55
-  },
-  {
     "id": "hold-they-breath",
     "anchor": [
       "people",
@@ -100,19 +87,6 @@
     "fallbackT": 60,
     "manualSec": null,
     "captionSec": 64
-  },
-  {
-    "id": "company-you-keep",
-    "anchor": [
-      "watch",
-      "the",
-      "company",
-      "you",
-      "keep"
-    ],
-    "fallbackT": 66,
-    "manualSec": null,
-    "captionSec": 67
   },
   {
     "id": "take-the-vow",
@@ -234,19 +208,6 @@
     "captionSec": 158
   },
   {
-    "id": "porch-monkeys",
-    "anchor": [
-      "kings",
-      "and",
-      "queens",
-      "never",
-      "porch"
-    ],
-    "fallbackT": 167,
-    "manualSec": null,
-    "captionSec": 160
-  },
-  {
     "id": "kush-timbuktu",
     "anchor": [
       "empires",
@@ -284,18 +245,6 @@
     "fallbackT": 200,
     "manualSec": null,
     "captionSec": 191
-  },
-  {
-    "id": "read-more",
-    "anchor": [
-      "read",
-      "more",
-      "learn",
-      "more"
-    ],
-    "fallbackT": 205,
-    "manualSec": null,
-    "captionSec": 206
   },
   {
     "id": "do-your-thing",

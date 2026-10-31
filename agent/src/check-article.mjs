@@ -128,7 +128,7 @@ step("[YT] YouTube埋め込み", `node agent/src/check-youtube.mjs ${slug}`);
     console.log("⏭️  sampleYoutubeId なし");
     results.push({ label: "[SMP] 元ネタ動画の位置", ok: true });
   } else {
-    const behind = astroSrc.match(/<section id="behind"[\s\S]*?<\/section>/)?.[0] ?? "";
+    const behind = astroSrc.match(/<section id="(?:behind|sample)"[\s\S]*?<\/section>/)?.[0] ?? "";
     const inContent = /sampleInContent=\{true\}/.test(astroSrc);
     const embedded = behind.includes(`id="${sid}"`) || behind.includes(`embed/${sid}`);
     if (inContent && embedded) {

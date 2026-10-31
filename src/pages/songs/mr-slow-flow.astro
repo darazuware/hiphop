@@ -114,21 +114,6 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       <p class="text-xs text-[var(--c-dim)] mb-6">各見出しは「この曲から学べる英語表現」です。各ユニットはまず上に英語の用例（1〜2行）を置いてあります。</p>
         <p class="mt-2"><strong class="text-[var(--c-text)]">先に英語を音で追い、行のどこが学習対象かを確かめてから</strong>下の日本語解説に進むと、頭に入りやすいと思います。</p>
 
-      <!-- ① eighth / spliff -->
-      <LearningUnit
-        heading="smoked a whole eighth in a spliff — 分量とブツの言い方"
-        label="★ スラング／ドラッグ語彙"
-        mc="Evidence（Verse 1）"
-        t={TS["eighth-spliff"].t} tApprox={TS["eighth-spliff"].approx} youtubeId={YT}
-        embed=""
-      >
-        <Fragment slot="eng">I just smoked a whole <QuickSlang word="eighth" desc="1オンスの8分の1（約3.5g）。マリファナの取引・所持でよく使われる分量の単位" /> in a <QuickSlang word="spliff" desc="マリファナとタバコを混ぜて巻いたジョイント。カリブ／英国由来の言い方で、blunt（葉巻の皮で巻く）とは巻き方が違う" /></Fragment>
-        <Fragment slot="jpn">まるまる1/8（eighth）をスプリフ1本で吸い切った</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の入り。自己紹介の前に、まず生活の手触りから始まる件です。</p>
-        <p>行の後半に<strong class="text-[var(--c-text)]">eighth</strong>と<strong class="text-[var(--c-text)]">spliff</strong>という二つの語が並びます。<strong class="text-[var(--c-text)]">eighth</strong>は「8分の1」、つまり1オンスの1/8（約3.5g）を指す分量の言い方です。</p>
-        <p class="mt-2">数字がそのまま量の単位として通用するのが面白いところだと思います。</p>
-        <p class="mt-2">続く<strong class="text-[var(--c-text)]">spliff</strong>は、マリファナにタバコを混ぜて巻いたジョイントのこと。blunt（葉巻の皮で巻くタイプ）とは巻き方も呼び名も違うので、聴き分けられると英語の細かいニュアンスが見えてきます。</p>
-      </LearningUnit>
 
       <!-- ② problem / gift -->
       <LearningUnit
@@ -148,22 +133,6 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         </Fragment>
       </LearningUnit>
 
-      <!-- ③ Dutch / drift -->
-      <LearningUnit
-        heading="light my dutch then start to drift — 運転とブツを重ねる"
-        label="★ 言葉遊び（二重義）"
-        mc="Evidence（Verse 1）"
-        t={TS["dutch-drift"].t} tApprox={TS["dutch-drift"].approx} youtubeId={YT}
-        embed=""
-      >
-        <Fragment slot="eng">Hit the clutch then I start to shift<br />Turn it up, light my <QuickSlang word="Dutch" desc="ダッチマスターの葉巻。中身のタバコを抜きマリファナを詰めて巻く（＝blunt）ための定番ブランド" /> then start to <QuickSlang word="drift" desc="①車が横滑りする（ドリフト走行）②意識がふわっと漂う。運転と喫煙の両方に掛かる" /></Fragment>
-        <Fragment slot="jpn">クラッチを踏んでギアを入れる／ボリュームを上げ、ダッチに火を点けて、そのまま流れていく（drift）</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1序盤。運転の描写と喫煙の描写が一本のラインで重なる件です。</p>
-        <p>ここは<strong class="text-[var(--c-text)]">clutch / shift / drift</strong>という運転の語彙で組まれています。クラッチを踏んでギアを入れ替え、車が滑り出す。</p>
-        <p class="mt-2">運転好きにはそのまま情景が浮かぶ流れです。</p>
-        <p class="mt-2">ところが間に<strong class="text-[var(--c-text)]">light my Dutch</strong>（ダッチに火を点ける）が挟まります。ここで<strong class="text-[var(--c-text)]">drift</strong>が二重になり、車の横滑りと、意識がふわっと漂う感覚の両方に掛かります。</p>
-        <p class="mt-2">運転とスモークを一本の線で重ねる、静かな言葉遊びだと思います。</p>
-      </LearningUnit>
 
       <!-- ④ Lost Angel -->
       <LearningUnit
@@ -187,25 +156,6 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       </LearningUnit>
 
       <!-- ⑤ unsigned / typewriters -->
-      <LearningUnit
-        heading="Unsigned death threats written in typewriters — 「unsigned」の二重義"
-        label="★ 言葉遊び（ダブルミーニング）"
-        mc="Evidence（Verse 1）"
-        t={TS["unsigned-typewriters"].t} tApprox={TS["unsigned-typewriters"].approx} youtubeId={YT}
-        embed=""
-      >
-        <Fragment slot="eng"><QuickSlang word="Underground hitman" desc="アンダーグラウンドの殺し屋。ここではメジャー流通に乗らないMCとしての凄みを刺客に例える比喩" />, hard to hire<br /><QuickSlang word="Unsigned" desc="①（レーベルと）契約していない＝インディー②（手紙が）署名なし。脅迫状の「差出人不明」と自分の「未契約」を重ねる" /> death threats written in typewriters</Fragment>
-        <Fragment slot="jpn">アンダーグラウンドの殺し屋、雇うのは難しい／差出人不明（unsigned）の脅迫状を、タイプライターで打つ</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1中盤。自分を刺客に見立てた比喩が続く件です。</p>
-        <p>学習対象は二行目頭の<strong class="text-[var(--c-text)]">Unsigned</strong>です。ここが二重になっています。</p>
-        <p class="mt-2">一つは「レーベルと契約していない（＝インディー、unsigned artist）」の意味。もう一つは「（手紙に）署名がない、差出人不明の」の意味です。</p>
-        <p class="mt-2">脅迫状を<strong class="text-[var(--c-text)]">written in typewriters</strong>（タイプライターで打つ）と続けることで、後者の「差出人を隠した匿名の脅迫状」というイメージがぐっと立ちます。自分の「メジャー未契約」という立場を、脅迫状の「署名なし」に重ねる。</p>
-        <p class="mt-2">一語で二つ言う仕掛けだと思います。</p>
-        <Fragment slot="usage">
-          <p><strong class="text-[var(--c-text)]">unsigned</strong> は音楽業界で「レーベルと契約していないアーティスト」を指す基本語です。<em>an unsigned rapper</em>（インディーのラッパー）のように使います。</p>
-        <p class="mt-2">同時に一般英語では「署名のない・差出人不明の」の意味も持ち、<em>an unsigned letter</em>（差出人不明の手紙）のように使われます。この二つの意味を一語に重ねるのがパンチラインの核です。</p>
-        </Fragment>
-      </LearningUnit>
 
       <!-- ⑥ Fake it till you make it -->
       <LearningUnit
@@ -278,46 +228,8 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       </LearningUnit>
 
       <!-- ⑩ Peace ain't the word -->
-      <LearningUnit
-        heading="Peace ain't the word to play — Main Sourceへのリスペクト"
-        label="★ リリカル・リファレンス"
-        mc="Evidence（Verse 1）"
-        t={TS["peace-not-word"].t} tApprox={TS["peace-not-word"].approx} youtubeId={YT}
-        embed=""
-      >
-        <Fragment slot="eng">Peace ain't the word to play — it's violence<br />I ain't have s**t good to say, so here's silence</Fragment>
-        <Fragment slot="jpn">「平和」は今の俺には似合わない——あるのは暴力だ／言えることが何もないから、ここは沈黙でいく</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の締め近く。業界への苛立ちと、沈黙という強さを対比させる件です。</p>
-        <p>注目は上の二行です。一行目「<strong class="text-[var(--c-text)]">Peace ain't the word to play</strong>」は、1991年のMain Source（Large Professor主導のトリオ）の楽曲「Peace Is Not the Word to Play」への直接的なオマージュ。</p>
-        <p class="mt-2">ヒップホップの先達の言葉を引きながら、自分の状況を重ねていく書き方です。</p>
-        <p class="mt-2">そしてそれを受けて二行目「I ain't have s**t good to say, so here's silence」。言うべきことがないから「沈黙を置く」という運びです。</p>
-        <p class="mt-2">これは本来、批判や反論の場面で使われる手なのに、あえてバース内で「黙る」と宣言して閉じていきます。<strong class="text-[var(--c-text)]">沈黙を意図的に武器にする</strong>という逆張りの文体がカッコいいと思います。</p>
-        <Fragment slot="usage">
-          <p><strong class="text-[var(--c-text)]">ain't have</strong> はAAVEの否定過去形。標準英語なら <em>didn't have</em>。</p>
-        <p class="mt-2"><code>ain't</code> は be動詞・have・do の否定に広く使えるため、ここでは <em>I didn't have anything good to say</em> と同義。<em>s**t</em> は「何も（ない）」を強調する俗語で、<em>ain't have s**t</em> ＝ 「何一つ持っていない／言えることが全くない」の意になります。</p>
-        </Fragment>
-      </LearningUnit>
 
       <!-- ⑪ slow flows to death (Hook) -->
-      <LearningUnit
-        heading="I slow flows y'all to death — フックのAAVE三人称"
-        label="★ フック／AAVE文法"
-        mc="DJ Revolution cuts（Hook）"
-        t={TS["slow-flows-death"].t} tApprox={TS["slow-flows-death"].approx} youtubeId={YT}
-        embed=""
-      >
-        <Fragment slot="eng">I <QuickSlang word="slow flows" desc="ゆっくりしたフロウで畳みかける、というEvidenceの代名詞的スタイル。主語Iに-sが付くのがAAVE的" /> y'all to death</Fragment>
-        <Fragment slot="jpn">俺はスローなフロウで、お前ら全員を殺しにいく</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Hook。DJ Revolutionのスクラッチが切り貼りするフレーズです。</p>
-        <p>このフックはDJ Revolutionが別音源から切り出してスクラッチで並べたもので、曲を通して何度も繰り返されます。学習対象は文法の細部です。</p>
-        <p class="mt-2">主語が<strong class="text-[var(--c-text)]">I</strong>なのに動詞が<strong class="text-[var(--c-text)]">slow flows</strong>と-s付きになっています。</p>
-        <p class="mt-2">標準英語では三人称単数（he/she）にしか付かない-sを、一人称に付けるのはAAVE（アフリカ系アメリカ人英語）でよく見られる現象です。行末の<strong class="text-[var(--c-text)]">to death</strong>は「死ぬほど〜する／徹底的に〜する」を表す強調表現。</p>
-        <p class="mt-2">ゆっくりしたフロウで相手を圧倒する、という自己宣言になっています。</p>
-        <Fragment slot="usage">
-          <p>文末の<strong class="text-[var(--c-text)]">to death</strong>は「〜し尽くす・死ぬほど〜する」を表す口語表現です。<em>bored to death</em>（死ぬほど退屈）、<em>work to death</em>（死ぬほど働く）のように動詞や形容詞に付きます。</p>
-        <p class="mt-2">ここでは「スローフロウで完全にやっつける」という誇張の決め台詞になっています。</p>
-        </Fragment>
-      </LearningUnit>
 
       <!-- ⑫ weak cards -->
       <LearningUnit
@@ -372,7 +284,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <p class="mt-2">①<strong class="text-[var(--c-text)]">veterans</strong>（退役軍人から転じて「業界の猛者・先輩」）、②<strong class="text-[var(--c-text)]">veterinarians</strong>（獣医）です。</p>
         <p class="mt-2">Evidenceは一拍置いてすぐ「and they ain't pet doctors」と足して、「獣医じゃないほうね」と自分で種を明かします。笑いで軽く崩しておいて、次行「映画クロッカーズに出てくるような逮捕されるタイプ」でスッと締めます。</p>
         <p class="mt-2">この緩急が面白いところだと思います。</p>
-        <p class="mt-2">「Clockers（クロッカーズ）」はスパイク・リー監督の1995年映画で、ドラッグディーラーたちの苦悩を描いた作品です。「そういう世界の人たちから俺は学んだ」。</p>
+        <p class="mt-2">「Clockers（クロッカーズ）」はスパイク・リー監督の1995年映画で、街で生きる若者たちの苦悩を描いた作品です。「そういう世界の人たちから俺は学んだ」。</p>
         <p class="mt-2">ただし獣医からじゃない、というわけです。</p>
         <Fragment slot="usage">
           <p>ヒップホップでの<strong class="text-[var(--c-text)]">vet</strong>（ベット）の使い方: <em>veteran</em> の短縮形として「業界の先輩・猛者」を指す。<em>rap vets</em>（ラップの先輩世代）、<em>game vets</em>（ゲームのベテラン）のように使う。</p>
@@ -533,24 +445,6 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       </LearningUnit>
 
       <!-- ㉓ off the checklist -->
-      <LearningUnit
-        heading="Choke 'em out; another off the checklist — 淡々と片付ける凄み"
-        label="★ スラング／比喩"
-        mc="Evidence（Verse 3）"
-        t={TS["choke-checklist"].t} tApprox={TS["choke-checklist"].approx} youtubeId={YT}
-        embed=""
-      >
-        <Fragment slot="eng"><QuickSlang word="Choke 'em out" desc="相手を絞め落とす＝完全に黙らせる・制圧する。格闘技のチョークスリーパー由来の比喩" />; another off the <QuickSlang word="checklist" desc="やることリスト。標的を事務的に消し込むイメージで、冷徹さを演出する" /></Fragment>
-        <Fragment slot="jpn">絞め落とす（choke 'em out）、これでまた一件リストから消えた</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3中盤。ライバル処理を事務作業のように言う件です。</p>
-        <p>ここは<strong class="text-[var(--c-text)]">choke 'em out</strong>と<strong class="text-[var(--c-text)]">checklist</strong>の落差が効いています。<strong class="text-[var(--c-text)]">choke out</strong>は格闘技のチョークスリーパー由来で、「相手を絞め落とす＝完全に黙らせる・制圧する」の比喩です。</p>
-        <p class="mt-2">その激しい動作を、<strong class="text-[var(--c-text)]">another off the checklist</strong>（またリストから一件消えた）と、まるで買い物メモを消し込むように淡々と受けます。暴力的なイメージを事務的な語彙で締めることで、かえって冷徹さが際立ちます。</p>
-        <p class="mt-2">この温度差の付け方が面白いと思います。</p>
-        <Fragment slot="usage">
-          <p><strong class="text-[var(--c-text)]">check off / off the checklist</strong> は「やることリストから消し込む・完了させる」を表す日常表現です。<em>check it off the list</em>（リストから消す）のように使います。</p>
-        <p class="mt-2">深刻な対象をこの軽い事務語彙で処理してみせると、淡々とした凄み・皮肉が生まれます。</p>
-        </Fragment>
-      </LearningUnit>
 
       <!-- ㉔ closed the guestlist -->
       <LearningUnit

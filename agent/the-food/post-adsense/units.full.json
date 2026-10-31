@@ -1,0 +1,13 @@
+[
+  { "id": "had-to-did",   "anchor": ["so","i","had","to","did"],        "fallbackT": 20, "manualSec": null },
+  { "id": "blue-whites",  "anchor": ["until","the","blue","and","whites"], "fallbackT": 28, "manualSec": null },
+  { "id": "city-of-wind", "anchor": ["brothers","from","the","city","of"], "fallbackT": 47, "manualSec": null },
+  { "id": "sprewells",    "anchor": ["yall","know","the","sprewells"],    "fallbackT": 56, "manualSec": null },
+  { "id": "white-eminem", "anchor": ["white","is","selling","like"],      "fallbackT": 66, "manualSec": null },
+  { "id": "shorties-game","anchor": ["shorties","get","the","game"],      "fallbackT": 78, "manualSec": null },
+  { "id": "cuzzo",        "anchor": ["call","my","man","cuzzo"],          "fallbackT": 86, "manualSec": null },
+  { "id": "fair-one",     "anchor": ["the","days","of","the","fair"],     "fallbackT": 130, "manualSec": null },
+  { "id": "break-bread",  "anchor": ["i","break","bread","with","thieves"], "fallbackT": 200, "manualSec": null },
+  { "id": "paper-aura",   "anchor": ["paper","cant","change","a","mans"], "fallbackT": 212, "manualSec": null },
+  { "id": "sam-jack",     "anchor": ["like","sam","jack","they","maneuver"], "fallbackT": 219, "manualSec": null }
+]

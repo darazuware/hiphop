@@ -42,33 +42,6 @@
     "timingSource": "https://lrclib.net/api/get/35152057"
   },
   {
-    "id": "forty-stoge",
-    "anchor": [
-      "heres",
-      "a",
-      "forty",
-      "swig",
-      "it"
-    ],
-    "fallbackT": 30,
-    "syncedSec": 23,
-    "timingSource": "https://lrclib.net/api/get/35152057"
-  },
-  {
-    "id": "good-vibrations",
-    "anchor": [
-      "now",
-      "we",
-      "feel",
-      "the",
-      "good",
-      "vibrations"
-    ],
-    "fallbackT": 38,
-    "syncedSec": 32,
-    "timingSource": "https://lrclib.net/api/get/35152057"
-  },
-  {
     "id": "bones-to-pick",
     "anchor": [
       "roam",
@@ -151,20 +124,6 @@
     "timingSource": "https://lrclib.net/api/get/35152057"
   },
   {
-    "id": "v6-blunts-flip",
-    "anchor": [
-      "to",
-      "hit",
-      "blunts",
-      "and",
-      "flip",
-      "once"
-    ],
-    "fallbackT": 104,
-    "syncedSec": 113,
-    "timingSource": "https://lrclib.net/api/get/35152057"
-  },
-  {
     "id": "v7-posted",
     "anchor": [
       "im",
@@ -176,20 +135,6 @@
     ],
     "fallbackT": 116,
     "syncedSec": 116,
-    "timingSource": "https://lrclib.net/api/get/35152057"
-  },
-  {
-    "id": "indo",
-    "anchor": [
-      "so",
-      "i",
-      "got",
-      "tons",
-      "of",
-      "indo"
-    ],
-    "fallbackT": 128,
-    "syncedSec": 127,
     "timingSource": "https://lrclib.net/api/get/35152057"
   },
   {

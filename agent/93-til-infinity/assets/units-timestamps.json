@@ -36,30 +36,6 @@
     "score": null
   },
   {
-    "id": "forty-stoge",
-    "whisperSec": null,
-    "manualSec": null,
-    "captionSec": null,
-    "syncedSec": 23,
-    "fallbackT": 30,
-    "t": 23,
-    "source": "synced",
-    "approx": false,
-    "score": 0.2
-  },
-  {
-    "id": "good-vibrations",
-    "whisperSec": 33.1,
-    "manualSec": null,
-    "captionSec": null,
-    "syncedSec": 32,
-    "fallbackT": 38,
-    "t": 32,
-    "source": "synced",
-    "approx": false,
-    "score": 1
-  },
-  {
     "id": "bones-to-pick",
     "whisperSec": 42.2,
     "manualSec": null,
@@ -132,18 +108,6 @@
     "score": null
   },
   {
-    "id": "v6-blunts-flip",
-    "whisperSec": null,
-    "manualSec": null,
-    "captionSec": null,
-    "syncedSec": 113,
-    "fallbackT": 104,
-    "t": 113,
-    "source": "synced",
-    "approx": false,
-    "score": null
-  },
-  {
     "id": "v7-posted",
     "whisperSec": null,
     "manualSec": null,
@@ -154,18 +118,6 @@
     "source": "synced",
     "approx": false,
     "score": null
-  },
-  {
-    "id": "indo",
-    "whisperSec": null,
-    "manualSec": null,
-    "captionSec": null,
-    "syncedSec": 127,
-    "fallbackT": 128,
-    "t": 127,
-    "source": "synced",
-    "approx": false,
-    "score": 0.33
   },
   {
     "id": "greenbacks-stacks",

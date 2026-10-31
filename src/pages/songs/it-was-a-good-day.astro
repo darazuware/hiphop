@@ -2,6 +2,7 @@
 import LearningUnit from '../../components/LearningUnit.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
 import SongLayout from '../../layouts/SongLayout.astro';
+import SampleYoutube from '../../components/SampleYoutube.astro';
 
 import tsData from '../../../agent/it-was-a-good-day/assets/units-timestamps.json';
 const YT = "h4UqMyldS7Q";
@@ -21,6 +22,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
   ]}
   youtubeId="h4UqMyldS7Q"
   sampleYoutubeId="WRWtvbyprgo"
+  sampleInContent={true}
   sampleTitle="The Isley Brothers - Footsteps in the Dark, Pts. 1 & 2"
 >
 
@@ -46,7 +48,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       <h2 class="text-base font-semibold mb-2">■「普通の日」が、実は普通ではない</h2>
       <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
         <p>
-          犬が吠えない、パトカーが素通りする、誰も銃を撃たない。聴き手にとってはごく当たり前のことが、この曲では「奇跡のような一日」として語られます。
+          犬が吠えない、パトカーが素通りする、物騒なことも起きない。聴き手にとってはごく当たり前のことが、この曲では「奇跡のような一日」として語られます。
         </p>
         <p>
           つまり、普段はそうではない、ということです。曲の底には、当時のサウス・セントラルの現実がずっと流れています。
@@ -83,13 +85,13 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
           <strong class='text-[var(--c-text)]'>Verse 2</strong>は、午後の場面です。シャワーを浴び、警察に絡まれずに通り過ぎ、友人の家でサイコロ遊びとドミノを楽しみます。
         </p>
         <p>
-          ここで曲のいちばん大事な一行が出てきます。「知り合いの誰も、サウス・セントラルで殺されなかった」。
+          ここで曲のいちばん大事な一行が出てきます。「サウス・セントラルの知り合いが、今日は誰も命を落とさなかった」。
         </p>
         <p>
           <strong class='text-[var(--c-text)]'>Verse 3</strong>は、夜から深夜です。デートの流れから、夜中のドライブ、ファストフード、ページャーの鳴る音まで。
         </p>
         <p>
-          最後に「銃を使わずに済んだ」と語って終わりますが、アウトロで、急に語りが止まります。
+          最後に「今日は何事もなく済んだ」と語って終わりますが、アウトロで、急に語りが止まります。
         </p>
         <p class="text-xs text-[var(--c-dim)]">
           ※本ページは批評・教育目的で、解説に必要な範囲の断片のみを引用しています。全歌詞の対訳は掲載していません。
@@ -103,7 +105,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         学ぶ表現（スラング・韻・言葉遊び・AAVE）
       </h2>
       <div class="space-y-3 text-xs text-[var(--c-dim)] mb-6">
-        <p>ここは、歌詞の中の表現を一つずつ取り上げる章です。性的・暴力的な行は取り上げず、日常の語彙や慣用句を中心に解説します。</p>
+        <p>ここは、歌詞の中の表現を一つずつ取り上げる章です。性的な行や強い表現の行は取り上げず、日常の語彙や慣用句を中心に解説します。</p>
         <p>固有名詞やスラングのunitは、行を引かずに背景だけを書いています。▶を押すと、PVの該当箇所から再生できます。</p>
       </div>
 
@@ -329,45 +331,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         </Fragment>
       </LearningUnit>
 
-      <LearningUnit
-        heading="nobody I know got killed in South Central L.A."
-        label="★ 核心の一行／関係代名詞"
-        mc="Ice Cube（Verse 2）"
-        t={TS["nobody-got-killed"].t} tApprox={TS["nobody-got-killed"].approx} youtubeId={YT}
-        embed=""
-      >
-        <Fragment slot="eng">Plus nobody I know got killed in South Central L.A.</Fragment>
-        <Fragment slot="jpn">それに、知り合いの誰も、サウス・セントラルで殺されなかった</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ この曲でいちばん大事な一行です。</p>
-        <p>ここまでの「いい日」の理由が、この一行で、はっきり言葉にされます。<strong class='text-[var(--c-text)]'>誰も殺されなかった</strong>、それだけで、特別な日になっています。</p>
-        <p>文法の面では、<code>nobody I know</code> が、<em>nobody (that) I know</em> の関係代名詞の省略です。「私の知っている誰も」という意味になります。</p>
-        <p><code>got killed</code> は、<em>get + 過去分詞</em> の受け身。<em>be killed</em> よりも、「事故や出来事として起きた」ニュアンスが強い形です。</p>
-        <p><strong class='text-[var(--c-text)]'>South Central</strong> は、ロサンゼルス南部の地域の名前です。この曲の録音は1992年の5月で、同じ年の春には、市内で大きな暴動が起きていました。</p>
-        <Fragment slot="usage">
-          <p><strong class='text-[var(--c-text)]'>get + 過去分詞</strong>: <em>He got arrested.</em>（逮捕された）。<em>be + 過去分詞</em> より、出来事として起きた感じが出ます。</p>
-          <p><strong class='text-[var(--c-text)]'>目的格の関係代名詞の省略</strong>: <em>the man I met</em>（私が会った男）。会話では、むしろ省略するのが普通です。</p>
-        </Fragment>
-      </LearningUnit>
 
-      <LearningUnit
-        heading="I had the brew, she had the chronic / Lakers beat the Supersonics"
-        label="★ スラング／固有名詞"
-        mc="Ice Cube（Verse 3）"
-        t={TS["brew-chronic-lakers"].t} tApprox={TS["brew-chronic-lakers"].approx} youtubeId={YT}
-        embed=""
-      >
-        <Fragment slot="eng">It's ironic, I had the brew, she had the chronic<br />The Lakers beat the Supersonics</Fragment>
-        <Fragment slot="jpn">皮肉なことに、俺はビール、彼女はマリファナを持ってた。レイカーズがソニックスに勝った</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3の冒頭。スラングと、バスケットボールのチーム名が出てきます。</p>
-        <p><strong class='text-[var(--c-text)]'>brew</strong> は、ビールのスラングです。<strong class='text-[var(--c-text)]'>chronic</strong> は、マリファナの、特に品質の高いものを指します。</p>
-        <p><code>ironic</code> と <code>chronic</code> で、行の中で韻を踏んでいます。「ironic」と言いながら、その中身は、何が皮肉なのか、それとなくぼかしています。</p>
-        <p><strong class='text-[var(--c-text)]'>the Lakers</strong> は、ロサンゼルスのNBAチームです。<strong class='text-[var(--c-text)]'>the Supersonics</strong> は、当時シアトルにあったチームで、のちに本拠地を移して名前も変わりました。</p>
-        <p>地元のチームが勝った、というだけで、一日の幸運が一つ増えます。大きな出来事ではなく、小さな良いことの積み重ねで語る曲の作りです。</p>
-        <Fragment slot="usage">
-          <p><strong class='text-[var(--c-text)]'>beat</strong> は、勝つときに使う動詞で、過去形も同じ <em>beat</em> です。<em>The Lakers beat the Celtics.</em>（レイカーズがセルティックスに勝った）。</p>
-          <p><em>ironic</em> は、「皮肉な」。予想と反対のことが起きたときに使います。</p>
-        </Fragment>
-      </LearningUnit>
 
       <LearningUnit
         heading="Drove her to the pad and I'm coastin' 運転の語彙"
@@ -450,26 +414,6 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         </Fragment>
       </LearningUnit>
 
-      <LearningUnit
-        heading="I didn't even have to use my AK / I gotta say"
-        label="★ 構文／結び"
-        mc="Ice Cube（Verse 3）"
-        t={TS["didnt-have-to-use-ak"].t} tApprox={TS["didnt-have-to-use-ak"].approx} youtubeId={YT}
-        embed=""
-      >
-        <Fragment slot="eng">Today I didn't even have to use my AK<br />I gotta say, it was a good day</Fragment>
-        <Fragment slot="jpn">今日は、AKを使う必要すらなかった。言わせてもらうと、いい日だった</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 曲の最後のバースの締めの2行です。</p>
-        <p><strong class='text-[var(--c-text)]'>AK</strong> は、AK-47という自動小銃の略です。この行では、銃が出てきますが、「使わずに済んだ」という形で出てきます。</p>
-        <p>それも、「使わなくて済んだ」という形で出てきます。<code>didn't even have to 〜</code> は、「〜する必要すらなかった」。</p>
-        <p><em>even</em> が入ることで、普段は必要になる、というニュアンスが出ます。</p>
-        <p>最後の <strong class='text-[var(--c-text)]'>I gotta say</strong> は、「言わせてもらうよ」という前置きです。ここで、ようやくタイトルの <em>it was a good day</em> が登場します。</p>
-        <p>曲のタイトルを、最後に回して、結論として置いている構造です。ここまでの一日を、「だから、いい日だったんだ」と、一言でまとめています。</p>
-        <Fragment slot="usage">
-          <p><strong class='text-[var(--c-text)]'>don't even have to 〜</strong>: <em>I didn't even have to ask.</em>（頼む必要すらなかった）。意外なほど楽だった、という気持ちを込めます。</p>
-          <p><strong class='text-[var(--c-text)]'>I gotta say</strong>: <em>I gotta say, that was impressive.</em>（正直、あれはすごかった）。意見を述べる前置きとして、よく使います。</p>
-        </Fragment>
-      </LearningUnit>
 
       <LearningUnit
         heading="wait a minute, Pooh, stop this shit アウトロの急停止"
@@ -506,7 +450,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
             曲を録音したのは、1992年の5月だとされています。同じ年の春に、ロサンゼルスでは、大きな暴動が起きていました。
           </p>
           <p>
-            そうした時期に、「誰も撃たなかった」「警察に止められなかった」ことを、一日の幸運として語る。この曲の軽さは、重い現実の裏返しとして読めます。
+            そうした時期に、「物騒なことが起きなかった」「警察に止められなかった」ことを、一日の幸運として語る。この曲の軽さは、重い現実の裏返しとして読めます。
           </p>
           <p>
             ただし、この曲自身は、政治や事件を直接は語りません。ただ、いい日の細部を、並べているだけです。
@@ -563,6 +507,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <p>
           プロデュースは、DJ Poohです。サンプルの中心は、Isley Brothersの「Footsteps in the Dark」。
         </p>
+        <SampleYoutube id="WRWtvbyprgo" title="The Isley Brothers - Footsteps in the Dark, Pts. 1 & 2" />
         <p>
           70年代のソウルのスロージャムを、そのまま使っています。
         </p>

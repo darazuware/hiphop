@@ -5,7 +5,7 @@ export const artists = [
     origin: 'Gwinnett County, Georgia',
     active: '2008–2022',
     genre: 'Trap / Hip-Hop',
-    summary: 'Quavo（本名Quavious Keyate Marshall）、Offset（本名Kiari Kendrell Cephus）、Takeoff（本名Kirshnik Khari Ball、1994-2022）のいとこ3人組。ジョージア州グウィネット郡出身。2013年のミックステープ「Young Rich Niggas」でアトランタのトラップシーンから頭角を現し、2016年シングル「Bad and Boujee（feat. Lil Uzi Vert）」がBillboard Hot 100で1位を獲得、グループ初の全米チャート首位となった。3連符（トリプレット）を多用した独自のリズムフロウ「Migos Flow」はDrake、Cardi Bら多くのアーティストに採用され、2016年以降のトラップサウンドのリズム言語を刷新した。2022年11月、TakeoffがヒューストンでのパーティーでOffsetらとともにいた際に銃撃を受け28歳で死去。',
+    summary: 'Quavo（本名Quavious Keyate Marshall）、Offset（本名Kiari Kendrell Cephus）、Takeoff（本名Kirshnik Khari Ball、1994-2022）のいとこ3人組。ジョージア州グウィネット郡出身。2013年のミックステープでアトランタのトラップシーンから頭角を現し、2016年シングル「Bad and Boujee（feat. Lil Uzi Vert）」がBillboard Hot 100で1位を獲得、グループ初の全米チャート首位となった。3連符（トリプレット）を多用した独自のリズムフロウ「Migos Flow」はDrake、Cardi Bら多くのアーティストに採用され、2016年以降のトラップサウンドのリズム言語を刷新した。2022年11月、TakeoffがヒューストンでのパーティーでOffsetらとともにいた際に28歳で死去。',
     japan: '2017年「Culture」リリース後、日本でもトラップブームの波に乗り幅広いリスナーに浸透。「Raindrop, drop top」のフレーズはSNSでミーム化し、日本のヒップホップファンにも広く知られる。Summer Sonic 2017への出演が日本での認知を一気に高めた。Migosのトリプレットフロウは日本の若手トラップアーティストのリズム感にも影響を与えた。',
   },
   {
@@ -14,7 +14,7 @@ export const artists = [
     origin: 'Brooklyn / Staten Island, New York',
     active: '1992–2004',
     genre: 'East Coast Hip-Hop / hardcore rap',
-    summary: "Wu-Tang Clanの創設メンバー、本名Russell Tyrone Jones（1968-2004）。ODBの愛称で知られる。RZAの従兄弟。論理的なストーリーテリングを意図的に拒絶し、意識の流れに任せた不条理でカオスなフロウは「酔拳（Drunken Master）」に例えられる。1995年ソロデビュー作『Return to the 36 Chambers: The Dirty Version』は全米ビルボード200で7位を記録しプラチナ認定。1998年グラミー賞授賞式への乱入（「Wu-Tang is for the children」）など、常識を超えた行動でヒップホップ史に刻まれた天才。2004年11月13日、RZAのスタジオで薬物過剰摂取により36歳で死去。",
+    summary: "Wu-Tang Clanの創設メンバー、本名Russell Tyrone Jones（1968-2004）。ODBの愛称で知られる。RZAの従兄弟。論理的なストーリーテリングを意図的に拒絶し、意識の流れに任せた不条理でカオスなフロウは「酔拳（Drunken Master）」に例えられる。1995年ソロデビュー作『Return to the 36 Chambers: The Dirty Version』は全米ビルボード200で7位を記録しプラチナ認定。1998年グラミー賞授賞式への乱入（「Wu-Tang is for the children」）など、常識を超えた行動でヒップホップ史に刻まれた天才。2004年11月13日、36歳で死去。",
     japan: "Wu-Tang Clanとともに日本のアンダーグラウンドHIPHOPシーンに浸透。1996年には日本限定EP『O.D.B. E.P.』（ワーナーミュージック・ジャパン、規格品番WPCR-938）がリリースされ、「Shimmy Shimmy Ya」の拡張バージョンや日本独自リミックスが収録された。2024年にはWu-Tang Clanの来日公演に長男Young Dirty Bastard（YDB）が参加し、「Shimmy Shimmy Ya」を演じて日本のファンに深い感動を与えた。",
   },
   {
@@ -50,7 +50,7 @@ export const artists = [
     origin: 'Oakland, California',
     active: '1991–',
     genre: 'West Coast Hip-Hop / jazz rap / alternative hip-hop',
-    summary: 'A-Plus、Opio、Phesto、Tajaiからなるオークランド出身の4人組。Hieroglyphicsクルーのサブグループ。1993年デビュー作「93 \'til Infinity」でビリー・コブハムのジャズをサンプリングした浮遊感あるビートと知的なマイクリレーを提示し、Gファンクとギャングスタラップが席巻するシーンにオルタナティヴな風を吹き込んだ。年間175件の殺人が発生するオークランドで「チル」を歌うことで、暴力の時代の精神的避難所となる音楽を作り上げた。',
+    summary: 'A-Plus、Opio、Phesto、Tajaiからなるオークランド出身の4人組。Hieroglyphicsクルーのサブグループ。1993年デビュー作「93 \'til Infinity」でビリー・コブハムのジャズをサンプリングした浮遊感あるビートと知的なマイクリレーを提示し、Gファンクとギャングスタラップが席巻するシーンにオルタナティヴな風を吹き込んだ。厳しい時代のオークランドで「チル」を歌うことで、精神的避難所となる音楽を作り上げた。',
     japan: '日本のアンダーグラウンドHIPHOPシーンで「チル系ウェストコースト」の代表格として長く愛聴される。「93 \'Til Infinity」はジャズラップのクラシックとして日本のレコードコレクターや後続ラッパーに影響を与え続けており、オリジナル盤の評価も高い。',
   },
   {
@@ -167,7 +167,7 @@ export const artists = [
     origin: 'Long Island, New York',
     active: '1987–2023',
     genre: 'East Coast Hip-Hop / Alternative Hip-Hop / Jazz Rap',
-    summary: 'Posdnous、Trugoy the Dove、Maseoによるロングアイランド出身のトリオ。1989年デビュー作『3 Feet High and Rising』でヒッピー的ポジティヴィティと実験的サンプリングでヒップホップを革新。Native Tonguesコレクティブの中核として知性派HHを牽引し、1996年「Stakes Is High」ではJ Dillaと組んで商業主義・暴力への痛烈な批判を放った。Trugoy the Dove（Dave Jolicoeur）は2023年2月に心不全で死去。',
+    summary: 'Posdnous、Trugoy the Dove、Maseoによるロングアイランド出身のトリオ。1989年デビュー作『3 Feet High and Rising』でヒッピー的ポジティヴィティと実験的サンプリングでヒップホップを革新。Native Tonguesコレクティブの中核として知性派HHを牽引し、1996年「Stakes Is High」ではJ Dillaと組んで商業主義への痛烈な批判を放った。Trugoy the Dove（Dave Jolicoeur）は2023年2月に心不全で死去。',
     japan: 'スチャダラパーやBUDDHA BRANDら日本語ラップ黄金期のアーティストが参照した知性派HHの源流として、日本のアンダーグラウンドHIPHOPシーンに深い影響を与えた。長年の権利問題でデジタル解禁がされていなかったが2023年に全カタログがストリーミング解禁され、改めて再評価が進んでいる。',
   },
   {
@@ -176,7 +176,7 @@ export const artists = [
     origin: 'Brooklyn, New York',
     active: '1992–1997',
     genre: 'East Coast Hip-Hop',
-    summary: 'ブルックリン出身のChristopher Wallace（1972–1997）。デビューアルバム『Ready to Die』（1994）でNYヒップホップを東海岸復権に導いた。圧倒的なリリシズムと重厚なフローで「史上最高のラッパー」に繰り返し選出される。1997年3月、ロサンゼルスで射殺され享年24歳。',
+    summary: 'ブルックリン出身のChristopher Wallace（1972–1997）。デビューアルバム『Ready to Die』（1994）でNYヒップホップを東海岸復権に導いた。圧倒的なリリシズムと重厚なフローで「史上最高のラッパー」に繰り返し選出される。1997年3月、ロサンゼルスで亡くなり享年24歳。',
     japan: '「Juicy」「Big Poppa」「Hypnotize」は日本でも広く知られる。東西ビーフの文脈で語られることが多く、日本のヒップホップ文化においては「NYの象徴」として絶大なリスペクトを受ける。KREVAら日本語ラップ第一世代が直接の影響を受けたと公言している。',
   },
   {
@@ -240,7 +240,7 @@ export const artists = [
     active: '1988–',
     genre: 'West Coast Hip-Hop / Chicano Hip-Hop',
     summary: 'B-Real（キューバ系・メキシコ系）、Sen Dog（キューバ生まれ）、DJ Muggs（シチリア系）による多文化混成のLA出身グループ。1993年『Black Sunday』でBillboard 200初登場1位を記録。チカーノ文化の語彙とサイケデリック・ヘヴィ・ビートを融合させ、ラテン系ヒップホップのメインストリーム進出を切り開いたパイオニア。',
-    japan: 'B-Realの独特のナザル・ヴォイスと「Insane in the Brain」のフレーズは日本でも広く知られ、マリファナ文化・反体制のアイコンとして90年代から日本のアンダーグラウンドHIPHOPシーンに影響を与えた。',
+    japan: 'B-Realの独特のナザル・ヴォイスと「Insane in the Brain」のフレーズは日本でも広く知られ、反体制のアイコンとして90年代から日本のアンダーグラウンドHIPHOPシーンに影響を与えた。',
   },
   {
     slug: 'eric-b-and-rakim',
@@ -320,7 +320,7 @@ export const artists = [
     origin: 'Harlem, New York',
     active: '1990–1999',
     genre: 'East Coast Hip-Hop / hardcore rap',
-    summary: '本名Lamont Coleman（1974–1999）。Harlem出身の天才リリシストで、Jay-Zとのフリースタイルバトルでも圧倒的な存在感を示した。1998年にシングル「Ebonics」でNYストリートスラングを辞書化するという独創的なアプローチを披露。1999年2月に路上での銃撃事件で24歳の若さで死去。死後に発表された『The Big Picture』（2000年）が遺作として高く評価される。',
+    summary: '本名Lamont Coleman（1974–1999）。Harlem出身の天才リリシストで、Jay-Zとのフリースタイルバトルでも圧倒的な存在感を示した。1998年にシングル「Ebonics」でNYストリートスラングを辞書化するという独創的なアプローチを披露。1999年2月に24歳の若さで死去。死後に発表された『The Big Picture』（2000年）が遺作として高く評価される。',
     japan: '「Ebonics」は日本のヒップホップリスナーが「ストリートスラングを学ぶ教科書」として参照し続けている。早逝した天才として日本のHIPHOP文化人の間でも伝説的存在。',
   },
   {
@@ -392,7 +392,7 @@ export const artists = [
     origin: 'East Harlem, New York (raised in Baltimore & Marin City, CA)',
     active: '1991–1996',
     genre: 'West Coast Hip-Hop / gangsta rap / conscious rap',
-    summary: 'Tupac Amaru Shakur（1971–1996）。Black Panther Party活動家の母Afeni Shakurのもとに生まれ、ストリートと詩の両方を生きた。服役中に全米チャート1位を達成し、1996年9月に26歳で銃撃により死去。死後も数十枚のアルバムが発表され続けるヒップホップ史上最も影響力のある人物のひとり。',
+    summary: 'Tupac Amaru Shakur（1971–1996）。Black Panther Party活動家の母Afeni Shakurのもとに生まれ、ストリートと詩の両方を生きた。服役中に全米チャート1位を達成し、1996年9月に26歳で死去。死後も数十枚のアルバムが発表され続けるヒップホップ史上最も影響力のある人物のひとり。',
     japan: '「Dear Mama」「California Love」「Changes」はヒップホップ入門曲として今も参照される。彼の写真Tシャツは日本のストリートファッションでも定番アイテムとなった。',
   },
   {

@@ -274,21 +274,6 @@
     "captionSec": 225
   },
   {
-    "id": "snail-plot-jail",
-    "anchor": [
-      "to",
-      "the",
-      "point",
-      "i'm",
-      "like",
-      "a",
-      "snail"
-    ],
-    "fallbackT": 237,
-    "manualSec": null,
-    "captionSec": 237
-  },
-  {
     "id": "failure-not-option",
     "anchor": [
       "success",

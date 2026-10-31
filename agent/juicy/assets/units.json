@@ -40,18 +40,6 @@
     "captionSec": 27
   },
   {
-    "id": "bambu-brands",
-    "anchor": [
-      "smokin'",
-      "weed",
-      "in",
-      "bambu"
-    ],
-    "fallbackT": 31,
-    "manualSec": null,
-    "captionSec": 34
-  },
-  {
     "id": "limelight-tight",
     "anchor": [
       "now",
@@ -137,20 +125,6 @@
     "captionSec": 86
   },
   {
-    "id": "skunk-peeps",
-    "anchor": [
-      "i",
-      "smoke",
-      "skunk",
-      "with",
-      "my",
-      "peeps"
-    ],
-    "fallbackT": 88,
-    "manualSec": null,
-    "captionSec": 95
-  },
-  {
     "id": "diss-miss",
     "anchor": [
       "girls",
@@ -164,21 +138,6 @@
     "captionSec": 102
   },
   {
-    "id": "packing-gats",
-    "anchor": [
-      "i",
-      "was",
-      "too",
-      "used",
-      "to",
-      "packing",
-      "gats"
-    ],
-    "fallbackT": 105,
-    "manualSec": null,
-    "captionSec": 108
-  },
-  {
     "id": "butter-toast",
     "anchor": [
       "now",
@@ -190,20 +149,6 @@
     "fallbackT": 109,
     "manualSec": null,
     "captionSec": 110
-  },
-  {
-    "id": "condos-indo",
-    "anchor": [
-      "condos",
-      "in",
-      "queens",
-      "indo",
-      "for",
-      "weeks"
-    ],
-    "fallbackT": 114,
-    "manualSec": null,
-    "captionSec": 116
   },
   {
     "id": "dropped-out",

@@ -4,6 +4,7 @@ import RelatedColumnTeaser from '../../components/RelatedColumnTeaser.astro';
 import DiveCards from '../../components/DiveCards.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
 import SongLayout from '../../layouts/SongLayout.astro';
+import SampleYoutube from '../../components/SampleYoutube.astro';
 
 // 学習ユニットのPVタイムスタンプ。agent/src/extract-unit-timestamps.mjs で album音源を
 // whisper単語アライメントして取得（whisperSec）し、運営者の実測値があれば manualSec が
@@ -26,6 +27,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
   ]}
   youtubeId="VC4ORS5n9Hg"
   sampleYoutubeId="r9_GduOItp0"
+  sampleInContent={true}
   sampleTitle="John V. Rydgren & Bob R. Way - What Child Is This?"
 >
 
@@ -147,7 +149,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       <p class="text-xs text-[var(--c-dim)] mb-6">
         各見出しは「この曲から学べる英語表現」。多くのユニットはまず上に英語の用例（1〜2行）を置いてあります。</p>
         <p><strong class="text-[var(--c-text)]">先に英語を音で追い、行のどこが学習対象かを確かめてから</strong>下の日本語解説に進むと、英語が苦手でも置いていかれません。</p>
-        <p>金や銃まわりの語彙・ブランド名を扱うユニットは、行を引かずに語の意味と背景だけで解説しています（引用を必要最小限に絞る方針のため。▶で該当箇所へ飛べます）。
+        <p>金まわりの語彙・ブランド名を扱うユニットは、行を引かずに語の意味と背景だけで解説しています（引用を必要最小限に絞る方針のため。▶で該当箇所へ飛べます）。
       </p>
 
       <!-- ① 直喩の engine -->
@@ -174,21 +176,6 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       </LearningUnit>
 
       <!-- ② juxtaposition -->
-      <LearningUnit
-        heading="A baby's bein' born, same time a man is murdered — 並置(juxtaposition)で世界観を一行に"
-        label="★ 表現技法"
-        mc="Nas（Verse 1）"
-        t={TS["baby-born-murdered"].t} tApprox={TS["baby-born-murdered"].approx} youtubeId={YT}
-        embed=""
-      >
-        <Fragment slot="eng">Freedom or jail, clips inserted<br />A baby's bein' born, same time a man is murdered</Fragment>
-        <Fragment slot="jpn">自由か監獄か、弾倉は装填済み／赤ん坊が生まれる、同じ瞬間に男が殺される</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1のいちばん最初、曲の口火を切る2行。学習対象は下の行。</p>
-        <p>注目は下の行、「A baby's bein' born, <strong class="text-[var(--c-text)]">same time</strong> a man is murdered」。誕生と殺人という正反対の出来事を <strong class="text-[var(--c-text)]">same time（同じ瞬間に）</strong>で並べる。</p>
-        <p>これが <strong class="text-[var(--c-text)]">juxtaposition（並置）</strong>という技法です。説明をいっさい足さず、二つの像をぶつけるだけで「生と死が隣り合う街」の温度が出ます。</p>
-        <p>上の行の <code>clips inserted</code>（弾倉を装填した）も、銃が日常にある世界をさらりと差し込んでいます。冒頭2行だけで、これから語られる世界の気圧が決まってしまう。</p>
-        <p>詩の技法としての並置を、生きた用例で確認できる場所です。</p>
-      </LearningUnit>
 
       <!-- ②b defines my name -->
       <LearningUnit
@@ -238,7 +225,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <p>この件でNasは、自分が時間を費やしてきた場所を <strong class="text-[var(--c-text)]">the game</strong> と呼びます。学習ポイントはこの一語。</p>
         <p>ボードゲームの話ではなく、<strong class="text-[var(--c-text)]">ラップ稼業、あるいはストリートの経済そのもの</strong>を指す定番スラングです。</p>
         <p>in the game で「この世界に身を置いて」。日本語の「業界」にかなり近い温度で使われます。</p>
-        <p>もう一つ、この辺りは行末の母音がずっと揃っています。pain、game、fame、cocaine、sane、aim。</p>
+        <p>もう一つ、この辺りは行末の母音がずっと揃っています。pain、game、fame、sane、aim。</p>
         <p><strong class="text-[var(--c-text)]">-ain / -ame の同じ響き</strong>で数行まるごと畳んでいく区間なので、意味を追う前に音だけ追ってもらうと、韻が段落の接着剤になっているのが分かります。</p>
         <Fragment slot="usage">
           <p><strong class="text-[var(--c-text)]">the game</strong> は「rap game」「dope game」のように業界名と組んで「〜稼業」を表します。in the game（現役で）、out the game（足を洗って）まで含めて頻出。</p>
@@ -246,44 +233,8 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         </Fragment>
       </LearningUnit>
 
-      <!-- ③b fiends / flatline -->
-      <LearningUnit
-        heading="Saw fiends shoot up... am I sane? — fiend(ヤク中)と反復のSaw..."
-        label="★ スラング／時代背景"
-        mc="Nas（Verse 1）"
-        t={TS["fiends-flatline"].t} tApprox={TS["fiends-flatline"].approx} youtubeId={YT}
-        embed=""
-      >
-        <Fragment slot="eng">Saw fiends shoot up and do lines of cocaine<br />Saw my close friends shot, flatline, am I sane?</Fragment>
-        <Fragment slot="jpn">ヤク中が注射し、コカインのラインを吸うのを見た／親しい友が撃たれ、心電図が止まるのを見た、俺は正気か？</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1中盤、育った環境を畳みかける件。</p>
-        <p>学習対象は <strong class="text-[var(--c-text)]">fiend</strong> と、二行を貫く <strong class="text-[var(--c-text)]">Saw... Saw...</strong> の反復。<strong class="text-[var(--c-text)]">fiend</strong>（フィーンド）は本来「悪魔・鬼」ですが、ストリートでは <strong class="text-[var(--c-text)]">麻薬中毒者（ヤク中）</strong>を指すスラング。</p>
-        <p><code>dope fiend</code> の形でも使う。1980〜90年代のクラック・コカイン蔓延期のニューヨークが、そのまま背景になっています。</p>
-        <p>同じ動詞 <code>Saw</code> を行頭で繰り返す <strong class="text-[var(--c-text)]">anaphora（首句反復）</strong>で、目撃の連続を積み上げ、行末の <strong class="text-[var(--c-text)]">flatline</strong>（心電図が平坦になる＝死）と <code>am I sane?</code>（俺は正気か）で締める。誇張ではなく見てきた記録としてのリアルが、この淡々とした反復に出ています。</p>
-        <Fragment slot="usage">
-          <p><strong class="text-[var(--c-text)]">fiend</strong> は名詞で「中毒者」、動詞 <em>fiend (for)</em> で「〜を異常に欲しがる」。<em>dope fiend / crack fiend</em> のように薬物名と結びつく。</p>
-          <p>比喩的に <em>fiend for attention</em>（注目に飢える）のようにも使える。</p>
-        </Fragment>
-      </LearningUnit>
 
       <!-- ③c squeeze -->
-      <LearningUnit
-        heading="squeeze — 引き金を「絞る」、の一語で撃つ"
-        label="★ スラング"
-        mc="Nas（Verse 1）"
-        t={TS["weak-picture-squeeze"].t} tApprox={TS["weak-picture-squeeze"].approx} youtubeId={YT}
-        embed=""
-      >
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ fiendの件の直後、屋上での射撃描写。語彙ものなので行は引きません。</p>
-        <p>ここで描かれるのは、屋上で射撃の腕を磨く光景です。</p>
-        <p>木にライバルMCのCDジャケットをテープで貼り、その写真に銃身の照準を合わせる。そして行末に置かれる動詞が <strong class="text-[var(--c-text)]">squeeze</strong> です。</p>
-        <p>squeeze は本来「握る・絞る」。squeeze the trigger（引き金を絞る）の trigger を省いて、<strong class="text-[var(--c-text)]">一語で「撃つ」を意味する</strong>ようになった隠語です。</p>
-        <p>的が的紙ではなく気に入らないMCのジャケ写、しかもそれを weak（弱い）と呼び捨てる。物騒ですが、実弾で相手を消す話ではなく「お前のラップを標的にする」というMCバトルの誇張表現の系譜です。</p>
-        <Fragment slot="usage">
-          <p><strong class="text-[var(--c-text)]">squeeze</strong> は日常英語では「絞る・ぎゅっと握る」（squeeze a lemon）。ストリート文脈で目的語なしに置かれたら「発砲する」を疑うと聞き取りが速くなります。</p>
-          <p>同じ件には MAC-10（マックテン）という短機関銃の名前も出てきて、銃器の固有名詞がそのまま日常語彙になっている世界が見えます。</p>
-        </Fragment>
-      </LearningUnit>
 
       <!-- ③d street scriptures -->
       <LearningUnit
@@ -301,25 +252,6 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       </LearningUnit>
 
       <!-- ④ AAVE they = their -->
-      <LearningUnit
-        heading="around they neck — AAVEの所有格 they（＝their）"
-        label="★ AAVE文法"
-        mc="Nas（Verse 1）"
-        t={TS["they-possessive"].t} tApprox={TS["they-possessive"].approx} youtubeId={YT}
-        embed=""
-      >
-        <Fragment slot="eng">It's what you make it, suicide, few try to take it<br />Belt tied around they neck in jail cells naked</Fragment>
-        <Fragment slot="jpn">人生は自分次第、自殺、それを選ぶ者は少ない／ベルトを首に巻きつけ、監房で裸のまま</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1後半、収監された者の絶望を描く件。学習対象は下の行。</p>
-        <p>下の行、「Belt tied around <strong class="text-[var(--c-text)]">they</strong> neck」の <strong class="text-[var(--c-text)]">they</strong> に注目。標準英語なら<em>their neck</em>（彼らの首）と表現します。</p>
-        <p>ところがAAVE（アフリカ系アメリカ人英語）では、<strong class="text-[var(--c-text)]">所有格の their を they で言う</strong>ことがよくあります。これは崩れた英語ではなく、AAVEに体系的に存在する規則的な特徴です。</p>
-        <p>この曲ではVerse 3にも <code>deep from they teachers</code>（師＝their teachersから）ともう一度出てきます。一度「they＝their」と頭に入れておくと、リスニングで詰まらなくなります。</p>
-        <Fragment slot="usage">
-          <p>AAVEでは <strong class="text-[var(--c-text)]">they</strong> を所有格 <em>their</em> の意味で使う。<em>they neck（＝their neck）</em>、<em>they teachers（＝their teachers）</em> のように、名詞の前に置いて「彼らの〜」を表す。</p>
-          <p>発音上 their と they が近いことから定着した特徴で、ラップの歌詞には頻出。</p>
-          <p>聞き取りのコツ: 「they ＋ 名詞」の並びが来たら、まず所有格（their）を疑う。主語の they（彼らは）なら直後に動詞が来るので、後ろが名詞か動詞かで一瞬で見分けられる。</p>
-        </Fragment>
-      </LearningUnit>
 
       <!-- ④b N-A-S spell -->
       <LearningUnit
@@ -408,25 +340,6 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       </LearningUnit>
 
       <!-- ⑧ come-up / Seiko Rolex -->
-      <LearningUnit
-        heading="from Seiko to Rolex — モノで語る come-up（成り上がり）"
-        label="★ スラング／文化"
-        mc="Nas（Verse 2）"
-        t={TS["seiko-rolex"].t} tApprox={TS["seiko-rolex"].approx} youtubeId={YT}
-        embed=""
-      >
-        <Fragment slot="eng">Came a long way from blastin' TECs on blocks<br />Went from Seiko to Rolex, ownin' acres</Fragment>
-        <Fragment slot="jpn">ブロックでTECをぶっ放してた頃から、長い道のりを来た／セイコーからロレックスへ、土地まで手にした</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2中盤、過去から現在への距離を語る件。</p>
-        <p>下の行、「Went from <strong class="text-[var(--c-text)]">Seiko</strong> to <strong class="text-[var(--c-text)]">Rolex</strong>」が学習ポイント。安価な腕時計セイコーから高級時計ロレックスへ、という <strong class="text-[var(--c-text)]">モノの格上げで成り上がり（come-up）を語る</strong>のはヒップホップの定番表現です。</p>
-        <p>ブランド名そのものが「貧しかった過去」と「成功した現在」の記号になります。上の行の <code>Came a long way from 〜</code>（〜から長い道のりを来た）は、自分の歩みを振り返るときの超定番フレーズで、日常会話でも使えます。</p>
-        <p><strong class="text-[var(--c-text)]"><QuickSlang word="TECs" desc="TEC-9。当時ストリートで多用された安価なセミオート拳銃" /></strong>（TEC-9という拳銃）や <code>blocks</code>（街区）といったストリート語彙と、ブランド名の対比が効いています。</p>
-        <Fragment slot="usage">
-          <p><strong class="text-[var(--c-text)]">come a long way</strong> は「（人・物事が）大きく進歩した・遠くまで来た」を表すイディオム。<em>I've come a long way</em>（自分は成長した）のように現在完了で使うのが定番。</p>
-          <p>ラップでは過去の貧困から現在の成功までの距離を示す決め台詞として多用される。</p>
-          <p><strong class="text-[var(--c-text)]">go from A to B</strong>（AからBへ移る）は変化を語る基本構文。ここでは安物→高級ブランドの対比で「成り上がり」を一行に圧縮しています。</p>
-        </Fragment>
-      </LearningUnit>
 
       <!-- ⑧a-2 chips / cake -->
       <LearningUnit
@@ -444,25 +357,6 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       </LearningUnit>
 
       <!-- ⑧a-3 Spanish code-switch -->
-      <LearningUnit
-        heading="siete zeros / pesos — 英語にスペイン語を差し込むコードスイッチ"
-        label="★ スラング／バイリンガル"
-        mc="Nas（Verse 2）"
-        t={TS["siete-pesos"].t} tApprox={TS["siete-pesos"].approx} youtubeId={YT}
-        embed=""
-      >
-        <Fragment slot="eng">Let my cash invest in stock<br />...siete zeros, bet my nine spit for the pesos</Fragment>
-        <Fragment slot="jpn">俺の金は株に投資させる／…七つのゼロ、金のためなら俺の9ミリが火を噴く</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2中盤、富と暴力を畳みかける件。学習対象はスペイン語が混ざる2語。</p>
-        <p>注目は <strong class="text-[var(--c-text)]">siete zeros</strong> と <strong class="text-[var(--c-text)]">pesos</strong>。どちらもスペイン語で、<strong class="text-[var(--c-text)]">siete＝7</strong>（つまり「ゼロが7つ＝数百万ドル」）、<strong class="text-[var(--c-text)]">pesos＝お金</strong>。</p>
-        <p>英語のラインに自然にスペイン語を差し込む <strong class="text-[var(--c-text)]">コードスイッチング</strong>は、ラティーノ人口の多いニューヨークのストリート英語ではごく普通の現象です。さらに同じ件には <strong class="text-[var(--c-text)]"><QuickSlang word="nine" desc="9mm拳銃（nine millimeter）のスラング" /></strong>（9mm拳銃）も出てくる。</p>
-        <p>一行のなかで英語・スペイン語・隠語が三層に重なる、密度の高い箇所です。</p>
-        <Fragment slot="usage">
-          <p>数字や金の単位をスペイン語にする <strong class="text-[var(--c-text)]">コードスイッチ</strong>は、NYヒップホップの常套句。<em>dinero</em>（金）、<em>pesos</em>（金）、<em>siete / ocho</em>（7／8）などは英語ラップに頻出するので、基本のスペイン語数詞と金関連語を押さえると聞き取りが一気に楽になる。</p>
-          <p><strong class="text-[var(--c-text)]">nine</strong> は <em>nine millimeter</em>（9mm拳銃）の略。数字がそのまま物騒なスラングの核になります。</p>
-          <p>英語ラップではよくあるパターンです。</p>
-        </Fragment>
-      </LearningUnit>
 
       <!-- ⑧b can't take it with you -->
       <LearningUnit
@@ -514,41 +408,8 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <p><code>sooner or later</code>（遅かれ早かれ）は会話でも使える定番フレーズです。</p>
       </LearningUnit>
 
-      <!-- ⑨-0 beef / heat -->
-      <LearningUnit
-        heading="beef / bustin' heat — 「揉め事」と「火を噴く銃」"
-        label="★ スラング（最頻出級）"
-        mc="Nas（Verse 3）"
-        t={TS["beef-heat"].t} tApprox={TS["beef-heat"].approx} youtubeId={YT}
-        embed=""
-      >
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3の頭、「俺は甘くない」と切り出す件。語彙ものなので語だけ取り出します。</p>
-        <p>Verse 3の入りに、ヒップホップの最重要スラングが二つ並びます。<strong class="text-[var(--c-text)]">beef</strong> と <strong class="text-[var(--c-text)]">heat</strong>。</p>
-        <p>beef は牛肉ではなく<strong class="text-[var(--c-text)]">「揉め事・因縁・抗争」</strong>。日本語のヒップホップ記事でも「ビーフ」とカタカナのまま使われる語です。</p>
-        <p>heat は<strong class="text-[var(--c-text)]">銃</strong>を指す隠語。bust（ぶっ放す）と組んで bustin' heat＝撃ちまくる、になります。</p>
-        <p>窓を撃ち抜いてくる beef そのもののような男だ、という自己定義で、Verse 3の「I'm like 〜」連射はこの物騒な直喩から幕を開けます。</p>
-        <Fragment slot="usage">
-          <p><strong class="text-[var(--c-text)]">beef</strong> は have beef with 〜（〜と揉めている）、squash beef（手打ちにする）の形が必修コンボ。<strong class="text-[var(--c-text)]">heat</strong> は carry heat（銃を持ち歩く）でも使われ、pack heat と言えば同じ意味。</p>
-          <p>どちらも90年代NYに限らず、現行のラップでも生きている語彙です。</p>
-        </Fragment>
-      </LearningUnit>
 
       <!-- ⑨ street sweeper double meaning -->
-      <LearningUnit
-        heading="I'm like a street sweeper, green leaf breather — 二重の意味と内部韻"
-        label="★ 言葉遊び／スラング"
-        mc="Nas（Verse 3）"
-        t={TS["street-sweeper"].t} tApprox={TS["street-sweeper"].approx} youtubeId={YT}
-        embed=""
-      >
-        <Fragment slot="eng">I'm like a street sweeper, green leaf breather<br />Like Greeks in Egypt, learnin' somethin' deep from they teachers</Fragment>
-        <Fragment slot="jpn">俺は街の掃除屋（ストリート・スウィーパー）、緑の葉を吸う者／エジプトのギリシャ人のように、師から深い何かを学ぶ</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3、「I'm like 〜」が連射される件。学習対象は上の行。</p>
-        <p>上の行に二つの仕掛けがあります。<strong class="text-[var(--c-text)]">street sweeper</strong> は文字どおり「道路清掃車／街の掃除屋」ですが、同時に <strong class="text-[var(--c-text)]">"Streetsweeper" という散弾銃</strong>の隠語でもある二重の意味。</p>
-        <p>「ライバルを一掃する」という攻撃性と「掃除する」が重なる。</p>
-        <p>続く <strong class="text-[var(--c-text)]">green leaf breather</strong> は「緑の葉を吸う者」＝マリファナの暗喩。そして音に注目すると <code>sweeper / breather / teacher</code> と <strong class="text-[var(--c-text)]">-eer/-er</strong> の内部韻が連続しています。</p>
-        <p>下の行は次のユニットで扱いますが、この2行は「I'm like 〜」の直喩を韻でつないでいく、Verse 3の作りの見本です。</p>
-      </LearningUnit>
 
       <!-- ⑩ Greeks in Egypt allusion -->
       <LearningUnit
@@ -568,21 +429,6 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       </LearningUnit>
 
       <!-- ⑩b like 'Pac -->
-      <LearningUnit
-        heading="I'm like 'Pac, dude you would cry for — 2Pacの引用と die for / cry for"
-        label="★ 引用／韻"
-        mc="Nas（Verse 3）"
-        t={TS["like-pac"].t} tApprox={TS["like-pac"].approx} youtubeId={YT}
-        embed=""
-      >
-        <Fragment slot="eng">I'm like crime, like your .9, your man you would die for<br />Always got you, I'm like 'Pac, dude you would cry for</Fragment>
-        <Fragment slot="jpn">俺は犯罪のようだ、お前の9ミリのようだ、お前が命を懸ける相棒のようだ／いつもお前の味方、俺は'Pacのようだ、お前が涙する男</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3、「I'm like 〜」連射の一節。学習対象は下の行。</p>
-        <p>Verse 3は <code>I'm like 〜</code> の直喩を高速で積む作り。ここでは <strong class="text-[var(--c-text)]">'Pac</strong>（＝<strong class="text-[var(--c-text)]">2Pac / Tupac Shakur</strong>）を引いています。</p>
-        <p>1996年に銃撃で世を去った2Pacは、リスナーが感情移入し涙する象徴的存在。</p>
-        <p><code>your man you would <strong class="text-[var(--c-text)]">die for</strong></code> と <code>I'm like 'Pac, dude you would <strong class="text-[var(--c-text)]">cry for</strong></code> で、<strong class="text-[var(--c-text)]">die for / cry for</strong> の脚韻を踏みながら、「命を懸ける相棒」から「涙する存在」へと意味をずらしていく。</p>
-        <p>上の行の <code>.9</code> は前にも出た <em>nine</em>（9mm拳銃）。同時代を生きたもう一人の巨人の名前を、比喩素材として一語で置けるのがNasの強みです。</p>
-      </LearningUnit>
 
       <!-- ⑩b-2 loot / crisp money -->
       <LearningUnit
@@ -710,14 +556,11 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
             ['siete zeros / pesos', 'スペイン語のコードスイッチ。siete＝7、pesos＝金'],
             ['from Seiko to Rolex', 'モノの格上げで成り上がり(come-up)を語る定番表現'],
             ['as far as ~ go(es)', '「〜に関して言えば」と話題を限定する構文。AAVEで三単現のsが落ちgoに'],
-            ['fiend', '麻薬中毒者(ヤク中)のスラング。dope fiendの形でも。動詞で「異常に欲しがる」'],
             ['the game', 'ラップ稼業・ストリートの経済。in the game＝この世界に身を置いて'],
-            ['squeeze', '引き金を絞る＝撃つ。squeeze the triggerのtriggerを省いた隠語'],
             ['fall off（I never fell）', '落ち目になる・第一線から転落する。フックはその否定'],
             ["can't take it with you", '「死んだら金はあの世に持っていけない」の定番イディオム'],
             ["my number's called", '番号を呼ばれる＝死ぬ、の婉曲表現。number is upとも'],
             ['loot / chips / cake / dough', '全部「金」。戦利品や食べものへの言い換えが定番'],
-            ['beef / heat', 'beef＝揉め事・抗争、heat＝銃。bustin\' heatで「ぶっ放す」'],
             ['fam', 'familyの短縮。血縁に限らない「家族同然の仲間」。呼びかけにも'],
             ['system', 'カーオーディオ(sound system)。車の重低音で聴く文化を背負う語'],
             ['Summer Jam', 'Hot 97(NYのヒップホップ局)が毎夏開く最大級のコンサート。固有名詞を比喩の物差しに'],
@@ -745,6 +588,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
           <p>
             このトラックの不思議な浮遊感の正体は、<strong class="text-[var(--c-text)]">John V. Rydgren と Bob R. Way による1966年の宗教音楽「What Child Is This?」</strong>。ルター派教会が出した10インチのレコード（ピンク色で、黒い魚＝キリスト教のシンボルが描かれていた盤）からのサンプリングです。
           </p>
+        <SampleYoutube id="r9_GduOItp0" title="John V. Rydgren & Bob R. Way - What Child Is This?" />
           <p>
             DJ Premier はこの盤をあやうく捨てかけたものの、念のためターンテーブルに乗せたところで、この音を見つけたと語っています。彼はそれを <strong class="text-[var(--c-text)]">3つのパートに刻み</strong>、すでに組んでいたドラムに合わせて<strong class="text-[var(--c-text)]">手でスクラッチして</strong>乗せた。
           </p>

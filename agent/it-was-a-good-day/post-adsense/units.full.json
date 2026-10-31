@@ -1,0 +1,276 @@
+[
+  {
+    "id": "gotta-thank-god",
+    "anchor": [
+      "just",
+      "wakin'",
+      "up",
+      "in",
+      "the",
+      "mornin'"
+    ],
+    "fallbackT": 12,
+    "manualSec": null,
+    "captionSec": 33
+  },
+  {
+    "id": "no-smog-no-hog",
+    "anchor": [
+      "no",
+      "barkin'",
+      "from",
+      "the",
+      "dog"
+    ],
+    "fallbackT": 18,
+    "manualSec": null,
+    "captionSec": 39
+  },
+  {
+    "id": "grub-pig-out",
+    "anchor": [
+      "i",
+      "got",
+      "my",
+      "grub",
+      "on"
+    ],
+    "fallbackT": 24,
+    "manualSec": null,
+    "captionSec": 45
+  },
+  {
+    "id": "hit-the-door",
+    "anchor": [
+      "hooked",
+      "it",
+      "up",
+      "for",
+      "later"
+    ],
+    "fallbackT": 31,
+    "manualSec": null,
+    "captionSec": 50
+  },
+  {
+    "id": "drop-top",
+    "anchor": [
+      "i",
+      "gotta",
+      "go",
+      "'cause",
+      "i",
+      "got",
+      "me",
+      "a",
+      "drop-top"
+    ],
+    "fallbackT": 38,
+    "manualSec": null,
+    "captionSec": 56
+  },
+  {
+    "id": "jacker-in-sight",
+    "anchor": [
+      "lookin'",
+      "in",
+      "my",
+      "mirror"
+    ],
+    "fallbackT": 46,
+    "manualSec": null,
+    "captionSec": 65
+  },
+  {
+    "id": "homies-y-all",
+    "anchor": [
+      "called",
+      "up",
+      "the",
+      "homies"
+    ],
+    "fallbackT": 56,
+    "manualSec": null,
+    "captionSec": 74
+  },
+  {
+    "id": "police-rolled-past",
+    "anchor": [
+      "saw",
+      "the",
+      "police",
+      "and",
+      "they",
+      "rolled",
+      "right",
+      "past",
+      "me"
+    ],
+    "fallbackT": 91,
+    "manualSec": null,
+    "captionSec": 104
+  },
+  {
+    "id": "yo-mtv-raps-haps",
+    "anchor": [
+      "went",
+      "to",
+      "short",
+      "dog's",
+      "house"
+    ],
+    "fallbackT": 99,
+    "manualSec": null,
+    "captionSec": 120
+  },
+  {
+    "id": "seven-eleven-dice",
+    "anchor": [
+      "and",
+      "watch",
+      "me",
+      "break",
+      "'em",
+      "with",
+      "the",
+      "seven"
+    ],
+    "fallbackT": 106,
+    "manualSec": null,
+    "captionSec": 131
+  },
+  {
+    "id": "played-bones-domino",
+    "anchor": [
+      "then",
+      "we",
+      "played",
+      "bones"
+    ],
+    "fallbackT": 119,
+    "manualSec": null,
+    "captionSec": 140
+  },
+  {
+    "id": "nobody-got-killed",
+    "anchor": [
+      "plus",
+      "nobody",
+      "i",
+      "know",
+      "got",
+      "killed"
+    ],
+    "fallbackT": 126,
+    "manualSec": null,
+    "captionSec": 144
+  },
+  {
+    "id": "brew-chronic-lakers",
+    "anchor": [
+      "it's",
+      "ironic",
+      "i",
+      "had",
+      "the",
+      "brew"
+    ],
+    "fallbackT": 143,
+    "manualSec": null,
+    "captionSec": 167
+  },
+  {
+    "id": "pad-coastin",
+    "anchor": [
+      "drove",
+      "her",
+      "to",
+      "the",
+      "pad",
+      "and",
+      "i'm",
+      "coastin'"
+    ],
+    "fallbackT": 175,
+    "manualSec": null,
+    "captionSec": 184
+  },
+  {
+    "id": "fly-dreams-berry",
+    "anchor": [
+      "today",
+      "was",
+      "like",
+      "one",
+      "of",
+      "those",
+      "fly",
+      "dreams"
+    ],
+    "fallbackT": 202,
+    "manualSec": null,
+    "captionSec": 196
+  },
+  {
+    "id": "fatburger-goodyear",
+    "anchor": [
+      "two",
+      "in",
+      "the",
+      "mornin'",
+      "got",
+      "the",
+      "fatburger"
+    ],
+    "fallbackT": 211,
+    "manualSec": null,
+    "captionSec": 211
+  },
+  {
+    "id": "pager-blowin-up",
+    "anchor": [
+      "halfway",
+      "home",
+      "and",
+      "my",
+      "pager",
+      "still",
+      "blowin'",
+      "up"
+    ],
+    "fallbackT": 221,
+    "manualSec": null,
+    "captionSec": 222
+  },
+  {
+    "id": "didnt-have-to-use-ak",
+    "anchor": [
+      "today",
+      "i",
+      "didn't",
+      "even",
+      "have",
+      "to",
+      "use",
+      "my",
+      "ak"
+    ],
+    "fallbackT": 227,
+    "manualSec": null,
+    "captionSec": 225
+  },
+  {
+    "id": "outro-wait-a-minute",
+    "anchor": [
+      "ayy",
+      "wait",
+      "wait",
+      "a",
+      "minute",
+      "pooh"
+    ],
+    "fallbackT": 232,
+    "manualSec": null,
+    "captionSec": null
+  }
+]

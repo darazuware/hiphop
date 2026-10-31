@@ -1,0 +1,260 @@
+[
+  {
+    "id": "jungle-going-under",
+    "anchor": [
+      "it's",
+      "like",
+      "a",
+      "jungle",
+      "sometimes"
+    ],
+    "fallbackT": 16,
+    "manualSec": null,
+    "captionSec": 24
+  },
+  {
+    "id": "cant-take-no-choice",
+    "anchor": [
+      "i",
+      "can't",
+      "take",
+      "the",
+      "smell"
+    ],
+    "fallbackT": 31,
+    "manualSec": null,
+    "captionSec": 48
+  },
+  {
+    "id": "rats-roaches-junkies",
+    "anchor": [
+      "rats",
+      "in",
+      "the",
+      "front",
+      "room"
+    ],
+    "fallbackT": 38,
+    "manualSec": null,
+    "captionSec": 53
+  },
+  {
+    "id": "repossessed",
+    "anchor": [
+      "'cause",
+      "a",
+      "man",
+      "with",
+      "a",
+      "tow",
+      "truck"
+    ],
+    "fallbackT": 53,
+    "manualSec": null,
+    "captionSec": 59
+  },
+  {
+    "id": "close-to-the-edge",
+    "anchor": [
+      "don't",
+      "push",
+      "me",
+      "'cause",
+      "i'm",
+      "close",
+      "to",
+      "the",
+      "edge"
+    ],
+    "fallbackT": 54,
+    "manualSec": null,
+    "captionSec": 63
+  },
+  {
+    "id": "front-stoop",
+    "anchor": [
+      "standing",
+      "on",
+      "the",
+      "front",
+      "stoop"
+    ],
+    "fallbackT": 74,
+    "manualSec": null,
+    "captionSec": 76
+  },
+  {
+    "id": "all-my-children-dallas",
+    "anchor": [
+      "all",
+      "my",
+      "children",
+      "in",
+      "the",
+      "daytime"
+    ],
+    "fallbackT": 99,
+    "manualSec": null,
+    "captionSec": 121
+  },
+  {
+    "id": "bill-collectors",
+    "anchor": [
+      "the",
+      "bill",
+      "collectors",
+      "they",
+      "ring",
+      "my",
+      "phone"
+    ],
+    "fallbackT": 121,
+    "manualSec": null,
+    "captionSec": 129
+  },
+  {
+    "id": "bum-education-inflation",
+    "anchor": [
+      "got",
+      "a",
+      "bum",
+      "education"
+    ],
+    "fallbackT": 114,
+    "manualSec": null,
+    "captionSec": 133
+  },
+  {
+    "id": "sacroiliac-neon",
+    "anchor": [
+      "neon",
+      "king",
+      "kong",
+      "standing",
+      "on",
+      "my",
+      "back"
+    ],
+    "fallbackT": 123,
+    "manualSec": null,
+    "captionSec": 139
+  },
+  {
+    "id": "teacher-jerk-reported",
+    "anchor": [
+      "my",
+      "son",
+      "said",
+      "daddy",
+      "i",
+      "don't",
+      "wanna",
+      "go",
+      "to",
+      "school"
+    ],
+    "fallbackT": 141,
+    "manualSec": null,
+    "captionSec": 167
+  },
+  {
+    "id": "land-of-milk-and-honey",
+    "anchor": [
+      "'cause",
+      "it's",
+      "all",
+      "about",
+      "money"
+    ],
+    "fallbackT": 150,
+    "manualSec": null,
+    "captionSec": 181
+  },
+  {
+    "id": "glass-jaw-see-saw",
+    "anchor": [
+      "i",
+      "feel",
+      "like",
+      "a",
+      "outlaw"
+    ],
+    "fallbackT": 168,
+    "manualSec": null,
+    "captionSec": 201
+  },
+  {
+    "id": "state-of-mind",
+    "anchor": [
+      "a",
+      "child",
+      "is",
+      "born",
+      "with",
+      "no",
+      "state",
+      "of",
+      "mind"
+    ],
+    "fallbackT": 205,
+    "manualSec": null,
+    "captionSec": 224
+  },
+  {
+    "id": "wind-up-dropping-out",
+    "anchor": [
+      "you",
+      "say",
+      "i'm",
+      "cool",
+      "huh",
+      "i'm",
+      "no",
+      "fool"
+    ],
+    "fallbackT": 232,
+    "manualSec": null,
+    "captionSec": 258
+  },
+  {
+    "id": "null-and-void-pretty-boy-floyd",
+    "anchor": [
+      "now",
+      "you're",
+      "unemployed",
+      "all",
+      "null",
+      "and",
+      "void"
+    ],
+    "fallbackT": 238,
+    "manualSec": null,
+    "captionSec": 262
+  },
+  {
+    "id": "stick-up-kid-eight-year-bid",
+    "anchor": [
+      "turned",
+      "stick-up",
+      "kid"
+    ],
+    "fallbackT": 246,
+    "manualSec": null,
+    "captionSec": 267
+  },
+  {
+    "id": "outro-skit-push-me",
+    "anchor": [
+      "yo",
+      "mel",
+      "you",
+      "see",
+      "that",
+      "girl",
+      "there"
+    ],
+    "fallbackT": 292,
+    "manualSec": null,
+    "captionSec": 312
+  }
+]

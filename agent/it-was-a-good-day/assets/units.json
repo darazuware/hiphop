@@ -152,34 +152,6 @@
     "captionSec": 140
   },
   {
-    "id": "nobody-got-killed",
-    "anchor": [
-      "plus",
-      "nobody",
-      "i",
-      "know",
-      "got",
-      "killed"
-    ],
-    "fallbackT": 126,
-    "manualSec": null,
-    "captionSec": 144
-  },
-  {
-    "id": "brew-chronic-lakers",
-    "anchor": [
-      "it's",
-      "ironic",
-      "i",
-      "had",
-      "the",
-      "brew"
-    ],
-    "fallbackT": 143,
-    "manualSec": null,
-    "captionSec": 167
-  },
-  {
     "id": "pad-coastin",
     "anchor": [
       "drove",
@@ -241,23 +213,6 @@
     "fallbackT": 221,
     "manualSec": null,
     "captionSec": 222
-  },
-  {
-    "id": "didnt-have-to-use-ak",
-    "anchor": [
-      "today",
-      "i",
-      "didn't",
-      "even",
-      "have",
-      "to",
-      "use",
-      "my",
-      "ak"
-    ],
-    "fallbackT": 227,
-    "manualSec": null,
-    "captionSec": 225
   },
   {
     "id": "outro-wait-a-minute",

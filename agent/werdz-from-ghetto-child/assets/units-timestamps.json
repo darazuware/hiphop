@@ -4,6 +4,7 @@
     "whisperSec": null,
     "manualSec": null,
     "captionSec": null,
+    "syncedSec": null,
     "fallbackT": 6,
     "t": 6,
     "source": "fallback",
@@ -15,6 +16,7 @@
     "whisperSec": null,
     "manualSec": null,
     "captionSec": null,
+    "syncedSec": null,
     "fallbackT": 28,
     "t": 28,
     "source": "fallback",
@@ -26,6 +28,7 @@
     "whisperSec": null,
     "manualSec": null,
     "captionSec": null,
+    "syncedSec": null,
     "fallbackT": 29,
     "t": 29,
     "source": "fallback",
@@ -33,32 +36,11 @@
     "score": null
   },
   {
-    "id": "drug-story",
-    "whisperSec": null,
-    "manualSec": null,
-    "captionSec": null,
-    "fallbackT": 31,
-    "t": 31,
-    "source": "fallback",
-    "approx": true,
-    "score": 0.2
-  },
-  {
-    "id": "rises-grams",
-    "whisperSec": 32.2,
-    "manualSec": null,
-    "captionSec": null,
-    "fallbackT": 36,
-    "t": 36,
-    "source": "fallback",
-    "approx": true,
-    "score": 0.8
-  },
-  {
     "id": "build-cream",
     "whisperSec": 42.9,
     "manualSec": null,
     "captionSec": null,
+    "syncedSec": null,
     "fallbackT": 44,
     "t": 44,
     "source": "fallback",
@@ -70,6 +52,7 @@
     "whisperSec": 46.1,
     "manualSec": null,
     "captionSec": null,
+    "syncedSec": null,
     "fallbackT": 48,
     "t": 48,
     "source": "fallback",
@@ -77,32 +60,11 @@
     "score": 0.5
   },
   {
-    "id": "food-plate",
-    "whisperSec": 47.7,
-    "manualSec": null,
-    "captionSec": null,
-    "fallbackT": 51,
-    "t": 51,
-    "source": "fallback",
-    "approx": true,
-    "score": 1
-  },
-  {
-    "id": "mac",
-    "whisperSec": null,
-    "manualSec": null,
-    "captionSec": null,
-    "fallbackT": 52,
-    "t": 52,
-    "source": "fallback",
-    "approx": true,
-    "score": null
-  },
-  {
     "id": "underrate",
     "whisperSec": 51.5,
     "manualSec": null,
     "captionSec": null,
+    "syncedSec": null,
     "fallbackT": 54,
     "t": 54,
     "source": "fallback",
@@ -114,21 +76,11 @@
     "whisperSec": 55.5,
     "manualSec": null,
     "captionSec": null,
+    "syncedSec": null,
     "fallbackT": 59,
     "t": 59,
     "source": "fallback",
     "approx": true,
     "score": 0.8
-  },
-  {
-    "id": "bite-dust",
-    "whisperSec": 65.7,
-    "manualSec": null,
-    "captionSec": null,
-    "fallbackT": 65,
-    "t": 65,
-    "source": "fallback",
-    "approx": true,
-    "score": 1
   }
 ]

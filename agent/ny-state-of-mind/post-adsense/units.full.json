@@ -1,0 +1,19 @@
+[
+  { "id": "habitual-be", "anchor": ["monkey","flip","with","the","funky"], "fallbackT": 22, "manualSec": 23.3 },
+  { "id": "scarface-simile", "anchor": ["like","scarface","sniffing","cocaine"], "fallbackT": 29.8, "manualSec": 29.7 },
+  { "id": "steelo", "anchor": ["with","or","without","the","airplay"], "fallbackT": 42.0, "manualSec": 40.87 },
+  { "id": "ej-grants-ceelo", "anchor": ["sitting","bent","up","in","the","stairway"], "fallbackT": 44.65, "manualSec": 43.37 },
+  {"id": "gun-malfunction", "anchor": ["Tried", "to", "cock", "it,", "it", "wouldn't", "shoot,", "now", "I'm", "in", "danger"], "fallbackT": 83, "manualSec": 80.5},
+  {"id": "corners-goners", "anchor": ["corners,", "crews", "without", "guns", "are", "goners"], "fallbackT": null, "manualSec": 97},
+  {"id": "stickup-kids", "anchor": ["stick-up", "kids"], "fallbackT": null, "manualSec": 100},
+  { "id": "cousin-of-death", "anchor": ["sleep","is","the","cousin","of","death"], "fallbackT": 129.37, "manualSec": 128.32 },
+  { "id": "state-of-mind", "anchor": ["beyond","the","walls","of","intelligence"], "fallbackT": 138, "manualSec": 131.12 },
+  { "id": "moet-tec", "anchor": ["having","dreams","that","i'm","a","gangsta"], "fallbackT": 147.7, "manualSec": 147.35 },
+  { "id": "blocks-rocks", "anchor": ["sewing","up","the","blocks","to","sell","rocks"], "fallbackT": 155.79, "manualSec": 154.12 },
+  {"id": "smith-wesson", "anchor": ["I", "ain't", "the", "type", "of", "brother", "made", "for", "you", "to", "start", "testin'", "Give", "me", "a", "Smith", "&", "Wesson,", "I'll", "have", "niggas", "undressin'"], "fallbackT": 177, "manualSec": 165.6},
+  {"id": "street-maze", "anchor": ["each", "block", "is", "like", "a", "maze", "Full", "of", "black", "rats", "trapped"], "fallbackT": 191, "manualSec": 180.79},
+  { "id": "lamp-capone", "anchor": ["lamp","like","capone","with","drug"], "fallbackT": 194.12, "manualSec": 194.0 },
+  {"id": "life-hell", "anchor": ["Life", "is", "parallel", "to", "Hell"], "fallbackT": 214, "manualSec": 202.25},
+  { "id": "vitamin-capsule", "anchor": ["rhyming","is","a","vitamin"], "fallbackT": 219.75, "manualSec": 216.35 },
+  { "id": "city-never-sleeps", "anchor": ["city","never","sleeps","full","of","villains"], "fallbackT": 227.87, "manualSec": 227.77 }
+]

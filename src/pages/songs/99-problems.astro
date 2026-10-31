@@ -4,6 +4,7 @@ import RelatedColumnTeaser from '../../components/RelatedColumnTeaser.astro';
 import DiveCards from '../../components/DiveCards.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
 import SongLayout from '../../layouts/SongLayout.astro';
+import SampleYoutube from '../../components/SampleYoutube.astro';
 import AmazonAlbumCta from "../../components/AmazonAlbumCta.astro";
 
 import tsData from '../../../agent/99-problems/assets/units-timestamps.json';
@@ -13,17 +14,18 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
 
 <SongLayout
   title="99 Problems 英語・スラング解説 | Jay-Z（Rick Rubin）"
-  description="Jay-Zの99 Problemsを英語学習＋ヒップホップ理解の教材として精読。Verse 2の職質でのやり取りに仕込まれた第4修正条項、pass the barの言葉遊び、K9とb-wordをつなぐ多義、Jake（警官）などのNY隠語を表現単位で解説。各表現はPVの該当箇所へ頭出しリンク付き。"
+  description="Jay-Zの99 Problemsを英語学習＋ヒップホップ理解の教材として精読。Verse 2の職質でのやり取りに仕込まれた第4修正条項、pass the barの言葉遊び、K9の多義、Jake（警官）などのNY隠語を表現単位で解説。各表現はPVの該当箇所へ頭出しリンク付き。"
   slug="99-problems"
   learningPage={true}
   songDuration={234}
   highlights={[
-    '99 Problemsは「a bitch ain\'t one」の一句を、批評家・警官・弱腰の敵へと意味を変えながら三度使い倒す一曲',
+    '99 Problemsはフックの一句を、批評家・警官・弱腰の敵へと意味を変えながら三度使い倒す一曲',
     'スラング・韻・言葉遊び・AAVE文法を「学ぶ表現」単位で解説（PV頭出しリンク付き）',
     'Verse 2は1994年の職質を再現した、ラップに包まれた第4修正条項の実地レッスン',
   ]}
   youtubeId="6uikJTnmtgw"
   sampleYoutubeId="MGn5mZtlyFw"
+  sampleInContent={true}
   sampleTitle="Billy Squier - The Big Beat (1980)"
 >
 
@@ -32,13 +34,13 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       <h2 class="text-base font-semibold mb-2">■この曲で何を学べるか</h2>
       <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
         <p>
-          「I got ninety-nine problems, but a bitch ain't one（俺には99の問題があるが、女はそのひとつじゃない）」。この一句だけが独り歩きした曲ですが、Jay-Zは自著『Decoded』で、この軽薄なフックはわざと仕掛けた罠だと明かしています。
+          フックの一句だけが独り歩きした曲ですが、Jay-Zは自著『Decoded』で、この軽薄なフックはわざと仕掛けた罠だと明かしています。
         </p>
         <p>
           2003年のアルバム『The Black Album』収録。プロデュースは <strong class="text-[var(--c-text)]">Rick Rubin</strong> で、Billy Squier「The Big Beat」（1980）のドラムを骨格にしたロック寄りのビートが乗ります。
         </p>
         <p>
-          この曲の面白さは、同じ「a bitch ain't one」という句が、Verse 1では批評家、Verse 2では警察犬、Verse 3では弱腰の敵と、指す相手を変えていくところ。多義語の運用、NYストリートの隠語、そして職質の場面に仕込まれた法律の知識を、「学ぶ表現」単位で取り出して解説していきます。
+          この曲の面白さは、同じフックの句が、Verse 1では批評家、Verse 2では警察犬、Verse 3では弱腰の敵と、指す相手を変えていくところ。多義語の運用、NYストリートの隠語、そして職質の場面に仕込まれた法律の知識を、「学ぶ表現」単位で取り出して解説していきます。
         </p>
       </div>
     </section>
@@ -47,10 +49,10 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       <h2 class="text-base font-semibold mb-2">■チャート86位のロック・ラップが、法律の教科書になる理由</h2>
       <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
         <p>
-          聴きどころは、なんといっても Verse 2 です。麻薬を積んだ車で警官に停められ、車内を捜索させろと迫られる場面が、まるまる一つのバースとして再現されています。
+          聴きどころは、なんといっても Verse 2 です。違法な荷を積んだ車で警官に停められ、車内を捜索させろと迫られる場面が、まるまる一つのバースとして再現されています。
         </p>
         <p>
-          ここでJay-Zが返すのは暴力ではなく知識でした。「令状（warrant）が要るはずだ」「自分の権利は知っている」と、<strong class="text-[var(--c-text)]">アメリカ憲法修正第4条（不当な捜索・押収の禁止）</strong>をそのまま武器にして切り抜けます。
+          ここでJay-Zが返すのは腕力ではなく知識でした。「令状（warrant）が要るはずだ」「自分の権利は知っている」と、<strong class="text-[var(--c-text)]">アメリカ憲法修正第4条（不当な捜索・押収の禁止）</strong>をそのまま武器にして切り抜けます。
         </p>
         <p>
           職質の英語、警官を指す隠語、法律用語のもじり。実用的で生々しい英語が、3分半のなかにぎっしり詰まっています。
@@ -79,29 +81,29 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         ストーリーの流れ — まず曲全体をつかむ
       </h2>
       <p class="text-xs text-[var(--c-dim)] mb-5">
-        この曲は3つのVerseが、それぞれ別の「問題」を描きます。フックの「a bitch ain't one」が誰を指すのかも各Verseで変わるので、そこを先に押さえておくと、次章「学ぶ表現」で迷子になりません。
+        この曲は3つのVerseが、それぞれ別の「問題」を描きます。フックの一句が誰を指すのかも各Verseで変わるので、そこを先に押さえておくと、次章「学ぶ表現」で迷子になりません。
       </p>
       <div class="space-y-4 text-sm text-[var(--c-muted)] leading-relaxed">
         <p>
-          <strong class="text-[var(--c-text)]">Intro／Hook</strong>で、曲全体の合言葉「a bitch ain't one」が置かれます。表面上は女の話に聞こえますが、Jay-Zはこれを批評家を煙に巻くための目くらましとして設計したと語っています。
+          <strong class="text-[var(--c-text)]">Intro／Hook</strong>で、曲全体の合言葉が置かれます。表面上は女の話に聞こえますが、Jay-Zはこれを批評家を煙に巻くための目くらましとして設計したと語っています。
         </p>
         <p>
-          <strong class="text-[var(--c-text)]">Verse 1</strong>は音楽業界との問題。自分を「Money, Cash, Hoes」と紋切り型で語る批評家やラジオ局へ、皮肉たっぷりに反論していきます。
+          <strong class="text-[var(--c-text)]">Verse 1</strong>は音楽業界との問題。自分を紋切り型で語る批評家やラジオ局へ、皮肉たっぷりに反論していきます。
         </p>
         <p>
-          ここでの「bitch」は批評家のことです。
+          ここでフックの一句が指すのは批評家です。
         </p>
         <p>
           <strong class="text-[var(--c-text)]">Verse 2</strong>が白眉。1994年、トランクに違法な荷を積んだまま警官に停められた実体験を、職質のやり取りごと再現します。
         </p>
         <p>
-          捜索を断る根拠として持ち出されるのが第4修正条項で、最後に警官が口にする「K9（警察犬）」がフックの「bitch」につながります。
+          捜索を断る根拠として持ち出されるのが第4修正条項で、最後に警官が口にする「K9（警察犬）」がフックの一句につながります。
         </p>
         <p>
           <strong class="text-[var(--c-text)]">Verse 3</strong>はストリートでの因縁と、その先の司法制度の問題。絡んできた相手を「口だけの男」と切り捨てながら、結局は逮捕され法外な保釈金を課される流れを描きます。
         </p>
         <p>
-          ここでの「bitch」は、その弱腰の敵を指します。
+          ここでフックの一句は、その弱腰の敵を指します。
         </p>
         <p>
           業界、警察、ストリートと法廷。舞台は変わっても、Jay-Zはずっと同じ余裕で受け流していきます。
@@ -147,58 +149,12 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       <p class="text-xs text-[var(--c-dim)] mb-6">
         各見出しは「この曲から学べる英語表現」です。ユニットの多くは、頭に英語の用例を1〜2行だけ引いてあります。</p>
         <p>先に英語を音で追い、行のどこが学習対象かを確かめてから下の日本語解説に進むと、英語が苦手でも置いていかれません。</p>
-        <p>銃や薬まわりの語彙・固有名詞を扱うユニットは、行を引かずに語の意味と背景だけで解説しています（引用を必要最小限に絞る方針のため。▶で該当箇所へ飛べます）。
+        <p>物騒な語彙・固有名詞を扱うユニットは、行を引かずに語の意味と背景だけで解説しています（引用を必要最小限に絞る方針のため。▶で該当箇所へ飛べます）。
       </p>
 
       <!-- ① multivalent hook -->
-      <LearningUnit
-        heading="but a bitch ain't one — 曲全体を欺くための多義的フック"
-        label="★ フック（最重要）"
-        mc="Jay-Z（Intro／Hook）"
-        t={TS["bitch-aint-one"].t} tApprox={TS["bitch-aint-one"].approx} youtubeId={YT}
-        embed=""
-      >
-        <Fragment slot="eng">If you're havin' girl problems, I feel bad for you, son<br />I got ninety-nine problems, but a bitch ain't one</Fragment>
-        <Fragment slot="jpn">女の問題で悩んでるなら、気の毒だな／俺には99の問題があるが、女はそのひとつじゃない</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 曲の口火を切るイントロ。全編を貫く合言葉がここに出ます。</p>
-        <p>まず全体の型を押さえます。<strong class="text-[var(--c-text)]">I got ninety-nine problems, but a bitch ain't one</strong>。</p>
-        <p>直訳は「99の問題はあるが、そのひとつは女じゃない」。</p>
-        <p>ところがJay-Zは自著『Decoded』で、この一句を<strong class="text-[var(--c-text)]">批評家を混乱させるための目くらまし</strong>として置いたと明かしています。女をけなす曲だと早合点した聴き手に、その底の浅さを突きつける仕掛けだ、と。</p>
-        <p>実際この <strong class="text-[var(--c-text)]">bitch</strong> は、Verse 1では批評家、Verse 2では警察犬、Verse 3では弱腰の敵へと、指す相手を変えていきます。ひとつの単語を三度べつの意味で使い回す、多義（マルチミーニング）の運用がこの曲の背骨です。</p>
-        <p><code>son</code>（＝相手を軽く見下す呼びかけ）や <code>I feel bad for you</code>（お前が気の毒だ）の余裕たっぷりの口ぶりも、Verse全体の受け流しの姿勢とそろっています。</p>
-      </LearningUnit>
 
-      <!-- ② rap patrol / gat patrol -->
-      <LearningUnit
-        heading="Rap Patrol on the gat patrol — patrol を二度踏む脚韻と gat"
-        label="★ 韻／スラング"
-        mc="Jay-Z（Verse 1）"
-        t={TS["rap-patrol-gat"].t} tApprox={TS["rap-patrol-gat"].approx} youtubeId={YT}
-        embed=""
-      >
-        <Fragment slot="eng">I've got the Rap Patrol on the gat patrol</Fragment>
-        <Fragment slot="jpn">俺にはラップ・パトロールが付いてる、銃のパトロールに</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の一行目。バースはこの物騒な一句から立ち上がります。</p>
-        <p>ここは音がいい。<strong class="text-[var(--c-text)]">Rap Patrol / gat patrol</strong> と、<code>patrol</code> をそのまま二度踏んで韻の枠を作っています。</p>
-        <p>学習対象は <QuickSlang word="gat" desc="この曲では自分を狙う「銃のパトロール」という形で、命を狙う連中がいる状況を一語で示す" /> です。<strong class="text-[var(--c-text)]">gat</strong> は拳銃を指す古い隠語で、ここでは「自分を消したがっている連中の銃」を指しています。</p>
-        <p>成功して有名になったぶん、命を狙われる立場でもある。その緊張を、韻遊びの軽さでくるんで置いているのがVerse 1の入りです。</p>
-      </LearningUnit>
 
-      <!-- ③ Money Cash Hoes -->
-      <LearningUnit
-        heading="he's Money, Cash, Hoes — 自分の曲名で批評家の紋切り型を晒す"
-        label="★ 引用／文化"
-        mc="Jay-Z（Verse 1）"
-        t={TS["money-cash-hoes"].t} tApprox={TS["money-cash-hoes"].approx} youtubeId={YT}
-        embed=""
-      >
-        <Fragment slot="eng">Rap critics that say he's Money, Cash, Hoes</Fragment>
-        <Fragment slot="jpn">「あいつはマネー・キャッシュ・ホーズだ」と言う批評家たち</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1序盤、批評家への反論が始まる件。</p>
-        <p>ここで出てくる <strong class="text-[var(--c-text)]">Money, Cash, Hoes</strong> は、Jay-Z自身の1998年の曲名です。批評家が彼を「金と女しか歌わない男」と決めつけるとき、その紋切り型として自分の曲名を引かせています。</p>
-        <p>つまり<strong class="text-[var(--c-text)]">レッテルを自分の作品名で言い返す</strong>という、ひとひねりの反撃。次の行では「俺はフッド（貧困街）育ちだ、そんな事実がどこにある」と畳みかけて、外から貼られた像を突き返します。</p>
-        <p>固有名詞の引用が、そのまま皮肉として効く一節です。</p>
-      </LearningUnit>
 
       <!-- ④ zapatos / dough -->
       <LearningUnit
@@ -265,26 +221,12 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         embed=""
       >
         <p class="text-xs text-[var(--c-dim)] mb-1">▶ 各Verseの末尾でフックへ橋渡しする掛け声。語彙ものなので語だけ取り出します。</p>
-        <p>各バースの最後に置かれる <strong class="text-[var(--c-text)]">hit me!</strong> が学習ポイント。「殴れ」ではありません。</p>
+        <p>各バースの最後に置かれる <strong class="text-[var(--c-text)]">hit me!</strong> が学習ポイント。「叩け」ではありません。</p>
         <p>これは<strong class="text-[var(--c-text)]">DJやビートに向かって「そこで来い・落とせ」と投げる合図</strong>の掛け声です。ジェームス・ブラウン以来のファンク／ソウルの現場で使われてきた言い回しで、演奏へキューを出すニュアンス。</p>
         <p>バースを締めてフックへ雪崩れ込む継ぎ目に置くことで、曲の勢いをそのまま次のブロックへ受け渡しています。単なる合いの手が、構成の接着剤として働いている一語です。</p>
       </LearningUnit>
 
       <!-- ⑧ trunk is raw -->
-      <LearningUnit
-        heading="in my trunk is raw — raw が指すもの"
-        label="★ スラング／物語"
-        mc="Jay-Z（Verse 2）"
-        t={TS["trunk-raw"].t} tApprox={TS["trunk-raw"].approx} youtubeId={YT}
-        embed=""
-      >
-        <Fragment slot="eng">The year is '94, in my trunk is raw</Fragment>
-        <Fragment slot="jpn">時は'94年、トランクにはブツ（ロウ）が積んである</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の一行目。年号を置いて、実話の場面が始まります。</p>
-        <p>行頭で <code>The year is '94</code> と年を打ってから、行末に <QuickSlang word="raw" desc="この曲ではトランクに積んだ違法な荷、精製済みでカットしていないコカインを指す。次の行の警官の登場で緊張が跳ね上がる" /> を置きます。</p>
-        <p><strong class="text-[var(--c-text)]">raw</strong> は「生の・未加工の」が字義ですが、ここでは<strong class="text-[var(--c-text)]">カットしていない純度の高いコカイン</strong>を指します。つまりトランクには違法な荷が積んである、という設定を一語で示しています。</p>
-        <p>この一行があるからこそ、次に登場する警官の存在感が一気に跳ね上がる。Verse 2は実際に1994年頃にJay-Zが経験した出来事を下敷きにした、物語仕立てのバースです。</p>
-      </LearningUnit>
 
       <!-- ⑨ the law -->
       <LearningUnit
@@ -345,7 +287,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <p class="text-xs text-[var(--c-dim)] mb-1">▶ 停車を選ぶ根拠を述べる件。表現ものなので語だけ取り出します。</p>
         <p>逃げない理由をもう一つ添えるのが、<strong class="text-[var(--c-text)]">fight the case</strong> という言い回しです。</p>
         <p><code>case</code> は「事件・訴訟」、<code>fight the case</code> で<strong class="text-[var(--c-text)]">「裁判で争う・法廷で戦う」</strong>を表す法律まわりの口語。数ドルの持ち合わせがあれば弁護士を立てて争える、だから逃げる必要はない、という計算です。</p>
-        <p>暴力でも逃走でもなく、法廷というリングを選ぶ。この一言に、Verse 2全体を貫く「知識で切り抜ける」という構えが早くも顔を出しています。</p>
+        <p>腕力でも逃走でもなく、法廷というリングを選ぶ。この一言に、Verse 2全体を貫く「知識で切り抜ける」という構えが早くも顔を出しています。</p>
       </LearningUnit>
 
       <!-- ⑬ stopping you for -->
@@ -417,7 +359,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <p>背景にあるのは<strong class="text-[var(--c-text)]">アメリカ憲法修正第4条（不当な捜索・押収の禁止）</strong>です。</p>
         <p>文法のポイントは <strong class="text-[var(--c-text)]">gon'</strong>。これは <em>going to</em> の口語短縮で、<code>you gon' need</code>＝<em>you're going to need</em>（お前は令状が要ることになる）。</p>
         <p>be動詞まで落ちるのがAAVEの砕けた未来形です。</p>
-        <p>暴力ではなく条文で身を守る。この一行が、曲全体を「ラップに包まれた法律の授業」にしています。</p>
+        <p>腕力ではなく条文で身を守る。この一行が、曲全体を「ラップに包まれた法律の授業」にしています。</p>
         <Fragment slot="usage">
           <p><strong class="text-[var(--c-text)]">gon'</strong>（＝going to）は <em>I'm gon' do it</em> のように未来を表す口語形。前の be動詞ごと落ちて <em>you gon'</em> になるのが特徴で、ラップの歌詞に頻出します。</p>
           <p><strong class="text-[var(--c-text)]">need a warrant for that</strong> は「それには令状が要る」で、捜索を拒む定番の言い回しです。</p>
@@ -463,7 +405,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
 
       <!-- ⑲ K9 -->
       <LearningUnit
-        heading="when the K9 come — K9 と b-word をつなぐ多義"
+        heading="when the K9 come — K9 の多義"
         label="★ 言葉遊び"
         mc="警官／Jay-Z（Verse 2）"
         t={TS["k9-come"].t} tApprox={TS["k9-come"].approx} youtubeId={YT}
@@ -473,44 +415,11 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <Fragment slot="jpn">「じゃあ、警察犬（K9）が来たらどれだけ利口か見てやる」</Fragment>
         <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の締め、警官の捨て台詞。ここでフックへつながります。</p>
         <p>警官の最後の脅し文句です。学習対象は <strong class="text-[var(--c-text)]">K9</strong>。</p>
-        <p>これは <em>canine</em>（イヌ科の）と同じ音の綴りで、<strong class="text-[var(--c-text)]">警察犬（麻薬探知犬）</strong>を指します。</p>
-        <p>令状なしでも探知犬を使えば車内を嗅げる、という次の一手を警官はちらつかせています。ここで効いてくるのが多義の仕掛け。</p>
-        <p><strong class="text-[var(--c-text)]">K9＝犬＝female dog</strong>、そして female dog の俗称がフックの <strong class="text-[var(--c-text)]">bitch</strong> です。つまりVerse 2の「a bitch ain't one」は、この警察犬を指す読みが生まれます。</p>
+        <p>これは <em>canine</em>（イヌ科の）と同じ音の綴りで、<strong class="text-[var(--c-text)]">警察犬</strong>を指します。</p>
         <p>ひとつの合言葉を、警察との対決の文脈でもう一度べつの意味に着地させる。Introで見た多義の運用が、ここで見事に閉じます。</p>
       </LearningUnit>
 
-      <!-- ⑳ strong-arm a ho -->
-      <LearningUnit
-        heading="had to strong-arm a ho — strong-arm と ho の再定義"
-        label="★ スラング／言葉遊び"
-        mc="Jay-Z（Verse 3）"
-        t={TS["strong-arm-ho"].t} tApprox={TS["strong-arm-ho"].approx} youtubeId={YT}
-        embed=""
-      >
-        <Fragment slot="eng">A nigga like myself had to strong-arm a ho<br />This is not a ho in the sense of havin' a pussy</Fragment>
-        <Fragment slot="jpn">俺みたいな男が、ある奴を力ずくで押さえる羽目になった／これは女って意味の"ho"じゃない</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3の入り、ストリートの因縁を語り出す件。</p>
-        <p>上の行の <QuickSlang word="strong-arm" desc="この曲では絡んできた相手を力ずくで押さえ込む、の意味で使う。次の行で ho の意味をわざわざ定義し直す前振りになっている" /> が学習ポイントです。</p>
-        <p><strong class="text-[var(--c-text)]">strong-arm</strong> は動詞で「腕力で押さえ込む・力ずくで従わせる」。</p>
-        <p>面白いのは下の行で、Jay-Zは自分で <code>ho</code> の意味を注釈します。<strong class="text-[var(--c-text)]">「これは女という意味の ho ではない」</strong>とわざわざ断るのです。</p>
-        <p>ここでの <code>ho</code> は女性ではなく、<strong class="text-[var(--c-text)]">腰抜け・情けない奴</strong>という侮蔑語として使われます。フックの「bitch」と同じく、女をけなす語に聞こえて実はそうではない、という多義の運用がVerse 3でも続きます。</p>
-      </LearningUnit>
 
-      <!-- ㉑ pussy / sense wordplay -->
-      <LearningUnit
-        heading="a pussy havin' no goddamn sense — 語をひっくり返すワードプレイ"
-        label="★ 言葉遊び"
-        mc="Jay-Z（Verse 3）"
-        t={TS["pussy-sense"].t} tApprox={TS["pussy-sense"].approx} youtubeId={YT}
-        embed=""
-      >
-        <Fragment slot="eng">But a pussy havin' no goddamn sense</Fragment>
-        <Fragment slot="jpn">分別（sense）のかけらもない腰抜け（pussy）だ</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ ho を定義し直した直後、語順を反転させて落とす件。</p>
-        <p>前のユニットの注釈を受けて、Jay-Zは同じ語を<strong class="text-[var(--c-text)]">ひっくり返して</strong>落とします。学習対象はその反転の構造です。</p>
-        <p>前の行の <em>a ho havin' a pussy</em>（女性器を持つ意味での ho）を、<strong class="text-[var(--c-text)]">a pussy havin' no sense</strong>（分別のない腰抜け）へと語順ごと入れ替える。<code>pussy</code> はここでは<strong class="text-[var(--c-text)]">「弱虫・腰抜け」</strong>の侮蔑語、<code>sense</code> は「分別・良識」です。</p>
-        <p>同じ単語を持つ位置を変えるだけで意味が反転する。この曲が繰り返す「聞こえる意味と本当の意味のズレ」を、一行のなかで凝縮してみせた箇所です。</p>
-      </LearningUnit>
 
       <!-- ㉒ bust a grape -->
       <LearningUnit
@@ -525,40 +434,12 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <p class="text-xs text-[var(--c-dim)] mb-1">▶ 絡んできた相手を「口だけ」と切り捨てる件。</p>
         <p>この二行は、威勢はいいが中身のない相手をからかう比喩です。上の行 <code>loud as a motorbike</code>（バイクのようにやかましい）で口の大きさを、下の行で実力のなさを描きます。</p>
         <p>学習対象は下の行 <strong class="text-[var(--c-text)]">wouldn't bust a grape in a fruit fight</strong>。<code>bust</code>（潰す）が使えないほど非力だ、しかも<strong class="text-[var(--c-text)]">「果物の喧嘩ですらブドウ一粒潰せない」</strong>という、わざと馬鹿げた比喩で相手をこき下ろしています。</p>
-        <p>実際の暴力ではなく、こういうユーモアで相手を格下扱いする。<code>motorbike / fruit fight</code> の脚韻も効いていて、悪口さえ韻とギャグで組み立てるのがJay-Zの余裕です。</p>
+        <p>実際のケンカではなく、こういうユーモアで相手を格下扱いする。<code>motorbike / fruit fight</code> の脚韻も効いていて、悪口さえ韻とギャグで組み立てるのがJay-Zの余裕です。</p>
       </LearningUnit>
 
       <!-- ㉓ clappin' -->
-      <LearningUnit
-        heading="get to clappin' — clap＝撃つ"
-        label="★ スラング"
-        mc="Jay-Z（Verse 3）"
-        t={TS["clappin"].t} tApprox={TS["clappin"].approx} youtubeId={YT}
-        embed=""
-      >
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 相手をこき下ろした先で、事態がきな臭くなる件。語彙ものなので語だけ。</p>
-        <p>口だけの相手をあしらった流れが、ここで物騒に傾きます。</p>
-        <p>学習対象は <QuickSlang word="clap" desc="この曲では get to clappin' の形で「撃ち始める」を指す。手を叩く音を銃声になぞらえた隠語" /> です。</p>
-        <p><strong class="text-[var(--c-text)]">clap</strong> は本来「手を叩く・拍手」。そのパンという破裂音を銃声に重ねて、ストリートでは<strong class="text-[var(--c-text)]">「発砲する・撃つ」</strong>の動詞になりました。</p>
-        <p><code>get to clappin'</code> で「撃ち始める」。</p>
-        <p>結局こうなれば自分は撃つし、相手とその仲間は警官（キャプテン）に泣きつくだけだ、という展開。ここからVerse 3は、ストリートの因縁が司法制度の話へと滑り込んでいきます。</p>
-      </LearningUnit>
 
       <!-- ㉔ system / riff-raff -->
-      <LearningUnit
-        heading="back through the system — 司法制度の system と riff-raff"
-        label="★ スラング／テーマ"
-        mc="Jay-Z（Verse 3）"
-        t={TS["system-riffraff"].t} tApprox={TS["system-riffraff"].approx} youtubeId={YT}
-        embed=""
-      >
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 撃った先に待っているものを語る件。語彙ものなので語だけ取り出します。</p>
-        <p>撃てばどうなるか。Jay-Zは <strong class="text-[var(--c-text)]">back through the system</strong> と言います。</p>
-        <p>学習ポイントは <strong class="text-[var(--c-text)]">system</strong>。</p>
-        <p>ここでの <strong class="text-[var(--c-text)]">system</strong> はカーオーディオではなく、<strong class="text-[var(--c-text)]">刑事司法制度（逮捕・勾留・裁判の一連の仕組み）</strong>を指します。<code>back through</code>＝また通される、で、前科者が制度に再び飲み込まれていく感覚が出ます。</p>
-        <p>並んで出る <strong class="text-[var(--c-text)]">riff-raff</strong> は「ならず者・与太者の類」を指すくだけた語。撃った代償は、その制度の中を <code>riff-raff</code> に混じってもう一度くぐることだ、と現実を突きつけます。</p>
-        <p>ストリートの一発が、そのまま制度の檻につながっている。Verse 3後半のテーマがここで定まります。</p>
-      </LearningUnit>
 
       <!-- ㉕ half a mil for bail -->
       <LearningUnit
@@ -583,20 +464,6 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       </LearningUnit>
 
       <!-- ㉖ saccharine -->
-      <LearningUnit
-        heading="like he's saccharine — 「甘い」を裏切る saccharine"
-        label="★ 言葉遊び"
-        mc="Jay-Z（Verse 3）"
-        t={TS["saccharine"].t} tApprox={TS["saccharine"].approx} youtubeId={YT}
-        embed=""
-      >
-        <Fragment slot="eng">Tryin' to play the boy like he's saccharine<br />But ain't nothin' sweet 'bout how I hold my gun</Fragment>
-        <Fragment slot="jpn">俺を砂糖菓子みたいに甘く見て舐めてくる／だが俺の銃の握り方に、甘いところなんてない</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3の締め、甘く見られたことへの返し。</p>
-        <p>学習対象は上の行末 <strong class="text-[var(--c-text)]">saccharine</strong>。人工甘味料の「サッカリン」で、比喩としては<strong class="text-[var(--c-text)]">「甘ったるい・見かけ倒しの」</strong>を表します。</p>
-        <p>相手が自分を <code>saccharine</code>（甘い＝御しやすい）と侮ってきた、という一行。それを下の行で <strong class="text-[var(--c-text)]">ain't nothin' sweet</strong>（甘いところなど何もない）と裏返して切り返します。</p>
-        <p><strong class="text-[var(--c-text)]">saccharine / sweet</strong> の「甘い」つながりで、侮辱を丸ごと反撃に変える。甘く見た相手に「甘くないぞ」と返す、対句の言葉遊びでVerse 3を締めています。</p>
-      </LearningUnit>
 
       <!-- ㉗ outro / Rick -->
       <LearningUnit
@@ -607,7 +474,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         embed=""
       >
         <p class="text-xs text-[var(--c-dim)] mb-1">▶ 曲の本当に最後、プロデューサーへ声をかけて幕を引く件。語りものなので語だけ。</p>
-        <p>三つのVerseを撃ち終えたあと、Jay-Zはリスナーではなくプロデューサーへ声をかけて曲を閉じます。学習ポイントは <strong class="text-[var(--c-text)]">You crazy for this one, Rick</strong>。</p>
+        <p>三つのVerseを語り終えたあと、Jay-Zはリスナーではなくプロデューサーへ声をかけて曲を閉じます。学習ポイントは <strong class="text-[var(--c-text)]">You crazy for this one, Rick</strong>。</p>
         <p><code>Rick</code> は、このトラックを組んだ <strong class="text-[var(--c-text)]">Rick Rubin</strong>。<strong class="text-[var(--c-text)]">You crazy for this one</strong> は「このビート、正気じゃない（それくらいヤバい）」という褒め言葉で、<code>crazy</code> を最上級の賛辞に使う口語です。</p>
         <p>重いテーマを走り抜けた曲を、作り手同士の軽い掛け合いでふっと緩めて終える。緊張の直後にこの一言を置く呼吸が、この曲を一度聴くと忘れにくくしているのだと思います。</p>
       </LearningUnit>
@@ -645,12 +512,9 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <h3 class="font-semibold text-base mb-3">この曲で学んだ表現の整理</h3>
         <div class="space-y-3 mt-3">
           {[
-            ['a bitch ain\'t one', 'フックの合言葉。批評家→警察犬→弱腰の敵と、指す相手を変える多義の運用'],
-            ['gat', '拳銃を指す古い隠語。Gatling gun（ガトリング砲）の短縮が語源'],
             ['zapatos / dough', 'zapatos＝スペイン語で靴。dough＝金のスラング。貧困と富を一行で対比'],
             ['beef', '揉め事・因縁・確執。have beef with 〜で「〜と揉めている」'],
             ['from rags to riches', 'ぼろ布から富へ＝無一文から大金持ちへ成り上がる定番イディオム'],
-            ['raw', '未加工＝カットしていない純度の高いコカインを指すストリート語'],
             ['the law / Jake', 'どちらも警察を指す隠語。Jakeはニューヨーク発'],
             ['pedal to the floor', 'アクセルを床まで踏む＝全力で逃げる・飛ばす慣用句'],
             ['stopping you for', 'why と for が二重に付く口語文法。前置詞が余るクセ'],
@@ -658,9 +522,8 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
             ['warrant', '捜索令状。修正第4条を盾に捜索を拒む鍵の語'],
             ['sharp as a tack', '画鋲のように鋭い＝頭が切れる、の直喩イディオム'],
             ['pass the bar', 'bar exam（司法試験）に受かる。ラップの bars とも二重に響く言葉遊び'],
-            ['K9', 'canineと同音。警察犬。female dog＝bitchへとフックにつながる多義'],
+            ['K9', 'canineと同音。警察犬'],
             ['strong-arm', '腕力で押さえ込む・力ずくで従わせる動詞'],
-            ['clap（clappin\'）', '拍手の破裂音を銃声に重ねた隠語で「撃つ」'],
             ['system', 'ここでは刑事司法制度。back through the systemで制度に再び飲まれる'],
             ['bail', '保釈金。post bail（払う）、out on bail（保釈中）で頻出'],
             ['saccharine', '人工甘味料サッカリン＝甘ったるい・見かけ倒しの、の比喩'],
@@ -687,6 +550,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
           <p>
             このトラックの骨格は、<strong class="text-[var(--c-text)]">Billy Squier「The Big Beat」（1980）</strong>のドラムブレイクです。ロック畑のこの一発は、ヒップホップで長く愛用されてきた定番の生ドラムでもあります。
           </p>
+        <SampleYoutube id="MGn5mZtlyFw" title="Billy Squier - The Big Beat (1980)" />
           <p>
             プロデュースは <strong class="text-[var(--c-text)]">Rick Rubin</strong>。Def Jamの共同創設者で、ロックとヒップホップを行き来してきた人です。
           </p>
@@ -694,7 +558,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
             ギターのリフと重いドラムを前に出した作りは、彼のロック寄りの手つきがそのまま出ています。
           </p>
           <p>
-            「bitch」「99 problems」というフレーズ自体は、Ice-Tの1993年の曲「99 Problems」からの引用でもあります。Jay-Zはそこにまったく別の物語を接ぎ木して、句の意味を作り変えました。
+            「99 problems」というフレーズ自体は、Ice-Tの1993年の曲「99 Problems」からの引用でもあります。Jay-Zはそこにまったく別の物語を接ぎ木して、句の意味を作り変えました。
           </p>
         </div>
       </div>
@@ -771,9 +635,9 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         まとめ
       </h2>
       <ul class="space-y-2 text-sm text-[var(--c-muted)] list-disc list-inside leading-relaxed">
-        <li>「99 Problems」は <code>a bitch ain't one</code> の一句を、批評家・警察犬・弱腰の敵へと意味を変えて三度使う多義（マルチミーニング）の曲。</li>
+        <li>「99 Problems」は フックの一句を、批評家・警察犬・弱腰の敵へと意味を変えて三度使う多義（マルチミーニング）の曲。</li>
         <li>Verse 2は1994年の職質を再現した対話劇で、<code>warrant</code>（令状）と修正第4条を武器に捜索を拒む「ラップに包まれた法律の授業」。</li>
-        <li><code>pass the bar</code>（司法試験／ラップの bars）や <code>K9</code>（犬／bitch）のように、一語で二つの意味を走らせる言葉遊びが随所に仕込まれている。</li>
+        <li><code>pass the bar</code>（司法試験／ラップの bars）や <code>K9</code>（犬／フック）のように、一語で二つの意味を走らせる言葉遊びが随所に仕込まれている。</li>
         <li><code>Jake</code>（警官）、<code>gon'</code>（AAVEの未来形）、<code>stopping you for</code>（余る前置詞）など、教科書の外側にある生きた英語がまるごと教材になる一曲。</li>
       </ul>
     </section>

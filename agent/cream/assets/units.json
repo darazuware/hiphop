@@ -37,18 +37,6 @@
     "captionSec": 32
   },
   {
-    "id": "gold-tooth",
-    "anchor": [
-      "rockin",
-      "the",
-      "gold",
-      "tooth"
-    ],
-    "fallbackT": 35,
-    "manualSec": 34,
-    "captionSec": 32
-  },
-  {
     "id": "lo-goose",
     "anchor": [
       "a",
@@ -73,30 +61,6 @@
     "captionSec": 35
   },
   {
-    "id": "runnin-up-gates",
-    "anchor": [
-      "runnin",
-      "up",
-      "in",
-      "gates"
-    ],
-    "fallbackT": 55,
-    "manualSec": 47,
-    "captionSec": 49
-  },
-  {
-    "id": "keys-seas",
-    "anchor": [
-      "catchin",
-      "keys",
-      "from",
-      "'cross"
-    ],
-    "fallbackT": 81,
-    "manualSec": 76,
-    "captionSec": 75
-  },
-  {
     "id": "mpv-forty-g",
     "anchor": [
       "rollin",
@@ -106,18 +70,6 @@
     "fallbackT": 79,
     "manualSec": null,
     "captionSec": 77
-  },
-  {
-    "id": "tec-9",
-    "anchor": [
-      "respect",
-      "mine",
-      "or",
-      "anger"
-    ],
-    "fallbackT": 87,
-    "manualSec": 81,
-    "captionSec": 81
   },
   {
     "id": "cream-hook",
@@ -130,19 +82,6 @@
     "fallbackT": 92,
     "manualSec": 86.5,
     "captionSec": 86
-  },
-  {
-    "id": "fifteen-bagged",
-    "anchor": [
-      "at",
-      "the",
-      "age",
-      "of",
-      "fifteen"
-    ],
-    "fallbackT": 126,
-    "manualSec": 112,
-    "captionSec": 109.78
   },
   {
     "id": "could-not-touch",
@@ -195,19 +134,6 @@
     "captionSec": 132
   },
   {
-    "id": "jakes-base",
-    "anchor": [
-      "every",
-      "day",
-      "i",
-      "escape",
-      "from"
-    ],
-    "fallbackT": 139,
-    "manualSec": 134,
-    "captionSec": 133
-  },
-  {
     "id": "bones-staircase",
     "anchor": [
       "smokin",
@@ -243,17 +169,6 @@
     "fallbackT": 153,
     "manualSec": 149,
     "captionSec": 147
-  },
-  {
-    "id": "stickup-kids",
-    "anchor": [
-      "we",
-      "got",
-      "stick"
-    ],
-    "fallbackT": 160,
-    "manualSec": 156,
-    "captionSec": 154
   },
   {
     "id": "livin-proof",

@@ -108,7 +108,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       </h2>
       <div class="space-y-3 text-xs text-[var(--c-dim)] mb-6">
         <p>各unitでは、歌詞の中の表現を取り上げて、意味と使い方を説明します。引用は短くしています。</p>
-        <p>暴力や、読み手に負担のある描写は、引用せず、背景だけにとどめています。▶を押すと、PVの該当箇所から再生できます。</p>
+        <p>読み手に負担のある描写は、引用せず、背景だけにとどめています。▶を押すと、PVの該当箇所から再生できます。</p>
       </div>
 
       <LearningUnit
@@ -152,26 +152,6 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         </Fragment>
       </LearningUnit>
 
-      <LearningUnit
-        heading="Rats in the front room, roaches in the back 対句と韻"
-        label="★ 韻／語彙"
-        mc="Melle Mel（Verse 1）"
-        t={TS["rats-roaches-junkies"].t} tApprox={TS["rats-roaches-junkies"].approx} youtubeId={YT}
-        embed=""
-      >
-        <Fragment slot="eng">Rats in the front room, roaches in the back<br />Junkies in the alley with a baseball bat</Fragment>
-        <Fragment slot="jpn">手前の部屋にはネズミ、奥の部屋にはゴキブリ。路地には野球のバットを持ったジャンキー</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 動詞なしで、名詞と場所だけを並べた2行です。</p>
-        <p><strong class='text-[var(--c-text)]'>front room</strong> と <strong class='text-[var(--c-text)]'>back</strong> を対にして、どこにも逃げ場がないことを、場所の名前だけで描いています。</p>
-        <p>この2行には、動詞がありません。<code>Rats in the front room</code>、<code>roaches in the back</code>、<code>Junkies in the alley</code>。</p>
-        <p>名詞と場所だけで、情景が描けています。</p>
-        <p><code>back</code> と <code>bat</code> が、行末で韻を踏んでいます。音の気持ちよさと、描いている内容の重さが、ずれているところにも注目です。</p>
-        <p><strong class='text-[var(--c-text)]'>junkie</strong> は、薬物依存の人を指す語で、使い方によっては相手を傷つける言葉です。ここでは、歌詞の描写として出てきています。</p>
-        <Fragment slot="usage">
-          <p><strong class='text-[var(--c-text)]'>名詞 + in + 場所</strong>: <em>Books on the table, shoes by the door.</em>（机の上に本、玄関に靴）。動詞なしで、状況を並べる書き方です。</p>
-          <p><em>roach</em> は、<em>cockroach</em> の短縮形で、日常会話でも使います。</p>
-        </Fragment>
-      </LearningUnit>
 
       <LearningUnit
         heading="a man with a tow truck repossessed my car 生活苦の語彙"
@@ -426,8 +406,8 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <Fragment slot="jpn">今は失業中で、価値のない存在になって、Pretty Boy Floydを気取って歩き回っている</Fragment>
         <p class="text-xs text-[var(--c-dim)] mb-1">▶ 法律の言葉と、昔の無法者の名前が出てくる行です。</p>
         <p><strong class='text-[var(--c-text)]'>null and void</strong> は、「無効で、効力がない」という、契約書などに出てくる法律用語です。ここでは、社会から価値がないものとして扱われている、という意味に転用されています。</p>
-        <p><strong class='text-[var(--c-text)]'>Pretty Boy Floyd</strong> は、1930年代のアメリカで、銀行強盗として知られた無法者の呼び名です。映画や歌の題材にもなりました。</p>
-        <p>「無効」という硬い語と、強盗のあだ名という俗な固有名詞を、続けて並べる落差が、この2行の面白さです。</p>
+        <p><strong class='text-[var(--c-text)]'>Pretty Boy Floyd</strong> は、1930年代のアメリカで、無法者として知られた人物の呼び名です。映画や歌の題材にもなりました。</p>
+        <p>「無効」という硬い語と、無法者のあだ名という俗な固有名詞を、続けて並べる落差が、この2行の面白さです。</p>
         <p><code>Walking 'round</code> は、<em>walking around</em> の短縮形。<em>'round</em> のように、語頭の音が落ちる書き方は、歌詞でよく見られます。</p>
         <Fragment slot="usage">
           <p><strong class='text-[var(--c-text)]'>null and void</strong>: <em>The contract is null and void.</em>（その契約は無効だ）。法律文書の定番の言い方です。</p>
@@ -435,26 +415,6 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         </Fragment>
       </LearningUnit>
 
-      <LearningUnit
-        heading="look what you done did / an eight-year bid AAVEの done と刑期の語彙"
-        label="★ AAVE／語彙"
-        mc="Melle Mel（Verse 5）"
-        t={TS["stick-up-kid-eight-year-bid"].t} tApprox={TS["stick-up-kid-eight-year-bid"].approx} youtubeId={YT}
-        embed=""
-      >
-        <Fragment slot="eng">Turned stick-up kid, but look what you done did<br />Got sent up for a eight-year bid</Fragment>
-        <Fragment slot="jpn">強盗に転じたけど、自分のしたことを見ろ。8年の刑を食らって送り込まれた</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 転落の場面。AAVEの動詞の形に注目です。</p>
-        <p><strong class='text-[var(--c-text)]'>stick-up kid</strong> は、強盗を働く若者。<strong class='text-[var(--c-text)]'>bid</strong> は、スラングで「刑期」のこと。</p>
-        <p><em>an eight-year bid</em> で、「8年の刑」です。</p>
-        <p><strong class='text-[var(--c-text)]'>sent up</strong> は、「刑務所に送られる」という意味の句動詞。<em>send up</em> は、ほかに「パロディにする」という意味もあります。</p>
-        <p>文法の面で目を引くのは、<code>look what you done did</code> です。<em>done</em> と <em>did</em> が並ぶ形で、AAVEの完了の <em>done</em> を使って、結果を強調しています。</p>
-        <p>標準英語に直せば、<em>look what you've done</em>。<em>done did</em> と重ねることで、「やらかした」という響きが強まります。</p>
-        <Fragment slot="usage">
-          <p><strong class='text-[var(--c-text)]'>Look what you did!</strong>: 「見ろ、おまえのせいだ」。失敗を責めるときに使う決まり文句です。</p>
-          <p><em>do time</em>（刑期を務める）、<em>serve time</em> も、刑務所の話でよく使われます。</p>
-        </Fragment>
-      </LearningUnit>
 
       <LearningUnit
         heading="you ain't gotta push me、アウトロのスキット"

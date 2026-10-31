@@ -1,16 +1,5 @@
 [
   {
-    "id": "menace-o-dog",
-    "anchor": [
-      "similar",
-      "to",
-      "a",
-      "menace"
-    ],
-    "fallbackT": 14,
-    "manualSec": null
-  },
-  {
     "id": "wont-be-nobody",
     "anchor": [
       "wont",
@@ -20,31 +9,6 @@
       "enough"
     ],
     "fallbackT": 19,
-    "manualSec": null
-  },
-  {
-    "id": "sentenced-to-box",
-    "anchor": [
-      "sentenced",
-      "to",
-      "life",
-      "stressed"
-    ],
-    "fallbackT": 25,
-    "manualSec": null
-  },
-  {
-    "id": "nobody-but-me",
-    "anchor": [
-      "nobody",
-      "but",
-      "me",
-      "i",
-      "got",
-      "a",
-      "whole"
-    ],
-    "fallbackT": 31,
     "manualSec": null
   },
   {
@@ -155,20 +119,6 @@
     "manualSec": null
   },
   {
-    "id": "cooks-the-pot",
-    "anchor": [
-      "you",
-      "know",
-      "how",
-      "we",
-      "cooks",
-      "the",
-      "pot"
-    ],
-    "fallbackT": 99,
-    "manualSec": null
-  },
-  {
     "id": "mold-the-sound",
     "anchor": [
       "watch",
@@ -197,20 +147,6 @@
     "manualSec": null
   },
   {
-    "id": "war-for-4-4",
-    "anchor": [
-      "for",
-      "all",
-      "my",
-      "niggas",
-      "i",
-      "war",
-      "for"
-    ],
-    "fallbackT": 140,
-    "manualSec": null
-  },
-  {
     "id": "back-to-back",
     "anchor": [
       "trapped",
@@ -223,78 +159,6 @@
     "manualSec": null
   },
   {
-    "id": "lay-a-nigga-down",
-    "anchor": [
-      "lay",
-      "a",
-      "nigga",
-      "down"
-    ],
-    "fallbackT": 148,
-    "manualSec": null
-  },
-  {
-    "id": "cock-my-shit",
-    "anchor": [
-      "cock",
-      "my",
-      "shit",
-      "and",
-      "hold",
-      "you",
-      "down"
-    ],
-    "fallbackT": 151,
-    "manualSec": null
-  },
-  {
-    "id": "mobb-thugs-paper",
-    "anchor": [
-      "mobb",
-      "thugs",
-      "drops",
-      "and",
-      "trucks"
-    ],
-    "fallbackT": 181,
-    "manualSec": null
-  },
-  {
-    "id": "finna-get-wigged",
-    "anchor": [
-      "somebody",
-      "finna",
-      "get",
-      "wigged"
-    ],
-    "fallbackT": 190,
-    "manualSec": null
-  },
-  {
-    "id": "quarter-mill-chain",
-    "anchor": [
-      "chain",
-      "cost",
-      "a",
-      "quarter",
-      "mill"
-    ],
-    "fallbackT": 195,
-    "manualSec": null
-  },
-  {
-    "id": "wilding-double-neg",
-    "anchor": [
-      "shots",
-      "won't",
-      "never",
-      "stop",
-      "wilding"
-    ],
-    "fallbackT": 200,
-    "manualSec": null
-  },
-  {
     "id": "they-say-wilding",
     "anchor": [
       "they",
@@ -303,32 +167,6 @@
       "we"
     ],
     "fallbackT": 201,
-    "manualSec": null
-  },
-  {
-    "id": "fullies-in-the-coupe",
-    "anchor": [
-      "fullies",
-      "in",
-      "the",
-      "coupe"
-    ],
-    "fallbackT": 207,
-    "manualSec": null
-  },
-  {
-    "id": "take-bullets-die",
-    "anchor": [
-      "take",
-      "bullets",
-      "and",
-      "die",
-      "to",
-      "hold",
-      "you",
-      "down"
-    ],
-    "fallbackT": 211,
     "manualSec": null
   },
   {

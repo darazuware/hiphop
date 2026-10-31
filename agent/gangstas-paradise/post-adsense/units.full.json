@@ -1,0 +1,265 @@
+[
+  {
+    "id": "valley-shadow-death",
+    "anchor": [
+      "as",
+      "i",
+      "walk",
+      "through",
+      "the",
+      "valley",
+      "of",
+      "the",
+      "shadow",
+      "of",
+      "death"
+    ],
+    "fallbackT": 18,
+    "manualSec": null,
+    "captionSec": 26
+  },
+  {
+    "id": "nothin-left",
+    "anchor": [
+      "i",
+      "take",
+      "a",
+      "look",
+      "at",
+      "my",
+      "life"
+    ],
+    "fallbackT": 22,
+    "manualSec": null,
+    "captionSec": 28
+  },
+  {
+    "id": "blastin-laughin",
+    "anchor": [
+      "'cause",
+      "i've",
+      "been",
+      "blastin'",
+      "and",
+      "laughin'",
+      "so",
+      "long"
+    ],
+    "fallbackT": 26,
+    "manualSec": null,
+    "captionSec": 32
+  },
+  {
+    "id": "aint-never-crossed",
+    "anchor": [
+      "but",
+      "i",
+      "ain't",
+      "never",
+      "crossed",
+      "a",
+      "man"
+    ],
+    "fallbackT": 31,
+    "manualSec": null,
+    "captionSec": 37
+  },
+  {
+    "id": "me-be-treated",
+    "anchor": [
+      "me",
+      "be",
+      "treated",
+      "like",
+      "a",
+      "punk"
+    ],
+    "fallbackT": 35,
+    "manualSec": null,
+    "captionSec": 41
+  },
+  {
+    "id": "watch-how-talkin",
+    "anchor": [
+      "you",
+      "better",
+      "watch",
+      "how",
+      "you're",
+      "talkin'"
+    ],
+    "fallbackT": 39,
+    "manualSec": null,
+    "captionSec": 41
+  },
+  {
+    "id": "kinda-g-little-homies",
+    "anchor": [
+      "i'm",
+      "the",
+      "kinda",
+      "g",
+      "the",
+      "little",
+      "homies"
+    ],
+    "fallbackT": 47,
+    "manualSec": null,
+    "captionSec": 53
+  },
+  {
+    "id": "on-my-knees",
+    "anchor": [
+      "on",
+      "my",
+      "knees",
+      "in",
+      "the",
+      "night"
+    ],
+    "fallbackT": 53,
+    "manualSec": null,
+    "captionSec": 59
+  },
+  {
+    "id": "spendin-most-their-lives",
+    "anchor": [
+      "they've",
+      "been",
+      "spendin'",
+      "most",
+      "their",
+      "lives"
+    ],
+    "fallbackT": 58,
+    "manualSec": null,
+    "captionSec": 62
+  },
+  {
+    "id": "raised-by-the-street",
+    "anchor": [
+      "i",
+      "can't",
+      "live",
+      "a",
+      "normal",
+      "life"
+    ],
+    "fallbackT": 85,
+    "manualSec": null,
+    "captionSec": 80
+  },
+  {
+    "id": "got-me-chasin",
+    "anchor": [
+      "too",
+      "much",
+      "television",
+      "watchin'"
+    ],
+    "fallbackT": 92,
+    "manualSec": null,
+    "captionSec": 94
+  },
+  {
+    "id": "educated-fool",
+    "anchor": [
+      "i'm",
+      "a",
+      "educated",
+      "fool",
+      "with",
+      "money"
+    ],
+    "fallbackT": 98,
+    "manualSec": null,
+    "captionSec": 98
+  },
+  {
+    "id": "heartbeat-away",
+    "anchor": [
+      "death",
+      "ain't",
+      "nothin'",
+      "but",
+      "a",
+      "heartbeat",
+      "away"
+    ],
+    "fallbackT": 111,
+    "manualSec": null,
+    "captionSec": 109
+  },
+  {
+    "id": "live-to-see-twenty-four",
+    "anchor": [
+      "i'm",
+      "twenty-three",
+      "now"
+    ],
+    "fallbackT": 119,
+    "manualSec": null,
+    "captionSec": 116
+  },
+  {
+    "id": "blind-to-see",
+    "anchor": [
+      "tell",
+      "me",
+      "why",
+      "are",
+      "we",
+      "so",
+      "blind",
+      "to",
+      "see"
+    ],
+    "fallbackT": 122,
+    "manualSec": null,
+    "captionSec": 122
+  },
+  {
+    "id": "power-money-chiasmus",
+    "anchor": [
+      "power",
+      "and",
+      "the",
+      "money",
+      "money",
+      "and",
+      "the",
+      "power"
+    ],
+    "fallbackT": 150,
+    "manualSec": null,
+    "captionSec": 158
+  },
+  {
+    "id": "whats-cookin",
+    "anchor": [
+      "it's",
+      "goin'",
+      "on",
+      "in",
+      "the",
+      "kitchen"
+    ],
+    "fallbackT": 163,
+    "manualSec": null,
+    "captionSec": 167
+  },
+  {
+    "id": "teach-reach",
+    "anchor": [
+      "they",
+      "say",
+      "i",
+      "got",
+      "to",
+      "learn"
+    ],
+    "fallbackT": 168,
+    "manualSec": null,
+    "captionSec": 170
+  }
+]

@@ -2,6 +2,7 @@
 import LearningUnit from '../../components/LearningUnit.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
 import SongLayout from '../../layouts/SongLayout.astro';
+import SampleYoutube from '../../components/SampleYoutube.astro';
 import DiveCards from '../../components/DiveCards.astro';
 
 // 学習ユニットのPVタイムスタンプ。agent/src/extract-unit-timestamps.mjs で音源を
@@ -16,13 +17,14 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
   description="Big Pun feat. Fat Joe「Twinz (Deep Cover 98)」を英語学習教材として精読。31音節の伝説的パンチライン・スラング・AAVE・内部韻を表現単位で解説。各表現はMVの該当箇所へ頭出しリンク付き。"
   slug="twinz-deep-cover-98"
   highlights={[
-    '「Dead in the middle of Little Italy…」31音節・7つの同音連打という人類史上最高密度の内部韻を解剖',
+    '「Little Italy」ライン、31音節・7つの同音連打という人類史上最高密度の内部韻を解剖',
     'Dr. DreとSnoop Doggの西海岸クラシックをブロンクスのマフィオソ流儀で再構築。Snoop本人がMVに登場し東西融和を体現',
     'スラング・内部韻・AAVE・バイリンガルな言葉遊びを「学ぶ表現」単位でPV頭出しリンク付きで解説',
   ]}
   youtubeId="AiwvPmRTv6M"
   songDuration={270}
   sampleYoutubeId="rFPNCVJIFT8"
+  sampleInContent={true}
   sampleTitle='Dr. Dre feat. Snoop Doggy Dogg - Deep Cover'
   learningPage={true}
 >
@@ -58,7 +60,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
           この曲は1998年のデビューアルバム『Capital Punishment』に収録されています。Big Punはこの作品で、ラテン系ソロラッパーとして史上初のRIAAプラチナ認定を獲得しました（本作は Billboard 200 で最高5位）。
         </p>
         <p>
-          それだけでも革命的なのですが、さらに驚くのは彼のラップ技術の密度です。「Dead in the middle of Little Italy」ラインは、<strong class="text-[var(--c-text)]">31音節・7つの同音</strong>が一行に連射されます。
+          それだけでも革命的なのですが、さらに驚くのは彼のラップ技術の密度です。「Little Italy」ラインは、<strong class="text-[var(--c-text)]">31音節・7つの同音</strong>が一行に連射されます。
         </p>
         <p>
           このラインをスタジオの口慣らし中に思いついて、「笑われる」と思って入れるのを嫌がったというのだから面白いです（Fat Joeに猛烈に説得されて渋々入れたと伝わっています）。ラテン系としてのアイデンティティ、映画的な世界観、圧倒的な技術が三位一体になった曲で、英語学習として相当おいしい素材だと思います。
@@ -90,18 +92,18 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       </p>
       <div class="space-y-4 text-sm text-[var(--c-muted)] leading-relaxed">
         <p>
-          曲は架空のマフィオソ計画から始まります。Big PunがFat Joe（「Joey」）に作戦を伝え、ブロンクスのリトル・イタリー地区で標的を始末し、汚職警官と手を組んで逃げおおせる、という筋書きです。
+          曲は架空のマフィオソ計画から始まります。Big PunがFat Joe（「Joey」）に作戦を伝え、ブロンクスのリトル・イタリー地区で計画を進め、汚職警官と手を組んで逃げおおせる、という筋書きです。
         </p>
         <p>
           映画『ゴッドファーザー』の登場人物「ヴィトー」や、ロバート・デ・ニーロ演じる「ヌードルス」が、実際の計画の場所として出てきます。マフィア映画の固有名詞がそのままブロンクスの路地に溶け込んでいて、これがマフィオソ・ラップという様式の核心になっています。
         </p>
         <p>
-          <strong class="text-[var(--c-text)]">Verse 1（Big Pun）</strong>では、スタジオの口慣らしから生まれた「Little Italy」ラインが炸裂します。ターゲットがパスタをすすっている隙に急襲しますが、実は無関係な仲介人を仕留めてしまっていた、というオチがつきます。
+          <strong class="text-[var(--c-text)]">Verse 1（Big Pun）</strong>では、スタジオの口慣らしから生まれた「Little Italy」ラインが炸裂します。
         </p>
         <p>
           31音節に7つの同音が連打されるこの一行は、ラップの技術論として今も世界中で引用されています。
         </p>
-        <p><strong class="text-[var(--c-text)]">Hook（Big Pun & Fat Joe）</strong>は「1-8-7 on an undercover cop」。カリフォルニア州刑法第187条（殺人罪）のコードを借りたDr. Dre / Snoop Doggのオリジナルフックを継承しつつ、「still（今でも）」という一語を足しています。</p>
+        <p><strong class="text-[var(--c-text)]">Hook（Big Pun & Fat Joe）</strong>は、Dr. Dre / Snoop Doggのオリジナルフックを継承しつつ、「still（今でも）」という一語を足しています。</p>
         <p>これが東海岸からの宣言になっています。</p>
         <p>
           <strong class="text-[var(--c-text)]">Verse 2〜8</strong>では、Big PunとFat Joeが交互にバースを担当しながら、反警察・反骨精神・ラテン系のアイデンティティを次々に畳みかけます。「Black Pearl Latina, más fina」でBig Punはスペイン語を行き来し、Fat Joeは「Don Cartagena」というマフィアのドンのオルターエゴで自らを位置づけます。
@@ -134,17 +136,17 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         t={TS["blow-they-spot"].t} tApprox={TS["blow-they-spot"].approx} youtubeId={YT}
         embed=""
       >
-        <Fragment slot="eng">Ready for war, Joe, how you wanna <QuickSlang word="blow they spot" desc="blow the spot＝場所や計画を暴露する・台無しにする。ここでは襲撃をどう仕掛けるかの相談" />?</Fragment>
+        <Fragment slot="eng">Ready for war, Joe, how you wanna <QuickSlang word="blow they spot" desc="blow the spot＝場所や計画を暴露する・台無しにする。ここでは作戦をどう仕掛けるかの相談" />?</Fragment>
         <Fragment slot="jpn">戦争の準備はできてるぞ、Joe。奴らのアジトをどう潰したい？</Fragment>
         <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1冒頭、PunがJoeに作戦を持ちかける一行。</p>
         <p>行の後半、<strong class="text-[var(--c-text)]">they spot</strong> が最初の学習ポイントです。標準英語なら <em>their spot</em>（彼らの場所）ですが、<QuickSlang word="AAVE" desc="African American Vernacular English。アフリカ系アメリカ人英語。所有格 their をthey で代用するのが特徴のひとつ" />では所有格の <em>their</em> を <em>they</em> で代用します。</p>
-        <p class="mt-2"><strong class="text-[var(--c-text)]">blow the spot</strong> は「場所や計画をバラす、台無しにする」というストリート動詞です。ここでは「敵のアジトをどう潰すか」という襲撃の相談として使われています。</p>
+        <p class="mt-2"><strong class="text-[var(--c-text)]">blow the spot</strong> は「場所や計画をバラす、台無しにする」というストリート動詞です。ここでは「敵のアジトをどう潰すか」という作戦の相談として使われています。</p>
         <p class="mt-2">文法のクセと動詞の意味を一度に拾えるので、教材としては入口にちょうどいい一行です。</p>
         <Fragment slot="usage">
           <p><strong class="text-[var(--c-text)]">they（所有格）</strong> はAAVEの代表的な文法特徴です。<em>they crib</em>（彼らの家）、<em>they money</em>（彼らの金）のように、所有格の -r を落として they のまま名詞にかけます。</p>
         <p>標準英語の their と発音が近いことから定着したと言われます。</p>
           <p><strong class="text-[var(--c-text)]">blow the spot</strong> は文脈で意味が振れる語です。「秘密の場所を漏らす」「いい雰囲気をぶち壊す」「（ライブで）会場を沸かせる」など、良い意味にも悪い意味にも使われます。</p>
-        <p>ここは襲撃の相談なので「潰す」寄りのニュアンスです。</p>
+        <p>ここは作戦の相談なので「潰す」寄りのニュアンスです。</p>
         </Fragment>
       </LearningUnit>
 
@@ -156,34 +158,13 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         t={TS["punisher-vito-noodles"].t} tApprox={TS["punisher-vito-noodles"].approx} youtubeId={YT}
         embed=""
       >
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1前半、襲撃の段取りを語る件。固有名詞が三つ続けて出てきます。</p>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1前半、作戦の段取りを語る件。固有名詞が三つ続けて出てきます。</p>
         <p>ここは英語の引用なしで、固有名詞の背景だけを押さえておきます。まず <strong class="text-[var(--c-text)]">the Punisher</strong>。</p>
         <p>Marvelの自警団ヒーローの名前ですが、ここではBig Pun自身のオルターエゴでもあります。Pun という芸名自体が Punisher の略で、名前とキャラクターが二重に響く仕掛けです。</p>
         <p class="mt-2"><strong class="text-[var(--c-text)]">Vito's</strong> は『ゴッドファーザー』の主人公ヴィトー・コルレオーネから取った待ち合わせ場所、<strong class="text-[var(--c-text)]">Noodles</strong> は映画『ワンス・アポン・ア・タイム・イン・アメリカ』でロバート・デ・ニーロが演じたギャングの名前です。マフィア映画とアメコミの固有名詞を並べるだけで、ブロンクスの路地に映画的な世界がかぶさります。</p>
         <p class="mt-2">これがマフィオソ・ラップの手つきです。</p>
       </LearningUnit>
 
-      <!-- ③ dead-little-italy -->
-      <LearningUnit
-        heading="Dead in the middle of Little Italy — 31音節・内部韻の教科書"
-        label="★ 内部韻（最重要）"
-        mc="Big Pun（Verse 1）"
-        t={TS["dead-little-italy"].t} tApprox={TS["dead-little-italy"].approx} youtubeId={YT}
-        embed=""
-      >
-        <Fragment slot="eng">Dead in the middle of <QuickSlang word="Little Italy" desc="ニューヨーク・マンハッタンにあるイタリア系アメリカ人の歴史的居住区。マフィアとの関連が深い地域" /><br />Little did we know, that we riddled some middlemen who didn't do <QuickSlang word="diddly" desc="「何もしない・たいしたことない」を意味するスラング。diddly-squat とも言う" /></Fragment>
-        <Fragment slot="jpn">リトル・イタリーのど真ん中で死体が転がる。<br />俺たちが何もしていない仲介人たちをハチの巣にしたとは、誰も思いもしなかった</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1終盤、Big Punが計画の顛末を語る件。ヒップホップ史上最も有名な2行です。</p>
-        <p><strong class="text-[var(--c-text)]">Dead / middle / Little / Italy / Little / riddled / middlemen / diddly</strong>、「-id-」「-ittle-」「-iddl-」系の音が、わずか2行の中で機関銃のように連射されているのが分かります。これが<QuickSlang word="内部韻" desc="internal rhyme（インターナル・ライム）。行末だけでなく、行の内側でも同じ音を繰り返す韻の技法" />（internal rhyme）です。</p>
-        <p class="mt-2">行末だけでなく行の内側でも韻を踏む、ラップ技術の極致になっています。この2行は「31音節に7つの同音」として世界中のリリシストが参照する教科書的なラインです。</p>
-        <p class="mt-2">さらに <strong class="text-[var(--c-text)]">riddled</strong> が二重の意味を持ちます。「銃弾でハチの巣にする」と「謎をかける（riddle）の過去形」。</p>
-        <p class="mt-2">暴力的な場面をウィットで包む言葉のレイヤリングです。</p>
-        <p class="mt-2"><strong class="text-[var(--c-text)]">diddly</strong> は「何もしていない」という軽蔑的な強調表現で、ターゲットを間違えたという皮肉なオチを口語で締めます。このラインはスタジオの口慣らし中に思いついたもので、Fat Joeに「これは地球上で最もハードなラインだ」と猛烈に説得されて渋々録音した、という逸話が有名です。</p>
-        <Fragment slot="usage">
-          <p><strong class="text-[var(--c-text)]">内部韻（internal rhyme）</strong> は、英語詩・ラップにおける高度な技法です。行末の脚韻（end rhyme）に加えて、行の途中の語が互いに音を響き合わせます。</p>
-        <p>ここでは <em>Dead / middle / Little / Italy / Little / riddled / middlemen / diddly</em> が全て「d」子音と短い「i」母音を共有して連続します。1行を流して読むだけで音のリズムが自然に生まれる、それが内部韻の力です。</p>
-        </Fragment>
-      </LearningUnit>
 
       <!-- ④ cold-day-hell -->
       <LearningUnit
@@ -207,26 +188,6 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         </Fragment>
       </LearningUnit>
 
-      <!-- ⑤ snub-tre-eight -->
-      <LearningUnit
-        heading="my snub tré-eight — 数字で銃を呼ぶストリートの隠語"
-        label="★ スラング（数字）"
-        mc="Fat Joe（Verse 2）"
-        t={TS["snub-tre-eight"].t} tApprox={TS["snub-tre-eight"].approx} youtubeId={YT}
-        embed=""
-      >
-        <Fragment slot="eng">Smack you, then I whack you with my <QuickSlang word="snub tré-eight" desc="snub＝銃身の短いスナブノーズ、tré-eight＝.38口径（three-eight）。tréはフランス語系スラングで3" /></Fragment>
-        <Fragment slot="jpn">お前を張り倒して、それから短銃身の.38で仕留める</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2終盤、Fat Joeが脅しを畳みかける一行。学習対象は行末です。</p>
-        <p>行末の <strong class="text-[var(--c-text)]">snub tré-eight</strong> が学習ポイントです。<strong class="text-[var(--c-text)]">tré-eight</strong> は口径「.38」を数字読みしたもので、<em>tré</em> が3、<em>eight</em> が8で「three-eight」を表します。</p>
-        <p>ヒップホップでは銃を口径の数字で呼ぶことが多く、直接「gun」と言わずに具体的な数字で凄みを出します。</p>
-        <p class="mt-2"><strong class="text-[var(--c-text)]">snub</strong> は snub-nose、銃身の短いリボルバーのことです。隠しやすく取り回しの速い拳銃の代名詞で、映画やラップに頻出します。</p>
-        <p class="mt-2">数字と銃器スラングが一語に詰まった、聞き取りづらいけれど知っておくと一気に読める表現です。</p>
-        <Fragment slot="usage">
-          <p><strong class="text-[var(--c-text)]">数字で銃を呼ぶ</strong>のはストリート英語の定番です。<em>tré-eight（.38）</em>、<em>forty-fo'（.44）</em>、<em>deuce-deuce（.22）</em>、<em>fo'-fifth（.45）</em>のように、口径をリズミカルな数字読みにして韻に乗せます。</p>
-        <p>数字自体が隠語として機能し、直接的な語を避ける役割も果たします。</p>
-        </Fragment>
-      </LearningUnit>
 
       <!-- ⑥ amityville -->
       <LearningUnit
@@ -266,7 +227,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <Fragment slot="usage">
           <p><strong class="text-[var(--c-text)]">civilian</strong> は標準英語では「民間人・非武装の一般市民」です。ヒップホップスラングでは「自分の体・肉体」の意で転用されることがあります（「一般人の器としての体」というニュアンス）。</p>
         <p><em>in my civilian</em> で「俺の体の内側で」の意。これを知らないと「民間人の中で」と誤読してしまう典型的な語彙のトラップです。</p>
-          <p><strong class="text-[var(--c-text)]">cannon</strong> は「大砲」が直義ですが、ここでは Big Pun 自身のラップの攻撃力・破壊力のメタファーです。ストリートスラングで「強力な銃器」を指す場合もあります。</p>
+          <p><strong class="text-[var(--c-text)]">cannon</strong> は「大砲」が直義ですが、ここでは Big Pun 自身のラップの攻撃力・破壊力のメタファーです。</p>
         <p>文脈で「俺のリリックそのもの」として読めます。</p>
         </Fragment>
       </LearningUnit>
@@ -364,89 +325,12 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         </Fragment>
       </LearningUnit>
 
-      <!-- ⑬ cop-killers -->
-      <LearningUnit
-        heading="cop-killers, fill 'em to the top — 弾薬の隠語（フック）"
-        label="★ スラング（隠語）"
-        mc="Fat Joe & Big Pun（Hook）"
-        t={TS["cop-killers"].t} tApprox={TS["cop-killers"].approx} youtubeId={YT}
-        embed=""
-      >
-        <Fragment slot="eng">Twenty-shot Glock with the <QuickSlang word="cop-killers" desc="防弾チョッキを貫通するとされた徹甲弾のスラング。実際の貫通力より通称が独り歩きした" />, fill 'em to the top</Fragment>
-        <Fragment slot="jpn">20連装のグロックに徹甲弾を装填、満タンまで詰める</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 繰り返されるHookの2行目。反復行なので引用の予算に算入されません。</p>
-        <p>行の中ほど、<strong class="text-[var(--c-text)]">cop-killers</strong> が学習ポイントです。これは防弾チョッキを貫通するとされた徹甲弾（armor-piercing bullets）の通称です。</p>
-        <p>1980〜90年代のアメリカで社会問題として大きく報じられ、実際の貫通力以上に「警官殺しの弾」という通称が独り歩きしました。</p>
-        <p class="mt-2">フックの反社会的なイメージを一語で背負う隠語です。直後の <strong class="text-[var(--c-text)]">fill 'em to the top</strong>（マガジンを満タンまで詰める）と合わせて、映画的な誇張として機能しています。</p>
-        <p class="mt-2">フックはDr. Dre / Snoopのオリジナルの構造を踏襲した「継承の器」でもあります。</p>
-        <Fragment slot="usage">
-          <p><strong class="text-[var(--c-text)]">cop-killer</strong> は文脈で意味が変わる語です。弾薬の通称としてのほか、Ice-TのバンドBody Countの楽曲「Cop Killer」（1992）が全米で大論争になった経緯もあり、「反権力の象徴的フレーズ」としての含みも帯びます。</p>
-        <p>物騒な語ですが、ヒップホップの歴史を読むうえでは避けて通れないキーワードのひとつです。</p>
-        </Fragment>
-      </LearningUnit>
 
       <!-- ⑭ cracks-the-rock -->
-      <LearningUnit
-        heading="Joey cracks the rock — 名前と隠語のダブルミーニング（フック）"
-        label="★ 言葉遊び（隠語）"
-        mc="Fat Joe & Big Pun（Hook）"
-        t={TS["cracks-the-rock"].t} tApprox={TS["cracks-the-rock"].approx} youtubeId={YT}
-        embed=""
-      >
-        <Fragment slot="eng">Joey cracks the <QuickSlang word="rock" desc="rock＝crack cocaine（固形のクラック）。crack the rock で「クラックを捌く／砕く」の意にもなる" />, and Big Pun keeps the guns cocked</Fragment>
-        <Fragment slot="jpn">Joeyがロック（クラック）を捌き、Big Punは銃の撃鉄を起こしたままにしておく</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 繰り返されるHookの一行。反復行なので引用の予算に算入されません。</p>
-        <p>前半の <strong class="text-[var(--c-text)]">Joey cracks the rock</strong> が言葉遊びのポイントです。<strong class="text-[var(--c-text)]">rock</strong> は固形のクラック・コカインを指すスラングで、<em>crack the rock</em> で「クラックを砕く・捌く」という意味になります。</p>
-        <p class="mt-2">さらにFat Joeの通り名が「Joey Crack」なので、<em>cracks</em> という動詞が自分の名前とも二重に響きます。名前・動詞・薬物の隠語が一語に折り重なる、密度の高いダブルミーニングです。</p>
-        <p class="mt-2">後半の <em>keeps the guns cocked</em> とは <em>rock / cocked</em> で脚韻も踏んでいます。</p>
-        <Fragment slot="usage">
-          <p><strong class="text-[var(--c-text)]">rock</strong> は文脈で「石」「クラック・コカイン」「大粒のダイヤ」を指し分けます。<em>on the rocks</em>（氷入りの酒）とはまた別の用法です。</p>
-        <p>ヒップホップでは薬物とジュエリーのどちらの意味でも頻出するので、周りの語（cook, flip, ice, carat など）から判断します。</p>
-        </Fragment>
-      </LearningUnit>
 
       <!-- ⑮ one-eight-seven -->
-      <LearningUnit
-        heading="1-8-7 on an undercover cop — 西海岸の言語を東海岸が継承する"
-        label="★ スラング／文化"
-        mc="Big Pun & Fat Joe（Hook）"
-        t={TS["one-eight-seven"].t} tApprox={TS["one-eight-seven"].approx} youtubeId={YT}
-        embed=""
-      >
-        <Fragment slot="eng">Yeah – and you don't stop<br />It's still <QuickSlang word="1-8-7" desc="カリフォルニア州刑法第187条（殺人罪）。ヒップホップで「殺す」の暗号として定着" /> on an undercover cop</Fragment>
-        <Fragment slot="jpn">そうだ、止まらない<br />今でも変わらない、覆面警官への187（殺す）</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 繰り返されるHook、最終行。Dr. Dreのオリジナルから直接継承されたフレーズです。</p>
-        <p>このフックは、Dr. DreとSnoop Doggの1992年「Deep Cover」から直接引き継いでいます。<strong class="text-[var(--c-text)]">1-8-7</strong>（ワン・エイティー・セブン）はカリフォルニア州刑法第187条、殺人罪のコード番号のことです。</p>
-        <p>1990年代のヒップホップで反権力・反警察の暗号として定着しました。</p>
-        <p class="mt-2">Big PunとFat Joeが「<strong class="text-[var(--c-text)]">still</strong>」という一語を足しているのが読みどころです。これが「西海岸で生まれたあの精神は、東海岸の俺たちの中でも今も生き続けている」という東西融和の宣言になっています。</p>
-        <p class="mt-2">わずか1語の追加に意味の地層が重なるわけです。</p>
-        <Fragment slot="usage">
-          <p><strong class="text-[var(--c-text)]">187（one-eighty-seven）</strong> はカリフォルニア州刑法典第187条から来た暗号語で、「殺す・殺人」の意味でヒップホップ全域に広まりました。もともとLA周辺のストリートスラングでしたが、「Deep Cover」（1992）と「187 on an Undercover Cop」というサブタイトルで全米に知られました。</p>
-        <p>コード番号がそのままスラングになるのは英語圏独特の現象です（同様に <em>420</em> は大麻、<em>211</em> は武装強盗などがあります）。</p>
-          <p><strong class="text-[var(--c-text)]">undercover cop</strong> は「覆面警察官・潜入捜査官」。秘密裏にコミュニティに入り込んでいる存在として、ストリート文化では最も警戒される対象のひとつです。</p>
-        <p>「密告者（snitch）」と合わせて、ストリートの掟では最大のタブーとされます。</p>
-        </Fragment>
-      </LearningUnit>
 
       <!-- ⑯ first-amendment -->
-      <LearningUnit
-        heading="the First Amendment's culturally biased — 憲法用語で社会を撃つ"
-        label="★ 語彙／社会"
-        mc="Big Pun（Verse 5）"
-        t={TS["first-amendment"].t} tApprox={TS["first-amendment"].approx} youtubeId={YT}
-        embed=""
-      >
-        <Fragment slot="eng">The street's cursed, the <QuickSlang word="First Amendment" desc="アメリカ合衆国憲法修正第1条。言論・表現・信教の自由を保障する条文" /> is culturally biased</Fragment>
-        <Fragment slot="jpn">ストリートは呪われている、憲法修正第1条は文化的に偏っている</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 5前半、Big Punが社会への視線を差し込む件。学習対象は行の後半です。</p>
-        <p>行の後半、<strong class="text-[var(--c-text)]">the First Amendment</strong> が学習ポイントです。アメリカ合衆国憲法修正第1条のことで、言論・表現・信教の自由を保障する、アメリカで最も有名な条文のひとつです。</p>
-        <p class="mt-2">それが「<em>culturally biased</em>（文化的に偏っている）」だとBig Punは言います。表現の自由は建前としては万人のものだが、黒人やラテン系の言葉やアートには同じように適用されていない、という批評です。</p>
-        <p class="mt-2">暴力的な誇張が続くバースの中に、こうした鋭い社会観察をさらっと差し込むのがBig Punの奥行きだと思います。憲法用語という硬い語彙を教材として拾えるのも、この一行の値打ちです。</p>
-        <Fragment slot="usage">
-          <p><strong class="text-[var(--c-text)]">the First Amendment</strong> はアメリカの言論・表現・報道・信教・集会の自由をまとめて保障する条文です。<em>plead the Fifth</em>（黙秘権を使う＝修正第5条）と並んで、ニュースや映画で頻出する必修の憲法用語です。</p>
-        <p><em>culturally biased</em> の <em>biased</em> は「偏った・先入観のある」で、<em>bias</em>（偏り）の形容詞形。社会批評の文章でよく出ます。</p>
-        </Fragment>
-      </LearningUnit>
 
       <!-- ⑰ black-pearl-latina -->
       <LearningUnit
@@ -517,8 +401,8 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <Fragment slot="jpn">俺とこっそり行こう、Bimmer（BMW）でクルーズしながら<br />ゲットーのガキたちは全員、俺をドン・カルタヘナと呼ぶ</Fragment>
         <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 6冒頭、Fat Joeが自分のオルターエゴを宣言する件。学習対象は下の行です。</p>
         <p>下の行の固有名詞、「<strong class="text-[var(--c-text)]">Don Cartagena</strong>」が学習ポイントです。<strong class="text-[var(--c-text)]">Don</strong> はイタリア系マフィアのボスを指す敬称です（映画『ゴッドファーザー』の「ドン・コルレオーネ」を思い浮かべると早いです）。</p>
-        <p class="mt-2"><strong class="text-[var(--c-text)]">Cartagena</strong> はコロンビアの港湾都市で、中南米の麻薬流通と深く結びついた地名です。この二つを合体させて「ドン・カルタヘナ」というオルターエゴを作っています。</p>
-        <p class="mt-2">イタリア系マフィア映画のボスの地位と、ラテンアメリカの麻薬帝国的なイメージを一語に封じ込めていて、これが1999年の Fat Joe の2ndアルバムのタイトルにもなりました。</p>
+        <p class="mt-2"><strong class="text-[var(--c-text)]">Cartagena</strong> はコロンビアの港湾都市です。この二つを合体させて「ドン・カルタヘナ」というオルターエゴを作っています。</p>
+        <p class="mt-2">イタリア系マフィア映画のボスの地位と、ラテンアメリカの裏社会のイメージを一語に封じ込めていて、これが1999年の Fat Joe の2ndアルバムのタイトルにもなりました。</p>
         <p class="mt-2">上の行の <strong class="text-[var(--c-text)]">Bimmer</strong> はBMWの愛称です（Beemer とも書きます）。当時のブロンクスでBMWは成功の象徴で、ゲットー出身の人間がBMWに乗ることは「成り上がった」ことの視覚的な証明でした。</p>
         <p class="mt-2"><strong class="text-[var(--c-text)]">creep</strong> は「忍び寄る・こっそり移動する」。目立たずに動く、慎重なストリートの移動を表します。</p>
         <Fragment slot="usage">
@@ -529,49 +413,8 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         </Fragment>
       </LearningUnit>
 
-      <!-- ㉑ tec-jeep-lexus -->
-      <LearningUnit
-        heading="Three TEC's in the Jeep Lexus — 銃器スラングと三連の脚韻"
-        label="★ 内部韻／スラング"
-        mc="Big Pun（Verse 7）"
-        t={TS["tec-jeep-lexus"].t} tApprox={TS["tec-jeep-lexus"].approx} youtubeId={YT}
-        embed=""
-      >
-        <Fragment slot="eng">Three <QuickSlang word="TEC's" desc="TEC-9。安価な半自動拳銃で、90年代のストリート／ラップに頻出した銃器" /> is in the Jeep Lexus just in case police test us</Fragment>
-        <Fragment slot="jpn">Jeepとレクサスには三丁のTEC-9、警察が試してきたときのために</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 7中盤、Big Punが備えを語る一行。音の連なりに注目します。</p>
-        <p>この一行は音がとにかく気持ちいいところです。<strong class="text-[var(--c-text)]">TEC's / Lexus / test us</strong>、「-ex-/-est-」系の音が三連で畳みかけられていて、行末だけでなく行の内側でも韻が転がっています。</p>
-        <p>内部韻と脚韻を同時に成立させる、Big Punらしい設計です。</p>
-        <p class="mt-2">意味の側では、<strong class="text-[var(--c-text)]">TEC's</strong> がTEC-9という安価な半自動拳銃を指します。90年代のストリートとラップに頻出した銃器で、名前を出すだけで時代の空気が立ち上がります。</p>
-        <p class="mt-2"><em>just in case police test us</em>（警察が試してきたときのために）という物騒な前提を、韻の快感でくるんで聴かせているのが技のあるところです。</p>
-        <Fragment slot="usage">
-          <p><strong class="text-[var(--c-text)]">TEC-9</strong> は固有の銃器名がそのままスラング化した例です。<em>MAC-10 / MAC-11</em>、<em>AK / AR</em> なども同様に、型番が韻や凄みの素材として使われます。</p>
-        <p><em>test（試す）</em> はストリート英語で「挑発する・喧嘩を売る」の意になり、<em>don't test me</em> で「なめるなよ」というよく使う警告表現になります。</p>
-        </Fragment>
-      </LearningUnit>
 
       <!-- ㉒ street-professors -->
-      <LearningUnit
-        heading="Street professors, Terror Squad — ghetto scholars — オクシモロンで自らを定義する"
-        label="★ 修辞技法（オクシモロン）"
-        mc="Big Pun（Verse 7）"
-        t={TS["street-professors"].t} tApprox={TS["street-professors"].approx} youtubeId={YT}
-        embed=""
-      >
-        <Fragment slot="eng">Street professors, <QuickSlang word="Terror Squad" desc="Big PunとFat Joeを中心にしたブロンクス発のヒップホップクルー。メンバーにはArmageddon、Triple Seis、Cuban Link等が在籍" /> — ghetto scholars<br />Full-A-Clips mob inflicts the fear of God when the metal hollers</Fragment>
-        <Fragment slot="jpn">ストリートの教授たち、テラー・スクワッド、ゲットーの学者<br />フル弾倉の集団が、鉄（銃）が叫ぶとき神への恐怖をもたらす</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 7後半、Big PunがTerror Squadを位置づける件。学習対象は上の行です。</p>
-        <p>上の行の前半、「<strong class="text-[var(--c-text)]">Street professors</strong>」「<strong class="text-[var(--c-text)]">ghetto scholars</strong>」が学習ポイントです。これは<QuickSlang word="オクシモロン" desc="oxymoron（オクシモロン）。「ストリート＋教授」「ゲットー＋学者」のように、本来矛盾する概念を並べて緊張感や意味の深さを生む修辞技法" />（矛盾語法）です。</p>
-        <p class="mt-2">「ストリート（危険な路上）」と「professor（大学教授）」、「ghetto（貧困地区）」と「scholars（学者）」は本来矛盾する言葉の組み合わせです。「俺たちはアカデミックな教育は受けていないが、ストリートで生き延びるための知識と知性を持っている」という逆説的な誇りを、この対比に込めています。</p>
-        <p class="mt-2"><strong class="text-[var(--c-text)]">Terror Squad</strong> はBig PunとFat Joeを中心としたブロンクス発のヒップホップクルーです。ブロンクスはヒップホップが生まれた場所で、1970年代にDJたちが公営住宅の集会室やブロックパーティーでこの文化の原点を作りました。</p>
-        <p class="mt-2">その場所で育ったラテン系のクルーが「ゲットーの学者」と名乗ることは、ヒップホップの起源への誇りでもあります。</p>
-        <Fragment slot="usage">
-          <p><strong class="text-[var(--c-text)]">オクシモロン（oxymoron）</strong> は相反する語を並べて意味の深みや緊張感を作る修辞技法です。「生きた死」「静かな嵐」「甘い悲しみ」などが典型例です。</p>
-        <p>ヒップホップでは「ゲットーの哲学者」「貧しい豊かさ」のように、社会的矛盾を言葉の矛盾に投影する使い方が多いです。矛盾させることで、単純な形容では伝わらない複雑な自己定義を一語に畳み込みます。</p>
-          <p><strong class="text-[var(--c-text)]">metal hollers</strong> の <em>metal</em> は銃を指す隠語です（「鉄」→「銃器」）。<em>holler</em> は「叫ぶ」。</p>
-        <p>銃声を「金属が叫ぶ」と擬人化する表現です。直接「銃が撃たれる」と言わずに詩的に描く技法で、ラップではこうした間接的な暴力描写が頻出します。</p>
-        </Fragment>
-      </LearningUnit>
 
       <!-- ㉓ boogie-down -->
       <LearningUnit
@@ -603,44 +446,8 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       </LearningUnit>
 
       <!-- ㉕ walk-the-walk -->
-      <LearningUnit
-        heading="taught to walk the walk — 「有言実行」のイディオム"
-        label="★ イディオム"
-        mc="Fat Joe（Verse 8）"
-        t={TS["walk-the-walk"].t} tApprox={TS["walk-the-walk"].approx} youtubeId={YT}
-        embed=""
-      >
-        <Fragment slot="eng">Where we taught to <QuickSlang word="walk the walk" desc="talk the talk（口だけ）に対して walk the walk＝言ったことを実際に行動で示す。有言実行" />, all my niggas carry chalk</Fragment>
-        <Fragment slot="jpn">俺たちが有言実行を叩き込まれた場所、仲間はみな武器を持ち歩く</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 8中盤、育った環境を語る件。学習対象は行の前半です。</p>
-        <p>行の前半、<strong class="text-[var(--c-text)]">walk the walk</strong> が学習ポイントです。これは <em>talk the talk</em>（口ではうまいことを言う）と対になるイディオムで、「言ったことを実際に行動で示す」、つまり有言実行を意味します。</p>
-        <p>よく <em>talk the talk and walk the walk</em>（口だけでなく実行もする）という形でセットで使われます。</p>
-        <p class="mt-2">後半の <strong class="text-[var(--c-text)]">carry chalk</strong> は「武器を持ち歩く」のスラングで、<em>chalk</em> が銃を指す隠語として効いています。イディオムとストリートスラングを <em>walk / chalk</em> の脚韻でつなぐ、コンパクトな一行です。</p>
-        <Fragment slot="usage">
-          <p><strong class="text-[var(--c-text)]">walk the walk</strong> は日常会話でも使える便利なイディオムです。<em>"Don't just talk the talk, walk the walk."</em> で「口だけじゃなく行動で示せ」という意味になります。</p>
-        <p>ビジネスやスポーツの場面でも頻出します。<em>talk（言う）</em> と <em>walk（歩く＝実行する）</em> の対比を覚えておくと、英語の慣用表現の作り方が見えてきます。</p>
-        </Fragment>
-      </LearningUnit>
 
       <!-- ㉖ armageddon -->
-      <LearningUnit
-        heading="'til it's Armageddon — 聖書語とメンバー名のダブルミーニング"
-        label="★ 言葉遊び／文化"
-        mc="Fat Joe（Verse 8）"
-        t={TS["armageddon"].t} tApprox={TS["armageddon"].approx} youtubeId={YT}
-        embed=""
-      >
-        <Fragment slot="eng">I fill a clip of my weapon and punish niggas 'til it's <QuickSlang word="Armageddon" desc="聖書『ヨハネの黙示録』の最終戦争の地・終末。同時にTerror Squadのメンバー名Armageddon（アルマゲドン）でもある" /></Fragment>
-        <Fragment slot="jpn">弾倉を満たして、アルマゲドン（終末）が来るまで奴らを罰し続ける</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 8の締め、曲の終盤を飾る一行。学習対象は行末です。</p>
-        <p>曲の終盤を締めるこの一行、行末の <strong class="text-[var(--c-text)]">Armageddon</strong> が学習ポイントです。もともとは聖書『ヨハネの黙示録』に出てくる、世界の終わりの最終戦争が起こる場所の名前で、そこから転じて「終末・最終決戦」を意味する語として英語に定着しています。</p>
-        <p class="mt-2">面白いのは、<strong class="text-[var(--c-text)]">Armageddon</strong> がTerror Squadのメンバーの名前でもあることです。つまり「アルマゲドン（終末）が来るまで」と歌いながら、同時にクルーの一員の名前を呼び込むダブルミーニングになっています。</p>
-        <p class="mt-2"><em>weapon / Armageddon</em> の脚韻も効いていて、聖書語・仲間の名前・韻の三つを一語に折り込む、締めにふさわしい密度の高い言葉遊びです。<QuickSlang word="Terror Squad" desc="Big PunとFat Joeを中心にしたブロンクス発のヒップホップクルー。メンバーにArmageddon（アルマゲドン）が在籍" />の結束を、最後にもう一度確認して曲を閉じます。</p>
-        <Fragment slot="usage">
-          <p><strong class="text-[var(--c-text)]">Armageddon</strong> は日常英語でも「破滅的な最終局面・大惨事」の比喩として使われます。<em>financial Armageddon</em>（金融の破局）のような言い回しがニュースにも出ます。</p>
-        <p>聖書由来の語が普通名詞的に転用される好例で、<em>apocalypse（黙示録・終末）</em> と並んで覚えておくと英語のニュアンスが広がります。</p>
-        </Fragment>
-      </LearningUnit>
     </section>
 
     <!-- ===================== -->
@@ -682,7 +489,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <h3 class="font-semibold text-base mb-3">TupacとBiggieの死の後、音楽が橋を架けた</h3>
         <div class="text-[var(--c-muted)] text-sm leading-relaxed space-y-3">
           <p>
-            1996年のTupac、1997年のBiggie、二つの銃撃死が東西抗争の悲劇的な終幕を告げた直後の1998年に、東海岸のBig PunとFat Joeが西海岸のDr. Dre / Snoop Doggの楽曲を深いリスペクトで使いました。
+            1996年のTupac、1997年のBiggie、二人の死が東西抗争の悲劇的な終幕を告げた直後の1998年に、東海岸のBig PunとFat Joeが西海岸のDr. Dre / Snoop Doggの楽曲を深いリスペクトで使いました。
           </p>
           <p>
             Snoop Dogg本人がMVにカメオ出演し、「Punたちがあのビートを選んだ時点で本物のリスペクトがあった」と語ったことは記録されています。ヒップホップが再び一つの文化として動き始めるための、音楽的な握手だったと思います。
@@ -706,6 +513,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
           <p>
             「Twinz」のビートは、1992年の映画『ディープ・カバー』サウンドトラックとして制作された Dr. Dre feat. Snoop Doggy Dogg「Deep Cover」のトラックを実質的に流用しています（プロデュースクレジットは Big Pun & Fat Joe / Terror Squad Productions ですが、ビートの骨格は「Deep Cover」のものです）。
           </p>
+        <SampleYoutube id="rFPNCVJIFT8" title="Dr. Dre feat. Snoop Doggy Dogg - Deep Cover" />
           <p>
             約92BPMのミドルテンポで、西海岸のG-Funkとは異なるダークな空気感をそのまま引き継ぎつつ、ブロンクス特有の硬さが加わっています。東西でこれほど音の文脈が違っても、ビート自体の強度は普遍的なのだと思い知らされます。
           </p>
@@ -717,7 +525,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <h3 class="font-semibold text-base mb-3">嫌がっていた本人が「笑われる」と思ったライン</h3>
         <div class="text-[var(--c-muted)] text-sm leading-relaxed space-y-3">
           <p>
-            「Dead in the middle of Little Italy」ラインが生まれたのはスタジオの口慣らし（ウォームアップ）中でした。Big Pun が遊び半分で呟いていたものを Fat Joe が聴いて「地球上で最もハードなラインだ、絶対にバースに入れろ」と猛烈に説得しました。
+            「Little Italy」ラインが生まれたのはスタジオの口慣らし（ウォームアップ）中でした。Big Pun が遊び半分で呟いていたものを Fat Joe が聴いて「地球上で最もハードなラインだ、絶対にバースに入れろ」と猛烈に説得しました。
           </p>
           <p>ところが当のPunは「頭がおかしいのか、笑われるに決まってる」と断固拒否したそうです。執拗な説得に折れて渋々録音してみたところ、リスナーの度肝を抜き、彼のキャリアを定義する一行になりました。</p>
         <p>この話をFat Joeは後年のインタビューで繰り返し語っています。本人が一番自信を持てなかったラインが、伝説になったわけです。</p>
@@ -759,7 +567,6 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
             ['internal rhyme', '行の内側で同音を繰り返す内部韻。「Little Italy」ラインで31音節に7つの同音が連打される'],
             ['a cold day in Hell', '「絶対に起こりえないこと」の強調表現。地獄は熱いはずなのに「冷たい日」が来るはずがない、という論理'],
             ['cheddar', 'チーズの名称から転じた「現金・金銭」のスラング。1990年代ヒップホップの定番語彙'],
-            ['1-8-7', 'カリフォルニア州刑法第187条（殺人罪）のコード。反権力のシンボルとしてヒップホップ全域に広まった'],
             ['más fina', 'スペイン語「最も洗練された」。英語のリリックにスペイン語が溶け込む、バイリンガルなコードスイッチングの例'],
             ['Don Cartagena', 'Fat Joeのオルターエゴ。マフィアのドンとコロンビアの地名を合体させた、映画的な自己定義'],
             ['oxymoron', '矛盾する概念の組み合わせ。「Street professors」「ghetto scholars」など、学問とストリートを並べて逆説的に自己を定義する'],
@@ -789,15 +596,4 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       </ul>
     </section>
 
-  <DiveCards
-    cards={[
-      {
-        href: "/columns/crack-epidemic-hiphop",
-        icon: "BP",
-        kicker: "文化・歴史",
-        title: "クラック・エピデミックとヒップホップ",
-        desc: "Big PunとFat Joeのブロンクスのストリートは、クラック禍が落ち着き始めた90年代末の生き残りの記録でもある。マフィオソ・ラップの地面をここで。",
-      },
-    ]}
-  />
 </SongLayout>

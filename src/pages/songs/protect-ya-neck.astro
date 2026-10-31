@@ -3,6 +3,7 @@ import LearningUnit from '../../components/LearningUnit.astro';
 import DiveCards from '../../components/DiveCards.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
 import SongLayout from '../../layouts/SongLayout.astro';
+import SampleYoutube from '../../components/SampleYoutube.astro';
 
 // 学習ユニットのPVタイムスタンプ。agent/src/extract-unit-timestamps.mjs で album音源を
 // whisper単語アライメントして取得する設計だが、本曲は大人数・重いサンプルで whisper が
@@ -15,7 +16,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
 
 <SongLayout
   title="Protect Ya Neck 英語・スラング解説 | Wu-Tang Clan"
-  description="Wu-Tang ClanのProtect Ya Neckを英語学習＋ヒップホップ理解の教材として精読。protect ya neck(警戒しろ)の慣用句、mad＝veryのNY強調、who I areのAAVE、Shaolin・Brooklyn Zoo・A&Rなどのスラングと固有名詞、gat/clip(銃)やill/dope(褒め言葉)まで、RZAがThe J.B.'sの絶叫サックスを刻んだサンプリングを8MC分の表現単位で解説。各表現はPVの該当箇所へ頭出しリンク付き。"
+  description="Wu-Tang ClanのProtect Ya Neckを英語学習＋ヒップホップ理解の教材として精読。protect ya neck(警戒しろ)の慣用句、mad＝veryのNY強調、who I areのAAVE、Shaolin・Brooklyn Zoo・A&Rなどのスラングと固有名詞、ill/dope(褒め言葉)まで、RZAがThe J.B.'sの絶叫サックスを刻んだサンプリングを8MC分の表現単位で解説。各表現はPVの該当箇所へ頭出しリンク付き。"
   slug="protect-ya-neck"
   highlights={[
     'Protect Ya Neckはフックなし・8MCが斬り合うWu-Tangのデビュー名刺',
@@ -24,6 +25,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
   ]}
   youtubeId="R0IUR4gkPIE"
   sampleYoutubeId="85UgTkPv1_k"
+  sampleInContent={true}
   sampleTitle="The J.B.'s - The Grunt"
   songDuration={292}
   learningPage={true}
@@ -46,7 +48,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
           8人それぞれ訛りも語彙も違うので、<strong class="text-[var(--c-text)]">一曲で多様なスラングとAAVE、言葉遊びをまとめて浴びられる</strong>のが最大の魅力だと思っています。この記事は英語学習とヒップホップ理解の教材として読んでもらえればうれしいです。
         </p>
         <p>
-          タイトルの慣用句から、mad（＝very）のNY強調、who I are のAAVE、Shaolin・Brooklyn Zoo・A&Rといった固有名詞、gat／clip（銃）や ill／dope（褒め言葉）まで、「学ぶ表現」単位で解説していきます。
+          タイトルの慣用句から、mad（＝very）のNY強調、who I are のAAVE、Shaolin・Brooklyn Zoo・A&Rといった固有名詞、ill／dope（褒め言葉）まで、「学ぶ表現」単位で解説していきます。
         </p>
       </div>
     </section>
@@ -61,7 +63,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
           一人を追うだけでは出会えない表現の幅を、4分強でまとめて体験できます。しかも歌詞は<strong class="text-[var(--c-text)]">バトル英語（boast／battle rap）の見本市</strong>で、相手をどう言葉で叩きのめすかという比喩・誇張・固有名詞の引用が全編に詰まっています。
         </p>
         <p>
-          「自分を何に喩えるか」だけでも、ボクサー（Frazier）、俳優（Schwarzenegger）、麻薬王（Escobar）と多彩で、比喩を読むことがそのまま文化を読むことになります。フックがない＝ひたすら中身、というのも、リリック精読の教材としてはむしろ理想的だと思います。
+          「自分を何に喩えるか」だけでも、ボクサー（Frazier）、俳優（Schwarzenegger）と多彩で、比喩を読むことがそのまま文化を読むことになります。フックがない＝ひたすら中身、というのも、リリック精読の教材としてはむしろ理想的だと思います。
         </p>
       </div>
     </section>
@@ -217,53 +219,9 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       </LearningUnit>
 
       <!-- ⑤ Rae Schwarzenegger -->
-      <LearningUnit
-        heading="Rhymes rugged and built like Schwarzenegger — 固有名詞を使った直喩"
-        label="★ 比喩／引用"
-        mc="Raekwon（Verse 2）"
-        t={TS["rae-schwarzenegger"].t} tApprox={TS["rae-schwarzenegger"].approx} youtubeId={YT}
-        embed=""
-      >
-        <Fragment slot="eng">Call me the rap assassinator<br />Rhymes rugged and built like Schwarzenegger</Fragment>
-        <Fragment slot="jpn">俺をラップの暗殺者と呼べ／韻はゴツくて、シュワルツェネッガーみたいに筋骨隆々だ</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2前半、Raekwonが自分の韻の強度を誇る件。</p>
-        <p>注目は <strong class="text-[var(--c-text)]">built like Schwarzenegger</strong>。俳優アーノルド・シュワルツェネッガーの筋骨隆々の肉体を引いて、自分の韻が「ゴツくて頑丈」だと喩えています。</p>
-        <p><strong class="text-[var(--c-text)]">built like ~</strong>（〜のような体格・作り）は、体格や頑丈さを表す定番の言い回し。<strong class="text-[var(--c-text)]"><QuickSlang word="rugged" desc="ゴツい・武骨・荒削りでタフ。ハードコアなスタイルへの褒め言葉" /></strong>（武骨でタフ）はWu-Tang美学のキーワードでもあります。</p>
-        <p>さらに前の行 <code><QuickSlang word="assassinator" desc="assassin（暗殺者）を大げさに名詞化した造語。-ator の韻を作るための語形" /></code> と <code>Schwarzenegger</code> で <strong class="text-[var(--c-text)]">-ator / -egger</strong> の韻も踏んでいます。固有名詞ひとつで「強さの質感」を伝える、そのやり方がよく効いた一節です。</p>
-        <Fragment slot="usage">
-          <p><strong class="text-[var(--c-text)]">built like ~</strong> は「〜のような体格・構造をしている」。<em>built like a tank</em>（戦車のようにごつい）、<em>built like an athlete</em>（アスリート体型）。</p>
-          <p>人の体格にも物の頑丈さにも使える。</p>
-          <p><strong class="text-[var(--c-text)]">rugged</strong> は「武骨な・ごつい・荒々しくタフ」。ハードコア・ヒップホップでは最上級の褒め言葉のひとつで、洗練（smooth）の対極にある美学を指す。</p>
-        </Fragment>
-      </LearningUnit>
 
       <!-- ⑥ Rae clip -->
-      <LearningUnit
-        heading="clip — 弾倉から来た銃のスラング"
-        label="★ スラング（武器）"
-        mc="Raekwon（Verse 2）"
-        t={TS["rae-clip"].t} tApprox={TS["rae-clip"].approx} youtubeId={YT}
-        embed=""
-      >
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2、Raekwonが硬派な語彙を並べる件。</p>
-        <p>学習ポイントは <strong class="text-[var(--c-text)]"><QuickSlang word="clip" desc="銃の弾倉（マガジン）を指す語。転じて銃そのものや「弾を込めた状態」も指す" /></strong>。もとは銃の<strong class="text-[var(--c-text)]">弾倉（マガジン）</strong>を指す語です。</p>
-        <p>そこから転じて、銃そのものや「弾を装填した状態」も指すようになりました。<em>empty the clip</em>（弾倉を撃ち尽くす）、<em>full clip</em>（フル装填）のように使います。</p>
-        <p>Wu-Tangのハードな世界観では、武器のスラング（clip／gat／gun）が凄みを出す語彙として頻出します。まとめて押さえておくと、90年代のハードコア・ラップがぐっと読みやすくなります。</p>
-      </LearningUnit>
 
-      <!-- ⑦ Meth gat -->
-      <LearningUnit
-        heading="gat — 拳銃を指す古いスラング"
-        label="★ スラング（武器）"
-        mc="Method Man（Verse 3）"
-        t={TS["meth-gat"].t} tApprox={TS["meth-gat"].approx} youtubeId={YT}
-        embed=""
-      >
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3、Method Manが物騒な語彙を混ぜる件。</p>
-        <p>学習ポイントは <strong class="text-[var(--c-text)]"><QuickSlang word="gat" desc="拳銃を指すスラング。20世紀初頭の機関銃 Gatling gun に由来し、ギャング映画やラップで定着した" /></strong>。拳銃を指す古いスラングです。</p>
-        <p>語源は20世紀初頭の機関銃 <strong class="text-[var(--c-text)]">Gatling gun（ガトリング砲）</strong>で、そこから「銃」全般を指す隠語として定着しました。禁酒法時代のギャング映画で広まり、のちにラップの定番語彙になっています。</p>
-        <p>前のRaekwonの clip とあわせて、武器スラングの言い換えが一曲のなかで自然に飛び交っているのが分かります。凄みを演出する語として、意味を知っておくと聞き分けやすいです。</p>
-      </LearningUnit>
 
       <!-- ⑧ Meth flow like the Hudson -->
       <LearningUnit
@@ -286,19 +244,6 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         </Fragment>
       </LearningUnit>
 
-      <!-- ⑨ Meth PCP dustin -->
-      <LearningUnit
-        heading="PCP / dustin' — angel dust の隠語"
-        label="★ スラング（薬物）"
-        mc="Method Man（Verse 3）"
-        t={TS["meth-pcp"].t} tApprox={TS["meth-pcp"].approx} youtubeId={YT}
-        embed=""
-      >
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3、Method Manが flow の洒落に続けて凄む件。</p>
-        <p>学習ポイントは <strong class="text-[var(--c-text)]">dustin'</strong>。ここでの <strong class="text-[var(--c-text)]">PCP</strong> は幻覚作用のある薬物で、<strong class="text-[var(--c-text)]"><QuickSlang word="angel dust" desc="PCP（フェンサイクリジン）の俗称。粉末状のためangel dust＝天使の粉と呼ばれる" /></strong>（天使の粉）とも呼ばれます。</p>
-        <p>その俗称から動詞化したのが <em>dustin'</em>（＝dusting）で、「PCPをやる・PCPでキマる」という意味の隠語になります。粉（dust）を体に振りかけるイメージから来た言い方です。</p>
-        <p>直前の「ハドソン川のように流れる」という穏やかな洒落から一転、危うい語彙で凄んでみせる。この温度差の付け方が、Method Manの緩急のうまさだと思います。</p>
-      </LearningUnit>
 
       <!-- ⑩ U-God Shaolin -->
       <LearningUnit
@@ -332,18 +277,6 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       </LearningUnit>
 
       <!-- ⑫ ODB nurse pins -->
-      <LearningUnit
-        heading="stickin' pins ... like a nurse — 看護師を引く直喩"
-        label="★ 比喩"
-        mc="Ol' Dirty Bastard（Verse 4）"
-        t={TS["odb-nurse-pins"].t} tApprox={TS["odb-nurse-pins"].approx} youtubeId={YT}
-        embed=""
-      >
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 4、ODBが自分の攻撃性を喩える件。</p>
-        <p>ここでODBは、相手を痛めつける様子を <strong class="text-[var(--c-text)]">「看護師のように針を刺す」</strong>と喩えています。<em>stick pins</em>（ピン・針を刺す）に <em>like a nurse</em>（看護師のように）を重ねた直喩です。</p>
-        <p>本来なら手当てをするはずの看護師のイメージを、相手を刺す側にひっくり返しているのが皮肉のポイント。優しさの象徴を凶暴さの比喩に転用する、ODBらしい発想の飛ばし方です。</p>
-        <p>Wu-Tangの直喩は、こうした<strong class="text-[var(--c-text)]">日常の職業・道具を意外な角度で引く</strong>ものが多く、比喩の作り方を学ぶ素材として面白いです。</p>
-      </LearningUnit>
 
       <!-- ⑫-b ODB cash -->
       <LearningUnit
@@ -408,25 +341,6 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       </LearningUnit>
 
       <!-- ⑯ Ghostface Escobar / who I are -->
-      <LearningUnit
-        heading="who I are is livin' the life of Pablo Escobar — AAVEの語順と引用"
-        label="★ AAVE文法／引用"
-        mc="Ghostface Killah（Verse 5）"
-        t={TS["ghost-escobar"].t} tApprox={TS["ghost-escobar"].approx} youtubeId={YT}
-        embed=""
-      >
-        <Fragment slot="eng">And get far like a shootin' star<br />'Cause who I are is livin' the life of Pablo Escobar</Fragment>
-        <Fragment slot="jpn">流れ星のように遠くまで行く／なぜなら、今の俺はパブロ・エスコバルの人生を生きているから</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 5の締め近く、Ghostfaceが凄む件。学習対象は下の行。</p>
-        <p>下の行に二つ仕込まれています。まず文法です。</p>
-        <p><strong class="text-[var(--c-text)]">who I are</strong> は、標準英語なら <em>who I am</em>（一人称＝am）のところが、ここでは <strong class="text-[var(--c-text)]">are</strong> になっています。</p>
-        <p>これはAAVEに見られる<strong class="text-[var(--c-text)]">be動詞の人称による使い分けの緩み</strong>（一人称でも are を使う）の一例。さらに行末 <strong class="text-[var(--c-text)]">Escobar / star / far</strong> の <code>-ar</code> 韻に <em>are</em> の音まで巻き込む、<strong class="text-[var(--c-text)]">韻のために語形を選ぶ</strong>狙いも見えます。</p>
-        <p>意味の面では <strong class="text-[var(--c-text)]">Pablo Escobar</strong>（伝説のコロンビアの麻薬王）を引いて、桁外れの羽振りを誇示しています。文法の崩しが韻と一体になっていて、AAVEと韻の関係を考えるのに格好の一行だと思います。</p>
-        <Fragment slot="usage">
-          <p>AAVEでは be動詞の人称対応が標準英語と異なることがあり、<em>who I are</em>（＝who I am）、<em>we was</em>（＝we were）のような形が現れる。崩れというより、韻や語感を優先して選ばれることも多い。</p>
-          <p>固有名詞での誇示（<strong class="text-[var(--c-text)]">livin' the life of ~</strong>＝「〜のような人生を送っている」）はラップの定番。Escobar / Scarface / Capone など、富と権力（と破滅）の象徴がよく引かれる。</p>
-        </Fragment>
-      </LearningUnit>
 
       <!-- ⑰ RZA ill -->
       <LearningUnit
@@ -480,25 +394,6 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       </LearningUnit>
 
       <!-- ⑳ GZA labels -->
-      <LearningUnit
-        heading="too slammin' for these cold killer labels — 音楽業界を斬る"
-        label="★ スラング／業界批評"
-        mc="GZA（Verse 7）"
-        t={TS["gza-labels"].t} tApprox={TS["gza-labels"].approx} youtubeId={YT}
-        embed=""
-      >
-        <Fragment slot="eng">The Wu is too slammin' for these cold killer labels<br />Some ain't had hits since I seen Aunt Mabel</Fragment>
-        <Fragment slot="jpn">Wuはイカしすぎてて、この薄情なレコード会社どもには手に負えない／いくつかのレーベルは、俺がメイベルおばさんに会って以来ヒットが出てない</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 7の冒頭、GZAの伝説的な音楽業界批判が始まる件。</p>
-        <p>GZAのバースは、丸ごと<strong class="text-[var(--c-text)]">音楽業界（メジャーレーベル）への痛烈な皮肉</strong>として知られています。学習ポイントの <strong class="text-[var(--c-text)]"><QuickSlang word="labels" desc="record labels（レコード会社）。とくにメジャー資本のレーベル" /></strong> は「レコード会社」のことです。</p>
-        <p><strong class="text-[var(--c-text)]"><QuickSlang word="slammin'" desc="最高にイカしている・素晴らしい、を意味するスラング" /></strong>（最高にイカしてる）なWuには、<code>cold killer labels</code>（冷酷で人を潰すレーベル）は手に負えない、と宣言します。</p>
-        <p>次の行 <code>Some <strong class="text-[var(--c-text)]">ain't</strong> had hits since I seen Aunt Mabel</code> は、<strong class="text-[var(--c-text)]">ain't</strong>（AAVEの否定）と「メイベルおばさんに会って以来ヒットなし」という<strong class="text-[var(--c-text)]">大げさな時間表現のユーモア</strong>で、落ち目のレーベルをからかっています。GZAは過去に大手で苦い経験をしており、この業界批判には実体験の重みがあります。</p>
-        <Fragment slot="usage">
-          <p><strong class="text-[var(--c-text)]">ain't ... since ~</strong>（〜以来ずっと…ない）は、<em>since</em> の後ろに大げさ・滑稽な基準を置いて時間の長さを誇張する定番の言い回し。<em>I ain't seen him since forever</em>（ずっと前から会ってない）。</p>
-          <p><strong class="text-[var(--c-text)]">slammin'</strong>（＝slamming）は「最高・イカしてる」のスラング。<em>That's slammin'</em>（それイケてる）。</p>
-          <p>料理・音楽・服など幅広く使える褒め言葉。</p>
-        </Fragment>
-      </LearningUnit>
 
       <!-- ㉑ GZA rock -->
       <LearningUnit
@@ -545,7 +440,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         embed=""
       >
         <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 7の終盤、GZAがレーベルの感覚のなさを突く件。</p>
-        <p>学習ポイントは <strong class="text-[var(--c-text)]"><QuickSlang word="dope" desc="本来は麻薬。ヒップホップでは反転して「最高・イケてる」を意味する最重要の褒め言葉" /></strong>。もとは「麻薬」ですが、ヒップホップでは反転して <strong class="text-[var(--c-text)]">「最高・イケてる」</strong>という褒め言葉になります。</p>
+        <p>学習ポイントは <strong class="text-[var(--c-text)]"><QuickSlang word="dope" desc="ヒップホップでは「最高・イケてる」を意味する最重要の褒め言葉" /></strong>。ヒップホップでは <strong class="text-[var(--c-text)]">「最高・イケてる」</strong>という褒め言葉になります。</p>
         <p>GZAは、業界の人間が <em>the meaning of dope</em>（何がdope＝イケてるか）を分かっていない、と突きます。対比で出てくる <strong class="text-[var(--c-text)]">suit and tie</strong>（スーツにネクタイ）は、<strong class="text-[var(--c-text)]">スーツ姿の会社員的な感覚＝ストリートを分かっていない体制側</strong>の記号です。</p>
         <p>「本物のかっこよさ（dope）を知らないスーツ組が、ラップの中身を決めている」という批判。褒め言葉ひとつの理解をめぐって、作り手と会社の断絶を一行で言い切っています。</p>
         <p>GZAの業界批評の切れ味が、いちばん出るくだりだと思います。</p>
@@ -584,8 +479,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
           {[
             ['protect ya neck', '「警戒しろ・隙を見せるな」の慣用句。首＝急所を守れ'],
             ['mad（NY）', '「とても・めちゃくちゃ」の強調語。mad cool＝超イケてる'],
-            ['ill / dope', 'どちらも否定的な原義（病気／麻薬）が反転した「最高・ヤバい」'],
-            ['gat / clip', '拳銃／弾倉から来た武器のスラング'],
+            ['ill / dope', '否定的な原義が反転した「最高・ヤバい」'],
             ['Shaolin / Brooklyn Zoo', 'スタテン島の呼称、ODBが出身地を動物園に喩えた異名'],
             ['who I are / when I speaks', 'AAVEのbe動詞・動詞-sの標準と異なる用法（韻にも寄与）'],
             ['flow', 'ラップの節回し。本来の「流れ」と掛けた言葉遊びに頻出'],
@@ -613,6 +507,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
           <p>
             イントロから耳をつんざく、あの<strong class="text-[var(--c-text)]">けたたましいサックスの絶叫</strong>。その正体は、James Brownのバックバンド <strong class="text-[var(--c-text)]">The J.B.'s の「The Grunt」（1970年）</strong>冒頭の、サックスのグリッサンド（音を滑らせる奏法）です。
           </p>
+        <SampleYoutube id="85UgTkPv1_k" title="The J.B.'s - The Grunt" />
           <p>
             RZAはこの<strong class="text-[var(--c-text)]">数秒の金切り声をループ</strong>して、ビートの背骨に据えました。耳に痛いほど鋭いこの音が、8人が斬り合う緊張感をさらに研ぎ澄ましています。
           </p>
@@ -696,7 +591,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       <ul class="space-y-2 text-sm text-[var(--c-muted)] list-disc list-inside leading-relaxed">
         <li>「Protect Ya Neck」は、フックなしで8人のMCが斬り合うWu-Tangのデビュー・シングル。一曲で多様なスラング・AAVE・言葉遊びをまとめて学べます。</li>
         <li>protect ya neck（警戒しろ）の慣用句、mad＝very のNY強調、who I are／when I speaks のAAVE、Shaolin・Brooklyn Zoo の地名の言い換えなど、生きた表現が高密度です。</li>
-        <li>ill／dope（反転した褒め言葉）、gat／clip（武器のスラング）、flowの二重の意味、Frazier／Schwarzenegger／Escobar を使った直喩、A&R など業界語を武器にしたGZAの批評まで、バトル英語のレパートリーが一通り押さえられます。</li>
+        <li>ill／dope（反転した褒め言葉）、flowの二重の意味、Frazier／Schwarzenegger を使った直喩、A&R など業界語を武器にしたGZAの批評まで、バトル英語のレパートリーが一通り押さえられます。</li>
         <li>RZAがThe J.B.'s「The Grunt」の絶叫サックスを刻んだ音と、自主制作からメジャー契約を勝ち取ったインディー独立の物語が、この一曲に詰まっています。</li>
       </ul>
     </section>
@@ -718,14 +613,6 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
           title: "Triumph — 全9人が揃った瞬間",
           desc: "多人数で回すのがWu-Tangの持ち味。9人のMCが1曲に揃うことがなぜ奇跡だったかを読む。",
           hint: "9MC",
-        },
-        {
-          href: "/columns/crack-epidemic-hiphop",
-          icon: "SI",
-          kicker: "文化・歴史",
-          title: "クラック・エピデミックとヒップホップ",
-          desc: "Wu-Tangが育ったスタテン島パークヒルもその渦中だった。歌詞の裏にある時代を。",
-          hint: "SI",
         },
       ]}
     />

@@ -12,19 +12,6 @@
     "captionSec": 52
   },
   {
-    "id": "another-drought",
-    "anchor": [
-      "everybodys",
-      "a",
-      "killer",
-      "buggin",
-      "out"
-    ],
-    "fallbackT": 28,
-    "manualSec": null,
-    "captionSec": 66
-  },
-  {
     "id": "since-86",
     "anchor": [
       "since",
@@ -71,19 +58,6 @@
       "call",
       "em",
       "uppies"
-    ],
-    "fallbackT": 93,
-    "manualSec": null,
-    "captionSec": null
-  },
-  {
-    "id": "made-you-look",
-    "anchor": [
-      "nas",
-      "made",
-      "you",
-      "look",
-      "heaters"
     ],
     "fallbackT": 93,
     "manualSec": null,
@@ -142,19 +116,6 @@
     "captionSec": 151
   },
   {
-    "id": "habitual-be",
-    "anchor": [
-      "i",
-      "be",
-      "killing",
-      "shit",
-      "thats"
-    ],
-    "fallbackT": 151,
-    "manualSec": null,
-    "captionSec": null
-  },
-  {
     "id": "go-platinum",
     "anchor": [
       "platinum",
@@ -190,32 +151,6 @@
     "fallbackT": 200,
     "manualSec": null,
     "captionSec": 212
-  },
-  {
-    "id": "its-just-iron",
-    "anchor": [
-      "in",
-      "the",
-      "streets",
-      "im",
-      "in"
-    ],
-    "fallbackT": 212,
-    "manualSec": null,
-    "captionSec": null
-  },
-  {
-    "id": "wall-toast",
-    "anchor": [
-      "wall",
-      "that",
-      "they",
-      "toast",
-      "up"
-    ],
-    "fallbackT": 225,
-    "manualSec": null,
-    "captionSec": null
   },
   {
     "id": "hustlers-shoe",
@@ -266,19 +201,6 @@
     "fallbackT": 260,
     "manualSec": null,
     "captionSec": null
-  },
-  {
-    "id": "smoke-them-trees",
-    "anchor": [
-      "broadcastin",
-      "how",
-      "we",
-      "smoke",
-      "trees"
-    ],
-    "fallbackT": 260,
-    "manualSec": null,
-    "captionSec": 274
   },
   {
     "id": "emceein-vs-rap",

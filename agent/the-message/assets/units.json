@@ -26,19 +26,6 @@
     "captionSec": 48
   },
   {
-    "id": "rats-roaches-junkies",
-    "anchor": [
-      "rats",
-      "in",
-      "the",
-      "front",
-      "room"
-    ],
-    "fallbackT": 38,
-    "manualSec": null,
-    "captionSec": 53
-  },
-  {
     "id": "repossessed",
     "anchor": [
       "'cause",
@@ -230,17 +217,6 @@
     "fallbackT": 238,
     "manualSec": null,
     "captionSec": 262
-  },
-  {
-    "id": "stick-up-kid-eight-year-bid",
-    "anchor": [
-      "turned",
-      "stick-up",
-      "kid"
-    ],
-    "fallbackT": 246,
-    "manualSec": null,
-    "captionSec": 267
   },
   {
     "id": "outro-skit-push-me",

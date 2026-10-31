@@ -1,0 +1,368 @@
+[
+  {
+    "id": "baby-born-murdered",
+    "anchor": [
+      "baby",
+      "being",
+      "born",
+      "same",
+      "time"
+    ],
+    "fallbackT": 76,
+    "captionSec": null
+  },
+  {
+    "id": "defines-my-name",
+    "anchor": [
+      "my",
+      "plateau",
+      "and",
+      "also",
+      "what",
+      "defines"
+    ],
+    "fallbackT": 76,
+    "captionSec": null
+  },
+  {
+    "id": "nasty-name",
+    "anchor": [
+      "first",
+      "it",
+      "was",
+      "nasty",
+      "but",
+      "times"
+    ],
+    "fallbackT": 76,
+    "captionSec": null
+  },
+  {
+    "id": "time-game-fame",
+    "anchor": [
+      "i",
+      "spent",
+      "time",
+      "in",
+      "the",
+      "game"
+    ],
+    "fallbackT": 76,
+    "captionSec": null
+  },
+  {
+    "id": "fiends-flatline",
+    "anchor": [
+      "saw",
+      "fiends",
+      "shoot",
+      "up",
+      "and",
+      "do",
+      "lines"
+    ],
+    "fallbackT": 76,
+    "captionSec": null
+  },
+  {
+    "id": "weak-picture-squeeze",
+    "anchor": [
+      "on",
+      "rooftops",
+      "tape",
+      "cd",
+      "covers",
+      "to",
+      "trees"
+    ],
+    "fallbackT": 76,
+    "captionSec": null
+  },
+  {
+    "id": "street-scriptures",
+    "anchor": [
+      "street",
+      "scriptures",
+      "for",
+      "lost",
+      "souls"
+    ],
+    "fallbackT": 76,
+    "captionSec": null
+  },
+  {
+    "id": "they-possessive",
+    "anchor": [
+      "belt",
+      "tied",
+      "around",
+      "they",
+      "neck"
+    ],
+    "fallbackT": 76,
+    "captionSec": null
+  },
+  {
+    "id": "nas-spell",
+    "anchor": [
+      "are",
+      "the",
+      "letters",
+      "that",
+      "spell"
+    ],
+    "fallbackT": 62,
+    "captionSec": 76
+  },
+  {
+    "id": "poetry-never-fell",
+    "anchor": [
+      "my",
+      "poetry's",
+      "deep",
+      "i",
+      "never",
+      "fell"
+    ],
+    "fallbackT": 73,
+    "captionSec": 76
+  },
+  {
+    "id": "half-man-amazin",
+    "anchor": [
+      "half",
+      "man",
+      "half",
+      "amazing"
+    ],
+    "fallbackT": 10,
+    "captionSec": 76
+  },
+  {
+    "id": "earth-wind-fire",
+    "anchor": [
+      "earth",
+      "wind",
+      "fire",
+      "rims",
+      "and",
+      "tires"
+    ],
+    "fallbackT": 92,
+    "captionSec": 92
+  },
+  {
+    "id": "pharaoh-nas",
+    "anchor": [
+      "tarot",
+      "cards",
+      "you",
+      "can",
+      "see",
+      "the",
+      "pharaoh"
+    ],
+    "fallbackT": 97,
+    "captionSec": 99
+  },
+  {
+    "id": "before-christ-after-death",
+    "anchor": [
+      "before",
+      "the",
+      "christ",
+      "after",
+      "the",
+      "death"
+    ],
+    "fallbackT": 99,
+    "captionSec": 99
+  },
+  {
+    "id": "seiko-rolex",
+    "anchor": [
+      "went",
+      "from",
+      "seiko",
+      "to",
+      "rolex"
+    ],
+    "fallbackT": 107,
+    "captionSec": 109
+  },
+  {
+    "id": "chips-cake",
+    "anchor": [
+      "from",
+      "the",
+      "projects",
+      "with",
+      "no",
+      "chips"
+    ],
+    "fallbackT": 110,
+    "captionSec": 109
+  },
+  {
+    "id": "siete-pesos",
+    "anchor": [
+      "bet",
+      "my",
+      "nine",
+      "spit",
+      "for",
+      "the",
+      "pesos"
+    ],
+    "fallbackT": 113,
+    "captionSec": 119
+  },
+  {
+    "id": "cant-take-it",
+    "anchor": [
+      "can",
+      "take",
+      "it",
+      "with",
+      "you",
+      "under",
+      "this"
+    ],
+    "fallbackT": 116,
+    "captionSec": 122
+  },
+  {
+    "id": "numbers-called",
+    "anchor": [
+      "they",
+      "just",
+      "rob",
+      "your",
+      "grave"
+    ],
+    "fallbackT": 120,
+    "captionSec": 126
+  },
+  {
+    "id": "much-success-prophet",
+    "anchor": [
+      "much",
+      "success",
+      "to",
+      "you",
+      "even",
+      "if"
+    ],
+    "fallbackT": 135,
+    "captionSec": 142
+  },
+  {
+    "id": "beef-heat",
+    "anchor": [
+      "but",
+      "nothing",
+      "sweet",
+      "i'm",
+      "like",
+      "beef"
+    ],
+    "fallbackT": 169,
+    "captionSec": 167
+  },
+  {
+    "id": "street-sweeper",
+    "anchor": [
+      "like",
+      "a",
+      "street",
+      "sweeper",
+      "green",
+      "leaf"
+    ],
+    "fallbackT": 175,
+    "captionSec": 170
+  },
+  {
+    "id": "greeks-egypt",
+    "anchor": [
+      "like",
+      "greeks",
+      "in",
+      "egypt",
+      "learning"
+    ],
+    "fallbackT": 178,
+    "captionSec": 170
+  },
+  {
+    "id": "like-pac",
+    "anchor": [
+      "always",
+      "got",
+      "you",
+      "like",
+      "pac"
+    ],
+    "fallbackT": 180,
+    "captionSec": 180
+  },
+  {
+    "id": "loot-crisp",
+    "anchor": [
+      "whole",
+      "lot",
+      "of",
+      "loot"
+    ],
+    "fallbackT": 185,
+    "captionSec": 183
+  },
+  {
+    "id": "summer-jam",
+    "anchor": [
+      "like",
+      "the",
+      "99",
+      "summer",
+      "jam"
+    ],
+    "fallbackT": 193,
+    "captionSec": 188
+  },
+  {
+    "id": "locked-down-fam",
+    "anchor": [
+      "locked",
+      "down",
+      "around",
+      "new",
+      "faces"
+    ],
+    "fallbackT": 197,
+    "captionSec": 194
+  },
+  {
+    "id": "thug-poet",
+    "anchor": [
+      "poor",
+      "man",
+      "dream",
+      "thug",
+      "poet"
+    ],
+    "fallbackT": 212,
+    "captionSec": null
+  },
+  {
+    "id": "system-every-night",
+    "anchor": [
+      "y'all",
+      "know",
+      "what",
+      "i'm",
+      "like"
+    ],
+    "fallbackT": 217,
+    "captionSec": 212
+  }
+]

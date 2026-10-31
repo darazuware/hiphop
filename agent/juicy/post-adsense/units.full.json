@@ -1,0 +1,306 @@
+[
+  {
+    "id": "never-amount-nothin",
+    "anchor": [
+      "to",
+      "all",
+      "the",
+      "teachers",
+      "that",
+      "told",
+      "me"
+    ],
+    "fallbackT": 8,
+    "manualSec": null,
+    "captionSec": 1
+  },
+  {
+    "id": "all-a-dream",
+    "anchor": [
+      "it",
+      "was",
+      "all",
+      "a",
+      "dream"
+    ],
+    "fallbackT": 18,
+    "manualSec": null,
+    "captionSec": 21
+  },
+  {
+    "id": "rap-attack",
+    "anchor": [
+      "every",
+      "saturday",
+      "rap",
+      "attack"
+    ],
+    "fallbackT": 26,
+    "manualSec": null,
+    "captionSec": 27
+  },
+  {
+    "id": "bambu-brands",
+    "anchor": [
+      "smokin'",
+      "weed",
+      "in",
+      "bambu"
+    ],
+    "fallbackT": 31,
+    "manualSec": null,
+    "captionSec": 34
+  },
+  {
+    "id": "limelight-tight",
+    "anchor": [
+      "now",
+      "i'm",
+      "in",
+      "the",
+      "limelight"
+    ],
+    "fallbackT": 46,
+    "manualSec": null,
+    "captionSec": 46
+  },
+  {
+    "id": "sardines-dinner",
+    "anchor": [
+      "born",
+      "sinner",
+      "the",
+      "opposite",
+      "of",
+      "a",
+      "winner"
+    ],
+    "fallbackT": 50,
+    "manualSec": null,
+    "captionSec": 52
+  },
+  {
+    "id": "dj-shoutouts",
+    "anchor": [
+      "peace",
+      "to",
+      "ron",
+      "g",
+      "brucie",
+      "b"
+    ],
+    "fallbackT": 56,
+    "manualSec": null,
+    "captionSec": 54
+  },
+  {
+    "id": "same-hood-all-good",
+    "anchor": [
+      "call",
+      "the",
+      "crib",
+      "same",
+      "number"
+    ],
+    "fallbackT": 63,
+    "manualSec": null,
+    "captionSec": 63
+  },
+  {
+    "id": "reach-for-stars",
+    "anchor": [
+      "don't",
+      "let",
+      "'em",
+      "hold",
+      "you",
+      "down"
+    ],
+    "fallbackT": 68,
+    "manualSec": null,
+    "captionSec": 68
+  },
+  {
+    "id": "robin-leach",
+    "anchor": [
+      "i",
+      "made",
+      "the",
+      "change",
+      "from",
+      "a",
+      "common",
+      "thief"
+    ],
+    "fallbackT": 82,
+    "manualSec": null,
+    "captionSec": 86
+  },
+  {
+    "id": "skunk-peeps",
+    "anchor": [
+      "i",
+      "smoke",
+      "skunk",
+      "with",
+      "my",
+      "peeps"
+    ],
+    "fallbackT": 88,
+    "manualSec": null,
+    "captionSec": 95
+  },
+  {
+    "id": "diss-miss",
+    "anchor": [
+      "girls",
+      "used",
+      "to",
+      "diss",
+      "me"
+    ],
+    "fallbackT": 95,
+    "manualSec": null,
+    "captionSec": 102
+  },
+  {
+    "id": "packing-gats",
+    "anchor": [
+      "i",
+      "was",
+      "too",
+      "used",
+      "to",
+      "packing",
+      "gats"
+    ],
+    "fallbackT": 105,
+    "manualSec": null,
+    "captionSec": 108
+  },
+  {
+    "id": "butter-toast",
+    "anchor": [
+      "now",
+      "honeys",
+      "play",
+      "me",
+      "close"
+    ],
+    "fallbackT": 109,
+    "manualSec": null,
+    "captionSec": 110
+  },
+  {
+    "id": "condos-indo",
+    "anchor": [
+      "condos",
+      "in",
+      "queens",
+      "indo",
+      "for",
+      "weeks"
+    ],
+    "fallbackT": 114,
+    "manualSec": null,
+    "captionSec": 116
+  },
+  {
+    "id": "dropped-out",
+    "anchor": [
+      "considered",
+      "a",
+      "fool",
+      "'cause",
+      "i",
+      "dropped",
+      "out"
+    ],
+    "fallbackT": 130,
+    "manualSec": null,
+    "captionSec": 128
+  },
+  {
+    "id": "dead-broke",
+    "anchor": [
+      "super",
+      "nintendo",
+      "sega",
+      "genesis"
+    ],
+    "fallbackT": 148,
+    "manualSec": null,
+    "captionSec": 158
+  },
+  {
+    "id": "two-gs-flat",
+    "anchor": [
+      "phone",
+      "bill",
+      "about",
+      "two",
+      "g's",
+      "flat"
+    ],
+    "fallbackT": 157,
+    "manualSec": null,
+    "captionSec": 170
+  },
+  {
+    "id": "mom-pimps-source",
+    "anchor": [
+      "now",
+      "my",
+      "mom",
+      "pimps",
+      "an",
+      "ac'"
+    ],
+    "fallbackT": 170,
+    "manualSec": null,
+    "captionSec": 182
+  },
+  {
+    "id": "landlord-christmas",
+    "anchor": [
+      "we",
+      "used",
+      "to",
+      "fuss",
+      "when",
+      "the",
+      "landlord"
+    ],
+    "fallbackT": 182,
+    "manualSec": null,
+    "captionSec": 190
+  },
+  {
+    "id": "negative-to-positive",
+    "anchor": [
+      "'cause",
+      "i",
+      "went",
+      "from",
+      "negative",
+      "to",
+      "positive"
+    ],
+    "fallbackT": 198,
+    "manualSec": null,
+    "captionSec": 202
+  },
+  {
+    "id": "b-town-mad-flavor",
+    "anchor": [
+      "representin'",
+      "b-town",
+      "in",
+      "the",
+      "house"
+    ],
+    "fallbackT": 228,
+    "manualSec": null,
+    "captionSec": 230
+  }
+]

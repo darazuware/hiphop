@@ -2,6 +2,7 @@
 import LearningUnit from '../../components/LearningUnit.astro';
 import QuickSlang from '../../components/QuickSlang.astro';
 import SongLayout from '../../layouts/SongLayout.astro';
+import SampleYoutube from '../../components/SampleYoutube.astro';
 
 import tsData from '../../../agent/fuck-compton/assets/units-timestamps.json';
 const YT = "AwzeM2J3Emk";
@@ -19,6 +20,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
   ]}
   youtubeId="AwzeM2J3Emk"
   sampleYoutubeId="X_vuSse9sFY"
+  sampleInContent={true}
   sampleTitle={'ESG - UFO'}
   learningPage={true}
   songDuration={226}
@@ -96,13 +98,13 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
           <strong class="text-[var(--c-text)]">Verse 2</strong>が一番密度が高い。Eazy-EとDr. Dreを名指しし、Ice-Tは「cool with（ダチだ）」と明示することで、ディスのターゲットを絞ります。
         </p>
         <p>
-          「Dr. DrによるDee Barnes暴行事件」を1991年時点で公然と歌詞に書き込んだあたりは、ジャーナリズム的な告発に近い。中盤以降はギャングのカラー抗争を「馬鹿のやること」と一蹴し、「ニューヨークに来い、誰が身ぐるみを剥がされるか見せてやる」と啖呵を切ります。
+          中盤以降はギャングのカラー抗争を「馬鹿のやること」と一蹴し、「ニューヨークに来い、誰が身ぐるみを剥がされるか見せてやる」と啖呵を切ります。
         </p>
         <p>
           <strong class="text-[var(--c-text)]">Verse 3</strong>では戦線がさらに個人的な方向へ。N.W.Aの楽曲名「100 Miles and Runnin'」をそのまま引用して「俺が来たらお前らはその通り逃げ惑う」に転換します。
         </p>
         <p>
-          曲末の「riff / lift / gift / if / fifth / shift / spliff」の連続韻は、ほぼ言葉の実験みたいな様相を呈しています。全体として「怒り＋知的な言葉遊び＋東海岸のプライド」が同居した、なかなか食えない一曲です。
+          曲末の「riff / lift / gift / if / fifth / shift」の連続韻は、ほぼ言葉の実験みたいな様相を呈しています。全体として「怒り＋知的な言葉遊び＋東海岸のプライド」が同居した、なかなか食えない一曲です。
         </p>
         <p class="text-xs text-[var(--c-dim)]">
           ※本ページは批評・教育目的で、解説に必要な範囲の断片のみを引用しています。全歌詞の対訳は掲載していません。
@@ -206,24 +208,6 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       </LearningUnit>
 
       <!-- ③c spray like a roach / Raid -->
-      <LearningUnit
-        heading="spray your ass like a roach / yelling Raid — トリプルミーニングの罵倒術"
-        label="★ 言葉遊び（最重要）"
-        mc="Tim Dog（Verse 1）"
-        t={TS["spray-raid"].t} tApprox={TS["spray-raid"].approx} youtubeId={YT}
-        embed=""
-      >
-        <Fragment slot="eng">I'll diss and spray your ass like a roach<br />…I'll roll thick and you'll be yellin' out, "<QuickSlang word="Raid" desc="①米国の有名殺虫剤ブランド ②ストリートスラングで「警察/敵ギャングの急襲」のダブルミーニング。ゴキブリ（roach）に殺虫剤（Raid）という比喩に急襲の意味まで重なるトリプル構造" />"</Fragment>
-        <Fragment slot="jpn">ディスってゴキブリみたいにスプレーをぶっかけてやる／俺が大勢で乗り込んだら、お前は「レイド（殺虫剤）だ！」と叫ぶことになる</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1中盤、西海岸ラッパーを害虫に例える件。学習対象は2行にまたがる仕掛け。</p>
-        <p>上の行で <strong class="text-[var(--c-text)]">roach</strong>（ゴキブリ）が出て、下の行末に <strong class="text-[var(--c-text)]">Raid</strong> が出てくる構造がポイントです。</p>
-        <p><strong class="text-[var(--c-text)]">Raid</strong> には三つの読みが同時に走っています。①アメリカで有名な殺虫剤ブランド（roach → Raid の連想）、②ストリートスラングで「警察や敵勢力による急襲・ガサ入れ」、③N.W.Aのアンセム的なビジュアル（レイダースキャップ＝Raiders）への皮肉。</p>
-        <p>1行目でゴキブリの比喩を作り、2行目でそのゴキブリが殺虫剤に飛び跳ねる情景を描きながら、急襲の脅しまで含意させてしまう。ヒップホップにおけるトリプルミーニングの好例で、2行をセットで聴いてはじめて仕掛けが全部見えてきます。</p>
-        <Fragment slot="usage">
-          <p><strong class="text-[var(--c-text)]">roach</strong> はゴキブリ（アメリカ英語では主にチャバネゴキブリ）のことで、「みすぼらしい・駆除すべき存在」の比喩として使われます。<em>spray like a roach</em> という言い回しは「無力化する・完全にやっつける」のイメージです。</p>
-          <p>なお <em>roach</em> にはマリファナの吸殻（ジョイントの終わり）という別のスラング意味もあり、文脈次第で意味が変わる多義語のひとつ。</p>
-        </Fragment>
-      </LearningUnit>
 
       <!-- ③d hard-brother -->
       <LearningUnit
@@ -252,7 +236,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         embed=""
       >
         <p class="text-xs text-[var(--c-dim)] mb-1">▶ バースとバースのあいだ、繰り返し登場するフック部分。</p>
-        <p>この曲で最も単純で、最も暴力的な言語的選択が、フック（サビ）そのもの。「<strong class="text-[var(--c-text)]">Fuck Compton</strong>」を繰り返し唱えることです。</p>
+        <p>この曲で最も単純で、最も直接的な言語的選択が、フック（サビ）そのもの。「<strong class="text-[var(--c-text)]">Fuck Compton</strong>」を繰り返し唱えることです。</p>
         <p>「Fuck ＋ 固有名詞」というフォーマットは、それだけで相手を全否定する定型の宣言型侮辱です。「Fuck tha Police」「Fuck the system」のように対象を入れ替えると適用範囲が変わりますが、地名をそのままタイトルに冠したのはTim Dogが最初の代表例のひとつでした。</p>
         <p>サビでこれを繰り返すのは、バトルラップの「言葉を武器として叩き込む」感覚をいちばんシンプルに出した形です。</p>
         <p>Verse ではスラングや多音節韻で技術を見せながら、フックでは一語の罵倒に振り切る。その落差もこの曲の構造の面白さです。</p>
@@ -295,20 +279,6 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       </LearningUnit>
 
       <!-- ④c dee-barnes -->
-      <LearningUnit
-        heading="Dre, beatin' on Dee — 音楽外の事実を歌詞に刻む"
-        label="★ 文化・実話"
-        mc="Tim Dog（Verse 2）"
-        t={TS["dee-barnes"].t} tApprox={TS["dee-barnes"].approx} youtubeId={YT}
-        embed=""
-      >
-        <Fragment slot="eng">Dre, beatin' on Dee from "Pump it Up!"</Fragment>
-        <Fragment slot="jpn">Dre、お前は『Pump It Up!』のDeeを殴ったな</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2中盤、Dr. Dreを直接名指しする件。</p>
-        <p>「Dee」は、Fox系のラップ番組『Pump It Up!』を司会していたDee Barnes（ディー・バーンズ）のこと。Dr. Dreは1991年1月のパーティーで彼女に暴力を振るい、この件は当時広く報じられていました。</p>
-        <p>Tim Dogはその実際の出来事をそのまま歌詞に書き込んで、Dr. Dreの「ギャングスタ」イメージを「女性に暴力を振るう男」という側面から攻撃します。</p>
-        <p>音楽批評に留まらず、ニュースを一行に織り込むジャーナリズム的な告発がラップとして機能している事例。1991年時点でこれを公然と歌詞にしたのは相当な踏み込みでした。</p>
-      </LearningUnit>
 
       <!-- ④d step-to -->
       <LearningUnit
@@ -344,62 +314,10 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       </LearningUnit>
 
       <!-- ④ ballistics / マルチシラビック -->
-      <LearningUnit
-        heading="simplistic / imperialistic / idealistic / ballistics — マルチシラビック韻の見本"
-        label="★ 韻（多音節ライム）"
-        mc="Tim Dog（Verse 2）"
-        t={TS["ballistics"].t} tApprox={TS["ballistics"].approx} youtubeId={YT}
-        embed=""
-      >
-        <Fragment slot="eng">I'm <QuickSlang word="simplistic" desc="単純明快な・率直な（ここでは自己評価として使い、複雑さより直球を好む東海岸スタイルの宣言)" />, <QuickSlang word="imperialistic" desc="帝国主義的・支配的（ヒップホップの領土における覇者という自己宣言）" />, <QuickSlang word="idealistic" desc="理想主義的（妥協しない信念を持つという意味合い）" /><br />And I'm kicking the <QuickSlang word="ballistics" desc="弾道学。ここでは「過激なライム・パンチライン」のダブルミーニング" /></Fragment>
-        <Fragment slot="jpn">俺はシンプルで、帝国的で、理想主義的だ／そして弾道学（過激なライム）をぶちかましている</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2中盤、自己定義のラインが連なる件。学習対象は2行全体の韻の構造。</p>
-        <p><strong class="text-[var(--c-text)]">simplistic / imperialistic / idealistic</strong>、そして次の行末の <strong class="text-[var(--c-text)]">ballistics</strong>。全部 <code>-istic(s)</code> の音で揃っています。</p>
-        <p>これが<strong class="text-[var(--c-text)]">マルチシラビック韻</strong>（<QuickSlang word="マルチシラビック" desc="multi-syllabic rhyme：複数の音節にまたがって音を揃える韻のこと。1音節の単純な脚韻より技術的に難易度が高く、東海岸スタイルの象徴とされる" />）です。</p>
-        <p>1音節の「flow / go」みたいな単純な脚韻ではなく、4〜6音節の長い語の末尾まで揃える。この技術的な難度の高さが、「東海岸のリリシズムはニューヨーク的知性の証明だ」というTim Dogのスタンスそのものになっています。</p>
-        <p>内容も「シンプルで帝国的で理想主義的だ」という自己宣言と、「だからこそ弾道学（ballistics）のように精密な言葉を撃ち込む」という比喩が重なって、韻の形式と内容が一致している。音で追ってみると、一気に実感できます。</p>
-        <Fragment slot="usage">
-          <p><strong class="text-[var(--c-text)]">kicking the ballistics</strong> の <em>kick</em> は「（言葉・知識・フロウを）放つ・繰り出す」という動詞で、ヒップホップスラングの定番。<em>kick a verse</em>（バースをかます）・<em>kick knowledge</em>（知識を説く）のように使う。</p>
-          <p><em>ballistics</em>（弾道学）は「過激なリリック」の比喩として機能し、精度の高さと破壊力の両方を含意している。マルチシラビック韻の技術とこの比喩が組み合わさることで、Tim Dogは「俺の言葉は科学的に精密で、かつ弾丸のように威力がある」と言っている。</p>
-        </Fragment>
-      </LearningUnit>
 
       <!-- ⑤ fighting over colors -->
-      <LearningUnit
-        heading="Fighting over colors? — カラーギャングへの正面批判"
-        label="★ 文化・スラング"
-        mc="Tim Dog（Verse 2）"
-        t={TS["fighting-colors"].t} tApprox={TS["fighting-colors"].approx} youtubeId={YT}
-        embed=""
-      >
-        <Fragment slot="eng">Having that <QuickSlang word="gang war" desc="ギャング抗争。ロサンゼルスでは赤（Bloods）と青（Crips）という服の色でギャングを識別するカラーコードが定着していた" /><br />We wanna know what you're fighting for / Fighting over <QuickSlang word="colors" desc="ブラッズ（赤）とクリップス（青）のギャングカラー。服の色が帰属ギャングを示す識別子として機能していた" />?</Fragment>
-        <Fragment slot="jpn">あのギャング抗争とやら／いったい何のために戦ってるのか聞かせてくれよ／服の色を巡って殺し合い？</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2後半、Tim Dogがギャング文化を論理的に否定するライン。</p>
-        <p>「Fighting over <strong class="text-[var(--c-text)]">colors</strong>?」。この一行が刺さるのは、ロサンゼルスのカラーギャング文化の具体的な文脈を知っているからです。</p>
-        <p><strong class="text-[var(--c-text)]">colors</strong>（複数形）はここで「服の色」を指します。</p>
-        <p>ブラッズ（Bloods）は赤、クリップス（Crips）は青を纏い、着ている色だけで敵と味方を判断してしまう識別システムが1980〜90年代のLAで定着していました。Tim Dogはニューヨーク出身の視点から「服の色で人間を殺すって何の理屈だ」と一蹴します。</p>
-        <p>これは単なる悪口ではなく、東海岸から見た西海岸ギャング文化への構造的な批判です。直後に「All that gang s**t's for dumb motherf**kers」と断言する言い方も、東海岸のリリシズム的な「論理で相手を潰す」スタイルが出ています。</p>
-        <Fragment slot="usage">
-          <p><strong class="text-[var(--c-text)]">colors</strong> がカラーギャングの文脈で使われるとき、単に色を指すのではなくギャングの「帰属・忠誠・アイデンティティ」全体を象徴します。<em>What color do you bang?</em>（どのギャングにいる？）・<em>fly your colors</em>（ギャングカラーを見せる）のように使われます。</p>
-          <p>1988年にDennis Hopperが監督した映画 "Colors" もこの文化を題材にしており、当時の文脈を理解するうえで参考になります。</p>
-        </Fragment>
-      </LearningUnit>
 
       <!-- ⑤b thinking-hard -->
-      <LearningUnit
-        heading="thinking you're hard — 「タフだと思い込む」への皮肉"
-        label="★ スラング"
-        mc="Tim Dog（Verse 2）"
-        t={TS["thinking-hard"].t} tApprox={TS["thinking-hard"].approx} youtubeId={YT}
-        embed=""
-      >
-        <Fragment slot="eng">But you go on thinking you're <QuickSlang word="hard" desc="ストリートスラングで「タフ・強い・頑強」。先のhard brotherユニットと同じ用法" /><br />Come to New York and we'll see who gets robbed</Fragment>
-        <Fragment slot="jpn">どうぞタフだと思い続けていろ／ニューヨークに来てみろ、誰が身ぐるみを剥がされるか見せてやる</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ ギャング批判の直後、思い込みと現実を突きつける件。</p>
-        <p>「go on thinking ~（そのまま〜と思い続けていろ）」という言い方は、相手の錯覚を放置して現実で証明するという、余裕を装った皮肉のフレームです。</p>
-        <p>続く「come to New York and we'll see who gets robbed」（ニューヨークに来てみろ、誰が強盗に遭うか分かる）は、LAのギャングスタ文化への反論。「お前らが描くストリートのリアルより、うちのリアルのほうが過酷だ」という東海岸的な自負が込められています。</p>
-        <p>「we'll see who 〜」（どちらが〜か見えてくる）は比較挑発の定番フレームです。</p>
-      </LearningUnit>
 
       <!-- ⑥ jheri curl / black hats -->
       <LearningUnit
@@ -454,40 +372,8 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         <p>公民権の言葉と個人的な怒りが同じバースに同居するのが、この曲の複雑さです。</p>
       </LearningUnit>
 
-      <!-- ⑦b tec-nine -->
-      <LearningUnit
-        heading="TEC-9 — ストリートヒップホップの定番銃器名詞"
-        label="★ スラング／文化"
-        mc="Tim Dog（Verse 3）"
-        t={TS["tec-nine"].t} tApprox={TS["tec-nine"].approx} youtubeId={YT}
-        embed=""
-      >
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3中盤、百マイル逃亡ラインの直前。</p>
-        <p><strong class="text-[var(--c-text)]">TEC-9</strong> はTEC-DC9という半自動ピストルの通称で、1980〜90年代のストリートに出回った廉価な武器。安価で大容量の弾倉という組み合わせから、都市部での流通が問題視されていました。</p>
-        <p>ヒップホップの歌詞にはN.W.Aの「Straight Outta Compton」からWu-Tangまで頻繁に登場し、当時の銃社会の象徴的な語彙になっています。</p>
-        <p>Tim Dogがここで「loaded TEC-9（装填済み）」と持ち出すのは、「お前は口だけだが、俺には実弾が用意されている」という脅しの比喩。銃器の固有名詞を比喩に使うパターンは、前のユニット「ballistics（弾道学）」と同じ系譜です。</p>
-      </LearningUnit>
 
       <!-- ⑦ hundred miles and running -->
-      <LearningUnit
-        heading="a hundred miles and running — 相手の曲名を武器に変える"
-        label="★ 言葉遊び（バトルラップの技法）"
-        mc="Tim Dog（Verse 3）"
-        t={TS["hundred-miles"].t} tApprox={TS["hundred-miles"].approx} youtubeId={YT}
-        embed=""
-      >
-        <Fragment slot="eng">Buck-buck-buck! Shots are cold gunning<br />And you'll really be a <QuickSlang word="hundred miles and running" desc="N.W.AがIce Cube脱退後の1990年にリリースしたEPタイトル「100 Miles and Runnin'」の直接引用。相手が誇りにする楽曲名を逆用して「俺から逃げ惑う」という惨めな逃走に転換する高度なバトルラップの技" /></Fragment>
-        <Fragment slot="jpn">バン・バン・バン！弾丸が冷酷に撃ち込まれる／そしてお前らは本当に「百マイル逃げ惑う（Hundred Miles and Running）」ことになる</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3中盤、銃声の擬音から間髪入れずN.W.Aの楽曲名が飛び出す件。学習対象は下の行。</p>
-        <p>下の行末、「you'll really be a <strong class="text-[var(--c-text)]">hundred miles and running</strong>」。ここに仕掛けがあります。</p>
-        <p>N.W.AはIce Cube脱退後の1990年に <em>"100 Miles and Runnin'"</em> というEPをリリースしていました。</p>
-        <p>Tim Dogはそのタイトルをそのまま引用しながら、「俺が来たらお前らはその通り100マイル逃げ惑うことになる」という惨めな逃走の描写に転換してしまう。相手が誇りを持つ楽曲名を逆手に取って侮辱のパンチラインに仕立て直す技法です。</p>
-        <p>ただ悪口を言うのではなく、相手の固有の言葉を素材にする。「知っていないと使えない」という意味でも、東海岸のリリシズムを象徴する行だと思います。</p>
-        <Fragment slot="usage">
-          <p>バトルラップで「相手のアルバム名・曲名・スローガンを引用して逆用する」技法は <strong class="text-[var(--c-text)]">flip（フリップ）</strong>と呼ばれます。相手の言葉や素材を取り上げて（flip して）、相手への攻撃に転換する。</p>
-          <p>後にTupacが「Hit 'Em Up」でB.I.G.の曲名や発言を引用して反撃したのも同じ技法。ヒップホップのビーフ文化における定石として定着しています。</p>
-        </Fragment>
-      </LearningUnit>
 
       <!-- ⑦d so-large -->
       <LearningUnit
@@ -546,32 +432,12 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
       >
         <Fragment slot="eng">So whether you think that I'm just a <QuickSlang word="myth" desc="神話・都市伝説。「just a myth（ただの伝説＝実体のないもの）」という否定的な意味を逆手に取って自己神話化する" /></Fragment>
         <Fragment slot="jpn">たとえお前が俺を単なる都市伝説だと思っていたとしても</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ riff/spliffの韻の洪水に入る直前、曲の終結部。</p>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ riffの韻の洪水に入る直前、曲の終結部。</p>
         <p>「myth（神話・都市伝説）」という語の使い方が捻れています。普通は「ただの伝説（real じゃない）」という否定的な意味で「just a myth」と使いますが、Tim Dogはそれを逆手に取っています。</p>
         <p>「たとえ俺を都市伝説だと思っていても、」と前置きして、直後の韻の洪水（riff / lift / gift...）へ雪崩れ込みます。「神話だろうが現実だろうが、この言葉の威力は変わらない」という含意です。</p>
         <p>myth に自分を重ねる自己神話化は、Nasの「pharaoh Nas」や「Before the Christ」と同じ発想で、黒人ラッパーが歴史・神話のスケールに自分を重ねる表現の系譜にあります。</p>
       </LearningUnit>
 
-      <!-- ⑧ riff / lift / gift / if / fifth / shift / spliff -->
-      <LearningUnit
-        heading="the riff / the lift / the gift / the if / the fifth / the shift / the spliff — 韻の実験"
-        label="★ 韻（連続多音韻）"
-        mc="Tim Dog（Verse 3）"
-        t={TS["riff-spliff"].t} tApprox={TS["riff-spliff"].approx} youtubeId={YT}
-        embed=""
-      >
-        <Fragment slot="eng">The <QuickSlang word="riff" desc="ギターやキーボードの繰り返しフレーズ。ここでは「俺のスタイル・ひと節」という意味" />, the lift, the gift, the if, the <QuickSlang word="fifth" desc="①5番目 ②Fifth Avenue（ニューヨーク）への暗示 ③フィフス（750ml入り酒瓶）のダブルミーニング" /><br />The shift, the <QuickSlang word="spliff" desc="マリファナのジョイント（タバコ混じりの巻きたばこ）を指すスラング" />, that's in control to hold</Fragment>
-        <Fragment slot="jpn">リフ、リフト、ギフト、if（もし）、5番目（fifth）／シフト、スプリフ（ジョイント）——それが支配しコントロールする</Fragment>
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3終盤。曲のいちばん最後に近いラインで、Tim Dogが韻の洪水で締めくくる件。</p>
-        <p>「The <strong class="text-[var(--c-text)]">riff</strong>, the lift, the gift, the if, the fifth / The shift, the <strong class="text-[var(--c-text)]">spliff</strong>」。全部 <code>-iff / -ift / -if</code> の音域で揃っています。</p>
-        <p>意味よりも<strong class="text-[var(--c-text)]">音の密度</strong>が優先されている行で、ほぼ言語実験に近い様相を呈しています。</p>
-        <p>Tim Dogがこの曲の大半を「内容のある怒りの告発」として書きながら、最後の最後でこういう「意味よりも韻の快楽」に振り切るのが面白い。ヒップホップにおける韻は、意味を補強するためだけじゃなく、<strong class="text-[var(--c-text)]">音自体が武器になる</strong>。</p>
-        <p>その側面をいちばん純粋に出している一節だと思います。</p>
-        <Fragment slot="usage">
-          <p>この行で使われている韻のパターンは <strong class="text-[var(--c-text)]">internal rhyme（内部韻）</strong>と <em>end rhyme（脚韻）</em>の組み合わせ。行の中に同じ音域の語を連続させて、リズムを加速させる。</p>
-          <p><em>the if</em> のように「接続詞の if をそのまま名詞として使う」のもAAVE的な語の転用で、品詞の枠を外して音だけで語を選んでいる証拠。こういう「音の並び方だけを追う聴き方」もヒップホップの楽しみ方のひとつで、意味が取れなくても音で気持ちよくなれる行というのが存在します。</p>
-        </Fragment>
-      </LearningUnit>
 
       <!-- ⑨ fold-bold -->
       <LearningUnit
@@ -581,8 +447,8 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
         t={TS["fold-bold"].t} tApprox={TS["fold-bold"].approx} youtubeId={YT}
         embed=""
       >
-        <p class="text-xs text-[var(--c-dim)] mb-1">▶ riff/spliffの韻に続く一行。曲の終わりに向かう最後の韻の波。</p>
-        <p>riff/spliffの韻が終わった直後、Tim Dogはさらに「fold, to bold and make an ache and take and fake」と畳みかけます。「<strong class="text-[var(--c-text)]">fold / bold / hold</strong>」の -ol音、「<strong class="text-[var(--c-text)]">make / ache / take / fake</strong>」の -ake音。</p>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ riffの韻に続く一行。曲の終わりに向かう最後の韻の波。</p>
+        <p>riffの韻が終わった直後、Tim Dogはさらに「fold, to bold and make an ache and take and fake」と畳みかけます。「<strong class="text-[var(--c-text)]">fold / bold / hold</strong>」の -ol音、「<strong class="text-[var(--c-text)]">make / ache / take / fake</strong>」の -ake音。</p>
         <p>リフ/スプリフで始まった音の洪水が、今度は別の母音域に飛び移って止まりません。</p>
         <p>最後の「Woo, and I'm still too great」という締めは、韻の実験から突然戻ってくる宣言。この種の音の遊びは、意味よりも音の連想で語を選んでいます。</p>
         <p>詩の即興演奏に近い。バトルラップが「怒りの表明」から「言語の祭典」に変容する瞬間がここにあります。</p>
@@ -651,12 +517,8 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
           {[
             ['nitty-gritty', 'イディオム：建前抜きの本質・核心。get down to the nitty-grittyで「本題に入る」'],
             ['no comp', 'competitionの略「相手にならない」＋地名Comptonの略、ダブルミーニング'],
-            ['roach / Raid', 'ゴキブリ→殺虫剤ブランドRaid→ストリートの急襲、のトリプルミーニング連鎖'],
-            ['ballistics', '弾道学＝過激なライムのダブルミーニング。kick the ballistics＝パンチラインをかます'],
-            ['colors', 'カラーギャング（Bloods赤／Crips青）の識別色。LAのギャング文化のシンボル'],
             ['jheri curl', 'Eazy-E・Ice Cubeのトレードマークだった艶やかな化学パーマ。西海岸文化の視覚的象徴'],
             ['wack', 'ダサい・質が低い・話にならない。対義語はdope/ill/fire'],
-            ['spliff', 'マリファナのジョイント（タバコ混じり）を指すスラング'],
           ].map(([term, desc]) => (
             <div class="flex gap-3 text-sm">
               <span class="text-[var(--c-gold)] shrink-0 font-semibold min-w-[130px]">{term}</span>
@@ -682,6 +544,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
           <p>
             ビートの背骨になっているあの不穏なループの正体は、<strong class="text-[var(--c-text)]">ESGの「UFO」（1981年）</strong>をスローダウンしてサンプリングしたもの。ESGはニューヨーク・サウス・ブロンクスの姉妹バンドで、ポストパンクとファンクをノーウェーブ的に解体した独特のグルーヴを持つグループ。
           </p>
+        <SampleYoutube id="X_vuSse9sFY" title="ESG - UFO" />
           <p>
             曲名が「UFO（未確認飛行物体）」というあたりも含め、普通のソウルやジャズとは異なる異物感がある素材で、それをぶっとい怒鳴り声に組み合わせることで、他の東海岸トラックとも違う攻撃的な音が生まれた。
           </p>
@@ -699,7 +562,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
             後のインタビューでTim Dogは、コンプトンやN.W.Aの全員に個人的な深い憎悪を持っていたわけではなかったと語っています。本当の標的は「N.W.Aが気に入らなかったこと」と、「コンプトン出身というだけで実力に関係なく注目される当時の業界の流れ」への苛立ちだったと。
           </p>
           <p>
-            この曲が後に死者を出すほどの抗争の導火線になるとは夢にも思っておらず、プロレスのヒール（悪役）的なエンターテインメントのつもりで向かっていた。でも言葉はあまりにも鋭すぎた。
+            この曲が後に大きな抗争の導火線になるとは夢にも思っておらず、プロレスのヒール（悪役）的なエンターテインメントのつもりで向かっていた。でも言葉はあまりにも鋭すぎた。
           </p>
         </div>
       </div>
@@ -741,7 +604,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
             一人の無名に近いブロンクスのラッパーが放った怒りの言葉が、ヒップホップ全体の地政学を変えてしまった、というのは少し大きく言いすぎかもしれないけど、少なくとも「ビーフとはこうやってエスカレートするんだ」というパターンを初めて見せた曲であることは確かだと思います。
           </p>
           <p>
-            Dr. Dre & Snoopの「f**k Wit Dre Day」での反撃、その後の東西抗争の激化。言葉の応酬が、いつの間にか現実の暴力と接続していった。
+            Dr. Dre & Snoopの「f**k Wit Dre Day」での反撃、その後の東西抗争の激化。言葉の応酬が、いつの間にか現実の対立へとつながっていった。
           </p>
         </div>
         <ul class="space-y-3 text-sm">

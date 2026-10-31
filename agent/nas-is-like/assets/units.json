@@ -1,17 +1,5 @@
 [
   {
-    "id": "baby-born-murdered",
-    "anchor": [
-      "baby",
-      "being",
-      "born",
-      "same",
-      "time"
-    ],
-    "fallbackT": 76,
-    "captionSec": null
-  },
-  {
     "id": "defines-my-name",
     "anchor": [
       "my",
@@ -51,34 +39,6 @@
     "captionSec": null
   },
   {
-    "id": "fiends-flatline",
-    "anchor": [
-      "saw",
-      "fiends",
-      "shoot",
-      "up",
-      "and",
-      "do",
-      "lines"
-    ],
-    "fallbackT": 76,
-    "captionSec": null
-  },
-  {
-    "id": "weak-picture-squeeze",
-    "anchor": [
-      "on",
-      "rooftops",
-      "tape",
-      "cd",
-      "covers",
-      "to",
-      "trees"
-    ],
-    "fallbackT": 76,
-    "captionSec": null
-  },
-  {
     "id": "street-scriptures",
     "anchor": [
       "street",
@@ -86,18 +46,6 @@
       "for",
       "lost",
       "souls"
-    ],
-    "fallbackT": 76,
-    "captionSec": null
-  },
-  {
-    "id": "they-possessive",
-    "anchor": [
-      "belt",
-      "tied",
-      "around",
-      "they",
-      "neck"
     ],
     "fallbackT": 76,
     "captionSec": null
@@ -179,18 +127,6 @@
     "captionSec": 99
   },
   {
-    "id": "seiko-rolex",
-    "anchor": [
-      "went",
-      "from",
-      "seiko",
-      "to",
-      "rolex"
-    ],
-    "fallbackT": 107,
-    "captionSec": 109
-  },
-  {
     "id": "chips-cake",
     "anchor": [
       "from",
@@ -202,20 +138,6 @@
     ],
     "fallbackT": 110,
     "captionSec": 109
-  },
-  {
-    "id": "siete-pesos",
-    "anchor": [
-      "bet",
-      "my",
-      "nine",
-      "spit",
-      "for",
-      "the",
-      "pesos"
-    ],
-    "fallbackT": 113,
-    "captionSec": 119
   },
   {
     "id": "cant-take-it",
@@ -257,32 +179,6 @@
     "captionSec": 142
   },
   {
-    "id": "beef-heat",
-    "anchor": [
-      "but",
-      "nothing",
-      "sweet",
-      "i'm",
-      "like",
-      "beef"
-    ],
-    "fallbackT": 169,
-    "captionSec": 167
-  },
-  {
-    "id": "street-sweeper",
-    "anchor": [
-      "like",
-      "a",
-      "street",
-      "sweeper",
-      "green",
-      "leaf"
-    ],
-    "fallbackT": 175,
-    "captionSec": 170
-  },
-  {
     "id": "greeks-egypt",
     "anchor": [
       "like",
@@ -293,18 +189,6 @@
     ],
     "fallbackT": 178,
     "captionSec": 170
-  },
-  {
-    "id": "like-pac",
-    "anchor": [
-      "always",
-      "got",
-      "you",
-      "like",
-      "pac"
-    ],
-    "fallbackT": 180,
-    "captionSec": 180
   },
   {
     "id": "loot-crisp",
