@@ -52,11 +52,11 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
     <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
       <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
       <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
-        <li><a href="#story" class="hover:text-[var(--c-gold)] transition-colors">01 — ストーリーの流れ</a></li>
-        <li><a href="#units" class="hover:text-[var(--c-gold)] transition-colors">02 — 学ぶ表現（スラング・AAVE・韻）</a></li>
-        <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">03 — 文化的背景</a></li>
-        <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">04 — サンプル・制作の裏側</a></li>
-        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">05 — 評価とその後の影響</a></li>
+        <li><a href="#story" class="hover:text-[var(--c-gold)] transition-colors">01 ストーリーの流れ</a></li>
+        <li><a href="#units" class="hover:text-[var(--c-gold)] transition-colors">02 学ぶ表現（スラング・AAVE・韻）</a></li>
+        <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">03 文化的背景</a></li>
+        <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">04 サンプル・制作の裏側</a></li>
+        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">05 評価とその後の影響</a></li>
       </ol>
     </nav>
 
@@ -86,7 +86,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
     <div id="units"></div>
     <section class="mb-12">
       <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2 border-b border-[var(--c-border)] pb-2">
-        学ぶ表現 — スラング・AAVE・韻
+        学ぶ表現（スラング・AAVE・韻）
       </h2>
 <p class="text-xs text-[var(--c-dim)] mb-6">
         各見出しは、この曲から拾える英語表現です。上の英語用例（1〜2行）と、行のどこが学習対象かを確かめてから下の解説へ、という順番で読めるように並べています。
@@ -97,7 +97,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
 
       <!-- ① You are appreciated -->
       <LearningUnit
-        heading="You are appreciated — 受け身で言う「ありがとう」"
+        heading="You are appreciated（受け身で言う「ありがとう」）"
         label="★ 語法"
         mc="2Pac（Intro）"
         t={TS["appreciated"].t} tApprox={TS["appreciated"].approx} youtubeId={YT}
@@ -116,7 +116,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
 
       <!-- ② had beef / kicked out -->
       <LearningUnit
-        heading="had beef / kicked out on the streets — 「確執」と「追い出された」"
+        heading="had beef / kicked out on the streets（「確執」と「追い出された」）"
         label="★ スラング・句動詞"
         mc="2Pac（Verse 1）"
         t={TS["had-beef"].t} tApprox={TS["had-beef"].approx} youtubeId={YT}
@@ -140,7 +140,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
 
       <!-- ③ Ain't a woman alive -->
       <LearningUnit
-        heading="Ain't a woman alive that could take my mama's place — ain't で始まる「存在しない」"
+        heading="Ain't a woman alive that could take my mama's place（ain't で始まる「存在しない」）"
         label="★ AAVE文法"
         mc="2Pac（Verse 1）"
         t={TS["mamas-place"].t} tApprox={TS["mamas-place"].approx} youtubeId={YT}
@@ -160,7 +160,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
 
       <!-- ④ suspended / big boys -->
       <LearningUnit
-        heading="Suspended from school / with the big boys — 停学と「年上の連中」"
+        heading="Suspended from school / with the big boys（停学と「年上の連中」）"
         label="★ 語法・スラング"
         mc="2Pac（Verse 1）"
         t={TS["suspended"].t} tApprox={TS["suspended"].approx} youtubeId={YT}
@@ -179,7 +179,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
 
       <!-- ⑤ baby sister / we was poorer -->
       <LearningUnit
-        heading="I shed tears with my baby sister / We was poorer — 妹と、AAVEの we was"
+        heading="I shed tears with my baby sister / We was poorer（妹と、AAVEの we was）"
         label="★ 語法・AAVE文法"
         mc="2Pac（Verse 1）"
         t={TS["baby-sister"].t} tApprox={TS["baby-sister"].approx} youtubeId={YT}
@@ -200,7 +200,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
 
       <!-- ⑥ different daddies, same drama（引用不要） -->
       <LearningUnit
-        heading="different daddies, the same drama — drama と「母のせいにした」"
+        heading="different daddies, the same drama（drama と「母のせいにした」）"
         label="★ スラング"
         mc="2Pac（Verse 1）"
         t={TS["different-daddies"].t} tApprox={TS["different-daddies"].approx} youtubeId={YT}
@@ -219,7 +219,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
 
       <!-- ⑨ black queen -->
       <LearningUnit
-        heading="You always was a black queen — 母を女王と呼ぶ一行と invariant was"
+        heading="You always was a black queen（母を女王と呼ぶ一行と invariant was）"
         label="★ 最重要表現・AAVE文法"
         mc="2Pac（Verse 1）"
         t={TS["black-queen"].t} tApprox={TS["black-queen"].approx} youtubeId={YT}
@@ -241,7 +241,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
 
       <!-- ⑩ raise a man -->
       <LearningUnit
-        heading="tryin' to raise a man — raise の意味幅と ain't"
+        heading="tryin' to raise a man（raise の意味幅と ain't）"
         label="★ AAVE文法・語法"
         mc="2Pac（Verse 1）"
         t={TS["raise-a-man"].t} tApprox={TS["raise-a-man"].approx} youtubeId={YT}
@@ -264,7 +264,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
 
       <!-- ⑪ committed / welfare -->
       <LearningUnit
-        heading="You always was committed / on welfare — 「やり抜いた人」と福祉のスティグマ"
+        heading="You always was committed / on welfare（「やり抜いた人」と福祉のスティグマ）"
         label="★ 語法・文化"
         mc="2Pac（Verse 1）"
         t={TS["welfare"].t} tApprox={TS["welfare"].approx} youtubeId={YT}
@@ -289,7 +289,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
 
       <!-- ⑫ pay you back -->
       <LearningUnit
-        heading="pay you back / the plan is to ~ — 返しきれない恩と「計画」"
+        heading="pay you back / the plan is to ~（返しきれない恩と「計画」）"
         label="★ 句動詞・表現"
         mc="2Pac（Verse 1ほか各バース末）"
         t={TS["pay-you-back"].t} tApprox={TS["pay-you-back"].approx} youtubeId={YT}
@@ -309,7 +309,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
 
       <!-- ⑬ place no one above ya -->
       <LearningUnit
-        heading="don't you know we love ya / place no one above ya — Chorus の否定疑問とゴスペルの温度"
+        heading="don't you know we love ya / place no one above ya（Chorus の否定疑問とゴスペルの温度）"
         label="★ 表現・語法"
         mc="Reggie Green & Sweet Franklin（Chorus）"
         t={TS["place-no-one"].t} tApprox={TS["place-no-one"].approx} youtubeId={YT}
@@ -330,7 +330,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
 
       <!-- ⑭ ain't nobody tell us -->
       <LearningUnit
-        heading="ain't nobody tell us it was fair — ain't が did not になる否定"
+        heading="ain't nobody tell us it was fair（ain't が did not になる否定）"
         label="★ AAVE文法"
         mc="2Pac（Verse 2）"
         t={TS["aint-nobody"].t} tApprox={TS["aint-nobody"].approx} youtubeId={YT}
@@ -350,7 +350,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
 
       <!-- ⑮ passed away -->
       <LearningUnit
-        heading="He passed away and I didn't cry — 死を柔らかく言う pass away"
+        heading="He passed away and I didn't cry（死を柔らかく言う pass away）"
         label="★ 語法"
         mc="2Pac（Verse 2）"
         t={TS["passed-away"].t} tApprox={TS["passed-away"].approx} youtubeId={YT}
@@ -371,7 +371,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
 
       <!-- ⑯ heartless / all along -->
       <LearningUnit
-        heading="They say I'm wrong and I'm heartless, but all along — 「最初からずっと」の all along"
+        heading="They say I'm wrong and I'm heartless, but all along（「最初からずっと」の all along）"
         label="★ 語法"
         mc="2Pac（Verse 2）"
         t={TS["heartless"].t} tApprox={TS["heartless"].approx} youtubeId={YT}
@@ -390,7 +390,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
 
       <!-- ⑰ young brother -->
       <LearningUnit
-        heading="They showed a young brother love — brother が指す「黒人の若者」"
+        heading="They showed a young brother love（brother が指す「黒人の若者」）"
         label="★ スラング"
         mc="2Pac（Verse 2）"
         t={TS["young-brother"].t} tApprox={TS["young-brother"].approx} youtubeId={YT}
@@ -410,7 +410,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
 
       <!-- ⑲ mailbox -->
       <LearningUnit
-        heading="puttin' money in your mailbox — 郵便受けに入れる仕送り"
+        heading="puttin' money in your mailbox（郵便受けに入れる仕送り）"
         label="★ 構文・文化"
         mc="2Pac（Verse 2）"
         t={TS["mailbox"].t} tApprox={TS["mailbox"].approx} youtubeId={YT}
@@ -430,7 +430,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
 
       <!-- ⑳ pay rent when the rent is due -->
       <LearningUnit
-        heading="I love payin' rent when the rent is due — due（期限が来ている）"
+        heading="I love payin' rent when the rent is due（due（期限が来ている））"
         label="★ 語法"
         mc="2Pac（Verse 2）"
         t={TS["pay-rent"].t} tApprox={TS["pay-rent"].approx} youtubeId={YT}
@@ -451,7 +451,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
 
       <!-- ㉑ when I was low -->
       <LearningUnit
-        heading="'Cause when I was low you was there for me — low（どん底）と be there for"
+        heading="'Cause when I was low you was there for me（low（どん底）と be there for）"
         label="★ 語法・AAVE文法"
         mc="2Pac（Verse 2）"
         t={TS["when-low"].t} tApprox={TS["when-low"].approx} youtubeId={YT}
@@ -470,7 +470,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
 
       <!-- ㉒ fix us a hot plate -->
       <LearningUnit
-        heading="tryin' to fix us a hot plate — 料理を「作る」の fix"
+        heading="tryin' to fix us a hot plate（料理を「作る」の fix）"
         label="★ 語法・南部英語"
         mc="2Pac（Verse 2）"
         t={TS["hot-plate"].t} tApprox={TS["hot-plate"].approx} youtubeId={YT}
@@ -489,7 +489,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
 
       <!-- ㉓ scraps you was given -->
       <LearningUnit
-        heading="workin' with the scraps you was given — 残り物の比喩と感謝祭"
+        heading="workin' with the scraps you was given（残り物の比喩と感謝祭）"
         label="★ AAVE文法・文化"
         mc="2Pac（Verse 2）"
         t={TS["scraps"].t} tApprox={TS["scraps"].approx} youtubeId={YT}
@@ -512,7 +512,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
 
       <!-- ㉔ the road got rough / on your own -->
       <LearningUnit
-        heading="raise two bad kids on your own — 「女手ひとつで」の on your own"
+        heading="raise two bad kids on your own（「女手ひとつで」の on your own）"
         label="★ 語法"
         mc="2Pac（Verse 2）"
         t={TS["road-rough"].t} tApprox={TS["road-rough"].approx} youtubeId={YT}
@@ -532,7 +532,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
 
       <!-- ㉕ pour out some liquor -->
       <LearningUnit
-        heading="Pour out some liquor and I reminisce — 追悼の一杯と depend on"
+        heading="Pour out some liquor and I reminisce（追悼の一杯と depend on）"
         label="★ 文化・表現"
         mc="2Pac（Verse 3）"
         t={TS["pour-out-liquor"].t} tApprox={TS["pour-out-liquor"].approx} youtubeId={YT}
@@ -560,7 +560,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
 
       <!-- ㉖ hopeless / back in focus -->
       <LearningUnit
-        heading="hopeless / get me back in focus — 母のひとことで立ち直る"
+        heading="hopeless / get me back in focus（母のひとことで立ち直る）"
         label="★ 韻・句動詞"
         mc="2Pac（Verse 3）"
         t={TS["back-in-focus"].t} tApprox={TS["back-in-focus"].approx} youtubeId={YT}
@@ -579,7 +579,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
 
       <!-- ㉗ act crazy -->
       <LearningUnit
-        heading="And even though I act crazy — 「ふるまう」の act"
+        heading="And even though I act crazy（「ふるまう」の act）"
         label="★ 語法"
         mc="2Pac（Verse 3）"
         t={TS["act-crazy"].t} tApprox={TS["act-crazy"].approx} youtubeId={YT}
@@ -598,7 +598,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
 
       <!-- ㉘ always stayed real -->
       <LearningUnit
-        heading="You never kept a secret, always stayed real — ヒップホップの real"
+        heading="You never kept a secret, always stayed real（ヒップホップの real）"
         label="★ スラング"
         mc="2Pac（Verse 3）"
         t={TS["stayed-real"].t} tApprox={TS["stayed-real"].approx} youtubeId={YT}
@@ -617,7 +617,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
 
       <!-- ㉙ take the pain away / brighter day -->
       <LearningUnit
-        heading="take the pain away / there's a brighter day — ゴスペルの言葉で励ます"
+        heading="take the pain away / there's a brighter day（ゴスペルの言葉で励ます）"
         label="★ イディオム・文化"
         mc="2Pac（Verse 3）"
         t={TS["brighter-day"].t} tApprox={TS["brighter-day"].approx} youtubeId={YT}
@@ -642,7 +642,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
 
       <!-- ㉚ hold on -->
       <LearningUnit
-        heading="Everything will be alright if you hold on — 「踏ん張る」の hold on"
+        heading="Everything will be alright if you hold on（「踏ん張る」の hold on）"
         label="★ 句動詞"
         mc="2Pac（Verse 3）"
         t={TS["hold-on"].t} tApprox={TS["hold-on"].approx} youtubeId={YT}
@@ -679,7 +679,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
             いわゆる「パンサー21事件」の裁判では、陪審が3時間足らずの評議で全員無罪の評決を出しています。
           </p>
           <p>
-            2Pacが生まれた1971年、彼女はまさにその裁判のさなかにいました。1980年代後半には、アフェニ自身も深い苦しみを抱えた時期がありました。
+            2Pacが生まれた1971年、彼女はちょうどその裁判のさなかにいました。1980年代後半には、アフェニ自身も深い苦しみを抱えた時期がありました。
           </p>
           <p>
             その強さと弱さの両方を、2Pacは「黒人の女王」という一語にまとめています。
@@ -757,7 +757,7 @@ const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.appro
 
       <div class="p-5 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
         <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-2">プロデューサー</p>
-        <h3 class="font-semibold text-base mb-3">Tony Pizarro — ソウルの温度を保ったまま</h3>
+        <h3 class="font-semibold text-base mb-3">Tony Pizarro（ソウルの温度を保ったまま）</h3>
         <div class="space-y-3 text-[var(--c-muted)] text-sm leading-relaxed">
           <p>
             この曲のプロデュースは Tony Pizarro。Joe Sample と The Spinners の素材をつなぎながら、ドラムを強くしすぎず、温かさを残す方向で組まれています。
