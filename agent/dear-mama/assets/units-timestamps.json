@@ -194,12 +194,12 @@
   {
     "id": "pay-rent",
     "whisperSec": null,
-    "manualSec": null,
+    "manualSec": 131.9,
     "captionSec": 132,
     "syncedSec": null,
     "fallbackT": 156,
-    "t": 132,
-    "source": "caption",
+    "t": 131.9,
+    "source": "manual",
     "approx": false,
     "score": null
   },
