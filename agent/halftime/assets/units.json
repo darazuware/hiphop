@@ -1,0 +1,350 @@
+[
+  {
+    "id": "nasty-nas-area",
+    "anchor": [
+      "nasty",
+      "nas",
+      "in",
+      "your",
+      "area"
+    ],
+    "fallbackT": 6,
+    "manualSec": null,
+    "captionSec": 14
+  },
+  {
+    "id": "king-poetic",
+    "anchor": [
+      "king",
+      "poetic",
+      "too",
+      "much",
+      "flavor"
+    ],
+    "fallbackT": 26,
+    "manualSec": null,
+    "captionSec": 31
+  },
+  {
+    "id": "atlanta-braver",
+    "anchor": [
+      "atlanta",
+      "ain't",
+      "brave",
+      "r"
+    ],
+    "fallbackT": 29,
+    "manualSec": null,
+    "captionSec": 33
+  },
+  {
+    "id": "ace-face-bass",
+    "anchor": [
+      "i'ma",
+      "ace",
+      "when",
+      "i",
+      "face",
+      "the",
+      "bass"
+    ],
+    "fallbackT": 31,
+    "manualSec": null,
+    "captionSec": 37
+  },
+  {
+    "id": "nike-head",
+    "anchor": [
+      "i'm",
+      "a",
+      "nike",
+      "head"
+    ],
+    "fallbackT": 39,
+    "manualSec": null,
+    "captionSec": null
+  },
+  {
+    "id": "aint-a-thing-change",
+    "anchor": [
+      "ain't",
+      "a",
+      "damn",
+      "thing",
+      "gonna",
+      "change"
+    ],
+    "fallbackT": 42,
+    "manualSec": null,
+    "captionSec": 47
+  },
+  {
+    "id": "mad-phat-halftime",
+    "anchor": [
+      "you",
+      "know",
+      "you",
+      "got",
+      "the",
+      "mad",
+      "phat",
+      "fluid"
+    ],
+    "fallbackT": 47,
+    "manualSec": null,
+    "captionSec": 53
+  },
+  {
+    "id": "about-halftime-chorus",
+    "anchor": [
+      "yeah",
+      "it's",
+      "about",
+      "halftime"
+    ],
+    "fallbackT": 55,
+    "manualSec": null,
+    "captionSec": null
+  },
+  {
+    "id": "like-that-hemmed",
+    "anchor": [
+      "i",
+      "got",
+      "it",
+      "hemmed"
+    ],
+    "fallbackT": 66,
+    "manualSec": null,
+    "captionSec": 81
+  },
+  {
+    "id": "hype-track-set-off",
+    "anchor": [
+      "so",
+      "i",
+      "react",
+      "never",
+      "calmly",
+      "on",
+      "a",
+      "hype",
+      "track"
+    ],
+    "fallbackT": 73,
+    "manualSec": null,
+    "captionSec": 85
+  },
+  {
+    "id": "catch-wreck",
+    "anchor": [
+      "in",
+      "your",
+      "stereo",
+      "sets",
+      "nas'll",
+      "catch",
+      "wreck"
+    ],
+    "fallbackT": 84,
+    "manualSec": null,
+    "captionSec": 96
+  },
+  {
+    "id": "jackson-5",
+    "anchor": [
+      "when",
+      "i",
+      "was",
+      "young",
+      "i",
+      "was",
+      "a",
+      "fan"
+    ],
+    "fallbackT": 86,
+    "manualSec": null,
+    "captionSec": 102
+  },
+  {
+    "id": "drop-jewels-kicks",
+    "anchor": [
+      "i",
+      "drop",
+      "jewels",
+      "wear",
+      "jewels"
+    ],
+    "fallbackT": 92,
+    "manualSec": null,
+    "captionSec": 105
+  },
+  {
+    "id": "rise-wise-exercise",
+    "anchor": [
+      "nasty",
+      "nas",
+      "has",
+      "to",
+      "rise"
+    ],
+    "fallbackT": 97,
+    "manualSec": null,
+    "captionSec": 109
+  },
+  {
+    "id": "back-in-83",
+    "anchor": [
+      "back",
+      "in",
+      "83",
+      "i",
+      "was",
+      "an",
+      "mc"
+    ],
+    "fallbackT": 102,
+    "manualSec": null,
+    "captionSec": 114
+  },
+  {
+    "id": "mr-magic",
+    "anchor": [
+      "i",
+      "got",
+      "to",
+      "have",
+      "it",
+      "i",
+      "miss",
+      "mr",
+      "magic"
+    ],
+    "fallbackT": 116,
+    "manualSec": null,
+    "captionSec": 130
+  },
+  {
+    "id": "cant-near-it",
+    "anchor": [
+      "these",
+      "are",
+      "the",
+      "lyrics",
+      "of",
+      "the",
+      "man"
+    ],
+    "fallbackT": 126,
+    "manualSec": null,
+    "captionSec": 141
+  },
+  {
+    "id": "aint-all-that",
+    "anchor": [
+      "explore",
+      "rap",
+      "and",
+      "tell",
+      "me",
+      "nas",
+      "ain't",
+      "all",
+      "that"
+    ],
+    "fallbackT": 132,
+    "manualSec": null,
+    "captionSec": 148
+  },
+  {
+    "id": "rhyme-biter-stay-tuned",
+    "anchor": [
+      "i",
+      "hate",
+      "a",
+      "rhyme",
+      "biter's",
+      "rhyme"
+    ],
+    "fallbackT": 142,
+    "manualSec": null,
+    "captionSec": 157
+  },
+  {
+    "id": "word-life-chorus",
+    "anchor": [
+      "it's",
+      "real",
+      "in",
+      "the",
+      "field"
+    ],
+    "fallbackT": 150,
+    "manualSec": null,
+    "captionSec": 180
+  },
+  {
+    "id": "morning-song-flip",
+    "anchor": [
+      "i",
+      "got",
+      "it",
+      "goin'",
+      "on"
+    ],
+    "fallbackT": 165,
+    "manualSec": null,
+    "captionSec": 183
+  },
+  {
+    "id": "marcus-garvey",
+    "anchor": [
+      "word",
+      "to",
+      "marcus",
+      "garvey"
+    ],
+    "fallbackT": 173,
+    "manualSec": null,
+    "captionSec": 190
+  },
+  {
+    "id": "boogie-down-props",
+    "anchor": [
+      "brooklyn",
+      "and",
+      "queens",
+      "is",
+      "livin'",
+      "fat"
+    ],
+    "fallbackT": 205,
+    "manualSec": null,
+    "captionSec": 222
+  },
+  {
+    "id": "queensbridge-crew-92",
+    "anchor": [
+      "to",
+      "the",
+      "queensbridge",
+      "crew",
+      "you",
+      "know"
+    ],
+    "fallbackT": 215,
+    "manualSec": null,
+    "captionSec": 238
+  },
+  {
+    "id": "get-ghost",
+    "anchor": [
+      "let's",
+      "get",
+      "ghost"
+    ],
+    "fallbackT": 228,
+    "manualSec": null,
+    "captionSec": 249
+  }
+]

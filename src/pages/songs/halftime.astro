@@ -1,0 +1,707 @@
+---
+import LearningUnit from '../../components/LearningUnit.astro';
+import QuickSlang from '../../components/QuickSlang.astro';
+import SongLayout from '../../layouts/SongLayout.astro';
+
+import tsData from '../../../agent/halftime/assets/units-timestamps.json';
+const YT = "dogqDbcbVo0";
+const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.approx }]));
+---
+
+<SongLayout
+  title="Halftime 和訳・英語スラング解説 | Nas"
+  description="Nas「Halftime」（1992年のデビューシングル、1994年『Illmatic』収録）を和訳付きで英語学習の教材として解説。mad-phat、catch wreck、got it hemmed、word life、get ghost などのNYスラングと、ain't や三単現の s を落とすAAVEの文法を、Large Professorプロデュースの一曲から頭出し付きで読み解きます。"
+  slug="halftime"
+  learningPage={true}
+  songDuration={258}
+  highlights={[
+    'Nasty Nas 名義で出たソロデビューのシングル。19歳の Nas が、1行の中に何度も同じ音を詰めこむ韻の踏み方',
+    'mad-phat、catch wreck、got it hemmed、word life、get ghost。90年代前半のNYで飛び交った言い回しが次々に出てくる',
+    'Mr. Magic、The Jackson 5、Marcus Garvey、ブロンクスの呼び名 Boogie Down。名前ひとつで当時のNYと Nas の好きなものが見えてくる',
+  ]}
+  youtubeId="dogqDbcbVo0"
+>
+
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■19歳の Nasty Nas が、最初に名乗りを上げたシングル</h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          「Halftime」は、Nasのソロとして最初のシングルです。1992年10月13日、映画『Zebrahead』のサウンドトラックからの曲として出て、名義はまだ Nasty Nas でした。
+        </p>
+        <p>
+          このシングルが話題になって、1年半後の1994年、デビューアルバム『Illmatic』の5曲目に収められます。アルバムのために最初に作られた曲でもありました。
+        </p>
+        <p>
+          プロデュースは Large Professor。トランペットと打楽器が前に出た速めのビートで、Nasは3つのバースを休みなく走りきります。
+        </p>
+        <p>
+          穏やかでない表現を含む行は取り上げません。NYの口語と韻、当時の固有名詞が出てくる行を選んで、曲の順に見ていきます。
+        </p>
+      </div>
+    </section>
+
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■英語の見どころは、細かい韻と90年代NYの言い回し</h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          韻では、area と hysteria、ace と face と bass のように、1行の中や行と行のあいだで同じ音を何度も重ねます。短い区切りで韻が入るので、耳で追うと速さがよく分かります。
+        </p>
+        <p>
+          語彙では、mad、phat、catch wreck、got it hemmed、word life、get ghost と、当時のNYのラップで飛び交った言い回しが並びます。
+        </p>
+        <p>
+          同じ『Illmatic』からは、「<a href='/songs/ny-state-of-mind' class='underline'>N.Y. State of Mind</a>」「<a href='/songs/the-world-is-yours' class='underline'>The World Is Yours</a>」「<a href='/songs/represent' class='underline'>Represent</a>」も、このサイトで扱っています。
+        </p>
+      </div>
+    </section>
+
+    <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
+      <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
+        <li><a href="#story" class="hover:text-[var(--c-gold)] transition-colors">01 ストーリーの流れ（まず曲全体をつかむ）</a></li>
+        <li><a href="#units" class="hover:text-[var(--c-gold)] transition-colors">02 学ぶ表現（スラング・韻・言葉遊び・AAVE）</a></li>
+        <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">03 文化的背景</a></li>
+        <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">04 制作の裏側</a></li>
+        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">05 評価とその後</a></li>
+      </ol>
+    </nav>
+
+    <section id="story" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        ストーリーの流れ（まず曲全体をつかむ）
+      </h2>
+      <p class="text-xs text-[var(--c-dim)] mb-5">
+        物語を語る曲ではありません。3つのバースで、自分のラップの腕と地元への思いを次々に並べていきます。
+      </p>
+      <div class="space-y-4 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          <strong class='text-[var(--c-text)]'>Verse 1</strong>は名乗りと腕自慢。<strong class='text-[var(--c-text)]'>Verse 2</strong>は、子どもの頃の思い出や好きだったラジオDJの話を混ぜながら、マイクは渡さないと言い切ります。
+        </p>
+        <p>
+          <strong class='text-[var(--c-text)]'>Verse 3</strong>はNYの5つの区へ挨拶を回し、亡くなった幼なじみへの追悼で終わります。最後は Queensbridge の仲間への呼びかけで幕を引きます。
+        </p>
+        <p class="text-xs text-[var(--c-dim)]">
+          ※本ページは批評・教育目的で、解説に必要な範囲の断片のみを引用しています。全歌詞の対訳は掲載していません。
+        </p>
+      </div>
+    </section>
+
+    <div id="units"></div>
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        学ぶ表現（スラング・韻・言葉遊び・AAVE）
+      </h2>
+      <div class="space-y-3 text-xs text-[var(--c-dim)] mb-6">
+        <p>イントロの名乗りからアウトロの最後のひと言まで、曲の流れに沿って表現を拾います。各項目の上が英語の引用と和訳、下が解説です。</p>
+        <p>穏やかでない表現を含む行は外しています。固有名詞だけで済む項目は英語を引かず、語と背景だけを書きました。</p>
+        <p>▶を押すと、NasVEVOの公式ビデオの該当箇所から再生できます。</p>
+      </div>
+
+      <LearningUnit
+        heading="Nasty Nas in your area 名乗りと area / hysteria の韻"
+        label="★ 韻／名乗り"
+        mc="Nas（Intro）"
+        t={TS["nasty-nas-area"].t} tApprox={TS["nasty-nas-area"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Nasty Nas in your area / About to cause mass hysteria</Fragment>
+        <Fragment slot="jpn">ナスティ・ナズがお前らの街に参上／これから大騒ぎを起こすところさ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ イントロの3行目と4行目、ビートが立ち上がってすぐの名乗りです。</p>
+        <p>1行目の頭にある <strong class='text-[var(--c-text)]'>Nasty Nas</strong> は、当時のNasの名義です。デビュー作のこのシングルも Nasty Nas の名前で出ていて、Nas に縮めるのはこのあとのことでした。</p>
+        <p>2行の行末は <strong class='text-[var(--c-text)]'>area</strong>（エリア）と <strong class='text-[var(--c-text)]'>hysteria</strong>（ヒステリア）。後ろの「リア」の響きを3音節ぶん重ねていて、最初の2行から韻の踏み方の細かさが出ています。</p>
+        <p><strong class='text-[var(--c-text)]'>about to</strong> は「これから〜するところ」。be 動詞が省かれていて、きちんと書けば I'm about to cause です。</p>
+        <p><strong class='text-[var(--c-text)]'>mass hysteria</strong> は「集団ヒステリー」で、ここでは会場ごと大騒ぎにする、という大げさな予告になっています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>about to</strong>（これから〜する）: <em>We're about to leave.</em>（もう出るところ）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="King poetic 語順を入れ替えた肩書きと flavor"
+        label="★ スラング"
+        mc="Nas（Verse 1）"
+        t={TS["king-poetic"].t} tApprox={TS["king-poetic"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">King poetic, too much flavor, I'm major</Fragment>
+        <Fragment slot="jpn">詩の王様、持ち味はあふれるほど、俺は大物</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の5行目です。</p>
+        <p>行頭の <strong class='text-[var(--c-text)]'>King poetic</strong> は、普通なら poetic king と並ぶところを、形容詞を後ろに回した言い方です。称号のような響きが出ます。</p>
+        <p>まんなかの <QuickSlang word='flavor' desc='味、風味が元の意味。ヒップホップでは、その人ならではの個性やスタイルを指して使う。</p>
+        <p>この行では too much と組んで、自分の持ち味があふれ出ていると胸を張っている' /> は「味」が元の意味ですが、ラップでは個性やスタイルのことです。too much flavor で「持ち味がありすぎる」。</p>
+        <p>行末の <strong class='text-[var(--c-text)]'>major</strong> は「大物、一流」。major league（メジャーリーグ）の major と同じで、小物ではないと言い切る一語です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>major</strong>（大物の、重要な）: <em>That was a major win for the team.</em>（チームにとって大きな勝利だった）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Atlanta ain't Brave-r 野球チーム名に掛けたしゃれ"
+        label="★ 言葉遊び"
+        mc="Nas（Verse 1）"
+        t={TS["atlanta-braver"].t} tApprox={TS["atlanta-braver"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Atlanta ain't Brave-r, I pull a number like a pager</Fragment>
+        <Fragment slot="jpn">アトランタだって俺よりブレーブ（勇敢）じゃない、ポケベルみたいに数字を出す</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の6行目です。</p>
+        <p>前半の <strong class='text-[var(--c-text)]'>Brave-r</strong> が、この行の学習ポイントです。braver（もっと勇敢な）と、アトランタの野球チーム Atlanta Braves を掛けています。</p>
+        <p>Braves はメジャーリーグのチームで、1991年と1992年にナショナル・リーグを制してワールドシリーズに出ていました。曲が出た頃のアメリカで、ちょうど勢いのある名前だったわけです。</p>
+        <p>後半の <strong class='text-[var(--c-text)]'>pager</strong> は、90年代に広く使われたポケットベルのこと。画面に電話番号の数字が出る機械なので、pull a number（数字をたたき出す）の比喩に使っています。</p>
+        <p>前半の Brave-r と後半の pager で、母音の響きもそろっています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>比較級の -er</strong>: <em>This one is cheaper than that one.</em>（こっちのほうが安い）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="I'ma ace 一つの行に詰めた ace / face / bass"
+        label="★ 韻／口語"
+        mc="Nas（Verse 1）"
+        t={TS["ace-face-bass"].t} tApprox={TS["ace-face-bass"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">'Cause I'ma ace when I face the bass</Fragment>
+        <Fragment slot="jpn">ベースに向き合えば、俺はエースだからさ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の7行目です。</p>
+        <p>行頭の <strong class='text-[var(--c-text)]'>I'ma</strong> は、I'm going to を縮めた口語です。ここでは「〜になる」というより、「〜なんだ」に近い軽い言い方として使われています。</p>
+        <p><strong class='text-[var(--c-text)]'>ace</strong>、<strong class='text-[var(--c-text)]'>face</strong>、<strong class='text-[var(--c-text)]'>bass</strong> と、短い一行の中に同じ「エイス」の音が3回入っています。次の行の行末も place と grace で、同じ響きをさらに続けます。</p>
+        <p><strong class='text-[var(--c-text)]'>ace</strong> はトランプのエースから来た語で、「一流の人、名手」。<strong class='text-[var(--c-text)]'>the bass</strong> は低音のベースラインのことで、ビートに向き合えば負けない、という意味になります。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>I'ma</strong>（I'm going to の口語）: <em>I'ma call you later.</em>（あとで電話するよ）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="I'm a Nike-head 「〜好き」を作る -head"
+        label="★ スラング"
+        mc="Nas（Verse 1）"
+        t={TS["nike-head"].t} tApprox={TS["nike-head"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">And I'm a Nike-head, I wear chains that excite the Feds</Fragment>
+        <Fragment slot="jpn">それに俺はナイキ好き、つけてるチェーンは連邦の捜査官までざわつかせる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の10行目です。</p>
+        <p>前半の <strong class='text-[var(--c-text)]'>Nike-head</strong> の <strong class='text-[var(--c-text)]'>-head</strong> は、名詞につけて「〜好き、〜マニア」を作る言い方です。sneakerhead（スニーカー好き）と同じ形です。</p>
+        <p>後半の <strong class='text-[var(--c-text)]'>the Feds</strong> は、FBI などアメリカ連邦政府の捜査機関をまとめて呼ぶ口語です。<strong class='text-[var(--c-text)]'>excite</strong> は「興奮させる」。</p>
+        <p>チェーンが派手すぎて、捜査官まで目の色を変えるほど、という見せ方です。</p>
+        <p>head と Feds で行の前半と後半の音をそろえています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>-head</strong>（〜好き）: <em>He's a total sneakerhead.</em>（あいつは相当なスニーカー好きだ）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Ain't a thing gonna change 否定の強調と mic warmer"
+        label="★ AAVE文法"
+        mc="Nas（Verse 1）"
+        t={TS["aint-a-thing-change"].t} tApprox={TS["aint-a-thing-change"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">And ain't a damn thing gonna change / I'm a performer, strange, show the mic warmer was born to gain</Fragment>
+        <Fragment slot="jpn">この先も何ひとつ変わりゃしない／俺はパフォーマー、変わり者、マイクを温める男は勝つために生まれたって見せる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の11行目と12行目です。</p>
+        <p>1行目は、<strong class='text-[var(--c-text)]'>ain't</strong> を文頭に出した言い方です。標準の英語なら Nothing is going to change で、<QuickSlang word='ain't' desc='am not、is not、are not、have not などをまとめて言う否定の口語。</p>
+        <p>AAVEでは文頭に出して、後ろの名詞を強く否定する形もよく使う。この行では「何ひとつ」の意味を強めている' /> ＋ a thing で「ひとつも〜ない」になります。</p>
+        <p>a と thing のあいだに入った語は、意味を強めるだけの言葉です。「なにひとつ」の「ひとつ」に力を込める感じ、と思っておくと近いと思います。</p>
+        <p>2行目の <strong class='text-[var(--c-text)]'>mic warmer</strong> は「マイクを温める人」。ずっとマイクを握っていて冷める暇がない、という自己紹介です。</p>
+        <p>performer、strange、warmer、gain と、行の中で音が転がっていきます。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>ain't</strong>（否定の口語）: <em>Ain't nobody got time for that.</em>（そんなことに付き合う暇はない）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Mad-phat fluid 強調の mad と phat、そして曲名"
+        label="★ スラング／タイトル"
+        mc="Nas（Verse 1）"
+        t={TS["mad-phat-halftime"].t} tApprox={TS["mad-phat-halftime"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Nas, why did you do it? / You know you got the mad-phat fluid when you rhyme, it's halftime</Fragment>
+        <Fragment slot="jpn">ナズ、なんでそんなことができたんだ？／ライムすりゃ極上の流れが出るって分かってるだろ、ハーフタイムだ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の最後の2行で、ここで初めて曲名が出てきます。</p>
+        <p>1行目は、自分で自分に問いかける形です。Verse 1をひと息に駆け抜けたあと、「どうやったんだ」と自分を振り返ってみせます。</p>
+        <p><QuickSlang word='mad' desc='怒った、が基本。NYの口語では程度を強める副詞のように使い、「すごく」の意味になる。</p>
+        <p>この行では phat の前について、最高の度合いをさらに上げている' href='/slang/mad' /> は「怒った」でなく、程度を強める語です。<QuickSlang word='phat' desc='最高の、かっこいい。</p>
+        <p>fat と同じ発音で、90年代のヒップホップでよく使われた褒め言葉。この行では mad と組んで流れのよさをほめている' /> は fat と同じ発音の褒め言葉で、「最高の」。</p>
+        <p><strong class='text-[var(--c-text)]'>fluid</strong> は「液体」。ラップの流れ（flow）を、液体の流れに置きかえた言い方です。</p>
+        <p><strong class='text-[var(--c-text)]'>halftime</strong> はスポーツの試合の前半と後半のあいだの休憩のこと。ここで曲名が初めて出てきて、次のコーラスにつながります。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>phat</strong>（最高の）: <em>That beat is phat.</em>（あのビートは最高だ）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="It's about halftime コーラスの about と三単現の s"
+        label="★ AAVE文法／コーラス"
+        mc="Nas（Chorus）"
+        t={TS["about-halftime-chorus"].t} tApprox={TS["about-halftime-chorus"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Yeah, it's about halftime / This is how it feel, check it out, how it feel</Fragment>
+        <Fragment slot="jpn">そう、そろそろハーフタイムだ／これがその感じ、聴いてみな、この感じ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 1回目のコーラスの4行目と5行目です。</p>
+        <p>コーラスでは、後ろで「Right...」の声が鳴るたびに、Nasが It's halftime と返していきます。</p>
+        <p><strong class='text-[var(--c-text)]'>it's about halftime</strong> の <strong class='text-[var(--c-text)]'>about</strong> は「〜について」でなく、「だいたい、そろそろ」です。It's about time（そろそろ時間だ）という決まった言い方に、曲名をはめこんでいます。</p>
+        <p>2行目の <strong class='text-[var(--c-text)]'>how it feel</strong> は、標準なら how it feels です。三人称単数の s を落とすのは、<QuickSlang word='AAVE' desc='アフリカ系アメリカ人英語。</p>
+        <p>独自の文法の決まりを持つ英語の変種で、三人称単数の s を付けない言い方もそのひとつ。この行では how it feel にその形が出ている' />（アフリカ系アメリカ人英語）によく出る形です。</p>
+        <p><strong class='text-[var(--c-text)]'>check it out</strong> は「ちょっと見て、聴いて」。人の注意を引きたいときの決まり文句です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>It's about time</strong>（そろそろだ／やっとだ）: <em>It's about time you showed up.</em>（やっと来たか）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="It's like that と got it hemmed 「がっちり押さえた」"
+        label="★ スラング"
+        mc="Nas（Verse 2）"
+        t={TS["like-that-hemmed"].t} tApprox={TS["like-that-hemmed"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">It's like that, you know it's like that / I got it hemmed, now you never get the mic back</Fragment>
+        <Fragment slot="jpn">そういうこと、分かるだろ、そういうことさ／俺ががっちり押さえた、もうマイクは戻ってこない</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の1行目と2行目です。</p>
+        <p>1行目の <strong class='text-[var(--c-text)]'>It's like that</strong> は「そういうものだ、そういうことだ」と言い切る口語です。Run-D.M.C. の1983年のデビューシングルの曲名もこの言い回しで、NYのラップでは聞き慣れた一言です。</p>
+        <p>2行目の <strong class='text-[var(--c-text)]'>hemmed</strong> は、服の裾（hem）を縫いとめる、が元の意味です。そこから「囲い込む、押さえ込む」の意味になり、<strong class='text-[var(--c-text)]'>got it hemmed</strong> で「完全に押さえた、手の内にある」になります。</p>
+        <p>マイクを握ったらもう渡さない、という宣言で Verse 2 が始まります。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>hem in</strong>（囲い込む）: <em>The traffic hemmed us in for an hour.</em>（渋滞で1時間身動きがとれなかった）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Hype track と set it off 2行続く -ack の韻"
+        label="★ スラング／韻"
+        mc="Nas（Verse 2）"
+        t={TS["hype-track-set-off"].t} tApprox={TS["hype-track-set-off"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">So I react, never calmly on a hype track / I set it off with my own rhyme</Fragment>
+        <Fragment slot="jpn">だから反応する、アガるトラックの上で落ち着いてなんかいられない／自分のライムで口火を切る</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の4行目と5行目です。</p>
+        <p>1行目の行末 <QuickSlang word='hype' desc='誇大な宣伝、が元の意味。ラップでは「盛り上がる、アガる」の意味で、hype track は気分が上がるトラックのこと。</p>
+        <p>この行では、そんなビートの上で落ち着いていられないと言っている' href='/slang/hype' /> track は、「アガるトラック」のことです。calmly（落ち着いて）を never で打ち消して、じっとしていられない勢いを出しています。</p>
+        <p>直前の2行は attack と back で終わっていて、この行も react と track。Verse 2 の頭から、同じ「アック」の音が4行続きます。</p>
+        <p>2行目の <strong class='text-[var(--c-text)]'>set it off</strong> は「始める、火をつける」。パーティーや騒ぎを始めるときによく使う言い方で、ここでは自分のライムで口火を切る、です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>set it off</strong>（始める、盛り上げる）: <em>The DJ set it off with an old-school classic.</em>（DJはオールドスクールの名曲で場を盛り上げ始めた）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Nas'll catch wreck 「派手にかます」"
+        label="★ スラング"
+        mc="Nas（Verse 2）"
+        t={TS["catch-wreck"].t} tApprox={TS["catch-wreck"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">In your stereo sets, Nas'll catch wreck</Fragment>
+        <Fragment slot="jpn">お前のステレオの中で、ナズが派手にかましてやる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の8行目です。</p>
+        <p>行末の <strong class='text-[var(--c-text)]'>catch wreck</strong> が学習ポイントです。wreck は「残骸、めちゃくちゃな状態」で、catch wreck は90年代前後のNYのラップでよく聞いた「派手にかます、圧倒する」の言い回しです。</p>
+        <p><strong class='text-[var(--c-text)]'>Nas'll</strong> は Nas will の短縮形。名前に 'll をつけて未来の宣言にしています。</p>
+        <p><strong class='text-[var(--c-text)]'>stereo sets</strong> はステレオの機材のことで、聴き手の部屋のスピーカーの中で暴れてみせる、という絵になります。sets と wreck で、短い母音の響きを合わせています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>wreck</strong>（めちゃくちゃにする）: <em>The storm wrecked the garden.</em>（嵐で庭がめちゃくちゃになった）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="I was a fan of The Jackson 5 hustle と relax の対比"
+        label="★ 固有名詞／語法"
+        mc="Nas（Verse 2）"
+        t={TS["jackson-5"].t} tApprox={TS["jackson-5"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">I used to hustle, now all I do is relax and strive / When I was young, I was a fan of The Jackson 5</Fragment>
+        <Fragment slot="jpn">前はあくせく稼いでた、今はくつろいで上を目指すだけ／ガキの頃はジャクソン5のファンだった</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の9行目と10行目です。</p>
+        <p>1行目の <strong class='text-[var(--c-text)]'>used to</strong> は「以前は〜していた（今は違う）」。<QuickSlang word='hustle' desc='押し合う、急ぐ、が元の意味。</p>
+        <p>ラップでは、あの手この手で稼ぐために走り回ることを指す。この行では、昔のあくせくした暮らしを指して、今の relax と並べている' href='/slang/hustle' /> は、稼ぐために走り回ることです。</p>
+        <p><strong class='text-[var(--c-text)]'>all I do is</strong> ＋動詞で「〜するだけ」。relax（くつろぐ）と strive（努力する）という逆向きの動詞を並べて、余裕を持って上を目指す今の自分を描いています。</p>
+        <p>2行目の The Jackson 5 は、マイケル・ジャクソンと兄弟たちのグループです。同じ『Illmatic』の「<a href='/songs/it-aint-hard-to-tell' class='underline'>It Ain't Hard to Tell</a>」がマイケルの「Human Nature」を使っているのを知っていると、この一行が少し違って見えてきます。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>used to</strong>（以前は〜していた）: <em>I used to live in Kyoto.</em>（前は京都に住んでいた）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Drop jewels と more kicks 二つの意味が重なる jewels"
+        label="★ 多義／言葉遊び"
+        mc="Nas（Verse 2）"
+        t={TS["drop-jewels-kicks"].t} tApprox={TS["drop-jewels-kicks"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">I drop jewels, wear jewels, hope to never run it / With more kicks than a baby in a mother's stomach</Fragment>
+        <Fragment slot="jpn">知恵を授けて、宝石も身につける、切らすつもりはない／母親のお腹の赤ん坊よりたくさんキックを入れる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の11行目と12行目です。</p>
+        <p>1行目は <strong class='text-[var(--c-text)]'>jewels</strong> を2回使います。<strong class='text-[var(--c-text)]'>drop jewels</strong> は「ためになる言葉、知恵を授ける」という言い方で、続く <strong class='text-[var(--c-text)]'>wear jewels</strong> は文字どおり宝石を身につけること。</p>
+        <p>同じ語で中身と見た目の両方を言っています。</p>
+        <p>2行目の <QuickSlang word='kicks' desc='蹴り、が元の意味。ラップではスニーカーの呼び名として広く使われるほか、kick a rhyme で「ラップを披露する」の意味にもなる。</p>
+        <p>この行では、お腹の赤ん坊の蹴りとラップのキックを重ねている' href='/slang/kicks' /> は、お腹の赤ん坊が蹴る動きと、ラップを「キックする（披露する）」意味を掛けています。</p>
+        <p>run it と stomach で、行末の音もそろえています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>drop knowledge</strong>（知恵を授ける）: <em>My grandpa always drops knowledge at dinner.</em>（祖父は夕食のたびにためになる話をしてくれる）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Rise と wise、exercise まで続く「アイズ」の音"
+        label="★ 韻"
+        mc="Nas（Verse 2）"
+        t={TS["rise-wise-exercise"].t} tApprox={TS["rise-wise-exercise"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Nasty Nas has to rise 'cause I'm wise / This is exercise 'til the microphone dies</Fragment>
+        <Fragment slot="jpn">ナスティ・ナズは上がっていくしかない、賢いからな／これはマイクが止まるまでの練習さ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の13行目と14行目です。</p>
+        <p>rise、wise、exercise、dies と、2行の中に「アイズ」で終わる語が4つ入っています。行末だけでなく、行のまんなかでも韻を踏む形です。</p>
+        <p><strong class='text-[var(--c-text)]'>has to</strong> は「〜しなければならない」。上がるのは当然の流れだ、という言い方です。</p>
+        <p><strong class='text-[var(--c-text)]'>'til</strong> は until を縮めた形で、「〜まで」。マイクが動かなくなるまでラップを続ける練習だ、と言っています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>'til</strong>（until の口語）: <em>Wait 'til I get there.</em>（俺が着くまで待ってて）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Back in '83 10歳のNasと公園のマイク"
+        label="★ 語法／背景"
+        mc="Nas（Verse 2）"
+        t={TS["back-in-83"].t} tApprox={TS["back-in-83"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Back in '83, I was an MC sparkin' / But I was too scared to grab the mics in the parks and</Fragment>
+        <Fragment slot="jpn">83年の頃、俺はもう光りはじめたMCだった／でも怖くて、公園のマイクを握れなかった</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の15行目と16行目です。</p>
+        <p>1行目の <strong class='text-[var(--c-text)]'>Back in '83</strong> は「83年の頃」。back in ＋年で、昔を振り返る決まった言い方です。</p>
+        <p>1973年生まれのNasは、このとき10歳くらいでした。</p>
+        <p><strong class='text-[var(--c-text)]'>sparkin'</strong> は sparking の g を落とした形で、「火花を散らす、輝きはじめる」です。</p>
+        <p>2行目の <strong class='text-[var(--c-text)]'>too 〜 to …</strong> は「〜すぎて…できない」。公園では、屋外にスピーカーを出して人が集まる催しがよく開かれていて、そこでマイクを握る勇気がなかったと打ち明けます。</p>
+        <p>行が and で途切れて、次の行へそのままつながっていく作りです。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>too 〜 to …</strong>（〜すぎて…できない）: <em>I was too tired to cook.</em>（疲れすぎて料理できなかった）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="I miss Mr. Magic NYのラップを流したラジオDJ"
+        label="★ 固有名詞"
+        mc="Nas（Verse 2）"
+        t={TS["mr-magic"].t} tApprox={TS["mr-magic"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">I got to have it, I miss Mr. Magic</Fragment>
+        <Fragment slot="jpn">どうしても欲しい、ミスター・マジックが恋しい</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の21行目です。</p>
+        <p>行末の <strong class='text-[var(--c-text)]'>Mr. Magic</strong> は、NYのラジオDJです。1982年にラジオ局 WBLS で「Rap Attack」という番組を始め、大きな局でラップだけを流す番組の先がけになりました。</p>
+        <p>番組でDJを務めたのが Marley Marl で、Mr. Magic の別名「Sir Juice」から名前をとったのが Juice Crew です。Nasの地元 Queensbridge と深くつながる系譜なので、その名前を懐かしむ一言には重みがあります。</p>
+        <p><strong class='text-[var(--c-text)]'>I got to have it</strong> は「どうしても手に入れたい」。got to は have got to（〜しなければ）の口語で、gotta と縮めることもあります。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>got to</strong>（〜しなきゃ）: <em>I got to go now.</em>（もう行かなきゃ）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="You can't near it 動詞として使う near"
+        label="★ 語法"
+        mc="Nas（Verse 2）"
+        t={TS["cant-near-it"].t} tApprox={TS["cant-near-it"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">These are the lyrics of the man, you can't near it, understand?</Fragment>
+        <Fragment slot="jpn">これがその男のリリック、お前は近づけもしない、分かったか？</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の25行目です。</p>
+        <p>中ほどの <strong class='text-[var(--c-text)]'>near</strong> は、ふつう「近い」という形容詞か「近くに」という前置詞として習います。ここでは動詞で、<strong class='text-[var(--c-text)]'>can't near it</strong> は「それに近づけない」です。</p>
+        <p><strong class='text-[var(--c-text)]'>the man</strong> は、the をつけて「あの男、大物」の意味になる言い方です。He's the man で「あいつは別格だ」。</p>
+        <p>最後の <strong class='text-[var(--c-text)]'>understand?</strong> は、Do you understand? を一語に縮めた念押しです。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>the man</strong>（別格の人）: <em>You did it! You're the man!</em>（やったな、さすがだ）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Nas ain't all that 「大したことない」の言い方"
+        label="★ スラング"
+        mc="Nas（Verse 2）"
+        t={TS["aint-all-that"].t} tApprox={TS["aint-all-that"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Am I in place with the bass and format? / Explore rap, and tell me Nas ain't all that</Fragment>
+        <Fragment slot="jpn">ベースとフォーマットに俺はハマってるか？／ラップを探ってみな、それでナズが大したことないって言えるか</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の27行目と28行目です。</p>
+        <p>1行目の <strong class='text-[var(--c-text)]'>in place</strong> は「ぴったり収まっている」。ビートや曲の形式に自分がはまっているかを、問いの形で聞いています。</p>
+        <p>2行目の <strong class='text-[var(--c-text)]'>all that</strong> は「すごいもの、大したもの」の口語で、<strong class='text-[var(--c-text)]'>ain't all that</strong> で「大したことない」になります。</p>
+        <p><strong class='text-[var(--c-text)]'>tell me</strong> ＋文は、ここでは「〜だって言えるもんなら言ってみろ」という挑発です。format と all that で、行末の響きも合わせています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>not all that</strong>（大したことない）: <em>The movie was not all that.</em>（あの映画、そんなでもなかった）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Rhyme-biter と stay tuned パクリ屋と放送の決まり文句"
+        label="★ スラング"
+        mc="Nas（Verse 2）"
+        t={TS["rhyme-biter-stay-tuned"].t} tApprox={TS["rhyme-biter-stay-tuned"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">I hate a rhyme-biter's rhyme / Stay tuned, Nas soon, the real rap comes at halftime</Fragment>
+        <Fragment slot="jpn">ライムをパクる奴のライムは大嫌い／チャンネルはそのまま、ナズはもうすぐ、本物のラップはハーフタイムに来る</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の最後の2行です。</p>
+        <p>1行目の <QuickSlang word='biter' desc='かみつく人、が元の意味。ラップでは他人のスタイルやフレーズを盗む人、パクリ屋のこと。</p>
+        <p>この行では rhyme-biter として、他人のライムを盗む者を嫌っている' href='/slang/bite' /> は、他人のライムやスタイルを盗むパクリ屋のことです。bite（かじる）から来た語で、ラップでは昔からいちばん嫌われる行いのひとつです。</p>
+        <p>2行目の <strong class='text-[var(--c-text)]'>Stay tuned</strong> は、ラジオやテレビで「チャンネルはそのまま」と言うときの決まり文句。<strong class='text-[var(--c-text)]'>Nas soon</strong> は be 動詞も coming も省いた形で、「ナズはまもなく登場」という番組の予告みたいな言い方になっています。</p>
+        <p>そして本物のラップはハーフタイムに来る、と曲名で Verse 2 を締めます。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>Stay tuned</strong>（このあともお楽しみに）: <em>Stay tuned for more news after the break.</em>（このあとも引き続きニュースをお伝えします）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Real in the field と Word life 2回目のコーラス"
+        label="★ スラング／コーラス"
+        mc="Nas（Chorus）"
+        t={TS["word-life-chorus"].t} tApprox={TS["word-life-chorus"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">It's real in the field / Word life, check it</Fragment>
+        <Fragment slot="jpn">現場はガチだぜ／マジで、聴いてくれ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 2回目のコーラスの4行目と5行目です。</p>
+        <p>2回目のコーラスは、1回目と言葉を少し変えています。2行目には Exhale（息を吐け）という一語も入って、ひと息つく休憩の気分が出ています。</p>
+        <p><strong class='text-[var(--c-text)]'>real in the field</strong> の field は、スポーツのグラウンドや現場のこと。「現場では本物だ、ガチだ」という意味になり、試合の休憩を指す halftime ともつながります。</p>
+        <p><QuickSlang word='word life' desc='「マジで、誓って」と、自分の言葉が本当だと請け合う言い方。word（本当だ）に life をつけて、命をかけて言うくらいの強さにしたもの。</p>
+        <p>この行ではコーラスのあとの念押しに使っている' href='/slang/word' /> は「マジで、誓って」と、自分の言葉が本当だと請け合う言い方です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>word</strong>（本当だ、マジ）: <em>Word? You got the tickets?</em>（マジ？チケット取れたの？）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Flip a morning song 朝の歌も裏返す"
+        label="★ スラング"
+        mc="Nas（Verse 3）"
+        t={TS["morning-song-flip"].t} tApprox={TS["morning-song-flip"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">I got it goin' on, even flip a morning song / Every afternoon, I kick half the tune</Fragment>
+        <Fragment slot="jpn">ノッてるぜ、朝の歌だってひっくり返す／毎日午後には、曲の半分をキックする</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3の1行目と2行目です。</p>
+        <p>1行目の <strong class='text-[var(--c-text)]'>got it goin' on</strong> は「調子がいい、イケてる」の口語です。</p>
+        <p><QuickSlang word='flip' desc='裏返す、が元の意味。ヒップホップでは、元ネタやありふれたものを自分流に作りかえることを指す。</p>
+        <p>この行では、朝の歌でさえ自分のラップに変えてしまうと言っている' href='/slang/flip' /> は、ありふれたものを自分流に作りかえることです。</p>
+        <p>morning（朝）と afternoon（午後）を2行で並べ、<strong class='text-[var(--c-text)]'>kick half the tune</strong> の half で曲名の halftime にも近づけています。kick は前のバースでも出た「ラップを披露する」の意味です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>have got it going on</strong>（イケてる）: <em>That new cafe has really got it going on.</em>（あの新しいカフェ、すごくいい感じ）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Word to Marcus Garvey 「〜に誓って」と黒人運動の指導者"
+        label="★ 固有名詞"
+        mc="Nas（Verse 3）"
+        t={TS["marcus-garvey"].t} tApprox={TS["marcus-garvey"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3の4行目の頭です。英語は引かず、語だけ取り出します。</p>
+        <p>行頭の <strong class='text-[var(--c-text)]'>Word to 〜</strong> は「〜に誓って」。誰かの名前を後ろに置いて、自分の言葉が本当だと請け合う言い方です。</p>
+        <p><strong class='text-[var(--c-text)]'>Marcus Garvey</strong> は、ジャマイカ生まれの黒人運動の指導者です。1914年に万国黒人向上協会（UNIA）を作り、アフリカ系の人々の誇りと自立を訴えました。</p>
+        <p>誓いの相手にこの名前を選ぶところに、Nasが何に敬意を払っているかがのぞいています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>Word to 〜</strong>（〜に誓って）: <em>Word to my mother, I'll be there.</em>（母さんに誓って、必ず行く）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="The Boogie Down ブロンクスの呼び名と props、clout"
+        label="★ 地名／スラング"
+        mc="Nas（Verse 3）"
+        t={TS["boogie-down-props"].t} tApprox={TS["boogie-down-props"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Brooklyn and Queens is livin' fat and / The Boogie Down, enough props, enough clout</Fragment>
+        <Fragment slot="jpn">ブルックリンもクイーンズもいい暮らしだ、そして／ブギーダウンにも、リスペクトも影響力もたっぷり</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3の16行目と17行目です。直前の行から、NYの5つの区へ順に挨拶していきます。</p>
+        <p>直前の行で、Manhattan と Staten Island を the Island of Staten と語順を変えて呼び、この2行で残りの区に挨拶を回します。NYを形づくる5つの区が、これでそろいます。</p>
+        <p>1行目は <strong class='text-[var(--c-text)]'>Brooklyn and Queens is</strong> と、主語が二つでも is で受けています。複数の主語に is をつけるのは、AAVEでよく聞く形です。</p>
+        <p><strong class='text-[var(--c-text)]'>livin' fat</strong> は「羽振りよく暮らす」。</p>
+        <p><strong class='text-[var(--c-text)]'>The Boogie Down</strong> はブロンクスの呼び名で、Boogie Down Bronx とも言います。<QuickSlang word='props' desc='proper respect を縮めたとされる言い方で、敬意、称賛のこと。</p>
+        <p>give props で「称える」。この行では clout と並べて、ブロンクスに敬意を送っている' href='/slang/props' /> は「敬意、称賛」、<QuickSlang word='clout' desc='影響力、顔が利くこと。</p>
+        <p>この行では props と並べて、ブロンクスに十分な敬意と影響力があると挨拶している' href='/slang/clout' /> は「影響力」です。</p>
+        <p>このあとの行で、1992年に亡くなった幼なじみ Ill Will への追悼を述べ、I'm out（じゃあな）で Verse 3 を閉じます。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>give props</strong>（称える）: <em>Big props to the stage crew.</em>（裏方のみんなに大きな拍手を）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="To the Queensbridge crew '92年のハーフタイム"
+        label="★ 語法／アウトロ"
+        mc="Nas（Outro）"
+        t={TS["queensbridge-crew-92"].t} tApprox={TS["queensbridge-crew-92"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">To the Queensbridge crew, you know it's halftime / '92, it's halftime</Fragment>
+        <Fragment slot="jpn">クイーンズブリッジの仲間たちへ、ハーフタイムだって分かってるよな／92年、ハーフタイムだ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ アウトロの3行目と4行目です。</p>
+        <p>1行目の <strong class='text-[var(--c-text)]'>To 〜</strong> は、「〜へ（捧げる）」と相手を名指しする言い方です。<strong class='text-[var(--c-text)]'>Queensbridge</strong> は、Nasが育ったクイーンズ区の公営住宅団地。</p>
+        <p><QuickSlang word='crew' desc='仲間、一団。ヒップホップでは、一緒に動くラッパーやDJ、地元の仲間たちをまとめて指す。</p>
+        <p>この行では、Nasの地元 Queensbridge の仲間たちへ呼びかけている' href='/slang/crew' /> はその仲間たちのことです。</p>
+        <p>2行目の <strong class='text-[var(--c-text)]'>'92</strong> は、この曲が出た1992年です。年号を入れて、いま、この年が自分のハーフタイムだと刻んでいます。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>To 〜</strong>（〜へ捧げる）: <em>To all my friends back home!</em>（地元のみんなへ！）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Let's get ghost 曲を締める「ずらかろうぜ」"
+        label="★ スラング"
+        mc="Nas（Outro）"
+        t={TS["get-ghost"].t} tApprox={TS["get-ghost"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Yo, police, police man, yo, let's get ghost</Fragment>
+        <Fragment slot="jpn">おい、警察だ、おまわりさんだ、さあ消えようぜ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ アウトロの5行目で、曲はこのあとフェードしていきます。</p>
+        <p>行末の <QuickSlang word='get ghost' desc='幽霊のように姿を消す、つまりその場をさっさと立ち去ること。ghost の動詞的な使い方で、be ghost とも言う。</p>
+        <p>この行では、警官が来たと仲間に声をかけて引き上げる場面で使っている' href='/slang/ghost' /> は「姿を消す、ずらかる」。幽霊のように消える、という言い方です。</p>
+        <p><strong class='text-[var(--c-text)]'>police man</strong> は、標準なら policeman と一語で書く語です。来たぞ、と仲間に知らせる掛け声のように繰り返しています。</p>
+        <p>盛り上がったパーティーを、見回りが来たのでお開きにする。そんな幕の引き方で、曲はハーフタイムのまま終わります。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>get ghost</strong>（消える、帰る）: <em>It's getting late, let's get ghost.</em>（遅くなってきたし、帰ろう）。</p>
+        </Fragment>
+      </LearningUnit>
+    </section>
+
+    <section id="background" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        文化的背景
+      </h2>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">『Zebrahead』</p>
+        <h3 class="font-semibold text-base mb-3">サウンドトラックから始まったデビュー</h3>
+        <div class="space-y-3 text-[var(--c-muted)] text-sm leading-relaxed">
+          <p>
+            「Halftime」が最初に世に出たのは、1992年の映画『Zebrahead』のサウンドトラックでした。このサウンドトラックから出たシングルは、この1曲だけです。
+          </p>
+          <p>
+            曲をサウンドトラックに入れたのは、3rd Bass の MC Serch。これがきっかけで Nas は Columbia Records と契約し、Serch はのちに『Illmatic』のエグゼクティブ・プロデューサーを務めます。
+          </p>
+          <p>
+            シングルは Columbia と Ruffhouse Records から出て、Billboard の Hot Rap Singles チャートで最高8位でした。
+          </p>
+        </div>
+      </div>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">Large Professor</p>
+        <h3 class="font-semibold text-base mb-3">Main Source の作り手と、先に録った一曲</h3>
+        <div class="space-y-3 text-[var(--c-muted)] text-sm leading-relaxed">
+          <p>
+            Large Professor は、グループ Main Source の中心にいたプロデューサー兼ラッパーです。Nasを最初に録音へ呼んだのも彼で、1991年の Main Source のアルバム『Breaking Atoms』の「Live at the Barbeque」で、Nasty Nas として客演しています。
+          </p>
+          <p>
+            その一節は、のちに『Illmatic』の1曲目「The Genesis」でも使われました。
+          </p>
+          <p>
+            「Halftime」のビートは、Large Professor がスタジオに入る前にもう作ってあったものです。Busta Rhymes もこのビートを欲しがって歌詞を書こうとしたものの、筆が進まなかったと伝えられています。
+          </p>
+        </div>
+      </div>
+
+      <div class="p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">キーワード早見表</p>
+        <h3 class="font-semibold text-base mb-3">この曲で学んだ表現の整理</h3>
+        <div class="space-y-3 mt-3">
+          {[
+            ['halftime', '試合の前半と後半のあいだの休憩'],
+            ['about to', 'これから〜するところ'],
+            ['flavor', '個性、持ち味'],
+            ['major', '大物、一流'],
+            ['ace', '一流の人、名手'],
+            ['-head', '〜好き、〜マニア（Nike-head）'],
+            ['the Feds', '連邦の捜査機関'],
+            ['ain\'t a thing', '何ひとつ〜ない'],
+            ['mad', 'とても（強調）'],
+            ['phat', '最高の、かっこいい'],
+            ['it\'s about time', 'そろそろだ'],
+            ['how it feel', '三単現の s を落とすAAVEの形'],
+            ['It\'s like that', 'そういうことだ'],
+            ['got it hemmed', 'がっちり押さえた'],
+            ['hype track', 'アガるトラック'],
+            ['set it off', '始める、口火を切る'],
+            ['catch wreck', '派手にかます'],
+            ['hustle', '稼ぐために走り回る'],
+            ['drop jewels', '知恵を授ける'],
+            ['kick', 'ラップを披露する'],
+            ['can\'t near it', '近づけない（動詞の near）'],
+            ['ain\'t all that', '大したことない'],
+            ['biter', 'パクリ屋'],
+            ['stay tuned', 'チャンネルはそのまま'],
+            ['word life', 'マジで、誓って'],
+            ['flip', '自分流に作りかえる'],
+            ['Word to 〜', '〜に誓って'],
+            ['the Boogie Down', 'ブロンクスの呼び名'],
+            ['props', '敬意、称賛'],
+            ['clout', '影響力'],
+            ['get ghost', '姿を消す、ずらかる'],
+          ].map(([w, d]) => (
+            <div class="text-sm">
+              <span class="font-semibold text-[var(--c-text)]">{w}</span>
+              <span class="text-[var(--c-muted)]"> {d}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="behind" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        制作の裏側
+      </h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          プロデュースは Large Professor、作詞は Nas（本名 Nasir Jones）です。『Illmatic』のレコーディングで、Nasが最初のセッションで録ったのがこの曲でした。
+        </p>
+        <p>
+          ドラムと声のネタは Average White Band の「School Boy Crush」（1975年）。ホーンは Gary Byrd の「Soul Travelin'」から、ベースラインはミュージカル『Hair』の日本キャスト盤に入った「Dead End」から取られています。
+        </p>
+        <p>
+          スコットランド出身のファンクバンドのドラムに、ラジオDJとしても知られる Gary Byrd のホーン、日本で録られたミュージカルのベース。出どころがばらばらの音が、ひとつのループにまとまっています。
+        </p>
+        <p>
+          シングルのB面には、Joe "The Butcher" Nicolo による「Halftime (Butcher Remix)」が入りました。
+        </p>
+      </div>
+    </section>
+
+    <section id="legacy" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        評価とその後
+      </h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          公式ミュージックビデオは、NasVEVOのチャンネルで公開されています。このページの頭出しには、その公式ビデオを使っています。
+        </p>
+        <p>
+          曲のフレーズは、Bahamadia の「Rugged Ruff」や Peanut Butter Wolf の「I Will Always Love H.E.R.」など、ほかのアーティストの曲にも引用されてきました。
+        </p>
+        <p>
+          1992年に出た1枚のシングルが、2年後の『Illmatic』への入口になりました。アルバムは Billboard 200 で最高12位に入っています。
+        </p>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        まとめ
+      </h2>
+      <ul class="space-y-2 text-sm text-[var(--c-muted)] list-disc list-inside leading-relaxed">
+        <li>「Halftime」は、Nasty Nas の名前で出たNasの最初のシングルで、のちに『Illmatic』の5曲目に入った一曲です。</li>
+        <li>area と hysteria、ace と face と bass、rise と wise と exercise と、1行の中にまで韻を詰めこむ作りが、短い区切りごとに聴き取れます。</li>
+        <li>mad-phat、catch wreck、got it hemmed、word life、get ghost と、90年代前半のNYの言い回しがそのまま出てきます。</li>
+        <li>ain't を使った否定の強調、how it feel の三単現の s の省略、複数の主語につく is など、AAVEの文法を短い行で確かめられる曲でもあります。</li>
+      </ul>
+    </section>
+
+</SongLayout>
