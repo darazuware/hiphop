@@ -50,6 +50,7 @@ export const songs = [
   { slug: "/songs/ny-state-of-mind-pt-3", title: "N.Y. State of Mind Pt. 3", subtitle: "DJ Premier Produced · 2025", artists: "Nas & DJ Premier", tag: "Billy Joelのサビで始まるシリーズ3作目", era: "00s以降", region: "NY", producer: "DJ Premier", bpm: null, sample: "Billy Joel \"New York State of Mind\" (1976) / Donald Byrd \"Flight Time\" (1973)", album: "Light-Years", mbid: null, artistSlug: "nas", asin: null, pubDate: "2026-11-02", tier: "core" },
   { slug: "/songs/sons-young-kings", title: "Sons (Young Kings)", subtitle: "DJ Premier Produced · 2025", artists: "Nas & DJ Premier", tag: "息子と母を語る家族の歌", era: "00s以降", region: "NY", producer: "DJ Premier", bpm: null, sample: null, album: "Light-Years", mbid: null, artistSlug: "nas", asin: null, pubDate: "2026-11-02", tier: "core" },
   { slug: "/songs/writers", title: "Writers", subtitle: "DJ Premier Produced · 2025", artists: "Nas & DJ Premier", tag: "グラフィティの書き手を讃える名簿", era: "00s以降", region: "NY", producer: "DJ Premier", bpm: null, sample: "The 45 King \"Pete 90\"", album: "Light-Years", mbid: null, artistSlug: "nas", asin: null, pubDate: "2026-11-02", tier: "core" },
+  { slug: "/songs/shine-together", title: "Shine Together", subtitle: "DJ Premier Produced · 2025", artists: "Nas & DJ Premier", tag: "30年来のコンビの「一緒に輝こう」", era: "00s以降", region: "NY", producer: "DJ Premier", bpm: null, sample: "Sunbear \"Let Love Flow for Peace\" (1977)", album: "Light-Years", mbid: null, artistSlug: "nas", asin: null, pubDate: "2026-11-02", tier: "core" },
 ] as const;
 
 export const ranking = [

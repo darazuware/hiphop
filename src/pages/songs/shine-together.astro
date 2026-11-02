@@ -1,0 +1,600 @@
+---
+import LearningUnit from '../../components/LearningUnit.astro';
+import QuickSlang from '../../components/QuickSlang.astro';
+import SongLayout from '../../layouts/SongLayout.astro';
+import SampleYoutube from '../../components/SampleYoutube.astro';
+
+import tsData from '../../../agent/shine-together/assets/units-timestamps.json';
+const YT = "XMYhsA5b9AU";
+const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.approx }]));
+---
+
+<SongLayout
+  title="Shine Together 和訳・英語スラング解説 | Nas & DJ Premier"
+  description="Nas & DJ Premier「Shine Together」（2025年『Light-Years』収録）を和訳付きで英語学習の教材として解説。might as well、make moves、curve、ことわざのもじり、Joshuaとジェリコのラッパまで、2分40秒の短い一曲を頭出し付きで読み解きます。"
+  slug="shine-together"
+  learningPage={true}
+  songDuration={160}
+  highlights={[
+    'might as well shine together で締めるフック。「どうせなら一緒に輝こう」という、肩の力の抜けた誘い文句',
+    'A fool and his money のことわざを riches に入れ替えたもじりや、サメと魚の群れのたとえ。昔からある言い回しの借り方がわかる',
+    'Joshua のラッパ、BET、Piscataway。聖書からテレビ局、ニュージャージーの町名まで、固有名詞の幅が広い一曲',
+  ]}
+  youtubeId="XMYhsA5b9AU"
+  sampleYoutubeId="2kBj4w6i1w4"
+  sampleTitle="Sunbear「Let Love Flow for Peace」（1977）"
+  sampleInContent={true}
+>
+
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■30年越しのコンビが、アルバムの最後のほうに置いた2分40秒</h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          「Shine Together」は、NasとDJ Premierが2025年12月12日に出した共作アルバム『Light-Years』の14曲目です。長さは2分40秒、アルバムの中でもかなり短い部類に入ります。
+        </p>
+        <p>
+          ふたりの付き合いは、1994年の『Illmatic』までさかのぼります。DJ Premierはそこで「<a href='/songs/ny-state-of-mind' class='underline'>N.Y. State of Mind</a>」「<a href='/songs/memory-lane' class='underline'>Memory Lane</a>」「<a href='/songs/represent' class='underline'>Represent</a>」を手がけました。
+        </p>
+        <p>
+          それから30年以上たって、ようやく1枚まるごとの共作が出たわけです。
+        </p>
+        <p>
+          曲名の shine together は「一緒に輝く」。フックの最後の一言がそのまま曲名になっていて、ビートの上で長年の相棒と並んで光る、という気分がこの短い曲の芯にあります。
+        </p>
+        <p>
+          歌詞には穏やかでない表現を含む行もあるので、そうした行は取り上げません。ことわざ、たとえ、固有名詞、口語の言い回しが出てくる行を選んで、順に見ていきます。
+        </p>
+      </div>
+    </section>
+
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■英語の見どころは、借りてきた言い回しのずらし方</h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          この曲のNasは、ことわざや聖書の話、昔からある慣用句をよく借りてきます。そのまま使うのではなく、単語を1つ入れ替えたり、自分の話にくっつけたりしているのが面白いところです。
+        </p>
+        <p>
+          文法では、A boss is one who learn のように三人称の -s を落とす形や、the game be shiftin' の習慣の be など、<QuickSlang word='AAVE' desc='African American Vernacular English の略で、アフリカ系アメリカ人のコミュニティで話されてきた英語の変種。独自の文法ルールを持つ。この曲では三人称の -s を落とす形と、習慣の be が短い行に出てくる' />（アフリカ系アメリカ人英語）の特徴も短い行に出てきます。
+        </p>
+        <p>
+          同じNasとDJ Premierの組み合わせでは、1999年の「<a href='/songs/nas-is-like' class='underline'>Nas Is Like</a>」もこのサイトで解説しています。
+        </p>
+      </div>
+    </section>
+
+    <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
+      <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
+        <li><a href="#story" class="hover:text-[var(--c-gold)] transition-colors">01 ストーリーの流れ（まず曲全体をつかむ）</a></li>
+        <li><a href="#units" class="hover:text-[var(--c-gold)] transition-colors">02 学ぶ表現（スラング・韻・言葉遊び・AAVE）</a></li>
+        <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">03 文化的背景</a></li>
+        <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">04 制作の裏側</a></li>
+        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">05 評価とその後</a></li>
+      </ol>
+    </nav>
+
+    <section id="story" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        ストーリーの流れ（まず曲全体をつかむ）
+      </h2>
+      <p class="text-xs text-[var(--c-dim)] mb-5">
+        物語を語る曲ではなく、2つのバースで自分の立ち位置と仕事ぶりを語っていく曲です。流れだけ先に押さえておきます。
+      </p>
+      <div class="space-y-4 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          <strong class='text-[var(--c-text)]'>Verse 1</strong>は、地元で動き回っていた頃の用心深さと、成功してからの身の振り方の話。ことわざやサメのたとえを借りながら、他人を気にせず自分の練習を続ける姿勢を語ります。
+        </p>
+        <p>
+          <strong class='text-[var(--c-text)]'>Verse 2</strong>は、DJ Premierと組んだ今回の仕事への自信の話です。聖書、テレビ局、家の中の様子まで話が広がり、フックの「一緒に輝こう」に戻って終わります。
+        </p>
+        <p class="text-xs text-[var(--c-dim)]">
+          ※本ページは批評・教育目的で、解説に必要な範囲の断片のみを引用しています。全歌詞の対訳は掲載していません。
+        </p>
+      </div>
+    </section>
+
+    <div id="units"></div>
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        学ぶ表現（スラング・韻・言葉遊び・AAVE）
+      </h2>
+      <div class="space-y-3 text-xs text-[var(--c-dim)] mb-6">
+        <p>ここからは、フックから始めて、Verse 1の歌い出しからVerse 2の最後まで、曲の順番に表現を拾っていきます。英語の引用と和訳を先に置き、その下で語法や背景を説明する形です。</p>
+        <p>穏やかでない表現を含む行は飛ばし、語だけで説明できる項目は英語を引かずに書いています。▶を押すと、Nasの公式チャンネルにあるビジュアライザー動画の該当箇所から再生できます。</p>
+      </div>
+
+      <LearningUnit
+        heading="might as well shine together 「どうせなら一緒に輝こう」のフック"
+        label="★ タイトル／フック"
+        mc="Hook"
+        t={TS["shine-together-hook"].t} tApprox={TS["shine-together-hook"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Rhyme a few bars, kick a few flows<br>For every word I spit, I get phenomenal<br>And we might as well shine together</Fragment>
+        <Fragment slot="jpn">何小節か韻を踏んで、いくつかフロウをかます<br>吐き出す言葉ひとつごとに、すごみが増していく<br>だったら、どうせなら一緒に輝こうぜ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 曲の頭で鳴るフックです。同じ3行が、2つのバースのあとにも戻ってきます。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>1. bars と kick a few flows（ラップの単位と、ラップする動作）</p>
+        <p>1行目の <QuickSlang word='bars' desc='音楽の小節から転じて、ラップの行やラップそのもの。この曲のフックでは a few bars と、軽く何小節か刻む、という控えめな言い方になっている' href='/slang/bars' /> は、音楽の「小節」のことです。ラップの世界では、そのまま「歌詞の行」や「ラップそのもの」を指す言葉として使われます。</p>
+        <p><strong class='text-[var(--c-text)]'>kick</strong> は「蹴る」ですが、kick a flow や kick a rhyme の形で「ラップを披露する」の意味になります。小節を刻む、フロウをかます、と動詞を並べた行です。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>2. spit と phenomenal（吐き出すラップ）</p>
+        <p>2行目の <QuickSlang word='spit' desc='つばを吐く、から転じてラップすること。この曲では For every word I spit と、吐き出す言葉の一つ一つに重みを持たせる言い方' href='/slang/spit' /> も、もとは「つばを吐く」。ラップでは「言葉を吐き出す＝ラップする」の定番語で、spit bars のようにも言います。</p>
+        <p><strong class='text-[var(--c-text)]'>phenomenal</strong> は「驚異的な、並外れた」。言葉を重ねるたびに自分の評価が上がっていく、という自信の言い方です。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>3. might as well（どうせなら）</p>
+        <p>3行目の <strong class='text-[var(--c-text)]'>might as well</strong> は、「（ほかに選択肢もないし）〜したほうがいい、どうせなら〜しよう」という言い方です。強く勧めるのではなく、肩の力を抜いた提案の響きがあります。</p>
+        <p>ここに <strong class='text-[var(--c-text)]'>shine</strong>（輝く、成功して目立つ）がつながって、「どうせなら一緒に光ろう」。30年来のコンビの共作アルバムに置くと、ちょっと照れくさいくらい素直な一言です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>might as well</strong>: <em>The bus is late, so we might as well walk.</em>（バスが遅れてるし、歩いたほうがましだ）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="make moves と the trenches 「地元で動き回る」"
+        label="★ スラング"
+        mc="Nas（Verse 1）"
+        t={TS["make-moves-trenches"].t} tApprox={TS["make-moves-trenches"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">I made moves in the trenches, lookin' over my shoulders</Fragment>
+        <Fragment slot="jpn">厳しい地元で立ち回ってきた、いつも背後に気を配りながら</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の1行目、歌い出しです。</p>
+        <p>行頭の <strong class='text-[var(--c-text)]'>make moves</strong> は、「（お金や成功のために）行動を起こす、うまく立ち回る」という口語です。チェスの「手を指す」に近い感覚で、ただ動くのではなく先を読んで動くニュアンスがあります。</p>
+        <p><strong class='text-[var(--c-text)]'>the trenches</strong> は、もとは戦場の「塹壕（ざんごう）」。ラップでは、暮らしの厳しい地元、余裕のない環境を指す言葉として広く使われています。</p>
+        <p>Nasの場合、育ったクイーンズのQueensbridge Houses（公営住宅団地）が思い浮かびます。</p>
+        <p>行末の <strong class='text-[var(--c-text)]'>look over one's shoulder</strong> は、「肩越しに後ろを見る」から「常に警戒している、びくびくしている」という慣用句です。歌い出しの1行で、当時の気の抜けなさを伝えています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>make moves</strong>: <em>She's been making moves since she moved to LA.</em>（LAに移ってから、彼女はどんどん動いている）。</p>
+          <p><strong class='text-[var(--c-text)]'>look over one's shoulder</strong>: <em>I'm tired of always looking over my shoulder.</em>（いつも周りを警戒しているのに疲れた）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="A fool and his riches 単語を入れ替えたことわざ"
+        label="★ ことわざ"
+        mc="Nas（Verse 1）"
+        t={TS["fool-and-his-riches"].t} tApprox={TS["fool-and-his-riches"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">"A fool and his riches would soon part," that's what they told us</Fragment>
+        <Fragment slot="jpn">「愚か者と財産はすぐ別れる」、俺たちはそう言い聞かされてきた</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の2行目です。前半がカギ括弧つきの引用になっています。</p>
+        <p>元になっているのは、英語のことわざ <strong class='text-[var(--c-text)]'>A fool and his money are soon parted.</strong> です。「愚か者はお金を持ってもすぐになくす」、つまりお金の使い方を知らない人のところにお金は残らない、という意味です。</p>
+        <p>Nasはこれを money から <strong class='text-[var(--c-text)]'>riches</strong>（富、財産）に入れ替え、are soon parted も would soon part と言い換えています。ことわざの骨組みは残したまま、自分の口に合う形に崩しているわけです。</p>
+        <p>後半の <strong class='text-[var(--c-text)]'>that's what they told us</strong> は「そう聞かされてきた」。they は特定の誰かではなく、周りの大人や世間をぼんやり指す使い方です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>that's what they told us</strong>: <em>Study hard and you'll be fine. That's what they told us.</em>（ちゃんと勉強すれば大丈夫。そう言われてきた）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="A school of fish サメについて回る魚の群れ"
+        label="★ たとえ"
+        mc="Nas（Verse 1）"
+        t={TS["school-of-fish"].t} tApprox={TS["school-of-fish"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">A school of fish follows the shark to eat his leftovers</Fragment>
+        <Fragment slot="jpn">魚の群れはサメのあとを追う、食べ残しにありつくために</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の3行目です。前の行のことわざから、たとえ話に移ります。</p>
+        <p>行頭の <strong class='text-[var(--c-text)]'>school</strong> は「学校」ではありません。魚の「群れ」を表す集合名詞で、a school of fish で「魚の群れ」になります。</p>
+        <p>英語には a flock of birds（鳥の群れ）、a pack of wolves（オオカミの群れ）と、動物ごとに群れの呼び方があります。</p>
+        <p>後半の <strong class='text-[var(--c-text)]'>leftovers</strong> は「食べ残し、残り物」。日常では、前の晩の残り物のおかずを指してよく使う語です。</p>
+        <p>成功した人の周りには、そのおこぼれを狙う人が集まってくる。強い者をサメ、取り巻きを小魚にたとえて、そんな人間関係を一行で描いています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>leftovers</strong>: <em>We had pizza leftovers for breakfast.</em>（朝ごはんはピザの残りだった）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Esco と Maybach Nasの別名と高級車"
+        label="★ 固有名詞"
+        mc="Nas（Verse 1）"
+        t={TS["esco-maybach"].t} tApprox={TS["esco-maybach"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Esco in that Maybach truck, Macallan Scotch in the cup</Fragment>
+        <Fragment slot="jpn">Escoはマイバッハのでかい車に、カップにはマッカランのスコッチ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の5行目です。固有名詞が3つ並びます。</p>
+        <p>行頭の <strong class='text-[var(--c-text)]'>Esco</strong> は、Nas自身の別名です。ここでは自分を三人称で呼んで、車に乗り込む姿を外から描いています。</p>
+        <p><strong class='text-[var(--c-text)]'>Maybach</strong>（マイバッハ）は、メルセデス・ベンツ系の最高級車ブランドです。そこに <strong class='text-[var(--c-text)]'>truck</strong> がついているので、乗用車ではなくSUVのような大型車を思い浮かべるのが自然です。</p>
+        <p>アメリカ英語の truck は、トラックだけでなく大きめの車全般を指すことがあります。</p>
+        <p><strong class='text-[var(--c-text)]'>Macallan</strong>（マッカラン）は、スコットランドのシングルモルト・ウイスキーの銘柄で、<strong class='text-[var(--c-text)]'>Scotch</strong> はスコッチ・ウイスキーのことです。truck と cup で母音をそろえ、高級品の名前を並べて今の暮らしぶりを見せています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>that ＋ 名詞（話し言葉の that）</strong>: <em>I saw him in that new jacket again.</em>（あいつ、またあの新しいジャケット着てたよ）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="A boss is one who learn 三人称の -s を落とす形と dough"
+        label="★ AAVE文法"
+        mc="Nas（Verse 1）"
+        t={TS["boss-dough"].t} tApprox={TS["boss-dough"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">A boss is one who learn to get dough, then he show you</Fragment>
+        <Fragment slot="jpn">ボスってのは、稼ぎ方を覚えて、それをお前に見せてやれるやつのこと</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の7行目です。ボスの定義を一行で言っています。</p>
+        <p>教科書どおりなら、one who learns、he shows と、動詞に -s がつくところです。ここでは <strong class='text-[var(--c-text)]'>learn</strong> も <strong class='text-[var(--c-text)]'>show</strong> も -s なしで言っています。</p>
+        <p>三人称単数の -s を落とすのは、AAVE（アフリカ系アメリカ人英語）でよく見られる特徴です。間違いというより、そういう文法のルールを持った話し方として聞くと、ラップの言葉がぐっと読みやすくなります。</p>
+        <p><QuickSlang word='dough' desc='パン生地から転じてお金。この行では get dough で「稼ぐ」。ボスの条件の前半として置かれている' href='/slang/dough' /> は「パン生地」から転じて「お金」を指すスラングです。get dough で「金を稼ぐ」。</p>
+        <p>稼ぐだけで終わらず、そのやり方を下の世代に見せられる人がボスだ、という定義になっています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>dough</strong>: <em>That job pays good dough.</em>（あの仕事は金になる）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="limelight と curve 「注目は勝手にどうぞ、写真は断る」"
+        label="★ スラング"
+        mc="Nas（Verse 1）"
+        t={TS["limelight-curve"].t} tApprox={TS["limelight-curve"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Keep the limelight, I curves them photos, I'm Yoda</Fragment>
+        <Fragment slot="jpn">スポットライトはくれてやる、写真はかわす、俺はヨーダ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の8行目です。3つの短い句が並んでいます。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>1. Keep the limelight（注目はいらない）</p>
+        <p><strong class='text-[var(--c-text)]'>limelight</strong> は、昔の劇場で使われた石灰光の照明から来た語で、in the limelight で「注目を浴びて」という慣用句になります。Keep the limelight は「スポットライトは取っておけ」、つまり目立つのはそっちでどうぞ、という突き放した言い方です。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>2. curve と them photos（避ける、例の写真）</p>
+        <p><strong class='text-[var(--c-text)]'>curve</strong> は、野球のカーブのように「かわす」ところから、誘いや頼みを「そらす、断る」という意味で使われるスラングです。ここでは、写真を撮られるのを避けている様子になります。</p>
+        <p>I curves と、主語が I なのに -s がついているのも耳に残ります。<strong class='text-[var(--c-text)]'>them photos</strong> の them は those の代わりで、「その写真」「例の写真」くらいの意味。</p>
+        <p>どちらも話し言葉の崩し方です。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>3. I'm Yoda（知恵のある年長者）</p>
+        <p><strong class='text-[var(--c-text)]'>Yoda</strong> は映画『スター・ウォーズ』シリーズのジェダイ・マスターです。小柄で年を重ねた、知恵の深い師匠の代名詞として使われます。</p>
+        <p>騒がずに一歩引いている自分を、ヨーダに重ねています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>curve</strong>: <em>I asked her out and she curved me.</em>（デートに誘ったら、はぐらかされた）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="the next man と stunt growth 他人を気にすると伸びない"
+        label="★ イディオム"
+        mc="Nas（Verse 1）"
+        t={TS["next-man-shadowboxing"].t} tApprox={TS["next-man-shadowboxing"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Worryin' about the next man will stunt growth</Fragment>
+        <Fragment slot="jpn">他人のことばかり気にしてたら、成長が止まる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の10行目です。次の行では、ボクシングの練習の話に続きます。</p>
+        <p><strong class='text-[var(--c-text)]'>the next man</strong> は「隣の男」ではなく、「ほかの誰か、他人」をざっくり指す言い方です。I'm as good as the next man（人並みにはやれる）のような形でも使います。</p>
+        <p><strong class='text-[var(--c-text)]'>stunt growth</strong> は「成長を妨げる」。stunt は「（成長を）止める、阻む」という動詞で、植物や子どもの発育について使われる硬めの表現です。</p>
+        <p>それを生き方の話に転用しています。</p>
+        <p>この直後の行では、<strong class='text-[var(--c-text)]'>shadowboxing</strong>（相手を置かずにひとりで打つ、ボクシングのシャドー練習）と <strong class='text-[var(--c-text)]'>jump rope</strong>（縄跳び）が出てきます。他人を見ずに、自分の基礎練習だけを黙々と続ける、という流れです。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>the next man</strong>: <em>He wants a fair chance, same as the next man.</em>（彼も、ほかの誰とも同じように公平な機会がほしいだけだ）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Oops, I take that line back 言いかけて撤回する"
+        label="★ 口語"
+        mc="Nas（Verse 1）"
+        t={TS["take-that-line-back"].t} tApprox={TS["take-that-line-back"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Oops, I take that line back</Fragment>
+        <Fragment slot="jpn">おっと、今の行は取り消し</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の15行目です。直前の行は、言葉の途中で切れています。</p>
+        <p><strong class='text-[var(--c-text)]'>take back</strong> は「（言ったことを）撤回する、取り消す」。I take it back.（今のは取り消す）は、日常会話でもよく使う決まり文句です。</p>
+        <p>ここでは it の代わりに <strong class='text-[var(--c-text)]'>that line</strong>（今の行）と言っているのが効いています。ラップの「行」を指して取り消すことで、言いすぎた一言をわざと止めてみせる、ちょっとした演技になっています。</p>
+        <p><strong class='text-[var(--c-text)]'>Oops</strong>（おっと、しまった）から入るのも、いかにも口が滑った感じ。バースの途中に、こういう笑いの間が挟まるのがこの曲の軽さです。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>take back</strong>: <em>You were right. I take back what I said.</em>（君が正しかった。さっきのは撤回する）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="where I write my rhymes at 機内で書く歌詞と、文末の at"
+        label="★ 口語文法"
+        mc="Nas（Verse 1）"
+        t={TS["thirty-five-thousand-feet"].t} tApprox={TS["thirty-five-thousand-feet"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Thirty-five thousand feet is where I write my rhymes at</Fragment>
+        <Fragment slot="jpn">高度3万5千フィート、そこが俺が韻を書く場所だ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の最後の行です。</p>
+        <p><strong class='text-[var(--c-text)]'>thirty-five thousand feet</strong> は約1万メートル、旅客機が飛ぶ高さです。飛行機で移動しながら歌詞を書いている、という今のNasの暮らしぶりが、数字ひとつで伝わります。</p>
+        <p>文末の <strong class='text-[var(--c-text)]'>at</strong> にも注目です。where は「どこで」をすでに含むので、学校英語では where I write my rhymes で終わります。</p>
+        <p>そこに at を足すのは、アメリカの話し言葉でよく聞く言い方で、Where you at?（今どこ？）も同じ形です。</p>
+        <p>バースの歌い出しは地元で背後に気を配る場面、締めは雲の上。1つのバースの中で、地面から空まで高さが一気に変わっています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>Where ... at?</strong>: <em>Where you at? I'm outside.</em>（今どこ？ 外に着いたよ）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="baffled と Preem 初めて自分の影を見た赤ん坊"
+        label="★ たとえ／固有名詞"
+        mc="Nas（Verse 2）"
+        t={TS["baby-shadow-preem"].t} tApprox={TS["baby-shadow-preem"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Like a baby baffled, first time seein' his shadow<br>People react the same to what Preem and Nas will unravel</Fragment>
+        <Fragment slot="jpn">初めて自分の影を見て、きょとんとする赤ん坊みたいに<br>Preemと Nasが解き放つものに、みんな同じ反応をする</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の1〜2行目です。2行で1つのたとえになっています。</p>
+        <p><strong class='text-[var(--c-text)]'>baffled</strong> は「当惑した、わけがわからない」。初めて自分の影に気づいた赤ん坊の、きょとんとした顔が浮かぶ語です。</p>
+        <p>2行目の <strong class='text-[var(--c-text)]'>Preem</strong> は、DJ Premierの呼び名です。Premier を縮めた愛称で、本人の周りやファンの間でよく使われています。</p>
+        <p><strong class='text-[var(--c-text)]'>unravel</strong> は「（もつれた糸を）ほどく」から「解き明かす、明らかにする」。ふたりが出してくる音を聴いた人は、影を見た赤ん坊のように目を丸くする、という自信たっぷりのたとえです。</p>
+        <p>shadow と unravel で語尾の音をそろえています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>baffled</strong>: <em>The ending left me completely baffled.</em>（結末には完全に面食らった）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="whistleblower 内部告発者を名乗る"
+        label="★ 語彙"
+        mc="Nas（Verse 2）"
+        t={TS["whistleblower"].t} tApprox={TS["whistleblower"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の3行目、行末の一語です。行ごとの引用はせず、この語の意味と成り立ちだけを扱います。</p>
+        <p><strong class='text-[var(--c-text)]'>whistleblower</strong> は「内部告発者」。笛（whistle）を吹いて（blow）不正を知らせる、という成り立ちの語で、組織の中から不正を外に明かす人を指します。</p>
+        <p>ここでは government whistleblower と、政府の内部告発者を名乗っています。続く行では、世間が知るべき情報、という言い方も出てきます。</p>
+        <p>ラップで隠された事実を語る役を、自分に割り当てている一節です。動詞は blow the whistle（告発する、内部の不正を明かす）の形でも使われます。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>blow the whistle on</strong>: <em>She blew the whistle on the company's fake reports.</em>（彼女は会社の虚偽報告を告発した）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="The boroughs と Piscataway NYの5区からニュージャージーの町まで"
+        label="★ 固有名詞"
+        mc="Nas（Verse 2）"
+        t={TS["boroughs-piscataway"].t} tApprox={TS["boroughs-piscataway"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">The boroughs into Piscataway, know my album dates</Fragment>
+        <Fragment slot="jpn">NYの各区からピスカタウェイまで、みんな俺のアルバムの発売日を知ってる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の5行目です。次の行では、音楽が次々に出てくる勢いを「計算どおり」と言っています。</p>
+        <p><strong class='text-[var(--c-text)]'>the boroughs</strong> は、ニューヨーク市を構成する5つの区（マンハッタン、ブルックリン、クイーンズ、ブロンクス、スタテンアイランド）をまとめて呼ぶ言い方です。borough は「区」で、NYの話になると the がついてこの5区を指します。</p>
+        <p><strong class='text-[var(--c-text)]'>Piscataway</strong>（ピスカタウェイ）は、ニュージャージー州にある町の名前です。NYの街なかから川を越えた隣の州まで、自分の新作を待つ人がいる、という範囲の広げ方になっています。</p>
+        <p><strong class='text-[var(--c-text)]'>album dates</strong> は「アルバムの発売日」。次の行には calculate（計算する）という語があり、出すタイミングまで自分で読んでいる、という自負が続きます。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>borough</strong>: <em>She has lived in every borough except Staten Island.</em>（彼女はスタテンアイランド以外の全部の区に住んだことがある）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="the game be shiftin' 習慣の be と lames"
+        label="★ AAVE文法"
+        mc="Nas（Verse 2）"
+        t={TS["game-be-shiftin"].t} tApprox={TS["game-be-shiftin"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">'Cause when my name is mentioned, it's why the game be shiftin'<br>When you lames drop, the people remain indifferent</Fragment>
+        <Fragment slot="jpn">俺の名前が出るたびに、シーンの流れが変わるのはそのせい<br>お前らみたいなダサいのが出したって、みんな無反応のまま</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の7〜8行目です。2行が「俺」と「お前ら」の対比になっています。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>1. be shiftin'（習慣の be）</p>
+        <p><strong class='text-[var(--c-text)]'>the game be shiftin'</strong> の be は、AAVE の「習慣の be」と呼ばれる使い方です。is shifting が「今ちょうど動いている」なのに対して、be shifting は「（そのたびに）いつも動く」という繰り返しを表します。</p>
+        <p>the game は、ここではヒップホップの業界、シーンのこと。名前が出るたびに業界の空気が毎回変わる、と言っているわけです。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>2. lames と drop（ダサいやつ、リリースする）</p>
+        <p>2行目の <strong class='text-[var(--c-text)]'>lame</strong> は「つまらない、ダサい」という形容詞ですが、ここでは名詞として「ダサいやつ」。you lames で「お前らダサい連中」です。</p>
+        <p><strong class='text-[var(--c-text)]'>drop</strong> は、音楽の世界では「作品を出す、リリースする」の意味でよく使います。<strong class='text-[var(--c-text)]'>indifferent</strong> は「無関心な」。</p>
+        <p>自分が出せば業界が動き、ほかが出しても誰も振り向かない、という強気の対比です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>drop</strong>: <em>Their new single drops on Friday.</em>（新曲は金曜に出る）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="dissertation と at my leisure 自分のペースで発表する論文"
+        label="★ 語彙"
+        mc="Nas（Verse 2）"
+        t={TS["dissertation-leisure"].t} tApprox={TS["dissertation-leisure"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">This is my dissertation, displayin' it at my leisure</Fragment>
+        <Fragment slot="jpn">これは俺の博士論文、好きなときに好きなように見せてやる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の9行目です。</p>
+        <p><strong class='text-[var(--c-text)]'>dissertation</strong> は、大学院で書く「博士論文」のことです。自分のラップを、長年の研究をまとめた論文になぞらえています。</p>
+        <p><strong class='text-[var(--c-text)]'>at one's leisure</strong> は「都合のいいときに、急がずに」という慣用句です。ビジネスメールの Please reply at your leisure.（お手すきの際にご返信ください）のように、丁寧な場面でも使われます。</p>
+        <p>急かされず、自分のタイミングで成果を見せる。前の行の album dates の話とつながっていて、ベテランらしい余裕のにじむ一行です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>at one's leisure</strong>: <em>Read the report at your leisure.</em>（報告書は都合のいいときに読めばいい）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Precious like postal cards 隠れて書かれた手紙ほど貴重"
+        label="★ たとえ"
+        mc="Nas（Verse 2）"
+        t={TS["postal-cards"].t} tApprox={TS["postal-cards"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Precious like postal cards written by slaves in secret</Fragment>
+        <Fragment slot="jpn">奴隷にされた人たちが隠れて書いたはがきみたいに、貴重なもの</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の10行目です。前の行の「論文」を、さらにたとえで重ねています。</p>
+        <p><strong class='text-[var(--c-text)]'>precious</strong> は「貴重な、かけがえのない」。<strong class='text-[var(--c-text)]'>postal cards</strong> は郵便はがきのことで、今は postcard という言い方のほうが一般的です。</p>
+        <p>アメリカの奴隷制の時代、南部の多くの州では、奴隷にされた人たちに読み書きを教えることが法律で禁じられていました。文字を書くこと自体が、危険をともなう行為だったわけです。</p>
+        <p>そうした状況でひそかに書かれた言葉は、今では歴史の記録としてとても大切に扱われています。</p>
+        <p>Nasは、自分の言葉をそれくらい重みのあるものとして差し出しています。軽口の多いVerse 1から、ここで一気に歴史の話へ視線が深くなります。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>precious</strong>: <em>Time with family is precious.</em>（家族と過ごす時間はかけがえがない）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Joshua と trumpets 聖書のジェリコの城壁"
+        label="★ 聖書"
+        mc="Nas（Verse 2）"
+        t={TS["joshua-trumpets"].t} tApprox={TS["joshua-trumpets"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Hear the trumpets in the Bible as Joshua starts to yell</Fragment>
+        <Fragment slot="jpn">聖書のラッパが聞こえる、ヨシュアが叫び声をあげる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の12行目です。直前の行には、黒人教会の説教者の姿が出てきます。</p>
+        <p><strong class='text-[var(--c-text)]'>Joshua</strong>（ヨシュア）は、旧約聖書の「ヨシュア記」に出てくる指導者です。そこでは、祭司たちがラッパ（trumpets）を吹き鳴らし、民がいっせいに叫ぶと、ジェリコの町の城壁が崩れ落ちた、という場面が語られます。</p>
+        <p>この行は、その場面をそのまま借りています。ラッパと叫び声で城壁が崩れる話を、自分たちの音楽が世の中の壁を崩す、という自負に重ねて聞くと面白いです。</p>
+        <p>直前の行の Black preachers（黒人の説教者）から続いていて、アメリカの黒人教会の説教では、この聖書の話がよく語られてきました。ゴスペルの古い曲「Joshua Fit the Battle of Jericho」も、同じ場面を歌っています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>start to ＋ 動詞</strong>: <em>The crowd started to cheer.</em>（観客が歓声をあげ始めた）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="BET ブラック・ミュージックのテレビ局"
+        label="★ 固有名詞"
+        mc="Nas（Verse 2）"
+        t={TS["bet-videos"].t} tApprox={TS["bet-videos"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Might call BET to play my videos all day</Fragment>
+        <Fragment slot="jpn">BETに電話して、俺のビデオを一日中流させるかもな</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の14行目です。</p>
+        <p><strong class='text-[var(--c-text)]'>BET</strong> は Black Entertainment Television の略で、1980年に開局した、アフリカ系アメリカ人向けのテレビ局です。ヒップホップやR&Bのミュージックビデオを流す局として長く親しまれてきました。</p>
+        <p>行頭は主語の I を省いた <strong class='text-[var(--c-text)]'>Might call</strong>。話し言葉では、わかりきった主語をよく落とします。</p>
+        <p>電話一本で一日中ビデオを流させられるかも、という冗談めかした大口です。<strong class='text-[var(--c-text)]'>all day</strong>（一日中、ずっと）は、ラップでは「いつでも、何度でも」という強調にもよく使われます。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>all day</strong>: <em>I could listen to this album all day.</em>（このアルバムなら一日中聴いていられる）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="cribs と department stores 美術館みたいな家"
+        label="★ スラング"
+        mc="Nas（Verse 2）"
+        t={TS["cribs-closets"].t} tApprox={TS["cribs-closets"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">The cribs are mini-museums<br>The closets are more like small department stores</Fragment>
+        <Fragment slot="jpn">家はちょっとした美術館<br>クローゼットは、小さなデパートって感じ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の終わりの2行です。このあと短い一言でバースが締まり、フックに戻ります。</p>
+        <p><QuickSlang word='crib' desc='ベビーベッドから転じて家、住まい。この曲では複数形の cribs で、美術館のようだと自慢する持ち家を指している' href='/slang/crib' /> は、もとは「ベビーベッド」。そこからスラングで「家、住まい」を指すようになりました。</p>
+        <p>MTVの番組『MTV Cribs』は、有名人の豪邸を案内するという内容で、この語を広めた番組です。</p>
+        <p><strong class='text-[var(--c-text)]'>mini-museums</strong> は「小さな美術館」。museum は日本語の「博物館」と「美術館」の両方にあたる語です。</p>
+        <p><strong class='text-[var(--c-text)]'>more like</strong> は「むしろ〜に近い」で、クローゼットというより小さなデパート、と服の多さを言っています。</p>
+        <p>このあとバースは、新しい曲を出す意味の drop を使った短い一言で終わります。成功した暮らしを見せてから、もう一度「一緒に輝こう」のフックへ戻る流れです。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>crib</strong>: <em>Come by my crib after work.</em>（仕事のあと、うちに寄りなよ）。</p>
+        </Fragment>
+      </LearningUnit>
+    </section>
+
+    <section id="background" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        文化的背景
+      </h2>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">『Light-Years』</p>
+        <h3 class="font-semibold text-base mb-3">Legend Has It… シリーズの7作目、最終作</h3>
+        <div class="space-y-3 text-[var(--c-muted)] text-sm leading-relaxed">
+          <p>
+            『Light-Years』は、2025年12月12日にMass Appealから出た、NasとDJ Premierの共作アルバムです。Mass Appealが2025年に続けて出した「Legend Has It…」シリーズの7作目で、シリーズの最終作にあたります。
+          </p>
+          <p>
+            「Shine Together」は14曲目で、作者クレジットはNas（本名 Nasir Jones）、DJ Premier（本名 Christopher Martin）、そしてサンプル元の曲を書いたArnie OliverとWerner Schuchnerの4人です。
+          </p>
+          <p>
+            アルバムはBillboard 200で最高47位、Top R&B/Hip-Hop Albumsで最高9位を記録しました。
+          </p>
+        </div>
+      </div>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">Nas × DJ Premier</p>
+        <h3 class="font-semibold text-base mb-3">『Illmatic』から続く、30年以上の組み合わせ</h3>
+        <div class="space-y-3 text-[var(--c-muted)] text-sm leading-relaxed">
+          <p>
+            DJ Premierは、Gang StarrのDJ／プロデューサーとして知られる人です。Nasの1994年のデビューアルバム『Illmatic』では、3曲のプロデュースを担当しました。
+          </p>
+          <p>
+            その後も「Nas Is Like」など、ふたりの組み合わせの曲は節目ごとに出てきました。ただ、アルバム1枚をまるごと一緒に作ったのは『Light-Years』が初めてです。
+          </p>
+          <p>
+            曲中の Preem という呼び名や、Preem and Nas という並べ方には、長い付き合いの気安さがそのまま出ています。
+          </p>
+        </div>
+      </div>
+
+      <div class="p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">キーワード早見表</p>
+        <h3 class="font-semibold text-base mb-3">この曲で学んだ表現の整理</h3>
+        <div class="space-y-3 mt-3">
+          {[
+            ['might as well', 'どうせなら〜しよう'],
+            ['shine', '輝く、成功して目立つ'],
+            ['bars', '小節、ラップの行'],
+            ['kick a flow', 'ラップを披露する'],
+            ['spit', 'ラップする'],
+            ['make moves', '行動を起こす、うまく立ち回る'],
+            ['the trenches', '暮らしの厳しい地元'],
+            ['look over one\'s shoulder', '常に警戒する'],
+            ['A fool and his money are soon parted', '愚か者はお金をすぐなくす（ことわざ）'],
+            ['a school of fish', '魚の群れ'],
+            ['leftovers', '残り物'],
+            ['Esco', 'Nasの別名'],
+            ['dough', 'お金'],
+            ['limelight', '注目、脚光'],
+            ['curve', 'かわす、断る'],
+            ['the next man', 'ほかの誰か'],
+            ['stunt growth', '成長を妨げる'],
+            ['take back', '撤回する'],
+            ['Where ... at', '文末に at を足す話し言葉'],
+            ['Preem', 'DJ Premierの呼び名'],
+            ['whistleblower', '内部告発者'],
+            ['the boroughs', 'NY市の5つの区'],
+            ['habitual be', '習慣の be'],
+            ['lame', 'ダサい（やつ）'],
+            ['drop', 'リリースする'],
+            ['at one\'s leisure', '都合のいいときに'],
+            ['crib', '家'],
+          ].map(([w, d]) => (
+            <div class="text-sm">
+              <span class="font-semibold text-[var(--c-text)]">{w}</span>
+              <span class="text-[var(--c-muted)]"> {d}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="behind" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        制作の裏側
+      </h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          プロデュースはDJ Premier。アルバムは全曲を彼がプロデュースしています。
+        </p>
+        <p>
+          サンプル元は、Sunbearの「Let Love Flow for Peace」です。1977年にSoul Trainレーベルから出たアルバム『Sunbear』のA面2曲目で、作者はArnie OliverとWerner Schuchner。
+        </p>
+        <p>
+          「Shine Together」の作者クレジットにこのふたりの名前が入っているのは、このサンプルのためです。
+        </p>
+        <p>
+          アルバム『Sunbear』では、Werner Schuchnerがギターやベースも弾いていて、プロデューサーにはSoul Trainの司会で知られるDon Corneliusと、Dick Griffeyの名前が並んでいます。
+        </p>
+      </div>
+      <SampleYoutube id="2kBj4w6i1w4" title="Sunbear「Let Love Flow for Peace」（1977）" />
+    </section>
+
+    <section id="legacy" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        評価とその後
+      </h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          このページで頭出しに使っているのは、Nasの公式YouTubeチャンネルで公開されている「Shine Together」のビジュアライザー動画です。
+        </p>
+        <p>
+          2分40秒という短さで、フック3回とバース2つを一気に聴き切れるので、繰り返し流して耳で追うのにも向いています。
+        </p>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        まとめ
+      </h2>
+      <ul class="space-y-2 text-sm text-[var(--c-muted)] list-disc list-inside leading-relaxed">
+        <li>「Shine Together」は、30年来のコンビが「どうせなら一緒に輝こう」と肩を並べる、2分40秒の短い一曲です。</li>
+        <li>might as well、make moves、curve、take back、at one's leisure と、日常でも使える口語やイディオムが短い行に詰まっています。</li>
+        <li>A fool and his money のことわざのもじり、ヨシュアとジェリコのラッパ、魚の群れとサメ。昔からある言い回しや物語を、自分の話に引き寄せる借り方が見どころです。</li>
+        <li>三人称の -s を落とす形や習慣の be など、AAVEの文法も自然に聞こえてきます。</li>
+      </ul>
+    </section>
+
+</SongLayout>
