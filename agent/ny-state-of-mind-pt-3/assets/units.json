@@ -1,0 +1,318 @@
+[
+  {
+    "id": "preem-joint",
+    "anchor": [
+      "preem",
+      "play",
+      "billy",
+      "joel"
+    ],
+    "fallbackT": 1,
+    "manualSec": null,
+    "captionSec": 0
+  },
+  {
+    "id": "chorus-get-away",
+    "anchor": [
+      "some",
+      "folks",
+      "like",
+      "get",
+      "away"
+    ],
+    "fallbackT": 4,
+    "manualSec": null,
+    "captionSec": null
+  },
+  {
+    "id": "chorus-greyhound",
+    "anchor": [
+      "taking",
+      "greyhound",
+      "hudson",
+      "river"
+    ],
+    "fallbackT": 16,
+    "manualSec": null,
+    "captionSec": null
+  },
+  {
+    "id": "steel-toe-court",
+    "anchor": [
+      "steel",
+      "toe",
+      "construct",
+      "walk"
+    ],
+    "fallbackT": 26,
+    "manualSec": null,
+    "captionSec": null
+  },
+  {
+    "id": "egg-rolls-duck-sauce",
+    "anchor": [
+      "stress'll",
+      "cut",
+      "your",
+      "life",
+      "short"
+    ],
+    "fallbackT": 32,
+    "manualSec": null,
+    "captionSec": 29
+  },
+  {
+    "id": "kids-stay-blessed",
+    "anchor": [
+      "plenty",
+      "talent",
+      "kids",
+      "stay",
+      "blessed"
+    ],
+    "fallbackT": 47,
+    "manualSec": null,
+    "captionSec": 35
+  },
+  {
+    "id": "throw-on-dmx",
+    "anchor": [
+      "throw",
+      "on",
+      "some",
+      "dmx"
+    ],
+    "fallbackT": 50,
+    "manualSec": null,
+    "captionSec": 39
+  },
+  {
+    "id": "part-two-friends",
+    "anchor": [
+      "part",
+      "two",
+      "left",
+      "you",
+      "friends"
+    ],
+    "fallbackT": 53,
+    "manualSec": null,
+    "captionSec": 44
+  },
+  {
+    "id": "building-hotels",
+    "anchor": [
+      "buildin'",
+      "hotels",
+      "where",
+      "once"
+    ],
+    "fallbackT": 61,
+    "manualSec": null,
+    "captionSec": 58
+  },
+  {
+    "id": "chopped-cheese",
+    "anchor": [
+      "michelin",
+      "star's",
+      "cool",
+      "streets"
+    ],
+    "fallbackT": 64,
+    "manualSec": null,
+    "captionSec": 61
+  },
+  {
+    "id": "really-outside",
+    "anchor": [
+      "want",
+      "us",
+      "gone",
+      "that's",
+      "fine"
+    ],
+    "fallbackT": 69,
+    "manualSec": null,
+    "captionSec": 67
+  },
+  {
+    "id": "part-three-nyc",
+    "anchor": [
+      "part",
+      "three",
+      "three",
+      "times"
+    ],
+    "fallbackT": 75,
+    "manualSec": null,
+    "captionSec": 75
+  },
+  {
+    "id": "nyc-teams",
+    "anchor": [
+      "knicks",
+      "mets",
+      "yanks",
+      "jets"
+    ],
+    "fallbackT": 86,
+    "manualSec": null,
+    "captionSec": 87
+  },
+  {
+    "id": "scaffolding-pull-ups",
+    "anchor": [
+      "pull-ups",
+      "dips",
+      "scaffoldings"
+    ],
+    "fallbackT": 100,
+    "manualSec": null,
+    "captionSec": 98
+  },
+  {
+    "id": "potholes-whips",
+    "anchor": [
+      "potholes",
+      "still",
+      "be",
+      "hard"
+    ],
+    "fallbackT": 104,
+    "manualSec": null,
+    "captionSec": 99
+  },
+  {
+    "id": "night-life",
+    "anchor": [
+      "never",
+      "ending",
+      "night",
+      "life"
+    ],
+    "fallbackT": 106,
+    "manualSec": null,
+    "captionSec": 102
+  },
+  {
+    "id": "clubs-no-longer-exist",
+    "anchor": [
+      "name",
+      "some",
+      "clubs",
+      "longer",
+      "exist"
+    ],
+    "fallbackT": 109,
+    "manualSec": null,
+    "captionSec": 106
+  },
+  {
+    "id": "made-in-ny",
+    "anchor": [
+      "wave",
+      "in",
+      "the",
+      "sky"
+    ],
+    "fallbackT": 116,
+    "manualSec": null,
+    "captionSec": 112
+  },
+  {
+    "id": "miss-87",
+    "anchor": [
+      "some",
+      "are",
+      "living",
+      "present-day"
+    ],
+    "fallbackT": 125,
+    "manualSec": null,
+    "captionSec": 122
+  },
+  {
+    "id": "teen-in-queens",
+    "anchor": [
+      "in",
+      "queens",
+      "was",
+      "teen"
+    ],
+    "fallbackT": 128,
+    "manualSec": null,
+    "captionSec": 123
+  },
+  {
+    "id": "ring-peepholes",
+    "anchor": [
+      "let",
+      "ring",
+      "replace",
+      "peepholes"
+    ],
+    "fallbackT": 130,
+    "manualSec": null,
+    "captionSec": null
+  },
+  {
+    "id": "five-boroughs",
+    "anchor": [
+      "five",
+      "boroughs",
+      "real",
+      "life"
+    ],
+    "fallbackT": 139,
+    "manualSec": null,
+    "captionSec": 137
+  },
+  {
+    "id": "the-garden-timbs",
+    "anchor": [
+      "opposition",
+      "tease",
+      "walk",
+      "garden"
+    ],
+    "fallbackT": 142,
+    "manualSec": null,
+    "captionSec": null
+  },
+  {
+    "id": "only-trollin",
+    "anchor": [
+      "they",
+      "only",
+      "trollin'"
+    ],
+    "fallbackT": 158,
+    "manualSec": null,
+    "captionSec": 149
+  },
+  {
+    "id": "wipe-your-feet",
+    "anchor": [
+      "wipe",
+      "your",
+      "feet",
+      "step"
+    ],
+    "fallbackT": 166,
+    "manualSec": null,
+    "captionSec": 158
+  },
+  {
+    "id": "outro-title",
+    "anchor": [
+      "new",
+      "york",
+      "state",
+      "mind"
+    ],
+    "fallbackT": 170,
+    "manualSec": null,
+    "captionSec": 158
+  }
+]

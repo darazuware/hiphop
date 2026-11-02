@@ -1,0 +1,821 @@
+{
+  "title": "N.Y. State of Mind Pt. 3 和訳・英語スラング解説 | Nas & DJ Premier",
+  "description": "Nas & DJ Premier「N.Y. State of Mind Pt. 3」（2025年『Light-Years』収録）を和訳付きで英語学習の教材として解説。Billy Joelのサビ、チョップドチーズや足場の懸垂、消えたクラブの名前、NYのスポーツチーム、outsideやtrollin'まで、頭出し付きで読み解きます。",
+  "duration": 192,
+  "youtubeId": "dBZyK3dHlfs",
+  "highlights": [
+    "Billy Joel「New York State of Mind」のサビをそのまま鳴らし、1994年の「N.Y. State of Mind」から続くシリーズの3作目として名乗る構成",
+    "チョップドチーズ、歩道の足場、道路の穴ぼこ、玄関のRing。今のニューヨークの暮らしの細部が、短い名詞でどんどん出てくる",
+    "Limelight、Tunnel、Palladium。もう存在しないクラブの名前と、NYのプロスポーツ8チームの名前の読み上げ"
+  ],
+  "intro": [
+    {
+      "h2": "■Billy Joelに頼んで始まる、シリーズ3作目",
+      "paras": [
+        "「N.Y. State of Mind Pt. 3」は、NasとDJ Premierの共作アルバム『Light-Years』（2025年12月12日、Mass Appeal）の3曲目です。全曲のプロデュースをDJ Premierが担当しています。",
+        "タイトルのとおり、1994年の『Illmatic』の1曲目「<a href='/songs/ny-state-of-mind' class='underline'>N.Y. State of Mind</a>」から続くシリーズの、3つ目にあたる曲です。",
+        "曲の頭で、NasがDJ Premierに「Billy Joelのあの曲をかけてくれ」と頼みます。そこから流れてくるのが、Billy Joelの1976年の曲「New York State of Mind」のサビです。",
+        "1994年の曲名の元になった言い回しを、31年後に本家の歌声ごと持ち込んだ形になっていて、この始まり方だけでかなり胸が熱くなります。"
+      ]
+    },
+    {
+      "h2": "■英語の見どころは、今のNYの生活の名詞",
+      "paras": [
+        "この曲のNasは、街の昔話だけでなく、今のニューヨークの暮らしをよく描きます。チョップドチーズのサンドイッチ、歩道の足場、車を揺らす道路の穴、玄関のドアの見張りカメラと、生活の細部の名詞がどんどん出てきます。",
+        "文法では、the streets is や you was のような主語と動詞の一致のくずし、習慣を表す be、主語を省く言い方など、AAVE（アフリカ系アメリカ人英語）の特徴が短い行の中に出てきます。",
+        "この曲には穏やかでない表現を含む行もあるので、そうした行は取り上げません。日常の言い回しと、NYの地名やお店、チームの名前が出てくる行を選んで、曲の順番に見ていきます。"
+      ]
+    }
+  ],
+  "storyLead": "物語のある曲ではなく、サビとバースを交互に重ねてニューヨークの今と昔を語る曲です。流れだけ先に押さえておきます。",
+  "story": [
+    "<strong class='text-[var(--c-text)]'>Verse 1</strong>は、食べ物やスポーツなど街の日常から入り、前作からの続きと、変わっていく街の様子へ進みます。",
+    "<strong class='text-[var(--c-text)]'>Verse 2</strong>は、消えたクラブや80年代の思い出を振り返り、五つの区への誇りで締めます。サビの合間にはNasの掛け声が入り、最後はタイトルの言葉の繰り返しで終わります。"
+  ],
+  "unitsLead": [
+    "ここからは、イントロの一言からアウトロまで、曲の順番に表現を拾っていきます。項目ごとに英語の引用と和訳を置き、その下に解説を書いています。",
+    "穏やかでない表現を含む行は飛ばしています。地名や名前だけで説明できる項目は、英語を引かずに語と背景だけを書きました。▶を押すと、Nasの公式チャンネルの映像の該当箇所から再生できます。"
+  ],
+  "tSource": "fallback",
+  "units": [
+    {
+      "id": "preem-joint",
+      "heading": "Preem, play me that joint 呼び名と、曲を指す joint",
+      "label": "★ スラング／イントロ",
+      "mc": "Nas（Intro）",
+      "anchor": [
+        "preem",
+        "play",
+        "billy",
+        "joel"
+      ],
+      "t": 1,
+      "eng": "Yo, Preem, play me that Billy Joel joint",
+      "jpn": "なあプリーム、Billy Joelのあの曲かけてくれ",
+      "note": "曲が始まってすぐ、Nasが話しかける一言です。",
+      "body": [
+        "<p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>1. Preem（DJ Premierの呼び名）</p>",
+        "行の頭のほうにある <strong class='text-[var(--c-text)]'>Preem</strong> は、DJ Premierの短い呼び名です。Premier の頭だけを取った言い方で、仲間内の呼びかけの温度がそのまま出ています。",
+        "<p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>2. joint（曲）</p>",
+        "行末の <QuickSlang word='joint' desc='もとは「つなぎ目」「場所」などの意味。ヒップホップでは曲やアルバム、映画などの作品を指す口語として広く使われる。ここでは Billy Joel の曲を指して、気軽に「あの曲」と呼んでいる' href='/slang/joint' /> は、曲を指す口語です。that Billy Joel joint で「Billy Joelのあの曲」。どの曲かを言わなくても、お互いに分かっている感じが that に出ています。",
+        "play me that ～ は「～をかけてくれ」。play のあとに me を置いて、自分のためにかけてほしいと頼む形です。"
+      ],
+      "usage": [
+        "<strong class='text-[var(--c-text)]'>joint</strong>（曲・作品）: <em>This new joint goes hard.</em>（この新曲、かなりいい）。",
+        "<strong class='text-[var(--c-text)]'>play me ～</strong>: <em>Play me something slow.</em>（ゆっくりした曲をかけて）。"
+      ]
+    },
+    {
+      "id": "chorus-get-away",
+      "heading": "get away / hop a flight 旅に出る人たちを並べるサビ",
+      "label": "★ 句動詞／サビ",
+      "mc": "Billy Joel（Chorus・サンプル）",
+      "anchor": [
+        "some",
+        "folks",
+        "like",
+        "get",
+        "away"
+      ],
+      "t": 4,
+      "eng": "Some folks like to get away<br />Take a holiday from the neighborhood",
+      "jpn": "どこかへ出かけるのが好きな人もいる<br />地元を離れて休暇を取る人もいる",
+      "note": "Billy Joel「New York State of Mind」のサビの歌い出しです。曲の中で3回出てきます。",
+      "body": [
+        "サビは、Billy Joelの1976年の曲「New York State of Mind」から取られています。曲のクレジットの作者欄にも、Nas、DJ Premierと並んでBilly Joelの名前が入っています。",
+        "1行目の <strong class='text-[var(--c-text)]'>get away</strong> は「逃れる、出かける」。日常から離れて休みに行く、という意味の句動詞（動詞と短い副詞を組み合わせた言い方）です。名詞の getaway になると「小旅行」の意味になります。",
+        "2行目の take a holiday from ～ は「～から離れて休む」。from the neighborhood で、休む相手が住んでいる地域そのものになっているのが面白いところです。",
+        "このあと3行目で hop a flight（飛行機にひょいと乗る）と続きます。hop は「跳ぶ」で、乗り物に気軽に乗る意味でよく使われます。行き先はマイアミビーチやハリウッドです。"
+      ],
+      "usage": [
+        "<strong class='text-[var(--c-text)]'>get away</strong>: <em>We need to get away this weekend.</em>（今週末はどこかへ出かけたい）。",
+        "<strong class='text-[var(--c-text)]'>hop a train / hop on a bus</strong>（電車・バスにさっと乗る）: <em>I hopped a train to Boston.</em>（ボストン行きの電車に飛び乗った）。"
+      ]
+    },
+    {
+      "id": "chorus-greyhound",
+      "heading": "Greyhound と state of mind 州と気分をかけたタイトル",
+      "label": "★ 言葉遊び／サビ",
+      "mc": "Billy Joel（Chorus・サンプル）",
+      "anchor": [
+        "taking",
+        "greyhound",
+        "hudson",
+        "river"
+      ],
+      "t": 16,
+      "eng": "But I'm taking a Greyhound<br />On the Hudson River line",
+      "jpn": "でも俺はグレイハウンドに乗る<br />ハドソン川沿いの路線で",
+      "note": "サビの後半です。このあとタイトルの一行で締まります。",
+      "body": [
+        "<strong class='text-[var(--c-text)]'>Greyhound</strong> は、アメリカの長距離バスの会社の名前です。飛行機でマイアミやハリウッドへ行く人たちと比べて、自分はバスに乗ってハドソン川沿いを帰っていく、という対比になっています。",
+        "But で向きが変わるのがポイントです。前の行までは「よそへ出かける人たち」、ここからは「ニューヨークへ戻る自分」。",
+        "サビの最後は I'm in a New York state of mind で締まります。New York State は「ニューヨーク州」、state of mind は「気分、心の状態」。一つの state が二つの意味に同時にかかっていて、これがシリーズ全体のタイトルの元になっています。",
+        "Nasはこのサビの言い回しを1994年の曲名に使い、今回は歌そのものを曲の中に入れました。"
+      ],
+      "usage": [
+        "<strong class='text-[var(--c-text)]'>state of mind</strong>（気分・心の状態）: <em>I'm not in the right state of mind to decide.</em>（今は決められる気分じゃない）。"
+      ]
+    },
+    {
+      "id": "steel-toe-court",
+      "heading": "Steel toe / at court 作業靴とバスケのコート",
+      "label": "★ 名詞の並べ方",
+      "mc": "Nas（Verse 1）",
+      "anchor": [
+        "steel",
+        "toe",
+        "construct",
+        "walk"
+      ],
+      "t": 26,
+      "eng": "Steel toe, construct walk, Nike shorts at night at court",
+      "jpn": "つま先に鉄の入った作業靴、工事現場の歩き方、夜はナイキの短パンでコートへ",
+      "note": "Verse 1 の1行目です。",
+      "body": [
+        "行の頭の <strong class='text-[var(--c-text)]'>steel toe</strong> は、つま先に鉄板を入れた安全靴のことです。工事現場で履く靴で、次の construct（construction の短縮）とつながって、昼間の仕事の姿が浮かびます。",
+        "行の後半は Nike shorts at night at court。夜になるとナイキの短パンに着替えて、court（ここではバスケットボールのコート）へ向かう姿です。",
+        "動詞を一つも使わずに、名詞を並べるだけで一日の流れを描いています。英語の歌詞では、こういう名詞の羅列で場面を切り替える書き方がよく出てきます。"
+      ],
+      "usage": [
+        "<strong class='text-[var(--c-text)]'>steel-toe boots</strong>（安全靴）: <em>You need steel-toe boots on this site.</em>（この現場では安全靴が必要だ）。"
+      ]
+    },
+    {
+      "id": "egg-rolls-duck-sauce",
+      "heading": "Stress'll と egg rolls and duck sauce 'll の縮約と中華の出前",
+      "label": "★ 縮約／食べ物",
+      "mc": "Nas（Verse 1）",
+      "anchor": [
+        "stress'll",
+        "cut",
+        "your",
+        "life",
+        "short"
+      ],
+      "t": 32,
+      "eng": "Stress'll cut your life short, I'm from egg rolls and duck sauce",
+      "jpn": "ストレスは寿命を縮める、俺は春巻きとダックソースの街の出だ",
+      "note": "Verse 1 の2行目です。",
+      "body": [
+        "<p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>1. Stress'll（will の縮約）</p>",
+        "行の頭の <strong class='text-[var(--c-text)]'>Stress'll</strong> は Stress will の短縮です。'll は代名詞（I'll、you'll）につくことが多いのですが、口語では普通の名詞にもつきます。cut ～ short は「～を途中で断ち切る、縮める」で、cut your life short で「寿命を縮める」。",
+        "<p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>2. egg rolls and duck sauce（中華の出前の定番）</p>",
+        "行の後半の egg rolls は、アメリカの中華料理店で出る揚げ春巻きです。duck sauce は、それにつける甘酸っぱいオレンジ色のソース。NYの中華のテイクアウトの定番の組み合わせです。",
+        "I'm from ～ のあとに地名でなく食べ物を置いて、自分の育った街の匂いを伝えています。地名を言うより、ずっと生活感があります。"
+      ],
+      "usage": [
+        "<strong class='text-[var(--c-text)]'>cut ～ short</strong>（途中で切り上げる）: <em>We had to cut the trip short.</em>（旅行を早めに切り上げることになった）。"
+      ]
+    },
+    {
+      "id": "kids-stay-blessed",
+      "heading": "the kids stay blessed いつもそうだ、の stay",
+      "label": "★ 口語文法",
+      "mc": "Nas（Verse 1）",
+      "anchor": [
+        "plenty",
+        "talent",
+        "kids",
+        "stay",
+        "blessed"
+      ],
+      "t": 47,
+      "eng": "Plenty talent, the kids stay blessed",
+      "jpn": "才能はあふれてる、子どもたちはいつだって恵まれてる",
+      "note": "Verse 1 の4行目の前半です。",
+      "body": [
+        "行の頭の Plenty talent は、Plenty of talent の of を省いた形です。口語では plenty のあとの of がよく落ちます。",
+        "後半の <strong class='text-[var(--c-text)]'>stay blessed</strong> の stay は「とどまる」ではなく「いつも～の状態だ」という意味で使われています。stay の後ろに形容詞を置いて、その状態がずっと続くことを強調する、口語でよく聞く形です。",
+        "blessed は「恵まれている、ついている」。街の子どもたちには才能があって、いつだって恵まれている、という前向きな一言です。"
+      ],
+      "usage": [
+        "<strong class='text-[var(--c-text)]'>stay ＋ 形容詞</strong>（いつも～だ）: <em>She stay busy.</em>（彼女はいつも忙しい）。標準英語なら She is always busy. です。"
+      ]
+    },
+    {
+      "id": "throw-on-dmx",
+      "heading": "Throw on some DMX 音楽をかける throw on",
+      "label": "★ 句動詞／固有名詞",
+      "mc": "Nas（Verse 1）",
+      "anchor": [
+        "throw",
+        "on",
+        "some",
+        "dmx"
+      ],
+      "t": 50,
+      "eng": "Throw on some DMX, his words, they live in all of us",
+      "jpn": "DMXをかけようぜ、あいつの言葉はみんなの中に生きてる",
+      "note": "Verse 1 の5行目です。",
+      "body": [
+        "行の頭の <strong class='text-[var(--c-text)]'>throw on</strong> は、服をさっと着るときにも、音楽をかけるときにも使う句動詞です。ここでは後ろが DMX なので「DMXの曲をかける」。some をつけて、どれか一曲を気軽に流す感じになっています。",
+        "DMXは、ニューヨーク州ヨンカーズ出身のラッパーです。2021年に亡くなりました。",
+        "his words, they live in all of us は、主語の his words をいったん置いてから they で言い直す形です。言いたい話題を先に出して、あとから文を組み立てる話し言葉の語順です。"
+      ],
+      "usage": [
+        "<strong class='text-[var(--c-text)]'>throw on</strong>（音楽をかける・服をさっと着る）: <em>Throw on a jacket, it's cold.</em>（上着をはおって、寒いから）。"
+      ]
+    },
+    {
+      "id": "part-two-friends",
+      "heading": "On part two 前作からの続きを示す一行",
+      "label": "★ シリーズの文脈",
+      "mc": "Nas（Verse 1）",
+      "anchor": [
+        "part",
+        "two",
+        "left",
+        "you",
+        "friends"
+      ],
+      "t": 53,
+      "eng": "On part two, I left you with two of my friends",
+      "jpn": "パート2では、二人の仲間の話を残していったよな",
+      "note": "Verse 1 の7行目です。",
+      "body": [
+        "<strong class='text-[var(--c-text)]'>part two</strong> は、1999年のアルバム『I Am...』に入っている「N.Y. State of Mind Pt. II」のことです。シリーズの前作を、聴き手が覚えている前提で話しかけています。",
+        "I left you with ～ は「～をあなたに残していった」。物語の続きものでよく使う言い方で、前回の終わり方を受けて話を始めています。",
+        "続く行では、仲間たちの息子の世代が同じ道をたどらないことを願う内容に進みます。そこでは our goals is と、複数の主語に is をつける言い方も出てきます。"
+      ],
+      "usage": [
+        "<strong class='text-[var(--c-text)]'>leave ～ with …</strong>（…を残して去る）: <em>The last episode left us with a big question.</em>（前回の話は大きな謎を残して終わった）。"
+      ]
+    },
+    {
+      "id": "building-hotels",
+      "heading": "They buildin' hotels 様変わりする街",
+      "label": "★ 口語発音／街の変化",
+      "mc": "Nas（Verse 1）",
+      "anchor": [
+        "buildin'",
+        "hotels",
+        "where",
+        "once"
+      ],
+      "t": 61,
+      "eng": "They buildin' hotels where it once was a Devil's playground",
+      "jpn": "昔は悪魔の遊び場だった場所に、今はホテルが建ってる",
+      "note": "Verse 1 の中ほどです。",
+      "body": [
+        "<p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>1. They buildin'（be動詞の省略と -in'）</p>",
+        "標準英語なら They are building です。ここでは are が抜けて、building の g も落ちて <strong class='text-[var(--c-text)]'>buildin'</strong> になっています。AAVEのbe動詞の省略と、-ing の発音のくずしが一度に出てくる形です。",
+        "<p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>2. Devil's playground（荒れた場所のたとえ）</p>",
+        "行末の Devil's playground は「悪魔の遊び場」。荒れていて近寄りがたかった場所のたとえです。",
+        "前の行で「しばらく離れていた人には、もう別の場所に見える」と言ってから、ホテルが建つ今の姿を見せます。古い街が新しい建物に置き換わっていく、ニューヨークの再開発の話です。"
+      ],
+      "usage": [
+        "<strong class='text-[var(--c-text)]'>where it once was ～</strong>（かつて～だった場所に）: <em>There's a café where the bookstore once was.</em>（昔本屋があった場所に、今はカフェがある）。"
+      ]
+    },
+    {
+      "id": "chopped-cheese",
+      "heading": "the streets is cookin' / chopped cheese 星付きより街の味",
+      "label": "★ 食べ物／AAVE文法",
+      "mc": "Nas（Verse 1）",
+      "anchor": [
+        "michelin",
+        "star's",
+        "cool",
+        "streets"
+      ],
+      "t": 64,
+      "eng": "Michelin star's cool, but the streets is cookin' that beef stew<br />That chopped cheese too, screwface how we smile",
+      "jpn": "ミシュランの星もいいけど、街が煮込んでるのはビーフシチューだ<br />チョップドチーズもな、しかめっ面が俺らの笑顔",
+      "note": "Verse 1 の後半、2行続きの部分です。",
+      "body": [
+        "<p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>1. the streets is（複数の主語に is）</p>",
+        "1行目の <strong class='text-[var(--c-text)]'>the streets is</strong> は、標準英語なら the streets are です。複数の主語に is をつけるのはAAVEでよく出てくる形で、ここでは「街」を一つのまとまりとして扱っている感じもあります。",
+        "Michelin star はレストランの格付けの星のこと。高級店の評価を一度認めてから、but で街の食べ物のほうへ話を戻します。",
+        "<p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>2. chopped cheese（NYの街角のサンドイッチ）</p>",
+        "2行目の <strong class='text-[var(--c-text)]'>chopped cheese</strong> は、鉄板の上で牛ひき肉を刻みながら焼いてチーズを溶かし、細長いパンに挟んだサンドイッチです。ニューヨークの街角の食料品店（bodega）で出てくる、地元の味の代表格です。",
+        "<p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>3. screwface（しかめっ面）</p>",
+        "行末の screwface は、顔をねじったようなしかめっ面のこと。screwface how we smile で「しかめっ面が俺らの笑い方だ」。愛想笑いをしない地元の人たちの顔つきを、ちょっと誇らしげに言っています。"
+      ],
+      "usage": [
+        "<strong class='text-[var(--c-text)]'>chopped cheese</strong>: <em>I grabbed a chopped cheese from the corner store.</em>（角の店でチョップドチーズを買ってきた）。"
+      ]
+    },
+    {
+      "id": "really-outside",
+      "heading": "we really outside 「ちゃんとここにいる」の outside",
+      "label": "★ スラング",
+      "mc": "Nas（Verse 1）",
+      "anchor": [
+        "want",
+        "us",
+        "gone",
+        "that's",
+        "fine"
+      ],
+      "t": 69,
+      "eng": "They want us gone, but that's fine<br />'Cause we really outside, for now and all time",
+      "jpn": "あいつらは俺らに消えてほしいらしい、でもかまわない<br />俺らは本当に外にいる、今もこれからもずっと",
+      "note": "Verse 1 の締めの2行です。",
+      "body": [
+        "2行目の <strong class='text-[var(--c-text)]'>outside</strong> は「外に」ではなく、スラングで「表に出て活動している、ちゃんとここにいる」という意味です。家にこもらず街に出て、存在感を示している状態を指します。",
+        "we really outside は、標準英語なら we are really outside。ここでも are が抜けています。",
+        "1行目の They want us gone は「俺らにいなくなってほしい」。want ＋ 人 ＋ 過去分詞で「人を～の状態にしてほしい」という形です。それに対して that's fine と軽く受け流してから、outside で返すのが気持ちいい流れです。",
+        "このあと Verse 1 は That New York state of mind の一言でサビへ戻ります。"
+      ],
+      "usage": [
+        "<strong class='text-[var(--c-text)]'>outside</strong>（表に出て活動している）: <em>Summer's here, everybody's outside.</em>（夏が来て、みんな外に出てきてる）。",
+        "<strong class='text-[var(--c-text)]'>want ＋ 人 ＋ 過去分詞</strong>: <em>I want this finished by Friday.</em>（金曜までにこれを終わらせてほしい）。"
+      ]
+    },
+    {
+      "id": "part-three-nyc",
+      "heading": "Part three, three times for NYC サビに重ねる掛け声",
+      "label": "★ 掛け声",
+      "mc": "Nas（Chorus の合間）",
+      "anchor": [
+        "part",
+        "three",
+        "three",
+        "times"
+      ],
+      "t": 75,
+      "eng": "Part three, three times for NYC",
+      "jpn": "パート3、NYのために3度目だ",
+      "note": "2回目のサビの1行目に重なる、Nasの掛け声です。",
+      "body": [
+        "2回目のサビでは、Billy Joelの歌の合間にNasの声が入ってきます。その最初の一言です。",
+        "<strong class='text-[var(--c-text)]'>three times for ～</strong> は「～のために3度」。シリーズの3作目であることと、ニューヨークに捧げるのが3回目であることを、three を二度重ねて言っています。",
+        "NYC は New York City の略です。州ではなく市のほうを指すときによく使います。"
+      ],
+      "usage": [
+        "<strong class='text-[var(--c-text)]'>NYC</strong>: <em>I've lived in NYC for ten years.</em>（ニューヨーク市に10年住んでいる）。"
+      ]
+    },
+    {
+      "id": "nyc-teams",
+      "heading": "Knicks, Mets, Yanks... NYのプロスポーツ8チーム",
+      "label": "★ 固有名詞",
+      "mc": "Nas（Chorus の合間）",
+      "anchor": [
+        "knicks",
+        "mets",
+        "yanks",
+        "jets"
+      ],
+      "t": 86,
+      "eng": "Knicks, Mets, Yanks, Jets, Nets, Giants, Islanders, Rangers",
+      "jpn": "ニックス、メッツ、ヤンキース、ジェッツ、ネッツ、ジャイアンツ、アイランダーズ、レンジャーズ",
+      "note": "2回目のサビの後半、Greyhound の行のあとに入る掛け声です。",
+      "body": [
+        "ニューヨークを本拠にするプロスポーツのチーム名を、ひと息で読み上げています。",
+        "Knicks と Nets はバスケットボール（NBA）、Mets と Yanks（Yankees の短縮）は野球（MLB）、Jets と Giants はアメフト（NFL）、Islanders と Rangers はアイスホッケー（NHL）です。",
+        "4つのリーグから2チームずつ、ちょうど8チーム。Yankees を Yanks と縮めるのは、地元のファンの普段の呼び方です。",
+        "メロディーのあるサビに、名前の連呼をぶつけているので、ここだけ急にスタジアムの空気になります。"
+      ],
+      "usage": [
+        "<strong class='text-[var(--c-text)]'>Yanks</strong>（ヤンキースの愛称）: <em>The Yanks won again last night.</em>（昨夜もヤンキースが勝った）。"
+      ]
+    },
+    {
+      "id": "scaffolding-pull-ups",
+      "heading": "pull-ups and dips on scaffoldings 歩道の足場で筋トレ",
+      "label": "★ 生活の名詞",
+      "mc": "Nas（Verse 2）",
+      "anchor": [
+        "pull-ups",
+        "dips",
+        "scaffoldings"
+      ],
+      "t": 100,
+      "eng": "And we got fit, jumpin' up<br />Hittin' pull-ups and dips on scaffoldings",
+      "jpn": "それで俺らは鍛えた、跳びついて<br />足場で懸垂とディップスをこなして",
+      "note": "Verse 2 の歌い出しです。",
+      "body": [
+        "1行目の <strong class='text-[var(--c-text)]'>got fit</strong> は「体を鍛えて引き締まった」。get fit で「健康になる、鍛える」という意味です。",
+        "2行目の pull-ups は懸垂、dips は平行な棒に体を乗せて腕で上下する運動です。hit は「打つ」ですが、ここでは「（トレーニングを）こなす」の意味で使われています。",
+        "場所は <strong class='text-[var(--c-text)]'>scaffoldings</strong>（足場）。ニューヨークの歩道には、建物の外壁工事のための足場がいたるところに組まれています。その鉄パイプにぶら下がって筋トレをする、街ならではの光景です。"
+      ],
+      "usage": [
+        "<strong class='text-[var(--c-text)]'>hit ＋ トレーニング</strong>: <em>I hit the gym after work.</em>（仕事のあとジムに行く）。"
+      ]
+    },
+    {
+      "id": "potholes-whips",
+      "heading": "Potholes still be hard 習慣の be と whips",
+      "label": "★ AAVE文法／スラング",
+      "mc": "Nas（Verse 2）",
+      "anchor": [
+        "potholes",
+        "still",
+        "be",
+        "hard"
+      ],
+      "t": 104,
+      "eng": "Potholes still be hard in our whips",
+      "jpn": "道路の穴ぼこは、今でも車にガツンとくる",
+      "note": "Verse 2 の3行目です。",
+      "body": [
+        "<p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>1. still be hard（習慣の be）</p>",
+        "標準英語なら Potholes are still hard です。ここでは are でなく原形の <strong class='text-[var(--c-text)]'>be</strong> が使われています。これはAAVEの「習慣の be」と呼ばれる形で、「いつもそうだ、毎回そうなる」という繰り返しの意味を足します。",
+        "穴ぼこが一度ひどかったのではなく、走るたびに毎回ガツンとくる、という感じです。",
+        "<p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>2. whips（車）</p>",
+        "行末の <QuickSlang word='whips' desc='車を指すスラング。複数形 whips で自分たちの車をまとめて言っている。ここでは、穴だらけの道路を走る毎日の車の話' href='/slang/whip' /> は車のスラングです。potholes（道路の穴）はニューヨークの道路の名物のような存在で、高級車に乗っていても揺れは避けられません。"
+      ],
+      "usage": [
+        "<strong class='text-[var(--c-text)]'>習慣の be</strong>: <em>He be at the park on Sundays.</em>（彼は日曜はいつも公園にいる）。"
+      ]
+    },
+    {
+      "id": "night-life",
+      "heading": "night life と art galleries 夜の街の名詞の羅列",
+      "label": "★ 生活の名詞",
+      "mc": "Nas（Verse 2）",
+      "anchor": [
+        "never",
+        "ending",
+        "night",
+        "life"
+      ],
+      "t": 106,
+      "note": "Verse 2 の4行目です。英語は引かず、語だけ取り出します。",
+      "body": [
+        "Verse 2 の4行目では、終わらない night life（夜遊び、夜の街の楽しみ）から始まって、supermodels、events、art galleries と、名詞だけが並びます。",
+        "Never ending は「終わりのない」。ここでも動詞を使わずに名詞を積み上げて、眠らない街の夜のにぎわいを一行に押し込んでいます。",
+        "ファッション、イベント、アートと並ぶので、地元の日常の話から、マンハッタンの華やかな側面へ視点が移っていく行です。"
+      ]
+    },
+    {
+      "id": "clubs-no-longer-exist",
+      "heading": "Limelight, Tunnel, Palladium もう無いクラブの名前",
+      "label": "★ 固有名詞",
+      "mc": "Nas（Verse 2）",
+      "anchor": [
+        "name",
+        "some",
+        "clubs",
+        "longer",
+        "exist"
+      ],
+      "t": 109,
+      "eng": "I can name some clubs that no longer exist<br />The Limelight, the Tunnel, and the Palladium",
+      "jpn": "もう無くなったクラブの名前なら挙げられる<br />ライムライト、トンネル、パラディアム",
+      "note": "Verse 2 の中ほど、2行続きの部分です。",
+      "body": [
+        "1行目の <strong class='text-[var(--c-text)]'>no longer exist</strong> は「もはや存在しない」。no longer ～ で「もう～ない」です。I can name ～ は「～の名前を挙げられる」で、名前を言えること自体が、その時代を知っている証拠になっています。",
+        "2行目の3つは、どれもマンハッタンにあった有名なクラブです。Limelight はチェルシーの古い教会の建物を使ったクラブ、Tunnel はチェルシーの貨物用の線路のトンネル跡を使ったクラブで、2001年に閉店しています。",
+        "Palladium は14丁目にあった元映画館のクラブで、1997年に閉店しました。跡地にはニューヨーク大学の学生寮が建っています。",
+        "3つとも、実業家のPeter Gatienが経営に関わっていたクラブです。名前を並べるだけで、当時を知る人には一気に景色が戻ってくる2行です。"
+      ],
+      "usage": [
+        "<strong class='text-[var(--c-text)]'>no longer</strong>（もう～ない）: <em>That shop no longer exists.</em>（あの店はもう無い）。"
+      ]
+    },
+    {
+      "id": "made-in-ny",
+      "heading": "Wave in the sky if you was made in N.Y 地元生まれへの呼びかけ",
+      "label": "★ AAVE文法",
+      "mc": "Nas（Verse 2）",
+      "anchor": [
+        "wave",
+        "in",
+        "the",
+        "sky"
+      ],
+      "t": 116,
+      "eng": "Wave in the sky if you was made in N.Y",
+      "jpn": "NY生まれなら、空に手を振れ",
+      "note": "Verse 2 の中ほどです。",
+      "body": [
+        "<strong class='text-[var(--c-text)]'>Wave in the sky</strong> は「空に向かって手を振れ」。ライブで客席に手を上げさせるときの呼びかけの形です。",
+        "後半の <strong class='text-[var(--c-text)]'>you was</strong> は、標準英語なら you were です。主語が you でも was を使うのは、AAVEや多くの口語英語に見られる形です。",
+        "made in N.Y は、商品の「Made in Japan」と同じ言い方を人に使ったものです。「ニューヨーク製」と言い切ることで、生まれ育ちの誇りがぐっと強く出ています。次の行では、その出自を何とも交換しない、と続きます。"
+      ],
+      "usage": [
+        "<strong class='text-[var(--c-text)]'>made in ～</strong>（～生まれ・～育ち）: <em>She's proud to be made in Brooklyn.</em>（彼女はブルックリン生まれが自慢だ）。"
+      ]
+    },
+    {
+      "id": "miss-87",
+      "heading": "I miss '87 年号を縮めて言う懐かしさ",
+      "label": "★ 口語表現",
+      "mc": "Nas（Verse 2）",
+      "anchor": [
+        "some",
+        "are",
+        "living",
+        "present-day"
+      ],
+      "t": 125,
+      "eng": "Some are living in present-day, I miss '87",
+      "jpn": "今を生きてる奴もいる、俺は87年が恋しい",
+      "note": "Verse 2 の後半に入るところです。",
+      "body": [
+        "前の行では、伝説と呼ばれたラッパーたちが天国へ漂っていく、と亡くなった先人たちに触れています。それを受けて、Some are living in present-day（今を生きている人もいる）と続けます。",
+        "行末の <strong class='text-[var(--c-text)]'>'87</strong> は1987年のこと。年号の頭の19をアポストロフィで省いて、「エイティセブン」と読みます。",
+        "miss は「恋しい、なくて寂しい」。I miss '87 で「87年が恋しい」。80年代後半は、Nasがクイーンズで10代を過ごしていた時期です。"
+      ],
+      "usage": [
+        "<strong class='text-[var(--c-text)]'>'90s / '87</strong>（年号の省略）: <em>I grew up in the '90s.</em>（90年代に育った）。",
+        "<strong class='text-[var(--c-text)]'>miss</strong>（恋しい）: <em>I miss those summer nights.</em>（あの夏の夜が懐かしい）。"
+      ]
+    },
+    {
+      "id": "teen-in-queens",
+      "heading": "In Queens, was a teen then 主語を省く語り",
+      "label": "★ 口語文法",
+      "mc": "Nas（Verse 2）",
+      "anchor": [
+        "in",
+        "queens",
+        "was",
+        "teen"
+      ],
+      "t": 128,
+      "eng": "In Queens, was a teen then, a kid with a chain",
+      "jpn": "クイーンズで、あのころは10代、チェーンを下げたガキだった",
+      "note": "Verse 2 の後半です。",
+      "body": [
+        "標準英語なら In Queens, I was a teen then です。主語の I が抜けて、<strong class='text-[var(--c-text)]'>was a teen then</strong> から始まっています。話の主語が分かりきっているとき、口語では主語を落とすことがよくあります。",
+        "Queens は、Nasが育ったニューヨーク市クイーンズ区です。Nasは子どものころに家族と Queensbridge Houses（公営住宅団地）へ移っています。",
+        "a kid with a chain は「チェーン（首飾り）を下げた子ども」。次の行では、ペンを持って痛みを書いていた、と続き、ラップを書き始めたころの自分の姿が浮かびます。"
+      ],
+      "usage": [
+        "<strong class='text-[var(--c-text)]'>主語の省略</strong>: <em>Was tired, went to bed early.</em>（疲れてたから早く寝た）。日記や会話でよく見る形です。"
+      ]
+    },
+    {
+      "id": "ring-peepholes",
+      "heading": "I let Ring replace the peepholes のぞき穴からカメラへ",
+      "label": "★ 固有名詞／使役",
+      "mc": "Nas（Verse 2）",
+      "anchor": [
+        "let",
+        "ring",
+        "replace",
+        "peepholes"
+      ],
+      "t": 130,
+      "eng": "I let Ring replace the peepholes",
+      "jpn": "のぞき穴の代わりは、もうRingに任せてる",
+      "note": "Verse 2 の後半です。",
+      "body": [
+        "<strong class='text-[var(--c-text)]'>Ring</strong> は、玄関に取り付けるカメラ付きのドアホンのブランドです。スマホで玄関先の様子を見られます。",
+        "peephole はドアののぞき穴。昔はのぞき穴で確かめていた来客を、今はカメラで見ている、という時代の変化を一行で言っています。",
+        "let ＋ 人・もの ＋ 動詞の原形 は「～に…させる、任せる」という使役の形です。let Ring replace で「Ringに置き換わらせる」。",
+        "87年を懐かしんだすぐあとに、こういう今どきの道具の名前が出てくるので、時間の行き来がはっきり分かります。"
+      ],
+      "usage": [
+        "<strong class='text-[var(--c-text)]'>let ＋ 目的語 ＋ 原形</strong>: <em>I let the app plan my route.</em>（道順はアプリに任せている）。"
+      ]
+    },
+    {
+      "id": "five-boroughs",
+      "heading": "The five boroughs ニューヨーク市の5つの区",
+      "label": "★ 固有名詞",
+      "mc": "Nas（Verse 2）",
+      "anchor": [
+        "five",
+        "boroughs",
+        "real",
+        "life"
+      ],
+      "t": 139,
+      "eng": "The five boroughs where real life is defined, y'all know the time",
+      "jpn": "本物の暮らしが決まる5つの区、みんな分かってるだろ",
+      "note": "Verse 2 の最後のほうです。",
+      "body": [
+        "<strong class='text-[var(--c-text)]'>borough</strong> はニューヨーク市の「区」のことで、読みは「バラ」に近い音です。ニューヨーク市は、マンハッタン、ブルックリン、クイーンズ、ブロンクス、スタテンアイランドの5つの区でできています。",
+        "where real life is defined は「本物の暮らしが定義される場所」。人生の基準はここで決まる、という地元びいきの言い方です。",
+        "行末の y'all know the time は「みんな分かってるよな」。y'all は you all の口語で、know the time は「状況や事情を分かっている」というニュアンスで使われています。"
+      ],
+      "usage": [
+        "<strong class='text-[var(--c-text)]'>borough</strong>: <em>Which borough do you live in?</em>（どの区に住んでるの？）。"
+      ]
+    },
+    {
+      "id": "the-garden-timbs",
+      "heading": "The Garden と Timbs マディソン・スクエア・ガーデンとブーツ",
+      "label": "★ 固有名詞",
+      "mc": "Nas（Chorus の合間）",
+      "anchor": [
+        "opposition",
+        "tease",
+        "walk",
+        "garden"
+      ],
+      "t": 142,
+      "note": "3回目のサビの1行目に重なるNasの掛け声です。英語は引かず、語だけ取り出します。",
+      "body": [
+        "3回目のサビに入ると、Nasの掛け声がまた重なってきます。最初の一言に出てくる <strong class='text-[var(--c-text)]'>The Garden</strong> は、マンハッタンのアリーナ、マディソン・スクエア・ガーデンのことです。ニックスとレンジャーズの本拠地で、地元では The Garden で通じます。",
+        "続く <QuickSlang word='Timbs' desc='Timberland（ティンバーランド）の黄色いワークブーツの略称。NYのヒップホップの定番の足元。ここでは、よそから来た相手がわざとNY風の格好をしてくる場面で出てくる' /> は、Timberland のブーツ。tee は Tシャツです。",
+        "opposition（対戦相手）が、からかうように（mockingly）Timbs と Nas のTシャツ姿でガーデンに入ってくる、という場面が語られています。ニューヨークらしい格好をわざとまねてくる相手を、Nasがどう受け止めるかは次の掛け声で分かります。"
+      ]
+    },
+    {
+      "id": "only-trollin",
+      "heading": "They only trollin' 煽りを受け流す trolling",
+      "label": "★ スラング",
+      "mc": "Nas（Chorus の合間）",
+      "anchor": [
+        "they",
+        "only",
+        "trollin'"
+      ],
+      "t": 158,
+      "eng": "They only trollin' and that's fine, 'cause we outside for the third time",
+      "jpn": "からかってるだけだろ、それでいい、俺らは3度目の外出中だから",
+      "note": "3回目のサビの後半に重なる掛け声です。",
+      "body": [
+        "<strong class='text-[var(--c-text)]'>trollin'</strong> は trolling の口語の形です。ネットでわざと相手を怒らせるような書き込みをすることを troll と呼び、そこから「わざと煽る、からかう」の意味で日常でも使われます。",
+        "They only trollin' は They are only trolling の are が抜けた形です。前の掛け声の対戦相手の振る舞いを「ただの煽りだ」と片づけています。",
+        "後半の we outside for the third time では、Verse 1 の締めで使った outside がもう一度出てきます。シリーズ3作目の「3度目」と重ねて、またここに出てきたぞ、と言っています。",
+        "Verse 1 でも that's fine で受け流していたので、同じ言い回しで余裕を見せる流れが二度繰り返されることになります。"
+      ],
+      "usage": [
+        "<strong class='text-[var(--c-text)]'>troll</strong>（煽る・からかう）: <em>Don't mind him, he's just trolling.</em>（気にしなくていい、ただからかってるだけ）。"
+      ]
+    },
+    {
+      "id": "wipe-your-feet",
+      "heading": "Wipe your feet 「うちに上がるなら足を拭け」",
+      "label": "★ 慣用表現",
+      "mc": "Nas（Chorus の合間）",
+      "anchor": [
+        "wipe",
+        "your",
+        "feet",
+        "step"
+      ],
+      "t": 166,
+      "eng": "Wipe your feet when you step in my house, though",
+      "jpn": "うちに上がるなら、足は拭いてくれよな",
+      "note": "3回目のサビの終わり近くに入る掛け声です。笑い声が続きます。",
+      "body": [
+        "<strong class='text-[var(--c-text)]'>Wipe your feet</strong> は「足（靴）を拭け」。玄関マットで靴の汚れを落としてから家に入れ、という家庭の決まり文句です。",
+        "ここでの my house はニューヨーク、そしてマディソン・スクエア・ガーデンのことです。よそから来た相手に「来るのはいいけど、礼儀はわきまえてくれ」と言っています。",
+        "文末の though は「でもな、とはいえ」。前の行でいったん受け入れておいて、最後に一言だけ釘を足す使い方です。そのあとの笑い声で、本気で怒っているのではないことが伝わります。"
+      ],
+      "usage": [
+        "<strong class='text-[var(--c-text)]'>文末の though</strong>（でもね）: <em>It's a nice place. Kind of expensive, though.</em>（いい店だよ。ちょっと高いけどね）。"
+      ]
+    },
+    {
+      "id": "outro-title",
+      "heading": "New York State of Mind タイトルの一言を繰り返して閉じる",
+      "label": "★ アウトロ",
+      "mc": "Outro",
+      "anchor": [
+        "new",
+        "york",
+        "state",
+        "mind"
+      ],
+      "t": 170,
+      "note": "曲の最後の部分です。英語は引かず、構成だけ取り出します。",
+      "body": [
+        "アウトロでは、タイトルと同じ New York State of Mind の一言が7回繰り返されて曲が終わります。",
+        "サビの最後でBilly Joelが歌った言葉、Verse 1 と Verse 2 の締めでNasが言った言葉、そしてシリーズの曲名。全部同じフレーズが、最後にもう一度何度も鳴らされます。",
+        "1994年の1作目のサビでも、この言い回しが何度も繰り返されていました。3作目の終わりも同じ言葉で閉じているので、シリーズを通して聴くと、曲同士がつながって聞こえます。"
+      ]
+    }
+  ],
+  "background": [
+    {
+      "kicker": "『Light-Years』",
+      "h3": "NasとDJ Premierの共作アルバムの3曲目",
+      "paras": [
+        "『Light-Years』は、NasとDJ Premierが2025年12月12日にMass Appealから出した共作アルバムです。全曲のプロデュースをDJ Premierが担当しています。",
+        "Mass Appealが続けてきた「Legend Has It…」シリーズの7作目で、シリーズの最後の作品にあたります。",
+        "「N.Y. State of Mind Pt. 3」は3曲目で、長さは3分12秒です。作者のクレジットは Nasir Jones（Nas）、Christopher Martin（DJ Premier）、Billy Joel の3人です。",
+        "アルバムはBillboard 200で最高47位、Top R&B/Hip-Hop Albumsで最高9位を記録しました。"
+      ]
+    },
+    {
+      "kicker": "シリーズ",
+      "h3": "1994年、1999年、そして2025年",
+      "paras": [
+        "1作目の「<a href='/songs/ny-state-of-mind' class='underline'>N.Y. State of Mind</a>」は、1994年のデビューアルバム『Illmatic』の1曲目です。プロデュースは同じくDJ Premierでした。",
+        "2作目の「N.Y. State of Mind Pt. II」は、1999年のアルバム『I Am...』に入っています。",
+        "そして3作目が今回の曲です。Verse 1 で on part two と前作に触れてから話を進めるので、シリーズものとして続けて聴く楽しみがあります。"
+      ]
+    }
+  ],
+  "keywords": [
+    [
+      "joint",
+      "曲、作品"
+    ],
+    [
+      "Preem",
+      "DJ Premierの呼び名"
+    ],
+    [
+      "get away",
+      "日常から離れて出かける"
+    ],
+    [
+      "hop a flight",
+      "飛行機にさっと乗る"
+    ],
+    [
+      "state of mind",
+      "気分、心の状態（New York State と掛けている）"
+    ],
+    [
+      "steel toe",
+      "つま先に鉄の入った安全靴"
+    ],
+    [
+      "Stress'll",
+      "Stress will の縮約"
+    ],
+    [
+      "stay blessed",
+      "いつも恵まれている"
+    ],
+    [
+      "throw on",
+      "音楽をかける、服をさっと着る"
+    ],
+    [
+      "They buildin'",
+      "They are building の are を省いた形"
+    ],
+    [
+      "the streets is",
+      "複数の主語に is をつけるAAVEの言い方"
+    ],
+    [
+      "chopped cheese",
+      "NYの食料品店の名物サンドイッチ"
+    ],
+    [
+      "screwface",
+      "しかめっ面"
+    ],
+    [
+      "outside",
+      "表に出て活動している、ちゃんとここにいる"
+    ],
+    [
+      "Yanks",
+      "ヤンキースの愛称"
+    ],
+    [
+      "scaffolding",
+      "建物の外壁工事の足場"
+    ],
+    [
+      "still be hard",
+      "習慣の be。いつもそうだ"
+    ],
+    [
+      "whips",
+      "車"
+    ],
+    [
+      "no longer",
+      "もう～ない"
+    ],
+    [
+      "you was",
+      "you were の口語形"
+    ],
+    [
+      "'87",
+      "1987年"
+    ],
+    [
+      "borough",
+      "ニューヨーク市の区"
+    ],
+    [
+      "The Garden",
+      "マディソン・スクエア・ガーデン"
+    ],
+    [
+      "Timbs",
+      "ティンバーランドのブーツ"
+    ],
+    [
+      "trollin'",
+      "わざと煽る、からかう"
+    ],
+    [
+      "Wipe your feet",
+      "足を拭いて上がれ"
+    ]
+  ],
+  "behind": [
+    "プロデュースはDJ Premier。1994年の1作目から、このシリーズの1作目と3作目のビートを手がけたことになります。",
+    "サンプル元は2曲あります。一つはBilly Joelの「New York State of Mind」（1976年のアルバム『Turnstiles』収録）で、サビの歌がこの曲から取られています。",
+    "もう一つはDonald Byrdの「Flight Time」。1994年の「<a href='/songs/ny-state-of-mind' class='underline'>N.Y. State of Mind</a>」でもネタにされていた曲で、同じ元ネタを31年後の続編でも使っています。",
+    "曲のイントロで、NasがDJ Premierに Billy Joel の曲をかけるよう頼む一言が入っているので、サンプルの出どころを曲の中で名乗ってから始まる作りになっています。"
+  ],
+  "legacy": [
+    "このページで頭出しに使っているのは、Nasの公式YouTubeチャンネルで公開されている Visualizer（音源に映像をつけた動画）です。",
+    "1994年の1作目が『Illmatic』の幕開けの曲だったのに対して、今回はNasとDJ Premierの共作アルバムの3曲目に置かれました。"
+  ],
+  "summary": [
+    "「N.Y. State of Mind Pt. 3」は、Billy Joelのサビを鳴らしながら、今のニューヨークの暮らしと昔の思い出を行き来する一曲です。",
+    "egg rolls、chopped cheese、scaffoldings、potholes、Ring と、NYの生活の名詞がたくさん出てくるので、街の暮らしの単語を覚えるのにも向いています。",
+    "the streets is、you was、習慣の be、be動詞や主語の省略など、AAVEの文法も短い行の中で何度も聞こえます。",
+    "1994年の1作目と聴き比べると、同じ元ネタと同じ言い回しが、31年をまたいでつながっているのが分かります。"
+  ]
+}
