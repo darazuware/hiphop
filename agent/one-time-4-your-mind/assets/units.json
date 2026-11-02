@@ -1,0 +1,349 @@
+[
+  {
+    "id": "its-illmatic",
+    "anchor": [
+      "it's",
+      "illmatic"
+    ],
+    "fallbackT": 1,
+    "manualSec": null
+  },
+  {
+    "id": "one-time-hook",
+    "anchor": [
+      "one",
+      "time",
+      "for",
+      "your",
+      "mind",
+      "one",
+      "time"
+    ],
+    "fallbackT": 11,
+    "manualSec": null
+  },
+  {
+    "id": "flick-villain",
+    "anchor": [
+      "and",
+      "watch",
+      "a",
+      "flick",
+      "illin'",
+      "and",
+      "rootin'",
+      "for",
+      "the",
+      "villain"
+    ],
+    "fallbackT": 24.9,
+    "manualSec": null
+  },
+  {
+    "id": "sort-of-chilly",
+    "anchor": [
+      "plus",
+      "every",
+      "morning",
+      "i",
+      "go",
+      "out",
+      "and",
+      "love",
+      "it",
+      "sort",
+      "of",
+      "chilly"
+    ],
+    "fallbackT": 27.8,
+    "manualSec": null
+  },
+  {
+    "id": "remote-ron-g",
+    "anchor": [
+      "pickin'",
+      "up",
+      "my",
+      "stereo's",
+      "remote",
+      "control",
+      "quickly"
+    ],
+    "fallbackT": 45.2,
+    "manualSec": null
+  },
+  {
+    "id": "mellow-cinderella",
+    "anchor": [
+      "i",
+      "try",
+      "to",
+      "stay",
+      "mellow"
+    ],
+    "fallbackT": 51,
+    "manualSec": null
+  },
+  {
+    "id": "shorty-wop",
+    "anchor": [
+      "when",
+      "i",
+      "was",
+      "ten",
+      "i",
+      "was",
+      "a",
+      "hip-hoppin'",
+      "shorty",
+      "wop"
+    ],
+    "fallbackT": 62.6,
+    "manualSec": null
+  },
+  {
+    "id": "nasty-villain",
+    "anchor": [
+      "it's",
+      "nasty",
+      "the",
+      "villain"
+    ],
+    "fallbackT": 82,
+    "manualSec": null
+  },
+  {
+    "id": "besides-that-chillin",
+    "anchor": [
+      "i'm",
+      "still",
+      "writin'",
+      "rhymes",
+      "but",
+      "besides",
+      "that",
+      "i'm",
+      "chillin'"
+    ],
+    "fallbackT": 84.9,
+    "manualSec": null
+  },
+  {
+    "id": "tryna-god-kid",
+    "anchor": [
+      "i'm",
+      "tryna",
+      "get",
+      "this",
+      "money",
+      "god"
+    ],
+    "fallbackT": 87.8,
+    "manualSec": null
+  },
+  {
+    "id": "ima-lamp",
+    "anchor": [
+      "but",
+      "i'ma",
+      "lamp",
+      "'cause",
+      "a",
+      "crime",
+      "couldn't",
+      "beat",
+      "a",
+      "rhyme"
+    ],
+    "fallbackT": 93.6,
+    "manualSec": null
+  },
+  {
+    "id": "from-queensbridge",
+    "anchor": [
+      "and",
+      "i'm",
+      "from",
+      "queensbridge",
+      "been",
+      "to",
+      "many",
+      "places"
+    ],
+    "fallbackT": 102.3,
+    "manualSec": null
+  },
+  {
+    "id": "represent-mine",
+    "anchor": [
+      "fine",
+      "see",
+      "now",
+      "i",
+      "represent",
+      "mine"
+    ],
+    "fallbackT": 111,
+    "manualSec": null
+  },
+  {
+    "id": "new-on-the-scene",
+    "anchor": [
+      "i'm",
+      "new",
+      "on",
+      "the",
+      "rap",
+      "scene",
+      "brothers",
+      "never",
+      "heard",
+      "of",
+      "me"
+    ],
+    "fallbackT": 113.9,
+    "manualSec": null
+  },
+  {
+    "id": "pen-blinkers",
+    "anchor": [
+      "my",
+      "pen",
+      "rides",
+      "the",
+      "paper",
+      "it",
+      "even",
+      "has",
+      "blinkers"
+    ],
+    "fallbackT": 119.7,
+    "manualSec": null
+  },
+  {
+    "id": "north-95",
+    "anchor": [
+      "floatin'",
+      "like",
+      "i'm",
+      "on",
+      "the",
+      "north",
+      "95",
+      "interstate"
+    ],
+    "fallbackT": 125.5,
+    "manualSec": null
+  },
+  {
+    "id": "wiz-camelot",
+    "anchor": [
+      "never",
+      "plan",
+      "to",
+      "stop",
+      "when",
+      "i",
+      "write",
+      "my",
+      "hand",
+      "is",
+      "hot"
+    ],
+    "fallbackT": 128.4,
+    "manualSec": null
+  },
+  {
+    "id": "heads-bop",
+    "anchor": [
+      "i'll",
+      "make",
+      "your",
+      "heads",
+      "bop"
+    ],
+    "fallbackT": 134.2,
+    "manualSec": null
+  },
+  {
+    "id": "shine-a-light",
+    "anchor": [
+      "i",
+      "shine",
+      "a",
+      "light",
+      "on",
+      "perpetrators",
+      "like",
+      "a",
+      "cop's",
+      "car"
+    ],
+    "fallbackT": 137.1,
+    "manualSec": null
+  },
+  {
+    "id": "day-to-night",
+    "anchor": [
+      "from",
+      "day",
+      "to",
+      "night",
+      "i",
+      "play",
+      "the",
+      "mic"
+    ],
+    "fallbackT": 140,
+    "manualSec": null
+  },
+  {
+    "id": "jam-parks",
+    "anchor": [
+      "live",
+      "at",
+      "any",
+      "jam",
+      "i",
+      "couldn't",
+      "count",
+      "all",
+      "the",
+      "parks",
+      "i've",
+      "raided"
+    ],
+    "fallbackT": 148.7,
+    "manualSec": null
+  },
+  {
+    "id": "92-to-99",
+    "anchor": [
+      "yo",
+      "from",
+      "'92",
+      "to",
+      "'99"
+    ],
+    "fallbackT": 169,
+    "manualSec": null
+  },
+  {
+    "id": "outro-kick-it",
+    "anchor": [
+      "i",
+      "want",
+      "you",
+      "to",
+      "kick",
+      "it",
+      "you",
+      "know",
+      "what",
+      "i'm",
+      "sayin'"
+    ],
+    "fallbackT": 176,
+    "manualSec": null
+  }
+]
