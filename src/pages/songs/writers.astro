@@ -1,0 +1,708 @@
+---
+import LearningUnit from '../../components/LearningUnit.astro';
+import QuickSlang from '../../components/QuickSlang.astro';
+import SongLayout from '../../layouts/SongLayout.astro';
+
+import tsData from '../../../agent/writers/assets/units-timestamps.json';
+const YT = "QeR9VfPPwDw";
+const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.approx }]));
+---
+
+<SongLayout
+  title="Writers 和訳・英語スラング解説 | Nas & DJ Premier"
+  description="Nas & DJ Premier「Writers」（2025年『Light-Years』収録）を和訳付きで英語学習の教材として解説。writerがグラフィティの書き手を指す理由、yes indeedy、hard to read の二重の意味、Style WarsやWild Style、TAKI 183、Basquiatまで、名前の読み上げに込めたグラフィティ史を日本語で読み解きます。"
+  slug="writers"
+  learningPage={true}
+  songDuration={293}
+  highlights={[
+    'writer は「作家」ではなく、壁や電車に名前を書くグラフィティの書き手。ラップの書き手であるNasが、その二つを重ねていくフック',
+    'Style Wars、Wild Style、TAKI 183、Cornbread、SAMO。名前だけで次々に出てくる、NYグラフィティの歴史の入口',
+    'They synonymous、If you into art、that\'s just gettin\' started。be動詞を抜いたり一致を崩したりするAAVEの形が、名前の羅列のすき間に顔を出します',
+  ]}
+  youtubeId="QeR9VfPPwDw"
+>
+
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■マイクをマーカーに持ち替えて、書き手たちの名前を刻む曲</h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          「Writers」は、Nas と DJ Premier が2025年12月12日に出した共作アルバム『Light-Years』の7曲目です。テーマは、ヒップホップの4つの柱のひとつに数えられるグラフィティ。
+        </p>
+        <p>
+          ヒップホップで writer と言えば、小説家ではなく、壁や地下鉄の車両に自分の名前を描く人のことです。Nas はラップの書き手として、その先輩たちの名前を一人ずつ読み上げていきます。
+        </p>
+        <p>
+          曲のほとんどが、タグ（グラフィティで使う署名の名前）と、クルー（グループ）の名前でできています。人名の羅列なのに妙に熱が伝わってくるのは、読み上げそのものが敬意の表し方になっているからだと思います。
+        </p>
+      </div>
+    </section>
+
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■英語の見どころは、二重の意味と、be動詞の抜き方</h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          フックの I'm hard to read like graffiti には、「字が読みにくい」と「人柄が読めない」の二つの意味が重なっています。こういう言葉遊びは、知っていると聞こえ方ががらっと変わります。
+        </p>
+        <p>
+          文法では、They synonymous や If you into art のように be動詞を抜く言い方、the writers that's just gettin' started のように複数の主語に that's を合わせる言い方など、AAVE（アフリカ系アメリカ人英語）の形が自然に出てきます。
+        </p>
+        <p>
+          グラフィティの歴史に出てくる固有名詞は、英語を引かずに背景だけを書いています。同じNasの曲では「<a href='/songs/nas-is-like' class='underline'>Nas Is Like</a>」「<a href='/songs/represent' class='underline'>Represent</a>」も解説しています。
+        </p>
+      </div>
+    </section>
+
+    <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
+      <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
+        <li><a href="#story" class="hover:text-[var(--c-gold)] transition-colors">01 ストーリーの流れ（まず曲全体をつかむ）</a></li>
+        <li><a href="#units" class="hover:text-[var(--c-gold)] transition-colors">02 学ぶ表現（スラング・韻・言葉遊び・AAVE）</a></li>
+        <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">03 文化的背景</a></li>
+        <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">04 制作の裏側</a></li>
+        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">05 評価とその後</a></li>
+      </ol>
+    </nav>
+
+    <section id="story" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        ストーリーの流れ（まず曲全体をつかむ）
+      </h2>
+      <p class="text-xs text-[var(--c-dim)] mb-5">
+        物語を追う曲ではなく、グラフィティの書き手たちを讃える名簿のような曲です。流れだけ先に置いておきます。
+      </p>
+      <div class="space-y-4 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          <strong class='text-[var(--c-text)]'>Verse 1</strong>は、宇宙から来たような名乗りで始まり、街じゅうの壁に文字を残した書き手たちへの憧れを語ります。最後に、自分にとってはマイクがマーカーなんだと明かします。
+        </p>
+        <p>
+          <strong class='text-[var(--c-text)]'>Verse 2</strong>と<strong class='text-[var(--c-text)]'>Verse 3</strong>は、記録映画や映画の話から書き手の名前を次々に挙げていく部分。間のインタールードも名前の読み上げで、アウトロはこれから始める若い書き手へのエールで終わります。
+        </p>
+        <p class="text-xs text-[var(--c-dim)]">
+          ※本ページは批評・教育目的で、解説に必要な範囲の断片のみを引用しています。全歌詞の対訳は掲載していません。
+        </p>
+      </div>
+    </section>
+
+    <div id="units"></div>
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        学ぶ表現（スラング・韻・言葉遊び・AAVE）
+      </h2>
+      <div class="space-y-3 text-xs text-[var(--c-dim)] mb-6">
+        <p>フックの頭からアウトロの最後の語りかけまで、聞こえてくる順に26の表現を並べました。各項目は、英語の短い引用と和訳が先、解説があと、という並びです。</p>
+        <p>グラフィティの名前や作品の背景だけで説明できる項目は、英語を引かずに書いています。▶を押すと、公式の映像の該当箇所から再生できます。</p>
+      </div>
+
+      <LearningUnit
+        heading="Writers / hard to read 書き手の名乗りと、二重の意味"
+        label="★ スラング／タイトル"
+        mc="Nas（Chorus）"
+        t={TS["writers-hook"].t} tApprox={TS["writers-hook"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Writin' my name in graffiti<br />I'm hard to read like graffiti</Fragment>
+        <Fragment slot="jpn">グラフィティで自分の名前を書いてる<br />グラフィティみたいに、俺は読みにくい</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 曲の頭のフックです。同じ形がバースの間ごとに戻ってきます。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>1. writer（グラフィティの書き手）</p>
+        <p>曲名の <strong class='text-[var(--c-text)]'>writer</strong> は、ふつうは「作家」です。グラフィティの世界では <QuickSlang word='writer' desc='グラフィティの世界で、壁や電車に自分の名前を描く人のこと。</p>
+        <p>描く行為は writing と呼ばれる。この曲では、ラップの歌詞を書くNas自身と、グラフィティの書き手たちの両方を指している' /> として、自分の名前を描く人を指します。</p>
+        <p>行の頭の Writin' は Writing の g を落とした口語の綴り。書き手たちは絵より先に、まず自分の名前を書くところから始めました。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>2. hard to read（読めない）</p>
+        <p><strong class='text-[var(--c-text)]'>hard to read</strong> は、文字そのものが「読みにくい」という意味です。崩した文字で描くグラフィティは、読み慣れない人にはほとんど読めません。</p>
+        <p>同じ hard to read は、人について言うと「何を考えているか読めない」という意味になります。俺も簡単には読み解けない人間だぞ、という含みが一行に重なっています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>hard to read</strong>（人柄が読めない）: <em>My boss is hard to read.</em>（上司は何を考えているか読めない）。</p>
+          <p><strong class='text-[var(--c-text)]'>writer</strong>: <em>He was a famous writer in the eighties.</em>（彼は80年代の有名な書き手だった）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Yes indeedy 「その通りさ」をおどけて言う形"
+        label="★ 語法"
+        mc="Nas（Chorus）"
+        t={TS["yes-indeedy"].t} tApprox={TS["yes-indeedy"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Yes indeedy, I wrote graffiti</Fragment>
+        <Fragment slot="jpn">そうともさ、俺はグラフィティを書いてた</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ フックの中で、名前の行のすぐあとに来ます。</p>
+        <p><strong class='text-[var(--c-text)]'>indeedy</strong> は、indeed（本当に、確かに）に -y をつけて、子どもっぽく、おどけた響きにした形です。</p>
+        <p>Yes indeed なら「その通り」。Yes indeedy になると「そうだとも」「そうともさ」くらいの、ちょっと茶目っ気のある返事になります。</p>
+        <p>graffiti と indeedy で音をそろえているのもポイント。韻を踏むために、わざとこの軽い語を選んでいるように聞こえます。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>yes indeedy</strong>: <em>Did you finish it? Yes indeedy.</em>（終わった？ そうともさ）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Galactican citizenship card 銀河の市民証"
+        label="★ 語法／造語"
+        mc="Nas（Verse 1）"
+        t={TS["galactican-card"].t} tApprox={TS["galactican-card"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Here's my Galactican citizenship card</Fragment>
+        <Fragment slot="jpn">これが俺の銀河市民の証明書だ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の1行目、歌い出しです。</p>
+        <p><strong class='text-[var(--c-text)]'>Here's my 〜</strong> は、何かを差し出しながら「これが俺の〜だ」と見せる言い方です。</p>
+        <p><strong class='text-[var(--c-text)]'>citizenship card</strong> は「市民権の証明書」。その前の Galactican は、galactic（銀河の）から作った造語で、「銀河の住人」くらいの意味になります。</p>
+        <p>次の行では Interplanetary mission（惑星をまたぐ任務）と続きます。アルバム名の『Light-Years』（光年）と同じ宇宙の言葉で幕を開けているのが面白いところです。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>Here's my 〜</strong>: <em>Here's my ticket.</em>（これが私のチケットです）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="No ancillary staff / what that list be 堅い単語と、くだけた be"
+        label="★ 語彙／AAVE"
+        mc="Nas（Verse 1）"
+        t={TS["ancillary-staff"].t} tApprox={TS["ancillary-staff"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">No ancillary staff will assist me<br />I'm about to show you what that writer's list be</Fragment>
+        <Fragment slot="jpn">補佐のスタッフはいらない<br />今から書き手の名簿ってやつを見せてやる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の3〜4行目です。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>1. ancillary（補助の）</p>
+        <p><strong class='text-[var(--c-text)]'>ancillary</strong> は「補助の、付随する」という、書類で見かけるような堅い単語です。ancillary staff で「補佐役のスタッフ」。</p>
+        <p>誰の手も借りずに一人でやる、という宣言を、あえて事務的な言葉で言っているのが効いています。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>2. what that list be（be動詞の原形）</p>
+        <p>標準英語なら what that writer's list is です。ここでは is のかわりに原形の <strong class='text-[var(--c-text)]'>be</strong> を置いています。</p>
+        <p>主語に合わせて形を変えない be は、AAVE（アフリカ系アメリカ人英語）でよく聞く形です。<strong class='text-[var(--c-text)]'>be about to</strong>（今にも〜するところ）もあわせて覚えておくと便利です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>be about to</strong>: <em>The show is about to start.</em>（ショーがもうすぐ始まる）。</p>
+          <p><strong class='text-[var(--c-text)]'>ancillary</strong>: <em>ancillary costs</em>（付随する費用）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="a writer in rap form ラップの形をした書き手"
+        label="★ 言葉遊び"
+        mc="Nas（Verse 1）"
+        t={TS["writer-in-rap-form"].t} tApprox={TS["writer-in-rap-form"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">See, I'm a writer in rap form</Fragment>
+        <Fragment slot="jpn">いいか、俺はラップって形の書き手だ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の5行目です。</p>
+        <p>ここで writer の二つの意味がはっきり並びます。Nas は <strong class='text-[var(--c-text)]'>in rap form</strong>（ラップという形で）書く人。</p>
+        <p>次の行で語られるのは、電車や駅のホームに名前を残す書き手たちです。</p>
+        <p>文頭の <strong class='text-[var(--c-text)]'>See,</strong> は「見て」ではなく、「いいか」「つまりね」と話を切り出す合図です。</p>
+        <p>in 〜 form は「〜の形で」。in written form（書面で）のように、日常でも使える言い方です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>See,</strong>（話の切り出し）: <em>See, that's why I left early.</em>（だからさ、早めに出たんだよ）。</p>
+          <p><strong class='text-[var(--c-text)]'>in 〜 form</strong>: <em>Please send it in written form.</em>（書面で送ってほしい）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="They synonymous with 〜 be動詞を抜いた「同じくらいの存在」"
+        label="★ AAVE文法"
+        mc="Nas（Verse 1）"
+        t={TS["synonymous"].t} tApprox={TS["synonymous"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">They synonymous with DJs, rappers, and breakers</Fragment>
+        <Fragment slot="jpn">あいつらはDJ、ラッパー、ブレイカーと並ぶ存在だ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の8行目です。</p>
+        <p>標準英語なら They're synonymous with 〜 です。are が抜けています。</p>
+        <p>be動詞を落とすのは <QuickSlang word='コピュラ省略' desc='be動詞（コピュラ）を省いて、主語のすぐ後に形容詞や名詞を置く言い方。AAVE（アフリカ系アメリカ人英語）でよく聞かれる文法。</p>
+        <p>この行では They のあとの are が抜けている' /> と呼ばれる、AAVEの代表的な特徴です。</p>
+        <p><strong class='text-[var(--c-text)]'>synonymous with</strong> は「〜と同義の、〜と切り離せない」。DJ、ラッパー、ブレイカー（ブレイクダンサー）と並べて、グラフィティの書き手もヒップホップの柱だと言い切っています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>synonymous with</strong>: <em>Kyoto is synonymous with old temples.</em>（京都といえば古い寺だ）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Taggin' they names タグを書く、they の所有格"
+        label="★ スラング／AAVE"
+        mc="Nas（Verse 1）"
+        t={TS["taggin-names"].t} tApprox={TS["taggin-names"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Taggin' they names, puttin' they signatures in places</Fragment>
+        <Fragment slot="jpn">自分らの名前をタグにして、あちこちにサインを残す</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の12行目です。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>1. tag（名前を描く）</p>
+        <p><strong class='text-[var(--c-text)]'>tag</strong> は名詞なら「札」。グラフィティでは、書き手が使う名前そのもの、またはそれを手早く描いたサインを指します。</p>
+        <p>動詞の tag は「タグを描く」です。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>2. they names（they を所有格に）</p>
+        <p>標準英語なら their names です。AAVEでは、所有格の their のかわりに <strong class='text-[var(--c-text)]'>they</strong> を置く言い方がよく聞かれます。</p>
+        <p>発音が近いので、耳で聞くと区別がつきにくいところです。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>tag</strong>（名前を描く）: <em>He tagged his name on the wall.</em>（彼は壁に自分のタグを描いた）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Jams in the park 公園のパーティーと、そこで描く人たち"
+        label="★ スラング／文化"
+        mc="Nas（Verse 1）"
+        t={TS["jams-in-the-park"].t} tApprox={TS["jams-in-the-park"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Jams in the park, they doing art</Fragment>
+        <Fragment slot="jpn">公園のジャム、あいつらはそこでアートをやってる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の14行目です。前の行では、中庭やスポーツバー、名所、日焼け色のClarks（靴）と、書き手が描いた場所や身なりが並びます。</p>
+        <p><strong class='text-[var(--c-text)]'>jam</strong> はここでは「音楽で盛り上がる集まり、パーティー」の意味です。jams in the park で、公園で開かれる野外パーティー。</p>
+        <p>公園や団地の広場にスピーカーを持ち込んで開くパーティーは、70年代のNYでヒップホップが育った場所として知られています。</p>
+        <p><strong class='text-[var(--c-text)]'>they doing art</strong> も、they're doing の are が抜けたコピュラ省略の形です。ラップとグラフィティが同じ場所で生まれた、という絵が一行に収まっています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>jam</strong>（集まり、パーティー）: <em>There's a jam at the park this Saturday.</em>（今週の土曜、公園でパーティーがある）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Big bubble letters ふくらんだ文字"
+        label="★ 語彙"
+        mc="Nas（Verse 1）"
+        t={TS["bubble-letters"].t} tApprox={TS["bubble-letters"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Big bubble letters all over the city</Fragment>
+        <Fragment slot="jpn">街じゅうに、でかいバブル文字</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の15行目です。</p>
+        <p><strong class='text-[var(--c-text)]'>bubble letters</strong> は、泡のように丸くふくらませた文字のこと。グラフィティでおなじみの書体で、日本でも「バブル文字」と呼ばれます。</p>
+        <p><strong class='text-[var(--c-text)]'>all over the city</strong> は「街のいたるところに」。all over 〜 は場所を広く覆うイメージで、all over the world（世界じゅうに）と同じ形です。</p>
+        <p>次の行では、高いところに描かれた文字を見上げて、どうやって描いたんだろうと首をかしげます。見上げる子どもの目線が、そのまま残っているのがいいなと思います。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>all over 〜</strong>: <em>Her posters were all over the station.</em>（駅じゅうに彼女のポスターが貼られていた）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="the mic is a marker マイクがマーカーになった"
+        label="★ 比喩"
+        mc="Nas（Verse 1）"
+        t={TS["mic-is-a-marker"].t} tApprox={TS["mic-is-a-marker"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Admit it, I always wished that I could do the same<br />But now the mic is a marker, I'm taggin' up names</Fragment>
+        <Fragment slot="jpn">白状するよ、ずっと同じことをやってみたかった<br />でも今はマイクがマーカー、俺は名前をタグしてる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の最後の2行です。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>1. wished that I could（〜できたらと願った）</p>
+        <p><strong class='text-[var(--c-text)]'>wish</strong> のあとに could を置くと、「できたらいいのに」という叶わなかった願いになります。Admit it は「認めよう」。</p>
+        <p>ここでは、自分は壁に描く側ではなかったと打ち明ける前置きです。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>2. the mic is a marker（比喩）</p>
+        <p><QuickSlang word='mic' desc='microphone の短縮形。ラップではマイクそのものより、ラップをする行為や場を指すことが多い。</p>
+        <p>この曲では、グラフィティのマーカーに見立てて、名前を書き残す道具として使われている' href='/slang/mic' /> をマーカーに見立てて、ラップで名前を書き残しているんだと言います。このあと曲に並ぶ名前の読み上げ全体が、この一行でタグの代わりになります。</p>
+        <p>同じ言い回しは Verse 2 では taggin' more names（もっと名前をタグする）、Verse 3 では taggin' up names と、形を少し変えて戻ってきます。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>wish 〜 could</strong>: <em>I wish I could draw like that.</em>（あんなふうに描けたらいいのに）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="I would walk with a pen 過去の習慣の would"
+        label="★ 文法"
+        mc="Nas（Chorus）"
+        t={TS["sometimes-at-night"].t} tApprox={TS["sometimes-at-night"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Sometimes at night, I would walk with a pen, with a marker, or even some chalk</Fragment>
+        <Fragment slot="jpn">ときどき夜になると、ペンやマーカー、ときにはチョークを持って歩いたもんだ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 2回目のフックから加わる行です。</p>
+        <p><strong class='text-[var(--c-text)]'>would</strong> は未来の話だけでなく、「昔はよく〜したものだ」という過去の習慣も表します。Sometimes at night と組み合わさって、夜な夜なの思い出話になります。</p>
+        <p>持ち物が <strong class='text-[var(--c-text)]'>a pen, a marker, some chalk</strong> と並ぶのも見どころです。チョークだけ some がついているのは、chalk が数えない名詞（不可算名詞）だからです。</p>
+        <p>最後の <strong class='text-[var(--c-text)]'>or even</strong> は「あるいは〜でさえ」。手元にあるものなら何でもよかった、という感じが出ています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>would</strong>（過去の習慣）: <em>We would play in the park after school.</em>（放課後はよく公園で遊んだものだ）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Henry Chalfant と Style Wars、地下鉄グラフィティの記録映画"
+        label="★ 固有名詞／文化"
+        mc="Nas（Verse 2）"
+        t={TS["style-wars"].t} tApprox={TS["style-wars"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の1〜2行目です。英語は引かず、名前の背景と言い回しだけを書いています。</p>
+        <p>Verse 2 は、Henry Chalfant の名前と『Style Wars』から始まります。『Style Wars』は、NYの地下鉄グラフィティを追った記録映画で、Tony Silver が監督し、Silver と Chalfant が製作しました。</p>
+        <p>1983年に PBS（アメリカの公共放送）で放送されています。</p>
+        <p>続く行では、のちにNYのDJとして名を上げた人物が、若い頃は Dez というタグで描いていたと明かされます。その Dez も『Style Wars』に登場する書き手のひとりです。</p>
+        <p>同じ行の終わりの <strong class='text-[var(--c-text)]'>go check it out</strong> は「見てきなよ」。go のあとに動詞を直接つなぐ口語の形で、go and check の and が抜けています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>go check it out</strong>: <em>The new café is great, go check it out.</em>（新しいカフェいいよ、行ってみなよ）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Zoro is Lee Quiñones 映画『Wild Style』の役名と本人"
+        label="★ 固有名詞／文化"
+        mc="Nas（Verse 2）"
+        t={TS["wild-style-zoro"].t} tApprox={TS["wild-style-zoro"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の5行目です。英語は引かず、名前の背景だけを書いています。</p>
+        <p>その前の行で名前が出る『Wild Style』は、Charlie Ahearn 監督の映画です。1982年にモントリオールで初めて上映され、アメリカの劇場公開は1983年でした。</p>
+        <p>主人公の書き手 Zoro を演じたのが、実際に地下鉄の車両に描いていた Lee Quiñones です。Nas は「Zoro は Lee Quiñones」と、役名と本人をイコールで結んでいます。</p>
+        <p>役の名前と本物の書き手をつないで紹介するやり方は、Verse 3 の Phade と Fab 5 Freddy でもう一度出てきます。</p>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Shoutin' out Taki 183 / straight out of Philly 名前の始まり"
+        label="★ スラング／文化"
+        mc="Nas（Verse 2）"
+        t={TS["taki-cornbread"].t} tApprox={TS["taki-cornbread"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Shoutin' out Taki 183<br />Cornbread straight out of Philly, Phase 2 out of NYC</Fragment>
+        <Fragment slot="jpn">TAKI 183 に挨拶を<br />フィリー出身の Cornbread、NYの Phase 2</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の7〜8行目です。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>1. shout out（名前を挙げて挨拶する）</p>
+        <p><strong class='text-[var(--c-text)]'>shout out</strong> は、人の名前を挙げて感謝や敬意を伝えることです。名詞の shout-out も同じ意味で使われます。</p>
+        <p><strong class='text-[var(--c-text)]'>TAKI 183</strong> は、マンハッタンのワシントン・ハイツに住んでいたギリシャ系の若者のタグです。183 は住んでいた183丁目から来ています。</p>
+        <p>1971年には New York Times が彼の記事を載せています。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>2. straight out of（〜から直送の、〜出身の）</p>
+        <p><strong class='text-[var(--c-text)]'>straight out of</strong> は「〜からまっすぐ来た」、つまり生粋の〜出身という言い方です。Philly はフィラデルフィアの愛称。</p>
+        <p>Cornbread（Darryl McCray）は、60年代の終わりからフィラデルフィアで名前を書いて回った人で、現代のグラフィティの最初の書き手として広く語られています。NY より先にフィラデルフィアの名を置いているところに、歴史への目配りを感じます。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>shout out</strong>: <em>Shout out to my team for the help.</em>（手伝ってくれたチームに感謝）。</p>
+          <p><strong class='text-[var(--c-text)]'>straight out of</strong>: <em>a chef straight out of Osaka</em>（大阪から来た生粋のシェフ）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="kings of the graff / queens I should add 王たちと女王たち"
+        label="★ スラング／語法"
+        mc="Nas（Verse 2）"
+        t={TS["kings-and-queens"].t} tApprox={TS["kings-and-queens"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">These are some of the kings of the graff<br />And there's some iconic queens I should add</Fragment>
+        <Fragment slot="jpn">ここまでがグラフィティの王たちの一部<br />それに、付け加えるべき伝説の女王たちもいる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の折り返しです。直前の行は If you into art（アートが好きなら）と、are を抜いた形で始まります。</p>
+        <p><strong class='text-[var(--c-text)]'>graff</strong> は graffiti を短くした言い方です。<strong class='text-[var(--c-text)]'>king</strong> はグラフィティの世界で、多くの路線や車両に名前を残した第一人者への呼び名として使われます。</p>
+        <p>後の行の <strong class='text-[var(--c-text)]'>there's some queens</strong> は、複数形なのに there's を使う口語の形です。教科書なら there are ですが、会話では there's で済ませることがとても多いです。</p>
+        <p><strong class='text-[var(--c-text)]'>I should add</strong> は「付け加えておかないと」。男性の名前ばかりになりかけたところで、女性の書き手に話を向けるつなぎの一言です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>I should add</strong>: <em>It's cheap, and I should add, it's delicious.</em>（安いし、付け加えるとおいしい）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="goes back / on the map 古株と、地図に載ること"
+        label="★ イディオム"
+        mc="Nas（Verse 2）"
+        t={TS["lady-pink-on-the-map"].t} tApprox={TS["lady-pink-on-the-map"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Charmin, Claw, Lady Pink goes back<br />And MadC, Germany's on the map</Fragment>
+        <Fragment slot="jpn">Charmin、Claw、Lady Pink は古株だ<br />それに MadC、ドイツも地図に載ってる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の後半、女性の書き手の名前が並ぶ2行です。</p>
+        <p><strong class='text-[var(--c-text)]'>go back</strong> は「戻る」のほかに、「昔からいる、歴史が長い」という意味でも使います。we go way back（俺たちは昔からの仲だ）は定番の言い回しです。</p>
+        <p>Lady Pink は、映画『Wild Style』にも出演した書き手です。</p>
+        <p><strong class='text-[var(--c-text)]'>on the map</strong> は「地図に載っている」、転じて「存在が知られている」という意味。put 〜 on the map で「〜を有名にする」になります。</p>
+        <p>ドイツの MadC の名前を挙げて、グラフィティがNYの外まで広がったことを伝えています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>go way back</strong>: <em>Ken and I go way back.</em>（ケンとは古い付き合いだ）。</p>
+          <p><strong class='text-[var(--c-text)]'>put 〜 on the map</strong>: <em>That festival put the town on the map.</em>（あの祭りで町が有名になった）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Krylon mystics / ghetto hieroglyphics スプレーの神秘家と、街の象形文字"
+        label="★ 比喩／固有名詞"
+        mc="Nas（Verse 2）"
+        t={TS["krylon-hieroglyphics"].t} tApprox={TS["krylon-hieroglyphics"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">So let's salute the highly gifted Krylon mystics<br />This is homage to the ghetto hieroglyphics</Fragment>
+        <Fragment slot="jpn">だから讃えよう、才能あふれるクライロンの神秘家たちを<br />これは街の象形文字へのオマージュだ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の締めの2行です。Verse 3の最後にも同じ2行が戻ってきます。</p>
+        <p><strong class='text-[var(--c-text)]'>Krylon</strong> は、アメリカのスプレー塗料のブランド名です。ブランド名で道具を言うことで、書き手のことだと一発でわかるようにしています。</p>
+        <p><strong class='text-[var(--c-text)]'>mystics</strong> は「神秘家」。夜のうちに現れて、誰が描いたのかわからない文字を残していく書き手たちを、神秘の人にたとえています。</p>
+        <p><strong class='text-[var(--c-text)]'>hieroglyphics</strong> は古代エジプトの象形文字。慣れない人には読めない文字という点で、フックの hard to read とつながっています。</p>
+        <p><strong class='text-[var(--c-text)]'>homage</strong> は「敬意を込めた捧げもの」で、日本語のオマージュの元の語です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>salute</strong>（讃える）: <em>Let's salute the volunteers.</em>（ボランティアの皆さんを讃えよう）。</p>
+          <p><strong class='text-[var(--c-text)]'>homage to</strong>: <em>The film is an homage to old Tokyo.</em>（その映画は昔の東京へのオマージュだ）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="it's on you インタールードの名前の読み上げ"
+        label="★ イディオム"
+        mc="Nas（Interlude）"
+        t={TS["interlude-roll-call"].t} tApprox={TS["interlude-roll-call"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">J.A., XTC Crew, it's on you, what you gonna do?</Fragment>
+        <Fragment slot="jpn">J.A.、XTC Crew、次はお前らの番だ、どうする？</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ インタールードの3行目です。</p>
+        <p>インタールードは、ほぼ全部がタグと<QuickSlang word='crew' desc='仲間、チーム。ヒップホップでは一緒に活動するグループを指す。</p>
+        <p>この曲では、グラフィティの書き手たちが組んだグループ名が次々に読み上げられる' href='/slang/crew' />の名前でできています。ビートに乗せて名前を呼ぶこと自体が、ここでは挨拶になっています。</p>
+        <p>その中に挟まる <strong class='text-[var(--c-text)]'>it's on you</strong> は、「お前次第だ」「お前の番だ」という意味です。会計の場面では「お前のおごりな」にもなります。</p>
+        <p><strong class='text-[var(--c-text)]'>what you gonna do?</strong> は what are you going to do? の are を抜いて、going to を gonna に縮めた口語です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>it's on you</strong>（お前次第）: <em>I did my part. Now it's on you.</em>（俺の分はやった、あとはお前次第だ）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="oh, did I mention? 「言ったっけ？」と付け足す一言"
+        label="★ 会話表現"
+        mc="Nas（Verse 3）"
+        t={TS["phade-fab-5-freddy"].t} tApprox={TS["phade-fab-5-freddy"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Phade was Fab 5 Freddy, oh, did I mention?</Fragment>
+        <Fragment slot="jpn">Phade は Fab 5 Freddy だった、あれ、言ったっけ？</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3の中ほどの行です。</p>
+        <p><strong class='text-[var(--c-text)]'>Phade</strong> は映画『Wild Style』の登場人物の名前で、それを演じたのが <strong class='text-[var(--c-text)]'>Fab 5 Freddy</strong> です。Verse 2 の Zoro と Lee Quiñones と同じ、役名と本人を結ぶ紹介の仕方です。</p>
+        <p><strong class='text-[var(--c-text)]'>oh, did I mention?</strong> は「あ、言ったっけ？」と、話のついでに大事なことを付け足すときの言い方です。わざと軽く言って、知ってる人ならニヤリとする情報を差し込んでいます。</p>
+        <p>did I mention that 〜? と後ろに文を続ければ、「〜って言ったっけ？」になります。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>did I mention</strong>: <em>Did I mention that I got the job?</em>（その仕事に受かったって言ったっけ？）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Sitting on the throne 王座に座る"
+        label="★ 比喩"
+        mc="Nas（Verse 3）"
+        t={TS["throne"].t} tApprox={TS["throne"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Sitting on the throne, it's Merk, Gnome</Fragment>
+        <Fragment slot="jpn">王座に座ってるのは、Merk と Gnome</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3の中ほど、名前が続くところです。</p>
+        <p><strong class='text-[var(--c-text)]'>throne</strong> は王の座る「玉座」。sitting on the throne で、その道のトップにいることを表します。</p>
+        <p>Verse 2 の kings of the graff と同じ、王さまの言葉でそろえているのがわかります。</p>
+        <p>文の形は、場所や状態を先に言って it's 〜 で名前を出す並べ方です。紹介するときの決まった流れとして、ラップでも日常の会話でもよく使います。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>on the throne</strong>: <em>She's been on the throne of tennis for years.</em>（彼女は何年もテニス界の頂点にいる）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="most famous for freight trains 貨物列車で知られる書き手"
+        label="★ 語法"
+        mc="Nas（Verse 3）"
+        t={TS["freight-trains"].t} tApprox={TS["freight-trains"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Ice, Ich most famous for freight trains</Fragment>
+        <Fragment slot="jpn">Ice、Ich は貨物列車でいちばん有名</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3の後半に入るところの行です。</p>
+        <p><strong class='text-[var(--c-text)]'>famous for 〜</strong> は「〜で有名な」。most をつけて「何よりも〜で知られる」という言い方になっています。</p>
+        <p>ここでも主語のあとの are が抜けています。</p>
+        <p><strong class='text-[var(--c-text)]'>freight train</strong> は貨物列車。freight は「貨物」で、gh は読まずに「フレイト」と発音します。</p>
+        <p>地下鉄の車両だけでなく、長い距離を走る貨物列車も書き手たちの舞台でした。名前を乗せた車両が遠くの町まで運ばれていくところが、この行から浮かびます。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>famous for</strong>: <em>This town is famous for its hot springs.</em>（この町は温泉で有名だ）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Samo, that's Basquiat 画家バスキアの若い頃のタグ"
+        label="★ 固有名詞／文化"
+        mc="Nas（Verse 3）"
+        t={TS["samo-basquiat"].t} tApprox={TS["samo-basquiat"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3の後半の行です。英語は引かず、名前の背景だけを書いています。</p>
+        <p><strong class='text-[var(--c-text)]'>SAMO</strong> は、のちに画家として世界的に知られる Jean-Michel Basquiat（ジャン＝ミシェル・バスキア）が、友人の Al Diaz と一緒にNYの街に書いていたタグです。1978年から1980年ごろまで使われました。</p>
+        <p>Nas はここでも「SAMO、それはバスキアだ」と、タグと本人をイコールで結んでいます。美術館に並ぶ画家も、始まりは街の書き手のひとりだった、という並べ方です。</p>
+        <p>that's 〜 で「それは〜のことだ」と言い換えるのは、説明を付け足すときの便利な形です。</p>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="How ironic 同じ名前の曲を作っていた偶然"
+        label="★ 語法"
+        mc="Nas（Verse 3）"
+        t={TS["made-u-look"].t} tApprox={TS["made-u-look"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Made U Look, another legendary crew<br />How ironic I made a song with that name in '02</Fragment>
+        <Fragment slot="jpn">Made U Look、これも伝説のクルー<br />皮肉なもんだ、俺は02年にその名前の曲を作ってた</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3の後半、2行続けて引いています。</p>
+        <p>Made U Look はグラフィティのクルーの名前。そして Nas 自身にも、2002年のアルバム『God's Son』からの最初のシングル「Made You Look」があります。</p>
+        <p>プロデュースは Salaam Remi です。</p>
+        <p><strong class='text-[var(--c-text)]'>How ironic</strong> は「なんて皮肉な」ですが、ここでは「妙な偶然だな」くらいの軽さ。ironic は、思っていたのと逆になったり、出来すぎた偶然が起きたりしたときに使います。</p>
+        <p><strong class='text-[var(--c-text)]'>'02</strong> は 2002 の略で、アポストロフィで前の2桁を省いています。the '90s（90年代）と同じ書き方です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>How ironic</strong>: <em>How ironic that the fire station burned down.</em>（消防署が火事になるなんて皮肉だね）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="two brothers, one passed 「亡くなった」を短く言う"
+        label="★ 婉曲表現"
+        mc="Nas（Verse 3）"
+        t={TS["one-passed"].t} tApprox={TS["one-passed"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Sane, Smith, two brothers, one passed</Fragment>
+        <Fragment slot="jpn">Sane と Smith、二人の兄弟、一人は先に逝った</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3の後半の行です。</p>
+        <p><strong class='text-[var(--c-text)]'>pass</strong> は「通り過ぎる」が基本ですが、pass away や、この行のように passed 一語で「亡くなった」を表します。died と直接言わずにやわらげる、婉曲（遠回し）な言い方です。</p>
+        <p>two brothers, one passed と、数字を並べて短く切るリズムが印象に残ります。名前を読み上げる流れの中で、ここだけ少し声の温度が変わる感じがします。</p>
+        <p>pass on も同じ意味で使われますが、pass on には「（誘いを）断る」の意味もあるので、文脈で見分けます。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>pass away</strong>: <em>My grandfather passed away last year.</em>（祖父は去年亡くなった）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="it don't stop / send blessings 止まらない、そして祈りを送る"
+        label="★ AAVE／語法"
+        mc="Nas（Verse 3）"
+        t={TS["send-blessings"].t} tApprox={TS["send-blessings"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Doc, TC5 crew, Part, Shy 147, it don't stop<br />And we all send blessings to these two, to Lou 167 and Rule</Fragment>
+        <Fragment slot="jpn">Doc、TC5 クルー、Part、Shy 147、まだまだ止まらない<br />そしてこの二人に、みんなで祈りを送る、Lou 167 と Rule に</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3の終わり近くの2行です。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>1. it don't stop（止まらない）</p>
+        <p>標準英語なら it doesn't stop。三人称単数でも <strong class='text-[var(--c-text)]'>don't</strong> を使うのは、AAVEや口語でよく聞く形です。</p>
+        <p>ここでは、名前の読み上げがまだ続くぞ、という合図になっています。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>2. send blessings（祈りを送る）</p>
+        <p><strong class='text-[var(--c-text)]'>send blessings to 〜</strong> は「〜に祝福を送る、無事を祈る」。病気の人や、もう会えない人に向けて使うことの多い言い方です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>send blessings</strong>: <em>We send blessings to your family.</em>（ご家族のご無事を祈っています）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="the writers that's just gettin' started これから始める書き手へ"
+        label="★ AAVE／語法"
+        mc="Nas（Outro）"
+        t={TS["outro-just-getting-started"].t} tApprox={TS["outro-just-getting-started"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">To all the writers out there that's just gettin' started</Fragment>
+        <Fragment slot="jpn">今ちょうど始めたばかりの、世の中の書き手たちみんなへ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ アウトロの1行目です。曲はこの語りかけで終わります。</p>
+        <p><strong class='text-[var(--c-text)]'>To all the 〜 out there</strong> は「世の中の〜みんなへ」と、見えない相手に呼びかけるときの決まった形です。ラジオやスピーチでもよく聞きます。</p>
+        <p>writers は複数形なので、教科書なら that are です。ここでは <strong class='text-[var(--c-text)]'>that's</strong> で受けていて、複数の主語に is を合わせる口語の形になっています。</p>
+        <p><strong class='text-[var(--c-text)]'>just getting started</strong> は「始めたばかり」。次の行では、自分の名前を広めていけ、という言葉が続きます。</p>
+        <p>名前を読み上げてきた曲が、まだ名前の知られていない書き手へのエールで終わるのがいいところです。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>To all the 〜 out there</strong>: <em>To all the students out there, good luck.</em>（世の中の学生のみんな、頑張って）。</p>
+          <p><strong class='text-[var(--c-text)]'>just getting started</strong>: <em>Don't worry, we're just getting started.</em>（心配しないで、まだ始まったばかりだから）。</p>
+        </Fragment>
+      </LearningUnit>
+    </section>
+
+    <section id="background" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        文化的背景
+      </h2>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">『Light-Years』</p>
+        <h3 class="font-semibold text-base mb-3">長く待たれた二人のアルバム、その7曲目</h3>
+        <div class="space-y-3 text-[var(--c-muted)] text-sm leading-relaxed">
+          <p>
+            『Light-Years』は、2025年12月12日に Mass Appeal から出た Nas と DJ Premier の共作アルバムです。Nas のレーベルでもある Mass Appeal の「Legend Has It…」シリーズでは7作目にあたり、シリーズの最後の1枚になりました。
+          </p>
+          <p>
+            全15曲を DJ Premier がプロデュースしています。「Writers」は7曲目で、長さは4分53秒。
+          </p>
+          <p>
+            作者クレジットは Nas（本名 Nasir Jones）、DJ Premier（本名 Christopher Martin）、Marco Bruno の3人です。
+          </p>
+          <p>
+            アルバムは Billboard 200 で最高47位、Top R&B/Hip-Hop Albums で最高9位を記録しました。
+          </p>
+        </div>
+      </div>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">Graffiti</p>
+        <h3 class="font-semibold text-base mb-3">名前を書くことから始まった文化</h3>
+        <div class="space-y-3 text-[var(--c-muted)] text-sm leading-relaxed">
+          <p>
+            グラフィティは、DJ、ラップ（MC）、ブレイクダンスと並んで、ヒップホップを形づくる要素のひとつに数えられています。曲の中で Nas が並べる名前は、その歴史を作ってきた人たちです。
+          </p>
+          <p>
+            60年代の終わりにフィラデルフィアで Cornbread が名前を書き始め、70年代のNYでは TAKI 183 が新聞に取り上げられました。そこから地下鉄の車両が、書き手たちの大きなキャンバスになっていきます。
+          </p>
+          <p>
+            記録映画『Style Wars』と映画『Wild Style』は、その時代の地下鉄グラフィティを映像に残した作品です。この曲の Verse 2 は、その二つの作品の名前から入っていきます。
+          </p>
+        </div>
+      </div>
+
+      <div class="p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">キーワード早見表</p>
+        <h3 class="font-semibold text-base mb-3">この曲で学んだ表現の整理</h3>
+        <div class="space-y-3 mt-3">
+          {[
+            ['writer', 'グラフィティの書き手'],
+            ['tag', '書き手の名前、名前を描くこと'],
+            ['graff', 'graffiti の短縮形'],
+            ['hard to read', '読みにくい／何を考えているか読めない'],
+            ['yes indeedy', 'そうともさ（indeed のおどけた形）'],
+            ['be about to', '今にも〜するところ'],
+            ['They synonymous', 'are を抜いたコピュラ省略'],
+            ['they names', 'their names の口語形'],
+            ['jam', '音楽で盛り上がる集まり'],
+            ['bubble letters', '丸くふくらませた文字'],
+            ['the mic is a marker', 'マイクをマーカーに見立てる比喩'],
+            ['would', '昔はよく〜したものだ'],
+            ['shout out', '名前を挙げて挨拶する'],
+            ['straight out of', '〜出身の、生粋の'],
+            ['go back', '昔からいる、古い付き合い'],
+            ['on the map', '存在が知られている'],
+            ['homage', '敬意を込めた捧げもの'],
+            ['it\'s on you', 'お前次第だ'],
+            ['did I mention?', '言ったっけ？'],
+            ['passed', '亡くなった（婉曲表現）'],
+            ['it don\'t stop', '止まらない（doesn\'t のかわりに don\'t）'],
+          ].map(([w, d]) => (
+            <div class="text-sm">
+              <span class="font-semibold text-[var(--c-text)]">{w}</span>
+              <span class="text-[var(--c-muted)]"> {d}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="behind" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        制作の裏側
+      </h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          プロデュースは DJ Premier。アルバム『Light-Years』は全曲を彼が手がけています。
+        </p>
+        <p>
+          サンプル元は、プロデューサー The 45 King の「Pete 90」です。
+        </p>
+        <p>
+          Nas と DJ Premier の組み合わせは、1994年の『Illmatic』の「<a href='/songs/represent' class='underline'>Represent</a>」などから続く長い縁です。グラフィティの先輩たちを讃える曲を、90年代からの相棒のビートに乗せているのも、この曲の味になっています。
+        </p>
+      </div>
+    </section>
+
+    <section id="legacy" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        評価とその後
+      </h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          このページで頭出しに使っているのは、Nas の公式チャンネルで公開されている「Writers」の Visualizer（映像付きの公式音源）です。
+        </p>
+        <p>
+          曲の中に出てくる Verse 3 の「Made You Look」は、Nas 自身の2002年のシングル。グラフィティの歴史と、Nas 自身の歩みが一行の中で交わるところです。
+        </p>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        まとめ
+      </h2>
+      <ul class="space-y-2 text-sm text-[var(--c-muted)] list-disc list-inside leading-relaxed">
+        <li>「Writers」は、ラップの書き手である Nas が、グラフィティの書き手たちの名前を読み上げて讃える一曲です。</li>
+        <li>writer、tag、graff、bubble letters と、グラフィティの基本の語がそろっていて、hard to read の二重の意味のような言葉遊びも楽しめます。</li>
+        <li>They synonymous、they names、it don't stop、that's just gettin' started など、AAVEの口語の形も名前の羅列の合間に出てきます。</li>
+        <li>Style Wars、Wild Style、TAKI 183、Cornbread、SAMO と、名前をひとつずつ調べていくと、NYグラフィティの歴史をたどれます。</li>
+      </ul>
+    </section>
+
+</SongLayout>

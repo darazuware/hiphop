@@ -1,0 +1,382 @@
+[
+  {
+    "id": "writers-hook",
+    "anchor": [
+      "writin",
+      "my",
+      "name",
+      "in",
+      "graffiti"
+    ],
+    "fallbackT": 15,
+    "manualSec": null,
+    "captionSec": 15
+  },
+  {
+    "id": "yes-indeedy",
+    "anchor": [
+      "yes",
+      "indeedy",
+      "i",
+      "wrote",
+      "graffiti"
+    ],
+    "fallbackT": 18,
+    "manualSec": null,
+    "captionSec": 18
+  },
+  {
+    "id": "galactican-card",
+    "anchor": [
+      "here",
+      "my",
+      "galactican",
+      "citizenship",
+      "card"
+    ],
+    "fallbackT": 29,
+    "manualSec": null,
+    "captionSec": 29
+  },
+  {
+    "id": "ancillary-staff",
+    "anchor": [
+      "no",
+      "ancillary",
+      "staff",
+      "will",
+      "assist",
+      "me"
+    ],
+    "fallbackT": 35,
+    "manualSec": null,
+    "captionSec": 35
+  },
+  {
+    "id": "writer-in-rap-form",
+    "anchor": [
+      "i",
+      "m",
+      "a",
+      "writer",
+      "in",
+      "rap",
+      "form"
+    ],
+    "fallbackT": 39,
+    "manualSec": null,
+    "captionSec": 39
+  },
+  {
+    "id": "synonymous",
+    "anchor": [
+      "they",
+      "synonymous",
+      "with",
+      "djs",
+      "rappers",
+      "and",
+      "breakers"
+    ],
+    "fallbackT": 47,
+    "manualSec": null,
+    "captionSec": 47
+  },
+  {
+    "id": "taggin-names",
+    "anchor": [
+      "taggin",
+      "they",
+      "names",
+      "puttin",
+      "they",
+      "signatures"
+    ],
+    "fallbackT": 57,
+    "manualSec": null,
+    "captionSec": 57
+  },
+  {
+    "id": "jams-in-the-park",
+    "anchor": [
+      "jams",
+      "in",
+      "the",
+      "park",
+      "they",
+      "doing",
+      "art"
+    ],
+    "fallbackT": 63,
+    "manualSec": null,
+    "captionSec": 63
+  },
+  {
+    "id": "bubble-letters",
+    "anchor": [
+      "big",
+      "bubble",
+      "letters",
+      "all",
+      "over",
+      "the",
+      "city"
+    ],
+    "fallbackT": 65,
+    "manualSec": null,
+    "captionSec": 65
+  },
+  {
+    "id": "mic-is-a-marker",
+    "anchor": [
+      "the",
+      "mic",
+      "is",
+      "a",
+      "marker",
+      "taggin",
+      "up",
+      "names"
+    ],
+    "fallbackT": 69,
+    "manualSec": null,
+    "captionSec": 69
+  },
+  {
+    "id": "sometimes-at-night",
+    "anchor": [
+      "sometimes",
+      "at",
+      "night",
+      "i",
+      "would",
+      "walk",
+      "with",
+      "a",
+      "pen"
+    ],
+    "fallbackT": 74,
+    "manualSec": null,
+    "captionSec": 74
+  },
+  {
+    "id": "style-wars",
+    "anchor": [
+      "tag",
+      "was",
+      "dez",
+      "go",
+      "check",
+      "it",
+      "out"
+    ],
+    "fallbackT": 96,
+    "manualSec": null,
+    "captionSec": 96
+  },
+  {
+    "id": "wild-style-zoro",
+    "anchor": [
+      "zoro",
+      "is",
+      "lee",
+      "quiñones"
+    ],
+    "fallbackT": 104,
+    "manualSec": null,
+    "captionSec": 104
+  },
+  {
+    "id": "taki-cornbread",
+    "anchor": [
+      "shoutin",
+      "out",
+      "taki",
+      "183"
+    ],
+    "fallbackT": 110,
+    "manualSec": null,
+    "captionSec": 110
+  },
+  {
+    "id": "kings-and-queens",
+    "anchor": [
+      "these",
+      "are",
+      "some",
+      "of",
+      "the",
+      "kings",
+      "of",
+      "the",
+      "graff"
+    ],
+    "fallbackT": 124,
+    "manualSec": null,
+    "captionSec": 124
+  },
+  {
+    "id": "lady-pink-on-the-map",
+    "anchor": [
+      "lady",
+      "pink",
+      "goes",
+      "back"
+    ],
+    "fallbackT": 129,
+    "manualSec": null,
+    "captionSec": 129
+  },
+  {
+    "id": "krylon-hieroglyphics",
+    "anchor": [
+      "so",
+      "let",
+      "s",
+      "salute",
+      "the",
+      "highly",
+      "gifted",
+      "krylon",
+      "mystics"
+    ],
+    "fallbackT": 140,
+    "manualSec": null,
+    "captionSec": 140
+  },
+  {
+    "id": "interlude-roll-call",
+    "anchor": [
+      "it",
+      "s",
+      "on",
+      "you",
+      "what",
+      "you",
+      "gonna",
+      "do"
+    ],
+    "fallbackT": 180,
+    "manualSec": null,
+    "captionSec": 180
+  },
+  {
+    "id": "phade-fab-5-freddy",
+    "anchor": [
+      "phade",
+      "was",
+      "fab",
+      "5",
+      "freddy",
+      "oh",
+      "did",
+      "i",
+      "mention"
+    ],
+    "fallbackT": 222,
+    "manualSec": null,
+    "captionSec": 222
+  },
+  {
+    "id": "throne",
+    "anchor": [
+      "sitting",
+      "on",
+      "the",
+      "throne",
+      "it",
+      "s",
+      "merk",
+      "gnome"
+    ],
+    "fallbackT": 227,
+    "manualSec": null,
+    "captionSec": 227
+  },
+  {
+    "id": "freight-trains",
+    "anchor": [
+      "most",
+      "famous",
+      "for",
+      "freight",
+      "trains"
+    ],
+    "fallbackT": 235,
+    "manualSec": null,
+    "captionSec": 235
+  },
+  {
+    "id": "samo-basquiat",
+    "anchor": [
+      "samo",
+      "that",
+      "s",
+      "basquiat"
+    ],
+    "fallbackT": 248,
+    "manualSec": null,
+    "captionSec": 248
+  },
+  {
+    "id": "made-u-look",
+    "anchor": [
+      "made",
+      "u",
+      "look",
+      "another",
+      "legendary",
+      "crew"
+    ],
+    "fallbackT": 255,
+    "manualSec": null,
+    "captionSec": 255
+  },
+  {
+    "id": "one-passed",
+    "anchor": [
+      "two",
+      "brothers",
+      "one",
+      "passed"
+    ],
+    "fallbackT": 260,
+    "manualSec": null,
+    "captionSec": 260
+  },
+  {
+    "id": "send-blessings",
+    "anchor": [
+      "and",
+      "we",
+      "all",
+      "send",
+      "blessings",
+      "to",
+      "these",
+      "two"
+    ],
+    "fallbackT": 270,
+    "manualSec": null,
+    "captionSec": 270
+  },
+  {
+    "id": "outro-just-getting-started",
+    "anchor": [
+      "to",
+      "all",
+      "the",
+      "writers",
+      "out",
+      "there",
+      "that",
+      "s",
+      "just",
+      "gettin",
+      "started"
+    ],
+    "fallbackT": 284,
+    "manualSec": null,
+    "captionSec": 284
+  }
+]
