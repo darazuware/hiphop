@@ -33,5 +33,10 @@
     "keyword": "ラップ 歌詞 和訳",
     "targetPage": "/",
     "priority": "high"
+  },
+  {
+    "keyword": "cop 意味 スラング",
+    "targetPage": "/slang/cop",
+    "priority": "medium"
   }
 ]
