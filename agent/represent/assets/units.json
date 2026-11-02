@@ -1,0 +1,341 @@
+[
+  {
+    "id": "represent-hook",
+    "anchor": [
+      "represent",
+      "represent"
+    ],
+    "fallbackT": 2,
+    "manualSec": null
+  },
+  {
+    "id": "straight-up",
+    "anchor": [
+      "straight",
+      "up"
+    ],
+    "fallbackT": 20,
+    "manualSec": null
+  },
+  {
+    "id": "last-day-jungle",
+    "anchor": [
+      "any",
+      "day",
+      "could",
+      "be",
+      "your",
+      "last"
+    ],
+    "fallbackT": 22,
+    "manualSec": null
+  },
+  {
+    "id": "corners-mad",
+    "anchor": [
+      "the",
+      "corners",
+      "is",
+      "the",
+      "hot",
+      "spot"
+    ],
+    "fallbackT": 26.6,
+    "manualSec": null
+  },
+  {
+    "id": "out-of-towners",
+    "anchor": [
+      "we",
+      "all",
+      "stare",
+      "at",
+      "the",
+      "out",
+      "of",
+      "towners"
+    ],
+    "fallbackT": 31,
+    "manualSec": null
+  },
+  {
+    "id": "ayo-who-that",
+    "anchor": [
+      "ayo",
+      "yo",
+      "who",
+      "that"
+    ],
+    "fallbackT": 33.2,
+    "manualSec": null
+  },
+  {
+    "id": "undercovers-ds",
+    "anchor": [
+      "the",
+      "streets",
+      "is",
+      "filled",
+      "with",
+      "undercovers"
+    ],
+    "fallbackT": 37.6,
+    "manualSec": null
+  },
+  {
+    "id": "rebel-corner",
+    "anchor": [
+      "nas",
+      "is",
+      "a",
+      "rebel",
+      "of",
+      "the",
+      "street",
+      "corner"
+    ],
+    "fallbackT": 55.2,
+    "manualSec": null
+  },
+  {
+    "id": "they-call-me",
+    "anchor": [
+      "they",
+      "call",
+      "me",
+      "nas"
+    ],
+    "fallbackT": 79,
+    "manualSec": null
+  },
+  {
+    "id": "moet",
+    "anchor": [
+      "moet",
+      "drinking"
+    ],
+    "fallbackT": 81.2,
+    "manualSec": null
+  },
+  {
+    "id": "never-nothing-guess",
+    "anchor": [
+      "when",
+      "i",
+      "dress",
+      "its",
+      "never",
+      "nothing",
+      "less",
+      "than",
+      "guess"
+    ],
+    "fallbackT": 85.6,
+    "manualSec": null
+  },
+  {
+    "id": "bop-hat",
+    "anchor": [
+      "be",
+      "walking",
+      "with",
+      "a",
+      "bop"
+    ],
+    "fallbackT": 87.8,
+    "manualSec": null
+  },
+  {
+    "id": "school-dropout",
+    "anchor": [
+      "the",
+      "school",
+      "drop",
+      "out"
+    ],
+    "fallbackT": 94.4,
+    "manualSec": null
+  },
+  {
+    "id": "sport-ballys-cazals",
+    "anchor": [
+      "used",
+      "to",
+      "sport",
+      "ballys",
+      "and",
+      "cazals"
+    ],
+    "fallbackT": 107.6,
+    "manualSec": null
+  },
+  {
+    "id": "fat-chains-kicks",
+    "anchor": [
+      "now",
+      "im",
+      "into",
+      "fat",
+      "chains"
+    ],
+    "fallbackT": 109.8,
+    "manualSec": null
+  },
+  {
+    "id": "bridge-wars-roxanne",
+    "anchor": [
+      "before",
+      "the",
+      "bdp",
+      "conflict",
+      "with",
+      "mc",
+      "shan"
+    ],
+    "fallbackT": 137.2,
+    "manualSec": null
+  },
+  {
+    "id": "wake-up-see-crew",
+    "anchor": [
+      "i",
+      "used",
+      "to",
+      "wake",
+      "up",
+      "every",
+      "morning",
+      "see",
+      "my",
+      "crew"
+    ],
+    "fallbackT": 141.6,
+    "manualSec": null
+  },
+  {
+    "id": "had-us-running",
+    "anchor": [
+      "every",
+      "day",
+      "a",
+      "different",
+      "plan",
+      "that",
+      "had",
+      "us",
+      "running"
+    ],
+    "fallbackT": 143.8,
+    "manualSec": null
+  },
+  {
+    "id": "we-was",
+    "anchor": [
+      "we",
+      "was",
+      "at",
+      "the",
+      "candy",
+      "factory"
+    ],
+    "fallbackT": 148.2,
+    "manualSec": null
+  },
+  {
+    "id": "green-grand",
+    "anchor": [
+      "nowadays",
+      "i",
+      "need",
+      "the",
+      "green",
+      "in",
+      "a",
+      "flash"
+    ],
+    "fallbackT": 150.4,
+    "manualSec": null
+  },
+  {
+    "id": "get-live-swoop",
+    "anchor": [
+      "then",
+      "call",
+      "the",
+      "crew",
+      "to",
+      "get",
+      "live",
+      "too"
+    ],
+    "fallbackT": 159.2,
+    "manualSec": null
+  },
+  {
+    "id": "jakes",
+    "anchor": [
+      "jakes"
+    ],
+    "fallbackT": 165.8,
+    "manualSec": null
+  },
+  {
+    "id": "nuff-respect-one-love",
+    "anchor": [
+      "nuff",
+      "respect",
+      "to",
+      "the",
+      "projects",
+      "im",
+      "ghost",
+      "one",
+      "love"
+    ],
+    "fallbackT": 170.2,
+    "manualSec": null
+  },
+  {
+    "id": "goes-out-to",
+    "anchor": [
+      "this",
+      "goes",
+      "out",
+      "to",
+      "everybody",
+      "in",
+      "new",
+      "york"
+    ],
+    "fallbackT": 192,
+    "manualSec": null
+  },
+  {
+    "id": "preemo-my-man",
+    "anchor": [
+      "and",
+      "my",
+      "man",
+      "preemo",
+      "from",
+      "gang",
+      "starr"
+    ],
+    "fallbackT": 222,
+    "manualSec": null
+  },
+  {
+    "id": "warm-up-ending",
+    "anchor": [
+      "come",
+      "to",
+      "queensbridge",
+      "lets",
+      "bring",
+      "it",
+      "back"
+    ],
+    "fallbackT": 240,
+    "manualSec": null
+  }
+]

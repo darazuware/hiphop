@@ -1,0 +1,789 @@
+---
+import LearningUnit from '../../components/LearningUnit.astro';
+import QuickSlang from '../../components/QuickSlang.astro';
+import SongLayout from '../../layouts/SongLayout.astro';
+
+import tsData from '../../../agent/represent/assets/units-timestamps.json';
+const YT = "xiVY_yPgvMs";
+const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.approx }]));
+---
+
+<SongLayout
+  title="Represent 和訳・英語スラング解説 | Nas"
+  description="Nas「Represent」（1994年『Illmatic』収録）を和訳付きで英語学習の教材として解説。representの使い方、複数形につくisとwas、who thatのようなbe動詞の省略、BDPとMC Shanの抗争への言及まで、DJ Premierプロデュースの一曲を頭出し付きで読み解きます。"
+  slug="represent"
+  learningPage={true}
+  songDuration={254}
+  highlights={[
+    'represent を「地元を背負う」の意味で繰り返すフックと、仲間の名前を読み上げていくアウトロ',
+    'The corners is、We was、who that。be動詞の一致を崩したり省いたりするAAVEの文法が、短い行にそのまま出てくる',
+    'Verse 3 の BDP と MC Shan、Roxanne Shanté と Real Roxanne。名前だけで出てくる80年代NYの抗争の記憶',
+  ]}
+  youtubeId="xiVY_yPgvMs"
+>
+
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■「地元を背負う」を、そのまま曲名にした一曲</h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          「Represent」は、Nasの1994年のデビューアルバム『Illmatic』の9曲目です。Nasは小さい頃に家族とニューヨーク市クイーンズ区のQueensbridge Houses（公営住宅団地）へ移り、そこで育っています。
+        </p>
+        <p>
+          曲名の represent は、地元や仲間の看板を背負って名乗ることを指す、ラップの定番語です。フックでは、その一語がひたすら繰り返されて、聴いているとこちらの背筋まで伸びる感じがします。
+        </p>
+        <p>
+          プロデュースはDJ Premier。オルガンの音をネタにしたビートの上で、Nasは3つのバースを使って、自分が暮らす街の空気と、そこで育った仲間たちを語ります。
+        </p>
+        <p>
+          この曲は穏やかでない表現を含む行が多いので、そうした行は取り上げません。日常の言い回しとNYの固有名詞が出てくる行を選んで、順に見ていきます。
+        </p>
+      </div>
+    </section>
+
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■英語の見どころは、be動詞のくずし方と固有名詞</h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          文法では、The corners is や We was のように、複数の主語に is や was をつける言い方、who that のように be 動詞を抜く言い方など、AAVE（アフリカ系アメリカ人英語）の特徴が短い行にそのまま出てきます。
+        </p>
+        <p>
+          固有名詞では、Moët、Guess、Bally's、Cazals と、当時のNYの若者が身につけたものの名前が並びます。Verse 3 には、BDP と MC Shan、Roxanne Shanté と Real Roxanne という、80年代のNYヒップホップの対立も名前だけで顔を出します。
+        </p>
+        <p>
+          同じ『Illmatic』からは、「<a href='/songs/ny-state-of-mind' class='underline'>N.Y. State of Mind</a>」「<a href='/songs/the-world-is-yours' class='underline'>The World Is Yours</a>」「<a href='/songs/it-aint-hard-to-tell' class='underline'>It Ain't Hard to Tell</a>」もこのサイトで解説しています。
+        </p>
+      </div>
+    </section>
+
+    <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
+      <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
+        <li><a href="#story" class="hover:text-[var(--c-gold)] transition-colors">01 ストーリーの流れ（まず曲全体をつかむ）</a></li>
+        <li><a href="#units" class="hover:text-[var(--c-gold)] transition-colors">02 学ぶ表現（スラング・韻・言葉遊び・AAVE）</a></li>
+        <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">03 文化的背景</a></li>
+        <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">04 制作の裏側</a></li>
+        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">05 評価とその後</a></li>
+      </ol>
+    </nav>
+
+    <section id="story" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        ストーリーの流れ（まず曲全体をつかむ）
+      </h2>
+      <p class="text-xs text-[var(--c-dim)] mb-5">
+        ストーリーを語る曲ではなく、3つのバースで街の日常と自分の立ち位置を語っていく曲です。流れだけ先に押さえておきます。
+      </p>
+      <div class="space-y-4 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          <strong class='text-[var(--c-text)]'>Verse 1</strong>は、地元の街角の空気を伝える場面。見慣れない顔がすぐ目立つ狭い街で、毎日を過ごす様子が語られます。
+        </p>
+        <p>
+          <strong class='text-[var(--c-text)]'>Verse 2</strong>は、自分の呼び名と身なりの話。<strong class='text-[var(--c-text)]'>Verse 3</strong>は、80年代の対立が起きていた頃を振り返り、仲間と過ごした日々からお金の話へ進みます。
+        </p>
+        <p>
+          最後は仲間の名前を読み上げるアウトロで終わります。
+        </p>
+        <p class="text-xs text-[var(--c-dim)]">
+          ※本ページは批評・教育目的で、解説に必要な範囲の断片のみを引用しています。全歌詞の対訳は掲載していません。
+        </p>
+      </div>
+    </section>
+
+    <div id="units"></div>
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        学ぶ表現（スラング・韻・言葉遊び・AAVE）
+      </h2>
+      <div class="space-y-3 text-xs text-[var(--c-dim)] mb-6">
+        <p>ここからは、Verse 1の歌い出しからアウトロの最後まで、曲の順番に表現を拾っていきます。項目の上に英語の引用と和訳、その下に解説を置いています。</p>
+        <p>穏やかでない表現を含む行は取り上げず、固有名詞だけで説明できる項目は、英語を引かずに語と背景だけを書いています。▶を押すと、公式音源の該当箇所から再生できます。</p>
+      </div>
+
+      <LearningUnit
+        heading="Represent 「地元を背負う」を一語で言うフック"
+        label="★ スラング／タイトル"
+        mc="Nas（Hook）"
+        t={TS["represent-hook"].t} tApprox={TS["represent-hook"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Represent, represent</Fragment>
+        <Fragment slot="jpn">背負うぜ、背負うぜ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 曲の頭で鳴るフックです。同じ形が各バースの間と、曲の終わりにも戻ってきます。</p>
+        <p><strong class='text-[var(--c-text)]'>represent</strong> は「代表する」が基本の意味です。ラップでは <QuickSlang word='represent' desc='「代表する」から転じて、地元・仲間・信念を背負って堂々と名乗ること。</p>
+        <p>represent のあとに地名が続くのが定番で、rep と略される。この曲ではフックで繰り返される曲名そのもの' href='/slang/represent' /> として、自分の地元や仲間の名前を背負って名乗ることを指します。</p>
+        <p>「Represent Queensbridge」のように、後ろに地名を置くのが定番の形です。この曲のフックは地名を置かず、動詞だけを繰り返します。</p>
+        <p>何を背負うのかは、曲名とバースの内容が答えになっています。</p>
+        <p>Verse 3 のあとのフックでは Represent y'all, represent と、y'all（you all の口語、みんな）が入る形に変わります。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>represent</strong>（地元を背負う）: <em>I represent Osaka everywhere I go.</em>（どこへ行っても大阪を背負っている）。</p>
+          <p><strong class='text-[var(--c-text)]'>rep</strong> は短い形です。<em>He reps his hometown in every verse.</em>（彼はどのバースでも地元を背負う）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Straight up 「正直に言うと」の前置き"
+        label="★ スラング"
+        mc="Nas（Verse 1）"
+        t={TS["straight-up"].t} tApprox={TS["straight-up"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Straight up</Fragment>
+        <Fragment slot="jpn">正直なところ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の1行目、歌い出しの二語です。</p>
+        <p><strong class='text-[var(--c-text)]'>straight up</strong> は、「まっすぐに、率直に」が元の意味の言い方です。</p>
+        <p>文頭に置くと「ぶっちゃけ」「正直な話」という前置きになります。ここでは、これから街の実態を飾らずに話す、という合図として働いています。</p>
+        <p>上げ調子で <strong class='text-[var(--c-text)]'>Straight up?</strong> と言えば、「マジで？」と相手に確かめる言い方になります。ハイフンでつなげた <strong class='text-[var(--c-text)]'>straight-up</strong> は形容詞で、「混じりけのない、本物の」の意味です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>Straight up, I had no idea.</strong>: 正直、まったく知らなかった。</p>
+          <p><strong class='text-[var(--c-text)]'>a straight-up classic</strong>: <em>That album is a straight-up classic.</em>（あのアルバムは正真正銘の名盤だ）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Any day could be your last 「いつ何があってもおかしくない」"
+        label="★ 語法"
+        mc="Nas（Verse 1）"
+        t={TS["last-day-jungle"].t} tApprox={TS["last-day-jungle"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">And any day could be your last in the jungle</Fragment>
+        <Fragment slot="jpn">どの日だって、このジャングルでは最後の日になりうる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の2行目です。</p>
+        <p><strong class='text-[var(--c-text)]'>any day</strong> は「どの日でも」。<strong class='text-[var(--c-text)]'>could be</strong> は「〜でありうる」という可能性の言い方で、断定ではなく「そうなっても不思議ではない」という含みを持ちます。</p>
+        <p><strong class='text-[var(--c-text)]'>your last</strong> は your last day の day を省いた形で、「最後の日」。この your は聴き手に限らず、「誰でも」を指す一般的な「あなた」です。</p>
+        <p><strong class='text-[var(--c-text)]'>jungle</strong> は本来ジャングルですが、「何が起きるかわからない都会の街」のたとえによく使われます。concrete jungle（コンクリートの密林）という言い方もあります。</p>
+        <p>Nasはこの一行で、自分が暮らす街を、気を抜けない場所として説明しています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>could be</strong>: <em>It could be the last train.</em>（最終電車かもしれない）。</p>
+          <p><strong class='text-[var(--c-text)]'>名詞の省略</strong>: <em>This is my last.</em>（これが最後の一つだ）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="The corners is the hot spot 複数形につく is と、強調の mad"
+        label="★ AAVE文法／スラング"
+        mc="Nas（Verse 1）"
+        t={TS["corners-mad"].t} tApprox={TS["corners-mad"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">The corners is the hot spot, full of mad criminals</Fragment>
+        <Fragment slot="jpn">街角が一番の溜まり場、ものすごい数の悪党でいっぱい</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の4行目です。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>1. The corners is（複数形につく is）</p>
+        <p>主語の The corners は複数形ですが、動詞は are でなく <strong class='text-[var(--c-text)]'>is</strong> になっています。AAVEでは、be 動詞を主語の数に合わせず、is で通す言い方がよく出てきます。</p>
+        <p>学校文法では誤りとされますが、AAVEでは規則のある言い方の一つです。この先の The streets is filled や We was でも、同じ現象が出てきます。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>2. hot spot（人が集まる場所）</p>
+        <p>hot spot は「人が集まるにぎやかな場所」。ここでは the corners（街角）が、地元の人間が一番集まる場所になっています。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>3. mad（めちゃくちゃ）</p>
+        <p><QuickSlang word='mad' desc='怒った、が基本。NYの口語では程度や数を強めて「とても、やたらと」の意味になる。</p>
+        <p>mad people は「やたらたくさんの人」。この行では、人の数が桁外れに多いことを言っている' href='/slang/mad' /> は、ここでは「怒った」ではありません。</p>
+        <p>NYの口語で、数や程度を強める語です。</p>
+        <p>full of mad ~ で、「〜がやたらたくさんいる」。街角が、人であふれている様子を言っています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>mad</strong>（とても）: <em>There was mad traffic today.</em>（今日はものすごい渋滞だった）。</p>
+          <p><strong class='text-[var(--c-text)]'>be full of ~</strong>: <em>The park is full of kids on weekends.</em>（週末の公園は子どもでいっぱいだ）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Out-of-towners 「よそ者」と、複合語の作り方"
+        label="★ 語彙"
+        mc="Nas（Verse 1）"
+        t={TS["out-of-towners"].t} tApprox={TS["out-of-towners"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">We all stare at the out-of-towners</Fragment>
+        <Fragment slot="jpn">俺たちみんな、よそから来た連中をじっと見る</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の6行目です。</p>
+        <p><strong class='text-[var(--c-text)]'>out-of-towner</strong> は「町の外から来た人」。out of town（町の外）に -er がついた名詞で、観光客や、ほかの地区から来た人を指します。</p>
+        <p><strong class='text-[var(--c-text)]'>stare at</strong> は「じっと見つめる」。look at が普通に見ることなのに対して、目を離さずに見続ける感じです。</p>
+        <p>We all と全員で見る形にして、見慣れない顔がすぐに目立つ、狭い地元の雰囲気を伝えています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>out-of-towner</strong>: <em>The town fills with out-of-towners in summer.</em>（夏になると、町はよそから来た人でにぎわう）。</p>
+          <p><strong class='text-[var(--c-text)]'>stare at</strong>: <em>The kid stared at the magician.</em>（その子は手品師をじっと見つめた）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Ayo, yo, who that? 呼びかけと、be動詞の省略"
+        label="★ AAVE文法"
+        mc="Nas（Verse 1）"
+        t={TS["ayo-who-that"].t} tApprox={TS["ayo-who-that"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Ayo, yo, who that?</Fragment>
+        <Fragment slot="jpn">おい、おい、あれ誰だ？</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の中ほどに、掛け声のように挟まる一言です。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>1. Ayo / yo（呼びかけ）</p>
+        <p><QuickSlang word='ayo' desc='「おい、ちょっと」と相手の注意を引く呼びかけ。yo と同じ働きで、NYでよく聞く。</p>
+        <p>ここでは yo と重ねて、勢いよく声をかけている' href='/slang/ayo' /> は、相手の注意を引く呼びかけです。yo も同じ働きで、ここでは二つを重ねて勢いよく声をかけています。</p>
+        <p>NYの街角で人を呼び止める声そのままで、場の空気が伝わってくる一言です。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>2. who that（be動詞の省略）</p>
+        <p>標準英語なら Who is that? か Who's that? です。AAVEでは、この is が抜けて <strong class='text-[var(--c-text)]'>who that</strong> になります。</p>
+        <p>この現象は「コピュラ省略」と呼ばれます。コピュラは be 動詞のこと、省略は文字どおり抜かすことです。</p>
+        <p>標準英語で is が Who's のように縮められる場所なら省ける、という規則のある現象です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>コピュラ省略</strong>: <em>She at work.</em>（She is at work. と同じ。彼女は仕事中）。</p>
+          <p><em>You crazy.</em> も You are crazy. の are が抜けた形です（君、どうかしてるよ）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="The streets is filled with undercovers 警察の呼び方と、filled with"
+        label="★ 語彙／AAVE文法"
+        mc="Nas（Verse 1）"
+        t={TS["undercovers-ds"].t} tApprox={TS["undercovers-ds"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">The streets is filled with undercovers<br />The D's on the roof tryin' to watch us</Fragment>
+        <Fragment slot="jpn">通りは覆面だらけ／刑事たちは屋上から俺たちを見張ろうとしてる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の9、10行目です。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>1. undercovers と The D's（警察の呼び方）</p>
+        <p>undercover は「身分を隠した」という形容詞です。ここでは名詞のように複数形にして、覆面で動いている警察官を指しています。</p>
+        <p>続く The D's も警察の呼び方で、D は detective（刑事）の頭文字です。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>2. is filled with（〜でいっぱい）</p>
+        <p><strong class='text-[var(--c-text)]'>be filled with ~</strong> で「〜で満ちている」。The streets は複数形なのにここも is で、前の項目と同じAAVEの言い方です。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>3. tryin'（g落としの綴り）</p>
+        <p>tryin' は trying の語末の g を落とした、発音どおりの綴りです。歌詞の表記では、-ing の g 落としがごく普通に出てきます。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>be filled with ~</strong>: <em>The room was filled with laughter.</em>（部屋は笑い声でいっぱいだった）。</p>
+          <p><strong class='text-[var(--c-text)]'>watch</strong>（見張る）: <em>A guard watches the gate all night.</em>（守衛が一晩中、門を見張っている）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Nas is a rebel of the street corner 三人称の名乗りと rebel"
+        label="★ 語法"
+        mc="Nas（Verse 1）"
+        t={TS["rebel-corner"].t} tApprox={TS["rebel-corner"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Nas is a rebel of the street corner</Fragment>
+        <Fragment slot="jpn">Nasは街角の反逆者</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の17行目です。</p>
+        <p>ラッパーが自分の名前を主語にして、<strong class='text-[var(--c-text)]'>Nas is ~</strong> と三人称で言う形は、ヒップホップによく出てきます。自分を一つの看板のように紹介する言い方です。</p>
+        <p><strong class='text-[var(--c-text)]'>rebel</strong> は「反逆者、体制に従わない人」。名詞では最初の音節に強勢がつき（レベル）、動詞の rebel（反抗する）では後ろの音節に強勢が移ります（リベル）。</p>
+        <p><strong class='text-[var(--c-text)]'>of the street corner</strong> は、その反逆者がどこに属するかを示します。「街角の」と所属を言い添えることで、地元を背負う曲名ともつながっています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>名詞 rebel</strong>: <em>She was a rebel at school.</em>（彼女は学校では反抗的な子だった）。</p>
+          <p><strong class='text-[var(--c-text)]'>動詞 rebel</strong>: <em>Teenagers often rebel against rules.</em>（十代はよく決まりに反抗する）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="They call me Nas 名乗りの定番と、your legal type of fella"
+        label="★ 語法"
+        mc="Nas（Verse 2）"
+        t={TS["they-call-me"].t} tApprox={TS["they-call-me"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Yo, they call me Nas, I'm not your legal type of fella</Fragment>
+        <Fragment slot="jpn">なあ、みんな俺をNasと呼ぶ、お行儀のいい堅気のタイプじゃない</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の1行目、自己紹介から始まります。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>1. they call me ~（〜と呼ばれている）</p>
+        <p><strong class='text-[var(--c-text)]'>they call me ~</strong> は「みんなは俺を〜と呼ぶ」という名乗りの定番です。they は特定の誰かでなく、世間の人々をざっくり指します。</p>
+        <p>受け身の I'm called ~ より、ずっと口語的です。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>2. your legal type of fella</p>
+        <p>ここの <strong class='text-[var(--c-text)]'>your</strong> は、聴き手の持ち物ではありません。「よくある、世間でいう」の意味の your で、your average person（ごく平均的な人）と同じ使い方です。</p>
+        <p><strong class='text-[var(--c-text)]'>fella</strong> は fellow（やつ、男）の口語形。legal type は、決まりごとをきちんと守る堅気のタイプです。</p>
+        <p>そうではないと宣言して、自己紹介を始めています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>they call me ~</strong>: <em>They call me Mike, but my name is Michael.</em>（マイクと呼ばれているけど、名前はマイケルだ）。</p>
+          <p><strong class='text-[var(--c-text)]'>「よくある」の your</strong>: <em>He's not your typical teacher.</em>（彼はよくある先生とは違う）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Moët 1994年のNYで名前が出るシャンパン"
+        label="★ 固有名詞"
+        mc="Nas（Verse 2）"
+        t={TS["moet"].t} tApprox={TS["moet"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の2行目の頭にある一語です。英語は引かず、語だけ取り出します。</p>
+        <p><strong class='text-[var(--c-text)]'>Moët</strong> は、フランスのシャンパン銘柄 Moët & Chandon の呼び名で、読みは「モエ」です。</p>
+        <p>Moët drinking のように、名詞に -ing の動詞をつなげて後ろの語を飾る形があります。「モエを飲む」という意味の形容詞のようなもので、ここでは直後の street dweller（街で暮らす人）を修飾しています。</p>
+        <p>高級品の銘柄を街の暮らしの描写に混ぜて、自分の生活ぶりの見せ方を作っています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>名詞＋-ing の複合形容詞</strong>: <em>a coffee-drinking crowd</em>（コーヒーを飲む人たち）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Never nothing less than Guess 否定を重ねる言い方と脚韻"
+        label="★ AAVE文法／韻"
+        mc="Nas（Verse 2）"
+        t={TS["never-nothing-guess"].t} tApprox={TS["never-nothing-guess"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">When I dress, it's never nothing less than Guess</Fragment>
+        <Fragment slot="jpn">着るときは、Guess以下のものは絶対に着ない</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の4行目です。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>1. never nothing less than（否定の重ね）</p>
+        <p>標準英語なら never anything less than と書くところに、<strong class='text-[var(--c-text)]'>nothing</strong> が入っています。AAVEでは、否定語を重ねても打ち消し合わず、否定を強める言い方が普通に使われます。</p>
+        <p>ここは「Guess より下のものは一切着ない」という強い言い切りです。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>2. Guess（ブランド名）</p>
+        <p>Guess は、ジーンズで知られるアメリカのファッションブランドです。歌詞では、ふだんの服の格を決める基準として出てきます。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>3. dress / less / Guess（脚韻）</p>
+        <p>dress、less、Guess の三語が、同じ「エス」の音で終わります。ブランド名を行末に置いて、韻を締めています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>否定の重ね（AAVE）</strong>: <em>I ain't never seen it.</em>（見たことが一度もない）。</p>
+          <p><strong class='text-[var(--c-text)]'>nothing less than ~</strong>: <em>Nothing less than the best will do.</em>（最高のものでなければ受け入れない）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Be walking with a bop 習慣の be と、bop"
+        label="★ AAVE文法"
+        mc="Nas（Verse 2）"
+        t={TS["bop-hat"].t} tApprox={TS["bop-hat"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">be walking with a bop and my hat turned back</Fragment>
+        <Fragment slot="jpn">弾むように歩く、帽子はうしろ向き</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の5行目の後半です。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>1. be walking（習慣の be）</p>
+        <p>walking の前に、活用していない <strong class='text-[var(--c-text)]'>be</strong> が置かれています。AAVEでは、これで「いつもそうしている、よくそうなる」という習慣・反復を表します。</p>
+        <p>標準英語の She is walking は「いま歩いている」。AAVEの She be walking は「いつも歩いている」です。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>2. bop（弾む歩き方）</p>
+        <p><strong class='text-[var(--c-text)]'>bop</strong> は、肩や頭を軽くはずませながら歩く歩き方のこと。音楽のビートに乗るような動きにも使われます。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>3. with ～ my hat turned back（付帯状況）</p>
+        <p>最後の my hat turned back は、「帽子をうしろ向きにかぶった状態で」という付け足しです。<strong class='text-[var(--c-text)]'>with ＋ 名詞 ＋ 過去分詞</strong> の形で、歩きながらの姿を二つ重ねています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>習慣の be</strong>: <em>He be at the gym every morning.</em>（彼は毎朝ジムにいる）。</p>
+          <p><strong class='text-[var(--c-text)]'>with ＋ 名詞 ＋ 過去分詞</strong>: <em>She sat with her arms crossed.</em>（腕を組んだまま座っていた）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="The school drop-out 句動詞から名詞を作る形"
+        label="★ 語彙"
+        mc="Nas（Verse 2）"
+        t={TS["school-dropout"].t} tApprox={TS["school-dropout"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">The school drop-out</Fragment>
+        <Fragment slot="jpn">学校を辞めた男</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の中盤です。</p>
+        <p><strong class='text-[var(--c-text)]'>drop out</strong> は「途中で抜ける、中退する」の句動詞です。ハイフンでつなぐ <strong class='text-[var(--c-text)]'>drop-out</strong> は、その名詞形で「中退者」を指します。</p>
+        <p>ここでは、自分の肩書きのように The school drop-out と並べています。Nasは実際に、8年生（日本の中学2年にあたる学年）で学校をやめています。</p>
+        <p>同じ行の終わりにある <strong class='text-[var(--c-text)]'>from day one</strong> は、「初日から、最初から」という決まった言い方です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>drop out of ~</strong>: <em>He dropped out of college to start a band.</em>（バンドを始めるために大学をやめた）。</p>
+          <p><strong class='text-[var(--c-text)]'>from day one</strong>: <em>I liked the town from day one.</em>（その町は初日から気に入った）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Used to sport Bally's and Cazals 身につける sport と、ブランド名の複数形"
+        label="★ 語法／固有名詞"
+        mc="Nas（Verse 2）"
+        t={TS["sport-ballys-cazals"].t} tApprox={TS["sport-ballys-cazals"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Used to sport Bally's and Cazals with black frames</Fragment>
+        <Fragment slot="jpn">昔はBallyの靴と、黒いフレームのCazalを身につけてた</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の14行目です。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>1. used to ＋ 動詞（昔は〜していた）</p>
+        <p><strong class='text-[var(--c-text)]'>used to</strong> のあとには動詞の原形がきて、「昔はよく〜していた（今はしていない）」を表します。ここでは主語の I が省かれています。</p>
+        <p>直後の Now I'm into ~ と対になって、「昔はこう、いまはこう」と好みの移り変わりを作っています。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>2. sport（身につけている）</p>
+        <p>sport は「スポーツ」のほかに、動詞で「〜を身につけている、見せびらかして着ている」の意味があります。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>3. Bally's / Cazals（ブランド名の複数形）</p>
+        <p>Bally はスイス発の靴ブランド、Cazal はメガネのブランドです。ブランド名に s をつけて、その商品（靴、メガネ）そのものを指しています。</p>
+        <p>Cazal は、Run-DMC をはじめ、80年代のヒップホップのアーティストがかけていたことで知られます。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>used to</strong>: <em>We used to play ball after school.</em>（放課後によく野球をしていた）。</p>
+          <p><strong class='text-[var(--c-text)]'>sport</strong>（身につける）: <em>He was sporting a bright red cap.</em>（鮮やかな赤い帽子をかぶっていた）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Fat chains と fly new kicks 好みを表す be into と、流行の語"
+        label="★ スラング"
+        mc="Nas（Verse 2）"
+        t={TS["fat-chains-kicks"].t} tApprox={TS["fat-chains-kicks"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Now I'm into fat chains<br />Fly new chicks and new kicks</Fragment>
+        <Fragment slot="jpn">いまは太いチェーンに夢中／イケてる新しい女の子たちと、新しいスニーカー</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の15、16行目です。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>1. be into ~（〜に夢中）</p>
+        <p><strong class='text-[var(--c-text)]'>be into ~</strong> は「〜にハマっている」。<strong class='text-[var(--c-text)]'>Now I'm into</strong> は、前の Used to sport との対比で、「いまはこっち」と好みが移ったことを示します。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>2. fat chains（太いチェーン）</p>
+        <p><strong class='text-[var(--c-text)]'>fat</strong> は「太い、分厚い」で、ここでは首に下げる金属のチェーンの重みを指します。スラングでは「最高にイケてる」の意味もあって、phat と綴ることもあります。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>3. fly と kicks</p>
+        <p><QuickSlang word='fly' desc='飛ぶ、が基本。スラングでは「おしゃれでかっこいい」を表す形容詞。</p>
+        <p>見た目や雰囲気が決まっている人やものに使う。この行では new kicks や新しい相手を形容している' href='/slang/fly' /> は、おしゃれでかっこいいことを表す形容詞です。</p>
+        <p>chicks と kicks は、同じ音で終わる脚韻です。<QuickSlang word='kicks' desc='靴、とくにスニーカーを指すスラング。</p>
+        <p>kick は蹴る、が元の意味で、足まわりの品の呼び名になった。この行では new kicks で新しいスニーカー' href='/slang/kicks' /> は、スニーカーを指すスラングです。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>be into ~</strong>: <em>She's really into jazz lately.</em>（彼女は最近ジャズにハマっている）。</p>
+          <p><strong class='text-[var(--c-text)]'>fly</strong>: <em>That jacket looks fly on you.</em>（そのジャケット、すごく似合ってる）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Before the BDP conflict with MC Shan 80年代NYの抗争の名前"
+        label="★ 固有名詞／文化"
+        mc="Nas（Verse 3）"
+        t={TS["bridge-wars-roxanne"].t} tApprox={TS["bridge-wars-roxanne"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Before the BDP conflict with MC Shan<br />Around the time when Shante dissed the Real Roxanne</Fragment>
+        <Fragment slot="jpn">BDPがMC Shanともめる前／ShanteがReal Roxanneをこき下ろしていた頃</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3の2、3行目です。固有名詞が三組出てくるので、順に説明します。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>1. BDP と MC Shan（Bridge Wars）</p>
+        <p><strong class='text-[var(--c-text)]'>BDP</strong> は Boogie Down Productions の略で、KRS-One が率いたサウスブロンクスのグループです。<strong class='text-[var(--c-text)]'>MC Shan</strong> は、Marley Marl の Juice Crew に所属した、Queensbridge のラッパーです。</p>
+        <p>二組の争いは Bridge Wars と呼ばれます。表向きは、ヒップホップの発祥の地がサウスブロンクスなのか、Queensbridge なのかを巡るものでした。</p>
+        <p>MC Shan と Marley Marl の「The Bridge」（1985年末）に、BDP が「South Bronx」（1986年）で言い返し、1987年の「The Bridge Is Over」へと続きます。Juice Crew 側も同じ1987年、MC Shan のアルバム『Down by Law』で言い返しています。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>2. Shante と Real Roxanne（Roxanne Wars）</p>
+        <p><strong class='text-[var(--c-text)]'>Shante</strong> は Roxanne Shanté（ロクサーヌ・シャンテ）のことで、MC Shan とは別人です。</p>
+        <p>1984年にグループ U.T.F.O. の「Roxanne, Roxanne」が出ると、Roxanne Shanté が同じ年の「Roxanne's Revenge」で言い返しました。1985年には The Real Roxanne が登場し、1年のうちに30作以上の Roxanne 関連のレコードが生まれます。</p>
+        <p>この騒動が Roxanne Wars です。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>3. around the time when ~ と diss</p>
+        <p><strong class='text-[var(--c-text)]'>around the time when ~</strong> は「〜の頃に」。time のあとの when が、時を説明する関係副詞です。</p>
+        <p><strong class='text-[var(--c-text)]'>dissed</strong> は diss（disrespect の短縮で、けなす、こき下ろす）の過去形。ヒップホップでは、相手を言葉で攻撃する意味でよく使われます。</p>
+        <p>Nasはこの二行で、仲間と街で過ごした頃を、これらの出来事の時期に重ねて語り始めます。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>diss</strong>: <em>He dissed the whole team in an interview.</em>（インタビューでチーム全員をけなした）。</p>
+          <p><strong class='text-[var(--c-text)]'>around the time</strong>: <em>It happened around the time we moved.</em>（引っ越した頃の出来事だった）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Wake up every morning, see my crew 接続詞を落とす言い方と the block"
+        label="★ 語法／スラング"
+        mc="Nas（Verse 3）"
+        t={TS["wake-up-see-crew"].t} tApprox={TS["wake-up-see-crew"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">I used to wake up every morning, see my crew on the block</Fragment>
+        <Fragment slot="jpn">毎朝起きると、ブロックで仲間たちに会ってた</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3の4行目です。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>1. wake up ..., see ...（and の省略）</p>
+        <p>wake up every morning のあとに、and を挟まず see my crew と動詞が続いています。口語やラップでは、動作を並べるときに接続詞を落として、連続した出来事を早いテンポで言うことがよくあります。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>2. crew と the block</p>
+        <p><QuickSlang word='crew' desc='もとは船の乗組員。ヒップホップでは、いつも一緒に動く気心の知れた仲間の集まり。</p>
+        <p>この行では、毎朝顔を合わせる地元の仲間たち' href='/slang/crew' /> は、いつも一緒にいる仲間の集まりです。</p>
+        <p><QuickSlang word='block' desc='街区、一区画。ヒップホップでは the block が、自分の地元や近所の象徴として使われる。</p>
+        <p>この行では、仲間と毎朝会う場所そのもの' href='/slang/block' /> は、街の一区画のこと。on the block で「その通りで、近所で」を指します。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>on the block</strong>: <em>Everyone on the block knew her.</em>（その通りの人はみんな彼女を知っていた）。</p>
+          <p><strong class='text-[var(--c-text)]'>動作の並べ方</strong>: <em>I get up, grab a coffee, hit the road.</em>（起きて、コーヒーを取って、出発する）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Had us running from cops 〈have ＋ 人 ＋ -ing〉の言い方"
+        label="★ 語法"
+        mc="Nas（Verse 3）"
+        t={TS["had-us-running"].t} tApprox={TS["had-us-running"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Every day's a different plan that had us running from cops</Fragment>
+        <Fragment slot="jpn">毎日が違う計画で、俺たちは警察から逃げ回ってた</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3の5行目です。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>1. Every day's（縮約）</p>
+        <p><strong class='text-[var(--c-text)]'>Every day's</strong> は Every day is の縮約です。day's の 's は所有ではなく、is が縮まったものです。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>2. had us running（使役）</p>
+        <p><strong class='text-[var(--c-text)]'>have ＋ 人 ＋ -ing</strong> は、「人を〜している状態にさせる」言い方です。had us running で、「俺たちを走り回らせた」。</p>
+        <p>a different plan that had us ~ で、「毎日違う計画があって、それが俺たちを〜させていた」とつながります。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>3. cops</p>
+        <p><QuickSlang word='cops' desc='警察官を指す口語。copper を縮めた形といわれる。</p>
+        <p>この曲では undercovers、D's、Jakes と、警察の呼び方が複数出てくる' /> は、警察官の口語です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>have ＋ 人 ＋ -ing</strong>: <em>The comedian had us laughing all night.</em>（そのコメディアンのせいで、一晩中笑っていた）。</p>
+          <p><strong class='text-[var(--c-text)]'>縮約の 's</strong>: <em>Monday's a busy day.</em>（月曜は忙しい日だ）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="We was at the candy factory 複数の主語につく was"
+        label="★ AAVE文法"
+        mc="Nas（Verse 3）"
+        t={TS["we-was"].t} tApprox={TS["we-was"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">We was at the candy factory</Fragment>
+        <Fragment slot="jpn">俺たちはキャンディ工場にいた</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3の7行目の頭です。ここは語法だけを見ます。</p>
+        <p>主語は we で複数なのに、動詞は were でなく <strong class='text-[var(--c-text)]'>was</strong> です。AAVEでは、過去形の be 動詞を was に統一する言い方がよく出てきます。</p>
+        <p>Verse 1 の The corners is や The streets is と同じく、主語の数に be 動詞を合わせない、規則のある言い方です。</p>
+        <p>candy factory という具体的な場所を挙げて、当時の行動範囲を示している行でもあります。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>We was / They was</strong>: <em>They was late again.</em>（標準英語なら They were late again. 。また遅れた）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="The green と a hundred grand お金の言い方"
+        label="★ スラング"
+        mc="Nas（Verse 3）"
+        t={TS["green-grand"].t} tApprox={TS["green-grand"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Nowadays, I need the green in a flash just like the next man<br />let me see a hundred grand</Fragment>
+        <Fragment slot="jpn">いまじゃ、ほかの誰とも同じで、すぐにでも金が要る／10万ドル分、見せてくれ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3の8、9行目です。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>1. the green（お金）</p>
+        <p><strong class='text-[var(--c-text)]'>green</strong> は、米ドル紙幣の色から、お金そのものを指すスラングです。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>2. in a flash（すぐに）</p>
+        <p><strong class='text-[var(--c-text)]'>in a flash</strong> は「一瞬で、すぐに」。稲光（flash）の速さにたとえた言い方です。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>3. just like the next man（ほかの誰とも同じように）</p>
+        <p><strong class='text-[var(--c-text)]'>the next man</strong> は「隣の男」から転じて、「ほかの誰か、ふつうの人」の意味になります。just like the next man で、「ほかの人と同じように、自分もまた」。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>4. grand（1000ドル）</p>
+        <p><strong class='text-[var(--c-text)]'>grand</strong> は1000ドルを指す俗称で、a hundred grand は10万ドルです。この二行から、Verse 3 の話題がお金へ移っていきます。</p>
+        <p>10万ドルとさらっと言い切るあたり、デビュー作らしい勢いだなと思います。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>grand</strong>: <em>The used car cost five grand.</em>（その中古車は5000ドルだった）。</p>
+          <p><strong class='text-[var(--c-text)]'>in a flash</strong>: <em>The summer was gone in a flash.</em>（夏は一瞬で終わった）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Call the crew to get live 場を沸かせる get live"
+        label="★ スラング"
+        mc="Nas（Verse 3）"
+        t={TS["get-live-swoop"].t} tApprox={TS["get-live-swoop"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Then call the crew to get live too, with Swoop</Fragment>
+        <Fragment slot="jpn">それから仲間を呼んで、Swoopと一緒に盛り上がる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3の12行目です。</p>
+        <p><strong class='text-[var(--c-text)]'>get live</strong> は、「盛り上がる、場を沸かせる」。この live は『生の』ではなく、『活気のある、元気な』という意味で使われています。</p>
+        <p><strong class='text-[var(--c-text)]'>call the crew to ~</strong> は「仲間を呼んで〜させる」で、call ＋ 人 ＋ to 不定詞の形です。</p>
+        <p>この行のあと、仲間のあだ名や名前が次々に挙がります。Swoop のほか、Barkim や Jungle といった名前が出てきます。</p>
+        <p>録音に立ち会った Jungle は、このセッションが仲間の誰にでも開かれていて、全員が D&D スタジオのブースに詰めかけた、と振り返っています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>get live</strong>: <em>The crowd got live when the DJ came out.</em>（DJが出てくると客席が沸いた）。</p>
+          <p><strong class='text-[var(--c-text)]'>call ＋ 人 ＋ to ~</strong>: <em>The coach called the team to meet at noon.</em>（監督は正午に集まるようチームを呼んだ）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Jakes 警察を指すNYの呼び方"
+        label="★ スラング"
+        mc="Nas（Verse 3）"
+        t={TS["jakes"].t} tApprox={TS["jakes"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3の終わり近くに出てくる一語です。英語は引かず、語だけ取り出します。</p>
+        <p><QuickSlang word='jakes' desc='警察官、または警察を指すスラング。cop と同じ意味で、ヒップホップとくにNYのラップに出てくる呼び方。</p>
+        <p>この曲では Verse 3 の終わり近くに出てくる' /> は、警察を指すスラングです。</p>
+        <p>同じ意味の言い方には、cops、po-po、the law、five-O などがあります。</p>
+        <p>警察の呼び方は地域や世代で変わります。この曲だけでも、Verse 1 の undercovers と The D's、Verse 3 の cops と Jakes と、複数の呼び方が出てきます。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>cops</strong>: <em>Someone called the cops.</em>（誰かが警察を呼んだ）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="'Nuff respect to the projects 敬意の言い方、I'm ghost、one love"
+        label="★ スラング"
+        mc="Nas（Verse 3）"
+        t={TS["nuff-respect-one-love"].t} tApprox={TS["nuff-respect-one-love"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">'Nuff respect to the projects, I'm ghost, one love</Fragment>
+        <Fragment slot="jpn">団地のみんなにたっぷりの敬意を、俺は消える、ワンラブ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3の最後の行です。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>1. 'Nuff respect（たっぷりの敬意）</p>
+        <p><strong class='text-[var(--c-text)]'>'Nuff</strong> は enough を縮めた形で、ここでは「たっぷりの、山ほどの」の意味です。ジャマイカ英語（パトワ）にも同じ使い方があり、ヒップホップでは 'nuff respect（心からの敬意を）の形でよく使われます。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>2. the projects（公営住宅団地）</p>
+        <p><strong class='text-[var(--c-text)]'>projects</strong> は、低所得者向けの公営住宅団地のことで、housing projects の略です。ここでは、Nas が育った Queensbridge Houses を含む、団地全体への敬意になっています。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>3. I'm ghost（姿を消す）</p>
+        <p><QuickSlang word='ghost' desc='幽霊のほか、動詞では「連絡を絶って消える」、ghost 形容詞では「その場を去っている」の意味で使われる。I am ghost は「もう行く」の別れの一言' href='/slang/ghost' /> は、幽霊のほかに、「姿を消す、立ち去る」の意味でも使われます。</p>
+        <p>I'm ghost は、「俺はもう行く」という別れの一言です。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>4. one love（ワンラブ）</p>
+        <p><QuickSlang word='one love' desc='別れ際や仲間への「達者でな、愛してるぜ、敬意を込めて」を表す挨拶。ジャマイカ由来の言い方がヒップホップに入った。</p>
+        <p>この曲では Verse 3 の締めの挨拶として出てくる' /> は、別れ際の挨拶です。同じアルバムの7曲目には、その名も「One Love」が入っています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>ghost</strong>（動詞）: <em>I'm about to ghost; see you tomorrow.</em>（もう行くよ、また明日）。</p>
+          <p><strong class='text-[var(--c-text)]'>'nuff</strong>: <em>Nuff thanks to everyone who came.</em>（来てくれたみんなに大感謝）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="This goes out to ~ 声を届ける相手の言い方"
+        label="★ 語法"
+        mc="Nas（Outro）"
+        t={TS["goes-out-to"].t} tApprox={TS["goes-out-to"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">This goes out to everybody in New York</Fragment>
+        <Fragment slot="jpn">これはニューヨークのみんなに送る</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ アウトロの2行目です。ここから曲の終わりまで、名前の読み上げが続きます。</p>
+        <p><strong class='text-[var(--c-text)]'>This goes out to ~</strong> は、「これを〜に捧げる、届ける」と、曲やメッセージを誰かに向けて贈るときの決まり文句です。ラジオのリクエスト紹介や、ライブでの挨拶にもよく使われます。</p>
+        <p>ここから曲の終わりまで、Nasは仲間や地域の名前を読み上げていきます。名前を挙げて挨拶することを <strong class='text-[var(--c-text)]'>shout-out</strong>（シャウトアウト）と呼びます。</p>
+        <p>直前の One time for your mind は、アルバムで一つ前に入っている曲「One Time 4 Your Mind」のタイトルと同じ言い回しです。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>This goes out to ~</strong>: <em>This one goes out to my grandmother.</em>（これはおばあちゃんに贈る一曲だ）。</p>
+          <p><strong class='text-[var(--c-text)]'>shout-out</strong>: <em>Big shout-out to the whole team.</em>（チーム全員に大きな感謝を）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="My man Preemo from Gang Starr あだ名と、my man"
+        label="★ 固有名詞／スラング"
+        mc="Nas（Outro）"
+        t={TS["preemo-my-man"].t} tApprox={TS["preemo-my-man"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">And my man Preemo from Gang Starr</Fragment>
+        <Fragment slot="jpn">それと、Gang Starrのダチ、Preemo</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ アウトロの後半、名前の読み上げの中にあります。</p>
+        <p><strong class='text-[var(--c-text)]'>my man</strong> は、「俺のダチ、相棒」と親しみを込めて人を呼ぶ言い方です。恋人や家族でなく、友人や仲間に使います。</p>
+        <p><strong class='text-[var(--c-text)]'>Preemo</strong> は、DJ Premier の愛称です。Gang Starr（Guru との二人組）の DJ 兼プロデューサーを指します。</p>
+        <p>つまりNasは、この曲を作ったプロデューサー本人の名前を、アウトロで呼んでいることになります。</p>
+        <p>『Illmatic』では、DJ Premier は「N.Y. State of Mind」「Memory Lane」「Represent」の3曲を手がけています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>my man</strong>: <em>That's my man Chris over there.</em>（あそこにいるのが俺のダチのクリスだ）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Let's bring it back と、That's just a warm up 最後の掛け声"
+        label="★ 語法"
+        mc="Nas（Outro）"
+        t={TS["warm-up-ending"].t} tApprox={TS["warm-up-ending"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Come to Queensbridge<br />Yeah, yeah, let's bring it back<br />That's just a warm up</Fragment>
+        <Fragment slot="jpn">Queensbridgeに来いよ／ああ、もとに戻そうぜ／まだ準備運動にすぎない</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 曲のいちばん最後の数行です。</p>
+        <p>曲の最後は、仲間たちの掛け声と、Nasの締めのひと言で終わります。</p>
+        <p><strong class='text-[var(--c-text)]'>bring it back</strong> は、前の流れや元の状態に戻すこと。ここでは、フックの勢いをもう一度、という意味合いで読めます。</p>
+        <p><strong class='text-[var(--c-text)]'>warm up</strong> は「準備運動」。<strong class='text-[var(--c-text)]'>That's just a warm up</strong> で、「こんなのはまだ序の口だ」という言い方になります。</p>
+        <p>『Illmatic』が出た1994年4月、Nasは20歳でした。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>warm-up</strong>: <em>Do a little warm-up before you run.</em>（走る前に軽く準備運動をする）。</p>
+          <p><strong class='text-[var(--c-text)]'>just a ~</strong>: <em>That's just the beginning.</em>（こんなのは始まりにすぎない）。</p>
+        </Fragment>
+      </LearningUnit>
+    </section>
+
+    <section id="background" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        文化的背景
+      </h2>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">『Illmatic』</p>
+        <h3 class="font-semibold text-base mb-3">全10曲の9曲目、シングルにはならなかった曲</h3>
+        <div class="space-y-3 text-[var(--c-muted)] text-sm leading-relaxed">
+          <p>
+            『Illmatic』がColumbiaから出たのは、1994年4月19日のことです。「Represent」は9曲目で、プロデューサーはDJ Premier、作者クレジットはNas（本名 Nasir Jones）とDJ Premier（本名 Christopher Martin）です。
+          </p>
+          <p>
+            アルバムからは「Halftime」「It Ain't Hard to Tell」「The World Is Yours」「One Love」ほか、全5曲がシングルになりました。この曲は、その中に入っていません。
+          </p>
+          <p>
+            アルバムはBillboard 200で最高12位、Top R&B/Hip-Hop Albumsで最高2位。アメリカでは2×プラチナの認定を受けています。
+          </p>
+        </div>
+      </div>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">Queensbridge</p>
+        <h3 class="font-semibold text-base mb-3">Nasが育った団地と、Juice Crewの系譜</h3>
+        <div class="space-y-3 text-[var(--c-muted)] text-sm leading-relaxed">
+          <p>
+            Queensbridge Houses は、ニューヨーク市クイーンズ区にある公営住宅団地で、アメリカ最大級の規模として知られています。Nasは小さい頃に家族と移り住み、ここで育ちました。
+          </p>
+          <p>
+            Marley Marl が率いた Juice Crew は、この Queensbridge のクルーでした。Verse 3 で名前が出てくる MC Shan と Roxanne Shanté は、その Juice Crew の面々で、Nas よりひと世代上の地元の先輩にあたります。
+          </p>
+          <p>
+            Nasは、Queensbridgeを背負うことを軽くない責任と受け止め、MC ShanやMarley Marlの仕事を受け継ぐ名誉を語っています。BDPとの抗争のあとで、地元の看板を守る気持ちもあったようです。
+          </p>
+        </div>
+      </div>
+
+      <div class="p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">キーワード早見表</p>
+        <h3 class="font-semibold text-base mb-3">この曲で学んだ表現の整理</h3>
+        <div class="space-y-3 mt-3">
+          {[
+            ['represent', '地元や仲間を背負って名乗る'],
+            ['straight up', '正直に、マジで'],
+            ['mad', 'とても、やたらと'],
+            ['who that', 'Who is that? の is を省いた形（コピュラ省略）'],
+            ['The corners is / We was', '複数の主語でも is や was で通すAAVEの言い方'],
+            ['be walking', '習慣の be。いつも歩いている'],
+            ['never nothing less than', '否定を重ねて強める言い方'],
+            ['fly', 'おしゃれでかっこいい'],
+            ['kicks', 'スニーカー'],
+            ['diss', 'けなす、こき下ろす'],
+            ['the green', 'お金'],
+            ['grand', '1000ドル'],
+            ['get live', '盛り上がる、場を沸かせる'],
+            ['Jakes', '警察'],
+            ['\'nuff', 'たっぷりの'],
+            ['I\'m ghost', '姿を消す、立ち去る'],
+            ['one love', '別れ際の挨拶'],
+            ['shout-out', '名前を挙げて挨拶すること'],
+            ['my man', '俺のダチ'],
+          ].map(([w, d]) => (
+            <div class="text-sm">
+              <span class="font-semibold text-[var(--c-text)]">{w}</span>
+              <span class="text-[var(--c-muted)]"> {d}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="behind" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        制作の裏側
+      </h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          プロデュースはDJ Premier。Gang StarrのDJとして知られる人で、『Illmatic』では「N.Y. State of Mind」「Memory Lane」「Represent」の3曲を手がけました。
+        </p>
+        <p>
+          サンプル元は、オルガン奏者Lee Erwinの「Thief of Bagdad」（1974年）。1924年の同名の映画に由来する曲です。
+        </p>
+        <p>
+          アルバム収録版は、実はリミックスです。DJ Premier本人が「アルバムに入っているのはリミックス」と語っていて、同じアルバムのほかのプロデューサーの曲を聴いて、先に作ったビートを作り直したと伝えられています。
+        </p>
+        <p>
+          録音の場にいた仲間のJungleは、セッションが仲間の誰にでも開かれていて、全員がD&Dスタジオのブースに詰めかけた、と振り返っています。フックの後ろでは、Nasの仲間の声が支えています。
+        </p>
+        <p>
+          アルバムの流れでは、ゆっくりしたテンポの「One Time 4 Your Mind」のあとに置かれた、勢いのある一曲です。
+        </p>
+      </div>
+    </section>
+
+    <section id="legacy" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        評価とその後
+      </h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          シングルとしては発売されませんでしたが、2014年7月、この曲の公式映像が公開されました。Nasのレーベル Mass Appeal が、ファンから映像案を募るコンテストを開き、その中から選ばれた作品です。
+        </p>
+        <p>
+          このページで頭出しに使っているのは、NasのVEVOチャンネルで公開されている公式オーディオ動画です。
+        </p>
+        <p>
+          2020年、『Illmatic』はアメリカ議会図書館の National Recording Registry に加わりました。
+        </p>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        まとめ
+      </h2>
+      <ul class="space-y-2 text-sm text-[var(--c-muted)] list-disc list-inside leading-relaxed">
+        <li>「Represent」は、地元を背負うという一語を曲名にして、Queensbridgeの暮らしと仲間の名前を並べていく一曲です。</li>
+        <li>straight up、mad、fly、kicks、get live、'nuff respect と、NYの日常のスラングが短い行の中に出てきます。</li>
+        <li>複数形につく is と was、who that の be 動詞の省略、習慣の be、否定の重ねなど、AAVEの文法がそのまま聞こえる曲でもあります。</li>
+        <li>Verse 3 の BDP と MC Shan、Roxanne Shanté と Real Roxanne の名前から、80年代のNYヒップホップの抗争の歴史に入っていけます。</li>
+      </ul>
+    </section>
+
+</SongLayout>
