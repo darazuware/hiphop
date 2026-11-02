@@ -1,0 +1,518 @@
+{
+  "title": "Pause Tapes 和訳・英語スラング解説 | Nas & DJ Premier",
+  "description": "Nas & DJ Premier「Pause Tapes」（2025年『Light-Years』収録）を和訳付きで解説。カセットを止めては録る「ポーズテープ」でビートを作った少年時代の記憶を、crib、knock、posse cut、lock in などの口語と、録音機材の英語で読み解きます。",
+  "duration": 157,
+  "youtubeId": "2yDLZP4SBuk",
+  "highlights": [
+    "Mobb Deep の Havoc がビート作りの始まりを語る声で幕を開け、その声の切れ端を DJ Premier がスクラッチで刻んでいく構成",
+    "Panasonic のラジカセ、Sony のステレオ、90分テープ。80年代の家庭の録音機材が、英語の名詞としてそのまま出てくる",
+    "Record を押して、Pause を押して、また始める。ビートの作り方そのものを手順書のように並べた、終盤の数行"
+  ],
+  "intro": [
+    {
+      "h2": "■止めて、録って、また止める。カセット一本で始まったビート作り",
+      "paras": [
+        "「Pause Tapes」は、Nas と DJ Premier が2025年12月12日に出したアルバム『Light-Years』の6曲目です。長さは2分37秒で、アルバムの中でもかなり短い一曲になっています。",
+        "タイトルのポーズテープは、サンプラーを持っていない子どもが、レコードやラジオの好きな部分をカセットに録り、一時停止ボタンで止めては続きを録って、ループ（同じ数小節の繰り返し）を手作りするやり方のことです。",
+        "曲の頭では、Mobb Deep の Havoc が、自分が初めてビートを作ったときの話をしています。そのあと Nas が、母親の家で同じように機材をいじっていた頃を、一つのバースで語り切ります。",
+        "途中には、当時の街の荒れた暮らしぶりを描く行もはさまります。そうした行はこのページでは取り上げず、録音機材と音楽にまつわる行を中心に拾っていきます。"
+      ]
+    },
+    {
+      "h2": "■英語の見どころは、機械の操作を言う動詞",
+      "paras": [
+        "press、record、loop、rewind、drop the needle と、カセットデッキやレコードプレーヤーを操作する動詞がたくさん出てきます。機械の取扱説明書に出てくるような語が、そのままラップの行になっているのが面白いところです。",
+        "口語では、家を指す crib、低音が鳴り響くことを言う knock、騒がしさの racket、集中することの lock in が出てきます。ラップの世界の言葉としては、何人ものMCがつないでいく曲を指す posse cut も学べます。",
+        "ポーズテープのやり方は、Nas の1994年の『Illmatic』でも使われています。「<a href='/songs/one-love' class='underline'>One Love</a>」のループは、Q-Tip がこの手法で組んだものです。それから30年以上たって、Nas 本人がその作り方を一曲まるごと使って語っています。"
+      ]
+    }
+  ],
+  "storyLead": "物語というより、一人の少年がビートを作れるようになるまでの手順を追っていく曲です。流れだけ先に押さえておきます。",
+  "story": [
+    "<strong class='text-[var(--c-text)]'>Intro</strong>は Havoc の語り。祖母の家のカセットプレーヤーで、ラジオの好きな部分を何度も録り直してループにした話です。",
+    "<strong class='text-[var(--c-text)]'>Verse</strong>では Nas が、母親の家でステレオをいじっていた頃を振り返ります。クローゼットのレコードを見つけ、ポーズテープで初めてのビートを作るところまで進み、<strong class='text-[var(--c-text)]'>Outro</strong>でまた Havoc の声に戻ります。"
+  ],
+  "unitsLead": [
+    "ここからは、Havoc の語りから Outro のスクラッチまで、曲の順番に表現を拾っていきます。各項目の上に英語の引用と和訳、その下に解説を置いています。",
+    "固有名詞だけで説明できるものは、英語を引かずに語と背景だけを書きました。▶を押すと、Nas の公式ビジュアライザーの該当箇所から再生できます。"
+  ],
+  "tSource": "fallback",
+  "units": [
+    {
+      "id": "first-beat-crib",
+      "heading": "crib 「家」を指すくだけた一語",
+      "label": "★ スラング",
+      "mc": "Havoc（Intro）",
+      "anchor": [
+        "cassette",
+        "player",
+        "grandma's",
+        "crib"
+      ],
+      "t": 1,
+      "eng": "remember the first time I made a beat\nI had a cassette player in my grandma's crib",
+      "jpn": "初めてビートを作ったときのことを覚えてる\nばあちゃんの家にカセットプレーヤーがあってさ",
+      "note": "曲の冒頭、Havoc の語りの1〜2行目です。",
+      "body": [
+        "2行目の行末、<strong class='text-[var(--c-text)]'>crib</strong> が学習ポイントです。もとは赤ちゃんのベビーベッドや、家畜の飼い葉おけを指す語でした。",
+        "ヒップホップの口語では <QuickSlang word='crib' desc='ベビーベッドが元の意味。ヒップホップの口語では自分の家や部屋のこと。この曲では祖母の家と母親の家の両方に使われ、ビートが生まれた場所を指している' /> として「家、住まい」の意味で使われます。my grandma's crib で「ばあちゃんの家」です。",
+        "1行目の the first time I made a beat は、the first time のあとに文をそのままつなげて「初めて〜したとき」を言う形です。made a beat の make は、ビートを「作る」ときの決まった動詞として覚えておくと便利です。"
+      ],
+      "usage": [
+        "<strong class='text-[var(--c-text)]'>crib</strong>（家）: <em>Come by my crib after work.</em>（仕事のあとうちに寄りなよ）。",
+        "<strong class='text-[var(--c-text)]'>the first time ＋文</strong>: <em>I still remember the first time I heard that song.</em>（あの曲を初めて聴いたときのことを今も覚えている）。"
+      ]
+    },
+    {
+      "id": "record-loop-intro",
+      "heading": "record, loop 動詞を三度くり返して手順を見せる",
+      "label": "★ 語法",
+      "mc": "Havoc（Intro）",
+      "anchor": [
+        "record",
+        "loop",
+        "record",
+        "loop"
+      ],
+      "t": 20,
+      "eng": "I would record, loop, record, loop, record, loop\nUntil it just became one beat",
+      "jpn": "録って、ループさせて、録って、ループさせて\nそうやって一つのビートになるまで続けた",
+      "note": "Havoc の語りの終わり近くです。",
+      "body": [
+        "1行目の頭の <strong class='text-[var(--c-text)]'>I would</strong> は、過去の習慣を言う would です。「昔はよく〜したものだ」の意味で、used to と近い働きをします。",
+        "そのあと record と loop が三回ずつ交互に並びます。動詞を接続詞なしで並べると、手を動かしている時間の長さがそのまま伝わります。",
+        "2行目の <strong class='text-[var(--c-text)]'>until it just became</strong> は「ついに〜になるまで」。just が「そのうち自然と」くらいの軽い強調として入っています。この二行の言葉が、このあと Premier のスクラッチの素材になります。"
+      ],
+      "usage": [
+        "<strong class='text-[var(--c-text)]'>would（過去の習慣）</strong>: <em>On Sundays we would walk to the river.</em>（日曜にはよく川まで歩いたものだ）。"
+      ]
+    },
+    {
+      "id": "re-scratch",
+      "heading": "Re… 声の頭だけを切ってこするスクラッチ",
+      "label": "★ 音の作り",
+      "mc": "DJ Premier（Refrain）",
+      "anchor": [
+        "record",
+        "loop"
+      ],
+      "t": 27,
+      "eng": "\"Re–\" \"Record, loop...\" \"Re–\" \"Re–\" \"Record, loop...\"",
+      "jpn": "「レ」「録って、ループ」「レ」「レ」「録って、ループ」",
+      "note": "Intro の語りが終わってすぐ、Verse の前に鳴るリフレインです。同じ形が Outro でも戻ってきます。",
+      "body": [
+        "ここは歌詞というより音の作りの話です。DJ Premier が、直前の Havoc の声から record の頭の Re だけを切り出して、ターンテーブルで刻んでいます。",
+        "<QuickSlang word='スクラッチ' desc='ターンテーブルのレコードを手で前後に動かして、音をこするように鳴らすDJの技。Premier はラップの声の断片をこすってフックにするのが得意で、この曲では語りの声そのものが素材になっている' /> でフックを作るのは Premier のおなじみのやり方です。この曲では、ビート作りを語った声を、その場でもう一度ビートの部品にしています。",
+        "Re だけで止めて、次に Record, loop まで流す。止めては流すこの動きが、ちょうどポーズボタンを押す手つきと重なって聞こえるのが面白いところです。"
+      ]
+    },
+    {
+      "id": "drive-in-reimagine",
+      "heading": "re-imagine と got in this 始まりを思い描き直す",
+      "label": "★ 語法",
+      "mc": "Nas（Verse）",
+      "anchor": [
+        "re",
+        "imagine",
+        "the",
+        "passion"
+      ],
+      "t": 51,
+      "eng": "Let's try to re-imagine the passion when I got in this",
+      "jpn": "この道に入ったときの熱を、もう一度思い描いてみよう",
+      "note": "Nas のバースの2行目です。歌い出しの1行目は英語を引かず、語だけ取り出します。",
+      "body": [
+        "歌い出しの1行目には <strong class='text-[var(--c-text)]'>drive-in movie</strong> が出てきます。車に乗ったまま屋外の大きなスクリーンで映画を観る、ドライブインシアターのことです。屋根を外したベンツが並ぶ光景で、これから昔を振り返る場面を映画の始まりのように開けています。",
+        "引用した2行目の <strong class='text-[var(--c-text)]'>re-imagine</strong> は「もう一度思い描く、描き直す」。re- は「もう一度」をつける接頭辞です。",
+        "行末の <strong class='text-[var(--c-text)]'>when I got in this</strong> は「この世界に入ったとき」。get in は「中に入る」で、this はラップや音楽の世界をぼかして指しています。re-imagine の re と、Havoc の Re のスクラッチが続けて耳に入る並びにもなっています。"
+      ],
+      "usage": [
+        "<strong class='text-[var(--c-text)]'>get in（〜の世界に入る）</strong>: <em>She got in the business at nineteen.</em>（彼女は19歳でこの業界に入った）。"
+      ]
+    },
+    {
+      "id": "panasonic-treble-bass",
+      "heading": "level the treble and bass 高音と低音をならす",
+      "label": "★ 機材の英語",
+      "mc": "Nas（Verse）",
+      "anchor": [
+        "panasonic",
+        "tape",
+        "recorder"
+      ],
+      "t": 46,
+      "eng": "A Panasonic with the tape recorder\nTryna level the treble and bass in order; the stations sound distorted",
+      "jpn": "テープレコーダー付きのPanasonic\n高音と低音をちゃんと揃えようとしても、ラジオ局の音は割れてた",
+      "note": "歌い出しの直後、3〜4行目です。",
+      "body": [
+        "最初に手にした機材は、日本のメーカー Panasonic の、テープレコーダーが付いたラジカセです。A Panasonic と、メーカー名に a をつけて「Panasonic の機械一台」を表しています。",
+        "2行目の <strong class='text-[var(--c-text)]'>treble</strong> は高音域、<strong class='text-[var(--c-text)]'>bass</strong> は低音域。<strong class='text-[var(--c-text)]'>level</strong> は動詞で「平らにならす、釣り合わせる」です。オーディオのつまみを回して音のバランスを取る様子がそのまま英語になっています。",
+        "Tryna は trying to をつめた口語の綴りで、「〜しようとして」。distorted は「ひずんだ、割れた」で、受信の悪いラジオの音を指しています。"
+      ],
+      "usage": [
+        "<strong class='text-[var(--c-text)]'>Tryna</strong>（trying to）: <em>I'm tryna finish this tonight.</em>（今夜中に終わらせようとしてる）。",
+        "<strong class='text-[var(--c-text)]'>turn up the bass</strong>: <em>Turn up the bass a little.</em>（低音を少し上げて）。"
+      ]
+    },
+    {
+      "id": "dial-sony-knocks",
+      "heading": "knocks 低音が部屋を鳴らす",
+      "label": "★ スラング",
+      "mc": "Nas（Verse）",
+      "anchor": [
+        "move",
+        "the",
+        "dial",
+        "improve"
+      ],
+      "t": 52,
+      "eng": "I'd move the dial to improve the sound, years later got a Sony stereo system\nNo comparison with the – boombox, my livin' room knocks",
+      "jpn": "ダイヤルを回して音をよくしようとした、何年かしてSonyのステレオを手に入れた\nラジカセとは比べものにならない、居間が鳴り響く",
+      "note": "Verse の5〜6行目です。",
+      "body": [
+        "1行目の <strong class='text-[var(--c-text)]'>move the dial</strong> は、ラジオの周波数を合わせるダイヤルを回すこと。move と improve が行の中で韻を踏んでいます。",
+        "数年後に手に入れたのは、同じく日本のメーカー Sony のステレオです。前の行の Panasonic から、機材が一段上がったことが名前だけで伝わります。",
+        "2行目の <strong class='text-[var(--c-text)]'>boombox</strong> は肩にかつげる大型のラジカセのこと。行末の <QuickSlang word='knock' desc='ドアを叩く、が基本の意味。音楽の話では低音が強く鳴って体や部屋に響くことを言う。この曲では新しいステレオで居間全体が鳴っている様子' /> は、低音が部屋ごと揺らすくらい強く鳴っている、という意味です。my livin' room knocks で「うちの居間が鳴りまくる」。"
+      ],
+      "usage": [
+        "<strong class='text-[var(--c-text)]'>knock（低音が響く）</strong>: <em>This track really knocks in the car.</em>（この曲は車で聴くと低音がすごい）。"
+      ]
+    },
+    {
+      "id": "guess-polo-racket",
+      "heading": "racket 「騒がしい音」を言う名詞",
+      "label": "★ 語彙",
+      "mc": "Nas（Verse）",
+      "anchor": [
+        "guess",
+        "jeans",
+        "and",
+        "polo"
+      ],
+      "t": 83,
+      "eng": "Guess jeans and Polo jacket, just in the crib causing all this racket",
+      "jpn": "Guessのジーンズにポロのジャケット、家の中でずっと大きな音を出してた",
+      "note": "Verse の中盤です。",
+      "body": [
+        "行頭の Guess と Polo は、80年代のNYの若者に人気だった服のブランドです。Guess はジーンズ、Polo は Ralph Lauren のブランドで、家にいるときでも身なりにこだわっていた様子が見えます。",
+        "行末の <strong class='text-[var(--c-text)]'>racket</strong> は、テニスのラケットとは別の語で「騒音、やかましい音」です。cause a racket で「大騒ぎする、大きな音を立てる」。",
+        "家の中で音楽を鳴らしてばかりいた、という意味で、ここでも crib が出てきます。冒頭の Havoc の語りと、同じ語で家を指しているのがちょっと面白い重なりです。"
+      ],
+      "usage": [
+        "<strong class='text-[var(--c-text)]'>make a racket</strong>: <em>The kids upstairs made a racket all night.</em>（上の階の子どもたちが一晩中うるさかった）。"
+      ]
+    },
+    {
+      "id": "half-in",
+      "heading": "only was half in 片足だけ入れていた",
+      "label": "★ 語法",
+      "mc": "Nas（Verse）",
+      "anchor": [
+        "submerged",
+        "in",
+        "a",
+        "very"
+      ],
+      "t": 90,
+      "eng": "Submerged in a very dirty world, but only was half in",
+      "jpn": "どっぷり汚れた世界に沈んでたけど、半分しか浸かってなかった",
+      "note": "Verse の中盤、epiphany の行の直前です。",
+      "body": [
+        "<strong class='text-[var(--c-text)]'>submerged</strong> は「水中に沈んだ」が元の意味で、ここでは荒れた環境の中にいたことのたとえです。",
+        "後半の <strong class='text-[var(--c-text)]'>only was half in</strong> は「半分しか入っていなかった」。普通の語順なら was only half in ですが、only を前に出して「でも、半分だけだった」と強めています。",
+        "沈んでいたけれど全身ではなかった、と言い直すことで、残りの半分が次の行の音楽へ向かっていく流れが作られています。"
+      ],
+      "usage": [
+        "<strong class='text-[var(--c-text)]'>half in</strong>: <em>I was only half in the conversation.</em>（話には半分しか加わっていなかった）。"
+      ]
+    },
+    {
+      "id": "symphony-posse-cut",
+      "heading": "posse cut 何人ものMCがマイクを回す曲",
+      "label": "★ スラング／固有名詞",
+      "mc": "Nas（Verse）",
+      "anchor": [
+        "epiphany",
+        "kane",
+        "went",
+        "last"
+      ],
+      "t": 99,
+      "eng": "That's when I had an epiphany, Kane went last on \"The Symphony\"\nIf I could set a posse cut off, that'd be my entry",
+      "jpn": "そのとき閃いた、「The Symphony」でKaneがトリを取ってた\nもし俺がポッセカットの口火を切れたら、それが俺の入口になる",
+      "note": "Verse の真ん中あたり、2行続きです。",
+      "body": [
+        "1行目の <strong class='text-[var(--c-text)]'>epiphany</strong> は「ひらめき、悟り」。had an epiphany で「はっと気づいた」です。",
+        "「The Symphony」は、Marley Marl が1988年のアルバム『In Control, Volume 1』に入れた曲で、Masta Ace、Craig G、Kool G Rap、Big Daddy Kane がマイクを回します。Kane went last は、そのラストを Big Daddy Kane が締めた、ということです。",
+        "2行目の <QuickSlang word='posse cut' desc='posse は仲間、cut は録音された一曲。仲間のMCが次々にバースをつないでいく曲のこと。この曲ではトリの Kane とは逆に、自分は一番手で曲を始めたいという意味で使われている' /> は、複数のMCが順番にラップする曲のことです。set off は「始める、口火を切る」。",
+        "最後の大物とは反対に、自分は一番手で曲を動かす側になりたい。entry は「入場、参加の入口」で、ラップの世界への入り方を指しています。"
+      ],
+      "usage": [
+        "<strong class='text-[var(--c-text)]'>set off</strong>（始める、引き起こす）: <em>His joke set off the whole room.</em>（彼の冗談で部屋中が沸いた）。",
+        "<strong class='text-[var(--c-text)]'>have an epiphany</strong>: <em>I had an epiphany on the train.</em>（電車の中でふとひらめいた）。"
+      ]
+    },
+    {
+      "id": "remote-ron-g",
+      "heading": "remote control と Ron G のテープ",
+      "label": "★ 語彙／固有名詞",
+      "mc": "Nas（Verse）",
+      "anchor": [
+        "pickin",
+        "up",
+        "the",
+        "stereo's"
+      ],
+      "t": 99,
+      "note": "posse cut の行のすぐあと、2行続きの場面です。英語は引かず、語だけ取り出します。",
+      "body": [
+        "ひらめいた直後の行には <strong class='text-[var(--c-text)]'>remote control</strong> が出てきます。リモコンのことで、日本語の「リモコン」はこの英語をつめた言い方です。stereo's と所有の 's がついて「ステレオのリモコン」になっています。",
+        "次の行では、カセットデッキに Ron G のテープが入っています。Ron G はハーレム出身のミックステープDJで、R&B の歌とヒップホップのビートを重ねるブレンドのテープで知られる人です。",
+        "ひらめいてすぐリモコンを手に取る、という動きの速さが、行末の quickly の一語に詰まっています。"
+      ],
+      "usage": [
+        "<strong class='text-[var(--c-text)]'>pick up</strong>（手に取る）: <em>She picked up the remote and turned it off.</em>（彼女はリモコンを取って電源を切った）。"
+      ]
+    },
+    {
+      "id": "hook-a-beat-up",
+      "heading": "hook a beat up 自分用のビートを組む",
+      "label": "★ 句動詞",
+      "mc": "Nas（Verse）",
+      "anchor": [
+        "tells",
+        "me",
+        "i",
+        "could"
+      ],
+      "t": 108,
+      "eng": "Tells me I could hook a beat up for myself to rhyme",
+      "jpn": "自分でラップするためのビートを、自分で組めるって気づいた",
+      "note": "Verse の後半に入るところです。",
+      "body": [
+        "<strong class='text-[var(--c-text)]'>hook up</strong> は「つなぐ、用意する、手配する」の句動詞です。hook a beat up で「ビートをこしらえる」。目的語の a beat が hook と up の間に入る形になっています。",
+        "for myself to rhyme は「自分がラップするために」。rhyme は「韻を踏む」から転じて、ラップすることそのものを指す動詞として使われます。",
+        "ここで、ラップする側の少年が、ビートを作る側にも回れると気づきます。曲全体の転機になっている一行です。"
+      ],
+      "usage": [
+        "<strong class='text-[var(--c-text)]'>hook ＋人＋up</strong>（〜に用意してあげる）: <em>Can you hook me up with a ticket?</em>（チケット一枚どうにかならない？）。"
+      ]
+    },
+    {
+      "id": "closet-lockin",
+      "heading": "lockin' in 集中モードに入る",
+      "label": "★ スラング／固有名詞",
+      "mc": "Nas（Verse）",
+      "anchor": [
+        "johnnie",
+        "taylor",
+        "records"
+      ],
+      "t": 114,
+      "eng": "Johnnie Taylor records and some good Grover Washingtons, I'm lockin' in",
+      "jpn": "Johnnie Taylorのレコードに、いいGrover Washingtonも何枚か、もう夢中だ",
+      "note": "母親の家のクローゼットの箱を開ける場面です。",
+      "body": [
+        "直前の行で、Nas は母親の家の廊下のクローゼットにある箱を開けます。中から出てきたのが、この行のレコードです。",
+        "Johnnie Taylor はアメリカのソウル歌手、Grover Washington は Grover Washington Jr. のことで、ジャズやソウルの分野で活躍したサックス奏者です。some good Grover Washingtons と、人名を複数形にして「その人のレコード何枚か」を表しています。",
+        "行末の <QuickSlang word='lock in' desc='鍵をかけて閉じ込める、が元の意味。口語では気が散らない状態で一つのことに集中すること。この曲では親のレコードを前に、ビート作りに没頭し始める合図' /> は「集中する、のめり込む」。親のレコード棚が、そのままネタの宝庫になる瞬間です。"
+      ],
+      "usage": [
+        "<strong class='text-[var(--c-text)]'>lock in</strong>（集中する）: <em>Exams are next week, so I need to lock in.</em>（来週試験だから集中しないと）。"
+      ]
+    },
+    {
+      "id": "needle-90-minute",
+      "heading": "drop the needle と 90 minute tape",
+      "label": "★ 機材の英語",
+      "mc": "Nas（Verse）",
+      "anchor": [
+        "grab",
+        "a",
+        "piece",
+        "of"
+      ],
+      "t": 118,
+      "eng": "Grab a piece of vinyl, drop the needle at the top\nListen for a beat to rock, 90 minute tape, I got enough time",
+      "jpn": "レコードを一枚取って、針を頭に落とす\n乗れるビートを耳で探す、90分テープだから時間はたっぷり",
+      "note": "Verse の終盤、ポーズテープの手順が始まる2行です。",
+      "body": [
+        "1行目の <strong class='text-[var(--c-text)]'>a piece of vinyl</strong> は「レコード一枚」。vinyl（塩化ビニール）は、素材の名前でレコードそのものを指す言い方です。",
+        "<strong class='text-[var(--c-text)]'>drop the needle</strong> はレコードプレーヤーの針を盤に落とすこと。at the top は「曲の頭に」です。",
+        "2行目の <strong class='text-[var(--c-text)]'>listen for</strong> は「〜がないかと耳を澄ます」。listen to との違いは、探しながら聴くところにあります。",
+        "90 minute tape は、片面45分ずつ録れる90分のカセットテープです。何度も録り直す作業なので、長いテープなら時間を気にせずにすむ、という実感のこもった一言になっています。"
+      ],
+      "usage": [
+        "<strong class='text-[var(--c-text)]'>listen for</strong>: <em>Listen for the bell before you go in.</em>（ベルが鳴るのを聞いてから入ること）。"
+      ]
+    },
+    {
+      "id": "four-bars-pause",
+      "heading": "four bars と Press Pause ポーズテープの手順",
+      "label": "★ 語法",
+      "mc": "Nas（Verse）",
+      "anchor": [
+        "play",
+        "it",
+        "one",
+        "time"
+      ],
+      "t": 124,
+      "eng": "Play it one time, four bars\nPress Record, then press Pause, then restart",
+      "jpn": "一回だけ流す、4小節\n録音を押して、一時停止を押して、また頭から",
+      "note": "Verse の終わり近く、手順を並べていく2行です。",
+      "body": [
+        "1行目の <strong class='text-[var(--c-text)]'>four bars</strong> は4小節。bar は音楽の小節で、ループにする長さを指定しています。",
+        "2行目は press が二回、then が二回。<strong class='text-[var(--c-text)]'>Press Record, then press Pause</strong> と、カセットデッキのボタンの名前を大文字で書いて、操作の順番をそのまま並べています。",
+        "これがポーズテープの肝の部分です。4小節を録ったら一時停止で止め、レコードの針を戻してから一時停止を解除し、続きにまた同じ4小節を録る。その継ぎ目がずれないように、ボタンを押すタイミングを指で覚えていくやり方です。",
+        "最後の restart は「もう一度始める」。英語としては命令文の並びですが、自分の手順を確かめるように、ボタンの名前を一つずつ淡々と並べています。"
+      ],
+      "usage": [
+        "<strong class='text-[var(--c-text)]'>then で手順を並べる</strong>: <em>Add water, then stir, then wait two minutes.</em>（水を入れて、混ぜて、2分待つ）。"
+      ]
+    },
+    {
+      "id": "first-beat-twenty-times",
+      "heading": "'bout twenty times 二十回ほどで最初のビート",
+      "label": "★ 語法",
+      "mc": "Nas（Verse）",
+      "anchor": [
+        "record",
+        "loop",
+        "repeat"
+      ],
+      "t": 130,
+      "eng": "Record, loop, repeat\nDo that 'bout twenty times – yo, I made my first beat",
+      "jpn": "録って、ループして、繰り返す\nそれを二十回くらい、よし、初めてのビートができた",
+      "note": "Verse の締めの2行です。このあと Pause tapes の一言でバースが終わります。",
+      "body": [
+        "1行目は、Intro で Havoc が言っていた record, loop の流れを、Nas が repeat まで付けて言い直している行です。二人の語りが同じ手順でつながります。",
+        "2行目の <strong class='text-[var(--c-text)]'>'bout</strong> は about の頭を落とした口語で、「〜くらい」。twenty times と、手間のかかる作業だったことが数字で伝わります。",
+        "行末の I made my first beat は、Havoc の語りの the first time I made a beat とほぼ同じ言葉です。曲の頭と終わりで同じ一言が出てくるので、二人の思い出が重なって聞こえる作りになっています。"
+      ],
+      "usage": [
+        "<strong class='text-[var(--c-text)]'>'bout</strong>（about）: <em>I'll be there in 'bout ten minutes.</em>（10分くらいで着く）。"
+      ]
+    },
+    {
+      "id": "outro-rewind",
+      "heading": "rewind と Loop で終わるアウトロ",
+      "label": "★ 機材の英語",
+      "mc": "Havoc／DJ Premier（Outro）",
+      "anchor": [
+        "pause",
+        "tapes",
+        "rewind",
+        "it"
+      ],
+      "t": 141,
+      "eng": "\"Pause tapes... rewind it, record... loop...\"",
+      "jpn": "「ポーズテープ…巻き戻して、録って…ループ…」",
+      "note": "Outro の頭です。このあとリフレインが戻り、最後は Loop の一語が続いて曲が終わります。",
+      "body": [
+        "<strong class='text-[var(--c-text)]'>rewind</strong> は「巻き戻す」。カセットやビデオの時代の言葉ですが、今でも「話を少し戻すね」の意味で会話に使われます。",
+        "Outro では、Havoc の声が pause tapes、rewind、record、loop と、作業の単語だけに切り詰められます。最後は Loop の一語が何度も繰り返されて、曲そのものがループのように終わっていきます。",
+        "2分37秒のうち、最初と最後を語りとスクラッチにあてて、真ん中に Nas のバースを一つだけ置いた構成です。短い曲ですが、テープを止めては録る手つきが、最初から最後まで音の中に残っています。"
+      ],
+      "usage": [
+        "<strong class='text-[var(--c-text)]'>rewind（話を戻す）</strong>: <em>Wait, rewind. What did you just say?</em>（ちょっと待って、今なんて言った？）。"
+      ]
+    }
+  ],
+  "background": [
+    {
+      "kicker": "『Light-Years』",
+      "h3": "Nas と DJ Premier の二人だけで作ったアルバム",
+      "paras": [
+        "『Light-Years』は、2025年12月12日に Mass Appeal から出た Nas と DJ Premier の連名アルバムです。全15曲すべてを DJ Premier がプロデュースしています。",
+        "Mass Appeal が2025年に展開した「Legend Has It…」シリーズの7作目で、シリーズ最後の一枚にあたります。",
+        "チャートでは Billboard 200 で最高47位、Top R&B/Hip-Hop Albums で最高9位を記録しました。2024年4月19日には、『Illmatic』の発売30周年に合わせて先行曲「Define My Name」が出ています。"
+      ]
+    },
+    {
+      "kicker": "Pause tape",
+      "h3": "サンプラーがない家で、ループを作る方法",
+      "paras": [
+        "ポーズテープは、ダブルカセットのデッキやラジカセの一時停止ボタンを使って、同じ数小節を何度も録り足していくやり方です。継ぎ目がずれないよう、ボタンを押す一瞬に神経を使います。",
+        "高価なサンプラーが手に入らない若いビートメイカーが、家にある機材だけで練習できる方法でした。Havoc の語りも、高い機材がなかったという話から始まっています。",
+        "1994年の『Illmatic』では、Q-Tip が「<a href='/songs/one-love' class='underline'>One Love</a>」のループをこの手法で作っています。同じアルバムで DJ Premier が手がけた「<a href='/songs/represent' class='underline'>Represent</a>」と聴き比べると、ループの組み方の違いも見えてきます。"
+      ]
+    }
+  ],
+  "keywords": [
+    [
+      "crib",
+      "家、住まい"
+    ],
+    [
+      "record, loop",
+      "録ってループさせる"
+    ],
+    [
+      "re-imagine",
+      "もう一度思い描く"
+    ],
+    [
+      "treble / bass",
+      "高音域と低音域"
+    ],
+    [
+      "Tryna",
+      "trying to の口語"
+    ],
+    [
+      "knock",
+      "低音が部屋に響く"
+    ],
+    [
+      "racket",
+      "騒音、やかましい音"
+    ],
+    [
+      "epiphany",
+      "ひらめき"
+    ],
+    [
+      "posse cut",
+      "複数のMCがつなぐ曲"
+    ],
+    [
+      "hook up",
+      "こしらえる、用意する"
+    ],
+    [
+      "lock in",
+      "集中する、のめり込む"
+    ],
+    [
+      "drop the needle",
+      "レコードに針を落とす"
+    ],
+    [
+      "four bars",
+      "4小節"
+    ],
+    [
+      "'bout",
+      "about の口語"
+    ],
+    [
+      "rewind",
+      "巻き戻す"
+    ]
+  ],
+  "behind": [
+    "作者クレジットは Nas と DJ Premier の二人だけで、プロデュースも DJ Premier です。アルバムの中では、ほかの作家の名前が付かない数少ない曲の一つになっています。",
+    "サンプル元は、作曲家・プロデューサーの David Axelrod の「1000 Rads」。1975年に Polydor から出たアルバム『Seriously Deep』の A面3曲目に入っている8分を超える曲です。",
+    "Intro と Outro の声は、Mobb Deep の Havoc。Nas と同じく Queensbridge の団地で育ったラッパーで、Mobb Deep のビートのほとんどを自分で作ってきたプロデューサーでもあります。その人のビート作りの始まりの話を、Premier がスクラッチの素材にしています。"
+  ],
+  "legacy": [
+    "アルバムからのシングルとしては出ていませんが、Nas の公式YouTubeチャンネルで、この曲のビジュアライザー映像が公開されています。このページの頭出しにも、その映像を使っています。",
+    "『Illmatic』で「N.Y. State of Mind」「<a href='/songs/memory-lane' class='underline'>Memory Lane</a>」「Represent」を一緒に作った二人が、30年以上たってアルバム一枚を組んだ作品です。その中で、二人の原点にあるビート作りの手触りをそのまま曲にしたのがこの一曲です。"
+  ],
+  "summary": [
+    "「Pause Tapes」は、カセットの一時停止ボタンでループを作っていた頃の記憶を、Havoc の語りと Nas のバースでたどる一曲です。",
+    "Panasonic、Sony、remote control、90 minute tape と、家庭の録音機材がそのまま英語の名詞として並びます。",
+    "crib、knock、racket、lock in、posse cut といった口語に加えて、press、record、rewind のような操作の動詞もまとめて覚えられます。"
+  ]
+}

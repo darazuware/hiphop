@@ -295,16 +295,16 @@
     "title": "N.Y. State Of Mind",
     "album": "Coachella Nights (Live)"
   },
-  "one-time-4-your-mind": {
-    "id": 77096694,
-    "artist": "NAS",
-    "title": "One Time 4 Your Mind",
-    "album": "Illmatic"
-  },
   "one-love": {
     "id": 77096693,
     "artist": "NAS",
     "title": "One Love (feat. Q-Tip)",
+    "album": "Illmatic"
+  },
+  "one-time-4-your-mind": {
+    "id": 77096694,
+    "artist": "NAS",
+    "title": "One Time 4 Your Mind",
     "album": "Illmatic"
   },
   "ooh-la-la": {
@@ -319,6 +319,12 @@
     "artist": "ファーサイド",
     "title": "Passin' Me By",
     "album": "Bizarre Ride II The Pharcyde"
+  },
+  "pause-tapes": {
+    "id": 3708305552,
+    "artist": "NAS",
+    "title": "Pause Tapes",
+    "album": "Light-Years"
   },
   "phone-tap": {
     "id": 559431742,

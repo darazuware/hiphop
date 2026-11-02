@@ -1,0 +1,189 @@
+[
+  {
+    "id": "first-beat-crib",
+    "anchor": [
+      "cassette",
+      "player",
+      "grandma's",
+      "crib"
+    ],
+    "fallbackT": 1,
+    "manualSec": null,
+    "captionSec": 2
+  },
+  {
+    "id": "record-loop-intro",
+    "anchor": [
+      "record",
+      "loop",
+      "record",
+      "loop"
+    ],
+    "fallbackT": 20,
+    "manualSec": null,
+    "captionSec": 21
+  },
+  {
+    "id": "re-scratch",
+    "anchor": [
+      "record",
+      "loop"
+    ],
+    "fallbackT": 27,
+    "manualSec": null,
+    "captionSec": null
+  },
+  {
+    "id": "drive-in-reimagine",
+    "anchor": [
+      "re",
+      "imagine",
+      "the",
+      "passion"
+    ],
+    "fallbackT": 51,
+    "manualSec": null,
+    "captionSec": null
+  },
+  {
+    "id": "panasonic-treble-bass",
+    "anchor": [
+      "panasonic",
+      "tape",
+      "recorder"
+    ],
+    "fallbackT": 46,
+    "manualSec": null,
+    "captionSec": 55
+  },
+  {
+    "id": "dial-sony-knocks",
+    "anchor": [
+      "move",
+      "the",
+      "dial",
+      "improve"
+    ],
+    "fallbackT": 52,
+    "manualSec": null,
+    "captionSec": 61
+  },
+  {
+    "id": "guess-polo-racket",
+    "anchor": [
+      "guess",
+      "jeans",
+      "and",
+      "polo"
+    ],
+    "fallbackT": 83,
+    "manualSec": null,
+    "captionSec": 91
+  },
+  {
+    "id": "half-in",
+    "anchor": [
+      "submerged",
+      "in",
+      "a",
+      "very"
+    ],
+    "fallbackT": 90,
+    "manualSec": null,
+    "captionSec": 96
+  },
+  {
+    "id": "symphony-posse-cut",
+    "anchor": [
+      "epiphany",
+      "kane",
+      "went",
+      "last"
+    ],
+    "fallbackT": 99,
+    "manualSec": null,
+    "captionSec": null
+  },
+  {
+    "id": "remote-ron-g",
+    "anchor": [
+      "pickin",
+      "up",
+      "the",
+      "stereo's"
+    ],
+    "fallbackT": 99,
+    "manualSec": null,
+    "captionSec": 105
+  },
+  {
+    "id": "hook-a-beat-up",
+    "anchor": [
+      "tells",
+      "me",
+      "i",
+      "could"
+    ],
+    "fallbackT": 108,
+    "manualSec": null,
+    "captionSec": 113
+  },
+  {
+    "id": "closet-lockin",
+    "anchor": [
+      "johnnie",
+      "taylor",
+      "records"
+    ],
+    "fallbackT": 114,
+    "manualSec": null,
+    "captionSec": 119
+  },
+  {
+    "id": "needle-90-minute",
+    "anchor": [
+      "grab",
+      "a",
+      "piece",
+      "of"
+    ],
+    "fallbackT": 118,
+    "manualSec": null,
+    "captionSec": 122
+  },
+  {
+    "id": "four-bars-pause",
+    "anchor": [
+      "play",
+      "it",
+      "one",
+      "time"
+    ],
+    "fallbackT": 124,
+    "manualSec": null,
+    "captionSec": 128
+  },
+  {
+    "id": "first-beat-twenty-times",
+    "anchor": [
+      "record",
+      "loop",
+      "repeat"
+    ],
+    "fallbackT": 130,
+    "manualSec": null,
+    "captionSec": 133
+  },
+  {
+    "id": "outro-rewind",
+    "anchor": [
+      "pause",
+      "tapes",
+      "rewind",
+      "it"
+    ],
+    "fallbackT": 141,
+    "manualSec": null,
+    "captionSec": null
+  }
+]
