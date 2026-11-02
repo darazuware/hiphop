@@ -1,0 +1,754 @@
+---
+import LearningUnit from '../../components/LearningUnit.astro';
+import QuickSlang from '../../components/QuickSlang.astro';
+import SongLayout from '../../layouts/SongLayout.astro';
+import SampleYoutube from '../../components/SampleYoutube.astro';
+
+import tsData from '../../../agent/one-love/assets/units-timestamps.json';
+const YT = "hxce_qvhi5I";
+const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.approx }]));
+---
+
+<SongLayout
+  title="One Love 和訳・英語スラング解説 | Nas feat. Q-Tip"
+  description="Nas「One Love」（1994年『Illmatic』収録・Q-Tipプロデュース）を和訳付きで英語学習の教材として解説。刑務所の仲間へ宛てた手紙の書き出し、bid・commissary・V.I といった面会や差し入れの言葉、習慣の be や I comes のAAVE文法まで、頭出し付きで読み解きます。"
+  slug="one-love"
+  learningPage={true}
+  songDuration={330}
+  highlights={[
+    '曲全体が、塀の中にいる仲間へ宛てた手紙の形。Dear Born、stay strong、Word to mother と、手紙と近況報告の言い回しが続く',
+    'bid、commissary、V.I。面会や差し入れまわりの言葉が、説明抜きで日常語として出てくる',
+    'Q-Tipが歌う one love のリフレインと、最後に仲間の名前を一人ずつ呼んでいくアウトロ',
+  ]}
+  youtubeId="hxce_qvhi5I"
+  sampleYoutubeId="FJnH-N_bZYI"
+  sampleTitle="The Heath Brothers - Smilin' Billy Suite Part II"
+  sampleInContent={true}
+>
+
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■会えない仲間に、近所の近況を書き送る手紙</h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          「One Love」は、Nasの1994年のデビューアルバム『Illmatic』の7曲目です。プロデュースはA Tribe Called QuestのQ-Tipで、曲の合間に入る one love のリフレインも Q-Tip が歌っています。
+        </p>
+        <p>
+          曲の仕掛けはシンプルで、Nasが刑務所にいる仲間へ書いた手紙を、そのまま読み上げる形になっています。冒頭の寸劇では、塀の中の誰かが「Nasから手紙が来た」と仲間に見せるところから始まります。
+        </p>
+        <p>
+          手紙なので、中身は近況報告です。子どもが生まれたこと、彼女の様子、地元の誰それがどうしているか。
+        </p>
+        <p>
+          会えない相手に向けた言葉なので、何気ない一言にも相手への気づかいがにじんでいます。
+        </p>
+        <p>
+          地元の荒れた話も多く出てくる曲なので、穏やかでない内容を含む行はここでは扱いません。手紙の言い回し、面会や差し入れの言葉、Queensbridgeの仲間の名前が出る行に絞って読んでいきます。
+        </p>
+      </div>
+    </section>
+
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■手紙の英語と、塀の中の言葉</h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          英語の面では、Dear Born の書き出し、stay strong や maintain の励まし、Word to mother の誓いの言い方など、手紙と会話の中間のような口語がたくさん拾えます。
+        </p>
+        <p>
+          bid（刑期）、commissary（所内の売店）、V.I（面会）のような、塀の中の生活にまつわる言葉が説明なしで出てくるのも特徴です。he be riffin' の習慣の be、I comes back home の三単現の s のずれなど、AAVE（アフリカ系アメリカ人英語）の文法もはっきり聞こえます。
+        </p>
+        <p>
+          同じ『Illmatic』からは、「<a href='/songs/represent' class='underline'>Represent</a>」「<a href='/songs/the-world-is-yours' class='underline'>The World Is Yours</a>」「<a href='/songs/it-aint-hard-to-tell' class='underline'>It Ain't Hard to Tell</a>」も解説しています。
+        </p>
+      </div>
+    </section>
+
+    <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
+      <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
+        <li><a href="#story" class="hover:text-[var(--c-gold)] transition-colors">01 ストーリーの流れ（まず曲全体をつかむ）</a></li>
+        <li><a href="#units" class="hover:text-[var(--c-gold)] transition-colors">02 学ぶ表現（スラング・韻・言葉遊び・AAVE）</a></li>
+        <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">03 文化的背景</a></li>
+        <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">04 制作の裏側</a></li>
+        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">05 評価とその後</a></li>
+      </ol>
+    </nav>
+
+    <section id="story" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        ストーリーの流れ（まず曲全体をつかむ）
+      </h2>
+      <p class="text-xs text-[var(--c-dim)] mb-5">
+        3通の手紙と、最後の呼びかけでできている曲です。誰に向けた言葉なのかだけ先に押さえておくと、各行が読みやすくなります。
+      </p>
+      <div class="space-y-4 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          <strong class='text-[var(--c-text)]'>Intro</strong>は塀の中の寸劇で、Nasからの手紙が届いた場面です。<strong class='text-[var(--c-text)]'>Verse 1</strong>はその手紙の中身で、子どもの誕生、彼女のこと、地元の様子、仲間のCormegaの消息へと話が移ります。
+        </p>
+        <p>
+          <strong class='text-[var(--c-text)]'>Verse 2</strong>は別の仲間 Born への手紙で、面会や差し入れの話と、もうすぐ出てこられる相手への励まし。<strong class='text-[var(--c-text)]'>Verse 3</strong>は手紙を離れ、地元の12歳の少年と話す場面です。
+        </p>
+        <p>
+          Nasは少年に忠告を残して去り、アウトロで仲間の名前を一人ずつ呼んで終わります。
+        </p>
+        <p class="text-xs text-[var(--c-dim)]">
+          ※本ページは批評・教育目的で、解説に必要な範囲の断片のみを引用しています。全歌詞の対訳は掲載していません。
+        </p>
+      </div>
+    </section>
+
+    <div id="units"></div>
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        学ぶ表現（スラング・韻・言葉遊び・AAVE）
+      </h2>
+      <div class="space-y-3 text-xs text-[var(--c-dim)] mb-6">
+        <p>Intro の寸劇からアウトロまで、曲の進む順に表現を拾っていきます。曲名の one love は、Verse 1のあと最初のリフレインのところで取り上げています。</p>
+        <p>上に英語の引用と和訳、下に解説という並びです。</p>
+        <p>語の意味と背景だけで説明がつく項目は、英語の引用を置かずに書いています。▶ を押すと公式ビデオの該当箇所から再生できます。</p>
+      </div>
+
+      <LearningUnit
+        heading="a letter I got from my man 手紙を見せる寸劇"
+        label="★ 語法"
+        mc="Intro（寸劇）"
+        t={TS["letter-from-nas"].t} tApprox={TS["letter-from-nas"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Yo it's a letter I got from my man Nas, man<br />What it say, kid?</Fragment>
+        <Fragment slot="jpn">ほら、ダチのNasから来た手紙だよ／なんて書いてある？</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 曲の冒頭、ビートが入る前の会話の後半です。</p>
+        <p>曲の前置きとして、塀の中の二人の会話が入ります。片方が「いいもの見せてやる」ともったいぶって取り出すのが、Nasからの手紙です。</p>
+        <p><strong class='text-[var(--c-text)]'>my man</strong> は「俺のダチ」。友達を紹介するときの定番の言い方で、man が二回続くのは、文末の man が呼びかけ（なあ）だからです。</p>
+        <p><strong class='text-[var(--c-text)]'>What it say?</strong> は What does it say? の does を落とした形です。英語では、手紙や看板の内容を聞くときに say を使います。</p>
+        <p>「手紙が言う」で「手紙に書いてある」になる、日本語と少し発想の違う言い方です。</p>
+        <p>この会話のおかげで、ここから先のバースが「読み上げられている手紙」として聞こえるようになります。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>What does the sign say?</strong>: あの看板、なんて書いてある？</p>
+          <p><strong class='text-[var(--c-text)]'>my man</strong>: <em>This is my man Ken from work.</em>（職場の仲間のケンだ）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="doin' your bid 「刑期を務める」"
+        label="★ スラング"
+        mc="Nas（Verse 1）"
+        t={TS["doin-your-bid"].t} tApprox={TS["doin-your-bid"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の1行目、手紙の書き出しです。</p>
+        <p>Verse 1は What up, kid?（よう、元気か）という軽い挨拶で始まり、すぐに相手の今の暮らしを気づかう言葉が続きます。</p>
+        <p>その行末にあるのが <QuickSlang word='bid' desc='刑務所で過ごす刑期のこと、do a bid で「刑期を務める」、手紙の最初に、相手の今いる場所への気づかいとして出てくる' /> です。もとは「入札、試み」を意味する語ですが、スラングでは刑期を指します。</p>
+        <p>do a bid で「刑期を務める」、doin' your bid で「お前が今務めている刑期」。手紙の一行目で、相手がどこにいるのかが分かる仕組みになっています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>do a bid</strong>: <em>He did a five-year bid upstate.</em>（彼は州北部で5年の刑期を務めた）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="looks like ya / write ya 近況報告と ya の脚韻"
+        label="★ 韻／語法"
+        mc="Nas（Verse 1）"
+        t={TS["congrats-son"].t} tApprox={TS["congrats-son"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Plus, congratulations, you know you got a son<br />I heard he looks like ya, why don't your lady write ya?</Fragment>
+        <Fragment slot="jpn">それと、おめでとう、息子が生まれたんだぜ／お前に似てるってさ、なのに彼女はなんで手紙を書かないんだ？</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の4〜5行目です。</p>
+        <p>手紙らしい近況報告の場面です。相手が塀の中にいる間に、子どもが生まれたことを伝えています。</p>
+        <p><strong class='text-[var(--c-text)]'>you know you got a son</strong> の you know は「知ってるだろうけど」ではなく、話をつなぐ「ほら」くらいの軽い挟み言葉です。</p>
+        <p>2行目は、行の途中の <strong class='text-[var(--c-text)]'>like ya</strong> と行末の <strong class='text-[var(--c-text)]'>write ya</strong> が韻になっています。ya は you のくだけた発音で、「ライク・ヤ」「ライト・ヤ」と母音までそろっています。</p>
+        <p>うれしい知らせのすぐあとに、彼女から手紙が来ない話を並べるのが切ない流れです。write は「手紙を書く」の意味で、write someone で「〜に手紙を書く」になります。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>write ~</strong>（〜に手紙を書く）: <em>Write me when you get there.</em>（着いたら手紙ちょうだい）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="she got hyper 「急にカッとなった」"
+        label="★ スラング"
+        mc="Nas（Verse 1）"
+        t={TS["got-hyper"].t} tApprox={TS["got-hyper"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Told her she should visit, that's when she got hyper</Fragment>
+        <Fragment slot="jpn">面会に行けよって言ったら、急にカッとなってさ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の6行目です。</p>
+        <p>前の行の「なんで彼女は手紙を書かないんだ」の続きで、Nasが彼女に面会を勧めたときの反応です。</p>
+        <p><strong class='text-[var(--c-text)]'>hyper</strong> は hyperactive（落ち着きがない、活発すぎる）の短縮形です。got hyper で「興奮した、まくし立てた」くらいの意味になります。</p>
+        <p>Told her の主語 I が落ちているのは、話し言葉でよくある省略です。手紙の文体というより、しゃべっている調子がそのまま書かれている感じがあります。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>hyper</strong>: <em>The kids get hyper after too much candy.</em>（子どもはお菓子を食べすぎるとはしゃぎ出す）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="he be riffin' 習慣の be と riff"
+        label="★ AAVE文法"
+        mc="Nas（Verse 1）"
+        t={TS["he-be-riffin"].t} tApprox={TS["he-be-riffin"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">He didn't listen, he be riffin' while I'm tellin' him stuff</Fragment>
+        <Fragment slot="jpn">あの子は言うことを聞かない、俺が話してる間もずっと口答えしてる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の8行目。彼女が息子について話している内容です。</p>
+        <p>行の真ん中の <strong class='text-[var(--c-text)]'>he be riffin'</strong> が学習ポイントです。標準英語なら he is riffing ですが、ここでは be が活用されずにそのまま置かれています。</p>
+        <p>これは <QuickSlang word='習慣の be' desc='AAVEの文法で、活用しない be を置くと「いつも〜している」という繰り返しの意味になる、今この瞬間だけの話ではないことを示す' /> と呼ばれる形で、「いつも〜している」という繰り返しを表します。he is riffing なら「今口答えしている」、he be riffing なら「しょっちゅう口答えしている」です。</p>
+        <p><strong class='text-[var(--c-text)]'>riff</strong> は、もとは音楽の短いフレーズのこと。会話では、相手に食ってかかる、ぐちぐち言い返す、という意味で使われます。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>習慣の be</strong>: <em>She be working late on Fridays.</em>（彼女は金曜はいつも遅くまで働いてる）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="more trife than ever 「前よりもっと物騒」"
+        label="★ スラング"
+        mc="Nas（Verse 1）"
+        t={TS["more-trife"].t} tApprox={TS["more-trife"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">And night time is more trife than ever</Fragment>
+        <Fragment slot="jpn">夜は前よりずっと物騒になった</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の後半、地元の様子を伝えるくだりです。</p>
+        <p><strong class='text-[var(--c-text)]'>trife</strong> は trifling（くだらない、ろくでもない）を縮めた語です。NYのスラングでは「物騒な、すさんだ」という意味で使われます。</p>
+        <p>more trife than ever で「これまでになくすさんでいる」。地元の空気が悪くなっていることを、短い一行でまとめています。</p>
+        <p>形容詞なので more をつけて比較級にしていますが、trifer のような形にはしません。もとの trifling が長い語なので、比較級は more を使う形がそのまま残っています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>trifling</strong>: <em>That was a trifling thing to do.</em>（ずいぶんせこい真似をしたな）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="hold the fort down 「留守を守れ」と Cormega"
+        label="★ 語法／人物"
+        mc="Nas（Verse 1）"
+        t={TS["cormega-hold-the-fort"].t} tApprox={TS["cormega-hold-the-fort"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">What up with Cormega? Did you see him? Are y'all together?<br />If so, then hold the fort down, represent to the fullest</Fragment>
+        <Fragment slot="jpn">Cormegaはどうしてる？会ったか？一緒にいるのか？／だったら持ち場を守って、とことん地元を背負えよ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の終盤です。</p>
+        <p>Cormegaは、Nasと同じQueensbridge出身のラッパーです。90年代の初めに収監されていて、その間キャリアが止まっていました。</p>
+        <p>出所したのは1995年のことです。</p>
+        <p><strong class='text-[var(--c-text)]'>y'all</strong> は you all の口語で、「お前ら」。<strong class='text-[var(--c-text)]'>Are y'all together?</strong> で、同じ施設にいるのかを尋ねています。</p>
+        <p><strong class='text-[var(--c-text)]'>hold the fort</strong> は「とりでを守る」から来た慣用句で、「留守を預かる、持ちこたえる」という意味です。down をつけた hold it down、hold the fort down はヒップホップでよく聞く形です。</p>
+        <p>続く <QuickSlang word='represent' desc='地元や仲間の看板を背負って堂々と振る舞うこと、ここでは塀の中でもQueensbridgeの名に恥じないようにやれ、という励まし' href='/slang/represent' /> to the fullest は「最大限に地元を背負え」。塀の中でもQueensbridgeの看板を下ろすな、という励ましとして読めます。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>hold the fort</strong>: <em>Can you hold the fort while I grab lunch?</em>（昼を買ってくる間、ここを頼める？）。</p>
+          <p><strong class='text-[var(--c-text)]'>to the fullest</strong>: <em>Live life to the fullest.</em>（人生を思いきり生きる）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="commissary 刑務所の売店に入れたお金"
+        label="★ スラング"
+        mc="Nas（Verse 1）"
+        t={TS["commissary"].t} tApprox={TS["commissary"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">I left a half a hundred in your commissary</Fragment>
+        <Fragment slot="jpn">お前の売店口座に50ドル入れておいた</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の最後から2行目です。</p>
+        <p><strong class='text-[var(--c-text)]'>commissary</strong> は、刑務所の中の売店のことです。受刑者は所内の口座にあるお金で、お菓子や日用品、切手などを買います。</p>
+        <p>外の家族や友達がその口座にお金を入れるのが、いちばん身近な差し入れです。in your commissary は「お前の売店口座に」という意味になります。</p>
+        <p><strong class='text-[var(--c-text)]'>a half a hundred</strong> は「100の半分」で50ドル。fifty と言わずに遠回しに言うところに、照れ隠しのような響きがあります。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>commissary</strong> はもともと軍の売店にも使う語です。<em>The base has a commissary for families.</em>（基地には家族向けの売店がある）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="when push came to shove と (One what?) One love!"
+        label="★ イディオム"
+        mc="Nas（Verse 1）"
+        t={TS["push-came-to-shove"].t} tApprox={TS["push-came-to-shove"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の最後の行です。</p>
+        <p>Verse 1の締めの行には、<QuickSlang word='イディオム' desc='単語の意味を足しても全体の意味にならない決まり文句、慣用句' /> の <strong class='text-[var(--c-text)]'>when push comes to shove</strong> が出てきます。</p>
+        <p>push は「押す」、shove は「突き飛ばす」。押し合いが突き飛ばし合いになるような「いざという時、追い込まれた時」を指す言い方です。</p>
+        <p>行の中では過去形の came になっていて、「いざという時にそばにいてくれたやつだ」と、相手への信頼を書いています。</p>
+        <p>行末には (One what?) One love! という掛け合いがあります。カッコの中は合いの手の声で、「ワン、何だって？」に「ワン・ラヴ！」と答える形。</p>
+        <p>手紙の結びの言葉が、そのままリフレインへの橋渡しになっています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>when push comes to shove</strong>: <em>When push comes to shove, family comes first.</em>（いざとなったら家族が第一だ）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="One love 曲名でもある「仲間への挨拶」"
+        label="★ スラング／タイトル"
+        mc="Q-Tip（Refrain）"
+        t={TS["one-love-refrain"].t} tApprox={TS["one-love-refrain"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">One love, one love, one love, one love</Fragment>
+        <Fragment slot="jpn">ワン・ラヴ、ワン・ラヴ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 各バースのあとに入るリフレインです。歌っているのはプロデューサーの Q-Tip。</p>
+        <p><QuickSlang word='one love' desc='仲間への挨拶や手紙の結び、この曲では塀の中の仲間へ送る、変わらない連帯のしるしとして各バースの締めに置かれる' /> は、直訳すると「ひとつの愛」です。ヒップホップでは、別れ際や手紙の最後に添える「元気でな、俺たちはつながってる」という挨拶として使われます。</p>
+        <p>Nas本人は、曲名はBob Marleyの「One Love/People Get Ready」から来ていると話しています。</p>
+        <p>各バースは、この one love で手紙を閉じるように終わり、そこへQ-Tipの穏やかな声のリフレインが重なります。Nasの早口のバースと、ゆったりした繰り返しの対比が耳に残る作りです。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>One love.</strong>: 別れ際に <em>Alright, I'm out. One love.</em>（じゃあ行くわ。元気でな）。</p>
+          <p>手紙やメッセージの結びにも使えます。<em>Take care of yourself. One love.</em>（体に気をつけて。</p>
+          <p>またな）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Dear Born, stay strong 2通目の手紙の書き出し"
+        label="★ 語法"
+        mc="Nas（Verse 2）"
+        t={TS["dear-born"].t} tApprox={TS["dear-born"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Dear Born, you'll be out soon, stay strong</Fragment>
+        <Fragment slot="jpn">Bornへ、もうすぐ出られるんだから、気をしっかり持てよ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の1行目です。</p>
+        <p>Verse 2は、Dear から始まる手紙の正式な書き出しで入ります。宛先は Born という別の仲間で、Verse 1とは違う相手への手紙だと分かります。</p>
+        <p><strong class='text-[var(--c-text)]'>be out</strong> は「外に出る」ですが、ここでは「出所する」。out だけで刑務所の外を指せるのは、文脈が分かっている者同士の会話だからです。</p>
+        <p><strong class='text-[var(--c-text)]'>stay strong</strong> は「強くあり続けろ」で、つらい状況にいる相手への定番の励ましです。日本語なら「負けるなよ」「踏ん張れ」あたりが近いと思います。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>stay strong</strong>: <em>Stay strong, it's almost over.</em>（踏ん張れ、あと少しだ）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Word to mother 母親にかけて誓う言い方"
+        label="★ スラング"
+        mc="Nas（Verse 2）"
+        t={TS["word-to-mother"].t} tApprox={TS["word-to-mother"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Word to mother, I heard him frontin'</Fragment>
+        <Fragment slot="jpn">母さんに誓って、あいつが見栄を張ってるのを聞いたんだ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の6行目です。</p>
+        <p><strong class='text-[var(--c-text)]'>Word to mother</strong> は「母親にかけて言うけど、本当だ」という誓いの決まり文句です。word はここで「約束の言葉」で、Intro の寸劇に出てくる word is bond（言葉は契約、誓って本当だ）と同じ系統の言い方になります。</p>
+        <p>行末の <QuickSlang word='fronting' desc='実際より大きく見せようと虚勢を張ること、ここでは昔の因縁の相手が、強がっている様子を指す' href='/slang/front' /> は front（正面、見せかけ）の動詞形で、「見栄を張る、強がる」の意味です。</p>
+        <p>heard him frontin' は「あいつが強がってるのを聞いた」。知覚動詞 hear のあとに -ing を続けて、その場面を見聞きしたことを表す形です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>front</strong>: <em>Stop fronting, I know you're nervous.</em>（強がるなよ、緊張してるのは分かってる）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Wildin' on the Island 施設の名前で語る近況"
+        label="★ スラング／地名"
+        mc="Nas（Verse 2）"
+        t={TS["island-elmira"].t} tApprox={TS["island-elmira"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Wildin' on the Island, but now in Elmira</Fragment>
+        <Fragment slot="jpn">Islandで暴れてたけど、今はElmiraにいる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の中盤です。</p>
+        <p><strong class='text-[var(--c-text)]'>wildin'</strong> は wild（荒っぽい）を動詞にした形で、「はしゃぐ、羽目を外す、無茶をする」の意味です。今でもよく使われるスラングで、That's wildin'（それはやりすぎ）のようにも言います。</p>
+        <p><strong class='text-[var(--c-text)]'>the Island</strong> は、ニューヨーク市の拘置施設がある Rikers Island のことです。<strong class='text-[var(--c-text)]'>Elmira</strong> はニューヨーク州エルマイラにある州の刑務所を指します。</p>
+        <p>地名だけで「どこにいたか、今どこにいるか」が伝わる書き方で、手紙の相手との間に共通の知識があることが分かります。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>wildin'</strong>: <em>You're wildin' if you think I'm paying for that.</em>（俺がそれ払うと思ってるなら、どうかしてるよ）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="maintain 「平静を保て」と the corner's ours"
+        label="★ スラング"
+        mc="Nas（Verse 2）"
+        t={TS["maintain-corner"].t} tApprox={TS["maintain-corner"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">But maintain, when you come home, the corner's ours</Fragment>
+        <Fragment slot="jpn">でも落ち着いてろ、戻ってきたら、あの角は俺たちのものだ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の中盤、塀の中での苦労話を受けた行です。</p>
+        <p><strong class='text-[var(--c-text)]'>maintain</strong> は「維持する」ですが、目的語なしで使うと「平静を保つ、なんとか持ちこたえる」というスラングになります。前の行で相手のつらい話を聞いたうえでの「辛抱しろよ」です。</p>
+        <p><strong class='text-[var(--c-text)]'>come home</strong> は「帰宅する」ですが、ここでは出所して地元に戻ること。<strong class='text-[var(--c-text)]'>the corner</strong> は、仲間がたむろする街角です。</p>
+        <p>the corner's ours（あの角は俺たちのものだ）で、帰る場所はちゃんと残してある、と伝えています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>maintain</strong>: <em>Just maintain until the weekend.</em>（週末までなんとか耐えろ）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="V.I、mom dukes、kicks、flicks 面会と差し入れの言葉"
+        label="★ スラング"
+        mc="Nas（Verse 2）"
+        t={TS["next-vi"].t} tApprox={TS["next-vi"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">But chill, see you on the next V.I<br />I gave your mom dukes loot for kicks, plus sent you flicks</Fragment>
+        <Fragment slot="jpn">まあ落ち着け、次の面会で会おう／お前のお袋さんにスニーカー代を渡したし、写真も送ったぜ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の後半です。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>1. V.I（面会）</p>
+        <p><strong class='text-[var(--c-text)]'>V.I</strong> は visit（面会）を縮めた呼び方です。see you on the next V.I で「次の面会で会おう」。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>2. mom dukes と loot（お袋さんとお金）</p>
+        <p><strong class='text-[var(--c-text)]'>mom dukes</strong> は「お袋」をくだけて言うNYのスラングです。父親なら pop dukes になります。</p>
+        <p><strong class='text-[var(--c-text)]'>loot</strong> は本来「戦利品」で、スラングではお金のこと。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>3. kicks と flicks（スニーカーと写真）</p>
+        <p><QuickSlang word='kicks' desc='スニーカーのこと、蹴る（kick）ものだから、という素直な成り立ちの語、ここでは塀の中の仲間に送るスニーカー代として出てくる' href='/slang/kicks' /> はスニーカー、<strong class='text-[var(--c-text)]'>flicks</strong> は写真のことです。flick は映画の意味でも使いますが、ここでは送る写真です。</p>
+        <p>kicks と flicks は行の中で韻を踏んでいて、差し入れの報告を軽快に読める一行にしています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>kicks</strong>: <em>Nice kicks! Are those new?</em>（いいスニーカーだな、新しいの？）。</p>
+          <p><strong class='text-[var(--c-text)]'>flicks</strong>: <em>Send me some flicks from the trip.</em>（旅行の写真送ってよ）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="buckwildin' と play it lowkey 「目立たずにいる」"
+        label="★ スラング"
+        mc="Nas（Verse 2）"
+        t={TS["4-main-lowkey"].t} tApprox={TS["4-main-lowkey"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Your brother's buckwildin' in 4-Main, he wrote me<br />He might beat his case, 'til he come home, I'll play it lowkey</Fragment>
+        <Fragment slot="jpn">お前の弟は4-Mainで暴れてる、手紙をくれたよ／裁判に勝つかもしれない、帰ってくるまで俺は大人しくしてる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ V.I の行のすぐあとです。</p>
+        <p><strong class='text-[var(--c-text)]'>buckwildin'</strong> は buck wild（手がつけられないほど荒れた）を動詞にした形で、前に出てきた wildin' をさらに強めた言い方です。4-Main は、弟がいる収容先の区画の呼び名です。</p>
+        <p><strong class='text-[var(--c-text)]'>beat his case</strong> は「裁判に勝つ、無罪になる」。beat（打ち負かす）を case（訴訟）に使う法廷の口語です。</p>
+        <p>行末の <strong class='text-[var(--c-text)]'>play it lowkey</strong> は「目立たないようにしておく」。lowkey は今では「ひそかに、ちょっと」の意味の副詞として広まりましたが、ここではもとの「控えめに、静かに」の意味で使われています。</p>
+        <p>'til he come home の come に s がついていないのも、AAVEらしいところです。標準英語なら comes になります。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>keep it lowkey</strong>: <em>Let's keep the party lowkey this year.</em>（今年のパーティーは控えめにしよう）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="time flies と your moms 「時間はすぐたつ」"
+        label="★ 語法"
+        mc="Nas（Verse 2）"
+        t={TS["stay-civilized"].t} tApprox={TS["stay-civilized"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">So stay civilized, time flies, though incarcerated, your mind dive<br />I hate it when your moms cries</Fragment>
+        <Fragment slot="jpn">だから落ち着いてろ、時間はすぐたつ、閉じ込められてても心は自由に潜れる／お前のお袋さんが泣くのは見たくないんだ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の終わり近くです。</p>
+        <p><strong class='text-[var(--c-text)]'>stay civilized</strong> は「行儀よくしていろ」。中で揉めごとを起こさず、刑期を無事に終えろ、という意味の忠告です。</p>
+        <p><strong class='text-[var(--c-text)]'>time flies</strong> は「時間は飛ぶように過ぎる」という定番の言い回しで、時の流れの早さを嘆くときにも、励ますときにも使えます。ここは後者です。</p>
+        <p><strong class='text-[var(--c-text)]'>incarcerated</strong> は「収監された」というかたい語です。手紙の口語の中に一語だけ法律用語が混ざっていて、体は閉じ込められても心は自由に動ける、という対比になっています。</p>
+        <p><strong class='text-[var(--c-text)]'>your moms</strong> は your mom の口語形で、NYでは moms と s をつけて言うことがよくあります。cries と civilized、flies、dive と、ア・イの音が行をまたいで続いています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>time flies</strong>: <em>Time flies when you're having fun.</em>（楽しいと時間はあっという間だ）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="school textbooks, bibles 教科書への疑い"
+        label="★ 語法"
+        mc="Nas（Verse 3）"
+        t={TS["school-textbooks"].t} tApprox={TS["school-textbooks"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Mind's in another world, thinkin', "How can we exist through the facts?"<br />Written in school textbooks, bibles, et cetera</Fragment>
+        <Fragment slot="jpn">心は別の世界、考えてる「どうやって生きていけっていうんだ、こんな事実を前に」／学校の教科書や聖書なんかに書かれた事実をさ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3の2〜3行目です。</p>
+        <p>Verse 3は手紙から離れ、Nas自身の独り言から始まります。<strong class='text-[var(--c-text)]'>Mind's in another world</strong> は My mind is in another world の My と is を落とした形で、「上の空で考えごとをしている」という状態です。</p>
+        <p><strong class='text-[var(--c-text)]'>the facts written in ~</strong> の形で、「〜に書かれている事実」。教科書や聖書に書かれていることをそのまま信じていいのか、という疑問が出てきます。</p>
+        <p>直後の行では、学校の授業を突き放す一言と、lies get me vexed-er（その嘘が俺をもっと苛立たせる）が続きます。<strong class='text-[var(--c-text)]'>vexed</strong> は「苛立った」で、それに -er をつけた vexed-er は文法上はくずれた比較級です。</p>
+        <p>くずし方まで含めて、苛立ちが伝わる造語になっています。</p>
+        <p><strong class='text-[var(--c-text)]'>et cetera</strong> はラテン語由来の「〜など」。etc. と略して書く語を、ここではきちんと発音しています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>vexed</strong>: <em>He was vexed by the delay.</em>（彼は遅れにいらいらしていた）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="I be ghost from my projects 「団地から姿を消す」"
+        label="★ スラング／AAVE文法"
+        mc="Nas（Verse 3）"
+        t={TS["be-ghost"].t} tApprox={TS["be-ghost"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">So I be ghost from my projects</Fragment>
+        <Fragment slot="jpn">だから俺は団地からふっと姿を消す</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3の5行目です。</p>
+        <p><QuickSlang word='ghost' desc='幽霊のように音もなく姿を消すこと、be ghost で「いなくなる」、ここでは息抜きのために団地をしばらく離れることを言っている' href='/slang/ghost' /> は「幽霊」から来た言い方で、be ghost で「消える、立ち去る」です。今でも I'm ghost（じゃ、消えるわ）のように使われます。</p>
+        <p>ここでも be が活用されていません。Verse 1の he be riffin' と同じ習慣の be で、「ときどきそうする」という繰り返しの意味が入っています。</p>
+        <p><strong class='text-[var(--c-text)]'>projects</strong> は公営住宅団地のことで、Nasの場合は Queensbridge Houses を指します。続く行では、ペンとノートを持って週末を一人で過ごす話になります。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>I'm ghost</strong>: <em>It's late, I'm ghost.</em>（もう遅いし、帰るわ）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="a two-day stay と relax my dome 「頭を休める」"
+        label="★ スラング"
+        mc="Nas（Verse 3）"
+        t={TS["two-day-stay"].t} tApprox={TS["two-day-stay"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">A two-day stay, you may say I needed time alone<br />To relax my dome, no phone</Fragment>
+        <Fragment slot="jpn">二日間の滞在、一人の時間が必要だったってとこさ／頭を休めるために、電話も持たずに</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3の7〜8行目です。</p>
+        <p><strong class='text-[var(--c-text)]'>a two-day stay</strong> は「二日間の滞在」。two-day のように数字と名詞をハイフンでつなぐと形容詞になり、day は複数の s がつきません。</p>
+        <p><strong class='text-[var(--c-text)]'>you may say</strong> は「言ってみれば」。断定を少しやわらげる挟み言葉です。</p>
+        <p><strong class='text-[var(--c-text)]'>dome</strong> は「丸屋根」から来たスラングで、頭のこと。relax my dome で「頭を休める」になります。</p>
+        <p>stay、say、alone、phone、dome と、行の中で音が重なっていくのも聞きどころです。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>a ~-day trip</strong>: <em>We took a three-day trip to Kyoto.</em>（京都へ三日間の旅行をした）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="stressed somethin' terrible 「ひどく参っていた」"
+        label="★ 語法"
+        mc="Nas（Verse 3）"
+        t={TS["stressed-terrible"].t} tApprox={TS["stressed-terrible"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">You see the streets had me stressed somethin' terrible</Fragment>
+        <Fragment slot="jpn">なにしろ、街のせいでひどく参ってたんだ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3の9行目です。</p>
+        <p><strong class='text-[var(--c-text)]'>had me stressed</strong> は「have＋人＋過去分詞」で、「〜が俺を参らせていた」。主語が the streets（街、路上の暮らし）になっているのがポイントです。</p>
+        <p><strong class='text-[var(--c-text)]'>something terrible</strong> は、形容詞や動詞のあとに置いて「ひどく、ものすごく」と程度を強める口語です。I miss you something terrible（ひどく会いたい）のように使います。</p>
+        <p>文頭の You see は「ほら、つまりね」。理由を説明する前置きで、ここで団地を離れた理由が語られます。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>something terrible</strong>: <em>My back hurts something terrible.</em>（腰がひどく痛む）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="I comes back home と Shorty Doo-Wop"
+        label="★ AAVE文法"
+        mc="Nas（Verse 3）"
+        t={TS["shorty-doo-wop"].t} tApprox={TS["shorty-doo-wop"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">So I comes back home, nobody's out but Shorty Doo-Wop</Fragment>
+        <Fragment slot="jpn">それで団地に戻ると、外にいるのはShorty Doo-Wopだけだった</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3の中盤、少年が登場する行です。</p>
+        <p><strong class='text-[var(--c-text)]'>I comes</strong> と、主語が I なのに動詞に s がついています。AAVEや一部の口語では、物語を語るときに動詞へ s をつけることがあり、話に勢いを出す効果があります。</p>
+        <p><strong class='text-[var(--c-text)]'>nobody's out but ~</strong> は「〜以外は誰も外にいない」。but がここでは「〜を除いて」の意味です。</p>
+        <p><QuickSlang word='Shorties' desc='年下の子や小さい子を呼ぶ言葉、ここでは団地の12歳の少年につけられた呼び名の一部' /> の Shorty は、年下や小柄な相手を呼ぶ言葉です。Shorty Doo-Wop は、この少年のあだ名として出てきます。</p>
+        <p>ここから先は、この少年とのやりとりが Verse 3の中心になります。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>nobody but ~</strong>: <em>Nobody was there but me.</em>（そこには俺しかいなかった）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="I sat back like The Mack 70年代の映画の主人公"
+        label="★ 固有名詞"
+        mc="Nas（Verse 3）"
+        t={TS["like-the-mack"].t} tApprox={TS["like-the-mack"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">I sat back like The Mack, my army suit was black</Fragment>
+        <Fragment slot="jpn">The Mackみたいにふんぞり返って座った、着ていた軍服は黒</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3の中盤です。</p>
+        <p><strong class='text-[var(--c-text)]'>The Mack</strong> は、1973年のアメリカ映画のタイトルです。Max Julien が演じる主人公の、余裕たっぷりの振る舞いを引き合いに出しています。</p>
+        <p><strong class='text-[var(--c-text)]'>sit back</strong> は「深く座る、くつろぐ」。like ~ をつけて「〜みたいに」と、座り方まで映画の主人公になぞらえています。</p>
+        <p><strong class='text-[var(--c-text)]'>army suit</strong> は軍服風の服のこと。Mack と black の脚韻で、少年の前で格好をつけるNasの姿が浮かぶ一行です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>sit back</strong>: <em>Sit back and enjoy the show.</em>（ゆったり座ってショーを楽しんで）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Only 12 と tryna 「たった12歳」"
+        label="★ スラング"
+        mc="Nas（Verse 3）"
+        t={TS["only-twelve"].t} tApprox={TS["only-twelve"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Only 12, tryna tell me that he liked my style</Fragment>
+        <Fragment slot="jpn">たった12歳で、俺のスタイルが好きだなんて言ってくる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3の後半です。</p>
+        <p>少年は大人びた口をきいていますが、まだ12歳です。<strong class='text-[var(--c-text)]'>Only 12</strong> の二語で、Nasがその幼さを強く意識していることが分かります。</p>
+        <p><strong class='text-[var(--c-text)]'>tryna</strong> は trying to を縮めた発音どおりのつづりです。tryna tell me で「俺に言おうとしてくる」。</p>
+        <p><strong class='text-[var(--c-text)]'>my style</strong> は、身なりや振る舞い、ラップを含めた「俺の流儀」全体を指しています。年下に憧れられることが、この先のNasの忠告につながっていきます。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>tryna</strong>: <em>I'm tryna finish this before lunch.</em>（昼までにこれ終わらせようとしてるんだ）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="I'ma ghost と jewels 少年に残した言葉"
+        label="★ スラング"
+        mc="Nas（Verse 3）"
+        t={TS["ima-ghost"].t} tApprox={TS["ima-ghost"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">And told my little man I'ma ghost</Fragment>
+        <Fragment slot="jpn">そしてチビに、俺はもう行くわと告げた</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3の終わり近くです。</p>
+        <p><strong class='text-[var(--c-text)]'>I'ma</strong> は I'm going to を縮めた形で、「これから〜する」。I'ma ghost で「もう消えるわ」になります。</p>
+        <p>前に出てきた be ghost と同じ ghost です。</p>
+        <p><strong class='text-[var(--c-text)]'>my little man</strong> は、年下の男の子への親しみを込めた呼び方です。Intro の my man に little がついた形になっています。</p>
+        <p>直後の行では、Nasが少年の頭に jewels を残していった、と続きます。この jewels は宝石ではなく「教え、知恵」の比喩で、ヒップホップでは drop jewels（いい教えを授ける）という言い方がよく使われます。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>drop jewels</strong>: <em>My grandpa always drops jewels at dinner.</em>（じいちゃんは夕食のたびにいい話をしてくれる）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Words of wisdom と Jake 最後の忠告"
+        label="★ スラング"
+        mc="Nas（Verse 3）"
+        t={TS["words-of-wisdom"].t} tApprox={TS["words-of-wisdom"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Words of wisdom from Nas: Try to rise up above<br />Keep an eye out for Jake, shorty wop, one love</Fragment>
+        <Fragment slot="jpn">Nasからの金言だ、上を目指せ／警察には気をつけろよ、チビ、元気でな</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 3の最後の2行です。</p>
+        <p><strong class='text-[var(--c-text)]'>words of wisdom</strong> は「知恵の言葉、金言」。自分の名前を入れて「Nasからの金言だ」と言い切るのが、少し照れくさくもあり、真剣でもある締め方です。</p>
+        <p><strong class='text-[var(--c-text)]'>rise up above</strong> は「抜け出して上へ行け」。今いる環境に飲み込まれるな、という意味が込められています。</p>
+        <p><strong class='text-[var(--c-text)]'>keep an eye out for ~</strong> は「〜に目を光らせておく、気をつける」。<QuickSlang word='Jake' desc='警察を指すNYのスラング、ここでは12歳の少年に向けて、警察の目に気をつけろと忠告する場面で出てくる' /> はNYで警察を指すスラングです。</p>
+        <p>最後は shorty wop（Shorty Doo-Wop の縮めた呼び方）、そして one love。手紙ではない相手にも、同じ結びの言葉で別れを告げています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>keep an eye out for ~</strong>: <em>Keep an eye out for a taxi.</em>（タクシーが来ないか見てて）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="From Queensbridge and all over 仲間の名前を呼ぶアウトロ"
+        label="★ 語法"
+        mc="Nas（Outro）"
+        t={TS["outro-shout-outs"].t} tApprox={TS["outro-shout-outs"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">From Queensbridge and all over<br />To my man Herb, one love</Fragment>
+        <Fragment slot="jpn">Queensbridgeから、あちこちまで／ダチのHerbへ、ワン・ラヴ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 曲の最後のアウトロです。</p>
+        <p>アウトロでは、塀の中にいる仲間たちへ向けて、Nasが名前を一人ずつ挙げていきます。<strong class='text-[var(--c-text)]'>From Queensbridge and all over</strong> は「Queensbridgeから、ほかのあらゆる場所まで」。</p>
+        <p>地元の仲間に限らない、という呼びかけです。</p>
+        <p><strong class='text-[var(--c-text)]'>To my man ~, one love</strong> の形が名前を変えて繰り返されます。Herb の名前は Verse 1 の終わりでも、よろしく伝えてくれという相手として出てきていました。</p>
+        <p>To ~ は「〜へ」で、手紙の宛名や献辞の書き方そのものです。3通の手紙で始まった曲が、最後は宛名の列で終わります。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>To ~</strong>（献辞）: <em>To my parents, thank you for everything.</em>（両親へ、すべてに感謝を）。</p>
+        </Fragment>
+      </LearningUnit>
+    </section>
+
+    <section id="background" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        文化的背景
+      </h2>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">『Illmatic』</p>
+        <h3 class="font-semibold text-base mb-3">全10曲の7曲目、Q-Tipが手がけた一曲</h3>
+        <div class="space-y-3 text-[var(--c-muted)] text-sm leading-relaxed">
+          <p>
+            『Illmatic』は1994年4月19日にColumbiaから出たNasのデビューアルバムです。「One Love」は7曲目で、DJ Premier、Large Professor、Pete Rock、L.E.S.と並ぶプロデューサー陣の中で、Q-Tipが担当したのはこの曲だけです。
+          </p>
+          <p>
+            作者クレジットは、Nas（本名 Nasir Jones）、Q-Tip（本名 Jonathan Davis）、それにサンプル元の作曲者 Jimmy Heath の3人。版によっては、曲名に Q-Tip が客演としてクレジットされています。
+          </p>
+          <p>
+            アルバムの曲順では、「Memory Lane (Sittin' in da Park)」のあと、「One Time 4 Your Mind」の前に置かれています。
+          </p>
+        </div>
+      </div>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">Queensbridge</p>
+        <h3 class="font-semibold text-base mb-3">塀の中の仲間と、外から届く手紙</h3>
+        <div class="space-y-3 text-[var(--c-muted)] text-sm leading-relaxed">
+          <p>
+            NasはニューヨークのQueensbridge Houses（クイーンズ区の公営住宅団地）で育ちました。曲に出てくる仲間の多くは、同じ団地の顔ぶれです。
+          </p>
+          <p>
+            Verse 1で名前が出るCormegaもQueensbridgeのラッパーで、Nasの友人です。この曲が出た頃は収監中で、1995年に出所しています。
+          </p>
+          <p>
+            曲全体は、塀の中の仲間に宛てた手紙の連なりとして書かれています。恋人が離れていくこと、息子の身を案じる母親、それでも変わらない仲間の絆。
+          </p>
+          <p>
+            手紙の近況報告という形をとることで、地元の暮らしの重さと、相手を気づかう優しさが同じ文面に並んでいます。
+          </p>
+        </div>
+      </div>
+
+      <div class="p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">キーワード早見表</p>
+        <h3 class="font-semibold text-base mb-3">この曲で学んだ表現の整理</h3>
+        <div class="space-y-3 mt-3">
+          {[
+            ['one love', '仲間への挨拶、手紙の結び'],
+            ['my man', '俺のダチ'],
+            ['What it say?', 'なんて書いてある？（does の省略）'],
+            ['bid', '刑期'],
+            ['hyper', '興奮した、カッとなった'],
+            ['he be riffin\'', '習慣の be。しょっちゅう口答えしている'],
+            ['trife', '物騒な、すさんだ'],
+            ['hold the fort down', '持ち場を守る、留守を預かる'],
+            ['commissary', '刑務所の売店（口座）'],
+            ['when push comes to shove', 'いざという時'],
+            ['stay strong', '負けるな、踏ん張れ'],
+            ['Word to mother', '母親にかけて誓う'],
+            ['frontin\'', '見栄を張る、強がる'],
+            ['wildin\' / buckwildin\'', '無茶をする、暴れる'],
+            ['maintain', '平静を保つ、持ちこたえる'],
+            ['V.I', '面会'],
+            ['mom dukes', 'お袋'],
+            ['kicks / flicks', 'スニーカー／写真'],
+            ['play it lowkey', '目立たないようにしておく'],
+            ['time flies', '時間はすぐたつ'],
+            ['be ghost / I\'ma ghost', '姿を消す、立ち去る'],
+            ['dome', '頭'],
+            ['something terrible', 'ひどく、ものすごく'],
+            ['I comes', '語りの勢いをつける三単現の s'],
+            ['tryna', 'trying to の口語'],
+            ['jewels', '教え、知恵'],
+            ['Jake', '警察'],
+          ].map(([w, d]) => (
+            <div class="text-sm">
+              <span class="font-semibold text-[var(--c-text)]">{w}</span>
+              <span class="text-[var(--c-muted)]"> {d}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="behind" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        制作の裏側
+      </h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          プロデュースはQ-Tip。A Tribe Called Questとして『Midnight Marauders』を制作していた時期に、Phife Dawgの祖母の家の地下室でこのビートを作ったと伝えられています。
+        </p>
+        <p>
+          ビートの土台は、The Heath Brothersの「Smilin' Billy Suite Part II」（1975年）です。ムビラ（ジンバブエの親指ピアノ）の柔らかい響きとウッドベース、ピアノがこの曲から来ています。
+        </p>
+        <p>
+          Q-Tipはサンプラーでループを組むのではなく、レコードの同じ箇所をカセットに録っては止め、また録る、という「ポーズテープ」の手法でこのループを作りました。Nasがバースを録り終えたあとで、ドラムの打ち込みを組み直したとも伝えられています。
+        </p>
+        <p>
+          同じ曲名を持つWhodiniの「One Love」（1986年）からの引用（インターポレーション、メロディや言葉を演奏し直して取り込むこと）も含まれています。
+        </p>
+      </div>
+      <SampleYoutube id="FJnH-N_bZYI" title="The Heath Brothers - Smilin' Billy Suite Part II" />
+    </section>
+
+    <section id="legacy" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        評価とその後
+      </h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          「One Love」は1994年10月25日にシングルとして出ました。アルバムからのラジオ向けシングルとしては5曲目で、これが最後です。
+        </p>
+        <p>
+          チャートでは、BillboardのHot Rap Songsで最高24位、Dance Singles Salesで最高6位を記録しています。
+        </p>
+        <p>
+          2008年には、VH1が選んだ偉大なヒップホップの曲のランキングで48位に入りました。
+        </p>
+        <p>
+          『Illmatic』の20周年を迎えた2014年4月には、NasとQ-TipがThe Rootsと一緒に『The Tonight Show Starring Jimmy Fallon』でこの曲を披露しています。このページで頭出しに使っているのは、NasVEVOで公開されている公式ビデオです。
+        </p>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        まとめ
+      </h2>
+      <ul class="space-y-2 text-sm text-[var(--c-muted)] list-disc list-inside leading-relaxed">
+        <li>「One Love」は、刑務所にいる仲間へ宛てた手紙を読み上げる形で、Queensbridgeの近況と変わらない友情を伝える一曲です。</li>
+        <li>bid、commissary、V.I、mom dukes、kicks、flicks と、面会や差し入れまわりのスラングが、手紙の言葉として自然に出てきます。</li>
+        <li>he be riffin' や I be ghost の習慣の be、I comes の三単現の s など、AAVEの文法がはっきり聞き取れます。</li>
+        <li>Q-Tipが作ったThe Heath Brothersのループと、本人が歌う one love のリフレインも、この曲の大事な柱です。</li>
+      </ul>
+    </section>
+
+</SongLayout>

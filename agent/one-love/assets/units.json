@@ -1,0 +1,342 @@
+[
+  {
+    "id": "letter-from-nas",
+    "anchor": [
+      "its",
+      "a",
+      "letter",
+      "i",
+      "got",
+      "from",
+      "my",
+      "man",
+      "nas"
+    ],
+    "fallbackT": 48.6,
+    "manualSec": null
+  },
+  {
+    "id": "doin-your-bid",
+    "anchor": [
+      "what",
+      "up",
+      "kid",
+      "i",
+      "know"
+    ],
+    "fallbackT": 52.9,
+    "manualSec": null
+  },
+  {
+    "id": "congrats-son",
+    "anchor": [
+      "plus",
+      "congratulations",
+      "you",
+      "know",
+      "you",
+      "got",
+      "a",
+      "son"
+    ],
+    "fallbackT": 62.1,
+    "manualSec": null
+  },
+  {
+    "id": "got-hyper",
+    "anchor": [
+      "told",
+      "her",
+      "she",
+      "should",
+      "visit"
+    ],
+    "fallbackT": 66.9,
+    "manualSec": null
+  },
+  {
+    "id": "he-be-riffin",
+    "anchor": [
+      "he",
+      "didnt",
+      "listen",
+      "he",
+      "be",
+      "riffin"
+    ],
+    "fallbackT": 71.8,
+    "manualSec": null
+  },
+  {
+    "id": "more-trife",
+    "anchor": [
+      "and",
+      "night",
+      "time",
+      "is",
+      "more",
+      "trife"
+    ],
+    "fallbackT": 90.6,
+    "manualSec": null
+  },
+  {
+    "id": "cormega-hold-the-fort",
+    "anchor": [
+      "what",
+      "up",
+      "with",
+      "cormega"
+    ],
+    "fallbackT": 92.6,
+    "manualSec": null
+  },
+  {
+    "id": "commissary",
+    "anchor": [
+      "i",
+      "left",
+      "a",
+      "half",
+      "a",
+      "hundred"
+    ],
+    "fallbackT": 100.3,
+    "manualSec": null
+  },
+  {
+    "id": "push-came-to-shove",
+    "anchor": [
+      "when",
+      "push",
+      "came",
+      "to",
+      "shove"
+    ],
+    "fallbackT": 102.7,
+    "manualSec": null
+  },
+  {
+    "id": "one-love-refrain",
+    "anchor": [
+      "one",
+      "love",
+      "one",
+      "love"
+    ],
+    "fallbackT": 105,
+    "manualSec": null
+  },
+  {
+    "id": "dear-born",
+    "anchor": [
+      "dear",
+      "born",
+      "youll",
+      "be",
+      "out",
+      "soon"
+    ],
+    "fallbackT": 125.9,
+    "manualSec": null
+  },
+  {
+    "id": "word-to-mother",
+    "anchor": [
+      "word",
+      "to",
+      "mother",
+      "i",
+      "heard",
+      "him",
+      "frontin"
+    ],
+    "fallbackT": 140.1,
+    "manualSec": null
+  },
+  {
+    "id": "island-elmira",
+    "anchor": [
+      "wildin",
+      "on",
+      "the",
+      "island"
+    ],
+    "fallbackT": 152.4,
+    "manualSec": null
+  },
+  {
+    "id": "maintain-corner",
+    "anchor": [
+      "but",
+      "maintain",
+      "when",
+      "you",
+      "come",
+      "home"
+    ],
+    "fallbackT": 160.1,
+    "manualSec": null
+  },
+  {
+    "id": "next-vi",
+    "anchor": [
+      "but",
+      "chill",
+      "see",
+      "you",
+      "on",
+      "the",
+      "next"
+    ],
+    "fallbackT": 167.6,
+    "manualSec": null
+  },
+  {
+    "id": "4-main-lowkey",
+    "anchor": [
+      "your",
+      "brothers",
+      "buckwildin"
+    ],
+    "fallbackT": 172.6,
+    "manualSec": null
+  },
+  {
+    "id": "stay-civilized",
+    "anchor": [
+      "so",
+      "stay",
+      "civilized",
+      "time",
+      "flies"
+    ],
+    "fallbackT": 178.3,
+    "manualSec": null
+  },
+  {
+    "id": "school-textbooks",
+    "anchor": [
+      "minds",
+      "in",
+      "another",
+      "world"
+    ],
+    "fallbackT": 211.1,
+    "manualSec": null
+  },
+  {
+    "id": "be-ghost",
+    "anchor": [
+      "so",
+      "i",
+      "be",
+      "ghost",
+      "from",
+      "my",
+      "projects"
+    ],
+    "fallbackT": 219.1,
+    "manualSec": null
+  },
+  {
+    "id": "two-day-stay",
+    "anchor": [
+      "a",
+      "two",
+      "day",
+      "stay"
+    ],
+    "fallbackT": 224.5,
+    "manualSec": null
+  },
+  {
+    "id": "stressed-terrible",
+    "anchor": [
+      "you",
+      "see",
+      "the",
+      "streets",
+      "had",
+      "me",
+      "stressed"
+    ],
+    "fallbackT": 229.7,
+    "manualSec": null
+  },
+  {
+    "id": "shorty-doo-wop",
+    "anchor": [
+      "so",
+      "i",
+      "comes",
+      "back",
+      "home"
+    ],
+    "fallbackT": 239.8,
+    "manualSec": null
+  },
+  {
+    "id": "like-the-mack",
+    "anchor": [
+      "i",
+      "sat",
+      "back",
+      "like",
+      "the",
+      "mack"
+    ],
+    "fallbackT": 255,
+    "manualSec": null
+  },
+  {
+    "id": "only-twelve",
+    "anchor": [
+      "only",
+      "12",
+      "tryna",
+      "tell",
+      "me"
+    ],
+    "fallbackT": 283.6,
+    "manualSec": null
+  },
+  {
+    "id": "ima-ghost",
+    "anchor": [
+      "and",
+      "told",
+      "my",
+      "little",
+      "man",
+      "ima",
+      "ghost"
+    ],
+    "fallbackT": 291.5,
+    "manualSec": null
+  },
+  {
+    "id": "words-of-wisdom",
+    "anchor": [
+      "words",
+      "of",
+      "wisdom",
+      "from",
+      "nas"
+    ],
+    "fallbackT": 296.7,
+    "manualSec": null
+  },
+  {
+    "id": "outro-shout-outs",
+    "anchor": [
+      "from",
+      "queensbridge",
+      "and",
+      "all",
+      "over"
+    ],
+    "fallbackT": 318,
+    "manualSec": null
+  }
+]
