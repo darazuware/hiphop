@@ -295,7 +295,13 @@
     "title": "N.Y. State Of Mind",
     "album": "Coachella Nights (Live)"
   },
-  "ny-state-of-mind-pt-3": null,
+  "ny-state-of-mind-pt-3": {
+    "id": 3708305522,
+    "artist": "NAS",
+    "title": "NY State Of Mind Pt. 3",
+    "album": "Light-Years",
+    "manual": true
+  },
   "one-love": {
     "id": 77096693,
     "artist": "NAS",
