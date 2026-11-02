@@ -2,13 +2,13 @@
   {
     "id": "represent-hook",
     "whisperSec": null,
-    "manualSec": null,
+    "manualSec": 11.67,
     "captionSec": null,
     "syncedSec": null,
     "fallbackT": 2,
-    "t": 2,
-    "source": "fallback",
-    "approx": true,
+    "t": 11.67,
+    "source": "manual",
+    "approx": false,
     "score": null
   },
   {
