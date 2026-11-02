@@ -27,7 +27,8 @@ const attr = (s) => String(s).replace(/"/g, "&quot;");
 const jsq = (s) => String(s).replace(/\\/g, "\\\\").replace(/'/g, "\\'");
 // 1〜2文ごとに<p>を割る（docs/article-tone.md 文体ルール5）。「。」で文を切り、2文ずつまとめる。
 const splitPara = (p) => {
-  const sents = p.split(/(?<=。)(?![」）』）])/).map((x) => x.trim()).filter(Boolean);
+  const masked = p.replace(/<[^>]*>/g, (m) => m.replace(/。/g, "\u0001"));
+  const sents = masked.split(/(?<=。)(?![」）』）])/).map((x) => x.replace(/\u0001/g, "。").trim()).filter(Boolean);
   const out = [];
   for (let i = 0; i < sents.length; i += 2) out.push(sents.slice(i, i + 2).join(""));
   return out;
