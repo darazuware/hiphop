@@ -1,0 +1,279 @@
+[
+  {
+    "id": "humble-beginnings",
+    "anchor": [
+      "humble",
+      "beginnings"
+    ],
+    "fallbackT": 14,
+    "manualSec": null,
+    "captionSec": 14
+  },
+  {
+    "id": "tonic-seltzer",
+    "anchor": [
+      "tonic",
+      "and",
+      "seltzer"
+    ],
+    "fallbackT": 33,
+    "manualSec": null,
+    "captionSec": 33
+  },
+  {
+    "id": "fold-under-pressure",
+    "anchor": [
+      "never",
+      "fold",
+      "under",
+      "pressure"
+    ],
+    "fallbackT": 35,
+    "manualSec": null,
+    "captionSec": null
+  },
+  {
+    "id": "vessel-reflection",
+    "anchor": [
+      "every",
+      "man",
+      "is",
+      "a",
+      "vessel"
+    ],
+    "fallbackT": 37,
+    "manualSec": null,
+    "captionSec": 37
+  },
+  {
+    "id": "possess-tested",
+    "anchor": [
+      "he",
+      "from",
+      "the",
+      "highest",
+      "heaven"
+    ],
+    "fallbackT": 39,
+    "manualSec": null,
+    "captionSec": 39
+  },
+  {
+    "id": "power-vested",
+    "anchor": [
+      "by",
+      "the",
+      "power",
+      "vested",
+      "in",
+      "me"
+    ],
+    "fallbackT": 46,
+    "manualSec": null,
+    "captionSec": 46
+  },
+  {
+    "id": "give-flowers",
+    "anchor": [
+      "gift",
+      "flowers",
+      "while",
+      "you",
+      "can",
+      "smell"
+    ],
+    "fallbackT": 48,
+    "manualSec": null,
+    "captionSec": 48
+  },
+  {
+    "id": "how-it-ends",
+    "anchor": [
+      "it's",
+      "really",
+      "how",
+      "it",
+      "ends"
+    ],
+    "fallbackT": 54,
+    "manualSec": null,
+    "captionSec": 54
+  },
+  {
+    "id": "health-stocktip",
+    "anchor": [
+      "louis",
+      "prada",
+      "but",
+      "health"
+    ],
+    "fallbackT": 58,
+    "manualSec": null,
+    "captionSec": null
+  },
+  {
+    "id": "run-things",
+    "anchor": [
+      "y'all",
+      "'bout",
+      "to",
+      "run",
+      "things"
+    ],
+    "fallbackT": 61,
+    "manualSec": null,
+    "captionSec": null
+  },
+  {
+    "id": "let-him-run",
+    "anchor": [
+      "to",
+      "my",
+      "brothers",
+      "with",
+      "sons"
+    ],
+    "fallbackT": 64,
+    "manualSec": null,
+    "captionSec": 64
+  },
+  {
+    "id": "powerful-bond",
+    "anchor": [
+      "most",
+      "powerful",
+      "bond"
+    ],
+    "fallbackT": 70,
+    "manualSec": null,
+    "captionSec": 70
+  },
+  {
+    "id": "stand-tall",
+    "anchor": [
+      "tell",
+      "'em",
+      "stand",
+      "tall"
+    ],
+    "fallbackT": 80,
+    "manualSec": null,
+    "captionSec": null
+  },
+  {
+    "id": "memories-rush",
+    "anchor": [
+      "getting",
+      "off",
+      "the",
+      "city",
+      "bus"
+    ],
+    "fallbackT": 87,
+    "manualSec": null,
+    "captionSec": 87
+  },
+  {
+    "id": "baddest",
+    "anchor": [
+      "little",
+      "boy",
+      "who",
+      "was",
+      "the",
+      "baddest"
+    ],
+    "fallbackT": 97,
+    "manualSec": null,
+    "captionSec": 97
+  },
+  {
+    "id": "crossing-sign",
+    "anchor": [
+      "i",
+      "really",
+      "thought",
+      "the",
+      "crossing",
+      "sign"
+    ],
+    "fallbackT": 100,
+    "manualSec": null,
+    "captionSec": 100
+  },
+  {
+    "id": "we-special",
+    "anchor": [
+      "we",
+      "ain't",
+      "everybody"
+    ],
+    "fallbackT": 108,
+    "manualSec": null,
+    "captionSec": 108
+  },
+  {
+    "id": "miss-anns-boys",
+    "anchor": [
+      "those",
+      "is",
+      "miss",
+      "ann's",
+      "boys"
+    ],
+    "fallbackT": 113,
+    "manualSec": null,
+    "captionSec": 113
+  },
+  {
+    "id": "future-lions",
+    "anchor": [
+      "haile",
+      "selassies",
+      "in",
+      "training"
+    ],
+    "fallbackT": 119,
+    "manualSec": null,
+    "captionSec": null
+  },
+  {
+    "id": "they-grown",
+    "anchor": [
+      "in",
+      "no",
+      "time",
+      "they",
+      "grown"
+    ],
+    "fallbackT": 125,
+    "manualSec": null,
+    "captionSec": 125
+  },
+  {
+    "id": "first-born-be-like",
+    "anchor": [
+      "first",
+      "born",
+      "be",
+      "like",
+      "the",
+      "mom"
+    ],
+    "fallbackT": 127,
+    "manualSec": null,
+    "captionSec": 127
+  },
+  {
+    "id": "hold-each-other-down",
+    "anchor": [
+      "hold",
+      "each",
+      "other",
+      "down"
+    ],
+    "fallbackT": 132,
+    "manualSec": null,
+    "captionSec": 132
+  }
+]

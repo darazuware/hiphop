@@ -1,0 +1,647 @@
+---
+import LearningUnit from '../../components/LearningUnit.astro';
+import QuickSlang from '../../components/QuickSlang.astro';
+import SongLayout from '../../layouts/SongLayout.astro';
+
+import tsData from '../../../agent/sons-young-kings/assets/units-timestamps.json';
+const YT = "yPt5MKKWJpQ";
+const TS = Object.fromEntries(tsData.map((u) => [u.id, { t: u.t, approx: u.approx }]));
+---
+
+<SongLayout
+  title="Sons (Young Kings) 和訳・英語スラング解説 | Nas & DJ Premier"
+  description="Nas & DJ Premier「Sons (Young Kings)」（2025年『Light-Years』収録）を和訳付きで英語学習の教材として解説。fold under pressure、by the power vested in me、give flowers、be動詞の省略や習慣のbeまで、息子と母と兄弟を語る一曲を頭出し付きで読み解きます。"
+  slug="sons-young-kings"
+  learningPage={true}
+  songDuration={183}
+  highlights={[
+    '息子への思いを語るVerse 1と、母と弟と過ごした子ども時代を語るVerse 2。父と息子、二つの立場から書かれた一曲',
+    'fold under pressure、by the power vested in me、give someone their flowers。英語の決まり文句がラップの中でどう形を変えるかが見える',
+    'He from、they grown、Those is、be like。be動詞を抜いたり崩したりするAAVEの文法が、家族の話の中に自然に出てくる',
+  ]}
+  youtubeId="yPt5MKKWJpQ"
+>
+
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■ 息子を見る父の目と、母を見上げていた子どもの目</h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          「Sons (Young Kings)」は、NasとDJ Premierが2025年12月12日に出した共作アルバム『Light-Years』の8曲目です。長さは3分ほどで、ビートはアルバムの全曲と同じくDJ Premierが手がけています。
+        </p>
+        <p>
+          Verse 1でNasは、息子の父親としての立場から話します。息子をどう育てたいか、何を伝えたいかが、短い決まり文句をつなぐ形で語られます。
+        </p>
+        <p>
+          Verse 2では、目線がぐっと昔に戻ります。母親に手を引かれて歩いていた子どもの頃、弟と二人で「Miss Annのところの子」と呼ばれていた頃の思い出です。
+        </p>
+        <p>
+          コーラスは、息子を持つ父親と母親へ向けた呼びかけ。父として歌う曲でありながら、息子だった頃の自分も同じ曲の中にいるところが、この曲の面白さだと思います。
+        </p>
+      </div>
+    </section>
+
+    <section class="mb-6">
+      <h2 class="text-base font-semibold mb-2">■ 英語の見どころは、決まり文句のひねり方とbe動詞のくずし方</h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          表現の面では、結婚式の誓いの言葉 by the power vested in me や、「生きているうちに花を贈る」という言い回しなど、英語圏の決まり文句がよく出てきます。元の形を知っておくと、Nasがどこをいじっているのかがわかります。
+        </p>
+        <p>
+          文法では、He from（is の省略）、they grown（are の省略）、Those is（複数に is）、be like（習慣の be）と、AAVE（アフリカ系アメリカ人英語）の特徴が一曲の中にそろっています。
+        </p>
+        <p>
+          Nasの曲では、1994年の「<a href='/songs/represent' class='underline'>Represent</a>」や1999年の「<a href='/songs/nas-is-like' class='underline'>Nas Is Like</a>」も同じDJ Premierのプロデュースです。若い頃の地元の歌と並べると、30年後の家族の歌がどう変わったかが見えてきます。
+        </p>
+      </div>
+    </section>
+
+    <nav class="mb-10 p-4 bg-[var(--c-surface)] border border-[var(--c-border)] rounded-lg">
+      <p class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-3">目次</p>
+      <ol class="space-y-1.5 text-sm text-[var(--c-muted)] list-none">
+        <li><a href="#story" class="hover:text-[var(--c-gold)] transition-colors">01 ストーリーの流れ（まず曲全体をつかむ）</a></li>
+        <li><a href="#units" class="hover:text-[var(--c-gold)] transition-colors">02 学ぶ表現（スラング・韻・言葉遊び・AAVE）</a></li>
+        <li><a href="#background" class="hover:text-[var(--c-gold)] transition-colors">03 文化的背景</a></li>
+        <li><a href="#behind" class="hover:text-[var(--c-gold)] transition-colors">04 制作の裏側</a></li>
+        <li><a href="#legacy" class="hover:text-[var(--c-gold)] transition-colors">05 評価とその後</a></li>
+      </ol>
+    </nav>
+
+    <section id="story" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        ストーリーの流れ（まず曲全体をつかむ）
+      </h2>
+      <p class="text-xs text-[var(--c-dim)] mb-5">
+        物語を一本で語る曲ではなく、二つのバースで父の目と子の目を行き来する曲です。流れだけ先に置いておきます。
+      </p>
+      <div class="space-y-4 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          <strong class='text-[var(--c-text)]'>Verse 1</strong>は、父としてのNasの話。息子を自分のものにしようとせず、試されながら育つのを見守りたいという思いと、お金より健康という自分なりの教えが並びます。
+        </p>
+        <p>
+          <strong class='text-[var(--c-text)]'>Verse 2</strong>は、子どもの頃のNasの話。母と歩いた道の標識、弟とのゲーム、学校で感じた偏見を経て、最後は兄弟で支え合えというメッセージで締まります。
+        </p>
+        <p class="text-xs text-[var(--c-dim)]">
+          ※本ページは批評・教育目的で、解説に必要な範囲の断片のみを引用しています。全歌詞の対訳は掲載していません。
+        </p>
+      </div>
+    </section>
+
+    <div id="units"></div>
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        学ぶ表現（スラング・韻・言葉遊び・AAVE）
+      </h2>
+      <div class="space-y-3 text-xs text-[var(--c-dim)] mb-6">
+        <p>ここからは、イントロからVerse 2の最後まで、曲の順番に表現を拾っていきます。各項目は、見出しのすぐ下に英語と和訳、そのあとに語法の話という並びです。</p>
+        <p>穏やかでない表現を含む行は取り上げていません。▶を押すと、公式のビジュアライザー動画の該当箇所から再生できます。</p>
+      </div>
+
+      <LearningUnit
+        heading="Humble beginnings 「すべては小さな始まりから」"
+        label="★ イディオム"
+        mc="Nas（Intro）"
+        t={TS["humble-beginnings"].t} tApprox={TS["humble-beginnings"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">It all starts<br>Humble beginnings</Fragment>
+        <Fragment slot="jpn">すべてはここから始まる／ささやかな出発点</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ 曲の冒頭、ビートの上で語りかけるイントロです。</p>
+        <p><strong class='text-[var(--c-text)]'>humble</strong> は「謙虚な」が知られた意味ですが、身分や暮らしについて使うと「つつましい、質素な」になります。</p>
+        <p><strong class='text-[var(--c-text)]'>humble beginnings</strong> は「ささやかな出発点」。成功した人の生い立ちを語るときによく使う決まった言い方で、from humble beginnings（つつましい生まれから）の形でも出てきます。</p>
+        <p>イントロではこの言葉と Young kings（若い王たち）が交互に置かれます。王になる子どもたちも、始まりは小さなところから、という曲全体の入り口になっています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>humble beginnings</strong>: <em>She rose from humble beginnings to run her own company.</em>（彼女はつつましい生まれから、自分の会社を率いるまでになった）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="As close as tonic and seltzer 見分けのつかない二つの炭酸水"
+        label="★ 比喩"
+        mc="Nas（Verse 1）"
+        t={TS["tonic-seltzer"].t} tApprox={TS["tonic-seltzer"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">And life and death is as close as tonic and seltzer</Fragment>
+        <Fragment slot="jpn">生と死は、トニックとソーダくらい近い</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の前半、5行目です。</p>
+        <p><strong class='text-[var(--c-text)]'>as close as A and B</strong> は「AとBくらい近い」という比べ方です。ここで並ぶのが、トニックウォーターとセルツァー（炭酸水）の二つ。</p>
+        <p>どちらも透明な炭酸の水で、グラスに注げば見た目はほとんど変わりません。トニックには苦みと甘みが付いていて、セルツァーは味の付かない炭酸水です。</p>
+        <p>見た目は同じでも中身は違う、でも差はほんのわずか。大きな話を、冷蔵庫に並んだ瓶くらいの身近なものに置き換えているのが、Nasらしい比喩だと感じます。</p>
+        <p>主語が life and death と二つあるのに、動詞は is のまま。二つでひとまとまりの考えとして扱う言い方で、会話ではよく見かけます。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>as close as</strong>: <em>The two towns are as close as next-door neighbors.</em>（二つの町は隣同士みたいに近い）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Never fold under pressure 「重圧に屈しない」"
+        label="★ イディオム"
+        mc="Nas（Verse 1）"
+        t={TS["fold-under-pressure"].t} tApprox={TS["fold-under-pressure"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Never fold under pressure, give you my manifesto</Fragment>
+        <Fragment slot="jpn">プレッシャーに屈するな、それが俺の信条だ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の6行目です。</p>
+        <p><strong class='text-[var(--c-text)]'>fold</strong> は「折りたたむ」。ポーカーで勝負を降りることも fold と言い、そこから「降参する、くじける」の意味でも使われます。</p>
+        <p><strong class='text-[var(--c-text)]'>fold under pressure</strong> で「プレッシャーに負けて崩れる」。スポーツの実況や仕事の場面でもよく出てくる言い方です。</p>
+        <p>後半の <strong class='text-[var(--c-text)]'>manifesto</strong> は「宣言、綱領」。政党が掲げる公約のような、かしこまった語です。</p>
+        <p>父が息子に渡す教えを、わざわざ manifesto という大きな語で呼んでいるところに、本気さと少しのユーモアが同居しています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>fold under pressure</strong>: <em>Great players don't fold under pressure.</em>（すごい選手は重圧の中でも崩れない）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Every man is a vessel 器と、鏡に映った自分"
+        label="★ 比喩"
+        mc="Nas（Verse 1）"
+        t={TS["vessel-reflection"].t} tApprox={TS["vessel-reflection"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Every man is a vessel, my son is my reflection</Fragment>
+        <Fragment slot="jpn">男はみな器だ、息子は俺を映す鏡</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の7行目です。ここから息子の話が始まります。</p>
+        <p><strong class='text-[var(--c-text)]'>vessel</strong> は「船」のほかに「器、入れ物」の意味を持つ語です。聖書の英語では、人を神の思いを入れる器にたとえる言い方があり、そこから「何かを受け継いで運ぶ存在」というニュアンスでも使われます。</p>
+        <p><strong class='text-[var(--c-text)]'>reflection</strong> は「反射、映った姿」。my son is my reflection で、息子は自分を映す鏡、自分にそっくりな存在ということです。</p>
+        <p>前の行の manifesto から vessel、reflection へと、エの母音が続く語を行末近くに並べています。このあとの数行も同じ響きでつながっていきます。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>reflection</strong>: <em>Your writing is a reflection of how you think.</em>（文章はその人の考え方を映す）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="He from the highest Heaven be動詞を抜いた形と、possess"
+        label="★ AAVE文法"
+        mc="Nas（Verse 1）"
+        t={TS["possess-tested"].t} tApprox={TS["possess-tested"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">He from the highest Heaven, I try not to possess him<br>Allow him to be tested</Fragment>
+        <Fragment slot="jpn">あいつは天のいちばん高いところから来た、俺は息子を自分のものにしないようにしてる／試練を受けさせてやるんだ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の8行目と9行目、続けて歌われる2行です。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>1. He from（is を抜いた形）</p>
+        <p>標準的な英語なら He is from となるところを、is を抜いて He from と言っています。AAVEでよく見られる <QuickSlang word='コピュラ省略' desc='be動詞（is や are）を省いて主語と述語を直接つなぐ、AAVE（アフリカ系アメリカ人英語）の文法。</p>
+        <p>He from、They grown のように、be動詞が縮約できる場面で抜け落ちる。この曲ではVerse 1とVerse 2の両方に出てくる' /> という形です。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>2. possess と be tested（自分のものにせず、試させる）</p>
+        <p><strong class='text-[var(--c-text)]'>possess</strong> は「所有する」。I try not to possess him で、息子を自分の持ち物のように扱わないようにしている、という父の心がけです。</p>
+        <p>続く <strong class='text-[var(--c-text)]'>allow him to be tested</strong> は「試されることを許す」。失敗も苦労も取り上げずに経験させる、という意味合いです。</p>
+        <p>守りすぎない育て方を、二つの動詞で言い切っています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>allow ~ to be tested</strong>: <em>Kids need to be allowed to make mistakes.</em>（子どもには失敗することを許してやる必要がある）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="By the power vested in me 結婚式の決まり文句"
+        label="★ 決まり文句"
+        mc="Nas（Verse 1）"
+        t={TS["power-vested"].t} tApprox={TS["power-vested"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">By the power vested in me, loud at his wedding</Fragment>
+        <Fragment slot="jpn">「私に与えられた権限により」と、息子の結婚式で高らかに</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の中ほど、10行目と11行目のうち後ろの行です。</p>
+        <p><strong class='text-[var(--c-text)]'>by the power vested in me</strong> は、アメリカの結婚式で司式者が最後に言うおなじみの言葉です。このあとに I now pronounce you husband and wife（ここに二人を夫婦と宣言します）と続きます。</p>
+        <p><strong class='text-[var(--c-text)]'>vest</strong> は動詞で「（権限を）与える」。ふだんの会話ではほとんど使わない、儀式の中だけで聞くような語です。</p>
+        <p>直前の行では、いつかその言葉が reverend（牧師）の口から出るかもしれない、と歌っています。息子がまだ小さいうちから、その結婚式の場面まで想像して話しているわけです。</p>
+        <p>Heaven、possess、tested、reverend、vested、wedding と、エの響きがここまで途切れずに続いています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>vested in</strong>: <em>The decision is vested in the committee.</em>（その決定権は委員会にある）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Gift flowers while you can smell 'em 生きているうちに花を"
+        label="★ イディオム"
+        mc="Nas（Verse 1）"
+        t={TS["give-flowers"].t} tApprox={TS["give-flowers"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Gift flowers while you can smell 'em, I try to tell 'em</Fragment>
+        <Fragment slot="jpn">香りがわかるうちに花を贈れ、俺はそう伝えようとしてる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の12行目です。</p>
+        <p>英語には <strong class='text-[var(--c-text)]'>give someone their flowers</strong>（その人に花を贈る）という言い方があります。生きているうちに、本人に直接感謝や敬意を伝える、という意味です。</p>
+        <p>葬式で花を供えても本人には届かない、だから香りがわかるうちに渡そう、という考えが下にあります。ヒップホップでは、先輩アーティストを存命のうちにたたえる文脈でよく使われます。</p>
+        <p>Nasは give を <strong class='text-[var(--c-text)]'>gift</strong>（贈る）という動詞に替え、while you can smell 'em（香りをかげるうちに）を足して、元の言い回しの意味を一行で全部見せています。</p>
+        <p>'em は them の口語形です。smell 'em と tell 'em で行の中の音もそろっています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>give ~ their flowers</strong>: <em>Let's give our teachers their flowers while we can.</em>（先生たちに、今のうちに感謝を伝えよう）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Foreigns と、how it ends 終わり方のほうが大事"
+        label="★ スラング／語法"
+        mc="Nas（Verse 1）"
+        t={TS["how-it-ends"].t} tApprox={TS["how-it-ends"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">It's really how it ends and not how it started</Fragment>
+        <Fragment slot="jpn">大事なのはどう始まったかじゃなく、どう終わるかだ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の後半、14行目です。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>1. foreigns（外車）</p>
+        <p>直前の行には、ダイヤや高い服と並んで <QuickSlang word='foreigns' desc='foreign cars を縮めた言い方で、輸入の高級車のこと。アメリカでは欧州製の高級車を指すことが多い。</p>
+        <p>この曲ではダイヤや服と並ぶ、ぜいたく品の一つとして出てくる' /> という語が出てきます。形容詞の foreign（外国の）を名詞にして、外車を指すスラングです。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>2. how it ends（終わり方）</p>
+        <p><strong class='text-[var(--c-text)]'>how it ends</strong> と <strong class='text-[var(--c-text)]'>how it started</strong> を並べて、大事なのは後者でなく前者だと言っています。It's ~ and not ~ は「〜であって、〜ではない」と対比する形です。</p>
+        <p>イントロの humble beginnings（ささやかな始まり）と組み合わせると、始まりが小さくても終わり方で決まる、という一本の線が見えてきます。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>It's not ~, it's ~</strong>: <em>It's not where you start, it's where you finish.</em>（大事なのはどこから始めるかじゃなく、どこで終えるかだ）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Health is my most valuable stocktip ブランドより健康"
+        label="★ 固有名詞／比喩"
+        mc="Nas（Verse 1）"
+        t={TS["health-stocktip"].t} tApprox={TS["health-stocktip"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Louis, Prada, but health is my most valuable stocktip</Fragment>
+        <Fragment slot="jpn">ヴィトンにプラダ、でも健康こそいちばん値打ちのある投資の助言</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の終盤、16行目です。</p>
+        <p><strong class='text-[var(--c-text)]'>Louis</strong> は Louis Vuitton、<strong class='text-[var(--c-text)]'>Prada</strong> はイタリアのブランドです。どちらも、ラップで成功の印として名前が挙がる定番のブランド。</p>
+        <p><strong class='text-[var(--c-text)]'>stock tip</strong> は「株の耳寄り情報、投資の助言」。お金の話の言葉を使って、本当に値打ちがあるのは健康だ、と言い換えています。</p>
+        <p>直前の行は filthy rich（ものすごい金持ち）から始まり、ポケットの中に潜るという比喩で、お金がたっぷりある様子を描いています。英語では金持ちを deep pockets（深いポケット）と言うので、そこから潜水を連想させていると読めます。</p>
+        <p>ぜいたく品を並べたあとで、最後に健康を置く。父親が息子に残す助言として、かなり地に足のついた中身です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>filthy rich</strong>: <em>He got filthy rich from one app.</em>（彼はアプリ一つで大金持ちになった）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="'Bout to run things 「これから仕切るのはお前たち」"
+        label="★ スラング"
+        mc="Nas（Verse 1）"
+        t={TS["run-things"].t} tApprox={TS["run-things"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Y'all 'bout to run things to my young kings</Fragment>
+        <Fragment slot="jpn">これからはお前たちが仕切る番だ、俺の若き王たちへ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 1の最後の行です。このままコーラスに入ります。</p>
+        <p><strong class='text-[var(--c-text)]'>'bout to</strong> は about to の口語形で、「もうすぐ〜する」。be動詞の are も抜けていて、Y'all are about to が Y'all 'bout to まで縮んでいます。</p>
+        <p><strong class='text-[var(--c-text)]'>run things</strong> は「物事を仕切る、場を取り仕切る」。run は「走る」のほかに「運営する」の意味があり、run a company（会社を経営する）と同じ使い方です。</p>
+        <p>y'all は you all の縮まった形で、「お前たち、みんな」。息子一人にでなく、同じ世代の子どもたち全員に向けた言い方になっています。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>run things</strong>: <em>The new manager runs things differently.</em>（新しい店長はやり方が違う）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="To my brothers with sons, let him run コーラスの呼びかけ"
+        label="★ 語法"
+        mc="Chorus"
+        t={TS["let-him-run"].t} tApprox={TS["let-him-run"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ コーラスの1行目と5行目で、英語は引かずに語だけ取り出します。同じコーラスが曲の最後にも戻ってきます。</p>
+        <p><strong class='text-[var(--c-text)]'>To ~</strong> は「〜へ」と、手紙やスピーチの宛名のように使う形です。my brothers（同胞の男たち）、my sisters（同胞の女たち）は、実の兄弟姉妹に限らず、仲間や同じコミュニティの人たちへの呼びかけ。</p>
+        <p><strong class='text-[var(--c-text)]'>let him run</strong> は「彼を走らせてやれ」。let＋人＋動詞の原形で「〜させてやる」という許可の形です。</p>
+        <p>Verse 1の allow him to be tested と同じく、手を出しすぎずに自由にさせる、という考えがコーラスにも出ています。</p>
+        <p>父親には let him run、母親には enjoy と、呼びかける相手で言葉を変えているところも見どころです。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>let＋人＋動詞</strong>: <em>Let her decide for herself.</em>（彼女に自分で決めさせてあげて）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="The most powerful bond 父と息子の絆"
+        label="★ 語法"
+        mc="Chorus"
+        t={TS["powerful-bond"].t} tApprox={TS["powerful-bond"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ コーラスの3行目と4行目です。英語は引かず、語だけ取り出します。</p>
+        <p><strong class='text-[var(--c-text)]'>bond</strong> は「結びつき、絆」。本来は「縛るもの」という意味の語で、接着剤や債券も bond と呼びます。</p>
+        <p>コーラスでは、父と息子が the most powerful bond（いちばん強い絆）を分かち合えるように祈る、と歌っています。</p>
+        <p>続く行では、その絆は息子と母親の絆とは少し違う、と付け加えます。どちらが上という話ではなく、種類が違うという言い方です。</p>
+        <p>share a bond（絆を分かち合う）は決まった組み合わせで、家族や親友について話すときによく使われます。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>share a bond</strong>: <em>The two sisters share a special bond.</em>（あの姉妹には特別な絆がある）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Stand tall と、go for it all 胸を張って全部取りに行け"
+        label="★ イディオム"
+        mc="Chorus"
+        t={TS["stand-tall"].t} tApprox={TS["stand-tall"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Tell 'em stand tall, know he should go for it all</Fragment>
+        <Fragment slot="jpn">胸を張れと伝えてやれ、全部取りに行っていいんだと</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ コーラスの7行目、締めの直前の行です。</p>
+        <p><strong class='text-[var(--c-text)]'>stand tall</strong> は「背筋を伸ばして立つ」から、「堂々とする、胸を張る」の意味になります。</p>
+        <p><strong class='text-[var(--c-text)]'>go for it</strong> は「思い切ってやってみる」。後ろに all を足した <strong class='text-[var(--c-text)]'>go for it all</strong> で、「全部をつかみに行く」という大きな言い方になります。</p>
+        <p>標準的な英語なら Tell them to stand tall と to が入りますが、ここでは to を抜いて Tell 'em stand tall と言っています。会話ではこの形もよく聞きます。</p>
+        <p>コーラスの最後は glorious king（栄光ある王）という呼びかけで閉じます。曲名の Young Kings が、ここで一人の王の姿にまとまります。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>stand tall</strong>: <em>Even after the loss, the team stood tall.</em>（負けたあとも、チームは胸を張っていた）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="All the memories rush 記憶が一気に押し寄せる"
+        label="★ 語法"
+        mc="Nas（Verse 2）"
+        t={TS["memories-rush"].t} tApprox={TS["memories-rush"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Getting off the city bus, all the memories rush</Fragment>
+        <Fragment slot="jpn">市バスを降りると、思い出がどっと押し寄せる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の2行目です。ここから子どもの頃の話に入ります。</p>
+        <p><strong class='text-[var(--c-text)]'>rush</strong> は「急いで動く、押し寄せる」。memories rush で、記憶が一度にどっとよみがえる感じを出しています。</p>
+        <p><strong class='text-[var(--c-text)]'>get off</strong> は乗り物から「降りる」。バスや電車には get on／get off、車やタクシーには get in／get out of を使うのが基本です。</p>
+        <p>1行目では、昔見た多くのものを自分たちの姿だと思っていた、と語り出します。そのあとに市バスを降りる場面が来て、話は母と歩いた道へつながっていきます。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>come rushing back</strong>: <em>When I heard that song, everything came rushing back.</em>（あの曲を聴いた瞬間、全部が一気によみがえった）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="The baddest 「いちばんイケてる」のbad"
+        label="★ スラング"
+        mc="Nas（Verse 2）"
+        t={TS["baddest"].t} tApprox={TS["baddest"].approx} youtubeId={YT}
+        embed=""
+      >
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の6行目、標識の絵を指さしたあとの行です。英語は引かず、語だけ取り出します。</p>
+        <p><strong class='text-[var(--c-text)]'>bad</strong> は「悪い」ですが、ラップでは逆の意味で「すごい、イケてる」としても使われます。最上級の <strong class='text-[var(--c-text)]'>the baddest</strong> で、「いちばんイケてるやつ」。</p>
+        <p>幼いNasは、標識の中の小さな男の子を the baddest、いちばんかっこいい子だと見ていた、と歌います。</p>
+        <p>文法上の最上級は worst ですが、「イケてる」の意味のときは baddest を使います。意味によって比較の形が変わる、面白い例です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>the baddest</strong>: <em>She's the baddest dancer in the crew.</em>（彼女がクルーでいちばんイケてるダンサーだ）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="The crossing sign 標識の親子は自分と母だと思っていた"
+        label="★ エピソード／語法"
+        mc="Nas（Verse 2）"
+        t={TS["crossing-sign"].t} tApprox={TS["crossing-sign"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">I really thought the crossing sign was me and my mom</Fragment>
+        <Fragment slot="jpn">俺は本気で、あの横断の標識は俺と母さんだと思ってた</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の前半、標識の話の締めにあたる行です。</p>
+        <p><strong class='text-[var(--c-text)]'>crossing sign</strong> は、道路の横断を知らせる標識のこと。Nasはその標識を、大人が子どもの腕を取って歩いている絵として描写しています。</p>
+        <p>母と歩いていた幼いNasは、その絵を指さして、自分と母さんのことだと思い込んでいた、という話です。</p>
+        <p><strong class='text-[var(--c-text)]'>I really thought ~</strong> は「本気で〜だと思っていた」。あとで違うとわかったことを振り返るときの、決まった言い出し方です。</p>
+        <p>このあと母から、あの標識はみんなのためのものだと教えられます。曲の中でも、いちばん柔らかい場面の一つだと思います。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>I really thought</strong>: <em>I really thought the shop was open on Sundays.</em>（日曜も店が開いてると本気で思ってた）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="I'm like, &quot;We special&quot; 引用の like と、be動詞の省略"
+        label="★ AAVE文法／口語"
+        mc="Nas（Verse 2）"
+        t={TS["we-special"].t} tApprox={TS["we-special"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">I'm like, "We ain't everybody, nah, we special, Mommy"</Fragment>
+        <Fragment slot="jpn">俺は「俺たちはみんなじゃない、特別なんだよ、ママ」って感じで</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の中ほど、母とのやりとりの場面です。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>1. I'm like（会話を引用する like）</p>
+        <p><strong class='text-[var(--c-text)]'>be like</strong> は、自分や誰かの言ったことを再現するときの口語です。I said の代わりに I'm like と言うと、「〜って感じで」というくだけた響きになります。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>2. we special（are を抜いた形）</p>
+        <p>標準的な英語では we are special ですが、are を抜いて we special と言っています。ain't も am not／are not などの代わりに使われる口語の否定です。</p>
+        <p>前の行で母は、標識はみんなのためのもの、と教えます。それに対して子どものNasは、自分たちは特別だと言い返す。</p>
+        <p>子どもの口調のまま再現されているので、場面がそのまま目に浮かびます。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>be like（引用）</strong>: <em>And he was like, "No way."</em>（で、あいつは「ありえない」って感じだった）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Those is Miss Ann's boys 母の名前と、弟の名前"
+        label="★ 固有名詞／AAVE文法"
+        mc="Nas（Verse 2）"
+        t={TS["miss-anns-boys"].t} tApprox={TS["miss-anns-boys"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Those is Miss Ann's boys, Nasir and Jabari</Fragment>
+        <Fragment slot="jpn">あれはミス・アンのところの子だ、ナシールとジャバリ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の中ほど、Atariの話の次の行です。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>1. Miss Ann、Nasir、Jabari（家族の名前）</p>
+        <p>Nasの母親の名前は Fannie Ann（1941〜2002年）。<strong class='text-[var(--c-text)]'>Miss Ann</strong> は、近所の人たちが彼女を呼んだ形として歌われています。</p>
+        <p><strong class='text-[var(--c-text)]'>Nasir</strong> はNasの本名 Nasir Jones。<strong class='text-[var(--c-text)]'>Jabari</strong> は弟の Jabari Fret で、Jungle の名前でラップをしていて、グループ Bravehearts のメンバーです。</p>
+        <p>直前の行では、母が二人に Atari（家庭用ゲーム機）を買ってくれた思い出が出てきます。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>2. Those is（複数に is）</p>
+        <p>Those は複数なので標準的な英語では Those are ですが、ここでは is で通しています。複数の主語に is を使うのも、AAVEでよく聞く形です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>~'s boys</strong>: <em>Everyone on the block knew we were Mrs. Lee's kids.</em>（ブロックのみんなが、俺たちをリーさんちの子だと知っていた）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Haile Selassies in training 王の卵だった兄弟"
+        label="★ 固有名詞／語法"
+        mc="Nas（Verse 2）"
+        t={TS["future-lions"].t} tApprox={TS["future-lions"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">In school, we question the bias, two little future lions<br>Haile Selassies in training</Fragment>
+        <Fragment slot="jpn">学校では偏見を問いただした、小さな未来のライオン二頭／修業中のハイレ・セラシエたち</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の後半、学校の話の2行です。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>1. question（動詞で「問いただす」）</p>
+        <p><strong class='text-[var(--c-text)]'>question</strong> は名詞の「質問」だけでなく、動詞で「疑問を投げかける、異を唱える」の意味になります。question the bias で「偏見を問いただす」。</p>
+        <p>前の行では、子ども時代を institutional racism（制度に組み込まれた人種差別）と向き合いながら過ごした、と語っています。兄弟は学校で、その偏りに黙っていなかったということです。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>2. Haile Selassie と lion（ライオン）</p>
+        <p><strong class='text-[var(--c-text)]'>Haile Selassie</strong> は、1930年から1974年までエチオピアの皇帝だった人物です。正式な称号には「ユダ族の獅子」「王の中の王」という言葉が入っていて、ラスタファリの信仰でも特別な存在とされています。</p>
+        <p><strong class='text-[var(--c-text)]'>in training</strong> は「修業中の、見習いの」。小さなライオン二頭、王の見習い。</p>
+        <p>曲名の Young Kings と、皇帝の称号の King of Kings がここで重なります。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>in training</strong>: <em>He's a chef in training at a hotel.</em>（彼はホテルで修業中の料理人だ）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="In no time they grown あっという間に大きくなる"
+        label="★ AAVE文法"
+        mc="Nas（Verse 2）"
+        t={TS["they-grown"].t} tApprox={TS["they-grown"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Y chromosome, in no time they grown</Fragment>
+        <Fragment slot="jpn">Y染色体、気づけばあっという間に大人になってる</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の終盤、Haile Selassieの行の次です。</p>
+        <p><strong class='text-[var(--c-text)]'>Y chromosome</strong> は「Y染色体」。男の子が生まれる仕組みに関わる染色体で、ここでは「息子たち」を理科の言葉で言っています。</p>
+        <p><strong class='text-[var(--c-text)]'>in no time</strong> は「あっという間に」。時間がまったくかからないうちに、という言い方です。</p>
+        <p><strong class='text-[var(--c-text)]'>they grown</strong> は they are grown の are を抜いた形。Verse 1の He from と同じコピュラ省略です。</p>
+        <p>grown は「成長した、大人になった」の意味の形容詞として使われています。</p>
+        <p>子ども時代の思い出から、ここで一気に、息子が育っていく今の時間へ戻ってきます。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>in no time</strong>: <em>You'll be speaking English in no time.</em>（すぐに英語が話せるようになるよ）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="First born be like the mom 習慣の be"
+        label="★ AAVE文法"
+        mc="Nas（Verse 2）"
+        t={TS["first-born-be-like"].t} tApprox={TS["first-born-be-like"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">First born be like the mom, second born is usually like dad</Fragment>
+        <Fragment slot="jpn">最初の子は母親に似る、二番目はたいてい父親似</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の終盤、兄弟の話の行です。</p>
+        <p><strong class='text-[var(--c-text)]'>be like</strong> の be は、活用させずに原形のまま置く <QuickSlang word='習慣のbe' desc='AAVEで、be を活用させずに原形のまま使い、「いつも〜だ」「たいてい〜する」という習慣や繰り返しを表す形。標準英語の is とは意味が違う。</p>
+        <p>この曲では、長子は母親に似るものだ、という一般論を言うのに使われている' /> です。「いつもそうだ、たいていそうなる」という、繰り返しや傾向を表します。</p>
+        <p>同じ行の後半は second born is usually like dad と、標準的な is に usually（たいてい）を付けた形。前半の be と後半の is usually が、ほぼ同じ意味で並んでいるのが面白いところです。</p>
+        <p><strong class='text-[var(--c-text)]'>first born</strong> は「第一子、長子」。ここで言っているのはNas自身の考えで、そうした決まりが本当にあるという話ではありません。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>first-born</strong>: <em>She's the first-born of three kids.</em>（彼女は三人きょうだいの一番上だ）。</p>
+        </Fragment>
+      </LearningUnit>
+
+      <LearningUnit
+        heading="Hold each other down 兄弟で支え合え"
+        label="★ スラング／イディオム"
+        mc="Nas（Verse 2）"
+        t={TS["hold-each-other-down"].t} tApprox={TS["hold-each-other-down"].approx} youtubeId={YT}
+        embed=""
+      >
+        <Fragment slot="eng">Hold each other down 'cause love brings<br>The world at your feet, my young kings</Fragment>
+        <Fragment slot="jpn">互いに支え合え、愛があれば／世界が足元にひれ伏す、俺の若き王たちよ</Fragment>
+        <p class="text-xs text-[var(--c-dim)] mb-1">▶ Verse 2の最後の2行です。このあと最後のコーラスに入ります。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>1. hold down（支える、守る）</p>
+        <p><strong class='text-[var(--c-text)]'>hold down</strong> は「押さえつける」が元の意味ですが、ヒップホップでは <QuickSlang word='hold it down' desc='場所や人を守る、しっかり支える、というスラング。hold someone down の形だと「その人を支える、味方でいる」。</p>
+        <p>この曲では hold each other down で、兄弟が互いに支え合うことを言っている' /> の形で「守る、支える」の意味になります。</p>
+        <p>each other（お互い）と組み合わせて、兄弟同士で支え合え、というメッセージです。</p>
+        <p class='mt-3 mb-1 font-bold text-[var(--c-text)]'>2. the world at your feet（世界を手にする）</p>
+        <p><strong class='text-[var(--c-text)]'>have the world at one's feet</strong> は「世界が足元にある」、つまり何でも手に入る、大成功の状態を言うイディオムです。</p>
+        <p>'cause は because の口語形。愛があるから世界が足元に来る、と一文で行をまたいで、曲名の my young kings で締めています。</p>
+        <p>Verse 1の最後と同じ呼びかけで、二つのバースがきれいに閉じる形です。</p>
+        <Fragment slot="usage">
+          <p><strong class='text-[var(--c-text)]'>the world at your feet</strong>: <em>At twenty, she had the world at her feet.</em>（二十歳の彼女には、何でもできる未来があった）。</p>
+        </Fragment>
+      </LearningUnit>
+    </section>
+
+    <section id="background" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        文化的背景
+      </h2>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">『Light-Years』</p>
+        <h3 class="font-semibold text-base mb-3">「Legend Has It…」シリーズの7作目で、最後の一枚</h3>
+        <div class="space-y-3 text-[var(--c-muted)] text-sm leading-relaxed">
+          <p>
+            『Light-Years』は2025年12月12日に、NasのレーベルでもあるMass Appealから出ました。全15曲で、プロデュースはすべてDJ Premierです。
+          </p>
+          <p>
+            「Legend Has It…」シリーズの7作目で、シリーズの最終作にあたります。
+          </p>
+          <p>
+            「Sons (Young Kings)」は8曲目、長さは3分3秒。作者クレジットはNas、DJ Premier、Marco Brunoの3人です。
+          </p>
+          <p>
+            アルバムはBillboard 200で最高47位、Top R&B/Hip-Hop Albumsで最高9位を記録しています。
+          </p>
+        </div>
+      </div>
+
+      <div class="mb-6 p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">Nasの家族</p>
+        <h3 class="font-semibold text-base mb-3">娘の歌から13年後の、息子の歌</h3>
+        <div class="space-y-3 text-[var(--c-muted)] text-sm leading-relaxed">
+          <p>
+            Nasには、1994年生まれの娘 Destiny と、2009年生まれの息子がいます。
+          </p>
+          <p>
+            2012年のアルバム『Life Is Good』には、娘の成長を見ながら書いた「Daughters」という曲があり、グラミー賞の2部門にノミネートされました。
+          </p>
+          <p>
+            「Sons (Young Kings)」は、題名の上でもその曲と対になって聞こえます。ただ、曲の中に特定の息子の名前は出てきません。
+          </p>
+        </div>
+      </div>
+
+      <div class="p-5 bg-[var(--c-surface)] border-2 border-[var(--c-orange)] border-l-4" style="border-radius:0">
+        <p class="text-[var(--c-orange)] text-xs uppercase tracking-widest mb-2">キーワード早見表</p>
+        <h3 class="font-semibold text-base mb-3">この曲で学んだ表現の整理</h3>
+        <div class="space-y-3 mt-3">
+          {[
+            ['humble beginnings', 'ささやかな出発点'],
+            ['as close as', '〜くらい近い'],
+            ['fold under pressure', 'プレッシャーに負けて崩れる'],
+            ['manifesto', '宣言、信条'],
+            ['vessel', '器'],
+            ['He from', 'He is from の is を省いた形（コピュラ省略）'],
+            ['possess', '自分のものにする'],
+            ['by the power vested in me', '結婚式で司式者が言う決まり文句'],
+            ['give someone their flowers', '生きているうちに感謝を伝える'],
+            ['foreigns', '外車'],
+            ['filthy rich', 'ものすごい金持ち'],
+            ['stock tip', '株の耳寄り情報'],
+            ['run things', '物事を仕切る'],
+            ['let him run', '走らせてやれ、自由にさせろ'],
+            ['share a bond', '絆を分かち合う'],
+            ['stand tall', '胸を張る'],
+            ['go for it all', '全部つかみに行く'],
+            ['the baddest', 'いちばんイケてる'],
+            ['I\'m like', '〜って感じで（会話の引用）'],
+            ['Those is', '複数の主語に is を使うAAVEの言い方'],
+            ['in training', '修業中の'],
+            ['in no time', 'あっという間に'],
+            ['be like', '習慣の be。たいてい〜に似る'],
+            ['hold each other down', '互いに支え合う'],
+            ['the world at your feet', '何でも手に入る状態'],
+          ].map(([w, d]) => (
+            <div class="text-sm">
+              <span class="font-semibold text-[var(--c-text)]">{w}</span>
+              <span class="text-[var(--c-muted)]"> {d}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="behind" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        制作の裏側
+      </h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          ビートを作ったDJ Premierは、Guruと組んだGang Starrの片割れです。Nasとの仕事は1994年の『Illmatic』までさかのぼり、30年越しで一枚丸ごとの共作になりました。
+        </p>
+        <p>
+          アルバムのクレジットには、この曲のサンプルの記載がありません。作者として名前が並ぶのは、Nas、DJ Premier、Marco Bruno の3人です。
+        </p>
+        <p>
+          『Light-Years』の録音は、ニューヨークの Kaufman Astoria Studios、The Hit Factory、D&D で行われました。D&D は、『Illmatic』の録音にも使われたスタジオです。
+        </p>
+      </div>
+    </section>
+
+    <section id="legacy" class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        評価とその後
+      </h2>
+      <div class="space-y-3 text-sm text-[var(--c-muted)] leading-relaxed">
+        <p>
+          各項目の▶は、Nas本人のYouTubeチャンネルにある「Sons (Young Kings)」のビジュアライザーにつながっています。
+        </p>
+        <p>
+          同じアルバムからは、2曲目の「Git Ready」のミュージックビデオも公開されています。
+        </p>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-[var(--c-gold)] text-xs uppercase tracking-widest mb-5 border-b border-[var(--c-border)] pb-2">
+        まとめ
+      </h2>
+      <ul class="space-y-2 text-sm text-[var(--c-muted)] list-disc list-inside leading-relaxed">
+        <li>「Sons (Young Kings)」は、息子を持つ父としてのNasと、母に手を引かれていた子どもの頃のNasが、二つのバースで並ぶ一曲です。</li>
+        <li>humble beginnings、fold under pressure、by the power vested in me、give someone their flowers と、英語の決まり文句を少しずつ形を変えて使っています。</li>
+        <li>He from、they grown、Those is、be like と、be動詞まわりのAAVEの文法が、家族の話の中に自然に出てきます。</li>
+        <li>Haile Selassie の称号と曲名の Young Kings、Verse 1と2の最後の my young kings と、王という言葉が曲全体をつないでいます。</li>
+      </ul>
+    </section>
+
+</SongLayout>
