@@ -86,11 +86,11 @@
   {
     "id": "rebel-corner",
     "whisperSec": null,
-    "manualSec": 56.7,
+    "manualSec": 56.9,
     "captionSec": null,
     "syncedSec": null,
     "fallbackT": 55.2,
-    "t": 56.7,
+    "t": 56.9,
     "source": "manual",
     "approx": false,
     "score": null
