@@ -17,6 +17,8 @@ import { buildToneDiffReport } from './tone-diff-report.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '../..');
+// 既定は review 全体。単独記事の公開など、切り出したブランチを出すときだけ PUBLISH_SOURCE=origin/<branch> で指定する。
+const SRC = process.env.PUBLISH_SOURCE || 'origin/review';
 
 function run(cmd) {
   return execSync(cmd, { cwd: ROOT, encoding: 'utf-8', stdio: ['ignore', 'pipe', 'pipe'] });
@@ -61,12 +63,12 @@ const remoteMainBeforeMerge = run('git rev-parse origin/main').trim();
 // review側のコミット内容と完全一致する未追跡コピーのみ自動削除して先へ進む。
 // 内容が異なる場合はローカル独自の作業の可能性があるため、何も消さずfailする。
 try {
-  const incoming = run('git diff --name-only HEAD origin/review').split('\n').filter(Boolean);
+  const incoming = run(`git diff --name-only HEAD ${SRC}`).split('\n').filter(Boolean);
   const untracked = new Set(run('git ls-files --others --exclude-standard').split('\n').filter(Boolean));
   for (const f of incoming) {
     if (!untracked.has(f) || !existsSync(join(ROOT, f))) continue;
     const local = readFileSync(join(ROOT, f));
-    const inReview = execSync(`git show origin/review:"${f}"`, { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'] });
+    const inReview = execSync(`git show ${SRC}:"${f}"`, { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'] });
     if (local.equals(inReview)) {
       unlinkSync(join(ROOT, f));
       console.log(`ℹ️ reviewと同一内容の未追跡コピーを削除: ${f}`);
@@ -79,7 +81,7 @@ try {
 }
 
 try {
-  run('git merge --no-edit origin/review');
+  run(`git merge --no-edit ${SRC}`);
 } catch (e) {
   try { run('git merge --abort'); } catch {}
   fail(`review マージ失敗（コンフリクトの可能性）: ${(e.stderr || e.message).toString().slice(-400)}`);
