@@ -5,12 +5,12 @@
   "pos": "名詞（複数形）",
   "category": "仲間・人の呼び方",
   "level": "初級",
-  "title": "peeps の意味と使い方｜people を縮めた「仲間たち」。my peeps の温度と動詞 peep との違い",
-  "description": "peeps は people を縮めたスラングで、my peeps なら「自分の仲間たち、身内」です。Wiktionary の語義と年代、peep（のぞく、見る）との違い、Nas や MF DOOM の曲での使われ方を日本語で解説します。",
+  "title": "peep・peeps の意味とは？スラングで「仲間・身内」、my peeps と peep this の違い",
+  "description": "peeps（ピープス）は people を縮めたスラングで、my peeps なら「俺の仲間たち、身内」。動詞の peep はスラングで「ちょっと見る、チェックする」で、peep this は「これ見てみ」。違いと Nas や MF DOOM の曲での使われ方を解説。",
   "summary": [
-    "peeps は people を短くした語で、my peeps と言えば「俺の仲間たち、身内」です。",
+    "peeps（ピープス）は people を縮めたスラングで、my peeps と言えば「俺の仲間たち、身内」です。",
     "people より距離が近く、家族や友達、地元の連中をまとめて親しみを込めて呼ぶ言い方です。",
-    "動詞の peep（のぞく、ちらっと見る）と綴りが似ていますが、意味はまったく別です。"
+    "動詞の peep はスラングで「ちょっと見る、チェックする」になり、peep this なら「これ見てみ」くらいの言い方です。綴りは似ていますが、仲間を指す peeps とは出どころが別の語です。"
   ],
   "sections": [
     {
@@ -82,6 +82,11 @@
   ],
   "inSongs": [
     {
+      "artist": "Nas",
+      "song": "Memory Lane (Sittin' in da Park)",
+      "note": "通りで一緒に過ごしてきた地元の連れを peeps と呼んでいます。昔を振り返る曲の中で、身内に近い仲間を指す親しい呼び方として出てきます。"
+    },
+    {
       "artist": "Ghostface Killah",
       "song": "Wildflower",
       "quote": "my peeps showed you love",
@@ -147,6 +152,10 @@
   ],
   "faq": [
     {
+      "q": "peep はスラングでどういう意味ですか。",
+      "a": "動詞なら「ちょっと見る、チェックする」です。Wiktionary もこの語義をスラングとして載せていて、I peeped the new video. なら「新しい動画、見たよ」くらいの意味になります。"
+    },
+    {
       "q": "peeps と people はどう違いますか。",
       "a": "意味は同じ「人々」ですが、peeps は口語で、とくに my peeps のように自分の側の人たちを親しみを込めて指します。"
     },
@@ -163,7 +172,14 @@
     "homie",
     "crew",
     "son",
-    "cat"
+    "cat",
+    "bro",
+    "clique"
   ],
-  "stats": "解析に使ったヒップホップ約440曲の歌詞のうち、peeps を含む曲は8曲で、16人中5人のラッパーに出てきました。Nas や MF DOOM の曲に特に多く出てきます。出現数の多い順に並べると、内訳はNas 3曲、MF DOOM 2曲、Aesop Rock 1曲、Ghostface Killah 1曲、Rakim 1曲です。"
+  "stats": "解析に使ったヒップホップ約440曲の歌詞のうち、peeps を含む曲は8曲で、16人中5人のラッパーに出てきました。Nas や MF DOOM の曲に特に多く出てきます。出現数の多い順に並べると、内訳はNas 3曲、MF DOOM 2曲、Aesop Rock 1曲、Ghostface Killah 1曲、Rakim 1曲です。",
+  "sources": [
+    {
+      "url": "https://en.wiktionary.org/wiki/peep"
+    }
+  ]
 }
