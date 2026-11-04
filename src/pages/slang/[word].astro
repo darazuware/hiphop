@@ -2,6 +2,8 @@
 import Layout from '../../layouts/Layout.astro';
 import { songs } from '../../data/songs';
 import metaData from '../../data/slang-meta.json';
+import AmazonAlbumCta from '../../components/AmazonAlbumCta.astro';
+import fs from 'node:fs';
 const meta = metaData as Record<string, { tone: string; freq: string; kind: string; themes: string[]; hidden: string[] }>;
 
 export interface Entry {
@@ -17,7 +19,7 @@ export interface Entry {
   sections: { h: string; body: string[] }[];
   origin: string[];
   examples: { en: string; ja: string; note: string }[];
-  inSongs: { artist: string; song: string; quote?: string; note: string }[];
+  inSongs: { artist: string; song: string; quote?: string; note: string; album?: { title: string; artist: string; cover: string } }[];
   compare: { term: string; ja: string; diff: string }[];
   pitfalls: string[];
   faq: { q: string; a: string }[];
@@ -35,6 +37,17 @@ const { entry, all } = Astro.props as { entry: Entry; all: { slug: string; word:
 const siteSongs = (artist: string, song: string) =>
   songs.find(s => s.title.toLowerCase().replace(/[^a-z0-9]/g, '') === song.toLowerCase().replace(/[^a-z0-9]/g, '') && s.artists.toLowerCase().includes(artist.split(' ')[0].toLowerCase()));
 const known = new Set(all.map(a => a.slug));
+// サイト内の曲解説でこの語を取り上げている記事（QuickSlang か太字の見出し語）を自動で拾う
+const songSources = import.meta.glob('../songs/*.astro', { query: '?raw', import: 'default', eager: true }) as Record<string, string>;
+const esc = entry.word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+const usesWord = new RegExp(`<QuickSlang\\b[^>]*\\b(?:word|term)=["']${esc}["']|<strong[^>]*>(?:the |my |a )?${esc}</strong>`, 'i');
+const inSongSlugs = new Set(entry.inSongs.map(r => siteSongs(r.artist, r.song)?.slug).filter(Boolean));
+const siteArticles = Object.entries(songSources)
+  .filter(([, src]) => usesWord.test(src))
+  .map(([file]) => songs.find(s => s.slug === `/songs/${file.split('/').pop()!.replace(/\.astro$/, '')}`))
+  .filter((s): s is (typeof songs)[number] => !!s && !inSongSlugs.has(s.slug))
+  .slice(0, 8)
+  .map(s => ({ ...s, cover: fs.existsSync(`public/images/covers/${s.slug.split('/').pop()}.jpg`) ? `/images/covers/${s.slug.split('/').pop()}.jpg` : null }));
 const m = meta[entry.slug] ?? null;
 const schema = {
   '@context': 'https://schema.org',
@@ -109,11 +122,32 @@ const schema = {
               </p>
               {r.quote && <p class="text-[var(--c-dim)] italic mt-1">"{r.quote}"</p>}
               <p class="text-[var(--c-muted)] mt-1 leading-relaxed">{r.note}</p>
+              {hit && <a href={hit.slug} class="inline-block mt-1 text-xs text-[var(--c-gold)] hover:underline">この曲の解説記事を読む →</a>}
+              {r.album && <div><AmazonAlbumCta compact query={`${r.album.artist} ${r.album.title}`} cover={r.album.cover} title={r.album.title} artist={r.album.artist} position="slang-insongs" /></div>}
             </li>
           );
         })}
       </ul>
     </section>
+
+    {siteArticles.length > 0 && (
+      <section class="mb-10">
+        <h2 class="text-lg font-bold mb-3 border-b border-[var(--c-border)] pb-2">曲解説で {entry.word} が出てくる記事</h2>
+        <ul class="grid sm:grid-cols-2 gap-3 text-sm">
+          {siteArticles.map(s => (
+            <li>
+              <a href={s.slug} class="flex items-center gap-3 p-2 border border-[var(--c-border)] rounded-lg hover:border-[var(--c-gold)] transition-colors group">
+                {s.cover && <img src={s.cover} alt={`${s.artists} - ${s.album}`} class="w-12 h-12 object-cover rounded" loading="lazy" />}
+                <span class="leading-snug">
+                  <span class="block font-semibold group-hover:text-[var(--c-gold)] transition-colors">{s.title}</span>
+                  <span class="block text-xs text-[var(--c-muted)]">{s.artists}</span>
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
 
     <section class="mb-10">
       <h2 class="text-lg font-bold mb-3 border-b border-[var(--c-border)] pb-2">似た表現との違い</h2>
