@@ -54,9 +54,13 @@ for (const slug of targets) {
   for (const [a, list] of Object.entries(artists)) for (const x of list) if (re.test(x.lower)) { songs++; hitArtists.add(a); }
   const perArtist = Object.entries(artists).map(([a, list]) => [a, list.filter(x => re.test(x.lower)).length]).filter(([, n]) => n > 0).sort((x, y) => y[1] - x[1]);
   const display = a => (fs.readFileSync(path.join(corpusDir, a, fs.readdirSync(path.join(corpusDir, a))[0]), 'utf8').match(/^# (.+?) - /) || [, a])[1];
-  const top = perArtist.slice(0, 2).map(([a]) => display(a));
   const unit = Math.round(totalSongs / 10) * 10;
-  const expected = `解析に使ったヒップホップ約${unit}曲の歌詞のうち、${e.word} を含む曲は${songs}曲で、${Object.keys(artists).length}人中${hitArtists.size}人のラッパーに出てきました。` + (top.length === 2 ? `${top[0]} や ${top[1]} の曲に特に多く出てきます。` : top.length === 1 ? `${top[0]} の曲に出てきます。` : '') + (perArtist.length ? `出現数の多い順に並べると、内訳は${perArtist.slice(0, 5).map(([a, n]) => `${display(a)} ${n}曲`).join('、')}です。` : '');
+  const nArtists = Object.keys(artists).length;
+  // 母数が小さいサンプルであることを明示し、ヒップホップ全体の使用数と誤読されないようにする
+  const expected = `${e.word} の使用例は、このサイトが解析用に集めたラッパー${nArtists}人・約${unit}曲の歌詞から拾っています。` +
+    (songs ? `${hitArtists.size / nArtists >= 0.5 ? 'この限られたサンプルの中でも' : 'このサンプルでは'} ${e.word} は${songs}曲に出てきて、${nArtists}人中${hitArtists.size}人が使っていました。` : `このサンプルには ${e.word} を含む曲はありませんでした。`) +
+    `ヒップホップ全体で ${e.word} が使われている曲数ではなく、手元のサンプルで数えた数字です。` +
+    (perArtist.length ? `多い順の内訳は${perArtist.slice(0, 5).map(([a, n]) => `${display(a)} ${n}曲`).join('、')}です。` : '');
   if ((e.stats || '') !== expected) {
     if (fixStats) { e.stats = expected; fs.writeFileSync(p, JSON.stringify(e, null, 2)); }
     else errs.push('stats が実測と不一致（--fix-stats で自動生成）');
