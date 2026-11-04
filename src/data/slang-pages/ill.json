@@ -78,43 +78,78 @@
     {
       "artist": "Nas",
       "song": "It Ain't Hard to Tell",
-      "note": "Verse 2 の Ill plus Matic という一句で、ill と -matic を足してアルバム名『Illmatic』を組み立ててみせます。ほめ言葉の ill を自分の作品名に埋め込んだ例です。"
+      "note": "Verse 2 の Ill plus Matic という一句で、ill と -matic を足してアルバム名『Illmatic』を組み立ててみせます。ほめ言葉の ill を自分の作品名に埋め込んだ例です。",
+      "album": {
+        "title": "Illmatic",
+        "artist": "Nas",
+        "cover": "/images/covers/albums/nas-illmatic.jpg"
+      }
     },
     {
       "artist": "Rakim",
       "song": "Move the Crowd",
       "quote": "Been ill for a minute",
-      "note": "もうずっと前から ill だ、という短い自己紹介です。for a minute（しばらくの間）を付けて、実力が今に始まったものではないと言っています。"
+      "note": "もうずっと前から ill だ、という短い自己紹介です。for a minute（しばらくの間）を付けて、実力が今に始まったものではないと言っています。",
+      "album": {
+        "title": "Paid in Full",
+        "artist": "Eric B. & Rakim",
+        "cover": "/images/covers/albums/eric-b-rakim-paid-in-full.jpg"
+      }
     },
     {
       "artist": "Ghostface Killah",
       "song": "Winter Warz",
       "quote": "I'm too ill",
-      "note": "自分が ill すぎると言い切ったあと、地元の Park Hill を背負う宣言につながります。ill が自己紹介の決め台詞として使われている例です。"
+      "note": "自分が ill すぎると言い切ったあと、地元の Park Hill を背負う宣言につながります。ill が自己紹介の決め台詞として使われている例です。",
+      "album": {
+        "title": "Ironman",
+        "artist": "Ghostface Killah",
+        "cover": "/images/covers/albums/ghostface-killah-ironman.jpg"
+      }
     },
     {
       "artist": "MF DOOM",
       "song": "Cellz",
       "quote": "he flow ill",
-      "note": "ラップの乗り方（フロー）が ill だと言っています。副詞的に動詞の後ろへ置く、くだけた語順も見どころです。"
+      "note": "ラップの乗り方（フロー）が ill だと言っています。副詞的に動詞の後ろへ置く、くだけた語順も見どころです。",
+      "album": {
+        "title": "Born Like This",
+        "artist": "MF DOOM",
+        "cover": "/images/covers/albums/mf-doom-born-like-this.jpg"
+      }
     },
     {
       "artist": "GZA",
       "song": "Cold World",
       "quote": "it does sound ill",
-      "note": "荒れた地区の争いのように聞こえる、という文脈で、ここの ill は「すごい」より「物騒」に寄っています。ほめ言葉と本来の意味の中間にある使い方です。"
+      "note": "荒れた地区の争いのように聞こえる、という文脈で、ここの ill は「すごい」より「物騒」に寄っています。ほめ言葉と本来の意味の中間にある使い方です。",
+      "album": {
+        "title": "Liquid Swords",
+        "artist": "GZA",
+        "cover": "/images/covers/albums/gza-liquid-swords.jpg"
+      }
     },
     {
       "artist": "Nas",
       "song": "One Mic",
       "quote": "the block was ill",
-      "note": "子どもの頃の地元の通りが ill だった、という回想です。荒れていたとも、刺激的だったとも取れて、どちらか一方に決めないほうが行の味が残ります。"
+      "note": "子どもの頃の地元の通りが ill だった、という回想です。荒れていたとも、刺激的だったとも取れて、どちらか一方に決めないほうが行の味が残ります。",
+      "album": {
+        "title": "Stillmatic",
+        "artist": "Nas",
+        "cover": "/images/covers/albums/nas-stillmatic.jpg"
+      }
     },
     {
       "artist": "Rakim",
       "song": "Eric B. Is President",
       "quote": "be acting ill",
-      "note": "こちらは「おかしなふるまいをする」という悪い意味で、illin' に近い使い方です。1986年の曲なので、ほめ言葉化する前後の時代の空気が見えます。"
+      "note": "こちらは「おかしなふるまいをする」という悪い意味で、illin' に近い使い方です。1986年の曲なので、ほめ言葉化する前後の時代の空気が見えます。",
+      "album": {
+        "title": "Paid in Full",
+        "artist": "Eric B. & Rakim",
+        "cover": "/images/covers/albums/eric-b-rakim-paid-in-full.jpg"
+      }
     }
   ],
   "compare": [

@@ -78,37 +78,67 @@
       "artist": "Ghostface Killah",
       "song": "Iron Maiden",
       "quote": "swallow raw eggs",
-      "note": "生卵を飲む、という文字どおりの raw です。後ろの read the label と並んで、口にするものへのこだわりが出ています。"
+      "note": "生卵を飲む、という文字どおりの raw です。後ろの read the label と並んで、口にするものへのこだわりが出ています。",
+      "album": {
+        "title": "Ironman",
+        "artist": "Ghostface Killah",
+        "cover": "/images/covers/albums/ghostface-killah-ironman.jpg"
+      }
     },
     {
       "artist": "Ghostface Killah",
       "song": "9 Milli Bros.",
       "quote": "Staten's where the raw is",
-      "note": "本物はスタテンアイランドにある、という地元自慢です。混じりけのなさと、むき出しのラップの話が重なって読めます。"
+      "note": "本物はスタテンアイランドにある、という地元自慢です。混じりけのなさと、むき出しのラップの話が重なって読めます。",
+      "album": {
+        "title": "Fishscale",
+        "artist": "Ghostface Killah",
+        "cover": "/images/covers/albums/ghostface-killah-fishscale.jpg"
+      }
     },
     {
       "artist": "Ghostface Killah",
       "song": "Winter Warz",
       "quote": "Raw be the quote",
-      "note": "ラップのスタイルを語る流れの raw で、生々しさを看板に掲げています。be を使った言い回しも、口語らしいリズムを作っています。"
+      "note": "ラップのスタイルを語る流れの raw で、生々しさを看板に掲げています。be を使った言い回しも、口語らしいリズムを作っています。",
+      "album": {
+        "title": "Ironman",
+        "artist": "Ghostface Killah",
+        "cover": "/images/covers/albums/ghostface-killah-ironman.jpg"
+      }
     },
     {
       "artist": "MF DOOM",
       "song": "Kon Karne",
       "quote": "Raw with the pen",
-      "note": "書く腕前がむき出しで強い、という自慢です。with the pen と組んで、歌詞を書く力をほめる raw になっています。"
+      "note": "書く腕前がむき出しで強い、という自慢です。with the pen と組んで、歌詞を書く力をほめる raw になっています。",
+      "album": {
+        "title": "MM..FOOD",
+        "artist": "MF DOOM",
+        "cover": "/images/covers/albums/mf-doom-mm-food.jpg"
+      }
     },
     {
       "artist": "Rakim",
       "song": "Keep the Beat",
       "quote": "keep the tempo raw",
-      "note": "テンポを飾らずに保つ、という一節です。音を整えすぎない、という音作りの姿勢として raw が使われています。"
+      "note": "テンポを飾らずに保つ、という一節です。音を整えすぎない、という音作りの姿勢として raw が使われています。",
+      "album": {
+        "title": "Don't Sweat the Technique",
+        "artist": "Eric B. & Rakim",
+        "cover": "/images/covers/albums/eric-b-rakim-don-t-sweat-the-technique.jpg"
+      }
     },
     {
       "artist": "Kool Keith",
       "song": "Black Elvis",
       "quote": "We get raw with this",
-      "note": "get raw は「遠慮なく本気でやる、荒々しくいく」という意味です。このあと括弧書きでギターを持って来いと続き、ロックスターのように振る舞う流れになっています。"
+      "note": "get raw は「遠慮なく本気でやる、荒々しくいく」という意味です。このあと括弧書きでギターを持って来いと続き、ロックスターのように振る舞う流れになっています。",
+      "album": {
+        "title": "Black Elvis/Lost in Space",
+        "artist": "Kool Keith",
+        "cover": "/images/covers/albums/kool-keith-black-elvis-lost-in-space.jpg"
+      }
     }
   ],
   "compare": [

@@ -81,31 +81,56 @@
       "artist": "Nas",
       "song": "One Love",
       "quote": "what up, son",
-      "note": "服役中の仲間へ近況を書き送る手紙の形で進む曲です。what up, son? は「よう、元気か」くらいの挨拶で、親しい相手への呼びかけとしての son がよくわかります。"
+      "note": "服役中の仲間へ近況を書き送る手紙の形で進む曲です。what up, son? は「よう、元気か」くらいの挨拶で、親しい相手への呼びかけとしての son がよくわかります。",
+      "album": {
+        "title": "Illmatic",
+        "artist": "Nas",
+        "cover": "/images/covers/albums/nas-illmatic.jpg"
+      }
     },
     {
       "artist": "GZA",
       "song": "Living in the World Today",
       "quote": "Check it out, son",
-      "note": "聞けよ、と仲間に呼びかける合いの手です。曲の頭で何度も繰り返され、呼びかけの son がリズムの一部になっています。"
+      "note": "聞けよ、と仲間に呼びかける合いの手です。曲の頭で何度も繰り返され、呼びかけの son がリズムの一部になっています。",
+      "album": {
+        "title": "Liquid Swords",
+        "artist": "GZA",
+        "cover": "/images/covers/albums/gza-liquid-swords.jpg"
+      }
     },
     {
       "artist": "Ghostface Killah",
       "song": "Daytona 500",
       "quote": "guess who back home, son?",
-      "note": "誰が帰ってきたと思う、と得意げに投げかける一節です。文末の son が、仲間に向けた軽い呼びかけとして効いています。"
+      "note": "誰が帰ってきたと思う、と得意げに投げかける一節です。文末の son が、仲間に向けた軽い呼びかけとして効いています。",
+      "album": {
+        "title": "Ironman",
+        "artist": "Ghostface Killah",
+        "cover": "/images/covers/albums/ghostface-killah-ironman.jpg"
+      }
     },
     {
-      "artist": "Ghostface Killah",
-      "song": "Shakey Dog",
-      "quote": "yo, son, your burner cocked?",
-      "note": "強盗の直前、相棒に銃の準備を確かめる場面です。緊迫した会話の中でも son が自然に挟まっていて、仲間内の呼びかけとして定着していることが分かります。"
+      "artist": "J. Cole",
+      "song": "4 Your Eyez Only",
+      "quote": "another lost 'Ville son",
+      "note": "故郷 Fayetteville の息子がまた一人、という語り口です。son が親しい呼びかけではなく、土地の子どもという本来の意味で響いています。",
+      "album": {
+        "title": "4 Your Eyez Only",
+        "artist": "J. Cole",
+        "cover": "/images/covers/albums/j-cole-4-your-eyez-only.jpg"
+      }
     },
     {
       "artist": "Ghostface Killah",
       "song": "Malcolm",
       "quote": "son 280 on the weight tip",
-      "note": "ここの son は呼びかけではなく「あいつ」という三人称です。名前を出さずに特定の人物の変化を語っています。"
+      "note": "ここの son は呼びかけではなく「あいつ」という三人称です。名前を出さずに特定の人物の変化を語っています。",
+      "album": {
+        "title": "Supreme Clientele",
+        "artist": "Ghostface Killah",
+        "cover": "/images/covers/albums/ghostface-killah-supreme-clientele.jpg"
+      }
     },
     {
       "artist": "Black Thought",

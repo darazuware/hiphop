@@ -84,43 +84,78 @@
     {
       "artist": "Nas",
       "song": "Memory Lane (Sittin' in da Park)",
-      "note": "通りで一緒に過ごしてきた地元の連れを peeps と呼んでいます。昔を振り返る曲の中で、身内に近い仲間を指す親しい呼び方として出てきます。"
+      "note": "通りで一緒に過ごしてきた地元の連れを peeps と呼んでいます。昔を振り返る曲の中で、身内に近い仲間を指す親しい呼び方として出てきます。",
+      "album": {
+        "title": "Illmatic",
+        "artist": "Nas",
+        "cover": "/images/covers/albums/nas-illmatic.jpg"
+      }
     },
     {
       "artist": "Ghostface Killah",
       "song": "Wildflower",
       "quote": "my peeps showed you love",
-      "note": "自分の仲間が君を大事にしていた、と振り返る一節です。my peeps が、身内同然の友人たちをまとめて指しています。"
+      "note": "自分の仲間が君を大事にしていた、と振り返る一節です。my peeps が、身内同然の友人たちをまとめて指しています。",
+      "album": {
+        "title": "Ironman",
+        "artist": "Ghostface Killah",
+        "cover": "/images/covers/albums/ghostface-killah-ironman.jpg"
+      }
     },
     {
       "artist": "Nas",
       "song": "The World Is Yours",
       "quote": "Picturin' my peeps not eatin'",
-      "note": "仲間が食べられずにいる姿を思い浮かべると胸が苦しくなる、という流れの一節です。not eatin' は「稼げていない、食えていない」の意味で、peeps の暮らしを案じています。"
+      "note": "仲間が食べられずにいる姿を思い浮かべると胸が苦しくなる、という流れの一節です。not eatin' は「稼げていない、食えていない」の意味で、peeps の暮らしを案じています。",
+      "album": {
+        "title": "Illmatic",
+        "artist": "Nas",
+        "cover": "/images/covers/albums/nas-illmatic.jpg"
+      }
     },
     {
       "artist": "MF DOOM",
       "song": "Gas Drawls",
       "quote": "To my peeps",
-      "note": "仲間に向けたシャウトアウトの出だしです。このあと仲間の呼び名が続き、peeps がそのまとめ役になっています。"
+      "note": "仲間に向けたシャウトアウトの出だしです。このあと仲間の呼び名が続き、peeps がそのまとめ役になっています。",
+      "album": {
+        "title": "Operation: Doomsday",
+        "artist": "MF DOOM",
+        "cover": "/images/covers/albums/mf-doom-operation-doomsday.jpg"
+      }
     },
     {
       "artist": "MF DOOM",
       "song": "Deep Fried Frenz",
       "quote": "comrade, peeps, brothers, sisters",
-      "note": "仲間を指すさまざまな呼び名を並べた一節です。友人をテーマにした曲の中で、peeps がそのうちの一つとして数えられています。"
+      "note": "仲間を指すさまざまな呼び名を並べた一節です。友人をテーマにした曲の中で、peeps がそのうちの一つとして数えられています。",
+      "album": {
+        "title": "MM..FOOD",
+        "artist": "MF DOOM",
+        "cover": "/images/covers/albums/mf-doom-mm-food.jpg"
+      }
     },
     {
       "artist": "Rakim",
       "song": "The R",
       "quote": "and peeps know it",
-      "note": "みんな知っている、という意味で、ここでの peeps は身内というより「世間の人たち」に近い使い方です。"
+      "note": "みんな知っている、という意味で、ここでの peeps は身内というより「世間の人たち」に近い使い方です。",
+      "album": {
+        "title": "Follow the Leader",
+        "artist": "Eric B. & Rakim",
+        "cover": "/images/covers/albums/eric-b-rakim-follow-the-leader.jpg"
+      }
     },
     {
       "artist": "Aesop Rock",
       "song": "Rings",
       "quote": "five peeps and a dog",
-      "note": "ニューヨーク時代を振り返る中で、5人と犬1匹という顔ぶれを数えています。人数を数える peeps で、people を軽く言い換えた素直な例です。"
+      "note": "ニューヨーク時代を振り返る中で、5人と犬1匹という顔ぶれを数えています。人数を数える peeps で、people を軽く言い換えた素直な例です。",
+      "album": {
+        "title": "The Impossible Kid",
+        "artist": "Aesop Rock",
+        "cover": "/images/covers/albums/aesop-rock-the-impossible-kid.jpg"
+      }
     }
   ],
   "compare": [

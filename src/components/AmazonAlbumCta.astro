@@ -9,14 +9,33 @@ interface Props {
   artist: string; // アーティスト名
   label?: string; // 小見出し（既定: "Amazon で見る"）
   position?: string;
+  compact?: boolean; // 一覧の各行に添える小型版（[PR]表記つき）
 }
-const { query, asin, cover, title, artist, label = "Amazon で見る", position = "article-inline" } = Astro.props as Props;
+const { query, asin, cover, title, artist, label = "Amazon で見る", position = "article-inline", compact = false } = Astro.props as Props;
 const TAG = "wax1124-22";
 const href = asin
   ? `https://www.amazon.co.jp/dp/${asin}?tag=${TAG}`
   : `https://www.amazon.co.jp/s?k=${encodeURIComponent(query ?? "")}&i=music&tag=${TAG}`;
 ---
 
+{compact ? (
+  <a
+    href={href}
+    target="_blank"
+    rel="noopener sponsored nofollow"
+    data-affiliate-merchant="amazon"
+    data-affiliate-item={title}
+    data-affiliate-position={position}
+    class="mt-2 inline-flex items-center gap-3 group"
+  >
+    <img src={cover} alt={`${artist} - ${title}`} class="w-14 h-14 object-cover rounded border border-[var(--c-border)] group-hover:border-[var(--c-gold)] transition-colors" loading="lazy" />
+    <span class="text-xs leading-snug">
+      <span class="text-[var(--c-very-dim)] mr-1">[PR]</span>
+      <span class="text-[var(--c-text)] group-hover:text-[var(--c-gold)] transition-colors">{asin ? `『${title}』をAmazonで見る` : `『${title}』をAmazonで探す`}</span>
+      <span class="block text-[var(--c-muted)]">{artist}</span>
+    </span>
+  </a>
+) : (
 <section class="mb-12">
   <a
     href={href}
@@ -37,3 +56,4 @@ const href = asin
     </div>
   </a>
 </section>
+)}

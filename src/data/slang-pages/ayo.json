@@ -78,43 +78,78 @@
       "artist": "Nas",
       "song": "Represent",
       "quote": "Ayo, yo, who that",
-      "note": "ayo と yo を続けて重ね、勢いよく声をかけています。呼びかけ語を二つ並べることで、話しかける合図がいっそう強く聞こえる場面です。"
+      "note": "ayo と yo を続けて重ね、勢いよく声をかけています。呼びかけ語を二つ並べることで、話しかける合図がいっそう強く聞こえる場面です。",
+      "album": {
+        "title": "Illmatic",
+        "artist": "Nas",
+        "cover": "/images/covers/albums/nas-illmatic.jpg"
+      }
     },
     {
       "artist": "Ghostface Killah",
       "song": "Run",
       "quote": "Ayo, I jumped from the 8th floor",
-      "note": "バースの1行目の頭に ayo が置かれ、そこから体験談が始まります。語り出しの合図として ayo が使われた、一番分かりやすい例です。"
+      "note": "バースの1行目の頭に ayo が置かれ、そこから体験談が始まります。語り出しの合図として ayo が使われた、一番分かりやすい例です。",
+      "album": {
+        "title": "The Pretty Toney Album",
+        "artist": "Ghostface Killah",
+        "cover": "/images/covers/albums/ghostface-killah-the-pretty-toney-album.jpg"
+      }
     },
     {
       "artist": "Ghostface Killah",
       "song": "Malcolm",
       "quote": "Ayo, I'm like Malcolm",
-      "note": "こちらも出だしの ayo。続く内容は、自分を Malcolm に例える決めゼリフです。呼びかけの後に印象的な比喩をぶつける流れが分かります。"
+      "note": "こちらも出だしの ayo。続く内容は、自分を Malcolm に例える決めゼリフです。呼びかけの後に印象的な比喩をぶつける流れが分かります。",
+      "album": {
+        "title": "Supreme Clientele",
+        "artist": "Ghostface Killah",
+        "cover": "/images/covers/albums/ghostface-killah-supreme-clientele.jpg"
+      }
     },
     {
       "artist": "Black Thought",
       "song": "Good Morning",
       "quote": "Ayo, it's the blues",
-      "note": "Ghostface 以外のラッパーにも、バースの頭に ayo を置く習慣があることが分かる例です。"
+      "note": "Ghostface 以外のラッパーにも、バースの頭に ayo を置く習慣があることが分かる例です。",
+      "album": {
+        "title": "Streams of Thought, Vol. 3: Cane & Able",
+        "artist": "Black Thought",
+        "cover": "/images/covers/albums/black-thought-streams-of-thought-vol-3-cane-able.jpg"
+      }
     },
     {
-      "artist": "Ghostface Killah",
-      "song": "Kilo",
-      "quote": "Ayo, ayo, Shareefa",
-      "note": "人の名前を呼ぶ場面で、ayo を重ねています。本当に相手を呼びつける、本来の意味で使われている例です。"
+      "artist": "GZA",
+      "song": "Gold",
+      "quote": "Ayo, shorty, yo, that's my word",
+      "note": "呼びかけのあとに that's my word（本当だぜ）と念を押す流れです。ayo が相手の注意を引く合図になっています。",
+      "album": {
+        "title": "Liquid Swords",
+        "artist": "GZA",
+        "cover": "/images/covers/albums/gza-liquid-swords.jpg"
+      }
     },
     {
       "artist": "Ghostface Killah",
       "song": "Apollo Kids",
       "quote": "Ayo, this rap is like Ziti",
-      "note": "出だしの ayo のあとに、料理や食べ物の比喩が続きます。Ghostface らしい、日常的な語彙と ayo の組み合わせです。"
+      "note": "出だしの ayo のあとに、料理や食べ物の比喩が続きます。Ghostface らしい、日常的な語彙と ayo の組み合わせです。",
+      "album": {
+        "title": "Supreme Clientele",
+        "artist": "Ghostface Killah",
+        "cover": "/images/covers/albums/ghostface-killah-supreme-clientele.jpg"
+      }
     },
     {
       "artist": "Black Thought",
       "song": "Thought vs Everybody",
       "quote": "(I don't think you heard me) Ayo",
-      "note": "括弧付きのアドリブとして入る ayo。相手に向けて聞き直させる、少し挑発的な使い方です。"
+      "note": "括弧付きのアドリブとして入る ayo。相手に向けて聞き直させる、少し挑発的な使い方です。",
+      "album": {
+        "title": "Streams of Thought, Vol. 3: Cane & Able",
+        "artist": "Black Thought",
+        "cover": "/images/covers/albums/black-thought-streams-of-thought-vol-3-cane-able.jpg"
+      }
     }
   ],
   "compare": [

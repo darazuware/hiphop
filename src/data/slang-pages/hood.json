@@ -78,37 +78,67 @@
       "artist": "Nas",
       "song": "Hate Me Now",
       "quote": "Sayin' we left the hood",
-      "note": "地元を出たと言われても、地元は自分の中から抜けない、という流れの一節です。成功して街を離れたラッパーと hood との距離が描かれています。"
+      "note": "地元を出たと言われても、地元は自分の中から抜けない、という流れの一節です。成功して街を離れたラッパーと hood との距離が描かれています。",
+      "album": {
+        "title": "I Am...",
+        "artist": "Nas",
+        "cover": "/images/covers/albums/nas-i-am.jpg"
+      }
     },
     {
       "artist": "Nas",
       "song": "The Message",
       "quote": "nobody in my hood got one",
-      "note": "うちの地元じゃ誰も持っていない、という意味で、自分の持ち物の特別さを地元基準で語っています。my hood が比べる物差しになっています。"
+      "note": "うちの地元じゃ誰も持っていない、という意味で、自分の持ち物の特別さを地元基準で語っています。my hood が比べる物差しになっています。",
+      "album": {
+        "title": "It Was Written",
+        "artist": "Nas",
+        "cover": "/images/covers/albums/nas-it-was-written.jpg"
+      }
     },
     {
       "artist": "GZA",
       "song": "Cold World",
       "quote": "My hood stay tense",
-      "note": "うちの地元はいつも張りつめている、という描写です。stay は「いつも〜のままだ」という AAVE の言い方で、hood の空気を言い表しています。"
+      "note": "うちの地元はいつも張りつめている、という描写です。stay は「いつも〜のままだ」という AAVE の言い方で、hood の空気を言い表しています。",
+      "album": {
+        "title": "Liquid Swords",
+        "artist": "GZA",
+        "cover": "/images/covers/albums/gza-liquid-swords.jpg"
+      }
     },
     {
       "artist": "Ghostface Killah",
       "song": "Apollo Kids",
       "quote": "As we approach your hood",
-      "note": "お前の地元に乗り込んでいくぞ、という場面です。your hood は相手の縄張りで、そこに踏み込むこと自体が挑発になっています。"
+      "note": "お前の地元に乗り込んでいくぞ、という場面です。your hood は相手の縄張りで、そこに踏み込むこと自体が挑発になっています。",
+      "album": {
+        "title": "Supreme Clientele",
+        "artist": "Ghostface Killah",
+        "cover": "/images/covers/albums/ghostface-killah-supreme-clientele.jpg"
+      }
     },
     {
       "artist": "GZA",
       "song": "0% Finance",
       "quote": "Two hundred horse-power under the hood",
-      "note": "こちらは車のボンネットの下、つまりエンジンの馬力の話です。under the hood は車の話でよく使う言い方です。"
+      "note": "こちらは車のボンネットの下、つまりエンジンの馬力の話です。under the hood は車の話でよく使う言い方です。",
+      "album": {
+        "title": "Pro Tools",
+        "artist": "GZA",
+        "cover": "/images/covers/albums/gza-pro-tools.jpg"
+      }
     },
     {
       "artist": "Kool Keith",
       "song": "Intro 1",
       "quote": "with a hood on",
-      "note": "フードをかぶってティンバーランドのブーツを履いた、強面を気取る相手の格好を描いています。服のフードの hood です。"
+      "note": "フードをかぶってティンバーランドのブーツを履いた、強面を気取る相手の格好を描いています。服のフードの hood です。",
+      "album": {
+        "title": "Black Elvis/Lost in Space",
+        "artist": "Kool Keith",
+        "cover": "/images/covers/albums/kool-keith-black-elvis-lost-in-space.jpg"
+      }
     }
   ],
   "compare": [

@@ -91,25 +91,45 @@
       "artist": "Rakim",
       "song": "Casualties of War",
       "quote": "I played it slick",
-      "note": "うまく立ち回って逃げおおせた、という一節です。play it slick が「抜け目なく切り抜ける」という意味で使われています。"
+      "note": "うまく立ち回って逃げおおせた、という一節です。play it slick が「抜け目なく切り抜ける」という意味で使われています。",
+      "album": {
+        "title": "Don't Sweat the Technique",
+        "artist": "Eric B. & Rakim",
+        "cover": "/images/covers/albums/eric-b-rakim-don-t-sweat-the-technique.jpg"
+      }
     },
     {
       "artist": "MF DOOM",
       "song": "Gazzillion Ear",
       "quote": "Sick slick, hidden in a book",
-      "note": "sick と slick の音を重ねた言葉遊びです。巧妙に本の中に隠された、という意味で、slick が「抜け目のない、手の込んだ」の側で読めます。"
+      "note": "sick と slick の音を重ねた言葉遊びです。巧妙に本の中に隠された、という意味で、slick が「抜け目のない、手の込んだ」の側で読めます。",
+      "album": {
+        "title": "Born Like This",
+        "artist": "MF DOOM",
+        "cover": "/images/covers/albums/mf-doom-born-like-this.jpg"
+      }
     },
     {
       "artist": "Ghostface Killah",
       "song": "Nutmeg",
       "quote": "The Great Adventures of Slick",
-      "note": "Slick Rick のデビューアルバム名を借りた一節です。先輩ラッパーの作品名を引用して、物語風のラップへの敬意を示しているように聞こえます。"
+      "note": "Slick Rick のデビューアルバム名を借りた一節です。先輩ラッパーの作品名を引用して、物語風のラップへの敬意を示しているように聞こえます。",
+      "album": {
+        "title": "Supreme Clientele",
+        "artist": "Ghostface Killah",
+        "cover": "/images/covers/albums/ghostface-killah-supreme-clientele.jpg"
+      }
     },
     {
       "artist": "Kool Keith",
       "song": "Livin' Astro",
       "quote": "Bald head like Slick Watts",
-      "note": "スキンヘッドで知られた NBA 選手スリック・ワッツのあだ名を借りたたとえです。あだ名としての Slick が、そのまま比喩の材料になっています。"
+      "note": "スキンヘッドで知られた NBA 選手スリック・ワッツのあだ名を借りたたとえです。あだ名としての Slick が、そのまま比喩の材料になっています。",
+      "album": {
+        "title": "Black Elvis/Lost in Space",
+        "artist": "Kool Keith",
+        "cover": "/images/covers/albums/kool-keith-black-elvis-lost-in-space.jpg"
+      }
     }
   ],
   "compare": [
