@@ -24,8 +24,8 @@ export const CATS = {
   viol: /\b(rape\w*|tortur\w*|skulls?|knife|knives)\b|暴力|殴|強盗|拷問|レイプ|銃撃|暴行|ナイフ/gi,
 };
 
-// コラム・スラングだけの除外。dope はほめ言葉の語ページを残すため、残りは人名とURL
-const SITE_MASK = [/\bdope\b|ドープ/gi, /Killa Beez|60 Second Assassin|crack-epidemic-hiphop/g];
+// コラム・スラングだけの除外。dope はほめ言葉の語ページを残すため、残りは人名とURL（ジャケット画像パスの ghostface-killah も人名）
+const SITE_MASK = [/\bdope\b|ドープ/gi, /Killa Beez|60 Second Assassin|crack-epidemic-hiphop|ghostface-killah/g];
 
 export function count(text, extraMask = []) {
   let t = text;
