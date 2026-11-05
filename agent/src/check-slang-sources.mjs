@@ -20,13 +20,18 @@ const fetchText = async url => {
   const f = path.join(cacheDir, Buffer.from(url).toString('base64url').slice(0, 120) + '.txt');
   if (fs.existsSync(f)) return fs.readFileSync(f, 'utf8');
   if (offline) return null;
-  try {
-    const r = await fetch(url, { headers: { 'user-agent': 'Mozilla/5.0 (fact-check)' }, signal: AbortSignal.timeout(20000) });
-    if (!r.ok) return null;
-    const t = (await r.text()).replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>/g, ' ').replace(/<[^>]+>/g, ' ');
-    fs.writeFileSync(f, t);
-    return t;
-  } catch { return null; }
+  for (let i = 0; i < 3; i++) {
+    try {
+      const r = await fetch(url, { headers: { 'user-agent': 'Mozilla/5.0 (fact-check)' }, signal: AbortSignal.timeout(30000) });
+      if (r.ok) {
+        const t = (await r.text()).replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>/g, ' ').replace(/<[^>]+>/g, ' ');
+        fs.writeFileSync(f, t);
+        return t;
+      }
+    } catch {}
+    await new Promise(r => setTimeout(r, 2000));
+  }
+  return null;
 };
 
 let fail = 0, noSrc = 0;

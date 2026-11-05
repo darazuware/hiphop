@@ -24,6 +24,15 @@
 - 承認後の本番反映（`review`→`main`のマージ・build確認・push）は決定的スクリプト [`agent/src/publish-main.mjs`](agent/src/publish-main.mjs)（`node agent/src/publish-main.mjs`。ユーザーが承認した時に対話セッションから実行）でのみ行う。対話セッションが自然文の指示で代わりにmainへマージ・pushしない。
 - **例外**: `agent/`配下のbotスクリプトや`docs/`のドキュメント、`CLAUDE.md`自体など、Astroビルド出力（`src/`・`public/`）に影響しないインフラ/ドキュメント変更は、この制限の対象外（サイトの表示内容が変わらないため）。これらはmainへ直接commit・pushしてよい。
 
+## セッション名で状態を示す（常駐・2026-10-29〜）
+- 運営者はスマホのclaudeアプリのセッション一覧で進み具合を見ている。**任務の区切り（完了報告・詰まり報告）では、必ず `mcp__ccd_session_mgmt__set_session_title`（session_id: "self"）でセッション名の頭に状態を付ける。** 名前の本体（何の任務か）は残し、頭の【】だけ付け替える。
+  - 【review待ち】review に push 済みで、本番はまだ。
+  - 【公開済】本番（main）に出た。
+  - 【完了】サイトの表示に関係しない任務（docs・agent・動画・調査等）が終わった。
+  - 【要対応】詰まった、または運営者の判断・素材が要る。何が要るかを完了報告に書く。
+- `publish-main.mjs` を実行して本番反映したセッションは、反映された記事の担当セッションを `mcp__ccd_session_mgmt__list_sessions` で探し、【review待ち】を【公開済】に付け替える（自分以外のセッションから公開されて状態がずれるのを防ぐ）。反映された記事の一覧は同スクリプトがTelegramにも送る。
+- 公開を頼まれたら、実行前に `git log origin/main..origin/review` で未反映のコミットがあるか確かめる。無ければ「公開済み」と返して終える。
+
 ## 絵文字禁止（サイト全体）
 - サイトのソースコード（.astro / .ts / .tsx / コンポーネント）に絵文字（Unicode Emoji）を使わない。DiveCardsの `icon` propなどもテキストラベル（例: "RZA", "94", "WU"）で代替する。
 - ★ や ▶ などの記号文字（Dingbats / Geometric Shapes）はUIパーツとして許容。
@@ -114,6 +123,7 @@ public/images/   # アルバムアート
 7. Claudeが.astroページを生成（SongLayout使用）
    - **【量産手順・2026-10-05〜】** learning型は `.astro` を手書きせず、`agent/{slug}/page-spec.json` に文章だけを書き `node agent/src/gen-learning-page.mjs --slug {slug}` で生成する（units.json・1〜2文/pの分割も自動）。続けて `align-yt-captions.mjs --apply`（字幕あり動画のみ）→ `gen-fallback-timestamps.mjs` → `check-article.mjs`。archiveから復活する曲は `restore-song-entry.mjs`。詳細は memory の project-adsense-cleanup 参照。unitsLead・behind末尾などの定型文は曲ごとに変える（DUPガード）。
    - **【品質管理】** 初稿を書き切る → `node agent/src/check-tone-only.mjs {slug}` で検証（❌が出たら修正して再実行）→ 最後に `npm run build` でビルド確認
+   - **【元ネタYouTubeの位置・恒久ルール/2026-10-30】** サンプル元の動画は冒頭に出さず、`#behind` のサンプル説明の直後に `<SampleYoutube id title />` で置く（SongLayout には `sampleInContent={true}`）。gen-learning-page が自動で配置し、check-article の [SMP] が検査する。既存曲は触るときに直す。
    - **【関連記事カード手書き禁止】** 記事末の関連記事リンクはSongLayoutが songs.ts から自動生成する（同アーティスト→同プロデューサー→同じ元ネタ→同時代×同地域）。`.astro` 本文に手書きの関連記事セクションを新設しない（腐ってデッドリンク化した前例あり）
    - **【文体】生成する日本語文章は [`docs/article-tone.md`](docs/article-tone.md)（チェックリスト）に従い、模範＝nas-is-like.astroの文体・改行構造を踏襲する**（見出し文言は曲固有）。敬体基調＋常体スパイス・作品への熱・軽い口語の抜け・専門語の噛み砕き。ガチガチのライター調にしない。ただし事実は [`docs/fact-check-rules.md`](docs/fact-check-rules.md) で厳密に裏取りし、英語引用（eng）量は増やさない。
    - **Amazonアフィリエイトリンクは手書き不要**。SongLayoutが冒頭の**ジャケット画像をクリック型アフィリエイトリンク**として自動表示する:
