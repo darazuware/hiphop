@@ -38,5 +38,15 @@
     "keyword": "cop 意味 スラング",
     "targetPage": "/slang/cop",
     "priority": "medium"
+  },
+  {
+    "keyword": "crib 意味",
+    "targetPage": "/slang/crib",
+    "priority": "medium"
+  },
+  {
+    "keyword": "aave スラング",
+    "targetPage": "/slang",
+    "priority": "medium"
   }
 ]

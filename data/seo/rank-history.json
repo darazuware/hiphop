@@ -152,5 +152,93 @@
     "ctr": null,
     "source": "gsc",
     "windowDays": 28
+  },
+  {
+    "date": "2026-11-09",
+    "keyword": "ヒップホップ 和訳",
+    "targetPath": "/",
+    "rank": null,
+    "impressions": 0,
+    "clicks": 0,
+    "ctr": null,
+    "source": "gsc",
+    "windowDays": 28
+  },
+  {
+    "date": "2026-11-09",
+    "keyword": "ヒップホップ スラング 意味",
+    "targetPath": "/slang",
+    "rank": null,
+    "impressions": 0,
+    "clicks": 0,
+    "ctr": null,
+    "source": "gsc",
+    "windowDays": 28
+  },
+  {
+    "date": "2026-11-09",
+    "keyword": "ヒップホップ スラング",
+    "targetPath": "/slang",
+    "rank": 10,
+    "impressions": 2,
+    "clicks": 0,
+    "ctr": 0,
+    "source": "gsc",
+    "windowDays": 28
+  },
+  {
+    "date": "2026-11-09",
+    "keyword": "ヒップホップ 英語 スラング",
+    "targetPath": "/slang",
+    "rank": 10,
+    "impressions": 1,
+    "clicks": 0,
+    "ctr": 0,
+    "source": "gsc",
+    "windowDays": 28
+  },
+  {
+    "date": "2026-11-09",
+    "keyword": "AAVE とは",
+    "targetPath": "/columns/aave-hiphop-language",
+    "rank": null,
+    "impressions": 0,
+    "clicks": 0,
+    "ctr": null,
+    "source": "gsc",
+    "windowDays": 28
+  },
+  {
+    "date": "2026-11-09",
+    "keyword": "黒人英語 スラング",
+    "targetPath": "/slang",
+    "rank": null,
+    "impressions": 0,
+    "clicks": 0,
+    "ctr": null,
+    "source": "gsc",
+    "windowDays": 28
+  },
+  {
+    "date": "2026-11-09",
+    "keyword": "ラップ 歌詞 和訳",
+    "targetPath": "/",
+    "rank": null,
+    "impressions": 0,
+    "clicks": 0,
+    "ctr": null,
+    "source": "gsc",
+    "windowDays": 28
+  },
+  {
+    "date": "2026-11-09",
+    "keyword": "cop 意味 スラング",
+    "targetPath": "/slang/cop",
+    "rank": 4.5,
+    "impressions": 4,
+    "clicks": 0,
+    "ctr": 0,
+    "source": "gsc",
+    "windowDays": 28
   }
 ]
